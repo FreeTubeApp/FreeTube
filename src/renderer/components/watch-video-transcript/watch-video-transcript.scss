@@ -39,7 +39,7 @@
       cursor: pointer;
 
       .timeContainer {
-        margin-inline: 6px 12px;
+        margin-inline: 6px 4px;
 
         .time {
           font-size: smaller;
@@ -53,6 +53,7 @@
       .text {
         font-size: small;
         overflow-wrap: break-word;
+        padding-inline-start: 8px;
         inline-size: 100%;
       }
     }

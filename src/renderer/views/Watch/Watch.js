@@ -103,6 +103,7 @@ export default defineComponent({
       videoLengthSeconds: 0,
       videoChapters: [],
       videoCurrentChapterIndex: 0,
+      videoTimestamp: -1,
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -918,6 +919,11 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    handleTimeUpdate: function () {
+      if (!this.hideChapters && this.videoChapters.length > 0) this.updateCurrentChapter()
+      if (this.transcriptShown && this.captionHybridList.length > 0) this.videoTimestamp = this.getWatchedProgress()
     },
 
     /**

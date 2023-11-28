@@ -29,8 +29,9 @@
         v-for="(cue, index) in activeCaption.cues"
         :key="index"
         class="cue"
-        @click="jumpTimestamp(cue.startTime)"
-        @keydown.enter="jumpTimestamp(cue.startTime)"
+        :class="{ active: timestamp >= cue.startTime && timestamp < cue.endTime }"
+        @click="$emit('timestamp-event', cue.startTime)"
+        @keydown.enter="$emit('timestamp-event', cue.startTime)"
       >
         <div
           v-if="timestampShown"

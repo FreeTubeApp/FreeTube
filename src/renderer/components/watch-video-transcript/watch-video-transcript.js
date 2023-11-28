@@ -13,13 +13,13 @@ export default defineComponent({
   },
 
   props: {
+    videoTimestamp: {
+      type: Number,
+      default: -1
+    },
     captionHybridList: {
       type: Array,
       default: () => []
-    },
-    hideTranscript: {
-      type: Function,
-      default: () => { }
     }
   },
 
@@ -29,6 +29,7 @@ export default defineComponent({
       activeCaption: undefined,
       captions: [],
       captionLanguages: [],
+      timestamp: -1,
       timestampShown: true,
     }
   },
@@ -47,11 +48,18 @@ export default defineComponent({
     }
   },
 
+  watch: {
+    videoTimestamp: function (value) {
+      if (this.timestamp !== value) this.timestamp = value
+    }
+  },
+
   mounted: async function () {
     this.captions = await transformCaptions(this.captionHybridList, this.currentLocale)
     this.activeCaption = await parseCaptionString(this.captions[0])
     this.activeLanguage = this.activeCaption.label
     this.captionLanguages = this.captions.map(caption => caption.label)
+    this.timestamp = this.videoTimestamp
   },
 
   methods: {
@@ -67,9 +75,5 @@ export default defineComponent({
       this.activeCaption = this.captions.find(caption => caption.label === language)
       this.activeCaption = await parseCaptionString(this.activeCaption)
     },
-
-    jumpTimestamp: function (timestampSeconds) {
-      this.$emit('timestamp-event', timestampSeconds)
-    }
   }
 })

@@ -40,6 +40,7 @@
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @timeupdate="handleTimeUpdate"
           v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
@@ -171,6 +172,7 @@
       <watch-video-transcript
         v-if="!isLoading && transcriptShown"
         :caption-hybrid-list="captionHybridList"
+        :video-timestamp="videoTimestamp"
         class="watchVideoSideBar"
         @hide-transcript="transcriptShown = false"
         @timestamp-event="changeTimestamp"
