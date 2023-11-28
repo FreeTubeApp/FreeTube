@@ -28,6 +28,8 @@ export default defineComponent({
       activeLanguage: '',
       activeCaption: undefined,
       activeCueIndex: -1,
+      autoScrollDisabled: false,
+      autoScrollTimeout: undefined,
       captions: [],
       captionLanguages: [],
       timestamp: -1,
@@ -74,6 +76,8 @@ export default defineComponent({
 
   methods: {
     autoScrollCue: function () {
+      if (this.autoScrollDisabled) return
+
       const body = this.$refs.cueBody
       const activeCue = this.$refs.cueBody.children[this.activeCueIndex]
       if (!body || !activeCue) return
@@ -84,7 +88,24 @@ export default defineComponent({
       if (this.activeCueIndex > 0) offsetTop -= this.$refs.cueBody.children[this.activeCueIndex - 1].offsetHeight
       if (this.activeCueIndex > 1) offsetTop -= this.$refs.cueBody.children[this.activeCueIndex - 2].offsetHeight
 
+      // Raise flag to indicate scroll was automated
+      body.setAttribute('data-autoscroll', '')
       body.scrollTo({ top: offsetTop })
+    },
+
+    disableAutoScroll: function (event) {
+      // If scroll was automated, do not disable autoscroll
+      if (event.target.hasAttribute('data-autoscroll')) {
+        event.target.removeAttribute('data-autoscroll')
+        return
+      }
+
+      clearTimeout(this.autoScrollTimeout)
+      this.autoScrollDisabled = true
+
+      this.autoScrollTimeout = setTimeout(() => {
+        this.autoScrollDisabled = false
+      }, 3000)
     },
 
     handleMenuClick: function (menuAction) {

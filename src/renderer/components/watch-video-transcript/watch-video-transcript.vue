@@ -25,6 +25,7 @@
       v-if="activeCaption"
       ref="cueBody"
       class="body"
+      @scroll="disableAutoScroll"
     >
       <div
         v-for="(cue, index) in activeCaption.cues"
