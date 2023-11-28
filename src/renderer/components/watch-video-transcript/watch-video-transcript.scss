@@ -29,7 +29,7 @@
     text-size-adjust: 100%;
 
     .cue {
-      &:hover{
+      &:hover, &.active {
         background-color: color-mix(in srgb, var(--card-bg-color) 90%, white);
       }
 

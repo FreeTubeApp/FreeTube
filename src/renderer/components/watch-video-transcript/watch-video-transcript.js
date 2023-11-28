@@ -66,6 +66,10 @@ export default defineComponent({
     handleLanguageChange: async function (language) {
       this.activeCaption = this.captions.find(caption => caption.label === language)
       this.activeCaption = await parseCaptionString(this.activeCaption)
+    },
+
+    jumpTimestamp: function (timestampSeconds) {
+      this.$emit('timestamp-event', timestampSeconds)
     }
   }
 })

@@ -173,6 +173,7 @@
         :caption-hybrid-list="captionHybridList"
         class="watchVideoSideBar"
         @hide-transcript="transcriptShown = false"
+        @timestamp-event="changeTimestamp"
       />
       <watch-video-playlist
         v-if="watchingPlaylist"
