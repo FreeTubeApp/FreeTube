@@ -262,6 +262,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
   --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
+.mainDarkGray {
+  --text-with-main-color: #FFFFFF;
+}
 
 .mainRed {
   --primary-color: #f44336;
@@ -369,7 +372,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #696969;
   --primary-color-hover: #555555;
   --primary-color-active: #4E4E4E;
-  --text-with-main-color: #FFFFFF;
 }
 
 .mainDraculaCyan,
@@ -554,6 +556,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secOrange,
 .secDeepOrange {
   --text-with-accent-color: #000000;
+}
+.secDarkGray {
+  --text-with-accent-color: #FFFFFF;
 }
 
 .secRed {
@@ -766,7 +771,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-active: #4E4E4E;
   --accent-color-light: #A5A5A5;
   --accent-color-visited: #444444;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(105,105,105,0.04);
   --accent-color-opacity2: rgba(105,105,105,0.12);
   --accent-color-opacity3: rgba(105,105,105,0.16);
