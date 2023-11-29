@@ -21,8 +21,11 @@
       />
     </div>
 
+    <div v-if="activeCaption && activeCaption.transcriptError">
+      {{ $t('Transcript.Error retrieving transcript') }}
+    </div>
     <div
-      v-if="activeCaption"
+      v-else-if="activeCaption"
       ref="cueBody"
       class="body"
       @scroll="disableAutoScroll"

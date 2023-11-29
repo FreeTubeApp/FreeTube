@@ -67,7 +67,8 @@ function sortCaptions(captionList, currentLocale) {
  * @param {{ label: string, language_code: string, type: string, url: string }}
  *
  * @returns {Promise<{ label: string, language_code: string, type: string, url: string,
- * vttString: string
+ * vttString: string,
+ * transcriptError: boolean,
  * cues: {
  *  startTime: number,
  *  endTime: number,
@@ -82,6 +83,12 @@ export async function parseCaptionString(caption) {
 
   // Download vtt file if necessary
   let vttString = (isUrl(caption.url)) ? await (await fetch(caption.url)).text() : caption.url
+
+  // Rate limit in invidious
+  if (vttString.includes('<h1>We\'re sorry...</h1><p>...')) {
+    caption.transcriptError = true
+    return caption
+  }
 
   // Must start with WEBVTT, sometimes file comes with header junk at the start
   vttString = vttString.substring(vttString.indexOf('WEBVTT'))
