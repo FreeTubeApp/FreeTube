@@ -226,6 +226,7 @@ export default defineComponent({
 
       this.firstLoad = true
       this.videoPlayerReady = false
+      this.hideTranscript = true
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
       this.captionHybridList = []
