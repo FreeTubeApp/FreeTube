@@ -118,7 +118,7 @@ export async function parseCaptionString(caption) {
  * @param {String} text
  */
 function cleanStyledText(text) {
-  return text.replaceAll(/<.+?>/g, '')
+  return text.replaceAll(/<.+?>|<script/g, '')
 }
 
 /**
