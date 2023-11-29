@@ -41,7 +41,6 @@
           @store-caption-list="captionHybridList = $event"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           @timeupdate="handleTimeUpdate"
-          v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
           v-if="!isLoading && isUpcoming"
