@@ -53,10 +53,6 @@ export default defineComponent({
           value: 'toggle-timestamp'
         },
         {
-          label: this.$t('Transcript.Download Transcript (txt)'),
-          value: 'dl-transcript-txt'
-        },
-        {
           label: this.$t('Transcript.Download Transcript (vtt)'),
           value: 'dl-transcript-vtt'
         }
@@ -132,9 +128,6 @@ export default defineComponent({
         case 'toggle-timestamp':
           this.timestampShown = !this.timestampShown
           break
-        case 'dl-transcript-txt':
-          this.downloadTranscript('txt')
-          break
         case 'dl-transcript-vtt':
           this.downloadTranscript('vtt')
           break
@@ -142,17 +135,13 @@ export default defineComponent({
     },
 
     /**
-     * @param {('txt'|'vtt')} type
+     * @param {('vtt')} format
      */
-    downloadTranscript: async function (type) {
-      const fileName = `${this.videoId}_${this.activeCaption.language_code}.${type}`
+    downloadTranscript: async function (format) {
+      const fileName = `${this.videoId}_${this.activeCaption.language_code}.${format}`
 
       let fileContent
-      if (type === 'txt') {
-        fileContent = this.activeCaption.cues.reduce((acc, cur) => {
-          return `${acc}\n\n${cur.startTimeFormatted}\n${cur.text}`
-        }, '')
-      } else if (type === 'vtt') {
+      if (format === 'vtt') {
         fileContent = this.activeCaption.vttString
       }
       fileContent = fileContent.trim()
@@ -162,7 +151,7 @@ export default defineComponent({
         filters: [
           {
             name: this.$t('Transcript.Transcript File'),
-            extensions: [type]
+            extensions: [format]
           }
         ]
       }
