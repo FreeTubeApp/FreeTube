@@ -43,9 +43,10 @@
             {{ cue.startTimeFormatted }}
           </div>
         </div>
-        <div class="text">
-          {{ cue.text }}
-        </div>
+        <div
+          class="text"
+          v-html="cue.text"
+        />
       </div>
     </div>
     <div class="footer">
