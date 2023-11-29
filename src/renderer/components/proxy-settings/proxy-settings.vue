@@ -18,8 +18,8 @@
           :value="proxyProtocol"
           :select-names="protocolNames"
           :select-values="protocolValues"
-          @change="handleUpdateProxyProtocol"
           class="protocol-dropdown"
+          @change="handleUpdateProxyProtocol"
         />
       </ft-flex-box>
       <ft-flex-box>
