@@ -8557,6 +8557,11 @@ videojs-vtt.js@^0.15.5:
   dependencies:
     global "^4.3.1"
 
+vtt.js@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/vtt.js/-/vtt.js-0.13.0.tgz#955c667b34d5325b2012cb9e8ba9bad6e0b11ff8"
+  integrity sha512-t0OJvTmsryCOIHdLWmUPx6V3e0MRGaZMp0Cr5DETWrWNfg9RCHcQlF7X7zNF4mQxhtkyiVKOefdSErSB/KWgOA==
+
 vue-devtools@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/vue-devtools/-/vue-devtools-5.1.4.tgz#265a7458ade2affb291739176964256b597fa302"

@@ -1,5 +1,5 @@
 import { isUrl } from './strings'
-import { WebVTT } from 'videojs-vtt.js'
+import { WebVTT } from 'vtt.js'
 
 /**
  * @param {Promise[] | object[]} captionHybridList
@@ -92,6 +92,7 @@ export async function parseCaptionString(caption) {
 
   // Must start with WEBVTT, sometimes file comes with header junk at the start
   vttString = vttString.substring(vttString.indexOf('WEBVTT'))
+  while (vttString.startsWith('WEBVTT\n\n')) vttString = vttString.replace('WEBVTT\n', 'WEBVTT')
 
   const parser = new WebVTT.Parser(window, WebVTT.StringDecoder())
   parser.oncue = function ({ startTime, endTime, text }) {
