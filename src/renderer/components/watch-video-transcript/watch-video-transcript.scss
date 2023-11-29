@@ -29,6 +29,13 @@
     text-size-adjust: 100%;
     padding-inline-end: 6px;
 
+    .chapterTitle {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-block: 8px 8px;
+      padding-inline: 12px 0;
+    }
+
     .cue {
       &:hover, &.active {
         background-color: var(--secondary-card-bg-color);

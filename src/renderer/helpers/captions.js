@@ -70,6 +70,7 @@ function sortCaptions(captionList, currentLocale) {
  * vttString: string,
  * transcriptError: boolean,
  * cues: {
+ *  type: string,
  *  startTime: number,
  *  endTime: number,
  *  text: string,
@@ -105,7 +106,7 @@ export async function parseCaptionString(caption) {
     }
 
     const startTimeFormatted = formatCueTime(startTime)
-    caption.cues.push({ startTime, endTime, text, startTimeFormatted })
+    caption.cues.push({ type: 'cue', startTime, endTime, text, startTimeFormatted })
   }
   parser.parse(vttString)
 

@@ -33,23 +33,33 @@
       <div
         v-for="(cue, index) in activeCaption.cues"
         :key="index"
-        class="cue"
-        :class="{ active: index === activeCueIndex }"
-        @click="$emit('timestamp-event', cue.startTime)"
-        @keydown.enter="$emit('timestamp-event', cue.startTime)"
       >
         <div
-          v-if="timestampShown"
-          class="timeContainer"
+          v-if="cue.type === 'chapter'"
+          class="chapterTitle"
         >
-          <div class="time">
-            {{ cue.startTimeFormatted }}
-          </div>
+          {{ cue.title }}
         </div>
         <div
-          class="text"
-          v-html="cue.text"
-        />
+          v-else-if="cue.type === 'cue'"
+          class="cue"
+          :class="{ active: index === activeCueIndex }"
+          @click="$emit('timestamp-event', cue.startTime)"
+          @keydown.enter="$emit('timestamp-event', cue.startTime)"
+        >
+          <div
+            v-if="timestampShown"
+            class="timeContainer"
+          >
+            <div class="time">
+              {{ cue.startTimeFormatted }}
+            </div>
+          </div>
+          <div
+            class="text"
+            v-html="cue.text"
+          />
+        </div>
       </div>
     </div>
     <div class="footer">

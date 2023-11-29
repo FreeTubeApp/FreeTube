@@ -18,6 +18,10 @@ export default defineComponent({
       type: Array,
       default: () => []
     },
+    chapters: {
+      type: Array,
+      default: () => []
+    },
     videoId: {
       type: String,
       required: true
@@ -78,6 +82,7 @@ export default defineComponent({
   mounted: async function () {
     this.captions = await transformCaptions(this.captionHybridList, this.currentLocale)
     this.activeCaption = await parseCaptionString(this.captions[0])
+    this.insertChapterToCues()
     this.activeLanguage = this.activeCaption.label
     this.captionLanguages = this.captions.map(caption => caption.label)
     this.timestamp = this.videoTimestamp
@@ -175,6 +180,27 @@ export default defineComponent({
       this.activeCaption = this.captions.find(caption => caption.label === language)
       this.activeCaption = await parseCaptionString(this.activeCaption)
       this.activeLanguage = this.activeCaption.label
+      this.insertChapterToCues()
     },
+
+    insertChapterToCues: function () {
+      let chapterIndex = this.chapters.length - 1
+      for (let i = this.activeCaption.cues.length - 1; i >= 0; i--) {
+        if (this.activeCaption.cues[i].startTime < this.chapters[chapterIndex].startSeconds) {
+          this.activeCaption.cues.splice(i, 0, {
+            type: 'chapter',
+            title: this.chapters[chapterIndex].title
+          })
+          chapterIndex--
+        }
+      }
+
+      if (chapterIndex === 0) {
+        this.activeCaption.cues.splice(0, 0, {
+          type: 'chapter',
+          title: this.chapters[chapterIndex].title
+        })
+      }
+    }
   },
 })
