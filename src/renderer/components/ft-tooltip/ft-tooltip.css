@@ -32,9 +32,9 @@
 }
 
 .text {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: color-mix(in srgb, var(--primary-text-color) 80%, transparent);
   border-radius: 20px;
-  color: #fff;
+  color: var(--card-bg-color);
   font-size: 1rem;
   line-height: 120%;
   margin: 0;

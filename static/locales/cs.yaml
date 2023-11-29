@@ -327,6 +327,8 @@ Settings:
     Fetch Feeds from RSS: 'Načíst kanály z RSS'
     Manage Subscriptions: 'Spravovat odebírané kanály'
     Fetch Automatically: Automaticky načítat odběry
+    Only Show Latest Video for Each Channel: U každého kanálu zobrazit pouze nejnovější
+      video
   Distraction Free Settings:
     Distraction Free Settings: 'Nastavení rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
@@ -512,6 +514,7 @@ Settings:
     Set Password To Prevent Access: Nastavte heslo, abyste zabránili přístupu k nastavení
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
+  Expand All Settings Sections: Rozbalit všechny sekce nastavení
 About:
   #On About page
   About: 'O aplikaci'
@@ -612,6 +615,11 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Nastavení profilu
   Toggle Profile List: Přepnout seznam profilů
+  Open Profile Dropdown: Otevřít rozbalovací nabídku profilu
+  Close Profile Dropdown: Zavřít rozbalovací nabídku profilu
+  Profile Name: Jméno profilu
+  Edit Profile Name: Upravit jméno profilu
+  Create Profile Name: Vytvořit jméno profilu
 Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'

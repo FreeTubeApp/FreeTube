@@ -220,6 +220,7 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
+  Expand All Settings Sections: Expand All Settings Sections
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
@@ -411,6 +412,7 @@ Settings:
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
+    Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Sections:
@@ -599,6 +601,9 @@ Profile:
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
   Edit Profile: Edit Profile
+  Edit Profile Name: Edit Profile Name
+  Create Profile Name: Create Profile Name
+  Profile Name: Profile Name
   Color Picker: Color Picker
   Custom Color: Custom Color
   Profile Preview: Profile Preview

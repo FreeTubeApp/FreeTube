@@ -72,10 +72,6 @@
   margin-block-end: auto;
 }
 
-:deep(.thumbnailImage) {
-  max-inline-size: 25vw;
-}
-
 @media only screen and (max-width: 850px) {
   .routerView {
     flex-direction: column;
@@ -93,10 +89,6 @@
   .playlistItems {
     box-sizing: border-box;
     inline-size: 100%;
-  }
-
-  :deep(.thumbnailImage) {
-    max-inline-size: 35vw;
   }
 }
 

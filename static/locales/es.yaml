@@ -324,6 +324,8 @@ Settings:
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
     Fetch Automatically: Obtener los feed automáticamente
+    Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
+      canal
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -518,6 +520,7 @@ Settings:
     Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
+  Expand All Settings Sections: Expandir todas las secciones de los ajustes
 About:
   #On About page
   About: 'Acerca de'
@@ -622,6 +625,9 @@ Profile:
   Toggle Profile List: Alternar la lista de los perfiles
   Open Profile Dropdown: Abrir el desplegable del Perfil
   Close Profile Dropdown: Cerrar el desplegable del Perfil
+  Profile Name: Nombre del perfil
+  Edit Profile Name: Editar el nombre del perfil
+  Create Profile Name: Crear un nombre para el perfil
 Channel:
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'

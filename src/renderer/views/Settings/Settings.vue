@@ -1,6 +1,17 @@
 <template>
   <div>
     <template v-if="unlocked">
+      <div class="switchColumnGrid">
+        <div class="switchColumn">
+          <ft-toggle-switch
+            class="settingsToggle"
+            :label="$t('Settings.Expand All Settings Sections')"
+            :default-value="allSettingsSectionsExpandedByDefault"
+            :compact="false"
+            @change="updateAllSettingsSectionsExpandedByDefault"
+          />
+        </div>
+      </div>
       <general-settings />
       <hr>
       <theme-settings />

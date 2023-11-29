@@ -2,24 +2,21 @@
   <ft-settings-section
     :title="$t('Settings.Data Settings.Data Settings')"
   >
-    <ft-flex-box>
+    <h4 class="groupTitle">
+      {{ $t('Subscriptions.Subscriptions') }}
+    </h4>
+    <ft-flex-box class="dataSettingsBox">
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
       />
       <ft-button
+        :label="$t('Settings.Data Settings.Manage Subscriptions')"
+        @click="openProfileSettings"
+      />
+      <ft-button
         :label="$t('Settings.Data Settings.Export Subscriptions')"
         @click="showExportSubscriptionsPrompt = true"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-button
-        :label="$t('Settings.Data Settings.Import History')"
-        @click="importHistory"
-      />
-      <ft-button
-        :label="$t('Settings.Data Settings.Export History')"
-        @click="exportHistory"
       />
     </ft-flex-box>
     <ft-flex-box>
@@ -29,13 +26,23 @@
         </a>
       </p>
     </ft-flex-box>
-    <ft-flex-box>
+    <h4 class="groupTitle">
+      {{ $t('History.History') }}
+    </h4>
+    <ft-flex-box class="dataSettingsBox">
       <ft-button
-        :label="$t('Settings.Data Settings.Manage Subscriptions')"
-        @click="openProfileSettings"
+        :label="$t('Settings.Data Settings.Import History')"
+        @click="importHistory"
+      />
+      <ft-button
+        :label="$t('Settings.Data Settings.Export History')"
+        @click="exportHistory"
       />
     </ft-flex-box>
-    <ft-flex-box>
+    <h4 class="groupTitle">
+      {{ $t('Playlists') }}
+    </h4>
+    <ft-flex-box class="dataSettingsBox">
       <ft-button
         :label="$t('Settings.Data Settings.Import Playlists')"
         @click="importPlaylists"
