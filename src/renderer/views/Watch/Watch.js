@@ -128,6 +128,8 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+
+      onMountedRun: false,
     }
   },
   computed: {
@@ -216,11 +218,15 @@ export default defineComponent({
       return this.$store.getters.getAllowDashAv1Formats
     },
 
+    inUserPlaylist: function () {
+      return this.playlistType === 'user'
+    },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady
     },
     selectedUserPlaylist: function () {
       if (this.playlistId == null || this.playlistId === '') { return null }
+      if (!this.inUserPlaylist) { return null }
 
       return this.$store.getters.getPlaylist(this.playlistId)
     },
@@ -269,8 +275,12 @@ export default defineComponent({
   },
   methods: {
     onMountedDependOnLocalStateLoading() {
+      // Prevent running twice
+      if (this.onMountedRun) { return }
       // Stuff that require user playlists to be ready
-      if (!this.userPlaylistsReady) { return }
+      if (this.inUserPlaylist && !this.userPlaylistsReady) { return }
+
+      this.onMountedRun = true
 
       this.checkIfPlaylist()
       this.checkIfTimestamp()
