@@ -8,14 +8,11 @@
       :input-html="shownDescription"
       @timestamp-event="onTimestamp"
     />
-    <div
-      v-if="hasTranscripts"
-      class="transcripts"
-    >
-      <h3 class="title">
+    <div v-if="hasTranscripts">
+      <h3 class="transcriptHeader">
         {{ $t('Description.Transcript') }}
       </h3>
-      <p class="subtext">
+      <p class="transcriptSubtext">
         {{ $t('Description.Follow along using the transcript') }}
       </p>
       <ft-button

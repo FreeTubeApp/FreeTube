@@ -2,7 +2,9 @@
   <ft-card class="transcriptContainer">
     <div class="header">
       <div class="titleContainer">
-        <h2>{{ $t('Transcript.Transcript') }}</h2>
+        <h2 class="title">
+          {{ $t('Transcript.Transcript') }}
+        </h2>
       </div>
       <ft-icon-button
         class="menuButton"
@@ -49,14 +51,14 @@
         >
           <div
             v-if="timestampShown"
-            class="timeContainer"
+            class="cueTimeContainer"
           >
-            <div class="time">
+            <div class="cueTime">
               {{ cue.startTimeFormatted }}
             </div>
           </div>
           <div
-            class="text"
+            class="cueText"
             v-html="cue.text"
           />
         </div>

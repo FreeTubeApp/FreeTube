@@ -2,81 +2,81 @@
 
 .transcriptContainer {
   margin-block-start: 0px;
+}
 
-  .header {
+.header {
     display: flex;
     align-items: center;
     padding-block: 4px 0;
     padding-inline: 8px 2px;
+}
 
-    .titleContainer {
-      flex: 1;
+.titleContainer {
+  flex: 1;
+}
 
-      h2 {
-        margin-block-end: 0.5em;
-      }
-    }
+.title {
+  margin-block-end: 0.5em;
+}
 
-    .menuButton {
-      margin-inline-end: 8px;
-    }
-  }
+.menuButton {
+  margin-inline-end: 8px;
+}
 
-  .body {
-    max-block-size: 360px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-size-adjust: 100%;
-    padding-inline-end: 6px;
+.body {
+  max-block-size: 360px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-size-adjust: 100%;
+  padding-inline-end: 6px;
+}
 
-    .chapterTitle {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-block: 8px 8px;
-      padding-inline: 12px 0;
-    }
+.chapterTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-block: 8px 8px;
+  padding-inline: 12px 0;
+}
 
-    .cue {
-      &:hover, &.active {
-        background-color: var(--secondary-card-bg-color);
-        font-weight: bold;
-      }
+.cue {
+  display: flex;
+  padding-block: 6px 12px;
+  padding-inline: 4px 8px;
+  cursor: pointer;
+}
 
-      display: flex;
-      padding-block: 6px 12px;
-      padding-inline: 4px 8px;
-      cursor: pointer;
+.cue:hover, .cue.active {
+  background-color: var(--secondary-card-bg-color);
+  font-weight: bold;
+}
 
-      .timeContainer {
-        margin-inline: 6px 4px;
+.cueTimeContainer {
+  margin-inline: 6px 4px;
+}
 
-        .time {
-          font-size: smaller;
-          font-weight: 500;
-          padding-inline: 4px 4px;
-          background-color: var(--link-color);
-          border-radius: 4px;
-        }
-      }
+.cueTime {
+  font-size: smaller;
+  font-weight: 500;
+  padding-inline: 4px 4px;
+  background-color: var(--link-color);
+  border-radius: 4px;
+}
 
-      .text {
-        font-size: small;
-        overflow-wrap: break-word;
-        padding-inline-start: 8px;
-        inline-size: 100%;
-      }
-    }
-  }
+.cueText {
+  font-size: small;
+  overflow-wrap: break-word;
+  padding-inline-start: 8px;
+  inline-size: 100%;
+}
 
-  .footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-block-start: 20px;
-    block-size: 48px;
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-block-start: 20px;
+  block-size: 48px;
+}
 
-    .languageSelect {
-      inline-size: fit-content;
-    }
-  }
+.languageSelect {
+  inline-size: fit-content;
 }

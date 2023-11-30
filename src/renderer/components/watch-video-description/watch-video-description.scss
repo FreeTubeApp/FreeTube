@@ -10,18 +10,14 @@
   overflow-wrap: anywhere;
 }
 
-.transcripts {
+.transcriptHeader {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  max-block-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
 
-  .title {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    max-block-size: 2rem;
-    font-weight: 500;
-    color: var(--primary-text-color);
-  }
-
-  .subtext {
-    color: var(--secondary-text-color);
-  }
-
+.transcriptSubtext {
+  color: var(--secondary-text-color);
 }
