@@ -401,7 +401,7 @@ export default defineComponent({
           // so we need to check the channel feed too before deciding it errored, as that only 404s if the channel was terminated
 
           const response2 = await fetch(`${this.currentInvidiousInstance}/feed/channel/${channel.id}`, {
-            method: 'HEAD'
+            method: 'GET'
           })
 
           if (response2.status === 404) {
