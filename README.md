@@ -103,7 +103,6 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
-
 ## Contributing
 If you like to get your hands dirty and want to contribute, we would love to
 have your help.  Send a pull request and someone will review your code. Please
