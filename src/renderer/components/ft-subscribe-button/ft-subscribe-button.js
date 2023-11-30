@@ -25,15 +25,50 @@ export default defineComponent({
       type: String,
       required: true
     },
+    hideProfileDropdownToggle: {
+      type: Boolean,
+      default: false
+    },
+    openDropdownOnSubscribe: {
+      type: Boolean,
+      default: true
+    },
     subscriptionCountText: {
       default: '',
       type: String,
       required: false
     }
   },
+  data: function () {
+    return {
+      isProfileDropdownOpen: false
+    }
+  },
   computed: {
+    profileInitials: function () {
+      return this.profileDisplayList.map((profile) => {
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
+      })
+    },
+
     profileList: function () {
       return this.$store.getters.getProfileList
+    },
+
+    /* sort by 'All Channels' -> active profile -> unsubscribed channels -> subscribed channels */
+    profileDisplayList: function () {
+      const mainProfileAndActiveProfile = [this.profileList[0]]
+      if (this.activeProfile._id !== MAIN_PROFILE_ID) {
+        mainProfileAndActiveProfile.push(this.activeProfile)
+      }
+
+      return [
+        ...mainProfileAndActiveProfile,
+        ...this.profileList.filter((profile, i) =>
+          i !== 0 && !this.isActiveProfile(profile) && !this.isProfileSubscribed(profile)),
+        ...this.profileList.filter((profile, i) =>
+          i !== 0 && !this.isActiveProfile(profile) && this.isProfileSubscribed(profile))
+      ]
     },
 
     activeProfile: function () {
@@ -41,13 +76,7 @@ export default defineComponent({
     },
 
     subscriptionInfo: function () {
-      return this.activeProfile.subscriptions.find((channel) => {
-        return channel.id === this.channelId
-      }) ?? null
-    },
-
-    isSubscribed: function () {
-      return this.subscriptionInfo !== null
+      return this.subscriptionInfoForProfile(this.activeProfile)
     },
 
     hideChannelSubscriptions: function () {
@@ -55,23 +84,27 @@ export default defineComponent({
     },
 
     subscribedText: function () {
-      let subscribedValue = (this.isSubscribed ? this.$t('Channel.Unsubscribe') : this.$t('Channel.Subscribe')).toUpperCase()
+      let subscribedValue = (this.isProfileSubscribed(this.activeProfile) ? this.$t('Channel.Unsubscribe') : this.$t('Channel.Subscribe')).toUpperCase()
       if (this.subscriptionCountText !== '' && !this.hideChannelSubscriptions) {
         subscribedValue += ' ' + this.subscriptionCountText
       }
       return subscribedValue
+    },
+
+    isProfileDropdownEnabled: function () {
+      return !this.hideProfileDropdownToggle && this.profileList.length > 1
     }
 
   },
   methods: {
-    handleSubscription: function () {
+    handleSubscription: function (profile = this.activeProfile) {
       if (this.channelId === '') {
         return
       }
 
-      const currentProfile = deepCopy(this.activeProfile)
+      const currentProfile = deepCopy(profile)
 
-      if (this.isSubscribed) {
+      if (this.isProfileSubscribed(profile)) {
         currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
           return channel.id !== this.channelId
         })
@@ -79,16 +112,16 @@ export default defineComponent({
         this.updateProfile(currentProfile)
         showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
 
-        if (this.activeProfile._id === MAIN_PROFILE_ID) {
+        if (profile._id === MAIN_PROFILE_ID) {
           // Check if a subscription exists in a different profile.
           // Remove from there as well.
           let duplicateSubscriptions = 0
 
-          this.profileList.forEach((profile) => {
-            if (profile._id === MAIN_PROFILE_ID) {
+          this.profileList.forEach((profileInList) => {
+            if (profileInList._id === MAIN_PROFILE_ID) {
               return
             }
-            duplicateSubscriptions += this.unsubscribe(profile, this.channelId)
+            duplicateSubscriptions += this.unsubscribe(profileInList, this.channelId)
           })
 
           if (duplicateSubscriptions > 0) {
@@ -107,7 +140,7 @@ export default defineComponent({
         this.updateProfile(currentProfile)
         showToast(this.$t('Channel.Added channel to your subscriptions'))
 
-        if (this.activeProfile._id !== MAIN_PROFILE_ID) {
+        if (profile._id !== MAIN_PROFILE_ID) {
           const primaryProfile = deepCopy(this.profileList.find(prof => {
             return prof._id === MAIN_PROFILE_ID
           }))
@@ -122,6 +155,34 @@ export default defineComponent({
           }
         }
       }
+
+      if (this.isProfileDropdownEnabled && this.openDropdownOnSubscribe && !this.isProfileDropdownOpen) {
+        this.toggleProfileDropdown()
+      }
+    },
+
+    handleProfileDropdownFocusOut: function () {
+      if (!this.$refs.subscribeButton.matches(':focus-within')) {
+        this.isProfileDropdownOpen = false
+      }
+    },
+
+    toggleProfileDropdown: function() {
+      this.isProfileDropdownOpen = !this.isProfileDropdownOpen
+    },
+
+    isActiveProfile: function (profile) {
+      return profile._id === this.activeProfile._id
+    },
+
+    subscriptionInfoForProfile: function (profile) {
+      return profile.subscriptions.find((channel) => {
+        return channel.id === this.channelId
+      }) ?? null
+    },
+
+    isProfileSubscribed: function (profile) {
+      return this.subscriptionInfoForProfile(profile) !== null
     },
 
     unsubscribe: function(profile, channelId) {

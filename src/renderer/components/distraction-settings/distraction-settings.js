@@ -5,7 +5,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import { showToast } from '../../helpers/utils'
-import { checkYoutubeId, findChannelTagInfo } from '../../helpers/channels'
+import { checkYoutubeChannelId, findChannelTagInfo } from '../../helpers/channels'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -152,7 +152,7 @@ export default defineComponent({
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
     validateChannelId: function (text) {
-      return checkYoutubeId(text)
+      return checkYoutubeChannelId(text)
     },
     findChannelTagInfo: async function (text) {
       return await findChannelTagInfo(text, this.backendOptions)
@@ -167,7 +167,7 @@ export default defineComponent({
         if (tag.invalid) continue
 
         // process if no preferred name and is possibly a YouTube ID
-        if (tag.preferredName === '' && checkYoutubeId(tag.name)) {
+        if (tag.preferredName === '' && checkYoutubeChannelId(tag.name)) {
           this.channelHiderDisabled = true
 
           const { preferredName, icon, iconHref, invalidId } = await this.findChannelTagInfo(tag.name)

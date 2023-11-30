@@ -326,6 +326,8 @@ Settings:
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Manage Subscriptions: 'Gerir subscrições'
     Fetch Automatically: Obter fontes automaticamente
+    Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
+      canal
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Selecione o tipo de importação'
@@ -452,7 +454,7 @@ Settings:
     Hide Chapters: Ocultar capítulos
     Hide Upcoming Premieres: Ocultar próximas estreias
     Hide Channels: Ocultar vídeos dos canais
-    Hide Channels Placeholder: Nome ou ID do canal
+    Hide Channels Placeholder: ID do canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem maiúsculas
       em excesso
     Hide Featured Channels: Ocultar canais em destaque
@@ -473,6 +475,13 @@ Settings:
     Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
     Blur Thumbnails: Desfocar miniaturas
     Hide Subscriptions Community: Ocultar subscrições de comunidades
+    Hide Channels Invalid: O ID do canal não é válido
+    Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados.
+      A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização das
+      ID.
+    Hide Channels Already Exists: Esta ID já existe
+    Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique
+      se a ID indicada é válida.
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
@@ -512,6 +521,7 @@ Settings:
       às definições
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
+  Expand All Settings Sections: Expandir todas as secções de definições
 About:
   #On About page
   About: 'Acerca'
@@ -615,6 +625,11 @@ Profile:
   Profile Filter: Filtro de perfil
   Profile Settings: Definições de perfil
   Toggle Profile List: Alternar lista de perfis
+  Profile Name: Nome do perfil
+  Edit Profile Name: Editar nome do perfil
+  Create Profile Name: Criar nome do perfil
+  Open Profile Dropdown: Abrir menu do perfil
+  Close Profile Dropdown: Fechar menu do perfil
 Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'
@@ -823,6 +838,8 @@ Video:
     conversa em direto não está disponível para esta emissão. Pode ter sido desativada
     pelo publicador.
   Pause on Current Video: Pausa no vídeo atual
+  Unhide Channel: Mostrar canal
+  Hide Channel: Ocultar canal
 Videos:
   #& Sort By
   Sort By:
@@ -1002,9 +1019,9 @@ Tooltips:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Implica o aumento da utilização de memória RAM.
   Distraction Free Settings:
-    Hide Channels: Introduza o nome ou ID de um canal para impedir que os vídeos,
-      listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais
-      populares e recomendados. O nome do canal introduzido tem que ser uma correspondência
+    Hide Channels: Introduza o ID de um canal para impedir que os vídeos, listas de
+      reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares
+      e recomendados. O nome do canal introduzido tem que ser uma correspondência
       exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}",
       existente na secção "{subsection}" de "{settingsSection}"
@@ -1058,3 +1075,6 @@ Playlist will pause when current video is finished: A lista de reprodução ser�
   em pausa quando o vídeo atual terminar
 Playlist will not pause when current video is finished: A lista de reprodução não
   será colocada em pausa quando o vídeo atual terminar
+Channel Hidden: '{channel} adicionado ao filtro do canal'
+Go to page: Ir para {page}
+Channel Unhidden: '{channel} removido do filtro do canal'

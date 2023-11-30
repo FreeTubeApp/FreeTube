@@ -1,8 +1,11 @@
 <template>
   <div
     class="ft-list-video ft-list-item"
-    :appearance="appearance"
-    :class="{ list: listType === 'list', grid: listType === 'grid' }"
+    :class="{
+      [appearance]: true,
+      list: listType === 'list',
+      grid: listType === 'grid'
+    }"
   >
     <div
       class="videoThumbnail"
