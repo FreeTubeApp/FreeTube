@@ -262,6 +262,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
   --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
+.mainLightGray {
+  --text-with-main-color: #000000;
+}
 .mainDarkGray {
   --text-with-main-color: #FFFFFF;
 }
@@ -555,6 +558,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secAmber,
 .secOrange,
 .secDeepOrange {
+  --text-with-accent-color: #000000;
+}
+.secLightGray {
   --text-with-accent-color: #000000;
 }
 .secDarkGray {
