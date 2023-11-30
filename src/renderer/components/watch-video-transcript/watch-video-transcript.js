@@ -184,6 +184,8 @@ export default defineComponent({
     },
 
     insertChapterToCues: function () {
+      if (this.chapters.length === 0) return
+
       let chapterIndex = this.chapters.length - 1
       for (let i = this.activeCaption.cues.length - 1; i >= 0; i--) {
         if (this.activeCaption.cues[i].startTime < this.chapters[chapterIndex].startSeconds) {
