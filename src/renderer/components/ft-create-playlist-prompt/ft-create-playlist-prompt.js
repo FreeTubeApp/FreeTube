@@ -21,7 +21,6 @@ export default defineComponent({
   data: function () {
     return {
       playlistName: '',
-      lastActiveElement: null,
     }
   },
   computed: {
@@ -33,14 +32,9 @@ export default defineComponent({
     },
   },
   mounted: function () {
-    this.lastActiveElement = document.activeElement
-
     this.playlistName = this.newPlaylistVideoObject.title
     // Faster to input required playlist name
     this.$refs.playlistNameInput.focus()
-  },
-  beforeDestroy() {
-    this.lastActiveElement?.focus()
   },
   methods: {
     createNewPlaylist: function () {

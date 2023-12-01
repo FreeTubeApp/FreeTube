@@ -44,6 +44,10 @@ export default defineComponent({
     }
   },
   computed: {
+    showingCreatePlaylistPrompt: function () {
+      return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+
     allPlaylists: function () {
       const playlists = this.$store.getters.getAllPlaylists
       return [].concat(playlists).sort((a, b) => {
@@ -161,6 +165,15 @@ export default defineComponent({
 
       // Focus back to search input
       // Allow search and easier deselecting new created playlist
+      this.$refs.searchBar.focus()
+    },
+
+    showingCreatePlaylistPrompt(val) {
+      if (val) { return }
+
+      // Only care when CreatePlaylistPrompt hidden
+      // Shift focus from button to prevent unwanted click event
+      // due to enter key press in CreatePlaylistPrompt
       this.$refs.searchBar.focus()
     },
   },
