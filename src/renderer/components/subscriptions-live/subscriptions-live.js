@@ -389,11 +389,6 @@ export default defineComponent({
       try {
         const response = await invidiousFetch(feedUrl)
 
-        // remove once IV returns 404 for non-existent playlists
-        if (response.status === 500) {
-          return []
-        }
-
         if (response.status === 404) {
           // playlists don't exist if the channel was terminated but also if it doesn't have the tab,
           // so we need to check the channel feed too before deciding it errored, as that only 404s if the channel was terminated
