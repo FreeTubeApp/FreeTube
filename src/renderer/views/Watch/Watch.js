@@ -277,14 +277,14 @@ export default defineComponent({
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
-        this.recommendedVideos = result.watch_next_feed
+        const recommendedVideos = result.watch_next_feed
           ?.filter((item) => item.type === 'CompactVideo')
           .map(parseLocalWatchNextVideo) ?? []
 
         // place watched recommended videos last
         this.recommendedVideos = [
-          ...this.recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
-          ...this.recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+          ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+          ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
         ]
 
         if (this.showFamilyFriendlyOnly && !this.isFamilyFriendly) {
@@ -705,11 +705,11 @@ export default defineComponent({
 
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
-          this.recommendedVideos = result.recommendedVideos
+          const recommendedVideos = result.recommendedVideos
           // place watched recommended videos last
           this.recommendedVideos = [
-            ...this.recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
-            ...this.recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+            ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+            ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
           ]
           this.adaptiveFormats = await this.getAdaptiveFormatsInvidious(result)
           this.isLive = result.liveNow
