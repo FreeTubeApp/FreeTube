@@ -29,7 +29,8 @@
       :icon="['fas', 'times-circle']"
       class="clearInputTextButton"
       :class="{
-        visible: inputDataPresent
+        visible: inputDataPresent,
+        verticallyCentered: clearInputTextButtonVerticallyCentered,
       }"
       tabindex="0"
       role="button"
