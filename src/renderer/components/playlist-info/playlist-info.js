@@ -141,8 +141,12 @@ export default defineComponent({
       ]
     },
 
+    firstVideoIdExists() {
+      return this.firstVideoId !== ''
+    },
+
     thumbnail: function () {
-      if (this.thumbnailPreference === 'hidden' || this.firstVideoId === '') {
+      if (this.thumbnailPreference === 'hidden' || !this.firstVideoIdExists) {
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
 

@@ -4,6 +4,8 @@
       class="playlistThumbnail"
     >
       <router-link
+        v-if="firstVideoIdExists"
+        class="firstVideoLink"
         :to="{
           path: `/watch/${firstVideoId}`,
           query: {
@@ -20,6 +22,12 @@
           :style="{filter: blurThumbnailsStyle}"
         >
       </router-link>
+      <img
+        v-else
+        :src="thumbnail"
+        alt=""
+        :style="{filter: blurThumbnailsStyle}"
+      >
     </div>
 
     <div class="playlistStats">
