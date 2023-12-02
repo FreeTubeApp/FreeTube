@@ -77,7 +77,7 @@
     "vue-router": "^3.6.5",
     "vue-tiny-slider": "^0.1.39",
     "vuex": "^3.6.2",
-    "youtubei.js": "^7.0.0"
+    "youtubei.js": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
