@@ -80,6 +80,7 @@ export default defineComponent({
       return this.$store.getters.getPlaylistsReady
     },
     selectedUserPlaylist: function () {
+      if (!this.isUserPlaylistRequested) { return null }
       if (this.playlistId == null || this.playlistId === '') { return null }
 
       return this.$store.getters.getPlaylist(this.playlistId)
@@ -101,6 +102,10 @@ export default defineComponent({
     moreVideoDataAvailable() {
       return this.continuationData !== null
     },
+
+    isUserPlaylistRequested: function () {
+      return this.$route.query.playlistType === 'user'
+    },
   },
   watch: {
     $route () {
@@ -109,6 +114,8 @@ export default defineComponent({
     },
     userPlaylistsReady () {
       // Fetch from local store when playlist data ready
+      if (!this.isUserPlaylistRequested) { return }
+
       this.getPlaylistInfoDebounce()
     },
     selectedUserPlaylist () {
@@ -137,10 +144,14 @@ export default defineComponent({
     getPlaylistInfo: function () {
       this.isLoading = true
       // `selectedUserPlaylist` result accuracy relies on data being ready
-      if (!this.userPlaylistsReady) { return }
+      if (this.isUserPlaylistRequested && !this.userPlaylistsReady) { return }
 
-      if (this.selectedUserPlaylist != null) {
-        this.parseUserPlaylist(this.selectedUserPlaylist)
+      if (this.isUserPlaylistRequested) {
+        if (this.selectedUserPlaylist != null) {
+          this.parseUserPlaylist(this.selectedUserPlaylist)
+        } else {
+          this.showUserPlaylistNotFound()
+        }
         return
       }
 
@@ -261,6 +272,9 @@ export default defineComponent({
       this.playlistItems = playlist.videos
 
       this.isLoading = false
+    },
+    showUserPlaylistNotFound() {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
     },
 
     getNextPage: function () {

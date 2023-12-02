@@ -72,6 +72,16 @@ export default defineComponent({
     isUserPlaylist() {
       return this.data._id != null
     },
+
+    playlistPageLinkTo() {
+      // For `router-link` attribute `to`
+      return {
+        path: `/playlist/${this.playlistId}`,
+        query: {
+          playlistType: this.isUserPlaylist ? 'user' : '',
+        },
+      }
+    },
   },
   created: function () {
     if (this.isUserPlaylist) {

@@ -12,7 +12,7 @@
     >
       <router-link
         class="thumbnailLink"
-        :to="`/playlist/${playlistId}`"
+        :to="playlistPageLinkTo"
         tabindex="-1"
         aria-hidden="true"
       >
@@ -36,7 +36,7 @@
     <div class="info">
       <router-link
         class="title"
-        :to="`/playlist/${playlistId}`"
+        :to="playlistPageLinkTo"
       >
         <h3 class="h3Title">
           {{ titleForDisplay }}
