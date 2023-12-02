@@ -146,11 +146,12 @@ export default defineComponent({
   },
   watch: {
     allPlaylistsLength(val, oldVal) {
-      // When playlist length changed, a playlist removed or added
-      // Only cares about playlist added
-      if (val < oldVal) { return }
+      const allPlaylistIds = []
 
+      // Add new playlists to selected
       this.allPlaylists.forEach((playlist) => {
+        allPlaylistIds.push(playlist._id)
+
         // Old playlists don't have `createdAt`
         if (playlist.createdAt == null) { return }
         // Only playlists created after this prompt shown should be considered
@@ -163,9 +164,16 @@ export default defineComponent({
         this.selectedPlaylistIdList.push(playlist._id)
       })
 
-      // Focus back to search input
-      // Allow search and easier deselecting new created playlist
-      this.$refs.searchBar.focus()
+      // Remove  deleted playlist from deleted
+      this.selectedPlaylistIdList = this.selectedPlaylistIdList.filter(playlistId => {
+        return allPlaylistIds.includes(playlistId)
+      })
+
+      if (val > oldVal) {
+        // Focus back to search input only when playlist added
+        // Allow search and easier deselecting new created playlist
+        this.$refs.searchBar.focus()
+      }
     },
 
     showingCreatePlaylistPrompt(val) {
