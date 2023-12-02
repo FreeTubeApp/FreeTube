@@ -158,6 +158,15 @@ const actions = {
         if (videoData.type == null) {
           videoData.type = 'video'
         }
+        // Undesired attributes, even with `null` values
+        [
+          'description',
+          'viewCount',
+        ].forEach(attrName => {
+          if (typeof videoData[attrName] !== 'undefined') {
+            delete videoData[attrName]
+          }
+        })
       })
       await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, videos)
       commit('addVideos', payload)
@@ -219,6 +228,17 @@ const actions = {
               v.type = 'video'
               anythingUpdated = true
             }
+
+            // Undesired attributes, even with `null` values
+            [
+              'description',
+              'viewCount',
+            ].forEach(attrName => {
+              if (typeof v[attrName] !== 'undefined') {
+                delete v[attrName]
+                anythingUpdated = true
+              }
+            })
           })
           // Save updated playlist object
           if (anythingUpdated) {
