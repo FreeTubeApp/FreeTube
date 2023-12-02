@@ -17,6 +17,7 @@
       ref="searchBar"
       :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
       :show-clear-text-button="true"
+      :clear-input-text-button-vertically-centered="true"
       :show-action-button="false"
       @input="(input) => updateQueryDebounce(input)"
       @clear="updateQueryDebounce('')"
