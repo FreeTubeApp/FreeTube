@@ -13,7 +13,6 @@
       }) }}
     </p>
     <ft-input
-      v-show="allPlaylists.length > 1"
       ref="searchBar"
       :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
       :show-clear-text-button="true"
