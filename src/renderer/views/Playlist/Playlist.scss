@@ -12,8 +12,8 @@
   position: sticky;
   inset-block-start: 96px;
   /* This is needed to make prompt always above video entries */
-  /* High value used to avoid further issues */
-  z-index: 100;
+  /* Value being too high would block search suggestions */
+  z-index: 1;
   inline-size: 30%;
 }
 
