@@ -5753,10 +5753,10 @@ map-obj@^4.1.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
 
-marked@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-10.0.0.tgz#7fe1805bb908433d760e2de0fcc8841a2b2d745c"
-  integrity sha512-YiGcYcWj50YrwBgNzFoYhQ1hT6GmQbFG8SksnYJX1z4BXTHSOrz1GB5/Jm2yQvMg4nN1FHP4M6r03R10KrVUiA==
+marked@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-11.0.0.tgz#02e63c4352a59a268e2e5b3afb7a46851c0b446d"
+  integrity sha512-2GsW34uXaFEGTQ/+3rCnNC6vUYTAgFuDLGl70v/aWinA5mIJtTrrFAmfbLOfVvgPyxXuDVL9He/7reCK+6j3Sw==
 
 matcher@^3.0.0:
   version "3.0.0"
