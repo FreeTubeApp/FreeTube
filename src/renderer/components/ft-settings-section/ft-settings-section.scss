@@ -46,6 +46,15 @@
   margin-block: 0.5em;
 }
 
+.dataSettingsBox {
+  justify-content: center;
+}
+
+:deep(.groupTitle) {
+  text-align: center;
+  margin-block: 0.5em;
+}
+
 :deep(.switchGrid) {
   align-items: center;
   display: grid;

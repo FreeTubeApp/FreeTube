@@ -320,6 +320,8 @@ Settings:
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
     Fetch Automatically: Hämta flöde automatiskt
+    Only Show Latest Video for Each Channel: Visa endast den senaste videon för varje
+      kanal
   Data Settings:
     Data Settings: 'Datainställningar'
     Select Import Type: 'Välj import-typen'
@@ -507,6 +509,7 @@ Settings:
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
     Replace HTTP Cache: Ersätt HTTP-chachen
+  Expand All Settings Sections: Expandera alla inställningssektioner
 About:
   #On About page
   About: 'Om'
@@ -610,6 +613,9 @@ Profile:
   Toggle Profile List: Aktivera Profillista
   Open Profile Dropdown: Öppna profilrullgardinsmenyn
   Close Profile Dropdown: Stäng profilrullgardinsmenyn
+  Profile Name: Profilnamn
+  Edit Profile Name: Redigera profilnamn
+  Create Profile Name: Skapa profilnamn
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'

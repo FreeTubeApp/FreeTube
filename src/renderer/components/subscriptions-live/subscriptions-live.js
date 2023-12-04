@@ -309,7 +309,7 @@ export default defineComponent({
       try {
         const response = await fetch(feedUrl)
 
-        if (response.status === 500) {
+        if (response.status === 500 || response.status === 404) {
           return []
         }
 
