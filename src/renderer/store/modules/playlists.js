@@ -145,15 +145,17 @@ const actions = {
   },
 
   async addVideos({ commit }, payload) {
+    // Assumes videos are added NOT from export
+    // Since this action will ensure uniqueness of `playlistItemId` of added video entries
     try {
       const { _id, videos } = payload
-      videos.forEach((videoData) => {
+      const newVideoObjects = videos.map((video) => {
+        // Create a new object to prevent changing existing values outside
+        const videoData = Object.assign({}, video)
         if (videoData.timeAdded == null) {
           videoData.timeAdded = new Date().getTime()
         }
-        if (videoData.playlistItemId == null) {
-          videoData.playlistItemId = generateRandomUniqueId()
-        }
+        videoData.playlistItemId = generateRandomUniqueId()
         // For backward compatibility
         if (videoData.type == null) {
           videoData.type = 'video'
@@ -167,9 +169,11 @@ const actions = {
             delete videoData[attrName]
           }
         })
+
+        return videoData
       })
-      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, videos)
-      commit('addVideos', payload)
+      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, newVideoObjects)
+      commit('addVideos', { _id, videos: newVideoObjects })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -390,7 +394,7 @@ const mutations = {
   addVideos(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.concat(payload.videos)
+      playlist.videos = [].concat(playlist.videos).concat(payload.videos)
     }
   },
 

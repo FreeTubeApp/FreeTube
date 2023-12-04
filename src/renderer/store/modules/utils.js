@@ -331,9 +331,6 @@ const actions = {
       throw new Error(errorMsgText)
     }
 
-    // Ensures `playlistItemId` is generated on addVideos
-    videoObjectArray.forEach(v => delete v.playlistItemId)
-
     commit('setShowAddToPlaylistPrompt', true)
     commit('setToBeAddedToPlaylistVideoList', videoObjectArray)
     if (newPlaylistDefaultProperties != null) {
