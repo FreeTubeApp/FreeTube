@@ -328,6 +328,8 @@ Settings:
     Export Subscriptions: 'Izvoz pretplata'
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
     Fetch Automatically: Automatski dohvati feed
+    Only Show Latest Video for Each Channel: Prikaži samo najnoviji video za svaki
+      kanal
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -472,7 +474,7 @@ Settings:
     SponsorBlock Settings: Postavke blokiranja sponzora
     Skip Options:
       Auto Skip: Automatsko preskakanje
-      Show In Seek Bar: Pokaži u traci napretka
+      Show In Seek Bar: Prikaži u traci napretka
       Skip Option: Opcija preskakanja
       Prompt To Skip: Poziv za preskakanje
       Do Nothing: Ne čini ništa
@@ -514,6 +516,7 @@ Settings:
     Set Password: Postavi lozinku
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
+  Expand All Settings Sections: Rasklopi sve odjeljke postavki
 About:
   #On About page
   About: 'Informacije'
@@ -623,6 +626,11 @@ Profile:
   Profile Filter: Filtar profila
   Profile Settings: Postavke profila
   Toggle Profile List: Uključi/Isključi popis profila
+  Profile Name: Ime profila
+  Edit Profile Name: Uredi ime profila
+  Create Profile Name: Stvori ime profila
+  Open Profile Dropdown: Otvori rasklopiv izbornik profila
+  Close Profile Dropdown: Zatvori rasklopiv izbornik profila
 Channel:
   Subscribe: 'Pretplati se'
   Unsubscribe: 'Otkaži pretplatu'
@@ -826,6 +834,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
     uživo nije dostupan za ovaj prijenos. Možda ga je prenosnik deaktivirao.
   Pause on Current Video: Zaustavi trenutačni video
+  Unhide Channel: Prikaži kanal
+  Hide Channel: Sakrij kanal
 Videos:
   #& Sort By
   Sort By:
@@ -892,7 +902,7 @@ Comments:
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
-  Show More Replies: Pokaži više odgovora
+  Show More Replies: Prikaži više odgovora
   From {channelName}: od {channelName}
   And others: i drugi
   Pinned by: Prikvačio/la
@@ -1058,3 +1068,5 @@ Playlist will pause when current video is finished: Zbirka će se zaustaviti kad
 Playlist will not pause when current video is finished: Zbirka se neće zaustaviti
   kada trenutačni video završi
 Go to page: Idi na {page}
+Channel Hidden: '{channel} je dodan u filtar kanala'
+Channel Unhidden: '{channel} je uklonjen iz filtra kanala'
