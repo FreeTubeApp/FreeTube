@@ -630,6 +630,11 @@ Profile:
   Profile Filter: Profilszűrő
   Profile Settings: Profilbeállítások
   Toggle Profile List: Profillista be-/kikapcsolása
+  Profile Name: Profilnév
+  Edit Profile Name: Profilnév szerkesztése
+  Create Profile Name: Profilnév létrehozása
+  Open Profile Dropdown: Profil legördülő menü megnyítása
+  Close Profile Dropdown: Profil legördülő menü bezárása
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
@@ -826,6 +831,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
     élő csevegés nem érhető el ehhez az adatfolyamhoz. Lehet, hogy a feltöltő letiltotta.
   Pause on Current Video: Jelenlegi videó szüneteltetése
+  Unhide Channel: Csatorna megjelenítése
+  Hide Channel: Csatorna elrejtése
 Videos:
   #& Sort By
   Sort By:
@@ -1065,3 +1072,6 @@ Playlist will pause when current video is finished: Szünetel a lejátszási lis
   a jelenlegi videó véget ér
 Playlist will not pause when current video is finished: Nem szünetel a lejátszási
   lista, amikor a jelenlegi videó véget ér
+Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
+Go to page: Ugrás a(z) {page}. oldalra
+Channel Unhidden: '{channel} eltávolítva a csatornaszűrőből'
