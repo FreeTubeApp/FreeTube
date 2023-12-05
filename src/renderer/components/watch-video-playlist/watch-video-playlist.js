@@ -263,7 +263,9 @@ export default defineComponent({
       showToast(this.$t('The playlist has been reversed'))
 
       this.reversePlaylist = !this.reversePlaylist
-      this.playlistItems = this.playlistItems.reverse()
+      // Create a new array to avoid changing array in data store state
+      // it could be user playlist or cache playlist
+      this.playlistItems = [].concat(this.playlistItems).reverse()
       setTimeout(() => {
         this.isLoading = false
       }, 1)
