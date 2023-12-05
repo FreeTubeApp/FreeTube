@@ -332,6 +332,8 @@ Settings:
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Manage Subscriptions: 'Sýsla með áskriftir'
     Fetch Automatically: Sækja streymi sjálfvirkt
+    Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
+      hverja myndskeiðarás
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi stillingar'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -371,6 +373,13 @@ Settings:
     Blur Thumbnails: Móska smámyndir
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
     Hide Subscriptions Community: Fela samfélag áskrifenda
+    Hide Channels Invalid: Uppgefið auðkenni rásar er ógilt
+    Hide Channels Disabled Message: Sumar rásir voru útilokaðar út frá auðkenni og
+      voru ekki meðhöndlaðar. Lokað er á eiginleikann á meðan verið er að uppfæra
+      þessi auðkenni
+    Hide Channels Already Exists: Auðkenni rásar er þegar til
+    Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu
+      aftur hvort auðkennið ré rétt.
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -486,6 +495,7 @@ Settings:
     Set Password: Setja lykilorð
     Remove Password: Fjarlægja lykilorð
     Password Settings: Stillingar lykilorðs
+  Expand All Settings Sections: Fletta út öllum stillingahlutum
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -561,6 +571,11 @@ Profile:
 #On Channel Page
   Profile Settings: Stillingar notkunarsniðs
   Toggle Profile List: Víxla lista með notkunarsniðum af/á
+  Profile Name: Heiti notkunarsniðs
+  Edit Profile Name: Breyta heiti notkunarsniðs
+  Create Profile Name: Útbúa heiti á notkunarsnið
+  Open Profile Dropdown: Opna fellivalmynd notkunarsniðs
+  Close Profile Dropdown: Loka fellivalmynd notkunarsniðs
 Channel:
   Subscribe: 'Gerast áskrifandi'
   Unsubscribe: 'Segja upp áskrift'
@@ -1006,3 +1021,5 @@ Playlist will pause when current video is finished: Spilunarlisti mun fara í bi
 Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
   í bið eftir að núverandi myndskeið klárast
 Go to page: Fara á {page}
+Channel Hidden: '{channel} bætt við rásasíu'
+Channel Unhidden: '{channel} fjarlægt úr rásasíu'
