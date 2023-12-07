@@ -1,11 +1,12 @@
 // import the styles
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
+import i18n, { loadLocale } from './i18n/index'
 import router from './router/index'
 import store from './store/index'
-import i18n from './i18n/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
+import { ObserveVisibility } from 'vue-observe-visibility'
 import { register as registerSwiper } from 'swiper/element/bundle'
 
 // Please keep the list of constants sorted by name
@@ -75,10 +76,6 @@ import {
   faMonero
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-Vue.config.devtools = process.env.NODE_ENV === 'development'
-Vue.config.performance = process.env.NODE_ENV === 'development'
-Vue.config.productionTip = process.env.NODE_ENV === 'development'
 
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
@@ -150,25 +147,31 @@ library.add(
 
 registerSwiper()
 
-Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+loadLocale('en-US').then(() => {
+  const app = createApp(App)
 
-/* eslint-disable-next-line no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  render: h => h(App)
+  app.use(router)
+  app.use(store)
+  app.use(i18n)
+
+  app.config.devtools = process.env.NODE_ENV === 'development'
+  app.config.performance = process.env.NODE_ENV === 'development'
+  app.config.productionTip = process.env.NODE_ENV === 'development'
+
+  app.component('FontAwesomeIcon', FontAwesomeIcon)
+  app.directive('observe-visibility', ObserveVisibility)
+  // to avoid accessing electron api from web app build
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+
+    // handle menu event updates from main script
+    ipcRenderer.on('change-view', (event, data) => {
+      if (data.route) {
+        router.isReady().then(() =>
+          router.push(data.route)
+        )
+      }
+    })
+  }
+  router.isReady().then(() => app.mount('#app'))
 })
-
-// to avoid accessing electron api from web app build
-if (process.env.IS_ELECTRON) {
-  const { ipcRenderer } = require('electron')
-
-  // handle menu event updates from main script
-  ipcRenderer.on('change-view', (event, data) => {
-    if (data.route) {
-      router.push(data.route)
-    }
-  })
-}

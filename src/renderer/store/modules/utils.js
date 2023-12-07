@@ -137,7 +137,7 @@ const actions = {
     }
 
     const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
-    const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
+    const errorMessage = i18n.global.t('Downloading failed', { videoTitle: title })
     const askFolderPath = rootState.settings.downloadAskPath
     let folderPath = rootState.settings.downloadFolderPath
 
@@ -172,7 +172,7 @@ const actions = {
       folderPath = path.join(folderPath, fileName)
     }
 
-    showToast(i18n.t('Starting download', { videoTitle: title }))
+    showToast(i18n.global.t('Starting download', { videoTitle: title }))
 
     const response = await fetch(url).catch((error) => {
       console.error(error)
@@ -208,7 +208,7 @@ const actions = {
     try {
       await fs.writeFile(folderPath, new DataView(buffer))
 
-      showToast(i18n.t('Downloading has completed', { videoTitle: title }))
+      showToast(i18n.global.t('Downloading has completed', { videoTitle: title }))
     } catch (err) {
       console.error(err)
       showToast(errorMessage)
@@ -631,10 +631,10 @@ const actions = {
     }
 
     const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
-      ? i18n.t('Video.External Player.playlist')
-      : i18n.t('Video.External Player.video')
+      ? i18n.global.t('Video.External Player.playlist')
+      : i18n.global.t('Video.External Player.video')
 
-    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
+    showToast(i18n.global.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })

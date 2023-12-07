@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
@@ -112,6 +112,8 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
+      '__VUE_PROD_DEVTOOLS__': true,
+      '__VUE_OPTIONS_API__': true,
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
 
@@ -144,8 +146,6 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm.js',
-
       // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
       // As FreeTube only runs in electron and web browsers, we can use the native DOMParser class, instead of the "polyfill"
       // https://caniuse.com/mdn-api_domparser

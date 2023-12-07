@@ -104,7 +104,7 @@
         v-if="!hideSearchBar"
         v-show="showFilters"
         class="searchFilters"
-        @filterValueUpdated="handleSearchFilterValueChanged"
+        @filter-value-updated="handleSearchFilterValueChanged"
       />
     </div>
     <ft-profile-selector class="side profiles" />

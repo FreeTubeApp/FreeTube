@@ -11,7 +11,7 @@ export default defineComponent({
   mounted: function () {
     FtToastEvents.addEventListener('toast-open', this.open)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     FtToastEvents.removeEventListener('toast-open', this.open)
   },
   methods: {

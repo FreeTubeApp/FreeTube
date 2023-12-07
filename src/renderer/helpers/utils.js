@@ -46,10 +46,10 @@ export function calculatePublishedDate(publishedText) {
 
 export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
   if (isLive) {
-    return i18n.tc('Global.Counts.Watching Count', 0, { count: 0 })
+    return i18n.global.tc('Global.Counts.Watching Count', 0, { count: 0 })
   } else if (isUpcoming || publishText === null) {
     // the check for null is currently just an inferring of knowledge, because there is no other possibility left
-    return `${i18n.t('Video.Published.Upcoming')}: ${publishText}`
+    return `${i18n.global.t('Video.Published.Upcoming')}: ${publishText}`
   } else if (isRSS) {
     return publishText
   }
@@ -92,8 +92,8 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
     translationKey += 's'
   }
 
-  const unit = i18n.t(translationKey)
-  return i18n.t('Video.Publicationtemplate', { number: match[1], unit })
+  const unit = i18n.global.t(translationKey)
+  return i18n.global.t('Video.Publicationtemplate', { number: match[1], unit })
 }
 
 export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
@@ -218,11 +218,11 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
       if (messageOnError !== null) {
         showToast(`${messageOnError}: ${error}`, 5000)
       } else {
-        showToast(`${i18n.t('Clipboard.Copy failed')}: ${error}`, 5000)
+        showToast(`${i18n.global.t('Clipboard.Copy failed')}: ${error}`, 5000)
       }
     }
   } else {
-    showToast(i18n.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
+    showToast(i18n.global.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
   }
 }
 
@@ -539,8 +539,8 @@ export function extractNumberFromString(str) {
 }
 
 export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionName) {
-  const action = i18n.t(`Video.External Player.Unsupported Actions.${actionName}`)
-  const message = i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  const action = i18n.global.t(`Video.External Player.Unsupported Actions.${actionName}`)
+  const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
   showToast(message)
 }
 

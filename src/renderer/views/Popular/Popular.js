@@ -34,7 +34,7 @@ export default defineComponent({
       this.fetchPopularInfo()
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {

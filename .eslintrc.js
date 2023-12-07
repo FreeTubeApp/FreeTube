@@ -44,7 +44,7 @@ module.exports = {
   extends: [
     'prettier',
     'eslint:recommended',
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     'standard',
     'plugin:jsonc/recommended-with-json',
     'plugin:vuejs-accessibility/recommended'

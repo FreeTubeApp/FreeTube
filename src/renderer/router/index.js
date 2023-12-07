@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
 import SubscribedChannels from '../views/SubscribedChannels/SubscribedChannels.vue'
 import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
@@ -15,9 +14,8 @@ import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 import Hashtag from '../views/Hashtag/Hashtag.vue'
 
-Vue.use(Router)
-
-const router = new Router({
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',

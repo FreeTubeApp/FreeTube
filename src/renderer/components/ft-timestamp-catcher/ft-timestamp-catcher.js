@@ -8,6 +8,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['timestamp-event'],
   methods: {
     catchTimestampClick: function(event) {
       const match = event.detail.match(/(\d+):(\d+):?(\d+)?/)

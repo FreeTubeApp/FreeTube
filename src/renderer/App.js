@@ -1,6 +1,5 @@
-import Vue, { defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -15,8 +14,6 @@ import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
-
-Vue.directive('observe-visibility', ObserveVisibility)
 
 export default defineComponent({
   name: 'App',
@@ -68,7 +65,7 @@ export default defineComponent({
     },
     windowTitle: function () {
       const routeTitle = this.$route.meta.title
-      if (routeTitle !== 'Channel' && routeTitle !== 'Watch' && routeTitle !== 'Hashtag') {
+      if (routeTitle !== 'Channel' && routeTitle !== 'Watch' && routeTitle !== 'Hashtag' && routeTitle) {
         let title =
         this.$route.meta.path === '/home'
           ? packageDetails.productName
@@ -182,11 +179,9 @@ export default defineComponent({
         this.$refs.topNav?.navigateHistory()
       })
 
-      this.$router.onReady(() => {
-        if (this.$router.currentRoute.path === '/' && this.landingPage !== '/subscriptions') {
-          this.$router.replace({ path: this.landingPage })
-        }
-      })
+      if (this.$router.currentRoute.path === '/' && this.landingPage !== '/subscriptions') {
+        this.$router.replace({ path: this.landingPage })
+      }
     })
   },
   methods: {

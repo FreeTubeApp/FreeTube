@@ -188,7 +188,7 @@ export default defineComponent({
     this.setCurrentInvidiousInstanceBounce =
       debounce(this.setCurrentInvidiousInstance, 500)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     if (this.currentInvidiousInstance === '') {
       // FIXME: If we call an action from here, there's no guarantee it will finish
       // before the component is destroyed, which could bring up some problems

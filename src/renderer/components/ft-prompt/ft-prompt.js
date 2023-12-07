@@ -38,6 +38,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['click'],
   data: function () {
     return {
       promptButtons: []
@@ -48,7 +49,7 @@ export default defineComponent({
       return sanitizeForHtmlId(this.label)
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
   },
   mounted: function () {

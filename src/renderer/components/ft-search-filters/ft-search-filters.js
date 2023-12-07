@@ -8,6 +8,7 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-radio-button': FtRadioButton
   },
+  emits: ['filter-value-updated'],
   data: function () {
     return {
       sortByValues: [
@@ -99,7 +100,7 @@ export default defineComponent({
 
     updateSortBy: function (value) {
       this.$store.commit('setSearchSortBy', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$emit('filter-value-updated', this.filterValueChanged)
     },
 
     updateTime: function (value) {
@@ -109,7 +110,7 @@ export default defineComponent({
         this.$store.commit('setSearchType', 'all')
       }
       this.$store.commit('setSearchTime', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$emit('filter-value-updated', this.filterValueChanged)
     },
 
     updateType: function (value) {
@@ -125,7 +126,7 @@ export default defineComponent({
         this.$store.commit('setSearchSortBy', this.sortByValues[0])
       }
       this.$store.commit('setSearchType', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$emit('filter-value-updated', this.filterValueChanged)
     },
 
     updateDuration: function (value) {
@@ -135,7 +136,7 @@ export default defineComponent({
         this.updateType('all')
       }
       this.$store.commit('setSearchDuration', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$emit('filter-value-updated', this.filterValueChanged)
     }
   }
 })
