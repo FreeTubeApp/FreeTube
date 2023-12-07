@@ -58,6 +58,8 @@ export default defineComponent({
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
+
+      promptOpen: false,
     }
   },
   computed: {

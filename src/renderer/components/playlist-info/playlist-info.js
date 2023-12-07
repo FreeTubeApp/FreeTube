@@ -195,6 +195,14 @@ export default defineComponent({
       return !this.hideSharingActions
     },
   },
+  watch: {
+    showDeletePlaylistPrompt(shown) {
+      this.$emit(shown ? 'prompt-open' : 'prompt-close')
+    },
+    showRemoveVideosOnWatchPrompt(shown) {
+      this.$emit(shown ? 'prompt-open' : 'prompt-close')
+    },
+  },
   created: function () {
     this.newTitle = this.title
     this.newDescription = this.description

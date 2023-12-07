@@ -15,6 +15,11 @@
   /* Value being too high would block search suggestions */
   z-index: 1;
   inline-size: 30%;
+
+  &.promptOpen {
+    // Otherwise sidebar would be above the prompt
+    z-index: 200;
+  }
 }
 
 .playlistItems {

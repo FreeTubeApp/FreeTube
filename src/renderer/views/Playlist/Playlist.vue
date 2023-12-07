@@ -23,8 +23,13 @@
       :info-source="infoSource"
       :more-video-data-available="moreVideoDataAvailable"
       class="playlistInfo"
+      :class="{
+        promptOpen,
+      }"
       @enter-edit-mode="playlistInEditMode = true"
       @exit-edit-mode="playlistInEditMode = false"
+      @prompt-open="promptOpen = true"
+      @prompt-close="promptOpen = false"
     />
 
     <ft-card
