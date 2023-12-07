@@ -15,7 +15,7 @@
       :playlist-loop="playlistLoop"
       :force-list-type="forceListType"
       :appearance="appearance"
-      @pause-player="$emit('pause-player')"
+      @pause-player="pausePlayer"
     />
   </div>
 </template>

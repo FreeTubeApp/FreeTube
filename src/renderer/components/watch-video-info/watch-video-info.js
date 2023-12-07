@@ -104,7 +104,7 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['set-info-area-sticky', 'scroll-to-info-area', 'pause-player'],
+  emits: ['set-info-area-sticky', 'scroll-to-info-area', 'pause-player', 'change-format'],
 
   computed: {
     hideSharingActions: function() {
@@ -342,6 +342,10 @@ export default defineComponent({
       this.removeVideo(payload)
 
       showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
+    changeFormat: function(value) {
+      this.$emit('change-format', value)
     },
 
     ...mapActions([

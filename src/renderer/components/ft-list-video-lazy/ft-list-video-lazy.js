@@ -48,6 +48,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['pause-player'],
   data: function () {
     return {
       visible: false
@@ -80,6 +81,9 @@ export default defineComponent({
       if (visible && this.shouldBeVisible) {
         this.visible = visible
       }
+    },
+    pausePlayer: function () {
+      this.$emit('pause-player')
     }
   }
 })

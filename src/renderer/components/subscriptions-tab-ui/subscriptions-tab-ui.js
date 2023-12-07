@@ -110,10 +110,14 @@ export default defineComponent({
         case 'R':
         case 'F5':
           if (!this.isLoading) {
-            this.$emit('refresh')
+            this.refresh()
           }
           break
       }
+    },
+
+    refresh: function() {
+      this.$emit('refresh')
     }
   }
 })

@@ -1,7 +1,7 @@
 <template>
   <div
     class="ft-card"
-    @focusout="$emit('focusout')"
+    @focusout="focusout"
   >
     <slot />
   </div>

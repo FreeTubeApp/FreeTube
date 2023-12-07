@@ -10,7 +10,7 @@
       :min="minValue"
       :max="maxValue"
       :step="step"
-      @change="$emit('change', currentValue)"
+      @change="change"
     >
     <span>
       {{ label }}:

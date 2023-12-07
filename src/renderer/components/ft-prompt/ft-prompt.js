@@ -101,6 +101,10 @@ export default defineComponent({
       }
     },
 
+    click: function(option) {
+      this.$emit('click', option)
+    },
+
     ...mapActions([
       'showOutlines'
     ])

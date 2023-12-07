@@ -346,8 +346,7 @@ const stateWithSideEffects = {
       }
 
       await loadLocale(targetLocale)
-
-      i18n.locale = targetLocale
+      i18n.global.locale = targetLocale
       await dispatch('getRegionData', {
         locale: targetLocale
       })
