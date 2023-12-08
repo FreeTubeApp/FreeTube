@@ -1,10 +1,9 @@
 const os = require('os')
 const builder = require('electron-builder')
-const config = require('./ebuilder.js')
+const config = require('./ebuilder.config.js')
 
 const Platform = builder.Platform
 const Arch = builder.Arch
-const { name, productName } = require('../package.json')
 const args = process.argv
 
 let targets
