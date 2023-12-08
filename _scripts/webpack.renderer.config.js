@@ -136,6 +136,8 @@ const config = {
   ],
   resolve: {
     alias: {
+      vue$: 'vue/dist/vue.runtime.esm-bundler.js',
+
       'youtubei.js$': 'youtubei.js/web',
 
       // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
