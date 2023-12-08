@@ -34,7 +34,7 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.id = this._uid
+    this.id = this._.uid
     this.selectedValue = this.values[0]
   },
   methods: {

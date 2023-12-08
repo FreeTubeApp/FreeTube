@@ -1,6 +1,7 @@
 <template>
   <label
     class="pure-material-slider"
+    :for="id"
   >
     <input
       :id="id"
