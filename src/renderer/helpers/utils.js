@@ -637,7 +637,7 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
 }
 
 export function formatNumber(number, options = undefined) {
-  return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
+  return Intl.NumberFormat([i18n.global.locale.replace('_', '-'), 'en'], options).format(number)
 }
 
 export function getTodayDateStrLocalTimezone() {

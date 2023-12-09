@@ -1,7 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
 import i18n from '../../i18n/index'
-import { set as vueSet } from 'vue'
 
 import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
@@ -672,7 +671,7 @@ const mutations = {
     if (!sameVideo) {
       // setting properties directly doesn't trigger watchers in Vue 2,
       // so we need to use Vue's set function
-      vueSet(state.deArrowCache, payload.videoId, payload)
+      state.deArrowCache[payload.videoId] = payload
     }
   },
 

@@ -43,9 +43,9 @@ export default defineComponent({
     }
   },
   watch: {
-    $route () {
+    $route (to) {
       // react to route changes...
-
+      if (!to.fullPath.startsWith('/search')) { return }
       const query = this.$route.params.query
       const searchSettings = {
         sortBy: this.$route.query.sortBy,

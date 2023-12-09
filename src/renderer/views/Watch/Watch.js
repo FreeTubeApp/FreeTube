@@ -213,7 +213,9 @@ export default defineComponent({
     },
   },
   watch: {
-    $route() {
+    $route(to) {
+      if (!to.fullPath.startsWith('/watch')) { return }
+
       this.handleRouteChange(this.videoId)
       // react to route changes...
       this.videoId = this.$route.params.id

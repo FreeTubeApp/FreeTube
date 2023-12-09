@@ -1,4 +1,3 @@
-import { set as vueSet, del as vueDel } from 'vue'
 import { DBHistoryHandlers } from '../../../datastores/handlers/index'
 
 const state = {
@@ -104,7 +103,7 @@ const mutations = {
     }
 
     state.historyCacheSorted.unshift(record)
-    vueSet(state.historyCacheById, record.videoId, record)
+    state.historyCacheById[record.videoId] = record
   },
 
   updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
@@ -115,7 +114,7 @@ const mutations = {
     const targetRecord = Object.assign({}, state.historyCacheSorted[i])
     targetRecord.watchProgress = watchProgress
     state.historyCacheSorted.splice(i, 1, targetRecord)
-    vueSet(state.historyCacheById, videoId, targetRecord)
+    state.historyCacheById[videoId] = targetRecord
   },
 
   updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId }) {
@@ -126,7 +125,7 @@ const mutations = {
     const targetRecord = Object.assign({}, state.historyCacheSorted[i])
     targetRecord.lastViewedPlaylistId = lastViewedPlaylistId
     state.historyCacheSorted.splice(i, 1, targetRecord)
-    vueSet(state.historyCacheById, videoId, targetRecord)
+    state.historyCacheById[videoId] = targetRecord
   },
 
   removeFromHistoryCacheById(state, videoId) {
@@ -137,7 +136,7 @@ const mutations = {
       }
     }
 
-    vueDel(state.historyCacheById, videoId)
+    delete state.historyCacheById[videoId]
   }
 }
 
