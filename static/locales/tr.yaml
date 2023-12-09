@@ -325,6 +325,8 @@ Settings:
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
     Fetch Automatically: Akışı Otomatik Olarak Getir
+    Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
+      Göster
   Data Settings:
     Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
@@ -519,6 +521,7 @@ Settings:
     Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
     Remove Password: Parolayı Kaldır
     Set Password: Parola Ayarla
+  Expand All Settings Sections: Tüm Ayarlar Bölümlerini Genişlet
 About:
   #On About page
   About: 'Hakkında'
@@ -629,6 +632,11 @@ Profile:
   Profile Filter: Profil Filtresi
   Profile Settings: Profil Ayarları
   Toggle Profile List: Profil Listesini Aç/Kapat
+  Profile Name: Profil Adı
+  Edit Profile Name: Profil Adını Düzenle
+  Create Profile Name: Profil Adı Oluştur
+  Open Profile Dropdown: Profil Açılır Menüsünü Aç
+  Close Profile Dropdown: Profil Açılır Menüsünü Kapat
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -834,6 +842,8 @@ Video:
     sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
     olabilir.
   Pause on Current Video: Geçerli Videoda Duraklat
+  Unhide Channel: Kanalı Göster
+  Hide Channel: Kanalı Gizle
 Videos:
   #& Sort By
   Sort By:
@@ -1070,3 +1080,6 @@ Playlist will pause when current video is finished: Geçerli video bittiğinde o
   listesi duraklatılacak
 Playlist will not pause when current video is finished: Geçerli video bittiğinde oynatma
   listesi duraklatılmayacak
+Channel Hidden: '{channel} kanal filtresine eklendi'
+Go to page: '{page}. sayfaya git'
+Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
