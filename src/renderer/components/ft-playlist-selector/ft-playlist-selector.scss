@@ -194,11 +194,11 @@ $watched-transition-duration: 0.5s;
     position: relative;
 
     .optionsButton {
-      float: right;
+      float: var(--float-right-ltr-rtl-value);
     }
 
     .externalPlayerButton {
-      float: right;
+      float: var(--float-right-ltr-rtl-value);
     }
 
     .title {
