@@ -9,6 +9,7 @@ import { IpcChannels } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'TopNav',
@@ -47,10 +48,8 @@ export default defineComponent({
     headerLogoTitle: function () {
       return this.$t('Go to page',
         {
-          page: this.$t(this.$router.getRoutes()
-            .find((route) => route.path === '/' + this.landingPage)
-            .meta.title
-          )
+          page: translateWindowTitle(this.$router.getRoutes()
+            .find((route) => route.path === '/' + this.landingPage).name)
         })
     },
 

@@ -79,11 +79,12 @@ module.exports = {
     'unicorn/prefer-keyboard-event-key': 'error',
     'unicorn/prefer-regexp-test': 'error',
     'unicorn/prefer-string-replace-all': 'error',
-    // '@intlify/vue-i18n/no-dynamic-keys': 'error',
+    '@intlify/vue-i18n/no-dynamic-keys': 'error',
+    // enable at a later date. currently disabled to prevent massive conflicts for initial PR
     // '@intlify/vue-i18n/no-unused-keys': [
     //   'error',
     //   {
-    //     extensions: ['.js', '.vue']
+    //     extensions: ['.js', '.vue', 'yaml']
     //   }
     // ],
     '@intlify/vue-i18n/no-duplicate-keys-in-locale': 'error',

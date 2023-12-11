@@ -42,7 +42,6 @@ const state = {
     duration: ''
   },
   externalPlayerNames: [],
-  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -106,10 +105,6 @@ const getters = {
 
   getExternalPlayerNames () {
     return state.externalPlayerNames
-  },
-
-  getExternalPlayerNameTranslationKeys () {
-    return state.externalPlayerNameTranslationKeys
   },
 
   getExternalPlayerValues () {
@@ -521,7 +516,6 @@ const actions = {
     externalPlayerMap.unshift(playerNone)
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
-    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -529,7 +523,6 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
-    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -746,10 +739,6 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
-  },
-
-  setExternalPlayerNameTranslationKeys (state, value) {
-    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

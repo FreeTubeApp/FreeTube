@@ -946,4 +946,5 @@ Hashtag:
 Yes: Yes
 No: No
 Ok: Ok
-✓: ✓
+# symbol used to indicate that an item is correct
+checkmark: ✓

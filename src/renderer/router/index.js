@@ -22,116 +22,76 @@ const router = new Router({
     {
       path: '/',
       name: 'default',
-      meta: {
-        title: 'Subscriptions.Subscriptions'
-      },
       component: Subscriptions
     },
     {
       path: '/subscriptions',
       name: 'subscriptions',
-      meta: {
-        title: 'Subscriptions.Subscriptions'
-      },
       component: Subscriptions
     },
     {
       path: '/subscribedchannels',
       name: 'subscribedChannels',
-      meta: {
-        title: 'Channels.Title'
-      },
       component: SubscribedChannels
     },
     {
       path: '/trending',
       name: 'trending',
-      meta: {
-        title: 'Trending.Trending'
-      },
       component: Trending
     },
     {
       path: '/popular',
       name: 'popular',
-      meta: {
-        title: 'Most Popular'
-      },
       component: Popular
     },
     {
       path: '/userplaylists',
       name: 'userPlaylists',
-      meta: {
-        title: 'User Playlists.Your Playlists'
-      },
       component: UserPlaylists
     },
     {
       path: '/history',
       name: 'history',
-      meta: {
-        title: 'History.History'
-      },
       component: History
     },
     {
       path: '/settings',
       name: 'settings',
-      meta: {
-        title: 'Settings.Settings'
-      },
       component: Settings
     },
     {
       path: '/about',
       name: 'about',
-      meta: {
-        title: 'About.About'
-      },
       component: About
     },
     {
       path: '/settings/profile',
       name: 'profileSettings',
-      meta: {
-        title: 'Profile.Profile Settings'
-      },
       component: ProfileSettings
     },
     {
       path: '/search/:query',
-      meta: {
-        title: 'Search Filters.Search Results'
-      },
+      name: 'search',
       component: Search
     },
     {
+      name: 'playlist',
       path: '/playlist/:id',
-      meta: {
-        title: 'Playlist.Playlist'
-      },
       component: Playlist
     },
     {
       path: '/channel/:id/:currentTab?',
-      meta: {
-        title: 'Channel'
-      },
+      name: 'channel',
       component: Channel
     },
     {
       path: '/watch/:id',
-      meta: {
-        title: 'Watch'
-      },
+      name: 'watch',
       component: Watch
     },
     {
       path: '/hashtag/:hashtag',
-      meta: {
-        title: 'Hashtag'
-      },
+      name: 'hashtag',
       component: Hashtag
     }
   ],
