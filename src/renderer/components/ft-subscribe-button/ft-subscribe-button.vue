@@ -63,7 +63,7 @@
               <div
                 class="initial"
               >
-                {{ isProfileSubscribed(profile) ? '✓' : profileInitials[index] }}
+                {{ isProfileSubscribed(profile) ? $t('✓') : profileInitials[index] }}
               </div>
             </div>
             <p
