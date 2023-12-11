@@ -159,7 +159,7 @@ export default defineComponent({
           const message = this.$t('Settings.Data Settings.Profile object has insufficient data, skipping item')
           showToast(message)
         } else {
-          if (profileObject.name === 'All Channels' || profileObject._id === MAIN_PROFILE_ID) {
+          if (profileObject._id === MAIN_PROFILE_ID) {
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(profileObject.subscriptions)
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.filter((sub, index) => {
               const profileIndex = this.primaryProfile.subscriptions.findIndex((x) => {

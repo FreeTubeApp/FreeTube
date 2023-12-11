@@ -78,8 +78,6 @@ export default defineComponent({
       firstLoad: true,
       useTheatreMode: false,
       videoPlayerReady: false,
-      showDashPlayer: true,
-      showLegacyPlayer: false,
       hidePlayer: false,
       isFamilyFriendly: false,
       isLive: false,
@@ -277,9 +275,15 @@ export default defineComponent({
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
-        this.recommendedVideos = result.watch_next_feed
+        const recommendedVideos = result.watch_next_feed
           ?.filter((item) => item.type === 'CompactVideo')
           .map(parseLocalWatchNextVideo) ?? []
+
+        // place watched recommended videos last
+        this.recommendedVideos = [
+          ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+          ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+        ]
 
         if (this.showFamilyFriendlyOnly && !this.isFamilyFriendly) {
           this.isLoading = false
@@ -460,8 +464,6 @@ export default defineComponent({
             ]
           }
 
-          this.showLegacyPlayer = true
-          this.showDashPlayer = false
           this.activeFormat = 'legacy'
           this.activeSourceList = this.videoSourceList
           this.audioSourceList = null
@@ -532,7 +534,7 @@ export default defineComponent({
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
               const fps = format.fps ? `${format.fps}fps` : 'kbps'
-              const type = format.mime_type.match(/.*;/)[0].replace(';', '')
+              const type = format.mime_type.split(';')[0]
               let label = `${qualityLabel} ${fps} - ${type}`
 
               if (format.has_audio !== format.has_video) {
@@ -699,7 +701,12 @@ export default defineComponent({
 
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
-          this.recommendedVideos = result.recommendedVideos
+          const recommendedVideos = result.recommendedVideos
+          // place watched recommended videos last
+          this.recommendedVideos = [
+            ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+            ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+          ]
           this.adaptiveFormats = await this.getAdaptiveFormatsInvidious(result)
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
@@ -742,8 +749,6 @@ export default defineComponent({
           this.videoChapters = chapters
 
           if (this.isLive) {
-            this.showLegacyPlayer = true
-            this.showDashPlayer = false
             this.activeFormat = 'legacy'
 
             this.videoSourceList = [
@@ -781,7 +786,7 @@ export default defineComponent({
               const qualityLabel = format.qualityLabel || format.bitrate
               const itag = parseInt(format.itag)
               const fps = format.fps ? (format.fps + 'fps') : 'kbps'
-              const type = format.type.match(/.*;/)[0].replace(';', '')
+              const type = format.type.split(';')[0]
               let label = `${qualityLabel} ${fps} - ${type}`
 
               if (itag !== 18 && itag !== 22) {
@@ -1067,6 +1072,10 @@ export default defineComponent({
       this.checkIfWatched()
     },
 
+    isRecommendedVideoWatched: function (videoId) {
+      return !!this.$store.getters.getHistoryCacheById[videoId]
+    },
+
     checkIfWatched: function () {
       if (!this.isLive) {
         if (this.timestamp) {
@@ -1121,13 +1130,8 @@ export default defineComponent({
     },
 
     checkIfTimestamp: function () {
-      if (typeof (this.$route.query) !== 'undefined') {
-        try {
-          this.timestamp = parseInt(this.$route.query.timestamp)
-        } catch {
-          this.timestamp = null
-        }
-      }
+      const timestamp = parseInt(this.$route.query.timestamp)
+      this.timestamp = isNaN(timestamp) || timestamp < 0 ? null : timestamp
     },
 
     getLegacyFormats: function () {
@@ -1325,23 +1329,15 @@ export default defineComponent({
 
       if (process.env.IS_ELECTRON && this.removeVideoMetaFiles) {
         if (process.env.NODE_ENV === 'development') {
-          const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
-          if (await pathExists(dashFileLocation)) {
-            await fs.rm(dashFileLocation)
-          }
           if (await pathExists(vttFileLocation)) {
             await fs.rm(vttFileLocation)
           }
         } else {
           const userData = await getUserDataPath()
-          const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
           const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
-          if (await pathExists(dashFileLocation)) {
-            await fs.rm(dashFileLocation)
-          }
           if (await pathExists(vttFileLocation)) {
             await fs.rm(vttFileLocation)
           }
@@ -1372,35 +1368,10 @@ export default defineComponent({
      */
     createLocalDashManifest: async function (videoInfo) {
       const xmlData = await videoInfo.toDash()
-      const userData = await getUserDataPath()
-      let fileLocation
-      let uriSchema
-      if (process.env.NODE_ENV === 'development') {
-        fileLocation = `static/dashFiles/${this.videoId}.xml`
-        uriSchema = `dashFiles/${this.videoId}.xml`
-        // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!(await pathExists('static/dashFiles/'))) {
-          await fs.mkdir('static/dashFiles/')
-        }
-
-        if (await pathExists(fileLocation)) {
-          await fs.rm(fileLocation)
-        }
-        await fs.writeFile(fileLocation, xmlData)
-      } else {
-        fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
-        uriSchema = `file://${fileLocation}`
-
-        if (!(await pathExists(`${userData}/dashFiles/`))) {
-          await fs.mkdir(`${userData}/dashFiles/`)
-        }
-
-        await fs.writeFile(fileLocation, xmlData)
-      }
 
       return [
         {
-          url: uriSchema,
+          url: `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(xmlData)}`,
           type: 'application/dash+xml',
           label: 'Dash',
           qualityLabel: 'Auto'
@@ -1467,10 +1438,7 @@ export default defineComponent({
           this.audioTracks = this.createAudioTracksFromLocalFormats(audioFormats)
         }
 
-        const manifest = await generateInvidiousDashManifestLocally(
-          formats,
-          this.proxyVideos ? this.currentInvidiousInstance : undefined
-        )
+        const manifest = await generateInvidiousDashManifestLocally(formats)
 
         url = `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(manifest)}`
       } else if (this.proxyVideos) {

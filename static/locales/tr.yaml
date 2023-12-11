@@ -325,6 +325,8 @@ Settings:
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
     Fetch Automatically: Akışı Otomatik Olarak Getir
+    Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
+      Göster
   Data Settings:
     Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
@@ -421,7 +423,7 @@ Settings:
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
-    Hide Channels Placeholder: Kanal Adı veya Kimliği
+    Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
     Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
       Görüntüle
@@ -443,6 +445,12 @@ Settings:
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
     Blur Thumbnails: Küçük Resimleri Bulanıklaştır
     Hide Subscriptions Community: Abonelik Topluluğunu Gizle
+    Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
+    Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
+      ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
+    Hide Channels Already Exists: Kanal kimliği zaten var
+    Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu.
+      Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -513,6 +521,7 @@ Settings:
     Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
     Remove Password: Parolayı Kaldır
     Set Password: Parola Ayarla
+  Expand All Settings Sections: Tüm Ayarlar Bölümlerini Genişlet
 About:
   #On About page
   About: 'Hakkında'
@@ -623,6 +632,11 @@ Profile:
   Profile Filter: Profil Filtresi
   Profile Settings: Profil Ayarları
   Toggle Profile List: Profil Listesini Aç/Kapat
+  Profile Name: Profil Adı
+  Edit Profile Name: Profil Adını Düzenle
+  Create Profile Name: Profil Adı Oluştur
+  Open Profile Dropdown: Profil Açılır Menüsünü Aç
+  Close Profile Dropdown: Profil Açılır Menüsünü Kapat
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -828,6 +842,8 @@ Video:
     sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
     olabilir.
   Pause on Current Video: Geçerli Videoda Duraklat
+  Unhide Channel: Kanalı Göster
+  Hide Channel: Kanalı Gizle
 Videos:
   #& Sort By
   Sort By:
@@ -993,8 +1009,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama,
       öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
-      bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
-      ve büyük/küçük harfe duyarlıdır.
+      bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük
+      harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
       kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
       kılınıyor
@@ -1058,3 +1074,6 @@ Playlist will pause when current video is finished: Geçerli video bittiğinde o
   listesi duraklatılacak
 Playlist will not pause when current video is finished: Geçerli video bittiğinde oynatma
   listesi duraklatılmayacak
+Channel Hidden: '{channel} kanal filtresine eklendi'
+Go to page: '{page}. sayfaya git'
+Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'

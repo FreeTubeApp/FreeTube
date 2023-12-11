@@ -121,7 +121,8 @@
         @click="handleOptionsClick"
       />
       <p
-        v-if="listType !== 'grid' && appearance === 'result'"
+        v-if="((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
+          appearance === 'result'"
         class="description"
         v-html="description"
       />

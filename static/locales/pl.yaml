@@ -313,6 +313,8 @@ Settings:
     How do I import my subscriptions?: 'Jak zaimportować swoje subskrypcje?'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
+    Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
+      kanału
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -426,7 +428,7 @@ Settings:
     Hide Chapters: Schowaj rozdziały
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
     Hide Channels: Schowaj filmy z kanałów
-    Hide Channels Placeholder: Nazwa albo ID kanału
+    Hide Channels Placeholder: ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły bez nadmiernych
       wielkich liter
     Hide Channel Community: Schowaj społeczność kanału
@@ -447,6 +449,13 @@ Settings:
     Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
     Blur Thumbnails: Rozmazuj miniaturki
     Hide Subscriptions Community: Schowaj „Społeczność” kanałów
+    Hide Channels Invalid: Podane ID kanału jest niepoprawne
+    Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
+      zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
+      którym zostaną one zaktualizowane.
+    Hide Channels Already Exists: To ID kanału już jest
+    Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
+      sprawdzić, czy wpisane ID jest poprawne.
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -518,6 +527,7 @@ Settings:
     Set Password To Prevent Access: Ustaw hasło, aby zabezpieczyć dostęp do ustawień
     Set Password: Ustaw hasło
     Remove Password: Usuń hasło
+  Expand All Settings Sections: Rozwiń wszystkie sekcje ustawień
 About:
   #On About page
   About: 'O projekcie'
@@ -791,6 +801,8 @@ Video:
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
   Pause on Current Video: Zatrzymaj po tym filmie
+  Unhide Channel: Pokaż kanał
+  Hide Channel: Ukryj kanał
 Videos:
   #& Sort By
   Sort By:
@@ -932,6 +944,11 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
   Toggle Profile List: Włącz/wyłącz listę profili
+  Open Profile Dropdown: Otwórz rozwijane menu profilu
+  Close Profile Dropdown: Zamknij rozwijane menu profilu
+  Profile Name: Nazwa profilu
+  Edit Profile Name: Edytuj nazwę profilu
+  Create Profile Name: Nadaj nazwę profilowi
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
@@ -1006,10 +1023,10 @@ Tooltips:
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
       to większe użycie pamięci RAM.
   Distraction Free Settings:
-    Hide Channels: Wprowadź nazwę albo ID kanału, aby schować wszystkie filmy i playlisty
-      tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne”
-      oraz z polecanych. Nazwa kanału musi być dokładnym dopasowaniem, z uwzględnieniem
-      wielkości liter.
+    Hide Channels: Wprowadź ID kanału, aby schować wszystkie filmy i playlisty tego
+      kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne” oraz
+      z polecanych. ID kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości
+      liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}”
       z podgrupy „{subsection}” grupy „{settingsSection}”
   SponsorBlock Settings:
@@ -1072,3 +1089,6 @@ Playlist will pause when current video is finished: Playlista zatrzyma się, gdy
   film się zakończy
 Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
   gdy obecny film się zakończy
+Channel Hidden: '{channel} dodany do filtra kanałów'
+Go to page: Idź do {page}
+Channel Unhidden: '{channel} usunięty z filtra kanału'

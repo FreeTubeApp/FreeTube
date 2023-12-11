@@ -161,6 +161,7 @@ Settings:
       Middle: 'Μέση'
       End: 'Τέλος'
       Hidden: Κρυμμένο
+      Blur: 'Θάμπωμα'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Διακομιστής
       Invidious (προεπιλογή https://invidious.snopyta.org)'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
@@ -331,6 +332,8 @@ Settings:
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Manage Subscriptions: 'Διαχείριση Εγγραφών'
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
+    Only Show Latest Video for Each Channel: Εμφάνιση μόνο του τελευταίου βίντεο για
+      κάθε κανάλι
   Data Settings:
     Data Settings: 'Ρυθμίσεις Δεδομένων'
     Select Import Type: 'Επιλογή Τρόπου Εισαγωγής'
@@ -426,7 +429,7 @@ Settings:
     Hide Sharing Actions: Απόκρυψη Ενεργειών Κοινής Χρήσης
     Hide Channels: Απόκρυψη Βίντεο Από Κανάλια
     Hide Upcoming Premieres: Απόκρυψη Επερχόμενων Πρεμιέρων
-    Hide Channels Placeholder: Όνομα Καναλιού ή Αναγνωριστικό
+    Hide Channels Placeholder: Αναγνωριστικό καναλιού
     Hide Comments: Απόκρυψη Σχολίων
     Hide Chapters: Απόκρυψη Κεφαλαίων
     Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
@@ -450,6 +453,13 @@ Settings:
     Blur Thumbnails: Θάμπωμα Μικρογραφιών
     Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
     Hide Subscriptions Community: Απόκρυψη Συνδρομών Κοινότητας
+    Hide Channels Invalid: Το αναγνωριστικό καναλιού που δόθηκε δεν ήταν έγκυρο
+    Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού
+      και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση
+      αυτών των αναγνωριστικών
+    Hide Channels Already Exists: Το αναγνωριστικό καναλιού υπάρχει ήδη
+    Hide Channels API Error: Σφάλμα κατά την ανάκτηση χρήστη με το παρεχόμενο αναγνωριστικό.
+      Ελέγξτε ξανά εάν το αναγνωριστικό είναι σωστό.
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -525,6 +535,7 @@ Settings:
     Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
     Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
     Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
+  Expand All Settings Sections: Αναπτύξτε όλες τις ενότητες ρυθμίσεων
 About:
   #On About page
   About: 'Σχετικά με'
@@ -632,6 +643,11 @@ Profile:
   Profile Filter: Φίλτρο προφίλ
   Profile Settings: Ρυθμίσεις προφίλ
   Toggle Profile List: Εναλλαγή Λίστας Προφίλ
+  Profile Name: Όνομα προφίλ
+  Edit Profile Name: Επεξεργασία ονόματος προφίλ
+  Create Profile Name: Δημιουργία ονόματος προφίλ
+  Open Profile Dropdown: Ανοίξτε το αναπτυσσόμενο μενού προφίλ
+  Close Profile Dropdown: Κλείστε το αναπτυσσόμενο μενού προφίλ
 Channel:
   Subscribe: 'Εγγραφή'
   Unsubscribe: 'Απεγγραφή'
@@ -841,6 +857,8 @@ Video:
     Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
     από τον χρήστη."
   Pause on Current Video: Παύση στο Τρέχον Βίντεο
+  Unhide Channel: Εμφάνιση καναλιού
+  Hide Channel: Απόκρυψη καναλιού
 Videos:
   #& Sort By
   Sort By:
@@ -1026,11 +1044,11 @@ Tooltips:
       μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη
       χρήση RAM.
   Distraction Free Settings:
-    Hide Channels: Εισαγάγετε ένα όνομα καναλιού ή ένα αναγνωριστικό καναλιού για
-      να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι ώστε
-      να μην εμφανίζονται στην αναζήτηση, στις τάσεις, στα πιο δημοφιλή και προτεινόμενα.
-      Το όνομα του καναλιού που καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει
-      διάκριση πεζών-κεφαλαίων.
+    Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα
+      βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται
+      στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό
+      καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση
+      πεζών-κεφαλαίων.
     Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}"
       σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
   SponsorBlock Settings:
@@ -1090,3 +1108,6 @@ Playlist will pause when current video is finished: Η Λίστα Αναπαρα
   όταν ολοκληρωθεί το τρέχον βίντεο
 Playlist will not pause when current video is finished: Η Λίστα Αναπαραγωγής δεν θα
   σταματήσει όταν ολοκληρωθεί το τρέχον βίντεο
+Channel Hidden: Το {channel} προστέθηκε στο φίλτρο καναλιού
+Go to page: Μετάβαση σε {page}
+Channel Unhidden: Το {channel} καταργήθηκε από το φίλτρο καναλιού

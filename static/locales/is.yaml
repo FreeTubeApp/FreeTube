@@ -170,6 +170,7 @@ Settings:
       Middle: 'Miðja'
       End: 'Endir'
       Hidden: Falið
+      Blur: Móska
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-tilvik
       (sjálfgefið er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
@@ -331,6 +332,8 @@ Settings:
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Manage Subscriptions: 'Sýsla með áskriftir'
     Fetch Automatically: Sækja streymi sjálfvirkt
+    Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
+      hverja myndskeiðarás
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi stillingar'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -350,7 +353,7 @@ Settings:
     Hide Chapters: Fela kafla
     Hide Upcoming Premieres: Fela væntanlegar frumsýningar
     Hide Channels: Fela myndskeið úr rásum
-    Hide Channels Placeholder: Heiti eða auðkenni rásar
+    Hide Channels Placeholder: Auðkenni rásar
     Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
     Sections:
       Side Bar: Hliðarspjald
@@ -370,6 +373,13 @@ Settings:
     Blur Thumbnails: Móska smámyndir
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
     Hide Subscriptions Community: Fela samfélag áskrifenda
+    Hide Channels Invalid: Uppgefið auðkenni rásar er ógilt
+    Hide Channels Disabled Message: Sumar rásir voru útilokaðar út frá auðkenni og
+      voru ekki meðhöndlaðar. Lokað er á eiginleikann á meðan verið er að uppfæra
+      þessi auðkenni
+    Hide Channels Already Exists: Auðkenni rásar er þegar til
+    Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu
+      aftur hvort auðkennið ré rétt.
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -485,6 +495,7 @@ Settings:
     Set Password: Setja lykilorð
     Remove Password: Fjarlægja lykilorð
     Password Settings: Stillingar lykilorðs
+  Expand All Settings Sections: Fletta út öllum stillingahlutum
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -560,6 +571,11 @@ Profile:
 #On Channel Page
   Profile Settings: Stillingar notkunarsniðs
   Toggle Profile List: Víxla lista með notkunarsniðum af/á
+  Profile Name: Heiti notkunarsniðs
+  Edit Profile Name: Breyta heiti notkunarsniðs
+  Create Profile Name: Útbúa heiti á notkunarsnið
+  Open Profile Dropdown: Opna fellivalmynd notkunarsniðs
+  Close Profile Dropdown: Loka fellivalmynd notkunarsniðs
 Channel:
   Subscribe: 'Gerast áskrifandi'
   Unsubscribe: 'Segja upp áskrift'
@@ -765,6 +781,8 @@ Video:
     í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
     gert það óvirkt.
   Pause on Current Video: Setja núverandi myndskeið í bið
+  Unhide Channel: Birta rás
+  Hide Channel: Fela rás
 Videos:
   #& Sort By
   Sort By:
@@ -912,10 +930,10 @@ Tooltips:
     Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna
       minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
   Distraction Free Settings:
-    Hide Channels: Settu inn heiti eða auðkenni rásar til að fela öll myndskeið, spilunarlista
+    Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista
       og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með.
-      Heiti rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit
-      til hástafa/lágstafa.
+      Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur
+      tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}"
       stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
   SponsorBlock Settings:
@@ -997,3 +1015,6 @@ Playlist will pause when current video is finished: Spilunarlisti mun fara í bi
   að núverandi myndskeið klárast
 Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
   í bið eftir að núverandi myndskeið klárast
+Go to page: Fara á {page}
+Channel Hidden: '{channel} bætt við rásasíu'
+Channel Unhidden: '{channel} fjarlægt úr rásasíu'

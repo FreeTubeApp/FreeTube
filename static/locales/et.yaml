@@ -391,7 +391,7 @@ Settings:
     Hide Upcoming Premieres: Peida tulevased esilinastused
     Hide Chapters: Peida peatükid
     Hide Channels: Peida kanalites leiduvad videod
-    Hide Channels Placeholder: Kanali nimi või tunnus
+    Hide Channels Placeholder: Kanali tunnus
     Display Titles Without Excessive Capitalisation: Näita pealkirju ilma liigsete
       suurtähtedeta
     Sections:
@@ -412,6 +412,13 @@ Settings:
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
     Blur Thumbnails: Hägusta pisipildid
     Hide Subscriptions Community: Peida tellijate loend
+    Hide Channels Invalid: Sisestatud kanali tunnus on vigane
+    Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel
+      ja nende andmeid ei töödelda. See funktsionaalsus pole kasutusel, kui nendes
+      kanalites toimub muutusi
+    Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
+    Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete
+      laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -757,6 +764,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Otsevestlus
     pole selle videovoo puhul saadaval. Võib-olla on üleslaadija vestluse keelanud.
   Pause on Current Video: Peata hetkel esitatav video
+  Unhide Channel: Näita kanalit
+  Hide Channel: Peida kanal
 Videos:
   #& Sort By
   Sort By:
@@ -919,10 +928,10 @@ Tooltips:
     Skip by Scrolling Over Video Player: MPV-stiilis video läbilappamiseks kasuta
       hiire ratast.
   Distraction Free Settings:
-    Hide Channels: Sisesta kanali nimi või kanali ID, et kõik videod, esitusloendid
-      ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote
-      ja populaarsust koguvate videote vaates. Sisestatud kanali nimi peab otsingule
-      vastama täielikult ja on tõstutundlik.
+    Hide Channels: Sisesta kanali tunnus, et kõik videod, esitusloendid ja kanal ise
+      ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote ja populaarsust
+      koguvate videote vaates. Sisestatud kanali tunnus peab otsingule vastama täpselt
+      ja on tõstutundlik.
     Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“
       seadistus „{subsection}“/„{settingsSection}“
   Experimental Settings:
@@ -979,3 +988,6 @@ Playlist will pause when current video is finished: Hetkel mängiva video lõppe
   esitusloendi esitamine peatub
 Playlist will not pause when current video is finished: Hetkel mängiva video lõppemisel
   esitusloendi esitamine jätkub
+Channel Hidden: '{channel} on lisatud kanalite filtrisse'
+Go to page: 'Ava leht: {page}'
+Channel Unhidden: '{channel} on eemaldatud kanalite filtrist'

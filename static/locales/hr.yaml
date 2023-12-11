@@ -155,6 +155,7 @@ Settings:
       Middle: 'Sredina'
       End: 'Kraj'
       Hidden: Skriveno
+      Blur: Neoštro
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videa u trendu'
@@ -327,6 +328,8 @@ Settings:
     Export Subscriptions: 'Izvoz pretplata'
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
     Fetch Automatically: Automatski dohvati feed
+    Only Show Latest Video for Each Channel: Prikaži samo najnoviji video za svaki
+      kanal
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -418,7 +421,7 @@ Settings:
     Hide Chapters: Sakrij poglavlja
     Hide Upcoming Premieres: Sakrij nadolazeće premijere
     Hide Channels: Sakrij videa iz kanala
-    Hide Channels Placeholder: Ime kanala ili ID
+    Hide Channels Placeholder: ID kanala
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
       korištenja velikih slova
     Hide Featured Channels: Sakrij istaknute kanale
@@ -439,6 +442,12 @@ Settings:
     Blur Thumbnails: Zamuti minijature
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
     Hide Subscriptions Community: Sakrij pretplate zajednice
+    Hide Channels Invalid: Navedeni ID kanala nije bio ispravan
+    Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu
+      obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
+    Hide Channels Already Exists: ID kanala već postoji
+    Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo
+      provjeri točnost ID-a.
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -465,7 +474,7 @@ Settings:
     SponsorBlock Settings: Postavke blokiranja sponzora
     Skip Options:
       Auto Skip: Automatsko preskakanje
-      Show In Seek Bar: Pokaži u traci napretka
+      Show In Seek Bar: Prikaži u traci napretka
       Skip Option: Opcija preskakanja
       Prompt To Skip: Poziv za preskakanje
       Do Nothing: Ne čini ništa
@@ -507,6 +516,7 @@ Settings:
     Set Password: Postavi lozinku
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
+  Expand All Settings Sections: Rasklopi sve odjeljke postavki
 About:
   #On About page
   About: 'Informacije'
@@ -616,6 +626,11 @@ Profile:
   Profile Filter: Filtar profila
   Profile Settings: Postavke profila
   Toggle Profile List: Uključi/Isključi popis profila
+  Profile Name: Ime profila
+  Edit Profile Name: Uredi ime profila
+  Create Profile Name: Stvori ime profila
+  Open Profile Dropdown: Otvori rasklopiv izbornik profila
+  Close Profile Dropdown: Zatvori rasklopiv izbornik profila
 Channel:
   Subscribe: 'Pretplati se'
   Unsubscribe: 'Otkaži pretplatu'
@@ -819,6 +834,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
     uživo nije dostupan za ovaj prijenos. Možda ga je prenosnik deaktivirao.
   Pause on Current Video: Zaustavi trenutačni video
+  Unhide Channel: Prikaži kanal
+  Hide Channel: Sakrij kanal
 Videos:
   #& Sort By
   Sort By:
@@ -885,7 +902,7 @@ Comments:
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
-  Show More Replies: Pokaži više odgovora
+  Show More Replies: Prikaži više odgovora
   From {channelName}: od {channelName}
   And others: i drugi
   Pinned by: Prikvačio/la
@@ -987,9 +1004,9 @@ Tooltips:
     Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
   Distraction Free Settings:
-    Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
-      kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
-      ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+    Hide Channels: Upiši ID kanala za skrivanje svih videa, zbirki kao i samog kanala
+      u prikazu pretrage, trendova, najpopularniji i preporučeni. Upisani ID kanala
+      se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
       u odjeljku „{subsection}” u „{settingsSection}”
   SponsorBlock Settings:
@@ -1045,3 +1062,6 @@ Playlist will pause when current video is finished: Zbirka će se zaustaviti kad
   video završi
 Playlist will not pause when current video is finished: Zbirka se neće zaustaviti
   kada trenutačni video završi
+Go to page: Idi na {page}
+Channel Hidden: '{channel} je dodan u filtar kanala'
+Channel Unhidden: '{channel} je uklonjen iz filtra kanala'

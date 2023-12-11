@@ -19,6 +19,7 @@ import {
 
 const state = {
   isSideNavOpen: false,
+  outlinesHidden: true,
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: {
@@ -49,6 +50,10 @@ const state = {
 const getters = {
   getIsSideNavOpen () {
     return state.isSideNavOpen
+  },
+
+  getOutlinesHidden() {
+    return state.outlinesHidden
   },
 
   getCurrentVolume () {
@@ -117,6 +122,14 @@ const getters = {
 }
 
 const actions = {
+  showOutlines({ commit }) {
+    commit('setOutlinesHidden', false)
+  },
+
+  hideOutlines({ commit }) {
+    commit('setOutlinesHidden', true)
+  },
+
   async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
@@ -631,6 +644,10 @@ const actions = {
 const mutations = {
   toggleSideNav (state) {
     state.isSideNavOpen = !state.isSideNavOpen
+  },
+
+  setOutlinesHidden(state, value) {
+    state.outlinesHidden = value
   },
 
   setShowProgressBar (state, value) {

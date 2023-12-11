@@ -38,6 +38,9 @@ Global:
   Live: Tiesiogiai
   Shorts: Šortai
   Community: Bendruomenė
+  Counts:
+    Subscriber Count: 1 prenumeruoti | {count} prenumeratorių
+    Channel Count: 1 kanalas | {count} kanalai
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
   jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'

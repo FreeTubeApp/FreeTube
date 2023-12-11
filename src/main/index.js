@@ -170,6 +170,10 @@ function runApp() {
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
 
+  // Work around for context menus in the devtools being displayed behind the window
+  // https://github.com/electron/electron/issues/38790
+  app.commandLine.appendSwitch('disable-features', 'WidgetLayering')
+
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
@@ -1327,6 +1331,13 @@ function runApp() {
             accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/history', browserWindow)
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Profile Manager',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/settings/profile/', browserWindow)
             },
             type: 'normal'
           },

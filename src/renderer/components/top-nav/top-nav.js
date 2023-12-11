@@ -40,6 +40,20 @@ export default defineComponent({
       return this.$store.getters.getHideHeaderLogo
     },
 
+    landingPage: function () {
+      return this.$store.getters.getLandingPage
+    },
+
+    headerLogoTitle: function () {
+      return this.$t('Go to page',
+        {
+          page: this.$t(this.$router.getRoutes()
+            .find((route) => route.path === '/' + this.landingPage)
+            .meta.title
+          )
+        })
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
@@ -207,7 +221,14 @@ export default defineComponent({
 
     focusSearch: function () {
       if (!this.hideSearchBar) {
-        this.$refs.searchInput.focus()
+        // In order to prevent Klipper's "Synchronize contents of the clipboard
+        // and the selection" feature from being triggered when running
+        // Chromium on KDE Plasma, it seems both focus() focus and
+        // select() have to be called asynchronously (see issue #2019).
+        setTimeout(() => {
+          this.$refs.searchInput.focus()
+          this.$refs.searchInput.select()
+        }, 0)
       }
     },
 

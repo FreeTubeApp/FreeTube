@@ -170,6 +170,7 @@ $watched-transition-duration: 0.5s;
       font-size: 20px;
       justify-self: end;
       inline-size: 60px;
+      pointer-events: none;
 
       .background {
         background-color: var(--bg-color);
@@ -191,9 +192,14 @@ $watched-transition-duration: 0.5s;
     display: flex;
     justify-content: center;
 
-    .channelImage {
-      border-radius: 50%;
-      block-size: 130px;
+    .channelThumbnailLink {
+      inline-size: 100%;
+      text-align: center;
+
+      .channelImage {
+        border-radius: 50%;
+        block-size: 130px;
+      }
     }
   }
 
@@ -201,6 +207,7 @@ $watched-transition-duration: 0.5s;
     align-content: flex-start;
     display: grid;
     flex: 1;
+    min-inline-size: 10em;
     grid-template:
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
@@ -268,13 +275,38 @@ $watched-transition-duration: 0.5s;
       }
     }
 
+    &.result {
+      .videoThumbnail,
+      .channelThumbnailLink,
+      .thumbnailLink,
+      .thumbnailImage {
+        inline-size: 336px;
+        max-inline-size: 25vw;
+
+        @media only screen and (max-width: 680px) {
+          max-inline-size: 30vw;
+        }
+      }
+
+      .channelImage {
+        max-inline-size: 25vw;
+        max-block-size: 25vw;
+
+        @media only screen and (max-width: 680px) {
+          max-inline-size: 30vw;
+          max-block-size: 30vw;
+        }
+      }
+    }
+
+
     .videoThumbnail,
     .channelThumbnail {
       margin-inline-end: 20px;
     }
 
-    .channelThumbnail {
-      inline-size: 231px;
+    .info .description {
+      margin-inline-end: 10px;
     }
   }
 
@@ -289,10 +321,10 @@ $watched-transition-duration: 0.5s;
     .videoThumbnail,
     .channelThumbnail {
       margin-block-end: 12px;
+    }
 
-      .thumbnailImage {
-        inline-size: 100%;
-      }
+    .thumbnailImage, .channelThumbnail {
+      inline-size: 100%;
     }
 
     .title {
@@ -332,6 +364,45 @@ $watched-transition-duration: 0.5s;
       visibility: none;
       opacity: 0;
       transition: visibility 0s, opacity 0.2s linear;
+    }
+  }
+}
+
+.ft-list-channel {
+  .infoAndSubscribe {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    inline-size: 100%;
+  }
+
+  &.grid {
+    align-items: center;
+    text-align: center;
+
+    .infoAndSubscribe {
+      flex-flow: column wrap;
+      align-items: center;
+
+      .info {
+        margin-block-end: 12px;
+
+        .infoLine {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.list {
+    .infoAndSubscribe {
+      flex-flow: row wrap;
+      justify-content: center;
+
+      .channelSubscribeButton {
+        margin-block: auto;
+        margin-inline: 7px;
+      }
     }
   }
 }

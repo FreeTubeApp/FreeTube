@@ -333,6 +333,8 @@ Settings:
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
     Manage Subscriptions: 'Управљање праћењима'
     Fetch Automatically: Аутоматски прикупи фид
+    Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
+      сваки канал
   Distraction Free Settings:
     Distraction Free Settings: 'Подешавања „Без ометања“'
     Hide Video Views: 'Сакриј прегледе видео снимка'
@@ -346,7 +348,7 @@ Settings:
     Hide Live Chat: 'Сакриј ћаскање уживо'
     Hide Active Subscriptions: 'Сакриј активна праћења'
     Blur Thumbnails: Замагли сличице
-    Hide Channels Placeholder: Назив канала или ID канала
+    Hide Channels Placeholder: ID канала
     Hide Video Description: Сакриј опис видео снимка
     Hide Chapters: Сакриј поглавља
     Sections:
@@ -373,6 +375,12 @@ Settings:
     Hide Profile Pictures in Comments: Сакриј слике профила у коментарима
     Hide Upcoming Premieres: Сакриј предстојеће премијере
     Hide Channel Releases: Сакриј издања канала
+    Hide Channels Invalid: Наведени ID канала је неважећи
+    Hide Channels Disabled Message: Неки канали су блокирани помоћу ID-а и нису обрађени.
+      Функција је блокирана док се ти ID-ови ажурирају
+    Hide Channels Already Exists: ID канала већ постоји
+    Hide Channels API Error: Грешка при преузимању корисника са наведеним ID-ом. Проверите
+      поново да ли је ID тачан.
   Data Settings:
     Data Settings: 'Подешавања података'
     Select Import Type: 'Избор врсте увоза'
@@ -486,6 +494,7 @@ Settings:
     Password: Лозинка
     Enter Password To Unlock: Унесите лозинку да бисте откључали подешавања
     Unlock: Откључај
+  Expand All Settings Sections: Прошири све одељке подешавања
 About:
   #On About page
   About: 'О апликацији'
@@ -560,6 +569,11 @@ Profile:
 #On Channel Page
   Profile Settings: Подешавања профила
   Toggle Profile List: Укључи листу профила
+  Open Profile Dropdown: Отвори падајући мени профила
+  Close Profile Dropdown: Затвори падајући мени профила
+  Profile Name: Име профила
+  Edit Profile Name: Измени име профила
+  Create Profile Name: Направи име профила
 Channel:
   Subscriber: 'Пратилац'
   Subscribers: 'Пратиоци'
@@ -755,6 +769,8 @@ Video:
     YouTube-ом.
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Ћаскање
     уживо није доступно за овај стрим. Можда га је онемогућио аутор.
+  Unhide Channel: Прикажи канал
+  Hide Channel: Сакриј канал
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -796,7 +812,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Унесите назив канала или ID канала да бисте сакрили све видео снимке,
       плејлисте и сам канал, да се не појављују у претрази, у тренду, најпопуларнијима
-      и препорученима. Назив канала који сте унели мора се потпуно подударати и разликовати
+      и препорученима. ID канала који сте унели мора се потпуно подударати и разликовати
       велика и мала слова.
     Hide Subscriptions Live: Ово подешавање је замењено подешавањем за целу апликацију
       „{appWideSetting}“ у одељку „{subsection}“ у „{settingsSection}“
@@ -904,7 +920,7 @@ Share:
   YouTube Embed URL copied to clipboard: YouTube уграђени URL је копиран у привремену
     меморију
 Falling back to the local API: Повратак на локални API
-Unknown YouTube url type, cannot be opened in app: Непозната врста YouTube URL-а,
+Unknown YouTube url type, cannot be opened in app: Непозната врста YouTube URL адресе,
   не може се отворити у апликацији
 Search Bar:
   Clear Input: Очисти унос
@@ -971,3 +987,6 @@ Screenshot Error: Снимак екрана није успео. {error}
 Downloading has completed: „{videoTitle}“ је завршио преузимање
 Loop is now enabled: Понављање је сада омогућено
 Downloading failed: Дошло је до проблема при преузимању „{videoTitle}“
+Channel Hidden: '{channel} је додат на филтер канала'
+Go to page: Иди на {page}
+Channel Unhidden: '{channel} је уклоњен из филтера канала'

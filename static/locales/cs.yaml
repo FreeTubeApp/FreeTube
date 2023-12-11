@@ -327,6 +327,8 @@ Settings:
     Fetch Feeds from RSS: 'Načíst kanály z RSS'
     Manage Subscriptions: 'Spravovat odebírané kanály'
     Fetch Automatically: Automaticky načítat odběry
+    Only Show Latest Video for Each Channel: U každého kanálu zobrazit pouze nejnovější
+      video
   Distraction Free Settings:
     Distraction Free Settings: 'Nastavení rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
@@ -346,7 +348,7 @@ Settings:
     Hide Chapters: Skrýt kapitoly
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
     Hide Channels: Skrýt videa z kanálů
-    Hide Channels Placeholder: Název nebo ID kanálu
+    Hide Channels Placeholder: ID kanálu
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
       použití velkých písmen
     Hide Featured Channels: Skrýt doporučené kanály
@@ -367,6 +369,12 @@ Settings:
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
     Blur Thumbnails: Rozmazat náhledy
     Hide Subscriptions Community: Skrýt komunitu odběratelů
+    Hide Channels Invalid: Zadané ID kanálu je neplatné
+    Hide Channels Disabled Message: Některé kanály byly zablokovány pomocí ID a nebyly
+      zpracovány. Při aktualizaci těchto ID je funkce zablokována
+    Hide Channels Already Exists: ID kanálu již existuje
+    Hide Channels API Error: Chyba při načítání uživatele se zadaným ID. Zkontrolujte
+      prosím, zda je zadané ID správné.
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -506,6 +514,7 @@ Settings:
     Set Password To Prevent Access: Nastavte heslo, abyste zabránili přístupu k nastavení
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
+  Expand All Settings Sections: Rozbalit všechny sekce nastavení
 About:
   #On About page
   About: 'O aplikaci'
@@ -606,6 +615,11 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Nastavení profilu
   Toggle Profile List: Přepnout seznam profilů
+  Open Profile Dropdown: Otevřít rozbalovací nabídku profilu
+  Close Profile Dropdown: Zavřít rozbalovací nabídku profilu
+  Profile Name: Jméno profilu
+  Edit Profile Name: Upravit jméno profilu
+  Create Profile Name: Vytvořit jméno profilu
 Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
@@ -800,6 +814,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Živý
     chat není pro tento stream k dispozici. Je možné, že byl vypnut nahrávajícím.
   Pause on Current Video: Pozastavit na současném videu
+  Unhide Channel: Zobrazit kanál
+  Hide Channel: Skrýt kanál
 Videos:
   #& Sort By
   Sort By:
@@ -946,10 +962,9 @@ Tooltips:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní paměťovou
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
   Distraction Free Settings:
-    Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
-      a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších
-      a doporučených. Zadaný název kanálu se musí zcela shodovat a rozlišují se v
-      něm velká a malá písmena.
+    Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného
+      kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených.
+      Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace
       „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
   SponsorBlock Settings:
@@ -1026,3 +1041,6 @@ Playlist will pause when current video is finished: Po přehrání aktuálního 
   playlist pozastaven
 Playlist will not pause when current video is finished: Po přehrání aktuálního videa
   nebude playlist pozastaven
+Channel Hidden: Kanál {channel} přidán do filtru kanálů
+Go to page: Přejít na {page}
+Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů

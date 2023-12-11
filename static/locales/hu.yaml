@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'magyar'
+Locale Name: 'English (US)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -103,8 +103,8 @@ Subscriptions:
     elkerülésére
   Load More Videos: További videók betöltése
   Error Channels: Hibás csatornák
-  Disabled Automatic Fetching: Az önműködő feliratkozási kérés letiltva. Frissítse
-    a feliratkozást a megtekintéséhez.
+  Disabled Automatic Fetching: Ön kikapcsolta a feliratkozások automatikus lekérdezését.
+    Frissítse a feliratkozásokat, hogy itt láthassa őket.
   Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
   All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni
     tartalom megtekintéséhez, kérjük, jelenítse meg néhány lap elrejtését a(z) „{settingsSection}”
@@ -168,6 +168,7 @@ Settings:
       Middle: 'Középső'
       End: 'Vég'
       Hidden: Rejtett
+      Blur: Kikockázás
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious példány
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
@@ -252,9 +253,9 @@ Settings:
       örökölt formátumokra'
     Play Next Video: 'Következő videó lejátszása'
     Turn on Subtitles by Default: 'Alapértelmezés szerint feliratok megjelenítése'
-    Autoplay Videos: 'Videók önműködően lejátszása'
+    Autoplay Videos: 'Videók automatikus lejátszása'
     Proxy Videos Through Invidious: 'Meghatalmazás videók az Invidious révén'
-    Autoplay Playlists: 'Lejátszási listák önműködően lejátszása'
+    Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
     Enable Theatre Mode by Default: 'Alapértelmezés szerint mozi mód engedélyezése'
     Default Volume: 'Alapértelmezett hangerő: '
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség: '
@@ -266,7 +267,7 @@ Settings:
       Audio Formats: 'Hangformátumok'
     Default Quality:
       Default Quality: 'Alapértelmezett minőség'
-      Auto: 'Önműködő'
+      Auto: 'Automatikus'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -322,7 +323,7 @@ Settings:
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
-    Automatically Remove Video Meta Files: Videométafájlok önműködő eltávolítása
+    Automatically Remove Video Meta Files: Videó-metafájlok automatikus eltávolítása
     Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
       utoljára megtekintett lejátszási listával
   Subscription Settings:
@@ -330,7 +331,8 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
-    Fetch Automatically: Hírcsatorna önműködő lekérése
+    Fetch Automatically: Hírcsatorna automatikus lekérdezése
+    Only Show Latest Video for Each Channel: Csak a legújabb videókat mutassa a csatornáktól
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -427,7 +429,7 @@ Settings:
     Hide Chapters: Fejezetek elrejtése
     Hide Upcoming Premieres: Közelgő első előadások elrejtése
     Hide Channels: Videók elrejtése a csatornákból
-    Hide Channels Placeholder: Csatorna neve vagy azonosítója
+    Hide Channels Placeholder: Csatornaazonosító
     Display Titles Without Excessive Capitalisation: Címek megjelenítése túlzott nagybetűk
       nélkül
     Hide Featured Channels: Kiemelt csatornák elrejtése
@@ -448,6 +450,13 @@ Settings:
     Blur Thumbnails: Indexkép elhomályosítása
     Hide Profile Pictures in Comments: Profilképek elrejtése a megjegyzésekben
     Hide Subscriptions Community: Közösségi feliratkozások elrejtése
+    Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
+    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító használatával,
+      és nem dolgozták fel őket. A jellemző le van tiltva az azonosítók frissítése
+      közben
+    Hide Channels Already Exists: Már létezik a csatornaazonosító
+    Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
+      lekérésekor. Kérjük, ellenőrizze még egyszer, hogy helyes-e az azonosító.
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -475,7 +484,7 @@ Settings:
     SponsorBlock Settings: SponsorBlock beállításai
     Skip Options:
       Skip Option: Beállítás kihagyása
-      Auto Skip: Önműködő kihagyás
+      Auto Skip: Automatikus kihagyás
       Show In Seek Bar: Megjelenítés a keresősávban
       Do Nothing: Nincs művelet
       Prompt To Skip: Kihagyás kérése
@@ -516,10 +525,11 @@ Settings:
     Password: Jelszó
   Password Settings:
     Password Settings: Jelszóbeállítások
-    Set Password To Prevent Access: Jelszó beállítása a beállításokhoz való hozzáférés
+    Set Password To Prevent Access: Jelszó megadása a beállításokhoz való hozzáférés
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
+  Expand All Settings Sections: Minden beállítási szakasz kibontása
 About:
   #On About page
   About: 'Névjegy'
@@ -622,6 +632,11 @@ Profile:
   Profile Filter: Profilszűrő
   Profile Settings: Profilbeállítások
   Toggle Profile List: Profillista be-/kikapcsolása
+  Profile Name: Profilnév
+  Edit Profile Name: Profilnév szerkesztése
+  Create Profile Name: Profilnév létrehozása
+  Open Profile Dropdown: Profil legördülő menü megnyítása
+  Close Profile Dropdown: Profil legördülő menü bezárása
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
@@ -703,7 +718,7 @@ Video:
   Play Next Video: 'Következő videó lejátszása'
   Play Previous Video: 'Előző videó lejátszása'
   Watched: 'Megtekintett'
-  Autoplay: 'Önműködő lejátszás'
+  Autoplay: 'Automatikus lejátszás'
   Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, kérjük,
     frissítse a lapot az ellenőrzéshez'
   # As in a Live Video
@@ -749,7 +764,7 @@ Video:
     Years: 'évvel'
     Ago: 'ezelőtt'
     Upcoming: 'Első előadás dátuma'
-    In less than a minute: Kevesebb, mint egy perccel ezelőtt
+    In less than a minute: Kevesebb, mint egy perce
   Published on: 'Megjelent'
   Publicationtemplate: '{number} {unit} ezelőtt'
 #& Videos
@@ -818,6 +833,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
     élő csevegés nem érhető el ehhez az adatfolyamhoz. Lehet, hogy a feltöltő letiltotta.
   Pause on Current Video: Jelenlegi videó szüneteltetése
+  Unhide Channel: Csatorna megjelenítése
+  Hide Channel: Csatorna elrejtése
 Videos:
   #& Sort By
   Sort By:
@@ -914,7 +931,7 @@ Shuffle is now enabled: 'Véletlen sorrendű lejátszás bekapcsolva'
 The playlist has been reversed: 'Lejátszási lista megfordítva'
 Playing Next Video: 'Következő videó lejátszása'
 Playing Previous Video: 'Előző videó lejátszása'
-Canceled next video autoplay: 'Következő videó önműködő lejátszása megszakítva'
+Canceled next video autoplay: 'Következő videó automatikus lejátszásának megszakítása'
 'The playlist has ended. Enable loop to continue playing': 'A lejátszási lista véget
   ért. Engedélyezze a folyamatos lejátszást a lejátszás folytatásához'
 
@@ -931,8 +948,8 @@ Tooltips:
       API-hívásokhoz.
     Thumbnail Preference: A FreeTube összes indexképét a videó egy képkockája váltja
       fel az alapértelmezett miniatűr helyett.
-    Fallback to Non-Preferred Backend on Failure: Ha az Ön által előnyben részesített
-      API-val hibába merül fel, a FreeTube önműködően megpróbálja a nem előnyben részesített
+    Fallback to Non-Preferred Backend on Failure: Ha az előnyben részesített API-jával
+      hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített
       API-t tartalékként használni, ha engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, ha egy hivatkozásra
       kattintanak, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés
@@ -943,7 +960,7 @@ Tooltips:
       Az RSS gyorsabb és megakadályozza az IP-zárolást, de nem nyújt bizonyos tájékoztatást,
       például a videó időtartamát vagy az élő állapotot
     Fetch Automatically: Ha engedélyezve van, a FreeTube új ablak megnyitásakor és
-      profilváltáskor önműködően lekéri az feliratkozási hírfolyamot.
+      profilváltáskor automatikusan lekéri az feliratkozási hírfolyamot.
   Player Settings:
     Default Video Format: Állítsa be a videó lejátszásakor használt formátumokat.
       A DASH (dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül)
@@ -971,8 +988,8 @@ Tooltips:
       Nem minden videónál érhetők el, ilyenkor a lejátszó a DASH H.264 formátumot
       használja helyette.
   Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a FreeTube önműködően törli a videolejátszás
-      során létrehozott metafájlokat, amikor a nézőlap bezár.
+    Remove Video Meta Files: Ha engedélyezve van, a FreeTube automatikusan törli a
+      videolejátszás során létrehozott metafájlokat, amikor a nézőlapot bezárják.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
@@ -989,10 +1006,10 @@ Tooltips:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
   Distraction Free Settings:
-    Hide Channels: Adja meg a csatorna nevét vagy csatornaazonosítóját, hogy elrejtse
-      az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
-      a keresésben, illetve a felkapott, legnépszerűbb és legajánlottabb. A megadott
-      csatornanévnek teljes egyezésnek kell lennie, és megkülönbözteti a kis- és nagybetűket.
+    Hide Channels: Csatornaazonosító megadása, hogy elrejtse az összes videót, lejátszási
+      listát és magát a csatornát, nehogy megjelenjen a keresésben, a felkapott, legnépszerűbb
+      és legnépszerűbb. A megadott csatornaazonosítónak teljes egyezésnek kell lennie,
+      és megkülönbözteti a kis- és nagybetűket.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}”
       beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
   SponsorBlock Settings:
@@ -1004,7 +1021,7 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
   másodperc múlva történik. Kattintson a törléshez.
 More: Több
 Hashtags have not yet been implemented, try again later: A kettőskeresztescímkék kezelése
-  még nincs implementálva. próbálkozz a következő verzióban
+  még nincs implementálva, próbálkozzon újra később
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
   nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
@@ -1052,3 +1069,6 @@ Playlist will pause when current video is finished: Szünetel a lejátszási lis
   a jelenlegi videó véget ér
 Playlist will not pause when current video is finished: Nem szünetel a lejátszási
   lista, amikor a jelenlegi videó véget ér
+Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
+Go to page: Ugrás a(z) {page}. oldalra
+Channel Unhidden: '{channel} eltávolítva a csatornaszűrőből'
