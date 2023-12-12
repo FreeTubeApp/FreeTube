@@ -24,7 +24,6 @@
           ref="searchBar"
           :placeholder="$t('User Playlists.Search bar placeholder')"
           :show-clear-text-button="true"
-          :clear-input-text-button-vertically-centered="true"
           :show-action-button="false"
           @input="(input) => query = input"
           @clear="query = ''"

@@ -51,21 +51,13 @@
   inset-inline-start: 0;
   /* To be higher than `.inputWrapper` */
   z-index: 1;
-
   margin-block: 0;
   margin-inline: 3px;
   padding: 10px;
   border-radius: 100%;
-
   color: var(--primary-text-color);
   opacity: 0;
-
   transition: background 0.2s ease-in;
-}
-
-.clearInputTextButton.verticallyCentered {
-  inset-block: 0;
-  margin-block: auto;
 }
 
 .clearInputTextButton.visible:hover {

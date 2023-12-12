@@ -38,10 +38,6 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    clearInputTextButtonVerticallyCentered: {
-      type: Boolean,
-      default: false
-    },
     showLabel: {
       type: Boolean,
       default: false
@@ -65,7 +61,7 @@ export default defineComponent({
     tooltip: {
       type: String,
       default: ''
-    },
+    }
   },
   data: function () {
     let actionIcon = ['fas', 'search']
