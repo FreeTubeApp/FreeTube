@@ -1847,7 +1847,11 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
-        this.searchResults = this.searchResults.concat(response)
+        if (this.hideChannelPlaylists) {
+          this.searchResults = this.searchResults.concat(response)
+        } else {
+          this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'Playlist'))
+        }
         this.isElementListLoading = false
         this.searchPage++
       }).catch((err) => {
