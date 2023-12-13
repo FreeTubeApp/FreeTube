@@ -1848,9 +1848,9 @@ export default defineComponent({
 
       invidiousAPICall(payload).then((response) => {
         if (this.hideChannelPlaylists) {
-          this.searchResults = this.searchResults.concat(response)
+          this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {
-          this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'Playlist'))
+          this.searchResults = this.searchResults.concat(response)
         }
         this.isElementListLoading = false
         this.searchPage++
