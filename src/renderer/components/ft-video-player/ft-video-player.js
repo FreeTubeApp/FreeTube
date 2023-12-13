@@ -321,6 +321,10 @@ export default defineComponent({
       return playbackRates
     },
 
+    defaultSubtitles: function () {
+      return this.$store.getters.getDefaultSubtitles
+    },
+
     enableScreenshot: function () {
       return this.$store.getters.getEnableScreenshot
     },
@@ -1872,6 +1876,10 @@ export default defineComponent({
           label: caption.label,
           type: caption.type
         }, true)
+      }
+
+      if (this.defaultSubtitles) {
+        this.toggleCaptions()
       }
     },
 
