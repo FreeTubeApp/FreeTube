@@ -22,8 +22,8 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Turn on Subtitles by Default')"
           :compact="true"
-          :default-value="defaultSubtitles"
-          @change="updateDefaultSubtitles"
+          :default-value="enableSubtitlesByDefault"
+          @change="updateEnableSubtitlesByDefault"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"

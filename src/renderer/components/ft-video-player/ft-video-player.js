@@ -321,8 +321,8 @@ export default defineComponent({
       return playbackRates
     },
 
-    defaultSubtitles: function () {
-      return this.$store.getters.getDefaultSubtitles
+    enableSubtitlesByDefault: function () {
+      return this.$store.getters.getEnableSubtitlesByDefault
     },
 
     enableScreenshot: function () {
@@ -1878,7 +1878,7 @@ export default defineComponent({
         }, true)
       }
 
-      if (this.defaultSubtitles) {
+      if (this.enableSubtitlesByDefault) {
         this.toggleCaptions()
       }
     },
