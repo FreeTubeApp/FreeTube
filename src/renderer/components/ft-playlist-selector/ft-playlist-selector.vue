@@ -1,13 +1,13 @@
 <template>
   <div
-    class="ft-list-video ft-list-item grid"
+    class="ft-playlist-selector grid"
     :class="{ selected: selected }"
     @click="toggleSelection"
     @keydown.enter.prevent="toggleSelection"
     @keydown.space.prevent="toggleSelection"
   >
     <div
-      class="videoThumbnail"
+      class="thumbnail"
     >
       <font-awesome-icon
         v-if="selected"
