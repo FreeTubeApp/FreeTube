@@ -95,7 +95,6 @@ export default defineComponent({
       videoDescriptionHtml: '',
       videoViewCount: 0,
       videoLikeCount: 0,
-      videoDislikeCount: 0,
       videoLengthSeconds: 0,
       videoChapters: [],
       videoCurrentChapterIndex: 0,
@@ -357,12 +356,18 @@ export default defineComponent({
 
         if (this.hideVideoLikesAndDislikes) {
           this.videoLikeCount = null
-          this.videoDislikeCount = null
         } else {
-          this.videoLikeCount = isNaN(result.basic_info.like_count) ? 0 : result.basic_info.like_count
-
-          // YouTube doesn't return dislikes anymore
-          this.videoDislikeCount = 0
+          try {
+            if (!isNaN(result.basic_info.like_count)) {
+              this.videoLikeCount = result.basic_info.like_count
+            } else {
+              console.warn('Had to fallback to invidious to get video likes')
+              this.getLikesInvidious()
+            }
+          } catch {
+            this.videoLikeCount = 0
+            console.error('Could not load video likes')
+          }
         }
 
         this.isLive = !!result.basic_info.is_live
@@ -665,6 +670,20 @@ export default defineComponent({
       }
     },
 
+    getLikesInvidious: function() {
+      invidiousGetVideoInformation(this.videoId).then(async result => {
+        if (result.error) {
+          throw new Error(result.error)
+        }
+
+        if (this.hideVideoLikesAndDislikes) {
+          this.videoLikeCount = null
+        } else {
+          this.videoLikeCount = result.likeCount
+        }
+      })
+    },
+
     getVideoInformationInvidious: function () {
       if (this.firstLoad) {
         this.isLoading = true
@@ -683,10 +702,8 @@ export default defineComponent({
           this.channelSubscriptionCountText = isNaN(result.subCountText) ? '' : result.subCountText
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
-            this.videoDislikeCount = null
           } else {
             this.videoLikeCount = result.likeCount
-            this.videoDislikeCount = result.dislikeCount
           }
 
           this.channelId = result.authorId

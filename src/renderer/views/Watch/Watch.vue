@@ -105,7 +105,6 @@
         :published="videoPublished"
         :subscription-count-text="channelSubscriptionCountText"
         :like-count="videoLikeCount"
-        :dislike-count="videoDislikeCount"
         :view-count="videoViewCount"
         :get-timestamp="getTimestamp"
         :is-live-content="isLiveContent"
