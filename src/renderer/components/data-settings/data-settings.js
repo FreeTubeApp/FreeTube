@@ -945,9 +945,8 @@ export default defineComponent({
             })
 
             playlistObject[key] = videoArray
-          } else if (ignoredKeys.includes(key)) {
+          } else if (!ignoredKeys.includes(key)) {
             // Do nothing for keys to be ignored
-          } else {
             playlistObject[key] = playlistData[key]
           }
         })
