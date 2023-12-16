@@ -354,22 +354,6 @@ export default defineComponent({
             break
         }
 
-        if (this.hideVideoLikesAndDislikes) {
-          this.videoLikeCount = null
-        } else {
-          try {
-            if (!isNaN(result.basic_info.like_count)) {
-              this.videoLikeCount = result.basic_info.like_count
-            } else {
-              console.warn('Had to fallback to invidious to get video likes')
-              this.getLikesInvidious()
-            }
-          } catch {
-            this.videoLikeCount = 0
-            console.error('Could not load video likes')
-          }
-        }
-
         this.isLive = !!result.basic_info.is_live
         this.isUpcoming = !!result.basic_info.is_upcoming
         this.isLiveContent = !!result.basic_info.is_live_content
@@ -653,6 +637,22 @@ export default defineComponent({
 
         this.isLoading = false
         this.updateTitle()
+
+        if (this.hideVideoLikesAndDislikes) {
+          this.videoLikeCount = null
+        } else {
+          try {
+            if (!isNaN(result.basic_info.like_count)) {
+              this.videoLikeCount = result.basic_info.like_count
+            } else {
+              console.warn('Had to fallback to invidious to get video likes')
+              this.getLikesInvidious()
+            }
+          } catch {
+            this.videoLikeCount = 0
+            console.error('Could not load video likes')
+          }
+        }
       } catch (err) {
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
