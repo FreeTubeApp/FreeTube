@@ -189,7 +189,7 @@ User Playlists:
       Playlist name cannot be empty. Please input a name.: Playlist name cannot be empty. Please input a name.
       Playlist has been updated.: Playlist has been updated.
       There was an issue with updating this playlist.: There was an issue with updating this playlist.
-      "{videoCount} video(s) have been removed.": "{videoCount} video(s) have been removed."
+      "{videoCount} video(s) have been removed": "1 video has been removed | {videoCount} videos have been removed"
       There were no videos to remove.: There were no videos to remove.
       This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
@@ -203,7 +203,8 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "{videoCount} video(s) added to {playlistCount} playlist(s).": "{videoCount} video(s) added to {playlistCount} playlist(s)."
+      "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"
+      "{videoCount} video(s) added to {playlistCount} playlists": "1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists"
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist Name
     Create: Create

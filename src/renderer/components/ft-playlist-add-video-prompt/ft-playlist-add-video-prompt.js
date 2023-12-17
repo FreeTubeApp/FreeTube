@@ -231,7 +231,10 @@ export default defineComponent({
         this.updatePlaylist({ _id: playlist._id })
       })
 
-      showToast(this.$t('User Playlists.AddVideoPrompt.Toast["{videoCount} video(s) added to {playlistCount} playlist(s)."]', {
+      const translationEntryKey = addedPlaylistIds.size === 1
+        ? 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist'
+        : 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists'
+      showToast(this.$tc(translationEntryKey, this.toBeAddedToPlaylistVideoCount, {
         videoCount: this.toBeAddedToPlaylistVideoCount,
         playlistCount: addedPlaylistIds.size,
       }))

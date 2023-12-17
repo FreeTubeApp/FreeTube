@@ -271,9 +271,9 @@ export default defineComponent({
           return this.historyCacheById[video.videoId] == null
         })
 
-        const videosRemoved = this.selectedUserPlaylist.videos.length - videosToWatch.length
+        const removedVideosCount = this.selectedUserPlaylist.videos.length - videosToWatch.length
 
-        if (videosRemoved === 0) {
+        if (removedVideosCount === 0) {
           showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
           this.showRemoveVideosOnWatchPrompt = false
           return
@@ -288,8 +288,8 @@ export default defineComponent({
         }
         try {
           this.updatePlaylist(playlist)
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["{videoCount} video(s) have been removed."]', {
-            videoCount: videosRemoved,
+          showToast(this.$tc('User Playlists.SinglePlaylistView.Toast.{videoCount} video(s) have been removed', removedVideosCount, {
+            videoCount: removedVideosCount,
           }))
         } catch (e) {
           showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
