@@ -7,7 +7,7 @@ import store from './store/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { ObserveVisibility } from 'vue-observe-visibility'
-import { register as registerSwiper } from 'swiper/element/bundle'
+import { register as registerSwiper } from 'swiper/element'
 
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries

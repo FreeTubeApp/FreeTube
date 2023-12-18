@@ -142,6 +142,18 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
+          to: 'swiper.css',
+          context: path.join(__dirname, '../node_modules/swiper/modules'),
+          transformAll: (assets) => {
+            return Buffer.concat(assets.map(asset => asset.data))
+          }
+        }
+      ]
     })
   ],
   resolve: {
