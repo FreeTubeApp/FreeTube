@@ -1427,10 +1427,10 @@
   resolved "https://registry.yarnpkg.com/@seald-io/binary-search-tree/-/binary-search-tree-1.0.3.tgz#165a9a456eaa30d15885b25db83861bcce2c6a74"
   integrity sha512-qv3jnwoakeax2razYaMsGI/luWdliBLHTdC6jU55hQt1hcFqzauH/HsBollQ7IR4ySTtYhT+xyHoijpA16C+tA==
 
-"@seald-io/nedb@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@seald-io/nedb/-/nedb-4.0.2.tgz#44bc5f9b86e44f7434c5af8064cc7f8e079fc3a8"
-  integrity sha512-gJ91fT1sgh2cLXYVcTSh7khZ8LdemI8+SojCdpZ5wy+DUQ4fSrEwGqOwbdV49NDs2BBO6GeBpSb8CnhG2IW1rw==
+"@seald-io/nedb@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@seald-io/nedb/-/nedb-4.0.3.tgz#39c4f47df12e493cb0ae88b8619a70f85e46eea6"
+  integrity sha512-ik4rn0Ks8q1VEzhe6qFh9/MBrw77ym1OZxF2mBS6/H8cr4lpNhCvF8FqB901Oft1CSP50LL0ay4QQCU3xqn+Ew==
   dependencies:
     "@seald-io/binary-search-tree" "^1.0.3"
     localforage "^1.9.0"
