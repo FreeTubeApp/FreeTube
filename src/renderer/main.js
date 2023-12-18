@@ -6,7 +6,7 @@ import store from './store/index'
 import i18n from './i18n/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { register as registerSwiper } from 'swiper/element/bundle'
+import { register as registerSwiper } from 'swiper/element'
 
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries

@@ -5,7 +5,9 @@ import FtCommunityPoll from '../ft-community-poll/ft-community-poll.vue'
 
 import autolinker from 'autolinker'
 
-import { deepCopy, toLocalePublicationString } from '../../helpers/utils'
+import { A11y, Navigation, Pagination } from 'swiper/modules'
+
+import { createWebURL, deepCopy, toLocalePublicationString } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -46,6 +48,34 @@ export default defineComponent({
   },
   created: function () {
     this.parseCommunityData()
+  },
+  mounted: function () {
+    if (this.type === 'multiImage' && this.postContent.content.length > 0) {
+      const swiperContainer = this.$refs.swiperContainer
+
+      /** @type {import('swiper/element').SwiperContainer} */
+      const swiperOptions = {
+        modules: [A11y, Navigation, Pagination],
+
+        injectStylesUrls: [
+          // This file is created with the copy webpack plugin in the web and renderer webpack configs.
+          // If you add more modules, please remember to add their CSS files to the list in webpack config files.
+          createWebURL('/swiper.css')
+        ],
+
+        a11y: true,
+        navigation: true,
+        pagination: {
+          enabled: true,
+          clickable: true
+        },
+        slidesPerView: 1
+      }
+
+      Object.assign(swiperContainer, swiperOptions)
+
+      swiperContainer.initialize()
+    }
   },
   methods: {
     parseCommunityData: function () {
