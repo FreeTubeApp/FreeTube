@@ -1801,7 +1801,7 @@ export default defineComponent({
         const results = contents
           .filter(node => node.type === 'ItemSection')
           .flatMap(itemSection => itemSection.contents)
-          .filter(item => item.type === 'Video' || item.type === 'Playlist')
+          .filter(item => item.type === 'Video' || (!this.hideChannelPlaylists && item.type === 'Playlist'))
           .map(item => {
             if (item.type === 'Video') {
               return parseLocalListVideo(item)
@@ -1847,7 +1847,11 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
-        this.searchResults = this.searchResults.concat(response)
+        if (this.hideChannelPlaylists) {
+          this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
+        } else {
+          this.searchResults = this.searchResults.concat(response)
+        }
         this.isElementListLoading = false
         this.searchPage++
       }).catch((err) => {
