@@ -172,6 +172,7 @@
         ref="watchVideoPlaylist"
         :watch-view-loading="isLoading"
         :playlist-id="playlistId"
+        :playlist-type="playlistType"
         :video-id="videoId"
         :playlist-item-id="playlistItemId"
         class="watchVideoSideBar watchVideoPlaylist"

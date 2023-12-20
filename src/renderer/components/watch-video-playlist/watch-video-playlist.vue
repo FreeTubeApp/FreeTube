@@ -12,7 +12,7 @@
       >
         <router-link
           class="playlistTitleLink"
-          :to="`/playlist/${playlistId}`"
+          :to="playlistPageLinkTo"
         >
           {{ playlistTitle }}
         </router-link>

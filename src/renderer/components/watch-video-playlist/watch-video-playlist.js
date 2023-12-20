@@ -23,6 +23,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    playlistType: {
+      type: String,
+      default: null
+    },
     videoId: {
       type: String,
       required: true,
@@ -48,6 +52,8 @@ export default defineComponent({
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: [],
+
+      getPlaylistInfoRun: false,
     }
   },
   computed: {
@@ -59,6 +65,9 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
+    isUserPlaylist: function () {
+      return this.playlistType === 'user'
+    },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady
     },
@@ -72,11 +81,6 @@ export default defineComponent({
     },
     selectedUserPlaylistLastUpdatedAt () {
       return this.selectedUserPlaylist?.lastUpdatedAt
-    },
-    playlistType() {
-      if (this.selectedUserPlaylist != null) { return 'user' }
-
-      return ''
     },
 
     currentVideoIndexZeroBased: function () {
@@ -137,6 +141,16 @@ export default defineComponent({
     },
     videoIsNotPlaylistItem: function () {
       return this.videoIndexInPlaylistItems === -1
+    },
+
+    playlistPageLinkTo() {
+      // For `router-link` attribute `to`
+      return {
+        path: `/playlist/${this.playlistId}`,
+        query: {
+          playlistType: this.isUserPlaylist ? 'user' : '',
+        },
+      }
     },
   },
   watch: {
@@ -202,7 +216,7 @@ export default defineComponent({
           this.getPlaylistInformationLocal()
         }
       }
-    }
+    },
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
@@ -225,8 +239,13 @@ export default defineComponent({
   },
   methods: {
     getPlaylistInfoWithDelay: function () {
+      if (this.getPlaylistInfoRun) { return }
+
       this.isLoading = true
-      if (!this.userPlaylistsReady) { return }
+      // `selectedUserPlaylist` result accuracy relies on data being ready
+      if (this.isUserPlaylist && !this.userPlaylistsReady) { return }
+
+      this.getPlaylistInfoRun = true
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
@@ -358,6 +377,7 @@ export default defineComponent({
 
     loadCachedPlaylistInformation: async function (cachedPlaylist) {
       this.isLoading = true
+      this.getPlaylistInfoRun = true
       this.setCachedPlaylist(null)
 
       this.playlistTitle = cachedPlaylist.title
