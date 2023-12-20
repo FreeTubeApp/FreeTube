@@ -59,11 +59,8 @@
     <div class="sliderContainer">
       <swiper-container
         v-if="type === 'multiImage' && postContent.content.length > 0"
-        slides-per-view="1"
-        navigation="true"
-        pagination-clickable="true"
-        pagination="true"
-        a11y="true"
+        ref="swiperContainer"
+        init="false"
         class="slider"
       >
         <swiper-slide
