@@ -38,7 +38,10 @@
         v-slot="{ Component }"
         class="routerView"
       >
-        <transition>
+        <transition
+          mode="in-out"
+          name="fade"
+        >
           <component :is="Component" />
         </transition>
       </RouterView>
