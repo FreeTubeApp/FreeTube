@@ -1,5 +1,5 @@
 {
   "vueCompilerOptions": {
-    "target": 3.0
+    "target": 3.3
   }
 }
