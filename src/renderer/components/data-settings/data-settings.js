@@ -29,7 +29,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      showImportSubscriptionsPrompt: false,
       showExportSubscriptionsPrompt: false,
       subscriptionsPromptValues: [
         'freetube',
@@ -102,8 +101,6 @@ export default defineComponent({
         showToast(`${message}: ${err}`)
         return
       }
-
-      this.showImportSubscriptionsPrompt = false
 
       response.filePaths.forEach(filePath => {
         if (filePath.endsWith('.csv')) {
