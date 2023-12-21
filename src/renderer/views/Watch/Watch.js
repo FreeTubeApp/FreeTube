@@ -297,7 +297,9 @@ export default defineComponent({
         let bypassedResult = null
         let streamingVideoId = this.videoId
         let trailerIsNull = false
-        if (playabilityStatus.status === 'UNPLAYABLE' && result.has_trailer) {
+
+        // if widevine support is added then we should check if playabilityStatus.status is UNPLAYABLE too
+        if (result.has_trailer) {
           bypassedResult = result.getTrailerInfo()
           /**
            * @type {import ('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer}
