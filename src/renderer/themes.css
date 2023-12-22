@@ -264,9 +264,13 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 .mainLightGray {
   --text-with-main-color: #000000;
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 .mainDarkGray {
   --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
+  --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
 }
 
 .mainRed {
@@ -562,9 +566,13 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 .secLightGray {
   --text-with-accent-color: #000000;
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 .secDarkGray {
   --text-with-accent-color: #FFFFFF;
+  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
+  --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
 }
 
 .secRed {
