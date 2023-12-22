@@ -87,7 +87,7 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-* WAPT: [Download](https://wapt.tranquil.it/store/fr/tis-freetube)
+* WAPT: [Download](https://wapt.tranquil.it/store/tis-freetube)
 
 * FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
 
