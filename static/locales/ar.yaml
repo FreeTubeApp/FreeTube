@@ -33,7 +33,7 @@ Forward: 'إلى الأمام'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'الفيديوهات'
-  Shorts: القصيرة
+  Shorts: الفيديوهات القصيرة
   Live: بث مباشر
   Community: المجتمع
 
@@ -86,16 +86,16 @@ Subscriptions:
   Subscriptions: 'الاشتراكات'
   Latest Subscriptions: 'أحدث الاشتراكات'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة
-    اشتراكاتك فارغة حالياً. ابدأ بإضافة الاشتراكات لتراهم هنا.'
+    اشتراكاتك فارغة حالياً. ابدأ بإضافة الاشتراكات لتراها هنا.'
   'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
   Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: لدى
-    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
+    هذا الملف الشخصي عدد كبير من الاشتراكات. فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
   Error Channels: القنوات التي بها أخطاء
   Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات
     لرؤيتها هنا.
-  Empty Channels: لا تحتوي قنواتك التي اشتركت فيها حاليا على أي مقاطع فيديو.
+  Empty Channels: لا تحتوي القنوات التي اشتركت فيها حاليا على أي مقاطع فيديو.
   All Subscription Tabs Hidden: جميع علامات تبويب الاشتراك مخفية. لمشاهدة المحتوى
     هنا ، يرجى إظهار بعض علامات التبويب في قسم "{subection}" في "{settingsSection}".
   Subscriptions Tabs: تبويب الاشتراكات
@@ -105,7 +105,7 @@ Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
   Movies: أفلام
-  Gaming: الالعاب
+  Gaming: ألعاب
   Music: الموسيقى
   Default: الإفتراضي
 Most Popular: 'الأكثر شعبية'
@@ -113,8 +113,8 @@ Playlists: 'قوائم التشغيل'
 User Playlists:
   Your Playlists: 'قوائم التشغيل الخاصة بك'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ليس
-    لديك أي فيديو محتفظ عليه. إضغط على زر "إحفظ" في زاوية الفيديو لكي يحفظ هنا
-  Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
+    لديك أي فيديو محفوظ. إضغط على زر "إحفظ" في زاوية الفيديو لكي يحفظ هنا
+  Playlist Message: هذه الصفحة لا تظهر قوائم التشغيل بشكل كامل, وإنما تظهر فيديوات
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
   Search bar placeholder: بحث في قائمة التشغيل
@@ -135,7 +135,7 @@ Settings:
       مفضلة عند الفشل'
     Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
     Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
-    Locale Preference: 'اللغات المفضلة'
+    Locale Preference: 'اللغة المفضلة'
     Preferred API Backend:
       Preferred API Backend: 'الواجهة الخلفية المفضلة'
       Local API: 'واجهة برمجة محلية'
@@ -154,7 +154,7 @@ Settings:
       Blur: الضبابية
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious
       (الافتراضية هي https://invidious.snopyta.org)'
-    Region for Trending: 'المنطقة للأكثر شيوعاً'
+    Region for Trending: 'المنطقة اللأكثر شيوعاً'
         #! List countries
     Check for Latest Blog Posts: تحقق من أحدث منشورات المدونة
     Check for Updates: تحقّق من وجود تحديثات
