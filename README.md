@@ -87,8 +87,6 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-* WAPT: [Download](https://wapt.tranquil.it/store/tis-freetube)
-
 * FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
 
 * Homebrew Formulae (Mac only): [Download](https://formulae.brew.sh/cask/freetube)
@@ -102,6 +100,8 @@ These builds are maintained by the community. While they should be safe, downloa
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
 * Snap: [Download](https://snapcraft.io/freetube) and [Source Code](https://git.launchpad.net/freetube)
+
+* WAPT: [Download](https://wapt.tranquil.it/store/tis-freetube)
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
