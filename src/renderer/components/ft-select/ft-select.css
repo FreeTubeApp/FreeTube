@@ -79,7 +79,7 @@
 .selectTooltip {
   position: absolute;
   inset-block-start: -22px;
-  inset-inline-end: 0;
+  inset-inline-end: 13px;
 }
 
 
