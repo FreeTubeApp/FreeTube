@@ -13,6 +13,7 @@
 .ftSubscribeButton {
   position: relative;
   text-align: start;
+  inline-size: fit-content;
 }
 
 /* Ensures style here overrides style of .btn */
