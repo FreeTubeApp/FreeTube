@@ -1,0 +1,81 @@
+<template>
+  <ft-card class="transcriptContainer">
+    <div class="header">
+      <div class="titleContainer">
+        <h2 class="title">
+          {{ $t('Transcript.Transcript') }}
+        </h2>
+      </div>
+      <ft-icon-button
+        class="menuButton"
+        :icon="['fas', 'ellipsis-v']"
+        theme="base-no-default"
+        :size="16"
+        :use-shadow="false"
+        dropdown-position-x="middle"
+        :dropdown-options="menuOptions"
+        @click="handleMenuClick"
+      />
+      <ft-icon-button
+        class="closeButton"
+        :icon="['fas', 'xmark']"
+        @click="$emit('hide-transcript')"
+      />
+    </div>
+
+    <div v-if="activeCaption && activeCaption.transcriptError">
+      {{ $t('Transcript.Error retrieving transcript') }}
+    </div>
+    <div
+      v-else-if="activeCaption"
+      ref="cueBody"
+      class="body"
+      @scroll="disableAutoScroll"
+    >
+      <div
+        v-for="(cue, index) in activeCaption.cues"
+        :key="index"
+      >
+        <div
+          v-if="cue.type === 'chapter'"
+          class="chapterTitle"
+        >
+          {{ cue.title }}
+        </div>
+        <div
+          v-else-if="cue.type === 'cue'"
+          class="cue"
+          :class="{ active: index === activeCueIndex }"
+          @click="$emit('timestamp-event', cue.startTime)"
+          @keydown.enter="$emit('timestamp-event', cue.startTime)"
+        >
+          <div
+            v-if="timestampShown"
+            class="cueTimeContainer"
+          >
+            <div class="cueTime">
+              {{ cue.startTimeFormatted }}
+            </div>
+          </div>
+          <div
+            class="cueText"
+            v-html="cue.text"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <ft-select
+        class="languageSelect"
+        :value="activeLanguage"
+        :select-names="captionLanguages"
+        :select-values="captionLanguages"
+        :placeholder="$t('Transcript.Transcript Language')"
+        @change="handleLanguageChange"
+      />
+    </div>
+  </ft-card>
+</template>
+
+<script src="./watch-video-transcript.js" />
+<style scoped lang="scss" src="./watch-video-transcript.scss" />

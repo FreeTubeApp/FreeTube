@@ -331,6 +331,12 @@ export function readFileFromDialog(response, index = 0) {
   })
 }
 
+/**
+ * @param {{
+ *  defaultPath: String,
+ *  filters: { name: String, filter: String }[]
+ * }} options
+ */
 export async function showSaveDialog (options) {
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')

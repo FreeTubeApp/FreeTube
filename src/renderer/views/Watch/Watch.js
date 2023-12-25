@@ -10,6 +10,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import WatchVideoTranscript from '../../components/watch-video-transcript/watch-video-transcript.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import { pathExists } from '../../helpers/filesystem'
 import {
@@ -65,6 +66,7 @@ export default defineComponent({
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations,
+    'watch-video-transcript': WatchVideoTranscript,
     'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
@@ -99,6 +101,7 @@ export default defineComponent({
       videoLengthSeconds: 0,
       videoChapters: [],
       videoCurrentChapterIndex: 0,
+      videoTimestamp: -1,
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -124,6 +127,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+      hideTranscript: true,
     }
   },
   computed: {
@@ -220,6 +224,7 @@ export default defineComponent({
 
       this.firstLoad = true
       this.videoPlayerReady = false
+      this.hideTranscript = true
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
       this.captionHybridList = []
@@ -920,6 +925,11 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    handleTimeUpdate: function () {
+      if (!this.hideChapters && this.videoChapters.length > 0) this.updateCurrentChapter()
+      if (!this.hideTranscript && this.captionHybridList.length > 0) this.videoTimestamp = this.getWatchedProgress()
     },
 
     /**

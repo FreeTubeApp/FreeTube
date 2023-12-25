@@ -9,3 +9,15 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+.transcriptHeader {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  max-block-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+
+.transcriptSubtext {
+  color: var(--secondary-text-color);
+}

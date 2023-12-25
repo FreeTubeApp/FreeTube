@@ -23,3 +23,8 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
 
   return false
 }
+
+export function isUrl(_string) {
+  const urlPattern = /^(https?:\/\/)?([\w-]+\.)*([\w-]+\.[A-Za-z]{2,})(\/[^#/?]+)*\/?(\?[^#]*)?(#.*)?$/gm
+  return !!urlPattern.test(_string)
+}

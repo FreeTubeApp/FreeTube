@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import FtButton from '../ft-button/ft-button.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
@@ -6,6 +7,7 @@ import autolinker from 'autolinker'
 export default defineComponent({
   name: 'WatchVideoDescription',
   components: {
+    'ft-button': FtButton,
     'ft-card': FtCard,
     'ft-timestamp-catcher': FtTimestampCatcher
   },
@@ -17,6 +19,10 @@ export default defineComponent({
     descriptionHtml: {
       type: String,
       default: ''
+    },
+    hasTranscripts: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -45,7 +51,7 @@ export default defineComponent({
     }
   },
   methods: {
-    onTimestamp: function(timestamp) {
+    onTimestamp: function (timestamp) {
       this.$emit('timestamp-event', timestamp)
     },
     parseDescriptionHtml: function (descriptionText) {

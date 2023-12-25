@@ -40,7 +40,7 @@
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
-          v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
+          @timeupdate="handleTimeUpdate"
         />
         <div
           v-if="!isLoading && isUpcoming"
@@ -138,9 +138,11 @@
         v-if="!isLoading && !hideVideoDescription"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
+        :has-transcripts="captionHybridList.length > 0"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
+        @show-transcript="hideTranscript = false"
       />
       <watch-video-comments
         v-if="!isLoading && !isLive && !hideComments"
@@ -165,6 +167,16 @@
         :channel-id="channelId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
+      />
+      <watch-video-transcript
+        v-if="!isLoading && !hideTranscript"
+        :caption-hybrid-list="captionHybridList"
+        :chapters="videoChapters"
+        :video-id="videoId"
+        :video-timestamp="videoTimestamp"
+        class="watchVideoSideBar"
+        @hide-transcript="hideTranscript = true"
+        @timestamp-event="changeTimestamp"
       />
       <watch-video-playlist
         v-if="watchingPlaylist"
