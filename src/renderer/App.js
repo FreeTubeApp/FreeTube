@@ -179,7 +179,7 @@ export default defineComponent({
         this.$refs.topNav?.navigateHistory()
       })
 
-      if (this.$router.currentRoute.path === '/' && this.landingPage !== '/subscriptions') {
+      if (this.$router.currentRoute.path === '/') {
         this.$router.replace({ path: this.landingPage })
       }
     })
