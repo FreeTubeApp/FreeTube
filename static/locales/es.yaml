@@ -34,7 +34,7 @@ Forward: 'Adelante'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Vídeos'
-  Shorts: Cortos
+  Shorts: Shorts
   Live: En directo
   Community: Comunidad
 
@@ -45,7 +45,7 @@ Global:
     Subscriber Count: 1 suscriptor | {count} suscriptores
     View Count: 1 vista | {count} vistas
     Watching Count: 1 espectador | {count} espectadores
-Search / Go to URL: 'Buscar / Ir a la dirección'
+Search / Go to URL: 'Buscar / Ir a URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
@@ -77,7 +77,7 @@ Search Filters:
     Long (> 20 minutes): 'Larga (> 20 minutos)'
   # On Search Page
     Medium (4 - 20 minutes): Media (4 - 20 minutos)
-  Search Results: 'Resultados de la búsqueda'
+  Search Results: 'Resultados de búsqueda'
   Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
@@ -85,7 +85,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Suscripciones más recientes'
+  Latest Subscriptions: 'Suscripciones recientes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
@@ -96,7 +96,7 @@ Subscriptions:
   Error Channels: Canales con errores
   Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
     Actualice las suscripciones para verlas aquí.
-  Empty Channels: Los canales a los que está suscrito no tienen actualmente ningún
+  Empty Channels: Los canales a los que está suscrito actualmente no tienen ningún
     vídeo.
   Subscriptions Tabs: Pestañas de suscripciones
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
@@ -106,7 +106,7 @@ Subscriptions:
   Empty Posts: Tus canales suscritos no tienen actualmente ninguna entrada.
 Trending:
   Trending: 'Tendencias'
-  Default: Predeterminado
+  Default: Por defecto
   Trending Tabs: Pestañas de tendencias
   Movies: Películas
   Gaming: Videojuegos
@@ -128,15 +128,15 @@ History:
   History: 'Historial'
   Watch History: 'Historial de reproducción'
   Your history list is currently empty.: 'Tu historial está vacío.'
-  Search bar placeholder: Buscar en el historial
+  Search bar placeholder: Buscar en historial
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
   General Settings:
     General Settings: 'Ajustes generales'
-    Fallback to Non-Preferred Backend on Failure: 'Usar motor API secundario en caso
-      de fallo'
+    Fallback to Non-Preferred Backend on Failure: 'Recurrir al backend alternativo
+      en caso de error'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
     Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Idioma'
@@ -150,7 +150,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferencia de miniaturas'
-      Default: 'Predeterminada'
+      Default: 'Por defecto'
       Beginning: 'Comienzo'
       Middle: 'Mitad'
       End: 'Final'
@@ -164,7 +164,7 @@ Settings:
     Check for Updates: Buscar actualizaciones
     View all Invidious instance information: Ver toda la información sobre la instancia
       de Invidious
-    System Default: Predeterminado del sistema
+    System Default: Por defecto del sistema
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
     No default instance has been set: No se ha especificado una instancia predeterminada
@@ -180,7 +180,7 @@ Settings:
       Open Link: Abrir el enlace
       External Link Handling: Gestión de enlaces externos
   Theme Settings:
-    Theme Settings: 'Apariencia'
+    Theme Settings: 'Ajustes de apariencia'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -188,10 +188,10 @@ Settings:
       Dark: 'Oscuro'
       Light: 'Claro'
       Dracula: 'Drácula'
-      System Default: Valor predeterminado del sistema
+      System Default: Valor por defecto del sistema
       Catppuccin Mocha: Catppuccin Moca
       Pastel Pink: Rosa pastel
-      Hot Pink: Fucsia
+      Hot Pink: Rosa vistoso
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -202,7 +202,7 @@ Settings:
       Blue: 'Azul'
       Light Blue: 'Azul claro'
       Cyan: 'Cian'
-      Teal: 'Azul petróleo'
+      Teal: 'Azul verdoso'
       Green: 'Verde'
       Light Green: 'Verde claro'
       Lime: 'Verde lima'
@@ -233,21 +233,21 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
-    UI Scale: Escala de interfaz gráfica
+    UI Scale: Escala de IU
     Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
     Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
-    Player Settings: 'Reproductor FreeTube'
-    Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
+    Player Settings: 'Ajustes de reproductor'
+    Force Local Backend for Legacy Formats: 'Forzar API local para formatos legado'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
     Proxy Videos Through Invidious: 'Enmascarar vídeos a través de Invidious'
-    Autoplay Playlists: 'Reproducción automática de listas de reproducción'
+    Autoplay Playlists: 'Reproducción automatica de Listas'
     Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
-    Default Volume: 'Volumen predeterminado'
+    Default Volume: 'Volumen por Defecto'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
@@ -278,13 +278,13 @@ Settings:
     Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
     Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
     Screenshot:
-      Folder Button: Seleccionar una carpeta
+      Folder Button: Seleccionar carpeta
       Error:
         Forbidden Characters: Caracteres prohibidos
         Empty File Name: Nombre de archivo vacío
       Enable: Habilitar capturas de pantalla
-      Quality Label: Calidad de las capturas de pantalla
-      Format Label: Formato de las capturas de pantalla
+      Quality Label: Calidad de capturas de pantalla
+      Format Label: Formato de capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
       Ask Path: Pedir la Carpeta para Guardar
@@ -293,41 +293,40 @@ Settings:
         %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
         Milisegundo 3 dígitos. %i Video ID. También puede utilizar \ o / para crear
         subcarpetas.
-    Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
+    Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Comment Auto Load:
       Comment Auto Load: Cargar los comentarios automáticamente
   Privacy Settings:
-    Privacy Settings: 'Privacidad'
+    Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar historial'
     Save Watched Progress: 'Guardar progreso reproducido'
     Clear Search Cache: 'Borrar cache de búsqueda'
-    Are you sure you want to clear out your search cache?: '¿Seguro que quiere borrar
+    Are you sure you want to clear out your search cache?: '¿Seguro que quieres borrar
       el cache de búsqueda?'
     Search cache has been cleared: 'Caché de búsqueda borrado'
     Remove Watch History: 'Vaciar historial de reproducciones'
     Are you sure you want to remove your entire watch history?: '¿Confirma que quiere
       vaciar el historial de reproducciones?'
     Watch history has been cleared: 'Se vació el historial de reproducciones'
-    Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones y perfiles'
+    Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones/perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
-      que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
+      que quieres borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
     Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
       de vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última
       lista de reproducción vista
   Subscription Settings:
-    Subscription Settings: 'Suscripciones'
+    Subscription Settings: 'Ajustes de Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
     Fetch Automatically: Obtener los feed automáticamente
-    Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
-      canal
+    Only Show Latest Video for Each Channel: Mostrar solo últimos vídeos de cada canal
   Data Settings:
-    Data Settings: 'Datos'
+    Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
     Select Export Type: 'Seleccionar tipo de exportación'
     Import Subscriptions: 'Importar suscripciones'
@@ -406,10 +405,10 @@ Settings:
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
     Hide Video Views: Ocultar las vistas del vídeo
-    Hide Live Chat: Ocultar chat en directo
+    Hide Live Chat: Ocultar chat en vivo
     Hide Popular Videos: Ocultar vídeos populares
     Hide Trending Videos: Ocultar vídeos en tendencia
-    Hide Recommended Videos: Ocultar los vídeos recomendados
+    Hide Recommended Videos: Ocultar vídeos recomendados
     Hide Comment Likes: Ocultar «likes» de comentarios
     Hide Channel Subscribers: Ocultar suscriptores
     Distraction Free Settings: Modo sin distracciones
@@ -417,18 +416,18 @@ Settings:
     Hide Playlists: Ocultar listas de reproducción
     Hide Video Description: Ocultar la descripción del vídeo
     Hide Comments: Ocultar comentarios
-    Hide Live Streams: Ocultar retransmisiones en directo
+    Hide Live Streams: Ocultar transmisiones en directo
     Hide Sharing Actions: Ocultar acciones de uso compartido
-    Hide Chapters: Ocultar los capítulos
+    Hide Chapters: Ocultar capítulos
     Hide Upcoming Premieres: Ocultar los próximos estrenos
-    Hide Channels: Ocultar los vídeos de los canales
+    Hide Channels: Ocultar vídeos de los canales
     Hide Channels Placeholder: ID del canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
       mayúsculas
-    Hide Featured Channels: Ocultar los canales recomendados
+    Hide Featured Channels: Ocultar canales recomendados
     Hide Channel Playlists: Ocultar las listas de reproducción de los canales
-    Hide Channel Community: Ocultar los canal de la comunidad
-    Hide Channel Shorts: Ocultar los canales de vídeos cortos
+    Hide Channel Community: Ocultar canales de la comunidad
+    Hide Channel Shorts: Ocultar canales de shorts
     Sections:
       Side Bar: Barra lateral
       Channel Page: Página del canal
@@ -436,13 +435,13 @@ Settings:
       General: General
       Subscriptions Page: Página de suscripciones
     Hide Channel Releases: Ocultar las nuevas publicaciones de los canales
-    Hide Channel Podcasts: Ocultar los canales de podcasts
-    Hide Subscriptions Shorts: Ocultar las suscripciones para los vídeos cortos
+    Hide Channel Podcasts: Ocultar canales de podcasts
+    Hide Subscriptions Shorts: Ocultar las suscripciones para shorts
     Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
-    Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
+    Hide Profile Pictures in Comments: Ocultar fotos de perfil en comentarios
     Blur Thumbnails: Difuminar las miniaturas
-    Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
+    Hide Subscriptions Community: Ocultar las suscripciones de la comunidad
     Hide Channels Invalid: El ID del canal proporcionado no es válido
     Hide Channels Disabled Message: Algunos canales se bloquearon por ID y no se procesaron.
       La función está bloqueada mientras se actualizan esos ID
@@ -487,7 +486,7 @@ Settings:
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
-    External Player Settings: Reproductor externo
+    External Player Settings: Ajustes de reproductor externo
     Players:
       None:
         Name: Ninguno
@@ -1053,7 +1052,7 @@ Channels:
   Search bar placeholder: Buscar canales
   Count: '{number} canal(es) encontrado(s).'
   Empty: Tu lista de canales está actualmente vacía.
-  Unsubscribe: Cancelar la suscripción
+  Unsubscribe: Desuscribirse
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
   Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
 Age Restricted:
