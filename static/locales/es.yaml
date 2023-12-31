@@ -34,7 +34,7 @@ Forward: 'Adelante'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Vídeos'
-  Shorts: Shorts
+  Shorts: Vídeos cortos
   Live: En directo
   Community: Comunidad
 
@@ -45,7 +45,7 @@ Global:
     Subscriber Count: 1 suscriptor | {count} suscriptores
     View Count: 1 vista | {count} vistas
     Watching Count: 1 espectador | {count} espectadores
-Search / Go to URL: 'Buscar / Ir a URL'
+Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
@@ -77,7 +77,7 @@ Search Filters:
     Long (> 20 minutes): 'Larga (> 20 minutos)'
   # On Search Page
     Medium (4 - 20 minutes): Media (4 - 20 minutos)
-  Search Results: 'Resultados de búsqueda'
+  Search Results: 'Resultados de la búsqueda'
   Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
@@ -85,7 +85,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Suscripciones recientes'
+  Latest Subscriptions: 'Últimas suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
@@ -96,8 +96,7 @@ Subscriptions:
   Error Channels: Canales con errores
   Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
     Actualice las suscripciones para verlas aquí.
-  Empty Channels: Los canales a los que está suscrito actualmente no tienen ningún
-    vídeo.
+  Empty Channels: Tus canales suscritos no tienen actualmente ningún vídeo.
   Subscriptions Tabs: Pestañas de suscripciones
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
     Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}»
@@ -106,7 +105,7 @@ Subscriptions:
   Empty Posts: Tus canales suscritos no tienen actualmente ninguna entrada.
 Trending:
   Trending: 'Tendencias'
-  Default: Por defecto
+  Default: Predeterminado
   Trending Tabs: Pestañas de tendencias
   Movies: Películas
   Gaming: Videojuegos
@@ -128,15 +127,15 @@ History:
   History: 'Historial'
   Watch History: 'Historial de reproducción'
   Your history list is currently empty.: 'Tu historial está vacío.'
-  Search bar placeholder: Buscar en historial
+  Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
   General Settings:
     General Settings: 'Ajustes generales'
-    Fallback to Non-Preferred Backend on Failure: 'Recurrir al backend alternativo
-      en caso de error'
+    Fallback to Non-Preferred Backend on Failure: 'Vuelta al backend no preferido
+      en caso de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
     Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Idioma'
@@ -150,7 +149,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferencia de miniaturas'
-      Default: 'Por defecto'
+      Default: 'Predeterminado'
       Beginning: 'Comienzo'
       Middle: 'Mitad'
       End: 'Final'
@@ -164,7 +163,7 @@ Settings:
     Check for Updates: Buscar actualizaciones
     View all Invidious instance information: Ver toda la información sobre la instancia
       de Invidious
-    System Default: Por defecto del sistema
+    System Default: Predeterminado del sistema
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
     No default instance has been set: No se ha especificado una instancia predeterminada
@@ -180,7 +179,7 @@ Settings:
       Open Link: Abrir el enlace
       External Link Handling: Gestión de enlaces externos
   Theme Settings:
-    Theme Settings: 'Ajustes de apariencia'
+    Theme Settings: 'Configuración del tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -191,7 +190,7 @@ Settings:
       System Default: Valor por defecto del sistema
       Catppuccin Mocha: Catppuccin Moca
       Pastel Pink: Rosa pastel
-      Hot Pink: Rosa vistoso
+      Hot Pink: Rosa fuerte
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -202,7 +201,7 @@ Settings:
       Blue: 'Azul'
       Light Blue: 'Azul claro'
       Cyan: 'Cian'
-      Teal: 'Azul verdoso'
+      Teal: 'Verde azulado'
       Green: 'Verde'
       Light Green: 'Verde claro'
       Lime: 'Verde lima'
@@ -239,15 +238,15 @@ Settings:
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
     Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
-    Player Settings: 'Ajustes de reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar API local para formatos legado'
+    Player Settings: 'Configuración del reproductor'
+    Force Local Backend for Legacy Formats: 'Forzar backend local para formatos heredados'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
     Proxy Videos Through Invidious: 'Enmascarar vídeos a través de Invidious'
-    Autoplay Playlists: 'Reproducción automatica de Listas'
+    Autoplay Playlists: 'Listas de reproducción automática'
     Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
-    Default Volume: 'Volumen por Defecto'
+    Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
@@ -278,13 +277,13 @@ Settings:
     Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
     Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
     Screenshot:
-      Folder Button: Seleccionar carpeta
+      Folder Button: Seleccione una carpeta
       Error:
         Forbidden Characters: Caracteres prohibidos
         Empty File Name: Nombre de archivo vacío
       Enable: Habilitar capturas de pantalla
-      Quality Label: Calidad de capturas de pantalla
-      Format Label: Formato de capturas de pantalla
+      Quality Label: Calidad de las capturas de pantalla
+      Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
       Ask Path: Pedir la Carpeta para Guardar
@@ -293,7 +292,7 @@ Settings:
         %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
         Milisegundo 3 dígitos. %i Video ID. También puede utilizar \ o / para crear
         subcarpetas.
-    Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar pantalla
+    Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
@@ -324,7 +323,8 @@ Settings:
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
     Fetch Automatically: Obtener los feed automáticamente
-    Only Show Latest Video for Each Channel: Mostrar solo últimos vídeos de cada canal
+    Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
+      canal
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -1052,7 +1052,7 @@ Channels:
   Search bar placeholder: Buscar canales
   Count: '{number} canal(es) encontrado(s).'
   Empty: Tu lista de canales está actualmente vacía.
-  Unsubscribe: Desuscribirse
+  Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
   Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
 Age Restricted:
