@@ -140,7 +140,7 @@ export default defineComponent({
     },
 
     favoritesText: function () {
-      return this.inFavoritesPlaylist ? this.$t('User Playlists.Unsave Video from Favorites') : this.$t('User Playlists.Save Video to Favorites')
+      return this.inFavoritesPlaylist ? this.$t('User Playlists.Unsave from Favorites') : this.$t('User Playlists.Save to Favorites')
     },
 
     inUserPlaylist: function () {
