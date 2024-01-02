@@ -184,7 +184,7 @@ export default defineComponent({
       })
 
       this.$router.onReady(() => {
-        if (this.$router.currentRoute.path === '/' && this.landingPage !== '/subscriptions') {
+        if (this.$router.currentRoute.path === '/') {
           this.$router.replace({ path: this.landingPage })
         }
       })
