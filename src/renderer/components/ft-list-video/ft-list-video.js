@@ -64,6 +64,7 @@ export default defineComponent({
       viewCount: 0,
       parsedViewCount: '',
       uploadedTime: '',
+      lengthSeconds: 0,
       duration: '',
       description: '',
       watched: false,
@@ -119,10 +120,6 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
-    progressPercentage: function () {
-      return (this.watchProgress / this.data.lengthSeconds) * 100
-    },
-
     invidiousUrl: function () {
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
@@ -162,6 +159,14 @@ export default defineComponent({
 
     youtubeEmbedUrl: function () {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
+    },
+
+    progressPercentage: function () {
+      if (typeof this.lengthSeconds !== 'number') {
+        return 0
+      }
+
+      return (this.watchProgress / this.lengthSeconds) * 100
     },
 
     hideSharingActions: function() {
@@ -410,9 +415,11 @@ export default defineComponent({
       this.channelName = this.data.author ?? null
       this.channelId = this.data.authorId ?? null
 
-      if (this.data.isRSS && this.historyEntryExists) {
+      if ((this.data.lengthSeconds === '' || this.data.lengthSeconds === '0:00') && this.historyEntryExists) {
+        this.lengthSeconds = this.historyEntry.lengthSeconds
         this.duration = formatDurationAsTimestamp(this.historyEntry.lengthSeconds)
       } else {
+        this.lengthSeconds = this.data.lengthSeconds
         this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
       }
 
