@@ -28,7 +28,7 @@
         >
       </router-link>
       <div
-        v-if="isLive || duration !== '0:00'"
+        v-if="isLive || isUpcoming || (duration !== '' && duration !== '0:00')"
         class="videoDuration"
         :class="{
           live: isLive,
