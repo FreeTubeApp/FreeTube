@@ -70,7 +70,8 @@ export default defineComponent({
       communityContinuationData: null,
       description: '',
       tags: [],
-      views: 0,
+      viewCount: 0,
+      videoCount: 0,
       joined: 0,
       location: null,
       videoSortBy: 'newest',
@@ -670,7 +671,8 @@ export default defineComponent({
           this.getChannelAboutLocal()
         } else {
           this.description = ''
-          this.views = null
+          this.viewCount = null
+          this.videoCount = null
           this.joined = 0
           this.location = null
         }
@@ -742,14 +744,36 @@ export default defineComponent({
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
-        this.description = about.description.isEmpty() ? '' : autolinker.link(about.description.text)
+        if (about.type === 'ChannelAboutFullMetadata') {
+          /** @type {import('youtubei.js').YTNodes.ChannelAboutFullMetadata} */
+          const about_ = about
 
-        const views = extractNumberFromString(about.view_count.text)
-        this.views = isNaN(views) ? null : views
+          this.description = about_.description.isEmpty() ? '' : autolinker.link(about_.description.text)
 
-        this.joined = about.joined_date.isEmpty() ? 0 : new Date(about.joined_date.text.replace('Joined').trim())
+          const viewCount = extractNumberFromString(about_.view_count.text)
+          this.viewCount = isNaN(viewCount) ? null : viewCount
 
-        this.location = about.country.isEmpty() ? null : about.country.text
+          this.videoCount = null
+
+          this.joined = about_.joined_date.isEmpty() ? 0 : new Date(about_.joined_date.text.replace('Joined').trim())
+
+          this.location = about_.country.isEmpty() ? null : about_.country.text
+        } else {
+          /** @type {import('youtubei.js').YTNodes.AboutChannelView} */
+          const metadata = about.metadata
+
+          this.description = metadata.description ? autolinker.link(metadata.description) : ''
+
+          const viewCount = extractNumberFromString(metadata.view_count)
+          this.viewCount = isNaN(viewCount) ? null : viewCount
+
+          const videoCount = extractNumberFromString(metadata.video_count)
+          this.videoCount = isNaN(videoCount) ? null : videoCount
+
+          this.joined = metadata.joined_date.isEmpty() ? 0 : new Date(metadata.joined_date.text.replace('Joined').trim())
+
+          this.location = metadata.country ?? null
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -961,7 +985,8 @@ export default defineComponent({
         this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.description = autolinker.link(response.description)
-        this.views = response.totalViews
+        this.viewCount = response.totalViews
+        this.videoCount = null
         this.joined = response.joined > 0 ? new Date(response.joined * 1000) : 0
         this.relatedChannels = response.relatedChannels.map((channel) => {
           const thumbnailUrl = channel.authorThumbnails.at(-1).url
