@@ -123,7 +123,7 @@
         :min-value="0.25"
         :max-value="8"
         :step="0.25"
-        value-extension="×"
+        value-extension="x"
         @change="updateDefaultPlayback"
       />
       <ft-slider
