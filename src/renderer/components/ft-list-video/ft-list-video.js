@@ -144,22 +144,22 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
-    watchLaterPlaylist: function () {
-      return this.$store.getters.getWatchLater
+    favoritesPlaylist: function () {
+      return this.$store.getters.getFavorites
     },
 
-    inWatchLaterPlaylist: function () {
-      return this.watchLaterPlaylist.videos.some((video) =>
+    inFavoritesPlaylist: function () {
+      return this.favoritesPlaylist.videos.some((video) =>
         video.videoId === this.id
       )
     },
 
     favoriteIconTheme: function () {
-      return this.inWatchLaterPlaylist ? 'base favorite' : 'base'
+      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
     },
 
-    watchLaterText: function () {
-      return this.inWatchLaterPlaylist ? this.$t('User Playlists.Remove from Watch Later') : this.$t('User Playlists.Add to Watch Later')
+    favoritesText: function () {
+      return this.inFavoritesPlaylist ? this.$t('User Playlists.Unsave Video from Favorites') : this.$t('User Playlists.Save Video to Favorites')
     },
 
     inUserPlaylist: function () {
@@ -747,15 +747,15 @@ export default defineComponent({
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
 
-    toggleSaveToWatchLater: function () {
-      if (this.inWatchLaterPlaylist) {
-        this.removeFromWatchLater()
+    toggleSaveToFavorites: function () {
+      if (this.inFavoritesPlaylist) {
+        this.removeFromFavorites()
       } else {
-        this.addToWatchLater()
+        this.addToFavorites()
       }
     },
 
-    addToWatchLater: function () {
+    addToFavorites: function () {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -767,27 +767,27 @@ export default defineComponent({
       }
 
       const payload = {
-        _id: 'watchLater',
+        _id: 'favorites',
         videoData: videoData
       }
 
       this.addVideo(payload)
       // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: 'watchLater' })
+      this.updatePlaylist({ _id: 'favorites' })
 
       showToast(this.$t('Video.Video has been saved'))
     },
 
-    removeFromWatchLater: function () {
+    removeFromFavorites: function () {
       const payload = {
-        _id: 'watchLater',
+        _id: 'favorites',
         videoIds: [this.id]
       }
 
       try {
         this.removeVideos(payload)
         // Update playlist's `lastUpdatedAt`
-        this.updatePlaylist({ _id: 'watchLater' })
+        this.updatePlaylist({ _id: 'favorites' })
         showToast(this.$t('Video.Video has been removed from your saved list'))
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))

@@ -147,8 +147,8 @@ User Playlists:
   Create New Playlist: Create New Playlist
 
   Add to Playlist: Add to Playlist
-  Add to Watch Later: Add to Watch Later
-  Remove from Watch Later: Remove from Watch Later
+  Save Video to Favorites: Save Video to Favorites
+  Unsave Video from Favorites: Unsave Video from Favorites
   Move Video Up: Move Video Up
   Move Video Down: Move Video Down
   Remove from Playlist: Remove from Playlist
@@ -807,6 +807,8 @@ Video:
     music offtopic: Music Offtopic
     recap: Recap
     filler: Filler
+  Save Video to Favorites: Save Video to Favorites
+  Unsave Video from Favorites: Unsave Video from Favorites
   External Player:
     OpenInTemplate: Open in {externalPlayer}
     video: video

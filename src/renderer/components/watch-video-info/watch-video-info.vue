@@ -83,11 +83,11 @@
       <div class="videoOptions">
         <ft-icon-button
           v-if="!isUpcoming"
-          :title="watchLaterText"
+          :title="favoritesText"
           :icon="['fas', 'star']"
           class="option"
           :theme="favoriteIconTheme"
-          @click="toggleSaveToWatchLater"
+          @click="toggleSaveToFavorites"
         />
         <ft-icon-button
           v-if="showPlaylists && !isUpcoming"

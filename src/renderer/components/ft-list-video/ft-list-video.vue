@@ -48,8 +48,8 @@
         :class="{ inUserPlaylist }"
       >
         <ft-icon-button
-          v-if="!isUpcoming && playlistId !== 'watchLater'"
-          :title="watchLaterText"
+          v-if="!isUpcoming && playlistId !== 'favorites'"
+          :title="favoritesText"
           :icon="['fas', 'star']"
           class="favoritesIcon"
           :class="{
@@ -58,7 +58,7 @@
           :theme="favoriteIconTheme"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="toggleSaveToWatchLater"
+          @click="toggleSaveToFavorites"
         />
         <ft-icon-button
           v-if="showPlaylists"
