@@ -313,6 +313,8 @@ Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Fetch Feeds from RSS: Feeds von RSS abrufen
     Fetch Automatically: Feed automatisch abrufen
+    Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
+      anzeigen
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -524,6 +526,7 @@ Settings:
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
+  Expand All Settings Sections: Alle Einstellungsabschnitte aufklappen
 About:
   #On About page
   About: Über
@@ -800,6 +803,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
   Pause on Current Video: Pause für aktuelles Video
+  Unhide Channel: Kanal anzeigen
+  Hide Channel: Kanal ausblenden
 Videos:
   #& Sort By
   Sort By:
@@ -946,6 +951,11 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profileinstellungen
   Toggle Profile List: Profilliste umschalten
+  Profile Name: Profilname
+  Edit Profile Name: Profilname bearbeiten
+  Create Profile Name: Profilname erstellen
+  Open Profile Dropdown: Profil-Dropdown öffnen
+  Close Profile Dropdown: Profil-Dropdown schließen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
   ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
@@ -1095,3 +1105,6 @@ Playlist will pause when current video is finished: Wiedergabeliste wird pausier
   wenn das aktuelle Video beendet ist
 Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
   pausiert, wenn das aktuelle Video beendet ist
+Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
+Go to page: Gehe zu {page}
+Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'

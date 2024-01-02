@@ -101,6 +101,7 @@ body:
         - PortableApps (Unofficial)
         - Scoop (Unofficial)
         - Snapcraft (Unofficial)
+        - WAPT (Unofficial)
         - winget (Unofficial)
         - other
     validations:
