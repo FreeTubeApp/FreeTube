@@ -30,7 +30,11 @@ export default defineComponent({
     tooltipPosition: {
       type: String,
       default: 'bottom-left'
-    }
+    },
+    tooltipAllowNewlines: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function () {
     return {

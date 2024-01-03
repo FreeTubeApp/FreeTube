@@ -33,8 +33,8 @@ class History {
     return baseHandlers.history.updateWatchProgress(videoId, watchProgress)
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
-    return baseHandlers.history.updateLastViewedPlaylist(videoId, lastViewedPlaylistId)
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
+    return baseHandlers.history.updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId)
   }
 
   static delete(videoId) {
@@ -81,28 +81,32 @@ class Playlists {
     return baseHandlers.playlists.find()
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
-    return baseHandlers.playlists.upsertVideoByPlaylistName(playlistName, videoData)
+  static upsert(playlist) {
+    return baseHandlers.playlists.upsert(playlist)
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
-    return baseHandlers.playlists.upsertVideoIdsByPlaylistId(_id, videoIds)
+  static upsertVideoByPlaylistId(_id, videoData) {
+    return baseHandlers.playlists.upsertVideoByPlaylistId(_id, videoData)
+  }
+
+  static upsertVideosByPlaylistId(_id, videoData) {
+    return baseHandlers.playlists.upsertVideosByPlaylistId(_id, videoData)
   }
 
   static delete(_id) {
     return baseHandlers.playlists.delete(_id)
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
-    return baseHandlers.playlists.deleteVideoIdByPlaylistName(playlistName, videoId)
+  static deleteVideoIdByPlaylistId(_id, playlistItemId) {
+    return baseHandlers.playlists.deleteVideoIdByPlaylistId(_id, playlistItemId)
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
-    return baseHandlers.playlists.deleteVideoIdsByPlaylistName(playlistName, videoIds)
+  static deleteVideoIdsByPlaylistId(_id, videoIds) {
+    return baseHandlers.playlists.deleteVideoIdsByPlaylistId(_id, videoIds)
   }
 
-  static deleteAllVideosByPlaylistName(playlistName) {
-    return baseHandlers.playlists.deleteAllVideosByPlaylistName(playlistName)
+  static deleteAllVideosByPlaylistId(_id) {
+    return baseHandlers.playlists.deleteAllVideosByPlaylistId(_id)
   }
 
   static deleteMultiple(ids) {
