@@ -64,8 +64,8 @@ class History {
     return db.history.updateAsync({ videoId }, { $set: { watchProgress } }, { upsert: true })
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
-    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId } }, { upsert: true })
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
+    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId } }, { upsert: true })
   }
 
   static delete(videoId) {
@@ -112,18 +112,22 @@ class Playlists {
     return db.playlists.findAsync({})
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
+  static upsert(playlist) {
+    return db.playlists.updateAsync({ _id: playlist._id }, { $set: playlist }, { upsert: true })
+  }
+
+  static upsertVideoByPlaylistId(_id, videoData) {
     return db.playlists.updateAsync(
-      { playlistName },
+      { _id },
       { $push: { videos: videoData } },
       { upsert: true }
     )
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
+  static upsertVideosByPlaylistId(_id, videos) {
     return db.playlists.updateAsync(
       { _id },
-      { $push: { videos: { $each: videoIds } } },
+      { $push: { videos: { $each: videos } } },
       { upsert: true }
     )
   }
@@ -132,25 +136,25 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
+  static deleteVideoIdByPlaylistId(_id, playlistItemId) {
     return db.playlists.updateAsync(
-      { playlistName },
-      { $pull: { videos: { videoId } } },
+      { _id },
+      { $pull: { videos: { playlistItemId } } },
       { upsert: true }
     )
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
+  static deleteVideoIdsByPlaylistId(_id, videoIds) {
     return db.playlists.updateAsync(
-      { playlistName },
+      { _id },
       { $pull: { videos: { $in: videoIds } } },
       { upsert: true }
     )
   }
 
-  static deleteAllVideosByPlaylistName(playlistName) {
+  static deleteAllVideosByPlaylistId(_id) {
     return db.playlists.updateAsync(
-      { playlistName },
+      { _id },
       { $set: { videos: [] } },
       { upsert: true }
     )
@@ -161,7 +165,7 @@ class Playlists {
   }
 
   static deleteAll() {
-    return db.playlists.removeAsync({ protected: { $ne: true } })
+    return db.playlists.removeAsync({}, { multi: true })
   }
 
   static persist() {
@@ -174,7 +178,7 @@ function compactAllDatastores() {
     Settings.persist(),
     History.persist(),
     Profiles.persist(),
-    Playlists.persist()
+    Playlists.persist(),
   ])
 }
 
@@ -184,7 +188,7 @@ const baseHandlers = {
   profiles: Profiles,
   playlists: Playlists,
 
-  compactAllDatastores
+  compactAllDatastores,
 }
 
 export default baseHandlers

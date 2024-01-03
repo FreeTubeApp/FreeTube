@@ -1,0 +1,8 @@
+.center {
+  text-align: center;
+}
+
+.playlistNameInput {
+  inline-size: 80%;
+  max-inline-size: 600px;
+}

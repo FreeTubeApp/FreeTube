@@ -2,7 +2,7 @@ const { name, productName } = require('../package.json')
 
 const config = {
   appId: `io.freetubeapp.${name}`,
-  copyright: 'Copyleft © 2020-2023 freetubeapp@protonmail.com',
+  copyright: 'Copyleft © 2020-2024 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
   productName,
