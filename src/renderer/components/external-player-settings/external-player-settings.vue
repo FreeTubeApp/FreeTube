@@ -21,6 +21,14 @@
         :tooltip="$t('Tooltips.External Player Settings.Ignore Warnings')"
         @change="updateExternalPlayerIgnoreWarnings"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.External Player Settings.Ignore Arguments')"
+        :default-value="externalPlayerIgnoreArgs"
+        :disabled="externalPlayer===''"
+        :compact="true"
+        :tooltip="$t('Tooltips.External Player Settings.Ignore Arguments')"
+        @change="updateExternalPlayerIgnoreArgs"
+      />
     </ft-flex-box>
     <ft-flex-box
       v-if="externalPlayer !== ''"

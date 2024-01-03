@@ -190,6 +190,7 @@ const state = {
   externalPlayer: '',
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
+  externalPlayerIgnoreArgs: false,
   externalPlayerCustomArgs: '',
   expandSideBar: false,
   forceLocalBackendForLegacy: false,
