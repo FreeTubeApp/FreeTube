@@ -184,7 +184,7 @@ const state = {
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
-  enableSubtitles: true,
+  enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
   externalLinkHandling: '',
   externalPlayer: '',
@@ -503,8 +503,24 @@ const customActions = {
 
     ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
       switch (event) {
+        case SyncEvents.GENERAL.CREATE:
+          commit('addPlaylists', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE:
+          commit('removePlaylist', data)
+          break
+
+        case SyncEvents.GENERAL.UPSERT:
+          commit('upsertPlaylistToList', data)
+          break
+
         case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
           commit('addVideo', data)
+          break
+
+        case SyncEvents.PLAYLISTS.UPSERT_VIDEOS:
+          commit('addVideos', data)
           break
 
         case SyncEvents.PLAYLISTS.DELETE_VIDEO:

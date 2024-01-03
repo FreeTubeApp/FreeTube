@@ -4,7 +4,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
-import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
+import { formatNumber, openExternalLink } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'WatchVideoInfo',
@@ -127,20 +127,8 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
-    favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
-    },
-
-    inFavoritesPlaylist: function () {
-      const index = this.favoritesPlaylist.videos.findIndex((video) => {
-        return video.videoId === this.id
-      })
-
-      return index !== -1
-    },
-
-    favoriteIconTheme: function () {
-      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+    showPlaylists: function () {
+      return !this.$store.getters.getHidePlaylists
     },
 
     downloadLinkOptions: function () {
@@ -261,7 +249,7 @@ export default defineComponent({
     handleExternalPlayer: function () {
       this.$emit('pause-player')
 
-      this.openInExternalPlayer({
+      const payload = {
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -270,16 +258,19 @@ export default defineComponent({
         playlistIndex: this.getPlaylistIndex(),
         playlistReverse: this.getPlaylistReverse(),
         playlistShuffle: this.getPlaylistShuffle(),
-        playlistLoop: this.getPlaylistLoop()
-      })
-    },
-
-    toggleSave: function () {
-      if (this.inFavoritesPlaylist) {
-        this.removeFromPlaylist()
-      } else {
-        this.addToPlaylist()
+        playlistLoop: this.getPlaylistLoop(),
       }
+      // Only play video in non playlist mode when user playlist detected
+      if (this.inUserPlaylist) {
+        Object.assign(payload, {
+          playlistId: null,
+          playlistIndex: null,
+          playlistReverse: null,
+          playlistShuffle: null,
+          playlistLoop: null,
+        })
+      }
+      this.openInExternalPlayer(payload)
     },
 
     handleDownload: function (index) {
@@ -308,40 +299,18 @@ export default defineComponent({
       return group[1]
     },
 
-    addToPlaylist: function () {
+    togglePlaylistPrompt: function () {
       const videoData = {
         videoId: this.id,
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: '',
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
-        timeAdded: new Date().getTime(),
-        isLive: false,
-        type: 'video',
       }
 
-      const payload = {
-        playlistName: 'Favorites',
-        videoData: videoData
-      }
-
-      this.addVideo(payload)
-
-      showToast(this.$t('Video.Video has been saved'))
-    },
-
-    removeFromPlaylist: function () {
-      const payload = {
-        playlistName: 'Favorites',
-        videoId: this.id
-      }
-
-      this.removeVideo(payload)
-
-      showToast(this.$t('Video.Video has been removed from your saved list'))
+      this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
     },
 
     changeFormat: function(value) {
@@ -350,9 +319,8 @@ export default defineComponent({
 
     ...mapActions([
       'openInExternalPlayer',
-      'addVideo',
-      'removeVideo',
-      'downloadMedia'
+      'downloadMedia',
+      'showAddToPlaylistPromptForManyVideos',
     ])
   }
 })

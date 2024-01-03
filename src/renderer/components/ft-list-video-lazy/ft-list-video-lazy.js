@@ -15,6 +15,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    playlistType: {
+      type: String,
+      default: null
+    },
     playlistIndex: {
       type: Number,
       default: null
@@ -31,6 +35,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    playlistItemId: {
+      type: String,
+      default: null,
+    },
     forceListType: {
       type: String,
       default: null
@@ -43,12 +51,28 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    alwaysShowAddToPlaylistButton: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoUp: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoDown: {
+      type: Boolean,
+      default: false,
+    },
+    canRemoveFromPlaylist: {
+      type: Boolean,
+      default: false,
+    },
     useChannelsHiddenPreference: {
       type: Boolean,
       default: false,
     },
   },
-  emits: ['pause-player'],
+  emits: ['pause-player', 'move-video-up', 'move-video-down', 'remove-from-playlist'],
   data: function () {
     return {
       visible: false
@@ -84,6 +108,15 @@ export default defineComponent({
     },
     pausePlayer: function () {
       this.$emit('pause-player')
+    },
+    moveVideoUp: function () {
+      this.$emit('move-video-up')
+    },
+    moveVideoDown: function () {
+      this.$emit('move-video-down')
+    },
+    removeFromPlaylist: function () {
+      this.$emit('remove-from-playlist')
     }
   }
 })

@@ -29,6 +29,7 @@
         class="selectTooltip"
         :position="tooltipPosition"
         :tooltip="tooltip"
+        :allow-newlines="tooltipAllowNewlines"
       />
     </label>
   </div>

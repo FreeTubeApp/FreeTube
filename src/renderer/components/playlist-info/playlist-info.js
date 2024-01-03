@@ -1,41 +1,110 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
+import { mapActions } from 'vuex'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtInput from '../ft-input/ft-input.vue'
+import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import {
+  showToast,
+} from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlaylistInfo',
   components: {
-    'ft-share-button': FtShareButton
+    'ft-share-button': FtShareButton,
+    'ft-flex-box': FtFlexBox,
+    'ft-icon-button': FtIconButton,
+    'ft-input': FtInput,
+    'ft-prompt': FtPrompt,
   },
   props: {
-    data: {
-      type: Object,
+    id: {
+      type: String,
+      required: true,
+    },
+    firstVideoId: {
+      type: String,
+      required: true,
+    },
+    firstVideoPlaylistItemId: {
+      type: String,
+      required: true,
+    },
+    playlistThumbnail: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    channelThumbnail: {
+      type: String,
+      required: true,
+    },
+    channelName: {
+      type: String,
+      required: true,
+    },
+    channelId: {
+      type: String,
+      default: null,
+    },
+    videoCount: {
+      type: Number,
+      required: true,
+    },
+    videos: {
+      type: Array,
       required: true
-    }
+    },
+    viewCount: {
+      type: Number,
+      required: true,
+    },
+    lastUpdated: {
+      type: String,
+      default: undefined,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    infoSource: {
+      type: String,
+      required: true,
+    },
+    moreVideoDataAvailable: {
+      type: Boolean,
+      required: true,
+    },
   },
+  emits: ['enter-edit-mode', 'exit-edit-mode'],
   data: function () {
     return {
-      id: '',
-      firstVideoId: '',
-      playlistThumbnail: '',
-      title: '',
-      channelThumbnail: '',
-      channelName: '',
-      channelId: null,
-      videoCount: 0,
-      viewCount: 0,
-      lastUpdated: '',
-      description: '',
-      infoSource: ''
+      editMode: false,
+      showDeletePlaylistPrompt: false,
+      showRemoveVideosOnWatchPrompt: false,
+      newTitle: '',
+      newDescription: '',
+      deletePlaylistPromptValues: [
+        'yes',
+        'no'
+      ],
     }
   },
   computed: {
-    hideSharingActions: function() {
+    hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+
+    historyCacheById: function () {
+      return this.$store.getters.getHistoryCacheById
     },
 
     thumbnailPreference: function () {
@@ -58,15 +127,36 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
+    showPlaylists: function () {
+      return !this.$store.getters.getHidePlaylists
+    },
+
+    selectedUserPlaylist: function () {
+      return this.$store.getters.getPlaylist(this.id)
+    },
+
+    deletePlaylistPromptNames: function () {
+      return [
+        this.$t('Yes'),
+        this.$t('No')
+      ]
+    },
+
+    firstVideoIdExists() {
+      return this.firstVideoId !== ''
+    },
+
     thumbnail: function () {
-      if (this.thumbnailPreference === 'hidden') {
+      if (this.thumbnailPreference === 'hidden' || !this.firstVideoIdExists) {
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
-      let baseUrl
+
+      let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
-      } else {
-        return this.data.playlistThumbnail
+      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
+        // Use playlist thumbnail provided by YT when available
+        return this.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {
@@ -79,49 +169,160 @@ export default defineComponent({
         default:
           return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
-    }
+    },
+
+    isUserPlaylist() {
+      return this.infoSource === 'user'
+    },
+
+    videoPlaylistType() {
+      return this.isUserPlaylist ? 'user' : ''
+    },
+
+    deletePlaylistButtonVisible: function() {
+      if (!this.isUserPlaylist) { return false }
+      // Cannot delete during edit
+      if (this.editMode) { return false }
+
+      // Cannot delete protected playlist
+      return !this.selectedUserPlaylist.protected
+    },
+
+    sharePlaylistButtonVisible: function() {
+      // Only online playlists can be shared
+      if (this.isUserPlaylist) { return false }
+
+      // Cannot delete protected playlist
+      return !this.hideSharingActions
+    },
   },
-  mounted: function () {
-    this.id = this.data.id
-    this.firstVideoId = this.data.firstVideoId
-    this.title = this.data.title
-    this.channelName = this.data.channelName
-    this.channelThumbnail = this.data.channelThumbnail
-    this.channelId = this.data.channelId
-    this.uploadedTime = this.data.uploaded_at
-    this.description = this.data.description
-    this.infoSource = this.data.infoSource
-
-    // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
-      this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
-    }
-
-    if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
-      this.videoCount = formatNumber(this.data.videoCount)
-    }
-
-    this.lastUpdated = this.data.lastUpdated
+  watch: {
+    showDeletePlaylistPrompt(shown) {
+      this.$emit(shown ? 'prompt-open' : 'prompt-close')
+    },
+    showRemoveVideosOnWatchPrompt(shown) {
+      this.$emit(shown ? 'prompt-open' : 'prompt-close')
+    },
+  },
+  created: function () {
+    this.newTitle = this.title
+    this.newDescription = this.description
   },
   methods: {
-    sharePlaylist: function (method) {
-      const youtubeUrl = `https://youtube.com/playlist?list=${this.id}`
-      const invidiousUrl = `${this.currentInvidiousInstance}/playlist?list=${this.id}`
-
-      switch (method) {
-        case 'copyYoutube':
-          copyToClipboard(youtubeUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
-          break
-        case 'openYoutube':
-          openExternalLink(youtubeUrl)
-          break
-        case 'copyInvidious':
-          copyToClipboard(invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
-          break
-        case 'openInvidious':
-          openExternalLink(invidiousUrl)
-          break
+    toggleCopyVideosPrompt: function (force = false) {
+      if (this.moreVideoDataAvailable && !force) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Some videos in the playlist are not loaded yet. Click here to copy anyway."]'), 5000, () => {
+          this.toggleCopyVideosPrompt(true)
+        })
+        return
       }
-    }
-  }
+
+      this.showAddToPlaylistPromptForManyVideos({
+        videos: this.videos,
+        newPlaylistDefaultProperties: { title: this.title },
+      })
+    },
+
+    savePlaylistInfo: function () {
+      if (this.newTitle === '') {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
+        return
+      }
+
+      const playlist = {
+        playlistName: this.newTitle,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.newDescription,
+        videos: this.selectedUserPlaylist.videos,
+        _id: this.id,
+      }
+      try {
+        this.updatePlaylist(playlist)
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist has been updated."]'))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      } finally {
+        this.exitEditMode()
+      }
+    },
+
+    enterEditMode: function () {
+      this.newTitle = this.title
+      this.newDescription = this.description
+      this.editMode = true
+
+      this.$emit('enter-edit-mode')
+
+      nextTick(() => {
+        // Some elements only present after rendering update
+        this.$refs.playlistTitleInput.focus()
+      })
+    },
+
+    exitEditMode: function () {
+      this.editMode = false
+
+      this.$emit('exit-edit-mode')
+    },
+
+    handleRemoveVideosOnWatchPromptAnswer: function (option) {
+      if (option === 'yes') {
+        const videosToWatch = this.selectedUserPlaylist.videos.filter((video) => {
+          return this.historyCacheById[video.videoId] == null
+        })
+
+        const removedVideosCount = this.selectedUserPlaylist.videos.length - videosToWatch.length
+
+        if (removedVideosCount === 0) {
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
+          this.showRemoveVideosOnWatchPrompt = false
+          return
+        }
+
+        const playlist = {
+          playlistName: this.title,
+          protected: this.selectedUserPlaylist.protected,
+          description: this.description,
+          videos: videosToWatch,
+          _id: this.id
+        }
+        try {
+          this.updatePlaylist(playlist)
+          showToast(this.$tc('User Playlists.SinglePlaylistView.Toast.{videoCount} video(s) have been removed', removedVideosCount, {
+            videoCount: removedVideosCount,
+          }))
+        } catch (e) {
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+          console.error(e)
+        }
+      }
+      this.showRemoveVideosOnWatchPrompt = false
+    },
+
+    handleDeletePlaylistPromptAnswer: function (option) {
+      if (option === 'yes') {
+        if (this.selectedUserPlaylist.protected) {
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
+        } else {
+          this.removePlaylist(this.id)
+          this.$router.push(
+            {
+              path: '/userPlaylists'
+            }
+          )
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} has been deleted."]', {
+            playlistName: this.title,
+          }))
+        }
+      }
+      this.showDeletePlaylistPrompt = false
+    },
+
+    ...mapActions([
+      'showAddToPlaylistPromptForManyVideos',
+      'updatePlaylist',
+      'removePlaylist',
+    ]),
+  },
 })

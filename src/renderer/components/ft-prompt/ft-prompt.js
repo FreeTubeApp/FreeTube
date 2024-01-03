@@ -41,7 +41,8 @@ export default defineComponent({
   emits: ['click'],
   data: function () {
     return {
-      promptButtons: []
+      promptButtons: [],
+      lastActiveElement: null,
     }
   },
   computed: {
@@ -51,8 +52,11 @@ export default defineComponent({
   },
   beforeUnmount: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
+    this.lastActiveElement?.focus()
   },
   mounted: function () {
+    this.lastActiveElement = document.activeElement
+
     document.addEventListener('keydown', this.closeEventFunction, true)
     document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
     this.promptButtons = Array.from(

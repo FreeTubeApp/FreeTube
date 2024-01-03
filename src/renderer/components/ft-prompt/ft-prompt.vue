@@ -38,7 +38,7 @@
             v-if="showClose"
             :id="'prompt-' + sanitizedLabel + '-close'"
             :label="$t('Close')"
-            tabindex="0"
+            :tabindex="0"
             text-color="'var(--accent-color)'"
             background-color="'var(--text-with-accent-color)'"
             @click="hide"

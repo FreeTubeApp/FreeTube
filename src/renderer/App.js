@@ -8,6 +8,8 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
+import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
+import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
@@ -25,7 +27,9 @@ export default defineComponent({
     FtPrompt,
     FtButton,
     FtToast,
-    FtProgressBar
+    FtProgressBar,
+    FtPlaylistAddVideoPrompt,
+    FtCreatePlaylistPrompt,
   },
   data: function () {
     return {
@@ -62,6 +66,12 @@ export default defineComponent({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
+    },
+    showAddToPlaylistPrompt: function () {
+      return this.$store.getters.getShowAddToPlaylistPrompt
+    },
+    showCreatePlaylistPrompt: function () {
+      return this.$store.getters.getShowCreatePlaylistPrompt
     },
     windowTitle: function () {
       const routeTitle = this.$route.meta.title
