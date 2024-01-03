@@ -1826,14 +1826,16 @@ export default defineComponent({
         if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
           if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
             if (bName.search('auto') !== -1) {
-              return -1
-            } else if (aName.search('auto') !== -1) {
-              return 1
-            } else if (bIsAutotranslated) {
               // prefer caption a: b is auto-generated captions
               return -1
-            } else if (aIsAutotranslated) {
+            } else if (aName.search('auto') !== -1) {
               // prefer caption b: a is auto-generated captions
+              return 1
+            } else if (bIsAutotranslated) {
+              // prefer caption a: b is auto-translated captions
+              return -1
+            } else if (aIsAutotranslated) {
+              // prefer caption b: a is auto-translated captions
               return 1
             } else if (aCode[1] === userLocale[1]) {
               // prefer caption a: caption a has same county code as user's locale
