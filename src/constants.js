@@ -44,7 +44,7 @@ const DBActions = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
-    UPSERT_VIDEO_IDS: 'db-action-playlists-upsert-video-ids-by-playlist-id',
+    UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
     DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
     DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
     DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos'

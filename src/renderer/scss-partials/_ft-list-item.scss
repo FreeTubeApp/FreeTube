@@ -78,7 +78,7 @@ $watched-transition-duration: 0.5s;
     .videoWatched,
     .videoDuration,
     .externalPlayerIcon,
-    .favoritesIcon,
+    .playlistIcons,
     .watchedProgressBar,
     .videoCountContainer,
     .background,
@@ -148,12 +148,21 @@ $watched-transition-duration: 0.5s;
       margin-inline-start: 4px;
     }
 
-    .favoritesIcon {
-      font-size: 17px;
+    .playlistIcons {
       justify-self: end;
       margin-inline-end: 3px;
       margin-block-start: 3px;
+
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: flex-end;
       block-size: fit-content;
+    }
+    .addToPlaylistIcon,
+    .trashIcon,
+    .upArrowIcon,
+    .downArrowIcon {
+      font-size: 17px;
     }
 
     .watchedProgressBar {
@@ -321,9 +330,15 @@ $watched-transition-duration: 0.5s;
     .videoThumbnail,
     .channelThumbnail {
       margin-block-end: 12px;
+
+      .thumbnailImage {
+        // Ensure placeholder image displayed at same aspect ratio as most other images
+        aspect-ratio: 16/9;
+      }
     }
 
-    .thumbnailImage, .channelThumbnail {
+    .thumbnailImage,
+    .channelThumbnail {
       inline-size: 100%;
     }
 
@@ -337,31 +352,27 @@ $watched-transition-duration: 0.5s;
     }
   }
 
-  .favoritesIcon,
+  .playlistIcons,
   .externalPlayerIcon {
     opacity: $thumbnail-overlay-opacity;
   }
 
   @media (hover: hover) {
-    .favoritesIcon.favorited,
-    &:hover .favoritesIcon,
+    &:hover .addToPlaylistIcon:not(.alwaysVisible),
     &:hover .externalPlayerIcon,
-    &:focus-within .favoritesIcon,
+    &:focus-within .addToPlaylistIcon:not(.alwaysVisible),
     &:focus-within .externalPlayerIcon {
-      visibility: visible;
       opacity: $thumbnail-overlay-opacity;
     }
 
     &:hover .optionsButton,
     &:focus-within .optionsButton {
-      visibility: visible;
       opacity: 1;
     }
 
-    .favoritesIcon,
+    .addToPlaylistIcon:not(.alwaysVisible),
     .externalPlayerIcon,
     .optionsButton {
-      visibility: none;
       opacity: 0;
       transition: visibility 0s, opacity 0.2s linear;
     }

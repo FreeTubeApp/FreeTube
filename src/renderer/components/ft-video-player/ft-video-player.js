@@ -321,6 +321,10 @@ export default defineComponent({
       return playbackRates
     },
 
+    enableSubtitlesByDefault: function () {
+      return this.$store.getters.getEnableSubtitlesByDefault
+    },
+
     enableScreenshot: function () {
       return this.$store.getters.getEnableScreenshot
     },
@@ -1406,6 +1410,14 @@ export default defineComponent({
       const trackIndex = this.useDash ? 1 : 0
 
       const tracks = this.player.textTracks()
+
+      // visually and semantically disable any other enabled tracks
+      for (let i = 0; i < tracks.length; ++i) {
+        if (i !== trackIndex && tracks[i].mode === 'showing') {
+          tracks[i].mode = 'disabled'
+        }
+      }
+
       if (tracks.length > trackIndex) {
         if (tracks[trackIndex].mode === 'showing') {
           tracks[trackIndex].mode = 'disabled'
@@ -1864,15 +1876,16 @@ export default defineComponent({
         captionList = this.captionHybridList
       }
 
-      for (const caption of this.sortCaptions(captionList)) {
+      this.sortCaptions(captionList).forEach((caption, i) =>
         this.player.addRemoteTextTrack({
           kind: 'subtitles',
           src: caption.url,
           srclang: caption.language_code,
           label: caption.label,
-          type: caption.type
+          type: caption.type,
+          default: i === 0 && this.enableSubtitlesByDefault
         }, true)
-      }
+      )
     },
 
     toggleFullWindow: function () {
