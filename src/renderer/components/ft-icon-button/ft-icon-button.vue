@@ -6,7 +6,8 @@
       :icon="icon"
       :class="{
         [theme]: true,
-        shadow: useShadow
+        shadow: useShadow,
+        navIcon: theme === 'base-nav-icon'
       }"
       :style="{
         padding: padding + 'px',
@@ -15,10 +16,10 @@
       tabindex="0"
       role="button"
       :aria-expanded="dropdownShown"
-      @click="handleIconClick"
-      @mousedown="handleIconMouseDown"
-      @keydown.enter.prevent="handleIconClick"
-      @keydown.space.prevent="handleIconClick"
+      @click.stop="handleIconClick"
+      @mousedown.stop="handleIconMouseDown"
+      @keydown.enter.stop.prevent="handleIconClick"
+      @keydown.space.stop.prevent="handleIconClick"
     />
     <template
       v-if="dropdownShown"
@@ -27,7 +28,7 @@
         v-if="useModal"
         :autosize="true"
         :label="sanitizeForHtmlId(`iconButtonPrompt-${title}`)"
-        @click="dropdownShown = false"
+        @click.stop="dropdownShown = false"
       >
         <slot>
           <ul
@@ -80,9 +81,10 @@
               aria-selected="false"
               :tabindex="option.type === 'divider' ? '-1' : '0'"
               :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
-              @click="handleDropdownClick({url: option.value, index: index}, $event)"
-              @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"
-              @keydown.space="handleDropdownClick({url: option.value, index: index}, $event)"
+              @click.stop="handleDropdownClick({url: option.value, index: index}, $event)"
+              @mousedown.stop.prevent
+              @keydown.enter.stop="handleDropdownClick({url: option.value, index: index}, $event)"
+              @keydown.space.stop="handleDropdownClick({url: option.value, index: index}, $event)"
             >
               {{ option.type === 'divider' ? '' : option.label }}
             </li>

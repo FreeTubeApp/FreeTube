@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import i18n from '../../i18n/index'
-import { set as vueSet } from 'vue'
+import { set as vueSet, del as vueDel } from 'vue'
 
 import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
@@ -44,7 +44,13 @@ const state = {
   externalPlayerNames: [],
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
-  externalPlayerCmdArguments: {}
+  externalPlayerCmdArguments: {},
+  isSelectionModeEnabled: false,
+  selectAllVideosInSelectionModeKey: 0,
+  unselectAllVideosInSelectionModeKey: 0,
+  // Vuex doesn't support Maps, so we have to use an object here instead
+  // TODO: switch to a Map during the Pinia migration
+  selectionModeSelections: { index: 0, selections: {} },
 }
 
 const getters = {
@@ -118,6 +124,26 @@ const getters = {
 
   getExternalPlayerCmdArguments () {
     return state.externalPlayerCmdArguments
+  },
+
+  getIsSelectionModeEnabled () {
+    return state.isSelectionModeEnabled
+  },
+
+  getSelectAllInSelectionModeTriggered () {
+    return state.selectAllVideosInSelectionModeKey
+  },
+
+  getUnselectAllInSelectionModeTriggered () {
+    return state.unselectAllVideosInSelectionModeKey
+  },
+
+  getIsIndexSelectedInSelectionMode: (state) => (index) => {
+    return Object.hasOwn(state.selectionModeSelections.selections, index)
+  },
+
+  getSelectionModeSelections () {
+    return state.selectionModeSelections
   }
 }
 
@@ -496,6 +522,24 @@ const actions = {
     }
   },
 
+  selectAllVideosInSelectionMode({ commit }) {
+    commit('setSelectAllVideosInSelectionMode')
+  },
+
+  clearSelectionModeSelections ({ commit }) {
+    commit('setSelectionModeSelections', { index: 0, selections: {} })
+  },
+
+  addToSelectionModeSelections ({ commit }, selection) {
+    return new Promise((resolve) => {
+      commit('addToSelectionModeSelections', { selection, callback: resolve })
+    })
+  },
+
+  removeFromSelectionModeSelections ({ commit }, selectionIndex) {
+    return commit('removeFromSelectionModeSelections', { selectionIndex })
+  },
+
   clearSessionSearchHistory ({ commit }) {
     commit('setSessionSearchHistory', [])
   },
@@ -758,7 +802,30 @@ const mutations = {
 
   setExternalPlayerCmdArguments (state, value) {
     state.externalPlayerCmdArguments = value
-  }
+  },
+
+  setSelectionMode (state, value) {
+    state.isSelectionModeEnabled = value
+  },
+
+  setSelectAllVideosInSelectionMode (state) {
+    state.selectAllVideosInSelectionModeKey++
+  },
+
+  setSelectionModeSelections (state, selectionModeSelections) {
+    state.selectionModeSelections = selectionModeSelections
+    state.unselectAllVideosInSelectionModeKey++
+  },
+
+  addToSelectionModeSelections (state, { selection, callback }) {
+    vueSet(state.selectionModeSelections.selections,
+      ++state.selectionModeSelections.index, selection)
+    callback(state.selectionModeSelections.index)
+  },
+
+  removeFromSelectionModeSelections (state, { selectionIndex }) {
+    vueDel(state.selectionModeSelections.selections, selectionIndex)
+  },
 }
 
 export default {

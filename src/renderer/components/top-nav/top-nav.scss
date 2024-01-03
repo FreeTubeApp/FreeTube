@@ -42,6 +42,14 @@
   }
 }
 
+:deep {
+  .ftIconButton.navIcon:has(svg) {
+    padding: 0;
+    block-size: fit-content;
+    inline-size: fit-content;
+  }
+}
+
 .navIcon {
   border-radius: 50%;
   color: var(--primary-text-color);
@@ -56,13 +64,12 @@
     color: var(--text-with-main-color);
   }
 
-  &.arrowBackwardDisabled,
-  &.arrowForwardDisabled {
-    color: gray;
-    opacity: 0.5;
+  &.navIconDisabled {
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
+    color: gray;
+    opacity: 0.5;
   }
 
   &:hover {
@@ -84,6 +91,22 @@
       background-color: var(--primary-color-active);
     }
   }
+}
+
+.selectionModeToggleButton {
+  &.selectionModeEnabled {
+    $effect-distance: 5px;
+    box-shadow: 0 0 $effect-distance var(--primary-color);
+
+    @include top-nav-is-colored {
+      box-shadow: 0 0 $effect-distance var(--text-with-main-color);
+    }
+  }
+}
+
+.ftIconButton.selectionModeOptionsButton {
+  line-height: normal;
+  block-size: normal;
 }
 
 .navFilterIcon {

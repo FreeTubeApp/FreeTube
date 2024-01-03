@@ -68,10 +68,6 @@ class ProcessLocalesPlugin {
               }
             }
 
-            if (Object.prototype.hasOwnProperty.call(data, 'Locale Name')) {
-              delete data['Locale Name']
-            }
-
             this.removeEmptyValues(data)
 
             let filename = `${this.outputDir}/${locale}.json`

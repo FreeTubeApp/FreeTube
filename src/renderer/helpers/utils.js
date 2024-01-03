@@ -4,12 +4,20 @@ import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
+import store from '../store/index'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+
+const MAX_NEW_TABS = 15
+
+function hideSharingActions() {
+  return store.getters.getHideSharingActions
+}
+
 /**
  * @param {string} publishedText
  */
@@ -671,6 +679,262 @@ export function escapeHTML(untrusted) {
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
+}
+
+export function getVideoDropdownOptions(
+  count,
+  watchedVideosCount,
+  unwatchedVideosCount,
+  savedVideosCount,
+  unsavedVideosCount,
+  videosWithChannelIdsCount,
+  hiddenChannels,
+  unhiddenChannels
+) {
+  const options = []
+  if (count > 1) {
+    options.push(
+      {
+        label: i18n.tc('Video.Clear Selection', count, { count: count }),
+        value: 'clear'
+      },
+      {
+        type: 'divider'
+      }
+    )
+
+    if (savedVideosCount === count) {
+      options.push({
+        label: i18n.tc('Video.Unsave Video', count, { count: count }),
+        value: 'unsave'
+      })
+    } else if (unsavedVideosCount === count) {
+      options.push({
+        label: i18n.tc('Video.Save Video', count, { count: count }),
+        value: 'save'
+      })
+    } else {
+      options.push(
+        {
+          label: i18n.tc('Video.Unsave Video', savedVideosCount, { count: savedVideosCount }),
+          value: 'unsave'
+        },
+        {
+          label: i18n.tc('Video.Save Video', unsavedVideosCount, { count: unsavedVideosCount }),
+          value: 'save'
+        }
+      )
+    }
+  }
+
+  if (watchedVideosCount === count) {
+    options.push({
+      label: i18n.tc('Video.Remove From History', count, { count: count }),
+      value: 'history-remove'
+    })
+  } else if (unwatchedVideosCount === count) {
+    options.push({
+      label: i18n.tc('Video.Mark As Watched', count, { count: count }),
+      value: 'history-add'
+    })
+  } else {
+    options.push(
+      {
+        label: i18n.tc('Video.Remove From History', watchedVideosCount, { count: watchedVideosCount }),
+        value: 'history-remove'
+      },
+      {
+        label: i18n.tc('Video.Mark As Watched', unwatchedVideosCount, { count: unwatchedVideosCount }),
+        value: 'history-add'
+      },
+    )
+  }
+
+  if (!hideSharingActions()) {
+    options.push(
+      {
+        type: 'divider'
+      },
+      {
+        label: i18n.tc('Video.Copy YouTube Link', count, { count: count }),
+        value: 'copyYoutube'
+      },
+      {
+        label: i18n.tc('Video.Copy YouTube Embedded Player Link', count, { count: count }),
+        value: 'copyYoutubeEmbed'
+      },
+      {
+        label: i18n.tc('Video.Copy Invidious Link', count, { count: count }),
+        value: 'copyInvidious'
+      }
+    )
+
+    if (count <= MAX_NEW_TABS) {
+      options.push(
+        {
+          type: 'divider'
+        },
+        {
+          label: i18n.tc('Video.Open in YouTube', count, { count: count }),
+          value: 'openYoutube'
+        },
+        {
+          label: i18n.tc('Video.Open YouTube Embedded Player', count, { count: count }),
+          value: 'openYoutubeEmbed'
+        },
+        {
+          label: i18n.tc('Video.Open in Invidious', count, { count: count }),
+          value: 'openInvidious'
+        }
+      )
+    }
+
+    if (videosWithChannelIdsCount) {
+      options.push(
+        {
+          type: 'divider'
+        },
+        {
+          label: i18n.tc('Video.Copy YouTube Channel Link', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
+          value: 'copyYoutubeChannel'
+        },
+        {
+          label: i18n.tc('Video.Copy Invidious Channel Link', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
+          value: 'copyInvidiousChannel'
+        }
+      )
+
+      if (videosWithChannelIdsCount <= MAX_NEW_TABS) {
+        options.push(
+          {
+            type: 'divider'
+          },
+          {
+            label: i18n.tc('Video.Open Channel in YouTube', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
+            value: 'openYoutubeChannel'
+          },
+          {
+            label: i18n.tc('Video.Open Channel in Invidious', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
+            value: 'openInvidiousChannel'
+          }
+        )
+      }
+
+      options.push(
+        {
+          type: 'divider'
+        }
+      )
+
+      if (hiddenChannels.size) {
+        options.push({
+          label: i18n.tc('Video.Unhide Channel', hiddenChannels.size, { count: hiddenChannels.size }),
+          value: 'unhideChannel'
+        })
+      }
+
+      if (unhiddenChannels.size) {
+        options.push({
+          label: i18n.tc('Video.Hide Channel', unhiddenChannels.size, { count: unhiddenChannels.size }),
+          value: 'hideChannel'
+        })
+      }
+    }
+  }
+
+  return options
+}
+
+export function handleVideoDropdownOptionsClick(
+  option,
+  count,
+  watchedVideosCount,
+  unwatchedVideosCount,
+  savedVideosCount,
+  unsavedVideosCount,
+  videosWithChannelIdsCount,
+  hiddenChannels,
+  unhiddenChannels,
+  videoComponents,
+  updateChannelsHidden
+) {
+  let channelsHidden = JSON.parse(store.getters.getChannelsHidden)
+  switch (option) {
+    case 'clear':
+      videoComponents[0].clearSelectionModeSelections()
+      break
+    case 'save':
+      videoComponents.forEach((videoComponent) => videoComponent.setSave(true, true))
+      showToast(i18n.tc('Video.Video has been saved', unsavedVideosCount, { count: unsavedVideosCount }))
+      break
+    case 'unsave':
+      videoComponents.forEach((videoComponent) => videoComponent.setSave(false, true))
+      showToast(i18n.tc('Video.Video has been removed from your history', savedVideosCount, { count: savedVideosCount }))
+      break
+    case 'history-add':
+      videoComponents.forEach((videoComponent) => videoComponent.markAsWatched(true))
+      showToast(i18n.tc('Video.Video has been marked as watched', unwatchedVideosCount, { count: unwatchedVideosCount }))
+      break
+    case 'history-remove':
+      videoComponents.forEach((videoComponent) => videoComponent.removeFromWatched(true))
+      showToast(i18n.tc('Video.Video has been removed from your history', watchedVideosCount, { count: watchedVideosCount }))
+      break
+    case 'copyYoutube':
+      copyToClipboard(
+        videoComponents.map(videoComponent => videoComponent.youtubeShareUrl).join('\n'),
+        { messageOnSuccess: i18n.tc('Share.YouTube URL copied to clipboard', count, { count: count }) })
+      break
+    case 'openYoutube':
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youtubeUrl))
+      break
+    case 'copyYoutubeEmbed':
+      copyToClipboard(
+        videoComponents.map(videoComponent => videoComponent.youtubeEmbedUrl).join('\n'),
+        { messageOnSuccess: i18n.tc('Share.YouTube Embed URL copied to clipboard', count, { count: count }) })
+      break
+    case 'openYoutubeEmbed':
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youtubeEmbedUrl))
+      break
+    case 'copyInvidious':
+      copyToClipboard(
+        videoComponents.map(videoComponent => videoComponent.invidiousUrl).join('\n'),
+        { messageOnSuccess: i18n.tc('Share.Invidious URL copied to clipboard', count, { count: count }) })
+      break
+    case 'openInvidious':
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.invidiousUrl))
+      break
+    case 'copyYoutubeChannel':
+      copyToClipboard(
+        videoComponents.filter(videoComponent => videoComponent.channelId !== null)
+          .map(videoComponent => videoComponent.youtubeChannelUrl).join('\n'),
+        { messageOnSuccess: i18n.tc('Share.YouTube Channel URL copied to clipboard', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }) })
+      break
+    case 'openYoutubeChannel':
+      videoComponents.filter(videoComponent => videoComponent.channelId !== null)
+        .forEach((videoComponent) => openExternalLink(videoComponent.youtubeChannelUrl))
+      break
+    case 'copyInvidiousChannel':
+      copyToClipboard(
+        videoComponents.filter(videoComponent => videoComponent.channelId !== null)
+          .map(videoComponent => videoComponent.invidiousChannelUrl).join('\n'),
+        { messageOnSuccess: i18n.tc('Share.Invidious Channel URL copied to clipboard', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }) }
+      )
+      break
+    case 'openInvidiousChannel':
+      videoComponents.filter(videoComponent => videoComponent.channelId !== null)
+        .forEach((videoComponent) => openExternalLink(videoComponent.invidiousChannelUrl))
+      break
+    case 'hideChannel':
+      unhiddenChannels.forEach((channelId) => channelsHidden.push(channelId))
+      updateChannelsHidden(JSON.stringify(channelsHidden))
+      showToast(i18n.tc('Video.Channel Hidden', unhiddenChannels.size, { count: unhiddenChannels.size }))
+      break
+    case 'unhideChannel':
+      channelsHidden = channelsHidden.filter((channel) => !hiddenChannels.has(channel.name))
+      updateChannelsHidden(JSON.stringify(channelsHidden))
+      showToast(i18n.tc('Video.Channel Unhidden', hiddenChannels.size, { count: hiddenChannels.size }))
+      break
+  }
 }
 
 /**

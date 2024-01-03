@@ -5,8 +5,14 @@
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
       [appearance]: true,
-      watched: addWatchedStyle
+      watched: addWatchedStyle,
+      isSelectableInSelectionMode: isSelectionModeEnabled,
+      selectedInSelectionMode: selectionModeSelectionId !== 0
     }"
+    @pointerenter.prevent.stop="handlePointerEnter($event)"
+    @mousedown.prevent.stop="addToOrRemoveFromSelectionModeSelections"
+    @keydown.enter.prevent.stop="addToOrRemoveFromSelectionModeSelections"
+    @keydown.space.prevent.stop="addToOrRemoveFromSelectionModeSelections"
   >
     <div
       class="videoThumbnail"
@@ -49,7 +55,7 @@
       />
       <ft-icon-button
         v-if="!isUpcoming"
-        :title="$t('Video.Save Video')"
+        :title="inFavoritesPlaylist ? $tc('Video.Unsave Video') : $tc('Video.Save Video')"
         :icon="['fas', 'star']"
         class="favoritesIcon"
         :class="{ favorited: favoriteIconTheme === 'base favorite'}"
@@ -112,7 +118,7 @@
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
-        title="More Options"
+        :title="$t('More Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"

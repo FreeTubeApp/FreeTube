@@ -8,7 +8,12 @@
   user-select: none;
 }
 
-.iconButton {
+.iconButton.base-nav-icon {
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+.iconButton:not(.base-nav-icon) {
   border-radius: 50%;
   cursor: pointer;
   block-size: 1em;

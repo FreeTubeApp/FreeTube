@@ -16,7 +16,7 @@
       <font-awesome-icon
         :aria-disabled="isArrowBackwardDisabled"
         class="navIcon"
-        :class="{ arrowBackwardDisabled: isArrowBackwardDisabled}"
+        :class="{ navIconDisabled: isArrowBackwardDisabled}"
         :icon="['fas', 'arrow-left']"
         role="button"
         tabindex="0"
@@ -27,7 +27,7 @@
       <font-awesome-icon
         :aria-disabled="isArrowForwardDisabled"
         class="navIcon"
-        :class="{ arrowForwardDisabled: isArrowForwardDisabled}"
+        :class="{ navIconDisabled: isArrowForwardDisabled}"
         :icon="['fas', 'arrow-right']"
         role="button"
         tabindex="0"
@@ -52,6 +52,29 @@
         tabindex="0"
         @click="createNewWindow"
         @keydown.enter.prevent="createNewWindow"
+      />
+      <font-awesome-icon
+        class="navIcon selectionModeToggleButton"
+        :class="{ selectionModeEnabled: isSelectionModeEnabled }"
+        :icon="['fas', 'square-check']"
+        :title="selectVideosText"
+        role="button"
+        tabindex="0"
+        @click="toggleSelectionMode"
+        @keydown.enter.prevent="toggleSelectionMode"
+      />
+      <ft-icon-button
+        v-if="isSelectionModeEnabled"
+        class="navIcon selectionModeOptionsButton"
+        :class="{ navIconDisabled: selectionModeSelectionValues.length === 0 }"
+        :icon="['fas', 'ellipsis-v']"
+        :title="$t('More Options')"
+        theme="base-nav-icon"
+        role="button"
+        :remove-icon-button-styling="true"
+        :dropdown-options="dropdownOptions"
+        tabindex="0"
+        @click="handleOptionsClick"
       />
       <div
         v-if="!hideHeaderLogo"

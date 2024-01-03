@@ -1,14 +1,14 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import {
-  copyToClipboard,
   formatDurationAsTimestamp,
   formatNumber,
-  openExternalLink,
   showToast,
   toLocalePublicationString,
-  toDistractionFreeTitle
+  toDistractionFreeTitle,
+  getVideoDropdownOptions,
+  handleVideoDropdownOptionsClick
 } from '../../helpers/utils'
 import { deArrowData } from '../../helpers/sponsorblock'
 
@@ -73,10 +73,15 @@ export default defineComponent({
       isLive: false,
       isUpcoming: false,
       isPremium: false,
-      hideViews: false
+      hideViews: false,
+      selectionModeSelectionId: 0
     }
   },
   computed: {
+    ...mapGetters([
+      'getIsIndexSelectedInSelectionMode'
+    ]),
+
     historyEntry: function () {
       return this.$store.getters.getHistoryCacheById[this.id]
     },
@@ -169,93 +174,7 @@ export default defineComponent({
     },
 
     dropdownOptions: function () {
-      const options = [
-        {
-          label: this.watched
-            ? this.$t('Video.Remove From History')
-            : this.$t('Video.Mark As Watched'),
-          value: 'history'
-        }
-      ]
-      if (!this.hideSharingActions) {
-        options.push(
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Copy YouTube Link'),
-            value: 'copyYoutube'
-          },
-          {
-            label: this.$t('Video.Copy YouTube Embedded Player Link'),
-            value: 'copyYoutubeEmbed'
-          },
-          {
-            label: this.$t('Video.Copy Invidious Link'),
-            value: 'copyInvidious'
-          },
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Open in YouTube'),
-            value: 'openYoutube'
-          },
-          {
-            label: this.$t('Video.Open YouTube Embedded Player'),
-            value: 'openYoutubeEmbed'
-          },
-          {
-            label: this.$t('Video.Open in Invidious'),
-            value: 'openInvidious'
-          }
-        )
-        if (this.channelId !== null) {
-          options.push(
-            {
-              type: 'divider'
-            },
-            {
-              label: this.$t('Video.Copy YouTube Channel Link'),
-              value: 'copyYoutubeChannel'
-            },
-            {
-              label: this.$t('Video.Copy Invidious Channel Link'),
-              value: 'copyInvidiousChannel'
-            },
-            {
-              type: 'divider'
-            },
-            {
-              label: this.$t('Video.Open Channel in YouTube'),
-              value: 'openYoutubeChannel'
-            },
-            {
-              label: this.$t('Video.Open Channel in Invidious'),
-              value: 'openInvidiousChannel'
-            },
-            {
-              type: 'divider'
-            }
-          )
-
-          const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-          const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
-          if (channelShouldBeHidden) {
-            options.push({
-              label: this.$t('Video.Unhide Channel'),
-              value: 'unhideChannel'
-            })
-          } else {
-            options.push({
-              label: this.$t('Video.Hide Channel'),
-              value: 'hideChannel'
-            })
-          }
-        }
-      }
-
-      return options
+      return getVideoDropdownOptions(...this.videoDropdownOptionArguments)
     },
 
     thumbnail: function () {
@@ -361,12 +280,65 @@ export default defineComponent({
 
     deArrowCache: function () {
       return this.$store.getters.getDeArrowCache[this.id]
+    },
+
+    isSelectionModeEnabled: function () {
+      return this.$store.getters.getIsSelectionModeEnabled
+    },
+
+    selectAllInSelectionModeTriggered: function () {
+      return this.$store.getters.getSelectAllInSelectionModeTriggered
+    },
+
+    unselectAllInSelectionModeTriggered: function () {
+      return this.$store.getters.getUnselectAllInSelectionModeTriggered
+    },
+
+    videoDropdownOptionArguments: function () {
+      const count = 1
+      const videoComponents = [this]
+      const videosWithChannelIdsCount = this.channelId !== null ? 1 : 0
+
+      const watchedVideosCount = this.watched ? 1 : 0
+      const unwatchedVideosCount = count - watchedVideosCount
+
+      const savedVideosCount = this.inFavoritesPlaylist ? 1 : 0
+      const unsavedVideosCount = count - savedVideosCount
+
+      const channelsHidden = JSON.parse(this.$store.getters.getChannelsHidden)
+      const hiddenChannels = new Set()
+      const unhiddenChannels = new Set()
+      if (channelsHidden.includes(this.channelId)) {
+        hiddenChannels.add(this.channelId)
+      } else {
+        unhiddenChannels.add(this.channelId)
+      }
+
+      return [
+        count,
+        watchedVideosCount,
+        unwatchedVideosCount,
+        savedVideosCount,
+        unsavedVideosCount,
+        videosWithChannelIdsCount,
+        hiddenChannels,
+        unhiddenChannels,
+        videoComponents
+      ]
     }
   },
   watch: {
     historyEntry() {
       this.checkIfWatched()
     },
+    selectAllInSelectionModeTriggered() {
+      if (this.selectionModeSelectionId === 0) {
+        this.addToOrRemoveFromSelectionModeSelections()
+      }
+    },
+    unselectAllInSelectionModeTriggered() {
+      this.selectionModeSelectionId = 0
+    }
   },
   created: function () {
     this.parseVideoData()
@@ -374,6 +346,11 @@ export default defineComponent({
 
     if (this.useDeArrowTitles && !this.deArrowCache) {
       this.fetchDeArrowData()
+    }
+  },
+  beforeDestroy: function () {
+    if (this.selectionModeSelectionId) {
+      this.removeFromSelectionModeSelections(this.selectionModeSelectionId)
     }
   },
   methods: {
@@ -417,52 +394,17 @@ export default defineComponent({
       }
     },
 
-    handleOptionsClick: function (option) {
-      switch (option) {
-        case 'history':
-          if (this.watched) {
-            this.removeFromWatched()
-          } else {
-            this.markAsWatched()
-          }
-          break
-        case 'copyYoutube':
-          copyToClipboard(this.youtubeShareUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
-          break
-        case 'openYoutube':
-          openExternalLink(this.youtubeUrl)
-          break
-        case 'copyYoutubeEmbed':
-          copyToClipboard(this.youtubeEmbedUrl, { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
-          break
-        case 'openYoutubeEmbed':
-          openExternalLink(this.youtubeEmbedUrl)
-          break
-        case 'copyInvidious':
-          copyToClipboard(this.invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
-          break
-        case 'openInvidious':
-          openExternalLink(this.invidiousUrl)
-          break
-        case 'copyYoutubeChannel':
-          copyToClipboard(this.youtubeChannelUrl, { messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
-          break
-        case 'openYoutubeChannel':
-          openExternalLink(this.youtubeChannelUrl)
-          break
-        case 'copyInvidiousChannel':
-          copyToClipboard(this.invidiousChannelUrl, { messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
-          break
-        case 'openInvidiousChannel':
-          openExternalLink(this.invidiousChannelUrl)
-          break
-        case 'hideChannel':
-          this.hideChannel(this.channelName, this.channelId)
-          break
-        case 'unhideChannel':
-          this.unhideChannel(this.channelName, this.channelId)
-          break
+    setSave(willSave, hideToast = false) {
+      if (!this.inFavoritesPlaylist && willSave) {
+        this.addToPlaylist(hideToast)
+      } else if (this.inFavoritesPlaylist && !willSave) {
+        this.removeFromPlaylist(hideToast)
       }
+    },
+
+    handleOptionsClick: function (option) {
+      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments,
+        (channelsHidden) => this.updateChannelsHidden(channelsHidden))
     },
 
     parseVideoData: function () {
@@ -585,7 +527,7 @@ export default defineComponent({
       }
     },
 
-    markAsWatched: function () {
+    markAsWatched: function (hideToast = false) {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -601,21 +543,26 @@ export default defineComponent({
         type: 'video'
       }
       this.updateHistory(videoData)
-      showToast(this.$t('Video.Video has been marked as watched'))
+
+      if (!hideToast) {
+        showToast(this.$tc('Video.Video has been marked as watched'))
+      }
 
       this.watched = true
     },
 
-    removeFromWatched: function () {
+    removeFromWatched: function (hideToast = false) {
       this.removeFromHistory(this.id)
 
-      showToast(this.$t('Video.Video has been removed from your history'))
+      if (!hideToast) {
+        showToast(this.$tc('Video.Video has been removed from your history'))
+      }
 
       this.watched = false
       this.watchProgress = 0
     },
 
-    addToPlaylist: function () {
+    addToPlaylist: function (hideToast = false) {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -637,10 +584,12 @@ export default defineComponent({
 
       this.addVideo(payload)
 
-      showToast(this.$t('Video.Video has been saved'))
+      if (!hideToast) {
+        showToast(this.$tc('Video.Video has been saved'))
+      }
     },
 
-    removeFromPlaylist: function () {
+    removeFromPlaylist: function (hideToast = false) {
       const payload = {
         playlistName: 'Favorites',
         videoId: this.id
@@ -648,22 +597,48 @@ export default defineComponent({
 
       this.removeVideo(payload)
 
-      showToast(this.$t('Video.Video has been removed from your saved list'))
+      if (!hideToast) {
+        showToast(this.$tc('Video.Video has been removed from your saved list'))
+      }
     },
 
-    hideChannel: function(channelName, channelId) {
-      const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      hiddenChannels.push(channelId)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels))
+    addToOrRemoveFromSelectionModeSelections: async function () {
+      if (!this.isSelectionModeEnabled) {
+        return
+      }
 
-      showToast(this.$t('Channel Hidden', { channel: channelName }))
+      if (!this.getIsIndexSelectedInSelectionMode(this.selectionModeSelectionId)) {
+        const selectionModeSelectionId = await this.$store.dispatch('addToSelectionModeSelections', this)
+        this.selectionModeSelectionId = selectionModeSelectionId
+      } else {
+        this.removeFromSelectionModeSelections(this.selectionModeSelectionId)
+        this.selectionModeSelectionId = 0
+      }
     },
 
-    unhideChannel: function(channelName, channelId) {
-      const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
+    handlePointerEnter(event) {
+      // only update selection if device is a pressed down mouse
+      if (event.pointerType !== 'mouse' || event.pressure === 0) {
+        return
+      }
 
-      showToast(this.$t('Channel Unhidden', { channel: channelName }))
+      this.addToOrRemoveFromSelectionModeSelections()
+    },
+
+    clearSelectionModeSelections: function () {
+      this.clearSelectionModeSelections()
+    },
+
+    hideChannel: function (hiddenChannels) {
+      if (!hiddenChannels.includes(this.channelId)) {
+        return
+      }
+
+      hiddenChannels.push(this.channelId)
+    },
+
+    unhideChannel: function (hiddenChannels) {
+      hiddenChannels = hiddenChannels.filter(c => c !== this.channelId)
     },
 
     ...mapActions([
@@ -672,6 +647,8 @@ export default defineComponent({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
+      'clearSelectionModeSelections',
+      'removeFromSelectionModeSelections',
       'updateChannelsHidden'
     ])
   }

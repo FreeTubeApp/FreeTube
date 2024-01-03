@@ -1,12 +1,17 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
-import { openInternalPath } from '../../helpers/utils'
+import {
+  openInternalPath,
+  getVideoDropdownOptions,
+  handleVideoDropdownOptionsClick
+} from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -15,7 +20,8 @@ export default defineComponent({
   components: {
     FtInput,
     FtSearchFilters,
-    FtProfileSelector
+    FtProfileSelector,
+    'ft-icon-button': FtIconButton
   },
   data: () => {
     return {
@@ -28,7 +34,7 @@ export default defineComponent({
       isArrowBackwardDisabled: true,
       isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
-      lastSuggestionQuery: ''
+      lastSuggestionQuery: '',
     }
   },
   computed: {
@@ -92,8 +98,81 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    },
+
+    selectVideosText: function () {
+      return this.isSelectionModeEnabled
+        ? this.$t('Disable Video Selection Mode')
+        : this.$t('Enable Video Selection Mode')
+    },
+
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
+    isSelectionModeEnabled: function () {
+      return this.$store.getters.getIsSelectionModeEnabled
+    },
+
+    selectionModeSelections: function () {
+      return this.$store.getters.getSelectionModeSelections
+    },
+
+    selectionModeSelectionValues: function() {
+      return Object.values(this.selectionModeSelections.selections)
+    },
+
+    videoDropdownOptionArguments: function() {
+      const videoComponents = this.selectionModeSelectionValues
+      const count = videoComponents.length
+      const videosWithChannelIdsCount = videoComponents.filter((videoComponent) => videoComponent.channelId !== null).length
+
+      const watchedVideosCount = videoComponents.filter((videoComponent) => videoComponent.watched).length
+      const unwatchedVideosCount = count - watchedVideosCount
+
+      const savedVideosCount = videoComponents.filter((videoComponent) => videoComponent.inFavoritesPlaylist).length
+      const unsavedVideosCount = count - savedVideosCount
+
+      const channelsHidden = JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
+
+      const hiddenChannels = new Set()
+      const unhiddenChannels = new Set()
+      videoComponents.forEach((videoComponent) => {
+        const channelIdentifier = channelsHidden.find(ch => ch.name === videoComponent.channelId)?.name ??
+          channelsHidden.find(ch => ch.name === videoComponent.channelName)?.name
+        if (channelIdentifier) {
+          if (!hiddenChannels.has(channelIdentifier)) {
+            hiddenChannels.add(channelIdentifier)
+          }
+        } else if (!unhiddenChannels.has(videoComponent.channelId)) {
+          unhiddenChannels.add(videoComponent.channelId)
+        }
+      })
+
+      return [
+        count,
+        watchedVideosCount,
+        unwatchedVideosCount,
+        savedVideosCount,
+        unsavedVideosCount,
+        videosWithChannelIdsCount,
+        hiddenChannels,
+        unhiddenChannels,
+        videoComponents
+      ]
+    },
+
+    dropdownOptions: function () {
+      return getVideoDropdownOptions(...this.videoDropdownOptionArguments)
     }
   },
+
   mounted: function () {
     let previousWidth = window.innerWidth
     if (window.innerWidth <= 680) {
@@ -308,6 +387,8 @@ export default defineComponent({
       } else {
         this.isForwardOrBack = false
       }
+
+      this.setSelectionMode(false)
     },
 
     historyBack: function () {
@@ -349,17 +430,47 @@ export default defineComponent({
         // Web placeholder
       }
     },
+
+    handleOptionsClick: function (option) {
+      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments,
+        (channelsHidden) => this.updateChannelsHidden(channelsHidden))
+    },
+
+    toggleSelectionMode: function () {
+      this.setSelectionMode(!this.isSelectionModeEnabled)
+    },
+
+    setSelectionMode: function (value) {
+      if (this.isSelectionModeEnabled === value) {
+        return
+      }
+
+      // prevents all page elements from being highlighted if Ctrl+A was used in Selection Mode
+      if (this.isSelectionModeEnabled && window.getSelection) {
+        window.getSelection().empty()
+      }
+
+      this.$store.commit('setSelectionMode', value)
+
+      if (!value) {
+        this.clearSelectionModeSelections()
+      }
+    },
+
     navigate: function (route) {
       this.$router.push('/' + route)
     },
     hideFilters: function () {
       this.showFilters = false
     },
+
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
       'getYoutubeUrlInfo',
+      'clearSelectionModeSelections',
+      'updateChannelsHidden'
     ])
   }
 })

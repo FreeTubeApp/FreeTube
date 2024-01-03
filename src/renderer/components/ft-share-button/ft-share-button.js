@@ -145,7 +145,7 @@ export default defineComponent({
     },
 
     copyInvidious() {
-      copyToClipboard(this.getFinalUrl(this.invidiousURL), { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.invidiousURL), { messageOnSuccess: this.$tc('Share.Invidious URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
@@ -155,7 +155,7 @@ export default defineComponent({
     },
 
     copyYoutube() {
-      copyToClipboard(this.getFinalUrl(this.youtubeShareURL), { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.youtubeShareURL), { messageOnSuccess: this.$tc('Share.YouTube URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
@@ -165,7 +165,7 @@ export default defineComponent({
     },
 
     copyYoutubeEmbed() {
-      copyToClipboard(this.getFinalUrl(this.youtubeEmbedURL), { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.youtubeEmbedURL), { messageOnSuccess: this.$tc('Share.YouTube Embed URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
@@ -175,7 +175,7 @@ export default defineComponent({
     },
 
     copyInvidiousEmbed() {
-      copyToClipboard(this.getFinalUrl(this.invidiousEmbedURL), { messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.invidiousEmbedURL), { messageOnSuccess: this.$tc('Share.Invidious Embed URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
