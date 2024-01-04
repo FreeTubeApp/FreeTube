@@ -537,22 +537,44 @@ export function parseLocalPlaylistVideo(video) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Video} video
+ * @param {import('youtubei.js').YTNodes.Video | import('youtubei.js').YTNodes.Movie} item
  */
-export function parseLocalListVideo(video) {
-  return {
-    type: 'video',
-    videoId: video.id,
-    title: video.title.text,
-    author: video.author.name,
-    authorId: video.author.id,
-    description: video.description,
-    viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
-    publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
-    liveNow: video.is_live,
-    isUpcoming: video.is_upcoming || video.is_premiere,
-    premiereDate: video.upcoming
+export function parseLocalListVideo(item) {
+  if (item.type === 'Movie') {
+    /** @type {import('youtubei.js').YTNodes.Movie} */
+    const movie = item
+
+    return {
+      type: 'video',
+      videoId: movie.id,
+      title: movie.title.text,
+      author: movie.author.name,
+      authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
+      description: movie.description_snippet?.text,
+      viewCount: null,
+      publishedText: null,
+      lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
+      liveNow: false,
+      isUpcoming: false,
+      premiereDate: null
+    }
+  } else {
+    /** @type {import('youtubei.js').YTNodes.Video} */
+    const video = item
+    return {
+      type: 'video',
+      videoId: video.id,
+      title: video.title.text,
+      author: video.author.name,
+      authorId: video.author.id,
+      description: video.description,
+      viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+      publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
+      lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
+      liveNow: video.is_live,
+      isUpcoming: video.is_upcoming || video.is_premiere,
+      premiereDate: video.upcoming
+    }
   }
 }
 
