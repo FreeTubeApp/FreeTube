@@ -773,6 +773,10 @@ const mutations = {
     }
   },
 
+  addThumbnailToDeArrowCache (state, payload) {
+    vueSet(state.deArrowCache, payload.videoId, payload)
+  },
+
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)

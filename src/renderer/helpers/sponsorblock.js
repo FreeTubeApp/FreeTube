@@ -56,3 +56,31 @@ export async function deArrowData(videoId) {
     throw error
   }
 }
+
+export async function deArrowThumbnail(videoId, timestamp) {
+  let requestUrl = `${store.getters.getDeArrowThumbnailGeneratorUrl}/api/v1/getThumbnail?videoID=` + videoId
+  if (timestamp != null) {
+    requestUrl += `&time=${timestamp}`
+  }
+
+  try {
+    const response = await fetch(requestUrl)
+
+    // 404 means that there are no segments registered for the video
+    if (response.status === 404) {
+      return undefined
+    }
+
+    if (response.ok) {
+      return response.url
+    }
+
+    // this usually means that a thumbnail was not generated on the server yet so we'll log the error but otherwise ignore it.
+    const json = await response.json()
+    console.error(json)
+    return undefined
+  } catch (error) {
+    console.error('failed to fetch DeArrow data', requestUrl, error)
+    throw error
+  }
+}

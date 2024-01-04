@@ -299,6 +299,8 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  useDeArrowThumbnails: false,
+  deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app'
 }
 
 const stateWithSideEffects = {

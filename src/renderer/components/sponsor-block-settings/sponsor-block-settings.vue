@@ -14,6 +14,12 @@
         :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
         @change="handleUpdateUseDeArrowTitles"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
+        :default-value="useDeArrowThumbnails"
+        :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
+        @change="handleUpdateUseDeArrowThumbnails"
+      />
     </ft-flex-box>
     <template
       v-if="useSponsorBlock || useDeArrowTitles"
@@ -35,6 +41,14 @@
           :show-label="true"
           :value="sponsorBlockUrl"
           @input="handleUpdateSponsorBlockUrl"
+        />
+        <ft-input
+          v-if="useDeArrowThumbnails"
+          :placeholder="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="deArrowThumbnailGeneratorUrl"
+          @input="handleUpdateDeArrowThumbnailGeneratorUrl"
         />
       </ft-flex-box>
       <ft-flex-box
