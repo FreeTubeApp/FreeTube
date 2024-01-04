@@ -115,7 +115,7 @@
         <span v-else-if="channelName !== null">
           {{ channelName }}
         </span>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount">
+        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null">
           <span class="viewCount">
             <template v-if="channelId !== null"> • </template>
             {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
