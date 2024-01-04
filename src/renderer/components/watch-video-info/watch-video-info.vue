@@ -90,6 +90,17 @@
           @click="togglePlaylistPrompt"
         />
         <ft-icon-button
+          v-if="isQuickBookmarkEnabled"
+          :title="$t('Video.Save Video')"
+          :icon="['fas', 'star']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+          }"
+          :theme="quickBookmarkIconTheme"
+          @click="toggleQuickBookmarked"
+        />
+        <ft-icon-button
           v-if="externalPlayer !== ''"
           :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
           :icon="['fas', 'external-link-alt']"
