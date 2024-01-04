@@ -153,6 +153,7 @@ Settings:
       Middle: 'No meio'
       End: 'No fim'
       Hidden: Escondido
+      Blur: Desfocar
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
       Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
@@ -308,6 +309,8 @@ Settings:
     How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
     Fetch Feeds from RSS: Buscar Informações através de RSS
     Fetch Automatically: Obter o feed automaticamente
+    Only Show Latest Video for Each Channel: Exibe apenas o vídeo mais recente de
+      cada canal
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -423,7 +426,7 @@ Settings:
     Hide Live Streams: Ocultar transmissões ao vivo
     Hide Chapters: Ocultar capítulos
     Hide Upcoming Premieres: Ocultar as Próximas Estréias
-    Hide Channels Placeholder: Nome ou ID do Canal
+    Hide Channels Placeholder: ID do Canal
     Display Titles Without Excessive Capitalisation: Mostrar Títulos sem Capitalização
       Excessiva
     Hide Channels: Ocultar Vídeos dos Canais
@@ -445,6 +448,12 @@ Settings:
     Hide Profile Pictures in Comments: Esconder imagens do perfil nos comentários
     Blur Thumbnails: Desfocar Miniaturas
     Hide Subscriptions Community: Ocultar comunidade inscritas
+    Hide Channels Invalid: ID de canal fornecido é inválido
+    Hide Channels Disabled Message: Alguns canais foram bloqueados usando ID e não
+      foram processados. O recurso é bloqueado enquanto esses ID estão atualizando
+    Hide Channels Already Exists: O ID de canal já existe
+    Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor,
+      verifique novamente se o ID está correto.
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -516,6 +525,7 @@ Settings:
     Password Incorrect: Senha Incorreta
     Password: Senha
     Enter Password To Unlock: Digite a senha para desbloquear as configurações
+  Expand All Settings Sections: Expandir todas as seções de configurações
 About:
   #On About page
   About: 'Sobre'
@@ -780,6 +790,8 @@ Video:
     bate-papo ao vivo não está disponível para esta transmissão. Pode ter sido desativado
     pelo responsável.
   Pause on Current Video: Pausar no vídeo atual
+  Unhide Channel: Mostrar Canal
+  Hide Channel: Ocultar o canal
 Videos:
   #& Sort By
   Sort By:
@@ -922,6 +934,11 @@ Profile:
   Profile Filter: Filtro de Perfil
   Profile Settings: Configurações de Perfil
   Toggle Profile List: Ativar/Desativar Lista de Perfis
+  Profile Name: Nome do perfil
+  Edit Profile Name: Editar o nome do perfil
+  Create Profile Name: Criar nome de perfil
+  Open Profile Dropdown: Abrir Menu Suspenso de Perfil
+  Close Profile Dropdown: Fechar Menu Suspenso de Perfil
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
@@ -1000,10 +1017,10 @@ Tooltips:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
-    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, as
-      listas de reprodução e o próprio canal dos resultados da busca, tendências,
-      mais populares e recomendados. O nome do canal digitado deve coincidir exatamente,
-      observando maiúsculas e minúsculas.
+    Hide Channels: Insira um ID de canal para ocultar todos os vídeos, as listas de
+      reprodução e o próprio canal dos resultados da busca, tendências, mais populares
+      e recomendados. O nome do canal digitado deve coincidir exatamente, observando
+      as maiúsculas e as minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
       aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
@@ -1070,3 +1087,6 @@ Playlist will pause when current video is finished: Lista de reprodução será 
   quando vídeo atual terminar
 Playlist will not pause when current video is finished: Lista de reprodução não será
   pausada quando vídeo atual terminar
+Channel Hidden: '{channel} adicionado ao filtro de canais'
+Go to page: Ir para {page}
+Channel Unhidden: '{channel} removido do filtro de canais'

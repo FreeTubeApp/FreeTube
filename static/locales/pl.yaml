@@ -313,6 +313,8 @@ Settings:
     How do I import my subscriptions?: 'Jak zaimportować swoje subskrypcje?'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
+    Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
+      kanału
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -525,6 +527,7 @@ Settings:
     Set Password To Prevent Access: Ustaw hasło, aby zabezpieczyć dostęp do ustawień
     Set Password: Ustaw hasło
     Remove Password: Usuń hasło
+  Expand All Settings Sections: Rozwiń wszystkie sekcje ustawień
 About:
   #On About page
   About: 'O projekcie'
@@ -798,6 +801,8 @@ Video:
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
   Pause on Current Video: Zatrzymaj po tym filmie
+  Unhide Channel: Pokaż kanał
+  Hide Channel: Ukryj kanał
 Videos:
   #& Sort By
   Sort By:
@@ -939,6 +944,11 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
   Toggle Profile List: Włącz/wyłącz listę profili
+  Open Profile Dropdown: Otwórz rozwijane menu profilu
+  Close Profile Dropdown: Zamknij rozwijane menu profilu
+  Profile Name: Nazwa profilu
+  Edit Profile Name: Edytuj nazwę profilu
+  Create Profile Name: Nadaj nazwę profilowi
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
@@ -1086,3 +1096,6 @@ Playlist will pause when current video is finished: Playlista zatrzyma się, gdy
   film się zakończy
 Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
   gdy obecny film się zakończy
+Channel Hidden: '{channel} dodany do filtra kanałów'
+Go to page: Idź do {page}
+Channel Unhidden: '{channel} usunięty z filtra kanału'

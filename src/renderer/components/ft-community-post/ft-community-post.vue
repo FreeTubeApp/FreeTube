@@ -56,19 +56,27 @@
       class="postText"
       v-html="postText"
     />
-    <tiny-slider
-      v-if="type === 'multiImage' && postContent.content.length > 0"
-      v-bind="tinySliderOptions"
-      class="slider"
-    >
-      <img
-        v-for="(img, index) in postContent.content"
-        :key="index"
-        :src="getBestQualityImage(img)"
-        class="communityImage tns-lazy-img"
-        alt=""
+    <div class="sliderContainer">
+      <swiper-container
+        v-if="type === 'multiImage' && postContent.content.length > 0"
+        ref="swiperContainer"
+        init="false"
+        class="slider"
       >
-    </tiny-slider>
+        <swiper-slide
+          v-for="(img, index) in postContent.content"
+          :key="index"
+          lazy="true"
+        >
+          <img
+            :src="getBestQualityImage(img)"
+            class="communityImage"
+            alt=""
+            loading="lazy"
+          >
+        </swiper-slide>
+      </swiper-container>
+    </div>
     <div
       v-if="type === 'image' && postContent.content.length > 0"
     >
@@ -118,4 +126,3 @@
 
 <script src="./ft-community-post.js" />
 <style scoped src="./ft-community-post.scss" lang="scss" />
-<style src="./slider-style.css" lang="css" />

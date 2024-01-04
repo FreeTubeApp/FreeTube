@@ -5,13 +5,6 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          v-if="false"
-          label="Enable Subtitles by Default"
-          :compact="true"
-          :default-value="enableSubtitles"
-          @change="updateEnableSubtitles"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Force Local Backend for Legacy Formats')"
           :compact="true"
           :disabled="backendPreference === 'local'"
@@ -25,6 +18,12 @@
           :default-value="proxyVideos"
           :tooltip="$t('Tooltips.Player Settings.Proxy Videos Through Invidious')"
           @change="updateProxyVideos"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Turn on Subtitles by Default')"
+          :compact="true"
+          :default-value="enableSubtitlesByDefault"
+          @change="updateEnableSubtitlesByDefault"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
@@ -123,7 +122,7 @@
         :min-value="0.25"
         :max-value="8"
         :step="0.25"
-        value-extension="×"
+        value-extension="x"
         @change="updateDefaultPlayback"
       />
       <ft-slider

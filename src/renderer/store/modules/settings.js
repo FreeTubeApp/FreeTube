@@ -162,6 +162,7 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
+  allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
   backendFallback: process.env.IS_ELECTRON,
@@ -183,7 +184,7 @@ const state = {
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
-  enableSubtitles: true,
+  enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
   externalLinkHandling: '',
   externalPlayer: '',
@@ -229,6 +230,7 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
+  onlyShowLatestFromChannel: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
@@ -502,8 +504,24 @@ const customActions = {
 
     ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
       switch (event) {
+        case SyncEvents.GENERAL.CREATE:
+          commit('addPlaylists', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE:
+          commit('removePlaylist', data)
+          break
+
+        case SyncEvents.GENERAL.UPSERT:
+          commit('upsertPlaylistToList', data)
+          break
+
         case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
           commit('addVideo', data)
+          break
+
+        case SyncEvents.PLAYLISTS.UPSERT_VIDEOS:
+          commit('addVideos', data)
           break
 
         case SyncEvents.PLAYLISTS.DELETE_VIDEO:

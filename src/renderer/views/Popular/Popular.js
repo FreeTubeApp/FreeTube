@@ -89,6 +89,7 @@ export default defineComponent({
       switch (event.key) {
         case 'r':
         case 'R':
+        case 'F5':
           if (!this.isLoading) {
             this.fetchPopularInfo()
           }
