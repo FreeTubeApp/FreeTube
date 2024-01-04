@@ -56,7 +56,7 @@
           @click="togglePlaylistPrompt"
         />
         <ft-icon-button
-          v-if="isQuickBookmarkEnabled"
+          v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
           :title="quickBookmarkIconText"
           :icon="['fas', 'star']"
           class="quickBookmarkVideoIcon"
