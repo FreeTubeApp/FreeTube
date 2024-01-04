@@ -127,6 +127,25 @@ User Playlists:
     Kui kõik on valmis, siis siin nähtavad videod on leitavad esitusloendist „Lemmikud“.
   Search bar placeholder: Otsi esindusloendist
   Empty Search Message: Selles esitusloendis pole sinu otsingule vastavaid videosid
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Kas
+    sa oled kindel, et soovid kõik vaadatud videod sellest esitusloendist eemaldada?
+    Seda tegevust ei saa tagasi pöörata.
+  You have no playlists. Click on the create new playlist button to create a new one.: Sul
+    pole esitusloendeid. Uue esitusloendi loomiseks vajuta nuppu „Uus esitusloend“.
+  Remove from Playlist: Eemalda esitusloendist
+  Save Changes: Salvesta muudatused
+  This playlist currently has no videos.: Selles esitusloendis pole hetkel videosid.
+  Add to Playlist: Lisa esitusloendisse
+  Move Video Down: Liiguta video allapoole
+  Playlist Name: Esitusloendi nimi
+  Remove Watched Videos: Eemalda vaadatud videod
+  Move Video Up: Liiguta video ülespoole
+  Cancel: Katkesta
+  Delete Playlist: Kustuta esitusloend
+  Create New Playlist: Loo uus esitusloend
+  Edit Playlist Info: Muuda esitusloendi teavet
+  Copy Playlist: Kopeeri esitusloend
+  Playlist Description: Esitusloendi kirjeldus
 History:
   # On History Page
   History: 'Ajalugu'
