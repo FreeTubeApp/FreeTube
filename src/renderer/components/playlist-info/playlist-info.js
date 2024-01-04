@@ -6,7 +6,6 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import {
-  copyToClipboard,
   showToast,
 } from '../../helpers/utils'
 

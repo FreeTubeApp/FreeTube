@@ -414,7 +414,14 @@ export default defineComponent({
       })
     },
     quickBookmarkIconText: function () {
-      return this.isInQuickBookmarkPlaylist ? this.$t('User Playlists.Remove from Favorites') : this.$t('User Playlists.Add to Favorites')
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      const translationProperties = {
+        playlistName: this.quickBookmarkPlaylist.playlistName,
+      }
+      return this.isInQuickBookmarkPlaylist
+        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
+        : this.$t('User Playlists.Add to Favorites', translationProperties)
     },
     quickBookmarkIconTheme: function () {
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'

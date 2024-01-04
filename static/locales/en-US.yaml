@@ -147,8 +147,8 @@ User Playlists:
   Create New Playlist: Create New Playlist
 
   Add to Playlist: Add to Playlist
-  Add to Favorites: Add to Favorites
-  Remove from Favorites: Remove from Favorites
+  Add to Favorites: Add to {playlistName}
+  Remove from Favorites: Remove from {playlistName}
 
   Move Video Up: Move Video Up
   Move Video Down: Move Video Down
