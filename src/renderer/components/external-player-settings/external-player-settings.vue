@@ -45,6 +45,7 @@
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
         :show-action-button="false"
+        :disabled="externalPlayerIgnoreArgs===true"
         :show-label="true"
         :value="externalPlayerCustomArgs"
         :tooltip="externalPlayerCustomArgsTooltip"
