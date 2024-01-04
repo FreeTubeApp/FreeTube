@@ -145,6 +145,7 @@ function parsePipedPlaylist(playlistId, result, parsedVideos) {
     channelThumbnail: result.uploaderAvatar,
     channelId: result.uploaderUrl.replace('/channel/', ''),
     firstVideoThumbnail: parsedVideos[0].thumbnail,
+    thumbnailUrl: result.thumbnailUrl,
     infoSource: 'piped'
   }
 }

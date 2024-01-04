@@ -3,8 +3,7 @@
   inline-size: auto;
 }
 
-/* https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors */
-.select:deep(.select-text) {
-  min-inline-size: 240px;
-  inline-size: auto;
+.switchGrid {
+  gap: 10px;
+  margin-block-end: 12px;
 }

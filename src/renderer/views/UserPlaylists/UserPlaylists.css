@@ -1,7 +1,24 @@
 .card {
+  position: relative;
+
   inline-size: 85%;
   margin-block: 0 60px;
   margin-inline: auto;
+}
+
+.headingText {
+  display: inline-block;
+}
+
+.newPlaylistButton {
+  margin-inline-start: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sortSelect {
+  /* Put it on the right */
+  margin-inline-start: auto;
 }
 
 .message {
