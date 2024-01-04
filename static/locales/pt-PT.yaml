@@ -38,6 +38,12 @@ Global:
   Live: Em directo
   Community: Comunidade
 
+  Counts:
+    Video Count: 1 vídeo | {count} vídeos
+    Subscriber Count: 1 subscritor | {count} subscritores
+    View Count: 1 visualização | {count} visualizações
+    Watching Count: 1 a ver | {count} a ver
+    Channel Count: 1 canal | {count} canais
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível!  Clique para mais detalhes
 Download From Site: Descarregar do site
@@ -102,6 +108,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
     Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsecção}"
     em "{settingsSection}".
+  Load More Posts: Carregar mais publicações
+  Empty Posts: Os seus canais subscritos não têm publicações atualmente.
 Trending:
   Trending: Tendências
   Trending Tabs: Separador de tendências
@@ -122,6 +130,46 @@ User Playlists:
   Search bar placeholder: Procurar na lista de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que correspondam à
     sua pesquisa
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
+    certeza que quer remover todos os vídeos vistos desta lista de reprodução? Isto
+    não pode ser revertido.
+  Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
+    que quer apagar esta lista de reprodução? Isto não pode ser revertido.
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: O vídeo foi removido
+      Playlist has been updated.: Lista de reprodução foir atualizada.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alguns
+        vídeos na lista de reprodução não foram ainda carregados. Clicar aqui para
+        copiar à mesma.
+      Playlist name cannot be empty. Please input a name.: Nome da lista de reprodução
+        não pode ser vazio. Por favor introduza um nome.
+      There was a problem with removing this video: Houve um problema a remover o
+        vídeo
+  You have no playlists. Click on the create new playlist button to create a new one.: Não
+    tem listas de reprodução. Clicar no botão de criar uma nova lista de reprodução
+    para criar uma nova.
+  Remove from Playlist: Remover da Lista de Reprodução
+  Save Changes: Guardar Alterações
+  Sort By:
+    LatestCreatedFirst: Criado Recentemente
+    Sort By: Organizar Por
+    NameDescending: Z-A
+    LatestUpdatedFirst: Atualizado Recentemente
+    NameAscending: A-Z
+  This playlist currently has no videos.: Esta lista de reprodução não tem videos
+    atualmente.
+  Add to Playlist: Adicionar à Lista de Reprodução
+  Move Video Down: Mover Vídeo Para Baixo
+  Playlist Name: Nome da Lista de Reprodução
+  Remove Watched Videos: Remover de Vídeos Vistos
+  Move Video Up: Mover Vídeo Para Cima
+  Cancel: Cancelar
+  Delete Playlist: Apagar Lista de Reprodução
+  Create New Playlist: Criar Nova Lista de Reprodução
+  Edit Playlist Info: Editar Informação da Lista de Reprodução
+  Copy Playlist: Copiar Lista de Reprodução
+  Playlist Description: Descrição da Lista de Reprodução
 History:
   # On History Page
   History: Histórico
@@ -720,7 +768,7 @@ Video:
     outro: Após
     intro: Introdução
     sponsor: Patrocinador
-    recap: Recap
+    recap: Recapitular
     filler: Preenchimento
   Skipped segment: Secção ignorada
   Stats:
@@ -980,3 +1028,4 @@ Hashtag:
   Hashtag: Marcador
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     quaisquer vídeos
+Go to page: Ir para {page}
