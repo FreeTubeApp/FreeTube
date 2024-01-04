@@ -59,6 +59,12 @@
         background-color="var(--primary-color)"
         @click="showRemoveSubscriptionsPrompt = true"
       />
+      <ft-button
+        :label="$t('Settings.Privacy Settings.Remove All Playlists')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
+        @click="showRemovePlaylistsPrompt = true"
+      />
     </ft-flex-box>
     <ft-prompt
       v-if="showSearchCachePrompt"
@@ -80,6 +86,13 @@
       :option-names="promptNames"
       :option-values="promptValues"
       @click="handleRemoveSubscriptions"
+    />
+    <ft-prompt
+      v-if="showRemovePlaylistsPrompt"
+      :label="$t('Settings.Privacy Settings.Are you sure you want to remove all your playlists?')"
+      :option-names="promptNames"
+      :option-values="promptValues"
+      @click="handleRemovePlaylists"
     />
   </ft-settings-section>
 </template>

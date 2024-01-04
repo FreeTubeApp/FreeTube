@@ -10,11 +10,13 @@
     <p
       :id="id"
       class="text"
-      :class="position"
+      :class="{
+        [position]: true,
+        allowNewlines,
+      }"
       role="tooltip"
-    >
-      {{ tooltip }}
-    </p>
+      v-text="tooltip"
+    />
   </div>
 </template>
 

@@ -87,8 +87,11 @@
   flex: 1 1 0%;
 }
 
-.sortSelect {
-  margin-inline-start: auto;
+.select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-block-end: 10px;
 }
 
 .channelInfoTabs {

@@ -770,7 +770,7 @@ export default defineComponent({
           const videoCount = extractNumberFromString(metadata.video_count)
           this.videoCount = isNaN(videoCount) ? null : videoCount
 
-          this.joined = metadata.joined_date.isEmpty() ? 0 : new Date(metadata.joined_date.text.replace('Joined').trim())
+          this.joined = metadata.joined_date && !metadata.joined_date.isEmpty() ? new Date(metadata.joined_date.text.replace('Joined').trim()) : 0
 
           this.location = metadata.country ?? null
         }
