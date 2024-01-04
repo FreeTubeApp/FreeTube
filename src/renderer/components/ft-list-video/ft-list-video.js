@@ -413,6 +413,9 @@ export default defineComponent({
         return video.videoId === this.id
       })
     },
+    quickBookmarkIconText: function () {
+      return this.isInQuickBookmarkPlaylist ? this.$t('User Playlists.Remove from Favorites') : this.$t('User Playlists.Add to Favorites')
+    },
     quickBookmarkIconTheme: function () {
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },

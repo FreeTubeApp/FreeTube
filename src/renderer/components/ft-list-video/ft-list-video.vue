@@ -57,7 +57,7 @@
         />
         <ft-icon-button
           v-if="isQuickBookmarkEnabled"
-          :title="$t('Video.Save Video')"
+          :title="quickBookmarkIconText"
           :icon="['fas', 'star']"
           class="quickBookmarkVideoIcon"
           :class="{
