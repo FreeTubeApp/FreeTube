@@ -1,44 +1,87 @@
-.card {
-  inline-size: 85%;
-  margin-block: 0 15px;
-  margin-inline: auto;
+h2 {
+  text-align: center;
+}
+
+h3 {
+  margin-block: 0 10px;
+  text-align: center;
 }
 
 .message {
   color: var(--tertiary-text-color);
 }
 
-.profileName {
-  inline-size: 400px;
+.profileName, .colorSelection {
+  margin: auto;
+  inline-size: 350px;
 }
 
-.bottomMargin {
-  margin-block-end: 30px;
+.profileEdit {
+  flex-direction: column;
+  column-gap: 10px;
+}
+
+.profileEdit > * {
+  flex: 1;
 }
 
 .colorOptions {
-  max-inline-size: 1000px;
-  margin-block: 0 30px;
   margin-inline: auto;
+  justify-content: center;
+  min-inline-size: 250px;
+}
+
+.customColorSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-block-start: 5px;
 }
 
 .colorOption {
-  inline-size: 100px;
-  block-size: 100px;
-  margin: 10px;
+  inline-size: 40px;
+  block-size: 40px;
+  margin: 2px;
   cursor: pointer;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
 
 .initial {
-  font-size: 50px;
-  line-height: 1em;
+  font-size: 37.5px;
   text-align: center;
-  padding-block: 25px;
-  padding-inline: 0px;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.colorOption:has(.initial) {
+  inline-size: 75px;
+  block-size: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.profilePreviewSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.secondEditRow {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
 }
 
 @media only screen and (max-width: 680px) {

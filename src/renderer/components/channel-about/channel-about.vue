@@ -12,7 +12,7 @@
       />
     </template>
     <template
-      v-if="joined || views !== null || location"
+      v-if="joined || views !== null || videos !== null || location"
     >
       <h2>{{ $t('Channel.About.Details') }}</h2>
       <table
@@ -37,6 +37,16 @@
             {{ $t('Video.Views') }}
           </th>
           <td>{{ formattedViews }}</td>
+        </tr>
+        <tr
+          v-if="videos !== null"
+        >
+          <th
+            scope="row"
+          >
+            {{ $t('Global.Videos') }}
+          </th>
+          <td>{{ formattedVideos }}</td>
         </tr>
         <tr
           v-if="location"

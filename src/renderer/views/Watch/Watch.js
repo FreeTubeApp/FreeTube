@@ -78,8 +78,6 @@ export default defineComponent({
       firstLoad: true,
       useTheatreMode: false,
       videoPlayerReady: false,
-      showDashPlayer: true,
-      showLegacyPlayer: false,
       hidePlayer: false,
       isFamilyFriendly: false,
       isLive: false,
@@ -121,11 +119,15 @@ export default defineComponent({
       downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
+      playlistType: '',
+      playlistItemId: null,
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+
+      onMountedRun: false,
     }
   },
   computed: {
@@ -225,6 +227,18 @@ export default defineComponent({
     forbiddenTitles() {
       return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
+    isUserPlaylistRequested: function () {
+      return this.$route.query.playlistType === 'user'
+    },
+    userPlaylistsReady: function () {
+      return this.$store.getters.getPlaylistsReady
+    },
+    selectedUserPlaylist: function () {
+      if (this.playlistId == null || this.playlistId === '') { return null }
+      if (!this.isUserPlaylistRequested) { return null }
+
+      return this.$store.getters.getPlaylist(this.playlistId)
+    },
   },
   watch: {
     $route() {
@@ -256,25 +270,39 @@ export default defineComponent({
           }
           break
       }
-    }
+    },
+    userPlaylistsReady() {
+      this.onMountedDependOnLocalStateLoading()
+    },
   },
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
     this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
 
-    this.checkIfPlaylist()
-    this.checkIfTimestamp()
-
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-      this.getVideoInformationInvidious()
-    } else {
-      this.getVideoInformationLocal()
-    }
-
-    window.addEventListener('beforeunload', this.handleWatchProgress)
+    this.onMountedDependOnLocalStateLoading()
   },
   methods: {
+    onMountedDependOnLocalStateLoading() {
+      // Prevent running twice
+      if (this.onMountedRun) { return }
+      // Stuff that require user playlists to be ready
+      if (this.isUserPlaylistRequested && !this.userPlaylistsReady) { return }
+
+      this.onMountedRun = true
+
+      this.checkIfPlaylist()
+      this.checkIfTimestamp()
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getVideoInformationInvidious()
+      } else {
+        this.getVideoInformationLocal()
+      }
+
+      window.addEventListener('beforeunload', this.handleWatchProgress)
+    },
+
     changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
@@ -289,9 +317,15 @@ export default defineComponent({
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
-        this.recommendedVideos = result.watch_next_feed
+        const recommendedVideos = result.watch_next_feed
           ?.filter((item) => item.type === 'CompactVideo')
           .map(parseLocalWatchNextVideo) ?? []
+
+        // place watched recommended videos last
+        this.recommendedVideos = [
+          ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+          ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+        ]
 
         if (this.showFamilyFriendlyOnly && !this.isFamilyFriendly) {
           this.isLoading = false
@@ -472,8 +506,6 @@ export default defineComponent({
             ]
           }
 
-          this.showLegacyPlayer = true
-          this.showDashPlayer = false
           this.activeFormat = 'legacy'
           this.activeSourceList = this.videoSourceList
           this.audioSourceList = null
@@ -544,7 +576,7 @@ export default defineComponent({
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
               const fps = format.fps ? `${format.fps}fps` : 'kbps'
-              const type = format.mime_type.match(/.*;/)[0].replace(';', '')
+              const type = format.mime_type.split(';')[0]
               let label = `${qualityLabel} ${fps} - ${type}`
 
               if (format.has_audio !== format.has_video) {
@@ -711,7 +743,12 @@ export default defineComponent({
 
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
-          this.recommendedVideos = result.recommendedVideos
+          const recommendedVideos = result.recommendedVideos
+          // place watched recommended videos last
+          this.recommendedVideos = [
+            ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+            ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+          ]
           this.adaptiveFormats = await this.getAdaptiveFormatsInvidious(result)
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
@@ -754,8 +791,6 @@ export default defineComponent({
           this.videoChapters = chapters
 
           if (this.isLive) {
-            this.showLegacyPlayer = true
-            this.showDashPlayer = false
             this.activeFormat = 'legacy'
 
             this.videoSourceList = [
@@ -793,7 +828,7 @@ export default defineComponent({
               const qualityLabel = format.qualityLabel || format.bitrate
               const itag = parseInt(format.itag)
               const fps = format.fps ? (format.fps + 'fps') : 'kbps'
-              const type = format.type.match(/.*;/)[0].replace(';', '')
+              const type = format.type.split(';')[0]
               let label = `${qualityLabel} ${fps} - ${type}`
 
               if (itag !== 18 && itag !== 22) {
@@ -1066,17 +1101,23 @@ export default defineComponent({
       if (!(this.rememberHistory && this.saveVideoHistoryWithLastViewedPlaylist)) { return }
       if (this.isUpcoming || this.isLive) { return }
 
-      const payload = {
+      this.updateLastViewedPlaylist({
         videoId: this.videoId,
         // Whether there is a playlist ID or not, save it
-        lastViewedPlaylistId: this.$route.query?.playlistId,
-      }
-      this.updateLastViewedPlaylist(payload)
+        lastViewedPlaylistId: this.playlistId,
+        lastViewedPlaylistType: this.playlistType,
+        lastViewedPlaylistItemId: this.playlistItemId,
+      })
     },
 
     handleVideoReady: function () {
       this.videoPlayerReady = true
       this.checkIfWatched()
+      this.updateLocalPlaylistLastPlayedAtSometimes()
+    },
+
+    isRecommendedVideoWatched: function (videoId) {
+      return !!this.$store.getters.getHistoryCacheById[videoId]
     },
 
     checkIfWatched: function () {
@@ -1119,27 +1160,53 @@ export default defineComponent({
       // Then clicks on another video in the playlist
       this.disablePlaylistPauseOnCurrent()
 
-      if (typeof (this.$route.query) !== 'undefined') {
-        this.playlistId = this.$route.query.playlistId
-
-        if (typeof (this.playlistId) !== 'undefined') {
-          this.watchingPlaylist = true
-        } else {
-          this.watchingPlaylist = false
-        }
-      } else {
+      if (this.$route.query == null) {
         this.watchingPlaylist = false
+        return
       }
+
+      this.playlistId = this.$route.query.playlistId
+      this.playlistItemId = this.$route.query.playlistItemId
+
+      if (this.playlistId == null || this.playlistId.length === 0) {
+        this.playlistType = ''
+        this.playlistItemId = null
+        this.watchingPlaylist = false
+        return
+      }
+
+      // `playlistId` present
+      if (this.selectedUserPlaylist != null) {
+        // If playlist ID matches a user playlist, it must be user playlist
+        this.playlistType = 'user'
+        this.watchingPlaylist = true
+        return
+      }
+
+      // Still possible to be a user playlist from history
+      // (but user playlist could be already removed)
+      this.playlistType = this.$route.query.playlistType
+      if (this.playlistType !== 'user') {
+        // Remote playlist
+        this.playlistItemId = null
+        this.watchingPlaylist = true
+        return
+      }
+
+      // At this point `playlistType === 'user'`
+      // But the playlist might be already removed
+      if (this.selectedUserPlaylist == null) {
+        // Clear playlist data so that watch history will be properly updated
+        this.playlistId = ''
+        this.playlistType = ''
+        this.playlistItemId = null
+      }
+      this.watchingPlaylist = this.selectedUserPlaylist != null
     },
 
     checkIfTimestamp: function () {
-      if (typeof (this.$route.query) !== 'undefined') {
-        try {
-          this.timestamp = parseInt(this.$route.query.timestamp)
-        } catch {
-          this.timestamp = null
-        }
-      }
+      const timestamp = parseInt(this.$route.query.timestamp)
+      this.timestamp = isNaN(timestamp) || timestamp < 0 ? null : timestamp
     },
 
     getLegacyFormats: function () {
@@ -1349,23 +1416,15 @@ export default defineComponent({
 
       if (process.env.IS_ELECTRON && this.removeVideoMetaFiles) {
         if (process.env.NODE_ENV === 'development') {
-          const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
-          if (await pathExists(dashFileLocation)) {
-            await fs.rm(dashFileLocation)
-          }
           if (await pathExists(vttFileLocation)) {
             await fs.rm(vttFileLocation)
           }
         } else {
           const userData = await getUserDataPath()
-          const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
           const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
-          if (await pathExists(dashFileLocation)) {
-            await fs.rm(dashFileLocation)
-          }
           if (await pathExists(vttFileLocation)) {
             await fs.rm(vttFileLocation)
           }
@@ -1396,35 +1455,10 @@ export default defineComponent({
      */
     createLocalDashManifest: async function (videoInfo) {
       const xmlData = await videoInfo.toDash()
-      const userData = await getUserDataPath()
-      let fileLocation
-      let uriSchema
-      if (process.env.NODE_ENV === 'development') {
-        fileLocation = `static/dashFiles/${this.videoId}.xml`
-        uriSchema = `dashFiles/${this.videoId}.xml`
-        // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!(await pathExists('static/dashFiles/'))) {
-          await fs.mkdir('static/dashFiles/')
-        }
-
-        if (await pathExists(fileLocation)) {
-          await fs.rm(fileLocation)
-        }
-        await fs.writeFile(fileLocation, xmlData)
-      } else {
-        fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
-        uriSchema = `file://${fileLocation}`
-
-        if (!(await pathExists(`${userData}/dashFiles/`))) {
-          await fs.mkdir(`${userData}/dashFiles/`)
-        }
-
-        await fs.writeFile(fileLocation, xmlData)
-      }
 
       return [
         {
-          url: uriSchema,
+          url: `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(xmlData)}`,
           type: 'application/dash+xml',
           label: 'Dash',
           qualityLabel: 'Auto'
@@ -1491,10 +1525,7 @@ export default defineComponent({
           this.audioTracks = this.createAudioTracksFromLocalFormats(audioFormats)
         }
 
-        const manifest = await generateInvidiousDashManifestLocally(
-          formats,
-          this.proxyVideos ? this.currentInvidiousInstance : undefined
-        )
+        const manifest = await generateInvidiousDashManifestLocally(formats)
 
         url = `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(manifest)}`
       } else if (this.proxyVideos) {
@@ -1696,8 +1727,8 @@ export default defineComponent({
     getPlaylistIndex: function () {
       return this.$refs.watchVideoPlaylist
         ? this.getPlaylistReverse()
-          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndex
-          : this.$refs.watchVideoPlaylist.currentVideoIndex - 1
+          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndexOneBased
+          : this.$refs.watchVideoPlaylist.currentVideoIndexZeroBased
         : -1
     },
 
@@ -1733,11 +1764,19 @@ export default defineComponent({
         forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
     },
 
+    updateLocalPlaylistLastPlayedAtSometimes() {
+      if (this.selectedUserPlaylist == null) { return }
+
+      const playlist = this.selectedUserPlaylist
+      this.updatePlaylistLastPlayedAt({ _id: playlist._id })
+    },
+
     ...mapActions([
       'updateHistory',
       'updateWatchProgress',
       'updateLastViewedPlaylist',
-      'updateSubscriptionDetails'
+      'updatePlaylistLastPlayedAt',
+      'updateSubscriptionDetails',
     ])
   }
 })

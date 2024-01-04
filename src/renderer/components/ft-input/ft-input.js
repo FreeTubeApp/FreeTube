@@ -318,6 +318,10 @@ export default defineComponent({
       this.$refs.input.focus()
     },
 
+    select() {
+      this.$refs.input.select()
+    },
+
     blur() {
       this.$refs.input.blur()
     },

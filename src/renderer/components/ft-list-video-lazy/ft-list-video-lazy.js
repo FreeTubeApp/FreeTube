@@ -15,6 +15,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    playlistType: {
+      type: String,
+      default: null
+    },
     playlistIndex: {
       type: Number,
       default: null
@@ -31,6 +35,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    playlistItemId: {
+      type: String,
+      default: null,
+    },
     forceListType: {
       type: String,
       default: null
@@ -40,6 +48,22 @@ export default defineComponent({
       required: true
     },
     initialVisibleState: {
+      type: Boolean,
+      default: false,
+    },
+    alwaysShowAddToPlaylistButton: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoUp: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoDown: {
+      type: Boolean,
+      default: false,
+    },
+    canRemoveFromPlaylist: {
       type: Boolean,
       default: false,
     },

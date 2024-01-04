@@ -291,6 +291,7 @@ Settings:
     How do I import my subscriptions?: '如何导入我的订阅？'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
+    Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -473,6 +474,7 @@ Settings:
     Set Password To Prevent Access: 设置密码防止访问设置
     Set Password: 设置密码
     Remove Password: 删除密码
+  Expand All Settings Sections: 展开所有设置部分
 About:
   #On About page
   About: '关于'
@@ -713,6 +715,8 @@ Video:
   Upcoming: 即将到来
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 实时聊天对此音视频流不可用。上传者可能禁用了它。
   Pause on Current Video: 当前视频播完后不自动播放列表中下一视频
+  Unhide Channel: 显示频道
+  Hide Channel: 隐藏频道
 Videos:
   #& Sort By
   Sort By:
@@ -842,6 +846,11 @@ Profile:
   Profile Settings: 个人资料设置
   Profile Filter: 个人资料筛选器
   Toggle Profile List: 切换个人资料列表
+  Open Profile Dropdown: 打开配置文件下拉菜单
+  Close Profile Dropdown: 关闭配置文件下拉菜单
+  Profile Name: 配置文件名
+  Edit Profile Name: 编辑配置文件名
+  Create Profile Name: 创建配置文件名
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
@@ -936,3 +945,5 @@ Hashtag:
 Playlist will pause when current video is finished: 当前视频播完后播放列表会暂停
 Playlist will not pause when current video is finished: 当前视频播完后播放列表不会暂停
 Go to page: 转到页{page}
+Channel Hidden: '{channel} 频道已添加到频道过滤器'
+Channel Unhidden: 从频道过滤器删除了{channel} 频道

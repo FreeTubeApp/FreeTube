@@ -14,11 +14,7 @@
       <router-link
         class="thumbnailLink"
         tabindex="-1"
-        aria-hidden="true"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
-        }"
+        :to="watchPageLinkTo"
       >
         <img
           :src="thumbnail"
@@ -28,7 +24,7 @@
         >
       </router-link>
       <div
-        v-if="isLive || duration !== '0:00'"
+        v-if="isLive || isUpcoming || (duration !== '' && duration !== '0:00')"
         class="videoDuration"
         :class="{
           live: isLive,
@@ -47,17 +43,46 @@
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
         @click="handleExternalPlayer"
       />
-      <ft-icon-button
-        v-if="!isUpcoming"
-        :title="$t('Video.Save Video')"
-        :icon="['fas', 'star']"
-        class="favoritesIcon"
-        :class="{ favorited: favoriteIconTheme === 'base favorite'}"
-        :theme="favoriteIconTheme"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="toggleSave"
-      />
+      <span class="playlistIcons">
+        <ft-icon-button
+          v-if="showPlaylists"
+          ref="addToPlaylistIcon"
+          :title="$t('User Playlists.Add to Playlist')"
+          :icon="['fas', 'plus']"
+          class="addToPlaylistIcon"
+          :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canMoveVideoUp"
+          :title="$t('User Playlists.Move Video Up')"
+          :icon="['fas', 'arrow-up']"
+          class="upArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-up')"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canMoveVideoDown"
+          :title="$t('User Playlists.Move Video Down')"
+          :icon="['fas', 'arrow-down']"
+          class="downArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-down')"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canRemoveFromPlaylist"
+          :title="$t('User Playlists.Remove from Playlist')"
+          :icon="['fas', 'trash']"
+          class="trashIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('remove-from-playlist')"
+        />
+      </span>
       <div
         v-if="addWatchedStyle"
         class="videoWatched"
@@ -73,10 +98,7 @@
     <div class="info">
       <router-link
         class="title"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
-        }"
+        :to="watchPageLinkTo"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
@@ -121,7 +143,8 @@
         @click="handleOptionsClick"
       />
       <p
-        v-if="listType !== 'grid' && appearance === 'result'"
+        v-if="((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
+          appearance === 'result'"
         class="description"
         v-html="description"
       />
