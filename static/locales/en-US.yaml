@@ -533,6 +533,8 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     UseDeArrowTitles: Use DeArrow Video Titles
+    UseDeArrowThumbnails: Use DeArrow for thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: Skip Option
       Auto Skip: Auto Skip
