@@ -982,6 +982,7 @@ Tooltips:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
