@@ -192,7 +192,8 @@ User Playlists:
 
       This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
       Quick bookmark disabled: Quick bookmark disabled
-      Another playlist is already used for quick bookmark. Click here to use this playlist anyway: Another playlist is already used for quick bookmark. Click here to use this playlist anyway
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
+      Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
 
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Some videos in the playlist are not loaded yet. Click here to copy anyway.
       Playlist name cannot be empty. Please input a name.: Playlist name cannot be empty. Please input a name.

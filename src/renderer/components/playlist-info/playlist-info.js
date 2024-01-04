@@ -336,15 +336,28 @@ export default defineComponent({
     },
 
     enableQuickBookmarkForThisPlaylist() {
-      if (this.quickBookmarkEnabled) {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Another playlist is already used for quick bookmark. Click here to use this playlist anyway"]'), 5000, () => {
-          this.updateQuickBookmarkTargetPlaylistId(this.id)
-        })
-        return
-      }
+      const currentQuickBookmarkTargetPlaylist = this.quickBookmarkPlaylist
 
       this.updateQuickBookmarkTargetPlaylistId(this.id)
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      if (currentQuickBookmarkTargetPlaylist != null) {
+        showToast(
+          this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo"]', {
+            oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+          }),
+          5000,
+          () => {
+            this.updateQuickBookmarkTargetPlaylistId(currentQuickBookmarkTargetPlaylist._id)
+            showToast(
+              this.$t('User Playlists.SinglePlaylistView.Toast["Reverted to use {oldPlaylistName} for quick bookmark"]', {
+                oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+              }),
+              5000,
+            )
+          },
+        )
+      } else {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      }
     },
     disableQuickBookmark() {
       this.updateQuickBookmarkTargetPlaylistId(null)
