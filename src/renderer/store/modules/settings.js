@@ -299,7 +299,9 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
-  quickBookmarkTargetPlaylistId: null,
+  // This makes the `favorites` playlist uses as quick bookmark target
+  // If the playlist is removed quick bookmark is disabled
+  quickBookmarkTargetPlaylistId: 'favorites',
 }
 
 const stateWithSideEffects = {
