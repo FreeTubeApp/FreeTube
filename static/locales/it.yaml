@@ -122,9 +122,88 @@ User Playlists:
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist preferiti.
-  Search bar placeholder: Cerca nella Playlist
+  Search bar placeholder: Cerca nella playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sei
+    sicuro di voler rimuovere tutti i video guardati da questa playlist? Questa operazione
+    non può essere annullata.
+  AddVideoPrompt:
+    Search in Playlists: Cerca nelle playlist
+    Save: Salva
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video aggiunto
+        a {playlistCount} playlist | {videoCount} video aggiunti a {playlistCount}
+        playlist
+      "{videoCount} video(s) added to 1 playlist": 1 video aggiunto a 1 playlist |
+        {videoCount} video aggiunti a 1 playlist
+      You haven't selected any playlist yet.: Non hai ancora selezionato nessuna playlist.
+    Select a playlist to add your N videos to: Seleziona una playlist a cui aggiungere
+      il tuo video | Seleziona una playlist a cui aggiungere i tuoi {videoCount} video
+    N playlists selected: '{playlistCount} selezionate'
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Non c'erano video da rimuovere.
+      Video has been removed: Il video è stato rimosso
+      Playlist has been updated.: La playlist è stata aggiornata.
+      There was an issue with updating this playlist.: Si è verificato un problema
+        con l'aggiornamento di questa playlist.
+      This video cannot be moved up.: Questo video non può essere spostato verso l'alto.
+      This playlist is protected and cannot be removed.: Questa playlist è protetta
+        e non può essere rimossa.
+      Playlist {playlistName} has been deleted.: La playlist {playlistName} è stata
+        eliminata.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alcuni
+        video nella playlist non sono ancora stati caricati. Clicca qui per copiare
+        comunque.
+      This playlist does not exist: Questa playlist non esiste
+      Playlist name cannot be empty. Please input a name.: Il nome della playlist
+        non può essere vuoto. Per favore inserisci un nome.
+      There was a problem with removing this video: Si è verificato un problema durante
+        la rimozione di questo video
+      "{videoCount} video(s) have been removed": 1 video è stato rimosso | {videoCount}
+        video sono stati rimossi
+      This video cannot be moved down.: Questo video non può essere spostato verso
+        il basso.
+  Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
+    di voler eliminare questa playlist? Questa operazione non può essere annullata.
+  Sort By:
+    LatestPlayedFirst: Riproduzione più recente
+    EarliestCreatedFirst: Creazione più vecchia
+    LatestCreatedFirst: Creazione più recente
+    EarliestUpdatedFirst: Aggiornamento più vecchio
+    Sort By: Ordina per
+    NameDescending: Z-A
+    EarliestPlayedFirst: Riproduzione più vecchia
+    LatestUpdatedFirst: Aggiornamento più recente
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: Non
+    hai playlist. Fai clic sul pulsante Crea nuova playlist per crearne una nuova.
+  Remove from Playlist: Rimuovi dalla playlist
+  Save Changes: Salva le modifiche
+  CreatePlaylistPrompt:
+    Create: Crea
+    Toast:
+      There was an issue with creating the playlist.: Si è verificato un problema
+        con la creazione della playlist.
+      Playlist {playlistName} has been successfully created.: La playlist {playlistName}
+        è stata creata con successo.
+      There is already a playlist with this name. Please pick a different name.: Esiste
+        già una playlist con questo nome. Scegli un nome diverso.
+    New Playlist Name: Nuovo nome della playlist
+  This playlist currently has no videos.: Questa playlist attualmente non contiene
+    video.
+  Add to Playlist: Aggiungi alla playlist
+  Move Video Down: Sposta il video in basso
+  Playlist Name: Nome della playlist
+  Remove Watched Videos: Rimuovi i video guardati
+  Move Video Up: Sposta il video in alto
+  Cancel: Annulla
+  Delete Playlist: Elimina playlist
+  Create New Playlist: Crea nuova playlist
+  Edit Playlist Info: Modifica informazioni playlist
+  Copy Playlist: Copia playlist
+  Playlist Description: Descrizione della playlist
 History:
   # On History Page
   History: 'Cronologia'
@@ -158,6 +237,7 @@ Settings:
       Middle: 'Nel mezzo'
       End: 'Fine'
       Hidden: Nascoste
+      Blur: Sfocatura
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'
@@ -318,9 +398,13 @@ Settings:
       video
     Save Watched Videos With Last Viewed Playlist: Salva i video guardati con l'ultima
       playlist vista
+    All playlists have been removed: Tutte le playlist sono state rimosse
+    Remove All Playlists: Rimuovi tutte le playlist
+    Are you sure you want to remove all your playlists?: Sei sicuro di voler rimuovere
+      tutte le tue playlist?
   Subscription Settings:
     Subscription Settings: 'Impostazioni delle iscrizioni'
-    Hide Videos on Watch: 'Nascondi i video successivi durante la riproduzione'
+    Hide Videos on Watch: 'Nascondi i video visualizzati'
     Subscriptions Export Format:
       Newpipe: 'Newpipe'
       OPML: 'OPML'
@@ -330,6 +414,8 @@ Settings:
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
     Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
     Fetch Automatically: Recupera i feed automaticamente
+    Only Show Latest Video for Each Channel: Mostra solo il video più recente per
+      ciascun canale
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -408,6 +494,14 @@ Settings:
     History File: File della cronologia
     Subscription File: File delle iscrizioni
     Playlist File: File delle playlist
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Questa opzione esporta i video da tutte le playlist in una playlist
+        denominata \"Preferiti\".\nCome esportare e importare video nelle playlist
+        per una versione precedente di FreeTube:\n1. Esporta le tue playlist con questa
+        opzione abilitata.\n2. Elimina tutte le playlist esistenti utilizzando l'opzione
+        Rimuovi tutte le playlist in Impostazioni della privacy.\n3. Avvia la versione
+        precedente di FreeTube e importa le playlist esportate."
+      Label: Esporta playlist per versioni precedenti di FreeTube
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
@@ -427,7 +521,7 @@ Settings:
     Hide Chapters: Nascondi i capitoli
     Hide Upcoming Premieres: Nascondi le prossime Première
     Hide Channels: Nascondi i video dai canali
-    Hide Channels Placeholder: Nome o ID del canale
+    Hide Channels Placeholder: ID del canale
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
       uso eccessivo di maiuscole
     Hide Featured Channels: Nascondi i canali in evidenza
@@ -448,6 +542,13 @@ Settings:
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
     Blur Thumbnails: Miniature sfocate
     Hide Subscriptions Community: Nascondi la comunità di iscritti
+    Hide Channels Invalid: L'ID canale fornito non è valido
+    Hide Channels Disabled Message: Alcuni canali sono stati bloccati utilizzando
+      l'ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
+      di tali ID
+    Hide Channels Already Exists: L'ID canale esiste già
+    Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito.
+      Controlla di nuovo se l'ID è corretto.
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -507,10 +608,10 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Impostazioni sperimentali
-    Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
+    Warning: Queste Impostazioni sono sperimentali, causano arresti anomali se abilitate.
       Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
   Password Dialog:
-    Enter Password To Unlock: Inserisci la password per sbloccare le impostazioni
+    Enter Password To Unlock: Inserisci la password per sbloccare le Impostazioni
     Password Incorrect: Password non corretta
     Password: Password
     Unlock: Sblocca
@@ -518,8 +619,9 @@ Settings:
     Set Password: Imposta password
     Password Settings: Impostazioni password
     Set Password To Prevent Access: Imposta una password per impedire l'accesso alle
-      impostazioni
+      Impostazioni
     Remove Password: Rimuovi password
+  Expand All Settings Sections: Espandi tutte le sezioni delle Impostazioni
 About:
   #On About page
   About: 'Informazioni'
@@ -566,13 +668,13 @@ About:
   Credits: Crediti
   Translate: Traduzioni
   room rules: regole stanza
-  Please read the: Si prega di leggere
+  Please read the: Per favore leggi
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
   Email: E-mail
   Website: Sito web
-  Please check for duplicates before posting: Per favore controlla se ci sono duplicati
-    prima di pubblicare
+  Please check for duplicates before posting: Controlla se ci sono duplicati prima
+    di pubblicare
   View License: Vedi licenza
   Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
   Source code: Codice sorgente
@@ -643,9 +745,9 @@ Channel:
     This channel does not currently have any releases: Questo canale non ha attualmente
       alcun rilascio
 Video:
-  Mark As Watched: 'Segna come già visto'
+  Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla cronologia'
-  Video has been marked as watched: 'Il video è stato contrassegnato come già visto'
+  Video has been marked as watched: 'Il video è stato contrassegnato come guardato'
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
@@ -786,6 +888,8 @@ Video:
     chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
   Pause on Current Video: Pausa sul video attuale
+  Unhide Channel: Mostra canale
+  Hide Channel: Nascondi canale
 Videos:
   #& Sort By
   Sort By:
@@ -934,6 +1038,11 @@ Profile:
   Profile Filter: Filtro del profilo
   Profile Settings: Impostazioni dei profili
   Toggle Profile List: Attiva/disattiva elenco profili
+  Open Profile Dropdown: Apri il menu a discesa del profilo
+  Close Profile Dropdown: Chiudi il menu a discesa del profilo
+  Profile Name: Nome del profilo
+  Edit Profile Name: Modifica il nome del profilo
+  Create Profile Name: Crea un nome per il profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
@@ -954,7 +1063,7 @@ Tooltips:
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
       CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
       alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
-      nelle impostazioni).
+      nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
     Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
@@ -993,7 +1102,7 @@ Tooltips:
       un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
       un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
-      Attenzione, le impostazioni Invidious non influiscono sui lettori esterni.
+      Attenzione, le Impostazioni Invidious non influiscono sui lettori esterni.
     DefaultCustomArgumentsTemplate: '(Predefinito: {defaultCustomArguments})'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
@@ -1004,9 +1113,9 @@ Tooltips:
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
       della RAM.
   Distraction Free Settings:
-    Hide Channels: Inserisci il nome o l'ID di un canale per impedire che tutti i
-      video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze,
-      più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
+    Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le
+      playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze, più
+      popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
       completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
       "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
@@ -1030,7 +1139,7 @@ Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconos
 Search Bar:
   Clear Input: Pulisci ricerca
 External link opening has been disabled in the general settings: L'apertura dei link
-  esterni è stata disabilitata nelle impostazioni generali
+  esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Downloading has completed: 'Il download di "{videoTitle}" è terminato'
 Starting download: Avvio del download di "{videoTitle}"
@@ -1074,3 +1183,6 @@ Playlist will pause when current video is finished: La playlist verrà messa in 
   al termine del video attuale
 Playlist will not pause when current video is finished: La playlist non verrà messa
   in pausa al termine del video attuale
+Channel Hidden: '{channel} aggiunto al filtro canali'
+Go to page: Vai a {page}
+Channel Unhidden: '{channel} rimosso dal filtro canali'

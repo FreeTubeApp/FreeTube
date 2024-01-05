@@ -1,10 +1,13 @@
 const path = require('path')
+const { readFileSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
+const WatchExternalFilesPlugin = require('webpack-watch-external-files-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
@@ -128,6 +131,18 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
+          to: 'swiper.css',
+          context: path.join(__dirname, '../node_modules/swiper/modules'),
+          transformAll: (assets) => {
+            return Buffer.concat(assets.map(asset => asset.data))
+          }
+        }
+      ]
     })
   ],
   resolve: {
@@ -144,6 +159,18 @@ const config = {
     extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
+}
+
+if (isDevMode) {
+  const activeLocales = JSON.parse(readFileSync(path.join(__dirname, '../static/locales/activeLocales.json')))
+
+  config.plugins.push(
+    new WatchExternalFilesPlugin({
+      files: [
+        `./static/locales/{${activeLocales.join(',')}}.yaml`,
+      ],
+    }),
+  )
 }
 
 module.exports = config

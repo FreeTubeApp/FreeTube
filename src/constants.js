@@ -44,7 +44,7 @@ const DBActions = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
-    UPSERT_VIDEO_IDS: 'db-action-playlists-upsert-video-ids-by-playlist-id',
+    UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
     DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
     DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
     DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos'
@@ -70,11 +70,6 @@ const SyncEvents = {
   }
 }
 
-// https://v2.vuejs.org/v2/api/#provide-inject
-const Injectables = {
-  SHOW_OUTLINES: 'showOutlines'
-}
-
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -82,6 +77,5 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
-  Injectables,
   MAIN_PROFILE_ID
 }

@@ -37,6 +37,12 @@ Global:
   Live: Live
   Community: Gemenskap
 
+  Counts:
+    Video Count: 1 video | {count} videor
+    Subscriber Count: 1 prenumerant | {count} prenumeranter
+    View Count: 1 visning | {count} visningar
+    Watching Count: 1 tittar | {count} tittare
+    Channel Count: 1 kanal | {count} kanaler
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -100,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Prenumeration Flik
   All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll
     här, vänligen avdölj några flikar i avsnittet "{subsection}" i "{settingsSection}".
+  Load More Posts: Ladda fler inlägg
+  Empty Posts: Dina prenumererade kanaler har för närvarande inga inlägg.
 Trending:
   Trending: 'Populärt'
   Movies: Filmer
@@ -154,6 +162,7 @@ Settings:
       Middle: 'Mitten'
       End: 'Slutet'
       Hidden: Dold
+      Blur: Oskärpa
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Standard är https://invidious.snopyta.org)'
     Region for Trending: 'Region för Trender'
@@ -311,6 +320,8 @@ Settings:
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
     Fetch Automatically: Hämta flöde automatiskt
+    Only Show Latest Video for Each Channel: Visa endast den senaste videon för varje
+      kanal
   Data Settings:
     Data Settings: 'Datainställningar'
     Select Import Type: 'Välj import-typen'
@@ -404,7 +415,7 @@ Settings:
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj permiärer
     Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering
-    Hide Channels Placeholder: Kanalnamn eller ID
+    Hide Channels Placeholder: Kanal ID
     Hide Featured Channels: Dölj Utvalda kanaler
     Hide Channel Shorts: Dölj Kanal Shorts
     Sections:
@@ -422,6 +433,13 @@ Settings:
     Hide Subscriptions Live: Dölj prenumerations Live-sändningar
     Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
     Blur Thumbnails: Oskärpa tumnaglar
+    Hide Subscriptions Community: Dölj prenumerationsgemenskap
+    Hide Channels Invalid: Det angivna kanal-ID var ogiltigt
+    Hide Channels Disabled Message: Vissa kanaler blockerades med ID och bearbetades
+      inte. Funktionen är blockerad medan dessa ID:n uppdateras
+    Hide Channels Already Exists: Kanal-ID finns redan
+    Hide Channels API Error: Det gick inte att hämta användaren med angett ID. Kontrollera
+      igen om ID:t är korrekt.
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -491,6 +509,7 @@ Settings:
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
     Replace HTTP Cache: Ersätt HTTP-chachen
+  Expand All Settings Sections: Expandera alla inställningssektioner
 About:
   #On About page
   About: 'Om'
@@ -592,6 +611,11 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profilinställningar
   Toggle Profile List: Aktivera Profillista
+  Open Profile Dropdown: Öppna profilrullgardinsmenyn
+  Close Profile Dropdown: Stäng profilrullgardinsmenyn
+  Profile Name: Profilnamn
+  Edit Profile Name: Redigera profilnamn
+  Create Profile Name: Skapa profilnamn
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -788,6 +812,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt
     är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
   Pause on Current Video: Pausa på aktuell video
+  Unhide Channel: Visa kanal
+  Hide Channel: Dölj kanal
 Videos:
   #& Sort By
   Sort By:
@@ -861,6 +887,7 @@ Comments:
   View {replyCount} replies: Visa {replyCount} repliker
   Pinned by: Nålad av
   Hearted: Hjärtade
+  Subscribed: Prenumererar
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
@@ -945,9 +972,9 @@ Tooltips:
       Invidiousinställningar påverkar inte externa videospelare.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: Ange ett kanalnamn eller kanal-ID för att dölja alla videor, spellistor
-      och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
-      Det angivna kanalnamnet måste vara en fullständig matchning och är skiftlägeskänsligt.
+    Hide Channels: Ange ett kanal-ID för att dölja alla videor, spellistor och själva
+      kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
+      Det angivna kanal-ID:t måste vara en fullständig matchning och är skiftlägeskänsligt.
     Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande
       "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
   Experimental Settings:
@@ -1014,3 +1041,6 @@ Playlist will pause when current video is finished: Spellistan pausas när den a
   videon är klar
 Playlist will not pause when current video is finished: Spellistan kommer inte att
   pausas när den aktuella videon är klar
+Channel Hidden: '{channel} har lagts till i kanalfiltret'
+Go to page: Gå till {page}
+Channel Unhidden: '{channel} har tagits bort från kanalfiltret'

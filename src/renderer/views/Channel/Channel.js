@@ -32,7 +32,6 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
-import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -47,9 +46,6 @@ export default defineComponent({
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout
-  },
-  inject: {
-    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -74,7 +70,8 @@ export default defineComponent({
       communityContinuationData: null,
       description: '',
       tags: [],
-      views: 0,
+      viewCount: 0,
+      videoCount: 0,
       joined: 0,
       location: null,
       videoSortBy: 'newest',
@@ -680,7 +677,8 @@ export default defineComponent({
           this.getChannelAboutLocal()
         } else {
           this.description = ''
-          this.views = null
+          this.viewCount = null
+          this.videoCount = null
           this.joined = 0
           this.location = null
         }
@@ -752,14 +750,36 @@ export default defineComponent({
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
-        this.description = about.description.isEmpty() ? '' : autolinker.link(about.description.text)
+        if (about.type === 'ChannelAboutFullMetadata') {
+          /** @type {import('youtubei.js').YTNodes.ChannelAboutFullMetadata} */
+          const about_ = about
 
-        const views = extractNumberFromString(about.view_count.text)
-        this.views = isNaN(views) ? null : views
+          this.description = about_.description.isEmpty() ? '' : autolinker.link(about_.description.text)
 
-        this.joined = about.joined_date.isEmpty() ? 0 : new Date(about.joined_date.text.replace('Joined').trim())
+          const viewCount = extractNumberFromString(about_.view_count.text)
+          this.viewCount = isNaN(viewCount) ? null : viewCount
 
-        this.location = about.country.isEmpty() ? null : about.country.text
+          this.videoCount = null
+
+          this.joined = about_.joined_date.isEmpty() ? 0 : new Date(about_.joined_date.text.replace('Joined').trim())
+
+          this.location = about_.country.isEmpty() ? null : about_.country.text
+        } else {
+          /** @type {import('youtubei.js').YTNodes.AboutChannelView} */
+          const metadata = about.metadata
+
+          this.description = metadata.description ? autolinker.link(metadata.description) : ''
+
+          const viewCount = extractNumberFromString(metadata.view_count)
+          this.viewCount = isNaN(viewCount) ? null : viewCount
+
+          const videoCount = extractNumberFromString(metadata.video_count)
+          this.videoCount = isNaN(videoCount) ? null : videoCount
+
+          this.joined = metadata.joined_date && !metadata.joined_date.isEmpty() ? new Date(metadata.joined_date.text.replace('Joined').trim()) : 0
+
+          this.location = metadata.country ?? null
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -971,7 +991,8 @@ export default defineComponent({
         this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.description = autolinker.link(response.description)
-        this.views = response.totalViews
+        this.viewCount = response.totalViews
+        this.videoCount = null
         this.joined = response.joined > 0 ? new Date(response.joined * 1000) : 0
         this.relatedChannels = response.relatedChannels.map((channel) => {
           const thumbnailUrl = channel.authorThumbnails.at(-1).url
@@ -1197,13 +1218,20 @@ export default defineComponent({
         // for the moment we just want the "Created Playlists" category that has all playlists in it
 
         if (playlistsTab.content_type_filters.length > 1) {
+          let viewId = '1'
+
+          // Artist topic channels don't have any created playlists, so we went to select the "Albums & Singles" category instead
+          if (this.channelName.endsWith('- Topic') && channel.metadata.music_artist_name) {
+            viewId = '50'
+          }
+
           /**
            * @type {import('youtubei.js').YTNodes.ChannelSubMenu}
            */
           const menu = playlistsTab.current_tab.content.sub_menu
           const createdPlaylistsFilter = menu.content_type_sub_menu_items.find(contentType => {
             const url = `https://youtube.com/${contentType.endpoint.metadata.url}`
-            return new URL(url).searchParams.get('view') === '1'
+            return new URL(url).searchParams.get('view') === viewId
           }).title
 
           playlistsTab = await playlistsTab.applyContentTypeFilter(createdPlaylistsFilter)
@@ -1804,7 +1832,7 @@ export default defineComponent({
         const results = contents
           .filter(node => node.type === 'ItemSection')
           .flatMap(itemSection => itemSection.contents)
-          .filter(item => item.type === 'Video' || item.type === 'Playlist')
+          .filter(item => item.type === 'Video' || (!this.hideChannelPlaylists && item.type === 'Playlist'))
           .map(item => {
             if (item.type === 'Video') {
               return parseLocalListVideo(item)
@@ -1850,7 +1878,11 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
-        this.searchResults = this.searchResults.concat(response)
+        if (this.hideChannelPlaylists) {
+          this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
+        } else {
+          this.searchResults = this.searchResults.concat(response)
+        }
         this.isElementListLoading = false
         this.searchPage++
       }).catch((err) => {
@@ -1869,6 +1901,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'showOutlines',
       'updateSubscriptionDetails'
     ])
   }

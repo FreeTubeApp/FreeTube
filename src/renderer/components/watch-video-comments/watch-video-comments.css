@@ -24,15 +24,22 @@
 
 .commentsTitle {
   padding-block: 1em;
+  display: inline-block;
 }
 
 .commentSort {
   float: var(--float-right-ltr-rtl-value);
 }
 
+@media only screen and (max-width: 800px) {
+  .commentSort {
+    float: none;
+  }
+}
+
+
 .comment {
   padding: 15px;
-  position: relative;
 }
 
 .hideComments {

@@ -9,8 +9,10 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
+import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
+import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import { marked } from 'marked'
-import { Injectables, IpcChannels } from '../constants'
+import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
@@ -28,17 +30,13 @@ export default defineComponent({
     FtPrompt,
     FtButton,
     FtToast,
-    FtProgressBar
-  },
-  provide: function () {
-    return {
-      [Injectables.SHOW_OUTLINES]: this.showOutlines
-    }
+    FtProgressBar,
+    FtPlaylistAddVideoPrompt,
+    FtCreatePlaylistPrompt,
   },
   data: function () {
     return {
       dataReady: false,
-      hideOutlines: true,
       showUpdatesBanner: false,
       showBlogBanner: false,
       showReleaseNotes: false,
@@ -59,6 +57,9 @@ export default defineComponent({
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
+    outlinesHidden: function () {
+      return this.$store.getters.getOutlinesHidden
+    },
     isLocaleRightToLeft: function () {
       return this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' ||
         this.locale === 'ur' || this.locale === 'yi' || this.locale === 'ku'
@@ -68,6 +69,12 @@ export default defineComponent({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
+    },
+    showAddToPlaylistPrompt: function () {
+      return this.$store.getters.getShowAddToPlaylistPrompt
+    },
+    showCreatePlaylistPrompt: function () {
+      return this.$store.getters.getShowCreatePlaylistPrompt
     },
     windowTitle: function () {
       const routeTitle = this.$route.meta.title
@@ -111,6 +118,10 @@ export default defineComponent({
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     },
 
+    landingPage: function() {
+      return '/' + this.$store.getters.getLandingPage
+    },
+
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
@@ -136,7 +147,7 @@ export default defineComponent({
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
-      this.$refs.topNav.hideFilters()
+      this.$refs.topNav?.hideFilters()
     }
   },
   created () {
@@ -178,7 +189,13 @@ export default defineComponent({
       })
 
       this.$router.afterEach((to, from) => {
-        this.$refs.topNav.navigateHistory()
+        this.$refs.topNav?.navigateHistory()
+      })
+
+      this.$router.onReady(() => {
+        if (this.$router.currentRoute.path === '/') {
+          this.$router.replace({ path: this.landingPage })
+        }
       })
     })
   },
@@ -291,7 +308,7 @@ export default defineComponent({
     activateKeyboardShortcuts: function () {
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
-        this.hideOutlines = true
+        this.hideOutlines()
       })
     },
 
@@ -316,7 +333,7 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'Tab':
-          this.hideOutlines = false
+          this.showOutlines()
           break
         case 'L':
         case 'l':
@@ -517,15 +534,6 @@ export default defineComponent({
       }
     },
 
-    /**
-     * provided to all child components, see `provide` near the top of this file
-     * after injecting it, they can show outlines during keyboard navigation
-     * e.g. cycling through tabs with the arrow keys
-     */
-    showOutlines: function () {
-      this.hideOutlines = false
-    },
-
     ...mapMutations([
       'setInvidiousInstancesList'
     ]),
@@ -542,7 +550,9 @@ export default defineComponent({
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',
-      'updateSecColor'
+      'updateSecColor',
+      'showOutlines',
+      'hideOutlines'
     ])
   }
 })

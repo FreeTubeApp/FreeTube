@@ -19,6 +19,7 @@ import {
 
 const state = {
   isSideNavOpen: false,
+  outlinesHidden: true,
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: {
@@ -30,7 +31,12 @@ const state = {
   cachedPlaylist: null,
   deArrowCache: {},
   showProgressBar: false,
+  showAddToPlaylistPrompt: false,
+  showCreatePlaylistPrompt: false,
   progressBarPercentage: 0,
+  toBeAddedToPlaylistVideoList: [],
+  newPlaylistDefaultProperties: {},
+  newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
   recentBlogPosts: [],
@@ -49,6 +55,10 @@ const state = {
 const getters = {
   getIsSideNavOpen () {
     return state.isSideNavOpen
+  },
+
+  getOutlinesHidden() {
+    return state.outlinesHidden
   },
 
   getCurrentVolume () {
@@ -77,6 +87,26 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
+  },
+
+  getShowAddToPlaylistPrompt () {
+    return state.showAddToPlaylistPrompt
+  },
+
+  getShowCreatePlaylistPrompt () {
+    return state.showCreatePlaylistPrompt
+  },
+
+  getToBeAddedToPlaylistVideoList () {
+    return state.toBeAddedToPlaylistVideoList
+  },
+
+  getNewPlaylistDefaultProperties () {
+    return state.newPlaylistDefaultProperties
+  },
+
+  getNewPlaylistVideoObject () {
+    return state.newPlaylistVideoObject
   },
 
   getShowProgressBar () {
@@ -117,6 +147,14 @@ const getters = {
 }
 
 const actions = {
+  showOutlines({ commit }) {
+    commit('setOutlinesHidden', false)
+  },
+
+  hideOutlines({ commit }) {
+    commit('setOutlinesHidden', true)
+  },
+
   async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
@@ -125,9 +163,10 @@ const actions = {
 
     const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
     const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
+    const askFolderPath = rootState.settings.downloadAskPath
     let folderPath = rootState.settings.downloadFolderPath
 
-    if (folderPath === '') {
+    if (askFolderPath) {
       const options = {
         defaultPath: fileName,
         filters: [
@@ -240,6 +279,78 @@ const actions = {
 
       resolve(parsedString)
     })
+  },
+
+  showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
+    let videoDataValid = true
+    if (!Array.isArray(videoObjectArray)) {
+      videoDataValid = false
+    }
+    let missingKeys = []
+
+    if (videoDataValid) {
+      const requiredVideoKeys = [
+        'videoId',
+        'title',
+        'author',
+        'authorId',
+        'lengthSeconds',
+
+        // `timeAdded` should be generated when videos are added
+        // Not when a prompt is displayed
+        // 'timeAdded',
+
+        // `playlistItemId` should be generated anyway
+        // 'playlistItemId',
+
+        // `type` should be added in action anyway
+        // 'type',
+      ]
+      // Using `every` to loop and `return false` to break
+      videoObjectArray.every((video) => {
+        const videoPropertyKeys = Object.keys(video)
+        const missingKeysHere = requiredVideoKeys.filter(x => !videoPropertyKeys.includes(x))
+        if (missingKeysHere.length > 0) {
+          videoDataValid = false
+          missingKeys = missingKeysHere
+          return false
+        }
+        // Return true to continue loop
+        return true
+      })
+    }
+
+    if (!videoDataValid) {
+      // Print error and abort
+      const errorMsgText = 'Incorrect videos data passed when opening playlist prompt'
+      console.error(errorMsgText)
+      console.error({
+        videoObjectArray,
+        missingKeys,
+      })
+      throw new Error(errorMsgText)
+    }
+
+    commit('setShowAddToPlaylistPrompt', true)
+    commit('setToBeAddedToPlaylistVideoList', videoObjectArray)
+    if (newPlaylistDefaultProperties != null) {
+      commit('setNewPlaylistDefaultProperties', newPlaylistDefaultProperties)
+    }
+  },
+
+  hideAddToPlaylistPrompt ({ commit }) {
+    commit('setShowAddToPlaylistPrompt', false)
+    // The default value properties are only valid until prompt is closed
+    commit('resetNewPlaylistDefaultProperties')
+  },
+
+  showCreatePlaylistPrompt ({ commit }, data) {
+    commit('setShowCreatePlaylistPrompt', true)
+    commit('setNewPlaylistVideoObject', data)
+  },
+
+  hideCreatePlaylistPrompt ({ commit }) {
+    commit('setShowCreatePlaylistPrompt', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -632,6 +743,10 @@ const mutations = {
     state.isSideNavOpen = !state.isSideNavOpen
   },
 
+  setOutlinesHidden(state, value) {
+    state.outlinesHidden = value
+  },
+
   setShowProgressBar (state, value) {
     state.showProgressBar = value
   },
@@ -675,6 +790,29 @@ const mutations = {
     } else {
       state.sessionSearchHistory.push(payload)
     }
+  },
+
+  setShowAddToPlaylistPrompt (state, payload) {
+    state.showAddToPlaylistPrompt = payload
+  },
+
+  setShowCreatePlaylistPrompt (state, payload) {
+    state.showCreatePlaylistPrompt = payload
+  },
+
+  setToBeAddedToPlaylistVideoList (state, payload) {
+    state.toBeAddedToPlaylistVideoList = payload
+  },
+
+  setNewPlaylistDefaultProperties (state, payload) {
+    state.newPlaylistDefaultProperties = payload
+  },
+  resetNewPlaylistDefaultProperties (state) {
+    state.newPlaylistDefaultProperties = {}
+  },
+
+  setNewPlaylistVideoObject (state, payload) {
+    state.newPlaylistVideoObject = payload
   },
 
   setPopularCache (state, value) {
