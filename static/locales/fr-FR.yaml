@@ -142,6 +142,9 @@ User Playlists:
         | {videoCount} vidéos ajoutées à 1 liste de lecture
       You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de
         liste de lecture.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 vidéo ajoutée
+        à {playlistCount} playlists | {videoCount} vidéos ajoutées à {playlistCount}
+        playlists
     N playlists selected: '{playlistCount} Sélectionnée(s)'
   SinglePlaylistView:
     Toast:
