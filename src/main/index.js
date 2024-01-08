@@ -166,9 +166,11 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  app.commandLine.appendSwitch('enable-accelerated-video-decode')
-  app.commandLine.appendSwitch('enable-file-cookies')
-  app.commandLine.appendSwitch('ignore-gpu-blacklist')
+  // Enable hardware acceleration via VA-API
+  // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
+  app.commandLine.appendSwitch('use-gl', 'angle')
+  app.commandLine.appendSwitch('use-angle', 'gl')
+  app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
 
   // Work around for context menus in the devtools being displayed behind the window
   // https://github.com/electron/electron/issues/38790
