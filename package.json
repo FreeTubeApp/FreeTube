@@ -96,7 +96,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsonc": "^2.11.2",
-    "eslint-plugin-n": "^16.6.0",
+    "eslint-plugin-n": "^16.6.1",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^50.0.1",
