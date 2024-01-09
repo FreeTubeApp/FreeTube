@@ -12,14 +12,24 @@
         playlistCount: selectedPlaylistCount,
       }) }}
     </p>
-    <ft-input
-      ref="searchBar"
-      :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
-      :show-clear-text-button="true"
-      :show-action-button="false"
-      @input="(input) => updateQueryDebounce(input)"
-      @clear="updateQueryDebounce('')"
-    />
+    <div
+      class="searchInputsRow"
+    >
+      <ft-input
+        ref="searchBar"
+        :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
+        :show-clear-text-button="true"
+        :show-action-button="false"
+        @input="(input) => updateQueryDebounce(input)"
+        @clear="updateQueryDebounce('')"
+      />
+      <ft-toggle-switch
+        :label="$t('User Playlists.Search in Videos')"
+        :compact="true"
+        :default-value="doSearchPlaylistsWithMatchingVideos"
+        @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+      />
+    </div>
     <ft-select
       v-if="allPlaylists.length > 1"
       class="sortSelect"
