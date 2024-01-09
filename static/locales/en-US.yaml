@@ -310,7 +310,7 @@ Settings:
     External Player Settings: External Player Settings
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
-    Ignore Arguments: Ignore Arguments
+    Ignore Default Arguments: Ignore Default Arguments
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
     Players:
@@ -876,8 +876,9 @@ Tooltips:
       be set here.
     Ignore Warnings: Suppress warnings for when the current external player does not support
       the current action (e.g. reversing playlists, etc.).
-    Ignore Arguments: Do not send any additional arguments to the external player
+    Ignore Default Arguments: Do not send any default arguments to the external player
       aside from the video URL (e.g. playback rate, playlist URL, etc.).
+      Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
