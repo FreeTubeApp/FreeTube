@@ -45,16 +45,25 @@
       :use-channels-hidden-preference="false"
       :display="isCommunity ? 'list' : ''"
     />
-    <ft-flex-box
+    <div
       v-if="!isLoading && videoList.length > dataLimit"
     >
-      <ft-button
-        :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
-        background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
-        @click="increaseLimit"
-      />
-    </ft-flex-box>
+      <div
+        v-observe-visibility="observeVisibilityOptions"
+      >
+        <!--
+          Dummy element to be observed by Intersection Observer
+        -->
+      </div>
+      <ft-flex-box>
+        <ft-button
+          :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="increaseLimit"
+        />
+      </ft-flex-box>
+    </div>
     <ft-icon-button
       v-if="!isLoading"
       :icon="['fas', 'sync']"

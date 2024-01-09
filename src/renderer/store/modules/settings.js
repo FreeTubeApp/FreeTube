@@ -301,7 +301,8 @@ const state = {
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
   useDeArrowThumbnails: false,
-  deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app'
+  deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
+  generalAutoLoadMorePaginatedItemsEnabled: false,
 }
 
 const stateWithSideEffects = {

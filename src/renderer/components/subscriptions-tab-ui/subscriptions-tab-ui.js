@@ -70,6 +70,29 @@ export default defineComponent({
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
     },
+
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
+    observeVisibilityOptions() {
+      if (!this.generalAutoLoadMorePaginatedItemsEnabled) { return false }
+
+      return {
+        callback: (isVisible, _entry) => {
+          // This is also fired when **hidden**
+          // No point doing anything if not visible
+          if (!isVisible) { return }
+
+          this.increaseLimit()
+        },
+        intersection: {
+          // Only when it intersects with N% above bottom
+          rootMargin: '0% 0% 0% 0%',
+        },
+        // Callback responsible for loading multiple pages
+        once: false,
+      }
+    },
   },
   created: function () {
     const dataLimit = sessionStorage.getItem('subscriptionLimit')

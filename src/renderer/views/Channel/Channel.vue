@@ -402,6 +402,13 @@
           @keydown.space.prevent="handleFetchMore"
           @keydown.enter.prevent="handleFetchMore"
         >
+          <div
+            v-observe-visibility="observeVisibilityOptions"
+          >
+            <!--
+              Dummy element to be observed by Intersection Observer
+            -->
+          </div>
           <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>

@@ -38,7 +38,30 @@ export default defineComponent({
 
     showFetchMoreButton() {
       return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === 'invidious'
-    }
+    },
+
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
+    observeVisibilityOptions() {
+      if (!this.generalAutoLoadMorePaginatedItemsEnabled) { return false }
+
+      return {
+        callback: (isVisible, _entry) => {
+          // This is also fired when **hidden**
+          // No point doing anything if not visible
+          if (!isVisible) { return }
+
+          this.handleFetchMore()
+        },
+        intersection: {
+          // Only when it intersects with N% above bottom
+          rootMargin: '0% 0% 0% 0%',
+        },
+        // Callback responsible for loading multiple pages
+        once: false,
+      }
+    },
   },
   watch: {
     $route() {

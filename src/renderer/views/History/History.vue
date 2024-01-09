@@ -38,16 +38,25 @@
         :show-video-with-last-viewed-playlist="true"
         :use-channels-hidden-preference="false"
       />
-      <ft-flex-box
+      <div
         v-if="showLoadMoreButton"
       >
-        <ft-button
-          label="Load More"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="increaseLimit"
-        />
-      </ft-flex-box>
+        <div
+          v-observe-visibility="observeVisibilityOptions"
+        >
+          <!--
+            Dummy element to be observed by Intersection Observer
+          -->
+        </div>
+        <ft-flex-box>
+          <ft-button
+            label="Load More"
+            background-color="var(--primary-color)"
+            text-color="var(--text-with-main-color)"
+            @click="increaseLimit"
+          />
+        </ft-flex-box>
+      </div>
     </ft-card>
   </div>
 </template>
