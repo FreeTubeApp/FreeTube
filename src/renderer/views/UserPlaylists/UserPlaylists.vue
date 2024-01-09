@@ -19,15 +19,25 @@
           class="newPlaylistButton"
           @click="createNewPlaylist"
         />
-        <ft-input
+        <div
           v-if="fullData.length > 1"
-          ref="searchBar"
-          :placeholder="$t('User Playlists.Search bar placeholder')"
-          :show-clear-text-button="true"
-          :show-action-button="false"
-          @input="(input) => query = input"
-          @clear="query = ''"
-        />
+          class="searchInputsRow"
+        >
+          <ft-input
+            ref="searchBar"
+            :placeholder="$t('User Playlists.Search bar placeholder')"
+            :show-clear-text-button="true"
+            :show-action-button="false"
+            @input="(input) => query = input"
+            @clear="query = ''"
+          />
+          <ft-toggle-switch
+            :label="$t('User Playlists.Search in Videos')"
+            :compact="true"
+            :default-value="doSearchPlaylistsWithMatchingVideos"
+            @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+          />
+        </div>
         <ft-select
           v-if="fullData.length > 1"
           class="sortSelect"
