@@ -14,7 +14,7 @@ class Settings {
   }
 
   // ******************** //
-  // Unique Electron main process handlers
+  // Unique Electron main process handlers erigherg
   static _findAppReadyRelatedSettings() {
     return db.settings.findAsync({
       $or: [
