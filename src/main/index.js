@@ -1007,15 +1007,6 @@ function runApp() {
           )
           return null
 
-        case DBActions.PLAYLISTS.SET_QUICK_SAVE_TARGET_PLAYLIST:
-          await baseHandlers.playlists.setPlaylistAsQuickBookmarkTarget(data)
-          syncOtherWindows(
-            IpcChannels.SYNC_PLAYLISTS,
-            event,
-            { event: SyncEvents.PLAYLISTS.SET_QUICK_SAVE_TARGET_PLAYLIST, data }
-          )
-          return null
-
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
           await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.videoIds)
           // TODO: Syncing (implement only when it starts being used)
