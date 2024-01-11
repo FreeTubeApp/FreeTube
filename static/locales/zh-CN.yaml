@@ -113,6 +113,67 @@ User Playlists:
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 在播放列表中搜索
   Empty Search Message: 这个与你的搜索匹配的播放列表中没有视频
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除所有已观看的视频吗？此操作无法撤销。
+  AddVideoPrompt:
+    Search in Playlists: 在播放列表中搜索
+    Save: 保存
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 添加了 1 则视频到 {playlistCount}
+        个播放列表 | 添加了 {videoCount} 则视频到 {playlistCount} 个播放列表
+      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {playlistCount}
+        则视频到 1 个播放列表
+      You haven't selected any playlist yet.: 你尚未选中任何播放列表。
+    Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
+      个视频
+    N playlists selected: 选中了 {playlistCount} 个播放列表
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: 没有可删除的视频。
+      Video has been removed: 视频已被删除
+      Playlist has been updated.: 播放列表已更新。
+      There was an issue with updating this playlist.: 更新此播放列表遇到问题。
+      This video cannot be moved up.: 无法上移此视频。
+      This playlist is protected and cannot be removed.: 此播放列表受保护，无法删除。
+      Playlist {playlistName} has been deleted.: 播放列表 {playlistName} 已被删除。
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 播放列表中的某些视频尚未加载。如果仍需复制，请单击此处。
+      This playlist does not exist: 此播放列表不存在
+      Playlist name cannot be empty. Please input a name.: 播放列表名不能为空。请输入一个名称。
+      There was a problem with removing this video: 删除此视频遇到问题
+      "{videoCount} video(s) have been removed": 1 则视频已被删除 | {videoCount} 则视频已被删除
+      This video cannot be moved down.: 无法下移此视频。
+  Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
+  Sort By:
+    LatestPlayedFirst: 最近播放的
+    EarliestCreatedFirst: 最先创建的
+    LatestCreatedFirst: 最近创建的
+    EarliestUpdatedFirst: 最先更新的
+    Sort By: 排序方式
+    NameDescending: Z-A
+    EarliestPlayedFirst: 最先播放的
+    LatestUpdatedFirst: 最近更新的
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: 你没有播放列表。单击新建播放列表来新建一个。
+  Remove from Playlist: 从播放列表删除
+  Save Changes: 保存更改
+  CreatePlaylistPrompt:
+    Create: 创建
+    Toast:
+      There was an issue with creating the playlist.: 创建播放列表遇到问题。
+      Playlist {playlistName} has been successfully created.: 成功创建了播放列表 {playlistName}。
+      There is already a playlist with this name. Please pick a different name.: 已经存在同名播放列表。请另选一个名称。
+    New Playlist Name: 新播放列表名
+  This playlist currently has no videos.: 播放列表当前无视频。
+  Add to Playlist: 添加到播放列表
+  Move Video Down: 下移视频
+  Playlist Name: 播放列表名称
+  Remove Watched Videos: 删除已观看的视频
+  Move Video Up: 上移视频
+  Cancel: 取消
+  Delete Playlist: 删除播放列表
+  Create New Playlist: 新建播放列表
+  Edit Playlist Info: 编辑播放列表信息
+  Copy Playlist: 复制播放列表
+  Playlist Description: 播放列表描述
 History:
   # On History Page
   History: '历史记录'
@@ -328,6 +389,9 @@ Settings:
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
     Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
     Save Watched Videos With Last Viewed Playlist: 记住上次看过的播放列表中看过的视频 ID
+    All playlists have been removed: 已删除所有播放列表
+    Remove All Playlists: 删除所有播放列表
+    Are you sure you want to remove all your playlists?: 你确定要删除所有播放列表吗？
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
     This might take a while, please wait: 这可能需要一段时间，请稍候
@@ -367,6 +431,11 @@ Settings:
     Playlist File: 播放列表文件
     Subscription File: 订阅文件
     History File: 历史文件
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "此选项将所有播放列表中的视频导出到一个名为'Favorities'的播放列表文件\n如何为老版本的 FreeTube 导出&导入播放列表中的视频：\n
+        1. 启用此选项来导出播放列表\n2. 使用“隐私”设置下的“删除所有播放列表”选项来删除所有现存播放列表\n3. 启动老版本的 FreeTube
+        并导入导出的播放列表。“"
+      Label: 为老版本 FreeTube 导出播放列表
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频

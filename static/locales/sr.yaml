@@ -130,6 +130,84 @@ User Playlists:
   Empty Search Message: На овој плејлисти нема видео снимака који одговарају вашој
     претрази
   Search bar placeholder: Претрага у плејлисти
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Желите
+    ли заиста да уклоните све одгледане видео снимке са ове плејлисте? Ово се не може
+    поништити.
+  AddVideoPrompt:
+    Search in Playlists: Претрага у плејлистама
+    Save: Сачувај
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 видео снимак додат
+        је на {playlistCount} плејлисте | {videoCount} видео снимака додато је на
+        {playlistCount} плејлисте
+      "{videoCount} video(s) added to 1 playlist": 1 видео снимак додат је на 1 плејлисту
+        | {videoCount} видео снимака додато је на 1 плејлисту
+      You haven't selected any playlist yet.: Још увек нисте изабрали ниједну плејлисту.
+    Select a playlist to add your N videos to: Изаберите плејлисту на коју желите
+      да додате видео снимак | Изаберите плејлисту на коју желите да додате {videoCount}
+      видео снимака
+    N playlists selected: 'Изабрано: {playlistCount}'
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Није било видео снимака за уклањање.
+      Video has been removed: Видео снимак је уклоњен
+      Playlist has been updated.: Плејлиста је ажурирана.
+      There was an issue with updating this playlist.: Дошло је до грешке при ажурирању
+        ове плејлисте.
+      This video cannot be moved up.: Овај видео снимак се не може померити нагоре.
+      This playlist is protected and cannot be removed.: Ова плејлиста је заштићена
+        и не може се уклонити.
+      Playlist {playlistName} has been deleted.: Плејлиста {playlistName} је избрисана.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Неки
+        видео снимци на плејлисти још увек нису учитани. Кликните овде да бисте ипак
+        копирали.
+      This playlist does not exist: Ова плејлиста не постоји
+      Playlist name cannot be empty. Please input a name.: Назив плејлисте не може
+        бити празан. Унесите назив.
+      There was a problem with removing this video: Дошло је до грешке при уклањању
+        овог видео снимка
+      "{videoCount} video(s) have been removed": 1 видео снимак је уклоњен | {videoCount}
+        видео снимака је уклоњено
+      This video cannot be moved down.: Овај видео снимак се не може померити надоле.
+  Are you sure you want to delete this playlist? This cannot be undone: Желите ли
+    заиста да избришете ову плејлисту? Ово се не може поништити.
+  Sort By:
+    LatestPlayedFirst: Недавно пуштано
+    EarliestCreatedFirst: Најраније направљено
+    LatestCreatedFirst: Недавно направљено
+    EarliestUpdatedFirst: Најраније ажурирано
+    Sort By: Сортирање по
+    NameDescending: Z-A
+    EarliestPlayedFirst: Најраније пуштано
+    LatestUpdatedFirst: Недавно ажурирано
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: Немате
+    плејлисте. Кликните на дугме „Направи нову плејлисту“ да бисте направили нову.
+  Remove from Playlist: Уклони са плејлисте
+  Save Changes: Сачувај измене
+  CreatePlaylistPrompt:
+    Create: Направи
+    Toast:
+      There was an issue with creating the playlist.: Дошло је до грешке при прављењу
+        плејлисте.
+      Playlist {playlistName} has been successfully created.: Плејлиста {playlistName}
+        је успешно направљена.
+      There is already a playlist with this name. Please pick a different name.: Већ
+        постоји плејлиста с овим називом. Молимо, изаберите други назив.
+    New Playlist Name: Нови назив плејлисте
+  This playlist currently has no videos.: Ова плејлиста тренутно нема ниједан видео
+    снимак.
+  Add to Playlist: Додај на плејлисту
+  Move Video Down: Помери видео снимак надоле
+  Playlist Name: Назив плејлисте
+  Remove Watched Videos: Уклони одгледане видео снимке
+  Move Video Up: Помери видео снимак нагоре
+  Cancel: Откажи
+  Delete Playlist: Избриши плејлисту
+  Create New Playlist: Направи нову плејлисту
+  Edit Playlist Info: Измени информације о плејлисти
+  Copy Playlist: Копирај плејлисту
+  Playlist Description: Опис плејлисте
 History:
   # On History Page
   History: 'Историја'
@@ -327,6 +405,10 @@ Settings:
       снимак
     Save Watched Videos With Last Viewed Playlist: Сачувај одгледане видео снимке
       са последње гледане плејлисте
+    All playlists have been removed: Све плејлисте су уклоњене
+    Remove All Playlists: Уклони све плејлисте
+    Are you sure you want to remove all your playlists?: Желите ли заиста да уклоните
+      све своје плејлисте?
   Subscription Settings:
     Subscription Settings: 'Подешавања праћења'
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
@@ -427,6 +509,14 @@ Settings:
     All playlists has been successfully imported: Све плејлисте су успешно увезене
     Playlist insufficient data: Нема довољно података за плејлисту „{playlist}“, прескакање
       предмета
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Ова опција извози видео снимке са свих плејлиста у једну плејлисту
+        под називом „Омиљено“.\nКако да извезете и увезете видео снимке у плејлисте
+        за старију верзију FreeTube-а:\n1. Извезите своје плејлисте са омогућеном
+        овом опцијом.\n2. Избришите све своје постојеће плејлисте користећи опцију
+        „Уклони све плејлисте“ у оквиру подешавања приватности.\n3. Покрените старију
+        верзију FreeTube-а и увезите извезене плејлисте."
+      Label: Извоз плејлиста за старије верзије FreeTube-а
   Proxy Settings:
     Proxy Settings: 'Подешавања проксија'
     Enable Tor / Proxy: 'Омогући Tor / Прокси'
