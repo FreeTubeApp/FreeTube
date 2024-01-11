@@ -284,7 +284,7 @@ export default defineComponent({
         this.channelId = playlist.channelId
         this.infoSource = 'piped'
         this.continuationData = nextpage
-        this.playlistItems = this.playlistItems.concat(videos)
+        this.playlistItems = videos
 
         this.updateSubscriptionDetails({
           channelThumbnailUrl: pipedImageToYouTube(playlist.channelThumbnail),
