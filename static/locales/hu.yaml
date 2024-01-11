@@ -133,6 +133,86 @@ User Playlists:
   Search bar placeholder: Keresés a lejátszási listában
   Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
     megfelelnek a keresésnek
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Biztos,
+    hogy el akarja távolítani az összes megtekintett videót ebből a lejátszási listából?
+    Ezt nem lehet visszacsinálni.
+  AddVideoPrompt:
+    Search in Playlists: Keresés a lejátszási listában
+    Save: Mentés
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 videó hozzáadva
+        a {playlistCount} lejátszási listákhoz | {videoCount} videó hozzáadása a {playlistCount}
+        lejátszási listákhoz
+      "{videoCount} video(s) added to 1 playlist": 1 videó hozzáadva 1 lejátszási
+        listához | {videoCount} videó hozzáadása 1 lejátszási listához
+      You haven't selected any playlist yet.: Még nem választott ki lejátszási listát
+        sem.
+    Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát
+      a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó
+      hozzáadásához
+    N playlists selected: '{playlistCount} Kiválasztott'
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Nem voltak eltávolítható videók.
+      Video has been removed: A videót eltávolították
+      Playlist has been updated.: A lejátszási lista frissítésre került.
+      There was an issue with updating this playlist.: Volt egy probléma a lejátszási
+        lista frissítésével.
+      This video cannot be moved up.: Ez a videó nem mozgatható feljebb.
+      This playlist is protected and cannot be removed.: Ez a lejátszási lista védett,
+        és nem távolítható el.
+      Playlist {playlistName} has been deleted.: A {playlistName} lejátszási lista
+        törlésre került.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Néhány
+        videó a lejátszási listában még nem töltődött be. Kattintson ide a másoláshoz
+        ennek ellenére.
+      This playlist does not exist: Ez a lejátszási lista nem létezik
+      Playlist name cannot be empty. Please input a name.: A lejátszási lista neve
+        nem lehet üres. Kérjük, adjon meg egy nevet.
+      There was a problem with removing this video: Probléma adódott a videó eltávolításával
+      "{videoCount} video(s) have been removed": 1 videó eltávolításra került | {videoCount}
+        videó eltávolításra került
+      This video cannot be moved down.: Ez a videó nem mozgatható lejjebb.
+  Are you sure you want to delete this playlist? This cannot be undone: Biztos, hogy
+    törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
+  Sort By:
+    LatestPlayedFirst: Nemrég játszott
+    EarliestCreatedFirst: Legkorábban létrehozott
+    LatestCreatedFirst: Nemrégiben létrehozott
+    EarliestUpdatedFirst: Legkorábban frissítve
+    Sort By: Rendezés
+    NameDescending: Z-A
+    EarliestPlayedFirst: Legkorábban játszott
+    LatestUpdatedFirst: Nemrég frissítve
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: Nincsenek
+    lejátszási listáid. Kattints az új lejátszási lista létrehozása gombra egy új
+    lejátszási lista létrehozásához.
+  Remove from Playlist: Eltávolítás a lejátszási listáról
+  Save Changes: Változtatások mentése
+  CreatePlaylistPrompt:
+    Create: Létrehozás
+    Toast:
+      There was an issue with creating the playlist.: Volt egy probléma a lejátszási
+        lista létrehozásával.
+      Playlist {playlistName} has been successfully created.: A lejátszási lista {playlistName}
+        sikeresen létrehozva.
+      There is already a playlist with this name. Please pick a different name.: Már
+        van egy lejátszási lista ezzel a névvel. Kérjük, válasszon egy másik nevet.
+    New Playlist Name: Új lejátszási lista neve
+  This playlist currently has no videos.: Ez a lejátszási lista jelenleg nem tartalmaz
+    videókat.
+  Add to Playlist: Hozzáadás a lejátszási listához
+  Move Video Down: Videó lefelé mozgatása
+  Playlist Name: Lejátszási lista neve
+  Remove Watched Videos: Megnézett videók eltávolítása
+  Move Video Up: Videó felfelé mozgatása
+  Cancel: Mégsem
+  Delete Playlist: Lejátszási lista törlése
+  Create New Playlist: Új lejátszási lista létrehozása
+  Edit Playlist Info: Lejátszási lista adatainak szerkesztése
+  Copy Playlist: Lejátszási lista másolása
+  Playlist Description: Lejátszási lista leírása
 History:
   # On History Page
   History: 'Előzmények'
@@ -326,6 +406,10 @@ Settings:
     Automatically Remove Video Meta Files: Videó-metafájlok automatikus eltávolítása
     Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
       utoljára megtekintett lejátszási listával
+    All playlists have been removed: Minden lejátszási lista eltávolításra került
+    Remove All Playlists: Minden lejátszási lista eltávolítása
+    Are you sure you want to remove all your playlists?: Biztos, hogy el akarja távolítani
+      az összes lejátszási listáját?
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
@@ -382,6 +466,15 @@ Settings:
     Subscription File: Feliratkozás-fájl
     History File: Előzmények-fájl
     Playlist File: lejátszási lista fájl
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Ez az opció az összes lejátszási lista videóit egyetlen, 'Kedvencek'
+        nevű lejátszási listába exportálja.\nHogyan exportálhat és importálhat videókat
+        lejátszási listákba a FreeTube régebbi verziója esetében:\n1. Exportálja a
+        lejátszási listáit, ezzel az opcióval bekacsolva.\n2. Törölje az összes meglévő
+        lejátszási listáját az Adatvédelmi beállítások alatt található Összes lejátszási
+        lista eltávolítása opcióval.\n3. Indítsa el a FreeTube régebbi verzióját,
+        és importálja az exportált lejátszási listákat.\""
+      Label: Lejátszási listák exportálása régebbi FreeTube verziókhoz
   Advanced Settings:
     Advanced Settings: 'További beállítások'
     Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
