@@ -551,12 +551,9 @@ export function parseLocalListVideo(item) {
       author: movie.author.name,
       authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
       description: movie.description_snippet?.text,
-      viewCount: null,
-      publishedText: null,
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       liveNow: false,
       isUpcoming: false,
-      premiereDate: null
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
