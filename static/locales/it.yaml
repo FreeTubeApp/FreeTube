@@ -126,8 +126,8 @@ User Playlists:
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sei
-    sicuro di voler rimuovere tutti i video guardati da questa playlist? Questa operazione
-    non può essere annullata.
+    sicuro/sicura di voler rimuovere tutti i video guardati da questa playlist? Questa
+    operazione non può essere annullata.
   AddVideoPrompt:
     Search in Playlists: Cerca nelle playlist
     Save: Salva
@@ -165,7 +165,7 @@ User Playlists:
         video sono stati rimossi
       This video cannot be moved down.: Questo video non può essere spostato verso
         il basso.
-  Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
+  Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro/sicura
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
   Sort By:
     LatestPlayedFirst: Riproduzione più recente
