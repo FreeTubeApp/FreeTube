@@ -37,8 +37,8 @@ Global:
   Counts:
     Video Count: 1 video | {count} videota
     Subscriber Count: 1 tilaaja | {count} tilaajaa
-    View Count: 1 näyttökerta | {count} näyttökertaa
-    Watching Count: 1 katselee | {count} katselee
+    View Count: 1 katselukerta | {count} katselukertaa
+    Watching Count: 1 katsoja | {count} katsojaa
     Channel Count: 1 kanava | {count} kanavaa
 # Search Bar
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
@@ -119,6 +119,9 @@ User Playlists:
     sen tänne
   Search bar placeholder: Etsi soittolistalta
   Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
+  Sort By:
+    NameAscending: A-Ö
+    NameDescending: Ö-A
 History:
   # On History Page
   History: 'Historia'
@@ -151,6 +154,7 @@ Settings:
       Middle: 'Puoliväli'
       End: 'Loppu'
       Hidden: Piilotettu
+      Blur: Sumennettu
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanssi
       (Oletus on https://invidious.snopyta.org)'
     Region for Trending: 'Nousussa-sivun alue'
@@ -183,6 +187,8 @@ Settings:
       Dracula: 'Dracula-teema'
       System Default: Järjestelmän oletusarvo
       Catppuccin Mocha: Catppuccin Mocha -teema
+      Hot Pink: Pinkki
+      Pastel Pink: Pastellinpinkki
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -412,7 +418,7 @@ Settings:
     Hide Chapters: Piilota kappaleet
     Hide Channels: Piilota videot kanavilta
     Hide Upcoming Premieres: Piilota Tulevat Ensiesitykset
-    Hide Channels Placeholder: Kanavan nimi tai tunnus
+    Hide Channels Placeholder: Kanavan tunnus
     Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista
       isoja kirjaimia
     Hide Featured Channels: Piilota esillä olevat kanavat
@@ -431,6 +437,9 @@ Settings:
     Hide Subscriptions Live: Piilota tilausten livet
     Blur Thumbnails: Sumenna pikkukuvat
     Hide Profile Pictures in Comments: Piilota profiilikuvat kommenteissa
+    Hide Channels Invalid: Annettu kanavatunnus oli virheellinen
+    Hide Subscriptions Shorts: Piilota tilattujen kanavien Shorts-videot
+    Hide Subscriptions Community: Piilota tilattujen kanavien yhteisö
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
