@@ -612,6 +612,7 @@ Settings:
     Players:
       None:
         Name: Aucun
+    Ignore Default Arguments: Ignorer les arguments par défaut
   Download Settings:
     Download Settings: 'Paramètres de téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
@@ -1148,6 +1149,9 @@ Tooltips:
       qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
       externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
     DefaultCustomArgumentsTemplate: '(Par défaut : « {defaultCustomArguments} »)'
+    Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe
+      en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de
+      la liste de lecture, etc.) Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active
       un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de
