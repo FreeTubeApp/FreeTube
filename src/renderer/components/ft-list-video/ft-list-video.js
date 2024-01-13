@@ -306,9 +306,14 @@ export default defineComponent({
     },
 
     thumbnail: function () {
+      if (this.thumbnailPreference === 'hidden') {
+        return require('../../assets/img/thumbnail_placeholder.svg')
+      }
+
       if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail != null) {
         return this.deArrowCache.thumbnail
       }
+
       let baseUrl
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
@@ -323,8 +328,6 @@ export default defineComponent({
           return `${baseUrl}/vi/${this.id}/mq2.jpg`
         case 'end':
           return `${baseUrl}/vi/${this.id}/mq3.jpg`
-        case 'hidden':
-          return require('../../assets/img/thumbnail_placeholder.svg')
         default:
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
@@ -475,6 +478,7 @@ export default defineComponent({
   },
   methods: {
     fetchDeArrowThumbnail: async function() {
+      if (this.thumbnailPreference === 'hidden') { return }
       const videoId = this.id
       const deArrowCacheClone = deepCopy(this.deArrowCache)
 
