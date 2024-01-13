@@ -584,6 +584,7 @@ Settings:
     Players:
       None:
         Name: Yok
+    Ignore Default Arguments: Öntanımlı Argümanları Yoksay
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
@@ -1093,6 +1094,9 @@ Tooltips:
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
       Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir
+      öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.).
+      Özel argümanlar yine de gönderilecektir.
   Experimental Settings:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
       ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
