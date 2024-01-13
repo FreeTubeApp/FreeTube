@@ -573,6 +573,7 @@ Settings:
     Players:
       None:
         Name: Žádný
+    Ignore Default Arguments: Ignorovat výchozí argumenty
   Download Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
     Download Settings: Nastavení stahování
@@ -1044,6 +1045,9 @@ Tooltips:
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
     DefaultCustomArgumentsTemplate: "(Výchozí: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Neodesílat externímu přehrávači žádné výchozí argumenty
+      kromě adresy URL videa (např. rychlost přehrávání, adresu URL playlistu atd.).
+      Tato možnost se nevztahuje na vlastní argumenty.
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní mezipaměť
       pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
