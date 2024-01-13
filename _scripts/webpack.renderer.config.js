@@ -48,6 +48,7 @@ const config = {
         options: {
           compilerOptions: {
             whitespace: 'condense',
+            isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
           }
         }
       },
