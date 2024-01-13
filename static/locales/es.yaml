@@ -584,6 +584,7 @@ Settings:
     Players:
       None:
         Name: Ninguno
+    Ignore Default Arguments: Ignorar argumentos por defecto
   Download Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
@@ -1100,6 +1101,10 @@ Tooltips:
       en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
       externos.
     DefaultCustomArgumentsTemplate: '(Predeterminado: «{defaultCustomArguments}»)'
+    Ignore Default Arguments: No envíe ningún argumento predeterminado al reproductor
+      externo aparte de la URL del vídeo (por ejemplo, velocidad de reproducción,
+      URL de la lista de reproducción, etc.). Los argumentos personalizados se seguirán
+      transmitiendo.
   Experimental Settings:
     Replace HTTP Cache: Desactiva la caché HTTP basada en Electron disk y habilite
       una caché para la imagen en la memoria personalizada. Esto aumentará el uso
