@@ -590,6 +590,7 @@ Settings:
     Players:
       None:
         Name: Żaden
+    Ignore Default Arguments: Zignoruj argumenty domyślne
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
@@ -1108,6 +1109,9 @@ Tooltips:
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
     DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Nie wysyłaj do zewnętrznego odtwarzacza żadnych domyślnych
+      argumentów (takich jak prędkość odtwarzania, URL playlisty itp.), oprócz URL-u
+      filmu. Niestandardowe argumenty zostaną wysłane.
   Experimental Settings:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
