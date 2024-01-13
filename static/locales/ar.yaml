@@ -569,6 +569,7 @@ Settings:
     Players:
       None:
         Name: لاشيء
+    Ignore Default Arguments: تجاهل الحجج الافتراضية
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
@@ -1061,6 +1062,9 @@ Tooltips:
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+    Ignore Default Arguments: لا ترسل أي وسائط افتراضية إلى المشغل الخارجي بخلاف عنوان
+      URL للفيديو (مثل معدل التشغيل وعنوان URL لقائمة التشغيل وما إلى ذلك). سيستمر
+      تمرير الوسائط المخصصة.
   Experimental Settings:
     Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
       وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
