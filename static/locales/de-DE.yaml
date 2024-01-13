@@ -126,6 +126,90 @@ User Playlists:
   Search bar placeholder: In Wiedergabeliste suchen
   Empty Search Message: Es gibt keine Videos in dieser Wiedergabeliste, die deiner
     Suche entsprechen
+  This playlist currently has no videos.: Diese Wiedergabeliste enthält derzeit keine
+    Videos.
+  Add to Playlist: Zur Wiedergabeliste hinzufügen
+  Move Video Up: Video nach oben verschieben
+  Move Video Down: Video nach unten verschieben
+  Playlist Name: Name der Wiedergabeliste
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    hast keine Wiedergabelisten. Klicke auf die Schaltfläche Neue Wiedergabeliste
+    erstellen, um eine neue zu erstellen.
+  Playlist Description: Beschreibung der Wiedergabeliste
+  Save Changes: Änderungen speichern
+  Cancel: Abbrechen
+  Edit Playlist Info: Wiedergabelisten-Infos bearbeiten
+  Copy Playlist: Wiedergabeliste kopieren
+  Remove Watched Videos: Angesehene Videos entfernen
+  Delete Playlist: Wiedergabeliste löschen
+  Are you sure you want to delete this playlist? This cannot be undone: Bist du sicher,
+    dass du diese Wiedergabeliste löschen möchtest? Dies kann nicht rückgängig gemacht
+    werden.
+  Sort By:
+    Sort By: Sortieren nach
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Kürzlich erstellt
+    EarliestCreatedFirst: Am frühesten erstellt
+    LatestUpdatedFirst: Kürzlich aktualisiert
+    EarliestUpdatedFirst: Am frühesten aktualisiert
+    LatestPlayedFirst: Kürzlich abgespielt
+    EarliestPlayedFirst: Am frühesten abgespielt
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Dieses Video kann nicht nach oben verschoben
+        werden.
+      This video cannot be moved down.: Dieses Video kann nicht nach unten verschoben
+        werden.
+      Video has been removed: Video wurde entfernt
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Einige
+        Videos in der Wiedergabeliste sind noch nicht geladen. Klicke hier, um sie
+        trotzdem zu kopieren.
+      Playlist name cannot be empty. Please input a name.: Der Name der Wiedergabeliste
+        darf nicht leer sein. Bitte gib einen Namen ein.
+      Playlist has been updated.: Wiedergabeliste wurde aktualisiert.
+      There was an issue with updating this playlist.: Es gab ein Problem beim Aktualisieren
+        dieser Wiedergabeliste.
+      "{videoCount} video(s) have been removed": 1 Video wurde entfernt | {videoCount}
+        Videos wurden entfernt
+      There were no videos to remove.: Es gab keine Videos zum Entfernen.
+      This playlist is protected and cannot be removed.: Diese Wiedergabeliste ist
+        geschützt und kann nicht entfernt werden.
+      There was a problem with removing this video: Es gab ein Problem beim Entfernen
+        dieses Videos
+      Playlist {playlistName} has been deleted.: Wiedergabeliste {playlistName} wurde
+        gelöscht.
+      This playlist does not exist: Diese Wiedergabeliste existiert nicht
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} ausgewählt'
+    Search in Playlists: In Wiedergabelisten suchen
+    Save: Speichern
+    Toast:
+      You haven't selected any playlist yet.: Du hast noch keine Wiedergabeliste ausgewählt.
+      "{videoCount} video(s) added to 1 playlist": 1 Video zu 1 Wiedergabeliste hinzugefügt
+        | {videoCount} Videos zu 1 Wiedergabeliste hinzugefügt
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount}
+        Wiedergabelisten hinzugefügt | {videoCount} Videos zu {playlistCount} Wiedergabelisten
+        hinzugefügt
+    Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
+      dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
+      Videos hinzufügen möchtest
+  CreatePlaylistPrompt:
+    New Playlist Name: Neuer Name der Wiedergabeliste
+    Create: Erstellen
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Es
+        gibt bereits eine Wiedergabeliste mit diesem Namen. Bitte wähle einen anderen
+        Namen.
+      There was an issue with creating the playlist.: Es gab ein Problem beim Erstellen
+        der Wiedergabeliste.
+      Playlist {playlistName} has been successfully created.: Wiedergabeliste {playlistName}
+        wurde erfolgreich erstellt.
+  Create New Playlist: Neue Wiedergabeliste erstellen
+  Remove from Playlist: Aus der Wiedergabeliste entfernen
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Bist
+    du sicher, dass du alle angesehenen Videos aus dieser Wiedergabeliste entfernen
+    möchtest? Dies kann nicht rückgängig gemacht werden.
 History:
   # On History Page
   History: Verlauf
@@ -361,6 +445,10 @@ Settings:
     Automatically Remove Video Meta Files: Video-Metadateien automatisch entfernen
     Save Watched Videos With Last Viewed Playlist: Angesehene Videos mit der zuletzt
       angesehenen Wiedergabeliste speichern
+    Remove All Playlists: Alle Wiedergabelisten entfernen
+    All playlists have been removed: Alle Wiedergabelisten wurden entfernt
+    Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle
+      deine Wiedergabelisten entfernen möchtest?
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -407,6 +495,15 @@ Settings:
     Playlist File: Wiedergabelistendatei
     Subscription File: Abo-Datei
     History File: Verlaufsdatei
+    Export Playlists For Older FreeTube Versions:
+      Label: Wiedergabelisten für ältere FreeTube-Versionen exportieren
+      Tooltip: "Diese Option exportiert Videos aus allen Wiedergabelisten in eine
+        Wiedergabeliste namens „Favoriten“.\nSo kann man Videos in Wiedergabelisten
+        für eine ältere Version von FreeTube exportieren und importieren:\n1. Exportiere
+        deine Wiedergabelisten, wenn diese Option aktiviert ist.\n2. Lösche alle deine
+        bestehenden Wiedergabelisten mit der Option Alle Wiedergabelisten entfernen
+        unter Datenschutzeinstellungen.\n3. Starte die ältere Version von FreeTube
+        und importiere die exportierten Wiedergabelisten.\""
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden

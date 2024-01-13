@@ -112,6 +112,68 @@ User Playlists:
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
   Search bar placeholder: 在播放清單搜尋
   Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
+  This playlist currently has no videos.: 此播放清單目前沒有影片。
+  Create New Playlist: 建立新播放清單
+  Add to Playlist: 新增至播放清單
+  Move Video Up: 向上移動影片
+  Move Video Down: 向下移動影片
+  Remove from Playlist: 從播放清單移除
+  Playlist Name: 播放清單名稱
+  Playlist Description: 播放清單描述
+  Cancel: 取消
+  Edit Playlist Info: 編輯播放清單資訊
+  Copy Playlist: 複製播放清單
+  Delete Playlist: 刪除播放清單
+  Are you sure you want to delete this playlist? This cannot be undone: 您確定您想要刪除播放清單嗎？這無法還原。
+  Sort By:
+    Sort By: 排序方式
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: 最近建立
+    LatestUpdatedFirst: 最近更新
+    EarliestUpdatedFirst: 最早更新
+    LatestPlayedFirst: 最近播放
+    EarliestPlayedFirst: 最早播放
+    EarliestCreatedFirst: 最早建立
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: 此影片無法向上移動。
+      This video cannot be moved down.: 此影片無法向下移動。
+      Video has been removed: 影片已被移除
+      There was a problem with removing this video: 移除此影片時發生問題
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 播放清單中的某些影片尚未載入。請按此處複製。
+      Playlist name cannot be empty. Please input a name.: 播放清單名稱不能為空。請輸入名稱。
+      Playlist has been updated.: 播放清單已更新。
+      There were no videos to remove.: 沒有影片要移除。
+      This playlist is protected and cannot be removed.: 此播放清單受保護且無法移除。
+      There was an issue with updating this playlist.: 更新此播放清單時發生問題。
+      "{videoCount} video(s) have been removed": 移除了 1 部影片 | 移除了 {videoCount} 部影片
+      Playlist {playlistName} has been deleted.: 播放清單 {playlistName} 已刪除。
+      This playlist does not exist: 此播放清單不存在
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
+      部影片新增至其中
+    N playlists selected: 已選取 {playlistCount}
+    Search in Playlists: 在播放清單中搜尋
+    Save: 儲存
+    Toast:
+      You haven't selected any playlist yet.: 您尚未選取任何播放清單。
+      "{videoCount} video(s) added to 1 playlist": 1 部影片新增至 1 個播放清單 | {videoCount}
+        部影片新增至 1 個播放清單
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount}
+        個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
+  CreatePlaylistPrompt:
+    New Playlist Name: 新播放清單名稱
+    Toast:
+      Playlist {playlistName} has been successfully created.: 已成功建立播放清單 {playlistName}。
+      There was an issue with creating the playlist.: 建立播放清單時發生問題。
+      There is already a playlist with this name. Please pick a different name.: 已有一個同名的播放清單。請挑選其他名稱。
+    Create: 建立
+  You have no playlists. Click on the create new playlist button to create a new one.: 您沒有播放清單。按一下建立新播放清單按鈕以建立新的。
+  Save Changes: 儲存變更
+  Remove Watched Videos: 移除已觀看的影片
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中移除所有觀看過的影片嗎？
+    這無法還原。
 History:
   # On History Page
   History: '觀看紀錄'
@@ -329,6 +391,9 @@ Settings:
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
     Automatically Remove Video Meta Files: 自動刪除影片元檔案
     Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
+    Remove All Playlists: 移除所有播放清單
+    All playlists have been removed: 所有播放清單已被移除
+    Are you sure you want to remove all your playlists?: 您確定要移除所有播放清單嗎？
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -366,6 +431,10 @@ Settings:
     Subscription File: 訂閱檔案
     History File: 歷史紀錄檔案
     Playlist File: 播放清單檔案
+    Export Playlists For Older FreeTube Versions:
+      Label: 匯出較舊 FreeTube 版本的播放清單
+      Tooltip: "此選項將所有播放清單中的影片匯出到名為「我的最愛」的播放清單中。\n如何匯出和匯入舊版 FreeTube 播放清單中的影片：\n1.
+        啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾設定

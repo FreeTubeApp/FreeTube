@@ -128,6 +128,84 @@ User Playlists:
     taşınacaktır.
   Search bar placeholder: Oynatma Listesinde Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
+  This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
+    yok.
+  Create New Playlist: Yeni Oynatma Listesi Oluştur
+  Add to Playlist: Oynatma Listesine Ekle
+  Remove from Playlist: Oynatma Listesinden Kaldır
+  Playlist Name: Oynatma Listesi Adı
+  Save Changes: Değişiklikleri Kaydet
+  Delete Playlist: Oynatma Listesini Sil
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Son Oluşturulan
+    EarliestCreatedFirst: En Eski Oluşturulan
+    LatestUpdatedFirst: Son Güncellenen
+    EarliestUpdatedFirst: En Eski Güncellenen
+    LatestPlayedFirst: Son Oynatılan
+    EarliestPlayedFirst: En Eski Oynatılan
+    Sort By: Sıralama ölçütü
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Bu video yukarı taşınamaz.
+      This video cannot be moved down.: Bu video aşağı taşınamaz.
+      Playlist name cannot be empty. Please input a name.: Oynatma listesi adı boş
+        olamaz. Lütfen bir ad girin.
+      Playlist has been updated.: Oynatma listesi güncellendi.
+      There was an issue with updating this playlist.: Bu oynatma listesi güncellenirken
+        bir sorun oluştu.
+      "{videoCount} video(s) have been removed": 1 video kaldırıldı | {videoCount}
+        video kaldırıldı
+      Playlist {playlistName} has been deleted.: '{playlistName} oynatma listesi silindi.'
+      Video has been removed: Video kaldırıldı
+      There was a problem with removing this video: Bu videoyu kaldırırken bir sorun
+        oluştu
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Oynatma
+        listesindeki bazı videolar henüz yüklenmedi. Yine de kopyalamak için buraya
+        tıklayın.
+      This playlist is protected and cannot be removed.: Bu oynatma listesi korumalıdır
+        ve kaldırılamaz.
+      There were no videos to remove.: Kaldırılacak video yok.
+      This playlist does not exist: Bu oynatma listesi yok
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
+      listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
+    Save: Kaydet
+    Toast:
+      You haven't selected any playlist yet.: Henüz bir oynatma listesi seçmediniz.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video {playlistCount}
+        oynatma listesine eklendi | {videoCount} video {playlistCount} oynatma listesine
+        eklendi
+      "{videoCount} video(s) added to 1 playlist": 1 video 1 oynatma listesine eklendi
+        | {videoCount} video 1 oynatma listesine eklendi
+    N playlists selected: '{playlistCount} Seçildi'
+    Search in Playlists: Oynatma Listelerinde Ara
+  CreatePlaylistPrompt:
+    New Playlist Name: Yeni Oynatma Listesi Adı
+    Create: Oluştur
+    Toast:
+      There was an issue with creating the playlist.: Oynatma listesi oluşturulurken
+        bir sorun oluştu.
+      There is already a playlist with this name. Please pick a different name.: Bu
+        ada sahip bir oynatma listesi zaten var. Lütfen farklı bir ad seçin.
+      Playlist {playlistName} has been successfully created.: '{playlistName} oynatma
+        listesi başarıyla oluşturuldu.'
+  You have no playlists. Click on the create new playlist button to create a new one.: Hiç
+    oynatma listeniz yok. Yeni bir oynatma listesi oluşturmak için yeni oynatma listesi
+    oluştur düğmesine tıklayın.
+  Are you sure you want to delete this playlist? This cannot be undone: Bu oynatma
+    listesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
+  Move Video Up: Videoyu Yukarı Taşı
+  Move Video Down: Videoyu Aşağı Taşı
+  Playlist Description: Oynatma Listesi Açıklaması
+  Cancel: İptal
+  Edit Playlist Info: Oynatma Listesi Bilgilerini Düzenle
+  Copy Playlist: Oynatma Listesini Kopyala
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: İzlenen
+    tüm videoları bu oynatma listesinden kaldırmak istediğinizden emin misiniz? Bu
+    işlem geri alınamaz.
+  Remove Watched Videos: İzlenen Videoları Kaldır
 History:
   # On History Page
   History: 'Geçmiş'
@@ -319,6 +397,10 @@ Settings:
       Kaldır
     Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
       Oynatma Listesiyle Kaydet
+    All playlists have been removed: Tüm oynatma listeleri kaldırıldı
+    Remove All Playlists: Tüm Oynatma Listelerini Kaldır
+    Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi
+      kaldırmak istediğinizden emin misiniz?
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -374,6 +456,15 @@ Settings:
     Playlist File: Oynatma Listesi Dosyası
     Subscription File: Abonelik Dosyası
     History File: Geçmiş Dosyası
+    Export Playlists For Older FreeTube Versions:
+      Label: Eski FreeTube Sürümleri İçin Oynatma Listelerini Dışa Aktar
+      Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı
+        tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma
+        listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi
+        bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma
+        Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi
+        silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini
+        içe aktarın.\""
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir

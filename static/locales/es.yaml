@@ -122,6 +122,87 @@ User Playlists:
   Search bar placeholder: Buscar en la lista de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
     con tu búsqueda
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que quieres eliminar todos los vídeos vistos de esta lista de reproducción?
+    Esto no se puede deshacer.
+  AddVideoPrompt:
+    Search in Playlists: Buscar en listas de reproducción
+    Save: Guardar
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo añadido
+        a {playlistCount} listas de reproducción | {videoCount} vídeos añadidos a
+        {playlistCount} listas de reproducción
+      "{videoCount} video(s) added to 1 playlist": 1 vídeo añadido a 1 lista de reproducción
+        | {videoCount} vídeos añadidos a 1 lista de reproducción
+      You haven't selected any playlist yet.: Aún no has seleccionado ninguna lista
+        de reproducción.
+    Select a playlist to add your N videos to: Seleccione una lista de reproducción
+      a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
+      sus {videoCount} vídeos
+    N playlists selected: '{playlistCount} seleccionada'
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: No había vídeos que eliminar.
+      Video has been removed: Se ha eliminado el vídeo
+      Playlist has been updated.: Se ha actualizado la lista de reproducción.
+      There was an issue with updating this playlist.: Hubo un problema con la actualización
+        de esta lista de reproducción.
+      This video cannot be moved up.: Este vídeo no se puede subir.
+      This playlist is protected and cannot be removed.: Esta lista de reproducción
+        está protegida y no puede eliminarse.
+      Playlist {playlistName} has been deleted.: La lista de reproducción {playlistName}
+        ha sido eliminada.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Algunos
+        vídeos de la lista de reproducción aún no se han cargado. Haga clic aquí para
+        copiarlos de todos modos.
+      This playlist does not exist: Esta lista de reproducción no existe
+      Playlist name cannot be empty. Please input a name.: El nombre de la lista de
+        reproducción no puede estar vacío. Por favor, introduzca un nombre.
+      There was a problem with removing this video: Hubo un problema al eliminar este
+        vídeo
+      "{videoCount} video(s) have been removed": 1 vídeo eliminado | {videoCount}
+        vídeos eliminados
+      This video cannot be moved down.: Este vídeo no se puede bajar.
+  Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
+    de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
+  Sort By:
+    LatestPlayedFirst: Reproducido recientemente
+    EarliestCreatedFirst: Creado por primera vez
+    LatestCreatedFirst: Creado recientemente
+    EarliestUpdatedFirst: Última actualización
+    Sort By: Ordenar por
+    NameDescending: Z-A
+    EarliestPlayedFirst: Reproducido más recientemente
+    LatestUpdatedFirst: Actualizado recientemente
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: No
+    tienes listas de reproducción. Haz clic en el botón Crear nueva lista de reproducción
+    para crear una nueva.
+  Remove from Playlist: Eliminar de la lista de reproducción
+  Save Changes: Guardar los cambios
+  CreatePlaylistPrompt:
+    Create: Crear
+    Toast:
+      There was an issue with creating the playlist.: Hubo un problema con la creación
+        de la lista de reproducción.
+      Playlist {playlistName} has been successfully created.: La lista de reproducción
+        {playlistName} se ha creado correctamente.
+      There is already a playlist with this name. Please pick a different name.: Ya
+        existe una lista de reproducción con este nombre. Por favor, elige un nombre
+        diferente.
+    New Playlist Name: Nuevo nombre de la lista de reproducción
+  This playlist currently has no videos.: Esta lista de reproducción no tiene vídeos.
+  Add to Playlist: Añadir a la lista de reproducción
+  Move Video Down: Bajar el vídeo
+  Playlist Name: Nombre de la lista de reproducción
+  Remove Watched Videos: Eliminar los vídeos vistos
+  Move Video Up: Subir el vídeo
+  Cancel: Cancelar
+  Delete Playlist: Borrar lista de reproducción
+  Create New Playlist: Crear nueva lista de reproducción
+  Edit Playlist Info: Editar información de la lista de reproducción
+  Copy Playlist: Copiar lista de reproducción
+  Playlist Description: Descripción de la lista de reproducción
 History:
   # On History Page
   History: 'Historial'
@@ -317,6 +398,10 @@ Settings:
       de vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última
       lista de reproducción vista
+    All playlists have been removed: Se han eliminado todas las listas de reproducción
+    Remove All Playlists: Eliminar todas las listas de reproducción
+    Are you sure you want to remove all your playlists?: ¿Estás seguro de que quieres
+      eliminar todas tus listas de reproducción?
   Subscription Settings:
     Subscription Settings: 'Ajustes de Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
@@ -372,6 +457,15 @@ Settings:
     Subscription File: Archivo de suscripción
     Playlist File: Archivo de la lista de reproducción
     History File: Archivo del historial
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Esta opción exporta vídeos de todas las listas de reproducción a una
+        lista de reproducción llamada \"Favoritos\".\nCómo exportar e importar vídeos
+        en las listas de reproducción para una versión antigua de FreeTube:\n1. Exporta
+        tus listas de reproducción con esta opción activada.\n2. Elimine todas sus
+        listas de reproducción existentes utilizando la opción Eliminar todas las
+        listas de reproducción en Configuración de privacidad.\n3. Inicia la versión
+        anterior de FreeTube e importa las listas de reproducción exportadas.\""
+      Label: Exportar listas de reproducción de versiones anteriores de FreeTube
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra

@@ -45,7 +45,7 @@ Global:
     Channel Count: 1 channel | {count} channels
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
-Download From Site: 'Download From Site'
+Download From Site: 'Download from site'
 A new blog is now available, {blogTitle}. Click to view more: 'A new blog is now available,
   {blogTitle}. Click to view more'
 
@@ -53,7 +53,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'A new blog is now
 Search / Go to URL: 'Search / Go to URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Search Filters'
+  Search Filters: 'Search filters'
   Sort By:
     Sort By: 'Sort by'
     Most Relevant: 'Most relevant'
@@ -126,6 +126,73 @@ User Playlists:
     it listed here
   Search bar placeholder: Search in Playlist
   Empty Search Message: There are no videos in this playlist that match your search
+  Create New Playlist: Create new playlist
+  Add to Playlist: Add to playlist
+  This playlist currently has no videos.: This playlist currently has no videos.
+  Move Video Down: Move video down
+  Playlist Name: Playlist name
+  Playlist Description: Playlist description
+  Save Changes: Save changes
+  Edit Playlist Info: Edit playlist info
+  Delete Playlist: Delete playlist
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    EarliestCreatedFirst: Earliest created
+    LatestUpdatedFirst: Recently updated
+    EarliestUpdatedFirst: Earliest updated
+    LatestPlayedFirst: Recently played
+    EarliestPlayedFirst: Earliest played
+    Sort By: Sort by
+    LatestCreatedFirst: Recently created
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: This video cannot be moved up.
+      This video cannot be moved down.: This video cannot be moved down.
+      There was a problem with removing this video: There was a problem with removing
+        this video
+      Playlist name cannot be empty. Please input a name.: Playlist name cannot be
+        empty. Please input a name.
+      Playlist has been updated.: Playlist has been updated.
+      "{videoCount} video(s) have been removed": 1 video has been removed | {videoCount}
+        videos have been removed
+      This playlist is protected and cannot be removed.: This playlist is protected
+        and cannot be removed.
+      This playlist does not exist: This playlist does not exist
+      Playlist {playlistName} has been deleted.: Playlist {playlistName} has been
+        deleted.
+      Video has been removed: Video has been removed
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Some
+        videos in the playlist are not loaded yet. Click here to copy anyway.
+      There was an issue with updating this playlist.: There was an issue with updating
+        this playlist.
+      There were no videos to remove.: There were no videos to remove.
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} selected'
+    Search in Playlists: Search in playlists
+    Save: Save
+    Toast:
+      "{videoCount} video(s) added to 1 playlist": 1 video added to 1 playlist | {videoCount}
+        videos added to 1 playlist
+      You haven't selected any playlist yet.: You haven't selected any playlist yet.
+    Select a playlist to add your N videos to: Select a playlist to add your video
+      to | Select a playlist to add your {videoCount} videos to
+  CreatePlaylistPrompt:
+    New Playlist Name: New playlist name
+    Create: Create
+  You have no playlists. Click on the create new playlist button to create a new one.: Vous
+    n'avez pas de listes de lecture. Cliquez sur le bouton créer une nouvelle liste
+    de lecture pour en créer une nouvelle.
+  Move Video Up: Move video up
+  Cancel: Cancel
+  Remove from Playlist: Remove from playlist
+  Copy Playlist: Copy playlist
+  Remove Watched Videos: Remove watched videos
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are
+    you sure you want to remove all watched videos from this playlist? This cannot
+    be undone.
+  Are you sure you want to delete this playlist? This cannot be undone: Are you sure
+    you want to delete this playlist? This cannot be undone.
 History:
   # On History Page
   History: 'History'
@@ -137,8 +204,8 @@ Settings:
   # On Settings Page
   Settings: 'Settings'
   General Settings:
-    General Settings: 'General Settings'
-    Check for Updates: 'Check for Updates'
+    General Settings: 'General settings'
+    Check for Updates: 'Check for updates'
     Check for Latest Blog Posts: 'Check for latest blog posts'
     Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend
       on failure'
@@ -234,7 +301,7 @@ Settings:
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Green: Catppuccin Mocha Green
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
-    Secondary Color Theme: 'Secondary Colour Theme'
+    Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
     Disable Smooth Scrolling: Disable smooth scrolling
@@ -242,9 +309,9 @@ Settings:
     Hide Side Bar Labels: Hide side bar labels
     Hide FreeTube Header Logo: Hide FreeTube Header Logo
   Player Settings:
-    Player Settings: 'Player Settings'
-    Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
-    Play Next Video: 'Play Next Video'
+    Player Settings: 'Player settings'
+    Force Local Backend for Legacy Formats: 'Force local back-end for legacy formats'
+    Play Next Video: 'Play next video'
     Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
@@ -301,6 +368,7 @@ Settings:
     External Player Settings: External Player Settings
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Ignore Default Arguments: Ignore Default Arguments
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
     Players:
@@ -328,14 +396,14 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
-    Fetch Feeds from RSS: 'Fetch Feeds from RSS'
-    Manage Subscriptions: 'Manage Subscriptions'
+    Fetch Feeds from RSS: 'Fetch feeds from RSS'
+    Manage Subscriptions: 'Manage subscriptions'
     Fetch Automatically: Fetch feed automatically
   Data Settings:
-    Data Settings: 'Data Settings'
-    Select Import Type: 'Select Import Type'
-    Select Export Type: 'Select Export Type'
-    Import Subscriptions: 'Import Subscriptions'
+    Data Settings: 'Data settings'
+    Select Import Type: 'Select import type'
+    Select Export Type: 'Select export type'
+    Import Subscriptions: 'Import subscriptions'
     Import FreeTube: 'Import FreeTube'
     Import YouTube: 'Import YouTube'
     Import NewPipe: 'Import NewPipe'
@@ -343,8 +411,8 @@ Settings:
     Export FreeTube: 'Export FreeTube'
     Export YouTube: 'Export YouTube'
     Export NewPipe: 'Export NewPipe'
-    Import History: 'Import History'
-    Export History: 'Export History'
+    Import History: 'Import history'
+    Export History: 'Export history'
     Profile object has insufficient data, skipping item: 'Profile object has insufficient
       data, skipping item'
     All subscriptions and profiles have been successfully imported: 'All subscriptions
@@ -365,7 +433,7 @@ Settings:
     Unable to write file: 'Unable to write file'
     Unknown data key: 'Unknown data key'
     How do I import my subscriptions?: 'How do I import my subscriptions?'
-    Check for Legacy Subscriptions: Check for Legacy Subscriptions
+    Check for Legacy Subscriptions: Check for Legacy subscriptions
     Manage Subscriptions: Manage Subscriptions
     Import Playlists: Import playlists
     Export Playlists: Export playlists
@@ -950,6 +1018,9 @@ Tooltips:
       custom path can be set here.
     Ignore Warnings: Suppress warnings for when the current external player does not
       support the current action (e.g. reversing playlists, etc.).
+    Ignore Default Arguments: Do not send any default arguments to the external player
+      aside from the video URL (e.g. playback rate, playlist URL, etc.).
+      Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments, separated
       by semicolons (';'), you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: '(Default: ‘{defaultCustomArguments}’)'
@@ -1024,3 +1095,4 @@ Playlist will pause when current video is finished: Playlist will pause when cur
   video is finished
 Playlist will not pause when current video is finished: Playlist will not pause when
   current video is finished
+Go to page: Go to {page}
