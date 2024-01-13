@@ -416,7 +416,8 @@ Settings:
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Only Show Latest Video for Each Channel: Csak a legújabb videókat mutassa a csatornáktól
+    Only Show Latest Video for Each Channel: Csak a legújabb videókat megjelenítése
+      a csatornáktól
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -593,6 +594,7 @@ Settings:
     Players:
       None:
         Name: Nincs
+    Ignore Default Arguments: Alapértelmezett argumentumok figyelmen kívül hagyása
   Download Settings:
     Ask Download Path: Letöltés elérési útja kérése
     Choose Path: Letöltés elérési útja kijelölése
@@ -622,7 +624,7 @@ Settings:
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
-  Expand All Settings Sections: Minden beállítási szakasz kibontása
+  Expand All Settings Sections: Beállítások kiterjesztése
 About:
   #On About page
   About: 'Névjegy'
@@ -1095,6 +1097,9 @@ Tooltips:
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
       Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
+    Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a
+      külső lejátszónak a videó URL-címén kívül (pl. lejátszási sebesség, lejátszási
+      lista URL-címe stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
