@@ -5,7 +5,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink {
+.hotPink,
+.nordic {
   --primary-input-color: rgba(0, 0, 0, 0.50);
 }
 
@@ -15,7 +16,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink {
+.hotPink,
+.nordic {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -27,7 +29,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.pastelPink {
+.pastelPink,
+.nordic {
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
@@ -37,7 +40,8 @@
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.nordic {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -46,7 +50,8 @@
 .system[data-system-theme*='light'], .light,
 .system[data-system-theme*='dark'], .dark,
 .black,
-.gray {
+.gray,
+.nordic {
   --logo-icon: url("../../_icons/iconColorSmall.png");
   --logo-text: url("../../_icons/textColorSmall.png");
 }
@@ -56,7 +61,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.hotPink {
+.hotPink,
+.nordic {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -235,6 +241,23 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .hotPink a:hover {
   text-decoration: underline;
+}
+
+.nordic {
+  --primary-text-color: #EEEEEE;
+  --secondary-text-color: #ddd;
+  --tertiary-text-color: #EEEEEE;
+  --title-color: #EEEEEE;
+  --bg-color: #2b2f3a;
+  --favorite-icon-color: #85a4c1;
+  --card-bg-color: #2e3440;
+  --secondary-card-bg-color: rgba(59, 66, 82, 0.75);
+  --scrollbar-color: #4b566a;
+  --scrollbar-color-hover: #4b566a;
+  --side-nav-color: #2e3440;
+  --side-nav-hover-color: #3b4252;
+  --side-nav-active-color: #3b4252;
+  --search-bar-color: #4b566a;
 }
 
 .mainRed,
