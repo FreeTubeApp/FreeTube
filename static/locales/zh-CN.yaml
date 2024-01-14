@@ -517,6 +517,7 @@ Settings:
     Players:
       None:
         Name: 无
+    Ignore Default Arguments: 忽略默认变量
   Download Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
@@ -954,6 +955,7 @@ Tooltips:
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
     DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
     Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
+    Ignore Default Arguments: 不要向外部播放器发送除视频 URL 外的任何默认变量（如播放速度、播放列表 URL 等）。自定义变量仍将被传递。
   Privacy Settings:
     Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
