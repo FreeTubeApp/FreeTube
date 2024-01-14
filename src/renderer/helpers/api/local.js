@@ -290,7 +290,9 @@ export async function getLocalChannelVideos(id) {
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      return parseLocalChannelVideos(videosTab.videos, videosTab.header.author)
+      const { id: channelId = id, name } = parseLocalChannelHeader(videosTab)
+
+      return parseLocalChannelVideos(videosTab.videos, channelId, name)
     } else {
       return []
     }
@@ -320,7 +322,9 @@ export async function getLocalChannelLiveStreams(id) {
     // if the channel doesn't have a live tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (liveStreamsTab.current_tab?.endpoint.metadata.url?.endsWith('/streams')) {
-      return parseLocalChannelVideos(liveStreamsTab.videos, liveStreamsTab.header.author)
+      const { id: channelId = id, name } = parseLocalChannelHeader(liveStreamsTab)
+
+      return parseLocalChannelVideos(liveStreamsTab.videos, channelId, name)
     } else {
       return []
     }
@@ -365,16 +369,158 @@ export async function getLocalChannelCommunity(id) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Video[]} videos
- * @param {Misc.Author} author
+ * @param {YT.Channel} channel
  */
-export function parseLocalChannelVideos(videos, author) {
+export function parseLocalChannelHeader(channel) {
+  /** @type {string=} */
+  let id
+  /** @type {string} */
+  let name
+  /** @type {string=} */
+  let thumbnailUrl
+  /** @type {string=} */
+  let bannerUrl
+  /** @type {string=} */
+  let subscriberText
+  /** @type {string[]} */
+  const tags = []
+
+  switch (channel.header.type) {
+    case 'C4TabbedHeader': {
+      // example: Linus Tech Tips
+      // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
+
+      /**
+       * @type {import('youtubei.js').YTNodes.C4TabbedHeader}
+       */
+      const header = channel.header
+
+      id = header.author.id
+      name = header.author.name
+      thumbnailUrl = header.author.best_thumbnail.url
+      bannerUrl = header.banner?.[0]?.url
+      subscriberText = header.subscribers?.text
+      break
+    }
+    case 'CarouselHeader': {
+      // examples: Music and YouTube Gaming
+      // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
+      // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+      /**
+       * @type {import('youtubei.js').YTNodes.CarouselHeader}
+       */
+      const header = channel.header
+
+      /**
+       * @type {import('youtubei.js').YTNodes.TopicChannelDetails}
+       */
+      const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
+      name = topicChannelDetails.title.text
+      subscriberText = topicChannelDetails.subtitle.text
+      thumbnailUrl = topicChannelDetails.avatar[0].url
+
+      if (channel.metadata.external_id) {
+        id = channel.metadata.external_id
+      } else {
+        id = topicChannelDetails.subscribe_button.channel_id
+      }
+      break
+    }
+    case 'InteractiveTabbedHeader': {
+      // example: Minecraft - Topic
+      // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
+
+      /**
+       * @type {import('youtubei.js').YTNodes.InteractiveTabbedHeader}
+       */
+      const header = channel.header
+      name = header.title.text
+      thumbnailUrl = header.box_art.at(-1).url
+      bannerUrl = header.banner[0]?.url
+
+      const badges = header.badges.map(badge => badge.label).filter(tag => tag)
+      tags.push(...badges)
+
+      id = channel.current_tab?.endpoint.payload.browseId
+      break
+    }
+    case 'PageHeader': {
+      // example: YouTube Gaming
+      // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+      // User channels (an A/B test at the time of writing)
+
+      /**
+       * @type {import('youtubei.js').YTNodes.PageHeader}
+       */
+      const header = channel.header
+
+      name = header.content.title.text.text
+      if (header.content.image) {
+        if (header.content.image.type === 'ContentPreviewImageView') {
+          /** @type {import('youtubei.js').YTNodes.ContentPreviewImageView} */
+          const image = header.content.image
+
+          thumbnailUrl = image.image[0].url
+        } else {
+          /** @type {import('youtubei.js').YTNodes.DecoratedAvatarView} */
+          const image = header.content.image
+          thumbnailUrl = image.avatar?.image[0].url
+        }
+      }
+
+      if (!thumbnailUrl && channel.metadata.thumbnail) {
+        thumbnailUrl = channel.metadata.thumbnail[0].url
+      }
+
+      if (header.content.banner) {
+        bannerUrl = header.content.banner.image[0]?.url
+      }
+
+      if (header.content.actions) {
+        const modal = header.content.actions.actions_rows[0].actions[0].on_tap.modal
+
+        if (modal && modal.type === 'ModalWithTitleAndButton') {
+          /** @type {import('youtubei.js').YTNodes.ModalWithTitleAndButton} */
+          const typedModal = modal
+
+          id = typedModal.button.endpoint.next_endpoint?.payload.browseId
+        }
+      } else if (channel.metadata.external_id) {
+        id = channel.metadata.external_id
+      }
+
+      if (header.content.metadata) {
+        subscriberText = header.content.metadata.metadata_rows[0].metadata_parts[1].text.text
+      }
+
+      break
+    }
+  }
+
+  return {
+    id,
+    name,
+    thumbnailUrl,
+    bannerUrl,
+    subscriberText,
+    tags
+  }
+}
+
+/**
+ * @param {import('youtubei.js').YTNodes.Video[]} videos
+ * @param {string} channelId
+ * @param {string} channelName
+ */
+export function parseLocalChannelVideos(videos, channelId, channelName) {
   const parsedVideos = videos.map(parseLocalListVideo)
 
   // fix empty author info
   parsedVideos.forEach(video => {
-    video.author = author.name
-    video.authorId = author.id
+    video.author = channelName
+    video.authorId = channelId
   })
 
   return parsedVideos
@@ -382,16 +528,17 @@ export function parseLocalChannelVideos(videos, author) {
 
 /**
  * @param {import('youtubei.js').YTNodes.ReelItem[]} shorts
- * @param {Misc.Author} author
+ * @param {string} channelId
+ * @param {string} channelName
  */
-export function parseLocalChannelShorts(shorts, author) {
+export function parseLocalChannelShorts(shorts, channelId, channelName) {
   return shorts.map(short => {
     return {
       type: 'video',
       videoId: short.id,
       title: short.title.text,
-      author: author.name,
-      authorId: author.id,
+      author: channelName,
+      authorId: channelId,
       viewCount: parseLocalSubscriberCount(short.views.text),
       lengthSeconds: ''
     }
@@ -405,40 +552,43 @@ export function parseLocalChannelShorts(shorts, author) {
 
 /**
  * @param {Playlist|GridPlaylist} playlist
- * @param {Misc.Author} author
+ * @param {string} channelId
+ * @param {string} chanelName
  */
-export function parseLocalListPlaylist(playlist, author = undefined) {
-  let channelName
-  let channelId = null
-  /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
-  const thumbnailRenderer = playlist.thumbnail_renderer
+export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
+  let internalChannelName
+  let internalChannelId = null
+
   if (playlist.author && playlist.author.id !== 'N/A') {
     if (playlist.author instanceof Misc.Text) {
-      channelName = playlist.author.text
+      internalChannelName = playlist.author.text
 
-      if (author) {
-        channelId = author.id
+      if (channelId) {
+        internalChannelId = channelId
       }
     } else {
-      channelName = playlist.author.name
-      channelId = playlist.author.id
+      internalChannelName = playlist.author.name
+      internalChannelId = playlist.author.id
     }
-  } else if (author) {
-    channelName = author.name
-    channelId = author.id
+  } else if (channelId || channelName) {
+    internalChannelName = channelName
+    internalChannelId = channelId
   } else if (playlist.author?.name) {
     // auto-generated album playlists don't have an author
     // so in search results, the author text is "Playlist" and doesn't have a link or channel ID
-    channelName = playlist.author.name
+    internalChannelName = playlist.author.name
   }
+
+  /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
+  const thumbnailRenderer = playlist.thumbnail_renderer
 
   return {
     type: 'playlist',
     dataSource: 'local',
     title: playlist.title.text,
     thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
-    channelName,
-    channelId,
+    channelName: internalChannelName,
+    channelId: internalChannelId,
     playlistId: playlist.id,
     videoCount: extractNumberFromString(playlist.video_count.text)
   }
