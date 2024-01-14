@@ -66,7 +66,7 @@ export async function deArrowThumbnail(videoId, timestamp) {
   try {
     const response = await fetch(requestUrl)
 
-    // 404 means that there are no segments registered for the video
+    // 404 means that there are no thumbnails found for the video
     if (response.status === 404) {
       return undefined
     }

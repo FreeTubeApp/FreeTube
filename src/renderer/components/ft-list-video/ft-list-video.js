@@ -378,7 +378,7 @@ export default defineComponent({
 
     displayDuration: function () {
       if (this.useDeArrowTitles && (this.duration === '' || this.duration === '0:00') && this.deArrowCache?.videoDuration) {
-        return formatDurationAsTimestamp(this.deArrowCache?.videoDuration)
+        return formatDurationAsTimestamp(this.deArrowCache.videoDuration)
       }
       return this.duration
     },
@@ -468,7 +468,7 @@ export default defineComponent({
       this.fetchDeArrowData()
     }
 
-    if (this.useDeArrowThumbnails && this.deArrowCache && this.deArrowCache?.thumbnail == null) {
+    if (this.useDeArrowThumbnails && this.deArrowCache && this.deArrowCache.thumbnail == null) {
       if (this.debounceGetDeArrowThumbnail == null) {
         this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
       }
@@ -480,10 +480,9 @@ export default defineComponent({
     fetchDeArrowThumbnail: async function() {
       if (this.thumbnailPreference === 'hidden') { return }
       const videoId = this.id
-      const deArrowCacheClone = deepCopy(this.deArrowCache)
-
-      const thumbnail = await deArrowThumbnail(videoId, deArrowCacheClone.thumbnailTimestamp)
+      const thumbnail = await deArrowThumbnail(videoId, this.deArrowCache.thumbnailTimestamp)
       if (thumbnail) {
+        const deArrowCacheClone = deepCopy(this.deArrowCache)
         deArrowCacheClone.thumbnail = thumbnail
         this.$store.commit('addThumbnailToDeArrowCache', deArrowCacheClone)
       }
