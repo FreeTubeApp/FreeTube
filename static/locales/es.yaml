@@ -575,6 +575,10 @@ Settings:
       Auto Skip: Salto automático
       Prompt To Skip: Solicitar que se omita
     UseDeArrowTitles: Utilizar los títulos para el vídeo de DeArrow
+    UseDeArrowThumbnails: Utiliza DeArrow para las miniaturas
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': La
+      dirección url de la API del generador de miniaturas de DeArrow (por defecto
+      es https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -1119,6 +1123,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
+    UseDeArrowThumbnails: Sustituye las miniaturas de vídeo por miniaturas de DeArrow.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
   puede abrir en la aplicación
