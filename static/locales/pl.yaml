@@ -580,6 +580,9 @@ Settings:
       Do Nothing: Nic nie rób
     Category Color: Kolor segmentu
     UseDeArrowTitles: Użyj tytułów filmów z DeArrow
+    UseDeArrowThumbnails: Użyj DeArrow do miniaturek
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      do API generatora miniaturek DeArrow (Domyślny jest https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -1126,6 +1129,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
       DeArrow.
+    UseDeArrowThumbnails: Zastąp miniaturki filmów miniaturkami z DeArrow.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
