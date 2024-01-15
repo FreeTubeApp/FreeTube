@@ -602,6 +602,9 @@ Settings:
       Do Nothing: Ne rien faire
     Category Color: Couleur de la catégorie
     UseDeArrowTitles: Utiliser les titres vidéo de DeArrow
+    UseDeArrowThumbnails: Utiliser DeArrow pour les miniatures
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': "URL
+      de l'API du générateur de miniatures DeArrow (par défaut : https://dearrow-thumb.ajay.app)"
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
       actions non prises en charge
@@ -1165,8 +1168,10 @@ Tooltips:
       applicable à l'ensemble de l'application, dans la section « {subsection} » de
       la section « {settingsSection} »
   SponsorBlock Settings:
-    UseDeArrowTitles: Remplacez les titres des vidéos par des titres proposés par
+    UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par
       les utilisateurs de DeArrow.
+    UseDeArrowThumbnails: Remplacer les miniatures des vidéos par les miniatures de
+      DeArrow.
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
