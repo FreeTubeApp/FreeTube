@@ -122,6 +122,57 @@ User Playlists:
   Sort By:
     NameAscending: A-Ö
     NameDescending: Ö-A
+    Sort By: Järjestä
+    LatestCreatedFirst: Viimeksi luotu
+    EarliestCreatedFirst: Ensin luotu
+    LatestUpdatedFirst: Viimeksi päivitetty
+    EarliestUpdatedFirst: Ensin päivitetty
+    LatestPlayedFirst: Viimeksi toistettu
+    EarliestPlayedFirst: Ensin toistettu
+  Move Video Up: Siirrä video ylös
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: Video on poistettu
+      Playlist name cannot be empty. Please input a name.: Soittolistan nimi ei voi
+        olla tyhjä. Anna soittolistalle nimi.
+      Playlist has been updated.: Soittolista on päivitetty.
+      "{videoCount} video(s) have been removed": 1 video on poistettu | {videoCount}
+        videota on poistettu
+      This video cannot be moved up.: Tätä videota ei voi siirtää ylös.
+      This video cannot be moved down.: Tätä videota ei voi siirtää alas.
+      This playlist is protected and cannot be removed.: Tämä soittolista on suojattu
+        ja sitä ei voi poistaa.
+      Playlist {playlistName} has been deleted.: Soittolista {playlistName} on poistettu.
+      This playlist does not exist: Soittolistaa ei ole olemassa
+  Move Video Down: Siirrä video alas
+  Remove from Playlist: Poista soittolistalta
+  Playlist Name: Soittolistan nimi
+  Playlist Description: Soittolistan kuvaus
+  Edit Playlist Info: Muokkaa soittolistan tietoja
+  Copy Playlist: Kopioi soittolista
+  This playlist currently has no videos.: Tällä soittolistalla ei ole videoita.
+  Delete Playlist: Poista soittolista
+  Are you sure you want to delete this playlist? This cannot be undone: Haluatko varmasti
+    poistaa tämän soittolistan? Toimintoa ei voi perua.
+  You have no playlists. Click on the create new playlist button to create a new one.: Sinulla
+    ei ole soittolistoja. Luo uusi soittolista napsauttamalla "Luo uusi soittolista".
+  Create New Playlist: Luo uusi soittolista
+  Add to Playlist: Lisää soittolistalle
+  Save Changes: Tallenna muutokset
+  Cancel: Peruuta
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} valittu'
+    Save: Tallenna
+    Toast:
+      You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
+  CreatePlaylistPrompt:
+    New Playlist Name: Uuden soittolistan nimi
+    Create: Luo
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Samalla
+        nimellä on jo olemassa soittolista. Valitse eri nimi.
+      Playlist {playlistName} has been successfully created.: Soittolista {playlistName}
+        on luotu.
 History:
   # On History Page
   History: 'Historia'
@@ -352,6 +403,10 @@ Settings:
     Automatically Remove Video Meta Files: Poista videoiden metadata automaattisesti
     Save Watched Videos With Last Viewed Playlist: Tallenna katsotut videot viimeksi
       katsotulla soittolistalla
+    Remove All Playlists: Poista kaikki soittolistat
+    All playlists have been removed: Kaikki soittolistat on poistettu
+    Are you sure you want to remove all your playlists?: Haluatko varmasti poistaa
+      kaikki soittolistat?
   Data Settings:
     How do I import my subscriptions?: Kuinka voin tuoda tilaukseni?
     Unknown data key: Tuntematon data-avain
