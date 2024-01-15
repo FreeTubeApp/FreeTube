@@ -575,6 +575,9 @@ Settings:
       Do Nothing: Hiçbir Şey Yapma
     Category Color: Kategori Rengi
     UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
+    UseDeArrowThumbnails: Önizleme görselleri için DeArrow kullan
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Önizleme Görseli Oluşturucu API URL'si (Öntanımlı https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -1066,8 +1069,8 @@ Tooltips:
       bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
-    Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
-      yerine videonun bir karesiyle değiştirilecektir.
+    Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme
+      görseli yerine videonun bir karesiyle değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
       API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
       yedek yöntem olarak kullanmaya çalışır.
@@ -1091,7 +1094,7 @@ Tooltips:
       PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
       burada özel bir yol ayarlanabilir.
     External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
-      listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+      listesini) harici oynatıcıda açmak için önizleme görselinde bir simge görüntüleyecektir.
       Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
     Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir
@@ -1112,6 +1115,8 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.
+    UseDeArrowThumbnails: Video önizleme görsellerini DeArrow'dan önizleme görselleriyle
+      değiştirin.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
