@@ -534,6 +534,8 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     UseDeArrowTitles: Use DeArrow Video Titles
+    UseDeArrowThumbnails: Use DeArrow for thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: Skip Option
       Auto Skip: Auto Skip
@@ -984,6 +986,7 @@ Tooltips:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
