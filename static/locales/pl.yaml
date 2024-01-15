@@ -124,6 +124,84 @@ User Playlists:
   Search bar placeholder: Przeszukaj playlisty
   Empty Search Message: Na tej playliście nie ma filmów, które pasowałyby do Twojego
     zapytania
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Czy
+    na pewno chcesz usunąć wszystkie obejrzane filmy z tej playlisty? Nie można cofnąć
+    tej czynności.
+  AddVideoPrompt:
+    Search in Playlists: Szukaj w playlistach
+    Save: Zapisz
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 film dodano do
+        {playlistCount} playlist | {videoCount} film(y/ów) dodano do {playlistCount}
+        playlist
+      "{videoCount} video(s) added to 1 playlist": 1 film dodano do 1 playlisty |
+        Do 1 playlisty dodano {videoCount} film(y/ów)
+      You haven't selected any playlist yet.: Nie wybrano jeszcze żadnych playlist.
+    Select a playlist to add your N videos to: Wybierz playlistę, do której chcesz
+      dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
+      film(y/ów)
+    N playlists selected: Zaznaczono {playlistCount}
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Nie było żadnych filmów do usunięcia.
+      Video has been removed: Film został usunięty
+      Playlist has been updated.: Playlista została zmieniona.
+      There was an issue with updating this playlist.: Pojawił się problem podczas
+        wprowadzania zmian w playliście.
+      This video cannot be moved up.: Ten film nie może zostać przeniesiony wyżej.
+      This playlist is protected and cannot be removed.: Ta playlista jest zabezpieczona
+        i nie może zostać usunięta.
+      Playlist {playlistName} has been deleted.: Playlista {playlistName} została
+        usunięta.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Niektóre
+        filmy z playlisty nie zostały jeszcze załadowane. Kliknij tutaj, by powielić
+        playlistę mimo wszystko.
+      This playlist does not exist: Ta playlista nie istnieje
+      Playlist name cannot be empty. Please input a name.: Nazwa playlisty nie może
+        być pusta. Proszę, nadaj nazwę.
+      There was a problem with removing this video: Pojawił się problem z usunięciem
+        tego filmu
+      "{videoCount} video(s) have been removed": 1 film został usunięty | Usunięto
+        {videoCount} film(y/ów)
+      This video cannot be moved down.: Ten film nie może zostać przeniesiony niżej.
+  Are you sure you want to delete this playlist? This cannot be undone: Czy na pewno
+    chcesz usunąć tę playlistę? Nie można cofnąć tej czynności.
+  Sort By:
+    LatestPlayedFirst: Odtwarzane ostatnio
+    EarliestCreatedFirst: Utworzone najdawniej
+    LatestCreatedFirst: Utworzone ostatnio
+    EarliestUpdatedFirst: Zmieniane najdawniej
+    Sort By: Sortuj według
+    NameDescending: Z-A
+    EarliestPlayedFirst: Odtwarzane najdawniej
+    LatestUpdatedFirst: Zmieniane ostatnio
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: Nie
+    masz żadnych playlist. Kliknij na przycisk „Utwórz nową playlistę”, by dodać jedną.
+  Remove from Playlist: Usuń z playlisty
+  Save Changes: Zapisz zmiany
+  CreatePlaylistPrompt:
+    Create: Utwórz
+    Toast:
+      There was an issue with creating the playlist.: Pojawił się problem z utworzeniem
+        playlisty.
+      Playlist {playlistName} has been successfully created.: Playlista „{playlistName}”
+        została utworzona..
+      There is already a playlist with this name. Please pick a different name.: Istnieje
+        już playlista z taką nazwą. Proszę wybrać inną nazwę.
+    New Playlist Name: Nowa nazwa playlisty
+  This playlist currently has no videos.: Ta playlista nie ma żadnych filmów.
+  Add to Playlist: Dodaj do playlisty
+  Move Video Down: Przenieś film niżej
+  Playlist Name: Nazwa playlisty
+  Remove Watched Videos: Usuń obejrzane filmy
+  Move Video Up: Przenieś film wyżej
+  Cancel: Anuluj
+  Delete Playlist: Usuń playlistę
+  Create New Playlist: Utwórz nową playlistę
+  Edit Playlist Info: Zmień opis playlisty
+  Copy Playlist: Powiel playlistę
+  Playlist Description: Opis playlisty
 History:
   # On History Page
   History: 'Historia'
@@ -361,6 +439,10 @@ Settings:
     Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
     Save Watched Videos With Last Viewed Playlist: Zapisuj do historii film wraz z
       ostatnią odtwarzaną playlistą, która go zawierała
+    All playlists have been removed: Wszystkie playlisty zostały usunięte
+    Remove All Playlists: Usuń wszystkie playlisty
+    Are you sure you want to remove all your playlists?: Czy na pewno usunąć wszystkie
+      Twoje playlisty?
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
@@ -393,7 +475,7 @@ Settings:
     Import YouTube: Import z YouTube
     Import FreeTube: Import z FreeTube
     Import Subscriptions: Zaimportuj subskrypcje
-    Select Export Type: Wybierz typ exportu
+    Select Export Type: Wybierz typ eksportu
     Select Import Type: Wybierz typ importu
     Data Settings: Ustawienia danych
     One or more subscriptions were unable to be imported: Nie można było zaimportować
@@ -409,6 +491,14 @@ Settings:
     History File: Plik historii
     Playlist File: Plik playlist
     Subscription File: Plik subskrypcji
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Opcja ta wyeksportuje filmy ze wszystkich playlist, jako jedną playlistę
+        o nazwie „Ulubione”.\nOto jak wyeksportować i zaimportować filmy z playlist
+        do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n
+        2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie
+        playlisty” z ustawień prywatności.\n3. Uruchom starszą wersję FreeTube, następnie
+        zaimportuj wyeksportowane playlisty."
+      Label: Wyeksportuj playlisty dla starszych wersji FreeTube
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -500,6 +590,7 @@ Settings:
     Players:
       None:
         Name: Żaden
+    Ignore Default Arguments: Zignoruj argumenty domyślne
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
@@ -917,12 +1008,12 @@ Profile:
   Delete Profile: Usuń profil
   Make Default Profile: Ustaw jako profil domyślny
   Update Profile: Zaktualizuj profil
-  Create Profile: Stwórz profil
+  Create Profile: Utwórz profil
   Profile Preview: Podgląd profilu
   Custom Color: Własny kolor
   Color Picker: Wybór koloru
   Edit Profile: Edytuj profil
-  Create New Profile: Stwórz nowy profil
+  Create New Profile: Utwórz nowy profil
   Profile Manager: Menadżer profili
   All Channels: Wszystkie kanały
   Profile Select: Wybór profilu
@@ -1018,6 +1109,9 @@ Tooltips:
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
     DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Nie wysyłaj do zewnętrznego odtwarzacza żadnych domyślnych
+      argumentów (takich jak prędkość odtwarzania, URL playlisty itp.), oprócz URL-u
+      filmu. Niestandardowe argumenty zostaną wysłane.
   Experimental Settings:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje

@@ -393,6 +393,7 @@ Settings:
     External Player Settings: External Player Settings
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Ignore Default Arguments: Ignore Default Arguments
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
     Players:
@@ -543,6 +544,8 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     UseDeArrowTitles: Use DeArrow Video Titles
+    UseDeArrowThumbnails: Use DeArrow for thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: Skip Option
       Auto Skip: Auto Skip
@@ -970,6 +973,9 @@ Tooltips:
       be set here.
     Ignore Warnings: Suppress warnings for when the current external player does not support
       the current action (e.g. reversing playlists, etc.).
+    Ignore Default Arguments: Do not send any default arguments to the external player
+      aside from the video URL (e.g. playback rate, playlist URL, etc.).
+      Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
@@ -990,6 +996,7 @@ Tooltips:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)

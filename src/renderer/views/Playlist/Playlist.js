@@ -208,9 +208,14 @@ export default defineComponent({
 
         this.playlistItems = result.items.map(parseLocalPlaylistVideo)
 
+        let shouldGetNextPage = false
         if (result.has_continuation) {
           this.continuationData = result
+          shouldGetNextPage = this.playlistItems.length < 100
         }
+        // To workaround the effect of useless continuation data
+        // auto load next page again when no. of parsed items < page size
+        if (shouldGetNextPage) { this.getNextPageLocal() }
 
         this.isLoading = false
       }).catch((err) => {
@@ -303,12 +308,17 @@ export default defineComponent({
       this.isLoadingMore = true
 
       getLocalPlaylistContinuation(this.continuationData).then((result) => {
+        let shouldGetNextPage = false
+
         if (result) {
           const parsedVideos = result.items.map(parseLocalPlaylistVideo)
           this.playlistItems = this.playlistItems.concat(parsedVideos)
 
           if (result.has_continuation) {
             this.continuationData = result
+            // To workaround the effect of useless continuation data
+            // auto load next page again when no. of parsed items < page size
+            shouldGetNextPage = parsedVideos.length < 100
           } else {
             this.continuationData = null
           }
@@ -317,6 +327,7 @@ export default defineComponent({
         }
 
         this.isLoadingMore = false
+        if (shouldGetNextPage) { this.getNextPageLocal() }
       })
     },
 

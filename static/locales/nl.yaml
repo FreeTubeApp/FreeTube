@@ -126,6 +126,21 @@ User Playlists:
   Search bar placeholder: In afspeellijst zoeken
   Empty Search Message: Deze afspeellijst bevat geen video's die overeenkomen met
     de zoekopdracht
+  Cancel: Annuleren
+  Playlist Name: Afspeel­lijst­naam
+  Playlist Description: Afspeel­lijst­omschrijving
+  Delete Playlist: Afspeel­lijst verwijderen
+  Sort By:
+    Sort By: Sorteren op
+    LatestCreatedFirst: On­langs aan­gemaakt
+    NameDescending: Z - A
+    NameAscending: A - Z
+  CreatePlaylistPrompt:
+    Create: Aanmaken
+  AddVideoPrompt:
+    Save: Opslaan
+  Save Changes: Wijzigingen opslaan
+  Copy Playlist: Afspeel­lijst kopiëren
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -158,6 +173,7 @@ Settings:
       Middle: 'Midden'
       End: 'Eind'
       Hidden: Verborgen
+      Blur: Vervagen
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instantie
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor trending'
@@ -430,7 +446,7 @@ Settings:
     Hide Channel Playlists: Kanaal­afspeellijsten verbergen
     Hide Channel Community: Kanaal­gemeenschap verbergen
     Hide Channels: Video's van kanalen verbergen
-    Hide Channels Placeholder: Kanaalnaam of -ID
+    Hide Channels Placeholder: Kanaal-ID
     Hide Channel Podcasts: Kanaal-podcasts verbergen
     Hide Channel Releases: Kanaal­uitgaven verbergen
     Hide Subscriptions Videos: Abonnement­video's verbergen
@@ -775,6 +791,8 @@ Video:
   Pause on Current Video: Pauzeren bij huidige video
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
     is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
+  Hide Channel: Kanaal verbergen
+  Unhide Channel: Kanaal tonen
 Videos:
   #& Sort By
   Sort By:
@@ -917,6 +935,7 @@ Profile:
   Profile Filter: Profielfilter
   Profile Settings: Profielinstellingen
   Toggle Profile List: Profiellijst omschakelen
+  Profile Name: Profiel­naam
 A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
   is beschikbaar, {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
@@ -1065,3 +1084,4 @@ Playlist will pause when current video is finished: Afspeellijst zal pauzeren wa
   de huidige video is afgelopen
 Playlist will not pause when current video is finished: Afspeellijst zal niet pauzeren
   wanneer de huidige video is afgelopen
+Go to page: Naar pagina {page}
