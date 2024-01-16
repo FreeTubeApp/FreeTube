@@ -782,7 +782,7 @@ const mutations = {
   },
 
   addThumbnailToDeArrowCache (state, payload) {
-    vueSet(state.deArrowCache, payload.videoId, payload)
+    state.deArrowCache[payload.videoId] = payload
   },
 
   addToSessionSearchHistory (state, payload) {
