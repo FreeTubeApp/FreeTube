@@ -116,8 +116,9 @@ const config = {
   plugins: [
     processLocalesPlugin,
     new webpack.DefinePlugin({
-      '__VUE_PROD_DEVTOOLS__': true,
+      '__VUE_PROD_DEVTOOLS__': false,
       '__VUE_OPTIONS_API__': true,
+      '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': false,
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
@@ -150,7 +151,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm-bundler.js',
+      vue$: '@vue/compat/dist/vue.runtime.esm-bundler.js',
 
       'youtubei.js$': 'youtubei.js/web',
 

@@ -164,9 +164,7 @@ loadLocale('en-US').then(() => {
   app.use(store)
   app.use(i18n)
 
-  app.config.devtools = process.env.NODE_ENV === 'development'
   app.config.performance = process.env.NODE_ENV === 'development'
-  app.config.productionTip = process.env.NODE_ENV === 'development'
 
   app.component('FontAwesomeIcon', FontAwesomeIcon)
   app.directive('observe-visibility', ObserveVisibility)

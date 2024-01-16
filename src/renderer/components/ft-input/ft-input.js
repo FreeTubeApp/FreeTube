@@ -120,10 +120,13 @@ export default defineComponent({
     },
   },
   watch: {
-    dataList(val, oldVal) {
-      if (val !== oldVal) {
-        this.updateVisibleDataList()
-      }
+    dataList: {
+      handler(val, oldVal) {
+        if (val !== oldVal) {
+          this.updateVisibleDataList()
+        }
+      },
+      deep: true
     },
     inputData(val, oldVal) {
       if (val !== oldVal) {
