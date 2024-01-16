@@ -54,7 +54,7 @@ export default defineComponent({
     // as the locations list is sorted alphabetically for the language, the ordering can be different
     // so we need to ensure that the correct location is selected after a language change
     selectValues: {
-      handler: function () {
+      handler() {
         nextTick(() => {
           this.$refs.select.value = this.value
         })

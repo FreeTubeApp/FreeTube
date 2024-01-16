@@ -151,7 +151,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: '@vue/compat/dist/vue.runtime.esm-bundler.js',
+      vue$: 'vue/dist/vue.runtime.esm-bundler.js',
 
       'youtubei.js$': 'youtubei.js/web',
 

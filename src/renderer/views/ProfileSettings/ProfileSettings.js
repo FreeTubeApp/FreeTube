@@ -43,7 +43,7 @@ export default defineComponent({
   },
   watch: {
     profileList: {
-      handler: function () {
+      handler() {
         this.openSettingsProfile = this.getProfileById(this.openSettingsProfileId)
       },
       deep: true
