@@ -122,6 +122,28 @@ User Playlists:
     videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Pretraži zbirku
   Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
+  This playlist currently has no videos.: Ova zbirka trenutačno nema nijedan video.
+  Create New Playlist: Stvori novu zbirku
+  Add to Playlist: Dodaj u zbirku
+  Move Video Up: Premjesti video prema gore
+  Move Video Down: Premjesti video prema dolje
+  Remove from Playlist: Ukloni iz zbirke
+  Playlist Name: Ime zbirke
+  Playlist Description: Opis zbirke
+  Cancel: Odustani
+  Edit Playlist Info: Uredi podatke zbirke
+  Copy Playlist: Kopiraj zbirku
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Stvarno
+    želiš ukloniti sva gledana videa iz ove zbirke? To se ne može poništiti.
+  Delete Playlist: Ukloni zbirku
+  Are you sure you want to delete this playlist? This cannot be undone: Stvarno želiš
+    izbrisati ovu zbirku? To se ne može poništiti.
+  Sort By:
+    Sort By: Redoslijed
+  Remove Watched Videos: Ukloni gledana videa
+  Save Changes: Spremi promjene
+  You have no playlists. Click on the create new playlist button to create a new one.: Nemaš
+    zbirke. Za stvaranje nove zbirke pritisni gumb za stvaranje nove zbirke.
 History:
   # On History Page
   History: 'Povijest'
