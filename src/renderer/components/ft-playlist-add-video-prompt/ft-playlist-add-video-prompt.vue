@@ -69,6 +69,7 @@
             :index="index"
             :selected="selectedPlaylistIdList.includes(playlist._id)"
             :disabled="playlistDisabled(playlist._id)"
+            :adding-duplicate-videos-enabled="addingDuplicateVideosEnabled"
             @selected="countSelected(playlist._id)"
           />
         </div>
