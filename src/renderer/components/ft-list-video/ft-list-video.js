@@ -191,7 +191,7 @@ export default defineComponent({
       const videoUrl = `https://youtu.be/${this.id}`
       if (this.playlistSharable) {
         // `index` seems can be ignored
-        return `${videoUrl}&list=${this.playlistIdFinal}`
+        return `${videoUrl}?list=${this.playlistIdFinal}`
       }
       return videoUrl
     },
