@@ -30,6 +30,8 @@ export default defineComponent({
       title: '',
       thumbnail: require('../../assets/img/thumbnail_placeholder.svg'),
       videoCount: 0,
+
+      videoPresenceCountInPlaylistTextShouldBeVisible: false,
     }
   },
   computed: {
@@ -39,12 +41,44 @@ export default defineComponent({
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
+    toBeAddedToPlaylistVideoList: function () {
+      return this.$store.getters.getToBeAddedToPlaylistVideoList
+    },
 
     titleForDisplay: function () {
       if (typeof this.title !== 'string') { return '' }
       if (this.title.length <= 255) { return this.title }
 
       return `${this.title.substring(0, 255)}...`
+    },
+
+    loneToBeAddedToPlaylistVideo: function () {
+      if (this.toBeAddedToPlaylistVideoList.length !== 1) { return null }
+
+      return this.toBeAddedToPlaylistVideoList[0]
+    },
+    loneVideoPresenceCountInPlaylist() {
+      if (this.loneToBeAddedToPlaylistVideo == null) { return null }
+
+      const v = this.playlist.videos.reduce((accumulator, video) => {
+        return video.videoId === this.loneToBeAddedToPlaylistVideo.videoId
+          ? accumulator + 1
+          : accumulator
+      }, 0)
+      // Don't display zero value
+      return v === 0 ? null : v
+    },
+    loneVideoPresenceCountInPlaylistText() {
+      if (this.loneVideoPresenceCountInPlaylist == null) { return null }
+
+      return this.$tc('User Playlists.AddVideoPrompt.Added {count} Times', this.loneVideoPresenceCountInPlaylist, {
+        count: this.loneVideoPresenceCountInPlaylist,
+      })
+    },
+    videoPresenceCountInPlaylistTextVisible() {
+      if (!this.videoPresenceCountInPlaylistTextShouldBeVisible) { return false }
+
+      return this.loneVideoPresenceCountInPlaylistText != null
     },
   },
   created: function () {
@@ -66,6 +100,12 @@ export default defineComponent({
 
     toggleSelection: function () {
       this.$emit('selected', this.index)
+    },
+
+    onVisibilityChanged(visible) {
+      if (!visible) { return }
+
+      this.videoPresenceCountInPlaylistTextShouldBeVisible = true
     },
 
     ...mapActions([
