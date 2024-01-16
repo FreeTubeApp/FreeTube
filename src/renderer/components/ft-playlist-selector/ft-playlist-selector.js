@@ -8,7 +8,7 @@ export default defineComponent({
     'ft-icon-button': FtIconButton
   },
   props: {
-    data: {
+    playlist: {
       type: Object,
       required: true,
     },
@@ -52,16 +52,16 @@ export default defineComponent({
   },
   methods: {
     parseUserData: function () {
-      this.title = this.data.playlistName
-      if (this.data.videos.length > 0) {
-        const thumbnailURL = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
+      this.title = this.playlist.playlistName
+      if (this.playlist.videos.length > 0) {
+        const thumbnailURL = `https://i.ytimg.com/vi/${this.playlist.videos[0].videoId}/mqdefault.jpg`
         if (this.backendPreference === 'invidious') {
           this.thumbnail = thumbnailURL.replace('https://i.ytimg.com', this.currentInvidiousInstance)
         } else {
           this.thumbnail = thumbnailURL
         }
       }
-      this.videoCount = this.data.videos.length
+      this.videoCount = this.playlist.videos.length
     },
 
     toggleSelection: function () {
