@@ -539,6 +539,9 @@ Settings:
       Do Nothing: Ära tee midagi
     Category Color: Kategooria värv
     UseDeArrowTitles: Laadi video pealkirjad DeArrow teenusest
+    UseDeArrowThumbnails: Pisipiltide jaoks kasuta DeArrow teenust
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Välise meediamängija seadistused
@@ -548,6 +551,7 @@ Settings:
     Players:
       None:
         Name: Puudub
+    Ignore Default Arguments: Eira vaikimisi käsureaargumente
   Download Settings:
     Download Settings: Allalaadimise seadistused
     Ask Download Path: Küsi kausta, kuhu soovid faile alla laadida
@@ -977,6 +981,9 @@ Tooltips:
       (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e
       seadistused ei mõjuta välise meediamängija kasutamist."
     DefaultCustomArgumentsTemplate: "(Vaikimisi: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Ära edasta välisele meediamängijale ühtegi vaikimisi
+      määratud argumenti peale video urli (näiteks taasesituse kiirus, esitusloend
+      jne). Sinu enda määratud argumendid edastatakse vaatamata sellele seadistusele.
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
@@ -1035,6 +1042,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Asenda video nimi kasutajate poolt DeArrow teenusesse lisatud
       nimega (pealkirjaga).
+    UseDeArrowThumbnails: Asenda video pisipildid DeArrow teenuse loodud pisipiltidega.
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
