@@ -508,6 +508,9 @@ Settings:
       Skip Option: 跳过选项
     Category Color: 类别颜色
     UseDeArrowTitles: 使用 DeArrow 视频标题
+    UseDeArrowThumbnails: 对缩略图使用 DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      缩略图生成器 API Url （默认值 https://dearrow-thumb.ajay.app）
   External Player Settings:
     Custom External Player Arguments: 定制外部播放器的参数
     Custom External Player Executable: 自定义外部播放器的可执行文件
@@ -517,6 +520,7 @@ Settings:
     Players:
       None:
         Name: 无
+    Ignore Default Arguments: 忽略默认变量
   Download Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
@@ -954,6 +958,7 @@ Tooltips:
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
     DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
     Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
+    Ignore Default Arguments: 不要向外部播放器发送除视频 URL 外的任何默认变量（如播放速度、播放列表 URL 等）。自定义变量仍将被传递。
   Privacy Settings:
     Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
@@ -964,6 +969,7 @@ Tooltips:
       位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
   SponsorBlock Settings:
     UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
+    UseDeArrowThumbnails: 用来自 DeArrow 的缩略图替换原本的视频缩略图。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:

@@ -553,6 +553,9 @@ Settings:
     Enable SponsorBlock: Омогући SponsorBlock
     SponsorBlock Settings: Подешавања SponsorBlock-а
     Category Color: Боја категорије
+    UseDeArrowThumbnails: Користи DeArrow за сличице
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      API-ја DeArrow генератора сличица (Подразумевано је https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Спољни плејер
     External Player Settings: Подешавања спољног плејера
@@ -562,6 +565,7 @@ Settings:
     Players:
       None:
         Name: Ниједно
+    Ignore Default Arguments: Игнориши подразумеване аргументе
   Download Settings:
     Choose Path: Избор путање
     Open in web browser: Отвори у прегледачу
@@ -899,6 +903,9 @@ Tooltips:
       потребно, овде се може подесити прилагођена путања.
     Ignore Warnings: Поништи упозорења када тренутни спољни плејер не подржава тренутну
       радњу (нпр. обртање плејлиста итд.).
+    Ignore Default Arguments: Немојте слати никакве подразумеване аргументе спољном
+      плејеру осим URL адресе видео снимка (нпр. брзина репродукције, URL адреса плејлисте
+      итд.). Прилагођени аргументи ће и даље бити прослеђени.
   Distraction Free Settings:
     Hide Channels: Унесите назив канала или ID канала да бисте сакрили све видео снимке,
       плејлисте и сам канал, да се не појављују у претрази, у тренду, најпопуларнијима
@@ -937,6 +944,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Замена наслова видео снимака насловима које су послали корисници
       DeArrow-a.
+    UseDeArrowThumbnails: Замените сличице видео снимака сличицама из DeArrow-а.
 Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено

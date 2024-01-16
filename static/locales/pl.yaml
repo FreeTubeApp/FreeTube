@@ -580,6 +580,9 @@ Settings:
       Do Nothing: Nic nie rób
     Category Color: Kolor segmentu
     UseDeArrowTitles: Użyj tytułów filmów z DeArrow
+    UseDeArrowThumbnails: Użyj DeArrow do miniaturek
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      do API generatora miniaturek DeArrow (Domyślny jest https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -590,6 +593,7 @@ Settings:
     Players:
       None:
         Name: Żaden
+    Ignore Default Arguments: Zignoruj argumenty domyślne
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
@@ -1108,6 +1112,9 @@ Tooltips:
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
     DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Nie wysyłaj do zewnętrznego odtwarzacza żadnych domyślnych
+      argumentów (takich jak prędkość odtwarzania, URL playlisty itp.), oprócz URL-u
+      filmu. Niestandardowe argumenty zostaną wysłane.
   Experimental Settings:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
@@ -1122,6 +1129,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
       DeArrow.
+    UseDeArrowThumbnails: Zastąp miniaturki filmów miniaturkami z DeArrow.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
