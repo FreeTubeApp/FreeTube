@@ -218,6 +218,7 @@ User Playlists:
     Save: Save
 
     Added {count} Times: 'Added {count} Time | Added {count} Times'
+    "{videoCount} Videos Already Added": '{videoCount} Video Already Added | {videoCount} Videos Already Added'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.

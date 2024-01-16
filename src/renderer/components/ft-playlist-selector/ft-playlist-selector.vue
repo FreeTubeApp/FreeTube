@@ -45,7 +45,7 @@
         v-if="videoPresenceCountInPlaylistTextVisible"
         class="videoPresenceCount"
       >
-        {{ loneVideoPresenceCountInPlaylistText }}
+        {{ videoPresenceCountInPlaylistText }}
       </div>
     </div>
   </div>
