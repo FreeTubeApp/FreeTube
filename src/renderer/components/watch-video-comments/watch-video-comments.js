@@ -85,8 +85,13 @@ export default defineComponent({
       return (this.sortNewest) ? 'newest' : 'top'
     },
 
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
     observeVisibilityOptions: function () {
-      if (!this.commentAutoLoadEnabled) { return false }
+      if (!(this.commentAutoLoadEnabled || this.generalAutoLoadMorePaginatedItemsEnabled)) {
+        return false
+      }
       if (!this.videoPlayerReady) { return false }
 
       return {
@@ -95,7 +100,7 @@ export default defineComponent({
           // No point doing anything if not visible
           if (!isVisible) { return }
           // It's possible the comments are being loaded/already loaded
-          if (this.canPerformInitialCommentLoading) {
+          if (this.canPerformInitialCommentLoading && this.commentAutoLoadEnabled) {
             this.getCommentData()
           } else if (this.canPerformMoreCommentLoading) {
             this.getMoreComments()
