@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
@@ -11,7 +12,8 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -40,29 +42,6 @@ export default defineComponent({
 
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
-    },
-
-    generalAutoLoadMorePaginatedItemsEnabled() {
-      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
-    },
-    observeVisibilityOptions() {
-      if (!this.generalAutoLoadMorePaginatedItemsEnabled) { return false }
-
-      return {
-        callback: (isVisible, _entry) => {
-          // This is also fired when **hidden**
-          // No point doing anything if not visible
-          if (!isVisible) { return }
-
-          this.nextPage()
-        },
-        intersection: {
-          // Only when it intersects with N% above bottom
-          rootMargin: '0% 0% 0% 0%',
-        },
-        // Callback responsible for loading multiple pages
-        once: false,
-      }
     },
   },
   watch: {

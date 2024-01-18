@@ -14,23 +14,20 @@
       <ft-element-list
         :data="shownResults"
       />
-      <div
-        class="getNextPage"
-        role="button"
-        tabindex="0"
-        @click="nextPage"
-        @keydown.enter.prevent="nextPage"
-        @keydown.space.prevent="nextPage"
+      <ft-auto-load-next-page-wrapper
+        @load-next-page="nextPage"
       >
         <div
-          v-observe-visibility="observeVisibilityOptions"
+          class="getNextPage"
+          role="button"
+          tabindex="0"
+          @click="nextPage"
+          @keydown.enter.prevent="nextPage"
+          @keydown.space.prevent="nextPage"
         >
-          <!--
-            Dummy element to be observed by Intersection Observer
-          -->
+          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
-        <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
-      </div>
+      </ft-auto-load-next-page-wrapper>
     </ft-card>
   </div>
 </template>

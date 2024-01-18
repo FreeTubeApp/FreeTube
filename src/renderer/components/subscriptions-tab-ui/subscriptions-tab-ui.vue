@@ -45,16 +45,10 @@
       :use-channels-hidden-preference="false"
       :display="isCommunity ? 'list' : ''"
     />
-    <div
+    <ft-auto-load-next-page-wrapper
       v-if="!isLoading && videoList.length > dataLimit"
+      @load-next-page="increaseLimit"
     >
-      <div
-        v-observe-visibility="observeVisibilityOptions"
-      >
-        <!--
-          Dummy element to be observed by Intersection Observer
-        -->
-      </div>
       <ft-flex-box>
         <ft-button
           :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
@@ -63,7 +57,7 @@
           @click="increaseLimit"
         />
       </ft-flex-box>
-    </div>
+    </ft-auto-load-next-page-wrapper>
     <ft-icon-button
       v-if="!isLoading"
       :icon="['fas', 'sync']"

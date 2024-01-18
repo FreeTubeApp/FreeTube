@@ -3,6 +3,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { copyToClipboard, showToast } from '../../helpers/utils'
@@ -15,7 +16,8 @@ export default defineComponent({
     'ft-card': FtCard,
     'ft-element-list': FtElementList,
     'ft-flex-box': FtFlexBox,
-    'ft-loader': FtLoader
+    'ft-loader': FtLoader,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function() {
     return {
@@ -38,29 +40,6 @@ export default defineComponent({
 
     showFetchMoreButton() {
       return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === 'invidious'
-    },
-
-    generalAutoLoadMorePaginatedItemsEnabled() {
-      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
-    },
-    observeVisibilityOptions() {
-      if (!this.generalAutoLoadMorePaginatedItemsEnabled) { return false }
-
-      return {
-        callback: (isVisible, _entry) => {
-          // This is also fired when **hidden**
-          // No point doing anything if not visible
-          if (!isVisible) { return }
-
-          this.handleFetchMore()
-        },
-        intersection: {
-          // Only when it intersects with N% above bottom
-          rootMargin: '0% 0% 0% 0%',
-        },
-        // Callback responsible for loading multiple pages
-        once: false,
-      }
     },
   },
   watch: {

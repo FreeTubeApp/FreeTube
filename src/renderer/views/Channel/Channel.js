@@ -10,6 +10,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
@@ -45,7 +46,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
-    'channel-about': ChannelAbout
+    'channel-about': ChannelAbout,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -289,29 +291,6 @@ export default defineComponent({
       })
 
       return values
-    },
-
-    generalAutoLoadMorePaginatedItemsEnabled() {
-      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
-    },
-    observeVisibilityOptions() {
-      if (!this.generalAutoLoadMorePaginatedItemsEnabled) { return false }
-
-      return {
-        callback: (isVisible, _entry) => {
-          // This is also fired when **hidden**
-          // No point doing anything if not visible
-          if (!isVisible) { return }
-
-          this.handleFetchMore()
-        },
-        intersection: {
-          // Only when it intersects with N% above bottom
-          rootMargin: '0% 0% 0% 0%',
-        },
-        // Callback responsible for loading multiple pages
-        once: false,
-      }
     },
   },
   watch: {

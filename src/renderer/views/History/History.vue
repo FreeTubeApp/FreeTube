@@ -38,16 +38,10 @@
         :show-video-with-last-viewed-playlist="true"
         :use-channels-hidden-preference="false"
       />
-      <div
+      <ft-auto-load-next-page-wrapper
         v-if="showLoadMoreButton"
+        @load-next-page="increaseLimit"
       >
-        <div
-          v-observe-visibility="observeVisibilityOptions"
-        >
-          <!--
-            Dummy element to be observed by Intersection Observer
-          -->
-        </div>
         <ft-flex-box>
           <ft-button
             label="Load More"
@@ -56,7 +50,7 @@
             @click="increaseLimit"
           />
         </ft-flex-box>
-      </div>
+      </ft-auto-load-next-page-wrapper>
     </ft-card>
   </div>
 </template>

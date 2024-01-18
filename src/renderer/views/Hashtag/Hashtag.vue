@@ -22,24 +22,22 @@
           {{ $t("Hashtag.This hashtag does not currently have any videos") }}
         </p>
       </ft-flex-box>
-      <div
+
+      <ft-auto-load-next-page-wrapper
         v-if="showFetchMoreButton"
-        class="getNextPage"
-        role="button"
-        tabindex="0"
-        @click="handleFetchMore"
-        @keydown.space.prevent="handleFetchMore"
-        @keydown.enter.prevent="handleFetchMore"
+        @load-next-page="handleFetchMore"
       >
         <div
-          v-observe-visibility="observeVisibilityOptions"
+          class="getNextPage"
+          role="button"
+          tabindex="0"
+          @click="handleFetchMore"
+          @keydown.space.prevent="handleFetchMore"
+          @keydown.enter.prevent="handleFetchMore"
         >
-          <!--
-            Dummy element to be observed by Intersection Observer
-          -->
+          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
-        <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
-      </div>
+      </ft-auto-load-next-page-wrapper>
     </ft-card>
   </div>
 </template>
