@@ -172,12 +172,19 @@ User Playlists:
         ove zbirke.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Neka
         videa zbirke još nisu učitani. Pritisni ovdje za kopiranje.
+      There were no videos to remove.: Nije bilo videa za uklanjanje.
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
     Search in Playlists: Traži u zbirkama
     Save: Spremi
     Toast:
       You haven't selected any playlist yet.: Još nisi odabrao/la nijednu zbirku.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video dodan u
+        {playlistCount} zbirke | {videoCount} videa dodana u {playlistCount} zbirke
+      "{videoCount} video(s) added to 1 playlist": 1 video dodan u 1 zbirku | {videoCount}
+        videa dodana u 1 zbirku
+    Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa
+      | Odaberi zbirku za dodavanje tvojih {videoCount} videa
   CreatePlaylistPrompt:
     Create: Stvori
     Toast:
@@ -472,6 +479,13 @@ Settings:
     Subscription File: Datoteka pretplate
     History File: Datoteka povijesti
     Playlist File: Datoteka zbirke
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Ova opcija izvozi videa iz svih zbirki u jednu zbirku pod nazivom
+        „Favoriti”.\nKako izvesti i uvesti videa zbirki za stariju FreeTube verziju:\n
+        1. Izvezi tvoje zbirke s ovom opcijom uključenom.\n2. Izbriši sve svoje postojeće
+        zbirke pomoću opcije „Ukloni sve zbirke” u postavkama privatnosti.\n3. Pokreni
+        stariju FreeTube verziju i uvezi izvezene zbirke.\""
+      Label: Izvezi zbirke za starije FreeTube verzije
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -550,6 +564,9 @@ Settings:
       Do Nothing: Ne čini ništa
     Category Color: Boja kategorije
     UseDeArrowTitles: Koristi DeArrow Video naslove
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
+      za API DeArrow generatora minijatura (Standardna adresa je: https://dearrow-thumb.ajay.app)'
+    UseDeArrowThumbnails: Koristi DeArrow za minijature
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
@@ -820,7 +837,7 @@ Video:
     Ago: 'Prije'
     Upcoming: 'Premijera'
     Less than a minute: Manje od jedne minute
-    In less than a minute: Manje od minute
+    In less than a minute: Manje od jedne minute
   Published on: 'Objavljeno'
   Publicationtemplate: 'prije {number} {unit}'
 #& Videos
@@ -1071,6 +1088,9 @@ Tooltips:
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
     DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
+    Ignore Default Arguments: Ne šalji bilo koje standardne argumente eksternom playeru
+      osim URL-a videa (npr. brzina reprodukcije, URL zbirke itd.). Prilagođeni argumenti
+      će se i dalje prosljediti.
   Experimental Settings:
     Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
@@ -1082,6 +1102,7 @@ Tooltips:
       u odjeljku „{subsection}” u „{settingsSection}”
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
+    UseDeArrowThumbnails: Zamijeni minijature videa s DeArrow minijaturama.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.

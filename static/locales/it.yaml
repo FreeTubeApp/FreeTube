@@ -95,7 +95,7 @@ Subscriptions:
     attendi.
   Load More Videos: Carica più video
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Questo
-    profilo ha un grande numero di iscrizioni. Utilizzerò RSS per evitare limitazioni
+    profilo ha un grande numero di iscrizioni. Userò RSS per evitare limitazioni
   Error Channels: Canali con errori
   Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
     Aggiorna gli abbonamenti per vederli qui.
@@ -498,7 +498,7 @@ Settings:
       Tooltip: "Questa opzione esporta i video da tutte le playlist in una playlist
         denominata \"Preferiti\".\nCome esportare e importare video nelle playlist
         per una versione precedente di FreeTube:\n1. Esporta le tue playlist con questa
-        opzione abilitata.\n2. Elimina tutte le playlist esistenti utilizzando l'opzione
+        opzione abilitata.\n2. Elimina tutte le playlist esistenti usando l'opzione
         Rimuovi tutte le playlist in Impostazioni della privacy.\n3. Avvia la versione
         precedente di FreeTube e importa le playlist esportate."
       Label: Esporta playlist per versioni precedenti di FreeTube
@@ -543,8 +543,8 @@ Settings:
     Blur Thumbnails: Miniature sfocate
     Hide Subscriptions Community: Nascondi la comunità di iscritti
     Hide Channels Invalid: L'ID canale fornito non è valido
-    Hide Channels Disabled Message: Alcuni canali sono stati bloccati utilizzando
-      l'ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
+    Hide Channels Disabled Message: Alcuni canali sono stati bloccati usando l'ID
+      e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
       di tali ID
     Hide Channels Already Exists: L'ID canale esiste già
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito.
@@ -613,7 +613,7 @@ Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Impostazioni sperimentali
     Warning: Queste Impostazioni sono sperimentali, causano arresti anomali se abilitate.
-      Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
+      Si consiglia prima di fare un backup. Usare a proprio rischio!
   Password Dialog:
     Enter Password To Unlock: Inserisci la password per sbloccare le Impostazioni
     Password Incorrect: Password non corretta
@@ -1072,8 +1072,8 @@ Tooltips:
       il video, in stile MPV.
     Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
       formati DASH H.264. I formati DASH AV1 richiedono più potenza per la riproduzione!
-      Non sono disponibili su tutti i video, in questo caso il lettore utilizzerà
-      invece i formati DASH H.264.
+      Non sono disponibili su tutti i video, in questo caso il lettore userà invece
+      i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
@@ -1088,9 +1088,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
       problema, FreeTube userà automaticamente le API secondarie come riserva (se
       abilitate).
-    Preferred API Backend: Scegli il backend utilizzato da FreeTube per ottenere i
-      dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
-      un server Invidious al quale connettersi.
+    Preferred API Backend: Scegli il backend usato da FreeTube per ottenere i dati.
+      Le API locali sono integrate nel programma. Le API Invidious richiedono un server
+      Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza.
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic
@@ -1117,7 +1117,7 @@ Tooltips:
       video .
   Experimental Settings:
     Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita
-      una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
+      una cache di immagini in memoria personalizzata. Comporta un aumento dell'uso
       della RAM.
   Distraction Free Settings:
     Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le
