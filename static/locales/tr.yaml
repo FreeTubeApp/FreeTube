@@ -168,6 +168,14 @@ User Playlists:
         ve kaldırılamaz.
       There were no videos to remove.: Kaldırılacak video yok.
       This playlist does not exist: Bu oynatma listesi yok
+      Quick bookmark disabled: Hızlı yer imi devre dışı bırakıldı
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
+        oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor.
+        Geri almak için buraya tıklayın
+      Reverted to use {oldPlaylistName} for quick bookmark: Hızlı yer imi için {oldPlaylistName}
+        kullanımına geri dönüldü
+      This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
+        yer imi için kullanılıyor
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
       listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
@@ -206,6 +214,11 @@ User Playlists:
     tüm videoları bu oynatma listesinden kaldırmak istediğinizden emin misiniz? Bu
     işlem geri alınamaz.
   Remove Watched Videos: İzlenen Videoları Kaldır
+  Add to Favorites: '{playlistName} oynatma listesine ekle'
+  Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
+  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
+    Etkinleştir
+  Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
 History:
   # On History Page
   History: 'Geçmiş'
