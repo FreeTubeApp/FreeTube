@@ -163,6 +163,14 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 vídeo eliminado | {videoCount}
         vídeos eliminados
       This video cannot be moved down.: Este vídeo no se puede bajar.
+      This playlist is now used for quick bookmark: Esta lista de reproducción se
+        utiliza ahora como marcador rápido
+      Quick bookmark disabled: Marcador rápido desactivado
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
+        lista de reproducción se utiliza ahora como marcador rápido en lugar de {oldPlaylistName}.
+        Haga clic aquí para deshacer
+      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
+        para un marcador rápido
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
   Sort By:
@@ -203,6 +211,11 @@ User Playlists:
   Edit Playlist Info: Editar información de la lista de reproducción
   Copy Playlist: Copiar lista de reproducción
   Playlist Description: Descripción de la lista de reproducción
+  Add to Favorites: Añadir a {playlistName}
+  Remove from Favorites: Eliminar de {playlistName}
+  Enable Quick Bookmark With This Playlist: Activar marcadores rápidos con esta lista
+    de reproducción
+  Disable Quick Bookmark: Desactivar el marcador rápido
 History:
   # On History Page
   History: 'Historial'
