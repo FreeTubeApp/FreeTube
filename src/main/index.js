@@ -997,7 +997,11 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.playlistItemId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
+            _id: data._id,
+            videoId: data.videoId,
+            playlistItemId: data.playlistItemId,
+          })
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
