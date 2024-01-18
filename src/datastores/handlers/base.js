@@ -136,18 +136,28 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistId(_id, playlistItemId) {
-    return db.playlists.updateAsync(
-      { _id },
-      { $pull: { videos: { playlistItemId } } },
-      { upsert: true }
-    )
+  static deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId }) {
+    if (playlistItemId != null) {
+      return db.playlists.updateAsync(
+        { _id },
+        { $pull: { videos: { playlistItemId } } },
+        { upsert: true }
+      )
+    } else if (videoId != null) {
+      return db.playlists.updateAsync(
+        { _id },
+        { $pull: { videos: { videoId } } },
+        { upsert: true }
+      )
+    } else {
+      throw new Error(`Both videoId & playlistItemId are absent, _id: ${_id}`)
+    }
   }
 
   static deleteVideoIdsByPlaylistId(_id, videoIds) {
     return db.playlists.updateAsync(
       { _id },
-      { $pull: { videos: { $in: videoIds } } },
+      { $pull: { videos: { videoId: { $in: videoIds } } } },
       { upsert: true }
     )
   }

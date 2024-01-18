@@ -560,6 +560,9 @@ Settings:
       Show In Seek Bar: إظهار في الشريط
       Do Nothing: لا تفعل شيئا
     UseDeArrowTitles: استخدام عناوين فيديو DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': عنوان
+      URL لواجهة برمجة التطبيقات DeArrow Thumbnail Generator (الافتراضي هو https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: استخدم DeArarrow للصور المصغرة
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
@@ -1077,6 +1080,7 @@ Tooltips:
       على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.
+    UseDeArrowThumbnails: استبدل الصور المصغرة للفيديو بالصور المصغرة من DeArrow.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.

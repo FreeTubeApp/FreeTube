@@ -120,6 +120,7 @@ export default defineComponent({
       if (option !== 'yes') { return }
 
       this.removeAllPlaylists()
+      this.updateQuickBookmarkTargetPlaylistId('favorites')
       showToast(this.$t('Settings.Privacy Settings.All playlists have been removed'))
     },
 
@@ -137,6 +138,7 @@ export default defineComponent({
       'updateAllSubscriptionsList',
       'updateProfileSubscriptions',
       'removeAllPlaylists',
+      'updateQuickBookmarkTargetPlaylistId',
     ])
   }
 })
