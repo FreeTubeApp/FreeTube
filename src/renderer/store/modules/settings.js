@@ -191,6 +191,7 @@ const state = {
   externalPlayer: '',
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
+  externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '',
   expandSideBar: false,
   forceLocalBackendForLegacy: false,
@@ -300,6 +301,11 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  useDeArrowThumbnails: false,
+  deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
+  // This makes the `favorites` playlist uses as quick bookmark target
+  // If the playlist is removed quick bookmark is disabled
+  quickBookmarkTargetPlaylistId: 'favorites',
 }
 
 const stateWithSideEffects = {

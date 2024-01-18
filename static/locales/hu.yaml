@@ -416,7 +416,8 @@ Settings:
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Only Show Latest Video for Each Channel: Csak a legújabb videókat mutassa a csatornáktól
+    Only Show Latest Video for Each Channel: Csak a legújabb videókat megjelenítése
+      a csatornáktól
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -583,6 +584,9 @@ Settings:
       Prompt To Skip: Kihagyás kérése
     Category Color: Kategória színe
     UseDeArrowTitles: DeArrow-videocímek használata
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow-miniatűr
+      létrehozási API URL-címe (alapértelmezett: https://dearrow-thumb.ajay.app)'
+    UseDeArrowThumbnails: DeArrow használata miniatűrökhöz
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveleti figyelmeztetések figyelmen
       kívül hagyva
@@ -593,6 +597,7 @@ Settings:
     Players:
       None:
         Name: Nincs
+    Ignore Default Arguments: Alapértelmezett argumentumok figyelmen kívül hagyása
   Download Settings:
     Ask Download Path: Letöltés elérési útja kérése
     Choose Path: Letöltés elérési útja kijelölése
@@ -622,7 +627,7 @@ Settings:
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
-  Expand All Settings Sections: Minden beállítási szakasz kibontása
+  Expand All Settings Sections: Beállítások kiterjesztése
 About:
   #On About page
   About: 'Névjegy'
@@ -1039,7 +1044,7 @@ Tooltips:
       videóit szeretné megjeleníteni.
     Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az
       API-hívásokhoz.
-    Thumbnail Preference: A FreeTube összes indexképét a videó egy képkockája váltja
+    Thumbnail Preference: A FreeTube összes miniatűr a videó egy képkockája váltja
       fel az alapértelmezett miniatűr helyett.
     Fallback to Non-Preferred Backend on Failure: Ha az előnyben részesített API-jával
       hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített
@@ -1095,6 +1100,9 @@ Tooltips:
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
       Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
+    Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a
+      külső lejátszónak a videó URL-címén kívül (pl. lejátszási sebesség, lejátszási
+      lista URL-címe stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
@@ -1108,6 +1116,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow által beküldött, felhasználó
       által beküldött címekre.
+    UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}

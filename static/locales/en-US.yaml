@@ -147,6 +147,9 @@ User Playlists:
   Create New Playlist: Create New Playlist
 
   Add to Playlist: Add to Playlist
+  Add to Favorites: Add to {playlistName}
+  Remove from Favorites: Remove from {playlistName}
+
   Move Video Up: Move Video Up
   Move Video Down: Move Video Down
   Remove from Playlist: Remove from Playlist
@@ -159,6 +162,8 @@ User Playlists:
   Edit Playlist Info: Edit Playlist Info
   Copy Playlist: Copy Playlist
   Remove Watched Videos: Remove Watched Videos
+  Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
+  Disable Quick Bookmark: Disable Quick Bookmark
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are you sure you want to remove all watched videos from this playlist? This cannot be undone.
   Delete Playlist: Delete Playlist
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
@@ -184,6 +189,11 @@ User Playlists:
       This video cannot be moved down.: This video cannot be moved down.
       Video has been removed: Video has been removed
       There was a problem with removing this video: There was a problem with removing this video
+
+      This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
+      Quick bookmark disabled: Quick bookmark disabled
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
+      Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
 
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Some videos in the playlist are not loaded yet. Click here to copy anyway.
       Playlist name cannot be empty. Please input a name.: Playlist name cannot be empty. Please input a name.
@@ -387,6 +397,7 @@ Settings:
     External Player Settings: External Player Settings
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Ignore Default Arguments: Ignore Default Arguments
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
     Players:
@@ -537,6 +548,8 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     UseDeArrowTitles: Use DeArrow Video Titles
+    UseDeArrowThumbnails: Use DeArrow for thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: Skip Option
       Auto Skip: Auto Skip
@@ -967,6 +980,9 @@ Tooltips:
       be set here.
     Ignore Warnings: Suppress warnings for when the current external player does not support
       the current action (e.g. reversing playlists, etc.).
+    Ignore Default Arguments: Do not send any default arguments to the external player
+      aside from the video URL (e.g. playback rate, playlist URL, etc.).
+      Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
@@ -987,6 +1003,7 @@ Tooltips:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)

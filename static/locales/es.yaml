@@ -575,6 +575,10 @@ Settings:
       Auto Skip: Salto automático
       Prompt To Skip: Solicitar que se omita
     UseDeArrowTitles: Utilizar los títulos para el vídeo de DeArrow
+    UseDeArrowThumbnails: Utiliza DeArrow para las miniaturas
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': La
+      dirección url de la API del generador de miniaturas de DeArrow (por defecto
+      es https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -584,6 +588,7 @@ Settings:
     Players:
       None:
         Name: Ninguno
+    Ignore Default Arguments: Ignorar argumentos por defecto
   Download Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
@@ -1100,6 +1105,10 @@ Tooltips:
       en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
       externos.
     DefaultCustomArgumentsTemplate: '(Predeterminado: «{defaultCustomArguments}»)'
+    Ignore Default Arguments: No envíe ningún argumento predeterminado al reproductor
+      externo aparte de la URL del vídeo (por ejemplo, velocidad de reproducción,
+      URL de la lista de reproducción, etc.). Los argumentos personalizados se seguirán
+      transmitiendo.
   Experimental Settings:
     Replace HTTP Cache: Desactiva la caché HTTP basada en Electron disk y habilite
       una caché para la imagen en la memoria personalizada. Esto aumentará el uso
@@ -1114,6 +1123,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
+    UseDeArrowThumbnails: Sustituye las miniaturas de vídeo por miniaturas de DeArrow.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
   puede abrir en la aplicación

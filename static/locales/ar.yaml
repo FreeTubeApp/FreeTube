@@ -119,6 +119,81 @@ User Playlists:
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
   Search bar placeholder: بحث في قائمة التشغيل
   Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
+  This playlist currently has no videos.: لا تحتوي قائمة التشغيل هذه حاليًا على مقاطع
+    فيديو.
+  Create New Playlist: إنشاء قائمة تشغيل جديدة
+  Add to Playlist: أضف إلى قائمة التشغيل
+  Move Video Up: نقل الفيديو لأعلى
+  Move Video Down: نقل الفيديو إلى الأسفل
+  Remove from Playlist: إزالة من قائمة التشغيل
+  Playlist Name: اسم قائمة التشغيل
+  Playlist Description: وصف قائمة التشغيل
+  Save Changes: حفظ التغييرات
+  Edit Playlist Info: تعديل معلومات قائمة التشغيل
+  Copy Playlist: نسخ قائمة التشغيل
+  Cancel: إلغاء
+  Delete Playlist: حذف قائمة التشغيل
+  Sort By:
+    Sort By: ترتيب حسب
+    LatestCreatedFirst: تم إنشاؤها مؤخرًا
+    LatestUpdatedFirst: تم تحديثه مؤخرا
+    NameAscending: أ-ي
+    NameDescending: ي-أ
+    EarliestCreatedFirst: الاقدم إنشائا
+    EarliestUpdatedFirst: الاحدث إنشائا
+    LatestPlayedFirst: تم تشغيلها مؤخرا
+    EarliestPlayedFirst: الاقدم تشغيلا
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: ‬لا يمكن نقل هذا الفيديو لأعلى.
+      Video has been removed: تمت إزالة الفيديو
+      Playlist name cannot be empty. Please input a name.: لا يمكن أن يكون اسم قائمة
+        التشغيل فارغًا. الرجاء إدخال اسم.
+      There was an issue with updating this playlist.: حدثت مشكلة أثناء تحديث قائمة
+        التشغيل هذه.
+      Playlist has been updated.: تم تحديث قائمة التشغيل.
+      "{videoCount} video(s) have been removed": تمت إزالة فيديو واحد | تمت إزالة
+        {videoCount} من مقاطع الفيديو
+      This playlist is protected and cannot be removed.: قائمة التشغيل هذه محمية ولا
+        يمكن إزالتها.
+      There were no videos to remove.: لم تكن هناك مقاطع فيديو لإزالتها.
+      This playlist does not exist: قائمة التشغيل هذه غير موجودة
+      This video cannot be moved down.: لا يمكن نقل هذا الفيديو إلى الأسفل.
+      Playlist {playlistName} has been deleted.: تم حذف قائمة التشغيل {playlistName}.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: لم
+        يتم تحميل بعض مقاطع الفيديو في قائمة التشغيل بعد. انقر هنا للنسخ على أي حال.
+      There was a problem with removing this video: حدثت مشكلة أثناء إزالة هذا الفيديو
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
+      بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
+    Toast:
+      You haven't selected any playlist yet.: لم تقم بتحديد أي قائمة تشغيل حتى الآن.
+      "{videoCount} video(s) added to 1 playlist": تمت إضافة فيديو واحد إلى قائمة
+        تشغيل واحدة | تمت إضافة {videoCount} من مقاطع الفيديو إلى قائمة تشغيل واحدة
+      "{videoCount} video(s) added to {playlistCount} playlists": تمت إضافة مقطع فيديو
+        واحد إلى قوائم التشغيل {playlistCount} | تمت إضافة {videoCount} من مقاطع الفيديو
+        إلى قوائم التشغيل {playlistCount}
+    Save: حفظ
+    Search in Playlists: البحث في قوائم التشغيل
+    N playlists selected: تم تحديد {playlistCount}
+  CreatePlaylistPrompt:
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: توجد
+        بالفعل قائمة تشغيل بهذا الاسم. يرجى اختيار اسم مختلف.
+      There was an issue with creating the playlist.: حدثت مشكلة أثناء إنشاء قائمة
+        التشغيل.
+      Playlist {playlistName} has been successfully created.: تم إنشاء قائمة التشغيل
+        {playlistName} بنجاح.
+    New Playlist Name: اسم قائمة تشغيل جديد
+    Create: انشئ
+  Remove Watched Videos: إزالة مقاطع الفيديو التي تمت مشاهدتها
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: هل
+    أنت متأكد أنك تريد إزالة جميع مقاطع الفيديو التي تمت مشاهدتها من قائمة التشغيل
+    هذه؟ هذا لا يمكن التراجع عنها.
+  You have no playlists. Click on the create new playlist button to create a new one.: ليس
+    لديك قوائم تشغيل. انقر على زر إنشاء قائمة تشغيل جديدة لإنشاء قائمة تشغيل جديدة.
+  Are you sure you want to delete this playlist? This cannot be undone: هل أنت متأكد
+    أنك تريد حذف قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنه.
 History:
   # On History Page
   History: 'السجلّ'
@@ -308,6 +383,10 @@ Settings:
     Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
     Save Watched Videos With Last Viewed Playlist: حفظ مقاطع الفيديو التي تمت مشاهدتها
       مع آخر قائمة تشغيل تم عرضها
+    All playlists have been removed: تمت إزالة جميع قوائم التشغيل
+    Remove All Playlists: إزالة كافة قوائم التشغيل
+    Are you sure you want to remove all your playlists?: هل أنت متأكد أنك تريد إزالة
+      جميع قوائم التشغيل الخاصة بك؟
   Subscription Settings:
     Subscription Settings: 'إعدادات الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
@@ -395,6 +474,14 @@ Settings:
     Subscription File: Subscription ملف
     History File: ملف التاريخ
     Playlist File: Playlist ملف
+    Export Playlists For Older FreeTube Versions:
+      Label: تصدير قوائم التشغيل لإصدارات FreeTube الأقدم
+      Tooltip: "يقوم هذا الخيار بتصدير مقاطع الفيديو من جميع قوائم التشغيل إلى قائمة
+        تشغيل واحدة تسمى \"المفضلة\".\nكيفية تصدير واستيراد مقاطع الفيديو في قوائم
+        التشغيل لإصدار أقدم من FreeTube:\n1. قم بتصدير قوائم التشغيل الخاصة بك مع
+        تمكين هذا الخيار.\n2. احذف جميع قوائم التشغيل الموجودة لديك باستخدام خيار
+        إزالة جميع قوائم التشغيل ضمن إعدادات الخصوصية.\n3. قم بتشغيل الإصدار الأقدم
+        من FreeTube واستورد قوائم التشغيل المصدرة.\""
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -473,6 +560,9 @@ Settings:
       Show In Seek Bar: إظهار في الشريط
       Do Nothing: لا تفعل شيئا
     UseDeArrowTitles: استخدام عناوين فيديو DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': عنوان
+      URL لواجهة برمجة التطبيقات DeArrow Thumbnail Generator (الافتراضي هو https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: استخدم DeArarrow للصور المصغرة
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
@@ -482,6 +572,7 @@ Settings:
     Players:
       None:
         Name: لاشيء
+    Ignore Default Arguments: تجاهل الحجج الافتراضية
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
@@ -974,6 +1065,9 @@ Tooltips:
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+    Ignore Default Arguments: لا ترسل أي وسائط افتراضية إلى المشغل الخارجي بخلاف عنوان
+      URL للفيديو (مثل معدل التشغيل وعنوان URL لقائمة التشغيل وما إلى ذلك). سيستمر
+      تمرير الوسائط المخصصة.
   Experimental Settings:
     Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
       وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
@@ -986,6 +1080,7 @@ Tooltips:
       على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.
+    UseDeArrowThumbnails: استبدل الصور المصغرة للفيديو بالصور المصغرة من DeArrow.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.

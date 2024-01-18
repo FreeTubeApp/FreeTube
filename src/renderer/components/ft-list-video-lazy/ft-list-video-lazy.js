@@ -55,6 +55,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    quickBookmarkButtonEnabled: {
+      type: Boolean,
+      default: true,
+    },
     canMoveVideoUp: {
       type: Boolean,
       default: false,

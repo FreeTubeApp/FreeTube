@@ -554,7 +554,7 @@ Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
       (výchozí je https://sponsor.ajay.app)
-    Enable SponsorBlock: Povolit SponsorBlock
+    Enable SponsorBlock: Zapnout SponsorBlock
     SponsorBlock Settings: Nastavení služby SponsorBlock
     Skip Options:
       Do Nothing: Nic nedělat
@@ -564,6 +564,9 @@ Settings:
       Show In Seek Bar: Zobrazit v liště
     Category Color: Barva kategorie
     UseDeArrowTitles: Použít názvy videí z DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Adresa
+      URL API generátoru náhledů DeArrow (výchozí je https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Použít službu DeArrow pro náhledy
   External Player Settings:
     Custom External Player Arguments: Argumenty vlastního externího přehrávače
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
@@ -573,6 +576,7 @@ Settings:
     Players:
       None:
         Name: Žádný
+    Ignore Default Arguments: Ignorovat výchozí argumenty
   Download Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
     Download Settings: Nastavení stahování
@@ -1044,6 +1048,9 @@ Tooltips:
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
     DefaultCustomArgumentsTemplate: "(Výchozí: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Neodesílat externímu přehrávači žádné výchozí argumenty
+      kromě adresy URL videa (např. rychlost přehrávání, adresu URL playlistu atd.).
+      Tato možnost se nevztahuje na vlastní argumenty.
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní mezipaměť
       pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
@@ -1055,6 +1062,7 @@ Tooltips:
       „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
+    UseDeArrowThumbnails: Nahradit náhledy videa těmi ze služby DeArrow.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'

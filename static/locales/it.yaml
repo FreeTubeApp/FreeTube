@@ -583,7 +583,10 @@ Settings:
       Prompt To Skip: Chiedi di saltare
       Do Nothing: Non fare nulla
     Category Color: Colore della categoria
-    UseDeArrowTitles: Usa i titoli dei video DeArrow
+    UseDeArrowTitles: Usa i titoli dei video di DeArrow
+    UseDeArrowThumbnails: Usa DeArrow per le miniature
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      dell'API del generatore di miniature DeArrow (l'impostazione predefinita è https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argomenti del lettore esterno personalizzato
     Custom External Player Executable: File eseguibile del lettore esterno personalizzato
@@ -593,6 +596,7 @@ Settings:
     Players:
       None:
         Name: Nessuno
+    Ignore Default Arguments: Ignora argomenti predefiniti
   Download Settings:
     Download Settings: Impostazioni dei download
     Ask Download Path: Chiedi il percorso di download
@@ -1104,6 +1108,9 @@ Tooltips:
       un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
       Attenzione, le Impostazioni Invidious non influiscono sui lettori esterni.
     DefaultCustomArgumentsTemplate: '(Predefinito: {defaultCustomArguments})'
+    Ignore Default Arguments: Non inviare argomenti predefiniti al lettore esterno
+      oltre all'URL del video (ad esempio velocità di riproduzione, URL della playlist,
+      ecc.). Gli argomenti personalizzati verranno comunque trasmessi.
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
       , FreeTube eliminerà automaticamente i metafile creati durante la visione del
@@ -1120,8 +1127,9 @@ Tooltips:
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
       "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
   SponsorBlock Settings:
-    UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
-      da DeArrow.
+    UseDeArrowTitles: Sostituisci i titoli dei video coi titoli inviati dagli utenti
+      di DeArrow.
+    UseDeArrowThumbnails: Sostituisci le miniature dei video con le miniature di DeArrow.
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}

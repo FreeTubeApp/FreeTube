@@ -9,8 +9,10 @@ import {
   showToast,
   toLocalePublicationString,
   toDistractionFreeTitle,
+  deepCopy
 } from '../../helpers/utils'
-import { deArrowData } from '../../helpers/sponsorblock'
+import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
+import debounce from 'lodash.debounce'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -66,6 +68,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    quickBookmarkButtonEnabled: {
+      type: Boolean,
+      default: true,
+    },
     canMoveVideoUp: {
       type: Boolean,
       default: false,
@@ -99,6 +105,7 @@ export default defineComponent({
       isPremium: false,
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
+      debounceGetDeArrowThumbnail: null,
     }
   },
   computed: {
@@ -307,7 +314,9 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      if (this.thumbnailPreference) return require('../../assets/img/thumbnail_placeholder.svg')
+      if (this.thumbnailPreference === 'hidden') {
+        return require('../../assets/img/thumbnail_placeholder.svg')
+      }
 
       let baseUrl = ''
       let backendPreference = this.backendPreference
@@ -315,6 +324,7 @@ export default defineComponent({
         if (this.data.thumbnail) {
           return this.data.thumbnail
         } else {
+          // this should be removed once piped supports more endpoints
           backendPreference = this.fallbackPreference
         }
       }
@@ -387,6 +397,13 @@ export default defineComponent({
       }
     },
 
+    displayDuration: function () {
+      if (this.useDeArrowTitles && (this.duration === '' || this.duration === '0:00') && this.deArrowCache?.videoDuration) {
+        return formatDurationAsTimestamp(this.deArrowCache.videoDuration)
+      }
+      return this.duration
+    },
+
     playlistIdTypePairFinal() {
       if (this.playlistId) {
         return {
@@ -417,6 +434,36 @@ export default defineComponent({
       return this.playlistIdTypePairFinal?.playlistItemId
     },
 
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    isQuickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    isInQuickBookmarkPlaylist: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      return this.quickBookmarkPlaylist.videos.some((video) => {
+        return video.videoId === this.id
+      })
+    },
+    quickBookmarkIconText: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      const translationProperties = {
+        playlistName: this.quickBookmarkPlaylist.playlistName,
+      }
+      return this.isInQuickBookmarkPlaylist
+        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
+        : this.$t('User Playlists.Add to Favorites', translationProperties)
+    },
+    quickBookmarkIconTheme: function () {
+      return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
+    },
+
     watchPageLinkTo() {
       // For `router-link` attribute `to`
       return {
@@ -444,6 +491,10 @@ export default defineComponent({
       return this.$store.getters.getUseDeArrowTitles
     },
 
+    useDeArrowThumbnails: function () {
+      return this.$store.getters.getUseDeArrowThumbnails
+    },
+
     deArrowCache: function () {
       return this.$store.getters.getDeArrowCache[this.id]
     },
@@ -464,21 +515,54 @@ export default defineComponent({
     this.parseVideoData()
     this.checkIfWatched()
 
-    if (this.useDeArrowTitles && !this.deArrowCache) {
+    if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
       this.fetchDeArrowData()
+    }
+
+    if (this.useDeArrowThumbnails && this.deArrowCache && this.deArrowCache.thumbnail == null) {
+      if (this.debounceGetDeArrowThumbnail == null) {
+        this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
+      }
+
+      this.debounceGetDeArrowThumbnail()
     }
   },
   methods: {
+    fetchDeArrowThumbnail: async function() {
+      if (this.thumbnailPreference === 'hidden') { return }
+      const videoId = this.id
+      const thumbnail = await deArrowThumbnail(videoId, this.deArrowCache.thumbnailTimestamp)
+      if (thumbnail) {
+        const deArrowCacheClone = deepCopy(this.deArrowCache)
+        deArrowCacheClone.thumbnail = thumbnail
+        this.$store.commit('addThumbnailToDeArrowCache', deArrowCacheClone)
+      }
+    },
     fetchDeArrowData: async function() {
       const videoId = this.id
       const data = await deArrowData(this.id)
-      const cacheData = { videoId, title: null }
+      const cacheData = { videoId, title: null, videoDuration: null, thumbnail: null, thumbnailTimestamp: null }
       if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes >= 0)) {
         cacheData.title = data.titles[0].title
       }
+      if (Array.isArray(data?.thumbnails) && data.thumbnails.length > 0 && (data.thumbnails[0].locked || data.thumbnails[0].votes >= 0)) {
+        cacheData.thumbnailTimestamp = data.thumbnails.at(0).timestamp
+      } else if (data?.videoDuration != null) {
+        cacheData.thumbnailTimestamp = data.videoDuration * data.randomTime
+      }
+      cacheData.videoDuration = data?.videoDuration ? Math.floor(data.videoDuration) : null
 
       // Save data to cache whether data available or not to prevent duplicate requests
       this.$store.commit('addVideoToDeArrowCache', cacheData)
+
+      // fetch dearrow thumbnails if enabled
+      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail === null) {
+        if (this.debounceGetDeArrowThumbnail == null) {
+          this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
+        }
+
+        this.debounceGetDeArrowThumbnail()
+      }
     },
 
     handleExternalPlayer: function () {
@@ -749,12 +833,61 @@ export default defineComponent({
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
 
+    toggleQuickBookmarked() {
+      if (!this.isQuickBookmarkEnabled) {
+        // This should be prevented by UI
+        return
+      }
+
+      if (this.isInQuickBookmarkPlaylist) {
+        this.removeFromQuickBookmarkPlaylist()
+      } else {
+        this.addToQuickBookmarkPlaylist()
+      }
+    },
+    addToQuickBookmarkPlaylist() {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+      }
+
+      this.addVideos({
+        _id: this.quickBookmarkPlaylist._id,
+        videos: [videoData],
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been saved'))
+    },
+    removeFromQuickBookmarkPlaylist() {
+      this.removeVideo({
+        _id: this.quickBookmarkPlaylist._id,
+        // Remove all playlist items with same videoId
+        videoId: this.id,
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
     ...mapActions([
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
+      'addVideos',
+      'updatePlaylist',
+      'removeVideo',
     ])
   }
 })

@@ -127,8 +127,89 @@ User Playlists:
     os vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
   Search bar placeholder: Procurar na lista de reprodução
-  Empty Search Message: Não há vídeos, nesta lista de reprodução, que coincidam com
+  Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com
     a sua pesquisa
+  This playlist currently has no videos.: Esta lista de reprodução não tem vídeos
+    atualmente.
+  Create New Playlist: Criar nova lista de reprodução
+  Add to Playlist: Adicionar à lista de reprodução
+  Remove from Playlist: Remover da lista de reprodução
+  Playlist Name: Nome da lista de reprodução
+  Save Changes: Guardar alterações
+  Cancel: Cancelar
+  Copy Playlist: Copiar lista de reprodução
+  Remove Watched Videos: Remover vídeos vistos
+  Delete Playlist: Eliminar lista de reprodução
+  Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
+    que quer eliminar esta lista de reprodução? Isto não pode ser revertido.
+  Sort By:
+    Sort By: Ordenar por
+    LatestCreatedFirst: Criado recentemente
+    EarliestCreatedFirst: Criação mais antiga
+    EarliestUpdatedFirst: Atualização mais antiga
+    LatestPlayedFirst: Reproduzido recentemente
+    EarliestPlayedFirst: Reprodução mais antiga
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestUpdatedFirst: Atualizado recentemente
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Este vídeo não pode ser movido para cima.
+      This video cannot be moved down.: Este vídeo não pode ser movido para baixo.
+      There was a problem with removing this video: Houve um problema ao remover este
+        vídeo
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alguns
+        vídeos da lista de reprodução ainda não foram carregados. Clique aqui para
+        copiar mesmo assim.
+      Playlist has been updated.: A lista de reprodução foi atualizada.
+      "{videoCount} video(s) have been removed": 1 vídeo foi removido | {videoCount}
+        vídeos foram removidos
+      There were no videos to remove.: Não havia vídeos para remover.
+      Video has been removed: O vídeo foi removido
+      Playlist name cannot be empty. Please input a name.: O nome da lista de reprodução
+        não pode estar vazio. Introduza um nome.
+      There was an issue with updating this playlist.: Houve um problema com a atualização
+        desta lista de reprodução.
+      This playlist is protected and cannot be removed.: Esta lista de reprodução
+        está protegida e não pode ser removida.
+      Playlist {playlistName} has been deleted.: A lista de reprodução {playlistName}
+        foi eliminada.
+      This playlist does not exist: Esta lista de reprodução não existe
+  AddVideoPrompt:
+    Search in Playlists: Pesquisar nas listas de reprodução
+    Save: Guardar
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado
+        a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a
+        {playlistCount} listas de reprodução
+      You haven't selected any playlist yet.: Ainda não selecionou nenhuma lista de
+        reprodução.
+      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de
+        reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
+    Select a playlist to add your N videos to: Selecione uma lista de reprodução à
+      qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar
+      os seus {videoCount} vídeos
+    N playlists selected: '{playlistCount} selecionadas'
+  CreatePlaylistPrompt:
+    New Playlist Name: Novo nome da lista de reprodução
+    Create: Criar
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Já
+        existe uma lista de reprodução com este nome. Por favor, escolha um nome diferente.
+      Playlist {playlistName} has been successfully created.: A lista de reprodução
+        {playlistName} foi criada com êxito.
+      There was an issue with creating the playlist.: Houve um problema com a criação
+        da lista de reprodução.
+  Move Video Up: Mover vídeo para cima
+  You have no playlists. Click on the create new playlist button to create a new one.: Não
+    tem listas de reprodução. Clique no botão de criar uma nova lista de reprodução
+    para criar uma.
+  Move Video Down: Mover vídeo para baixo
+  Edit Playlist Info: Editar informação da lista de reprodução
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
+    certeza que quer remover todos os vídeos vistos desta lista de reprodução? Isto
+    não pode ser revertido.
+  Playlist Description: Descrição da lista de reprodução
 History:
   # On History Page
   History: 'Histórico'
@@ -138,9 +219,9 @@ History:
   Empty Search Message: Não há vídeos no histórico que coincidam com a sua pesquisa
 Settings:
   # On Settings Page
-  Settings: 'Definições'
+  Settings: 'Configurações'
   General Settings:
-    General Settings: 'Definições gerais'
+    General Settings: 'Configurações gerais'
     Check for Updates: 'Verificar se há atualizações'
     Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
     Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário,
@@ -177,14 +258,14 @@ Settings:
     No default instance has been set: Não foi definida uma instância
     The currently set default instance is {instance}: A instância padrão é {instance}
     Current Invidious Instance: Instância Invidious atual
-    System Default: Definições do sistema
+    System Default: Predefinido no sistema
     External Link Handling:
       External Link Handling: Gestão de ligações externas
       Open Link: Abrir ligação
       Ask Before Opening Link: Perguntar antes de abrir a ligação
       No Action: Nenhuma ação
   Theme Settings:
-    Theme Settings: 'Definições de tema'
+    Theme Settings: 'Configurações de tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -243,7 +324,7 @@ Settings:
     Hide Side Bar Labels: Ocultar texto na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
-    Player Settings: 'Definições do reprodutor'
+    Player Settings: 'Configurações do reprodutor'
     Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
       formatos antigos'
     Play Next Video: 'Reproduzir vídeo seguinte'
@@ -273,7 +354,7 @@ Settings:
       8k: '8k'
     Fast-Forward / Rewind Interval: Tempo para avançar/recuar
     Next Video Interval: Intervalo entre vídeos
-    Display Play Button In Video Player: Mostrar botão Reproduzir
+    Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do vídeo
     Scroll Volume Over Video Player: Utilizar roda do rato para alterar o volume
     Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao deslocar
       por cima do reprodutor
@@ -301,7 +382,7 @@ Settings:
     Comment Auto Load:
       Comment Auto Load: Carregamento automático de comentários
   Privacy Settings:
-    Privacy Settings: 'Definições de privacidade'
+    Privacy Settings: 'Configurações de privacidade'
     Remember History: 'Memorizar histórico'
     Save Watched Progress: 'Guardar progresso de reprodução'
     Clear Search Cache: 'Limpar cache de pesquisas'
@@ -320,8 +401,12 @@ Settings:
       dos vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
       última lista de reprodução vista
+    Remove All Playlists: Remover todas as listas de reprodução
+    All playlists have been removed: Todas as listas de reprodução foram removidas
+    Are you sure you want to remove all your playlists?: Tem a certeza de que pretende
+      remover todas as suas listas de reprodução?
   Subscription Settings:
-    Subscription Settings: 'Definições de subscrições'
+    Subscription Settings: 'Configurações de subscrições'
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Manage Subscriptions: 'Gerir subscrições'
@@ -329,7 +414,7 @@ Settings:
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
   Data Settings:
-    Data Settings: 'Definições de dados'
+    Data Settings: 'Configurações de dados'
     Select Import Type: 'Selecione o tipo de importação'
     Select Export Type: 'Selecione o tipo de exportação'
     Import Subscriptions: 'Importar subscrições'
@@ -378,6 +463,15 @@ Settings:
     Subscription File: Ficheiro de subscrição
     History File: Ficheiro de histórico
     Playlist File: Ficheiro de lista de reprodução
+    Export Playlists For Older FreeTube Versions:
+      Label: Exportar listas de reprodução para versões mais antigas do FreeTube
+      Tooltip: "Esta opção exporta vídeos de todas as listas de reprodução para uma
+        lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos
+        em listas de reprodução para uma versão mais antiga do FreeTube:\n1. Exporte
+        as suas listas de reprodução com esta opção ativada.\n2. Exclua todas as suas
+        listas de reprodução existentes usando a opção \"Remover todas as listas de
+        reprodução\" em \"Configurações de privacidade\".\n3. Abra a versão mais antiga
+        do FreeTube e importe as listas de reprodução exportadas."
   Advanced Settings:
     Advanced Settings: 'Definições Avançadas'
     Enable Debug Mode (Prints data to the console): 'Ligar Modo de Depuração (Escreve
@@ -409,8 +503,8 @@ Settings:
     Notify when sponsor segment is skipped: Notificar se um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (padrão é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ativar SponsorBlock
-    SponsorBlock Settings: Definições SponsorBlock
+    Enable SponsorBlock: Ativar bloqueio da publicidade SponsorBlock
+    SponsorBlock Settings: Configurações SponsorBlock
     Skip Options:
       Skip Option: Opção para ignorar
       Auto Skip: Ignorar automaticamente
@@ -434,7 +528,7 @@ Settings:
     Proxy Host: Servidor do proxy
     Proxy Protocol: Protocolo do proxy
     Enable Tor / Proxy: Ativar Tor/Proxy
-    Proxy Settings: Definições de proxy
+    Proxy Settings: Configurações de proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar subscrições ativas
     Hide Live Chat: Ocultar conversas em direto
@@ -446,7 +540,7 @@ Settings:
     Hide Channel Subscribers: Ocultar número de subscritores
     Hide Video Likes And Dislikes: Ocultar "gostos" em vídeos
     Hide Video Views: Ocultar visualizações
-    Distraction Free Settings: Definições de distrações
+    Distraction Free Settings: Configurações de distrações
     Hide Video Description: Ocultar descrição dos vídeos
     Hide Sharing Actions: Ocultar ações de partilha
     Hide Live Streams: Ocultar transmissões em direto
@@ -477,25 +571,25 @@ Settings:
     Hide Subscriptions Community: Ocultar subscrições de comunidades
     Hide Channels Invalid: O ID do canal não é válido
     Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados.
-      A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização das
+      A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização dos
       ID.
-    Hide Channels Already Exists: Esta ID já existe
+    Hide Channels Already Exists: Este ID já existe
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique
-      se a ID indicada é válida.
+      se o ID indicado está correto.
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Reprodutor externo
-    External Player Settings: Definições para reprodutores externos
+    External Player Settings: Configurações para reprodutores externos
     Players:
       None:
         Name: Nenhum
   The app needs to restart for changes to take effect. Restart and apply change?: Tem
     que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar as alterações?
   Download Settings:
-    Download Settings: Definições para descargas
-    Ask Download Path: Pedir local para guardar
+    Download Settings: Configurações para descargas
+    Ask Download Path: Perguntar local onde guardar
     Choose Path: Escolher local
     Download in app: Descarregar na aplicação
     Open in web browser: Abrir no navegador da Internet
@@ -504,24 +598,24 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Anular subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Search Bar: Ocultar barra de pesquisa
-    Parental Control Settings: Definições de controlo parental
+    Parental Control Settings: Configurações de controlo parental
   Experimental Settings:
     Replace HTTP Cache: Substituir cache HTTP
-    Experimental Settings: Definições experimentais
-    Warning: Estas definições são experimentais e podem provocar falhas se ativadas.
+    Experimental Settings: Configurações experimentais
+    Warning: Estas configurações são experimentais e podem provocar falhas se ativadas.
       É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
   Password Dialog:
-    Enter Password To Unlock: Digite a palavra-passe para desbloquear as definições
+    Enter Password To Unlock: Digite a palavra-passe para desbloquear as configurações
     Password Incorrect: Palavra-passe incorreta
     Password: Palavra-passe
     Unlock: Desbloquear
   Password Settings:
-    Password Settings: Definições para palavra-passe
+    Password Settings: Configurações para palavra-passe
     Set Password To Prevent Access: Defina uma palavra-passe para impedir o acesso
-      às definições
+      às configurações
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
-  Expand All Settings Sections: Expandir todas as secções de definições
+  Expand All Settings Sections: Expandir todas as secções de configurações
 About:
   #On About page
   About: 'Acerca'
@@ -561,9 +655,9 @@ About:
   FreeTube is made possible by: FreeTube existe graças a
   Credits: Créditos
   Translate: Traduzir
-  room rules: regras da sala de chat
+  room rules: regras da sala de conversa
   Please read the: Por favor leia as
-  Chat on Matrix: Chat no Matrix
+  Chat on Matrix: Conversa no Matrix
   Mastodon: Mastodon
   Please check for duplicates before posting: Por favor verifique se este problema
     já foi reportado
@@ -623,7 +717,7 @@ Profile:
     os canais dos outros perfis.'
 #On Channel Page
   Profile Filter: Filtro de perfil
-  Profile Settings: Definições de perfil
+  Profile Settings: Configurações de perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
@@ -859,7 +953,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reprodução
-Toggle Theatre Mode: 'Alternar modo teatro'
+Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -975,7 +1069,7 @@ Tooltips:
       um caminho personalizado aqui.
     External Player: Escolher um reprodutor externo mostra um ícone para abrir o vídeo
       (lista de reprodução, se suportado) nessa aplicação. Mas tenha em conta que
-      as definições Invidious não afetam os reprodutores externos.
+      as configurações do Invidious não afetam os reprodutores externos.
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
@@ -993,7 +1087,7 @@ Tooltips:
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)
       e clique com o botão esquerdo do rato para voltar rapidamente à taxa de reprodução
-      padrão (1 a não ser que tenha sido alterada nas definições).
+      padrão (1 a não ser que tenha sido alterada nas configurações).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
     Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
@@ -1023,8 +1117,8 @@ Tooltips:
       reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares
       e recomendados. O nome do canal introduzido tem que ser uma correspondência
       exata e diferencia maiúsculas de minúsculas.
-    Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}",
-      existente na secção "{subsection}" de "{settingsSection}"
+    Hide Subscriptions Live: Esta configuração é substituída pela configuração global
+      "{appWideSetting}", existente na secção "{subsection}" de "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.
@@ -1032,7 +1126,7 @@ Search Bar:
   Clear Input: Limpar entrada
 Are you sure you want to open this link?: Tem a certeza de que deseja abrir a ligação?
 External link opening has been disabled in the general settings: A abertura da ligação
-  externa foi desativada nas definições
+  externa foi desativada nas configurações
 Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Downloading has completed: '"{videoTitle}" foi descarregado'

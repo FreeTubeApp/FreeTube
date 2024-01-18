@@ -225,6 +225,23 @@ export default defineComponent({
       // Cannot delete protected playlist
       return !this.hideSharingActions
     },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    quickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    markedAsQuickBookmarkTarget() {
+      // Only user playlists can be target
+      if (this.selectedUserPlaylist == null) { return false }
+      if (this.quickBookmarkPlaylist == null) { return false }
+
+      return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
+    },
   },
   watch: {
     showDeletePlaylistPrompt(shown) {
@@ -349,10 +366,40 @@ export default defineComponent({
       this.showDeletePlaylistPrompt = false
     },
 
+    enableQuickBookmarkForThisPlaylist() {
+      const currentQuickBookmarkTargetPlaylist = this.quickBookmarkPlaylist
+
+      this.updateQuickBookmarkTargetPlaylistId(this.id)
+      if (currentQuickBookmarkTargetPlaylist != null) {
+        showToast(
+          this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo"]', {
+            oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+          }),
+          5000,
+          () => {
+            this.updateQuickBookmarkTargetPlaylistId(currentQuickBookmarkTargetPlaylist._id)
+            showToast(
+              this.$t('User Playlists.SinglePlaylistView.Toast["Reverted to use {oldPlaylistName} for quick bookmark"]', {
+                oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+              }),
+              5000,
+            )
+          },
+        )
+      } else {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      }
+    },
+    disableQuickBookmark() {
+      this.updateQuickBookmarkTargetPlaylistId(null)
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
+    },
+
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',
       'removePlaylist',
+      'updateQuickBookmarkTargetPlaylistId',
     ]),
   },
 })

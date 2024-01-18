@@ -166,9 +166,11 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  app.commandLine.appendSwitch('enable-accelerated-video-decode')
-  app.commandLine.appendSwitch('enable-file-cookies')
-  app.commandLine.appendSwitch('ignore-gpu-blacklist')
+  if (process.platform === 'linux') {
+    // Enable hardware acceleration via VA-API
+    // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
+    app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+  }
 
   // Work around for context menus in the devtools being displayed behind the window
   // https://github.com/electron/electron/issues/38790
@@ -995,7 +997,11 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.playlistItemId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
+            _id: data._id,
+            videoId: data.videoId,
+            playlistItemId: data.playlistItemId,
+          })
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,

@@ -141,6 +141,20 @@
           @click="toggleCopyVideosPrompt"
         />
         <ft-icon-button
+          v-if="!editMode && !markedAsQuickBookmarkTarget"
+          :title="$t('User Playlists.Enable Quick Bookmark With This Playlist')"
+          :icon="['fas', 'link']"
+          theme="secondary"
+          @click="enableQuickBookmarkForThisPlaylist"
+        />
+        <ft-icon-button
+          v-if="!editMode && markedAsQuickBookmarkTarget"
+          :title="$t('User Playlists.Disable Quick Bookmark')"
+          :icon="['fas', 'link-slash']"
+          theme="secondary"
+          @click="disableQuickBookmark"
+        />
+        <ft-icon-button
           v-if="!editMode && infoSource === 'user' && videoCount > 0"
           :title="$t('User Playlists.Remove Watched Videos')"
           :icon="['fas', 'eye-slash']"

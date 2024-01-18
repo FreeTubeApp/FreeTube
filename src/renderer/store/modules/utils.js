@@ -639,91 +639,100 @@ const actions = {
       ? rootState.settings.externalPlayerExecutable
       : cmdArgs.defaultExecutable
     const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
+    const ignoreDefaultArgs = rootState.settings.externalPlayerIgnoreDefaultArgs
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
-    // Append custom user-defined arguments,
-    // or use the default ones specified for the external player.
-    if (typeof customArgs === 'string' && customArgs !== '') {
-      const custom = customArgs.split(';')
-      args.push(...custom)
-    } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-      const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
-      args.push(...defaultCustomArguments)
-    }
-
-    if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
-      if (typeof cmdArgs.startOffset === 'string') {
-        if (cmdArgs.defaultExecutable.startsWith('mpc')) {
-          // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
-          args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
-        } else if (cmdArgs.startOffset.endsWith('=')) {
-          // For players using `=` in arguments
-          // e.g. vlc --start-time=xxxxx
-          args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
-        } else {
-          // For players using space in arguments
-          // e.g. smplayer -start xxxxx
-          args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
-        }
-      } else if (!ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+    if (ignoreDefaultArgs) {
+      if (typeof customArgs === 'string' && customArgs !== '') {
+        const custom = customArgs.split(';')
+        args.push(...custom)
       }
-    }
-
-    if (payload.playbackRate != null) {
-      if (typeof cmdArgs.playbackRate === 'string') {
-        args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
-      } else if (!ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
-      }
-    }
-
-    // Check whether the video is in a playlist
-    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
-      if (payload.playlistIndex != null) {
-        if (typeof cmdArgs.playlistIndex === 'string') {
-          args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
-        }
-      }
-
-      if (payload.playlistReverse) {
-        if (typeof cmdArgs.playlistReverse === 'string') {
-          args.push(cmdArgs.playlistReverse)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
-        }
-      }
-
-      if (payload.playlistShuffle) {
-        if (typeof cmdArgs.playlistShuffle === 'string') {
-          args.push(cmdArgs.playlistShuffle)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
-        }
-      }
-
-      if (payload.playlistLoop) {
-        if (typeof cmdArgs.playlistLoop === 'string') {
-          args.push(cmdArgs.playlistLoop)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
-        }
-      }
-
-      // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
-      if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
-        args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
-      } else {
-        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
-      }
+      if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     } else {
-      if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+      // Append custom user-defined arguments,
+      // or use the default ones specified for the external player.
+      if (typeof customArgs === 'string' && customArgs !== '') {
+        const custom = customArgs.split(';')
+        args.push(...custom)
+      } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
+        const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
+        args.push(...defaultCustomArguments)
       }
-      if (payload.videoId != null) {
-        args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+
+      if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
+        if (typeof cmdArgs.startOffset === 'string') {
+          if (cmdArgs.defaultExecutable.startsWith('mpc')) {
+            // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
+            args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
+          } else if (cmdArgs.startOffset.endsWith('=')) {
+            // For players using `=` in arguments
+            // e.g. vlc --start-time=xxxxx
+            args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+          } else {
+            // For players using space in arguments
+            // e.g. smplayer -start xxxxx
+            args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
+          }
+        } else if (!ignoreWarnings) {
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+        }
+      }
+
+      if (payload.playbackRate != null) {
+        if (typeof cmdArgs.playbackRate === 'string') {
+          args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
+        } else if (!ignoreWarnings) {
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
+        }
+      }
+
+      // Check whether the video is in a playlist
+      if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
+        if (payload.playlistIndex != null) {
+          if (typeof cmdArgs.playlistIndex === 'string') {
+            args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
+          }
+        }
+
+        if (payload.playlistReverse) {
+          if (typeof cmdArgs.playlistReverse === 'string') {
+            args.push(cmdArgs.playlistReverse)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
+          }
+        }
+
+        if (payload.playlistShuffle) {
+          if (typeof cmdArgs.playlistShuffle === 'string') {
+            args.push(cmdArgs.playlistShuffle)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
+          }
+        }
+
+        if (payload.playlistLoop) {
+          if (typeof cmdArgs.playlistLoop === 'string') {
+            args.push(cmdArgs.playlistLoop)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
+          }
+        }
+
+        // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
+        if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
+          args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
+        } else {
+          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+        }
+      } else {
+        if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+        }
+        if (payload.videoId != null) {
+          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+        }
       }
     }
 
@@ -771,6 +780,10 @@ const mutations = {
       // so we need to use Vue's set function
       vueSet(state.deArrowCache, payload.videoId, payload)
     }
+  },
+
+  addThumbnailToDeArrowCache (state, payload) {
+    vueSet(state.deArrowCache, payload.videoId, payload)
   },
 
   addToSessionSearchHistory (state, payload) {
