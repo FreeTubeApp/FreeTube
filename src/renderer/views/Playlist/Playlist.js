@@ -108,6 +108,15 @@ export default defineComponent({
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
     },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkButtonEnabled() {
+      if (this.selectedUserPlaylist == null) { return true }
+
+      return this.selectedUserPlaylist?._id !== this.quickBookmarkPlaylistId
+    },
   },
   watch: {
     $route (to) {

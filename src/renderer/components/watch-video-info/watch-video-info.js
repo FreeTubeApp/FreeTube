@@ -4,7 +4,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
-import { formatNumber, openExternalLink } from '../../helpers/utils'
+import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'WatchVideoInfo',
@@ -216,7 +216,37 @@ export default defineComponent({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
-    }
+    },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    isQuickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    isInQuickBookmarkPlaylist: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      return this.quickBookmarkPlaylist.videos.some((video) => {
+        return video.videoId === this.id
+      })
+    },
+    quickBookmarkIconText: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      const translationProperties = {
+        playlistName: this.quickBookmarkPlaylist.playlistName,
+      }
+      return this.isInQuickBookmarkPlaylist
+        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
+        : this.$t('User Playlists.Add to Favorites', translationProperties)
+    },
+    quickBookmarkIconTheme: function () {
+      return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
+    },
   },
   mounted: function () {
     if ('mediaSession' in navigator) {
@@ -313,6 +343,54 @@ export default defineComponent({
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
     },
 
+    toggleQuickBookmarked() {
+      if (!this.isQuickBookmarkEnabled) {
+        // This should be prevented by UI
+        return
+      }
+
+      if (this.isInQuickBookmarkPlaylist) {
+        this.removeFromQuickBookmarkPlaylist()
+      } else {
+        this.addToQuickBookmarkPlaylist()
+      }
+    },
+
+    addToQuickBookmarkPlaylist() {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+      }
+
+      this.addVideos({
+        _id: this.quickBookmarkPlaylist._id,
+        videos: [videoData],
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been saved'))
+    },
+
+    removeFromQuickBookmarkPlaylist() {
+      this.removeVideo({
+        _id: this.quickBookmarkPlaylist._id,
+        // Remove all playlist items with same videoId
+        videoId: this.id,
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
     changeFormat: function(value) {
       this.$emit('change-format', value)
     },
@@ -321,6 +399,9 @@ export default defineComponent({
       'openInExternalPlayer',
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',
+      'addVideos',
+      'updatePlaylist',
+      'removeVideo',
     ])
   }
 })

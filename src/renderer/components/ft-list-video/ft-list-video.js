@@ -68,6 +68,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    quickBookmarkButtonEnabled: {
+      type: Boolean,
+      default: true,
+    },
     canMoveVideoUp: {
       type: Boolean,
       default: false,
@@ -412,6 +416,36 @@ export default defineComponent({
     },
     playlistItemIdFinal: function () {
       return this.playlistIdTypePairFinal?.playlistItemId
+    },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    isQuickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    isInQuickBookmarkPlaylist: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      return this.quickBookmarkPlaylist.videos.some((video) => {
+        return video.videoId === this.id
+      })
+    },
+    quickBookmarkIconText: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      const translationProperties = {
+        playlistName: this.quickBookmarkPlaylist.playlistName,
+      }
+      return this.isInQuickBookmarkPlaylist
+        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
+        : this.$t('User Playlists.Add to Favorites', translationProperties)
+    },
+    quickBookmarkIconTheme: function () {
+      return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },
 
     watchPageLinkTo() {
@@ -783,6 +817,52 @@ export default defineComponent({
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
 
+    toggleQuickBookmarked() {
+      if (!this.isQuickBookmarkEnabled) {
+        // This should be prevented by UI
+        return
+      }
+
+      if (this.isInQuickBookmarkPlaylist) {
+        this.removeFromQuickBookmarkPlaylist()
+      } else {
+        this.addToQuickBookmarkPlaylist()
+      }
+    },
+    addToQuickBookmarkPlaylist() {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+      }
+
+      this.addVideos({
+        _id: this.quickBookmarkPlaylist._id,
+        videos: [videoData],
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been saved'))
+    },
+    removeFromQuickBookmarkPlaylist() {
+      this.removeVideo({
+        _id: this.quickBookmarkPlaylist._id,
+        // Remove all playlist items with same videoId
+        videoId: this.id,
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
     moveVideoUp: function() {
       this.$emit('move-video-up')
     },
@@ -801,6 +881,9 @@ export default defineComponent({
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
+      'addVideos',
+      'updatePlaylist',
+      'removeVideo',
     ])
   }
 })
