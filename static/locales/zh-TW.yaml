@@ -150,6 +150,12 @@ User Playlists:
       "{videoCount} video(s) have been removed": 移除了 1 部影片 | 移除了 {videoCount} 部影片
       Playlist {playlistName} has been deleted.: 播放清單 {playlistName} 已刪除。
       This playlist does not exist: 此播放清單不存在
+      This playlist is now used for quick bookmark: 此播放清單現在用於快速書籤
+      Quick bookmark disabled: 快速書籤已停用
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放清單現在用於快速書籤，而非
+        {oldPlaylistName}。點擊此處撤銷
+      Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
+        進行快速書籤
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
       部影片新增至其中
@@ -174,6 +180,10 @@ User Playlists:
   Remove Watched Videos: 移除已觀看的影片
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中移除所有觀看過的影片嗎？
     這無法還原。
+  Add to Favorites: 新增至 {playlistName}
+  Remove from Favorites: 從 {playlistName} 移除
+  Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
+  Disable Quick Bookmark: 停用快速書籤
 History:
   # On History Page
   History: '觀看紀錄'
