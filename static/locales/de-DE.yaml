@@ -210,6 +210,8 @@ User Playlists:
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Bist
     du sicher, dass du alle angesehenen Videos aus dieser Wiedergabeliste entfernen
     möchtest? Dies kann nicht rückgängig gemacht werden.
+  Add to Favorites: Hinzufügen zu {playlistName}
+  Remove from Favorites: Löschen aus {playlistName}
 History:
   # On History Page
   History: Verlauf
@@ -587,6 +589,9 @@ Settings:
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
+    UseDeArrowThumbnails: Nutze DeArrow für Thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
       ignorieren
@@ -597,6 +602,7 @@ Settings:
     Players:
       None:
         Name: Keine
+    Ignore Default Arguments: Ignoriere Standardargument
   Download Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -1129,6 +1135,9 @@ Tooltips:
       im externen Abspieler öffnen kannst. Achtung, die Einstellungen von Invidious
       wirken sich nicht auf externe Abspieler aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
+    Ignore Default Arguments: Schicke keine Standardargumente an den externen Videoplayer
+      außer der Video URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere
+      Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
@@ -1144,6 +1153,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
+    UseDeArrowThumbnails: Ersetze Video-Thumbnails mit Thumbnails von DeArrow.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
