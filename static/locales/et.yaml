@@ -180,6 +180,14 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 video on eemaldatud | {videoCount}
         videot on eemaldatud
       This video cannot be moved down.: Seda videot ei saa allapoole liigutada.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: '{oldPlaylistName}
+        asemel on nüüd see esitusloend kasutusel kiirjärjehoidjate jaoks. Selle otsuse
+        tühistamiseks klõpsi siin'
+      This playlist is now used for quick bookmark: See esitusloend on kasutusel kiirjärjehoidjate
+        jaoks
+      Quick bookmark disabled: Kiirjärjehoidjad ei ole kasutusel
+      Reverted to use {oldPlaylistName} for quick bookmark: Võtsime {oldPlaylistName}
+        uuesti kasutusele kiirjärjehoidjate jaoks
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
     kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
   Sort By:
@@ -202,6 +210,11 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Sellise
         nimega esitusloend on juba olemas. Palun sisesta muu nimi.
     New Playlist Name: Esitusloendi uus nimi
+  Disable Quick Bookmark: Lülita kiirjärjehoidjate kasutamine välja
+  Add to Favorites: Lisa esitusloendisse {playlistName}
+  Remove from Favorites: Eemalda esitusloendist {playlistName}
+  Enable Quick Bookmark With This Playlist: Võimalda kiirjärjehoidjate kasutamist
+    selle esitusloendiga
 History:
   # On History Page
   History: 'Ajalugu'
