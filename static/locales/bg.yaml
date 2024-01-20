@@ -130,20 +130,20 @@ User Playlists:
   Search bar placeholder: Търсене в плейлиста
   Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето
     ви
-  This playlist currently has no videos.: В този списък в момента няма видеа.
+  This playlist currently has no videos.: В този плейлист в момента няма видеа.
   Add to Favorites: Добавяне към {playlistName}
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Сигурни
-    ли сте, че искате да премахнете всички гледани видеа от този списък? Това не може
-    да бъде отменено.
+    ли сте, че искате да премахнете всички гледани видеа от този плейлист? Това не
+    може да бъде отменено.
   Are you sure you want to delete this playlist? This cannot be undone: Сигурни ли
-    сте, че искате да изтриете този списък? Това не може да бъде отменено.
+    сте, че искате да изтриете този плейлист? Това не може да бъде отменено.
   SinglePlaylistView:
     Toast:
       Reverted to use {oldPlaylistName} for quick bookmark: Възстановено е използването
         на {oldPlaylistName} за бързи отметки
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои
-        видеа в списъка все още не са заредени. Щракнете тук, за да копирате.
-      Playlist {playlistName} has been deleted.: Списъкът {playlistName} е изтрит.
+        видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
+      Playlist {playlistName} has been deleted.: Плейлиста {playlistName} е изтрит.
       There were no videos to remove.: Няма видеа за премахване.
       This video cannot be moved up.: Това видео не може да бъде преместено нагоре.
       This video cannot be moved down.: Това видео не може да бъде преместено надолу.
@@ -152,35 +152,35 @@ User Playlists:
       There was a problem with removing this video: Имаше проблем с премахването на
         това видео
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този
-        списък вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете
+        плейлист вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете
         тук, за отмяна
-      This playlist is now used for quick bookmark: Този списък вече се използва за
-        бързи отметки
-      Playlist name cannot be empty. Please input a name.: Името на списъка не може
+      This playlist is now used for quick bookmark: Този плейлист вече се използва
+        за бързи отметки
+      Playlist name cannot be empty. Please input a name.: Името на плейлиста не може
         да бъде празно. Моля, въведете име.
-      Playlist has been updated.: Списъкът е актуализиран.
+      Playlist has been updated.: Плейлиста е актуализиран.
       There was an issue with updating this playlist.: Имаше проблем с актуализирането
-        на този списък.
+        на този плейлист.
       "{videoCount} video(s) have been removed": 1 видео е премахнато | {videoCount}
         видеа са премахнати
-      This playlist is protected and cannot be removed.: Този списък е защитен и не
-        може да бъде премахнат.
-      This playlist does not exist: Този списък не съществува
+      This playlist is protected and cannot be removed.: Този плейлист е защитен и
+        не може да бъде премахнат.
+      This playlist does not exist: Този плейлист не съществува
   CreatePlaylistPrompt:
     Toast:
-      Playlist {playlistName} has been successfully created.: Списъкът {playlistName}
+      Playlist {playlistName} has been successfully created.: Плейлиста {playlistName}
         е създаден успешно.
       There is already a playlist with this name. Please pick a different name.: Вече
-        има списък с това име. Моля, изберете друго.
+        има плейлист с това име. Моля, изберете друго.
       There was an issue with creating the playlist.: Имаше проблем при създаването
-        на списъка.
-    New Playlist Name: Име на нов списък
+        на плейлиста.
+    New Playlist Name: Име на нов плейлист
     Create: Създаване
   You have no playlists. Click on the create new playlist button to create a new one.: Нямате
-    списъци за изпълнение. Щракнете върху бутона за създаване на нов списък за изпълнение,
-    за да създадете нов.
+    плейлисти. Щракнете върху бутона за създаване на нов плейлист, за да създадете
+    нов.
   Create New Playlist: Създаване на нов
-  Add to Playlist: Добавяне към списък за изпълнение
+  Add to Playlist: Добавяне към плейлист за изпълнение
   Move Video Up: Преместване нагоре
   Playlist Description: Описание
   Cancel: Отказ
@@ -195,34 +195,34 @@ User Playlists:
     EarliestUpdatedFirst: Най-рано обновени
     LatestPlayedFirst: Наскоро възпроизведени
   AddVideoPrompt:
-    Search in Playlists: Търсене в списъци
-    Select a playlist to add your N videos to: Изберете списък, в който да добавите
-      своето видео | Изберете списък, в който да добавите своите {videoCount} видеа
+    Search in Playlists: Търсене в плейлисти
+    Select a playlist to add your N videos to: Изберете плейлист, в който да добавите
+      своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
     N playlists selected: '{playlistCount} избрани'
     Toast:
-      You haven't selected any playlist yet.: Все още не сте избрали списък.
-      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 списък | Добавени
-        {videoCount} видеа в 1 списък
+      You haven't selected any playlist yet.: Все още не сте избрали плейлист.
+      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 плейлист |
+        Добавени {videoCount} видеа в 1 плейлист
       "{videoCount} video(s) added to {playlistCount} playlists": Добавено 1 видео
-        към {playlistCount} списъка | Добавени {videoCount} видеа към {playlistCount}
-        списъка
+        към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount}
+        плейлиста
     Save: Запазване
-  Remove from Playlist: Премахване от списъка за изпълнение
-  Playlist Name: Име на списъка
+  Remove from Playlist: Премахване от плейлиста за изпълнение
+  Playlist Name: Име на плейлиста
   Save Changes: Запазване на промените
   Edit Playlist Info: Редактиране на инфо
-  Copy Playlist: Копиране на списъка
+  Copy Playlist: Копиране на плейлиста
   Remove Watched Videos: Премахване на гледаните видеа
-  Enable Quick Bookmark With This Playlist: Активиране на бърза отметка с този списък
+  Enable Quick Bookmark With This Playlist: Активиране на бърза отметка с този плейлист
   Disable Quick Bookmark: Деактивиране на бърза отметка
-  Delete Playlist: Изтриване на списъка
+  Delete Playlist: Изтриване на плейлиста
   Remove from Favorites: Премахване от {playlistName}
   Move Video Down: Преместване надолу
 History:
   # On History Page
   History: 'История'
   Watch History: 'История на гледане'
-  Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
+  Your history list is currently empty.: 'Плейлиста с история на гледанията е празен.'
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
 Settings:
@@ -251,7 +251,7 @@ Settings:
       Beginning: 'Начало на видео'
       Middle: 'Среда на видео'
       End: 'Край на видео'
-      Hidden: Скрити
+      Hidden: Скриване
       Blur: Размазано
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Излед на Invidious
       (по подразбиране е https://invidious.snopyta.org)'
@@ -412,10 +412,10 @@ Settings:
     Automatically Remove Video Meta Files: Автоматично премахване на видео метафайловете
     Save Watched Videos With Last Viewed Playlist: Запазване на гледани видеа с последно
       гледан плейлист
-    Remove All Playlists: Премахване на всички списъци
-    All playlists have been removed: Всички списъци са премахнати
+    Remove All Playlists: Премахване на всички плейлисти
+    All playlists have been removed: Всички плейлисти са премахнати
     Are you sure you want to remove all your playlists?: Сигурни ли сте, че искате
-      да премахнете всичките си списъци?
+      да премахнете всичките си плейлисти?
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
@@ -473,12 +473,12 @@ Settings:
     Playlist File: Файл с плейлисти
     Subscription File: Файл с абонаменти
     Export Playlists For Older FreeTube Versions:
-      Tooltip: "Тази опция изнася видеа от всички списъци в един списък с име \"Предпочитани\"\
-        .\nКак да изнесете и внесете видеа в списъци за по-стара версия на FreeTube:\n
-        1. Изнесете списъците си с включена тази опция.\n2. Изтрийте всичките си съществуващи
-        списъци, като използвате опцията \"Премахване на всички списъци\" в Настройки
-        за поверителност.\n3. Стартирайте по-старата версия на FreeTube и внесете
-        изнесените списъци.\""
+      Tooltip: "Тази опция изнася видеа от всички плейлисти в един плейлист с име
+        \"Предпочитани\".\nКак да изнесете и внесете видеа в плейлисти за по-стара
+        версия на FreeTube:\n1. Изнесете плейлистите си с включена тази опция.\n2.
+        Изтрийте всичките си съществуващи плейлисти, като използвате опцията \"Премахване
+        на всички плейлисти\" в Настройки за поверителност.\n3. Стартирайте по-старата
+        версия на FreeTube и внесете изнесените плейлисти.\""
       Label: Изнасяне на плейлисти за по-стари версии на FreeTube
   Advanced Settings:
     Advanced Settings: 'Разширени настройки'
@@ -1106,7 +1106,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(По подразбиране: '{defaultCustomArguments}')"
     Ignore Default Arguments: Без изпращане на аргументи по подразбиране към външния
       плейър, освен URL адреса на видеото (напр. скорост на възпроизвеждане, URL адрес
-      на списъка за възпроизвеждане и т.н.). Потребителските аргументи все пак ще
+      на плейлиста за възпроизвеждане и т.н.). Потребителските аргументи все пак ще
       бъдат изпратени.
   Experimental Settings:
     Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира
@@ -1115,14 +1115,14 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Въведете идентификатор на канал, за да скриете всички видеа, плейлисти
       и самия канал от показване в търсенето, тенденциите, най-популярните и препоръчаните.
-      Въведеното идентификатор трябва да съвпада напълно и е чувствителен към главни
+      Въведеният идентификатор трябва да съвпада напълно и е чувствителен към главни
       и малки букви.
     Hide Subscriptions Live: Тази настройка се отменя от настройката за цялото приложение
       "{appWideSetting}" в секция "{subsection}" на "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Заменя заглавията на видеата с подадени от потребителите заглавия
       от DeArrow.
-    UseDeArrowThumbnails: Замяна миниатюрите на видеата с миниатюри от DeArrow.
+    UseDeArrowThumbnails: Заменя миниатюрите на видеата с миниатюри от DeArrow.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
