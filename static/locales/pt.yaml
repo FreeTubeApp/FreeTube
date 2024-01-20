@@ -210,6 +210,8 @@ User Playlists:
     certeza que quer remover todos os vídeos vistos desta lista de reprodução? Isto
     não pode ser revertido.
   Playlist Description: Descrição da lista de reprodução
+  Add to Favorites: Adicionar a {playlistName}
+  Remove from Favorites: Remover de {playlistName}
 History:
   # On History Page
   History: 'Histórico'
@@ -513,6 +515,7 @@ Settings:
       Do Nothing: Nada fazer
     Category Color: Cor da categoria
     UseDeArrowTitles: Utilizar títulos de vídeo DeArrow
+    UseDeArrowThumbnails: Usar 'DeArrow' para miniaturas
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
@@ -585,6 +588,7 @@ Settings:
     Players:
       None:
         Name: Nenhum
+    Ignore Default Arguments: Ignorar argumentos padrão
   The app needs to restart for changes to take effect. Restart and apply change?: Tem
     que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar as alterações?
   Download Settings:
