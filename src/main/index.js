@@ -1060,6 +1060,11 @@ function runApp() {
 
   let resourcesCleanUpDone = false
 
+  app.on('before-quit', () => {
+    // Prevent closing the app with open fullscreen videos causing the app to start in fullscreen on next load
+    window?.webContents.executeJavascript('if (document.fullscreenElement?.player) await document.exitFullscreen()')
+  })
+
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
