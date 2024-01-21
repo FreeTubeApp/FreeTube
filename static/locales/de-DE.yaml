@@ -182,6 +182,7 @@ User Playlists:
       This playlist does not exist: Diese Wiedergabeliste existiert nicht
       This playlist is now used for quick bookmark: Diese Wiedergabeliste wird jetzt
         für Schnelles Merken genutzt
+      Quick bookmark disabled: '"Schnelles merken" deaktiviert'
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
     Search in Playlists: In Wiedergabelisten suchen
