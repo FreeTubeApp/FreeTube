@@ -187,7 +187,7 @@ User Playlists:
         Wiedergabeliste wird jetzt für Schnelles Merken genutzt, statt {oldPlaylistName}.
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
-        wieder für "schnelles merken" genutzt'
+        wieder für Schnelles Merken genutzt'
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
     Search in Playlists: In Wiedergabelisten suchen
@@ -1072,7 +1072,7 @@ Profile:
   Edit Profile Name: Profilname bearbeiten
   Create Profile Name: Profilname erstellen
   Open Profile Dropdown: Profil-Dropdown öffnen
-  Close Profile Dropdown: Profil-Dropdown schließen
+  Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
   ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
