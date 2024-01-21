@@ -526,12 +526,12 @@ Settings:
     Playlist File: Fichier des listes de lecture
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de
-        lecture vers une seule liste de lecture nommée \"Favorites\".\nComment exporter
+        lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter
         et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n
         1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes
         vos sélections existantes à l'aide de l'option Supprimer toutes les sélections
         sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube
-        et importez les listes de lecture exportées.\""
+        et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
