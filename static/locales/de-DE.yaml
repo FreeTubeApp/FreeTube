@@ -212,6 +212,8 @@ User Playlists:
     möchtest? Dies kann nicht rückgängig gemacht werden.
   Add to Favorites: Hinzufügen zu {playlistName}
   Remove from Favorites: Löschen aus {playlistName}
+  Enable Quick Bookmark With This Playlist: Aktiviere "schnelles merken" für diese
+    Wiedergabeliste
 History:
   # On History Page
   History: Verlauf
