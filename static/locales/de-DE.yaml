@@ -186,6 +186,8 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese
         Wiedergabeliste wird jetzt für Schnelles Merken genutzt, statt {oldPlaylistName}.
         Klicke hier zum zurücksetzen
+      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
+        wieder für "schnelles merken" genutzt'
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
     Search in Playlists: In Wiedergabelisten suchen
