@@ -184,7 +184,7 @@ User Playlists:
         für Schnelles Merken genutzt
       Quick bookmark disabled: 'Schnelles Merken deaktiviert'
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese
-        Wiedergabeliste wird jetzt für "schnelles merken" genutzt, statt {oldPlaylistName}.
+        Wiedergabeliste wird jetzt für Schnelles Merken genutzt, statt {oldPlaylistName}.
         Klicke hier zum zurücksetzen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
