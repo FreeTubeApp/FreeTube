@@ -15,7 +15,7 @@
 .black,
 .dracula,
 .catppuccinMocha,
-.catppucinFrappe,
+.catppuccinFrappe,
 .pastelPink,
 .hotPink {
   --link-color: var(--accent-color);
@@ -29,7 +29,7 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.catppucinFrappe,
+.catppuccinFrappe,
 .pastelPink {
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --side-nav-hover-text-color: var(--primary-text-color);
@@ -60,7 +60,7 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.catppucinFrappe,
+.catppuccinFrappe,
 .hotPink {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
