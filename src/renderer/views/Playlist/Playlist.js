@@ -58,6 +58,7 @@ export default defineComponent({
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
+      userPlaylistVisibleVideoLimit: 100,
 
       promptOpen: false,
     }
@@ -102,6 +103,10 @@ export default defineComponent({
     },
 
     moreVideoDataAvailable() {
+      if (this.selectedUserPlaylist) {
+        return this.selectedUserPlaylist.videos.length > this.userPlaylistVisibleVideoLimit
+      }
+
       return this.continuationData !== null
     },
 
@@ -146,8 +151,22 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist videos updated
       this.getPlaylistInfoDebounce()
     },
+    userPlaylistVisibleVideoLimit (val) {
+      sessionStorage.setItem('Playlist/userPlaylistVisibleVideoLimit', val)
+
+      if (this.selectedUserPlaylistVideos.length < this.userPlaylistVisibleVideoLimit) {
+        this.playlistItems = this.selectedUserPlaylistVideos
+      } else {
+        this.playlistItems = this.selectedUserPlaylistVideos.slice(0, this.userPlaylistVisibleVideoLimit)
+      }
+    },
   },
   mounted: function () {
+    const limit = sessionStorage.getItem('Playlist/userPlaylistVisibleVideoLimit')
+    if (limit !== null) {
+      this.userPlaylistVisibleVideoLimit = limit
+    }
+
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
     this.getPlaylistInfoDebounce()
   },
@@ -285,7 +304,11 @@ export default defineComponent({
       this.channelId = ''
       this.infoSource = 'user'
 
-      this.playlistItems = playlist.videos
+      if (playlist.videos.length < this.userPlaylistVisibleVideoLimit) {
+        this.playlistItems = playlist.videos
+      } else {
+        this.playlistItems = playlist.videos.slice(0, this.userPlaylistVisibleVideoLimit)
+      }
 
       this.isLoading = false
     },
@@ -294,6 +317,11 @@ export default defineComponent({
     },
 
     getNextPage: function () {
+      if (this.selectedUserPlaylist) {
+        this.userPlaylistVisibleVideoLimit += 100
+        return
+      }
+
       switch (this.infoSource) {
         case 'local':
           this.getNextPageLocal()
