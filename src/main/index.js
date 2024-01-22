@@ -489,6 +489,8 @@ function runApp() {
           return '#282a36'
         case 'catppuccin-mocha':
           return '#1e1e2e'
+        case 'catppuccin-frappe':
+          return '#303446'
         case 'pastel-pink':
           return '#ffd1dc'
         case 'hot-pink':

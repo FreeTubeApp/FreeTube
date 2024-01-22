@@ -35,7 +35,21 @@ export const colors = [
   { name: 'CatppuccinMochaSky', value: '#89DCEB' },
   { name: 'CatppuccinMochaSapphire', value: '#74C7EC' },
   { name: 'CatppuccinMochaBlue', value: '#89B4FA' },
-  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' }
+  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' },
+  { name: 'CatppuccinFrappeRosewater', value: '#F2D5CF' },
+  { name: 'CatppuccinFrappeFlamingo', value: '#EEBEBE' },
+  { name: 'CatppuccinFrappePink', value: '#F4B8E4' },
+  { name: 'CatppuccinFrappeMauve', value: '#CA9EE6' },
+  { name: 'CatppuccinFrappeRed', value: '#E78284' },
+  { name: 'CatppuccinFrappeMaroon', value: '#EA999C' },
+  { name: 'CatppuccinFrappePeach', value: '#EF9F76' },
+  { name: 'CatppuccinFrappeYellow', value: '#E5C890' },
+  { name: 'CatppuccinFrappeGreen', value: '#A6D189' },
+  { name: 'CatppuccinFrappeTeal', value: '#81C8BE' },
+  { name: 'CatppuccinFrappeSky', value: '#99D1DB' },
+  { name: 'CatppuccinFrappeSapphire', value: '#85C1DC' },
+  { name: 'CatppuccinFrappeBlue', value: '#8CAAEE' },
+  { name: 'CatppuccinFrappeLavender', value: '#BABBF1' }
 ]
 
 export function getRandomColorClass() {
