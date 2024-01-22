@@ -214,9 +214,10 @@
         </ft-flex-box>
       </div>
     </ft-card>
-    <ft-card
+    <component
+      :is="showCommunityPanel ? 'div' : 'ft-card'"
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
-      class="card"
+      :class="showCommunityPanel ? '' : 'card'"
     >
       <channel-about
         v-if="currentTab === 'about'"
@@ -366,7 +367,7 @@
           </p>
         </ft-flex-box>
         <ft-element-list
-          v-if="!hideChannelCommunity && currentTab === 'community'"
+          v-if="showCommunityPanel"
           id="communityPanel"
           :data="latestCommunityPosts"
           :use-channels-hidden-preference="false"
@@ -405,7 +406,7 @@
           <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
-    </ft-card>
+    </component>
     <ft-card
       v-if="errorMessage"
       class="card"

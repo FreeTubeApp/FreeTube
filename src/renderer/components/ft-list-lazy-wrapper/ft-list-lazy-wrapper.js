@@ -3,6 +3,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
 import FtCommunityPost from '../ft-community-post/ft-community-post.vue'
+import FtCard from '../ft-card/ft-card.vue'
 import FtListHashtag from '../ft-list-hashtag/ft-list-hashtag.vue'
 
 export default defineComponent({
@@ -12,7 +13,8 @@ export default defineComponent({
     'ft-list-channel': FtListChannel,
     'ft-list-playlist': FtListPlaylist,
     'ft-community-post': FtCommunityPost,
-    'ft-list-hashtag': FtListHashtag,
+    'ft-card': FtCard,
+    'ft-list-hashtag': FtListHashtag
   },
   props: {
     data: {
@@ -42,7 +44,7 @@ export default defineComponent({
     useChannelsHiddenPreference: {
       type: Boolean,
       default: true,
-    },
+    }
   },
   data: function () {
     return {

@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+import FtCard from '../ft-card/ft-card.vue'
 import FtCommunityPoll from '../ft-community-poll/ft-community-poll.vue'
 
 import autolinker from 'autolinker'
@@ -13,6 +14,7 @@ import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 export default defineComponent({
   name: 'FtCommunityPost',
   components: {
+    'ft-card': FtCard,
     'ft-list-playlist': FtListPlaylist,
     'ft-list-video': FtListVideo,
     'ft-community-poll': FtCommunityPoll
@@ -42,8 +44,15 @@ export default defineComponent({
     }
   },
   computed: {
-    listType: function () {
-      return this.$store.getters.getListType
+    tinySliderOptions: function() {
+      return {
+        items: 1,
+        arrowKeys: false,
+        controls: false,
+        autoplay: false,
+        slideBy: 'page',
+        navPosition: 'bottom'
+      }
     }
   },
   created: function () {

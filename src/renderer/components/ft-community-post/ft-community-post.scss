@@ -1,39 +1,57 @@
 /* stylelint-disable property-no-vendor-prefix */
 @use '../../scss-partials/_ft-list-item';
 
-.outside {
-  margin: auto;
-  inline-size: 40%;
-  @media screen and (max-width: 768px) {
-    inline-size: 100%;
+.card {
+  position: relative;
+  inline-size: 75%;
+  margin-block: 0 20px;
+  padding-block: 0 1em;
+  padding-inline: 1em 2em;
+  box-sizing: border-box;
+  // derived from the ft-card width of 85% (subtract from 100% & divide by two)
+  margin-inline-start: 7.5%;
+
+  @media only screen and (max-width: 600px) {
+    inline-size: 85%;
   }
 }
 
-.ft-list-post {
-  box-sizing: border-box;
+.ft-list-post.list {
+  margin-inline: 0 auto;
+  flex-direction: row;
+  min-block-size: 0;
+  min-inline-size: 100%;
+  padding-block: 0;
+  padding-inline: 0;
+  gap: 6px;
 }
 
 .communityImage {
   block-size: 100%;
   inline-size: 100%;
+  margin-block-start: 6px;
 }
 
 .communityThumbnail {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   block-size: 55px;
+  margin-block-start: 1em;
   margin-inline-end: 5px;
   inline-size: 55px;
 }
 
 .author-div {
   display: flex;
+  .authorName, .publishedText {
+    padding-block-start: 0;
+  }
 
   .authorName {
     font-size: 15px;
     font-weight: bold;
-    margin-block: 5px 0;
-    margin-inline: 5px 6px;
+    margin-block-end: 6px;
+    margin-inline: 0 6px;
     .authorNameLink {
       color: inherit;
       text-decoration: none;
@@ -42,13 +60,14 @@
 
   .publishedText {
     font-size: 15px;
-    margin-block: 5px 0;
     margin-inline: 5px 6px;
+    margin-block-end: 6px;
   }
 }
 
 .postText {
-  overflow-wrap: anywhere;
+  margin-block: 6px;
+  overflow-wrap: normal;
   white-space: pre-wrap;
 }
 
@@ -57,14 +76,9 @@
   display: block;
   flex-direction: column;
   font-size: 15px;
-  margin-block-start: 4px;
+  margin-block: 8px 0;
   max-inline-size: 210px;
   text-align: start;
-
-  @media screen and (max-width: 680px) {
-    margin-inline-start: 0;
-    text-align: start;
-  }
 
   .likeBar {
     border-radius: 4px;
@@ -132,9 +146,11 @@
   }
 }
 
-.ft-list-item.grid {
-  min-block-size: 0 !important;
-  padding-block-end: 20px;
+@media screen and (max-width: 680px) {
+  .ft-list-post.list {
+    margin-inline-start: 0;
+    text-align: start;
+  }
 }
 
 .sliderContainer {
