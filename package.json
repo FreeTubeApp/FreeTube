@@ -86,7 +86,7 @@
     "@babel/preset-env": "^7.23.8",
     "@double-great/stylelint-a11y": "^3.0.0",
     "babel-loader": "^9.1.3",
-    "copy-webpack-plugin": "^12.0.1",
+    "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.9.1",
     "css-minimizer-webpack-plugin": "^6.0.0",
     "electron": "^28.1.4",
