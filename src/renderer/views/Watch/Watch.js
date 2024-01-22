@@ -215,7 +215,18 @@ export default defineComponent({
     allowDashAv1Formats: function () {
       return this.$store.getters.getAllowDashAv1Formats
     },
-
+    channelsHidden() {
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
+    },
+    forbiddenTitles() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
+    },
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
     },
@@ -1316,6 +1327,19 @@ export default defineComponent({
         this.$refs.watchVideoPlaylist.playNextVideo()
         return
       }
+
+      let nextVideoId = null
+      if (!this.watchingPlaylist) {
+        const forbiddenTitles = this.forbiddenTitles
+        const channelsHidden = this.channelsHidden
+        nextVideoId = this.recommendedVideos.find((video) =>
+          !this.isHiddenVideo(forbiddenTitles, channelsHidden, video)
+        )?.videoId
+        if (!nextVideoId) {
+          return
+        }
+      }
+
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(() => {
         const player = this.$refs.videoPlayer.player
@@ -1323,7 +1347,6 @@ export default defineComponent({
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           } else {
-            const nextVideoId = this.recommendedVideos[0].videoId
             this.$router.push({
               path: `/watch/${nextVideoId}`
             })
@@ -1734,6 +1757,12 @@ export default defineComponent({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
+    },
+
+    isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
+      return channelsHidden.some(ch => ch.name === video.authorId) ||
+        channelsHidden.some(ch => ch.name === video.author) ||
+        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
     },
 
     updateLocalPlaylistLastPlayedAtSometimes() {
