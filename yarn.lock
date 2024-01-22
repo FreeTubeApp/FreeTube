@@ -4453,18 +4453,7 @@ glob-to-regexp@^0.4.1:
   resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.4.1.tgz#c75297087c851b9a578bd217dd59a92f59fe546e"
   integrity sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==
 
-glob@8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-8.1.0.tgz#d388f656593ef708ee3e34640fdfb99a9fd1c33e"
-  integrity sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^5.0.1"
-    once "^1.3.0"
-
-glob@^10.3.7:
+glob@10.3.10, glob@^10.3.7:
   version "10.3.10"
   resolved "https://registry.yarnpkg.com/glob/-/glob-10.3.10.tgz#0351ebb809fd187fe421ab96af83d3a70715df4b"
   integrity sha512-fa46+tv1Ak0UPK1TOy/pZrIybNNt4HCv7SDzwyfiOZkvZLEbjsZkJBPtDHVshZjbecAoAGSC20MjLDG/qr679g==
@@ -8630,12 +8619,12 @@ webpack-sources@^3.2.3:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack-watch-external-files-plugin@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-watch-external-files-plugin/-/webpack-watch-external-files-plugin-2.0.0.tgz#4c4e08c59b092c1d705e94d7a380eaa827a76d9c"
-  integrity sha512-dPUCEcgBjJHWyD4b0HcHD6h3mkPxVKmsfUSks5CvCbrF7HHLvIl/Wq4KSkUMMiNymloZKKkBjYpQxhubAEFM+Q==
+webpack-watch-external-files-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-watch-external-files-plugin/-/webpack-watch-external-files-plugin-3.0.0.tgz#65d75389b1c9b05e84a2cfad83897ac12f146c7e"
+  integrity sha512-u0geLnZ/uJXh92B+40apyovnexoP+m9I6QktyGlG8rP6CXXYKe3yhG7zY9P2Wbg75sPTP1PYv2rropRlZdxg9A==
   dependencies:
-    glob "8.1.0"
+    glob "10.3.10"
     path "0.12.7"
 
 webpack@^5.89.0:
