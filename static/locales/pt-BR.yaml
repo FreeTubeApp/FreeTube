@@ -140,7 +140,7 @@ User Playlists:
         foi criada com sucesso.
       There was an issue with creating the playlist.: Ocorreu um problema ao criar
         a playlist.
-  Add to Favorites: Adicionar à {playlistName}
+  Add to Favorites: Adicionar a {NomeDaPlaylist}
   Remove from Favorites: Remover de {playlistName}
   Move Video Down: Mover vídeo para baixo
   Playlist Name: Nome da Playlist
@@ -551,9 +551,9 @@ Settings:
     Blur Thumbnails: Desfocar Miniaturas
     Hide Subscriptions Community: Ocultar comunidade inscritas
     Hide Channels Invalid: ID de canal fornecido é inválido
-    Hide Channels Disabled Message: Alguns canais foram bloqueados usando ID e não
-      foram processados. O recurso é bloqueado enquanto esses ID estão atualizando
-    Hide Channels Already Exists: O ID de canal já existe
+    Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram
+      processados. O recurso é bloqueado enquanto esses IDs estão sendo atualizados
+    Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor,
       verifique novamente se o ID está correto.
     Hide Videos and Playlists Containing Text Placeholder: Palavra, trecho de palavra
@@ -1131,10 +1131,10 @@ Tooltips:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
-    Hide Channels: Insira um ID de canal para ocultar todos os vídeos, as playlists
-      e o próprio canal dos resultados da busca, tendências, mais populares e recomendados.
-      O nome do canal digitado deve coincidir exatamente, observando as maiúsculas
-      e as minúsculas.
+    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, as
+      listas de reprodução e o próprio canal dos resultados da busca, tendências,
+      mais populares e recomendados. O nome do canal digitado deve coincidir exatamente,
+      observando maiúsculas e minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
       aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
     Hide Videos and Playlists Containing Text: Insira uma palavra, trecho de palavra
@@ -1208,7 +1208,7 @@ Playlist will not pause when current video is finished: A playlist não será pa
   quando o vídeo atual terminar
 Channel Hidden: '{channel} adicionado ao filtro de canais'
 Go to page: Ir para {page}
-Channel Unhidden: '{channel} removido do filtro de canais'
+Channel Unhidden: '{channel} removido do filtro do canal'
 Trimmed input must be at least N characters long: A entrada cortada deve ter pelo
   menos 1 caractere | A entrada cortada precisa ter pelo menos {length} caracteres
 Tag already exists: A tag "{tagName}" já existe
