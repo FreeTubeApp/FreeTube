@@ -43,6 +43,8 @@ Global:
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
+  Input Tags:
+    Length Requirement: L'étiquette doit comporter au moins {number} caractères
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -580,6 +582,8 @@ Settings:
     Hide Channels Already Exists: L'identifiant de la chaîne existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant
       fourni. Veuillez vérifier à nouveau si l'ID est correct.
+    Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de
+      lecture contenant du texte
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -777,6 +781,7 @@ Channel:
     votes: '{votes} votes'
     Reveal Answers: Afficher les réponses
     Hide Answers: Masquer les réponses
+    Video hidden by FreeTube: Vidéo cachée par FreeTube
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement
