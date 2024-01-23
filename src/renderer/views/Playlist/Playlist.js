@@ -26,7 +26,7 @@ export default defineComponent({
     'ft-button': FtButton
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+    if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
         title: this.playlistTitle,
