@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 abone | {count} abone
     View Count: 1 izlenme | {count} izlenme
     Watching Count: 1 izliyor | {count} izliyor
+  Input Tags:
+    Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -555,6 +557,10 @@ Settings:
     Hide Channels Already Exists: Kanal kimliği zaten var
     Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu.
       Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
+    Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini
+      Gizle
+    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
+      veya İfade
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -794,6 +800,7 @@ Channel:
     votes: '{votes} oy'
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
+    Video hidden by FreeTube: FreeTube tarafından gizlenen video
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
@@ -1125,6 +1132,11 @@ Tooltips:
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
       kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
       kılınıyor
+    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz
+      ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında
+      orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek
+      için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı
+      değildir).
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.
@@ -1196,3 +1208,6 @@ Playlist will not pause when current video is finished: Geçerli video bittiğin
 Channel Hidden: '{channel} kanal filtresine eklendi'
 Go to page: '{page}. sayfaya git'
 Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
+Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
+  uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
+Tag already exists: '"{tagName}" etiketi zaten var'
