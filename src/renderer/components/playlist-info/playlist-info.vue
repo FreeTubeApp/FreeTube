@@ -48,7 +48,7 @@
       </h2>
       <p>
         {{ videoCount }} {{ $t("Playlist.Videos") }}
-        <span v-if="!hideViews && infoSource !== 'user'">
+        <span v-if="!hideViews && !isUserPlaylist">
           - {{ viewCount }} {{ $t("Playlist.Views") }}
         </span>
         <span>- </span>
@@ -79,7 +79,7 @@
       class="channelShareWrapper"
     >
       <router-link
-        v-if="infoSource !== 'user' && channelId"
+        v-if="!isUserPlaylist && channelId"
         class="playlistChannel"
         :to="`/channel/${channelId}`"
       >
@@ -122,7 +122,7 @@
         />
 
         <ft-icon-button
-          v-if="!editMode && infoSource === 'user'"
+          v-if="!editMode && isUserPlaylist"
           :title="$t('User Playlists.Edit Playlist Info')"
           :icon="['fas', 'edit']"
           theme="secondary"
@@ -136,21 +136,21 @@
           @click="toggleCopyVideosPrompt"
         />
         <ft-icon-button
-          v-if="!editMode && !markedAsQuickBookmarkTarget"
+          v-if="!editMode && isUserPlaylist && !markedAsQuickBookmarkTarget"
           :title="$t('User Playlists.Enable Quick Bookmark With This Playlist')"
           :icon="['fas', 'link']"
           theme="secondary"
           @click="enableQuickBookmarkForThisPlaylist"
         />
         <ft-icon-button
-          v-if="!editMode && markedAsQuickBookmarkTarget"
+          v-if="!editMode && isUserPlaylist && markedAsQuickBookmarkTarget"
           :title="$t('User Playlists.Disable Quick Bookmark')"
           :icon="['fas', 'link-slash']"
           theme="secondary"
           @click="disableQuickBookmark"
         />
         <ft-icon-button
-          v-if="!editMode && infoSource === 'user' && videoCount > 0"
+          v-if="!editMode && isUserPlaylist && videoCount > 0"
           :title="$t('User Playlists.Remove Watched Videos')"
           :icon="['fas', 'eye-slash']"
           theme="primary"
