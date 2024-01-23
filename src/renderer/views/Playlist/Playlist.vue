@@ -18,7 +18,7 @@
       :last-updated="lastUpdated"
       :description="playlistDescription"
       :video-count="videoCount"
-      :videos="playlistItems"
+      :videos="playlistInfoVideos"
       :view-count="viewCount"
       :info-source="infoSource"
       :more-video-data-available="moreVideoDataAvailable"

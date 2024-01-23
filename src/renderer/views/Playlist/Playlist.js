@@ -109,6 +109,13 @@ export default defineComponent({
 
       return this.continuationData !== null
     },
+    playlistInfoVideos() {
+      if (this.selectedUserPlaylist) {
+        return this.selectedUserPlaylist.videos
+      }
+
+      return this.playlistItems
+    },
 
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
