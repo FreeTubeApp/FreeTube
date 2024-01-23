@@ -159,8 +159,6 @@ export default defineComponent({
       this.getPlaylistInfoDebounce()
     },
     userPlaylistVisibleVideoLimit (val) {
-      sessionStorage.setItem(`Playlist/userPlaylistVisibleVideoLimit/${this.playlistId}`, val)
-
       if (this.selectedUserPlaylistVideos.length < this.userPlaylistVisibleVideoLimit) {
         this.playlistItems = this.selectedUserPlaylistVideos
       } else {
@@ -169,11 +167,6 @@ export default defineComponent({
     },
   },
   mounted: function () {
-    const limit = sessionStorage.getItem(`Playlist/userPlaylistVisibleVideoLimit/${this.playlistId}`)
-    if (limit !== null) {
-      this.userPlaylistVisibleVideoLimit = limit
-    }
-
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
     this.getPlaylistInfoDebounce()
   },
