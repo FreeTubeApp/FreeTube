@@ -36,7 +36,7 @@
       v-if="!isLoading"
       class="playlistItems"
     >
-      <span
+      <template
         v-if="playlistItems.length > 0"
       >
         <transition-group
@@ -89,7 +89,7 @@
         >
           <ft-loader />
         </div>
-      </span>
+      </template>
       <ft-flex-box
         v-else
       >
