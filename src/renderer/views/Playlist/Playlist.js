@@ -391,7 +391,6 @@ export default defineComponent({
       }
       try {
         this.updatePlaylist(playlist)
-        this.playlistItems = playlistItems
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
         console.error(e)
@@ -423,7 +422,6 @@ export default defineComponent({
       }
       try {
         this.updatePlaylist(playlist)
-        this.playlistItems = playlistItems
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
         console.error(e)
