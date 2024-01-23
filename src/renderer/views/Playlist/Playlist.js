@@ -360,7 +360,7 @@ export default defineComponent({
     },
 
     moveVideoUp: function (videoId, playlistItemId) {
-      const playlistItems = [].concat(this.playlistItems)
+      const playlistItems = [].concat(this.selectedUserPlaylistVideos)
       const videoIndex = playlistItems.findIndex((video) => {
         return video.videoId === videoId && video.playlistItemId === playlistItemId
       })
@@ -392,7 +392,7 @@ export default defineComponent({
     },
 
     moveVideoDown: function (videoId, playlistItemId) {
-      const playlistItems = [].concat(this.playlistItems)
+      const playlistItems = [].concat(this.selectedUserPlaylistVideos)
       const videoIndex = playlistItems.findIndex((video) => {
         return video.videoId === videoId && video.playlistItemId === playlistItemId
       })
