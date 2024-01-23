@@ -44,7 +44,7 @@
           tag="span"
         >
           <div
-            v-for="(item, index) in playlistItems"
+            v-for="(item, index) in visiblePlaylistItems"
             :key="`${item.videoId}-${item.playlistItemId || index}`"
             class="playlistItem"
           >
@@ -64,7 +64,7 @@
               :always-show-add-to-playlist-button="true"
               :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
               :can-move-video-up="index > 0"
-              :can-move-video-down="index < playlistItems.length - 1"
+              :can-move-video-down="index < visiblePlaylistItems.length - 1"
               :can-remove-from-playlist="true"
               :hide-forbidden-titles="false"
               @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
