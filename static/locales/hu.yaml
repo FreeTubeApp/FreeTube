@@ -1206,4 +1206,4 @@ Channel Unhidden: '{channel} eltávolítva a csatornaszűrőből'
 Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter
   hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak
   kell lennie
-Tag already exists: '"{tagName}" címke már létezik'
+Tag already exists: '„{tagName}” címke már létezik'
