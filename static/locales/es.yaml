@@ -45,6 +45,8 @@ Global:
     Subscriber Count: 1 suscriptor | {count} suscriptores
     View Count: 1 vista | {count} vistas
     Watching Count: 1 espectador | {count} espectadores
+  Input Tags:
+    Length Requirement: La etiqueta debe tener al menos {number} caracteres
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -555,6 +557,9 @@ Settings:
     Hide Channels Already Exists: El ID del canal ya existe
     Hide Channels API Error: Error al recuperar el usuario con el ID proporcionado.
       Por favor, compruebe de nuevo si el ID es correcto.
+    Hide Videos and Playlists Containing Text: Ocultar vídeos y listas de reproducción
+      que contengan texto
+    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -787,6 +792,7 @@ Channel:
     Reveal Answers: Revelar las respuestas
     Hide Answers: Ocultar las respuestas
     votes: '{votes} votos'
+    Video hidden by FreeTube: Vídeo oculto por FreeTube
   Live:
     Live: En directo
     This channel does not currently have any live streams: Este canal no tiene actualmente
@@ -1133,6 +1139,11 @@ Tooltips:
       y se debe distinguir entre mayúsculas y minúsculas.
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
+    Hide Videos and Playlists Containing Text: Introduzca una palabra, fragmento de
+      palabra o frase (sin distinguir mayúsculas de minúsculas) para ocultar todos
+      los vídeos y listas de reproducción cuyos títulos originales la contengan en
+      todo FreeTube, excluyendo únicamente Historial, Tus listas de reproducción y
+      los vídeos dentro de las listas de reproducción.
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
@@ -1201,3 +1212,6 @@ Playlist will not pause when current video is finished: La lista de reproducció
 Go to page: Ir a la {page}
 Channel Hidden: '{channel} añadido al filtro de canales'
 Channel Unhidden: '{channel} eliminado del filtro de canales'
+Tag already exists: La etiqueta "{tagName}" ya existe
+Trimmed input must be at least N characters long: La entrada recortada debe tener
+  al menos 1 carácter | La entrada recortada debe tener al menos {length} caracteres
