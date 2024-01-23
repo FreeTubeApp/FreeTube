@@ -44,6 +44,8 @@ Global:
     Subscriber Count: 1 feliratkozó | {count} feliratkozó
     View Count: 1 megtekintés | {count} megtekintés
     Watching Count: 1 néz | {count} néz
+  Input Tags:
+    Length Requirement: A címkének legalább {number} karakter hosszúnak kell lennie
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
   verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
@@ -564,6 +566,9 @@ Settings:
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
       lekérésekor. Kérjük, ellenőrizze még egyszer, hogy helyes-e az azonosító.
+    Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
+    Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási
+      listák elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -798,6 +803,7 @@ Channel:
     Reveal Answers: Válaszok feltárása
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
+    Video hidden by FreeTube: FreeTube által rejtett videó
   Shorts:
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
       rövidfilmek
@@ -1126,6 +1132,11 @@ Tooltips:
       és megkülönbözteti a kis- és nagybetűket.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}”
       beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
+    Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy
+      kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan
+      videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy
+      kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási
+      listákat és a lejátszási listákon belüli videókat.
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow által beküldött, felhasználó
       által beküldött címekre.
@@ -1192,3 +1203,7 @@ Playlist will not pause when current video is finished: Nem szünetel a lejátsz
 Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
 Go to page: Ugrás a(z) {page}. oldalra
 Channel Unhidden: '{channel} eltávolítva a csatornaszűrőből'
+Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter
+  hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak
+  kell lennie
+Tag already exists: '"{tagName}" címke már létezik'
