@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 odběratel | {count} odběratelů
     View Count: 1 zhlédnutí | {count} zhlédnutí
     Watching Count: 1 sledující | {count} sledujících
+  Input Tags:
+    Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -466,6 +468,10 @@ Settings:
     Hide Channels Already Exists: ID kanálu již existuje
     Hide Channels API Error: Chyba při načítání uživatele se zadaným ID. Zkontrolujte
       prosím, zda je zadané ID správné.
+    Hide Videos and Playlists Containing Text: Skrýt videa a playlisty obsahující
+      text
+    Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo
+      fráze
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -768,6 +774,7 @@ Channel:
     Hide Answers: Skrýt odpovědi
     votes: '{votes} hlasů'
     Reveal Answers: Odhalit odpovědi
+    Video hidden by FreeTube: Video skryté programem FreeTube
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
@@ -1072,6 +1079,10 @@ Tooltips:
       Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace
       „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
+    Hide Videos and Playlists Containing Text: Zadejte slovo, část slova nebo frázi
+      (velká a malá písmena nejsou rozlišovány) pro skrytí všech videí a playlistů,
+      jejichž původní názvy obsahují zadání, napříč celým FreeTube, vyjma historie,
+      vašich playlistů a videí uvnitř playlistů.
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
     UseDeArrowThumbnails: Nahradit náhledy videa těmi ze služby DeArrow.
@@ -1155,3 +1166,6 @@ Playlist will not pause when current video is finished: Po přehrání aktuáln�
 Channel Hidden: Kanál {channel} přidán do filtru kanálů
 Go to page: Přejít na {page}
 Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů
+Trimmed input must be at least N characters long: Oříznutý vstup musí být dlouhý alespoň
+  1 znak | Oříznutý vstup musí být dlouhý alespoň {length} znaků
+Tag already exists: Štítek „{tagName}“ již existuje
