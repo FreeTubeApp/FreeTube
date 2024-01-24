@@ -43,6 +43,8 @@ Global:
     View Count: 1 visning | {count} visningar
     Watching Count: 1 tittar | {count} tittare
     Channel Count: 1 kanal | {count} kanaler
+  Input Tags:
+    Length Requirement: Taggen måste vara minst {number} tecken långt
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -128,6 +130,24 @@ User Playlists:
     för 'Favoriter'.
   Search bar placeholder: Sök i Spellistor
   Empty Search Message: Det finns inga videor i denna spellista som matchar din sökning
+  Playlist Name: Spellistenamn
+  Playlist Description: Spellistebeskrivning
+  Delete Playlist: Ta bort Spellista
+  Create New Playlist: Skapa ny spellista
+  Save Changes: Spara Ändringar
+  Cancel: Avbryt
+  Edit Playlist Info: Redigera Spellisteinformation
+  Copy Playlist: Kopiera Spellista
+  Add to Favorites: Lägg till {playlistName}
+  Remove from Favorites: Ta bort från {playlistName}
+  Move Video Up: Flytta upp Video
+  Move Video Down: Flytta ner Video
+  Remove from Playlist: Ta bort från Spellista
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    har inga spellistor. Klicka på Skapa ny spellista-knappen för att skapa en ny.
+  This playlist currently has no videos.: Denna spellista har för närvarande inga
+    videor.
+  Add to Playlist: Lägg till Spellista
 History:
   # On History Page
   History: 'Historik'
@@ -472,6 +492,8 @@ Settings:
       Prompt To Skip: Prompt för att hoppa över
     Category Color: Kategorifärg
     UseDeArrowTitles: Använd DeArrow-videotitlar
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en
+      till DeArrows Miniatyrbildsgenerator-API (Standard är https://dearrow-thumb.ajay.app)
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
     External Player: Extern spelare
@@ -508,7 +530,7 @@ Settings:
     Experimental Settings: Experimentella inställningar
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
-    Replace HTTP Cache: Ersätt HTTP-chachen
+    Replace HTTP Cache: Ersätt HTTP-cache
   Expand All Settings Sections: Expandera alla inställningssektioner
 About:
   #On About page
