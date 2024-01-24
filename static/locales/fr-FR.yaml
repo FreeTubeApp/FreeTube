@@ -584,6 +584,8 @@ Settings:
       fourni. Veuillez vérifier à nouveau si l'ID est correct.
     Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de
       lecture contenant du texte
+    Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
+      phrase
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -1185,6 +1187,11 @@ Tooltips:
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} »
       applicable à l'ensemble de l'application, dans la section « {subsection} » de
       la section « {settingsSection} »
+    Hide Videos and Playlists Containing Text: Saisissez un mot, un fragment de mot
+      ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections
+      dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube,
+      à l'exception de l'historique, de vos listes de lecture et des vidéos contenues
+      dans les listes de lecture.
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par
       les utilisateurs de DeArrow.
