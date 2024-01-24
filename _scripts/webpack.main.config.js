@@ -36,7 +36,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      '__VUE_PROD_DEVTOOLS__': true,
+      '__VUE_PROD_DEVTOOLS__': isDevMode,
       '__VUE_OPTIONS_API__': true,
       'process.env.IS_ELECTRON_MAIN': true
     })

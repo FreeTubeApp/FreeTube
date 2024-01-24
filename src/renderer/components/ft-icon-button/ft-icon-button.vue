@@ -1,17 +1,6 @@
 <template>
   <div class="ftIconButton">
-    <font-awesome-icon
-      class="iconButton"
-      :title="title"
-      :icon="icon"
-      :class="{
-        [theme]: true,
-        shadow: useShadow
-      }"
-      :style="{
-        padding: padding + 'px',
-        fontSize: size + 'px'
-      }"
+    <span
       tabindex="0"
       role="button"
       :aria-expanded="dropdownShown"
@@ -19,7 +8,21 @@
       @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
-    />
+    >
+      <font-awesome-icon
+        class="iconButton"
+        :title="title"
+        :icon="icon"
+        :class="{
+          [theme]: true,
+          shadow: useShadow
+        }"
+        :style="{
+          padding: padding + 'px',
+          fontSize: size + 'px'
+        }"
+      />
+    </span>
     <template
       v-if="dropdownShown"
     >

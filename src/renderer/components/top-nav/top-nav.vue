@@ -5,54 +5,71 @@
     role="navigation"
   >
     <div class="side">
-      <font-awesome-icon
-        class="menuIcon navIcon"
-        :icon="['fas', 'bars']"
+      <div
         role="button"
         tabindex="0"
-        @click="toggleSideNav"
+        @click.prevent="toggleSideNav"
         @keydown.enter.prevent="toggleSideNav"
-      />
-      <font-awesome-icon
-        :aria-disabled="isArrowBackwardDisabled"
-        class="navIcon"
-        :class="{ arrowBackwardDisabled: isArrowBackwardDisabled}"
-        :icon="['fas', 'arrow-left']"
+      >
+        <font-awesome-icon
+          style="padding-top: 0;padding-bottom: 0;"
+          class="menuIcon navIcon"
+          :icon="['fas', 'bars']"
+        />
+      </div>
+      <div
         role="button"
         tabindex="0"
-        :title="backwardText"
-        @click="historyBack"
+        :aria-disabled="isArrowBackwardDisabled || null"
+        @click.prevent="historyBack"
         @keydown.enter.prevent="historyBack"
-      />
-      <font-awesome-icon
-        :aria-disabled="isArrowForwardDisabled"
-        class="navIcon"
-        :class="{ arrowForwardDisabled: isArrowForwardDisabled}"
-        :icon="['fas', 'arrow-right']"
+      >
+        <font-awesome-icon
+          class="navIcon"
+          :class="{ arrowBackwardDisabled: isArrowBackwardDisabled}"
+          :icon="['fas', 'arrow-left']"
+          :title="backwardText"
+        />
+      </div>
+      <div
         role="button"
         tabindex="0"
-        :title="forwardText"
-        @click="historyForward"
+        :aria-disabled="isArrowForwardDisabled || null"
+        @click.prevent="historyForward"
         @keydown.enter.prevent="historyForward"
-      />
-      <font-awesome-icon
+      >
+        <font-awesome-icon
+          class="navIcon"
+          :class="{ arrowForwardDisabled: isArrowForwardDisabled}"
+          :icon="['fas', 'arrow-right']"
+          :title="forwardText"
+        />
+      </div>
+      <div
         v-if="!hideSearchBar"
-        class="navSearchIcon navIcon"
-        :icon="['fas', 'search']"
         role="button"
         tabindex="0"
-        @click="toggleSearchContainer"
+        @click.prevent="toggleSearchContainer"
         @keydown.enter.prevent="toggleSearchContainer"
-      />
-      <font-awesome-icon
-        class="navNewWindowIcon navIcon"
-        :icon="['fas', 'clone']"
-        :title="newWindowText"
+      >
+        <font-awesome-icon
+          class="navSearchIcon navIcon"
+          :icon="['fas', 'search']"
+        />
+      </div>
+      <div
+        v-if="usingElectron"
         role="button"
         tabindex="0"
-        @click="createNewWindow"
+        @click.prevent="createNewWindow"
         @keydown.enter.prevent="createNewWindow"
-      />
+      >
+        <font-awesome-icon
+          class="navNewWindowIcon navIcon"
+          :icon="['fas', 'clone']"
+          :title="newWindowText"
+        />
+      </div>
       <div
         v-if="!hideHeaderLogo"
         class="logo"
@@ -90,15 +107,18 @@
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />
-        <font-awesome-icon
-          class="navFilterIcon navIcon"
-          :class="{ filterChanged: searchFilterValueChanged }"
-          :icon="['fas', 'filter']"
+        <div
           role="button"
           tabindex="0"
           @click="showFilters = !showFilters"
           @keydown.enter.prevent="showFilters = !showFilters"
-        />
+        >
+          <font-awesome-icon
+            class="navFilterIcon navIcon"
+            :class="{ filterChanged: searchFilterValueChanged }"
+            :icon="['fas', 'filter']"
+          />
+        </div>
       </div>
       <ft-search-filters
         v-if="!hideSearchBar"

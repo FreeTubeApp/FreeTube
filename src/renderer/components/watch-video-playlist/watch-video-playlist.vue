@@ -46,70 +46,88 @@
         />
       </span>
       <p>
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: loopEnabled }"
-          :icon="['fas', 'retweet']"
-          :title="$t('Video.Loop Playlist')"
+        <span
           role="button"
           tabindex="0"
           @click="toggleLoop"
           @keydown.enter.prevent="toggleLoop"
           @keydown.space.prevent="toggleLoop"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: shuffleEnabled }"
-          :icon="['fas', 'random']"
-          :title="$t('Video.Shuffle Playlist')"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :class="{ playlistIconActive: loopEnabled }"
+            :icon="['fas', 'retweet']"
+            :title="$t('Video.Loop Playlist')"
+          />
+        </span>
+        <span
           role="button"
           tabindex="0"
           @click="toggleShuffle"
           @keydown.enter.prevent="toggleShuffle"
           @keydown.space.prevent="toggleShuffle"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: reversePlaylist }"
-          :icon="['fas', 'exchange-alt']"
-          :title="$t('Video.Reverse Playlist')"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :class="{ playlistIconActive: shuffleEnabled }"
+            :icon="['fas', 'random']"
+            :title="$t('Video.Shuffle Playlist')"
+          />
+        </span>
+        <span
           role="button"
           tabindex="0"
           @click="toggleReversePlaylist"
           @keydown.enter.prevent="toggleReversePlaylist"
           @keydown.space.prevent="toggleReversePlaylist"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :icon="['fas', 'step-backward']"
-          :title="$t('Video.Play Previous Video')"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :class="{ playlistIconActive: reversePlaylist }"
+            :icon="['fas', 'exchange-alt']"
+            :title="$t('Video.Reverse Playlist')"
+          />
+        </span>
+        <span
           role="button"
           tabindex="0"
           @click="playPreviousVideo"
           @keydown.enter.prevent="playPreviousVideo"
           @keydown.space.prevent="playPreviousVideo"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :icon="['fas', 'step-forward']"
-          :title="$t('Video.Play Next Video')"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'step-backward']"
+            :title="$t('Video.Play Previous Video')"
+          />
+        </span>
+        <span
           role="button"
           tabindex="0"
           @click="playNextVideo"
           @keydown.enter.prevent="playNextVideo"
           @keydown.space.prevent="playNextVideo"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: pauseOnCurrentVideo }"
-          :icon="['fas', 'pause']"
-          :title="$t('Video.Pause on Current Video')"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'step-forward']"
+            :title="$t('Video.Play Next Video')"
+          />
+        </span>
+        <span
           role="button"
           tabindex="0"
           @click="togglePauseOnCurrentVideo"
           @keydown.enter.prevent="togglePauseOnCurrentVideo"
           @keydown.space.prevent="togglePauseOnCurrentVideo"
-        />
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :class="{ playlistIconActive: pauseOnCurrentVideo }"
+            :icon="['fas', 'pause']"
+            :title="$t('Video.Pause on Current Video')"
+          />
+        </span>
       </p>
       <div
         v-if="!isLoading"

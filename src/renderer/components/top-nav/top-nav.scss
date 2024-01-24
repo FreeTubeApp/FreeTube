@@ -48,7 +48,8 @@
   cursor: pointer;
   font-size: 20px;
   block-size: 1em;
-  padding: 10px;
+  padding-block: 0;
+  padding-inline: 10px;
   transition: background 0.2s ease-out;
   inline-size: 1em;
 
