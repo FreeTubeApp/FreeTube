@@ -126,12 +126,13 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount">
-            <template v-if="channelId !== null"> • </template>
-            {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-          </span>
-        </template>
+        <span
+          v-if="!isLive && !isUpcoming && !isPremium && !hideViews"
+          class="viewCount"
+        >
+          <template v-if="channelId !== null"> • </template>
+          {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+        </span>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
           class="uploadedTime"
