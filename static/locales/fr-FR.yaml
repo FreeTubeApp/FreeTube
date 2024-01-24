@@ -43,6 +43,8 @@ Global:
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
+  Input Tags:
+    Length Requirement: L'étiquette doit comporter au moins {number} caractères
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -171,6 +173,14 @@ User Playlists:
         vidéos ont été supprimées
       This video cannot be moved down.: Cette vidéo ne peut pas être déplacée vers
         le bas.
+      This playlist is now used for quick bookmark: Cette liste de lecture est maintenant
+        utilisée comme marque-page rapide
+      Quick bookmark disabled: Marque-page rapide désactivé
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Cette
+        liste de lecture est désormais utilisée comme marque-page rapide à la place
+        de {oldPlaylistName}. Cliquez ici pour annuler
+      Reverted to use {oldPlaylistName} for quick bookmark: Reprise de {oldPlaylistName}
+        pour un marque-page rapide
   Are you sure you want to delete this playlist? This cannot be undone: Êtes-vous
     sûr(e) de vouloir supprimer cette liste de lecture ? Cette opération ne peut être
     annulée.
@@ -213,6 +223,11 @@ User Playlists:
   Edit Playlist Info: Modifier les informations de la liste de lecture
   Copy Playlist: Copier la liste de lecture
   Playlist Description: Description de la liste de lecture
+  Add to Favorites: Ajouter à {playlistName}
+  Remove from Favorites: Retirer de {playlistName}
+  Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette
+    liste de lecture
+  Disable Quick Bookmark: Désactiver le marque-page rapide
 History:
   # On History Page
   History: 'Historique'
@@ -513,12 +528,12 @@ Settings:
     Playlist File: Fichier des listes de lecture
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de
-        lecture vers une seule liste de lecture nommée \"Favorites\".\nComment exporter
+        lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter
         et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n
         1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes
         vos sélections existantes à l'aide de l'option Supprimer toutes les sélections
         sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube
-        et importez les listes de lecture exportées.\""
+        et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
@@ -567,6 +582,8 @@ Settings:
     Hide Channels Already Exists: L'identifiant de la chaîne existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant
       fourni. Veuillez vérifier à nouveau si l'ID est correct.
+    Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de
+      lecture contenant du texte
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -764,6 +781,7 @@ Channel:
     votes: '{votes} votes'
     Reveal Answers: Afficher les réponses
     Hide Answers: Masquer les réponses
+    Video hidden by FreeTube: Vidéo cachée par FreeTube
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement

@@ -144,6 +144,7 @@
             :playlist-reverse="reversePlaylist"
             :playlist-shuffle="shuffleEnabled"
             :playlist-loop="loopEnabled"
+            :hide-forbidden-titles="false"
             appearance="watchPlaylistItem"
             force-list-type="list"
             :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"

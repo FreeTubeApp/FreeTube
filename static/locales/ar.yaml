@@ -163,6 +163,14 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: لم
         يتم تحميل بعض مقاطع الفيديو في قائمة التشغيل بعد. انقر هنا للنسخ على أي حال.
       There was a problem with removing this video: حدثت مشكلة أثناء إزالة هذا الفيديو
+      This playlist is now used for quick bookmark: يتم الآن استخدام قائمة التشغيل
+        هذه للإشارة المرجعية السريعة
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: يتم
+        الآن استخدام قائمة التشغيل هذه للإشارة المرجعية السريعة بدلاً من {oldPlaylistName}.
+        انقر هنا للتراجع
+      Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
+        للإشارة المرجعية السريعة
+      Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
       بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
@@ -194,6 +202,11 @@ User Playlists:
     لديك قوائم تشغيل. انقر على زر إنشاء قائمة تشغيل جديدة لإنشاء قائمة تشغيل جديدة.
   Are you sure you want to delete this playlist? This cannot be undone: هل أنت متأكد
     أنك تريد حذف قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنه.
+  Add to Favorites: إضافة إلى {اسم قائمة التشغيل}
+  Remove from Favorites: إزالة من {اسم قائمة التشغيل}
+  Enable Quick Bookmark With This Playlist: تمكين الإشارة المرجعية السريعة مع قائمة
+    التشغيل هذه
+  Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
 History:
   # On History Page
   History: 'السجلّ'

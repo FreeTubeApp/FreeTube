@@ -75,11 +75,16 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    }
   },
   emits: ['pause-player', 'move-video-up', 'move-video-down', 'remove-from-playlist'],
   data: function () {
     return {
-      visible: false
+      visible: false,
+      display: 'block'
     }
   },
   computed: {
@@ -96,9 +101,15 @@ export default defineComponent({
       })
     },
 
+    forbiddenTitles() {
+      if (!this.hideForbiddenTitles) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
+    },
+
     shouldBeVisible() {
       return !(this.channelsHidden.some(ch => ch.name === this.data.authorId) ||
-        this.channelsHidden.some(ch => ch.name === this.data.author))
+        this.channelsHidden.some(ch => ch.name === this.data.author) ||
+        this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase())))
     }
   },
   created() {
@@ -108,6 +119,8 @@ export default defineComponent({
     onVisibilityChanged: function (visible) {
       if (visible && this.shouldBeVisible) {
         this.visible = visible
+      } else if (visible) {
+        this.display = 'none'
       }
     },
     pausePlayer: function () {
