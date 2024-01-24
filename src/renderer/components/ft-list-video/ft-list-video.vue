@@ -104,7 +104,7 @@
         {{ $t("Video.Watched") }}
       </div>
       <div
-        v-if="watched"
+        v-if="historyEntryExists"
         class="watchedProgressBar"
         :style="{inlineSize: progressPercentage + '%'}"
       />

@@ -97,7 +97,6 @@ export default defineComponent({
       lengthSeconds: 0,
       duration: '',
       description: '',
-      watched: false,
       watchProgress: 0,
       publishedText: '',
       isLive: false,
@@ -223,7 +222,7 @@ export default defineComponent({
     dropdownOptions: function () {
       const options = [
         {
-          label: this.watched
+          label: this.historyEntryExists
             ? this.$t('Video.Remove From History')
             : this.$t('Video.Mark As Watched'),
           value: 'history'
@@ -343,7 +342,7 @@ export default defineComponent({
     },
 
     addWatchedStyle: function () {
-      return this.watched && !this.inHistory
+      return this.historyEntryExists && !this.inHistory
     },
 
     externalPlayer: function () {
@@ -576,7 +575,7 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      if (this.saveWatchedProgress && !this.watched) {
+      if (this.saveWatchedProgress && !this.historyEntryExists) {
         this.markAsWatched()
       }
     },
@@ -584,7 +583,7 @@ export default defineComponent({
     handleOptionsClick: function (option) {
       switch (option) {
         case 'history':
-          if (this.watched) {
+          if (this.historyEntryExists) {
             this.removeFromWatched()
           } else {
             this.markAsWatched()
@@ -727,8 +726,6 @@ export default defineComponent({
 
     checkIfWatched: function () {
       if (this.historyEntryExists) {
-        this.watched = true
-
         const historyEntry = this.historyEntry
 
         if (this.saveWatchedProgress) {
@@ -744,7 +741,6 @@ export default defineComponent({
           this.publishedText = ''
         }
       } else {
-        this.watched = false
         this.watchProgress = 0
       }
     },
@@ -766,8 +762,6 @@ export default defineComponent({
       }
       this.updateHistory(videoData)
       showToast(this.$t('Video.Video has been marked as watched'))
-
-      this.watched = true
     },
 
     removeFromWatched: function () {
@@ -775,7 +769,6 @@ export default defineComponent({
 
       showToast(this.$t('Video.Video has been removed from your history'))
 
-      this.watched = false
       this.watchProgress = 0
     },
 
