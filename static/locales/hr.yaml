@@ -44,6 +44,8 @@ Global:
     View Count: 1 prikaz | {count} prikaza
     Watching Count: 1 praćenje | {count} praćenja
     Channel Count: 1 kanal | {count} kanala
+  Input Tags:
+    Length Requirement: Oznaka mora imati barem {number} znakova
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
@@ -534,6 +536,8 @@ Settings:
     Hide Channels Already Exists: ID kanala već postoji
     Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo
       provjeri točnost ID-a.
+    Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
+      ili fraza
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -770,7 +774,8 @@ Channel:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
     Reveal Answers: Prikaži odgovore
     Hide Answers: Sakrij odgovore
-    votes: '{votes} glasanja'
+    votes: '{votes} glasa'
+    Video hidden by FreeTube: Video skriven od FreeTubea
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
@@ -1139,7 +1144,7 @@ Channels:
   Search bar placeholder: Pretraži kanale
   Count: '{number} kanala pronađena.'
   Empty: Tvoj popis kanala je trenutačno prazan.
-  Unsubscribe: Prekini pretplatu
+  Unsubscribe: Otkaži pretplatu
   Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „{channelName}”?
   Unsubscribed: '{channelName} je uklonjen iz tvojih pretplata'
 Clipboard:
@@ -1164,3 +1169,6 @@ Playlist will not pause when current video is finished: Zbirka se neće zaustavi
 Go to page: Idi na {page}
 Channel Hidden: '{channel} je dodan u filtar kanala'
 Channel Unhidden: '{channel} je uklonjen iz filtra kanala'
+Trimmed input must be at least N characters long: Skraćeni unos mora imati barem 1
+  znak | Skraćeni unos mora imati barem {length} znaka
+Tag already exists: Oznaka „{tagName}” već postoji
