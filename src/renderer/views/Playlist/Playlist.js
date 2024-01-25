@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
-import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
+import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import {
@@ -21,7 +21,7 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video-lazy': FtListVideoLazy,
+    'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
   },

@@ -1,0 +1,17 @@
+/*
+  Set a height to invisible/unloaded elements, so that lazy loading actually works.
+  If we don't set a height, they all get a height of 0px (because they have no content),
+  so they all bunch up together and end up loading all of them in one go.
+ */
+.placeholder {
+  block-size: 40px;
+}
+
+.videoIndex {
+  color: var(--tertiary-text-color);
+  text-align: center;
+}
+
+.videoIndexIcon {
+  font-size: 14px;
+}
