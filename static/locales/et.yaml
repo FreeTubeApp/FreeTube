@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 tellija | {count} tellijat
     View Count: 1 vaatamine | {count} vaatamist
     Watching Count: 1 vaatamas | {count} vaatamas
+  Input Tags:
+    Length Requirement: Silt peab olema vähemalt {number} tähemärki pikk
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -520,6 +522,9 @@ Settings:
     Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
     Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete
       laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
+    Hide Videos and Playlists Containing Text Placeholder: Sõna, sõnaosa või fraas
+    Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus
+      leidub sellist teksti
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -723,6 +728,7 @@ Channel:
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused
     votes: '{votes} häält'
+    Video hidden by FreeTube: FreeTube'i poolt peidetud video
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
@@ -1048,6 +1054,10 @@ Tooltips:
       ja on tõstutundlik.
     Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“
       seadistus „{subsection}“/„{settingsSection}“
+    Hide Videos and Playlists Containing Text: Sisesta sõna, sõnaosa või fraas (tõstutundetuna),
+      mille alusel peidetakse läbivalt FreeTube'is kõik videod või esitusloendid,
+      kus see leidub algses pealkirjas. Peitmine ei toimi ajaloos, sinu loodud esitusloendites
+      ja esitusloendi sees olevate videote puhul.
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
       http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks
@@ -1111,3 +1121,6 @@ Playlist will not pause when current video is finished: Hetkel mängiva video l�
 Channel Hidden: '{channel} on lisatud kanalite filtrisse'
 Go to page: 'Ava leht: {page}'
 Channel Unhidden: '{channel} on eemaldatud kanalite filtrist'
+Tag already exists: Silt „{tagName}“ on juba olemas
+Trimmed input must be at least N characters long: Kärbitud sisend peab olema vähemalt
+  1 tähemärgi pikkune | Kärbitud sisend peab olema vähemalt {length} tähemärgi pikkune
