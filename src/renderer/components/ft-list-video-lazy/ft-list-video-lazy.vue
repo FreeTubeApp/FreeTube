@@ -24,6 +24,8 @@
       :can-move-video-down="canMoveVideoDown"
       :can-remove-from-playlist="canRemoveFromPlaylist"
       @pause-player="$emit('pause-player')"
+      @move-video-top="$emit('move-video-top')"
+      @move-video-bottom="$emit('move-video-bottom')"
       @move-video-up="$emit('move-video-up')"
       @move-video-down="$emit('move-video-down')"
       @remove-from-playlist="$emit('remove-from-playlist')"

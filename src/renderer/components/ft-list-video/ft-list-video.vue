@@ -71,6 +71,15 @@
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
+          :title="$t('User Playlists.Move Video Top')"
+          :icon="['fas', 'angle-up']"
+          class="upArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-top')"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canMoveVideoUp"
           :title="$t('User Playlists.Move Video Up')"
           :icon="['fas', 'arrow-up']"
           class="upArrowIcon"
@@ -86,6 +95,15 @@
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="$emit('move-video-down')"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canMoveVideoDown"
+          :title="$t('User Playlists.Move Video Bottom')"
+          :icon="['fas', 'angle-down']"
+          class="downArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-bottom')"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canRemoveFromPlaylist"

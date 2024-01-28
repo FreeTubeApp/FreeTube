@@ -330,7 +330,60 @@ export default defineComponent({
         if (shouldGetNextPage) { this.getNextPageLocal() }
       })
     },
-
+    moveVideoTop: function (videoId, playlistItemId) {
+      const playlistItems = [].concat(this.playlistItems)
+      const videoIndex = playlistItems.findIndex((video) => {
+        return video.videoId === videoId && video.playlistItemId === playlistItemId
+      })
+      if (videoIndex === 0) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved to the top."]'))
+        return
+      }
+      const videoObject = playlistItems[videoIndex]
+      playlistItems.splice(videoIndex, 1)
+      playlistItems.unshift(videoObject)
+      const playlist = {
+        playlistName: this.playlistTitle,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.playlistDescription,
+        videos: playlistItems,
+        _id: this.playlistId
+      }
+      try {
+        this.updatePlaylist(playlist)
+        this.playlistItems = playlistItems
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
+    },
+    moveVideoBottom: function(videoId, playlistItemId) {
+      const playlistItems = [].concat(this.playlistItems)
+      const videoIndex = playlistItems.findIndex((video) => {
+        return video.videoId === videoId && video.playlistItemId === playlistItemId
+      })
+      if (videoIndex === playlistItems.length - 1) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved to the bottom."]'))
+        return
+      }
+      const videoObject = playlistItems[videoIndex]
+      playlistItems.splice(videoIndex, 1)
+      playlistItems.push(videoObject)
+      const playlist = {
+        playlistName: this.playlistTitle,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.playlistDescription,
+        videos: playlistItems,
+        _id: this.playlistId
+      }
+      try {
+        this.updatePlaylist(playlist)
+        this.playlistItems = playlistItems
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
+    },
     moveVideoUp: function (videoId, playlistItemId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
@@ -362,7 +415,6 @@ export default defineComponent({
         console.error(e)
       }
     },
-
     moveVideoDown: function (videoId, playlistItemId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
