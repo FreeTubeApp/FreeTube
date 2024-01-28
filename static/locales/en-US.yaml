@@ -152,8 +152,8 @@ User Playlists:
   Add to Favorites: Add to {playlistName}
   Remove from Favorites: Remove from {playlistName}
 
-  Move Video to Top: Move Video to Top
-  Move Video to Bottom: Move Video to Bottom
+  Move Video to the Top: Move Video to the Top
+  Move Video to the Bottom: Move Video to the Bottom
   Move Video Up: Move Video Up
   Move Video Down: Move Video Down
   Remove from Playlist: Remove from Playlist
@@ -191,6 +191,8 @@ User Playlists:
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
       This video cannot be moved down.: This video cannot be moved down.
+      This video cannot be moved to the top.: This video cannot be moved to the top.
+      This video cannot be moved to the bottom.: This video cannot be moved to the bottom.
       Video has been removed: Video has been removed
       There was a problem with removing this video: There was a problem with removing this video
 
