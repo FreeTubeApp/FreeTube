@@ -12,8 +12,6 @@ import { register as registerSwiper } from 'swiper/element'
 // to avoid code conflict and duplicate entries
 import {
   faAngleDown,
-  faAnglesDown,
-  faAnglesUp,
   faAngleUp,
   faArrowDown,
   faArrowLeft,
@@ -94,8 +92,6 @@ Vue.config.productionTip = process.env.NODE_ENV === 'development'
 library.add(
   // solid icons
   faAngleDown,
-  faAnglesDown,
-  faAnglesUp,
   faAngleUp,
   faArrowDown,
   faArrowLeft,

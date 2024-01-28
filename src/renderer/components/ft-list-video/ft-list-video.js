@@ -227,8 +227,25 @@ export default defineComponent({
             ? this.$t('Video.Remove From History')
             : this.$t('Video.Mark As Watched'),
           value: 'history'
-        }
+        },
       ]
+      if (this.inUserPlaylist && (this.canMoveVideoUp || this.canMoveVideoDown)) {
+        options.push({
+          type: 'divider'
+        })
+      }
+      if (this.canMoveVideoUp && this.inUserPlaylist) {
+        options.push({
+          label: this.$t('User Playlists.Move Video to the Top'),
+          value: 'moveVideoTop'
+        })
+      }
+      if (this.canMoveVideoDown && this.inUserPlaylist) {
+        options.push({
+          label: this.$t('User Playlists.Move Video to the Bottom'),
+          value: 'moveVideoBottom'
+        })
+      }
       if (!this.hideSharingActions) {
         options.push(
           {
@@ -590,6 +607,12 @@ export default defineComponent({
             this.markAsWatched()
           }
           break
+        case 'moveVideoTop':
+          this.moveVideoToTheTop()
+          break
+        case 'moveVideoBottom':
+          this.moveVideoToTheBottom()
+          break
         case 'copyYoutube':
           copyToClipboard(this.youtubeShareUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
@@ -777,6 +800,12 @@ export default defineComponent({
 
       this.watched = false
       this.watchProgress = 0
+    },
+    moveVideoToTheTop: function() {
+      this.$emit('move-video-top')
+    },
+    moveVideoToTheBottom: function() {
+      this.$emit('move-video-bottom')
     },
 
     togglePlaylistPrompt: function () {
