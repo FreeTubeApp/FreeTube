@@ -81,7 +81,7 @@
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
           :title="$t('User Playlists.Move Video Up')"
-          :icon="['fas', 'arrow-up']"
+          :icon="['fas', 'angle-up']"
           class="upArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -90,7 +90,7 @@
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoDown"
           :title="$t('User Playlists.Move Video Down')"
-          :icon="['fas', 'arrow-down']"
+          :icon="['fas', 'angle-down']"
           class="downArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
