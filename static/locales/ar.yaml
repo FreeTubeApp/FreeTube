@@ -44,6 +44,8 @@ Global:
     Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
     Watching Count: 1 مشاهد | {count} مشاهدون
+  Input Tags:
+    Length Requirement: يجب أن يبلغ طول العلامة {number} حرفًا على الأقل
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -541,6 +543,9 @@ Settings:
     Hide Channels Already Exists: معرف القناة موجود بالفعل
     Hide Channels API Error: ‬حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى
       التحقق مرة أخرى إذا كان المعرف صحيحا.
+    Hide Videos and Playlists Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل
+      التي تحتوي على نص
+    Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -767,6 +772,7 @@ Channel:
     Hide Answers: إخفاء الأجوبة
     votes: '{votes} أصوات'
     Reveal Answers: كشف الإجابات
+    Video hidden by FreeTube: تم إخفاء الفيديو بواسطة FreeTube
   Live:
     Live: مباشر
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر
@@ -1091,6 +1097,10 @@ Tooltips:
       معرف القناة الذي تم إدخاله متطابقًا تمامًا وأن يكون حساسًا لحالة الأحرف.
     Hide Subscriptions Live: يتم تجاوز هذا الإعداد من خلال إعداد "{appWideSetting}"
       على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
+    Hide Videos and Playlists Containing Text: أدخل كلمة أو جزء كلمة أو عبارة (غير
+      حساسة لحالة الأحرف) لإخفاء جميع مقاطع الفيديو وقوائم التشغيل التي تحتوي عناوينها
+      الأصلية عليها في جميع أنحاء FreeTube، باستثناء السجل وقوائم التشغيل الخاصة بك
+      ومقاطع الفيديو الموجودة داخل قوائم التشغيل فقط.
   SponsorBlock Settings:
     UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.
     UseDeArrowThumbnails: استبدل الصور المصغرة للفيديو بالصور المصغرة من DeArrow.
@@ -1157,3 +1167,7 @@ Playlist will not pause when current video is finished: لن تتوقف قائم
 Channel Hidden: تم إضافة {channel} إلى مرشح القناة
 Go to page: إذهب إلى {page}
 Channel Unhidden: تمت إزالة {channel} من مرشح القناة
+Trimmed input must be at least N characters long: يجب أن يكون طول الإدخال المقتطع
+  حرفًا واحدًا على الأقل | يجب أن يبلغ طول الإدخال المقتطع {length} من الأحرف على
+  الأقل
+Tag already exists: العلامة "{tagName}" موجودة بالفعل
