@@ -802,10 +802,10 @@ export default defineComponent({
       this.watchProgress = 0
     },
     moveVideoToTheTop: function() {
-      this.$emit('move-video-top')
+      this.$emit('move-video-to-the-top')
     },
     moveVideoToTheBottom: function() {
-      this.$emit('move-video-bottom')
+      this.$emit('move-video-to-the-bottom')
     },
 
     togglePlaylistPrompt: function () {

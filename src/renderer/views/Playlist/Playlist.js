@@ -330,7 +330,7 @@ export default defineComponent({
         if (shouldGetNextPage) { this.getNextPageLocal() }
       })
     },
-    moveVideoTop: function (videoId, playlistItemId) {
+    moveVideoToTheTop: function (videoId, playlistItemId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
         return video.videoId === videoId && video.playlistItemId === playlistItemId
@@ -357,7 +357,7 @@ export default defineComponent({
         console.error(e)
       }
     },
-    moveVideoBottom: function(videoId, playlistItemId) {
+    moveVideoToTheBottom: function(videoId, playlistItemId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
         return video.videoId === videoId && video.playlistItemId === playlistItemId
