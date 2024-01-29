@@ -5497,59 +5497,59 @@ lazy-val@^1.0.4, lazy-val@^1.0.5:
   resolved "https://registry.yarnpkg.com/lazy-val/-/lazy-val-1.0.5.tgz#6cf3b9f5bc31cee7ee3e369c0832b7583dcd923d"
   integrity sha512-0/BnGCCfyUMkBpeDgWihanIAF9JmZhHBgUhEqzvf+adhNGLoP6TaiI5oF8oyb3I45P+PcnrqihSf01M0l0G5+Q==
 
-lefthook-darwin-arm64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-darwin-arm64/-/lefthook-darwin-arm64-1.6.0.tgz#bc3c7e082d4a2098bd6589b1eee19bc2d8fbfc80"
-  integrity sha512-rfyfpC6aIVU3qmr4nGBiTeFPV87NXJ5y6BX1WgHqYojKBSlADL0hoCNLZxPakySugY5DHJ7TBcl46eQKXsjJ4g==
+lefthook-darwin-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-darwin-arm64/-/lefthook-darwin-arm64-1.6.1.tgz#387d245d39673ceede01da7de2a0d44d2c368e85"
+  integrity sha512-q6+sYr2Dpt6YnBGXRjMFcXZUnVB97nH+s7EP/tX8m9ewvQxLPqIiUPyAumfyJ2Siomkc5WgAinG+kT63VjUN3A==
 
-lefthook-darwin-x64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-darwin-x64/-/lefthook-darwin-x64-1.6.0.tgz#e5bceafde7675097e8eeb3e14422d069786184d6"
-  integrity sha512-8icA0+M87Oq9p4UlPReRYl7X0AzSE+gqiCZK5g8GNmxiEZY79u34Cw88rgr3IbQmrAAaQcD/N2G0q/a6LgI/0g==
+lefthook-darwin-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-darwin-x64/-/lefthook-darwin-x64-1.6.1.tgz#a677f7262d29317964c96f13509c06d3bf54e93f"
+  integrity sha512-utm7FwtbW8SxGMALIw5/iG4loYS2FI0crDKp/YIamrZgQr6M4pS2C3rxGj5OwiHFIm3arVU+3VZywdvRLJAw0w==
 
-lefthook-freebsd-arm64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-freebsd-arm64/-/lefthook-freebsd-arm64-1.6.0.tgz#1dc18a8541a9f516080bbebab44969fc7be45e25"
-  integrity sha512-eK1YIP/BpI+aUNzdyaW7ucVlcKCeKDaGHTMmUB8zMVb3NFjcUXZfqtUGeeX20VdGT62DEYuzPBcIJN1rF9VD6Q==
+lefthook-freebsd-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-freebsd-arm64/-/lefthook-freebsd-arm64-1.6.1.tgz#3d527cfa40da0b57b2b81e853f7c11bd13fc618c"
+  integrity sha512-F2BoDnGznkJyn6lyhmXpu62yq7SMCeHAl3Bl8c+P6mXfmatjjxEpVmrzRuzKMPd/MRGpy2B/glkuyO4wZZazow==
 
-lefthook-freebsd-x64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-freebsd-x64/-/lefthook-freebsd-x64-1.6.0.tgz#8cec31909a81c5e25cc80981e51e54f3783295f9"
-  integrity sha512-u28hbye+9eMzKbdlhKnpuVhjJ4eZlbhw4b1AyFse1jJCNM8mWkjC2V2Gz5Ms0yvW5sLT7torM/fj3T5ljpdfaQ==
+lefthook-freebsd-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-freebsd-x64/-/lefthook-freebsd-x64-1.6.1.tgz#fbc9a5a7c2acaacc5494cf0e21083f21bad8057d"
+  integrity sha512-/NBjMUtnwvdc/p821sfPnZCbWZ6FQkAvnvjoaQu6tkajKZbZYSKsl7UtAicO0nT+79BQFt7TbaZjpua2T9tM5w==
 
-lefthook-linux-arm64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-linux-arm64/-/lefthook-linux-arm64-1.6.0.tgz#d15f85fcd8d481c6bbdc8557a6608e106aed81c9"
-  integrity sha512-L02GU57pOoPuxoeCfM7831ZFPebBie54C5ny7erLbW3/M0buOwgb/zEpCJKbtfAcdX3LwiykxgJUO61Ux5Yduw==
+lefthook-linux-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-linux-arm64/-/lefthook-linux-arm64-1.6.1.tgz#5f50008da8fa164ba9d83542361a0c83429da6ae"
+  integrity sha512-ke+2ni/bmxgYJSRsH+uIYYfTLj2It7WP+mcF4rfJHRbzn5yDYIjFgylUMC2CgW5urS4DSbxcRIbAqLY3OXAHnw==
 
-lefthook-linux-x64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-linux-x64/-/lefthook-linux-x64-1.6.0.tgz#695eec65ca77d272ce95c7100594353ab81bf131"
-  integrity sha512-pvBZ5UEl3nNDRMX5GItbuQaGvHfu0cd1ory6K5Z4x8aA1tlJ8ln9OBYLn3kbUP89hmb8vSYQmTkNtri0DaHn7g==
+lefthook-linux-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-linux-x64/-/lefthook-linux-x64-1.6.1.tgz#a1370cbfc2def92ff7dd1f7dcc71bddca97a8286"
+  integrity sha512-/HLkl9jt3XRjT0RPaLpAgUQmvp4zV/KKZ/8x6xslPl89krv3ZkHKKrqeaHdhiengq3hzx3N+KbOfFcxBRzdT6A==
 
-lefthook-windows-arm64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-windows-arm64/-/lefthook-windows-arm64-1.6.0.tgz#719f1933cae6220317e81d2d4adbb6ed6c149708"
-  integrity sha512-pKpIwvkme3C1wGQUFSEkQDyjnYqemSxEjr6eFOxa0zaHTEUtz+cKhbNLnAAW+humQXjorvHDreWjt1LtCNosIg==
+lefthook-windows-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-windows-arm64/-/lefthook-windows-arm64-1.6.1.tgz#eaffe44e437182e417006ef7b68f49f219fb7e5e"
+  integrity sha512-RyQ8S4/45BpJpRPy7KsOuJeXQ5FOa7MASoPtOYvrXt4A8kayCv1jlGs7MTv3XJbUosCJhfNpw3ReeHVGfw1KIw==
 
-lefthook-windows-x64@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook-windows-x64/-/lefthook-windows-x64-1.6.0.tgz#897f956877fc556588f8ba4de2d4edc6fd83568a"
-  integrity sha512-6+UbtalKvPXEiIovL1XPzHnjo+NlvGf17++RfP9iFNcM7YmY6s5DA3dxNnF1SBzSbT0DsPxAriIm9B+AyLUmng==
+lefthook-windows-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook-windows-x64/-/lefthook-windows-x64-1.6.1.tgz#c3da7ec991918543be69fe268e91dc5f77ec7548"
+  integrity sha512-poYLk2tfg1Ncr4aZeFuhHjv1qH6f9hX3tV1FOK2MfWkXkRTYPl6MF5h/ONMIv71BsLjGbAA7LNXM5Mj4/B//lQ==
 
-lefthook@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lefthook/-/lefthook-1.6.0.tgz#cfd6bc0f54531cbf4080d31726e81dbbf02e9bf0"
-  integrity sha512-s7AkCE4dn83UDmMhbV36xMPUwjO3kAjYTDpeFmv3rEsRM9DYQGC78QbGJy476xK/grS/gGxMGtw3jt9/Yd2dSw==
+lefthook@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/lefthook/-/lefthook-1.6.1.tgz#56d35b18ba2231b93d669434c1bd52c4532299e9"
+  integrity sha512-1T+tk0V6ubZgiZJGi39QlLMAcgEw+lhoDeSpT3L8Y/f8nUpJW9ntcMOmt+uvMfQ3TVjNcR1r/Lhtm7gTqgdcPg==
   optionalDependencies:
-    lefthook-darwin-arm64 "1.6.0"
-    lefthook-darwin-x64 "1.6.0"
-    lefthook-freebsd-arm64 "1.6.0"
-    lefthook-freebsd-x64 "1.6.0"
-    lefthook-linux-arm64 "1.6.0"
-    lefthook-linux-x64 "1.6.0"
-    lefthook-windows-arm64 "1.6.0"
-    lefthook-windows-x64 "1.6.0"
+    lefthook-darwin-arm64 "1.6.1"
+    lefthook-darwin-x64 "1.6.1"
+    lefthook-freebsd-arm64 "1.6.1"
+    lefthook-freebsd-x64 "1.6.1"
+    lefthook-linux-arm64 "1.6.1"
+    lefthook-linux-x64 "1.6.1"
+    lefthook-windows-arm64 "1.6.1"
+    lefthook-windows-x64 "1.6.1"
 
 levn@^0.4.1:
   version "0.4.1"
