@@ -584,6 +584,8 @@ Settings:
       fourni. Veuillez vérifier à nouveau si l'ID est correct.
     Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de
       lecture contenant du texte
+    Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
+      phrase
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -1042,7 +1044,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: français
+Locale Name: Français
 Profile:
   '{profile} is now the active profile': '{profile} est maintenant le profil actif'
   Your default profile has been changed to your primary profile: Votre profil par
@@ -1185,6 +1187,11 @@ Tooltips:
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} »
       applicable à l'ensemble de l'application, dans la section « {subsection} » de
       la section « {settingsSection} »
+    Hide Videos and Playlists Containing Text: Saisissez un mot, un fragment de mot
+      ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections
+      dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube,
+      à l'exception de l'historique, de vos listes de lecture et des vidéos contenues
+      dans les listes de lecture.
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par
       les utilisateurs de DeArrow.
@@ -1256,3 +1263,6 @@ Playlist will not pause when current video is finished: La liste de lecture ne s
 Go to page: Aller à {page}
 Channel Hidden: '{channel} ajouté au filtre de chaîne'
 Channel Unhidden: '{channel} retiré du filtre de chaîne'
+Trimmed input must be at least N characters long: L'entrée tronquée doit comporter
+  au moins 1 caractère | L'entrée tronquée doit comporter au moins {length} caractères
+Tag already exists: La balise "{tagName}" existe déjà

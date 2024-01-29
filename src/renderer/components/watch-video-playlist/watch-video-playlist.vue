@@ -37,9 +37,12 @@
       <span
         class="playlistIndex"
       >
-        {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
+        <label for="playlistProgressBar">
+          {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
+        </label>
         <progress
           v-if="!shuffleEnabled && !reversePlaylist"
+          id="playlistProgressBar"
           class="playlistProgressBar"
           :value="currentVideoIndexOneBased"
           :max="playlistVideoCount"

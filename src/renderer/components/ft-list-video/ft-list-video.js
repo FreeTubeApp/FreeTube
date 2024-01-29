@@ -193,11 +193,12 @@ export default defineComponent({
     },
 
     youtubeShareUrl: function () {
+      const videoUrl = `https://youtu.be/${this.id}`
       if (this.playlistSharable) {
         // `index` seems can be ignored
-        return `https://youtu.be/${this.id}?list=${this.playlistIdFinal}`
+        return `${videoUrl}?list=${this.playlistIdFinal}`
       }
-      return `https://youtu.be/${this.id}`
+      return videoUrl
     },
 
     youtubeChannelUrl: function () {
