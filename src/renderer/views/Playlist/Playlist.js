@@ -124,12 +124,12 @@ export default defineComponent({
     },
 
     visiblePlaylistItems: function () {
-      if (this.isUserPlaylistRequested) {
-        if (this.userPlaylistVisibleLimit < this.videoCount) {
-          return this.playlistItems.slice(0, this.userPlaylistVisibleLimit)
-        } else {
-          return this.playlistItems
-        }
+      if (!this.isUserPlaylistRequested) {
+        return this.playlistItems
+      }
+
+      if (this.userPlaylistVisibleLimit < this.videoCount) {
+        return this.playlistItems.slice(0, this.userPlaylistVisibleLimit)
       } else {
         return this.playlistItems
       }
