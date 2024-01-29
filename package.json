@@ -101,7 +101,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^50.0.1",
     "eslint-plugin-vue": "^9.20.1",
-    "eslint-plugin-vuejs-accessibility": "2.2.0",
+    "eslint-plugin-vuejs-accessibility": "^2.2.1",
     "eslint-plugin-yml": "^1.12.2",
     "html-webpack-plugin": "^5.6.0",
     "js-yaml": "^4.1.0",
