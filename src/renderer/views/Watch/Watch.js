@@ -318,7 +318,7 @@ export default defineComponent({
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
         const recommendedVideos = result.watch_next_feed
-          ?.filter((item) => item.type === 'CompactVideo')
+          ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
           .map(parseLocalWatchNextVideo) ?? []
 
         // place watched recommended videos last
@@ -335,10 +335,28 @@ export default defineComponent({
 
         let playabilityStatus = result.playability_status
         let bypassedResult = null
-        if (playabilityStatus.status === 'LOGIN_REQUIRED') {
+        let streamingVideoId = this.videoId
+        let trailerIsNull = false
+
+        // if widevine support is added then we should check if playabilityStatus.status is UNPLAYABLE too
+        if (result.has_trailer) {
+          bypassedResult = result.getTrailerInfo()
+          /**
+           * @type {import ('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer}
+           */
+          const trailerScreen = result.playability_status.error_screen
+          streamingVideoId = trailerScreen.video_id
+          // if the trailer is null then it is likely age restricted.
+          trailerIsNull = bypassedResult == null
+          if (!trailerIsNull) {
+            playabilityStatus = bypassedResult.playability_status
+          }
+        }
+
+        if (playabilityStatus.status === 'LOGIN_REQUIRED' || trailerIsNull) {
           // try to bypass the age restriction
-          bypassedResult = await getLocalVideoInfo(this.videoId, true)
-          playabilityStatus = result.playability_status
+          bypassedResult = await getLocalVideoInfo(streamingVideoId, true)
+          playabilityStatus = bypassedResult.playability_status
         }
 
         if (playabilityStatus.status === 'UNPLAYABLE') {
