@@ -23,22 +23,26 @@
         @input="(input) => updateQueryDebounce(input)"
         @clear="updateQueryDebounce('')"
       />
+    </div>
+    <div
+      class="optionsRow"
+    >
       <ft-toggle-switch
-        :label="$t('User Playlists.Search in Videos')"
+        :label="$t('User Playlists.Playlists with Matching Videos')"
         :compact="true"
         :default-value="doSearchPlaylistsWithMatchingVideos"
         @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
       />
+      <ft-select
+        v-if="allPlaylists.length > 1"
+        class="sortSelect"
+        :value="sortBy"
+        :select-names="sortBySelectNames"
+        :select-values="sortBySelectValues"
+        :placeholder="$t('User Playlists.Sort By.Sort By')"
+        @change="sortBy = $event"
+      />
     </div>
-    <ft-select
-      v-if="allPlaylists.length > 1"
-      class="sortSelect"
-      :value="sortBy"
-      :select-names="sortBySelectNames"
-      :select-values="sortBySelectValues"
-      :placeholder="$t('User Playlists.Sort By.Sort By')"
-      @change="sortBy = $event"
-    />
     <div class="playlists-container">
       <ft-flex-box>
         <div

@@ -31,22 +31,27 @@
             @input="(input) => query = input"
             @clear="query = ''"
           />
+        </div>
+        <div
+          class="optionsRow"
+        >
           <ft-toggle-switch
-            :label="$t('User Playlists.Search in Videos')"
+            v-if="fullData.length > 1"
+            :label="$t('User Playlists.Playlists with Matching Videos')"
             :compact="true"
             :default-value="doSearchPlaylistsWithMatchingVideos"
             @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
           />
+          <ft-select
+            v-if="fullData.length > 1"
+            class="sortSelect"
+            :value="sortBy"
+            :select-names="sortBySelectNames"
+            :select-values="sortBySelectValues"
+            :placeholder="$t('User Playlists.Sort By.Sort By')"
+            @change="sortBy = $event"
+          />
         </div>
-        <ft-select
-          v-if="fullData.length > 1"
-          class="sortSelect"
-          :value="sortBy"
-          :select-names="sortBySelectNames"
-          :select-values="sortBySelectValues"
-          :placeholder="$t('User Playlists.Sort By.Sort By')"
-          @change="sortBy = $event"
-        />
       </div>
       <ft-flex-box
         v-if="fullData.length === 0"
