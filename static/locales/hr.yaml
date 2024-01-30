@@ -44,6 +44,8 @@ Global:
     View Count: 1 prikaz | {count} prikaza
     Watching Count: 1 praćenje | {count} praćenja
     Channel Count: 1 kanal | {count} kanala
+  Input Tags:
+    Length Requirement: Oznaka mora imati barem {number} znakova
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
@@ -99,8 +101,8 @@ Subscriptions:
   Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
     pretplate da bi se ovdje prikazale.
   Subscriptions Tabs: Kartica pretplata
-  All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
-    na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
+  All Subscription Tabs Hidden: Sve kartice pretplata su skrivene. Za prikaz sadržaja
+    na ovom mjestu, sakrij neke kartice u pododjeljku „{subsection}” u „{settingsSection}”.
   Empty Posts: Kanali na koje si pretplaćen/a trenutačno nemaju objave.
   Load More Posts: Učitaj još objava
 Trending:
@@ -173,6 +175,14 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Neka
         videa zbirke još nisu učitani. Pritisni ovdje za kopiranje.
       There were no videos to remove.: Nije bilo videa za uklanjanje.
+      This playlist is now used for quick bookmark: Ova se zbirka sada koristi za
+        brze zabilješke
+      Quick bookmark disabled: Brze zabilješke su deaktivirane
+      Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje
+        zbirke {oldPlaylistName} za brze zabilješke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
+        se zbirka sada koristi za brze zabilješke umjesto zbirke {oldPlaylistName}.
+        Pritisni ovdje za poništavanje
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
     Search in Playlists: Traži u zbirkama
@@ -197,6 +207,8 @@ User Playlists:
     New Playlist Name: Ime nove zbirke
   Add to Favorites: Dodaj u zbirku {playlistName}
   Remove from Favorites: Ukloni iz zbirke {playlistName}
+  Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
+  Disable Quick Bookmark: Deaktiviraj brze zabilješke
 History:
   # On History Page
   History: 'Povijest'
@@ -438,7 +450,7 @@ Settings:
   Data Settings:
     Unknown data key: Nepoznat podatkovni ključ
     Unable to write file: Datoteka se ne može zapisati
-    Unable to read file: Datoteka se ne može pročitati
+    Unable to read file: Datoteka se ne može čitati
     All watched history has been successfully exported: Sva povijest gledanja je uspješno
       izvezena
     All watched history has been successfully imported: Sva povijest gledanja je uspješno
@@ -484,7 +496,7 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Ova opcija izvozi videa iz svih zbirki u jednu zbirku pod nazivom
         „Favoriti”.\nKako izvesti i uvesti videa zbirki za stariju FreeTube verziju:\n
-        1. Izvezi tvoje zbirke s ovom opcijom uključenom.\n2. Izbriši sve svoje postojeće
+        1. Izvezi svoje zbirke s ovom opcijom aktiviranom.\n2. Izbriši sve svoje postojeće
         zbirke pomoću opcije „Ukloni sve zbirke” u postavkama privatnosti.\n3. Pokreni
         stariju FreeTube verziju i uvezi izvezene zbirke.\""
       Label: Izvezi zbirke za starije FreeTube verzije
@@ -534,6 +546,8 @@ Settings:
     Hide Channels Already Exists: ID kanala već postoji
     Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo
       provjeri točnost ID-a.
+    Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
+      ili fraza
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -571,7 +585,7 @@ Settings:
     UseDeArrowThumbnails: Koristi DeArrow za minijature
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
-    Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
+    Custom External Player Executable: Izvršna datoteka prilagođenog eksternog playera
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
@@ -770,7 +784,8 @@ Channel:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
     Reveal Answers: Prikaži odgovore
     Hide Answers: Sakrij odgovore
-    votes: '{votes} glasanja'
+    votes: '{votes} glasa'
+    Video hidden by FreeTube: Video skriven od FreeTubea
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
@@ -1037,7 +1052,7 @@ Tooltips:
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
-      standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
+      standardno sučelje. Kada je aktivirano, lokalno sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
@@ -1068,14 +1083,14 @@ Tooltips:
       koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom
       standardnom pregledniku.\n"
   Subscription Settings:
-    Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
+    Fetch Feeds from RSS: Kada je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
     Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
       tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
   Privacy Settings:
-    Remove Video Meta Files: Kad je aktivirano, FreeTube automatski uklanja datoteke
+    Remove Video Meta Files: Kada je aktivirano, FreeTube automatski uklanja datoteke
       metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
       gledanja.
   External Player Settings:
@@ -1117,8 +1132,8 @@ Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
 Default Invidious instance has been set to {instance}: Standardna Invidious instanca
   je postavljena na {instance}
-External link opening has been disabled in the general settings: Vanjsko otvaranje
-  poveznica je deaktivirano u općim postavkama
+External link opening has been disabled in the general settings: Otvaranje eksterne
+  poveznice je deaktivirano u općim postavkama
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
@@ -1139,7 +1154,7 @@ Channels:
   Search bar placeholder: Pretraži kanale
   Count: '{number} kanala pronađena.'
   Empty: Tvoj popis kanala je trenutačno prazan.
-  Unsubscribe: Prekini pretplatu
+  Unsubscribe: Otkaži pretplatu
   Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „{channelName}”?
   Unsubscribed: '{channelName} je uklonjen iz tvojih pretplata'
 Clipboard:
@@ -1164,3 +1179,6 @@ Playlist will not pause when current video is finished: Zbirka se neće zaustavi
 Go to page: Idi na {page}
 Channel Hidden: '{channel} je dodan u filtar kanala'
 Channel Unhidden: '{channel} je uklonjen iz filtra kanala'
+Trimmed input must be at least N characters long: Skraćeni unos mora imati barem 1
+  znak | Skraćeni unos mora imati barem {length} znaka
+Tag already exists: Oznaka „{tagName}” već postoji

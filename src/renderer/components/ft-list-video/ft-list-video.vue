@@ -126,11 +126,14 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
+        <span v-else-if="channelName !== null">
+          {{ channelName }}
+        </span>
         <span
-          v-if="!isLive && !isUpcoming && !isPremium && !hideViews"
+          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
           class="viewCount"
         >
-          <template v-if="channelId !== null"> • </template>
+          <template v-if="channelId !== null || channelName !== null"> • </template>
           {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
         <span

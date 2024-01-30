@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 subskrybujący | {count} subskrybentów
     View Count: 1 wyświetlenie | {count} wyświetle(nia/ń)
     Watching Count: 1 oglądający | {count} oglądających
+  Input Tags:
+    Length Requirement: Tag musi mieć przynajmniej {number} znak(i/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -558,6 +560,10 @@ Settings:
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
       sprawdzić, czy wpisane ID jest poprawne.
+    Hide Videos and Playlists Containing Text: Schowaj filmy i playlisty zawierające
+      poniższy tekst
+    Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
+      lub wyrażenie
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -750,6 +756,7 @@ Channel:
     votes: '{votes} głosów'
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi
+    Video hidden by FreeTube: Film schowany przez FreeTube
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -1060,7 +1067,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blog
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
 Download From Site: Pobierz ze strony
 Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber}
-  jest już dostępna! Kliknij po więcej szczegółów
+  jest już dostępna!  Kliknij po więcej szczegółów
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
   regionalna.
@@ -1138,6 +1145,10 @@ Tooltips:
       liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}”
       z podgrupy „{subsection}” grupy „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Wprowadź słowo, fragment słowa, lub
+      wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i
+      playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube,
+      poza Historią, Twoimi playlistami i filmami w tych playlistach.
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
       DeArrow.
@@ -1209,3 +1220,6 @@ Playlist will not pause when current video is finished: Playlista nie zatrzyma s
 Channel Hidden: '{channel} dodany do filtra kanałów'
 Go to page: Idź do {page}
 Channel Unhidden: '{channel} usunięty z filtra kanału'
+Tag already exists: Tag „{tagName}” już istnieje
+Trimmed input must be at least N characters long: Przycięte wyrażenie musi mieć przynajmniej
+  1 znak | Przycięte wyrażenie musi mieć przynajmniej {length} znaki/ów
