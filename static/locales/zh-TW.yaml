@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 個訂閱者 | {count} 個訂閱者
     View Count: 1 次檢視 | {count} 次檢視
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
+  Input Tags:
+    Length Requirement: 標籤必須至少 {number} 個字元長
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -150,6 +152,12 @@ User Playlists:
       "{videoCount} video(s) have been removed": 移除了 1 部影片 | 移除了 {videoCount} 部影片
       Playlist {playlistName} has been deleted.: 播放清單 {playlistName} 已刪除。
       This playlist does not exist: 此播放清單不存在
+      This playlist is now used for quick bookmark: 此播放清單現在用於快速書籤
+      Quick bookmark disabled: 快速書籤已停用
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放清單現在用於快速書籤，而非
+        {oldPlaylistName}。點擊此處撤銷
+      Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
+        進行快速書籤
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
       部影片新增至其中
@@ -174,6 +182,10 @@ User Playlists:
   Remove Watched Videos: 移除已觀看的影片
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中移除所有觀看過的影片嗎？
     這無法還原。
+  Add to Favorites: 新增至 {playlistName}
+  Remove from Favorites: 從 {playlistName} 移除
+  Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
+  Disable Quick Bookmark: 停用快速書籤
 History:
   # On History Page
   History: '觀看紀錄'
@@ -480,6 +492,8 @@ Settings:
     Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
     Hide Channels Already Exists: 頻道 ID 已存在
     Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
+    Hide Videos and Playlists Containing Text: 隱藏包含文字的影片與播放清單
+    Hide Videos and Playlists Containing Text Placeholder: 單字、單字片段或片語
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -509,6 +523,9 @@ Settings:
       Do Nothing: 不要做任何事
     Category Color: 分類色彩
     UseDeArrowTitles: 使用 DeArrow 影片標題
+    UseDeArrowThumbnails: 使用 DeArrow 製作縮圖
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      縮圖產生器 API（預設值為 https://dearrow-thumb.ajay.app）
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -518,6 +535,7 @@ Settings:
     Players:
       None:
         Name: 無
+    Ignore Default Arguments: 忽略預設引數
   Download Settings:
     Download Settings: 下載設定
     Ask Download Path: 詢問下載路徑
@@ -649,6 +667,7 @@ Channel:
     votes: '{votes} 票'
     Reveal Answers: 揭露答案
     Hide Answers: 隱藏答案
+    Video hidden by FreeTube: 由 FreeTube 隱藏的影片
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
@@ -968,13 +987,17 @@ Tooltips:
     External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
       設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'{defaultCustomArguments}'）
+    Ignore Default Arguments: 除了影片 URL 之外，不要向外部播放器傳送任何預設引數（例如播放速率、播放清單 URL 等）。 自訂引數仍會被傳遞。
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
   Distraction Free Settings:
     Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
+    Hide Videos and Playlists Containing Text: 輸入單字、單字片段或片語（不分大小寫），以隱藏整個 FreeTube
+      中原始標題包含該單字、單字片段或片語的所有影片與播放清單，僅不包括歷史紀錄、您的播放清單與播放清單內的影片。
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
+    UseDeArrowThumbnails: 將影片縮圖替換為來自 DeArrow 的縮圖。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
@@ -1025,3 +1048,6 @@ Playlist will not pause when current video is finished: 當目前影片結束時
 Channel Hidden: '{channel} 已新增至頻道過濾條件'
 Go to page: 到 {page}
 Channel Unhidden: '{channel} 已從頻道過濾條件移除'
+Trimmed input must be at least N characters long: 修剪後的輸入必須至少有 1 個字元長 | 修剪後的輸入必須至少有
+  {length} 個字元長
+Tag already exists: 「{tagName}」標籤已存在

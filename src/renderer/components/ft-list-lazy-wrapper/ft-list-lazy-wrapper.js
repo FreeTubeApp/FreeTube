@@ -43,6 +43,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    },
   },
   data: function () {
     return {
@@ -64,6 +68,10 @@ export default defineComponent({
         }
         return ch
       })
+    },
+    forbiddenTitles: function() {
+      if (!this.hideForbiddenTitles) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
@@ -102,6 +110,9 @@ export default defineComponent({
           // hide videos by author
           return false
         }
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
       } else if (dataType === 'channel') {
         const attrsToCheck = [
           // Local API
@@ -117,6 +128,9 @@ export default defineComponent({
           return false
         }
       } else if (dataType === 'playlist') {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
         const attrsToCheck = [
           // Local API
           data.channelId,

@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
+  Input Tags:
+    Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
@@ -180,6 +182,14 @@ User Playlists:
       Playlist {playlistName} has been deleted.: Wiedergabeliste {playlistName} wurde
         gelöscht.
       This playlist does not exist: Diese Wiedergabeliste existiert nicht
+      This playlist is now used for quick bookmark: Diese Wiedergabeliste wird jetzt
+        für Schnelles Merken genutzt
+      Quick bookmark disabled: 'Schnelles Merken deaktiviert'
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese
+        Wiedergabeliste wird jetzt für Schnelles Merken genutzt, statt {oldPlaylistName}.
+        Klicke hier zum zurücksetzen
+      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
+        wieder für Schnelles Merken genutzt'
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
     Search in Playlists: In Wiedergabelisten suchen
@@ -210,6 +220,11 @@ User Playlists:
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Bist
     du sicher, dass du alle angesehenen Videos aus dieser Wiedergabeliste entfernen
     möchtest? Dies kann nicht rückgängig gemacht werden.
+  Add to Favorites: Hinzufügen zu {playlistName}
+  Remove from Favorites: Löschen aus {playlistName}
+  Enable Quick Bookmark With This Playlist: Schnelles Merken für diese Wiedergabeliste
+    aktivieren
+  Disable Quick Bookmark: Schnelles Merken deaktivieren
 History:
   # On History Page
   History: Verlauf
@@ -553,6 +568,10 @@ Settings:
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
       ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
+    Hide Videos and Playlists Containing Text: Videos und Playlisten verstecken, die
+      Text enthalten
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
+      oder Satz
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -587,6 +606,9 @@ Settings:
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
+    UseDeArrowThumbnails: Nutze DeArrow für Thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
       ignorieren
@@ -597,6 +619,7 @@ Settings:
     Players:
       None:
         Name: Keine
+    Ignore Default Arguments: Ignoriere Standardargument
   Download Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -745,6 +768,7 @@ Channel:
     votes: '{votes} Stimmen'
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
+    Video hidden by FreeTube: Video versteckt von FreeTube
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
@@ -853,7 +877,7 @@ Video:
     music offtopic: Musik Offtopic
     interaction: Interaktion
     self-promotion: Eigenwerbung
-    outro: Outro
+    outro: Abspann
     intro: Intro
     sponsor: Sponsor
     recap: Rekapitulation
@@ -1054,8 +1078,8 @@ Profile:
   Profile Name: Profilname
   Edit Profile Name: Profilname bearbeiten
   Create Profile Name: Profilname erstellen
-  Open Profile Dropdown: Profil-Dropdown öffnen
-  Close Profile Dropdown: Profil-Dropdown schließen
+  Open Profile Dropdown: Profil-Klappliste öffnen
+  Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
   ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
@@ -1129,6 +1153,9 @@ Tooltips:
       im externen Abspieler öffnen kannst. Achtung, die Einstellungen von Invidious
       wirken sich nicht auf externe Abspieler aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
+    Ignore Default Arguments: Schicke keine Standardargumente an den externen Videoplayer
+      außer der Video URL (z.B. Abspiel-Geschwindigkeit, Wiedergabeliste-URL etc.).
+      Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
@@ -1141,9 +1168,15 @@ Tooltips:
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
       „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
       Kraft gesetzt
+    Hide Videos and Playlists Containing Text: Gebe ein Wort, einen Teil eines Wortes
+      oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
+      Playlisten, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
+      Dein Verlauf, deine eigenen Playlisten und Videos innerhalb deiner Playlisten
+      sind davon nicht betroffen.
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
+    UseDeArrowThumbnails: Ersetze Video-Thumbnails mit Thumbnails von DeArrow.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1208,3 +1241,7 @@ Playlist will not pause when current video is finished: Wiedergabeliste wird nic
 Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
 Go to page: Gehe zu {page}
 Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
+Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
+  1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
+  sein
+Tag already exists: Der Tag "{tagName}" existiert bereits
