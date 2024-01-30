@@ -50,8 +50,7 @@
 .system[data-system-theme*='light'], .light,
 .system[data-system-theme*='dark'], .dark,
 .black,
-.gray,
-.nordic {
+.gray {
   --logo-icon: url("../../_icons/iconColorSmall.png");
   --logo-text: url("../../_icons/textColorSmall.png");
 }
@@ -258,6 +257,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #3b4252;
   --side-nav-active-color: #3b4252;
   --search-bar-color: #4b566a;
+  --logo-icon: url("../../_icons/iconNordicLightSmall.png");
+  --logo-text: url("../../_icons/textNordicLightSmall.png");
 }
 
 .mainRed,
