@@ -43,6 +43,8 @@ Global:
   Live: Уживо
   Community: Заједница
   Shorts: Shorts
+  Input Tags:
+    Length Requirement: Ознака мора да има најмање {number} знакова
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
   је сада достуна!  Кликните за више детаља'
 Download From Site: 'Преузми са сајта'
@@ -157,7 +159,7 @@ User Playlists:
       This video cannot be moved up.: Овај видео снимак се не може померити нагоре.
       This playlist is protected and cannot be removed.: Ова плејлиста је заштићена
         и не може се уклонити.
-      Playlist {playlistName} has been deleted.: Плејлиста {playlistName} је избрисана.
+      Playlist {playlistName} has been deleted.: Плејлиста „{playlistName}“ је избрисана.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Неки
         видео снимци на плејлисти још увек нису учитани. Кликните овде да бисте ипак
         копирали.
@@ -169,6 +171,14 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 видео снимак је уклоњен | {videoCount}
         видео снимака је уклоњено
       This video cannot be moved down.: Овај видео снимак се не може померити надоле.
+      This playlist is now used for quick bookmark: Ова плејлиста се сада користи
+        за брзо обележавање
+      Quick bookmark disabled: Брзо обележавање је онемогућено
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ова
+        плејлиста се сада користи за брзо обележавање, уместо „{oldPlaylistName}“.
+        Кликните овде да поништите
+      Reverted to use {oldPlaylistName} for quick bookmark: Враћено на коришћење „{oldPlaylistName}“
+        за брзо обележавање
   Are you sure you want to delete this playlist? This cannot be undone: Желите ли
     заиста да избришете ову плејлисту? Ово се не може поништити.
   Sort By:
@@ -190,7 +200,7 @@ User Playlists:
     Toast:
       There was an issue with creating the playlist.: Дошло је до грешке при прављењу
         плејлисте.
-      Playlist {playlistName} has been successfully created.: Плејлиста {playlistName}
+      Playlist {playlistName} has been successfully created.: Плејлиста „{playlistName}“
         је успешно направљена.
       There is already a playlist with this name. Please pick a different name.: Већ
         постоји плејлиста с овим називом. Молимо, изаберите други назив.
@@ -208,6 +218,10 @@ User Playlists:
   Edit Playlist Info: Измени информације о плејлисти
   Copy Playlist: Копирај плејлисту
   Playlist Description: Опис плејлисте
+  Enable Quick Bookmark With This Playlist: Омогући брзо обележавање помоћу ове плејлисте
+  Disable Quick Bookmark: Онемогући брзо обележавање
+  Add to Favorites: Додај на плејлисту „{playlistName}“
+  Remove from Favorites: Уклони са плејлисте „{playlistName}“
 History:
   # On History Page
   History: 'Историја'
@@ -463,6 +477,9 @@ Settings:
     Hide Channels Already Exists: ID канала већ постоји
     Hide Channels API Error: Грешка при преузимању корисника са наведеним ID-ом. Проверите
       поново да ли је ID тачан.
+    Hide Videos and Playlists Containing Text: Сакриј видео снимке и плејлисте које
+      садрже текст
+    Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
   Data Settings:
     Data Settings: 'Подешавања података'
     Select Import Type: 'Избор врсте увоза'
@@ -553,6 +570,9 @@ Settings:
     Enable SponsorBlock: Омогући SponsorBlock
     SponsorBlock Settings: Подешавања SponsorBlock-а
     Category Color: Боја категорије
+    UseDeArrowThumbnails: Користи DeArrow за сличице
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      API-ја DeArrow генератора сличица (Подразумевано је https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Спољни плејер
     External Player Settings: Подешавања спољног плејера
@@ -562,6 +582,7 @@ Settings:
     Players:
       None:
         Name: Ниједно
+    Ignore Default Arguments: Игнориши подразумеване аргументе
   Download Settings:
     Choose Path: Избор путање
     Open in web browser: Отвори у прегледачу
@@ -708,6 +729,7 @@ Channel:
     Reveal Answers: Откриј одговоре
     Hide Answers: Сакриј одговоре
     votes: 'Гласова: {votes}'
+    Video hidden by FreeTube: Видео снимак сакрио је FreeTube
   Live:
     Live: Уживо
     This channel does not currently have any live streams: Овај канал тренутно нема
@@ -899,6 +921,9 @@ Tooltips:
       потребно, овде се може подесити прилагођена путања.
     Ignore Warnings: Поништи упозорења када тренутни спољни плејер не подржава тренутну
       радњу (нпр. обртање плејлиста итд.).
+    Ignore Default Arguments: Немојте слати никакве подразумеване аргументе спољном
+      плејеру осим URL адресе видео снимка (нпр. брзина репродукције, URL адреса плејлисте
+      итд.). Прилагођени аргументи ће и даље бити прослеђени.
   Distraction Free Settings:
     Hide Channels: Унесите назив канала или ID канала да бисте сакрили све видео снимке,
       плејлисте и сам канал, да се не појављују у претрази, у тренду, најпопуларнијима
@@ -906,6 +931,10 @@ Tooltips:
       велика и мала слова.
     Hide Subscriptions Live: Ово подешавање је замењено подешавањем за целу апликацију
       „{appWideSetting}“ у одељку „{subsection}“ у „{settingsSection}“
+    Hide Videos and Playlists Containing Text: Унесите реч, део речи или фразу (не
+      разликује велика и мала слова) да бисте сакрили све видео снимке и плејлисте
+      чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју,
+      ваше плејлисте и видео снимке унутар плејлиста.
   Privacy Settings:
     Remove Video Meta Files: Када је омогућено, FreeTube аутоматски брише мета фајлове
       направљене током репродукције видео снимка, када се страница гледања затвори.
@@ -937,6 +966,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Замена наслова видео снимака насловима које су послали корисници
       DeArrow-a.
+    UseDeArrowThumbnails: Замените сличице видео снимака сличицама из DeArrow-а.
 Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено
@@ -1085,3 +1115,6 @@ Downloading failed: Дошло је до проблема при преузим�
 Channel Hidden: '{channel} је додат на филтер канала'
 Go to page: Иди на {page}
 Channel Unhidden: '{channel} је уклоњен из филтера канала'
+Trimmed input must be at least N characters long: Исечени унос мора да има најмање
+  1 знак | Исечени унос мора да има најмање {length} знакова
+Tag already exists: Ознака „{tagName}“ већ постоји

@@ -31,6 +31,7 @@
       />
       <ft-community-post
         v-else-if="finalDataType === 'community'"
+        :hide-forbidden-titles="hideForbiddenTitles"
         :appearance="appearance"
         :data="data"
       />

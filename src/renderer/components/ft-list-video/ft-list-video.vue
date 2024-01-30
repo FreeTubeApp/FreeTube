@@ -24,14 +24,14 @@
         >
       </router-link>
       <div
-        v-if="isLive || isUpcoming || (duration !== '' && duration !== '0:00')"
+        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
           live: isLive,
           upcoming: isUpcoming
         }"
       >
-        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : duration) }}
+        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : displayDuration) }}
       </div>
       <ft-icon-button
         v-if="externalPlayer !== ''"
@@ -54,6 +54,20 @@
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
+          :title="quickBookmarkIconText"
+          :icon="['fas', 'star']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+            alwaysVisible: alwaysShowAddToPlaylistButton,
+          }"
+          :theme="quickBookmarkIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleQuickBookmarked"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
@@ -112,7 +126,10 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
+        <span v-else-if="channelName !== null">
+          {{ channelName }}
+        </span>
+        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null">
           <span class="viewCount">
             <template v-if="channelId !== null"> • </template>
             {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}

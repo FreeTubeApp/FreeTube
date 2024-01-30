@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 abone | {count} abone
     View Count: 1 izlenme | {count} izlenme
     Watching Count: 1 izliyor | {count} izliyor
+  Input Tags:
+    Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -168,6 +170,14 @@ User Playlists:
         ve kaldırılamaz.
       There were no videos to remove.: Kaldırılacak video yok.
       This playlist does not exist: Bu oynatma listesi yok
+      Quick bookmark disabled: Hızlı yer imi devre dışı bırakıldı
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
+        oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor.
+        Geri almak için buraya tıklayın
+      Reverted to use {oldPlaylistName} for quick bookmark: Hızlı yer imi için {oldPlaylistName}
+        kullanımına geri dönüldü
+      This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
+        yer imi için kullanılıyor
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
       listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
@@ -206,6 +216,11 @@ User Playlists:
     tüm videoları bu oynatma listesinden kaldırmak istediğinizden emin misiniz? Bu
     işlem geri alınamaz.
   Remove Watched Videos: İzlenen Videoları Kaldır
+  Add to Favorites: '{playlistName} oynatma listesine ekle'
+  Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
+  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
+    Etkinleştir
+  Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
 History:
   # On History Page
   History: 'Geçmiş'
@@ -542,6 +557,10 @@ Settings:
     Hide Channels Already Exists: Kanal kimliği zaten var
     Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu.
       Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
+    Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini
+      Gizle
+    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
+      veya İfade
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -575,6 +594,9 @@ Settings:
       Do Nothing: Hiçbir Şey Yapma
     Category Color: Kategori Rengi
     UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
+    UseDeArrowThumbnails: Önizleme görselleri için DeArrow kullan
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Önizleme Görseli Oluşturucu API URL'si (Öntanımlı https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -584,6 +606,7 @@ Settings:
     Players:
       None:
         Name: Yok
+    Ignore Default Arguments: Öntanımlı Argümanları Yoksay
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
@@ -777,6 +800,7 @@ Channel:
     votes: '{votes} oy'
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
+    Video hidden by FreeTube: FreeTube tarafından gizlenen video
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
@@ -1065,8 +1089,8 @@ Tooltips:
       bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
-    Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
-      yerine videonun bir karesiyle değiştirilecektir.
+    Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme
+      görseli yerine videonun bir karesiyle değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
       API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
       yedek yöntem olarak kullanmaya çalışır.
@@ -1090,9 +1114,12 @@ Tooltips:
       PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
       burada özel bir yol ayarlanabilir.
     External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
-      listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+      listesini) harici oynatıcıda açmak için önizleme görselinde bir simge görüntüleyecektir.
       Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir
+      öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.).
+      Özel argümanlar yine de gönderilecektir.
   Experimental Settings:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
       ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
@@ -1105,9 +1132,16 @@ Tooltips:
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
       kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
       kılınıyor
+    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz
+      ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında
+      orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek
+      için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı
+      değildir).
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.
+    UseDeArrowThumbnails: Video önizleme görsellerini DeArrow'dan önizleme görselleriyle
+      değiştirin.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
@@ -1174,3 +1208,6 @@ Playlist will not pause when current video is finished: Geçerli video bittiğin
 Channel Hidden: '{channel} kanal filtresine eklendi'
 Go to page: '{page}. sayfaya git'
 Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
+Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
+  uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
+Tag already exists: '"{tagName}" etiketi zaten var'
