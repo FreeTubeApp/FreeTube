@@ -548,6 +548,7 @@ Settings:
       provjeri točnost ID-a.
     Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
       ili fraza
+    Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -1117,6 +1118,10 @@ Tooltips:
       se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
       u odjeljku „{subsection}” u „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Upiši riječ, fragment riječi ili izraz
+      (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem
+      u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest,
+      tvoje zbirke i videa unutar zbirki.
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
     UseDeArrowThumbnails: Zamijeni minijature videa s DeArrow minijaturama.
