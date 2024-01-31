@@ -6,6 +6,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import {
+  formatNumber,
   showToast,
 } from '../../helpers/utils'
 
@@ -143,6 +144,14 @@ export default defineComponent({
 
     firstVideoIdExists() {
       return this.firstVideoId !== ''
+    },
+
+    parsedViewCount() {
+      return formatNumber(this.viewCount)
+    },
+
+    parsedVideoCount() {
+      return formatNumber(this.videoCount)
     },
 
     thumbnail: function () {
