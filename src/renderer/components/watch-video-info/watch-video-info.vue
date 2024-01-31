@@ -82,12 +82,23 @@
       -->
       <div class="videoOptions">
         <ft-icon-button
-          v-if="!isUpcoming"
-          :title="$t('Video.Save Video')"
-          :icon="['fas', 'star']"
+          v-if="showPlaylists && !isUpcoming"
+          :title="$t('User Playlists.Add to Playlist')"
+          :icon="['fas', 'plus']"
           class="option"
-          :theme="favoriteIconTheme"
-          @click="toggleSave"
+          theme="base"
+          @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="isQuickBookmarkEnabled"
+          :title="quickBookmarkIconText"
+          :icon="['fas', 'star']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+          }"
+          :theme="quickBookmarkIconTheme"
+          @click="toggleQuickBookmarked"
         />
         <ft-icon-button
           v-if="externalPlayer !== ''"

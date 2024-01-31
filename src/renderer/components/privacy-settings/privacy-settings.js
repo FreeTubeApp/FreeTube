@@ -22,6 +22,7 @@ export default defineComponent({
       showSearchCachePrompt: false,
       showRemoveHistoryPrompt: false,
       showRemoveSubscriptionsPrompt: false,
+      showRemovePlaylistsPrompt: false,
       promptValues: [
         'yes',
         'no'
@@ -114,6 +115,15 @@ export default defineComponent({
       this.clearSubscriptionsCache()
     },
 
+    handleRemovePlaylists: function (option) {
+      this.showRemovePlaylistsPrompt = false
+      if (option !== 'yes') { return }
+
+      this.removeAllPlaylists()
+      this.updateQuickBookmarkTargetPlaylistId('favorites')
+      showToast(this.$t('Settings.Privacy Settings.All playlists have been removed'))
+    },
+
     ...mapActions([
       'updateRememberHistory',
       'updateRemoveVideoMetaFiles',
@@ -125,6 +135,10 @@ export default defineComponent({
       'removeProfile',
       'updateActiveProfile',
       'clearSubscriptionsCache',
+      'updateAllSubscriptionsList',
+      'updateProfileSubscriptions',
+      'removeAllPlaylists',
+      'updateQuickBookmarkTargetPlaylistId',
     ])
   }
 })

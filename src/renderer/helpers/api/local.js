@@ -386,9 +386,6 @@ export function parseLocalChannelVideos(videos, author) {
  */
 export function parseLocalChannelShorts(shorts, author) {
   return shorts.map(short => {
-    // unfortunately the only place with the duration is the accesibility string
-    const duration = parseShortDuration(short.accessibility_label, short.id)
-
     return {
       type: 'video',
       videoId: short.id,
@@ -396,65 +393,9 @@ export function parseLocalChannelShorts(shorts, author) {
       author: author.name,
       authorId: author.id,
       viewCount: parseLocalSubscriberCount(short.views.text),
-      lengthSeconds: isNaN(duration) ? '' : duration
+      lengthSeconds: ''
     }
   })
-}
-
-/**
- * Shorts can only be up to 60 seconds long, so we only need to handle seconds and minutes
- * Of course this is YouTube, so are edge cases that don't match the docs, like example 3 taken from LTT
- *
- * https://support.google.com/youtube/answer/10059070?hl=en
- *
- * Example input strings:
- * - These mice keep getting WEIRDER... - 59 seconds - play video
- * - How Low Can Our Resolution Go? - 1 minute - play video
- * - I just found out about Elon. #SHORTS - 1 minute, 1 second - play video
- * @param {string} accessibilityLabel
- * @param {string} videoId only used for error logging
- */
-function parseShortDuration(accessibilityLabel, videoId) {
-  // we want to count from the end of the array,
-  // as it's possible that the title could contain a `-` too
-  const timeString = accessibilityLabel.split('-').at(-2)
-
-  if (typeof timeString === 'undefined') {
-    console.error(`Failed to parse local API short duration from accessibility label. video ID: ${videoId}, text: "${accessibilityLabel}"`)
-    return NaN
-  }
-
-  let duration = 0
-
-  const matches = timeString.matchAll(/(\d+) (second|minute)s?/g)
-
-  // matchAll returns an iterator, which doesn't have a length property
-  // so we need to check if it's empty this way instead
-  let validDuration = false
-
-  for (const match of matches) {
-    let number = parseInt(match[1])
-
-    if (isNaN(number) || match[2].length === 0) {
-      validDuration = false
-      break
-    }
-
-    validDuration = true
-
-    if (match[2] === 'minute') {
-      number *= 60
-    }
-
-    duration += number
-  }
-
-  if (!validDuration) {
-    console.error(`Failed to parse local API short duration from accessibility label. video ID: ${videoId}, text: "${accessibilityLabel}"`)
-    return NaN
-  }
-
-  return duration
 }
 
 /**
@@ -516,7 +457,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie'
     })
     .map((item) => parseListItem(item))
 
@@ -535,15 +476,12 @@ export function parseLocalPlaylistVideo(video) {
     /** @type {import('youtubei.js').YTNodes.ReelItem} */
     const short = video
 
-    // unfortunately the only place with the duration is the accesibility string
-    const duration = parseShortDuration(video.accessibility_label, short.id)
-
     return {
       type: 'video',
       videoId: short.id,
       title: short.title.text,
       viewCount: parseLocalSubscriberCount(short.views.text),
-      lengthSeconds: isNaN(duration) ? '' : duration
+      lengthSeconds: ''
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
@@ -599,22 +537,41 @@ export function parseLocalPlaylistVideo(video) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Video} video
+ * @param {import('youtubei.js').YTNodes.Video | import('youtubei.js').YTNodes.Movie} item
  */
-export function parseLocalListVideo(video) {
-  return {
-    type: 'video',
-    videoId: video.id,
-    title: video.title.text,
-    author: video.author.name,
-    authorId: video.author.id,
-    description: video.description,
-    viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.isEmpty() ? null : video.published.text,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
-    liveNow: video.is_live,
-    isUpcoming: video.is_upcoming || video.is_premiere,
-    premiereDate: video.upcoming
+export function parseLocalListVideo(item) {
+  if (item.type === 'Movie') {
+    /** @type {import('youtubei.js').YTNodes.Movie} */
+    const movie = item
+
+    return {
+      type: 'video',
+      videoId: movie.id,
+      title: movie.title.text,
+      author: movie.author.name,
+      authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
+      description: movie.description_snippet?.text,
+      lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
+      liveNow: false,
+      isUpcoming: false,
+    }
+  } else {
+    /** @type {import('youtubei.js').YTNodes.Video} */
+    const video = item
+    return {
+      type: 'video',
+      videoId: video.id,
+      title: video.title.text,
+      author: video.author.name,
+      authorId: video.author.id,
+      description: video.description,
+      viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+      publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
+      lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
+      liveNow: video.is_live,
+      isUpcoming: video.is_upcoming || video.is_premiere,
+      premiereDate: video.upcoming
+    }
   }
 }
 
@@ -623,6 +580,7 @@ export function parseLocalListVideo(video) {
  */
 function parseListItem(item) {
   switch (item.type) {
+    case 'Movie':
     case 'Video':
       return parseLocalListVideo(item)
     case 'Channel': {
@@ -689,8 +647,8 @@ export function parseLocalWatchNextVideo(video) {
     title: video.title.text,
     author: video.author.name,
     authorId: video.author.id,
-    viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.isEmpty() ? null : video.published.text,
+    viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+    publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
     lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
     liveNow: video.is_live,
     isUpcoming: video.is_premiere

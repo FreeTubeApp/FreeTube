@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 tellija | {count} tellijat
     View Count: 1 vaatamine | {count} vaatamist
     Watching Count: 1 vaatamas | {count} vaatamas
+  Input Tags:
+    Length Requirement: Silt peab olema vähemalt {number} tähemärki pikk
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -127,6 +129,94 @@ User Playlists:
     Kui kõik on valmis, siis siin nähtavad videod on leitavad esitusloendist „Lemmikud“.
   Search bar placeholder: Otsi esindusloendist
   Empty Search Message: Selles esitusloendis pole sinu otsingule vastavaid videosid
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Kas
+    sa oled kindel, et soovid kõik vaadatud videod sellest esitusloendist eemaldada?
+    Seda tegevust ei saa tagasi pöörata.
+  You have no playlists. Click on the create new playlist button to create a new one.: Sul
+    pole esitusloendeid. Uue esitusloendi loomiseks vajuta nuppu „Uus esitusloend“.
+  Remove from Playlist: Eemalda esitusloendist
+  Save Changes: Salvesta muudatused
+  This playlist currently has no videos.: Selles esitusloendis pole hetkel videosid.
+  Add to Playlist: Lisa esitusloendisse
+  Move Video Down: Liiguta video allapoole
+  Playlist Name: Esitusloendi nimi
+  Remove Watched Videos: Eemalda vaadatud videod
+  Move Video Up: Liiguta video ülespoole
+  Cancel: Katkesta
+  Delete Playlist: Kustuta esitusloend
+  Create New Playlist: Loo uus esitusloend
+  Edit Playlist Info: Muuda esitusloendi teavet
+  Copy Playlist: Kopeeri esitusloend
+  Playlist Description: Esitusloendi kirjeldus
+  AddVideoPrompt:
+    Search in Playlists: Otsi esindusloenditest
+    Save: Salvesta
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video on lisatud
+        {playlistCount} esitusloendisse | {videoCount} videot on lisatud {playlistCount}
+        esitusloendisse
+      "{videoCount} video(s) added to 1 playlist": 1 video on lisatud 1'te esitusloendisse
+        | {videoCount} videot on lisatud 1'te esitusloendisse
+      You haven't selected any playlist yet.: Sa pole veel ühtegi esitusloendit valinud.
+    Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video
+      lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
+    N playlists selected: '{playlistCount} valitud'
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Ei leidnud ühtegi videot, mida saaks eemaldada.
+      Video has been removed: Video on eemaldatud
+      Playlist has been updated.: Esitusloendi andmed on uuendatud.
+      There was an issue with updating this playlist.: Esitusloendi andmete uuendamisel
+        tekkis viga.
+      This video cannot be moved up.: Seda videot ei saa ülespoole liigutada.
+      This playlist is protected and cannot be removed.: Esitusloend on kaitstud ja
+        seda ei saa eemaldada.
+      Playlist {playlistName} has been deleted.: Esitusloend „{playlistName}“ on kustutatud.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Mõned
+        esitusloendi videod on veel laadimata. Kui ikkagi soovid neid kopeerida, klõpsi
+        siia.
+      This playlist does not exist: Sellist esitusloendit ei leidu
+      Playlist name cannot be empty. Please input a name.: Esitusloendi nimi ei saa
+        olla tühi. Palun sisesta nimi.
+      There was a problem with removing this video: Video eemaldamisel tekkis viga
+      "{videoCount} video(s) have been removed": 1 video on eemaldatud | {videoCount}
+        videot on eemaldatud
+      This video cannot be moved down.: Seda videot ei saa allapoole liigutada.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: '{oldPlaylistName}
+        asemel on nüüd see esitusloend kasutusel kiirjärjehoidjate jaoks. Selle otsuse
+        tühistamiseks klõpsi siin'
+      This playlist is now used for quick bookmark: See esitusloend on kasutusel kiirjärjehoidjate
+        jaoks
+      Quick bookmark disabled: Kiirjärjehoidjad ei ole kasutusel
+      Reverted to use {oldPlaylistName} for quick bookmark: Võtsime {oldPlaylistName}
+        uuesti kasutusele kiirjärjehoidjate jaoks
+  Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
+    kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
+  Sort By:
+    LatestPlayedFirst: Hiljuti esitatud esimesena
+    EarliestCreatedFirst: Varem loodud esimesena
+    LatestCreatedFirst: Loodud hiljuti esimesena
+    EarliestUpdatedFirst: Varem uuendatud esimesena
+    Sort By: Järjestuse alus
+    NameDescending: Z-A
+    EarliestPlayedFirst: Varem esitatud esimesena
+    LatestUpdatedFirst: Hiljuti uuendatud esimesena
+    NameAscending: A-Z
+  CreatePlaylistPrompt:
+    Create: Loo uus esitusloend
+    Toast:
+      There was an issue with creating the playlist.: Esitusloendi loomisel tekkis
+        viga.
+      Playlist {playlistName} has been successfully created.: Esitusloendi „{playlistName}“
+        loomine õnnestus.
+      There is already a playlist with this name. Please pick a different name.: Sellise
+        nimega esitusloend on juba olemas. Palun sisesta muu nimi.
+    New Playlist Name: Esitusloendi uus nimi
+  Disable Quick Bookmark: Lülita kiirjärjehoidjate kasutamine välja
+  Add to Favorites: Lisa esitusloendisse {playlistName}
+  Remove from Favorites: Eemalda esitusloendist {playlistName}
+  Enable Quick Bookmark With This Playlist: Võimalda kiirjärjehoidjate kasutamist
+    selle esitusloendiga
 History:
   # On History Page
   History: 'Ajalugu'
@@ -318,6 +408,10 @@ Settings:
     Automatically Remove Video Meta Files: Automaatselt kustuta videote metateave
     Save Watched Videos With Last Viewed Playlist: Salvesta vaadatud videod viimati
       vaadatud videote esitusloendisse
+    All playlists have been removed: Kõik esitusloendid on eemaldatud
+    Remove All Playlists: Eemalda kõik esitusloendid
+    Are you sure you want to remove all your playlists?: Kas sa oled kindel, et soovid
+      kõik esitusloendid eemaldada?
   Subscription Settings:
     Subscription Settings: 'Tellimuste seadistused'
     Hide Videos on Watch: 'Vaatamisel peida videod'
@@ -372,6 +466,14 @@ Settings:
     Subscription File: Tellimuse fail
     History File: Ajaloo fail
     Playlist File: Esitusloendi fail
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Selle valikuga ekspordid kõik esitusloendid ühte esitusloendisse „Lemmikud“.\n
+        Kuidas saad seda eksportimise ja importimise valikut kasutada vanemate FreeTube'i
+        versioonidega:\n1. Ekspordi kõik oma esitusloendid kasutades seda valikut.\n
+        2. Kustuta kõik oma esitusloendid Privaatsusseadistustest kasutades valikut
+        „Kustuta kõik esitusloendid“.\n3. Käivita vanem FreeTube'i versioon ja impordi
+        esimeses sammus eksporditud esitusloendid."
+      Label: Ekspordi esitusloendid vanemate FreeTube'i versioonide jaoks
   Advanced Settings: {}
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
@@ -420,6 +522,9 @@ Settings:
     Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
     Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete
       laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
+    Hide Videos and Playlists Containing Text Placeholder: Sõna, sõnaosa või fraas
+    Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus
+      leidub sellist teksti
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -452,6 +557,9 @@ Settings:
       Do Nothing: Ära tee midagi
     Category Color: Kategooria värv
     UseDeArrowTitles: Laadi video pealkirjad DeArrow teenusest
+    UseDeArrowThumbnails: Pisipiltide jaoks kasuta DeArrow teenust
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Välise meediamängija seadistused
@@ -461,6 +569,7 @@ Settings:
     Players:
       None:
         Name: Puudub
+    Ignore Default Arguments: Eira vaikimisi käsureaargumente
   Download Settings:
     Download Settings: Allalaadimise seadistused
     Ask Download Path: Küsi kausta, kuhu soovid faile alla laadida
@@ -619,6 +728,7 @@ Channel:
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused
     votes: '{votes} häält'
+    Video hidden by FreeTube: FreeTube'i poolt peidetud video
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
@@ -890,6 +1000,9 @@ Tooltips:
       (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e
       seadistused ei mõjuta välise meediamängija kasutamist."
     DefaultCustomArgumentsTemplate: "(Vaikimisi: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Ära edasta välisele meediamängijale ühtegi vaikimisi
+      määratud argumenti peale video urli (näiteks taasesituse kiirus, esitusloend
+      jne). Sinu enda määratud argumendid edastatakse vaatamata sellele seadistusele.
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
@@ -941,6 +1054,10 @@ Tooltips:
       ja on tõstutundlik.
     Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“
       seadistus „{subsection}“/„{settingsSection}“
+    Hide Videos and Playlists Containing Text: Sisesta sõna, sõnaosa või fraas (tõstutundetuna),
+      mille alusel peidetakse läbivalt FreeTube'is kõik videod või esitusloendid,
+      kus see leidub algses pealkirjas. Peitmine ei toimi ajaloos, sinu loodud esitusloendites
+      ja esitusloendi sees olevate videote puhul.
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
       http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks
@@ -948,6 +1065,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Asenda video nimi kasutajate poolt DeArrow teenusesse lisatud
       nimega (pealkirjaga).
+    UseDeArrowThumbnails: Asenda video pisipildid DeArrow teenuse loodud pisipiltidega.
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
@@ -1003,3 +1121,6 @@ Playlist will not pause when current video is finished: Hetkel mängiva video l�
 Channel Hidden: '{channel} on lisatud kanalite filtrisse'
 Go to page: 'Ava leht: {page}'
 Channel Unhidden: '{channel} on eemaldatud kanalite filtrist'
+Tag already exists: Silt „{tagName}“ on juba olemas
+Trimmed input must be at least N characters long: Kärbitud sisend peab olema vähemalt
+  1 tähemärgi pikkune | Kärbitud sisend peab olema vähemalt {length} tähemärgi pikkune

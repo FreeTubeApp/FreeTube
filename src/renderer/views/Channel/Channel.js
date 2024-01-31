@@ -495,6 +495,7 @@ export default defineComponent({
       const expectedId = this.id
 
       try {
+        /** @type {import('youtubei.js').YT.Channel|undefined} */
         let channel
         if (!this.channelInstance) {
           channel = await getLocalChannel(this.id)
@@ -651,19 +652,44 @@ export default defineComponent({
           this.bannerUrl = null
         }
 
-        this.relatedChannels = channel.channels.map(({ author }) => {
-          let thumbnailUrl = author.best_thumbnail.url
+        let relatedChannels = channel.channels.map(({ author }) => ({
+          name: author.name,
+          id: author.id,
+          thumbnailUrl: author.best_thumbnail.url
+        }))
 
-          if (thumbnailUrl.startsWith('//')) {
-            thumbnailUrl = `https:${thumbnailUrl}`
-          }
+        if (channel.memo.has('GameDetails')) {
+          /** @type {import('youtubei.js').YTNodes.GameDetails[]} */
+          const games = channel.memo.get('GameDetails')
 
-          return {
-            name: author.name,
-            id: author.id,
-            thumbnailUrl
-          }
-        })
+          relatedChannels.push(...games.map(game => ({
+            id: game.endpoint.payload.browseId,
+            name: game.title.text,
+            thumbnailUrl: game.box_art[0].url
+          })))
+        }
+
+        if (relatedChannels.length > 0) {
+          /** @type {Set<string>} */
+          const knownChannelIds = new Set()
+
+          relatedChannels = relatedChannels.filter(channel => {
+            if (!knownChannelIds.has(channel.id)) {
+              knownChannelIds.add(channel.id)
+              return true
+            }
+
+            return false
+          })
+
+          relatedChannels.forEach(channel => {
+            if (channel.thumbnailUrl.startsWith('//')) {
+              channel.thumbnailUrl = `https:${channel.thumbnailUrl}`
+            }
+          })
+        }
+
+        this.relatedChannels = relatedChannels
 
         this.channelInstance = channel
 
@@ -770,7 +796,7 @@ export default defineComponent({
           const videoCount = extractNumberFromString(metadata.video_count)
           this.videoCount = isNaN(videoCount) ? null : videoCount
 
-          this.joined = metadata.joined_date.isEmpty() ? 0 : new Date(metadata.joined_date.text.replace('Joined').trim())
+          this.joined = metadata.joined_date && !metadata.joined_date.isEmpty() ? new Date(metadata.joined_date.text.replace('Joined').trim()) : 0
 
           this.location = metadata.country ?? null
         }

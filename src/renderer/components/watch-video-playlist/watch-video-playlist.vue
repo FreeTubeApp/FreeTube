@@ -12,32 +12,39 @@
       >
         <router-link
           class="playlistTitleLink"
-          :to="`/playlist/${playlistId}`"
+          :to="playlistPageLinkTo"
         >
           {{ playlistTitle }}
         </router-link>
       </h3>
-      <router-link
-        v-if="channelId"
-        class="channelName"
-        :to="`/channel/${channelId}`"
+      <template
+        v-if="channelName !== ''"
       >
-        {{ channelName }}
-      </router-link>
-      <span
-        v-else
-        class="channelName"
-      >
-        {{ channelName }}
-      </span>
+        <router-link
+          v-if="channelId"
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          {{ channelName }} -
+        </router-link>
+        <span
+          v-else
+          class="channelName"
+        >
+          {{ channelName }} -
+        </span>
+      </template>
       <span
         class="playlistIndex"
       >
-        - {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        <label for="playlistProgressBar">
+          {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
+        </label>
         <progress
           v-if="!shuffleEnabled && !reversePlaylist"
+          id="playlistProgressBar"
           class="playlistProgressBar"
-          :value="currentVideoIndex"
+          :value="currentVideoIndexOneBased"
           :max="playlistVideoCount"
         />
       </span>
@@ -114,13 +121,13 @@
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="index"
-          :ref="currentVideoIndex === (index + 1) ? 'currentVideoItem' : null"
+          :key="item.playlistItemId || item.videoId"
+          :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
           class="playlistItem"
         >
           <div class="videoIndexContainer">
             <font-awesome-icon
-              v-if="currentVideoIndex === (index + 1)"
+              v-if="currentVideoIndexZeroBased === index"
               class="videoIndexIcon"
               :icon="['fas', 'play']"
             />
@@ -134,13 +141,16 @@
           <ft-list-video-lazy
             :data="item"
             :playlist-id="playlistId"
+            :playlist-type="playlistType"
             :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
+            :playlist-item-id="item.playlistItemId"
             :playlist-reverse="reversePlaylist"
             :playlist-shuffle="shuffleEnabled"
             :playlist-loop="loopEnabled"
+            :hide-forbidden-titles="false"
             appearance="watchPlaylistItem"
             force-list-type="list"
-            :initial-visible-state="index < ((currentVideoIndex - 1) + 4) && index > ((currentVideoIndex - 1) - 4)"
+            :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
             @pause-player="$emit('pause-player')"
           />
         </div>
