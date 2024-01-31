@@ -21,6 +21,8 @@
       :videos="playlistItems"
       :view-count="viewCount"
       :info-source="infoSource"
+      :is-invidious-playlist="isInvidiousPlaylist"
+      :origin="origin"
       :more-video-data-available="moreVideoDataAvailable"
       class="playlistInfo"
       :class="{

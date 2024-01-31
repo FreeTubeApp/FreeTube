@@ -22,7 +22,8 @@ export function getProxyUrl(uri) {
 
 export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '', instance = '' }) {
   return new Promise((resolve, reject) => {
-    const requestUrl = isNullOrEmpty(instance) ? getCurrentInstance() : instance + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
+    const requestUrl = (isNullOrEmpty(instance) ? getCurrentInstance() : instance) + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
+
     fetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {

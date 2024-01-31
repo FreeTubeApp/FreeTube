@@ -121,7 +121,7 @@
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="item.playlistItemId || item.videoId"
+          :key="item.playlistItemId || item.videoId+'-'+index"
           :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
           class="playlistItem"
         >
