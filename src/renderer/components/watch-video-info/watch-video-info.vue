@@ -18,9 +18,7 @@
         <div
           class="likeSection"
         >
-          <div>
-            <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
-          </div>
+          <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
         </div>
       </div>
       <!--
