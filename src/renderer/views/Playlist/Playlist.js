@@ -107,7 +107,7 @@ export default defineComponent({
 
     moreVideoDataAvailable() {
       if (this.isUserPlaylistRequested) {
-        return this.userPlaylistVisibleLimit < this.videoCount
+        return this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length
       } else {
         return this.continuationData !== null
       }
@@ -140,7 +140,7 @@ export default defineComponent({
         return this.playlistItems
       }
 
-      if (this.userPlaylistVisibleLimit < this.videoCount) {
+      if (this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length) {
         return this.sometimesFilteredUserPlaylistItems.slice(0, this.userPlaylistVisibleLimit)
       } else {
         return this.sometimesFilteredUserPlaylistItems
