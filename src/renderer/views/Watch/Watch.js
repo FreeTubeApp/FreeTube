@@ -317,6 +317,24 @@ export default defineComponent({
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
+        if (result.watch_next_feed) {
+          try {
+            // work-around YouTube occasionally sending a watch next feed that only contains a continuation
+            if (result.watch_next_feed.length === 0 && result.wn_has_continuation) {
+              await result.getWatchNextContinuation()
+            }
+
+            this.recommendedVideos = result.watch_next_feed
+              ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
+              .map(parseLocalWatchNextVideo) ?? []
+          } catch (error) {
+            console.error('Failed to fetch the watch next feed', error)
+            this.recommendedVideos = []
+          }
+        } else {
+          this.recommendedVideos = []
+        }
+
         const recommendedVideos = result.watch_next_feed
           ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
           .map(parseLocalWatchNextVideo) ?? []
