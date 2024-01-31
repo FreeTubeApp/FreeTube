@@ -302,7 +302,8 @@ export default defineComponent({
 
     playNextVideo: function () {
       const playlistInfo = {
-        playlistId: this.playlistId
+        playlistId: this.playlistId,
+        playlistType: this.playlistType,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
@@ -349,7 +350,8 @@ export default defineComponent({
       showToast(this.$t('Playing Previous Video'))
 
       const playlistInfo = {
-        playlistId: this.playlistId
+        playlistId: this.playlistId,
+        playlistType: this.playlistType,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
