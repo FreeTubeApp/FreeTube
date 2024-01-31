@@ -60,6 +60,10 @@ export default defineComponent({
       type: String,
       required: true
     },
+    showChannelName: {
+      type: Boolean,
+      default: true,
+    },
     showVideoWithLastViewedPlaylist: {
       type: Boolean,
       default: false

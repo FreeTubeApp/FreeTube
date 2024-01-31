@@ -15,6 +15,10 @@ export default defineComponent({
     appearance: {
       type: String,
       required: true
+    },
+    showChannelName: {
+      type: Boolean,
+      default: true,
     }
   },
   data: function () {

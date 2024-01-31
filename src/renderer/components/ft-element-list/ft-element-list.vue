@@ -11,6 +11,7 @@
       :first-screen="index < 16"
       :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
+      :show-channel-name="showChannelName"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
       :hide-forbidden-titles="hideForbiddenTitles"
     />

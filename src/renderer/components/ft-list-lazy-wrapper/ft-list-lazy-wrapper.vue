@@ -17,6 +17,7 @@
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
         :data="data"
+        :show-channel-name="showChannelName"
         :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       />
       <ft-list-channel
@@ -28,6 +29,7 @@
         v-else-if="finalDataType === 'playlist'"
         :appearance="appearance"
         :data="data"
+        :show-channel-name="showChannelName"
       />
       <ft-community-post
         v-else-if="finalDataType === 'community'"

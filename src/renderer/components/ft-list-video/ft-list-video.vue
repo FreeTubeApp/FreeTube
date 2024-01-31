@@ -120,7 +120,7 @@
       </router-link>
       <div class="infoLine">
         <router-link
-          v-if="channelId !== null"
+          v-if="channelId !== null && showChannelName"
           class="channelName"
           :to="`/channel/${channelId}`"
         >
@@ -131,7 +131,7 @@
         </span>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null">
           <span class="viewCount">
-            <template v-if="channelId !== null"> • </template>
+            <template v-if="channelId !== null && showChannelName"> • </template>
             {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
           </span>
         </template>
