@@ -101,8 +101,8 @@ Subscriptions:
   Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
     pretplate da bi se ovdje prikazale.
   Subscriptions Tabs: Kartica pretplata
-  All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
-    na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
+  All Subscription Tabs Hidden: Sve kartice pretplata su skrivene. Za prikaz sadržaja
+    na ovom mjestu, sakrij neke kartice u pododjeljku „{subsection}” u „{settingsSection}”.
   Empty Posts: Kanali na koje si pretplaćen/a trenutačno nemaju objave.
   Load More Posts: Učitaj još objava
 Trending:
@@ -175,6 +175,14 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Neka
         videa zbirke još nisu učitani. Pritisni ovdje za kopiranje.
       There were no videos to remove.: Nije bilo videa za uklanjanje.
+      This playlist is now used for quick bookmark: Ova se zbirka sada koristi za
+        brze zabilješke
+      Quick bookmark disabled: Brze zabilješke su deaktivirane
+      Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje
+        zbirke {oldPlaylistName} za brze zabilješke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
+        se zbirka sada koristi za brze zabilješke umjesto zbirke {oldPlaylistName}.
+        Pritisni ovdje za poništavanje
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
     Search in Playlists: Traži u zbirkama
@@ -199,6 +207,8 @@ User Playlists:
     New Playlist Name: Ime nove zbirke
   Add to Favorites: Dodaj u zbirku {playlistName}
   Remove from Favorites: Ukloni iz zbirke {playlistName}
+  Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
+  Disable Quick Bookmark: Deaktiviraj brze zabilješke
 History:
   # On History Page
   History: 'Povijest'
@@ -538,6 +548,7 @@ Settings:
       provjeri točnost ID-a.
     Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
       ili fraza
+    Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -1107,6 +1118,10 @@ Tooltips:
       se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
       u odjeljku „{subsection}” u „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Upiši riječ, fragment riječi ili izraz
+      (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem
+      u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest,
+      tvoje zbirke i videa unutar zbirki.
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
     UseDeArrowThumbnails: Zamijeni minijature videa s DeArrow minijaturama.

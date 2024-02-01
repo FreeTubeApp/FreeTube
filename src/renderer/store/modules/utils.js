@@ -579,7 +579,9 @@ const actions = {
           urlType: 'channel',
           channelId,
           subPath,
-          url: url.toString()
+          // The original URL could be from Invidious.
+          // We need to make sure it starts with youtube.com, so that YouTube's resolve endpoint can recognise it
+          url: `https://www.youtube.com${url.pathname}`
         }
       }
 

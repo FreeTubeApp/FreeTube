@@ -137,41 +137,25 @@
         ref="playlistItems"
         class="playlistItems"
       >
-        <div
+        <ft-list-video-numbered
           v-for="(item, index) in playlistItems"
           :key="item.playlistItemId || item.videoId"
           :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
           class="playlistItem"
-        >
-          <div class="videoIndexContainer">
-            <font-awesome-icon
-              v-if="currentVideoIndexZeroBased === index"
-              class="videoIndexIcon"
-              :icon="['fas', 'play']"
-            />
-            <p
-              v-else
-              class="videoIndex"
-            >
-              {{ index + 1 }}
-            </p>
-          </div>
-          <ft-list-video-lazy
-            :data="item"
-            :playlist-id="playlistId"
-            :playlist-type="playlistType"
-            :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
-            :playlist-item-id="item.playlistItemId"
-            :playlist-reverse="reversePlaylist"
-            :playlist-shuffle="shuffleEnabled"
-            :playlist-loop="loopEnabled"
-            :hide-forbidden-titles="false"
-            appearance="watchPlaylistItem"
-            force-list-type="list"
-            :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
-            @pause-player="pausePlayer"
-          />
-        </div>
+          :data="item"
+          :playlist-id="playlistId"
+          :playlist-type="playlistType"
+          :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
+          :playlist-item-id="item.playlistItemId"
+          :playlist-reverse="reversePlaylist"
+          :playlist-shuffle="shuffleEnabled"
+          :playlist-loop="loopEnabled"
+          :video-index="index"
+          :is-current-video="currentVideoIndexZeroBased === index"
+          appearance="watchPlaylistItem"
+          :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
+          @pause-player="pausePlayer"
+        />
       </div>
     </div>
   </ft-card>
