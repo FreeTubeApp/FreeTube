@@ -155,7 +155,7 @@ export default defineComponent({
     },
 
     parsedViewCount() {
-      return formatNumber(this.viewCount)
+      return this.viewCount ? formatNumber(this.viewCount) : null
     },
 
     parsedVideoCount() {
