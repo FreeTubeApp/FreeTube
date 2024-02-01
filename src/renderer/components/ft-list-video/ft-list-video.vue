@@ -104,7 +104,7 @@
         {{ $t("Video.Watched") }}
       </div>
       <div
-        v-if="watched"
+        v-if="historyEntryExists"
         class="watchedProgressBar"
         :style="{inlineSize: progressPercentage + '%'}"
       />
@@ -129,12 +129,13 @@
         <span v-else-if="channelName !== null">
           {{ channelName }}
         </span>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null">
-          <span class="viewCount">
-            <template v-if="channelId !== null"> • </template>
-            {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-          </span>
-        </template>
+        <span
+          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
+          class="viewCount"
+        >
+          <template v-if="channelId !== null || channelName !== null"> • </template>
+          {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+        </span>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
           class="uploadedTime"
@@ -160,7 +161,7 @@
         @click="handleOptionsClick"
       />
       <p
-        v-if="((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
+        v-if="description && ((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
           appearance === 'result'"
         class="description"
         v-html="description"
