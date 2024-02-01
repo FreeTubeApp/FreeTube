@@ -85,19 +85,6 @@
   transition: background 0.2s ease-in;
 }
 
-.videoIndexContainer {
-  text-align: center;
-}
-
-.videoIndex {
-  color: var(--tertiary-text-color);
-}
-
-.videoIndexIcon {
-  font-size: 14px;
-  color: var(--tertiary-text-color);
-}
-
 .videoInfo {
   margin-inline-start: 30px;
   position: relative;
