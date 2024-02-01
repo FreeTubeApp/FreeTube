@@ -121,6 +121,8 @@ export default defineComponent({
       playlistId: '',
       playlistType: '',
       playlistItemId: null,
+      isInvidiousPlaylist: false,
+      origin: null,
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
@@ -1185,6 +1187,8 @@ export default defineComponent({
 
       this.playlistId = this.$route.query.playlistId
       this.playlistItemId = this.$route.query.playlistItemId
+      this.isInvidiousPlaylist = this.$route.query.isInvidiousPlaylist
+      this.origin = this.$route.query.origin
 
       if (this.playlistId == null || this.playlistId.length === 0) {
         this.playlistType = ''

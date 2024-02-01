@@ -78,7 +78,15 @@ export default defineComponent({
     useChannelsHiddenPreference: {
       type: Boolean,
       default: false,
-    }
+    },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false
+    },
+    origin: {
+      type: String,
+      default: null
+    },
   },
   data: function () {
     return {

@@ -134,6 +134,8 @@
           :playlist-loop="loopEnabled"
           :video-index="index"
           :is-current-video="currentVideoIndexZeroBased === index"
+          :origin="origin"
+          :is-invidious-playlist="isInvidiousPlaylist"
           appearance="watchPlaylistItem"
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
           @pause-player="$emit('pause-player')"

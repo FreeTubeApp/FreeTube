@@ -121,6 +121,8 @@
         :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        :origin="origin"
+        :is-invidious-playlist="isInvidiousPlaylist"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @set-info-area-sticky="infoAreaSticky = $event"

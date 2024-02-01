@@ -170,7 +170,7 @@ export default defineComponent({
       let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
-      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
+      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0 && !this.isInvidiousPlaylist) {
         // Use playlist thumbnail provided by YT when available
         return this.playlistThumbnail
       }

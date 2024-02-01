@@ -39,6 +39,14 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    origin: {
+      type: String,
+      default: null,
+    }
   },
   data: function () {
     return {
@@ -249,7 +257,7 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && this.backendFallback)) {
         this.getPlaylistInformationInvidious()
       } else {
         this.getPlaylistInformationLocal()
@@ -447,7 +455,7 @@ export default defineComponent({
     getPlaylistInformationInvidious: function () {
       this.isLoading = true
 
-      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
+      invidiousGetPlaylistInfo(this.playlistId, this.origin).then((result) => {
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId

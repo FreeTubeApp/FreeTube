@@ -62,6 +62,8 @@
             :can-remove-from-playlist="true"
             :video-index="index"
             :initial-visible-state="index < 10"
+            :origin="origin"
+            :is-invidious-playlist="isInvidiousPlaylist"
             @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
             @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
             @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
