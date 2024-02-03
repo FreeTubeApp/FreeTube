@@ -4,6 +4,7 @@
       callback: onVisibilityChanged,
       once: true,
     }"
+    :style="{ display }"
   >
     <ft-list-video
       v-if="visible"

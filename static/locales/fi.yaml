@@ -173,6 +173,8 @@ User Playlists:
         nimellä on jo olemassa soittolista. Valitse eri nimi.
       Playlist {playlistName} has been successfully created.: Soittolista {playlistName}
         on luotu.
+  Add to Favorites: Lisää soittolistaan {playlistName}
+  Remove from Favorites: Poista soittolistalta {playlistName}
 History:
   # On History Page
   History: 'Historia'

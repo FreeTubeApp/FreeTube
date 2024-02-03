@@ -62,11 +62,6 @@
   transform: translate(calc(10% * var(--horizontal-directionality-coefficient)));
 }
 
-.videoIndex {
-  color: var(--tertiary-text-color);
-  text-align: center;
-}
-
 .loadNextPageWrapper {
   /* about the same height as the button */
   max-block-size: 7vh;

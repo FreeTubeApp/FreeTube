@@ -720,7 +720,8 @@ function runApp() {
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
-    return app.getLocale()
+    // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
+    return app.getSystemLocale()
   })
 
   ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {

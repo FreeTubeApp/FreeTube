@@ -37,6 +37,7 @@
         :data="activeData"
         :show-video-with-last-viewed-playlist="true"
         :use-channels-hidden-preference="false"
+        :hide-forbidden-titles="false"
       />
       <ft-auto-load-next-page-wrapper
         v-if="showLoadMoreButton"
