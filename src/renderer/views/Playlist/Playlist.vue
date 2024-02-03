@@ -42,48 +42,59 @@
       <template
         v-if="playlistItems.length > 0"
       >
-        <transition-group
-          name="playlistItem"
-          tag="span"
+        <template
+          v-if="visiblePlaylistItems.length > 0"
         >
-          <ft-list-video-numbered
-            v-for="(item, index) in visiblePlaylistItems"
-            :key="`${item.videoId}-${item.playlistItemId || index}`"
-            class="playlistItem"
-            :data="item"
-            :playlist-id="playlistId"
-            :playlist-type="infoSource"
-            :playlist-index="index"
-            :playlist-item-id="item.playlistItemId"
-            appearance="result"
-            :always-show-add-to-playlist-button="true"
-            :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
-            :can-move-video-up="index > 0 && !playlistInVideoSearchMode"
-            :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode"
-            :can-remove-from-playlist="true"
-            :video-index="index"
-            :initial-visible-state="index < 10"
-            @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
-            @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
-            @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
-          />
-        </transition-group>
+          <transition-group
+            name="playlistItem"
+            tag="span"
+          >
+            <ft-list-video-numbered
+              v-for="(item, index) in visiblePlaylistItems"
+              :key="`${item.videoId}-${item.playlistItemId || index}`"
+              class="playlistItem"
+              :data="item"
+              :playlist-id="playlistId"
+              :playlist-type="infoSource"
+              :playlist-index="index"
+              :playlist-item-id="item.playlistItemId"
+              appearance="result"
+              :always-show-add-to-playlist-button="true"
+              :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
+              :can-move-video-up="index > 0 && !playlistInVideoSearchMode"
+              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode"
+              :can-remove-from-playlist="true"
+              :video-index="index"
+              :initial-visible-state="index < 10"
+              @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
+              @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
+              @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
+            />
+          </transition-group>
+          <ft-flex-box
+            v-if="moreVideoDataAvailable && !isLoadingMore"
+          >
+            <ft-button
+              :label="$t('Subscriptions.Load More Videos')"
+              background-color="var(--primary-color)"
+              text-color="var(--text-with-main-color)"
+              @click="getNextPage"
+            />
+          </ft-flex-box>
+          <div
+            v-if="isLoadingMore"
+            class="loadNextPageWrapper"
+          >
+            <ft-loader />
+          </div>
+        </template>
         <ft-flex-box
-          v-if="moreVideoDataAvailable && !isLoadingMore"
+          v-else
         >
-          <ft-button
-            :label="$t('Subscriptions.Load More Videos')"
-            background-color="var(--primary-color)"
-            text-color="var(--text-with-main-color)"
-            @click="getNextPage"
-          />
+          <p class="message">
+            {{ $t("User Playlists['Empty Search Message']") }}
+          </p>
         </ft-flex-box>
-        <div
-          v-if="isLoadingMore"
-          class="loadNextPageWrapper"
-        >
-          <ft-loader />
-        </div>
       </template>
       <ft-flex-box
         v-else
