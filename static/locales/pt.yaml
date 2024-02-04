@@ -525,6 +525,8 @@ Settings:
     Category Color: Cor da categoria
     UseDeArrowTitles: Utilizar títulos de vídeo DeArrow
     UseDeArrowThumbnails: Usar 'DeArrow' para miniaturas
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
+      da API do gerador de miniaturas DeArrow (padrão: https://dearrow-thumb.ajay.app)'
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
@@ -792,6 +794,7 @@ Channel:
     Hide Answers: Ocultar respostas
     Reveal Answers: Revelar respostas
     votes: '{votes} votos'
+    Video hidden by FreeTube: Freetube ocultou este vídeo
   Live:
     Live: Em direto
     This channel does not currently have any live streams: Este canal não tem, atualmente,
@@ -1139,6 +1142,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.
+    UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
 Search Bar:
   Clear Input: Limpar entrada
 Are you sure you want to open this link?: Tem a certeza de que deseja abrir a ligação?
@@ -1189,3 +1193,4 @@ Playlist will not pause when current video is finished: A lista de reprodução 
 Channel Hidden: '{channel} adicionado ao filtro do canal'
 Go to page: Ir para {page}
 Channel Unhidden: '{channel} removido do filtro do canal'
+Tag already exists: '"{tagName}" já existe'
