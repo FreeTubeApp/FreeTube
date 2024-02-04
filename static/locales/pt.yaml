@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 assinante | {count} assinantes
     View Count: 1 visualização | {contagem} visualizações
     Watching Count: 1 a assistir | {count} a assistir
+  Input Tags:
+    Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
@@ -175,6 +177,9 @@ User Playlists:
       Playlist {playlistName} has been deleted.: A lista de reprodução {playlistName}
         foi eliminada.
       This playlist does not exist: Esta lista de reprodução não existe
+      This playlist is now used for quick bookmark: Esta lista de reprodução é agora
+        usada como marcador rápido
+      Quick bookmark disabled: Marcador rápido desativado
   AddVideoPrompt:
     Search in Playlists: Pesquisar nas listas de reprodução
     Save: Guardar
@@ -212,6 +217,9 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   Add to Favorites: Adicionar a {playlistName}
   Remove from Favorites: Remover de {playlistName}
+  Enable Quick Bookmark With This Playlist: Ativar marcador rápido para esta lista
+    de reprodução
+  Disable Quick Bookmark: Desativar marcador rápido
 History:
   # On History Page
   History: 'Histórico'
@@ -279,6 +287,7 @@ Settings:
       Catppuccin Mocha: Cappuccino mocha
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa choque
+      Nordic: Nórdico
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -579,6 +588,10 @@ Settings:
     Hide Channels Already Exists: Este ID já existe
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique
       se o ID indicado está correto.
+    Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra
+      ou frase
+    Hide Videos and Playlists Containing Text: Ocultar vídeos e listas de reprodução
+      que contenham textos
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
