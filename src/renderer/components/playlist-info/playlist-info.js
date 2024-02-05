@@ -6,6 +6,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import {
+  formatNumber,
   showToast,
 } from '../../helpers/utils'
 
@@ -145,6 +146,14 @@ export default defineComponent({
       return this.firstVideoId !== ''
     },
 
+    parsedViewCount() {
+      return formatNumber(this.viewCount)
+    },
+
+    parsedVideoCount() {
+      return formatNumber(this.videoCount)
+    },
+
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden' || !this.firstVideoIdExists) {
         return require('../../assets/img/thumbnail_placeholder.svg')
@@ -194,6 +203,23 @@ export default defineComponent({
       // Cannot delete protected playlist
       return !this.hideSharingActions
     },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    quickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    markedAsQuickBookmarkTarget() {
+      // Only user playlists can be target
+      if (this.selectedUserPlaylist == null) { return false }
+      if (this.quickBookmarkPlaylist == null) { return false }
+
+      return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
+    },
   },
   watch: {
     showDeletePlaylistPrompt(shown) {
@@ -209,7 +235,7 @@ export default defineComponent({
   },
   methods: {
     toggleCopyVideosPrompt: function (force = false) {
-      if (this.moreVideoDataAvailable && !force) {
+      if (this.moreVideoDataAvailable && !this.isUserPlaylist && !force) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Some videos in the playlist are not loaded yet. Click here to copy anyway."]'), 5000, () => {
           this.toggleCopyVideosPrompt(true)
         })
@@ -318,10 +344,40 @@ export default defineComponent({
       this.showDeletePlaylistPrompt = false
     },
 
+    enableQuickBookmarkForThisPlaylist() {
+      const currentQuickBookmarkTargetPlaylist = this.quickBookmarkPlaylist
+
+      this.updateQuickBookmarkTargetPlaylistId(this.id)
+      if (currentQuickBookmarkTargetPlaylist != null) {
+        showToast(
+          this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo"]', {
+            oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+          }),
+          5000,
+          () => {
+            this.updateQuickBookmarkTargetPlaylistId(currentQuickBookmarkTargetPlaylist._id)
+            showToast(
+              this.$t('User Playlists.SinglePlaylistView.Toast["Reverted to use {oldPlaylistName} for quick bookmark"]', {
+                oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+              }),
+              5000,
+            )
+          },
+        )
+      } else {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      }
+    },
+    disableQuickBookmark() {
+      this.updateQuickBookmarkTargetPlaylistId(null)
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
+    },
+
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',
       'removePlaylist',
+      'updateQuickBookmarkTargetPlaylistId',
     ]),
   },
 })

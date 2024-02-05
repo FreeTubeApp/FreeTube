@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
-import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
+import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import {
@@ -21,12 +21,12 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video-lazy': FtListVideoLazy,
+    'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+    if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
         title: this.playlistTitle,
@@ -54,6 +54,7 @@ export default defineComponent({
       channelId: '',
       infoSource: 'local',
       playlistItems: [],
+      userPlaylistVisibleLimit: 100,
       continuationData: null,
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
@@ -102,12 +103,37 @@ export default defineComponent({
     },
 
     moreVideoDataAvailable() {
-      return this.continuationData !== null
+      if (this.isUserPlaylistRequested) {
+        return this.userPlaylistVisibleLimit < this.videoCount
+      } else {
+        return this.continuationData !== null
+      }
     },
 
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
     },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkButtonEnabled() {
+      if (this.selectedUserPlaylist == null) { return true }
+
+      return this.selectedUserPlaylist?._id !== this.quickBookmarkPlaylistId
+    },
+
+    visiblePlaylistItems: function () {
+      if (!this.isUserPlaylistRequested) {
+        return this.playlistItems
+      }
+
+      if (this.userPlaylistVisibleLimit < this.videoCount) {
+        return this.playlistItems.slice(0, this.userPlaylistVisibleLimit)
+      } else {
+        return this.playlistItems
+      }
+    }
   },
   watch: {
     $route () {
@@ -138,8 +164,10 @@ export default defineComponent({
       this.getPlaylistInfoDebounce()
     },
   },
-  mounted: function () {
+  created: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
+  },
+  mounted: function () {
     this.getPlaylistInfoDebounce()
   },
   methods: {
@@ -199,9 +227,14 @@ export default defineComponent({
 
         this.playlistItems = result.items.map(parseLocalPlaylistVideo)
 
+        let shouldGetNextPage = false
         if (result.has_continuation) {
           this.continuationData = result
+          shouldGetNextPage = this.playlistItems.length < 100
         }
+        // To workaround the effect of useless continuation data
+        // auto load next page again when no. of parsed items < page size
+        if (shouldGetNextPage) { this.getNextPageLocal() }
 
         this.isLoading = false
       }).catch((err) => {
@@ -236,7 +269,7 @@ export default defineComponent({
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
-        this.playlistItems = this.playlistItems.concat(result.videos)
+        this.allPlaylistItems = result.videos
 
         this.isLoading = false
       }).catch((err) => {
@@ -284,6 +317,20 @@ export default defineComponent({
         case 'local':
           this.getNextPageLocal()
           break
+        case 'user':
+          // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are renderered
+          this.isLoadingMore = true
+
+          setTimeout(() => {
+            if (this.userPlaylistVisibleLimit + 100 < this.videoCount) {
+              this.userPlaylistVisibleLimit += 100
+            } else {
+              this.userPlaylistVisibleLimit = this.videoCount
+            }
+
+            this.isLoadingMore = false
+          })
+          break
         case 'invidious':
           console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
           break
@@ -294,12 +341,17 @@ export default defineComponent({
       this.isLoadingMore = true
 
       getLocalPlaylistContinuation(this.continuationData).then((result) => {
+        let shouldGetNextPage = false
+
         if (result) {
           const parsedVideos = result.items.map(parseLocalPlaylistVideo)
           this.playlistItems = this.playlistItems.concat(parsedVideos)
 
           if (result.has_continuation) {
             this.continuationData = result
+            // To workaround the effect of useless continuation data
+            // auto load next page again when no. of parsed items < page size
+            shouldGetNextPage = parsedVideos.length < 100
           } else {
             this.continuationData = null
           }
@@ -308,6 +360,7 @@ export default defineComponent({
         }
 
         this.isLoadingMore = false
+        if (shouldGetNextPage) { this.getNextPageLocal() }
       })
     },
 

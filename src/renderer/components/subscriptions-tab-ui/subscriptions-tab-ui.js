@@ -116,7 +116,7 @@ export default defineComponent({
         case 'r':
         case 'R':
         case 'F5':
-          if (!this.isLoading) {
+          if (!this.isLoading && this.activeSubscriptionList.length > 0) {
             this.$emit('refresh')
           }
           break

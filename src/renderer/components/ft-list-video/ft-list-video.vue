@@ -24,14 +24,14 @@
         >
       </router-link>
       <div
-        v-if="isLive || isUpcoming || (duration !== '' && duration !== '0:00')"
+        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
           live: isLive,
           upcoming: isUpcoming
         }"
       >
-        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : duration) }}
+        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : displayDuration) }}
       </div>
       <ft-icon-button
         v-if="externalPlayer !== ''"
@@ -54,6 +54,20 @@
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
+          :title="quickBookmarkIconText"
+          :icon="['fas', 'star']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+            alwaysVisible: alwaysShowAddToPlaylistButton,
+          }"
+          :theme="quickBookmarkIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleQuickBookmarked"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
@@ -90,7 +104,7 @@
         {{ $t("Video.Watched") }}
       </div>
       <div
-        v-if="watched"
+        v-if="historyEntryExists"
         class="watchedProgressBar"
         :style="{inlineSize: progressPercentage + '%'}"
       />
@@ -112,12 +126,16 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount">
-            <template v-if="channelId !== null"> • </template>
-            {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-          </span>
-        </template>
+        <span v-else-if="channelName !== null">
+          {{ channelName }}
+        </span>
+        <span
+          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
+          class="viewCount"
+        >
+          <template v-if="channelId !== null || channelName !== null"> • </template>
+          {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+        </span>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
           class="uploadedTime"
@@ -143,7 +161,7 @@
         @click="handleOptionsClick"
       />
       <p
-        v-if="((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
+        v-if="description && ((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
           appearance === 'result'"
         class="description"
         v-html="description"

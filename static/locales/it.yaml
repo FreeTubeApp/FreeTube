@@ -45,6 +45,8 @@ Global:
     Subscriber Count: 1 iscritto | {count} iscritti
     View Count: 1 visualizzazione | {count} visualizzazioni
     Watching Count: 1 spettatore | {count} spettatori
+  Input Tags:
+    Length Requirement: Il tag deve essere lungo almeno {number} caratteri
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -95,7 +97,7 @@ Subscriptions:
     attendi.
   Load More Videos: Carica più video
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Questo
-    profilo ha un grande numero di iscrizioni. Utilizzerò RSS per evitare limitazioni
+    profilo ha un grande numero di iscrizioni. Userò RSS per evitare limitazioni
   Error Channels: Canali con errori
   Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
     Aggiorna gli abbonamenti per vederli qui.
@@ -122,9 +124,100 @@ User Playlists:
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist preferiti.
-  Search bar placeholder: Cerca nella Playlist
+  Search bar placeholder: Cerca nella playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sei
+    sicuro di voler rimuovere tutti i video guardati da questa playlist? Questa operazione
+    non può essere annullata.
+  AddVideoPrompt:
+    Search in Playlists: Cerca nelle playlist
+    Save: Salva
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video aggiunto
+        a {playlistCount} playlist | {videoCount} video aggiunti a {playlistCount}
+        playlist
+      "{videoCount} video(s) added to 1 playlist": 1 video aggiunto a 1 playlist |
+        {videoCount} video aggiunti a 1 playlist
+      You haven't selected any playlist yet.: Non hai ancora selezionato nessuna playlist.
+    Select a playlist to add your N videos to: Seleziona una playlist a cui aggiungere
+      il tuo video | Seleziona una playlist a cui aggiungere i tuoi {videoCount} video
+    N playlists selected: '{playlistCount} selezionate'
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Non c'erano video da rimuovere.
+      Video has been removed: Il video è stato rimosso
+      Playlist has been updated.: La playlist è stata aggiornata.
+      There was an issue with updating this playlist.: Si è verificato un problema
+        con l'aggiornamento di questa playlist.
+      This video cannot be moved up.: Questo video non può essere spostato verso l'alto.
+      This playlist is protected and cannot be removed.: Questa playlist è protetta
+        e non può essere rimossa.
+      Playlist {playlistName} has been deleted.: La playlist {playlistName} è stata
+        eliminata.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alcuni
+        video nella playlist non sono ancora stati caricati. Clicca qui per copiare
+        comunque.
+      This playlist does not exist: Questa playlist non esiste
+      Playlist name cannot be empty. Please input a name.: Il nome della playlist
+        non può essere vuoto. Per favore inserisci un nome.
+      There was a problem with removing this video: Si è verificato un problema durante
+        la rimozione di questo video
+      "{videoCount} video(s) have been removed": 1 video è stato rimosso | {videoCount}
+        video sono stati rimossi
+      This video cannot be moved down.: Questo video non può essere spostato verso
+        il basso.
+      This playlist is now used for quick bookmark: Questa playlist è ora usata per
+        i segnalibri rapidi
+      Quick bookmark disabled: Segnalibro rapido disabilitato
+      Reverted to use {oldPlaylistName} for quick bookmark: Ripristinato l'uso di
+        {oldPlaylistName} per i segnalibri rapidi
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Questa
+        playlist è ora usata per i segnalibri rapidi al posto di {oldPlaylistName}.
+        Fai clic qui per annullare
+  Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
+    di voler eliminare questa playlist? Questa operazione non può essere annullata.
+  Sort By:
+    LatestPlayedFirst: Riproduzione più recente
+    EarliestCreatedFirst: Creazione più vecchia
+    LatestCreatedFirst: Creazione più recente
+    EarliestUpdatedFirst: Aggiornamento più vecchio
+    Sort By: Ordina per
+    NameDescending: Z-A
+    EarliestPlayedFirst: Riproduzione più vecchia
+    LatestUpdatedFirst: Aggiornamento più recente
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: Non
+    hai playlist. Fai clic sul pulsante Crea nuova playlist per crearne una nuova.
+  Remove from Playlist: Rimuovi dalla playlist
+  Save Changes: Salva le modifiche
+  CreatePlaylistPrompt:
+    Create: Crea
+    Toast:
+      There was an issue with creating the playlist.: Si è verificato un problema
+        con la creazione della playlist.
+      Playlist {playlistName} has been successfully created.: La playlist {playlistName}
+        è stata creata con successo.
+      There is already a playlist with this name. Please pick a different name.: Esiste
+        già una playlist con questo nome. Scegli un nome diverso.
+    New Playlist Name: Nuovo nome della playlist
+  This playlist currently has no videos.: Questa playlist attualmente non contiene
+    video.
+  Add to Playlist: Aggiungi alla playlist
+  Move Video Down: Sposta il video in basso
+  Playlist Name: Nome della playlist
+  Remove Watched Videos: Rimuovi i video guardati
+  Move Video Up: Sposta il video in alto
+  Cancel: Annulla
+  Delete Playlist: Elimina playlist
+  Create New Playlist: Crea nuova playlist
+  Edit Playlist Info: Modifica informazioni playlist
+  Copy Playlist: Copia playlist
+  Playlist Description: Descrizione della playlist
+  Add to Favorites: Aggiungi a {playlistName}
+  Remove from Favorites: Rimuovi da {playlistName}
+  Enable Quick Bookmark With This Playlist: Abilita segnalibro rapido con questa playlist
+  Disable Quick Bookmark: Disabilita segnalibro rapido
 History:
   # On History Page
   History: 'Cronologia'
@@ -319,6 +412,10 @@ Settings:
       video
     Save Watched Videos With Last Viewed Playlist: Salva i video guardati con l'ultima
       playlist vista
+    All playlists have been removed: Tutte le playlist sono state rimosse
+    Remove All Playlists: Rimuovi tutte le playlist
+    Are you sure you want to remove all your playlists?: Sei sicuro di voler rimuovere
+      tutte le tue playlist?
   Subscription Settings:
     Subscription Settings: 'Impostazioni delle iscrizioni'
     Hide Videos on Watch: 'Nascondi i video visualizzati'
@@ -411,6 +508,14 @@ Settings:
     History File: File della cronologia
     Subscription File: File delle iscrizioni
     Playlist File: File delle playlist
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Questa opzione esporta i video da tutte le playlist in una playlist
+        denominata \"Preferiti\".\nCome esportare e importare video nelle playlist
+        per una versione precedente di FreeTube:\n1. Esporta le tue playlist con questa
+        opzione abilitata.\n2. Elimina tutte le playlist esistenti usando l'opzione
+        Rimuovi tutte le playlist in Impostazioni della privacy.\n3. Avvia la versione
+        precedente di FreeTube e importa le playlist esportate."
+      Label: Esporta playlist per versioni precedenti di FreeTube
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
@@ -452,12 +557,16 @@ Settings:
     Blur Thumbnails: Miniature sfocate
     Hide Subscriptions Community: Nascondi la comunità di iscritti
     Hide Channels Invalid: L'ID canale fornito non è valido
-    Hide Channels Disabled Message: Alcuni canali sono stati bloccati utilizzando
-      l'ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
+    Hide Channels Disabled Message: Alcuni canali sono stati bloccati usando l'ID
+      e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
       di tali ID
     Hide Channels Already Exists: L'ID canale esiste già
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito.
       Controlla di nuovo se l'ID è corretto.
+    Hide Videos and Playlists Containing Text: Nascondi i video e le playlist contenenti
+      il testo
+    Hide Videos and Playlists Containing Text Placeholder: Parola, frammento di parola
+      o frase
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -492,7 +601,10 @@ Settings:
       Prompt To Skip: Chiedi di saltare
       Do Nothing: Non fare nulla
     Category Color: Colore della categoria
-    UseDeArrowTitles: Usa i titoli dei video DeArrow
+    UseDeArrowTitles: Usa i titoli dei video di DeArrow
+    UseDeArrowThumbnails: Usa DeArrow per le miniature
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      dell'API del generatore di miniature DeArrow (l'impostazione predefinita è https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argomenti del lettore esterno personalizzato
     Custom External Player Executable: File eseguibile del lettore esterno personalizzato
@@ -502,6 +614,7 @@ Settings:
     Players:
       None:
         Name: Nessuno
+    Ignore Default Arguments: Ignora argomenti predefiniti
   Download Settings:
     Download Settings: Impostazioni dei download
     Ask Download Path: Chiedi il percorso di download
@@ -518,7 +631,7 @@ Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Impostazioni sperimentali
     Warning: Queste Impostazioni sono sperimentali, causano arresti anomali se abilitate.
-      Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
+      Si consiglia prima di fare un backup. Usare a proprio rischio!
   Password Dialog:
     Enter Password To Unlock: Inserisci la password per sbloccare le Impostazioni
     Password Incorrect: Password non corretta
@@ -577,13 +690,13 @@ About:
   Credits: Crediti
   Translate: Traduzioni
   room rules: regole stanza
-  Please read the: Si prega di leggere
+  Please read the: Per favore leggi
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
   Email: E-mail
   Website: Sito web
-  Please check for duplicates before posting: Per favore controlla se ci sono duplicati
-    prima di pubblicare
+  Please check for duplicates before posting: Controlla se ci sono duplicati prima
+    di pubblicare
   View License: Vedi licenza
   Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
   Source code: Codice sorgente
@@ -638,6 +751,7 @@ Channel:
     votes: '{votes} voti'
     Reveal Answers: Rivela le risposte
     Hide Answers: Nascondi le risposte
+    Video hidden by FreeTube: Video nascosto da FreeTube
   Live:
     Live: Dal vivo
     This channel does not currently have any live streams: Questo canale attualmente
@@ -654,9 +768,9 @@ Channel:
     This channel does not currently have any releases: Questo canale non ha attualmente
       alcun rilascio
 Video:
-  Mark As Watched: 'Segna come già visto'
+  Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla cronologia'
-  Video has been marked as watched: 'Il video è stato contrassegnato come già visto'
+  Video has been marked as watched: 'Il video è stato contrassegnato come guardato'
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
@@ -977,8 +1091,8 @@ Tooltips:
       il video, in stile MPV.
     Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
       formati DASH H.264. I formati DASH AV1 richiedono più potenza per la riproduzione!
-      Non sono disponibili su tutti i video, in questo caso il lettore utilizzerà
-      invece i formati DASH H.264.
+      Non sono disponibili su tutti i video, in questo caso il lettore userà invece
+      i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
@@ -993,9 +1107,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
       problema, FreeTube userà automaticamente le API secondarie come riserva (se
       abilitate).
-    Preferred API Backend: Scegli il backend utilizzato da FreeTube per ottenere i
-      dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
-      un server Invidious al quale connettersi.
+    Preferred API Backend: Scegli il backend usato da FreeTube per ottenere i dati.
+      Le API locali sono integrate nel programma. Le API Invidious richiedono un server
+      Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza.
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic
@@ -1013,13 +1127,16 @@ Tooltips:
       un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
       Attenzione, le Impostazioni Invidious non influiscono sui lettori esterni.
     DefaultCustomArgumentsTemplate: '(Predefinito: {defaultCustomArguments})'
+    Ignore Default Arguments: Non inviare argomenti predefiniti al lettore esterno
+      oltre all'URL del video (ad esempio velocità di riproduzione, URL della playlist,
+      ecc.). Gli argomenti personalizzati verranno comunque trasmessi.
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
       , FreeTube eliminerà automaticamente i metafile creati durante la visione del
       video .
   Experimental Settings:
     Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita
-      una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
+      una cache di immagini in memoria personalizzata. Comporta un aumento dell'uso
       della RAM.
   Distraction Free Settings:
     Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le
@@ -1028,9 +1145,14 @@ Tooltips:
       completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
       "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Inserisci una parola, un frammento
+      di parola o una frase (senza distinzione tra maiuscole e minuscole) per nascondere
+      tutti i video e le playlist i cui titoli originali la contengono in tutto FreeTube,
+      escludendo solo Cronologia, Le tue playlist e i video all'interno delle playlist.
   SponsorBlock Settings:
-    UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
-      da DeArrow.
+    UseDeArrowTitles: Sostituisci i titoli dei video coi titoli inviati dagli utenti
+      di DeArrow.
+    UseDeArrowThumbnails: Sostituisci le miniature dei video con le miniature di DeArrow.
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
@@ -1095,3 +1217,6 @@ Playlist will not pause when current video is finished: La playlist non verrà m
 Channel Hidden: '{channel} aggiunto al filtro canali'
 Go to page: Vai a {page}
 Channel Unhidden: '{channel} rimosso dal filtro canali'
+Tag already exists: Il tag "{tagName}" esiste già
+Trimmed input must be at least N characters long: L'input troncato deve essere lungo
+  almeno 1 carattere | L'input troncato deve essere lungo almeno {length} caratteri

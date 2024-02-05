@@ -56,7 +56,7 @@
       />
     </ft-flex-box>
     <ft-refresh-widget
-      :disable-refresh="isLoading"
+      :disable-refresh="isLoading || activeSubscriptionList.length === 0"
       :last-refresh-timestamp="lastRefreshTimestamp"
       :title="title"
       @click="$emit('refresh')"

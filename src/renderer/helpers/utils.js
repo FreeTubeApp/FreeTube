@@ -577,6 +577,7 @@ export function getVideoParamsFromUrl(url) {
     function () {
       if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice(1))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
     },

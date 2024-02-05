@@ -215,7 +215,18 @@ export default defineComponent({
     allowDashAv1Formats: function () {
       return this.$store.getters.getAllowDashAv1Formats
     },
-
+    channelsHidden() {
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
+    },
+    forbiddenTitles() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
+    },
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
     },
@@ -307,7 +318,7 @@ export default defineComponent({
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
         const recommendedVideos = result.watch_next_feed
-          ?.filter((item) => item.type === 'CompactVideo')
+          ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
           .map(parseLocalWatchNextVideo) ?? []
 
         // place watched recommended videos last
@@ -324,10 +335,28 @@ export default defineComponent({
 
         let playabilityStatus = result.playability_status
         let bypassedResult = null
-        if (playabilityStatus.status === 'LOGIN_REQUIRED') {
+        let streamingVideoId = this.videoId
+        let trailerIsNull = false
+
+        // if widevine support is added then we should check if playabilityStatus.status is UNPLAYABLE too
+        if (result.has_trailer) {
+          bypassedResult = result.getTrailerInfo()
+          /**
+           * @type {import ('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer}
+           */
+          const trailerScreen = result.playability_status.error_screen
+          streamingVideoId = trailerScreen.video_id
+          // if the trailer is null then it is likely age restricted.
+          trailerIsNull = bypassedResult == null
+          if (!trailerIsNull) {
+            playabilityStatus = bypassedResult.playability_status
+          }
+        }
+
+        if (playabilityStatus.status === 'LOGIN_REQUIRED' || trailerIsNull) {
           // try to bypass the age restriction
-          bypassedResult = await getLocalVideoInfo(this.videoId, true)
-          playabilityStatus = result.playability_status
+          bypassedResult = await getLocalVideoInfo(streamingVideoId, true)
+          playabilityStatus = bypassedResult.playability_status
         }
 
         if (playabilityStatus.status === 'UNPLAYABLE') {
@@ -1316,6 +1345,19 @@ export default defineComponent({
         this.$refs.watchVideoPlaylist.playNextVideo()
         return
       }
+
+      let nextVideoId = null
+      if (!this.watchingPlaylist) {
+        const forbiddenTitles = this.forbiddenTitles
+        const channelsHidden = this.channelsHidden
+        nextVideoId = this.recommendedVideos.find((video) =>
+          !this.isHiddenVideo(forbiddenTitles, channelsHidden, video)
+        )?.videoId
+        if (!nextVideoId) {
+          return
+        }
+      }
+
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(() => {
         const player = this.$refs.videoPlayer.player
@@ -1323,7 +1365,6 @@ export default defineComponent({
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           } else {
-            const nextVideoId = this.recommendedVideos[0].videoId
             this.$router.push({
               path: `/watch/${nextVideoId}`
             })
@@ -1639,7 +1680,8 @@ export default defineComponent({
         captionTracks.unshift({
           url: url.toString(),
           label,
-          language_code: locale
+          language_code: locale,
+          is_autotranslated: true
         })
       }
     },
@@ -1733,6 +1775,12 @@ export default defineComponent({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
+    },
+
+    isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
+      return channelsHidden.some(ch => ch.name === video.authorId) ||
+        channelsHidden.some(ch => ch.name === video.author) ||
+        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
     },
 
     updateLocalPlaylistLastPlayedAtSometimes() {

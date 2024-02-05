@@ -57,6 +57,7 @@
         :data="activeData"
         :data-type="'playlist'"
         :use-channels-hidden-preference="false"
+        :hide-forbidden-titles="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"
