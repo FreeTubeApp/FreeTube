@@ -18,8 +18,12 @@
 
 .banner {
   inline-size: 85%;
-  margin-block: 20px;
+  margin-block: 40px 0;
   margin-inline: auto;
+}
+
+.banner + .banner {
+  margin-block: 20px;
 }
 
 .banner-wrapper {
