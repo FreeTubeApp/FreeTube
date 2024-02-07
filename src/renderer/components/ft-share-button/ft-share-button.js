@@ -155,6 +155,16 @@ export default defineComponent({
       }
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     },
+
+    shareTitle: function() {
+      if (this.isChannel) {
+        return this.$t('Share.Share Channel')
+      }
+      if (this.isPlaylist || this.isIVPlaylist) {
+        return this.$t('Share.Share Playlist')
+      }
+      return this.$t('Share.Share Video')
+    }
   },
   mounted() {
     // Prevents to instantiate a ft-share-button for a video without a get-timestamp function
