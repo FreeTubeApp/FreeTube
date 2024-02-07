@@ -30,6 +30,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     listType: function () {

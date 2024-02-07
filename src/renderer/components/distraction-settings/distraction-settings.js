@@ -120,13 +120,16 @@ export default defineComponent({
         return ch
       })
     },
+    forbiddenTitles: function() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
+    },
     hideSubscriptionsLiveTooltip: function () {
       return this.$t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {
         appWideSetting: this.$t('Settings.Distraction Free Settings.Hide Live Streams'),
         subsection: this.$t('Settings.Distraction Free Settings.Sections.General'),
         settingsSection: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
       })
-    }
+    },
   },
   mounted: function () {
     this.verifyChannelsHidden()
@@ -147,6 +150,9 @@ export default defineComponent({
     },
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
+    },
+    handleForbiddenTitles: function (value) {
+      this.updateForbiddenTitles(JSON.stringify(value))
     },
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
@@ -206,6 +212,7 @@ export default defineComponent({
       'updateHideSharingActions',
       'updateHideChapters',
       'updateChannelsHidden',
+      'updateForbiddenTitles',
       'updateShowDistractionFreeTitles',
       'updateHideFeaturedChannels',
       'updateHideChannelShorts',

@@ -2,7 +2,7 @@ import { defineComponent, nextTick } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
+import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
@@ -17,7 +17,7 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video-lazy': FtListVideoLazy,
+    'ft-list-video-numbered': FtListVideoNumbered
   },
   props: {
     playlistId: {
@@ -312,7 +312,8 @@ export default defineComponent({
 
     playNextVideo: function () {
       const playlistInfo = {
-        playlistId: this.playlistId
+        playlistId: this.playlistId,
+        playlistType: this.playlistType,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
@@ -359,7 +360,8 @@ export default defineComponent({
       showToast(this.$t('Playing Previous Video'))
 
       const playlistInfo = {
-        playlistId: this.playlistId
+        playlistId: this.playlistId,
+        playlistType: this.playlistType,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
@@ -553,14 +555,13 @@ export default defineComponent({
     parseUserPlaylist: function (playlist, { allowPlayingVideoRemoval = true } = {}) {
       this.playlistTitle = playlist.playlistName
       this.channelName = ''
-      this.channelThumbnail = ''
       this.channelId = ''
 
       if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
         this.playlistItems = playlist.videos
       } else {
         // `this.currentVideo` relies on `playlistItems`
-        const latestPlaylistContainsCurrentVideo = playlist.videos.find(v => v.playlistItemId === this.playlistItemId) != null
+        const latestPlaylistContainsCurrentVideo = playlist.videos.some(v => v.playlistItemId === this.playlistItemId)
         // Only update list of videos if latest video list still contains currently playing video
         if (latestPlaylistContainsCurrentVideo) {
           this.playlistItems = playlist.videos
@@ -593,7 +594,7 @@ export default defineComponent({
       const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
       if (container != null && currentVideoItem != null) {
         // Watch view can be ready sooner than this component
-        container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
+        container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
       }
     },
 

@@ -45,6 +45,8 @@ Global:
     Subscriber Count: 1 suscriptor | {count} suscriptores
     View Count: 1 vista | {count} vistas
     Watching Count: 1 espectador | {count} espectadores
+  Input Tags:
+    Length Requirement: La etiqueta debe tener al menos {number} caracteres
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -163,6 +165,14 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 vídeo eliminado | {videoCount}
         vídeos eliminados
       This video cannot be moved down.: Este vídeo no se puede bajar.
+      This playlist is now used for quick bookmark: Esta lista de reproducción se
+        utiliza ahora como marcador rápido
+      Quick bookmark disabled: Marcador rápido desactivado
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
+        lista de reproducción se utiliza ahora como marcador rápido en lugar de {oldPlaylistName}.
+        Haga clic aquí para deshacer
+      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
+        para un marcador rápido
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
   Sort By:
@@ -203,6 +213,11 @@ User Playlists:
   Edit Playlist Info: Editar información de la lista de reproducción
   Copy Playlist: Copiar lista de reproducción
   Playlist Description: Descripción de la lista de reproducción
+  Add to Favorites: Añadir a {playlistName}
+  Remove from Favorites: Eliminar de {playlistName}
+  Enable Quick Bookmark With This Playlist: Activar marcadores rápidos con esta lista
+    de reproducción
+  Disable Quick Bookmark: Desactivar el marcador rápido
 History:
   # On History Page
   History: 'Historial'
@@ -272,6 +287,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Moca
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
+      Nordic: Nórdico
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -542,6 +558,9 @@ Settings:
     Hide Channels Already Exists: El ID del canal ya existe
     Hide Channels API Error: Error al recuperar el usuario con el ID proporcionado.
       Por favor, compruebe de nuevo si el ID es correcto.
+    Hide Videos and Playlists Containing Text: Ocultar vídeos y listas de reproducción
+      que contengan texto
+    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -774,6 +793,7 @@ Channel:
     Reveal Answers: Revelar las respuestas
     Hide Answers: Ocultar las respuestas
     votes: '{votes} votos'
+    Video hidden by FreeTube: Vídeo oculto por FreeTube
   Live:
     Live: En directo
     This channel does not currently have any live streams: Este canal no tiene actualmente
@@ -1120,6 +1140,11 @@ Tooltips:
       y se debe distinguir entre mayúsculas y minúsculas.
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
+    Hide Videos and Playlists Containing Text: Introduzca una palabra, fragmento de
+      palabra o frase (sin distinguir mayúsculas de minúsculas) para ocultar todos
+      los vídeos y listas de reproducción cuyos títulos originales la contengan en
+      todo FreeTube, excluyendo únicamente Historial, Tus listas de reproducción y
+      los vídeos dentro de las listas de reproducción.
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
@@ -1188,3 +1213,6 @@ Playlist will not pause when current video is finished: La lista de reproducció
 Go to page: Ir a la {page}
 Channel Hidden: '{channel} añadido al filtro de canales'
 Channel Unhidden: '{channel} eliminado del filtro de canales'
+Tag already exists: La etiqueta "{tagName}" ya existe
+Trimmed input must be at least N characters long: La entrada recortada debe tener
+  al menos 1 carácter | La entrada recortada debe tener al menos {length} caracteres

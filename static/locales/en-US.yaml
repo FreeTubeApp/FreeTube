@@ -53,6 +53,8 @@ Global:
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
     Watching Count: 1 watching | {count} watching
+  Input Tags:
+    Length Requirement: Tag must be at least {number} characters long
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -298,6 +300,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -469,6 +472,8 @@ Settings:
     Hide Channel Shorts: Hide Channel Shorts
     Hide Channel Podcasts: Hide Channel Podcasts
     Hide Channel Releases: Hide Channel Releases
+    Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
+    Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
@@ -719,6 +724,7 @@ Channel:
     votes: '{votes} votes'
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
+    Video hidden by FreeTube: Video hidden by FreeTube
 Video:
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
@@ -990,6 +996,7 @@ Tooltips:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
+    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
@@ -1048,6 +1055,8 @@ Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
+Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
+Tag already exists: '"{tagName}" tag already exists'
 
 Hashtag:
   Hashtag: Hashtag

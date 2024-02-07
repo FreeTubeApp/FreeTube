@@ -493,6 +493,8 @@ function runApp() {
           return '#ffd1dc'
         case 'hot-pink':
           return '#de1c85'
+        case 'nordic':
+          return '#2b2f3a'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -720,7 +722,8 @@ function runApp() {
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
-    return app.getLocale()
+    // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
+    return app.getSystemLocale()
   })
 
   ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {

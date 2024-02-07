@@ -6,7 +6,10 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
-import { formatNumber, showToast } from '../../helpers/utils'
+import {
+  formatNumber,
+  showToast,
+} from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -257,7 +260,7 @@ export default defineComponent({
   },
   methods: {
     toggleCopyVideosPrompt: function (force = false) {
-      if (this.moreVideoDataAvailable && !force) {
+      if (this.moreVideoDataAvailable && !this.isUserPlaylist && !force) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Some videos in the playlist are not loaded yet. Click here to copy anyway."]'), 5000, () => {
           this.toggleCopyVideosPrompt(true)
         })

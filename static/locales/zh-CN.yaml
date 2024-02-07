@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 位订阅者 | {count} 位订阅者
     View Count: 1 次观看 | {count} 次观看
     Watching Count: 1 人正在观看 | {count} 人正在观看
+  Input Tags:
+    Length Requirement: 标签长度至少为 {number} 个字符
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
@@ -141,6 +143,12 @@ User Playlists:
       There was a problem with removing this video: 删除此视频遇到问题
       "{videoCount} video(s) have been removed": 1 则视频已被删除 | {videoCount} 则视频已被删除
       This video cannot be moved down.: 无法下移此视频。
+      This playlist is now used for quick bookmark: 此播放列表现用于快速添加书签
+      Quick bookmark disabled: 停用了快速添加书签
+      Reverted to use {oldPlaylistName} for quick bookmark: 恢复到使用播放列表 {oldPlaylistName}
+        进行快速添加书签操作
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放列表现用于快速添加书签，而非
+        {oldPlaylistName}。单击此处撤销
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
     LatestPlayedFirst: 最近播放的
@@ -174,6 +182,10 @@ User Playlists:
   Edit Playlist Info: 编辑播放列表信息
   Copy Playlist: 复制播放列表
   Playlist Description: 播放列表描述
+  Add to Favorites: 添加到播放列表 {playlistName}
+  Enable Quick Bookmark With This Playlist: 开启使用此播放列表来快速添加书签
+  Remove from Favorites: 从播放列表 {playlistName} 删除
+  Disable Quick Bookmark: 停用快速添加书签
 History:
   # On History Page
   History: '历史记录'
@@ -237,6 +249,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -479,6 +492,8 @@ Settings:
     Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
     Hide Channels Already Exists: 频道 ID 已存在
     Hide Channels API Error: 获取 ID 为所提供值的用户出错。请再次检查 ID 是否正确。
+    Hide Videos and Playlists Containing Text: 隐藏包含文本的视频和播放列表
+    Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -643,6 +658,7 @@ Channel:
     votes: '{votes} 票'
     Reveal Answers: 揭晓答案
     Hide Answers: 隐藏答案
+    Video hidden by FreeTube: 视频被 FreeTube 隐藏
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流
@@ -967,6 +983,7 @@ Tooltips:
     Hide Channels: 输入频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道 ID 必须完全匹配，并且区分大小写。
     Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}"
       位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
+    Hide Videos and Playlists Containing Text: 输入单词、单词片段或词组（区分大小写）在整个 FreeTube 软件中隐藏所有原始标题包含这些内容的视频和播放列表。注意：历史记录、你的播放列表和播放列表内的视频不受限制约束。
   SponsorBlock Settings:
     UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
     UseDeArrowThumbnails: 用来自 DeArrow 的缩略图替换原本的视频缩略图。
@@ -1022,3 +1039,6 @@ Playlist will not pause when current video is finished: 当前视频播完后播
 Go to page: 转到页{page}
 Channel Hidden: '{channel} 频道已添加到频道过滤器'
 Channel Unhidden: 从频道过滤器删除了{channel} 频道
+Tag already exists: '"{tagName}" 标签已存在'
+Trimmed input must be at least N characters long: 缩减输入的长度需至少为 1 个字符 | 缩减输入的长度需至少为
+  {length} 个字符
