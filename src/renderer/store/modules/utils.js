@@ -357,14 +357,10 @@ const actions = {
   },
 
   async getRegionData ({ commit }, { locale }) {
-    let localePathExists
+    const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     // Exclude __dirname from path if not in electron
     const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
-    if (process.env.IS_ELECTRON) {
-      localePathExists = await pathExists(`${fileLocation}${locale}.json`)
-    } else {
-      localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
-    }
+
     const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}.json`
     const countries = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
 
@@ -600,15 +596,10 @@ const actions = {
 
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
-    let fileData
     /* eslint-disable-next-line n/no-path-concat */
     const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
 
-    if (await pathExists(`${fileLocation}${fileName}`)) {
-      fileData = await fs.readFile(`${fileLocation}${fileName}`)
-    } else {
-      fileData = '[{"name":"None","value":"","cmdArguments":null}]'
-    }
+    const fileData = await fs.readFile(`${fileLocation}${fileName}`)
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
       return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }

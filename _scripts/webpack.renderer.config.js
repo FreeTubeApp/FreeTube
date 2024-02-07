@@ -1,5 +1,5 @@
 const path = require('path')
-const { readFileSync } = require('fs')
+const { readFileSync, readdirSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -121,7 +121,8 @@ const config = {
       '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': false,
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
-      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
+      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
+      'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', '')))
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
