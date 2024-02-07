@@ -1266,4 +1266,4 @@ Channel Hidden: '{channel} ajouté au filtre de chaîne'
 Channel Unhidden: '{channel} retiré du filtre de chaîne'
 Trimmed input must be at least N characters long: L'entrée tronquée doit comporter
   au moins 1 caractère | L'entrée tronquée doit comporter au moins {length} caractères
-Tag already exists: La balise "{tagName}" existe déjà
+Tag already exists: L'étiquette « {tagName} » existe déjà
