@@ -83,7 +83,7 @@ export async function invidiousGetPlaylistInfo(playlistId, origin = '') {
   return await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
-    instance: origin
+    instance: origin,
   })
 }
 

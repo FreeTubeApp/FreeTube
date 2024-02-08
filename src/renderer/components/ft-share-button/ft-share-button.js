@@ -42,7 +42,7 @@ export default defineComponent({
     invidiousInstance: {
       type: String,
       default: null
-    }
+    },
   },
   data: function () {
     return {
@@ -164,7 +164,7 @@ export default defineComponent({
         return this.$t('Share.Share Playlist')
       }
       return this.$t('Share.Share Video')
-    }
+    },
   },
   mounted() {
     // Prevents to instantiate a ft-share-button for a video without a get-timestamp function

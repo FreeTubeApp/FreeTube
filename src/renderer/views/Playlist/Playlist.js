@@ -63,8 +63,7 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
       promptOpen: false,
-      query: {}
-
+      query: {},
     }
   },
   computed: {

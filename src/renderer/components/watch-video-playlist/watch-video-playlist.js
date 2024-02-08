@@ -46,7 +46,7 @@ export default defineComponent({
     origin: {
       type: String,
       default: null,
-    }
+    },
   },
   data: function () {
     return {
