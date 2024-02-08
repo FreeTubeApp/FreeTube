@@ -887,12 +887,6 @@ Channels:
   Unsubscribe: Atšaukti prenumeratą
   Unsubscribed: '{channelName} buvo pašalintas iš jūsų prenumeratų'
   Unsubscribe Prompt: Ar tikrai norite atšaukti {channelName} prenumeratą?
-Age Restricted:
-  Type:
-    Channel: Kanalas
-    Video: Vaizdo įrašas
-  This {videoOrPlaylist} is age restricted: Šis {videoOrPlaylist} ribojamas pagal
-    amžių
 Downloading has completed: „{videoTitle}“ atsisiuntimas baigtas
 Starting download: Pradedamas „{videoTitle}“ atsisiuntimas
 Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema

@@ -827,9 +827,4 @@ Channels:
   Unsubscribe Prompt: Ziur al zaude "{channelName}"-ren harpidetza kendu nahi duzula?
   Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Honako {videoOrPlaylist} adin muga du
-  Type:
-    Channel: Kanala
-    Video: Bideoa
 Preferences: Hobespenak

@@ -1093,11 +1093,6 @@ Channels:
   Unsubscribe: Loobu tellimusest
   Unsubscribed: '{channelName} on sinu tellimustest eemaldatud'
   Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: See {videoOrPlaylist} on vanusepiiranguga
-  Type:
-    Channel: Kanal
-    Video: Video
 Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
 Clipboard:
   Copy failed: Lõikelauale kopeerimine ei õnnestunud

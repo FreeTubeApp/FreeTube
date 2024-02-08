@@ -972,14 +972,6 @@ Starting download: Se începe descărcarea a "{videoTitle}"
 Downloading failed: A existat o problemă la descărcarea "{videoTitle}"
 Downloading has completed: '"{videoTitle}" s-a terminat de descărcat'
 New Window: Fereastră nouă
-Age Restricted:
-  The currently set default instance is {instance}: Acest {instance} este restricționat
-    datorită vârstei
-  Type:
-    Channel: Canal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Acest {videoOrPlaylist} are restricții
-    de vârstă
 Channels:
   Channels: Canale
   Title: Listă de canale

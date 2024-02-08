@@ -1048,12 +1048,6 @@ Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
 New Window: Nieuw venster
-Age Restricted:
-  The currently set default instance is {instance}: Deze {instance} is leeftijdsbeperkt
-  Type:
-    Channel: Kanaal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Deze {videoOrPlaylist} heeft een leeftijdsbeperking
 Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
 Channels:
   Title: Kanaal­lijst

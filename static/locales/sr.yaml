@@ -970,11 +970,6 @@ Tooltips:
 Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено
-Age Restricted:
-  Type:
-    Video: Видео снимак
-    Channel: Канал
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} је старосно ограничен(а)'
 New Window: Нови прозор
 Clipboard:
   Copy failed: Копирање у привремену меморију није успело

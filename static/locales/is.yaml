@@ -1084,11 +1084,6 @@ Starting download: Byrja að sækja "{videoTitle}"
 Downloading failed: Vandamál kom upp við að sækja "{videoTitle}"
 Screenshot Error: Skjámyndataka mistókst. {error}
 Screenshot Success: Vistaði skjámynd sem "{filePath}"
-Age Restricted:
-  Type:
-    Channel: Rás
-    Video: Myndskeið
-  This {videoOrPlaylist} is age restricted: Þetta {videoOrPlaylist} er með aldurstakmörkunum
 New Window: Nýr gluggi
 Channels:
   Search bar placeholder: Leita í rásum

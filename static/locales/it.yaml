@@ -1178,13 +1178,6 @@ Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
 Screenshot Success: Screenshot salvato come "{filePath}"
 Screenshot Error: Screenshot non riuscito. {error}
-Age Restricted:
-  The currently set default instance is {instance}: Questo {instance} è limitato dall'età
-  Type:
-    Channel: Canale
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Questo {videoOrPlaylist} ha limiti di
-    età
 New Window: Nuova finestra
 Channels:
   Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'

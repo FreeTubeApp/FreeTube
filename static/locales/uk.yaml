@@ -977,13 +977,6 @@ Download folder does not exist: Каталог завантаження "$" не
 Screenshot Success: Знімок екрана збережено як «{filePath}»
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
-Age Restricted:
-  The currently set default instance is {instance}: Цей {instance} має обмеження за
-    віком
-  Type:
-    Video: Відео
-    Channel: Канал
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} має вікове обмеження'
 Channels:
   Count: 'Знайдено каналів: {number}.'
   Empty: Ваш список каналів наразі порожній.

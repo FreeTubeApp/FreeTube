@@ -32,6 +32,7 @@ Back: Back
 Forward: Forward
 Open New Window: Open New Window
 Go to page: Go to {page}
+Close Banner: Close Banner
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -722,6 +723,7 @@ Channel:
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
 Video:
+  More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
@@ -1033,10 +1035,8 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Channel: Channel
-    Video: Video
+  This channel is age restricted: This channel is age restricted
+  This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'

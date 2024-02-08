@@ -1097,12 +1097,6 @@ Chapters:
   Chapters: Κεφάλαια
   'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων,
     τρέχον κεφάλαιο: {chapterName}'
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Αυτό το {videoOrPlaylist} έχει περιορισμό
-    ηλικίας
-  Type:
-    Channel: Κανάλι
-    Video: Βίντεο
 Ok: Εντάξει
 Preferences: Προτιμήσεις
 Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"

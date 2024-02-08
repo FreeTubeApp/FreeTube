@@ -947,11 +947,6 @@ Channels:
   Unsubscribe: Opphev abonnement
   Unsubscribed: '{channelName} ble fjernet fra dine abonnementer'
   Unsubscribe Prompt: Opphev abonnement på «{channelName}»?
-Age Restricted:
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er aldersbegrenset
 Chapters:
   Chapters: Kapitler
   'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig.

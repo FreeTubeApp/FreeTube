@@ -85,7 +85,7 @@ export default defineComponent({
           copyToClipboard(error)
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-          showToast(this.$t('Falling back to Local API'))
+          showToast(this.$t('Falling back to the local API'))
           this.resetData()
           this.getLocalHashtag(hashtag)
         } else {

@@ -1226,12 +1226,6 @@ Download folder does not exist: 'Le répertoire "$" de téléchargement n''exist
 Screenshot Success: Capture d'écran enregistrée sous « {filePath} »
 Screenshot Error: La capture d'écran a échoué. {error}
 New Window: Nouvelle fenêtre
-Age Restricted:
-  Type:
-    Video: Vidéo
-    Channel: Chaîne
-  This {videoOrPlaylist} is age restricted: Ce {videoOrPlaylist} est soumis à une
-    limite d'âge
 Channels:
   Channels: Chaînes
   Title: Liste des chaînes

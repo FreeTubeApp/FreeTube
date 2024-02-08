@@ -980,11 +980,6 @@ Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה
 Screenshot Success: צילום המסך נשמר בתור „{filePath}”
 Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
-Age Restricted:
-  Type:
-    Channel: ערוץ
-    Video: סרטון
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} זה מוגבל בגיל'
 Channels:
   Search bar placeholder: חיפוש ערוצים
   Empty: רשימת הערוצים שלך ריקה כרגע.

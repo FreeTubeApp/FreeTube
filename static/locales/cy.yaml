@@ -851,11 +851,6 @@ Canceled next video autoplay: ''
 Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: ''
-  Type:
-    Channel: 'Sianel'
-    Video: 'Fideo'
 External link opening has been disabled in the general settings: ''
 Downloading has completed: ''
 Starting download: ''

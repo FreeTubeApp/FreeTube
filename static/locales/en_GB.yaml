@@ -1074,10 +1074,8 @@ Channels:
   Channels: Channels
   Count: '{number} channel(s) found.'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Video: Video
-    Channel: Channel
+  This channel is age restricted: This channel is age restricted
+  This video is age restricted: This video is age restricted
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible,
     current chapter: {chapterName}'

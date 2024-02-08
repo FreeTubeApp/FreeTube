@@ -1063,11 +1063,6 @@ Downloading has completed: Videon "{videoTitle}" lataus on valmis
 Starting download: Aloitetaan lataamaan "{videoTitle}"
 Screenshot Success: Kuvakaappaus tallennettu nimellä ”{filePath}”
 New Window: Uusi Ikkuna
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Tämä {videoOrPlaylist} on ikärajoitettu
-  Type:
-    Video: Video
-    Channel: Kanava
 Screenshot Error: Ruutukaappaus epäonnistui. {error}
 Channels:
   Channels: Kanavat
