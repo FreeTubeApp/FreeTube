@@ -742,7 +742,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
             // In comments, mention can be `@Channel Name` (not handle, but name)
-            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && trimmedText.startsWith('@'))) {
+            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || options.looseChannelNameDetection) {
               // Note that in regex `\s` must be used since the text contain non-default space (the half-width space char when we press spacebar)
               const spacesBefore = (spacesBeforeRegex.exec(text) || [''])[0]
               const spacesAfter = (spacesAfterRegex.exec(text) || [''])[0]
