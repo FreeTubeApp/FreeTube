@@ -217,6 +217,23 @@
   }
 }
 
+@media only screen and (max-width: 680px) {
+  .channelInfo {
+    flex-direction: column;
+    margin-block: 20px 10px;
+  }
+  .card {
+    max-inline-size: none;
+    inline-size: 100%;
+  }
+  .channelInfoActionsContainer {
+    flex-direction: row-reverse;
+    justify-content: left;
+    gap: 10px;
+    margin-block-start: 5px;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .channelInfo {
     justify-content: center;
@@ -224,7 +241,12 @@
   }
 
   .channelInfoActionsContainer {
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .channelLineContainer {
+    padding-inline-start: 0;
   }
 
   .thumbnailContainer {
