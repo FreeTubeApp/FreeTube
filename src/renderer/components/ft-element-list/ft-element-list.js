@@ -13,6 +13,10 @@ export default defineComponent({
       type: Array,
       required: true
     },
+    dataType: {
+      type: String,
+      default: null,
+    },
     display: {
       type: String,
       required: false,
@@ -26,6 +30,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     listType: function () {

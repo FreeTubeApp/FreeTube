@@ -1,9 +1,10 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
+import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
-import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
+import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import {
@@ -11,7 +12,7 @@ import {
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString } from '../../helpers/utils'
+import { extractNumberFromString, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -20,31 +21,46 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video-lazy': FtListVideoLazy,
+    'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+    if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
-        title: this.infoData.title,
-        channelName: this.infoData.channelName,
-        channelId: this.infoData.channelId,
+        title: this.playlistTitle,
+        channelName: this.channelName,
+        channelId: this.channelId,
         items: this.playlistItems,
-        continuationData: this.continuationData
+        continuationData: this.continuationData,
       })
     }
     next()
   },
   data: function () {
     return {
-      isLoading: false,
-      playlistId: null,
-      infoData: {},
+      isLoading: true,
+      playlistTitle: '',
+      playlistDescription: '',
+      firstVideoId: '',
+      firstVideoPlaylistItemId: '',
+      playlistThumbnail: '',
+      viewCount: 0,
+      videoCount: 0,
+      lastUpdated: undefined,
+      channelName: '',
+      channelThumbnail: '',
+      channelId: '',
+      infoSource: 'local',
       playlistItems: [],
+      userPlaylistVisibleLimit: 100,
       continuationData: null,
-      isLoadingMore: false
+      isLoadingMore: false,
+      getPlaylistInfoDebounce: function() {},
+      playlistInEditMode: false,
+
+      promptOpen: false,
     }
   },
   computed: {
@@ -59,20 +75,115 @@ export default defineComponent({
     },
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
+    },
+    playlistId: function() {
+      return this.$route.params.id
+    },
+    userPlaylistsReady: function () {
+      return this.$store.getters.getPlaylistsReady
+    },
+    selectedUserPlaylist: function () {
+      if (!this.isUserPlaylistRequested) { return null }
+      if (this.playlistId == null || this.playlistId === '') { return null }
+
+      return this.$store.getters.getPlaylist(this.playlistId)
+    },
+    selectedUserPlaylistLastUpdatedAt: function () {
+      return this.selectedUserPlaylist?.lastUpdatedAt
+    },
+    selectedUserPlaylistVideos: function () {
+      if (this.selectedUserPlaylist != null) {
+        return this.selectedUserPlaylist.videos
+      } else {
+        return []
+      }
+    },
+    selectedUserPlaylistVideoCount: function() {
+      return this.selectedUserPlaylistVideos.length
+    },
+
+    moreVideoDataAvailable() {
+      if (this.isUserPlaylistRequested) {
+        return this.userPlaylistVisibleLimit < this.videoCount
+      } else {
+        return this.continuationData !== null
+      }
+    },
+
+    isUserPlaylistRequested: function () {
+      return this.$route.query.playlistType === 'user'
+    },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkButtonEnabled() {
+      if (this.selectedUserPlaylist == null) { return true }
+
+      return this.selectedUserPlaylist?._id !== this.quickBookmarkPlaylistId
+    },
+
+    visiblePlaylistItems: function () {
+      if (!this.isUserPlaylistRequested) {
+        return this.playlistItems
+      }
+
+      if (this.userPlaylistVisibleLimit < this.videoCount) {
+        return this.playlistItems.slice(0, this.userPlaylistVisibleLimit)
+      } else {
+        return this.playlistItems
+      }
     }
   },
   watch: {
     $route () {
       // react to route changes...
-      this.getPlaylist()
-    }
+      this.getPlaylistInfoDebounce()
+    },
+    userPlaylistsReady () {
+      // Fetch from local store when playlist data ready
+      if (!this.isUserPlaylistRequested) { return }
+
+      this.getPlaylistInfoDebounce()
+    },
+    selectedUserPlaylist () {
+      // Fetch from local store when current user playlist changed
+      this.getPlaylistInfoDebounce()
+    },
+    selectedUserPlaylistLastUpdatedAt () {
+      // Re-fetch from local store when current user playlist updated
+      this.getPlaylistInfoDebounce()
+    },
+    selectedUserPlaylistVideoCount () {
+      // Monitoring `selectedUserPlaylistVideos` makes this function called
+      // Even when the same array object is returned
+      // So length is monitored instead
+      // Assuming in user playlist video cannot be swapped without length change
+
+      // Re-fetch from local store when current user playlist videos updated
+      this.getPlaylistInfoDebounce()
+    },
+  },
+  created: function () {
+    this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
   },
   mounted: function () {
-    this.getPlaylist()
+    this.getPlaylistInfoDebounce()
   },
   methods: {
-    getPlaylist: function () {
-      this.playlistId = this.$route.params.id
+    getPlaylistInfo: function () {
+      this.isLoading = true
+      // `selectedUserPlaylist` result accuracy relies on data being ready
+      if (this.isUserPlaylistRequested && !this.userPlaylistsReady) { return }
+
+      if (this.isUserPlaylistRequested) {
+        if (this.selectedUserPlaylist != null) {
+          this.parseUserPlaylist(this.selectedUserPlaylist)
+        } else {
+          this.showUserPlaylistNotFound()
+        }
+        return
+      }
 
       switch (this.backendPreference) {
         case 'local':
@@ -84,8 +195,6 @@ export default defineComponent({
       }
     },
     getPlaylistLocal: function () {
-      this.isLoading = true
-
       getLocalPlaylist(this.playlistId).then((result) => {
         let channelName
 
@@ -98,32 +207,34 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
-        this.infoData = {
-          id: this.playlistId,
-          title: result.info.title,
-          description: result.info.description ?? '',
-          firstVideoId: result.items[0].id,
-          playlistThumbnail: result.info.thumbnails[0].url,
-          viewCount: extractNumberFromString(result.info.views),
-          videoCount: extractNumberFromString(result.info.total_items),
-          lastUpdated: result.info.last_updated ?? '',
-          channelName,
-          channelThumbnail: result.info.author?.best_thumbnail?.url ?? '',
-          channelId: result.info.author?.id,
-          infoSource: 'local'
-        }
+        this.playlistTitle = result.info.title
+        this.playlistDescription = result.info.description ?? ''
+        this.firstVideoId = result.items[0].id
+        this.playlistThumbnail = result.info.thumbnails[0].url
+        this.viewCount = extractNumberFromString(result.info.views)
+        this.videoCount = extractNumberFromString(result.info.total_items)
+        this.lastUpdated = result.info.last_updated ?? ''
+        this.channelName = channelName ?? ''
+        this.channelThumbnail = result.info.author?.best_thumbnail?.url ?? ''
+        this.channelId = result.info.author?.id
+        this.infoSource = 'local'
 
         this.updateSubscriptionDetails({
-          channelThumbnailUrl: this.infoData.channelThumbnail,
-          channelName: this.infoData.channelName,
-          channelId: this.infoData.channelId
+          channelThumbnailUrl: this.channelThumbnail,
+          channelName: this.channelName,
+          channelId: this.channelId
         })
 
         this.playlistItems = result.items.map(parseLocalPlaylistVideo)
 
+        let shouldGetNextPage = false
         if (result.has_continuation) {
           this.continuationData = result
+          shouldGetNextPage = this.playlistItems.length < 100
         }
+        // To workaround the effect of useless continuation data
+        // auto load next page again when no. of parsed items < page size
+        if (shouldGetNextPage) { this.getNextPageLocal() }
 
         this.isLoading = false
       }).catch((err) => {
@@ -138,32 +249,27 @@ export default defineComponent({
     },
 
     getPlaylistInvidious: function () {
-      this.isLoading = true
-
       invidiousGetPlaylistInfo(this.playlistId).then((result) => {
-        this.infoData = {
-          id: result.playlistId,
-          title: result.title,
-          description: result.description,
-          firstVideoId: result.videos[0].videoId,
-          viewCount: result.viewCount,
-          videoCount: result.videoCount,
-          channelName: result.author,
-          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance),
-          channelId: result.authorId,
-          infoSource: 'invidious'
-        }
+        this.playlistTitle = result.title
+        this.playlistDescription = result.description
+        this.firstVideoId = result.videos[0].videoId
+        this.viewCount = result.viewCount
+        this.videoCount = result.videoCount
+        this.channelName = result.author
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelId = result.authorId
+        this.infoSource = 'invidious'
 
         this.updateSubscriptionDetails({
           channelThumbnailUrl: result.authorThumbnails[2].url,
-          channelName: this.infoData.channelName,
-          channelId: this.infoData.channelId
+          channelName: this.channelName,
+          channelId: this.channelId
         })
 
         const dateString = new Date(result.updated * 1000)
-        this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
+        this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
-        this.playlistItems = this.playlistItems.concat(result.videos)
+        this.allPlaylistItems = result.videos
 
         this.isLoading = false
       }).catch((err) => {
@@ -178,10 +284,52 @@ export default defineComponent({
       })
     },
 
+    parseUserPlaylist: function (playlist) {
+      this.playlistTitle = playlist.playlistName
+      this.playlistDescription = playlist.description ?? ''
+
+      if (playlist.videos.length > 0) {
+        this.firstVideoId = playlist.videos[0].videoId
+        this.firstVideoPlaylistItemId = playlist.videos[0].playlistItemId
+      } else {
+        this.firstVideoId = ''
+        this.firstVideoPlaylistItemId = ''
+      }
+      this.viewCount = 0
+      this.videoCount = playlist.videos.length
+      const dateString = new Date(playlist.lastUpdatedAt)
+      this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
+      this.channelName = ''
+      this.channelThumbnail = ''
+      this.channelId = ''
+      this.infoSource = 'user'
+
+      this.playlistItems = playlist.videos
+
+      this.isLoading = false
+    },
+    showUserPlaylistNotFound() {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
+    },
+
     getNextPage: function () {
-      switch (this.infoData.infoSource) {
+      switch (this.infoSource) {
         case 'local':
           this.getNextPageLocal()
+          break
+        case 'user':
+          // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are renderered
+          this.isLoadingMore = true
+
+          setTimeout(() => {
+            if (this.userPlaylistVisibleLimit + 100 < this.videoCount) {
+              this.userPlaylistVisibleLimit += 100
+            } else {
+              this.userPlaylistVisibleLimit = this.videoCount
+            }
+
+            this.isLoadingMore = false
+          })
           break
         case 'invidious':
           console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
@@ -193,12 +341,17 @@ export default defineComponent({
       this.isLoadingMore = true
 
       getLocalPlaylistContinuation(this.continuationData).then((result) => {
+        let shouldGetNextPage = false
+
         if (result) {
           const parsedVideos = result.items.map(parseLocalPlaylistVideo)
           this.playlistItems = this.playlistItems.concat(parsedVideos)
 
           if (result.has_continuation) {
             this.continuationData = result
+            // To workaround the effect of useless continuation data
+            // auto load next page again when no. of parsed items < page size
+            shouldGetNextPage = parsedVideos.length < 100
           } else {
             this.continuationData = null
           }
@@ -207,11 +360,94 @@ export default defineComponent({
         }
 
         this.isLoadingMore = false
+        if (shouldGetNextPage) { this.getNextPageLocal() }
       })
     },
 
+    moveVideoUp: function (videoId, playlistItemId) {
+      const playlistItems = [].concat(this.playlistItems)
+      const videoIndex = playlistItems.findIndex((video) => {
+        return video.videoId === videoId && video.playlistItemId === playlistItemId
+      })
+
+      if (videoIndex === 0) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved up."]'))
+        return
+      }
+
+      const videoObject = playlistItems[videoIndex]
+
+      playlistItems.splice(videoIndex, 1)
+      playlistItems.splice(videoIndex - 1, 0, videoObject)
+
+      const playlist = {
+        playlistName: this.playlistTitle,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.playlistDescription,
+        videos: playlistItems,
+        _id: this.playlistId
+      }
+      try {
+        this.updatePlaylist(playlist)
+        this.playlistItems = playlistItems
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
+    },
+
+    moveVideoDown: function (videoId, playlistItemId) {
+      const playlistItems = [].concat(this.playlistItems)
+      const videoIndex = playlistItems.findIndex((video) => {
+        return video.videoId === videoId && video.playlistItemId === playlistItemId
+      })
+
+      if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
+        return
+      }
+
+      const videoObject = playlistItems[videoIndex]
+
+      playlistItems.splice(videoIndex, 1)
+      playlistItems.splice(videoIndex + 1, 0, videoObject)
+
+      const playlist = {
+        playlistName: this.playlistTitle,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.playlistDescription,
+        videos: playlistItems,
+        _id: this.playlistId
+      }
+      try {
+        this.updatePlaylist(playlist)
+        this.playlistItems = playlistItems
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
+    },
+
+    removeVideoFromPlaylist: function (videoId, playlistItemId) {
+      try {
+        this.removeVideo({
+          _id: this.playlistId,
+          videoId: videoId,
+          playlistItemId: playlistItemId,
+        })
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: this.playlistId })
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Video has been removed'))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
+        console.error(e)
+      }
+    },
+
     ...mapActions([
-      'updateSubscriptionDetails'
+      'updateSubscriptionDetails',
+      'updatePlaylist',
+      'removeVideo',
     ]),
 
     ...mapMutations([

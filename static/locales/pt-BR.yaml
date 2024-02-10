@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 assinante | {count} assinantes
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
+  Input Tags:
+    Length Requirement: A tag deve ter pelo menos {number} caracteres
 Search / Go to URL: 'Buscar/Ir ao URL'
   # In Filter Button
 Search Filters:
@@ -110,17 +112,105 @@ Trending:
   Music: Música
   Default: Padrão
 Most Popular: 'Mais populares'
-Playlists: 'Listas de reprodução'
+Playlists: 'Playlists'
 User Playlists:
-  Your Playlists: 'Suas Listas de Reprodução'
+  Your Playlists: 'Suas playlists'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
     seus vídeos salvos estão vazios. Clique no botão salvar no canto de um vídeo para
     que ele seja listado aqui
-  Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
-    Ele só lista vídeos que você salvou ou favoritou. Quando o trabalho estiver concluído,
+  Playlist Message: Esta página não reflete playlists totalmente funcionais. Ele só
+    lista vídeos que você salvou ou favoritou. Quando o trabalho estiver concluído,
     todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
-  Search bar placeholder: Pesquisar na Lista de Reprodução
+  Search bar placeholder: Pesquisar na playlist
   Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
+  You have no playlists. Click on the create new playlist button to create a new one.: Você
+    não tem playlists. Clique no botão "criar playlist" para criar uma.
+  This playlist currently has no videos.: Esta playlist não tem vídeos atualmente.
+  Create New Playlist: Criar nova playlist
+  Add to Playlist: Adicionar à playlist
+  Move Video Up: Mover vídeo para cima
+  Remove from Playlist: Remover da Playlist
+  CreatePlaylistPrompt:
+    Create: Criar
+    New Playlist Name: Novo nome da playlist
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Já
+        existe uma playlist com este nome. Escolha um nome diferente.
+      Playlist {playlistName} has been successfully created.: A playlist {playlistName}
+        foi criada com sucesso.
+      There was an issue with creating the playlist.: Ocorreu um problema ao criar
+        a playlist.
+  Add to Favorites: Adicionar a {NomeDaPlaylist}
+  Remove from Favorites: Remover de {playlistName}
+  Move Video Down: Mover vídeo para baixo
+  Playlist Name: Nome da Playlist
+  Playlist Description: Descrição da Playlist
+  Save Changes: Salvar alterações
+  Cancel: Cancelar
+  Edit Playlist Info: Editar informação da Playlist
+  Copy Playlist: Copiar Playlist
+  Enable Quick Bookmark With This Playlist: Habilite o marcador rápido com esta Playlist
+  Disable Quick Bookmark: Desativar marcador rápido
+  Delete Playlist: Excluir Playlist
+  Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
+    de que deseja excluir esta playlist? Isto não pode ser desfeito.
+  Sort By:
+    Sort By: Ordenar por
+    NameDescending: Z-A
+    LatestCreatedFirst: Criado recentemente
+    EarliestCreatedFirst: Criação mais antiga
+    LatestUpdatedFirst: Atualizado recentemente
+    LatestPlayedFirst: Reproduzido recentemente
+    EarliestPlayedFirst: Reprodução mais antiga
+    EarliestUpdatedFirst: Atualização mais antiga
+    NameAscending: A-Z
+  SinglePlaylistView:
+    Toast:
+      This playlist is now used for quick bookmark: Esta playlist agora é usada para
+        favoritos rápidos
+      Quick bookmark disabled: Marcador rápido desativado
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
+        playlist agora é usada para favoritos rápidos em vez de {oldPlaylistName}.
+        Clique aqui para desfazer
+      There was an issue with updating this playlist.: Ocorreu um problema ao atualizar
+        esta playlist.
+      This video cannot be moved down.: Este vídeo não pode ser movido para baixo.
+      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
+        em favoritos rápidos
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alguns
+        vídeos da playlist ainda não foram carregados. Clique aqui para copiar mesmo
+        assim.
+      Playlist name cannot be empty. Please input a name.: O nome da playlist não
+        pode ficar vazio. Por favor insira um nome.
+      "{videoCount} video(s) have been removed": 1 vídeo foi removido | {videoCount}
+        vídeos foram removidos
+      There were no videos to remove.: Não havia vídeos para remover.
+      This playlist is protected and cannot be removed.: Esta playlist está protegida
+        e não pode ser removida.
+      Playlist {playlistName} has been deleted.: A playlist {playlistName} foi excluída.
+      This playlist does not exist: Esta playlist não existe
+      This video cannot be moved up.: Este vídeo não pode ser movido para cima.
+      There was a problem with removing this video: Houve um problema ao remover este
+        vídeo
+      Playlist has been updated.: A playlist foi atualizada.
+      Video has been removed: O vídeo foi removido
+  AddVideoPrompt:
+    Toast:
+      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 playlist
+        | {videoCount} vídeos adicionados a 1 playlist
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado
+        a {playlistCount} playlists | {videoCount} vídeos adicionados a {playlistCount}
+        playlists
+      You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
+    Select a playlist to add your N videos to: Selecione uma playlist para adicionar
+      seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
+    N playlists selected: '{playlistCount} selecionadas'
+    Search in Playlists: Pesquisar nas playlists
+    Save: Salvar
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
+    certeza de que deseja remover todos os vídeos assistidos desta playlist? Isto
+    não pode ser desfeito.
+  Remove Watched Videos: Remove vídeos assistidos
 History:
   # On History Page
   History: 'Histórico'
@@ -189,6 +279,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Rosa Pastel
       Hot Pink: Rosa Choque
+      Nordic: Nordico
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -356,8 +447,12 @@ Settings:
     Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
     Automatically Remove Video Meta Files: Remover automaticamente os metarquivos
       de vídeo
-    Save Watched Videos With Last Viewed Playlist: Salvar os vídeos vistos com a última
-      lista de reprodução vista
+    Save Watched Videos With Last Viewed Playlist: Salvar vídeos assistidos com a
+      última playlist visualizada
+    All playlists have been removed: Todas as playlists foram removidas
+    Are you sure you want to remove all your playlists?: Tem certeza de que deseja
+      remover todas as suas playlists?
+    Remove All Playlists: Remover todas as playlists
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -397,17 +492,25 @@ Settings:
     Profile object has insufficient data, skipping item: O objeto Perfil possui dados
       insuficientes, pulando item
     Manage Subscriptions: Administrar Inscrições
-    Import Playlists: Importar listas de reprodução
-    Export Playlists: Exportar listas de reprodução
+    Import Playlists: Importar playlists
+    Export Playlists: Exportar playlists
     Playlist insufficient data: Dados insuficientes para a playlist "{playlist}",
       pulando item
-    All playlists has been successfully exported: Todas as listas de reprodução foram
-      exportadas com sucesso
-    All playlists has been successfully imported: Todas as listas de reprodução foram
-      importadas com sucesso
+    All playlists has been successfully exported: Todas as playlists foram exportadas
+      com sucesso
+    All playlists has been successfully imported: Todas as playlists foram importadas
+      com sucesso
     Subscription File: Arquivo de assinaturas
     History File: Arquivo de histórico
     Playlist File: Arquivo de Lista
+    Export Playlists For Older FreeTube Versions:
+      Label: Exportar playlists para versões mais antigas do FreeTube
+      Tooltip: "Esta opção exporta vídeos de todas as playlists para uma playlist
+        chamada \"Favoritos\".\nComo exportar e importar vídeos em playlists para
+        uma versão mais antiga do FreeTube:\n1. Exporte suas playlists com esta opção
+        habilitada.\n2. Exclua todas as suas playlists existentes usando a opção \"\
+        Remover todas as playlists\" em \"Configurações de privacidade\".\n3. Inicie
+        a versão mais antiga do FreeTube e importe as playlists exportadas."
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -419,7 +522,7 @@ Settings:
     Hide Video Likes And Dislikes: Ocultar curtidas e desgostos do vídeo
     Hide Video Views: Ocultar Visualizações de Vídeo
     Hide Active Subscriptions: Ocultar Inscrições Ativas
-    Hide Playlists: Ocultar listas de reprodução
+    Hide Playlists: Ocultar playlist
     Hide Video Description: Ocultar descrição do vídeo
     Hide Sharing Actions: Ocultar ações de compartilhamento
     Hide Comments: Ocultar comentários
@@ -437,7 +540,7 @@ Settings:
       General: Geral
       Subscriptions Page: Página de inscrições
     Hide Featured Channels: Ocultar canais em destaque
-    Hide Channel Playlists: Ocultar listas de reprodução de canais
+    Hide Channel Playlists: Ocultar playlists de canais
     Hide Channel Community: Ocultar comunidade do canal
     Hide Channel Shorts: Ocultar Shorts do Canal
     Hide Channel Podcasts: Ocultar podcasts do canal
@@ -449,11 +552,15 @@ Settings:
     Blur Thumbnails: Desfocar Miniaturas
     Hide Subscriptions Community: Ocultar comunidade inscritas
     Hide Channels Invalid: ID de canal fornecido é inválido
-    Hide Channels Disabled Message: Alguns canais foram bloqueados usando ID e não
-      foram processados. O recurso é bloqueado enquanto esses ID estão atualizando
-    Hide Channels Already Exists: O ID de canal já existe
+    Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram
+      processados. O recurso é bloqueado enquanto esses IDs estão sendo atualizados
+    Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor,
       verifique novamente se o ID está correto.
+    Hide Videos and Playlists Containing Text Placeholder: Palavra, trecho de palavra
+      ou frase
+    Hide Videos and Playlists Containing Text: Ocultar vídeos e playlists que contenham
+      texto
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -478,8 +585,8 @@ Settings:
       são pulados
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (o padrão é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
-    SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
+    Enable SponsorBlock: Ativar o SponsorBlock
+    SponsorBlock Settings: Configurações das APIs de Ajay (SponsorBlock & DeArrow)
     Skip Options:
       Show In Seek Bar: Mostrar na barra de busca
       Prompt To Skip: Solicitar para pular
@@ -488,6 +595,9 @@ Settings:
       Skip Option: Opção de pular
     Category Color: Cor da categoria
     UseDeArrowTitles: Utilizar títulos de vídeo DeArrow
+    UseDeArrowThumbnails: Usar DeArrow para miniaturas
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      da API do gerador de miniatura DeArrow (o padrão é https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argumentos de player externo personalizados
     External Player: Player externo
@@ -497,6 +607,7 @@ Settings:
     Players:
       None:
         Name: Nenhum
+    Ignore Default Arguments: Ignorar argumentos padrão
   Download Settings:
     Download Settings: Configurações de download
     Ask Download Path: Peça o caminho de download
@@ -631,6 +742,7 @@ Channel:
     votes: '{votes} Votos'
     Reveal Answers: Revelar respostas
     Hide Answers: Ocultar respostas
+    Video hidden by FreeTube: Vídeo escondido pelo FreeTube
   Channel Tabs: Abas dos Canais
   Live:
     Live: Ao vivo
@@ -693,8 +805,8 @@ Video:
     Hours: 'horas'
     Day: 'dia'
     Days: 'dias'
-    Week: 'semana'
-    Weeks: 'semanas'
+    Week: 'Semana'
+    Weeks: 'Semanas'
     Month: 'mês'
     Months: 'meses'
     Year: 'ano'
@@ -723,9 +835,9 @@ Video:
   Autoplay: Reprodução Automática
   Play Previous Video: Reproduzir o Vídeo Anterior
   Play Next Video: Reproduzir o Próximo Vídeo
-  Reverse Playlist: Inverter ordem da lista de reprodução
-  Shuffle Playlist: Lista de reprodução em modo aleatório
-  Loop Playlist: Repetir lista de reprodução
+  Reverse Playlist: Inverter ordem da playlist
+  Shuffle Playlist: Playlist aleatória
+  Loop Playlist: Repetir playlist
   Copy Invidious Channel Link: Copiar link do canal no Invidious
   Open Channel in Invidious: Abrir Canal no Invidious
   Copy YouTube Channel Link: Copiar o link do canal no YouTube
@@ -742,19 +854,19 @@ Video:
     outro: Conclusão
     intro: Introdução
     sponsor: Patrocinador
-    filler: Enchimento
+    filler: Preenchimento
     recap: Recapitulação
   Skipped segment: Segmentos pulados
   External Player:
     Unsupported Actions:
       shuffling playlists: embaralhar playlists
       opening specific video in a playlist (falling back to opening the video): abrir
-        um vídeo específico em uma lista de reprodução (voltar a abrir o vídeo)
+        um vídeo específico em uma playlist (voltar à abertura do vídeo)
       reversing playlists: revertendo playlists
       opening playlists: abrindo playlists
       starting video at offset: começando vídeo em deslocamento
       setting a playback rate: definindo uma taxa de reprodução
-      looping playlists: Listas de reprodução em loop
+      looping playlists: playlists em loop
     UnsupportedActionTemplate: '{externalPlayer} não suporta: {action}'
     playlist: playlist
     OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
@@ -810,7 +922,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: Lista de reprodução
+  Playlist: Playlist
 Toggle Theatre Mode: 'Alternar Modo Teatro'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
@@ -944,7 +1056,7 @@ Version {versionNumber} is now available!  Click for more details: A versão {ve
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
   {blogTitle}. Clique para ver mais'
 Download From Site: Baixar do site
-The playlist has been reversed: A lista de reprodução foi invertida
+The playlist has been reversed: A playlist foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível por causa de formatos faltantes. Isso pode acontecer devido
   à indisponibilidade do país.
@@ -1005,27 +1117,35 @@ Tooltips:
       separados por ponto e vírgula (';'), você deseja que seja passado para o reprodutor
       externo.
     Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
-      a ação atual (por exemplo, reverter listas de reprodução, etc.).
+      a ação atual (por exemplo, reverter playlist, etc.).
     Custom External Player Executable: Por padrão, o FreeTube assumirá que o player
       externo escolhido pode ser encontrado por meio da variável de ambiente PATH.
       Se necessário, um caminho personalizado pode ser definido aqui.
     External Player: A escolha de um player externo exibirá um ícone, para abrir o
-      vídeo (lista de reprodução, se compatível) no player externo, na miniatura.
-      Aviso, as configurações do Invidious não afetam os players externos.
+      vídeo (playlist se suportado) no player externo, na miniatura. Atenção, as configurações
+      do Invidious não afetam players externos.
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Não envie nenhum argumento padrão ao player externo
+      além do URL do vídeo (por exemplo, taxa de reprodução, URL da playlist, etc.).
+      Argumentos personalizados ainda serão transmitidos.
   Experimental Settings:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
-    Hide Channels: Insira um ID de canal para ocultar todos os vídeos, as listas de
-      reprodução e o próprio canal dos resultados da busca, tendências, mais populares
-      e recomendados. O nome do canal digitado deve coincidir exatamente, observando
-      as maiúsculas e as minúsculas.
+    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, as
+      listas de reprodução e o próprio canal dos resultados da busca, tendências,
+      mais populares e recomendados. O nome do canal digitado deve coincidir exatamente,
+      observando maiúsculas e minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
       aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Insira uma palavra, trecho de palavra
+      ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os
+      vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo
+      apenas Histórico, Suas playlists e vídeos dentro das playlists.
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário
       a partir do DeArrow.
+    UseDeArrowThumbnails: Substitua as miniaturas de vídeo pelas miniaturas do DeArrow.
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
@@ -1083,10 +1203,13 @@ Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     nenhum vídeo
   Hashtag: Hashtag
-Playlist will pause when current video is finished: Lista de reprodução será pausada
-  quando vídeo atual terminar
-Playlist will not pause when current video is finished: Lista de reprodução não será
-  pausada quando vídeo atual terminar
+Playlist will pause when current video is finished: A playlist será pausada quando
+  o vídeo atual terminar
+Playlist will not pause when current video is finished: A playlist não será pausada
+  quando o vídeo atual terminar
 Channel Hidden: '{channel} adicionado ao filtro de canais'
 Go to page: Ir para {page}
-Channel Unhidden: '{channel} removido do filtro de canais'
+Channel Unhidden: '{channel} removido do filtro do canal'
+Trimmed input must be at least N characters long: A entrada cortada deve ter pelo
+  menos 1 caractere | A entrada cortada precisa ter pelo menos {length} caracteres
+Tag already exists: A tag "{tagName}" já existe

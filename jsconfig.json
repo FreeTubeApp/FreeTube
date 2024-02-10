@@ -1,5 +1,8 @@
 {
   "vueCompilerOptions": {
     "target": 2.7
+  },
+  "compilerOptions": {
+    "strictNullChecks": true
   }
 }

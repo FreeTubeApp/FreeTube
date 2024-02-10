@@ -25,6 +25,7 @@ import {
 import {
   getLocalChannel,
   getLocalChannelId,
+  parseLocalChannelHeader,
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
@@ -495,6 +496,7 @@ export default defineComponent({
       const expectedId = this.id
 
       try {
+        /** @type {import('youtubei.js').YT.Channel|undefined} */
         let channel
         if (!this.channelInstance) {
           channel = await getLocalChannel(this.id)
@@ -531,90 +533,22 @@ export default defineComponent({
           return
         }
 
-        let channelId
-        let subscriberText = null
-        let tags = []
+        const parsedHeader = parseLocalChannelHeader(channel)
 
-        switch (channel.header.type) {
-          case 'C4TabbedHeader': {
-            // example: Linus Tech Tips
-            // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
+        const channelId = parsedHeader.id ?? this.id
+        const subscriberText = parsedHeader.subscriberText ?? null
+        let tags = parsedHeader.tags
 
-            /**
-             * @type {import('youtubei.js').YTNodes.C4TabbedHeader}
-             */
-            const header = channel.header
+        channelThumbnailUrl = parsedHeader.thumbnailUrl ?? this.subscriptionInfo?.thumbnail
+        channelName = parsedHeader.name ?? this.subscriptionInfo?.name
 
-            channelId = header.author.id
-            channelName = header.author.name
-            channelThumbnailUrl = header.author.best_thumbnail.url
-            subscriberText = header.subscribers?.text
-            break
-          }
-          case 'CarouselHeader': {
-            // examples: Music and YouTube Gaming
-            // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
-            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
-
-            /**
-             * @type {import('youtubei.js').YTNodes.CarouselHeader}
-             */
-            const header = channel.header
-
-            /**
-             * @type {import('youtubei.js').YTNodes.TopicChannelDetails}
-             */
-            const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
-            channelName = topicChannelDetails.title.text
-            subscriberText = topicChannelDetails.subtitle.text
-            channelThumbnailUrl = topicChannelDetails.avatar[0].url
-
-            if (channel.metadata.external_id) {
-              channelId = channel.metadata.external_id
-            } else {
-              channelId = topicChannelDetails.subscribe_button.channel_id
-            }
-            break
-          }
-          case 'InteractiveTabbedHeader': {
-            // example: Minecraft - Topic
-            // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
-
-            /**
-             * @type {import('youtubei.js').YTNodes.InteractiveTabbedHeader}
-             */
-            const header = channel.header
-            channelName = header.title.text
-            channelId = this.id
-            channelThumbnailUrl = header.box_art.at(-1).url
-
-            const badges = header.badges.map(badge => badge.label).filter(tag => tag)
-            tags.push(...badges)
-            break
-          }
-          case 'PageHeader': {
-            // example: YouTube Gaming (an A/B test at the time of writing)
-            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
-
-            /**
-             * @type {import('youtubei.js').YTNodes.PageHeader}
-             */
-            const header = channel.header
-
-            channelName = header.content.title.text
-            channelThumbnailUrl = header.content.image.image[0].url
-            channelId = this.id
-
-            break
-          }
-        }
-
-        if (channelThumbnailUrl.startsWith('//')) {
+        if (channelThumbnailUrl?.startsWith('//')) {
           channelThumbnailUrl = `https:${channelThumbnailUrl}`
         }
 
         this.channelName = channelName
         this.thumbnailUrl = channelThumbnailUrl
+        this.bannerUrl = parsedHeader.bannerUrl ?? null
         this.isFamilyFriendly = !!channel.metadata.is_family_safe
 
         if (channel.metadata.tags) {
@@ -645,25 +579,44 @@ export default defineComponent({
 
         this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
-        if (channel.header.banner?.length > 0) {
-          this.bannerUrl = channel.header.banner[0].url
-        } else {
-          this.bannerUrl = null
+        let relatedChannels = channel.channels.map(({ author }) => ({
+          name: author.name,
+          id: author.id,
+          thumbnailUrl: author.best_thumbnail.url
+        }))
+
+        if (channel.memo.has('GameDetails')) {
+          /** @type {import('youtubei.js').YTNodes.GameDetails[]} */
+          const games = channel.memo.get('GameDetails')
+
+          relatedChannels.push(...games.map(game => ({
+            id: game.endpoint.payload.browseId,
+            name: game.title.text,
+            thumbnailUrl: game.box_art[0].url
+          })))
         }
 
-        this.relatedChannels = channel.channels.map(({ author }) => {
-          let thumbnailUrl = author.best_thumbnail.url
+        if (relatedChannels.length > 0) {
+          /** @type {Set<string>} */
+          const knownChannelIds = new Set()
 
-          if (thumbnailUrl.startsWith('//')) {
-            thumbnailUrl = `https:${thumbnailUrl}`
-          }
+          relatedChannels = relatedChannels.filter(channel => {
+            if (!knownChannelIds.has(channel.id)) {
+              knownChannelIds.add(channel.id)
+              return true
+            }
 
-          return {
-            name: author.name,
-            id: author.id,
-            thumbnailUrl
-          }
-        })
+            return false
+          })
+
+          relatedChannels.forEach(channel => {
+            if (channel.thumbnailUrl.startsWith('//')) {
+              channel.thumbnailUrl = `https:${channel.thumbnailUrl}`
+            }
+          })
+        }
+
+        this.relatedChannels = relatedChannels
 
         this.channelInstance = channel
 
@@ -770,7 +723,7 @@ export default defineComponent({
           const videoCount = extractNumberFromString(metadata.video_count)
           this.videoCount = isNaN(videoCount) ? null : videoCount
 
-          this.joined = metadata.joined_date.isEmpty() ? 0 : new Date(metadata.joined_date.text.replace('Joined').trim())
+          this.joined = metadata.joined_date && !metadata.joined_date.isEmpty() ? new Date(metadata.joined_date.text.replace('Joined').trim()) : 0
 
           this.location = metadata.country ?? null
         }
@@ -811,7 +764,7 @@ export default defineComponent({
           return
         }
 
-        this.latestVideos = parseLocalChannelVideos(videosTab.videos, channel.header.author)
+        this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
         this.videoContinuationData = videosTab.has_continuation ? videosTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -836,7 +789,7 @@ export default defineComponent({
          */
         const continuation = await this.videoContinuationData.getContinuation()
 
-        this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
+        this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
         this.videoContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
@@ -869,7 +822,7 @@ export default defineComponent({
           return
         }
 
-        this.latestShorts = parseLocalChannelShorts(shortsTab.videos, channel.header.author)
+        this.latestShorts = parseLocalChannelShorts(shortsTab.videos, this.id, this.channelName)
         this.shortContinuationData = shortsTab.has_continuation ? shortsTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -894,7 +847,7 @@ export default defineComponent({
          */
         const continuation = await this.shortContinuationData.getContinuation()
 
-        this.latestShorts.push(...parseLocalChannelShorts(continuation.videos, this.channelInstance.header.author))
+        this.latestShorts.push(...parseLocalChannelShorts(continuation.videos, this.id, this.channelName))
         this.shortContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
@@ -927,7 +880,7 @@ export default defineComponent({
           return
         }
 
-        this.latestLive = parseLocalChannelVideos(liveTab.videos, channel.header.author)
+        this.latestLive = parseLocalChannelVideos(liveTab.videos, this.id, this.channelName)
         this.liveContinuationData = liveTab.has_continuation ? liveTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -952,7 +905,7 @@ export default defineComponent({
          */
         const continuation = await this.liveContinuationData.getContinuation()
 
-        this.latestLive.push(...parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
+        this.latestLive.push(...parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
         this.liveContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
@@ -1244,7 +1197,7 @@ export default defineComponent({
           return
         }
 
-        this.latestPlaylists = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.latestPlaylists = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.playlistContinuationData = playlistsTab.has_continuation ? playlistsTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -1269,7 +1222,7 @@ export default defineComponent({
          */
         const continuation = await this.playlistContinuationData.getContinuation()
 
-        const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestPlaylists = this.latestPlaylists.concat(parsedPlaylists)
         this.playlistContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
@@ -1367,7 +1320,7 @@ export default defineComponent({
           return
         }
 
-        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -1392,7 +1345,7 @@ export default defineComponent({
          */
         const continuation = await this.releaseContinuationData.getContinuation()
 
-        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestReleases = this.latestReleases.concat(parsedReleases)
         this.releaseContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
@@ -1480,7 +1433,7 @@ export default defineComponent({
           return
         }
 
-        this.latestPodcasts = podcastTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.latestPodcasts = podcastTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.podcastContinuationData = podcastTab.has_continuation ? podcastTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -1505,7 +1458,7 @@ export default defineComponent({
          */
         const continuation = await this.podcastContinuationData.getContinuation()
 
-        const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestPodcasts = this.latestPodcasts.concat(parsedPodcasts)
         this.releaseContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
@@ -1831,7 +1784,7 @@ export default defineComponent({
             if (item.type === 'Video') {
               return parseLocalListVideo(item)
             } else {
-              return parseLocalListPlaylist(item, this.channelInstance.header.author)
+              return parseLocalListPlaylist(item, this.id, this.channelName)
             }
           })
 

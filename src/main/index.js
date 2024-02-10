@@ -166,9 +166,11 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  app.commandLine.appendSwitch('enable-accelerated-video-decode')
-  app.commandLine.appendSwitch('enable-file-cookies')
-  app.commandLine.appendSwitch('ignore-gpu-blacklist')
+  if (process.platform === 'linux') {
+    // Enable hardware acceleration via VA-API
+    // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
+    app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+  }
 
   // Work around for context menus in the devtools being displayed behind the window
   // https://github.com/electron/electron/issues/38790
@@ -491,6 +493,8 @@ function runApp() {
           return '#ffd1dc'
         case 'hot-pink':
           return '#de1c85'
+        case 'nordic':
+          return '#2b2f3a'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -718,7 +722,8 @@ function runApp() {
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
-    return app.getLocale()
+    // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
+    return app.getSystemLocale()
   })
 
   ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {
@@ -847,7 +852,7 @@ function runApp() {
           return null
 
         case DBActions.HISTORY.UPDATE_PLAYLIST:
-          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId)
+          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId, data.lastViewedPlaylistType, data.lastViewedPlaylistItemId)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,
@@ -948,15 +953,27 @@ function runApp() {
       switch (action) {
         case DBActions.GENERAL.CREATE:
           await baseHandlers.playlists.create(data)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.CREATE, data }
+          )
           return null
 
         case DBActions.GENERAL.FIND:
           return await baseHandlers.playlists.find()
 
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.playlists.upsert(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
-          await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
+          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.videoData)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -964,20 +981,30 @@ function runApp() {
           )
           return null
 
-        case DBActions.PLAYLISTS.UPSERT_VIDEO_IDS:
-          await baseHandlers.playlists.upsertVideoIdsByPlaylistId(data._id, data.videoIds)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+        case DBActions.PLAYLISTS.UPSERT_VIDEOS:
+          await baseHandlers.playlists.upsertVideosByPlaylistId(data._id, data.videos)
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.PLAYLISTS.UPSERT_VIDEOS, data }
+          )
           return null
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.playlists.delete(data)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistName(data.playlistName, data.videoId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
+            _id: data._id,
+            videoId: data.videoId,
+            playlistItemId: data.playlistItemId,
+          })
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -986,13 +1013,13 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
-          await baseHandlers.playlists.deleteVideoIdsByPlaylistName(data.playlistName, data.videoIds)
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.videoIds)
           // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.PLAYLISTS.DELETE_ALL_VIDEOS:
-          await baseHandlers.playlists.deleteAllVideosByPlaylistName(data)
+          await baseHandlers.playlists.deleteAllVideosByPlaylistId(data)
           // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
