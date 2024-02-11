@@ -135,12 +135,35 @@ User Playlists:
     LatestCreatedFirst: On­langs aan­gemaakt
     NameDescending: Z - A
     NameAscending: A - Z
+    EarliestPlayedFirst: Eerst gespeeld
+    EarliestCreatedFirst: Eerst aangemaakt
+    LatestUpdatedFirst: Laatst bijgewerkt
+    EarliestUpdatedFirst: Eerst bijgewerkt
+    LatestPlayedFirst: Meest recent afgespeeld
   CreatePlaylistPrompt:
     Create: Aanmaken
+    New Playlist Name: Naam voor nieuwe afspeel­lijst
   AddVideoPrompt:
     Save: Opslaan
+    N playlists selected: '{playlistCount} geselecteerd'
+    Search in Playlists: Zoeken in afspeel­lijsten
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
+  Create New Playlist: Nieuwe afspeel­lijst aanmaken
+  Add to Playlist: Toevoegen aan afspeel­lijst
+  Move Video Up: Video omhoog verplaatsen
+  Move Video Down: Video omlaag verplaatsen
+  Remove from Playlist: Verwijderen uit afspeellijst
+  Edit Playlist Info: Afspeel­lijst­info bewerken
+  Remove Watched Videos: Bekeken video's verwijderen
+  Add to Favorites: Toevoegen aan {playlistName}
+  Remove from Favorites: Verwijderen uit {playlistName}
+  Disable Quick Bookmark: Snelle bladwijzers uitschakelen
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: Video is verwijderd
+      Quick bookmark disabled: Snelle bladwijzers uitgeschakeld
+      Playlist has been updated.: De afspeel­lijst is bijgewerkt.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -209,6 +232,7 @@ Settings:
       Catppuccin Mocha: Catppuccin-mokka
       Pastel Pink: Pastel­roze
       Hot Pink: Heet-roze
+      Nordic: Noords
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -333,6 +357,7 @@ Settings:
       verwijderen
     Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de
       afspeellijst ‘Laatst bekeken’
+    Remove All Playlists: Alle afspeel­lijsten verwijderen
   Subscription Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
@@ -501,6 +526,7 @@ Settings:
     Players:
       None:
         Name: Geen
+    Ignore Default Arguments: Standaard­argumenten negeren
   Download Settings:
     Choose Path: Pad kiezen
     Download Settings: Downloadinstellingen
@@ -529,6 +555,7 @@ Settings:
     Password Incorrect: Wachtwoord onjuist
     Unlock: Ontgrendelen
     Enter Password To Unlock: Voer wachtwoord in om instellingen te ontgrendelen
+  Expand All Settings Sections: Alle instellingen­secties uitvouwen
 About:
   #On About page
   About: 'Over'
@@ -937,6 +964,10 @@ Profile:
   Profile Settings: Profielinstellingen
   Toggle Profile List: Profiellijst omschakelen
   Profile Name: Profiel­naam
+  Edit Profile Name: Profiel­naam wijzigen
+  Create Profile Name: Profiel­naam aanmaken
+  Close Profile Dropdown: Profiel­menu sluiten
+  Open Profile Dropdown: Profiel­menu openen
 A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
   is beschikbaar, {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
