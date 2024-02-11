@@ -882,7 +882,10 @@ export default defineComponent({
         showToast(`${message}: ${err}`)
         return
       }
-      const playlists = JSON.parse(data)
+      data = data.split('\n')
+      data.pop()
+
+      const playlists = data.map(playlistJson => JSON.parse(playlistJson))
 
       const requiredKeys = [
         'playlistName',
@@ -1015,7 +1018,11 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), 'All playlists has been successfully exported')
+      const playlistsDb = this.allPlaylists.map(playlist => {
+        return JSON.stringify(playlist)
+      }).join('\n') + '\n'// a trailing line is expected
+
+      await this.promptAndWriteToFile(options, playlistsDb, 'All playlists has been successfully exported')
     },
 
     exportPlaylistsForOlderVersionsSometimes: function () {
