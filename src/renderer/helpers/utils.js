@@ -637,7 +637,7 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
   const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
   return title
     .replaceAll(/!{2,}/g, '!')
-    .replaceAll(/[!?|]{2,}/g, '?')
+    .replaceAll(/[!?]{2,}/g, '?')
     .replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
