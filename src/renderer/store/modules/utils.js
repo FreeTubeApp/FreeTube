@@ -768,8 +768,6 @@ const mutations = {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
-      // setting properties directly doesn't trigger watchers in Vue 2,
-      // so we need to use Vue's set function
       state.deArrowCache[payload.videoId] = payload
     }
   },

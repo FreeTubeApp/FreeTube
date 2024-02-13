@@ -1,4 +1,3 @@
-// import the styles
 import { createApp } from 'vue'
 import App from './App.vue'
 import i18n, { loadLocale } from './i18n/index'
