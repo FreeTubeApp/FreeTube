@@ -1,1 +1,11 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Start a discussion
+    url:  https://github.com/FreeTubeApp/FreeTube/discussions/categories/general
+    about: Feel free to start a discussion
+  - name: Ask a question
+    url:  https://github.com/FreeTubeApp/FreeTube/discussions/categories/q-a
+    about: Ask and answer questions
+  - name: Join our Matrix Community
+    url: https://matrix.to/#/+freetube:matrix.org
+    about: Feel free to join our Matrix community
