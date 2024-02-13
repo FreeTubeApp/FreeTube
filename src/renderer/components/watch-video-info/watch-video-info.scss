@@ -60,8 +60,8 @@
 
     @media screen and (max-width: 680px) {
       :deep(.iconDropdown) {
-        inset-inline-start: calc(50% - 20px);
-        inset-inline-end: auto;
+        inset-inline-start: auto;
+        inset-inline-end: calc(50% - 20px);
       }
     }
   }

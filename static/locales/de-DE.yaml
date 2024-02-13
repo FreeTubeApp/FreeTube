@@ -294,6 +294,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -1239,4 +1240,4 @@ Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
 Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
   1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
   sein
-Tag already exists: Der Tag "{tagName}" existiert bereits
+Tag already exists: Die Markierung „{tagName}“ existiert bereits
