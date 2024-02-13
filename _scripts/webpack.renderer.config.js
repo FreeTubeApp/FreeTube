@@ -1,5 +1,5 @@
 const path = require('path')
-const { readFileSync } = require('fs')
+const { readFileSync, readdirSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 const WatchExternalFilesPlugin = require('webpack-watch-external-files-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
@@ -116,7 +117,8 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
-      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
+      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
+      'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', '')))
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -131,6 +133,18 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
+          to: 'swiper.css',
+          context: path.join(__dirname, '../node_modules/swiper/modules'),
+          transformAll: (assets) => {
+            return Buffer.concat(assets.map(asset => asset.data))
+          }
+        }
+      ]
+    })
   ],
   resolve: {
     alias: {

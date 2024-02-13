@@ -13,13 +13,13 @@
       <div
         v-if="data.type === 'quiz'"
         class="option quiz-option"
+        :class="revealAnswer && choice.isCorrect ? 'correct-option' : ''"
       >
         <span class="empty-circle">
           <span :class="revealAnswer && choice.isCorrect ? 'filled-circle' : ''" />
         </span>
         <div
           class="option-text"
-          :class="revealAnswer && choice.isCorrect ? 'correct-option' : ''"
         >
           {{ choice.text }}
         </div>
@@ -29,6 +29,11 @@
         class="option poll-option"
       >
         <span class="empty-circle" />
+        <img
+          v-if="choice.image"
+          :src="findSmallestPollImage(choice.image)"
+          alt=""
+        >
         <div class="option-text">
           {{ choice.text }}
         </div>

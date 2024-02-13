@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 abone | {count} abone
     View Count: 1 izlenme | {count} izlenme
     Watching Count: 1 izliyor | {count} izliyor
+  Input Tags:
+    Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -128,6 +130,97 @@ User Playlists:
     taşınacaktır.
   Search bar placeholder: Oynatma Listesinde Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
+  This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
+    yok.
+  Create New Playlist: Yeni Oynatma Listesi Oluştur
+  Add to Playlist: Oynatma Listesine Ekle
+  Remove from Playlist: Oynatma Listesinden Kaldır
+  Playlist Name: Oynatma Listesi Adı
+  Save Changes: Değişiklikleri Kaydet
+  Delete Playlist: Oynatma Listesini Sil
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Son Oluşturulan
+    EarliestCreatedFirst: En Eski Oluşturulan
+    LatestUpdatedFirst: Son Güncellenen
+    EarliestUpdatedFirst: En Eski Güncellenen
+    LatestPlayedFirst: Son Oynatılan
+    EarliestPlayedFirst: En Eski Oynatılan
+    Sort By: Sıralama ölçütü
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Bu video yukarı taşınamaz.
+      This video cannot be moved down.: Bu video aşağı taşınamaz.
+      Playlist name cannot be empty. Please input a name.: Oynatma listesi adı boş
+        olamaz. Lütfen bir ad girin.
+      Playlist has been updated.: Oynatma listesi güncellendi.
+      There was an issue with updating this playlist.: Bu oynatma listesi güncellenirken
+        bir sorun oluştu.
+      "{videoCount} video(s) have been removed": 1 video kaldırıldı | {videoCount}
+        video kaldırıldı
+      Playlist {playlistName} has been deleted.: '{playlistName} oynatma listesi silindi.'
+      Video has been removed: Video kaldırıldı
+      There was a problem with removing this video: Bu videoyu kaldırırken bir sorun
+        oluştu
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Oynatma
+        listesindeki bazı videolar henüz yüklenmedi. Yine de kopyalamak için buraya
+        tıklayın.
+      This playlist is protected and cannot be removed.: Bu oynatma listesi korumalıdır
+        ve kaldırılamaz.
+      There were no videos to remove.: Kaldırılacak video yok.
+      This playlist does not exist: Bu oynatma listesi yok
+      Quick bookmark disabled: Hızlı yer imi devre dışı bırakıldı
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
+        oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor.
+        Geri almak için buraya tıklayın
+      Reverted to use {oldPlaylistName} for quick bookmark: Hızlı yer imi için {oldPlaylistName}
+        kullanımına geri dönüldü
+      This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
+        yer imi için kullanılıyor
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
+      listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
+    Save: Kaydet
+    Toast:
+      You haven't selected any playlist yet.: Henüz bir oynatma listesi seçmediniz.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video {playlistCount}
+        oynatma listesine eklendi | {videoCount} video {playlistCount} oynatma listesine
+        eklendi
+      "{videoCount} video(s) added to 1 playlist": 1 video 1 oynatma listesine eklendi
+        | {videoCount} video 1 oynatma listesine eklendi
+    N playlists selected: '{playlistCount} Seçildi'
+    Search in Playlists: Oynatma Listelerinde Ara
+  CreatePlaylistPrompt:
+    New Playlist Name: Yeni Oynatma Listesi Adı
+    Create: Oluştur
+    Toast:
+      There was an issue with creating the playlist.: Oynatma listesi oluşturulurken
+        bir sorun oluştu.
+      There is already a playlist with this name. Please pick a different name.: Bu
+        ada sahip bir oynatma listesi zaten var. Lütfen farklı bir ad seçin.
+      Playlist {playlistName} has been successfully created.: '{playlistName} oynatma
+        listesi başarıyla oluşturuldu.'
+  You have no playlists. Click on the create new playlist button to create a new one.: Hiç
+    oynatma listeniz yok. Yeni bir oynatma listesi oluşturmak için yeni oynatma listesi
+    oluştur düğmesine tıklayın.
+  Are you sure you want to delete this playlist? This cannot be undone: Bu oynatma
+    listesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
+  Move Video Up: Videoyu Yukarı Taşı
+  Move Video Down: Videoyu Aşağı Taşı
+  Playlist Description: Oynatma Listesi Açıklaması
+  Cancel: İptal
+  Edit Playlist Info: Oynatma Listesi Bilgilerini Düzenle
+  Copy Playlist: Oynatma Listesini Kopyala
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: İzlenen
+    tüm videoları bu oynatma listesinden kaldırmak istediğinizden emin misiniz? Bu
+    işlem geri alınamaz.
+  Remove Watched Videos: İzlenen Videoları Kaldır
+  Add to Favorites: '{playlistName} oynatma listesine ekle'
+  Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
+  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
+    Etkinleştir
+  Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
 History:
   # On History Page
   History: 'Geçmiş'
@@ -195,6 +288,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pembe
       Hot Pink: Sıcak Pembe
+      Nordic: Nord
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -319,12 +413,18 @@ Settings:
       Kaldır
     Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
       Oynatma Listesiyle Kaydet
+    All playlists have been removed: Tüm oynatma listeleri kaldırıldı
+    Remove All Playlists: Tüm Oynatma Listelerini Kaldır
+    Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi
+      kaldırmak istediğinizden emin misiniz?
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
     Fetch Automatically: Akışı Otomatik Olarak Getir
+    Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
+      Göster
   Data Settings:
     Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
@@ -375,6 +475,15 @@ Settings:
     Playlist File: Oynatma Listesi Dosyası
     Subscription File: Abonelik Dosyası
     History File: Geçmiş Dosyası
+    Export Playlists For Older FreeTube Versions:
+      Label: Eski FreeTube Sürümleri İçin Oynatma Listelerini Dışa Aktar
+      Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı
+        tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma
+        listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi
+        bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma
+        Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi
+        silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini
+        içe aktarın.\""
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
@@ -421,7 +530,7 @@ Settings:
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
-    Hide Channels Placeholder: Kanal Adı veya Kimliği
+    Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
     Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
       Görüntüle
@@ -443,6 +552,16 @@ Settings:
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
     Blur Thumbnails: Küçük Resimleri Bulanıklaştır
     Hide Subscriptions Community: Abonelik Topluluğunu Gizle
+    Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
+    Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
+      ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
+    Hide Channels Already Exists: Kanal kimliği zaten var
+    Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu.
+      Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
+    Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini
+      Gizle
+    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
+      veya İfade
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -476,6 +595,9 @@ Settings:
       Do Nothing: Hiçbir Şey Yapma
     Category Color: Kategori Rengi
     UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
+    UseDeArrowThumbnails: Önizleme görselleri için DeArrow kullan
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Önizleme Görseli Oluşturucu API URL'si (Öntanımlı https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -485,6 +607,7 @@ Settings:
     Players:
       None:
         Name: Yok
+    Ignore Default Arguments: Öntanımlı Argümanları Yoksay
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
@@ -513,6 +636,7 @@ Settings:
     Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
     Remove Password: Parolayı Kaldır
     Set Password: Parola Ayarla
+  Expand All Settings Sections: Tüm Ayarlar Bölümlerini Genişlet
 About:
   #On About page
   About: 'Hakkında'
@@ -623,6 +747,11 @@ Profile:
   Profile Filter: Profil Filtresi
   Profile Settings: Profil Ayarları
   Toggle Profile List: Profil Listesini Aç/Kapat
+  Profile Name: Profil Adı
+  Edit Profile Name: Profil Adını Düzenle
+  Create Profile Name: Profil Adı Oluştur
+  Open Profile Dropdown: Profil Açılır Menüsünü Aç
+  Close Profile Dropdown: Profil Açılır Menüsünü Kapat
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -672,6 +801,7 @@ Channel:
     votes: '{votes} oy'
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
+    Video hidden by FreeTube: FreeTube tarafından gizlenen video
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
@@ -828,6 +958,8 @@ Video:
     sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
     olabilir.
   Pause on Current Video: Geçerli Videoda Duraklat
+  Unhide Channel: Kanalı Göster
+  Hide Channel: Kanalı Gizle
 Videos:
   #& Sort By
   Sort By:
@@ -958,8 +1090,8 @@ Tooltips:
       bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
-    Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
-      yerine videonun bir karesiyle değiştirilecektir.
+    Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme
+      görseli yerine videonun bir karesiyle değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
       API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
       yedek yöntem olarak kullanmaya çalışır.
@@ -983,9 +1115,12 @@ Tooltips:
       PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
       burada özel bir yol ayarlanabilir.
     External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
-      listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+      listesini) harici oynatıcıda açmak için önizleme görselinde bir simge görüntüleyecektir.
       Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir
+      öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.).
+      Özel argümanlar yine de gönderilecektir.
   Experimental Settings:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
       ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
@@ -993,14 +1128,21 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama,
       öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
-      bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
-      ve büyük/küçük harfe duyarlıdır.
+      bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük
+      harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
       kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
       kılınıyor
+    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz
+      ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında
+      orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek
+      için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı
+      değildir).
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.
+    UseDeArrowThumbnails: Video önizleme görsellerini DeArrow'dan önizleme görselleriyle
+      değiştirin.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
@@ -1064,3 +1206,9 @@ Playlist will pause when current video is finished: Geçerli video bittiğinde o
   listesi duraklatılacak
 Playlist will not pause when current video is finished: Geçerli video bittiğinde oynatma
   listesi duraklatılmayacak
+Channel Hidden: '{channel} kanal filtresine eklendi'
+Go to page: '{page}. sayfaya git'
+Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
+Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
+  uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
+Tag already exists: '"{tagName}" etiketi zaten var'

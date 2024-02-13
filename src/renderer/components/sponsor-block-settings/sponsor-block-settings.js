@@ -42,7 +42,13 @@ export default defineComponent({
 
     useDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
-    }
+    },
+    useDeArrowThumbnails: function () {
+      return this.$store.getters.getUseDeArrowThumbnails
+    },
+    deArrowThumbnailGeneratorUrl: function () {
+      return this.$store.getters.getDeArrowThumbnailGeneratorUrl
+    },
   },
   methods: {
     handleUpdateSponsorBlock: function (value) {
@@ -53,10 +59,20 @@ export default defineComponent({
       this.updateUseDeArrowTitles(value)
     },
 
+    handleUpdateUseDeArrowThumbnails: function (value) {
+      this.updateUseDeArrowThumbnails(value)
+    },
+
     handleUpdateSponsorBlockUrl: function (value) {
       const sponsorBlockUrlWithoutTrailingSlash = value.replace(/\/$/, '')
       const sponsorBlockUrlWithoutApiSuffix = sponsorBlockUrlWithoutTrailingSlash.replace(/\/api$/, '')
       this.updateSponsorBlockUrl(sponsorBlockUrlWithoutApiSuffix)
+    },
+
+    handleUpdateDeArrowThumbnailGeneratorUrl: function (value) {
+      const urlWithoutTrailingSlash = value.replace(/\/$/, '')
+      const urlWithoutApiSuffix = urlWithoutTrailingSlash.replace(/\/api$/, '')
+      this.updateDeArrowThumbnailGeneratorUrl(urlWithoutApiSuffix)
     },
 
     handleUpdateSponsorBlockShowSkippedToast: function (value) {
@@ -67,7 +83,9 @@ export default defineComponent({
       'updateUseSponsorBlock',
       'updateSponsorBlockUrl',
       'updateSponsorBlockShowSkippedToast',
-      'updateUseDeArrowTitles'
+      'updateUseDeArrowTitles',
+      'updateUseDeArrowThumbnails',
+      'updateDeArrowThumbnailGeneratorUrl'
     ])
   }
 })

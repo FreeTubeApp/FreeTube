@@ -13,6 +13,9 @@ export default defineComponent({
     hideWatchedSubs: function () {
       return this.$store.getters.getHideWatchedSubs
     },
+    onlyShowLatestFromChannel: function () {
+      return this.$store.getters.getOnlyShowLatestFromChannel
+    },
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
     },
@@ -24,7 +27,8 @@ export default defineComponent({
     ...mapActions([
       'updateHideWatchedSubs',
       'updateUseRssFeeds',
-      'updateFetchSubscriptionsAutomatically'
+      'updateFetchSubscriptionsAutomatically',
+      'updateOnlyShowLatestFromChannel'
     ])
   }
 })

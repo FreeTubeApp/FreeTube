@@ -19,6 +19,7 @@ import {
 
 const state = {
   isSideNavOpen: false,
+  outlinesHidden: true,
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: {
@@ -30,7 +31,12 @@ const state = {
   cachedPlaylist: null,
   deArrowCache: {},
   showProgressBar: false,
+  showAddToPlaylistPrompt: false,
+  showCreatePlaylistPrompt: false,
   progressBarPercentage: 0,
+  toBeAddedToPlaylistVideoList: [],
+  newPlaylistDefaultProperties: {},
+  newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
   recentBlogPosts: [],
@@ -49,6 +55,10 @@ const state = {
 const getters = {
   getIsSideNavOpen () {
     return state.isSideNavOpen
+  },
+
+  getOutlinesHidden() {
+    return state.outlinesHidden
   },
 
   getCurrentVolume () {
@@ -77,6 +87,26 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
+  },
+
+  getShowAddToPlaylistPrompt () {
+    return state.showAddToPlaylistPrompt
+  },
+
+  getShowCreatePlaylistPrompt () {
+    return state.showCreatePlaylistPrompt
+  },
+
+  getToBeAddedToPlaylistVideoList () {
+    return state.toBeAddedToPlaylistVideoList
+  },
+
+  getNewPlaylistDefaultProperties () {
+    return state.newPlaylistDefaultProperties
+  },
+
+  getNewPlaylistVideoObject () {
+    return state.newPlaylistVideoObject
   },
 
   getShowProgressBar () {
@@ -117,6 +147,14 @@ const getters = {
 }
 
 const actions = {
+  showOutlines({ commit }) {
+    commit('setOutlinesHidden', false)
+  },
+
+  hideOutlines({ commit }) {
+    commit('setOutlinesHidden', true)
+  },
+
   async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
@@ -243,19 +281,87 @@ const actions = {
     })
   },
 
+  showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
+    let videoDataValid = true
+    if (!Array.isArray(videoObjectArray)) {
+      videoDataValid = false
+    }
+    let missingKeys = []
+
+    if (videoDataValid) {
+      const requiredVideoKeys = [
+        'videoId',
+        'title',
+        'author',
+        'authorId',
+        'lengthSeconds',
+
+        // `timeAdded` should be generated when videos are added
+        // Not when a prompt is displayed
+        // 'timeAdded',
+
+        // `playlistItemId` should be generated anyway
+        // 'playlistItemId',
+
+        // `type` should be added in action anyway
+        // 'type',
+      ]
+      // Using `every` to loop and `return false` to break
+      videoObjectArray.every((video) => {
+        const videoPropertyKeys = Object.keys(video)
+        const missingKeysHere = requiredVideoKeys.filter(x => !videoPropertyKeys.includes(x))
+        if (missingKeysHere.length > 0) {
+          videoDataValid = false
+          missingKeys = missingKeysHere
+          return false
+        }
+        // Return true to continue loop
+        return true
+      })
+    }
+
+    if (!videoDataValid) {
+      // Print error and abort
+      const errorMsgText = 'Incorrect videos data passed when opening playlist prompt'
+      console.error(errorMsgText)
+      console.error({
+        videoObjectArray,
+        missingKeys,
+      })
+      throw new Error(errorMsgText)
+    }
+
+    commit('setShowAddToPlaylistPrompt', true)
+    commit('setToBeAddedToPlaylistVideoList', videoObjectArray)
+    if (newPlaylistDefaultProperties != null) {
+      commit('setNewPlaylistDefaultProperties', newPlaylistDefaultProperties)
+    }
+  },
+
+  hideAddToPlaylistPrompt ({ commit }) {
+    commit('setShowAddToPlaylistPrompt', false)
+    // The default value properties are only valid until prompt is closed
+    commit('resetNewPlaylistDefaultProperties')
+  },
+
+  showCreatePlaylistPrompt ({ commit }, data) {
+    commit('setShowCreatePlaylistPrompt', true)
+    commit('setNewPlaylistVideoObject', data)
+  },
+
+  hideCreatePlaylistPrompt ({ commit }) {
+    commit('setShowCreatePlaylistPrompt', false)
+  },
+
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },
 
   async getRegionData ({ commit }, { locale }) {
-    let localePathExists
+    const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     // Exclude __dirname from path if not in electron
     const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
-    if (process.env.IS_ELECTRON) {
-      localePathExists = await pathExists(`${fileLocation}${locale}.json`)
-    } else {
-      localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
-    }
+
     const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}.json`
     const countries = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
 
@@ -470,7 +576,9 @@ const actions = {
           urlType: 'channel',
           channelId,
           subPath,
-          url: url.toString()
+          // The original URL could be from Invidious.
+          // We need to make sure it starts with youtube.com, so that YouTube's resolve endpoint can recognise it
+          url: `https://www.youtube.com${url.pathname}`
         }
       }
 
@@ -489,15 +597,10 @@ const actions = {
 
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
-    let fileData
     /* eslint-disable-next-line n/no-path-concat */
     const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
 
-    if (await pathExists(`${fileLocation}${fileName}`)) {
-      fileData = await fs.readFile(`${fileLocation}${fileName}`)
-    } else {
-      fileData = '[{"name":"None","value":"","cmdArguments":null}]'
-    }
+    const fileData = await fs.readFile(`${fileLocation}${fileName}`)
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
       return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
@@ -529,91 +632,100 @@ const actions = {
       ? rootState.settings.externalPlayerExecutable
       : cmdArgs.defaultExecutable
     const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
+    const ignoreDefaultArgs = rootState.settings.externalPlayerIgnoreDefaultArgs
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
-    // Append custom user-defined arguments,
-    // or use the default ones specified for the external player.
-    if (typeof customArgs === 'string' && customArgs !== '') {
-      const custom = customArgs.split(';')
-      args.push(...custom)
-    } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-      const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
-      args.push(...defaultCustomArguments)
-    }
-
-    if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
-      if (typeof cmdArgs.startOffset === 'string') {
-        if (cmdArgs.defaultExecutable.startsWith('mpc')) {
-          // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
-          args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
-        } else if (cmdArgs.startOffset.endsWith('=')) {
-          // For players using `=` in arguments
-          // e.g. vlc --start-time=xxxxx
-          args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
-        } else {
-          // For players using space in arguments
-          // e.g. smplayer -start xxxxx
-          args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
-        }
-      } else if (!ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+    if (ignoreDefaultArgs) {
+      if (typeof customArgs === 'string' && customArgs !== '') {
+        const custom = customArgs.split(';')
+        args.push(...custom)
       }
-    }
-
-    if (payload.playbackRate != null) {
-      if (typeof cmdArgs.playbackRate === 'string') {
-        args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
-      } else if (!ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
-      }
-    }
-
-    // Check whether the video is in a playlist
-    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
-      if (payload.playlistIndex != null) {
-        if (typeof cmdArgs.playlistIndex === 'string') {
-          args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
-        }
-      }
-
-      if (payload.playlistReverse) {
-        if (typeof cmdArgs.playlistReverse === 'string') {
-          args.push(cmdArgs.playlistReverse)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
-        }
-      }
-
-      if (payload.playlistShuffle) {
-        if (typeof cmdArgs.playlistShuffle === 'string') {
-          args.push(cmdArgs.playlistShuffle)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
-        }
-      }
-
-      if (payload.playlistLoop) {
-        if (typeof cmdArgs.playlistLoop === 'string') {
-          args.push(cmdArgs.playlistLoop)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
-        }
-      }
-
-      // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
-      if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
-        args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
-      } else {
-        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
-      }
+      if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     } else {
-      if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+      // Append custom user-defined arguments,
+      // or use the default ones specified for the external player.
+      if (typeof customArgs === 'string' && customArgs !== '') {
+        const custom = customArgs.split(';')
+        args.push(...custom)
+      } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
+        const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
+        args.push(...defaultCustomArguments)
       }
-      if (payload.videoId != null) {
-        args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+
+      if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
+        if (typeof cmdArgs.startOffset === 'string') {
+          if (cmdArgs.defaultExecutable.startsWith('mpc')) {
+            // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
+            args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
+          } else if (cmdArgs.startOffset.endsWith('=')) {
+            // For players using `=` in arguments
+            // e.g. vlc --start-time=xxxxx
+            args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+          } else {
+            // For players using space in arguments
+            // e.g. smplayer -start xxxxx
+            args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
+          }
+        } else if (!ignoreWarnings) {
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+        }
+      }
+
+      if (payload.playbackRate != null) {
+        if (typeof cmdArgs.playbackRate === 'string') {
+          args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
+        } else if (!ignoreWarnings) {
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
+        }
+      }
+
+      // Check whether the video is in a playlist
+      if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
+        if (payload.playlistIndex != null) {
+          if (typeof cmdArgs.playlistIndex === 'string') {
+            args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
+          }
+        }
+
+        if (payload.playlistReverse) {
+          if (typeof cmdArgs.playlistReverse === 'string') {
+            args.push(cmdArgs.playlistReverse)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
+          }
+        }
+
+        if (payload.playlistShuffle) {
+          if (typeof cmdArgs.playlistShuffle === 'string') {
+            args.push(cmdArgs.playlistShuffle)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
+          }
+        }
+
+        if (payload.playlistLoop) {
+          if (typeof cmdArgs.playlistLoop === 'string') {
+            args.push(cmdArgs.playlistLoop)
+          } else if (!ignoreWarnings) {
+            showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
+          }
+        }
+
+        // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
+        if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
+          args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
+        } else {
+          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+        }
+      } else {
+        if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+        }
+        if (payload.videoId != null) {
+          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+        }
       }
     }
 
@@ -631,6 +743,10 @@ const actions = {
 const mutations = {
   toggleSideNav (state) {
     state.isSideNavOpen = !state.isSideNavOpen
+  },
+
+  setOutlinesHidden(state, value) {
+    state.outlinesHidden = value
   },
 
   setShowProgressBar (state, value) {
@@ -659,6 +775,10 @@ const mutations = {
     }
   },
 
+  addThumbnailToDeArrowCache (state, payload) {
+    vueSet(state.deArrowCache, payload.videoId, payload)
+  },
+
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
@@ -676,6 +796,29 @@ const mutations = {
     } else {
       state.sessionSearchHistory.push(payload)
     }
+  },
+
+  setShowAddToPlaylistPrompt (state, payload) {
+    state.showAddToPlaylistPrompt = payload
+  },
+
+  setShowCreatePlaylistPrompt (state, payload) {
+    state.showCreatePlaylistPrompt = payload
+  },
+
+  setToBeAddedToPlaylistVideoList (state, payload) {
+    state.toBeAddedToPlaylistVideoList = payload
+  },
+
+  setNewPlaylistDefaultProperties (state, payload) {
+    state.newPlaylistDefaultProperties = payload
+  },
+  resetNewPlaylistDefaultProperties (state) {
+    state.newPlaylistDefaultProperties = {}
+  },
+
+  setNewPlaylistVideoObject (state, payload) {
+    state.newPlaylistVideoObject = payload
   },
 
   setPopularCache (state, value) {

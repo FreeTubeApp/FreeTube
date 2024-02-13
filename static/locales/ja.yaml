@@ -39,7 +39,7 @@ Global:
   Counts:
     Video Count: 1 件の動画 | {count} 件の動画
     Subscriber Count: 1 登録者 | {count} 登録者
-    View Count: 1 回表示 | {count} 回表示
+    View Count: 1 回視聴 | {count} 回視聴
     Watching Count: 1 人が視聴中 | {count} 人が視聴中
     Channel Count: 1 チャンネル | {count} チャンネル
 Search / Go to URL: '検索 / URL の表示'
@@ -145,6 +145,7 @@ Settings:
       Middle: '中間'
       End: '終了'
       Hidden: 非表示
+      Blur: ぼかし
     'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
       サーバー（初期値は https://invidious.snopyta.org）'
     Region for Trending: '急上昇の地域設定'
@@ -387,7 +388,7 @@ Settings:
     Hide Chapters: チャプターの非表示
     Hide Upcoming Premieres: 今後のプレミア公開を非表示
     Hide Channels: チャンネルから動画を非表示
-    Hide Channels Placeholder: チャネル名または ID
+    Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 英語の大文字化を控えたタイトル表示
     Hide Channel Playlists: チャンネル再生リストの非表示
     Hide Channel Community: チャンネル コミュニティの非表示
@@ -407,6 +408,10 @@ Settings:
     Hide Profile Pictures in Comments: コメントでプロフィール写真を隠す
     Blur Thumbnails: サムネイルをぼかす
     Hide Subscriptions Community: チャンネルの購読者リストの非公開
+    Hide Channels Invalid: 提供チャンネル ID 無効
+    Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
+    Hide Channels Already Exists: 既に存在するチャンネル ID
+    Hide Channels API Error: 提供された ID のユーザーを取得できませんでした。ID が正しいかどうかをもう一度確認してください。
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -460,7 +465,8 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
-    Warning: この設定項目は実験中であるため、有効にするとクラッシュすることがあります。必ずバックアップを作成してください。使用は自己責任でお願いします！
+    Warning: 
+      これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード設定
     Set Password To Prevent Access: 設定の変更にはパスワードを設定とする
@@ -886,8 +892,8 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル名またはチャンネル ID 
-      を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル名は、大文字と小文字を区別するので完全に一致させてください。
+    Hide Channels: チャンネル ID を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル
+      ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
   SponsorBlock Settings:

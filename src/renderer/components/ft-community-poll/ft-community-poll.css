@@ -11,9 +11,7 @@
   display: block;
   float: var(--float-left-ltr-rtl-value);
   block-size: 10px;
-  inset-inline-start: 5px;
   position: relative;
-  inset-block-start: 8px;
   inline-size: 10px;
 }
 
@@ -29,30 +27,45 @@
 }
 
 .option-text {
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  padding-block: 5px;
-  padding-inline: 25px;
+  margin-inline-start: 10px;
 }
 
 .option {
+  display: flex;
+  align-items: center;
   padding-block-end: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  padding-block: 5px;
+  padding-inline-start: 10px;
+  margin-block-end: 10px;
+}
+
+.option > img {
+  margin-inline-start: 10px;
+  block-size: 125px;
 }
 
 .correct-option {
+  border-color: #78da71;
+  border-width: 2px;
+}
+
+.correct-option .filled-circle {
   background-color: #78da71;
 }
 
 .incorrect-option {
-  background-color: #dd4e4e;
+  border-color: #dd4e4e;
+  border-width: 2px;
 }
 
-.reveal-answer  {
-  text-align: center;
+.reveal-answer {
+  justify-content: center;
   cursor: pointer;
 }
 
-.reveal-answer:hover > .option-text, .reveal-answer:focus > .option-text {
+.reveal-answer:hover, .reveal-answer:focus {
   background-color: var(--side-nav-hover-color)
 }

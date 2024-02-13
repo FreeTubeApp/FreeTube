@@ -26,6 +26,12 @@
           :compact="true"
           @change="updateHideWatchedSubs"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Subscription Settings.Only Show Latest Video for Each Channel')"
+          :default-value="onlyShowLatestFromChannel"
+          :compact="true"
+          @change="updateOnlyShowLatestFromChannel"
+        />
       </div>
     </div>
   </ft-settings-section>
