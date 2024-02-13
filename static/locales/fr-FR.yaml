@@ -145,8 +145,8 @@ User Playlists:
       You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de
         liste de lecture.
       "{videoCount} video(s) added to {playlistCount} playlists": 1 vidéo ajoutée
-        à {playlistCount} liste de lecture | {videoCount} vidéos ajoutées à {playlistCount}
-        listes de lecture.
+        à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount}
+        listes de lecture
     N playlists selected: '{playlistCount} Sélectionnée(s)'
   SinglePlaylistView:
     Toast:
@@ -468,7 +468,7 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
-    Automatically Remove Video Meta Files: Suppression automatiquement les métafichiers
+    Automatically Remove Video Meta Files: Supprimer automatiquement les métafichiers
       vidéo
     Save Watched Videos With Last Viewed Playlist: Sauvegarder les vidéos regardées
       avec la dernière liste de lecture vue
@@ -1266,4 +1266,4 @@ Channel Hidden: '{channel} ajouté au filtre de chaîne'
 Channel Unhidden: '{channel} retiré du filtre de chaîne'
 Trimmed input must be at least N characters long: L'entrée tronquée doit comporter
   au moins 1 caractère | L'entrée tronquée doit comporter au moins {length} caractères
-Tag already exists: La balise "{tagName}" existe déjà
+Tag already exists: L'étiquette « {tagName} » existe déjà

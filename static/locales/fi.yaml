@@ -175,6 +175,7 @@ User Playlists:
         on luotu.
   Add to Favorites: Lisää soittolistaan {playlistName}
   Remove from Favorites: Poista soittolistalta {playlistName}
+  Remove Watched Videos: Poista katsotut videot
 History:
   # On History Page
   History: 'Historia'
