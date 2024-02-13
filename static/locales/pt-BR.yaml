@@ -279,6 +279,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Rosa Pastel
       Hot Pink: Rosa Choque
+      Nordic: Nordico
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -584,8 +585,8 @@ Settings:
       são pulados
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (o padrão é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
-    SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
+    Enable SponsorBlock: Ativar o SponsorBlock
+    SponsorBlock Settings: Configurações das APIs de Ajay (SponsorBlock & DeArrow)
     Skip Options:
       Show In Seek Bar: Mostrar na barra de busca
       Prompt To Skip: Solicitar para pular
@@ -804,8 +805,8 @@ Video:
     Hours: 'horas'
     Day: 'dia'
     Days: 'dias'
-    Week: 'semana'
-    Weeks: 'semanas'
+    Week: 'Semana'
+    Weeks: 'Semanas'
     Month: 'mês'
     Months: 'meses'
     Year: 'ano'
@@ -853,7 +854,7 @@ Video:
     outro: Conclusão
     intro: Introdução
     sponsor: Patrocinador
-    filler: Enchimento
+    filler: Preenchimento
     recap: Recapitulação
   Skipped segment: Segmentos pulados
   External Player:
