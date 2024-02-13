@@ -33,6 +33,7 @@ export async function loadLocale(locale) {
       const compressed = await readFile(`${__dirname}/static/locales/${locale}.json.br`)
       const decompressed = await brotliDecompressAsync(compressed)
       data = JSON.parse(decompressed.toString())
+      i18n.global.setLocaleMessage(locale, data)
     } catch (err) {
       console.error(locale, err)
     }
@@ -41,8 +42,8 @@ export async function loadLocale(locale) {
 
     const response = await fetch(url)
     data = await response.json()
+    i18n.global.setLocaleMessage(locale, data)
   }
-  i18n.global.setLocaleMessage(locale, data)
 }
 
 export default i18n
