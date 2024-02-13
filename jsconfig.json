@@ -1,5 +1,8 @@
 {
   "vueCompilerOptions": {
     "target": 3.3
+  },
+  "compilerOptions": {
+    "strictNullChecks": true
   }
 }
