@@ -366,7 +366,7 @@ export async function generateInvidiousDashManifestLocally(formats, invidiousIns
 
   return await FormatUtils.toDash({
     adaptive_formats: formats
-  }, urlTransformer, undefined, undefined, player)
+  }, false, urlTransformer, undefined, undefined, player)
 }
 
 export function convertInvidiousToLocalFormat(format) {
