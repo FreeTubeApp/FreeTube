@@ -296,6 +296,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pasztell rózsaszín
       Hot Pink: Forró rózsaszín
+      Nordic: Skandináv
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -533,14 +534,14 @@ Settings:
     Hide Playlists: Lejátszási listák elrejtése
     Hide Video Description: Videó leírásának elrejtése
     Hide Comments: Megjegyzések elrejtése
-    Hide Live Streams: Élő adatfolyamok elrejtése
+    Hide Live Streams: Élő közvetítések elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
     Hide Chapters: Fejezetek elrejtése
     Hide Upcoming Premieres: Közelgő első előadások elrejtése
     Hide Channels: Videók elrejtése a csatornákból
     Hide Channels Placeholder: Csatornaazonosító
-    Display Titles Without Excessive Capitalisation: Címek megjelenítése túlzott nagybetűk
-      nélkül
+    Display Titles Without Excessive Capitalisation: Jelenítse meg a címeket túlzott
+      nagybetűs írás és írásjelek nélkül
     Hide Featured Channels: Kiemelt csatornák elrejtése
     Hide Channel Playlists: Csatorna lejátszási listák elrejtése
     Hide Channel Community: Csatornaközösség elrejtése

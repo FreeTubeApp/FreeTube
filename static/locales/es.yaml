@@ -287,6 +287,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Moca
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
+      Nordic: Nórdico
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -531,8 +532,8 @@ Settings:
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar vídeos de los canales
     Hide Channels Placeholder: ID del canal
-    Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
-      mayúsculas
+    Display Titles Without Excessive Capitalisation: Mostrar títulos sin mayúsculas
+      ni signos de puntuación excesivos
     Hide Featured Channels: Ocultar canales recomendados
     Hide Channel Playlists: Ocultar las listas de reproducción de los canales
     Hide Channel Community: Ocultar canales de la comunidad

@@ -288,6 +288,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pembe
       Hot Pink: Sıcak Pembe
+      Nordic: Nord
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -531,8 +532,8 @@ Settings:
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
     Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
-    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
-      Görüntüle
+    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve
+      Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
     Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
     Hide Channel Community: Kanal Topluluğunu Gizle

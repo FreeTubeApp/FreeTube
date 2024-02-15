@@ -249,6 +249,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -468,7 +469,7 @@ Settings:
     Hide Upcoming Premieres: 隐藏即将到来的首映
     Hide Channels: 隐藏频道中的视频
     Hide Channels Placeholder: 频道ID
-    Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
+    Display Titles Without Excessive Capitalisation: 去除标题中对字母大写和标点符号的过度使用
     Hide Featured Channels: 隐藏精选频道
     Hide Channel Playlists: 隐藏频道播放列表
     Hide Channel Community: 隐藏频道社区

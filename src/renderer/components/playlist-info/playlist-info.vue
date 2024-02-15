@@ -174,6 +174,7 @@
         <ft-share-button
           v-if="sharePlaylistButtonVisible"
           :id="id"
+          class="sharePlaylistIcon"
           :dropdown-position-y="description ? 'top' : 'bottom'"
           share-target-type="Playlist"
         />

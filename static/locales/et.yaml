@@ -286,6 +286,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastelne roosa
       Hot Pink: Säravroosa
+      Nordic: Põhjala
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -496,7 +497,7 @@ Settings:
     Hide Channels: Peida kanalites leiduvad videod
     Hide Channels Placeholder: Kanali tunnus
     Display Titles Without Excessive Capitalisation: Näita pealkirju ilma liigsete
-      suurtähtedeta
+      suurtähtede ja kirjavahemärkideta
     Sections:
       General: Üldist
       Side Bar: Külgpaan

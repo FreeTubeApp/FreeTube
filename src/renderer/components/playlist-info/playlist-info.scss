@@ -82,3 +82,10 @@
   grid-template-columns: 1fr auto;
   column-gap: 8px;
 }
+
+@media only screen and (max-width: 1250px) {
+  :deep(.sharePlaylistIcon .iconDropdown) {
+    inset-inline-start: auto;
+    inset-inline-end: auto;
+  }
+}

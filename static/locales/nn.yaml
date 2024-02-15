@@ -770,9 +770,9 @@ Tooltips:
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.'
     Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar
       du ynskjer å vise.'
-    External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke,\
-      \ som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i\
-      \ din standardnettlesar.\n"
+    External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke,
+      som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i din
+      standardnettlesar.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
       standard. Når det er påslått, vil det lokale API-et køyre og bruke dei utdaterte
