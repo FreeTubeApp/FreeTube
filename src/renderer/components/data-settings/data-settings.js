@@ -882,10 +882,23 @@ export default defineComponent({
         showToast(`${message}: ${err}`)
         return
       }
-      data = data.split('\n')
-      data.pop()
+      let playlists = null
 
-      const playlists = data.map(playlistJson => JSON.parse(playlistJson))
+      // for the sake of backwards compatibility,
+      // check if this is the old JSON array export (used until version 0.19.1),
+      // that didn't match the actual database format
+      const trimmedData = data.trim()
+
+      if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
+        playlists = JSON.parse(trimmedData)
+      } else {
+        // otherwise assume this is the correct database format,
+        // which is also what we export now (used in 0.20.0 and later versions)
+        data = data.split('\n')
+        data.pop()
+
+        playlists = data.map(playlistJson => JSON.parse(playlistJson))
+      }
 
       const requiredKeys = [
         'playlistName',
