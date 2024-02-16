@@ -45,6 +45,8 @@ Global:
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
   Community: Gemeenschap
+  Input Tags:
+    Length Requirement: Tag moet minstens {number} tekens lang zijn
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -143,10 +145,15 @@ User Playlists:
   CreatePlaylistPrompt:
     Create: Aanmaken
     New Playlist Name: Naam voor nieuwe afspeel­lijst
+    Toast:
+      Playlist {playlistName} has been successfully created.: Afspeel­lijst ‘{playlistName}’
+        is succes­vol aan­gemaakt.
   AddVideoPrompt:
     Save: Opslaan
     N playlists selected: '{playlistCount} geselecteerd'
     Search in Playlists: Zoeken in afspeel­lijsten
+    Toast:
+      You haven't selected any playlist yet.: U heeft nog geen afspeel­lijst geselecteerd.
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
   Create New Playlist: Nieuwe afspeel­lijst aanmaken
@@ -164,6 +171,17 @@ User Playlists:
       Video has been removed: Video is verwijderd
       Quick bookmark disabled: Snelle bladwijzers uitgeschakeld
       Playlist has been updated.: De afspeel­lijst is bijgewerkt.
+      This video cannot be moved up.: Deze video kan niet omhoog verplaatst worden.
+      This video cannot be moved down.: Deze video kan niet omlaag verplaatst worden.
+      Playlist {playlistName} has been deleted.: Afspeel­lijst ‘{playlistName}’ is
+        verwijderd.
+      This playlist does not exist: Deze afspeel­lijst bestaat niet
+      There were no videos to remove.: Er zijn geen video's om te verwijderen.
+  You have no playlists. Click on the create new playlist button to create a new one.: U
+    heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
+  This playlist currently has no videos.: Deze afspeel­lijst bevat geen video's.
+  Enable Quick Bookmark With This Playlist: Snelle blad­wijzers inschakelen voor deze
+    afspeel­lijst
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -358,6 +376,7 @@ Settings:
     Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de
       afspeellijst ‘Laatst bekeken’
     Remove All Playlists: Alle afspeel­lijsten verwijderen
+    All playlists have been removed: Alle afspeel­lijsten zijn verwijderd
   Subscription Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
@@ -440,6 +459,8 @@ Settings:
     Subscription File: Abonnementenbestand
     History File: Geschiedenisbestand
     Playlist File: Afspeellijstbestand
+    Export Playlists For Older FreeTube Versions:
+      Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
   Distraction Free Settings:
     Hide Live Chat: Livechat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -481,6 +502,9 @@ Settings:
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
     Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
     Hide Channels Already Exists: Kanaal ID bestaat reeds
+    Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
+    Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of
+      zin
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
@@ -515,6 +539,7 @@ Settings:
       Do Nothing: Niets doen
     Category Color: Categorie­kleur
     UseDeArrowTitles: DeArrow-videotitels gebruiken
+    UseDeArrowThumbnails: DeArrow gebruiken voor miniaturen
   External Player Settings:
     Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
     Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
@@ -668,6 +693,7 @@ Channel:
     votes: '{votes} stemmen'
     This channel currently does not have any posts: Dit kanaal heeft momenteel geen
       posts
+    Video hidden by FreeTube: Video verborgen door FreeTube
   Releases:
     Releases: Uitgaven
     This channel does not currently have any releases: Dit kanaal heeft momenteel
@@ -1117,3 +1143,6 @@ Playlist will pause when current video is finished: Afspeellijst zal pauzeren wa
 Playlist will not pause when current video is finished: Afspeellijst zal niet pauzeren
   wanneer de huidige video is afgelopen
 Go to page: Ga naar {page}
+Tag already exists: Tag ‘{tagName}’ bestaat al
+Channel Unhidden: ‘{channel}’ verwijderd uit kanaal­filter
+Channel Hidden: ‘{channel}’ toe­gevoegd aan kanaal­filter
