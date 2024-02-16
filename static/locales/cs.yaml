@@ -926,6 +926,7 @@ Video:
   Pause on Current Video: Pozastavit na současném videu
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
+  More Options: Další možnosti
 Videos:
   #& Sort By
   Sort By:
@@ -1165,3 +1166,4 @@ Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů
 Trimmed input must be at least N characters long: Oříznutý vstup musí být dlouhý alespoň
   1 znak | Oříznutý vstup musí být dlouhý alespoň {length} znaků
 Tag already exists: Štítek „{tagName}“ již existuje
+Close Banner: Zavřít panel
