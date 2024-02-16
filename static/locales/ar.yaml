@@ -931,6 +931,7 @@ Video:
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
+  More Options: المزيد من الخيارات
 Videos:
   #& Sort By
   Sort By:
@@ -1167,3 +1168,7 @@ Trimmed input must be at least N characters long: يجب أن يكون طول ا
   حرفًا واحدًا على الأقل | يجب أن يبلغ طول الإدخال المقتطع {length} من الأحرف على
   الأقل
 Tag already exists: العلامة "{tagName}" موجودة بالفعل
+Age Restricted:
+  This channel is age restricted: هذه القناة مقيدة بالعمر
+  This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
+Close Banner: إغلاق الشعار
