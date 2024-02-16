@@ -1038,7 +1038,7 @@ Local API Error (Click to copy): 'Error de la API local (Clic para copiar el có
 Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para copiar
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
-Falling back to the local API: 'Recurriendo a la API local'
+Falling back to Local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Todavía no se han implementado las suscripciones'
 Loop is now disabled: 'Reproducción en bucle desactivada'
 Loop is now enabled: 'Reproducción en bucle activada'
@@ -1184,12 +1184,6 @@ Channels:
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
   Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
-Age Restricted:
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción
-    de edad
 Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles

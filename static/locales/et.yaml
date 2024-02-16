@@ -964,7 +964,7 @@ Up Next: 'Järgmisena'
 Local API Error (Click to copy): 'Kohaliku API viga (kopeerimiseks klõpsi)'
 Invidious API Error (Click to copy): 'Invidious''e API viga (kopeerimiseks klõpsi)'
 Falling back to Invidious API: 'Varuvariandina kasutan Invidious''e API''t'
-Falling back to the local API: 'Varuvariandina kasutan kohalikku API''t'
+Falling back to Local API: 'Varuvariandina kasutan kohalikku API''t'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Kuna
   vajalikke vorminguid ei leidu, siis see video pole saadaval. Niisugune viga võib
   juhtuda ka maapiirangute tõttu.'
@@ -1093,11 +1093,6 @@ Channels:
   Unsubscribe: Loobu tellimusest
   Unsubscribed: '{channelName} on sinu tellimustest eemaldatud'
   Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: See {videoOrPlaylist} on vanusepiiranguga
-  Type:
-    Channel: Kanal
-    Video: Video
 Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
 Clipboard:
   Copy failed: Lõikelauale kopeerimine ei õnnestunud

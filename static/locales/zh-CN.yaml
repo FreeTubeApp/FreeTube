@@ -882,7 +882,7 @@ Up Next: 'Up Next'
 Local API Error (Click to copy): '本地API错误（点击复制）'
 Invidious API Error (Click to copy): 'Invidious API错误（点击复制）'
 Falling back to Invidious API: '回退到Invidious API'
-Falling back to the local API: '回退到本地API'
+Falling back to Local API: '回退到本地API'
 Subscriptions have not yet been implemented: '订阅功能尚未被推行'
 Loop is now disabled: '循环播放现在被禁用'
 Loop is now enabled: '循环播放现在被允许'
@@ -1007,12 +1007,6 @@ Download folder does not exist: 下载目录“$”不存在，退回到 “询�
 Screenshot Error: 截屏失败。{error}
 Screenshot Success: 另存截屏为 “{filePath}”
 New Window: 新窗口
-Age Restricted:
-  Type:
-    Channel: 频道
-    Video: 视频
-  The currently set default instance is {instance}: 此 {instance} 有年龄限制
-  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年龄限制
 Channels:
   Search bar placeholder: 搜索频道
   Count: 找到了 {number} 个频道。

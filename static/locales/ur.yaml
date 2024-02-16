@@ -230,10 +230,6 @@ Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال ک
   گیا ہے۔'
 'The playlist has ended. Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔
   فعال کھیل جاری رکھنے کے لیے لوپ'
-Age Restricted:
-  Type:
-    Channel: 'چینل'
-    Video: 'ویڈیو'
 External link opening has been disabled in the general settings: 'عام ترتیبات میں
   بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے۔'
 Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'

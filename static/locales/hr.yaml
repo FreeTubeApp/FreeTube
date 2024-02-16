@@ -1022,7 +1022,7 @@ Up Next: 'Sljedeći'
 Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
 Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
 Falling back to Invidious API: 'Koristit će se Invidious sučelje'
-Falling back to the local API: 'Koristit će se lokalno sučelje'
+Falling back to Local API: 'Koristit će se lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
@@ -1148,11 +1148,6 @@ Starting download: Početak preuzimanja „{videoTitle}”
 Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
-  Type:
-    Channel: Kanal
-    Video: Video
 Channels:
   Channels: Kanali
   Title: Popis kanala

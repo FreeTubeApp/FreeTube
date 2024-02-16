@@ -904,7 +904,7 @@ Up Next: 'Seuraavaksi'
 Local API Error (Click to copy): 'Paikallinen API-virhe (Kopioi napsauttamalla)'
 Invidious API Error (Click to copy): 'Invidious API-virhe (Kopioi napsauttamalla)'
 Falling back to Invidious API: 'Palaa takaisin Invidious-sovellusliittymään'
-Falling back to the local API: 'Palaa takaisin paikalliseen sovellusliittymään'
+Falling back to Local API: 'Palaa takaisin paikalliseen sovellusliittymään'
 Subscriptions have not yet been implemented: 'Tilauksia ei ole vielä jalkautettu'
 Loop is now disabled: 'Silmukka on poistettu käytöstä'
 Loop is now enabled: 'Silmukka on nyt käytössä'
@@ -1064,11 +1064,6 @@ Downloading has completed: Videon "{videoTitle}" lataus on valmis
 Starting download: Aloitetaan lataamaan "{videoTitle}"
 Screenshot Success: Kuvakaappaus tallennettu nimellä ”{filePath}”
 New Window: Uusi Ikkuna
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Tämä {videoOrPlaylist} on ikärajoitettu
-  Type:
-    Video: Video
-    Channel: Kanava
 Screenshot Error: Ruutukaappaus epäonnistui. {error}
 Channels:
   Channels: Kanavat

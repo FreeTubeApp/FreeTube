@@ -999,7 +999,7 @@ Up Next: 'Następne'
 Local API Error (Click to copy): 'Błąd lokalnego API (kliknij by skopiować)'
 Invidious API Error (Click to copy): 'Błąd API Invidious (kliknij by skopiować)'
 Falling back to Invidious API: 'Wycofywanie do API Invidious'
-Falling back to the local API: 'Wycofywanie do lokalnego API'
+Falling back to Local API: 'Wycofywanie do lokalnego API'
 Subscriptions have not yet been implemented: 'Subskrypcje nie zostały jeszcze wprowadzone'
 Loop is now disabled: 'Zapętlenie jest teraz wyłączone'
 Loop is now enabled: 'Zapętlenie jest teraz włączone'
@@ -1181,13 +1181,6 @@ Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączo
   tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
 Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
-Age Restricted:
-  Type:
-    Channel: kanał
-    Video: film
-  The currently set default instance is {instance}: Ten {instance} ma ograniczenie
-    wiekowe
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} ma ograniczenie wiekowe'
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów

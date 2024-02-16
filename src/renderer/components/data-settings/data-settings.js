@@ -1133,7 +1133,7 @@ export default defineComponent({
           })
 
           if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
-            showToast(this.$t('Falling back to the local API'))
+            showToast(this.$t('Falling back to Local API'))
             resolve(this.getChannelInfoLocal(channelId))
           } else {
             resolve([])

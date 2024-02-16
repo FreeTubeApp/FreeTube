@@ -1037,7 +1037,7 @@ Up Next: 'Következő'
 Local API Error (Click to copy): 'Helyi-API hiba (kattintson a másoláshoz)'
 Invidious API Error (Click to copy): 'Invidious-API hiba (Kattintson a másoláshoz)'
 Falling back to Invidious API: 'Invidious-API visszatérve'
-Falling back to the local API: 'Helyi-API visszatérve'
+Falling back to Local API: 'Helyi-API visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez
   a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt
   következhet be.'
@@ -1171,11 +1171,6 @@ Channels:
   Unsubscribe: Leiratkozás
   Unsubscribed: '{channelName} eltávolítva az feliratkozásáiból'
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
-Age Restricted:
-  Type:
-    Video: Videó
-    Channel: Csatorna
-  This {videoOrPlaylist} is age restricted: A(z) {videoOrPlaylist} korhatáros
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltése során
 Starting download: „{videoTitle}” letöltésének indítása
 Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött

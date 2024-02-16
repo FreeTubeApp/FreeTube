@@ -1040,7 +1040,7 @@ Up Next: 'Sonraki'
 Local API Error (Click to copy): 'Yerel API Hatası (Kopyalamak için tıklayın)'
 Invidious API Error (Click to copy): 'Invidious API Hatası (Kopyalamak için tıklayın)'
 Falling back to Invidious API: 'Invidious API''ye geri dönülüyor'
-Falling back to the local API: 'Yerel API''ye geri dönülüyor'
+Falling back to Local API: 'Yerel API''ye geri dönülüyor'
 Subscriptions have not yet been implemented: 'Abonelikler henüz uygulanmadı'
 Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
@@ -1171,12 +1171,6 @@ Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor"
 Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
-Age Restricted:
-  The currently set default instance is {instance}: Bu {instance} yaş kısıtlamalıdır
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Bu {videoOrPlaylist} yaş kısıtlamalıdır
 Channels:
   Empty: Kanal listeniz şu anda boş.
   Channels: Kanallar

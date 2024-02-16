@@ -971,11 +971,6 @@ Tooltips:
 Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено
-Age Restricted:
-  Type:
-    Video: Видео снимак
-    Channel: Канал
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} је старосно ограничен(а)'
 New Window: Нови прозор
 Clipboard:
   Copy failed: Копирање у привремену меморију није успело
@@ -1045,7 +1040,7 @@ Share:
     меморију
   YouTube Embed URL copied to clipboard: YouTube уграђени URL је копиран у привремену
     меморију
-Falling back to the local API: Повратак на локални API
+Falling back to Local API: Повратак на локални API
 Unknown YouTube url type, cannot be opened in app: Непозната врста YouTube URL адресе,
   не може се отворити у апликацији
 Search Bar:

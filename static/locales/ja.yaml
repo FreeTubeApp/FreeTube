@@ -110,7 +110,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: 
+  Playlist Message:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -465,7 +465,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
-    Warning: 
+    Warning:
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード設定
@@ -794,7 +794,7 @@ Up Next: '次の動画'
 Local API Error (Click to copy): '内部 API エラー（クリックするとコピー）'
 Invidious API Error (Click to copy): 'Invidious API エラー（クリックするとコピー）'
 Falling back to Invidious API: '代替の Invidious API に切替'
-Falling back to the local API: '代替の内部 API に切替'
+Falling back to Local API: '代替の内部 API に切替'
 Subscriptions have not yet been implemented: '登録チャンネルは未実装です'
 Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
@@ -913,12 +913,6 @@ Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"{videoTitle}" のダウンロードを開始します'
 Downloading has completed: '"{videoTitle}" のダウンロードが終了しました'
 Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
-Age Restricted:
-  The currently set default instance is {instance}: '{instance} は 18 歳以上の視聴者向け動画です'
-  Type:
-    Channel: チャンネル
-    Video: 動画
-  This {videoOrPlaylist} is age restricted: この {videoOrPlaylist} は年齢制限があります
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除

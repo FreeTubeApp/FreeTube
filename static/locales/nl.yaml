@@ -969,7 +969,7 @@ Up Next: 'Volgende'
 Local API Error (Click to copy): 'Fout in lokale API (Klik om te kopiëren)'
 Invidious API Error (Click to copy): 'Fout in API van Invidious (Klik op te kopiëren)'
 Falling back to Invidious API: 'Terugvallen op Invidious API'
-Falling back to the local API: 'Terugvallen op lokale API'
+Falling back to Local API: 'Terugvallen op lokale API'
 Subscriptions have not yet been implemented: 'Abonnementen zijn nog niet geïmplementeerd'
 Loop is now disabled: 'Herhalen is nu uitgeschakeld'
 Loop is now enabled: 'Herhalen is nu ingeschakeld'
@@ -1145,12 +1145,6 @@ Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
 New Window: Nieuw venster
-Age Restricted:
-  The currently set default instance is {instance}: Deze {instance} is leeftijdsbeperkt
-  Type:
-    Channel: Kanaal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Deze {videoOrPlaylist} heeft een leeftijdsbeperking
 Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
 Channels:
   Title: Kanaal­lijst
