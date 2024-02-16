@@ -177,11 +177,35 @@ User Playlists:
         verwijderd.
       This playlist does not exist: Deze afspeel­lijst bestaat niet
       There were no videos to remove.: Er zijn geen video's om te verwijderen.
+      There was a problem with removing this video: Er is een probleem opgetreden
+        bij het verwijderen van deze video
+      This playlist is now used for quick bookmark: Deze afspeel­lijst wordt nu gebruikt
+        voor snelle blad­wijzers
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Deze
+        afspeellijst wordt nu gebruikt voor snelle bladwijzers in plaats van {oldPlaylistName}.
+        Druk hier om ongedaan te maken
+      Reverted to use {oldPlaylistName} for quick bookmark: Terug­gekeerd naar het
+        gebruik van {oldPlaylistName} voor snelle blad­wijzers
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sommige
+        video's in de afspeel­lijst zijn nog niet geladen. Druk hier om toch te kopiëren.
+      "{videoCount} video(s) have been removed": 1 video verwijderd | {videoCount}
+        video's verwijderd
+      This playlist is protected and cannot be removed.: Deze afspeel­lijst is beschermd
+        en kan niet worden verwijderd.
+      Playlist name cannot be empty. Please input a name.: De naam van de afspeel­lijst
+        mag niet leeg zijn. Voer een naam in.
+      There was an issue with updating this playlist.: Er is een probleem opgetreden
+        bij het bij­werken van deze afspeel­lijst.
   You have no playlists. Click on the create new playlist button to create a new one.: U
     heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
   This playlist currently has no videos.: Deze afspeel­lijst bevat geen video's.
   Enable Quick Bookmark With This Playlist: Snelle blad­wijzers inschakelen voor deze
     afspeel­lijst
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Weet
+    u zeker dat u alle bekeken video's uit deze afspeel­lijst wilt verwijderen? Dit
+    kan niet ongedaan gemaakt worden.
+  Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
+    dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
 History:
   # On History Page
   History: 'Geschiedenis'
