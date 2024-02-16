@@ -1026,10 +1026,10 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
-      nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
+    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
+      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
       formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána kvůli regionálnímu omezení.'
+      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
@@ -1167,3 +1167,6 @@ Trimmed input must be at least N characters long: Oříznutý vstup musí být d
   1 znak | Oříznutý vstup musí být dlouhý alespoň {length} znaků
 Tag already exists: Štítek „{tagName}“ již existuje
 Close Banner: Zavřít panel
+Age Restricted:
+  This channel is age restricted: Tento kanál je omezen věkem
+  This video is age restricted: Toto video je omezeno věkem
