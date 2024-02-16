@@ -148,12 +148,19 @@ User Playlists:
     Toast:
       Playlist {playlistName} has been successfully created.: Afspeel­lijst ‘{playlistName}’
         is succes­vol aan­gemaakt.
+      There was an issue with creating the playlist.: Er is een probleem opgetreden
+        bij het maken van de afspeel­lijst.
   AddVideoPrompt:
     Save: Opslaan
     N playlists selected: '{playlistCount} geselecteerd'
     Search in Playlists: Zoeken in afspeel­lijsten
     Toast:
       You haven't selected any playlist yet.: U heeft nog geen afspeel­lijst geselecteerd.
+      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan een afspeellijst
+        | {videoCount} video's toegevoegd aan een afspeellijst
+    Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
+      aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
+      toe te voegen
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
   Create New Playlist: Nieuwe afspeel­lijst aanmaken
@@ -401,12 +408,16 @@ Settings:
       afspeellijst ‘Laatst bekeken’
     Remove All Playlists: Alle afspeel­lijsten verwijderen
     All playlists have been removed: Alle afspeel­lijsten zijn verwijderd
+    Are you sure you want to remove all your playlists?: Weet u zeker dat u al uw
+      afspeel­lijsten wilt verwijderen?
   Subscription Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Manage Subscriptions: 'Abonnementen beheren'
     Fetch Feeds from RSS: Verzamel feeds via RSS
     Fetch Automatically: Haal feed automatisch op
+    Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
+      tonen
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -501,8 +512,8 @@ Settings:
     Hide Video Description: Video-omschrijving verbergen
     Hide Comments: Opmerkingen verbergen
     Hide Live Streams: Verberg rechtstreekse uitzendingen
-    Display Titles Without Excessive Capitalisation: Toon titels zonder overmatig
-      hoofdlettergebruik
+    Display Titles Without Excessive Capitalisation: Titels tonen zonder overmatig
+      hoofdletter­gebruik en inter­punctie
     Sections:
       Side Bar: Zijbalk
       General: Algemeen
@@ -529,6 +540,8 @@ Settings:
     Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
     Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of
       zin
+    Hide Videos and Playlists Containing Text: Video's en afspeel­lijsten die tekst
+      bevatten verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
@@ -564,6 +577,8 @@ Settings:
     Category Color: Categorie­kleur
     UseDeArrowTitles: DeArrow-videotitels gebruiken
     UseDeArrowThumbnails: DeArrow gebruiken voor miniaturen
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': API-URL
+      van DeArrow-miniatuur­generator (standaard is https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
     Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
@@ -1101,6 +1116,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van
       DeArrow.
+    UseDeArrowThumbnails: Video­miniaturen vervangen met miniaturen van DeArrow.
   Experimental Settings:
     Replace HTTP Cache: Schakelt de schijfgebaseerde HTTP-cache van Electron uit en
       schakelt een aangepaste afbeeldings­cache in het geheugen in. Zal leiden tot
