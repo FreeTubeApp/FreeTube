@@ -761,7 +761,7 @@ Tooltips:
 Local API Error (Click to copy): '로컬 API 오류(복사하려면 클릭)'
 Invidious API Error (Click to copy): 'Invidious API 오류(복사하려면 클릭)'
 Falling back to Invidious API: 'Invidious API로 대체'
-Falling back to the local API: '로컬 API로 대체'
+Falling back to Local API: '로컬 API로 대체'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: '이
   동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
 Subscriptions have not yet been implemented: '구독이 아직 구현되지 않았습니다'

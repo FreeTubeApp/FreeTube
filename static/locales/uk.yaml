@@ -932,7 +932,7 @@ Tooltips:
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
-Falling back to the local API: 'Повернення до локального API'
+Falling back to Local API: 'Повернення до локального API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Це
   відео недоступне через відсутність форматів. Це може статися через недоступність
   країни.'

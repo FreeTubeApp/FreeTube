@@ -907,7 +907,7 @@ Shuffle is now disabled: Shuffle اکنون غیرفعال است
 Canceled next video autoplay: پخش خودکار ویدیوی بعدی لغو شد
 Unknown YouTube url type, cannot be opened in app: نوع URL ناشناخته YouTube، در برنامه
   باز نمی شود
-Falling back to the local API: بازگشت به API محلی
+Falling back to Local API: بازگشت به API محلی
 This video is unavailable because of missing formats. This can happen due to country unavailability.: این
   ویدیو به دلیل عدم وجود قالب در دسترس نیست. این ممکن است به دلیل در دسترس نبودن کشور
   اتفاق بیفتد.

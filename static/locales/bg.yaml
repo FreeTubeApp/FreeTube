@@ -1023,7 +1023,7 @@ Up Next: 'Следващ'
 Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
 Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
-Falling back to the local API: 'Връщане към локалния интерфейс'
+Falling back to Local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
   не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп
   за страната.'

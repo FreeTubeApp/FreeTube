@@ -955,7 +955,7 @@ Local API Error (Click to copy): 'Ошибка локального набора
 Invidious API Error (Click to copy): 'Ошибка набора функций Invidious (Нажмите, чтобы
   скопировать)'
 Falling back to Invidious API: 'Возврат к набору функций Invidious'
-Falling back to the local API: 'Возврат к локальному набору функций'
+Falling back to Local API: 'Возврат к локальному набору функций'
 Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
 Loop is now disabled: 'Повторение теперь отключено'
 Loop is now enabled: 'Повторение теперь включено'

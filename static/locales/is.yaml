@@ -1043,7 +1043,7 @@ Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smell
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
   til að afrita)'
 Falling back to Invidious API: 'Nota til vara Invidious API-kerfisviðmót'
-Falling back to the local API: 'Nota til vara staðvært API-kerfisviðmót'
+Falling back to Local API: 'Nota til vara staðvært API-kerfisviðmót'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Þetta
   myndskeiðer ekki tiltækt vegna þess að það vantar skráasnið. Þetta getur gest ef
   þau eru ekki tiltæk í viðkomandi landi.'
