@@ -955,6 +955,7 @@ Video:
   Pause on Current Video: Pausa en el vídeo actual
   Unhide Channel: Mostrar el canal
   Hide Channel: Ocultar el canal
+  More Options: Más opciones
 Videos:
   #& Sort By
   Sort By:
@@ -1077,10 +1078,11 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Solo funciona cuando la API de Invidious
-      es la predeterminada. la API local se ejecutará y usará los formatos heredados
-      en lugar de Invidious. Esto ayudará cuando Invidious no pueda reproducir un
-      vídeo por culpa de las restricciones regionales.
+    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
+      es la predeterminada. Si está activada, la API local se ejecutará y utilizará
+      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
+      Es útil cuando los vídeos devueltos por Invidious no se reproducen debido a
+      restricciones nacionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -1210,3 +1212,7 @@ Channel Unhidden: '{channel} eliminado del filtro de canales'
 Tag already exists: La etiqueta "{tagName}" ya existe
 Trimmed input must be at least N characters long: La entrada recortada debe tener
   al menos 1 carácter | La entrada recortada debe tener al menos {length} caracteres
+Close Banner: Cerrar el banner
+Age Restricted:
+  This channel is age restricted: Este canal está restringido por edad
+  This video is age restricted: Este vídeo está restringido por edad
