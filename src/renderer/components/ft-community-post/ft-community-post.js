@@ -40,7 +40,6 @@ export default defineComponent({
       voteCount: '',
       postContent: '',
       commentCount: '',
-      isLoading: true,
       author: '',
       authorId: '',
     }
@@ -132,7 +131,6 @@ export default defineComponent({
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
       this.author = this.data.author
       this.authorId = this.data.authorId
-      this.isLoading = false
     },
 
     getBestQualityImage(imageArray) {
