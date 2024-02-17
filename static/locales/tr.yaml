@@ -960,6 +960,7 @@ Video:
   Pause on Current Video: Geçerli Videoda Duraklat
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
+  More Options: Daha Fazla Seçenek
 Videos:
   #& Sort By
   Sort By:
@@ -1206,3 +1207,7 @@ Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
 Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
   uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
 Tag already exists: '"{tagName}" etiketi zaten var'
+Close Banner: Afişi Kapat
+Age Restricted:
+  This video is age restricted: Bu videoda yaş sınırlaması var
+  This channel is age restricted: Bu kanalda yaş sınırlaması var
