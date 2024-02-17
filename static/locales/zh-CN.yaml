@@ -806,6 +806,7 @@ Video:
   Pause on Current Video: 当前视频播完后不自动播放列表中下一视频
   Unhide Channel: 显示频道
   Hide Channel: 隐藏频道
+  More Options: 更多选项
 Videos:
   #& Sort By
   Sort By:
@@ -1036,3 +1037,7 @@ Channel Unhidden: 从频道过滤器删除了{channel} 频道
 Tag already exists: '"{tagName}" 标签已存在'
 Trimmed input must be at least N characters long: 缩减输入的长度需至少为 1 个字符 | 缩减输入的长度需至少为
   {length} 个字符
+Close Banner: 关闭横幅
+Age Restricted:
+  This video is age restricted: 此视频有年龄限制
+  This channel is age restricted: 此频道有年龄限制
