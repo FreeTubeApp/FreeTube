@@ -150,6 +150,8 @@ User Playlists:
         is succes­vol aan­gemaakt.
       There was an issue with creating the playlist.: Er is een probleem opgetreden
         bij het maken van de afspeel­lijst.
+      There is already a playlist with this name. Please pick a different name.: Er
+        is al een afspeel­lijst met deze naam. Kies een andere naam.
   AddVideoPrompt:
     Save: Opslaan
     N playlists selected: '{playlistCount} geselecteerd'
@@ -158,6 +160,9 @@ User Playlists:
       You haven't selected any playlist yet.: U heeft nog geen afspeel­lijst geselecteerd.
       "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan een afspeellijst
         | {videoCount} video's toegevoegd aan een afspeellijst
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toe­gevoegd
+        aan {playlistCount} afspeel­lijsten | {videoCount} video's toe­gevoegd aan
+        {playlistCount} afspeel­lijsten
     Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
       aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
       toe te voegen
@@ -496,6 +501,12 @@ Settings:
     Playlist File: Afspeellijstbestand
     Export Playlists For Older FreeTube Versions:
       Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
+      Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst
+        met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten
+        voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met
+        deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met
+        de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n
+        3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
   Distraction Free Settings:
     Hide Live Chat: Livechat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -542,6 +553,11 @@ Settings:
       zin
     Hide Videos and Playlists Containing Text: Video's en afspeel­lijsten die tekst
       bevatten verbergen
+    Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven
+      ID. Controleer nog­maals of de ID correct is.
+    Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van
+      ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden
+      bij­gewerkt
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
@@ -886,6 +902,7 @@ Video:
     is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
   Hide Channel: Kanaal verbergen
   Unhide Channel: Kanaal tonen
+  More Options: Meer opties
 Videos:
   #& Sort By
   Sort By:
@@ -1048,10 +1065,10 @@ Tooltips:
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
       alleen het geluid streamen.
     Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
-      is geselecteerd als de standaard API. Wanneer ingeschakeld zal de lokale API
-      legacy video indelingen gebruiken in plaats van de video indeling die worden
-      teruggegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
-      via Invidious niet afspeelt in verband met regio restricties.
+      is geselecteerd als de standaard-API. Wanneer ingeschakeld zal de lokale API
+      legacy video­indelingen gebruiken in plaats van de video­indeling die worden
+      terug­gegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
+      via Invidious niet afspeelt in verband met regio­restricties.
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur.
@@ -1106,13 +1123,19 @@ Tooltips:
       in de gekozen externe videospeler kan worden geopend. Let op: Invidious-instellingen
       beïnvloeden externe videospelers niet.'
     DefaultCustomArgumentsTemplate: "(standaard: ‘{defaultCustomArguments}’)"
+    Ignore Default Arguments: Stuurt geen standaard­argumenten naar de externe speler,
+      afgezien van de video-URL (bij­voorbeeld afspeel­snelheid, afspeellijst-URL,
+      enz.). Aan­gepaste argumenten worden nog steeds door­gegeven.
   Distraction Free Settings:
-    Hide Channels: Voer een kanaalnaam of kanaal-ID in om alle video's, afspeellijsten
-      en het kanaal zelf te verbergen zodat ze niet worden weergegeven in zoeken,
-      trending, populairst en aanbevolen. De ingevoerde kanaalnaam moet volledig overeenkomen
-      en is hoofdlettergevoelig.
+    Hide Channels: Voer een kanaal-ID in om alle video's, afspeel­lijsten en het kanaal
+      zelf te verbergen zodat ze niet worden weer­gegeven in zoeken, trending, populairst
+      en aan­bevolen. De ingevoerde kanaal-ID moet volledig overeen­komen en is hoofdletter­gevoelig.
     Hide Subscriptions Live: Deze instelling wordt overschreven door de app-brede
       instelling ‘{appWideSetting}’, in het gedeelte ‘{subsection}’ van ‘{settingsSection}’
+    Hide Videos and Playlists Containing Text: Voer een woord, woord­fragment of woord­groep
+      in (niet hoofdletter­gevoelig) om alle video's en afspeel­lijsten waarvan de
+      oorspronkelijke titel dit bevat, in heel FreeTube te verbergen, met uit­zondering
+      van alleen geschiedenis, uw afspeel­lijsten en video's in afspeel­lijsten.
   SponsorBlock Settings:
     UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van
       DeArrow.
@@ -1180,3 +1203,9 @@ Go to page: Ga naar {page}
 Tag already exists: Tag ‘{tagName}’ bestaat al
 Channel Unhidden: ‘{channel}’ verwijderd uit kanaal­filter
 Channel Hidden: ‘{channel}’ toe­gevoegd aan kanaal­filter
+Close Banner: Banier sluiten
+Age Restricted:
+  This channel is age restricted: Dit kanaal heeft een leeftijds­beperking
+  This video is age restricted: Deze video heeft een leeftijds­beperking
+Trimmed input must be at least N characters long: Bij­gesneden invoer moet minimaal
+  1 teken lang zijn | Bij­gesneden invoer moet minimaal {length} tekens lang zijn
