@@ -946,6 +946,7 @@ Video:
   Pause on Current Video: Pause sur la vidéo en cours
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
+  More Options: Plus d'options
 Videos:
   #& Sort By
   Sort By:
@@ -1261,3 +1262,7 @@ Channel Unhidden: '{channel} retiré du filtre de chaîne'
 Trimmed input must be at least N characters long: L'entrée tronquée doit comporter
   au moins 1 caractère | L'entrée tronquée doit comporter au moins {length} caractères
 Tag already exists: L'étiquette « {tagName} » existe déjà
+Age Restricted:
+  This channel is age restricted: Cette chaîne est soumise à des restrictions d'âge
+  This video is age restricted: Cette vidéo est soumise à des restrictions d'âge
+Close Banner: Fermer la bannière
