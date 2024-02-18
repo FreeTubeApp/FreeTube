@@ -917,6 +917,7 @@ Video:
   Pause on Current Video: Zatrzymaj po tym filmie
   Unhide Channel: Pokaż kanał
   Hide Channel: Ukryj kanał
+  More Options: Więcej opcji
 Videos:
   #& Sort By
   Sort By:
@@ -1217,3 +1218,6 @@ Channel Unhidden: '{channel} usunięty z filtra kanału'
 Tag already exists: Tag „{tagName}” już istnieje
 Trimmed input must be at least N characters long: Przycięte wyrażenie musi mieć przynajmniej
   1 znak | Przycięte wyrażenie musi mieć przynajmniej {length} znaki/ów
+Age Restricted:
+  This video is age restricted: Ten film ma ograniczenie wiekowe
+  This channel is age restricted: Ten kanał ma ograniczenie wiekowe
