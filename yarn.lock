@@ -1113,12 +1113,12 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@double-great/stylelint-a11y@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@double-great/stylelint-a11y/-/stylelint-a11y-3.0.1.tgz#37a974be01924acf6522523cbf2d13aeb207eeb3"
-  integrity sha512-0wRzfuDrXnSFvZGrAizngaJBhwCgZwjAVp2Vm4zPLekKW4eXccvB7HBEkhAeVSIuGCg3ki2h7eSHEoqZNfVOew==
+"@double-great/stylelint-a11y@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@double-great/stylelint-a11y/-/stylelint-a11y-3.0.2.tgz#eddaa2c3ed952f285555eb5d7b00d7a493cac0ba"
+  integrity sha512-HPYUwHtn03cO7og4/hhBGyAJ8eF45HI20QQkIAWyiMPW68rigzltOiS98iBONznKXNwoSvMjlIX0q7JJeJnkDg==
   dependencies:
-    postcss "^8.4.32"
+    postcss "^8.4.33"
 
 "@electron/asar@^3.2.1":
   version "3.2.4"
@@ -6740,7 +6740,7 @@ postcss@^7.0.36:
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.4.14, postcss@^8.4.32, postcss@^8.4.33, postcss@^8.4.35:
+postcss@^8.4.14, postcss@^8.4.33, postcss@^8.4.35:
   version "8.4.35"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.35.tgz#60997775689ce09011edf083a549cea44aabe2f7"
   integrity sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==
