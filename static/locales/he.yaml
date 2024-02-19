@@ -871,7 +871,7 @@ Up Next: 'הסרטון הבא'
 Local API Error (Click to copy): 'בעיה ב־API המקומי (יש ללחוץ להעתקה)'
 Invidious API Error (Click to copy): 'בעיה ב־API של Invidious (יש ללחוץ להעתקה)'
 Falling back to Invidious API: 'מתבצעת נסיגה ל־API של Invidious'
-Falling back to the local API: 'מתבצעת נסיגה ל־API המקומי'
+Falling back to Local API: 'מתבצעת נסיגה ל־API המקומי'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות
   תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
 Subscriptions have not yet been implemented: 'מנגנון המינויים עדיין לא מוכן'
@@ -977,11 +977,6 @@ Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה
 Screenshot Success: צילום המסך נשמר בתור „{filePath}”
 Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
-Age Restricted:
-  Type:
-    Channel: ערוץ
-    Video: סרטון
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} זה מוגבל בגיל'
 Channels:
   Search bar placeholder: חיפוש ערוצים
   Empty: רשימת הערוצים שלך ריקה כרגע.

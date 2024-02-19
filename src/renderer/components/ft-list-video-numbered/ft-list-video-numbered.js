@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
 export default defineComponent({
-  name: 'FtListVideoLazy',
+  name: 'FtListVideoNumbered',
   components: {
     'ft-list-video': FtListVideo
   },
@@ -39,10 +39,6 @@ export default defineComponent({
       type: String,
       default: null,
     },
-    forceListType: {
-      type: String,
-      default: null
-    },
     appearance: {
       type: String,
       required: true
@@ -71,19 +67,23 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    videoIndex: {
+      type: Number,
+      default: -1
+    },
+    isCurrentVideo: {
+      type: Boolean,
+      default: false
+    },
     useChannelsHiddenPreference: {
       type: Boolean,
       default: false,
-    },
-    hideForbiddenTitles: {
-      type: Boolean,
-      default: true
     }
   },
   data: function () {
     return {
       visible: false,
-      display: 'block'
+      show: true
     }
   },
   computed: {
@@ -100,15 +100,13 @@ export default defineComponent({
       })
     },
 
-    forbiddenTitles() {
-      if (!this.hideForbiddenTitles) { return [] }
-      return JSON.parse(this.$store.getters.getForbiddenTitles)
-    },
+    // As we only use this component in Playlist and watch-video-playlist,
+    // where title filtering is never desired, we don't have any title filtering logic here,
+    // like we do in ft-list-video-lazy
 
     shouldBeVisible() {
       return !(this.channelsHidden.some(ch => ch.name === this.data.authorId) ||
-        this.channelsHidden.some(ch => ch.name === this.data.author) ||
-        this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase())))
+        this.channelsHidden.some(ch => ch.name === this.data.author))
     }
   },
   created() {
@@ -119,7 +117,7 @@ export default defineComponent({
       if (visible && this.shouldBeVisible) {
         this.visible = visible
       } else if (visible) {
-        this.display = 'none'
+        this.show = false
       }
     }
   }

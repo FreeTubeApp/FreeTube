@@ -63,10 +63,13 @@ const actions = {
     payload.createdAt = Date.now()
     payload.lastUpdatedAt = Date.now()
     // Ensure all videos has required attributes
+
+    const currentTime = new Date().getTime()
+
     if (Array.isArray(payload.videos)) {
       payload.videos.forEach(videoData => {
         if (videoData.timeAdded == null) {
-          videoData.timeAdded = new Date().getTime()
+          videoData.timeAdded = currentTime
         }
         if (videoData.playlistItemId == null) {
           videoData.playlistItemId = generateRandomUniqueId()
@@ -149,11 +152,14 @@ const actions = {
     // Since this action will ensure uniqueness of `playlistItemId` of added video entries
     try {
       const { _id, videos } = payload
+
+      const currentTime = new Date().getTime()
+
       const newVideoObjects = videos.map((video) => {
         // Create a new object to prevent changing existing values outside
         const videoData = Object.assign({}, video)
         if (videoData.timeAdded == null) {
-          videoData.timeAdded = new Date().getTime()
+          videoData.timeAdded = currentTime
         }
         videoData.playlistItemId = generateRandomUniqueId()
         // For backward compatibility
@@ -188,6 +194,9 @@ const actions = {
           dispatch('addPlaylist', playlist)
         })
       } else {
+        const dateNow = Date.now()
+        const currentTime = new Date().getTime()
+
         payload.forEach((playlist) => {
           let anythingUpdated = false
           // Assign generated playlist ID in case DB data corrupted
@@ -205,19 +214,19 @@ const actions = {
           // Assign current time as created time in case DB data corrupted
           if (playlist.createdAt == null) {
             // Time now in unix time, in ms
-            playlist.createdAt = Date.now()
+            playlist.createdAt = dateNow
             anythingUpdated = true
           }
           // Assign current time as last updated time in case DB data corrupted
           if (playlist.lastUpdatedAt == null) {
             // Time now in unix time, in ms
-            playlist.lastUpdatedAt = Date.now()
+            playlist.lastUpdatedAt = dateNow
             anythingUpdated = true
           }
           playlist.videos.forEach((v) => {
             // Ensure all videos has `timeAdded` property
             if (v.timeAdded == null) {
-              v.timeAdded = new Date().getTime()
+              v.timeAdded = currentTime
               anythingUpdated = true
             }
 
@@ -257,8 +266,9 @@ const actions = {
           return playlist.playlistName === 'Watch Later' || playlist._id === 'watchLater'
         })
 
-        const defaultFavoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
         if (favoritesPlaylist != null) {
+          const defaultFavoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
+
           // Update existing matching playlist only if it exists
           if (favoritesPlaylist._id !== defaultFavoritesPlaylist._id || favoritesPlaylist.protected !== defaultFavoritesPlaylist.protected) {
             const oldId = favoritesPlaylist._id
@@ -277,8 +287,9 @@ const actions = {
           }
         }
 
-        const defaultWatchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
         if (watchLaterPlaylist != null) {
+          const defaultWatchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
+
           // Update existing matching playlist only if it exists
           if (watchLaterPlaylist._id !== defaultWatchLaterPlaylist._id || watchLaterPlaylist.protected !== defaultWatchLaterPlaylist.protected) {
             const oldId = watchLaterPlaylist._id
@@ -343,8 +354,8 @@ const actions = {
 
   async removeVideo({ commit }, payload) {
     try {
-      const { _id, playlistItemId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, playlistItemId)
+      const { _id, videoId, playlistItemId } = payload
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId })
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -359,7 +370,7 @@ const actions = {
     } catch (errMessage) {
       console.error(errMessage)
     }
-  }
+  },
 }
 
 const mutations = {
@@ -394,7 +405,7 @@ const mutations = {
   addVideos(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = [].concat(playlist.videos).concat(payload.videos)
+      playlist.videos = [].concat(playlist.videos, payload.videos)
     }
   },
 
@@ -409,17 +420,21 @@ const mutations = {
     }
   },
 
-  removeVideo(state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload._id)
+  removeVideo(state, { _id, videoId, playlistItemId }) {
+    const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video.playlistItemId !== payload.playlistItemId)
+      if (playlistItemId != null) {
+        playlist.videos = playlist.videos.filter(video => video.playlistItemId !== playlistItemId)
+      } else if (videoId != null) {
+        playlist.videos = playlist.videos.filter(video => video.videoId !== videoId)
+      }
     }
   },
 
-  removeVideos(state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+  removeVideos(state, { _id, videoId }) {
+    const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => payload.videoId.indexOf(video) === -1)
+      playlist.videos = playlist.videos.filter(video => videoId.indexOf(video) === -1)
     }
   },
 

@@ -47,7 +47,7 @@ const DBActions = {
     UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
     DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
     DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
-    DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos'
+    DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos',
   }
 }
 
@@ -66,7 +66,7 @@ const SyncEvents = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
-    DELETE_VIDEO: 'sync-playlists-delete-video'
+    DELETE_VIDEO: 'sync-playlists-delete-video',
   }
 }
 

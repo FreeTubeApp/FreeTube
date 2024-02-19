@@ -849,7 +849,7 @@ Up Next: 'În continuare'
 Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copia)'
 Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
 Falling back to Invidious API: 'Revenine la Invidious API'
-Falling back to the local API: 'Revenire la API-ul local'
+Falling back to Local API: 'Revenire la API-ul local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest
   videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla
   din cauza indisponibilității țării.'
@@ -968,14 +968,6 @@ Starting download: Se începe descărcarea a "{videoTitle}"
 Downloading failed: A existat o problemă la descărcarea "{videoTitle}"
 Downloading has completed: '"{videoTitle}" s-a terminat de descărcat'
 New Window: Fereastră nouă
-Age Restricted:
-  The currently set default instance is {instance}: Acest {instance} este restricționat
-    datorită vârstei
-  Type:
-    Channel: Canal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Acest {videoOrPlaylist} are restricții
-    de vârstă
 Channels:
   Channels: Canale
   Title: Listă de canale

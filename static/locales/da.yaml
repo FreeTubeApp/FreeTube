@@ -766,7 +766,7 @@ Up Next: 'Næste'
 Local API Error (Click to copy): 'Lokal API-Fejl (Klik for at kopiere)'
 Invidious API Error (Click to copy): 'Invidious-API-Fejl (Klik for at kopiere)'
 Falling back to Invidious API: 'Falder tilbage til Invidious-API'
-Falling back to the local API: 'Falder tilbage til den lokale API'
+Falling back to Local API: 'Falder tilbage til den lokale API'
 Subscriptions have not yet been implemented: 'Abonnementer er endnu ikke blevet implementerede'
 Loop is now disabled: 'Gentagelse er nu deaktiveret'
 Loop is now enabled: 'Gentagelse er nu aktiveret'
@@ -855,11 +855,6 @@ Default Invidious instance has been cleared: Standard Invidious-instans er bleve
 Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
 Search Bar:
   Clear Input: Ryd Input
-Age Restricted:
-  Type:
-    Video: Video
-    Channel: Kanal
-  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er aldersbegrænset
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
   åbnes i appen

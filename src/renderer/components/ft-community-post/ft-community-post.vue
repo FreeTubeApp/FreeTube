@@ -56,27 +56,25 @@
       class="postText"
       v-html="postText"
     />
-    <div class="sliderContainer">
-      <swiper-container
-        v-if="type === 'multiImage' && postContent.content.length > 0"
-        ref="swiperContainer"
-        init="false"
-        class="slider"
+    <swiper-container
+      v-if="type === 'multiImage' && postContent.content.length > 0"
+      ref="swiperContainer"
+      init="false"
+      class="sliderContainer"
+    >
+      <swiper-slide
+        v-for="(img, index) in postContent.content"
+        :key="index"
+        lazy="true"
       >
-        <swiper-slide
-          v-for="(img, index) in postContent.content"
-          :key="index"
-          lazy="true"
+        <img
+          :src="getBestQualityImage(img)"
+          class="communityImage"
+          alt=""
+          loading="lazy"
         >
-          <img
-            :src="getBestQualityImage(img)"
-            class="communityImage"
-            alt=""
-            loading="lazy"
-          >
-        </swiper-slide>
-      </swiper-container>
-    </div>
+      </swiper-slide>
+    </swiper-container>
     <div
       v-if="type === 'image' && postContent.content.length > 0"
     >
@@ -90,9 +88,16 @@
       v-if="type === 'video'"
     >
       <ft-list-video
+        v-if="!hideVideo"
         :data="data.postContent.content"
         appearance=""
       />
+      <p
+        v-else
+        class="hiddenVideo"
+      >
+        {{ '[' + $t('Channel.Community.Video hidden by FreeTube') + ']' }}
+      </p>
     </div>
     <div
       v-if="type === 'poll' || type === 'quiz'"

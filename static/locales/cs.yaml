@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 odběratel | {count} odběratelů
     View Count: 1 zhlédnutí | {count} zhlédnutí
     Watching Count: 1 sledující | {count} sledujících
+  Input Tags:
+    Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -165,6 +167,14 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 video bylo odstraněno | {videoCount}
         videí bylo odstraněno
       This video cannot be moved down.: Toto video nejde posunout dolů.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tento
+        playlist bude nyní použit pro rychlé uložení namísto playlistu {oldPlaylistName}.
+        Klikněte sem pro zrušení akce
+      Reverted to use {oldPlaylistName} for quick bookmark: Playlist {oldPlaylistName}
+        byl navrácen pro rychlé uložení
+      This playlist is now used for quick bookmark: Tento playlist bude nyní použit
+        pro rychlé uložení
+      Quick bookmark disabled: Rychlé uložení vypnuto
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
   Sort By:
@@ -204,6 +214,10 @@ User Playlists:
   Edit Playlist Info: Upravit informace o playlistu
   Copy Playlist: Kopírovat playlist
   Playlist Description: Popis playlistu
+  Add to Favorites: Přidat do playlistu {playlistName}
+  Remove from Favorites: Odebrat z playlistu {playlistName}
+  Disable Quick Bookmark: Vypnout rychlé uložení
+  Enable Quick Bookmark With This Playlist: Zapnout u tohoto playlistu rychlé uložení
 History:
   # On History Page
   History: 'Historie'
@@ -278,6 +292,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Horká růžová
       Pastel Pink: Pastelově růžová
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -429,7 +444,7 @@ Settings:
     Hide Channels: Skrýt videa z kanálů
     Hide Channels Placeholder: ID kanálu
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
-      použití velkých písmen
+      použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
     Hide Channel Playlists: Skrýt playlisty kanálu
     Hide Channel Community: Skrýt komunitu kanálu
@@ -454,6 +469,10 @@ Settings:
     Hide Channels Already Exists: ID kanálu již existuje
     Hide Channels API Error: Chyba při načítání uživatele se zadaným ID. Zkontrolujte
       prosím, zda je zadané ID správné.
+    Hide Videos and Playlists Containing Text: Skrýt videa a playlisty obsahující
+      text
+    Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo
+      fráze
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -551,7 +570,7 @@ Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
       (výchozí je https://sponsor.ajay.app)
-    Enable SponsorBlock: Povolit SponsorBlock
+    Enable SponsorBlock: Zapnout SponsorBlock
     SponsorBlock Settings: Nastavení služby SponsorBlock
     Skip Options:
       Do Nothing: Nic nedělat
@@ -561,6 +580,9 @@ Settings:
       Show In Seek Bar: Zobrazit v liště
     Category Color: Barva kategorie
     UseDeArrowTitles: Použít názvy videí z DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Adresa
+      URL API generátoru náhledů DeArrow (výchozí je https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Použít službu DeArrow pro náhledy
   External Player Settings:
     Custom External Player Arguments: Argumenty vlastního externího přehrávače
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
@@ -570,6 +592,7 @@ Settings:
     Players:
       None:
         Name: Žádný
+    Ignore Default Arguments: Ignorovat výchozí argumenty
   Download Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
     Download Settings: Nastavení stahování
@@ -749,6 +772,7 @@ Channel:
     Hide Answers: Skrýt odpovědi
     votes: '{votes} hlasů'
     Reveal Answers: Odhalit odpovědi
+    Video hidden by FreeTube: Video skryté programem FreeTube
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
@@ -899,6 +923,7 @@ Video:
   Pause on Current Video: Pozastavit na současném videu
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
+  More Options: Další možnosti
 Videos:
   #& Sort By
   Sort By:
@@ -998,10 +1023,10 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
-      nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
+    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
+      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
       formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána kvůli regionálnímu omezení.'
+      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
@@ -1041,6 +1066,9 @@ Tooltips:
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
     DefaultCustomArgumentsTemplate: "(Výchozí: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Neodesílat externímu přehrávači žádné výchozí argumenty
+      kromě adresy URL videa (např. rychlost přehrávání, adresu URL playlistu atd.).
+      Tato možnost se nevztahuje na vlastní argumenty.
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní mezipaměť
       pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
@@ -1050,12 +1078,17 @@ Tooltips:
       Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace
       „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
+    Hide Videos and Playlists Containing Text: Zadejte slovo, část slova nebo frázi
+      (velká a malá písmena nejsou rozlišovány) pro skrytí všech videí a playlistů,
+      jejichž původní názvy obsahují zadání, napříč celým FreeTube, vyjma historie,
+      vašich playlistů a videí uvnitř playlistů.
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
+    UseDeArrowThumbnails: Nahradit náhledy videa těmi ze služby DeArrow.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
-Falling back to the local API: 'Přepínám na lokální API'
+Falling back to Local API: 'Přepínám na lokální API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Toto
   video není k dispozici z důvodu chybějících formátů. K tomu může dojít z důvodu
   nedostupnosti země.'
@@ -1094,11 +1127,6 @@ Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
 Downloading failed: Došlo k problému při stahování "{videoTitle}"
 Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Toto {videoOrPlaylist} je omezeno věkem
-  Type:
-    Channel: kanál
-    Video: Video
 Channels:
   Channels: Kanály
   Title: Seznam kanálů
@@ -1132,3 +1160,10 @@ Playlist will not pause when current video is finished: Po přehrání aktuáln�
 Channel Hidden: Kanál {channel} přidán do filtru kanálů
 Go to page: Přejít na {page}
 Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů
+Trimmed input must be at least N characters long: Oříznutý vstup musí být dlouhý alespoň
+  1 znak | Oříznutý vstup musí být dlouhý alespoň {length} znaků
+Tag already exists: Štítek „{tagName}“ již existuje
+Close Banner: Zavřít panel
+Age Restricted:
+  This channel is age restricted: Tento kanál je omezen věkem
+  This video is age restricted: Toto video je omezeno věkem

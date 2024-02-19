@@ -572,6 +572,7 @@ export function getVideoParamsFromUrl(url) {
     function () {
       if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice(1))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
     },
@@ -615,9 +616,10 @@ export function getVideoParamsFromUrl(url) {
 
 /**
  * This will match sequences of upper case characters and convert them into title cased words.
+ * This will also match excessive strings of punctionation and convert them to one representative character
  * @param {string} title the title to process
  * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
- * @returns {string} the title with upper case characters removed
+ * @returns {string} the title with upper case characters removed and punctuation normalized
  */
 export function toDistractionFreeTitle(title, minUpperCase = 3) {
   const firstValidCharIndex = (word) => {
@@ -633,7 +635,10 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
   }
 
   const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
-  return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
+  return title
+    .replaceAll(/!{2,}/g, '!')
+    .replaceAll(/[!?]{2,}/g, '?')
+    .replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
 export function formatNumber(number, options = undefined) {

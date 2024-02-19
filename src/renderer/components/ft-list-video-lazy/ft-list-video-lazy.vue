@@ -4,6 +4,7 @@
       callback: onVisibilityChanged,
       once: true,
     }"
+    :style="{ display }"
   >
     <ft-list-video
       v-if="visible"
@@ -18,6 +19,7 @@
       :force-list-type="forceListType"
       :appearance="appearance"
       :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
+      :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
       :can-move-video-up="canMoveVideoUp"
       :can-move-video-down="canMoveVideoDown"
       :can-remove-from-playlist="canRemoveFromPlaylist"

@@ -127,11 +127,12 @@ export default defineComponent({
       if (this.isPlaylist) {
         return this.youtubePlaylistUrl
       }
+      const videoUrl = `https://youtu.be/${this.id}`
       if (this.playlistSharable) {
         // `index` seems can be ignored
-        return `https://www.youtube.com/watch?v=${this.id}&list=${this.playlistId}`
+        return `${videoUrl}?list=${this.playlistId}`
       }
-      return `https://youtu.be/${this.id}`
+      return videoUrl
     },
 
     youtubeEmbedURL() {

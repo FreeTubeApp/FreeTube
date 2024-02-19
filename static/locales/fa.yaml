@@ -897,12 +897,6 @@ Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیر�
 Ok: تایید
 Downloading has completed: دانلود '{videoTitle}' به پایان رسید
 Loop is now enabled: حلقه اکنون فعال است
-Age Restricted:
-  Type:
-    Video: ویدیو
-    Channel: کانال
-  This {videoOrPlaylist} is age restricted: این {videoOrPlaylist} دارای محدودیت سنی
-    است
 Shuffle is now enabled: Shuffle اکنون فعال است
 Falling back to Invidious API: بازگشت به Invidious API
 Local API Error (Click to copy): خطای Local API (برای کپی کلیک کنید)
@@ -910,7 +904,7 @@ Shuffle is now disabled: Shuffle اکنون غیرفعال است
 Canceled next video autoplay: پخش خودکار ویدیوی بعدی لغو شد
 Unknown YouTube url type, cannot be opened in app: نوع URL ناشناخته YouTube، در برنامه
   باز نمی شود
-Falling back to the local API: بازگشت به API محلی
+Falling back to Local API: بازگشت به API محلی
 This video is unavailable because of missing formats. This can happen due to country unavailability.: این
   ویدیو به دلیل عدم وجود قالب در دسترس نیست. این ممکن است به دلیل در دسترس نبودن کشور
   اتفاق بیفتد.

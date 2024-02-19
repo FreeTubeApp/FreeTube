@@ -206,6 +206,7 @@ const state = {
   hideComments: false,
   hideFeaturedChannels: false,
   channelsHidden: '[]',
+  forbiddenTitles: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
@@ -288,7 +289,7 @@ const state = {
   videoPlaybackRateInterval: 0.25,
   downloadAskPath: true,
   downloadFolderPath: '',
-  downloadBehavior: 'download',
+  downloadBehavior: 'open',
   enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
@@ -300,6 +301,11 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  useDeArrowThumbnails: false,
+  deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
+  // This makes the `favorites` playlist uses as quick bookmark target
+  // If the playlist is removed quick bookmark is disabled
+  quickBookmarkTargetPlaylistId: 'favorites',
 }
 
 const stateWithSideEffects = {
@@ -311,18 +317,20 @@ const stateWithSideEffects = {
       let targetLocale = value
       if (value === 'system') {
         const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
-        const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
-        const targetLocaleOptions = allLocales.filter((locale) => { // filter out other languages
+        const systemLocaleSplit = systemLocaleName.split('_') // ex: en
+        const targetLocaleOptions = allLocales.filter((locale) => {
+          // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
-          return localeLang.includes(systemLocaleLang)
+          return localeLang.includes(systemLocaleSplit[0])
         }).sort((a, b) => {
           const aLocaleName = a.replace('-', '_')
           const bLocaleName = b.replace('-', '_')
           const aLocale = aLocaleName.split('_') // ex: [en, US]
           const bLocale = bLocaleName.split('_')
-          if (aLocale.includes(systemLocaleName)) { // country & language match, prefer a
+
+          if (aLocaleName === systemLocaleName) { // country & language match, prefer a
             return -1
-          } else if (bLocale.includes(systemLocaleName)) { // country & language match, prefer b
+          } else if (bLocaleName === systemLocaleName) { // country & language match, prefer b
             return 1
           } else if (aLocale.length === 1) { // no country code for a, prefer a
             return -1
@@ -332,12 +340,11 @@ const stateWithSideEffects = {
             return aLocaleName.localeCompare(bLocaleName)
           }
         })
+
         if (targetLocaleOptions.length > 0) {
           targetLocale = targetLocaleOptions[0]
-        }
-
-        // Go back to default value if locale is unavailable
-        if (!targetLocale) {
+        } else {
+          // Go back to default value if locale is unavailable
           targetLocale = defaultLocale
           // Translating this string isn't necessary
           // because the user will always see it in the default locale

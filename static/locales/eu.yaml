@@ -772,7 +772,7 @@ Local API Error (Click to copy): 'Tokiko API-ak huts egin du (klikatu kopiatzeko
 Invidious API Error (Click to copy): 'Individious-eko APIak huts egin du (klikatu
   kopiatzeko)'
 Falling back to Invidious API: 'Individious-eko APIra itzultzen'
-Falling back to the local API: 'Tokiko APIra itzultzen'
+Falling back to Local API: 'Tokiko APIra itzultzen'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo
   hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean
   erabilgarri ez dagoelako gerta daiteke.'
@@ -823,9 +823,4 @@ Channels:
   Unsubscribe Prompt: Ziur al zaude "{channelName}"-ren harpidetza kendu nahi duzula?
   Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Honako {videoOrPlaylist} adin muga du
-  Type:
-    Channel: Kanala
-    Video: Bideoa
 Preferences: Hobespenak

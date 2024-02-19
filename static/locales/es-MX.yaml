@@ -675,7 +675,7 @@ Local API Error (Click to copy): 'Error de la API local (Presione para copiar)'
 Invidious API Error (Click to copy): 'Error de la API de Invidious (Presione para
   copiar)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
-Falling back to the local API: 'Recurriendo a la API local'
+Falling back to Local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: 'El bucle esta desactivado'
 Loop is now enabled: 'El bucle esta activado'

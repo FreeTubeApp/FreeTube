@@ -929,7 +929,7 @@ Tooltips:
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
-Falling back to the local API: 'Повернення до локального API'
+Falling back to Local API: 'Повернення до локального API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Це
   відео недоступне через відсутність форматів. Це може статися через недоступність
   країни.'
@@ -974,13 +974,6 @@ Download folder does not exist: Каталог завантаження "$" не
 Screenshot Success: Знімок екрана збережено як «{filePath}»
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
-Age Restricted:
-  The currently set default instance is {instance}: Цей {instance} має обмеження за
-    віком
-  Type:
-    Video: Відео
-    Channel: Канал
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} має вікове обмеження'
 Channels:
   Count: 'Знайдено каналів: {number}.'
   Empty: Ваш список каналів наразі порожній.

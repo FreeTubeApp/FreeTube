@@ -6,47 +6,10 @@
       >
         {{ title }}
       </h1>
-      <div
-        class="channelInformation"
-      >
-        <div
-          class="profileRow"
-        >
-          <div>
-            <router-link
-              :to="`/channel/${channelId}`"
-            >
-              <img
-                :src="channelThumbnail"
-                class="channelThumbnail"
-                alt=""
-              >
-            </router-link>
-          </div>
-          <div>
-            <router-link
-              :to="`/channel/${channelId}`"
-              class="channelName"
-            >
-              {{ channelName }}
-            </router-link>
-            <ft-subscribe-button
-              v-if="!hideUnsubscribeButton"
-              :channel-id="channelId"
-              :channel-name="channelName"
-              :channel-thumbnail="channelThumbnail"
-              :subscription-count-text="subscriptionCountText"
-            />
-          </div>
-        </div>
-      </div>
     </div>
-    <div>
-      <div class="datePublished">
-        {{ publishedString }} {{ dateString }}
-      </div>
-      <div class="viewCount">
-        {{ parsedViewCount }}
+    <div class="videoMetrics">
+      <div class="datePublishedAndViewCount">
+        {{ publishedString }} {{ dateString }} • {{ parsedViewCount }}
       </div>
       <div
         v-if="!hideVideoLikesAndDislikes"
@@ -55,9 +18,7 @@
         <div
           class="likeSection"
         >
-          <div>
-            <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
-          </div>
+          <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
         </div>
       </div>
       <!--
@@ -80,6 +41,38 @@
         </div>
       </div>
       -->
+    </div>
+    <div class="videoButtons">
+      <div
+        class="profileRow"
+      >
+        <div>
+          <router-link
+            :to="`/channel/${channelId}`"
+          >
+            <img
+              :src="channelThumbnail"
+              class="channelThumbnail"
+              alt=""
+            >
+          </router-link>
+        </div>
+        <div>
+          <router-link
+            :to="`/channel/${channelId}`"
+            class="channelName"
+          >
+            {{ channelName }}
+          </router-link>
+          <ft-subscribe-button
+            v-if="!hideUnsubscribeButton"
+            :channel-id="channelId"
+            :channel-name="channelName"
+            :channel-thumbnail="channelThumbnail"
+            :subscription-count-text="subscriptionCountText"
+          />
+        </div>
+      </div>
       <div class="videoOptions">
         <ft-icon-button
           v-if="showPlaylists && !isUpcoming"
@@ -88,6 +81,17 @@
           class="option"
           theme="base"
           @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="isQuickBookmarkEnabled"
+          :title="quickBookmarkIconText"
+          :icon="['fas', 'star']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+          }"
+          :theme="quickBookmarkIconTheme"
+          @click="toggleQuickBookmarked"
         />
         <ft-icon-button
           v-if="externalPlayer !== ''"
