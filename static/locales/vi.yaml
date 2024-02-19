@@ -782,7 +782,7 @@ Up Next: 'Tiếp theo'
 Local API Error (Click to copy): 'Local API lỗi (Nhấn để copy)'
 Invidious API Error (Click to copy): 'Invidious API lỗi (Nhấn để copy)'
 Falling back to Invidious API: 'Quay trở về Invidious API'
-Falling back to the local API: 'Quay trở về local API'
+Falling back to Local API: 'Quay trở về local API'
 Subscriptions have not yet been implemented: 'Danh sách đăng kí hiện chưa được áp
   đặt'
 Loop is now disabled: 'Lặp lại hiện đã tắt'
@@ -918,13 +918,6 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
       được tạo trong quá trình phát lại video, khi trang xem bị đóng.
-Age Restricted:
-  The currently set default instance is {instance}: '{instance} này bị giới hạn độ
-    tuổi'
-  Type:
-    Channel: Kênh
-    Video: Video
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} bị giới hạn độ tuổi'
 Hashtags have not yet been implemented, try again later: Thẻ hashtag chưa thể dùng
   được, hãy thử lại sau
 Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. |

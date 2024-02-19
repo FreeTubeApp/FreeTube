@@ -537,8 +537,8 @@ Settings:
     Hide Upcoming Premieres: Nascondi le prossime Première
     Hide Channels: Nascondi i video dai canali
     Hide Channels Placeholder: ID del canale
-    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
-      uso eccessivo di maiuscole
+    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole
+      e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
     Hide Channel Playlists: Nascondi le playlist del canale
     Hide Channel Community: Nascondi la comunità del canale
@@ -914,6 +914,7 @@ Video:
   Pause on Current Video: Pausa sul video attuale
   Unhide Channel: Mostra canale
   Hide Channel: Nascondi canale
+  More Options: Più opzioni
 Videos:
   #& Sort By
   Sort By:
@@ -997,7 +998,7 @@ Up Next: 'Prossimi video'
 Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
 Invidious API Error (Click to copy): 'Errore API Invidious (Clicca per copiare)'
 Falling back to Invidious API: 'Torno alle API Invidious'
-Falling back to the local API: 'Torno alle API locali'
+Falling back to Local API: 'Torno alle API locali'
 Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state
   implementate'
 Loop is now disabled: 'Il loop è ora disabilitato'
@@ -1178,13 +1179,6 @@ Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
 Screenshot Success: Screenshot salvato come "{filePath}"
 Screenshot Error: Screenshot non riuscito. {error}
-Age Restricted:
-  The currently set default instance is {instance}: Questo {instance} è limitato dall'età
-  Type:
-    Channel: Canale
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Questo {videoOrPlaylist} ha limiti di
-    età
 New Window: Nuova finestra
 Channels:
   Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'
@@ -1221,3 +1215,7 @@ Channel Unhidden: '{channel} rimosso dal filtro canali'
 Tag already exists: Il tag "{tagName}" esiste già
 Trimmed input must be at least N characters long: L'input troncato deve essere lungo
   almeno 1 carattere | L'input troncato deve essere lungo almeno {length} caratteri
+Age Restricted:
+  This video is age restricted: Questo video è soggetto a limiti di età
+  This channel is age restricted: Questo canale è soggetto a limiti di età
+Close Banner: Chiudi banner

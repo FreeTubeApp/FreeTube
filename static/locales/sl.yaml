@@ -709,7 +709,7 @@ Up Next: 'Naslednje na sporedu'
 Local API Error (Click to copy): 'Napaka lokalnega APV (kliknite za kopiranje)'
 Invidious API Error (Click to copy): 'Napaka Invidious APV (kliknite za kopiranje)'
 Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
-Falling back to the local API: 'Začasno bo uporabljen lokalni APV'
+Falling back to Local API: 'Začasno bo uporabljen lokalni APV'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek
   zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
 Subscriptions have not yet been implemented: 'Naročnine še niso bile implementirane'

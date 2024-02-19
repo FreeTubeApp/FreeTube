@@ -966,7 +966,7 @@ Up Next: 'Up Next'
 Local API Error (Click to copy): 'Local API Error (Click to copy)'
 Invidious API Error (Click to copy): 'Invidious API Error (Click to copy)'
 Falling back to Invidious API: 'Falling back to Invidious API'
-Falling back to the local API: 'Falling back to the local API'
+Falling back to Local API: 'Falling back to Local API'
 Subscriptions have not yet been implemented: 'Subscriptions have not yet been implemented'
 Loop is now disabled: 'Loop is now disabled'
 Loop is now enabled: 'Loop is now enabled'
@@ -998,7 +998,7 @@ Tooltips:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube. Overrides API preference.
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-      default. When enabled, the local API will run and use the legacy formats returned
+      default. When enabled, the Local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
       by Invidious don’t play due to country restrictions.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press
@@ -1089,10 +1089,8 @@ Channels:
   Channels: Channels
   Count: '{number} channel(s) found.'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Video: Video
-    Channel: Channel
+  This channel is age restricted: This channel is age restricted
+  This video is age restricted: This video is age restricted
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible,
     current chapter: {chapterName}'

@@ -44,6 +44,7 @@
           />
         </div>
         <p
+          v-if="!hideLabelsSideBar"
           id="channelLabel"
           class="navLabel"
         >

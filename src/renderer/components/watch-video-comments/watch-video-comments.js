@@ -304,7 +304,7 @@ export default defineComponent({
             showToast(this.$t('Falling back to Invidious API'))
             this.getCommentDataInvidious()
           } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
-            showToast(this.$t('Falling back to local API'))
+            showToast(this.$t('Falling back to Local API'))
             this.getCommentDataLocal()
           }
         } else {
@@ -339,7 +339,7 @@ export default defineComponent({
             showToast(this.$t('Falling back to Invidious API'))
             this.getCommentDataInvidious()
           } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
-            showToast(this.$t('Falling back to local API'))
+            showToast(this.$t('Falling back to Local API'))
             this.getCommentDataLocal()
           }
         } else {
@@ -378,12 +378,13 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
+
         if (this.backendFallback && this.backendPreference === 'invidious') {
           if (this.fallbackPreference === 'piped') {
             showToast(this.$t('Falling back to Piped API'))
             this.getCommentDataPiped()
           } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
-            showToast(this.$t('Falling back to local API'))
+            showToast(this.$t('Falling back to Local API'))
             this.getCommentDataLocal()
           }
         } else {

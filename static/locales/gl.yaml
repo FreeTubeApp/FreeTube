@@ -911,7 +911,7 @@ Tooltips:
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
-Falling back to the local API: 'Recorrendo á API local'
+Falling back to Local API: 'Recorrendo á API local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Este
   vídeo non está dispoñible porque faltan formatos. Isto pode ocorrer debido á non
   dispoñibilidade do país.'
@@ -958,12 +958,6 @@ Downloading has completed: '"{videoTitle}" rematou de descargarse'
 External link opening has been disabled in the general settings: A apertura das ligazóns
   externas desactivouse na configuración xeral
 Starting download: Comenzando a descarga de "{videoTitle}"
-Age Restricted:
-  Type:
-    Channel: Canle
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Esta {videoOrPlaylist} ten restricións
-    de idade
 Default Invidious instance has been cleared: Borrouse a instancia predeterminada de
   Invidious
 Screenshot Error: Produciuse un erro na captura de pantalla. {error}
