@@ -3,10 +3,14 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'FtAgeRestricted',
   props: {
-    contentTypeString: {
-      type: String,
-      required: true
-    }
+    isChannel: {
+      type: Boolean,
+      default: false,
+    },
+    isVideo: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     emoji: function () {
@@ -15,8 +19,11 @@ export default defineComponent({
     },
 
     restrictedMessage: function () {
-      const contentType = this.$t('Age Restricted.Type.' + this.contentTypeString)
-      return this.$t('Age Restricted.This {videoOrPlaylist} is age restricted', { videoOrPlaylist: contentType })
+      if (this.isChannel) {
+        return this.$t('Age Restricted.This channel is age restricted')
+      }
+
+      return this.$t('Age Restricted.This video is age restricted:')
     }
   }
 })

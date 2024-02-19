@@ -842,7 +842,7 @@ Local API Error (Click to copy): 'Vietinė API klaida (spustelėkite, jei norite
 Invidious API Error (Click to copy): 'Invidious API klaida (spustelėkite, jei norite
   kopijuoti)'
 Falling back to Invidious API: 'Grįžtama prie Invidious API'
-Falling back to the local API: 'Grįžtama prie vietinio API'
+Falling back to Local API: 'Grįžtama prie vietinio API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Šis
   vaizdo įrašas nepasiekiamas, nes trūksta formatų. Tai gali nutikti dėl to, kad šalis
   yra nepasiekiama.'
@@ -887,12 +887,6 @@ Channels:
   Unsubscribe: Atšaukti prenumeratą
   Unsubscribed: '{channelName} buvo pašalintas iš jūsų prenumeratų'
   Unsubscribe Prompt: Ar tikrai norite atšaukti {channelName} prenumeratą?
-Age Restricted:
-  Type:
-    Channel: Kanalas
-    Video: Vaizdo įrašas
-  This {videoOrPlaylist} is age restricted: Šis {videoOrPlaylist} ribojamas pagal
-    amžių
 Downloading has completed: „{videoTitle}“ atsisiuntimas baigtas
 Starting download: Pradedamas „{videoTitle}“ atsisiuntimas
 Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema

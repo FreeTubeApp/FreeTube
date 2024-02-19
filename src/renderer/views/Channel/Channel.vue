@@ -417,7 +417,7 @@
     <ft-age-restricted
       v-else-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :content-type-string="'Channel'"
+      :is-channel="true"
     />
   </div>
 </template>

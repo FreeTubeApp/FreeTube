@@ -72,3 +72,10 @@
   column-gap: 8px;
   justify-content: flex-end;
 }
+
+@media only screen and (max-width: 1250px) {
+  :deep(.sharePlaylistIcon .iconDropdown) {
+    inset-inline-start: auto;
+    inset-inline-end: auto;
+  }
+}

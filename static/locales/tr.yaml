@@ -532,8 +532,8 @@ Settings:
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
     Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
-    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
-      Görüntüle
+    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve
+      Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
     Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
     Hide Channel Community: Kanal Topluluğunu Gizle
@@ -960,6 +960,7 @@ Video:
   Pause on Current Video: Geçerli Videoda Duraklat
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
+  More Options: Daha Fazla Seçenek
 Videos:
   #& Sort By
   Sort By:
@@ -1040,7 +1041,7 @@ Up Next: 'Sonraki'
 Local API Error (Click to copy): 'Yerel API Hatası (Kopyalamak için tıklayın)'
 Invidious API Error (Click to copy): 'Invidious API Hatası (Kopyalamak için tıklayın)'
 Falling back to Invidious API: 'Invidious API''ye geri dönülüyor'
-Falling back to the local API: 'Yerel API''ye geri dönülüyor'
+Falling back to Local API: 'Yerel API''ye geri dönülüyor'
 Subscriptions have not yet been implemented: 'Abonelikler henüz uygulanmadı'
 Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
@@ -1171,12 +1172,6 @@ Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor"
 Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
-Age Restricted:
-  The currently set default instance is {instance}: Bu {instance} yaş kısıtlamalıdır
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Bu {videoOrPlaylist} yaş kısıtlamalıdır
 Channels:
   Empty: Kanal listeniz şu anda boş.
   Channels: Kanallar
@@ -1212,3 +1207,7 @@ Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
 Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
   uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
 Tag already exists: '"{tagName}" etiketi zaten var'
+Close Banner: Afişi Kapat
+Age Restricted:
+  This video is age restricted: Bu videoda yaş sınırlaması var
+  This channel is age restricted: Bu kanalda yaş sınırlaması var

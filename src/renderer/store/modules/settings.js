@@ -289,7 +289,7 @@ const state = {
   videoPlaybackRateInterval: 0.25,
   downloadAskPath: true,
   downloadFolderPath: '',
-  downloadBehavior: 'download',
+  downloadBehavior: 'open',
   enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,

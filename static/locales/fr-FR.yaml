@@ -557,7 +557,7 @@ Settings:
     Hide Channels: Masquer les vidéos des chaînes
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
-      excessives
+      ni ponctuation excessives
     Hide Channel Playlists: Masquer les listes de lecture des chaînes
     Hide Featured Channels: Masquer les chaînes en vedette
     Hide Channel Community: Masquer la communauté de la chaîne
@@ -946,6 +946,7 @@ Video:
   Pause on Current Video: Pause sur la vidéo en cours
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
+  More Options: Plus d'options
 Videos:
   #& Sort By
   Sort By:
@@ -1030,7 +1031,7 @@ Up Next: 'À suivre'
 Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
 Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
 Falling back to Invidious API: 'Revenir à l''API Invidious'
-Falling back to the local API: 'Revenir à l''API locale'
+Falling back to Local API: 'Revenir à l''API locale'
 Subscriptions have not yet been implemented: 'Les abonnements n''ont pas encore été
   implémentés'
 Loop is now disabled: 'La boucle est maintenant désactivée'
@@ -1226,12 +1227,6 @@ Download folder does not exist: 'Le répertoire "$" de téléchargement n''exist
 Screenshot Success: Capture d'écran enregistrée sous « {filePath} »
 Screenshot Error: La capture d'écran a échoué. {error}
 New Window: Nouvelle fenêtre
-Age Restricted:
-  Type:
-    Video: Vidéo
-    Channel: Chaîne
-  This {videoOrPlaylist} is age restricted: Ce {videoOrPlaylist} est soumis à une
-    limite d'âge
 Channels:
   Channels: Chaînes
   Title: Liste des chaînes
@@ -1267,3 +1262,7 @@ Channel Unhidden: '{channel} retiré du filtre de chaîne'
 Trimmed input must be at least N characters long: L'entrée tronquée doit comporter
   au moins 1 caractère | L'entrée tronquée doit comporter au moins {length} caractères
 Tag already exists: L'étiquette « {tagName} » existe déjà
+Age Restricted:
+  This channel is age restricted: Cette chaîne est soumise à des restrictions d'âge
+  This video is age restricted: Cette vidéo est soumise à des restrictions d'âge
+Close Banner: Fermer la bannière
