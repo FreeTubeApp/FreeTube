@@ -73,7 +73,7 @@ export default defineComponent({
         injectStylesUrls: [
           // This file is created with the copy webpack plugin in the web and renderer webpack configs.
           // If you add more modules, please remember to add their CSS files to the list in webpack config files.
-          createWebURL('/swiper.css')
+          createWebURL(`/swiper-${process.env.SWIPER_VERSION}.css`)
         ],
 
         a11y: true,
