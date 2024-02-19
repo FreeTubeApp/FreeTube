@@ -884,6 +884,7 @@ Video:
   Pause on Current Video: Peata hetkel esitatav video
   Unhide Channel: Näita kanalit
   Hide Channel: Peida kanal
+  More Options: Veel valikuid
 Videos:
   #& Sort By
   Sort By:
@@ -1120,3 +1121,7 @@ Channel Unhidden: '{channel} on eemaldatud kanalite filtrist'
 Tag already exists: Silt „{tagName}“ on juba olemas
 Trimmed input must be at least N characters long: Kärbitud sisend peab olema vähemalt
   1 tähemärgi pikkune | Kärbitud sisend peab olema vähemalt {length} tähemärgi pikkune
+Age Restricted:
+  This channel is age restricted: Kanali vaatamisel on vanusepiirang
+  This video is age restricted: Video vaatamisel on vanusepiirang
+Close Banner: Sulge rekaampilt
