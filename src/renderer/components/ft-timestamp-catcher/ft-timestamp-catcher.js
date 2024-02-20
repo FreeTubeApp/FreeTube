@@ -30,7 +30,7 @@ export default defineComponent({
         }).href
 
         // Adding the URL lets the user open the video in a new window at this timestamp
-        return `<a href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}))">${timestamp}</a>`
+        return `<a href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}));window.scrollTo(0,0)">${timestamp}</a>`
       })
     }
   }
