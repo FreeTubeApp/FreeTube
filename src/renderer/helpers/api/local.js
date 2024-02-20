@@ -539,7 +539,7 @@ export function parseLocalChannelShorts(shorts, channelId, channelName) {
       title: short.title.text,
       author: channelName,
       authorId: channelId,
-      viewCount: parseLocalSubscriberCount(short.views.text),
+      viewCount: short.views.isEmpty() ? null : parseLocalSubscriberCount(short.views.text),
       lengthSeconds: ''
     }
   })

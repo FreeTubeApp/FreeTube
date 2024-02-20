@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="!isLoading"
     class="ft-list-post ft-list-item outside"
     :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
