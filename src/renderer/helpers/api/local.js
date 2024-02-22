@@ -35,23 +35,23 @@ const TRACKING_PARAM_NAMES = [
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @returns the Innertube instance
  */
-async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined, generateSessionLocally: true }) {
+async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true } = {}) {
   let cache
-  if (options.withPlayer) {
+  if (withPlayer) {
     const userData = await getUserDataPath()
     cache = new PlayerCache(join(userData, 'player_cache'))
   }
 
   return await Innertube.create({
-    retrieve_player: !!options.withPlayer,
-    location: options.location,
-    enable_safety_mode: !!options.safetyMode,
-    client_type: options.clientType,
+    retrieve_player: !!withPlayer,
+    location: location,
+    enable_safety_mode: !!safetyMode,
+    client_type: clientType,
 
     // use browser fetch
     fetch: (input, init) => fetch(input, init),
     cache,
-    generate_session_locally: !!options.generateSessionLocally
+    generate_session_locally: !!generateSessionLocally
   })
 }
 
