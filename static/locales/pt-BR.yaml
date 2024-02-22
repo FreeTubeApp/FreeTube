@@ -987,7 +987,7 @@ Up Next: 'Próximo'
 Local API Error (Click to copy): 'Erro da API local (clique para copiar)'
 Invidious API Error (Click to copy): 'Erro da API do Invidious (clique para copiar)'
 Falling back to Invidious API: 'Recorrendo à API do Invidious'
-Falling back to the local API: 'Recorrendo à API local'
+Falling back to Local API: 'Recorrendo à API local'
 Subscriptions have not yet been implemented: 'Inscrições ainda não foram implementadas'
 Loop is now disabled: 'O ciclo foi desativado'
 Loop is now enabled: 'O ciclo está ativado'
@@ -1177,14 +1177,6 @@ Channels:
   Unsubscribed: '{channelName} foi removido de suas assinaturas'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canal(is) encontrado(s).'
-Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição
-    de idade
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Esse(a) {videoOrPlaylist} tem restrição
-    de idade
 Screenshot Success: Captura de tela salva como "{filePath}"
 Screenshot Error: Falha na captura de tela. {error}
 Preferences: Preferências

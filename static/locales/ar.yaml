@@ -931,6 +931,7 @@ Video:
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
+  More Options: المزيد من الخيارات
 Videos:
   #& Sort By
   Sort By:
@@ -1007,7 +1008,7 @@ Up Next: 'التالي'
 Local API Error (Click to copy): 'خطأ API المحلي (انقر للنسخ)'
 Invidious API Error (Click to copy): 'خطأ Invidious API ( انقر للنسخ)'
 Falling back to Invidious API: 'التراجع إلى Invidious API'
-Falling back to the local API: 'التراجع إلى API المحلي'
+Falling back to Local API: 'التراجع إلى API المحلي'
 Subscriptions have not yet been implemented: 'لم يتم تنفيذ الاشتراكات بعد'
 Loop is now disabled: 'تم تعطيل التكرار'
 Loop is now enabled: 'تم تمكين التكرار'
@@ -1131,11 +1132,6 @@ Starting download: بدء تنزيل "{videoTitle}"
 Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
-Age Restricted:
-  Type:
-    Channel: القناة
-    Video: فيديو
-  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
 Channels:
   Count: تم العثور على قناة (قنوات) {number}.
   Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
@@ -1172,3 +1168,7 @@ Trimmed input must be at least N characters long: يجب أن يكون طول ا
   حرفًا واحدًا على الأقل | يجب أن يبلغ طول الإدخال المقتطع {length} من الأحرف على
   الأقل
 Tag already exists: العلامة "{tagName}" موجودة بالفعل
+Age Restricted:
+  This channel is age restricted: هذه القناة مقيدة بالعمر
+  This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
+Close Banner: إغلاق الشعار

@@ -284,7 +284,7 @@ export default defineComponent({
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
-        this.allPlaylistItems = result.videos
+        this.playlistItems = result.videos
 
         this.isLoading = false
       }).catch((err) => {

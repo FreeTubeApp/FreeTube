@@ -815,6 +815,7 @@ Video:
   Pause on Current Video: 暫停目前影片
   Unhide Channel: 顯示頻道
   Hide Channel: 隱藏頻道
+  More Options: 更多選項
 Videos:
   #& Sort By
   Sort By:
@@ -891,7 +892,7 @@ Up Next: '觀看其他類似影片'
 Local API Error (Click to copy): '區域API錯誤（點擊複製）'
 Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
-Falling back to the local API: '回退到區域API'
+Falling back to Local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
 Loop is now disabled: '循環播放現在被停用'
 Loop is now enabled: '循環播放現在被啟用'
@@ -1017,12 +1018,6 @@ Starting download: 正在開始下載「{videoTitle}」
 Screenshot Success: 已儲存螢幕截圖為 "{filePath}"
 Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗
-Age Restricted:
-  The currently set default instance is {instance}: 此 {instance} 有年齡限制
-  Type:
-    Channel: 頻道
-    Video: 影片
-  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年齡限制
 Channels:
   Channels: 頻道
   Title: 頻道清單
@@ -1052,3 +1047,7 @@ Channel Unhidden: '{channel} 已從頻道過濾條件移除'
 Trimmed input must be at least N characters long: 修剪後的輸入必須至少有 1 個字元長 | 修剪後的輸入必須至少有
   {length} 個字元長
 Tag already exists: 「{tagName}」標籤已存在
+Close Banner: 關閉橫幅
+Age Restricted:
+  This channel is age restricted: 此頻道有年齡限制
+  This video is age restricted: 此影片有年齡限制
