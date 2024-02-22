@@ -64,7 +64,9 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+            visible = ['/channel', '/watch'].some(p => path.startsWith(p)) ||
+              // Only show copy link entry for non user playlists
+              (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
         } else {
           visible = true
