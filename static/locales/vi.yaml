@@ -1,4 +1,4 @@
-Locale Name: Tiếng Anh
+Locale Name: Tiếng Việt
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -36,6 +36,7 @@ Global:
 # Search Bar
   Live: Trực tiếp
   Shorts: Shorts
+  Community: Cộng đồng
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
@@ -133,9 +134,11 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'Thumbnail'
       Default: 'Mặc định'
-      Beginning: 'Lúc đầu'
-      Middle: 'Chính giữa'
-      End: 'Đầu cuối'
+      Beginning: 'Đầu'
+      Middle: 'Giữa'
+      End: 'Cuối'
+      Blur: Làm mờ
+      Hidden: Ẩn
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Phiên bản Invidious
       (Mặc định là https://invidious.snopyta.org)'
     Region for Trending: 'Phổ biến theo quốc gia'
@@ -165,34 +168,37 @@ Settings:
       Black: 'Đen'
       Dark: 'Tối'
       Light: 'Sáng'
-      Dracula: 'Ma cà rồng'
+      Dracula: 'Dracula'
       System Default: Mặc định hệ thống
-      Catppuccin Mocha: Catppuccin Mocha - Màu cà phê
+      Catppuccin Mocha: Catppuccin Mocha
+      Nordic: Nordic
+      Pastel Pink: Hồng phấn tiên
+      Hot Pink: Hồng nóng bỏng
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
       Pink: 'Hồng'
       Purple: 'Tím'
-      Deep Purple: 'Tím Đậm'
-      Indigo: 'Xanh Đậm'
-      Blue: 'Xanh'
-      Light Blue: 'Xanh Nhạt'
-      Cyan: 'Lục Lam'
+      Deep Purple: 'Tím đậm'
+      Indigo: 'Chàm'
+      Blue: 'Xanh lam'
+      Light Blue: 'Xanh nước biển'
+      Cyan: 'Xanh lơ'
       Teal: 'Xanh mòng két'
-      Green: 'Xanh Lá'
-      Light Green: 'Xanh Lợt'
-      Lime: 'Vôi'
+      Green: 'Xanh lục'
+      Light Green: 'Xanh lợt'
+      Lime: 'Vàng chanh'
       Yellow: 'Vàng'
-      Amber: 'Hổ Phách'
+      Amber: 'Hổ phách'
       Orange: 'Cam'
-      Deep Orange: 'Cam Đậm'
-      Dracula Cyan: 'Ma cà rồng Lục Lam'
-      Dracula Green: 'Ma cà rồng Xanh Lá'
-      Dracula Orange: 'Ma cà rồng Cam'
-      Dracula Pink: 'Ma cà rồng Hồng'
-      Dracula Purple: 'Ma cà rồng Tím'
-      Dracula Red: 'Ma cà rồng Đỏ'
-      Dracula Yellow: 'Ma cà rồng Vàng'
+      Deep Orange: 'Cam đậm'
+      Dracula Cyan: 'Xanh lơ Dracula'
+      Dracula Green: 'Xanh lục Dracula'
+      Dracula Orange: 'Cam Dracula'
+      Dracula Pink: 'Hồng Dracula'
+      Dracula Purple: 'Tím Dracula'
+      Dracula Red: 'Đỏ Dracula'
+      Dracula Yellow: 'Vàng Dracula'
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater Màu hoa hồng
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo Màu hồng hạc
       Catppuccin Mocha Pink: Catppuccin Mocha Pink Màu hồng hạc
@@ -207,13 +213,13 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire màu xanh
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender Màu tím nhạt
       Catppuccin Mocha Blue: Catppuccin Mocha Blue Màu xanh
-    Secondary Color Theme: 'Màu chủ đề thứ hai'
+    Secondary Color Theme: 'Màu chủ đề phụ'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
     Disable Smooth Scrolling: Tắt cuộn mượt
     Expand Side Bar by Default: Mở rộng thanh bên theo mặc định
-    Hide Side Bar Labels: Ẩn Nhãn Thanh Bên
-    Hide FreeTube Header Logo: Ẩn Logo FreeTube trên thanh trên
+    Hide Side Bar Labels: Ẩn nhãn thanh bên
+    Hide FreeTube Header Logo: Ẩn logo FreeTube trên thanh trên
   Player Settings:
     Player Settings: 'Cài đặt trình phát'
     Force Local Backend for Legacy Formats: 'Bắt buộc Local Backend cho định dạng
@@ -221,14 +227,14 @@ Settings:
     Remember History: 'Nhớ lịch sử'
     Play Next Video: 'Phát video tiếp theo'
     Turn on Subtitles by Default: 'Bật phụ đề theo mặc định'
-    Autoplay Videos: 'Tự phát videos'
+    Autoplay Videos: 'Tự phát video'
     Proxy Videos Through Invidious: 'Proxy video qua Invidious'
     Autoplay Playlists: 'Danh sách tự động phát'
     Enable Theatre Mode by Default: 'Bật chế độ rạp hát theo mặc định'
     Default Volume: 'Âm lượng mặc định'
     Default Playback Rate: 'Tốc độ phát mặc định'
     Default Video Format:
-      Default Video Format: 'Định dạng video theo mặc định'
+      Default Video Format: 'Định dạng video mặc định'
       Dash Formats: 'Định dạng DASH'
       Legacy Formats: 'Định dạng Legacy'
       Audio Formats: 'Định dạng âm thanh'
@@ -244,21 +250,21 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Scroll Playback Rate Over Video Player: Tốc độ Phát lại Cuộn qua Trình phát Video
-    Scroll Volume Over Video Player: Cuộn Âm lượng qua Trình phát Video
+    Scroll Playback Rate Over Video Player: Con lăn chuột điểu chỉnh tốc độ phát lại
+    Scroll Volume Over Video Player: Con lăn chuột điểu chỉnh âm lượng
     Display Play Button In Video Player: Hiển thị nút phát trong trình phát video
     Next Video Interval: Khoảng thời gian Video Tiếp theo
     Fast-Forward / Rewind Interval: Khoảng thời gian tua đi / tua lại
     Screenshot:
-      Enable: Bật chức năng Chụp màn hình
+      Enable: Bật chức năng chụp màn hình
       Format Label: Định dạng chụp màn hình
       Quality Label: Chất lượng chụp màn hình
-      File Name Label: Kiểu tên tệp
-      Folder Label: Chụp màn hình thư mục
+      File Name Label: Mẫu tên tệp
+      Folder Label: Thư mục ảnh chụp màn hình
       Ask Path: Yêu cầu thứ mục lưu
       Folder Button: Chọn thư mục
       Error:
-        Empty File Name: Tên tệp. trống
+        Empty File Name: Tên tệp trống
         Forbidden Characters: Các ký từ bị cấm
       File Name Tooltip: Bạn có thể dùng các biến số dưới đây. %Y Năm 4 chữ số. %M
         Tháng 2 chữ số. %D Ngày 2 chữ số. %H Giờ 2 chữ số. %N Phút 2 chữ số. %S Giây
@@ -266,8 +272,12 @@ Settings:
         3 chữ số. %i Video ID. Bạn cũng có thể dùng dấu "\" hoặc "/" để tạo các thư
         mục con.
     Max Video Playback Rate: Tốc độ phát lại tối đa
-    Video Playback Rate Interval: khoảng cách phát lại video
+    Video Playback Rate Interval: Khoảng cách tốc độ phát
     Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay
+    Comment Auto Load:
+      Comment Auto Load: Tự động tải bình luận
+    Skip by Scrolling Over Video Player: Tua video bằng con lăn chuột
+    Allow DASH AV1 formats: Cho phép định dạng DASH AV1
   Subscription Settings:
     Subscription Settings: 'Cài đặt đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -280,8 +290,9 @@ Settings:
     Import Subscriptions: 'Nhập đăng ký'
     Export Subscriptions: 'Xuất đăng ký'
     How do I import my subscriptions?: 'Làm sao để nhập đăng ký của tôi?'
-    Fetch Feeds from RSS: Lấy feeds từ RSS
+    Fetch Feeds from RSS: Cập nhật bảng tin qua RSS
     Fetch Automatically: Tự động làm mới bảng tin
+    Only Show Latest Video for Each Channel: Chỉ hiện video mới nhất cho mỗi kênh
   Advanced Settings:
     Advanced Settings: 'Cài đặt nâng cao'
     Enable Debug Mode (Prints data to the console): 'Bật chế độ Debug (Ghi data ra
@@ -357,16 +368,16 @@ Settings:
     History File: Tệp Lịch sử
     Playlist File: Tệp Danh sách phát
   Distraction Free Settings:
-    Hide Live Chat: Giấu live chat
-    Hide Popular Videos: Giấu video phổ biến
-    Hide Trending Videos: Giấu video xu hướng
-    Hide Recommended Videos: Giấu video nên xem
-    Hide Comment Likes: Giấu bình luận like
-    Hide Channel Subscribers: Giấu số người đăng ký
-    Hide Video Likes And Dislikes: Giấu thích và không thích
-    Hide Video Views: Giấu lượt xem
-    Distraction Free Settings: Chế độ không phân tâm
-    Hide Active Subscriptions: Ẩn Đăng ký Hiện hoạt
+    Hide Live Chat: Ẩn live chat
+    Hide Popular Videos: Ẩn video phổ biến
+    Hide Trending Videos: Ẩn video xu hướng
+    Hide Recommended Videos: Ẩn video tiếp theo
+    Hide Comment Likes: Ẩn lượt thích bình luận
+    Hide Channel Subscribers: Ẩn số người đăng ký
+    Hide Video Likes And Dislikes: Ẩn lượt thích và không thích
+    Hide Video Views: Ẩn lượt xem
+    Distraction Free Settings: Cài đặt không phân tâm
+    Hide Active Subscriptions: Ẩn đăng ký hiện hoạt
     Hide Playlists: Ẩn danh sách phát
     Hide Comments: Ẩn bình luận
     Hide Live Streams: Ẩn phát trực tiếp
@@ -374,16 +385,20 @@ Settings:
     Hide Sharing Actions: Ẩn hoạt động chia sẻ
     Sections:
       General: Chung
+      Side Bar: Thanh bên
+      Channel Page: Trang kênh
+      Subscriptions Page: Trang đăng ký
+      Watch Page: Trang trình chiếu video
     Hide Channel Playlists: Ẩn danh sách phát của kênh
     Hide Featured Channels: Ẩn các kênh nổi bật
     Hide Channels Placeholder: Tên kênh hoặc ID
-    Hide Profile Pictures in Comments: Ẩn ảnh đại diện trong Bình luận
+    Hide Profile Pictures in Comments: Ẩn ảnh đại diện trong Bbình luận
     Hide Chapters: Ẩn các chương
     Hide Channels: Ẩn các videos khỏi kênh
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
-      có muốn xóa toàn bộ đăng ký và profiles không? Điều này không thể phục hồi.
-    Remove All Subscriptions / Profiles: Xóa bỏ tất cả đăng ký / Profiles
+      có muốn xóa toàn bộ đăng ký và hồ sơ không? Điều này không thể phục hồi.
+    Remove All Subscriptions / Profiles: Xóa tất cả đăng ký / hồ sơ
     Watch history has been cleared: Lịch sử xem đã được xóa
     Are you sure you want to remove your entire watch history?: Bạn có thực sự muốn
       xóa toàn bộ lịch sử xem?
@@ -391,11 +406,15 @@ Settings:
     Search cache has been cleared: Bộ đệm của tìm kiếm đã xóa
     Are you sure you want to clear out your search cache?: Bạn có chắc là muốn xóa
       bộ đệm của tìm kiếm?
-    Clear Search Cache: Xóa Tìm kiếm cache
+    Clear Search Cache: Xóa cache tìm kiếm
     Save Watched Progress: Lưu quá trình xem
     Remember History: Nhớ lịch sử
-    Privacy Settings: Thiết lập quyền riêng tư
-    Automatically Remove Video Meta Files: Tự động xúa các tệp meta video
+    Privacy Settings: Cài đặt quyền riêng tư
+    Automatically Remove Video Meta Files: Tự động xóa các tệp meta video
+    Remove All Playlists: Xóa tất cả danh sách phát
+    Are you sure you want to remove all your playlists?: Bạn có chắc muốn xóa tất
+      cả các danh sách phát không?
+    All playlists have been removed: Đã xóa tất cả các danh sách phát
   The app needs to restart for changes to take effect. Restart and apply change?: App
     cần khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp đặt?
   Proxy Settings:
@@ -430,12 +449,13 @@ Settings:
   External Player Settings:
     External Player Settings: Cài đặt trình phát video bên ngoài
     External Player: Trình phát video bên ngoài
-    Custom External Player Arguments: Chứng minh trình phát bên ngoài tùy chỉnh
+    Custom External Player Arguments: Tham số trình phát bên ngoài tùy chỉnh
     Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
     Custom External Player Executable: Chạy trình phát bên ngoài tuỳ chỉnh
     Players:
       None:
         Name: Trống
+    Ignore Default Arguments: Bỏ qua tham số mặc định
   Parental Control Settings:
     Parental Control Settings: Cài đặt trình kiểm soát của phụ huynh
     Hide Unsubscribe Button: Ẩn Nút Huỷ Đăng Ký
