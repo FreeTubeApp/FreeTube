@@ -114,6 +114,10 @@ User Playlists:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
+  This playlist currently has no videos.: 存在、この再生リストには動画があっていません。
+  Create New Playlist: 新規再生リストを作られる
+  Sort By:
+    NameAscending: A-Z
 History:
   # On History Page
   History: '履歴'
@@ -850,7 +854,7 @@ The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
 Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber}
-  配信中！　詳細はクリックして確認してください
+  配信中！詳細はクリックして確認してください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
@@ -941,3 +945,5 @@ Hashtag:
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
 Playlist will pause when current video is finished: 現在のビデオが終了すると、プレイリストは停止します
 Playlist will not pause when current video is finished: 現在のビデオが終了しても、プレイリストは停止しません
+Close Banner: バナーを閉じる
+Go to page: '{page}に行く'
