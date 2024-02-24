@@ -234,7 +234,7 @@ Settings:
   General Settings:
     General Settings: 'Obecné nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
-    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky blogů'
+    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
       backend'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
