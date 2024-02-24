@@ -398,6 +398,11 @@ export default defineComponent({
       this.searchVideoMode = false
       this.updateQuery('')
       this.$emit('search-video-mode-off')
+
+      nextTick(() => {
+        // Some elements only present after rendering update
+        this.$refs.enableSearchModeButton?.focus()
+      })
     },
 
     ...mapActions([

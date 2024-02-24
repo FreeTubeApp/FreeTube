@@ -109,6 +109,7 @@
       <div class="playlistOptions">
         <ft-icon-button
           v-if="isUserPlaylist && !editMode"
+          ref="enableSearchModeButton"
           :title="$t('User Playlists.SinglePlaylistView.Search for Videos')"
           :icon="['fas', 'search']"
           theme="secondary"
