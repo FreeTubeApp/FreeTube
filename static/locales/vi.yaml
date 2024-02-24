@@ -525,6 +525,8 @@ Settings:
     Hide Channels Already Exists: ID kênh đã tồn tại
     Hide Videos and Playlists Containing Text Placeholder: Từ, tiếng, hoặc cụm từ
     Hide Subscriptions Videos: Ẩn video từ các đăng ký
+    Display Titles Without Excessive Capitalisation: Hiển thị tiêu đề không viết hoa
+      quá mức
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
       có muốn xóa toàn bộ đăng ký và hồ sơ không? Điều này không thể phục hồi.
@@ -545,6 +547,8 @@ Settings:
     Are you sure you want to remove all your playlists?: Bạn có chắc muốn xóa tất
       cả các danh sách phát không?
     All playlists have been removed: Đã xóa tất cả các danh sách phát
+    Save Watched Videos With Last Viewed Playlist: Lưu video đã xem với danh sách
+      phát được xem lần cuối
   The app needs to restart for changes to take effect. Restart and apply change?: Ứng
     dụng cần được khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp dụng
     cài đặt?
@@ -708,6 +712,7 @@ Channel:
     Featured Channels: 'Kênh đặc sắc'
     Tags:
       Search for: Tìm kiếm cho "{tag}"
+      Tags: Thẻ
     Joined: Đã tham gia
     Location: Vị trí
     Details: Chi tiết
@@ -729,11 +734,21 @@ Channel:
     votes: '{votes} bình chọn'
     Reveal Answers: Hiện Câu trả lời
     Hide Answers: Ẩn Câu trả lời
+    Video hidden by FreeTube: FreeTube đã ẩn video này
   Releases:
     Releases: Xuất bản
+    This channel does not currently have any releases: Kênh này hiện không có bất
+      kỳ bản phát hành nào
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Kênh
     này là kênh giới hạn độ tuổi và hiện tại không thể xem được trên FreeTube.
   Channel Tabs: Trang kênh
+  Shorts:
+    This channel does not currently have any shorts: Kênh này hiện không có video
+      shorts
+  Podcasts:
+    Podcasts: Podcast
+    This channel does not currently have any podcasts: Kênh này hiện không có podcast
+      nào
 Video:
   Open in YouTube: 'Mở trong Youtube'
   Copy YouTube Link: 'Sao chép liên kết Youtube'
@@ -864,6 +879,13 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Trò
     chuyện trực tiếp hiện không khả dụng trên luồng phát này. Chủ sở hữu có thể đã
     tắt chức năng này.
+  Hide Channel: Ẩn kênh này
+  More Options: Tùy chọn khác
+  Pause on Current Video: Tạm dừng trên video hiện tại
+  Show Super Chat Comment: Hiển thị bình luận Super Chat
+  Upcoming: Sắp ra mắt
+  Premieres: Công chiếu
+  Unhide Channel: Hiển thị kênh này
 Videos:
   #& Sort By
   Sort By:
@@ -908,6 +930,7 @@ Share:
   Include Timestamp: Có kèm dấu thời gian
   YouTube Channel URL copied to clipboard: Đã sao chép liên kết kênh Youtube
   Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
+  Share Channel: Chia sẻ kênh
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
@@ -934,6 +957,8 @@ Comments:
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
   View {replyCount} replies: Hiển thị {replyCount} câu trả lời
+  Hearted: Thả Tim
+  Subscribed: Đã đăng ký
 Up Next: 'Tiếp theo'
 
 # Toast Messages
@@ -1060,6 +1085,12 @@ Tooltips:
       lui để kiểm soát tốc độ phát. Nhấn và giữ phím Control (Phím Command trên Mac)
       và nhấp chuột trái để lập tức trở về tốc độ phát mặc định (1x trừ khi nó đã
       được thay đổi trong cài đặt).
+    Skip by Scrolling Over Video Player: Sử dụng con lăn chuột để bỏ qua video, kiểu
+      MPV.
+    Allow DASH AV1 formats: Định dạng DASH AV1 có thể trông đẹp hơn định dạng DASH
+      H.264. Định dạng DASH AV1 yêu cầu nhiều năng lượng hơn để phát lại! Chúng không
+      có sẵn trên tất cả các video, trong những trường hợp đó trình phát sẽ sử dụng
+      định dạng DASH H.264 thay thế.
   External Player Settings:
     Custom External Player Arguments: Bất kỳ tham số dòng lệnh tùy chỉnh nào, được
       phân tách bằng dấu chấm phẩy (';'), bạn muốn được chuyển đến trình phát bên
@@ -1079,9 +1110,23 @@ Tooltips:
       thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh
       việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video
       hoặc trạng thái phát trực tiếp
+    Fetch Automatically: Khi được bật, FreeTube sẽ tự động tìm nạp nguồn cấp dữ liệu
+      đăng ký của bạn khi cửa sổ mới được mở và khi chuyển đổi hồ sơ.
   Privacy Settings:
     Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
       được tạo trong quá trình phát lại video, khi trang xem bị đóng.
+  Distraction Free Settings:
+    Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và
+      chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được
+      đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
+    Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}"
+      trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
+  SponsorBlock Settings:
+    UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.
+    UseDeArrowTitles: Thay thế tiêu đề video bằng tiêu đề do người dùng gửi từ DeArrow.
+  Experimental Settings:
+    Replace HTTP Cache: Tắt bộ nhớ đệm HTTP dựa trên đĩa của Electron và bật bộ nhớ
+      đệm hình ảnh trong bộ nhớ tùy chỉnh. Sẽ dẫn đến việc sử dụng RAM tăng lên.
 Hashtags have not yet been implemented, try again later: Thẻ hashtag chưa thể dùng
   được, hãy thử lại sau
 Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. |
@@ -1102,5 +1147,30 @@ Starting download: Bắt đầu tải xuống "{videoTitle}"
 Ok: Ok
 Clipboard:
   Copy failed: Sao chép vào bộ nhớ tạm thất bại
+  Cannot access clipboard without a secure connection: Không thể truy cập clipboard
+    nếu không có kết nối an toàn
 Go to page: Đi đến {page}
 Close Banner: Đóng thanh trên
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Danh sách các chương hiển
+    thị, chương hiện tại: {chapterName}'
+  Chapters: Chương
+  'Chapters list hidden, current chapter: {chapterName}': 'Danh sách các chương bị
+    ẩn, chương hiện tại: {chapterName}'
+Channel Unhidden: '{channel} đã bị xóa khỏi bộ lọc kênh'
+Tag already exists: Thẻ "{tagName}" đã tồn tại
+Hashtag:
+  This hashtag does not currently have any videos: Hashtag này hiện không có bất kỳ
+    video nào
+  Hashtag: Hashtag
+Age Restricted:
+  This channel is age restricted: Kênh này bị giới hạn độ tuổi
+  This video is age restricted: Video này bị giới hạn độ tuổi
+Preferences: Tuỳ chỉnh
+Playlist will not pause when current video is finished: Danh sách phát sẽ không tạm
+  dừng khi video hiện tại kết thúc
+Channel Hidden: '{channel} đã thêm vào bộ lọc kênh'
+Playlist will pause when current video is finished: Danh sách phát sẽ tạm dừng khi
+  video hiện tại kết thúc
+Trimmed input must be at least N characters long: Dữ liệu nhập bị cắt bớt phải dài
+  ít nhất 1 ký tự | Dữ liệu nhập bị cắt bớt phải dài ít nhất {length} ký tự
