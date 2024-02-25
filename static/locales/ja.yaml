@@ -280,7 +280,7 @@ Settings:
       Folder Button: フォルダーの選択
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
     Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
-    Allow DASH AV1 formats: DASH AV1形式を許可する
+    Allow DASH AV1 formats: DASH AV1形式を許可
     Comment Auto Load:
       Comment Auto Load: コメント自動読み込み
   Subscription Settings:
@@ -870,8 +870,8 @@ Tooltips:
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: スクロール ホイールを使用して、ビデオ、MPV スタイルをスキップします。
-    Allow DASH AV1 formats: DASH H.264形式よりDASH AV1形式の方がきれいに見える可能性があるけど、再生には必要な電力がより多い。全ての動画でDASH
-      AV1を利用できないため、プレイヤーはDASH H.264形式に自動変更する場合があります。
+    Allow DASH AV1 formats: DASH H.264形式よりもDASH AV1形式の方がきれいに見える可能性がありますが、再生にはより多くの処理能力が必要となります。DASH
+      AV1形式を使用できない場合、プレイヤーはDASH H.264形式を自動で使用します。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
