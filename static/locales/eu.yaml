@@ -34,6 +34,17 @@ Forward: 'Aurrera'
 Global:
   Videos: 'Bideoak'
 
+  Counts:
+    Subscriber Count: 1.harpideduna| {count} harpidedun
+    Watching Count: 1. ikuslea | {count} ikusle
+    Channel Count: 1. kanala ! {count} kanal
+    Video Count: 1. bideoa | {count} bideo
+    View Count: 1. ikustaldia | {count} ikustaldi
+  Live: Zuzenekoa
+  Shorts: Laburrak
+  Input Tags:
+    Length Requirement: Etiketak {zenbaki} karaktere izan behar ditu gutxienez
+  Community: Komunitatea
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
@@ -828,3 +839,5 @@ Channels:
   Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.
 Preferences: Hobespenak
+Go to page: Joan {page}-ra
+Close Banner: Itxi iragarkia
