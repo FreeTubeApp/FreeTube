@@ -32,7 +32,6 @@
           @click="handleNewBlogBannerClick"
         />
       </div>
-      <!-- <keep-alive> -->
       <RouterView
         ref="router"
         v-slot="{ Component }"
@@ -42,10 +41,11 @@
           mode="in-out"
           name="fade"
         >
+          <!-- <keep-alive> -->
           <component :is="Component" />
+          <!-- </keep-alive> -->
         </transition>
       </RouterView>
-      <!-- </keep-alive> -->
     </ft-flex-box>
 
     <ft-prompt
