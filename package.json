@@ -77,7 +77,7 @@
     "vue-observe-visibility": "^2.0.0-alpha.1",
     "vue-router": "^4.2.5",
     "vuex": "^4.1.0",
-    "youtubei.js": "^9.0.2"
+    "youtubei.js": "^9.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -126,7 +126,7 @@
     "vue-loader": "^17.4.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
+    "webpack-dev-server": "^5.0.2",
     "webpack-watch-external-files-plugin": "^3.0.0",
     "yaml-eslint-parser": "^1.2.2"
   }

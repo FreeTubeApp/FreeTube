@@ -9,7 +9,10 @@
     </div>
     <div class="videoMetrics">
       <div class="datePublishedAndViewCount">
-        {{ publishedString }} {{ dateString }} • {{ parsedViewCount }}
+        {{ publishedString }} {{ dateString }}
+        <template v-if="!hideVideoViews">
+          • {{ parsedViewCount }}
+        </template>
       </div>
       <div
         v-if="!hideVideoLikesAndDislikes"
