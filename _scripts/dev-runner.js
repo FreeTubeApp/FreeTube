@@ -1,6 +1,5 @@
 process.env.NODE_ENV = 'development'
 
-const open = require('open')
 const electron = require('electron')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
@@ -161,7 +160,8 @@ function startWeb (callback) {
 if (!web) {
   startRenderer(startMain)
 } else {
-  startWeb(({ port }) => {
+  startWeb(async ({ port }) => {
+    const open = (await import('open')).default
     open(`http://localhost:${port}`)
   })
 }

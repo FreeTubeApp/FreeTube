@@ -296,6 +296,7 @@ Settings:
       Hot Pink: Врућа розе
       Catppuccin Mocha: Catppuccin Mocha
       System Default: Системски подразумевано
+      Nordic: Нордичка
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -466,7 +467,7 @@ Settings:
     Hide Subscriptions Live: Сакриј стримове уживо канала које пратите
     Hide Subscriptions Shorts: Сакриј Shorts снимке канала које пратите
     Display Titles Without Excessive Capitalisation: Прикажи наслове без претераног
-      коришћења великих слова
+      писања великих слова и интерпункције
     Hide Featured Channels: Сакриј истакнуте канале
     Hide Profile Pictures in Comments: Сакриј слике профила у коментарима
     Hide Upcoming Premieres: Сакриј предстојеће премијере
@@ -883,6 +884,7 @@ Video:
     уживо није доступно за овај стрим. Можда га је онемогућио аутор.
   Unhide Channel: Прикажи канал
   Hide Channel: Сакриј канал
+  More Options: Више опција
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -970,11 +972,6 @@ Tooltips:
 Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено
-Age Restricted:
-  Type:
-    Video: Видео снимак
-    Channel: Канал
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} је старосно ограничен(а)'
 New Window: Нови прозор
 Clipboard:
   Copy failed: Копирање у привремену меморију није успело
@@ -1044,7 +1041,7 @@ Share:
     меморију
   YouTube Embed URL copied to clipboard: YouTube уграђени URL је копиран у привремену
     меморију
-Falling back to the local API: Повратак на локални API
+Falling back to Local API: Повратак на локални API
 Unknown YouTube url type, cannot be opened in app: Непозната врста YouTube URL адресе,
   не може се отворити у апликацији
 Search Bar:
@@ -1118,3 +1115,7 @@ Channel Unhidden: '{channel} је уклоњен из филтера канал�
 Trimmed input must be at least N characters long: Исечени унос мора да има најмање
   1 знак | Исечени унос мора да има најмање {length} знакова
 Tag already exists: Ознака „{tagName}“ већ постоји
+Close Banner: Затвори банер
+Age Restricted:
+  This channel is age restricted: Овај канал је ограничен према узрасту
+  This video is age restricted: Овај видео снимак је ограничен према узрасту

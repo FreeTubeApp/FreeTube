@@ -282,7 +282,7 @@ export default defineComponent({
               break
             case 1:
               if (process.env.IS_ELECTRON && this.backendFallback) {
-                showToast(this.$t('Falling back to the local API'))
+                showToast(this.$t('Falling back to Local API'))
                 resolve(this.getChannelLiveLocal(channel, failedAttempts + 1))
               } else {
                 resolve([])
@@ -321,7 +321,7 @@ export default defineComponent({
             return this.getChannelLiveInvidious(channel, failedAttempts + 1)
           case 1:
             if (process.env.IS_ELECTRON && this.backendFallback) {
-              showToast(this.$t('Falling back to the local API'))
+              showToast(this.$t('Falling back to Local API'))
               return this.getChannelLiveLocalRSS(channel, failedAttempts + 1)
             } else {
               return []

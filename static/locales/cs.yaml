@@ -234,7 +234,7 @@ Settings:
   General Settings:
     General Settings: 'Obecné nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
-    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky blogů'
+    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
       backend'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
@@ -444,7 +444,7 @@ Settings:
     Hide Channels: Skrýt videa z kanálů
     Hide Channels Placeholder: ID kanálu
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
-      použití velkých písmen
+      použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
     Hide Channel Playlists: Skrýt playlisty kanálu
     Hide Channel Community: Skrýt komunitu kanálu
@@ -926,6 +926,7 @@ Video:
   Pause on Current Video: Pozastavit na současném videu
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
+  More Options: Další možnosti
 Videos:
   #& Sort By
   Sort By:
@@ -1025,10 +1026,10 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
-      nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
+    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
+      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
       formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána kvůli regionálnímu omezení.'
+      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
@@ -1090,7 +1091,7 @@ Tooltips:
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
-Falling back to the local API: 'Přepínám na lokální API'
+Falling back to Local API: 'Přepínám na lokální API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Toto
   video není k dispozici z důvodu chybějících formátů. K tomu může dojít z důvodu
   nedostupnosti země.'
@@ -1129,11 +1130,6 @@ Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
 Downloading failed: Došlo k problému při stahování "{videoTitle}"
 Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Toto {videoOrPlaylist} je omezeno věkem
-  Type:
-    Channel: kanál
-    Video: Video
 Channels:
   Channels: Kanály
   Title: Seznam kanálů
@@ -1170,3 +1166,7 @@ Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů
 Trimmed input must be at least N characters long: Oříznutý vstup musí být dlouhý alespoň
   1 znak | Oříznutý vstup musí být dlouhý alespoň {length} znaků
 Tag already exists: Štítek „{tagName}“ již existuje
+Close Banner: Zavřít panel
+Age Restricted:
+  This channel is age restricted: Tento kanál je omezen věkem
+  This video is age restricted: Toto video je omezeno věkem

@@ -213,7 +213,7 @@ export default defineComponent({
         switch (failedAttempts) {
           case 0:
             if (process.env.IS_ELECTRON && this.backendFallback) {
-              showToast(this.$t('Falling back to the local API'))
+              showToast(this.$t('Falling back to Local API'))
               return this.getChannelShortsLocal(channel, failedAttempts + 1)
             } else {
               return []

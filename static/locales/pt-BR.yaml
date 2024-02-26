@@ -531,7 +531,7 @@ Settings:
     Hide Upcoming Premieres: Ocultar as Próximas Estréias
     Hide Channels Placeholder: ID do Canal
     Display Titles Without Excessive Capitalisation: Mostrar Títulos sem Capitalização
-      Excessiva
+      Excessiva nem Pontuação
     Hide Channels: Ocultar Vídeos dos Canais
     Sections:
       Side Bar: Barra lateral
@@ -904,6 +904,7 @@ Video:
   Pause on Current Video: Pausar no vídeo atual
   Unhide Channel: Mostrar Canal
   Hide Channel: Ocultar o canal
+  More Options: Mais Opções
 Videos:
   #& Sort By
   Sort By:
@@ -987,7 +988,7 @@ Up Next: 'Próximo'
 Local API Error (Click to copy): 'Erro da API local (clique para copiar)'
 Invidious API Error (Click to copy): 'Erro da API do Invidious (clique para copiar)'
 Falling back to Invidious API: 'Recorrendo à API do Invidious'
-Falling back to the local API: 'Recorrendo à API local'
+Falling back to Local API: 'Recorrendo à API local'
 Subscriptions have not yet been implemented: 'Inscrições ainda não foram implementadas'
 Loop is now disabled: 'O ciclo foi desativado'
 Loop is now enabled: 'O ciclo está ativado'
@@ -1075,11 +1076,10 @@ Tooltips:
       áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
       vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
-    Force Local Backend for Legacy Formats: Só funciona quando a API do Invidious
-      é predefinida. Quando ativada, a API local será executada e usará os formatos
-      antigos retornados por ela em vez dos retornados pelo Invidious. É útil quando
-      os vídeos retornados pelo Invidious não são reproduzidos devido a restrições
-      de país.
+    Force Local Backend for Legacy Formats: Funciona apenas quando a API do Invidious
+      é o padrão. Quando ativada, a API Local será executada e usará os formatos herdados
+      retornados por ela, em vez dos retornados pelo Invidious. Ajuda quando os vídeos
+      retornados pelo Invidious não são reproduzidos devido a restrições do país.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
       e segure a tecla Control (tecla Command no Mac) e role a roda do mouse para
       frente ou para trás para controlar a taxa de reprodução. Pressione e segure
@@ -1177,14 +1177,6 @@ Channels:
   Unsubscribed: '{channelName} foi removido de suas assinaturas'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canal(is) encontrado(s).'
-Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição
-    de idade
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Esse(a) {videoOrPlaylist} tem restrição
-    de idade
 Screenshot Success: Captura de tela salva como "{filePath}"
 Screenshot Error: Falha na captura de tela. {error}
 Preferences: Preferências
@@ -1213,3 +1205,7 @@ Channel Unhidden: '{channel} removido do filtro do canal'
 Trimmed input must be at least N characters long: A entrada cortada deve ter pelo
   menos 1 caractere | A entrada cortada precisa ter pelo menos {length} caracteres
 Tag already exists: A tag "{tagName}" já existe
+Close Banner: Fechar Banner
+Age Restricted:
+  This channel is age restricted: Este canal tem restrição de idade
+  This video is age restricted: Este vídeo tem restrição de idade
