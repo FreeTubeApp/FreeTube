@@ -108,7 +108,7 @@
 
       <div class="playlistOptions">
         <ft-icon-button
-          v-if="isUserPlaylist && !editMode"
+          v-if="isUserPlaylist && videoCount > 0 && !editMode"
           ref="enableSearchModeButton"
           :title="$t('User Playlists.SinglePlaylistView.Search for Videos')"
           :icon="['fas', 'search']"
