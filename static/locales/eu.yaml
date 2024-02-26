@@ -101,6 +101,14 @@ Subscriptions:
   Refresh Subscriptions: 'Harpidetzak freskatu'
   Load More Videos: 'Bideo gehiago kargatu'
   Error Channels: Akatsak dituzten kateak
+  Disabled Automatic Fetching: Harpidetza-bilaketa automatikoa desgaitu duzu. Freskatu
+    harpidetzak hemen ikusteko.
+  Empty Channels: Harpidetutako kanalek ez dute bideorik.
+  Empty Posts: Harpidetutako kanalek ez dute argitalpenik.
+  Load More Posts: Kargatu mezu gehiago
+  Subscriptions Tabs: Harpidetzen fitxak
+  All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia
+    ikusteko, erakutsi fitxa batzuk "{azpisection}" ataleko "{settingsSection}"-ean.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -122,6 +130,24 @@ User Playlists:
   Search bar placeholder: Bilatu Erreprodukzio-zerrendan
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
     bat datorren bideorik
+  Remove Watched Videos: Kendu ikusitako bideoak
+  You have no playlists. Click on the create new playlist button to create a new one.: Ez
+    duzu erreprodukzio-zerrendarik. Egin klik sortu erreprodukzio-zerrenda berria
+    botoian berri bat sortzeko.
+  This playlist currently has no videos.: Erreprodukzio-zerrenda honek ez du bideorik.
+  Create New Playlist: Sortu erreprodukzio zerrenda berria
+  Add to Playlist: Gehitu erreprodukzio zerrendara
+  Add to Favorites: Gehitu {playlistName}-ra
+  Remove from Favorites: Kendu {playlistName}tik
+  Move Video Up: Mugitu bideoa gora
+  Move Video Down: Mugitu bideoa behera
+  Remove from Playlist: Kendu erreprodukzio zerrendatik
+  Playlist Name: Erreprodukzio zerrendaren izena
+  Playlist Description: Erreprodukzio-zerrendaren deskribapena
+  Save Changes: Gorde aldaketak
+  Cancel: Utzi
+  Edit Playlist Info: Editatu erreprodukzio zerrendaren informazioa
+  Copy Playlist: Kopiatu Erreprodukzio zerrenda
 History:
   # On History Page
   History: 'Historikoa'
