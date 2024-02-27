@@ -105,6 +105,7 @@ export default defineComponent({
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
+      thumbnailLoaded: false,
     }
   },
   computed: {
@@ -855,6 +856,10 @@ export default defineComponent({
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
+    onThumbnailLoad() {
+      this.thumbnailLoaded = true
     },
 
     ...mapActions([
