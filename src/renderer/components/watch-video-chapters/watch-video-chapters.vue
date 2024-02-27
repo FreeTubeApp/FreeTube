@@ -1,5 +1,12 @@
 <template>
   <ft-card class="videoChapters">
+    <div
+      v-observe-visibility="observeVisibilityOptions"
+    >
+      <!--
+        Dummy element to be observed by Intersection Observer
+      -->
+    </div>
     <h3
       class="chaptersTitle"
       tabindex="0"
