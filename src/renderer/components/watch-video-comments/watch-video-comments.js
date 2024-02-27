@@ -40,6 +40,7 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: false,
+      isError: false,
       showComments: false,
       nextPageToken: null,
       commentData: [],
@@ -111,7 +112,9 @@ export default defineComponent({
     },
 
     canPerformInitialCommentLoading: function () {
-      return this.commentData.length === 0 && !this.isLoading && !this.showComments
+      // When error encountered due to YT returning new comment structure
+      // Until YouTube.js supports it, we can only allow users to retry fetching comments
+      return this.isError || (this.commentData.length === 0 && !this.isLoading && !this.showComments)
     },
 
     canPerformMoreCommentLoading: function () {
@@ -151,6 +154,7 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
+      this.isError = false
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
       } else {
@@ -225,6 +229,7 @@ export default defineComponent({
           showToast(this.$t('Falling back to Invidious API'))
           this.getCommentDataInvidious()
         } else {
+          this.isError = true
           this.isLoading = false
         }
       }
