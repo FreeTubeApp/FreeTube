@@ -19,12 +19,8 @@
         <img
           :src="thumbnail"
           class="thumbnailImage"
-          :class="{
-            thumbnailLoading: !thumbnailLoaded,
-          }"
           alt=""
           :style="{filter: blurThumbnailsStyle}"
-          @load="onThumbnailLoad"
         >
       </router-link>
       <div
