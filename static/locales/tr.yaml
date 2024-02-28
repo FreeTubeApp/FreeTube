@@ -191,6 +191,7 @@ User Playlists:
         | {videoCount} video 1 oynatma listesine eklendi
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
+    Added {count} Times: '{count} Defa Eklendi | {count} Defa Eklendi'
   CreatePlaylistPrompt:
     New Playlist Name: Yeni Oynatma Listesi Adı
     Create: Oluştur
