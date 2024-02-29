@@ -1140,3 +1140,7 @@ Go to page: Fara á {page}
 Channel Hidden: '{channel} bætt við rásasíu'
 Channel Unhidden: '{channel} fjarlægt úr rásasíu'
 Close Banner: Loka borða
+Age Restricted:
+  This video is age restricted: Þetta myndskeið er með aldurstakmörkunum
+  This channel is age restricted: Þessi rás er með aldurstakmörkunum
+Tag already exists: '"{tagName}" merkið er þegar til staðar'
