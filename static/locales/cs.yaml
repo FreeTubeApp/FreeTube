@@ -146,6 +146,7 @@ User Playlists:
     Select a playlist to add your N videos to: Vyberte playlist, do kterého přidat
       vaše video | Vyberte playlist, do kterého přidat vašich {videoCount} videí
     N playlists selected: Vybráno {playlistCount}
+    Added {count} Times: Přidáno {count}krát | Přidáno {count}krát
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nejsou zde žádná videa k odstranění.

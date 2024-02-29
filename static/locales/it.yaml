@@ -143,6 +143,7 @@ User Playlists:
     Select a playlist to add your N videos to: Seleziona una playlist a cui aggiungere
       il tuo video | Seleziona una playlist a cui aggiungere i tuoi {videoCount} video
     N playlists selected: '{playlistCount} selezionate'
+    Added {count} Times: Aggiunto {count} volta | Aggiunti {count} volte
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Non c'erano video da rimuovere.

@@ -214,6 +214,8 @@ User Playlists:
     Search in Playlists: Search in Playlists
     Save: Save
 
+    Added {count} Times: 'Added {count} Time | Added {count} Times'
+
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
       "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"

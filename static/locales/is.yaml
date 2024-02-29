@@ -44,6 +44,8 @@ Global:
     Subscriber Count: 1 áskrifandi | {count} áskrifendur
     View Count: 1 áhorf | {count} áhorf
     Watching Count: 1 að horfa | {count} að horfa
+  Input Tags:
+    Length Requirement: Merki þarf að vera a.m.k. {number} stafa langt
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -174,6 +176,14 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sum
         myndskeið í spilunarlistanum hafa ekki enn hlaðist inn. Smelltu hér til að
         afrita samt.
+      This playlist is now used for quick bookmark: Þessi spilunarlisti er núna notaður
+        undir flýtibókamerki
+      Quick bookmark disabled: Flýtibókamerki óvirk
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Þessi
+        spilunarlisti er núna notaður undir flýtibókamerki í stað {oldPlaylistName}.
+        Smelltu hér til að afturkalla
+      Reverted to use {oldPlaylistName} for quick bookmark: Snéri aftur í að nota
+        {oldPlaylistName} undir flýtibókamerki
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
     Search in Playlists: Leita í spilunarlistum
@@ -187,6 +197,7 @@ User Playlists:
         | {videoCount} myndskeiðum bætt við 1 spilunarlista
     Select a playlist to add your N videos to: Veldu spilunarlista til að bæta myndskeiðinu
       þínu á | Veldu spilunarlista til að bæta {videoCount}̣ myndskeiðunum þínum á
+    Added {count} Times: Bætt við {count} sinni | Bætt við {count} sinnum
   CreatePlaylistPrompt:
     Create: Búa til
     New Playlist Name: Heiti á nýjum spilunarlista
@@ -209,6 +220,10 @@ User Playlists:
   Delete Playlist: Eyða spilunarlista
   Are you sure you want to delete this playlist? This cannot be undone: Ertu viss
     um að þú viljir eyða þessum spilunarlista? Aðgerðin er ekki afturkallanleg.
+  Add to Favorites: Bæta á {playlistName}
+  Remove from Favorites: Fjarlægja af {playlistName}
+  Enable Quick Bookmark With This Playlist: Virkja flýtibókamerki með þessum spilunarlista
+  Disable Quick Bookmark: Eyða flýtibókamerki
 History:
   # On History Page
   History: 'Áhorf'
@@ -283,6 +298,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastelbleikt
       Hot Pink: Dimmbleikt
+      Nordic: Norrænt
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -436,6 +452,7 @@ Settings:
     Hide Channels: Fela myndskeið úr rásum
     Hide Channels Placeholder: Auðkenni rásar
     Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
+      og greinarmerkja
     Sections:
       Side Bar: Hliðarspjald
       Channel Page: Rásasíða
@@ -461,6 +478,9 @@ Settings:
     Hide Channels Already Exists: Auðkenni rásar er þegar til
     Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu
       aftur hvort auðkennið ré rétt.
+    Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem
+      innihalda texta
+    Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -721,6 +741,7 @@ Channel:
     Reveal Answers: Birta svör
     Hide Answers: Fela svör
     votes: '{votes} atkvæði'
+    Video hidden by FreeTube: Myndskeið falið af FreeTube
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
@@ -878,6 +899,7 @@ Video:
   Pause on Current Video: Setja núverandi myndskeið í bið
   Unhide Channel: Birta rás
   Hide Channel: Fela rás
+  More Options: Fleiri valkostir
 Videos:
   #& Sort By
   Sort By:
@@ -1117,3 +1139,8 @@ Playlist will not pause when current video is finished: Spilunarlisti mun ekki f
 Go to page: Fara á {page}
 Channel Hidden: '{channel} bætt við rásasíu'
 Channel Unhidden: '{channel} fjarlægt úr rásasíu'
+Close Banner: Loka borða
+Age Restricted:
+  This video is age restricted: Þetta myndskeið er með aldurstakmörkunum
+  This channel is age restricted: Þessi rás er með aldurstakmörkunum
+Tag already exists: '"{tagName}" merkið er þegar til staðar'
