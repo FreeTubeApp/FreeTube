@@ -90,3 +90,32 @@
   position: relative;
   inset-block-end: 7px;
 }
+
+.messageContainer {
+  inline-size: 100%;
+  block-size: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.messageContainer.message {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.errorIcon {
+  inline-size: 100%;
+  color: var(--tertiary-text-color);
+  font-size: 70px;
+}
+
+.viewPlaylist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

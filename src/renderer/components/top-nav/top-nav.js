@@ -134,7 +134,7 @@ export default defineComponent({
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
           case 'video': {
-            const { videoId, timestamp, playlistId } = result
+            const { videoId, timestamp, playlistId, origin, playlistType } = result
 
             const query = {}
             if (timestamp) {
@@ -142,6 +142,8 @@ export default defineComponent({
             }
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
+              query.origin = origin
+              query.playlistType = playlistType
             }
 
             openInternalPath({

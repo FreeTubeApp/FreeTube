@@ -177,6 +177,8 @@
         :playlist-type="playlistType"
         :video-id="videoId"
         :playlist-item-id="playlistItemId"
+        :is-invidious-playlist="isInvidiousPlaylist"
+        :origin="origin"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
         @pause-player="pausePlayer"

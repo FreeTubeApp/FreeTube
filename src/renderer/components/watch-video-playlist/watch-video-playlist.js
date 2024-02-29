@@ -3,6 +3,7 @@ import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
+import FtButton from '../ft-button/ft-button.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
@@ -16,7 +17,8 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video-numbered': FtListVideoNumbered
+    'ft-list-video-numbered': FtListVideoNumbered,
+    'ft-button': FtButton
   },
   props: {
     playlistId: {
@@ -60,6 +62,7 @@ export default defineComponent({
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: [],
+      fetchIVPlaylist: false,
 
       getPlaylistInfoRun: false,
     }
@@ -246,6 +249,11 @@ export default defineComponent({
     }
   },
   methods: {
+    enableViewPlaylist: function () {
+      this.fetchIVPlaylist = true
+      this.getPlaylistInfoWithDelay()
+    },
+
     getPlaylistInfoWithDelay: function () {
       if (this.getPlaylistInfoRun) { return }
 
@@ -257,10 +265,15 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && this.backendFallback)) {
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && this.backendFallback) || this.fetchIVPlaylist) {
         this.getPlaylistInformationInvidious()
       } else {
-        this.getPlaylistInformationLocal()
+        if (!this.isInvidiousPlaylist) {
+          this.getPlaylistInformationLocal()
+        } else {
+          this.isLoading = false
+          this.getPlaylistInfoRun = false
+        }
       }
     },
 

@@ -4,6 +4,25 @@
       v-if="isLoading"
     />
     <div
+      v-else-if="isInvidiousPlaylist && !fetchIVPlaylist && backendPreference !== 'invidious' && !backendFallback"
+      class="messageContainer"
+    >
+      <p
+        class="message"
+      >
+        {{ $t('Playlist.Invidious Playlist Cannot Be Viewed', { invidiousInstance: origin }) }}
+      </p>
+      <font-awesome-icon
+        :icon="['fas', 'exclamation-circle']"
+        class="errorIcon"
+      />
+      <ft-button
+        :label="$t('Playlist.View Playlist')"
+        class="viewPlaylist"
+        @click="enableViewPlaylist"
+      />
+    </div>
+    <div
       v-else
     >
       <h3

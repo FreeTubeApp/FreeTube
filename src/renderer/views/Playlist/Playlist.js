@@ -55,6 +55,7 @@ export default defineComponent({
       channelId: '',
       infoSource: 'local',
       isInvidiousPlaylist: false,
+      fetchIVPlaylist: false,
       origin: null,
       playlistItems: [],
       userPlaylistVisibleLimit: 100,
@@ -174,6 +175,11 @@ export default defineComponent({
     this.getPlaylistInfoDebounce()
   },
   methods: {
+    enableViewPlaylist: function () {
+      this.fetchIVPlaylist = true
+      this.getPlaylistInfoDebounce()
+    },
+
     getPlaylistInfo: function () {
       this.isLoading = true
       // `selectedUserPlaylist` result accuracy relies on data being ready
@@ -189,17 +195,17 @@ export default defineComponent({
       }
 
       this.query = this.$route.query ?? {}
-      if (this.query.playlistType === 'invidious' && (this.backendPreference === 'invidious' || (this.backendPreference === 'local' && this.backendFallback))) {
-        // playlist only exists in invidious!
+      this.isInvidiousPlaylist = this.query.playlistType === 'invidious'
+      this.origin = this.query.origin
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && this.backendFallback) || this.fetchIVPlaylist) {
+        // playlist exists only invidious/user prefers invidious
         this.getPlaylistInvidious()
       } else {
-        switch (this.backendPreference) {
-          case 'local':
-            this.getPlaylistLocal()
-            break
-          case 'invidious':
-            this.getPlaylistInvidious()
-            break
+        if (!this.isInvidiousPlaylist) {
+          this.getPlaylistLocal()
+        } else {
+          this.isLoading = false
         }
       }
     },
@@ -271,8 +277,7 @@ export default defineComponent({
         this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails.at(2)?.url, this.currentInvidiousInstance)
         this.channelId = result.authorId
         this.infoSource = 'invidious'
-        this.isInvidiousPlaylist = this.query.playlistType === 'invidious'
-        this.origin = origin
+
         if (!this.query.playlistType === 'invidious') {
           this.updateSubscriptionDetails({
             channelThumbnailUrl: result.authorThumbnails[2].url,
