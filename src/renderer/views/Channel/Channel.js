@@ -1444,7 +1444,7 @@ export default defineComponent({
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
-          this.getChannelPodcastsInvidious()
+          this.channelInvidiousPodcasts()
         } else {
           this.isLoading = false
         }
