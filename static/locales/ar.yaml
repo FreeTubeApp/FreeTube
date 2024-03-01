@@ -186,6 +186,7 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
+    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
