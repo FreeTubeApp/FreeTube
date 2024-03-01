@@ -13,7 +13,7 @@ Redo: 'Refazer'
 Cut: 'Cortar'
 Copy: 'Copiar'
 Paste: 'Colar'
-Delete: 'Apagar'
+Delete: 'Excluir'
 Select all: 'Selecionar tudo'
 Reload: 'Recarregar'
 Force Reload: 'Forçar recarga'
@@ -712,7 +712,7 @@ Channel:
       Oldest: 'Antigos'
       Most Popular: 'Mais populares'
   Playlists:
-    Playlists: 'Listas'
+    Playlists: 'Playlists'
     This channel does not currently have any playlists: 'Este canal não possui nenhuma
       lista no momento'
     Sort Types:
@@ -740,18 +740,18 @@ Channel:
   Community:
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
-    votes: '{votes} Votos'
+    votes: '{votes} votos'
     Reveal Answers: Revelar respostas
     Hide Answers: Ocultar respostas
     Video hidden by FreeTube: Vídeo escondido pelo FreeTube
-  Channel Tabs: Abas dos Canais
+  Channel Tabs: Abas de canais
   Live:
     Live: Ao vivo
     This channel does not currently have any live streams: Este canal não tem nenhuma
       transmissão ao vivo no momento
   Shorts:
-    This channel does not currently have any shorts: Este canal não tem atualmente
-      nenhum short
+    This channel does not currently have any shorts: Este canal não tem nenhum "Shorts"
+      no momento
   Podcasts:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: Este canal não possui podcasts
@@ -764,7 +764,7 @@ Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
   Video has been marked as watched: 'O vídeo foi marcado como assistido'
-  Video has been removed from your history: 'O vídeo foi removido do teu histórico'
+  Video has been removed from your history: 'O vídeo foi removido do seu histórico'
   Open in YouTube: 'Abrir no YouTube'
   Copy YouTube Link: 'Copiar link do YouTube'
   Open YouTube Embedded Player: 'Abrir vídeo incorporado do YouTube'
@@ -781,7 +781,7 @@ Video:
   Live Chat is currently not supported in this build.: 'Chat ao vivo não é suportado
     nessa versão.'
   'Chat is disabled or the Live Stream has ended.': 'O chat está desativado ou a transmissão
-    ao vivo se encerrou.'
+    ao vivo terminou.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat ao vivo habilitado.
     As mensagens irão aparecer uma vez enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'O
@@ -800,20 +800,20 @@ Video:
     Oct: 'Out'
     Nov: 'Nov'
     Dec: 'Dez'
-    Second: 'segundo'
-    Seconds: 'segundos'
-    Hour: 'hora'
-    Hours: 'horas'
-    Day: 'dia'
-    Days: 'dias'
+    Second: 'Segundo'
+    Seconds: 'Segundos'
+    Hour: 'Hora'
+    Hours: 'Horas'
+    Day: 'Dia'
+    Days: 'Dias'
     Week: 'Semana'
     Weeks: 'Semanas'
-    Month: 'mês'
-    Months: 'meses'
-    Year: 'ano'
-    Years: 'anos'
-    Ago: 'Atrás'
-    Upcoming: 'Futuramente em'
+    Month: 'Mês'
+    Months: 'Meses'
+    Year: 'Ano'
+    Years: 'Anos'
+    Ago: 'atrás'
+    Upcoming: 'Estreia em'
     Minutes: Minutos
     Minute: Minuto
     Less than a minute: Menos de um minuto
@@ -830,17 +830,17 @@ Video:
     High: Alta
   audio only: somente áudio
   video only: somente vídeo
-  Download Video: Baixar Vídeo
+  Download Video: Baixar vídeo
   Starting soon, please refresh the page to check again: Vai começar em breve, favor
     atualizar a página para verificar novamente
   Autoplay: Reprodução Automática
-  Play Previous Video: Reproduzir o Vídeo Anterior
-  Play Next Video: Reproduzir o Próximo Vídeo
+  Play Previous Video: Reproduzir vídeo anterior
+  Play Next Video: Reproduzir próximo vídeo
   Reverse Playlist: Inverter ordem da playlist
   Shuffle Playlist: Playlist aleatória
   Loop Playlist: Repetir playlist
   Copy Invidious Channel Link: Copiar link do canal no Invidious
-  Open Channel in Invidious: Abrir Canal no Invidious
+  Open Channel in Invidious: Abrir canal no Invidious
   Copy YouTube Channel Link: Copiar o link do canal no YouTube
   Open Channel in YouTube: Abrir canal no YouTube
   Video has been removed from your saved list: O vídeo foi removido da sua lista de
@@ -860,7 +860,7 @@ Video:
   Skipped segment: Segmentos pulados
   External Player:
     Unsupported Actions:
-      shuffling playlists: embaralhar playlists
+      shuffling playlists: embaralhando playlists
       opening specific video in a playlist (falling back to opening the video): abrir
         um vídeo específico em uma playlist (voltar à abertura do vídeo)
       reversing playlists: revertendo playlists
@@ -896,16 +896,16 @@ Video:
     Dropped / Total Frames: Quadros perdidos / Total de quadros
   Premieres in: Estréias em
   Premieres: Estreia
-  Scroll to Bottom: Rolar para o final
-  Show Super Chat Comment: Mostrar Comentários do Super Chat
+  Scroll to Bottom: Ir para o final
+  Show Super Chat Comment: Mostrar comentários do Super Chat
   Upcoming: Em breve
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
     bate-papo ao vivo não está disponível para esta transmissão. Pode ter sido desativado
     pelo responsável.
   Pause on Current Video: Pausar no vídeo atual
-  Unhide Channel: Mostrar Canal
+  Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
-  More Options: Mais Opções
+  More Options: Mais opções
 Videos:
   #& Sort By
   Sort By:
@@ -937,25 +937,25 @@ Change Format:
     este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
-  Share Playlist: 'Compartilhar Lista'
+  Share Playlist: 'Compartilhar playlist'
   Copy Link: 'Copiar link'
   Open Link: 'Abrir link'
   Copy Embed: 'Copiar incorporado'
   Open Embed: 'Abrir incorporado'
   # On Click
-  Invidious URL copied to clipboard: 'O URL do Invidious está na área de transferência'
-  Invidious Embed URL copied to clipboard: 'O URL incorporado do Invidious está na
-    área de transferência'
-  YouTube URL copied to clipboard: 'O URL do YouTube está na área de transferência'
-  YouTube Embed URL copied to clipboard: 'O URL incorporado do YouTube está na área
-    de transferência'
+  Invidious URL copied to clipboard: 'URL Invidious copiado para a área de transferência'
+  Invidious Embed URL copied to clipboard: 'URL incorporado do Invidious copiado para
+    a área de transferência'
+  YouTube URL copied to clipboard: 'O URL do YouTube copiado para a área de transferência'
+  YouTube Embed URL copied to clipboard: 'O URL incorporado do YouTube copiado para
+    a área de transferência'
   YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para a área
     de transferência
-  Invidious Channel URL copied to clipboard: URL do Canal Invidious copiado para a
+  Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a
     área de transferência
-  Include Timestamp: Incluir Marcação de Tempo
-  Share Channel: Compartilhar Canal
-Mini Player: 'Visualizador Pequeno'
+  Include Timestamp: Incluir marcação de tempo
+  Share Channel: Compartilhar canal
+Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentários'
   Click to View Comments: 'Mostrar comentários'
@@ -975,7 +975,7 @@ Comments:
   Top comments: Melhores comentários
   Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
-  Show More Replies: Mostrar Mais Respostas
+  Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por
   And others: e outros
   From {channelName}: de {channelName}
@@ -1022,23 +1022,23 @@ Profile:
   Profile Manager: Gerenciador de perfis
   Profile Select: Seleção de perfil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem
-    certeza de que quer apagar os canais slecionados? Esta ação não vai apagar os
+    certeza de que quer apagar os canais selecionados? Esta ação não vai excluir os
     canais de nenhum outro perfil.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Este é o seu perfil principal. Tem certeza de que quer apagar os canais selecionados?
-    Os mesmos vão ser apagados em qualquer perfil em que se encontrem.
+  : Este é o seu perfil principal. Tem certeza de que quer excluir os canais selecionados?
+    Os mesmos vão ser excluídos em qualquer perfil em que se encontrem.
   No channel(s) have been selected: Nenhum canal foi selecionado
-  Add Selected To Profile: Adicionar Selecionado ao Perfil
-  Delete Selected: Apagar Selecionados
-  Select None: Selecionar Nenhum
-  Select All: Selecionar Todos
+  Add Selected To Profile: Adicionar selecionado ao perfil
+  Delete Selected: Excluir selecionados
+  Select None: Selecionar nenhum
+  Select All: Selecionar todos
   '{number} selected': '{number} selecionado'
-  Other Channels: Outros Canais
+  Other Channels: Outros canais
   Subscription List: Lista de Inscrições
   '{profile} is now the active profile': '{profile} é agora o perfil ativo'
   Your default profile has been changed to your primary profile: Seu perfil padrão
-    foi mudado para o seu perfil principal
+    foi alterado para seu perfil principal
   Removed {profile} from your profiles: '{profile} foi removido dos seus perfis'
   Your default profile has been set to {profile}: Seu perfil padrão foi definido como
     {profile}
@@ -1051,8 +1051,8 @@ Profile:
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
   Create Profile Name: Criar nome de perfil
-  Open Profile Dropdown: Abrir Menu Suspenso de Perfil
-  Close Profile Dropdown: Fechar Menu Suspenso de Perfil
+  Open Profile Dropdown: Abrir menu do perfil
+  Close Profile Dropdown: Fechar menu do perfil
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
@@ -1178,13 +1178,13 @@ Channels:
   Unsubscribed: '{channelName} foi removido de suas inscrições'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canal(is) encontrado(s).'
-Screenshot Success: Captura de tela salva como "{filePath}"
+Screenshot Success: Captura de tela salva em "{filePath}"
 Screenshot Error: Falha na captura de tela. {error}
 Preferences: Preferências
 Clipboard:
-  Copy failed: Copiar para a área de transferência falhou
-  Cannot access clipboard without a secure connection: Não pode acessar a área de
-    transferência sem uma conexão segura
+  Copy failed: Falha ao copiar para a área de transferência
+  Cannot access clipboard without a secure connection: Não é possível acessar a área
+    de transferência sem uma conexão segura
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Lista visível de capítulos,
     capítulo atual: {chapterName}'
