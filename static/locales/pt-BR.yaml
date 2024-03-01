@@ -1,8 +1,8 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando já houver
-  progresso.
+  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando o progresso
+  tiver sido feito.
 
 # Webkit Menu Bar
 File: 'Arquivo'
@@ -72,7 +72,7 @@ Search Filters:
     Movies: Filmes
   Duration:
     Duration: 'Duração'
-    All Durations: 'Qualquer duração'
+    All Durations: 'Todas as durações'
     Short (< 4 minutes): 'Curto (< 4 minutos)'
     Long (> 20 minutes): 'Longo (> 20 minutos)'
   # On Search Page
@@ -87,7 +87,7 @@ Subscriptions:
   Subscriptions: 'Inscrições'
   Latest Subscriptions: 'Últimas inscrições'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sua
-    lista de inscrições está vazia. Comece a se inscrever para as ver aqui.'
+    lista de inscrições está vazia no momento. Adicione algumas para vê-las aqui.'
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
   Refresh Subscriptions: Atualizar inscrições
   'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, espere.
@@ -96,14 +96,14 @@ Subscriptions:
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
     de rede
   Error Channels: Canais com erros
-  Disabled Automatic Fetching: Você desativou a busca automática de assinaturas. Atualize-as
-    para vê-las aqui.
-  Empty Channels: No momento, seus canais inscritos não têm vídeos.
+  Disabled Automatic Fetching: Você desativou a busca automática de inscrições. Atualize
+    as inscrições para vê-las aqui.
+  Empty Channels: Atualmente, os canais em que você está inscrito não possuem vídeos.
   Subscriptions Tabs: Abas de inscrição
   All Subscription Tabs Hidden: Todos as abas de inscrição estão ocultas. Para ver
     o conteúdo aqui, exiba algumas abas na seção "{subsection}" em "{settingsSection}".
   Load More Posts: Carregar mais posts
-  Empty Posts: No momento, seus canais inscritos não têm nenhum post.
+  Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -118,13 +118,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
     seus vídeos salvos estão vazios. Clique no botão salvar no canto de um vídeo para
     que ele seja listado aqui
-  Playlist Message: Esta página não reflete playlists totalmente funcionais. Ele só
-    lista vídeos que você salvou ou favoritou. Quando o trabalho estiver concluído,
-    todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
+  Playlist Message: Esta página não reflete playlists totalmente funcionais. Ela lista
+    apenas os vídeos que você salvou ou adicionou aos favoritos. Quando o trabalho
+    terminar, todos os vídeos atualmente aqui serão migrados para uma playlist em
+    "Favoritos".
   Search bar placeholder: Pesquisar na playlist
   Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
   You have no playlists. Click on the create new playlist button to create a new one.: Você
-    não tem playlists. Clique no botão "criar playlist" para criar uma.
+    não tem playlists. Clique no botão "Criar playlist" para criar uma.
   This playlist currently has no videos.: Esta playlist não tem vídeos atualmente.
   Create New Playlist: Criar nova playlist
   Add to Playlist: Adicionar à playlist
@@ -207,6 +208,7 @@ User Playlists:
     N playlists selected: '{playlistCount} selecionadas'
     Search in Playlists: Pesquisar nas playlists
     Save: Salvar
+    Added {count} Times: Adicionado {count} vez | Adicionado {count} vezes
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
     certeza de que deseja remover todos os vídeos assistidos desta playlist? Isto
     não pode ser desfeito.
@@ -215,7 +217,7 @@ History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
-  Your history list is currently empty.: 'Seu Histórico está vazio no momento.'
+  Your history list is currently empty.: 'Seu histórico está vazio no momento.'
   Search bar placeholder: Pesquisar no histórico
   Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
 Settings:
@@ -246,26 +248,26 @@ Settings:
       Blur: Desfocar
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
       Invidious (A padrão é https://invidious.snopyta.org)'
-    Region for Trending: 'Região para o “Em alta”'
+    Region for Trending: 'Região da Tendência'
         #! List countries
-    Check for Updates: Checar por atualizações
+    Check for Updates: Buscar por atualizações
     Check for Latest Blog Posts: Verificar se há novas postagens no blog
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
-    System Default: Padrão do Sistema
+    System Default: Padrão do sistema
     No default instance has been set: Nenhuma instância padrão foi definida
     The currently set default instance is {instance}: A instância padrão atualmente
       definida é {instance}
-    Current instance will be randomized on startup: A instância atual será randomizada
+    Current instance will be randomized on startup: A instância atual será aleatória
       na inicialização
     Set Current Instance as Default: Definir instância atual como padrão
     Clear Default Instance: Limpar instância padrão
-    Current Invidious Instance: Instância do Invidious atual
+    Current Invidious Instance: Instância Invidious atual
     External Link Handling:
       No Action: Nenhuma ação
       Ask Before Opening Link: Perguntar antes de abrir o link
       Open Link: Abrir Link
-      External Link Handling: Manuseio de link externo
+      External Link Handling: Tratamento de link externo
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
@@ -305,7 +307,7 @@ Settings:
       Dracula Purple: 'Drácula Roxa'
       Dracula Red: 'Drácula Vermelha'
       Dracula Yellow: 'Drácula Amarelo'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Água de Rosas
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
       Catppuccin Mocha Pink: Catppuccin Mocha Rosa
@@ -318,23 +320,23 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Amarelo
       Catppuccin Mocha Sky: Catppuccin Mocha Céu
       Catppuccin Mocha Teal: Catppuccin Mocha Verde-azulado
-      Catppuccin Mocha Lavender: Catppuccin moka lavanda
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
-    Disable Smooth Scrolling: Desativar Rolagem Suave
-    Expand Side Bar by Default: Expandir Barra Lateral por Padrão
+    Disable Smooth Scrolling: Desativar rolagem suave
+    Expand Side Bar by Default: Expandir barra lateral por padrão
     Hide Side Bar Labels: Ocultar etiquetas da barra lateral
     Hide FreeTube Header Logo: Esconder o logotipo do cabeçalho do FreeTube
   Player Settings:
-    Player Settings: 'Configurações do vídeo'
+    Player Settings: 'Configurações do player'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
     Remember History: 'Lembrar do histórico'
     Play Next Video: 'Reproduzir próximo vídeo'
     Turn on Subtitles by Default: 'Ativar legendas por padrão'
-    Autoplay Videos: 'Reproduzir automaticamente'
+    Autoplay Videos: 'Reprodução automática dos vídeos'
     Proxy Videos Through Invidious: 'Usar o Invidious como proxy'
-    Autoplay Playlists: 'Reproduzir listas automaticamente'
+    Autoplay Playlists: 'Reprodução automática das playlists'
     Enable Theatre Mode by Default: 'Habilitar modo teatro por padrão'
     Default Volume: 'Volume padrão'
     Default Playback Rate: 'Velocidade de reprodução'
@@ -357,18 +359,17 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
     Next Video Interval: Próximo intervalo de vídeo
-    Display Play Button In Video Player: Exibir botão de reprodução no tocador de
-      vídeo
-    Scroll Volume Over Video Player: Rolar volume sobre o reprodutor de vídeo
+    Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
+    Scroll Volume Over Video Player: Rolar volume sobre o player de vídeo
     Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
-    Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o reprodutor
+    Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o player
       de vídeo
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
       File Name Label: Padrão de nome de arquivo
       Enable: Ativar captura de tela
-      Ask Path: Perguntar onde salvar
+      Ask Path: Perguntar onde salvar os arquivos
       Folder Label: Pasta de captura de tela
       Folder Button: Selecionar pasta
       Error:
@@ -382,7 +383,7 @@ Settings:
         do vídeo 3 dígitos. %i ID do vídeo. Você também pode usar "\" ou "/" para
         criar subpastas.
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela
-    Skip by Scrolling Over Video Player: Pular rolando o tocador de vídeo
+    Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do player
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Comment Auto Load:
       Comment Auto Load: Carregar automaticamente os comentários
@@ -500,7 +501,7 @@ Settings:
       com sucesso
     All playlists has been successfully imported: Todas as playlists foram importadas
       com sucesso
-    Subscription File: Arquivo de assinaturas
+    Subscription File: Arquivo de inscrições
     History File: Arquivo de histórico
     Playlist File: Arquivo de Lista
     Export Playlists For Older FreeTube Versions:
@@ -886,7 +887,7 @@ Video:
     Video statistics are not available for legacy videos: As estatísticas de vídeo
       não estão disponíveis para vídeos mais antigos
     Video ID: ID do vídeo
-    Player Dimensions: Dimensões do reprodutor
+    Player Dimensions: Dimensões do player
     Bitrate: Taxa de bits
     Volume: Volume
     Bandwidth: Largura de banda
@@ -1002,7 +1003,7 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
-Locale Name: português (BR)
+Locale Name: Português (BR)
 Profile:
   Delete Profile: Deletar Perfil
   Update Profile: Atualizar Perfil
@@ -1064,7 +1065,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
-      padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita bloqueio
+      padrão para obter o feed de sua inscrição. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo ou status ao
       vivo
     Fetch Automatically: Quando habilitado, o FreeTube buscará automaticamente seu
@@ -1090,7 +1091,7 @@ Tooltips:
       estilo MPV.
     Allow DASH AV1 formats: Os formatos DASH AV1 podem ter melhor aspecto do que os
       formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Eles não estão disponíveis em todos os vídeos, e nesses casos o reprodutor usará
+      Eles não estão disponíveis em todos os vídeos, e nesses casos o player usará
       os formatos DASH H.264.
   General Settings:
     Region for Trending: A região de tendências lhe permite de escolher quais vídeos
@@ -1114,7 +1115,7 @@ Tooltips:
       é fechada.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
-      separados por ponto e vírgula (';'), você deseja que seja passado para o reprodutor
+      separados por ponto e vírgula (';'), você deseja que seja passado para o player
       externo.
     Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
       a ação atual (por exemplo, reverter playlist, etc.).
@@ -1174,7 +1175,7 @@ Channels:
   Search bar placeholder: Buscar canais
   Empty: Sua lista de canais está vazia no momento.
   Unsubscribe: Cancelar inscrição
-  Unsubscribed: '{channelName} foi removido de suas assinaturas'
+  Unsubscribed: '{channelName} foi removido de suas inscrições'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canal(is) encontrado(s).'
 Screenshot Success: Captura de tela salva como "{filePath}"
