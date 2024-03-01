@@ -64,6 +64,19 @@
         inset-inline-end: calc(50% - 20px);
       }
     }
+
+    @media screen and (max-width: 460px) {
+      flex-wrap: nowrap;
+      :deep(.iconDropdown) {
+        inset-inline-start: auto;
+        inset-inline-end: auto;
+      }
+    }
+  }
+  @media screen and (max-width: 460px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start: 10px;
   }
 }
 
