@@ -198,9 +198,21 @@ export default defineComponent({
       this.isInvidiousPlaylist = this.query.playlistType === 'invidious'
       this.origin = this.query.origin
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && this.backendFallback) || this.fetchIVPlaylist) {
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && (this.fetchIVPlaylist || this.backendFallback))) {
         // playlist exists only invidious/user prefers invidious
-        this.getPlaylistInvidious()
+        if (this.isInvidiousPlaylist) {
+          const curInstance = new URL(this.currentInvidiousInstance)
+          // auto-fetch playlist since the playlist is on the same instance as the currently set invidious instance.
+          if (this.isInvidiousPlaylist && this.origin === curInstance.origin) {
+            this.fetchIVPlaylist = true
+          }
+        }
+
+        if (!this.isInvidiousPlaylist || this.fetchIVPlaylist) {
+          this.getPlaylistInvidious()
+        } else {
+          this.isLoading = false
+        }
       } else {
         if (!this.isInvidiousPlaylist) {
           this.getPlaylistLocal()

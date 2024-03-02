@@ -4,13 +4,13 @@
       v-if="isLoading"
     />
     <div
-      v-else-if="isInvidiousPlaylist && !fetchIVPlaylist && backendPreference !== 'invidious' && !backendFallback"
+      v-else-if="isInvidiousPlaylist && !fetchIVPlaylist"
       class="messageContainer"
     >
       <p
         class="message"
       >
-        {{ $t('Playlist.Invidious Playlist Cannot Be Viewed', { invidiousInstance: origin }) }}
+        {{ backendPreference === 'invidious' ? $t('Playlist.Invidious Playlist Cannot Be Viewed IV', {currentInstance: currentInvidiousInstance, invidiousInstance: origin}) : $t('Playlist.Invidious Playlist Cannot Be Viewed Local', { invidiousInstance: origin }) }}
       </p>
       <font-awesome-icon
         :icon="['fas', 'exclamation-circle']"

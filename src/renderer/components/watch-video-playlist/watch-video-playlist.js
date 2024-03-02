@@ -76,6 +76,10 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
+    },
+
     isUserPlaylist: function () {
       return this.playlistType === 'user'
     },
@@ -265,8 +269,21 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && this.backendFallback) || this.fetchIVPlaylist) {
-        this.getPlaylistInformationInvidious()
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && (this.fetchIVPlaylist || this.backendFallback))) {
+        if (this.isInvidiousPlaylist) {
+          const curInstance = new URL(this.currentInvidiousInstance)
+          // auto-fetch playlist since the playlist is on the same instance as the currently set invidious instance.
+          if (this.isInvidiousPlaylist && this.origin === curInstance.origin) {
+            this.fetchIVPlaylist = true
+          }
+        }
+
+        if (!this.isInvidiousPlaylist || this.fetchIVPlaylist) {
+          this.getPlaylistInformationInvidious()
+        } else {
+          this.isLoading = false
+          this.getPlaylistInfoRun = false
+        }
       } else {
         if (!this.isInvidiousPlaylist) {
           this.getPlaylistInformationLocal()

@@ -870,7 +870,8 @@ Playlist:
   View: View
   Views: Views
   Last Updated On: Last Updated On
-  Invidious Playlist Cannot Be Viewed: Invidious playlists cannot be viewed through the Local API, as the playlist is stored on "{invidiousInstance}"
+  Invidious Playlist Cannot Be Viewed Local: Invidious playlists cannot be viewed through the Local API, as the playlist is stored on "{invidiousInstance}"
+  Invidious Playlist Cannot Be Viewed IV: This Invidious playlist cannot be viewed through {currentInstance}, as the playlist is stored on "{invidiousInstance}"
   View Playlist: View Playlist
 
 # On Video Watch Page
