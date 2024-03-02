@@ -23,7 +23,7 @@
         @click="enableViewPlaylist"
       />
     </div>
-    <div v-else>
+    <template v-else>
       <playlist-info
         :id="playlistId"
         :first-video-id="firstVideoId"
@@ -111,7 +111,7 @@
           </p>
         </ft-flex-box>
       </ft-card>
-    </div>
+    </template>
   </div>
 </template>
 
