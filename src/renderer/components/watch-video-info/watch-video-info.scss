@@ -85,29 +85,43 @@
   color: var(--tertiary-text-color);
 
   .likeSection {
-  color: var(--tertiary-text-color);
-  display: flex;
-  flex-direction: column;
-  margin-inline-start: auto;
-  margin-block-start: 4px;
-  max-inline-size: 210px;
-  text-align: end;
-
-  @media screen and (max-width: 680px) {
-    margin-inline-start: 0;
-    text-align: start;
-  }
-
-  .likeBar {
-    border-radius: 4px;
-    block-size: 8px;
-    margin-block-end: 4px;
-  }
-
-  .likeCount {
-    margin-inline-end: 0;
+    color: var(--tertiary-text-color);
     display: flex;
-    gap: 3px;
+    flex-direction: column;
+    margin-inline-start: auto;
+    margin-block-start: 4px;
+    max-inline-size: 210px;
+    text-align: end;
+
+    @media screen and (max-width: 680px) {
+      margin-inline-start: 0;
+      text-align: start;
+    }
+
+    .likeBar {
+      border-radius: 4px;
+      block-size: 8px;
+      margin-block-end: 4px;
+    }
+
+    .likeCount {
+      margin-inline-end: 0;
+      display: flex;
+      gap: 3px;
+    }
   }
-}
+  .datePublishedAndViewCount {
+    @media only screen and (max-width: 460px) {
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+
+      .seperator {
+        display: none;
+      }
+    }
+  }
+  .videoViews {
+    white-space: nowrap;
+  }
 }
