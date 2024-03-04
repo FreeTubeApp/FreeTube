@@ -161,6 +161,7 @@ User Playlists:
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video
       lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'
+    Added {count} Times: Lisatud {count} kord | Lisatud {count} korda
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Ei leidnud ühtegi videot, mida saaks eemaldada.
