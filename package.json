@@ -65,7 +65,7 @@
     "marked": "^12.0.0",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
-    "swiper": "^11.0.6",
+    "swiper": "^11.0.7",
     "video.js": "7.21.5",
     "videojs-contrib-quality-levels": "^3.0.0",
     "videojs-http-source-selector": "^1.1.6",
