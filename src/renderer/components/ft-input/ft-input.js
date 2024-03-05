@@ -253,6 +253,10 @@ export default defineComponent({
         return
       }
 
+      if (event.getModifierState('Control') && event.key === 'u') {
+        this.handleClearTextClick()
+      }
+
       if (this.visibleDataList.length === 0) { return }
 
       this.searchState.showOptions = true
@@ -316,6 +320,7 @@ export default defineComponent({
 
     focus() {
       this.$refs.input.focus()
+      this.select()
     },
 
     select() {
