@@ -1830,6 +1830,7 @@ export default defineComponent({
             // remove class which shows the selector
             vjsMenu.classList.remove('vjs-lock-showing')
           })
+
           return button.children[0]
         }
       }
