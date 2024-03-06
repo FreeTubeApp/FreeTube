@@ -60,6 +60,9 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
 
+      playlistInVideoSearchMode: false,
+      videoSearchQuery: '',
+
       promptOpen: false,
     }
   },
@@ -104,7 +107,7 @@ export default defineComponent({
 
     moreVideoDataAvailable() {
       if (this.isUserPlaylistRequested) {
-        return this.userPlaylistVisibleLimit < this.videoCount
+        return this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length
       } else {
         return this.continuationData !== null
       }
@@ -123,17 +126,29 @@ export default defineComponent({
       return this.selectedUserPlaylist?._id !== this.quickBookmarkPlaylistId
     },
 
+    sometimesFilteredUserPlaylistItems() {
+      if (!this.isUserPlaylistRequested) { return this.playlistItems }
+      if (this.processedVideoSearchQuery === '') { return this.playlistItems }
+
+      return this.playlistItems.filter((v) => {
+        return v.title.toLowerCase().includes(this.processedVideoSearchQuery)
+      })
+    },
     visiblePlaylistItems: function () {
       if (!this.isUserPlaylistRequested) {
+        // No filtering for non user playlists yet
         return this.playlistItems
       }
 
-      if (this.userPlaylistVisibleLimit < this.videoCount) {
-        return this.playlistItems.slice(0, this.userPlaylistVisibleLimit)
+      if (this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length) {
+        return this.sometimesFilteredUserPlaylistItems.slice(0, this.userPlaylistVisibleLimit)
       } else {
-        return this.playlistItems
+        return this.sometimesFilteredUserPlaylistItems
       }
-    }
+    },
+    processedVideoSearchQuery() {
+      return this.videoSearchQuery.trim().toLowerCase()
+    },
   },
   watch: {
     $route () {
