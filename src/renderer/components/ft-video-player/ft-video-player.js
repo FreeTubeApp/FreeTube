@@ -1817,17 +1817,16 @@ export default defineComponent({
 
           // For default auto, it may select a resolution before generating the quality buttons
           button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? autoQualityLabel : currentQualityLabel
+          const vjsMenu = button.querySelector('.vjs-menu')
           button.addEventListener('touchstart', (e) => {
             button.focus()
             // make it easier to toggle the vjs-menu on touch (hover css is inconsistent w/ touch)
             if (!e.target.classList.contains('quality-item') && !e.target.classList.contains('vjs-menu-item-text')) {
-              const vjsMenu = button.querySelector('.vjs-menu')
               vjsMenu.classList.toggle('vjs-lock-showing')
             }
             this.handleClick(e)
           })
           button.addEventListener('focusout', () => {
-            const vjsMenu = button.querySelector('.vjs-menu')
             // remove class which shows the selector
             vjsMenu.classList.remove('vjs-lock-showing')
           })
