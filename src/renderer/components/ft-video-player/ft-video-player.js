@@ -1822,21 +1822,14 @@ export default defineComponent({
             // make it easier to toggle the vjs-menu on touch (hover css is inconsistent w/ touch)
             if (!e.target.classList.contains('quality-item') && !e.target.classList.contains('vjs-menu-item-text')) {
               const vjsMenu = button.querySelector('.vjs-menu')
-              let vjsMenuClass = vjsMenu.getAttribute('class')
-              if (vjsMenuClass.indexOf(' vjs-lock-showing') === -1) {
-                vjsMenuClass += ' vjs-lock-showing'
-              } else {
-                vjsMenuClass = vjsMenuClass.replace(' vjs-lock-showing', '')
-              }
-              vjsMenu.setAttribute('class', vjsMenuClass)
+              vjsMenu.classList.toggle('vjs-lock-showing')
             }
             this.handleClick(e)
           })
           button.addEventListener('focusout', () => {
             const vjsMenu = button.querySelector('.vjs-menu')
             // remove class which shows the selector
-            const vjsMenuClass = vjsMenu.getAttribute('class').replace(' vjs-lock-showing', '')
-            vjsMenu.setAttribute('class', vjsMenuClass)
+            vjsMenu.classList.remove('vjs-lock-showing')
           })
           return button.children[0]
         }
