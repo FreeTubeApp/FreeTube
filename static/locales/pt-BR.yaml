@@ -864,14 +864,14 @@ Video:
   Skipped segment: Segmentos pulados
   External Player:
     Unsupported Actions:
-      shuffling playlists: embaralhando playlists
+      shuffling playlists: Playlists aleatórias
       opening specific video in a playlist (falling back to opening the video): abrir
         um vídeo específico em uma playlist (voltar à abertura do vídeo)
-      reversing playlists: inverter playlists
-      opening playlists: abrir playlists
-      starting video at offset: iniciar vídeo num tempo específico
-      setting a playback rate: alterar velocidade de reprodução
-      looping playlists: playlists em loop
+      reversing playlists: invertendo playlists
+      opening playlists: abrindo playlists
+      starting video at offset: iniciando vídeo num tempo específico
+      setting a playback rate: alterando a velocidade de reprodução
+      looping playlists: Repetição das playlists
     UnsupportedActionTemplate: '{externalPlayer} não suporta: {action}'
     playlist: playlist
     OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
@@ -887,7 +887,7 @@ Video:
     buffered: Buffered
     out of: de
     player resolution: Janela de exibição
-    Mimetype: Tipo de mídia da Internet
+    Mimetype: Mimetype
     Video statistics are not available for legacy videos: As estatísticas de vídeo
       não estão disponíveis para vídeos mais antigos
     Video ID: ID do vídeo
@@ -919,7 +919,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Ver lista completa'
+  View Full Playlist: 'Visualizar playlist completa'
   Videos: 'Vídeos'
   View: 'Visualização'
   Views: 'Visualizações'
@@ -933,7 +933,7 @@ Toggle Theatre Mode: 'Alternar Modo Teatro'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'
-  Use Legacy Formats: 'Usar formatos legados'
+  Use Legacy Formats: 'Usar formatos antigos'
   Use Audio Formats: 'Usar formato de áudio'
   Audio formats are not available for this video: Formatos de áudio não disponíveis
     para este vídeo
@@ -950,11 +950,11 @@ Share:
   Invidious URL copied to clipboard: 'URL Invidious copiado para a área de transferência'
   Invidious Embed URL copied to clipboard: 'URL incorporado do Invidious copiado para
     a área de transferência'
-  YouTube URL copied to clipboard: 'O URL do YouTube copiado para a área de transferência'
-  YouTube Embed URL copied to clipboard: 'O URL incorporado do YouTube copiado para
+  YouTube URL copied to clipboard: 'URL do YouTube copiado para a área de transferência'
+  YouTube Embed URL copied to clipboard: 'URL incorporado do YouTube copiado para
     a área de transferência'
-  YouTube Channel URL copied to clipboard: URL do Canal Youtube copiado para a área
-    de transferência
+  YouTube Channel URL copied to clipboard: URL do canal do Youtube copiado para a
+    área de transferência
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a
     área de transferência
   Include Timestamp: Incluir marcação de tempo
@@ -967,7 +967,7 @@ Comments:
   Show Comments: 'Mostrar comentários'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Ver'
+  View: 'Visualizar'
   Hide: 'Ocultar'
   Replies: 'Respostas'
   Reply: 'Resposta'
@@ -995,15 +995,15 @@ Invidious API Error (Click to copy): 'Erro da API do Invidious (clique para copi
 Falling back to Invidious API: 'Recorrendo à API do Invidious'
 Falling back to Local API: 'Recorrendo à API local'
 Subscriptions have not yet been implemented: 'Inscrições ainda não foram implementadas'
-Loop is now disabled: 'O ciclo foi desativado'
-Loop is now enabled: 'O ciclo está ativado'
-Shuffle is now disabled: 'Embaralhamento foi desativado'
-Shuffle is now enabled: 'Embaralhamento foi ativado'
-Playing Next Video: 'Reproduzindo próximo vídeo'
-Playing Previous Video: 'Reproduzindo vídeo anterior'
-Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo vídeo'
-'The playlist has ended. Enable loop to continue playing': 'A lista acabou. Habilite
-  o ciclo para continuar reproduzindo'
+Loop is now disabled: 'Modo de repetição desativado'
+Loop is now enabled: 'Modo de repetição ativado'
+Shuffle is now disabled: 'Reprodução aleatória desativada'
+Shuffle is now enabled: 'Reprodução aleatória ativada'
+Playing Next Video: 'A reproduzir o próximo vídeo'
+Playing Previous Video: 'A reproduzir o vídeo anterior'
+Canceled next video autoplay: 'Reprodução automática cancelada'
+'The playlist has ended. Enable loop to continue playing': 'A playlist acabou. Habilite
+  o modo de repetição para continuar reproduzindo'
 
 Yes: 'Sim'
 No: 'Não'
@@ -1064,7 +1064,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog est�
 Download From Site: Baixar do site
 The playlist has been reversed: A playlist foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
-  vídeo não está disponível por causa de formatos faltantes. Isso pode acontecer devido
+  vídeo não está disponível devido à falta de formatos. Isto pode acontecer devido
   à indisponibilidade do país.
 Tooltips:
   Subscription Settings:
@@ -1079,8 +1079,9 @@ Tooltips:
       Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
       áudio são para transmissões sem vídeo.
-    Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
-      vez de fazer uma conexão direta com o YouTube. Ignora a preferência da API.
+    Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter
+      vídeos em vez de fazer uma conexão direta com o YouTube. Ignora a preferência
+      da API.
     Force Local Backend for Legacy Formats: Funciona apenas quando a API do Invidious
       é o padrão. Quando ativada, a API Local será executada e usará os formatos herdados
       retornados por ela, em vez dos retornados pelo Invidious. Ajuda quando os vídeos
@@ -1098,21 +1099,21 @@ Tooltips:
       Eles não estão disponíveis em todos os vídeos, e nesses casos o player usará
       os formatos DASH H.264.
   General Settings:
-    Region for Trending: A região de tendências lhe permite de escolher quais vídeos
-      de tendências do país você quer exibir.
+    Region for Trending: A região de tendências permite que você escolha os vídeos
+      em alta do país que deseja exibir.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
       chamadas de API.
     Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
       quadro do vídeo em vez da miniatura padrão.
-    Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, o FreeTube tentará usar automaticamente sua API não preferida em
-      substituição quando ativado.
-    Preferred API Backend: Escolha o backend que o FreeTube usa para obter os dados.
-      A API local é um extrator integrado. A API Invidious requer um servidor Invidious
-      para se conectar.
-    External Link Handling: "Escolha o comportamento padrão quando um link, que não
-      pode ser aberto no FreeTube, é clicado.\nPor padrão, o FreeTube abrirá o link
-      clicado no seu navegador padrão.\n"
+    Fallback to Non-Preferred Backend on Failure: Quando sua API preferida tiver um
+      problema, o FreeTube tentará automaticamente usar sua API não preferencial como
+      método alternativo quando habilitada.
+    Preferred API Backend: Escolha o mecanismo de processamento que o FreeTube usa
+      para obter os dados. A API local é um extrator integrado. A API Invidious requer
+      um servidor Invidious para se conectar.
+    External Link Handling: "Escolha o comportamento padrão quando um link que não
+      pode ser aberto no FreeTube for clicado.\nPor padrão, o FreeTube abrirá o link
+      clicado em seu navegador padrão.\n"
   Privacy Settings:
     Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
       metarquivos criados durante a reprodução do vídeo quando a página de exibição
@@ -1152,16 +1153,15 @@ Tooltips:
       a partir do DeArrow.
     UseDeArrowThumbnails: Substitua as miniaturas de vídeo pelas miniaturas do DeArrow.
 More: Mais
-Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
-  cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
-  para cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundos. Clique
-  para cancelar.
+Playing Next Video Interval: Reproduzir próximo vídeo imediatamente. Clique para cancelar.
+  | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique para cancelar.
+  | Reproduzir próximo vídeo em {nextVideoInterval} segundos. Clique para cancelar.
 Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
   implementadas, tente novamente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
   não pode ser aberta no aplicativo
 Open New Window: Abrir uma nova janela
-Default Invidious instance has been cleared: A instância padrão Invidious foi limpa
+Default Invidious instance has been cleared: A instância padrão Invidious foi apagada
 Default Invidious instance has been set to {instance}: A instância padrão Invidious
   foi definida para {instance}
 Search Bar:
@@ -1170,7 +1170,7 @@ External link opening has been disabled in the general settings: A abertura de l
   externo foi desativada nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"{videoTitle}" terminou de baixar'
-Starting download: Iniciando o download de "{videoTitle}"
+Starting download: Fazendo o download de "{videoTitle}"
 Downloading failed: Ocorreu um problema ao fazer o download de "{videoTitle}"
 New Window: Nova janela
 Channels:
