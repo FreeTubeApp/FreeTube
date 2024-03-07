@@ -45,6 +45,8 @@ Global:
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
   Community: Gemeenschap
+  Input Tags:
+    Length Requirement: Tag moet minstens {number} tekens lang zijn
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -135,12 +137,88 @@ User Playlists:
     LatestCreatedFirst: On­langs aan­gemaakt
     NameDescending: Z - A
     NameAscending: A - Z
+    EarliestPlayedFirst: Eerst gespeeld
+    EarliestCreatedFirst: Eerst aangemaakt
+    LatestUpdatedFirst: Laatst bijgewerkt
+    EarliestUpdatedFirst: Eerst bijgewerkt
+    LatestPlayedFirst: Meest recent afgespeeld
   CreatePlaylistPrompt:
     Create: Aanmaken
+    New Playlist Name: Naam voor nieuwe afspeel­lijst
+    Toast:
+      Playlist {playlistName} has been successfully created.: Afspeel­lijst ‘{playlistName}’
+        is succes­vol aan­gemaakt.
+      There was an issue with creating the playlist.: Er is een probleem opgetreden
+        bij het maken van de afspeel­lijst.
+      There is already a playlist with this name. Please pick a different name.: Er
+        is al een afspeel­lijst met deze naam. Kies een andere naam.
   AddVideoPrompt:
     Save: Opslaan
+    N playlists selected: '{playlistCount} geselecteerd'
+    Search in Playlists: Zoeken in afspeel­lijsten
+    Toast:
+      You haven't selected any playlist yet.: U heeft nog geen afspeel­lijst geselecteerd.
+      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan een afspeellijst
+        | {videoCount} video's toegevoegd aan een afspeellijst
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toe­gevoegd
+        aan {playlistCount} afspeel­lijsten | {videoCount} video's toe­gevoegd aan
+        {playlistCount} afspeel­lijsten
+    Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
+      aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
+      toe te voegen
+    Added {count} Times: '{count} keer toe­gevoegd | {count} keer toe­gevoegd'
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
+  Create New Playlist: Nieuwe afspeel­lijst aanmaken
+  Add to Playlist: Toevoegen aan afspeel­lijst
+  Move Video Up: Video omhoog verplaatsen
+  Move Video Down: Video omlaag verplaatsen
+  Remove from Playlist: Verwijderen uit afspeellijst
+  Edit Playlist Info: Afspeel­lijst­info bewerken
+  Remove Watched Videos: Bekeken video's verwijderen
+  Add to Favorites: Toevoegen aan {playlistName}
+  Remove from Favorites: Verwijderen uit {playlistName}
+  Disable Quick Bookmark: Snelle bladwijzers uitschakelen
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: Video is verwijderd
+      Quick bookmark disabled: Snelle bladwijzers uitgeschakeld
+      Playlist has been updated.: De afspeel­lijst is bijgewerkt.
+      This video cannot be moved up.: Deze video kan niet omhoog verplaatst worden.
+      This video cannot be moved down.: Deze video kan niet omlaag verplaatst worden.
+      Playlist {playlistName} has been deleted.: Afspeel­lijst ‘{playlistName}’ is
+        verwijderd.
+      This playlist does not exist: Deze afspeel­lijst bestaat niet
+      There were no videos to remove.: Er zijn geen video's om te verwijderen.
+      There was a problem with removing this video: Er is een probleem opgetreden
+        bij het verwijderen van deze video
+      This playlist is now used for quick bookmark: Deze afspeel­lijst wordt nu gebruikt
+        voor snelle blad­wijzers
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Deze
+        afspeellijst wordt nu gebruikt voor snelle bladwijzers in plaats van {oldPlaylistName}.
+        Druk hier om ongedaan te maken
+      Reverted to use {oldPlaylistName} for quick bookmark: Terug­gekeerd naar het
+        gebruik van {oldPlaylistName} voor snelle blad­wijzers
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sommige
+        video's in de afspeel­lijst zijn nog niet geladen. Druk hier om toch te kopiëren.
+      "{videoCount} video(s) have been removed": 1 video verwijderd | {videoCount}
+        video's verwijderd
+      This playlist is protected and cannot be removed.: Deze afspeel­lijst is beschermd
+        en kan niet worden verwijderd.
+      Playlist name cannot be empty. Please input a name.: De naam van de afspeel­lijst
+        mag niet leeg zijn. Voer een naam in.
+      There was an issue with updating this playlist.: Er is een probleem opgetreden
+        bij het bij­werken van deze afspeel­lijst.
+  You have no playlists. Click on the create new playlist button to create a new one.: U
+    heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
+  This playlist currently has no videos.: Deze afspeel­lijst bevat geen video's.
+  Enable Quick Bookmark With This Playlist: Snelle blad­wijzers inschakelen voor deze
+    afspeel­lijst
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Weet
+    u zeker dat u alle bekeken video's uit deze afspeel­lijst wilt verwijderen? Dit
+    kan niet ongedaan gemaakt worden.
+  Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
+    dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -209,6 +287,7 @@ Settings:
       Catppuccin Mocha: Catppuccin-mokka
       Pastel Pink: Pastel­roze
       Hot Pink: Heet-roze
+      Nordic: Noords
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -333,12 +412,18 @@ Settings:
       verwijderen
     Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de
       afspeellijst ‘Laatst bekeken’
+    Remove All Playlists: Alle afspeel­lijsten verwijderen
+    All playlists have been removed: Alle afspeel­lijsten zijn verwijderd
+    Are you sure you want to remove all your playlists?: Weet u zeker dat u al uw
+      afspeel­lijsten wilt verwijderen?
   Subscription Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Manage Subscriptions: 'Abonnementen beheren'
     Fetch Feeds from RSS: Verzamel feeds via RSS
     Fetch Automatically: Haal feed automatisch op
+    Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
+      tonen
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -415,6 +500,14 @@ Settings:
     Subscription File: Abonnementenbestand
     History File: Geschiedenisbestand
     Playlist File: Afspeellijstbestand
+    Export Playlists For Older FreeTube Versions:
+      Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
+      Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst
+        met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten
+        voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met
+        deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met
+        de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n
+        3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
   Distraction Free Settings:
     Hide Live Chat: Livechat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -431,8 +524,8 @@ Settings:
     Hide Video Description: Video-omschrijving verbergen
     Hide Comments: Opmerkingen verbergen
     Hide Live Streams: Verberg rechtstreekse uitzendingen
-    Display Titles Without Excessive Capitalisation: Toon titels zonder overmatig
-      hoofdlettergebruik
+    Display Titles Without Excessive Capitalisation: Titels tonen zonder overmatig
+      hoofdletter­gebruik en inter­punctie
     Sections:
       Side Bar: Zijbalk
       General: Algemeen
@@ -456,6 +549,16 @@ Settings:
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
     Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
     Hide Channels Already Exists: Kanaal ID bestaat reeds
+    Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
+    Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of
+      zin
+    Hide Videos and Playlists Containing Text: Video's en afspeel­lijsten die tekst
+      bevatten verbergen
+    Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven
+      ID. Controleer nog­maals of de ID correct is.
+    Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van
+      ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden
+      bij­gewerkt
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
@@ -490,6 +593,9 @@ Settings:
       Do Nothing: Niets doen
     Category Color: Categorie­kleur
     UseDeArrowTitles: DeArrow-videotitels gebruiken
+    UseDeArrowThumbnails: DeArrow gebruiken voor miniaturen
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': API-URL
+      van DeArrow-miniatuur­generator (standaard is https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
     Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
@@ -501,6 +607,7 @@ Settings:
     Players:
       None:
         Name: Geen
+    Ignore Default Arguments: Standaard­argumenten negeren
   Download Settings:
     Choose Path: Pad kiezen
     Download Settings: Downloadinstellingen
@@ -529,6 +636,7 @@ Settings:
     Password Incorrect: Wachtwoord onjuist
     Unlock: Ontgrendelen
     Enter Password To Unlock: Voer wachtwoord in om instellingen te ontgrendelen
+  Expand All Settings Sections: Alle instellingen­secties uitvouwen
 About:
   #On About page
   About: 'Over'
@@ -641,6 +749,7 @@ Channel:
     votes: '{votes} stemmen'
     This channel currently does not have any posts: Dit kanaal heeft momenteel geen
       posts
+    Video hidden by FreeTube: Video verborgen door FreeTube
   Releases:
     Releases: Uitgaven
     This channel does not currently have any releases: Dit kanaal heeft momenteel
@@ -794,6 +903,7 @@ Video:
     is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
   Hide Channel: Kanaal verbergen
   Unhide Channel: Kanaal tonen
+  More Options: Meer opties
 Videos:
   #& Sort By
   Sort By:
@@ -877,7 +987,7 @@ Up Next: 'Volgende'
 Local API Error (Click to copy): 'Fout in lokale API (Klik om te kopiëren)'
 Invidious API Error (Click to copy): 'Fout in API van Invidious (Klik op te kopiëren)'
 Falling back to Invidious API: 'Terugvallen op Invidious API'
-Falling back to the local API: 'Terugvallen op lokale API'
+Falling back to Local API: 'Terugvallen op lokale API'
 Subscriptions have not yet been implemented: 'Abonnementen zijn nog niet geïmplementeerd'
 Loop is now disabled: 'Herhalen is nu uitgeschakeld'
 Loop is now enabled: 'Herhalen is nu ingeschakeld'
@@ -937,6 +1047,10 @@ Profile:
   Profile Settings: Profielinstellingen
   Toggle Profile List: Profiellijst omschakelen
   Profile Name: Profiel­naam
+  Edit Profile Name: Profiel­naam wijzigen
+  Create Profile Name: Profiel­naam aanmaken
+  Close Profile Dropdown: Profiel­menu sluiten
+  Open Profile Dropdown: Profiel­menu openen
 A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
   is beschikbaar, {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
@@ -952,10 +1066,10 @@ Tooltips:
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
       alleen het geluid streamen.
     Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
-      is geselecteerd als de standaard API. Wanneer ingeschakeld zal de lokale API
-      legacy video indelingen gebruiken in plaats van de video indeling die worden
-      teruggegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
-      via Invidious niet afspeelt in verband met regio restricties.
+      is geselecteerd als de standaard-API. Wanneer ingeschakeld zal de lokale API
+      legacy video­indelingen gebruiken in plaats van de video­indeling die worden
+      terug­gegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
+      via Invidious niet afspeelt in verband met regio­restricties.
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur.
@@ -1010,16 +1124,23 @@ Tooltips:
       in de gekozen externe videospeler kan worden geopend. Let op: Invidious-instellingen
       beïnvloeden externe videospelers niet.'
     DefaultCustomArgumentsTemplate: "(standaard: ‘{defaultCustomArguments}’)"
+    Ignore Default Arguments: Stuurt geen standaard­argumenten naar de externe speler,
+      afgezien van de video-URL (bij­voorbeeld afspeel­snelheid, afspeellijst-URL,
+      enz.). Aan­gepaste argumenten worden nog steeds door­gegeven.
   Distraction Free Settings:
-    Hide Channels: Voer een kanaalnaam of kanaal-ID in om alle video's, afspeellijsten
-      en het kanaal zelf te verbergen zodat ze niet worden weergegeven in zoeken,
-      trending, populairst en aanbevolen. De ingevoerde kanaalnaam moet volledig overeenkomen
-      en is hoofdlettergevoelig.
+    Hide Channels: Voer een kanaal-ID in om alle video's, afspeel­lijsten en het kanaal
+      zelf te verbergen zodat ze niet worden weer­gegeven in zoeken, trending, populairst
+      en aan­bevolen. De ingevoerde kanaal-ID moet volledig overeen­komen en is hoofdletter­gevoelig.
     Hide Subscriptions Live: Deze instelling wordt overschreven door de app-brede
       instelling ‘{appWideSetting}’, in het gedeelte ‘{subsection}’ van ‘{settingsSection}’
+    Hide Videos and Playlists Containing Text: Voer een woord, woord­fragment of woord­groep
+      in (niet hoofdletter­gevoelig) om alle video's en afspeel­lijsten waarvan de
+      oorspronkelijke titel dit bevat, in heel FreeTube te verbergen, met uit­zondering
+      van alleen geschiedenis, uw afspeel­lijsten en video's in afspeel­lijsten.
   SponsorBlock Settings:
     UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van
       DeArrow.
+    UseDeArrowThumbnails: Video­miniaturen vervangen met miniaturen van DeArrow.
   Experimental Settings:
     Replace HTTP Cache: Schakelt de schijfgebaseerde HTTP-cache van Electron uit en
       schakelt een aangepaste afbeeldings­cache in het geheugen in. Zal leiden tot
@@ -1048,12 +1169,6 @@ Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
 New Window: Nieuw venster
-Age Restricted:
-  The currently set default instance is {instance}: Deze {instance} is leeftijdsbeperkt
-  Type:
-    Channel: Kanaal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Deze {videoOrPlaylist} heeft een leeftijdsbeperking
 Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
 Channels:
   Title: Kanaal­lijst
@@ -1085,4 +1200,13 @@ Playlist will pause when current video is finished: Afspeellijst zal pauzeren wa
   de huidige video is afgelopen
 Playlist will not pause when current video is finished: Afspeellijst zal niet pauzeren
   wanneer de huidige video is afgelopen
-Go to page: Naar pagina {page}
+Go to page: Ga naar {page}
+Tag already exists: Tag ‘{tagName}’ bestaat al
+Channel Unhidden: ‘{channel}’ verwijderd uit kanaal­filter
+Channel Hidden: ‘{channel}’ toe­gevoegd aan kanaal­filter
+Close Banner: Banier sluiten
+Age Restricted:
+  This channel is age restricted: Dit kanaal heeft een leeftijds­beperking
+  This video is age restricted: Deze video heeft een leeftijds­beperking
+Trimmed input must be at least N characters long: Bij­gesneden invoer moet minimaal
+  1 teken lang zijn | Bij­gesneden invoer moet minimaal {length} tekens lang zijn

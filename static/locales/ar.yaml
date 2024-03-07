@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'الإنجليزية (الولايات المتحدة)'
+Locale Name: 'العربية'
 FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -186,6 +186,7 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
+    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
@@ -276,6 +277,7 @@ Settings:
       Catppuccin Mocha: كاتبوتشين موكا
       Pastel Pink: الباستيل الوردي
       Hot Pink: وردي فاقع
+      Nordic: بلدان الشمال الأوروبي
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -517,8 +519,8 @@ Settings:
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
     Hide Channels: إخفاء مقاطع الفيديو من القنوات
     Hide Channels Placeholder: معرف القناة
-    Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
-      بشكل مفرط
+    Display Titles Without Excessive Capitalisation: عرض العناوين بدون استخدام الأحرف
+      الكبيرة وعلامات الترقيم بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
     Hide Channel Playlists: إخفاء قوائم تشغيل القناة
     Hide Channel Community: إخفاء مجتمع القناة
@@ -930,6 +932,7 @@ Video:
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
+  More Options: المزيد من الخيارات
 Videos:
   #& Sort By
   Sort By:
@@ -1006,7 +1009,7 @@ Up Next: 'التالي'
 Local API Error (Click to copy): 'خطأ API المحلي (انقر للنسخ)'
 Invidious API Error (Click to copy): 'خطأ Invidious API ( انقر للنسخ)'
 Falling back to Invidious API: 'التراجع إلى Invidious API'
-Falling back to the local API: 'التراجع إلى API المحلي'
+Falling back to Local API: 'التراجع إلى API المحلي'
 Subscriptions have not yet been implemented: 'لم يتم تنفيذ الاشتراكات بعد'
 Loop is now disabled: 'تم تعطيل التكرار'
 Loop is now enabled: 'تم تمكين التكرار'
@@ -1130,11 +1133,6 @@ Starting download: بدء تنزيل "{videoTitle}"
 Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
-Age Restricted:
-  Type:
-    Channel: القناة
-    Video: فيديو
-  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
 Channels:
   Count: تم العثور على قناة (قنوات) {number}.
   Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
@@ -1171,3 +1169,7 @@ Trimmed input must be at least N characters long: يجب أن يكون طول ا
   حرفًا واحدًا على الأقل | يجب أن يبلغ طول الإدخال المقتطع {length} من الأحرف على
   الأقل
 Tag already exists: العلامة "{tagName}" موجودة بالفعل
+Age Restricted:
+  This channel is age restricted: هذه القناة مقيدة بالعمر
+  This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
+Close Banner: إغلاق الشعار

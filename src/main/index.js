@@ -64,7 +64,9 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+            visible = ['/channel', '/watch'].some(p => path.startsWith(p)) ||
+              // Only show copy link entry for non user playlists
+              (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
         } else {
           visible = true
@@ -103,17 +105,17 @@ function runApp() {
             let url
 
             if (toYouTube) {
-              url = `https://youtu.be/${id}`
+              url = new URL(`https://youtu.be/${id}`)
             } else {
-              url = `https://redirect.invidious.io/watch?v=${id}`
+              url = new URL(`https://redirect.invidious.io/watch?v=${id}`)
             }
 
             if (query) {
               const params = new URLSearchParams(query)
-              const newParams = new URLSearchParams()
+              const newParams = new URLSearchParams(url.search)
               let hasParams = false
 
-              if (params.has('playlistId')) {
+              if (params.has('playlistId') && params.get('playlistType') !== 'user') {
                 newParams.set('list', params.get('playlistId'))
                 hasParams = true
               }
@@ -124,11 +126,11 @@ function runApp() {
               }
 
               if (hasParams) {
-                url += '?' + newParams.toString()
+                url.search = newParams.toString()
               }
             }
 
-            return url
+            return url.toString()
           }
         }
       }
@@ -493,6 +495,8 @@ function runApp() {
           return '#ffd1dc'
         case 'hot-pink':
           return '#de1c85'
+        case 'nordic':
+          return '#2b2f3a'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

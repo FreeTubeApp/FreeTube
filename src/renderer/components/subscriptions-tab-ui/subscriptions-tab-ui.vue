@@ -59,7 +59,7 @@
       </ft-flex-box>
     </ft-auto-load-next-page-wrapper>
     <ft-icon-button
-      v-if="!isLoading"
+      v-if="!isLoading && activeSubscriptionList.length > 0"
       :icon="['fas', 'sync']"
       class="floatingTopButton"
       :title="$t('Subscriptions.Refresh Subscriptions')"

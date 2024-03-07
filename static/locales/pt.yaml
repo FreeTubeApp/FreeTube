@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 assinante | {count} assinantes
     View Count: 1 visualização | {contagem} visualizações
     Watching Count: 1 a assistir | {count} a assistir
+  Input Tags:
+    Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
@@ -175,6 +177,9 @@ User Playlists:
       Playlist {playlistName} has been deleted.: A lista de reprodução {playlistName}
         foi eliminada.
       This playlist does not exist: Esta lista de reprodução não existe
+      This playlist is now used for quick bookmark: Esta lista de reprodução é agora
+        usada como marcador rápido
+      Quick bookmark disabled: Marcador rápido desativado
   AddVideoPrompt:
     Search in Playlists: Pesquisar nas listas de reprodução
     Save: Guardar
@@ -212,6 +217,9 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   Add to Favorites: Adicionar a {playlistName}
   Remove from Favorites: Remover de {playlistName}
+  Enable Quick Bookmark With This Playlist: Ativar marcador rápido para esta lista
+    de reprodução
+  Disable Quick Bookmark: Desativar marcador rápido
 History:
   # On History Page
   History: 'Histórico'
@@ -279,6 +287,7 @@ Settings:
       Catppuccin Mocha: Cappuccino mocha
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa choque
+      Nordic: Nórdico
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -516,6 +525,8 @@ Settings:
     Category Color: Cor da categoria
     UseDeArrowTitles: Utilizar títulos de vídeo DeArrow
     UseDeArrowThumbnails: Usar 'DeArrow' para miniaturas
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
+      da API do gerador de miniaturas DeArrow (padrão: https://dearrow-thumb.ajay.app)'
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
@@ -579,6 +590,10 @@ Settings:
     Hide Channels Already Exists: Este ID já existe
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique
       se o ID indicado está correto.
+    Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra
+      ou frase
+    Hide Videos and Playlists Containing Text: Ocultar vídeos e listas de reprodução
+      que contenham textos
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
@@ -779,6 +794,7 @@ Channel:
     Hide Answers: Ocultar respostas
     Reveal Answers: Revelar respostas
     votes: '{votes} votos'
+    Video hidden by FreeTube: Freetube ocultou este vídeo
   Live:
     Live: Em direto
     This channel does not currently have any live streams: Este canal não tem, atualmente,
@@ -1021,7 +1037,7 @@ Up Next: 'A seguir'
 Local API Error (Click to copy): 'Erro na API local (clique para copiar)'
 Invidious API Error (Click to copy): 'Erro na API Invidious (clique para copiar)'
 Falling back to Invidious API: 'Ocorreu um erro e vamos usar a API Invidious'
-Falling back to the local API: 'Ocorreu um erro e vamos usar a API local'
+Falling back to Local API: 'Ocorreu um erro e vamos usar a API local'
 Subscriptions have not yet been implemented: 'As subscrições ainda não foram implementadas'
 Loop is now disabled: 'Repetição desativada'
 Loop is now enabled: 'Repetição ativada'
@@ -1126,6 +1142,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.
+    UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
 Search Bar:
   Clear Input: Limpar entrada
 Are you sure you want to open this link?: Tem a certeza de que deseja abrir a ligação?
@@ -1136,13 +1153,6 @@ Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Downloading has completed: '"{videoTitle}" foi descarregado'
 Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: Erro ao capturar o ecrã. {error}
-Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição
-    de idade
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} tem restrição de idade'
 New Window: Nova janela
 Channels:
   Count: '{number} canais encontrados.'
@@ -1176,3 +1186,4 @@ Playlist will not pause when current video is finished: A lista de reprodução 
 Channel Hidden: '{channel} adicionado ao filtro do canal'
 Go to page: Ir para {page}
 Channel Unhidden: '{channel} removido do filtro do canal'
+Tag already exists: '"{tagName}" já existe'

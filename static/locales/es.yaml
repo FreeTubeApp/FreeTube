@@ -142,6 +142,7 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
+    Added {count} Times: Añadido {count} vez | Añadido {count} veces
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.
@@ -287,6 +288,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Moca
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
+      Nordic: Nórdico
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -531,8 +533,8 @@ Settings:
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar vídeos de los canales
     Hide Channels Placeholder: ID del canal
-    Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
-      mayúsculas
+    Display Titles Without Excessive Capitalisation: Mostrar títulos sin mayúsculas
+      ni signos de puntuación excesivos
     Hide Featured Channels: Ocultar canales recomendados
     Hide Channel Playlists: Ocultar las listas de reproducción de los canales
     Hide Channel Community: Ocultar canales de la comunidad
@@ -954,6 +956,7 @@ Video:
   Pause on Current Video: Pausa en el vídeo actual
   Unhide Channel: Mostrar el canal
   Hide Channel: Ocultar el canal
+  More Options: Más opciones
 Videos:
   #& Sort By
   Sort By:
@@ -1037,7 +1040,7 @@ Local API Error (Click to copy): 'Error de la API local (Clic para copiar el có
 Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para copiar
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
-Falling back to the local API: 'Recurriendo a la API local'
+Falling back to Local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Todavía no se han implementado las suscripciones'
 Loop is now disabled: 'Reproducción en bucle desactivada'
 Loop is now enabled: 'Reproducción en bucle activada'
@@ -1076,10 +1079,11 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Solo funciona cuando la API de Invidious
-      es la predeterminada. la API local se ejecutará y usará los formatos heredados
-      en lugar de Invidious. Esto ayudará cuando Invidious no pueda reproducir un
-      vídeo por culpa de las restricciones regionales.
+    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
+      es la predeterminada. Si está activada, la API local se ejecutará y utilizará
+      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
+      Es útil cuando los vídeos devueltos por Invidious no se reproducen debido a
+      restricciones nacionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -1183,12 +1187,6 @@ Channels:
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
   Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
-Age Restricted:
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción
-    de edad
 Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
@@ -1215,3 +1213,7 @@ Channel Unhidden: '{channel} eliminado del filtro de canales'
 Tag already exists: La etiqueta "{tagName}" ya existe
 Trimmed input must be at least N characters long: La entrada recortada debe tener
   al menos 1 carácter | La entrada recortada debe tener al menos {length} caracteres
+Close Banner: Cerrar el banner
+Age Restricted:
+  This channel is age restricted: Este canal está restringido por edad
+  This video is age restricted: Este vídeo está restringido por edad

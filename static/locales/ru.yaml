@@ -955,7 +955,7 @@ Local API Error (Click to copy): 'Ошибка локального набора
 Invidious API Error (Click to copy): 'Ошибка набора функций Invidious (Нажмите, чтобы
   скопировать)'
 Falling back to Invidious API: 'Возврат к набору функций Invidious'
-Falling back to the local API: 'Возврат к локальному набору функций'
+Falling back to Local API: 'Возврат к локальному набору функций'
 Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
 Loop is now disabled: 'Повторение теперь отключено'
 Loop is now enabled: 'Повторение теперь включено'
@@ -1089,9 +1089,9 @@ Tooltips:
       позволяющий открыть видео (подборку, если поддерживается) во внешнем проигрывателе.
       Внимание, настройки Invidious не применяются ко внешним проигрывателям.
     DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Не отправлять какие-либо умолчательные аргументы во
-      внешний проигрыватель кроме адреса видео (например, частота проигрывания, адрес
-      подборки и подобное). Пользовательские аргументы всё ещё будут передаваться.
+    Ignore Default Arguments: 'Не передавать никаких аргументов внешнему проигрывателю
+      по умолчанию, кроме адреса видео (напр.: частота проигрывания, адрес списка
+      воспроизведения и т. д.). Пользовательские аргументы всё ещё будут передаваться.'
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский
       кэш изображений в памяти. Приведёт к увеличению использования оперативной памяти.
@@ -1128,13 +1128,6 @@ Downloading failed: Возникла проблема с загрузкой «{v
 Screenshot Success: Снимок экрана сохранён как «{filePath}»
 Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
-Age Restricted:
-  The currently set default instance is {instance}: У {instance} ограничение по возрасту
-  Type:
-    Channel: Канал
-    Video: Видео
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} имеет ограничение по
-    возрасту'
 Channels:
   Title: Список каналов
   Count: '{number} канал(ов) найдено.'

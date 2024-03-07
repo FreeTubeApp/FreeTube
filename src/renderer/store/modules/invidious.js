@@ -1,5 +1,4 @@
 import fs from 'fs/promises'
-import { pathExists } from '../../helpers/filesystem'
 import { createWebURL, fetchWithTimeout } from '../../helpers/utils'
 
 const state = {
@@ -40,6 +39,7 @@ const actions = {
         console.error(err)
       }
     }
+
     // If the invidious instance fetch isn't returning anything interpretable
     if (instances.length === 0) {
       // Fallback: read from static file
@@ -47,15 +47,13 @@ const actions = {
       /* eslint-disable-next-line n/no-path-concat */
       const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
       const filePath = `${fileLocation}${fileName}`
-      if (!process.env.IS_ELECTRON || await pathExists(filePath)) {
-        console.warn('reading static file for invidious instances')
-        const fileData = process.env.IS_ELECTRON ? await fs.readFile(filePath, 'utf8') : await (await fetch(createWebURL(filePath))).text()
-        instances = JSON.parse(fileData).filter(e => {
-          return process.env.IS_ELECTRON || e.cors
-        }).map(e => {
-          return e.url
-        })
-      }
+      console.warn('reading static file for invidious instances')
+      const fileData = process.env.IS_ELECTRON ? await fs.readFile(filePath, 'utf8') : await (await fetch(createWebURL(filePath))).text()
+      instances = JSON.parse(fileData).filter(e => {
+        return process.env.IS_ELECTRON || e.cors
+      }).map(e => {
+        return e.url
+      })
     }
     commit('setInvidiousInstancesList', instances)
   },

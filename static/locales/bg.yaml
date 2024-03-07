@@ -1023,7 +1023,7 @@ Up Next: 'Следващ'
 Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
 Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
-Falling back to the local API: 'Връщане към локалния интерфейс'
+Falling back to Local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
   не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп
   за страната.'
@@ -1148,12 +1148,6 @@ Downloading failed: Имаше проблем при изтеглянето на
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана като "{filePath}"
 New Window: Нов прозорец
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово
-    ограничение
-  Type:
-    Channel: Канал
-    Video: Видео
 Channels:
   Count: Намерени са {number} канала.
   Unsubscribe: Отписване

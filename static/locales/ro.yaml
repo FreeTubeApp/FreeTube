@@ -42,6 +42,8 @@ Global:
     View Count: 1 vizionare | {count} vizionări
     Channel Count: 1 canal | {count} canale
     Watching Count: 1 se uită | {count} se uită
+  Input Tags:
+    Length Requirement: Tag-ul trebuie să aibă cel puțin {number} caractere
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -108,6 +110,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea
     conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din
     "{settingsSection}”.
+  Empty Posts: Canalele tale abonate nu au momentan nicio postare.
+  Load More Posts: Încarcă mai multe postări
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
@@ -853,7 +857,7 @@ Up Next: 'În continuare'
 Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copia)'
 Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
 Falling back to Invidious API: 'Revenine la Invidious API'
-Falling back to the local API: 'Revenire la API-ul local'
+Falling back to Local API: 'Revenire la API-ul local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest
   videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla
   din cauza indisponibilității țării.'
@@ -972,14 +976,6 @@ Starting download: Se începe descărcarea a "{videoTitle}"
 Downloading failed: A existat o problemă la descărcarea "{videoTitle}"
 Downloading has completed: '"{videoTitle}" s-a terminat de descărcat'
 New Window: Fereastră nouă
-Age Restricted:
-  The currently set default instance is {instance}: Acest {instance} este restricționat
-    datorită vârstei
-  Type:
-    Channel: Canal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Acest {videoOrPlaylist} are restricții
-    de vârstă
 Channels:
   Channels: Canale
   Title: Listă de canale
@@ -1011,3 +1007,5 @@ Playlist will pause when current video is finished: Lista de redare se va între
   când videoclipul curent este terminat
 Playlist will not pause when current video is finished: Lista de redare nu se va întrerupe
   când videoclipul curent este terminat
+Go to page: Mergeți la {page}
+Close Banner: Închideți bannerul
