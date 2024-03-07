@@ -1832,6 +1832,9 @@ export default defineComponent({
               // make it easier to toggle the vjs-menu on touch (hover css is inconsistent w/ touch)
               if (!e.target.classList.contains('quality-item') && !e.target.classList.contains('vjs-menu-item-text')) {
                 vjsMenu.classList.toggle('vjs-lock-showing')
+              } else {
+                // hide the quality selector on select (just like the other quality selectors do on mobile)
+                vjsMenu.classList.remove('vjs-lock-showing')
               }
               this.handleClick(e)
               isTapping = false
