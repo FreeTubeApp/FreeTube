@@ -253,8 +253,14 @@ export default defineComponent({
         return
       }
 
-      if (event.getModifierState('Control') && event.key === 'u') {
+      // Press Ctrl+u (Windows/Linux) or Cmd/Meta+u (MacOS) inside the search box to clear the text
+      const isCapslockOff = !event.getModifierState('Capslock')
+      const isCtrlOrCmdPressed = (process.platform !== 'darwin' && event.ctrlKey) ||
+        (process.platform === 'darwin' && event.metaKey)
+
+      if (isCapslockOff && isCtrlOrCmdPressed && event.key === 'u') {
         this.handleClearTextClick()
+        return
       }
 
       if (this.visibleDataList.length === 0) { return }
@@ -320,7 +326,6 @@ export default defineComponent({
 
     focus() {
       this.$refs.input.focus()
-      this.select()
     },
 
     select() {
