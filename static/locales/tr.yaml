@@ -178,6 +178,7 @@ User Playlists:
         kullanımına geri dönüldü
       This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
         yer imi için kullanılıyor
+    Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
       listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
