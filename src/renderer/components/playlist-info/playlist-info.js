@@ -84,7 +84,8 @@ export default defineComponent({
       required: true,
     },
   },
-  emits: ['enter-edit-mode', 'exit-edit-mode'],
+  emits: ['enter-edit-mode', 'exit-edit-mode', 'search-video-mode-on', 'search-video-query-change', 'search-video-mode-off'],
+
   data: function () {
     return {
       searchVideoMode: false,
