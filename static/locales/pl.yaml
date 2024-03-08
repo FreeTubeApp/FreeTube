@@ -143,6 +143,7 @@ User Playlists:
       dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
       film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
+    Added {count} Times: Dodano {count} raz | Dodano {count} razy
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nie było żadnych filmów do usunięcia.

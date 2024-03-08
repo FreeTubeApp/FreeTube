@@ -158,6 +158,7 @@ User Playlists:
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
         進行快速書籤
+    Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
       部影片新增至其中
@@ -246,7 +247,7 @@ Settings:
       Black: '黑色'
       Dark: '深色'
       Light: '淺色'
-      Dracula: '德古拉'
+      Dracula: 'Dracula'
       System Default: 系統預設值
       Catppuccin Mocha: 卡布奇諾摩卡
       Pastel Pink: 淡粉紅色

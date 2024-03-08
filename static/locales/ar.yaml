@@ -173,6 +173,7 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
         للإشارة المرجعية السريعة
       Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+    Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
       بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
@@ -186,6 +187,7 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
+    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد

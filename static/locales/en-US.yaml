@@ -187,6 +187,8 @@ User Playlists:
     EarliestPlayedFirst: 'Earliest Played'
 
   SinglePlaylistView:
+    Search for Videos: Search for Videos
+
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
       This video cannot be moved down.: This video cannot be moved down.

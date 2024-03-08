@@ -1,6 +1,7 @@
 <template>
   <div class="ftIconButton">
     <font-awesome-icon
+      ref="iconButton"
       class="iconButton"
       :title="title"
       :icon="icon"
