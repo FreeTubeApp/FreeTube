@@ -13,6 +13,7 @@
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
       :hide-forbidden-titles="hideForbiddenTitles"
+      :search-query-text="searchQueryText"
     />
   </ft-auto-grid>
 </template>

@@ -15,7 +15,12 @@ export default defineComponent({
     appearance: {
       type: String,
       required: true
-    }
+    },
+    searchQueryText: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data: function () {
     return {
@@ -79,6 +84,7 @@ export default defineComponent({
         path: `/playlist/${this.playlistId}`,
         query: {
           playlistType: this.isUserPlaylist ? 'user' : '',
+          searchQueryText: this.searchQueryText,
         },
       }
     },

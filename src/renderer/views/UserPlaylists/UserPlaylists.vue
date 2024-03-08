@@ -71,6 +71,7 @@
         v-else-if="activeData.length > 0 && !isLoading"
         :data="activeData"
         :data-type="'playlist'"
+        :search-query-text="doSearchPlaylistsWithMatchingVideos ? lowerCaseQuery : ''"
         :use-channels-hidden-preference="false"
         :hide-forbidden-titles="false"
       />
