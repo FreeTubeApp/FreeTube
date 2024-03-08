@@ -424,6 +424,10 @@ export default defineComponent({
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
 
+      if (this.isInvidiousPlaylist) {
+        this.fetchIVPlaylist = true
+      }
+
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
