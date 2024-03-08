@@ -80,9 +80,14 @@ export async function parseYouTubeRSSFeed(rssString, channelId) {
       promises.push(parseRSSEntry(entry, channelId, channelName))
     }
 
-    return await Promise.all(promises)
+    return {
+      name: channelName,
+      videos: await Promise.all(promises)
+    }
   } catch (e) {
-    return []
+    return {
+      videos: []
+    }
   }
 }
 

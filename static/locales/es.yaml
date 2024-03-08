@@ -142,6 +142,7 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
+    Added {count} Times: Añadido {count} vez | Añadido {count} veces
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.

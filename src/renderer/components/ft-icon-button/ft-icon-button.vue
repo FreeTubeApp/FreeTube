@@ -1,6 +1,7 @@
 <template>
   <div class="ftIconButton">
     <span
+      ref="iconButton"
       tabindex="0"
       role="button"
       :aria-expanded="dropdownShown"

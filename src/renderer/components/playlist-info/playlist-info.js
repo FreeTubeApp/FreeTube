@@ -5,10 +5,12 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtButton from '../ft-button/ft-button.vue'
 import {
   formatNumber,
   showToast,
 } from '../../helpers/utils'
+import debounce from 'lodash.debounce'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -18,6 +20,7 @@ export default defineComponent({
     'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
     'ft-prompt': FtPrompt,
+    'ft-button': FtButton,
   },
   props: {
     id: {
@@ -84,6 +87,9 @@ export default defineComponent({
   emits: ['enter-edit-mode', 'exit-edit-mode'],
   data: function () {
     return {
+      searchVideoMode: false,
+      query: '',
+      updateQueryDebounce: function() {},
       editMode: false,
       showDeletePlaylistPrompt: false,
       showRemoveVideosOnWatchPrompt: false,
@@ -233,6 +239,8 @@ export default defineComponent({
   created: function () {
     this.newTitle = this.title
     this.newDescription = this.description
+
+    this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },
   methods: {
     toggleCopyVideosPrompt: function (force = false) {
@@ -372,6 +380,30 @@ export default defineComponent({
     disableQuickBookmark() {
       this.updateQuickBookmarkTargetPlaylistId(null)
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
+    },
+
+    updateQuery(query) {
+      this.query = query
+      this.$emit('search-video-query-change', query)
+    },
+    enableVideoSearchMode() {
+      this.searchVideoMode = true
+      this.$emit('search-video-mode-on')
+
+      nextTick(() => {
+        // Some elements only present after rendering update
+        this.$refs.searchInput.focus()
+      })
+    },
+    disableVideoSearchMode() {
+      this.searchVideoMode = false
+      this.updateQuery('')
+      this.$emit('search-video-mode-off')
+
+      nextTick(() => {
+        // Some elements only present after rendering update
+        this.$refs.enableSearchModeButton?.focus()
+      })
     },
 
     ...mapActions([

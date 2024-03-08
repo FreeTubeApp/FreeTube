@@ -187,6 +187,8 @@ User Playlists:
     EarliestPlayedFirst: 'Earliest Played'
 
   SinglePlaylistView:
+    Search for Videos: Search for Videos
+
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
       This video cannot be moved down.: This video cannot be moved down.
@@ -213,6 +215,8 @@ User Playlists:
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
     Save: Save
+
+    Added {count} Times: 'Added {count} Time | Added {count} Times'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.

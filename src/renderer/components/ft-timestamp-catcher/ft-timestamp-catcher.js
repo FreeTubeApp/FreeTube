@@ -10,18 +10,29 @@ export default defineComponent({
   },
   emits: ['timestamp-event'],
   methods: {
-    catchTimestampClick: function(event) {
-      const match = event.detail.match(/(\d+):(\d+):?(\d+)?/)
-      if (match[3] !== undefined) { // HH:MM:SS
-        const seconds = 3600 * Number(match[1]) + 60 * Number(match[2]) + Number(match[3])
-        this.$emit('timestamp-event', seconds)
-      } else { // MM:SS
-        const seconds = 60 * Number(match[1]) + Number(match[2])
-        this.$emit('timestamp-event', seconds)
-      }
+    catchTimestampClick: function (event) {
+      this.$emit('timestamp-event', event.detail)
     },
     detectTimestamps: function (input) {
-      return input.replaceAll(/(\d+(:\d+)+)/g, '<a href="#" onclick="this.dispatchEvent(new CustomEvent(\'timestamp-clicked\',{bubbles:true, detail:\'$1\'}))">$1</a>')
+      const videoId = this.$route.params.id
+
+      return input.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (timestamp, hours, minutes, seconds) => {
+        let time = 60 * Number(minutes) + Number(seconds)
+
+        if (hours) {
+          time += 3600 * Number(hours)
+        }
+
+        const url = this.$router.resolve({
+          path: `/watch/${videoId}`,
+          query: {
+            timestamp: time
+          }
+        }).href
+
+        // Adding the URL lets the user open the video in a new window at this timestamp
+        return `<a href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}));window.scrollTo(0,0)">${timestamp}</a>`
+      })
     }
   }
 })
