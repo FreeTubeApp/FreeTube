@@ -342,6 +342,7 @@ export default defineComponent({
       const playlistInfo = {
         playlistId: this.playlistId,
         playlistType: this.playlistType,
+        origin: this.origin,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
@@ -390,6 +391,7 @@ export default defineComponent({
       const playlistInfo = {
         playlistId: this.playlistId,
         playlistType: this.playlistType,
+        origin: this.origin,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
