@@ -192,6 +192,7 @@ export default defineComponent({
   },
   methods: {
     enableViewPlaylist: function () {
+      this.isLoading = true
       this.fetchIVPlaylist = true
       this.getPlaylistInfoDebounce()
     },
