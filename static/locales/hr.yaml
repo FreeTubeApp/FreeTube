@@ -195,6 +195,7 @@ User Playlists:
         videa dodana u 1 zbirku
     Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa
       | Odaberi zbirku za dodavanje tvojih {videoCount} videa
+    Added {count} Times: Dodano {count} puta | Dodano {count} puta
   CreatePlaylistPrompt:
     Create: Stvori
     Toast:
@@ -272,7 +273,7 @@ Settings:
       Black: 'Crna'
       Dark: 'Tamna'
       Light: 'Svijetla'
-      Dracula: 'Drakula'
+      Dracula: 'Dracula'
       System Default: Standard sustava
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastelno ružičasta
@@ -925,7 +926,7 @@ Video:
     Resolution: Razlučivost
     Player Dimensions: Dimenzije playera
     Bitrate: Brzina prijenosa
-    Volume: Glasnoća
+    Volume: Direktorij
     Bandwidth: Propusnost
     Buffered: Učitano u memoriju
     Mimetype: Mimetype

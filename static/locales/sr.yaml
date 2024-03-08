@@ -149,6 +149,7 @@ User Playlists:
       да додате видео снимак | Изаберите плејлисту на коју желите да додате {videoCount}
       видео снимака
     N playlists selected: 'Изабрано: {playlistCount}'
+    Added {count} Times: Додато {count} пут | Додато {count} пута
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Није било видео снимака за уклањање.

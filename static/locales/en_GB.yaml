@@ -121,14 +121,14 @@ Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Your playlists'
   Playlist Message: This page is not reflective of fully working playlists. It only
-    lists videos that you have saved or favourited. When the work has finished, all
-    videos currently here will be migrated to a ‘Favourites’ playlist.
+    lists videos that you have saved or made a Favourite. When the work has finished,
+    all videos currently here will be migrated to a ‘Favourites’ playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
   Search bar placeholder: Search in playlist
   Empty Search Message: There are no videos in this playlist that match your search
-  Create New Playlist: Create new playlist
+  Create New Playlist: Create new Playlist
   Add to Playlist: Add to playlist
   This playlist currently has no videos.: This playlist currently has no videos.
   Move Video Down: Move video down
@@ -185,11 +185,21 @@ User Playlists:
       "{videoCount} video(s) added to 1 playlist": 1 video added to 1 playlist | {videoCount}
         videos added to 1 playlist
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video added to
+        {playlistCount} playlists | {videoCount} videos added to  {playlistCount}
+        playlists
     Select a playlist to add your N videos to: Select a playlist to add your video
       to | Select a playlist to add your {videoCount} videos to
   CreatePlaylistPrompt:
-    New Playlist Name: New playlist name
+    New Playlist Name: New Playlist name
     Create: Create
+    Toast:
+      Playlist {playlistName} has been successfully created.: Playlist {playlistName}
+        has been successfully created.
+      There was an issue with creating the playlist.: There was an problem when creating
+        the playlist.
+      There is already a playlist with this name. Please pick a different name.: There
+        is already a Playlist with this name. Please pick a different name.
   You have no playlists. Click on the create new playlist button to create a new one.: You
     have no playlists. Click on the create new playlist button to create a new one.
   Move Video Up: Move video up
@@ -252,7 +262,7 @@ Settings:
     Clear Default Instance: Clear default instance
     Set Current Instance as Default: Set current instance as default
     Current instance will be randomized on startup: Current instance will be randomised
-      on startup
+      on Startup
     No default instance has been set: No default instance has been set
     The currently set default instance is {instance}: The currently set default instance
       is {instance}
@@ -1079,8 +1089,8 @@ New Window: New window
 Channels:
   Empty: Your channel list is currently empty.
   Unsubscribe: Unsubscribe
-  Unsubscribed: '{channelName} has been removed from your subscriptions'
-  Unsubscribe Prompt: Are you sure you want to unsubscribe from ‘{channelName}’?
+  Unsubscribed: '{channelName} has been removed from your Subscriptions'
+  Unsubscribe Prompt: Are you sure you want to Unsubscribe from ‘{channelName}’?
   Title: Channel list
   Search bar placeholder: Search channels
   Channels: Channels
@@ -1110,3 +1120,4 @@ Playlist will not pause when current video is finished: Playlist will not pause 
   current video is finished
 Go to page: Go to {page}
 Tag already exists: ‘{tagName}’ tag already exists
+Close Banner: Close Banner

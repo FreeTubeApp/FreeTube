@@ -803,7 +803,23 @@ export default defineComponent({
         showToast(`${message}: ${err}`)
         return
       }
-      const playlists = JSON.parse(data)
+      let playlists = null
+
+      // for the sake of backwards compatibility,
+      // check if this is the old JSON array export (used until version 0.19.1),
+      // that didn't match the actual database format
+      const trimmedData = data.trim()
+
+      if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
+        playlists = JSON.parse(trimmedData)
+      } else {
+        // otherwise assume this is the correct database format,
+        // which is also what we export now (used in 0.20.0 and later versions)
+        data = data.split('\n')
+        data.pop()
+
+        playlists = data.map(playlistJson => JSON.parse(playlistJson))
+      }
 
       const requiredKeys = [
         'playlistName',
@@ -936,7 +952,11 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), 'All playlists has been successfully exported')
+      const playlistsDb = this.allPlaylists.map(playlist => {
+        return JSON.stringify(playlist)
+      }).join('\n') + '\n'// a trailing line is expected
+
+      await this.promptAndWriteToFile(options, playlistsDb, 'All playlists has been successfully exported')
     },
 
     exportPlaylistsForOlderVersionsSometimes: function () {

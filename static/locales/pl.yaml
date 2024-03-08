@@ -143,6 +143,7 @@ User Playlists:
       dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
       film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
+    Added {count} Times: Dodano {count} raz | Dodano {count} razy
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nie było żadnych filmów do usunięcia.
@@ -1218,3 +1219,4 @@ Trimmed input must be at least N characters long: Przycięte wyrażenie musi mie
 Age Restricted:
   This video is age restricted: Ten film ma ograniczenie wiekowe
   This channel is age restricted: Ten kanał ma ograniczenie wiekowe
+Close Banner: Zamknij Baner

@@ -128,6 +128,7 @@ User Playlists:
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
       个视频
     N playlists selected: 选中了 {playlistCount} 个播放列表
+    Added {count} Times: 添加了 {count} 次
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: 没有可删除的视频。

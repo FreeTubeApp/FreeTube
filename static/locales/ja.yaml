@@ -114,6 +114,10 @@ User Playlists:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
+  This playlist currently has no videos.: 存在、この再生リストには動画があっていません。
+  Create New Playlist: 新規再生リストを作られる
+  Sort By:
+    NameAscending: A-Z
 History:
   # On History Page
   History: '履歴'
@@ -276,7 +280,7 @@ Settings:
       Folder Button: フォルダーの選択
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
     Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
-    Allow DASH AV1 formats: DASH AV1形式を許可する
+    Allow DASH AV1 formats: DASH AV1形式を許可
     Comment Auto Load:
       Comment Auto Load: コメント自動読み込み
   Subscription Settings:
@@ -848,7 +852,7 @@ The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
 Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber}
-  配信中！　詳細はクリックして確認してください
+  配信中！詳細はクリックして確認してください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
@@ -864,8 +868,8 @@ Tooltips:
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: スクロール ホイールを使用して、ビデオ、MPV スタイルをスキップします。
-    Allow DASH AV1 formats: DASH H.264形式よりDASH AV1形式の方がきれいに見える可能性があるけど、再生には必要な電力がより多い。全ての動画でDASH
-      AV1を利用できないため、プレイヤーはDASH H.264形式に自動変更する場合があります。
+    Allow DASH AV1 formats: DASH H.264形式よりもDASH AV1形式の方がきれいに見える可能性がありますが、再生にはより多くの処理能力が必要となります。DASH
+      AV1形式を使用できない場合、プレイヤーはDASH H.264形式を自動で使用します。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
@@ -939,3 +943,5 @@ Hashtag:
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
 Playlist will pause when current video is finished: 現在のビデオが終了すると、プレイリストは停止します
 Playlist will not pause when current video is finished: 現在のビデオが終了しても、プレイリストは停止しません
+Close Banner: バナーを閉じる
+Go to page: '{page}に行く'

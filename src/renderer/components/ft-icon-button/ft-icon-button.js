@@ -128,6 +128,11 @@ export default defineComponent({
 
     handleResize: function () {
       this.useModal = window.innerWidth <= 900
-    }
+    },
+
+    focus() {
+      // To be called by parent components
+      this.$refs.iconButton.focus()
+    },
   }
 })

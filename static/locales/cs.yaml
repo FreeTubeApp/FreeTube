@@ -146,6 +146,7 @@ User Playlists:
     Select a playlist to add your N videos to: Vyberte playlist, do kterého přidat
       vaše video | Vyberte playlist, do kterého přidat vašich {videoCount} videí
     N playlists selected: Vybráno {playlistCount}
+    Added {count} Times: Přidáno {count}krát | Přidáno {count}krát
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nejsou zde žádná videa k odstranění.
@@ -175,6 +176,7 @@ User Playlists:
       This playlist is now used for quick bookmark: Tento playlist bude nyní použit
         pro rychlé uložení
       Quick bookmark disabled: Rychlé uložení vypnuto
+    Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
   Sort By:
@@ -234,7 +236,7 @@ Settings:
   General Settings:
     General Settings: 'Obecné nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
-    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky blogů'
+    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
       backend'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'

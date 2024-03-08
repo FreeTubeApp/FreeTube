@@ -38,7 +38,7 @@
         >
           <ft-playlist-selector
             tabindex="0"
-            :data="playlist"
+            :playlist="playlist"
             :index="index"
             :selected="selectedPlaylistIdList.includes(playlist._id)"
             @selected="countSelected(playlist._id)"

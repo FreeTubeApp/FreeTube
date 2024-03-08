@@ -29,12 +29,24 @@
         </div>
       </div>
     </div>
-    <div class="info">
-      <span
+    <div
+      v-observe-visibility="{
+        callback: onVisibilityChanged,
+        once: true,
+      }"
+      class="info"
+    >
+      <div
         class="title"
       >
         {{ titleForDisplay }}
-      </span>
+      </div>
+      <div
+        v-if="videoPresenceCountInPlaylistTextVisible"
+        class="videoPresenceCount"
+      >
+        {{ loneVideoPresenceCountInPlaylistText }}
+      </div>
     </div>
   </div>
 </template>

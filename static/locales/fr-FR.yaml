@@ -148,6 +148,7 @@ User Playlists:
         à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount}
         listes de lecture
     N playlists selected: '{playlistCount} Sélectionnée(s)'
+    Added {count} Times: Ajouté {count} Fois | Ajouté {count} Fois
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Il n'y avait aucune vidéo à supprimer.

@@ -166,6 +166,7 @@ User Playlists:
     Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
       aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
       toe te voegen
+    Added {count} Times: '{count} keer toe­gevoegd | {count} keer toe­gevoegd'
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
   Create New Playlist: Nieuwe afspeel­lijst aanmaken
