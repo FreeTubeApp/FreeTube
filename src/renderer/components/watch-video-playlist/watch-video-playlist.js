@@ -235,7 +235,7 @@ export default defineComponent({
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
-    if (cachedPlaylist?.id === this.playlistId) {
+    if (cachedPlaylist?.id === this.playlistId && !cachedPlaylist.items.length === 0) {
       this.loadCachedPlaylistInformation(cachedPlaylist)
     } else {
       this.getPlaylistInfoWithDelay()
