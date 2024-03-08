@@ -40,7 +40,6 @@ export default defineComponent({
       voteCount: '',
       postContent: '',
       commentCount: '',
-      isLoading: true,
       author: '',
       authorId: '',
     }
@@ -73,7 +72,7 @@ export default defineComponent({
         injectStylesUrls: [
           // This file is created with the copy webpack plugin in the web and renderer webpack configs.
           // If you add more modules, please remember to add their CSS files to the list in webpack config files.
-          createWebURL('/swiper.css')
+          createWebURL(`/swiper-${process.env.SWIPER_VERSION}.css`)
         ],
 
         a11y: true,
@@ -132,7 +131,6 @@ export default defineComponent({
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
       this.author = this.data.author
       this.authorId = this.data.authorId
-      this.isLoading = false
     },
 
     getBestQualityImage(imageArray) {

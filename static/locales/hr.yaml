@@ -195,6 +195,7 @@ User Playlists:
         videa dodana u 1 zbirku
     Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa
       | Odaberi zbirku za dodavanje tvojih {videoCount} videa
+    Added {count} Times: Dodano {count} puta | Dodano {count} puta
   CreatePlaylistPrompt:
     Create: Stvori
     Toast:
@@ -272,11 +273,12 @@ Settings:
       Black: 'Crna'
       Dark: 'Tamna'
       Light: 'Svijetla'
-      Dracula: 'Drakula'
+      Dracula: 'Dracula'
       System Default: Standard sustava
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastelno ružičasta
       Hot Pink: Vruća ružičasta
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -521,7 +523,7 @@ Settings:
     Hide Channels: Sakrij videa iz kanala
     Hide Channels Placeholder: ID kanala
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
-      korištenja velikih slova
+      korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
     Hide Channel Playlists: Sakrij kanal zbirki
     Hide Channel Community: Sakrij kanal zajednice
@@ -927,7 +929,7 @@ Video:
     Resolution: Razlučivost
     Player Dimensions: Dimenzije playera
     Bitrate: Brzina prijenosa
-    Volume: Glasnoća
+    Volume: Direktorij
     Bandwidth: Propusnost
     Buffered: Učitano u memoriju
     Mimetype: Mimetype
@@ -942,6 +944,7 @@ Video:
   Pause on Current Video: Zaustavi trenutačni video
   Unhide Channel: Prikaži kanal
   Hide Channel: Sakrij kanal
+  More Options: Više opcija
 Videos:
   #& Sort By
   Sort By:
@@ -1022,7 +1025,7 @@ Up Next: 'Sljedeći'
 Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
 Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
 Falling back to Invidious API: 'Koristit će se Invidious sučelje'
-Falling back to the local API: 'Koristit će se lokalno sučelje'
+Falling back to Local API: 'Koristit će se lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
@@ -1053,7 +1056,7 @@ Tooltips:
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
-      standardno sučelje. Kada je aktivirano, lokalno sučelje će pokretati i koristiti
+      standardno sučelje. Kada je aktivirano, lokalno API sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
@@ -1148,11 +1151,6 @@ Starting download: Početak preuzimanja „{videoTitle}”
 Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
-  Type:
-    Channel: Kanal
-    Video: Video
 Channels:
   Channels: Kanali
   Title: Popis kanala
@@ -1187,3 +1185,7 @@ Channel Unhidden: '{channel} je uklonjen iz filtra kanala'
 Trimmed input must be at least N characters long: Skraćeni unos mora imati barem 1
   znak | Skraćeni unos mora imati barem {length} znaka
 Tag already exists: Oznaka „{tagName}” već postoji
+Age Restricted:
+  This channel is age restricted: Ovaj je dobno ograničeni kanal
+  This video is age restricted: Ovaj je dobno ograničeni video
+Close Banner: Zatvori natpis

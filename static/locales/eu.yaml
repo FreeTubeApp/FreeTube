@@ -34,6 +34,17 @@ Forward: 'Aurrera'
 Global:
   Videos: 'Bideoak'
 
+  Counts:
+    Subscriber Count: 1.harpideduna| {count} harpidedun
+    Watching Count: 1. ikuslea | {count} ikusle
+    Channel Count: 1. kanala ! {count} kanal
+    Video Count: 1. bideoa | {count} bideo
+    View Count: 1. ikustaldia | {count} ikustaldi
+  Live: Zuzenekoa
+  Shorts: Laburrak
+  Input Tags:
+    Length Requirement: Etiketak {zenbaki} karaktere izan behar ditu gutxienez
+  Community: Komunitatea
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
@@ -90,6 +101,14 @@ Subscriptions:
   Refresh Subscriptions: 'Harpidetzak freskatu'
   Load More Videos: 'Bideo gehiago kargatu'
   Error Channels: Akatsak dituzten kateak
+  Disabled Automatic Fetching: Harpidetza-bilaketa automatikoa desgaitu duzu. Freskatu
+    harpidetzak hemen ikusteko.
+  Empty Channels: Harpidetutako kanalek ez dute bideorik.
+  Empty Posts: Harpidetutako kanalek ez dute argitalpenik.
+  Load More Posts: Kargatu mezu gehiago
+  Subscriptions Tabs: Harpidetzen fitxak
+  All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia
+    ikusteko, erakutsi fitxa batzuk "{azpisection}" ataleko "{settingsSection}"-ean.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -111,6 +130,100 @@ User Playlists:
   Search bar placeholder: Bilatu Erreprodukzio-zerrendan
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
     bat datorren bideorik
+  Remove Watched Videos: Kendu ikusitako bideoak
+  You have no playlists. Click on the create new playlist button to create a new one.: Ez
+    duzu erreprodukzio-zerrendarik. Egin klik sortu erreprodukzio-zerrenda berria
+    botoian berri bat sortzeko.
+  This playlist currently has no videos.: Erreprodukzio-zerrenda honek ez du bideorik.
+  Create New Playlist: Sortu erreprodukzio zerrenda berria
+  Add to Playlist: Gehitu erreprodukzio zerrendara
+  Add to Favorites: Gehitu {playlistName}-ra
+  Remove from Favorites: Kendu {playlistName}tik
+  Move Video Up: Mugitu bideoa gora
+  Move Video Down: Mugitu bideoa behera
+  Remove from Playlist: Kendu erreprodukzio zerrendatik
+  Playlist Name: Erreprodukzio zerrendaren izena
+  Playlist Description: Erreprodukzio-zerrendaren deskribapena
+  Save Changes: Gorde aldaketak
+  Cancel: Utzi
+  Edit Playlist Info: Editatu erreprodukzio zerrendaren informazioa
+  Copy Playlist: Kopiatu Erreprodukzio zerrenda
+  CreatePlaylistPrompt:
+    New Playlist Name: Erreprodukzio-zerrendaren izen berria
+    Toast:
+      Playlist {playlistName} has been successfully created.: '{playlistName} erreprodukzio-zerrenda
+        behar bezala sortu da.'
+      There was an issue with creating the playlist.: Arazo bat izan da erreprodukzio-zerrenda
+        sortzearekin.
+      There is already a playlist with this name. Please pick a different name.: Badago
+        dagoeneko izen honekin erreprodukzio-zerrenda bat. Mesedez, aukeratu beste
+        izen bat.
+    Create: Sortu
+  Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio-zerrenda
+    honekin
+  Disable Quick Bookmark: Desgaitu laster-marka azkarra
+  Sort By:
+    NameDescending: Z-A
+    LatestCreatedFirst: Sortu berria
+    EarliestCreatedFirst: Lehenen sortuak
+    LatestPlayedFirst: Duela gutxi erreproduzitua
+    EarliestPlayedFirst: Lehenen erreproduzitua
+    Sort By: Ordenatu honen arabera
+    NameAscending: A-Z
+    EarliestUpdatedFirst: Lehenen eguneratuak
+    LatestUpdatedFirst: Eguneratu berriak
+  Delete Playlist: Ezabatu erreprodukzio zerrenda
+  Are you sure you want to delete this playlist? This cannot be undone: Ziur erreprodukzio-zerrenda
+    ezabatu nahi duzula? Hau ezin da desegin.
+  SinglePlaylistView:
+    Toast:
+      Playlist has been updated.: Erreprodukzio-zerrenda eguneratu da.
+      "{videoCount} video(s) have been removed": bideo 1 kendu da | {videoCount} bideo
+        kendu dira
+      This video cannot be moved up.: Bideo hau ezin da gora eraman.
+      This video cannot be moved down.: Bideoa ezin da behera eraman.
+      Video has been removed: Bideoa kendu da
+      There was a problem with removing this video: Arazo bat izan da bideoa kentzean
+      This playlist is now used for quick bookmark: Erreprodukzio-zerrenda hau laster-markak
+        egiteko erabiltzen da orain
+      Quick bookmark disabled: Laster-marka azkarra desgaituta dago
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Erreprodukzio-zerrenda
+        hau laster-marketarako erabiltzen da orain {oldPlaylistName}-ren ordez. Egin
+        klik hemen desegiteko
+      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} erabili
+        da berriro azkar markatzeko'
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Erreprodukzio-zerrendako
+        bideo batzuk oraindik ez dira kargatu. Egin klik hemen kopiatzeko hala ere.
+      Playlist name cannot be empty. Please input a name.: Erreprodukzio zerrendaren
+        izena ezin da hutsik egon. Mesedez, idatzi izena.
+      There was an issue with updating this playlist.: Arazo bat izan da erreprodukzio-zerrenda
+        eguneratzean.
+      There were no videos to remove.: Ez zegoen kentzeko bideorik.
+      This playlist is protected and cannot be removed.: Erreprodukzio-zerrenda hau
+        babestuta dago eta ezin da kendu.
+      Playlist {playlistName} has been deleted.: '{playlistName} erreprodukzio-zerrenda
+        ezabatu da.'
+      This playlist does not exist: Erreprodukzio-zerrenda hau ez da existitzen
+    Search for Videos: Bilatu bideoak
+  AddVideoPrompt:
+    Added {count} Times: Gehitu da {count} Time | {count} aldiz gehitu da
+    Toast:
+      "{videoCount} video(s) added to 1 playlist": Bideo 1 gehitu da erreprodukzio-zerrenda
+        batera | {videoCount} bideo gehitu dira erreprodukzio-zerrenda batera
+      You haven't selected any playlist yet.: Oraindik ez duzu erreprodukzio zerrendarik
+        hautatu.
+      "{videoCount} video(s) added to {playlistCount} playlists": Bideo 1 gehitu da
+        {playlistCount} erreprodukzio zerrendetan | {videoCount} bideo gehitu dira
+        {playlistCount} erreprodukzio-zerrendetan
+    Select a playlist to add your N videos to: Hautatu erreprodukzio-zerrenda zure
+      bideoa -ra gehitzeko | Hautatu erreprodukzio-zerrenda zure {videoCount} bideoak
+      gehitzeko
+    N playlists selected: '{playlistCount} hautatuta'
+    Search in Playlists: Bilatu erreprodukzio-zerrendetan
+    Save: Gorde
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ziur
+    ikusitako bideo guztiak erreprodukzio-zerrenda honetatik kendu nahi dituzula?
+    Hau ezin da desegin.
 History:
   # On History Page
   History: 'Historikoa'
@@ -147,6 +260,8 @@ Settings:
       Beginning: 'Hasiera'
       Middle: 'Erdian'
       End: 'Bukaera'
+      Hidden: Ezkutatuta
+      Blur: Lausotzea
     View all Invidious instance information: 'Invidious instantzia guztien informazioa
       ikusi'
     Region for Trending: 'Joeren eskualdea'
@@ -179,6 +294,9 @@ Settings:
       Dracula: Drakula
       System Default: Sistemak lehenetsia
       Catppuccin Mocha: Catppuccin Motxa
+      Nordic: nordikoa
+      Pastel Pink: Pastel arrosa
+      Hot Pink: Arrosa beroa
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -221,6 +339,7 @@ Settings:
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
+    Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
     Player Settings: 'Erreprodukzioaren ezarpenak'
     Force Local Backend for Legacy Formats: 'Behartu backend lokala Legacy formatuentzat'
@@ -272,6 +391,11 @@ Settings:
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
+    Comment Auto Load:
+      Comment Auto Load: Iruzkin karga automatikoa
+    Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
+    Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
+    Allow DASH AV1 formats: Baimendu DASH AV1 formatuak
   Privacy Settings:
     Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
     Remember History: 'Historikoa oroitu'
@@ -289,11 +413,20 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ziur
       al zaude zure profil eta harpidetza guztiak ezabatu nahi dituzula? Ezingo duzu
       atzera egin.'
+    All playlists have been removed: Erreprodukzio-zerrenda guztiak kendu dira
+    Save Watched Videos With Last Viewed Playlist: Gorde ikusitako bideoak ikusitako
+      azken erreprodukzio-zerrendarekin
+    Remove All Playlists: Kendu erreprodukzio-zerrenda guztiak
+    Are you sure you want to remove all your playlists?: Ziur erreprodukzio-zerrenda
+      guztiak kendu nahi dituzula?
   Subscription Settings:
     Subscription Settings: 'Harpidetzen ezarpenak'
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Manage Subscriptions: 'Harpidetzak kudeatu'
+    Fetch Automatically: Eskuratu jarioa automatikoki
+    Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
+      bideoa
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
@@ -310,6 +443,38 @@ Settings:
     Hide Video Description: Bideoaren deskribapena ezkutatu
     Hide Comments: Iruzkinak ezkutatu
     Hide Live Streams: Zuzeneko emanaldiak ezkutatu
+    Sections:
+      Side Bar: Alboko Barra
+      Subscriptions Page: Harpidetzak Orria
+      Channel Page: Kanalaren Orria
+      General: Orokorra
+      Watch Page: Ikusi Orria
+    Hide Profile Pictures in Comments: Ezkutatu profileko argazkiak iruzkinetan
+    Display Titles Without Excessive Capitalisation: Bistaratu izenburuak gehiegizko
+      letra larriz eta puntuaziorik gabe
+    Hide Channels Placeholder: Kanalaren IDa
+    Hide Channel Playlists: Ezkutatu kanaleko erreprodukzio-zerrendak
+    Hide Channel Community: Ezkutatu kanalaren komunitatea
+    Hide Channel Podcasts: Ezkutatu kanaleko podcastak
+    Hide Videos and Playlists Containing Text: Ezkutatu testua duten bideoak eta erreprodukzio-zerrendak
+    Hide Channels: Ezkutatu bideoak kanaletatik
+    Hide Upcoming Premieres: Ezkutatu datozen estreinaldiak
+    Hide Subscriptions Videos: Ezkutatu harpidetza-bideoak
+    Hide Subscriptions Shorts: Ezkutatu bideo laburren harpidetzak
+    Hide Channel Releases: Ezkutatu kanalen kaleratzeak
+    Hide Chapters: Ezkutatu kapituluak
+    Hide Channels Invalid: Emandako kanalaren IDa baliogabea da
+    Hide Channels API Error: Errore bat gertatu da emandako IDa duen erabiltzailea
+      berreskuratzean. Mesedez, egiaztatu berriro IDa zuzena den.
+    Hide Channels Already Exists: Kanalaren IDa badago jada
+    Hide Channel Shorts: Ezkutatu kanalaren bideo laburrak
+    Hide Videos and Playlists Containing Text Placeholder: Hitza, Hitzaren zatia edo
+      esaldia
+    Hide Subscriptions Live: Ezkutatu zuzenekoen harpidetzak
+    Hide Subscriptions Community: Ezkutatu harpidetzen komunitateak
+    Hide Featured Channels: Ezkutatu nabarmendutako kanalak
+    Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
+      dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
   Data Settings:
     Data Settings: 'Datuen ezarpenak'
     Select Import Type: 'Hautatu Inportazio mota'
@@ -357,6 +522,18 @@ Settings:
       esportatu dira
     Playlist insufficient data: Ez da datu nahikorik "{playlist}" erreprodukzio zerrendarentzat,
       elementutik ateratzen
+    History File: Historikoaren fitxategia
+    Playlist File: Erreprodukzio-zerrendaren fitxategia
+    Export Playlists For Older FreeTube Versions:
+      Label: Esportatu erreprodukzio zerrendak FreeTube bertsio zaharretarako
+      Tooltip: "Aukera honek erreprodukzio-zerrenda guztietako bideoak \"Gogokoak\"\
+        \ izeneko erreprodukzio-zerrenda batera esportatzen ditu.\nNola esportatu
+        eta inportatu bideoak erreprodukzio-zerrendetan FreeTube-ren bertsio zaharrago
+        baterako:\n 1. Esportatu zure erreprodukzio zerrendak aukera hau gaituta.\n
+        2. Ezabatu lehendik dituzun erreprodukzio-zerrenda guztiak Pribatutasun-ezarpenetan
+        dagoen Kendu zerrenda guztiak aukera erabiliz.\n 3. Abiarazi FreeTube-ren
+        bertsio zaharra eta inportatu esportatutako erreprodukzio-zerrendak.\""
+    Subscription File: Harpidetza Fitxategia
   Proxy Settings:
     Proxy Settings: 'Proxy-aren ezarpenak'
     Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
@@ -381,6 +558,10 @@ Settings:
     External Player: Kanpoko erreproduzitzailea
     Custom External Player Executable: Lehenetsitako kanpo erreproduzitzailea exekutagarria
     Custom External Player Arguments: Lehenetsitako kanpo erreproduzitzailea argudioak
+    Ignore Default Arguments: Ez ikusi lehenetsitako argudioak
+    Players:
+      None:
+        Name: Bat ere ez
   Download Settings:
     Download Settings: Deskargen ezarpenak
     Ask Download Path: Deskargaren ibilbidea galdetu
@@ -402,11 +583,31 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko
       API Url (lehenetsia https://sponsor.ajay.app da)
     SponsorBlock Settings: Babesleak blokeatzeko ezarpenak
+    UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
+    UseDeArrowThumbnails: Erabili DeArrow irudi txikietarako
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API URLa (lehenetsia https://dearrow-thumb.ajay.app da)
   Parental Control Settings:
     Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
     Hide Unsubscribe Button: Harpidetza kendu botoia ezkutatu
     Parental Control Settings: Gurasoen kontrolaren ezarpenak
     Hide Search Bar: Bilaketa barra ezkutatu
+  Password Dialog:
+    Password: Pasahitza
+    Password Incorrect: Pasahitza okerra
+    Unlock: Desblokeatu
+    Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
+  Experimental Settings:
+    Replace HTTP Cache: Ordeztu HTTP cachea
+    Experimental Settings: Ezarpen esperimentalak
+    Warning: Ezarpen hauek esperimentalak dira, aktibatuta dauden bitartean hutsegiteak
+      eragin ditzakete. Oso gomendagarria da babeskopiak egitea. Erabili zure ardurapean!
+  Password Settings:
+    Password Settings: Pasahitz ezarpenak
+    Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
+    Remove Password: Pasahitza ezabatu
+    Set Password: Ezarri pasahitza
+  Expand All Settings Sections: Zabaldu ezarpen guztien atalak
 About:
   #On About page
   About: 'Honi buruz'
@@ -436,6 +637,7 @@ About:
   these people and projects: 'Hurrengo pertsonak eta proiektuak'
   Donate: 'Donazioa egin'
 
+  Discussions: Eztabaidak
 Profile:
   Profile Select: 'Hautatu profila'
   Profile Filter: 'Profilaren iragazkiak'
@@ -480,6 +682,12 @@ Profile:
     batetik ezabatuko.'
 #On Channel Page
   Profile Settings: Profilaren ezarpenak
+  Close Profile Dropdown: Itxi goitibeherako profila
+  Open Profile Dropdown: Ireki goitibeherako profila
+  Toggle Profile List: Aldatu profilen zerrenda
+  Edit Profile Name: Editatu profilaren izena
+  Create Profile Name: Sortu profilaren izena
+  Profile Name: Profilaren izena
 Channel:
   Subscribe: 'Harpidetu'
   Unsubscribe: 'Harpidetza kendu'
@@ -510,6 +718,39 @@ Channel:
     About: 'Honi buruz'
     Channel Description: 'Kanalaren deskribapena'
     Featured Channels: 'Nabarmendutako kanalak'
+    Joined: Bat eginda
+    Location: Kokapena
+    Tags:
+      Tags: Etiketak
+      Search for: Bilatu "{tag}"
+    Details: Xehetasunak
+  This channel does not exist: Kanal hau ez da existitzen
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Kanal
+    hau adin mugatuta dago eta une honetan ezin da ikusi FreeTube-n.
+  Shorts:
+    This channel does not currently have any shorts: Une honetan kanal honek ez du
+      bideo laburrik
+  Releases:
+    This channel does not currently have any releases: Une honetan kanal honek ez
+      du argitalpenik
+    Releases: Argitalpenak
+  Community:
+    Hide Answers: Erantzunak ezkutatu
+    votes: '{votes} bozka'
+    This channel currently does not have any posts: Une honetan kanal honek ez du
+      argitalpenik
+    Reveal Answers: Erantzunak agerian utzi
+    Video hidden by FreeTube: FreeTube-k ezkutatutako bideoa
+  Channel Tabs: Kanalaren fitxak
+  This channel does not allow searching: Kanal honek ez du bilaketarik onartzen
+  Live:
+    Live: Zuzenekoak
+    This channel does not currently have any live streams: Kanal honek ez du zuzeneko
+      erreprodukziorik
+  Podcasts:
+    Podcasts: Podcastak
+    This channel does not currently have any podcasts: Une honetan kanal honek ez
+      du podcastik
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Historikotik ezabatu'
@@ -592,6 +833,7 @@ Video:
     Years: 'Urteak'
     Ago: 'Duela'
     Upcoming: 'Estreinaldiak'
+    In less than a minute: Minutu bat baino gutxiagoan
   Published on: 'Noiz argitaratua'
   Streamed on: 'Noiz zuzenean emana'
   Started streaming on: 'Noiz hasi zen zuzenekoa'
@@ -636,6 +878,16 @@ Video:
     intro: Sarrera
   Skipped segment: Saltatu egin da segmentua
   Premieres on: Estreinaldiak
+  Hide Channel: Kanala ezkutatu
+  Unhide Channel: Kanala erakutsi
+  Premieres: Estreinaldiak
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Zuzeneko
+    txata ez dago erabilgarri zuzeneko honentzat. Baliteke igo duenak desgaitu izana.
+  Show Super Chat Comment: Erakutsi Super txat iruzkina
+  Pause on Current Video: Gelditu uneko bideoa
+  More Options: Aukera gehiago
+  Upcoming: Datozenak
+  Scroll to Bottom: Joan Beherantz
 Videos:
   #& Sort By
   Sort By:
@@ -685,6 +937,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'Youtube-ko kanalaren URL-a arbelean itsatsi
     da'
 
+  Share Channel: Kanala partekatu
 Mini Player: 'Erreproduzitzaile txikia'
 Comments:
   Comments: 'Iruzkinak'
@@ -710,6 +963,10 @@ Comments:
   Show More Replies: Erantzun gehiago erakutsi
   And others: eta bestelakoak
   Pinned by: Honengatik ainguratuta
+  Hearted: Bihotzez
+  From {channelName}: '{channelName}-tik'
+  View {replyCount} replies: Ikusi {replyCount} erantzunak
+  Subscribed: Harpidetuta
 Up Next: 'Hurrengoa'
 
 #Tooltips
@@ -749,11 +1006,19 @@ Tooltips:
       eta mantendu (Komando tekla MAC-etan) eta ondoren saguaren ezkerreko botoia
       sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan
       aldaketarik egin ez bada).
+    Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko,
+      MPV estiloa.
+    Allow DASH AV1 formats: DASH AV1 formatuak DASH H.264 formatuak baino itxura hobea
+      izan dezake. DASH AV1 formatuek potentzia gehiago behar dute erreproduzitzeko!
+      Ez daude bideo guztietan eskuragarri, kasu horietan erreproduzitzaileak DASH
+      H.264 formatuak erabiliko ditu ordez.
   Subscription Settings:
     Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
       beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
       izateaz gain, IP-en blokeoak saihesten ditu. Aldiz, zuzenekoaren egoeraren edo
       bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
+    Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure
+      harpidetza-jarioa leiho berri bat irekitzen denean eta profila aldatzean.
   Privacy Settings:
     Remove Video Meta Files: 'Gaituta dagoenean, FreeTube-k automatikoki ezabatzen
       ditu bideoen erreprodukzioan sortutako metafitxategiak, bistaratze orria ixten
@@ -772,11 +1037,34 @@ Tooltips:
       Individious-en ezarpenek ez dituzte kanpo erreproduzitzaileak trabatzen.
     Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak,
       puntu eta komaz bereizita (';'), kanpoko erreproduzitzailera pasatzea nahi duzu.
+    Ignore Default Arguments: Ez bidali argumentu lehenetsirik kanpoko erreproduzitzaileari
+      bideoaren URLaz gain (adibidez, erreprodukzio-tasa, erreprodukzio-zerrendaren
+      URLa, etab.). Argumentu pertsonalizatuak transmitituko dira oraindik.
+  Distraction Free Settings:
+    Hide Channels: Sartu kanalaren ID bat bideo, erreprodukzio-zerrenda eta kanala
+      bera bilaketetan, joeran, ezagunenetan eta gomendagarrienetan ager ez dadin
+      ezkutatzeko. Sartutako kanalaren IDak guztiz bat etorri behar du eta maiuskulak
+      eta minuskulak bereizten ditu.
+    Hide Videos and Playlists Containing Text: Idatzi hitz bat, hitz-zati bat edo
+      esaldi bat (maiuskulak eta minuskulak bereizten ez diren) jatorrizko izenburuak
+      FreeTube osoan duten bideo eta erreprodukzio-zerrenda guztiak ezkutatzeko, historia,
+      zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik
+      kenduta.
+    Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak
+      ordezkatzen du, "{settingsSection}" ataleko "{azpisekzioa}" atalean
+  Experimental Settings:
+    Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du
+      eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko
+      du.
+  SponsorBlock Settings:
+    UseDeArrowThumbnails: Ordeztu bideoaren miniaturak DeArrow-en miniaturaz.
+    UseDeArrowTitles: Ordeztu bideoen izenburuak DeArrow-en erabiltzaileek bidalitako
+      tituluekin.
 Local API Error (Click to copy): 'Tokiko API-ak huts egin du (klikatu kopiatzeko)'
 Invidious API Error (Click to copy): 'Individious-eko APIak huts egin du (klikatu
   kopiatzeko)'
 Falling back to Invidious API: 'Individious-eko APIra itzultzen'
-Falling back to the local API: 'Tokiko APIra itzultzen'
+Falling back to Local API: 'Tokiko APIra itzultzen'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo
   hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean
   erabilgarri ez dagoelako gerta daiteke.'
@@ -827,9 +1115,34 @@ Channels:
   Unsubscribe Prompt: Ziur al zaude "{channelName}"-ren harpidetza kendu nahi duzula?
   Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Honako {videoOrPlaylist} adin muga du
-  Type:
-    Channel: Kanala
-    Video: Bideoa
 Preferences: Hobespenak
+Go to page: Joan {page}-ra
+Close Banner: Itxi iragarkia
+Age Restricted:
+  This channel is age restricted: Kanal hau adin mugatuta dago
+  This video is age restricted: Bideo hau adin mugatuta dago
+Playlist will not pause when current video is finished: Erreprodukzio-zerrenda ez
+  da etengo uneko bideoa amaitzen denean
+Playlist will pause when current video is finished: Erreprodukzio-zerrenda pausatu
+  egingo da uneko bideoa amaitzen denean
+Channel Unhidden: '{channel} kanalaren iragazkitik kendu da'
+Clipboard:
+  Cannot access clipboard without a secure connection: Ezin da arbelera sartu konexio
+    segururik gabe
+  Copy failed: Ezin izan da kopiatu arbelean
+Tag already exists: '"{tagName}" etiketa badago jada'
+Trimmed input must be at least N characters long: Moztutako sarrerak karaktere bat
+  izan behar du gutxienez | Moztutako sarrerak gutxienez {length} karaktere izan behar
+  ditu
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapituluen zerrenda ezkutatuta
+    dago, uneko kapitulua: {chapterName}'
+  Chapters: Kapituluak
+  'Chapters list visible, current chapter: {chapterName}': 'Kapituluen zerrenda ikusgai,
+    uneko kapitulua: {chapterName}'
+Hashtag:
+  Hashtag: Traola
+  This hashtag does not currently have any videos: Traola honek ez du bideorik une
+    honetan
+Ok: Ados
+Channel Hidden: '{channel} gehitu da kanalaren iragazkian'

@@ -129,19 +129,23 @@ export default defineComponent({
       this.attemptedFetch = true
 
       this.errorChannels = []
+      const subscriptionUpdates = []
+
       const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let videos = []
+        let name, thumbnailUrl
+
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           if (useRss) {
-            videos = await this.getChannelVideosInvidiousRSS(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosInvidiousRSS(channel))
           } else {
-            videos = await this.getChannelVideosInvidiousScraper(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosInvidiousScraper(channel))
           }
         } else {
           if (useRss) {
-            videos = await this.getChannelVideosLocalRSS(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosLocalRSS(channel))
           } else {
-            videos = await this.getChannelVideosLocalScraper(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosLocalScraper(channel))
           }
         }
 
@@ -152,6 +156,15 @@ export default defineComponent({
           channelId: channel.id,
           videos: videos,
         })
+
+        if (name || thumbnailUrl) {
+          subscriptionUpdates.push({
+            channelId: channel.id,
+            channelName: name,
+            channelThumbnailUrl: thumbnailUrl
+          })
+        }
+
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
@@ -159,6 +172,8 @@ export default defineComponent({
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
       this.updateShowProgressBar(false)
+
+      this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
 
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
@@ -174,16 +189,18 @@ export default defineComponent({
 
     getChannelVideosLocalScraper: async function (channel, failedAttempts = 0) {
       try {
-        const videos = await getLocalChannelVideos(channel.id)
+        const result = await getLocalChannelVideos(channel.id)
 
-        if (videos === null) {
+        if (result === null) {
           this.errorChannels.push(channel)
-          return []
+          return {
+            videos: []
+          }
         }
 
-        addPublishedDatesLocal(videos)
+        addPublishedDatesLocal(result.videos)
 
-        return videos
+        return result
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -198,12 +215,16 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return await this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return await this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -227,7 +248,9 @@ export default defineComponent({
             this.errorChannels.push(channel)
           }
 
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -245,12 +268,16 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return this.getChannelVideosLocalScraper(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -266,7 +293,16 @@ export default defineComponent({
         invidiousAPICall(subscriptionsPayload).then((result) => {
           addPublishedDatesInvidious(result.videos)
 
-          resolve(result.videos)
+          let name
+
+          if (result.videos.length > 0) {
+            name = result.videos.find(video => video.type === 'video' && video.author).author
+          }
+
+          resolve({
+            name,
+            videos: result.videos
+          })
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -279,17 +315,21 @@ export default defineComponent({
               break
             case 1:
               if (process.env.IS_ELECTRON && this.backendFallback) {
-                showToast(this.$t('Falling back to the local API'))
+                showToast(this.$t('Falling back to Local API'))
                 resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               } else {
-                resolve([])
+                resolve({
+                  videos: []
+                })
               }
               break
             case 2:
               resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               break
             default:
-              resolve([])
+              resolve({
+                videos: []
+              })
           }
         })
       })
@@ -304,7 +344,9 @@ export default defineComponent({
 
         if (response.status === 500 || response.status === 404) {
           this.errorChannels.push(channel)
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -319,20 +361,25 @@ export default defineComponent({
             return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
           case 1:
             if (process.env.IS_ELECTRON && this.backendFallback) {
-              showToast(this.$t('Falling back to the local API'))
+              showToast(this.$t('Falling back to Local API'))
               return this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
 
     ...mapActions([
+      'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionVideosCacheByChannel',
     ]),

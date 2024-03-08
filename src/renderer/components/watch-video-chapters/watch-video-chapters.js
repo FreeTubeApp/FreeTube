@@ -49,6 +49,7 @@ export default defineComponent({
     changeChapter: function(index) {
       this.currentIndex = index
       this.$emit('timestamp-event', this.chapters[index].startSeconds)
+      window.scrollTo(0, 0)
     },
 
     navigateChapters(direction) {
