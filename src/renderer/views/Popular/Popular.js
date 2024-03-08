@@ -5,7 +5,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'Popular',
@@ -60,11 +60,15 @@ export default defineComponent({
         return
       }
 
-      this.shownResults = result.filter((item) => {
+      const items = result.filter((item) => {
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
+      setPublishedTimestampsInvidious(items.filter(item => item.type === 'video'))
+
+      this.shownResults = items
+
       this.isLoading = false
-      this.$store.commit('setPopularCache', this.shownResults)
+      this.$store.commit('setPopularCache', items)
     },
 
     /**
