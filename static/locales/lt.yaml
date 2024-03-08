@@ -41,6 +41,9 @@ Global:
   Counts:
     Subscriber Count: 1 prenumeruoti | {count} prenumeratorių
     Channel Count: 1 kanalas | {count} kanalai
+    Video Count: 1 vaizdo įrašas | {count} vaizdo įrašai
+    View Count: 1 peržiūrėti | {count} peržiūrų
+    Watching Count: 1 žiūri | {count} žiūri
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
   jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
@@ -904,3 +907,4 @@ Clipboard:
     be saugaus ryšio
 Preferences: Nuostatos
 Go to page: Eiti į {page}
+Close Banner: Uždaryti baneris

@@ -133,19 +133,23 @@ export default defineComponent({
       this.attemptedFetch = true
 
       this.errorChannels = []
+      const subscriptionUpdates = []
+
       const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let videos = []
+        let name, thumbnailUrl
+
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           if (useRss) {
-            videos = await this.getChannelLiveInvidiousRSS(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelLiveInvidiousRSS(channel))
           } else {
-            videos = await this.getChannelLiveInvidious(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelLiveInvidious(channel))
           }
         } else {
           if (useRss) {
-            videos = await this.getChannelLiveLocalRSS(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelLiveLocalRSS(channel))
           } else {
-            videos = await this.getChannelLiveLocal(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelLiveLocal(channel))
           }
         }
 
@@ -156,6 +160,15 @@ export default defineComponent({
           channelId: channel.id,
           videos: videos,
         })
+
+        if (name || thumbnailUrl) {
+          subscriptionUpdates.push({
+            channelId: channel.id,
+            channelName: name,
+            channelThumbnailUrl: thumbnailUrl
+          })
+        }
+
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
@@ -163,6 +176,8 @@ export default defineComponent({
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
       this.updateShowProgressBar(false)
+
+      this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
 
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
@@ -178,16 +193,18 @@ export default defineComponent({
 
     getChannelLiveLocal: async function (channel, failedAttempts = 0) {
       try {
-        const entries = await getLocalChannelLiveStreams(channel.id)
+        const result = await getLocalChannelLiveStreams(channel.id)
 
-        if (entries === null) {
+        if (result === null) {
           this.errorChannels.push(channel)
-          return []
+          return {
+            videos: []
+          }
         }
 
-        addPublishedDatesLocal(entries)
+        addPublishedDatesLocal(result.videos)
 
-        return entries
+        return result
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -202,12 +219,16 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return await this.getChannelLiveInvidious(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return await this.getChannelLiveLocalRSS(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -231,7 +252,9 @@ export default defineComponent({
             this.errorChannels.push(channel)
           }
 
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -249,12 +272,16 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return this.getChannelLiveInvidiousRSS(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return this.getChannelLiveLocal(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -273,7 +300,16 @@ export default defineComponent({
 
           addPublishedDatesInvidious(videos)
 
-          resolve(videos)
+          let name
+
+          if (videos.length > 0) {
+            name = videos.find(video => video.author).author
+          }
+
+          resolve({
+            name,
+            videos
+          })
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -289,14 +325,18 @@ export default defineComponent({
                 showToast(this.$t('Falling back to Local API'))
                 resolve(this.getChannelLiveLocal(channel, failedAttempts + 1))
               } else {
-                resolve([])
+                resolve({
+                  videos: []
+                })
               }
               break
             case 2:
               resolve(this.getChannelLiveInvidiousRSS(channel, failedAttempts + 1))
               break
             default:
-              resolve([])
+              resolve({
+                videos: []
+              })
           }
         })
       })
@@ -310,7 +350,9 @@ export default defineComponent({
         const response = await fetch(feedUrl)
 
         if (response.status === 500 || response.status === 404) {
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -328,17 +370,22 @@ export default defineComponent({
               showToast(this.$t('Falling back to Local API'))
               return this.getChannelLiveLocalRSS(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return this.getChannelLiveInvidious(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
 
     ...mapActions([
+      'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionLiveCacheByChannel',
     ]),

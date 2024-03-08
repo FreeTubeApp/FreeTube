@@ -454,7 +454,7 @@ export default defineComponent({
                 timestamp: formatDurationAsTimestamp(start),
                 startSeconds: start,
                 endSeconds: 0,
-                thumbnail: chapter.thumbnail[0].url
+                thumbnail: chapter.thumbnail[0]
               })
             }
           } else {

@@ -33,6 +33,10 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
+import {
+  addPublishedDatesInvidious,
+  addPublishedDatesLocal
+} from '../../helpers/subscriptions'
 
 export default defineComponent({
   name: 'Channel',
@@ -173,6 +177,13 @@ export default defineComponent({
 
     isSubscribed: function () {
       return this.subscriptionInfo !== null
+    },
+
+    isSubscribedInAnyProfile: function () {
+      const profileList = this.$store.getters.getProfileList
+
+      // check the all channels profile
+      return profileList[0].subscriptions.some((channel) => channel.id === this.id)
     },
 
     videoLiveSelectNames: function () {
@@ -771,6 +782,17 @@ export default defineComponent({
         this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
         this.videoContinuationData = videosTab.has_continuation ? videosTab : null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
+          addPublishedDatesLocal(this.latestVideos)
+          this.updateSubscriptionVideosCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            videos: [...this.latestVideos]
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -829,6 +851,16 @@ export default defineComponent({
         this.latestShorts = parseLocalChannelShorts(shortsTab.videos, this.id, this.channelName)
         this.shortContinuationData = shortsTab.has_continuation ? shortsTab : null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && this.latestShorts.length > 0 && this.shortSortBy === 'newest') {
+          // As the shorts tab API response doesn't include the published dates,
+          // we can't just write the results to the subscriptions cache like we do with videos and live (can't sort chronologically without the date).
+          // However we can still update the metadata in the cache such as the view count and title that might have changed since it was cached
+          this.updateSubscriptionShortsCacheWithChannelPageShorts({
+            channelId: this.id,
+            videos: this.latestShorts
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -887,6 +919,17 @@ export default defineComponent({
         this.latestLive = parseLocalChannelVideos(liveTab.videos, this.id, this.channelName)
         this.liveContinuationData = liveTab.has_continuation ? liveTab : null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && this.latestLive.length > 0 && this.liveSortBy === 'newest') {
+          addPublishedDatesLocal(this.latestLive)
+          this.updateSubscriptionLiveCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            videos: [...this.latestLive]
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1056,6 +1099,16 @@ export default defineComponent({
         }
         this.videoContinuationData = response.continuation || null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
+          addPublishedDatesInvidious(this.latestVideos)
+          this.updateSubscriptionVideosCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, it will also contain all the next pages
+            videos: [...this.latestVideos]
+          })
+        }
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1105,6 +1158,17 @@ export default defineComponent({
         }
         this.shortContinuationData = response.continuation || null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestShorts.length > 0 && this.shortSortBy === 'newest') {
+          // As the shorts tab API response doesn't include the published dates,
+          // we can't just write the results to the subscriptions cache like we do with videos and live (can't sort chronologically without the date).
+          // However we can still update the metadata in the cache e.g. adding the duration, as that isn't included in the RSS feeds
+          // and updating the view count and title that might have changed since it was cached
+          this.updateSubscriptionShortsCacheWithChannelPageShorts({
+            channelId: this.id,
+            videos: this.latestShorts
+          })
+        }
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1146,6 +1210,17 @@ export default defineComponent({
         }
         this.liveContinuationData = response.continuation || null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestLive.length > 0 && this.liveSortBy === 'newest') {
+          addPublishedDatesInvidious(this.latestLive)
+          this.updateSubscriptionLiveCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            videos: [...this.latestLive]
+          })
+        }
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1448,7 +1523,7 @@ export default defineComponent({
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
-          this.getChannelPodcastsInvidious()
+          this.channelInvidiousPodcasts()
         } else {
           this.isLoading = false
         }
@@ -1563,6 +1638,19 @@ export default defineComponent({
 
         this.latestCommunityPosts = parseLocalCommunityPosts(posts)
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
+
+        if (this.latestCommunityPosts.length > 0) {
+          this.latestCommunityPosts.forEach(post => {
+            post.authorId = this.id
+          })
+          this.updateSubscriptionPostsCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            posts: [...this.latestCommunityPosts]
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1614,6 +1702,19 @@ export default defineComponent({
           this.latestCommunityPosts = posts
         }
         this.communityContinuationData = continuation
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestCommunityPosts.length > 0) {
+          this.latestCommunityPosts.forEach(post => {
+            post.authorId = this.id
+          })
+          this.updateSubscriptionPostsCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            posts: [...this.latestCommunityPosts]
+          })
+        }
       }).catch(async (err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1853,7 +1954,11 @@ export default defineComponent({
 
     ...mapActions([
       'showOutlines',
-      'updateSubscriptionDetails'
+      'updateSubscriptionDetails',
+      'updateSubscriptionVideosCacheByChannel',
+      'updateSubscriptionLiveCacheByChannel',
+      'updateSubscriptionShortsCacheWithChannelPageShorts',
+      'updateSubscriptionPostsCacheByChannel'
     ])
   }
 })
