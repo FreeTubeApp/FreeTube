@@ -665,7 +665,7 @@ export default defineComponent({
         this.published = this.data.published
 
         if (this.inHistory) {
-          this.uploadedTime = new Date(this.data.published).toLocaleString([this.currentLocale, 'en'])
+          this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
         } else {
           const now = new Date().getTime()
           // Convert from ms to second
