@@ -63,7 +63,7 @@ export default defineComponent({
       const items = result.filter((item) => {
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
-      setPublishedTimestampsInvidious(items.filter(item => item.type === 'video'))
+      setPublishedTimestampsInvidious(items.filter(item => item.type === 'video' || item.type === 'shortVideo'))
 
       this.shownResults = items
 
