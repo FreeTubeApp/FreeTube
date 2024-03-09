@@ -673,29 +673,28 @@ export default defineComponent({
           let timeDiffFromNow = ((now - this.data.published) / 1000)
           let timeUnit = 'second'
 
-          if (timeDiffFromNow > 60) {
+          if (timeDiffFromNow >= 60) {
             timeDiffFromNow /= 60
             timeUnit = 'minute'
           }
 
-          if (timeUnit === 'minute' && timeDiffFromNow > 60) {
+          if (timeUnit === 'minute' && timeDiffFromNow >= 60) {
             timeDiffFromNow /= 60
             timeUnit = 'hour'
           }
 
-          if (timeUnit === 'hour' && timeDiffFromNow > 24) {
+          if (timeUnit === 'hour' && timeDiffFromNow >= 24) {
             timeDiffFromNow /= 24
             timeUnit = 'day'
           }
 
-          // Diff month might have diff no. of days
-          // To ensure the display is fine we use 31
-          if (timeUnit === 'day' && timeDiffFromNow > 31) {
+          // Use 30 days per month, just like calculatePublishedDate
+          if (timeUnit === 'day' && timeDiffFromNow >= 30) {
             timeDiffFromNow /= 24
             timeUnit = 'month'
           }
 
-          if (timeUnit === 'month' && timeDiffFromNow > 12) {
+          if (timeUnit === 'month' && timeDiffFromNow >= 12) {
             timeDiffFromNow /= 12
             timeUnit = 'year'
           }
