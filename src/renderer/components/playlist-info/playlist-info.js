@@ -251,8 +251,11 @@ export default defineComponent({
     this.newTitle = this.title
     this.newDescription = this.description
 
-    this.searchVideoMode = this.searchVideoModeEnabled
-    this.query = this.searchQueryText
+    if (this.videoCount > 0) {
+      // Only enable search video mode when viewing non empty playlists
+      this.searchVideoMode = this.searchVideoModeEnabled
+      this.query = this.searchQueryText
+    }
 
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },
