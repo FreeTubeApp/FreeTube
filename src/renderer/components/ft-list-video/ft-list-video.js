@@ -688,9 +688,16 @@ export default defineComponent({
             timeUnit = 'day'
           }
 
+          const timeDiffFromNowDays = timeDiffFromNow
+
+          if (timeUnit === 'day' && timeDiffFromNow >= 7) {
+            timeDiffFromNow /= 7
+            timeUnit = 'week'
+          }
+
           // Use 30 days per month, just like calculatePublishedDate
-          if (timeUnit === 'day' && timeDiffFromNow >= 30) {
-            timeDiffFromNow /= 24
+          if (timeUnit === 'week' && timeDiffFromNowDays >= 30) {
+            timeDiffFromNow = timeDiffFromNowDays / 30
             timeUnit = 'month'
           }
 
