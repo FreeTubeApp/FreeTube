@@ -49,7 +49,13 @@ const state = {
   externalPlayerNames: [],
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
-  externalPlayerCmdArguments: {}
+  externalPlayerCmdArguments: {},
+  lastVideoRefreshTimestampByProfile: {},
+  lastShortRefreshTimestampByProfile: {},
+  lastLiveRefreshTimestampByProfile: {},
+  lastCommunityRefreshTimestampByProfile: {},
+  lastPopularRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: '',
 }
 
 const getters = {
@@ -143,6 +149,30 @@ const getters = {
 
   getExternalPlayerCmdArguments () {
     return state.externalPlayerCmdArguments
+  },
+
+  getLastTrendingRefreshTimestamp() {
+    return state.lastTrendingRefreshTimestamp
+  },
+
+  getLastPopularRefreshTimestamp() {
+    return state.lastPopularRefreshTimestamp
+  },
+
+  getLastCommunityRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastCommunityRefreshTimestampByProfile[profileId]
+  },
+
+  getLastShortRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastShortRefreshTimestampByProfile[profileId]
+  },
+
+  getLastLiveRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastLiveRefreshTimestampByProfile[profileId]
+  },
+
+  getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastVideoRefreshTimestampByProfile[profileId]
   }
 }
 
@@ -737,7 +767,24 @@ const actions = {
 
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
-  }
+  },
+
+  updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastCommunityRefreshTimestampByProfile', payload)
+  },
+
+  updateLastShortRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastShortRefreshTimestampByProfile', payload)
+  },
+
+  updateLastLiveRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastLiveRefreshTimestampByProfile', payload)
+  },
+
+  updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastVideoRefreshTimestampByProfile', payload)
+  },
+
 }
 
 const mutations = {
@@ -827,6 +874,30 @@ const mutations = {
 
   setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
+  },
+
+  setLastTrendingRefreshTimestamp (state, timestamp) {
+    state.lastTrendingRefreshTimestamp = timestamp
+  },
+
+  setLastPopularRefreshTimestamp (state, timestamp) {
+    state.lastPopularRefreshTimestamp = timestamp
+  },
+
+  updateLastCommunityRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastCommunityRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastShortRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastShortRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastLiveRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastLiveRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastVideoRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastVideoRefreshTimestampByProfile, profileId, timestamp)
   },
 
   clearTrendingCache(state) {

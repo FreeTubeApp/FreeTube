@@ -55,13 +55,10 @@
         @click="increaseLimit"
       />
     </ft-flex-box>
-    <ft-icon-button
-      v-if="!isLoading && activeSubscriptionList.length > 0"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :title="$t('Subscriptions.Refresh Subscriptions')"
-      :size="12"
-      theme="primary"
+    <ft-refresh-widget
+      :disable-refresh="isLoading || activeSubscriptionList.length === 0"
+      :last-refresh-timestamp="lastRefreshTimestamp"
+      :title="title"
       @click="$emit('refresh')"
     />
   </div>

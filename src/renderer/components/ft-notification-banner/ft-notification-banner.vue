@@ -24,7 +24,7 @@
       tabindex="0"
       :title="$t('Close Banner')"
       @click.stop="handleClose"
-      @keydown.enter.stop.prevent="handleClose"
+      @keydown.enter.space.stop.prevent="handleClose"
     />
   </div>
 </template>

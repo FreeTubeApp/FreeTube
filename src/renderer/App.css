@@ -18,8 +18,12 @@
 
 .banner {
   inline-size: 85%;
-  margin-block: 20px;
+  margin-block: 40px 0;
   margin-inline: auto;
+}
+
+.banner + .banner {
+  margin-block: 20px;
 }
 
 .banner-wrapper {
@@ -53,8 +57,8 @@
   }
 
   .banner {
-    inline-size: 80%;
-    margin-block-start: 20px;
+    inline-size: 90%;
+    margin-block: 60px 0;
   }
 
   .flexBox {
