@@ -1,5 +1,4 @@
 import store from '../store/index'
-import { calculatePublishedDate } from './utils'
 
 /**
  * Filtering and sort based on user preferences
@@ -57,7 +56,7 @@ export function updateVideoListAfterProcessing(videos) {
   }
 
   videoList.sort((a, b) => {
-    return b.publishedDate - a.publishedDate
+    return b.published - a.published
   })
 
   return videoList
@@ -107,57 +106,10 @@ async function parseRSSEntry(entry, channelId, channelName) {
     // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
     videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
     title: entry.querySelector('title').textContent,
-    publishedDate: published,
-    publishedText: published.toLocaleString(),
+    published: published.getTime(),
     viewCount: viewCount ? parseInt(viewCount) : null,
     type: 'video',
     lengthSeconds: '0:00',
     isRSS: true
   }
-}
-
-/**
- * @param {{
- *  liveNow: boolean,
- *  isUpcoming: boolean,
- *  premiereDate: Date,
- *  publishedText: string,
- *  publishedDate: number
- * }[]} videos publishedDate is added by this function,
- * but adding it to the type definition stops vscode warning that the property doesn't exist
- */
-export function addPublishedDatesLocal(videos) {
-  videos.forEach(video => {
-    if (video.liveNow) {
-      video.publishedDate = new Date().getTime()
-    } else if (video.isUpcoming) {
-      video.publishedDate = video.premiereDate
-    } else {
-      video.publishedDate = calculatePublishedDate(video.publishedText)
-    }
-    return video
-  })
-}
-
-/**
- * @param {{
- *  liveNow: boolean,
- *  isUpcoming: boolean,
- *  premiereTimestamp: number,
- *  published: number,
- *  publishedDate: number
- * }[]} videos publishedDate is added by this function,
- * but adding it to the type definition stops vscode warning that the property doesn't exist
- */
-export function addPublishedDatesInvidious(videos) {
-  videos.forEach(video => {
-    if (video.liveNow) {
-      video.publishedDate = new Date().getTime()
-    } else if (video.isUpcoming) {
-      video.publishedDate = new Date(video.premiereTimestamp * 1000)
-    } else {
-      video.publishedDate = new Date(video.published * 1000)
-    }
-    return video
-  })
 }

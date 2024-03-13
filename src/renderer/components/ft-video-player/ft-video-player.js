@@ -1818,6 +1818,34 @@ export default defineComponent({
 
           // For default auto, it may select a resolution before generating the quality buttons
           button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? autoQualityLabel : currentQualityLabel
+          const vjsMenu = button.querySelector('.vjs-menu')
+          let isTapping = false
+          button.addEventListener('touchstart', () => {
+            isTapping = true
+          })
+          button.addEventListener('touchmove', () => {
+            // if they are moving, they cannot be tapping
+            isTapping = false
+          })
+          button.addEventListener('touchend', (e) => {
+            if (isTapping) {
+              button.focus()
+              // make it easier to toggle the vjs-menu on touch (hover css is inconsistent w/ touch)
+              if (!e.target.classList.contains('quality-item') && !e.target.classList.contains('vjs-menu-item-text')) {
+                vjsMenu.classList.toggle('vjs-lock-showing')
+              } else {
+                // hide the quality selector on select (just like the other quality selectors do on mobile)
+                vjsMenu.classList.remove('vjs-lock-showing')
+              }
+              this.handleClick(e)
+              isTapping = false
+            }
+          })
+          button.addEventListener('focusout', () => {
+            // remove class which shows the selector
+            vjsMenu.classList.remove('vjs-lock-showing')
+          })
+          button.classList.add('dash-selector')
 
           return button.children[0]
         }

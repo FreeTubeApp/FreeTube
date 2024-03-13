@@ -12,7 +12,13 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 
 import autolinker from 'autolinker'
-import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
+import {
+  setPublishedTimestampsInvidious,
+  copyToClipboard,
+  extractNumberFromString,
+  formatNumber,
+  showToast
+} from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
@@ -33,10 +39,6 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
-import {
-  addPublishedDatesInvidious,
-  addPublishedDatesLocal
-} from '../../helpers/subscriptions'
 
 export default defineComponent({
   name: 'Channel',
@@ -781,7 +783,6 @@ export default defineComponent({
         this.isElementListLoading = false
 
         if (this.isSubscribedInAnyProfile && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
-          addPublishedDatesLocal(this.latestVideos)
           this.updateSubscriptionVideosCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -918,7 +919,6 @@ export default defineComponent({
         this.isElementListLoading = false
 
         if (this.isSubscribedInAnyProfile && this.latestLive.length > 0 && this.liveSortBy === 'newest') {
-          addPublishedDatesLocal(this.latestLive)
           this.updateSubscriptionLiveCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -993,7 +993,6 @@ export default defineComponent({
             thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
           }
         })
-        this.latestVideos = response.latestVideos
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
           this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
@@ -1089,6 +1088,8 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.videos)
+
         if (more) {
           this.latestVideos = this.latestVideos.concat(response.videos)
         } else {
@@ -1098,7 +1099,6 @@ export default defineComponent({
         this.isElementListLoading = false
 
         if (this.isSubscribedInAnyProfile && !more && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
-          addPublishedDatesInvidious(this.latestVideos)
           this.updateSubscriptionVideosCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -1144,7 +1144,7 @@ export default defineComponent({
         // https://github.com/iv-org/invidious/issues/3801
         response.videos.forEach(video => {
           video.isUpcoming = false
-          delete video.publishedText
+          delete video.published
           delete video.premiereTimestamp
         })
 
@@ -1200,6 +1200,8 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.videos)
+
         if (more) {
           this.latestLive.push(...response.videos)
         } else {
@@ -1209,7 +1211,6 @@ export default defineComponent({
         this.isElementListLoading = false
 
         if (this.isSubscribedInAnyProfile && !more && this.latestLive.length > 0 && this.liveSortBy === 'newest') {
-          addPublishedDatesInvidious(this.latestLive)
           this.updateSubscriptionLiveCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
