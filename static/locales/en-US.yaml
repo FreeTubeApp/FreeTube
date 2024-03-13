@@ -1,6 +1,8 @@
 # Put the name of your locale in the same language
 Locale Name: English (US)
 FreeTube: FreeTube
+Invidious: Invidious
+YouTube: YouTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   This part of the app is not ready yet. Come back later when progress has been made.
@@ -1059,3 +1061,7 @@ Hashtag:
 Yes: Yes
 No: No
 Ok: Ok
+# symbol used to indicate that an item is correct
+checkmark: ✓
+# French is the only language that should change this (they have a space before the colon)
+Display Label: '{label}: {value}'

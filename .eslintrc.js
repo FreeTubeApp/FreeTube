@@ -47,11 +47,12 @@ module.exports = {
     'plugin:vue/recommended',
     'standard',
     'plugin:jsonc/recommended-with-json',
-    'plugin:vuejs-accessibility/recommended'
+    'plugin:vuejs-accessibility/recommended',
+    'plugin:@intlify/vue-i18n/recommended'
   ],
 
   // https://eslint.org/docs/user-guide/configuring#configuring-plugins
-  plugins: ['vue', 'vuejs-accessibility', 'n', 'unicorn'],
+  plugins: ['vue', 'vuejs-accessibility', 'n', 'unicorn', '@intlify/vue-i18n'],
 
   rules: {
     'space-before-function-paren': 'off',
@@ -77,6 +78,39 @@ module.exports = {
     'unicorn/no-array-push-push': 'error',
     'unicorn/prefer-keyboard-event-key': 'error',
     'unicorn/prefer-regexp-test': 'error',
-    'unicorn/prefer-string-replace-all': 'error'
+    'unicorn/prefer-string-replace-all': 'error',
+    '@intlify/vue-i18n/no-dynamic-keys': 'error',
+    // TODO: enable at a later date. currently disabled to prevent massive conflicts for initial PR
+    // '@intlify/vue-i18n/no-unused-keys': [
+    //   'error',
+    //   {
+    //     extensions: ['.js', '.vue', 'yaml']
+    //   }
+    // ],
+    '@intlify/vue-i18n/no-duplicate-keys-in-locale': 'error',
+    '@intlify/vue-i18n/no-raw-text': [
+      'error',
+      {
+        attributes: {
+          '/.+/': [
+            'title',
+            'aria-label',
+            'aria-placeholder',
+            'aria-roledescription',
+            'aria-valuetext',
+            'tooltip',
+            'message'
+          ],
+          input: ['placeholder', 'value'],
+          img: ['alt']
+        },
+        ignoreText: ['-', '•', '/']
+      }
+    ],
+  },
+  settings: {
+    'vue-i18n': {
+      localeDir: './static/locales/*.yaml'
+    }
   }
 }

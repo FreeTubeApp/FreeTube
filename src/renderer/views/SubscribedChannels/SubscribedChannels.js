@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
+// import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
@@ -12,7 +12,7 @@ export default defineComponent({
   components: {
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
-    'ft-input': FtInput,
+    // 'ft-input': FtInput,
     'ft-subscribe-button': FtSubscribeButton
   },
   data: function () {

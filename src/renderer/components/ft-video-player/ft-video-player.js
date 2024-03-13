@@ -14,7 +14,7 @@ import 'videojs-mobile-ui'
 import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { calculateColorLuminance, getColors } from '../../helpers/colors'
 import { pathExists } from '../../helpers/filesystem'
 import {
   copyToClipboard,
@@ -1459,7 +1459,7 @@ export default defineComponent({
       if (!this.player.loop()) {
         const currentTheme = this.$store.state.settings.mainColor
 
-        const colorValue = colors.find(color => color.name === currentTheme).value
+        const colorValue = getColors().find(color => color.name === currentTheme).value
 
         const themeTextColor = calculateColorLuminance(colorValue)
 
@@ -2111,6 +2111,8 @@ export default defineComponent({
 
           // Unexpected errors should be reported
           console.error(err)
+          // ignore as this will most likely be removed by shaka player changes
+          // eslint-disable-next-line @intlify/vue-i18n/no-missing-keys
           const errorMessage = this.$t('play() request Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)

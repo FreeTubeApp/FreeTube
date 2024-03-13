@@ -1268,3 +1268,5 @@ Age Restricted:
   This channel is age restricted: Cette chaîne est soumise à des restrictions d'âge
   This video is age restricted: Cette vidéo est soumise à des restrictions d'âge
 Close Banner: Fermer la bannière
+# French is the only language that should change this (they have a space before the colon)
+Display Label: '{label} : {value}'
