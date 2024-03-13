@@ -180,6 +180,7 @@ User Playlists:
       This playlist is now used for quick bookmark: Esta lista de reprodução é agora
         usada como marcador rápido
       Quick bookmark disabled: Marcador rápido desativado
+    Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Search in Playlists: Pesquisar nas listas de reprodução
     Save: Guardar
@@ -951,6 +952,7 @@ Video:
   Pause on Current Video: Pausa no vídeo atual
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
+  More Options: Mais opções
 Videos:
   #& Sort By
   Sort By:
@@ -1184,3 +1186,4 @@ Channel Hidden: '{channel} adicionado ao filtro do canal'
 Go to page: Ir para {page}
 Channel Unhidden: '{channel} removido do filtro do canal'
 Tag already exists: '"{tagName}" já existe'
+Close Banner: Fechar banner

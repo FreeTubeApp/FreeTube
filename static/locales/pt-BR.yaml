@@ -1150,9 +1150,10 @@ Tooltips:
       a partir do DeArrow.
     UseDeArrowThumbnails: Substitua as miniaturas de vídeo pelas miniaturas do DeArrow.
 More: Mais
-Playing Next Video Interval: Reproduzir próximo vídeo imediatamente. Clique para cancelar.
-  | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique para cancelar.
-  | Reproduzir próximo vídeo em {nextVideoInterval} segundos. Clique para cancelar.
+Playing Next Video Interval: A reproduzir o próximo vídeo imediatamente. Clique para
+  cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundo(s). Clique
+  para cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundos. Clique
+  para cancelar.
 Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
   implementadas, tente novamente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,

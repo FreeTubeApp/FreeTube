@@ -190,6 +190,7 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
+    Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
     Search in Playlists: In Wiedergabelisten suchen
@@ -204,6 +205,7 @@ User Playlists:
     Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
       dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
       Videos hinzufügen möchtest
+    Added {count} Times: '{count} Mal hinzugefügt | {count} Mal hinzugefügt'
   CreatePlaylistPrompt:
     New Playlist Name: Neuer Name der Wiedergabeliste
     Create: Erstellen
@@ -541,7 +543,7 @@ Settings:
     Hide Channels: Videos aus Kanälen ausblenden
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
-      anzeigen
+      und Zeichensetzung anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
     Hide Channel Shorts: Kanal-Kurzvideos ausblenden
@@ -927,6 +929,7 @@ Video:
   Pause on Current Video: Pause für aktuelles Video
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
+  More Options: Weitere Optionen
 Videos:
   #& Sort By
   Sort By:
@@ -1238,3 +1241,7 @@ Trimmed input must be at least N characters long: Gekürzte Eingaben müssen min
   1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
   sein
 Tag already exists: Die Markierung „{tagName}“ existiert bereits
+Close Banner: Banner schließen
+Age Restricted:
+  This channel is age restricted: Dieser Kanal ist altersbeschränkt
+  This video is age restricted: Dieses Video ist altersbeschränkt
