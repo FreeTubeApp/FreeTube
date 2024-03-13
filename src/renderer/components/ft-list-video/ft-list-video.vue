@@ -137,13 +137,9 @@
           {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
         <span
-          v-if="uploadedTime !== '' && !isLive && !inHistory"
+          v-if="uploadedTime !== '' && !isLive"
           class="uploadedTime"
         > • {{ uploadedTime }}</span>
-        <span
-          v-if="inHistory"
-          class="uploadedTime"
-        > • {{ publishedText }}</span>
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
