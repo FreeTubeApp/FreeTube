@@ -6,7 +6,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
 
@@ -75,6 +75,7 @@ export default defineComponent({
     getInvidiousHashtag: async function(hashtag, page) {
       try {
         const videos = await getHashtagInvidious(hashtag, page)
+        setPublishedTimestampsInvidious(videos)
         this.hashtag = '#' + hashtag
         this.isLoading = false
         this.apiUsed = 'invidious'

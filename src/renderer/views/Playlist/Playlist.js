@@ -13,7 +13,7 @@ import {
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString, showToast } from '../../helpers/utils'
+import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -285,6 +285,8 @@ export default defineComponent({
 
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
+
+        setPublishedTimestampsInvidious(result.videos)
 
         this.playlistItems = result.videos
 

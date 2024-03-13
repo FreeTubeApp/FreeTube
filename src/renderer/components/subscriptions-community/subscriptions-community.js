@@ -121,6 +121,8 @@ export default defineComponent({
       this.attemptedFetch = true
 
       this.errorChannels = []
+      const subscriptionUpdates = []
+
       const postListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let posts = []
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
@@ -137,6 +139,32 @@ export default defineComponent({
           channelId: channel.id,
           posts: posts,
         })
+
+        if (posts.length > 0) {
+          const post = posts.find(post => post.authorId === channel.id)
+
+          if (post) {
+            const name = post.author
+            let thumbnailUrl = post.authorThumbnails?.[0]?.url
+
+            if (name || thumbnailUrl) {
+              if (thumbnailUrl) {
+                if (thumbnailUrl.startsWith('//')) {
+                  thumbnailUrl = 'https:' + thumbnailUrl
+                } else if (thumbnailUrl.startsWith(`${this.currentInvidiousInstance}/ggpht`)) {
+                  thumbnailUrl = thumbnailUrl.replace(`${this.currentInvidiousInstance}/ggpht`, 'https://yt3.googleusercontent.com')
+                }
+              }
+
+              subscriptionUpdates.push({
+                channelId: channel.id,
+                channelName: name,
+                channelThumbnailUrl: thumbnailUrl
+              })
+            }
+          }
+        }
+
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
@@ -147,6 +175,8 @@ export default defineComponent({
       this.postList = postList
       this.isLoading = false
       this.updateShowProgressBar(false)
+
+      this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
 
     maybeLoadPostsForSubscriptionsFromRemote: async function () {
@@ -211,6 +241,7 @@ export default defineComponent({
 
     ...mapActions([
       'updateShowProgressBar',
+      'batchUpdateSubscriptionDetails',
       'updateSubscriptionPostsCacheByChannel',
     ]),
 

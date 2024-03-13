@@ -204,6 +204,7 @@ User Playlists:
       Playlist {playlistName} has been deleted.: '{playlistName} erreprodukzio-zerrenda
         ezabatu da.'
       This playlist does not exist: Erreprodukzio-zerrenda hau ez da existitzen
+    Search for Videos: Bilatu bideoak
   AddVideoPrompt:
     Added {count} Times: Gehitu da {count} Time | {count} aldiz gehitu da
     Toast:
