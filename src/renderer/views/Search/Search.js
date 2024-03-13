@@ -2,7 +2,12 @@ import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
+import {
+  copyToClipboard,
+  searchFiltersMatch,
+  setPublishedTimestampsInvidious,
+  showToast
+} from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -217,6 +222,8 @@ export default defineComponent({
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
         })
+
+        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
 
         if (this.searchPage !== 1) {
           this.shownResults = this.shownResults.concat(returnData)

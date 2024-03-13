@@ -3,7 +3,7 @@ import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
   parseLocalPlaylistVideo,
@@ -526,6 +526,8 @@ export default defineComponent({
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId
+
+        setPublishedTimestampsInvidious(result.videos)
         this.playlistItems = this.playlistItems.concat(result.videos)
 
         this.isLoading = false
