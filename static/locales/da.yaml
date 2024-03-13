@@ -45,18 +45,18 @@ Version {versionNumber} is now available!  Click for more details: 'Version {ver
   er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
-  {blogTitle}. Klik for at vise mere'
+  {blogTitle}. Klik for at se mere'
 
 # Search Bar
-Search / Go to URL: 'Søg / Gå til URL'
+Search / Go to URL: 'Søg/gå til URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søgefiltre'
   Sort By:
-    Sort By: 'Sortér Efter'
+    Sort By: 'Sortér efter'
     Most Relevant: 'Mest Relevante'
     Rating: 'Bedømmelse'
-    Upload Date: 'Indsendelsesdato'
+    Upload Date: 'Dato for Upload'
     View Count: 'Visningstal'
   Time:
     Time: 'Tid'
@@ -74,36 +74,36 @@ Search Filters:
     #& Playlists
     Movies: Film
   Duration:
-    Duration: 'Længde'
-    All Durations: 'Alle Længder'
+    Duration: 'Varighed'
+    All Durations: 'Alle Varigheder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
-    Medium (4 - 20 minutes): Medium (4-20 minutter)
+    Medium (4 - 20 minutes): Mellemlang (4-20 minutter)
   Search Results: 'Søgeresultater'
-  Fetching results. Please wait: 'Skaffer resultater. Vent venligst'
-  Fetch more results: 'Skaf flere resultater'
+  Fetching results. Please wait: 'Henter resultater. Vent venligst'
+  Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Der er ikke flere resultater for denne
     søgning
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Abonnementer'
-  Latest Subscriptions: 'Seneste Abonnementer'
+  Subscriptions: 'Abonnenter'
+  Latest Subscriptions: 'Seneste Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abonnementsliste er i øjeblikket tom. Begynd at tilføje abonnementer, for at se
-    dem her.'
-  'Getting Subscriptions. Please wait.': 'Henter Abonnementer. Vent venligst.'
-  Refresh Subscriptions: 'Genopfrisk Abonnementer'
+    abonnentliste er i øjeblikket tom. Begynd at tilføje abonnenter for at se dem
+    her.'
+  'Getting Subscriptions. Please wait.': 'Henter Abonnenter. Vent venligst.'
+  Refresh Subscriptions: 'Opdatér Abonnenter'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
-    profil har et stort antal abonnementer.  Gennemtvinger RSS for at undgå adgangsbegrænsning
+    profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med Fejl
   Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
-  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnementer.
-    Opdater abonnementer for at se dem her.
-  Empty Posts: Dine abonnerede kanaler har i øjeblikket ingen indlæg.
-  Load More Posts: Indlæs Flere Indlæg
+  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnenter.
+    Opdatér abonnenter for at se dem her.
+  Empty Posts: Dine abonnerede kanaler har i øjeblikket ingen opslag.
+  Load More Posts: Indlæs Flere Opslag
 Trending:
   Trending: 'Trender'
   Music: Musik
@@ -119,8 +119,8 @@ User Playlists:
     liste over gemte videoer er tom. Klik på gem-knappen i hjørnet af en video, for
     at få den optegnet her
   Playlist Message: Denne side afspejler ikke fuldt funktionelle playlister. Den optegner
-    blot videoer som du har gemt eller favoriseret. Når arbejdet er færdigt, vil alle
-    videoer her blive flyttet til en 'Favoritter'-playliste.
+    blot videoer, som du har gemt eller favoriseret. Når arbejdet er færdigt, vil
+    alle videoer her blive flyttet til en 'Favoritter'-playliste.
   Search bar placeholder: Søg i Playliste
   Empty Search Message: Der er ingen videoer i denne playliste, der passer til din
     søgning
@@ -128,7 +128,7 @@ User Playlists:
   Create New Playlist: Opret Ny Playliste
   Add to Playlist: Føj til Playliste
   You have no playlists. Click on the create new playlist button to create a new one.: Du
-    har ingen playlister. Klik på "Opret Ny Playliste"-knappen for at oprette en ny.
+    har ingen playlister. Klik på 'Opret Ny Playliste'-knappen for at oprette en ny.
   Remove from Favorites: Fjern fra {playlistName}
   Move Video Up: Flyt Video Op
   Copy Playlist: Kopiér Playliste
@@ -205,8 +205,8 @@ History:
   History: 'Historik'
   Watch History: 'Set Historik'
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
-  Empty Search Message: Der er ingen videoer i din historie som passer til din søgning
-  Search bar placeholder: Søg i Historie
+  Empty Search Message: Der er ingen videoer i din historik som passer til din søgning
+  Search bar placeholder: Søg i Historik
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
@@ -228,16 +228,16 @@ Settings:
       Grid: 'Gitter'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Indstilling for Forhåndsvisning'
+      Thumbnail Preference: 'Præference for Miniaturebillede'
       Default: 'Standard'
-      Beginning: 'Begyndelsen'
+      Beginning: 'Begyndelse'
       Middle: 'Midten'
-      End: 'Slutningen'
+      End: 'Slutning'
       Blur: Slør
       Hidden: Skjult
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-Instans
       (Standard er https://invidious.snopyta.org)'
-    Region for Trending: 'Område for Mode'
+    Region for Trending: 'Område for Trending'
         #! List countries
     View all Invidious instance information: Vis al Invidious-instans-information
     Clear Default Instance: Ryd Standard Instans
@@ -847,6 +847,14 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} understøtter ikke: {action}'
   Skipped segment: Sprunget over segment
   Hide Channel: Skjul Kanal
+  Unhide Channel: Vis Kanal
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
+    Chat er ikke tilgængelig for denne stream. Den er muligvis blevet deaktiveret
+    af uploaderen.
+  Premieres: Premierer
+  Upcoming: Kommende
+  Scroll to Bottom: Rul til Bunden
+  Pause on Current Video: Pause på Nuværende Video
 Videos:
   #& Sort By
   Sort By:
@@ -892,6 +900,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube Indlejrings-URL kopieret til udklipsholder'
   YouTube Channel URL copied to clipboard: YouTube Kanal-URL kopieret til udklipsholder
   Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopieret til udklipsholder
+  Share Channel: Del Kanal
 Mini Player: 'Miniafspiller'
 Comments:
   Comments: 'Kommentarer'
@@ -918,6 +927,8 @@ Comments:
   And others: og andre
   Show More Replies: Vis Flere Svar
   Member: Medlem
+  Subscribed: Abonneret
+  View {replyCount} replies: Vis {replyCount} svar
 Up Next: 'Næste'
 
 # Toast Messages
@@ -994,6 +1005,11 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Når det er aktiveret, sletter FreeTube automatisk metafiler
       oprettet under videoafspilning, når siden lukkes.
+  Distraction Free Settings:
+    Hide Channels: Indtast et kanal-ID for at skjule alle videoer, playlister og selve
+      kanalen fra at blive vist i søgning, trending, mest populære og anbefalet. Det
+      indtastede kanal-ID skal være et komplet match, og der skelnes mellem store
+      og små bogstaver.
 New Window: Nyt Vindue
 More: Mere
 Open New Window: Åbn Nyt Vindue
@@ -1010,7 +1026,7 @@ Default Invidious instance has been set to {instance}: Standard Invidious-instan
   er blevet sat til {instance}
 Default Invidious instance has been cleared: Standard Invidious-instans er blevet
   ryddet
-Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
+Are you sure you want to open this link?: Er du sikker på, at du vil åbne dette link?
 Search Bar:
   Clear Input: Ryd Input
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
@@ -1030,3 +1046,16 @@ Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde
 Preferences: Præferencer
 Go to page: Gå til {page}
 Close Banner: Luk Banner
+Playlist will not pause when current video is finished: Playliste sættes ikke på pause,
+  når nuværende video er færdig
+Playlist will pause when current video is finished: Playliste vil sættes på pause,
+  når nuværende video er færdig
+Clipboard:
+  Cannot access clipboard without a secure connection: Kan ikke tilgå udklipsholder
+    uden en sikker forbindelse
+  Copy failed: Kopiering til udklipsholder mislykkedes
+Chapters:
+  Chapters: Kapitler
+Age Restricted:
+  This video is age restricted: Denne video er aldersbegrænset
+  This channel is age restricted: Denne kanal er aldersbegrænset
