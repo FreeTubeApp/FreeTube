@@ -260,53 +260,53 @@ Settings:
     Base Theme:
       Base Theme: 'Grundtema'
       Black: 'Sort'
-      Dark: 'Mørkt'
-      Light: 'Lyst'
+      Dark: 'Mørk'
+      Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemstandard
       Catppuccin Mocha: Catppuccin Mokka
       Pastel Pink: Pastel Lyserød
       Nordic: Nordisk
     Main Color Theme:
-      Main Color Theme: 'Primært Farvetema'
-      Red: 'Rødt'
-      Pink: 'Lyserødt'
+      Main Color Theme: 'Primær Farvetema'
+      Red: 'Rød'
+      Pink: 'Lyserød'
       Purple: 'Lilla'
       Deep Purple: 'Mørkelilla'
       Indigo: 'Indigoblå'
-      Blue: 'Blåt'
-      Light Blue: 'Lyseblåt'
+      Blue: 'Blå'
+      Light Blue: 'Lyseblå'
       Cyan: 'Cyan'
-      Teal: 'Turkisfarvet'
-      Green: 'Grønt'
-      Light Green: 'Lysegrønt'
-      Lime: 'Limegrønt'
-      Yellow: 'Gult'
+      Teal: 'Turkis'
+      Green: 'Grøn'
+      Light Green: 'Lysegrøn'
+      Lime: 'Limegrøn'
+      Yellow: 'Gul'
       Amber: 'Rav'
       Orange: 'Orange'
-      Deep Orange: 'Dybt Orange'
+      Deep Orange: 'Dyb Orange'
       Dracula Cyan: 'Dracula Cyan'
-      Dracula Green: 'Dracula Grønt'
+      Dracula Green: 'Dracula Grøn'
       Dracula Orange: 'Dracula Orange'
-      Dracula Pink: 'Dracula Lyserødt'
+      Dracula Pink: 'Dracula Lyserød'
       Dracula Purple: 'Dracula Lilla'
-      Dracula Red: 'Dracula Rødt'
-      Dracula Yellow: 'Dracula Gult'
-      Catppuccin Mocha Green: Catppuccin Mokka Grønt
+      Dracula Red: 'Dracula Rød'
+      Dracula Yellow: 'Dracula Gul'
+      Catppuccin Mocha Green: Catppuccin Mokka Grøn
       Catppuccin Mocha Rosewater: Catppuccin Mokka Rosenvand
       Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
       Catppuccin Mocha Mauve: Capttuccin Mokka Lysviolet
-      Catppuccin Mocha Peach: Catppuccin Mokka Ferskenfarvet
-      Catppuccin Mocha Yellow: Catppuccin Mokka Gult
-      Catppuccin Mocha Pink: Catppuccin Mokka Lyserødt
-      Catppuccin Mocha Red: Catppuccin Mokka Rødt
-      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrunt
-      Catppuccin Mocha Teal: Catppuccin Mokka Turkisfarvet
+      Catppuccin Mocha Peach: Catppuccin Mokka Fersken
+      Catppuccin Mocha Yellow: Catppuccin Mokka Gul
+      Catppuccin Mocha Pink: Catppuccin Mokka Lyserød
+      Catppuccin Mocha Red: Catppuccin Mokka Rød
+      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrun
+      Catppuccin Mocha Teal: Catppuccin Mokka Turkis
       Catppuccin Mocha Sky: Catppuccin Mokka Himmel
       Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
-      Catppuccin Mocha Blue: Catppuccin Mokka Blåt
-      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendelblå
-    Secondary Color Theme: 'Sekundært Farvetema'
+      Catppuccin Mocha Blue: Catppuccin Mokka Blå
+      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+    Secondary Color Theme: 'Sekundær Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade
     Disable Smooth Scrolling: Deaktivér Jævn Rulning
@@ -315,7 +315,7 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
-    Force Local Backend for Legacy Formats: 'Tving Lokal Server for Gamle Formater'
+    Force Local Backend for Legacy Formats: 'Tving Lokal Backend til Ældre Formater'
     Play Next Video: 'Afspil Næste Video'
     Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
     Autoplay Videos: 'Autospil Videoer'
@@ -327,7 +327,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Standard Videoformat'
       Dash Formats: 'DASH-Formater'
-      Legacy Formats: 'Gamle Formater'
+      Legacy Formats: 'Ældre Formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Standardkvalitet'
@@ -357,33 +357,34 @@ Settings:
       Ask Path: Spørg efter Mappe til at Gemme
       Folder Label: Mappe til Skærmbilleder
     Next Video Interval: Næste Videointerval
-    Max Video Playback Rate: Maks Videoafspilningshastighed
-    Display Play Button In Video Player: Vis Afspilningsknap I Videoafspiller
+    Max Video Playback Rate: Maks. Videoafspilningshastighed
+    Display Play Button In Video Player: Vis Afspilningsknap i Videoafspiller
     Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
     Video Playback Rate Interval: Videoafspilningshastighed Interval
-    Scroll Playback Rate Over Video Player: Scroll-afspilningshastighed i Videoafspiller
-    Scroll Volume Over Video Player: Scroll-lydstyrke i Videoafspiller
-    Skip by Scrolling Over Video Player: Spring over ved at scrolle over videoafspilleren
+    Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
+    Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
+    Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
     Comment Auto Load:
       Comment Auto Load: Kommentar Auto-Indlæs
+    Allow DASH AV1 formats: Tillad DASH AV1-formater
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
     Save Watched Progress: 'Gem Set Fremskridt'
-    Clear Search Cache: 'Ryd Lokalt Søgelager'
+    Clear Search Cache: 'Ryd Søgecache'
     Are you sure you want to clear out your search cache?: 'Er du sikker på, at du
-      vil udrydde dit lokale søgelager?'
-    Search cache has been cleared: 'Lokalt søgelager er blevet ryddet'
+      vil rydde din søgecache?'
+    Search cache has been cleared: 'Søgecache blev ryddet'
     Remove Watch History: 'Fjern Set Historik'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på,
       at du vil fjerne hele din sete historik?'
-    Watch history has been cleared: 'Set historik er blevet ryddet'
+    Watch history has been cleared: 'Set historik blev ryddet'
     Remove All Subscriptions / Profiles: 'Fjern Alle Abonnementer / Profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
-      du sikker på, at du vil fjerne alle abonnementer og profiler?  Dette kan ikke
+      du sikker på, at du vil fjerne alle abonnementer og profiler? Dette kan ikke
       fortrydes.'
     Automatically Remove Video Meta Files: Fjern Automatisk Video Metafiler
-    All playlists have been removed: Alle playlister er blevet fjernet
+    All playlists have been removed: Alle playlister blev fjernet
     Are you sure you want to remove all your playlists?: Er du sikker på, at du vil
       fjerne alle dine playlister?
     Save Watched Videos With Last Viewed Playlist: Gem Sete Videoer med Sidst Sete
@@ -392,7 +393,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Abonnementsindstillinger'
     Hide Videos on Watch: 'Skjul Videoer på Se'
-    Fetch Feeds from RSS: 'Skaf Strømme fra RSS'
+    Fetch Feeds from RSS: 'Hent Feeds fra RSS'
     Manage Subscriptions: 'Abonnementshåndtering'
     Only Show Latest Video for Each Channel: Vis Kun Seneste Video for Hver Kanal
     Fetch Automatically: Hent Feed Automatisk
@@ -435,7 +436,7 @@ Settings:
     Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
     Export Playlists: Eksportér Playlister
-    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer
+    Playlist insufficient data: Utilstrækkelig data for "{playlist}" playliste, springer
       objektet over
     Import Playlists: Importér Playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
@@ -489,13 +490,13 @@ Settings:
     Proxy Settings: Indstillinger for Proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Skjul Aktive Abonnementer
-    Hide Live Chat: Skjul Direkte Chat
+    Hide Live Chat: Skjul Live Chat
     Hide Popular Videos: Skjul Populære Videoer
-    Hide Trending Videos: Skjul Videoer På Mode
+    Hide Trending Videos: Skjul Trending Videoer
     Hide Recommended Videos: Skjul Anbefalede Videoer
-    Hide Comment Likes: Skjul Kommentar-Tilkendegivelser
+    Hide Comment Likes: Skjul Kommentar-Likes
     Hide Channel Subscribers: Skjul Kanal-Abonnenter
-    Hide Video Likes And Dislikes: Skjul Video-Tilkendegivelser
+    Hide Video Likes And Dislikes: Skjul Video-Likes og -Dislikes
     Hide Video Views: Skjul Videovisninger
     Distraction Free Settings: Distraktionsfri Indstillinger
     Hide Live Streams: Skjul Livestreams
@@ -514,7 +515,14 @@ Settings:
       Bogstaver og Tegnsætning
     Sections:
       General: Generelt
+      Side Bar: Sidebjælke
     Hide Channels Placeholder: Kanal-ID
+    Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
+      venligst igen, om ID'et er korrekt.
+    Hide Channel Playlists: Skjul Kanal-playlister
+    Hide Channel Community: Skjul Kanal-fællesskab
+    Hide Channel Podcasts: Skjul Kanal-podcasts
+    Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -549,7 +557,7 @@ Settings:
       Fil
     Custom External Player Arguments: Brugerdefineret Ekstern Afspiller Argumenter
     External Player: Ekstern Afspiller
-    Ignore Unsupported Action Warnings: Ignorér Advarsler Om Ikke-understøttede Handlinger
+    Ignore Unsupported Action Warnings: Ignorér Advarsler om Ikke-understøttede Handlinger
     External Player Settings: Indstillinger for Ekstern Afspiller
     Players:
       None:
