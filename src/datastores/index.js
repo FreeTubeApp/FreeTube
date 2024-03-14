@@ -7,6 +7,13 @@ if (process.env.IS_ELECTRON_MAIN) {
   const { join } = require('path')
   // this code only runs in the electron main process, so hopefully using sync fs code here should be fine 😬
   const { statSync, realpathSync } = require('fs')
+  const path = require('path')
+
+  if (process.platform === 'win32' && process.env.PORTABLE_EXECUTABLE_DIR != null) {
+    app.setPath('appData', process.env.PORTABLE_EXECUTABLE_DIR, `${app.name}AppData`)
+    app.setPath('userData', path.join(app.getPath('appData'), `${app.name}AppData`))
+  }
+
   const userDataPath = app.getPath('userData') // This is based on the user's OS
   dbPath = (dbName) => {
     let path = join(userDataPath, `${dbName}.db`)
