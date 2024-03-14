@@ -12,7 +12,7 @@ export default defineComponent({
   components: {
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
-    // 'ft-input': FtInput,
+    'ft-input': FtInput,
     'ft-subscribe-button': FtSubscribeButton
   },
   data: function () {
