@@ -24,7 +24,7 @@
           id="youtubeShareImage"
           class="youtubeLogo"
           src="~../../assets/img/yt_logo_mono_dark.png"
-          :alt="$t('YouTube')"
+          alt="YouTube"
           width="794"
           height="178"
         >
@@ -75,7 +75,7 @@
         id="invidiousShare"
         class="header invidious"
       >
-        <span class="invidiousLogo" />{{ $t('Invidious') }}
+        <span class="invidiousLogo" /> Invidious
       </div>
 
       <div class="buttons">
