@@ -28,6 +28,7 @@
         v-else-if="finalDataType === 'playlist'"
         :appearance="appearance"
         :data="data"
+        :search-query-text="searchQueryText"
       />
       <ft-community-post
         v-else-if="finalDataType === 'community'"

@@ -12,23 +12,37 @@
         playlistCount: selectedPlaylistCount,
       }) }}
     </p>
-    <ft-input
-      ref="searchBar"
-      :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
-      :show-clear-text-button="true"
-      :show-action-button="false"
-      @input="(input) => updateQueryDebounce(input)"
-      @clear="updateQueryDebounce('')"
-    />
-    <ft-select
-      v-if="allPlaylists.length > 1"
-      class="sortSelect"
-      :value="sortBy"
-      :select-names="sortBySelectNames"
-      :select-values="sortBySelectValues"
-      :placeholder="$t('User Playlists.Sort By.Sort By')"
-      @change="sortBy = $event"
-    />
+    <div
+      class="searchInputsRow"
+    >
+      <ft-input
+        ref="searchBar"
+        :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
+        :show-clear-text-button="true"
+        :show-action-button="false"
+        @input="(input) => updateQueryDebounce(input)"
+        @clear="updateQueryDebounce('')"
+      />
+    </div>
+    <div
+      class="optionsRow"
+    >
+      <ft-toggle-switch
+        :label="$t('User Playlists.Playlists with Matching Videos')"
+        :compact="true"
+        :default-value="doSearchPlaylistsWithMatchingVideos"
+        @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+      />
+      <ft-select
+        v-if="allPlaylists.length > 1"
+        class="sortSelect"
+        :value="sortBy"
+        :select-names="sortBySelectNames"
+        :select-values="sortBySelectValues"
+        :placeholder="$t('User Playlists.Sort By.Sort By')"
+        @change="sortBy = $event"
+      />
+    </div>
     <div class="playlists-container">
       <ft-flex-box>
         <div
