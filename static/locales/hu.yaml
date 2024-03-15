@@ -132,7 +132,7 @@ User Playlists:
     Csak azokat a videókat sorolja fel, amelyeket Ön elmentett vagy a kedvencek közé
     helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
     lejátszási listára.
-  Search bar placeholder: Keresés a lejátszási listában
+  Search bar placeholder: Keresés a lejátszási listákban
   Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
     megfelelnek a keresésnek
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Biztos,
@@ -230,6 +230,7 @@ User Playlists:
   Remove from Favorites: Törlés a(z) {playlistName} lejátszási listából
   Enable Quick Bookmark With This Playlist: Gyors Könyvjelző Engedélyezése Ezzel A
     Lejátszási Listával
+  Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
 History:
   # On History Page
   History: 'Előzmények'
