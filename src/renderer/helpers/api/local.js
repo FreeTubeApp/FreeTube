@@ -77,8 +77,8 @@ export async function getLocalPlaylist(id) {
 }
 
 /**
- * @param {Playlist} playlist
- * @returns {Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
+ * @param {import('youtubei.js').YT.Playlist} playlist
+ * @returns {import('youtubei.js').YT.Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
  */
 export async function getLocalPlaylistContinuation(playlist) {
   try {
@@ -98,11 +98,11 @@ export async function getLocalPlaylistContinuation(playlist) {
  * Callback for adding two numbers.
  *
  * @callback untilEndOfLocalPlayListCallback
- * @param {Playlist} playlist
+ * @param {import('youtubei.js').YT.Playlist} playlist
  */
 
 /**
- * @param {Playlist} playlist
+ * @param {import('youtubei.js').YT.Playlist} playlist
  * @param {untilEndOfLocalPlayListCallback} callback
  * @param {object} options
  * @param {boolean} options.runCallbackOnceFirst
@@ -573,51 +573,66 @@ export function parseLocalChannelShorts(shorts, channelId, channelName) {
 }
 
 /**
- * @typedef {import('youtubei.js').YTNodes.Playlist} Playlist
- * @typedef {import('youtubei.js').YTNodes.GridPlaylist} GridPlaylist
- */
-
-/**
- * @param {Playlist|GridPlaylist} playlist
+ * @param {import('youtubei.js').YTNodes.Playlist|import('youtubei.js').YTNodes.GridPlaylist|import('youtubei.js').YTNodes.LockupView} playlist
  * @param {string} channelId
  * @param {string} chanelName
  */
 export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
-  let internalChannelName
-  let internalChannelId = null
+  if (playlist.type === 'LockupView') {
+    /** @type {import('youtubei.js').YTNodes.LockupView} */
+    const lockupView = playlist
 
-  if (playlist.author && playlist.author.id !== 'N/A') {
-    if (playlist.author instanceof Misc.Text) {
-      internalChannelName = playlist.author.text
+    /** @type {import('youtubei.js').YTNodes.ThumbnailOverlayBadgeView} */
+    const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
+      .find(overlay => overlay.type === 'ThumbnailOverlayBadgeView')
 
-      if (channelId) {
-        internalChannelId = channelId
-      }
-    } else {
-      internalChannelName = playlist.author.name
-      internalChannelId = playlist.author.id
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: lockupView.metadata.title.text,
+      thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
+      channelName,
+      channelId,
+      playlistId: lockupView.content_id,
+      videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
     }
-  } else if (channelId || channelName) {
-    internalChannelName = channelName
-    internalChannelId = channelId
-  } else if (playlist.author?.name) {
-    // auto-generated album playlists don't have an author
-    // so in search results, the author text is "Playlist" and doesn't have a link or channel ID
-    internalChannelName = playlist.author.name
-  }
+  } else {
+    let internalChannelName
+    let internalChannelId = null
 
-  /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
-  const thumbnailRenderer = playlist.thumbnail_renderer
+    if (playlist.author && playlist.author.id !== 'N/A') {
+      if (playlist.author instanceof Misc.Text) {
+        internalChannelName = playlist.author.text
 
-  return {
-    type: 'playlist',
-    dataSource: 'local',
-    title: playlist.title.text,
-    thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
-    channelName: internalChannelName,
-    channelId: internalChannelId,
-    playlistId: playlist.id,
-    videoCount: extractNumberFromString(playlist.video_count.text)
+        if (channelId) {
+          internalChannelId = channelId
+        }
+      } else {
+        internalChannelName = playlist.author.name
+        internalChannelId = playlist.author.id
+      }
+    } else if (channelId || channelName) {
+      internalChannelName = channelName
+      internalChannelId = channelId
+    } else if (playlist.author?.name) {
+      // auto-generated album playlists don't have an author
+      // so in search results, the author text is "Playlist" and doesn't have a link or channel ID
+      internalChannelName = playlist.author.name
+    }
+
+    /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
+    const thumbnailRenderer = playlist.thumbnail_renderer
+
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: playlist.title.text,
+      thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
+      channelName: internalChannelName,
+      channelId: internalChannelId,
+      playlistId: playlist.id,
+      videoCount: extractNumberFromString(playlist.video_count.text)
+    }
   }
 }
 
