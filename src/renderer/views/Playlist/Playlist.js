@@ -115,6 +115,17 @@ export default defineComponent({
       }
     },
 
+    searchVideoModeAllowed() {
+      return this.isUserPlaylistRequested
+    },
+    searchQueryTextRequested() {
+      return this.$route.query.searchQueryText
+    },
+    searchQueryTextPresent() {
+      const searchQueryText = this.searchQueryTextRequested
+      return typeof searchQueryText === 'string' && searchQueryText !== ''
+    },
+
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
     },
@@ -183,6 +194,11 @@ export default defineComponent({
   },
   created: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
+
+    if (this.searchVideoModeAllowed && this.searchQueryTextPresent) {
+      this.playlistInVideoSearchMode = true
+      this.videoSearchQuery = this.searchQueryTextRequested
+    }
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()

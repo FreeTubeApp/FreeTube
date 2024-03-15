@@ -10,6 +10,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 const SORT_BY_VALUES = {
@@ -38,6 +39,7 @@ export default defineComponent({
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
+    'ft-toggle-switch': FtToggleSwitch,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
@@ -47,6 +49,7 @@ export default defineComponent({
       searchDataLimit: 100,
       showLoadMoreButton: false,
       query: '',
+      doSearchPlaylistsWithMatchingVideos: false,
       activeData: [],
       sortBy: SORT_BY_VALUES.LatestPlayedFirst,
     }
@@ -167,6 +170,10 @@ export default defineComponent({
       this.searchDataLimit = 100
       this.filterPlaylistAsync()
     },
+    doSearchPlaylistsWithMatchingVideos() {
+      this.searchDataLimit = 100
+      this.filterPlaylistAsync()
+    },
     fullData() {
       this.activeData = this.fullData
       this.filterPlaylist()
@@ -211,15 +218,22 @@ export default defineComponent({
       if (this.lowerCaseQuery === '') {
         this.activeData = this.fullData
         this.showLoadMoreButton = this.allPlaylists.length > this.activeData.length
-      } else {
-        const filteredPlaylists = this.allPlaylists.filter((playlist) => {
-          if (typeof (playlist.playlistName) !== 'string') { return false }
-
-          return playlist.playlistName.toLowerCase().includes(this.lowerCaseQuery)
-        })
-        this.showLoadMoreButton = filteredPlaylists.length > this.searchDataLimit
-        this.activeData = filteredPlaylists.length < this.searchDataLimit ? filteredPlaylists : filteredPlaylists.slice(0, this.searchDataLimit)
+        return
       }
+
+      const filteredPlaylists = this.allPlaylists.filter((playlist) => {
+        if (typeof (playlist.playlistName) !== 'string') { return false }
+
+        if (this.doSearchPlaylistsWithMatchingVideos) {
+          if (playlist.videos.some((v) => v.title.toLowerCase().includes(this.lowerCaseQuery))) {
+            return true
+          }
+        }
+
+        return playlist.playlistName.toLowerCase().includes(this.lowerCaseQuery)
+      })
+      this.showLoadMoreButton = filteredPlaylists.length > this.searchDataLimit
+      this.activeData = filteredPlaylists.length < this.searchDataLimit ? filteredPlaylists : filteredPlaylists.slice(0, this.searchDataLimit)
     },
 
     createNewPlaylist: function () {
