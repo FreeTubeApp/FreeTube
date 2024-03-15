@@ -125,7 +125,7 @@ User Playlists:
     Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
-  Search bar placeholder: In afspeellijst zoeken
+  Search bar placeholder: Zoeken naar afspeel­lĳsten
   Empty Search Message: Deze afspeellijst bevat geen video's die overeenkomen met
     de zoekopdracht
   Cancel: Annuleren
@@ -220,6 +220,7 @@ User Playlists:
     kan niet ongedaan gemaakt worden.
   Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
     dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
+  Playlists with Matching Videos: Afspeel­lĳsten met overeen­komende video's
 History:
   # On History Page
   History: 'Geschiedenis'
