@@ -45,7 +45,7 @@ Global:
     Watching Count: 1 assistindo | {count} assistindo
   Input Tags:
     Length Requirement: A tag deve ter pelo menos {number} caracteres
-Search / Go to URL: 'Buscar/Ir ao URL'
+Search / Go to URL: 'Pesquisar ou digitar URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de busca'
@@ -838,7 +838,7 @@ Video:
   Download Video: Baixar vídeo
   Starting soon, please refresh the page to check again: Vai começar em breve, atualize
     a página para verificar novamente
-  Autoplay: Reprodução Automática
+  Autoplay: Reprodução automática
   Play Previous Video: Reproduzir vídeo anterior
   Play Next Video: Reproduzir próximo vídeo
   Reverse Playlist: Inverter ordem da playlist
@@ -958,7 +958,7 @@ Share:
     área de transferência
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a
     área de transferência
-  Include Timestamp: Incluir marcação de tempo
+  Include Timestamp: Incluir momento atual
   Share Channel: Compartilhar canal
 Mini Player: 'Mini Player'
 Comments:
