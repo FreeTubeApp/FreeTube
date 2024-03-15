@@ -126,7 +126,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
-  Search bar placeholder: Search in playlist
+  Search bar placeholder: Search for playlists
   Empty Search Message: There are no videos in this playlist that match your search
   Create New Playlist: Create new Playlist
   Add to Playlist: Add to playlist
@@ -177,6 +177,7 @@ User Playlists:
         playlist is now used for quick bookmark instead of {oldPlaylistName}. Click
         here to undo
       Quick bookmark disabled: Quick bookmark disabled
+    Search for Videos: Search for videos
   AddVideoPrompt:
     N playlists selected: '{playlistCount} selected'
     Search in Playlists: Search in playlists
@@ -190,6 +191,7 @@ User Playlists:
         playlists
     Select a playlist to add your N videos to: Select a playlist to add your video
       to | Select a playlist to add your {videoCount} videos to
+    Added {count} Times: Added {count} time | Added {count} times
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist name
     Create: Create
@@ -216,6 +218,7 @@ User Playlists:
   Remove from Favorites: Remove from {playlistName}
   Enable Quick Bookmark With This Playlist: Enable quick bookmark with this playlist
   Disable Quick Bookmark: Disable quick bookmark
+  Playlists with Matching Videos: Playlists with matching videos
 History:
   # On History Page
   History: 'History'
@@ -417,12 +420,17 @@ Settings:
     Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
       Playlist
+    Remove All Playlists: Remove all playlists
+    All playlists have been removed: All playlists have been removed
+    Are you sure you want to remove all your playlists?: Are you sure you want to
+      remove all your playlists?
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch feeds from RSS'
     Manage Subscriptions: 'Manage subscriptions'
     Fetch Automatically: Fetch feed automatically
+    Only Show Latest Video for Each Channel: Only show latest video for each channel
   Data Settings:
     Data Settings: 'Data settings'
     Select Import Type: 'Select import type'
@@ -473,6 +481,14 @@ Settings:
     Playlist File: Playlist file
     Subscription File: Subscription file
     History File: History file
+    Export Playlists For Older FreeTube Versions:
+      Label: Export playlists for older FreeTube versions
+      Tooltip: "This option exports videos from all playlists into one playlist named
+        ‘Favourites’.\nHow to export and import videos in playlists for an older version
+        of FreeTube:\n1. Export your playlists with this option enabled.\n2. Delete
+        all of your existing playlists using the Remove All playlists option under
+        Privacy settings.\n3. Launch the older version of FreeTube and import the
+        exported playlists.’"
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
@@ -520,8 +536,8 @@ Settings:
     Hide Chapters: Hide chapters
     Hide Channels: Hide videos from channels
     Hide Channels Placeholder: Channel ID
-    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive
-      Capitalisation
+    Display Titles Without Excessive Capitalisation: Display titles without excessive
+      capitalisation and punctuation
     Hide Featured Channels: Hide featured channels
     Hide Channel Playlists: Hide channel playlists
     Hide Channel Community: Hide channel community
@@ -545,6 +561,10 @@ Settings:
     Hide Channels Already Exists: Channel ID already exists
     Hide Channels API Error: Error retrieving user with the ID provided. Please check
       again if the ID is correct.
+    Hide Videos and Playlists Containing Text Placeholder: Word, word Fragment or
+      phrase
+    Hide Videos and Playlists Containing Text: Hide videos and playlists containing
+      text
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -578,6 +598,9 @@ Settings:
       Do Nothing: Do nothing
     Category Color: Category colour
     UseDeArrowTitles: Use DeArrow video titles
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API URL (Default is https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Use DeArrow for thumbnails
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
@@ -690,6 +713,11 @@ Profile:
   Profile Filter: Profile Filter
   '{number} selected': '{number} selected'
   Toggle Profile List: Toggle profile list
+  Create Profile Name: Create profile name
+  Profile Name: Profile name
+  Edit Profile Name: Edit profile name
+  Open Profile Dropdown: Open profile dropdown
+  Close Profile Dropdown: Close profile dropdown
 Channel:
   Subscribe: 'Subscribe'
   Unsubscribe: 'Unsubscribe'
@@ -739,6 +767,7 @@ Channel:
     Reveal Answers: Reveal answers
     Hide Answers: Hide answers
     votes: '{votes} votes'
+    Video hidden by FreeTube: Video hidden by FreeTube
   Live:
     This channel does not currently have any live streams: This channel does not currently
       have any live streams
@@ -896,6 +925,9 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
     Chat is unavailable for this stream. It may have been disabled by the uploader.
   Pause on Current Video: Pause on current video
+  Hide Channel: Hide channel
+  Unhide Channel: Show channel
+  More Options: More options
 Videos:
   #& Sort By
   Sort By:
@@ -1064,8 +1096,13 @@ Tooltips:
       channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: This setting is overridden by the app-wide ‘{appWideSetting}’
       setting, in the ‘{subsection}’ section of the ‘{settingsSection}’
+    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase
+      (case insensitive) to hide all videos and playlists whose original titles contain
+      it throughout all of FreeTube, excluding only History, Your playlists, and videos
+      inside of playlists.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
@@ -1124,3 +1161,7 @@ Playlist will not pause when current video is finished: Playlist will not pause 
 Go to page: Go to {page}
 Tag already exists: ‘{tagName}’ tag already exists
 Close Banner: Close Banner
+Channel Hidden: '{channel} added to channel filter'
+Channel Unhidden: '{channel} removed from channel filter'
+Trimmed input must be at least N characters long: Trimmed input must be at least 1
+  character long | Trimmed input must be at least {length} characters long
