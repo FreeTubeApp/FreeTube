@@ -622,7 +622,7 @@ Settings:
     Download in app: Baixar no aplicativo
     Download Behavior: Comportamento de download
   Parental Control Settings:
-    Show Family Friendly Only: Mostrar Apenas Amigável à Família
+    Show Family Friendly Only: Mostrar apenas conteúdo recomendado para todas as idades
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de Controle Parental
     Hide Unsubscribe Button: Ocultar botão de cancelamento de inscrição
@@ -1061,7 +1061,7 @@ Profile:
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
-  {blogTitle}. Clique para ver mais'
+  {blogTitle}. Clique aqui para saber mais'
 Download From Site: Baixar do site
 The playlist has been reversed: A playlist foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
