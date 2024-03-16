@@ -123,7 +123,7 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
-  Search bar placeholder: Przeszukaj playlisty
+  Search bar placeholder: Szukaj playlist
   Empty Search Message: Na tej playliście nie ma filmów, które pasowałyby do Twojego
     zapytania
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Czy
@@ -218,6 +218,7 @@ User Playlists:
   Remove from Favorites: Usuń z „{playlistName}”
   Disable Quick Bookmark: Wyłącz Szybką Zakładkę
   Enable Quick Bookmark With This Playlist: Włącz Szybką Zakładkę z tą playlistą
+  Playlists with Matching Videos: Playlisty z pasującymi filmami
 History:
   # On History Page
   History: 'Historia'
