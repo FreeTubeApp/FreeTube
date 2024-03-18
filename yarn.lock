@@ -8635,10 +8635,10 @@ webpack-dev-middleware@^7.0.0:
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
 
-webpack-dev-server@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-5.0.2.tgz#3035972dae4b768de020f91418de471e4ef12b6c"
-  integrity sha512-IVj3qsQhiLJR82zVg3QdPtngMD05CYP/Am+9NG5QSl+XwUR/UPtFwllRBKrMwM9ttzFsC6Zj3DMgniPyn/Z0hQ==
+webpack-dev-server@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-5.0.3.tgz#694bf56308b9c5568c9026302bb1fe2f6130804c"
+  integrity sha512-4aj4I8FJLsFbd4Vt6YBXC8CWrOOwviEI9DdVTu9hrgIBGWs4oKOVfDnaRc+vgf1JUSir1psph1ChPFDkTGHR2Q==
   dependencies:
     "@types/bonjour" "^3.5.13"
     "@types/connect-history-api-fallback" "^1.5.4"
