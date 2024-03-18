@@ -127,7 +127,7 @@ User Playlists:
   Playlist Message: See leht ei kirjelda terviklikke ja toimivad esitusloendeid. Siin
     on kirjas vaid videod, mida oled salvestanud või mille oled märkinud lemmikuks.
     Kui kõik on valmis, siis siin nähtavad videod on leitavad esitusloendist „Lemmikud“.
-  Search bar placeholder: Otsi esindusloendist
+  Search bar placeholder: Otsi esindusloendeid
   Empty Search Message: Selles esitusloendis pole sinu otsingule vastavaid videosid
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Kas
     sa oled kindel, et soovid kõik vaadatud videod sellest esitusloendist eemaldada?
@@ -219,6 +219,7 @@ User Playlists:
   Remove from Favorites: Eemalda esitusloendist {playlistName}
   Enable Quick Bookmark With This Playlist: Võimalda kiirjärjehoidjate kasutamist
     selle esitusloendiga
+  Playlists with Matching Videos: Sobivate videotega esitusloendid
 History:
   # On History Page
   History: 'Ajalugu'
