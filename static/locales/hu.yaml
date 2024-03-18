@@ -109,7 +109,7 @@ Subscriptions:
     Frissítse a feliratkozásokat, hogy itt láthassa őket.
   Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
   All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni
-    tartalom megtekintéséhez, kérjük, jelenítse meg néhány lap elrejtését a(z) „{settingsSection}”
+    tartalom megtekintéséhez, jelenítse meg néhány lap elrejtését a(z) „{settingsSection}”
     „{subsection}” szakaszában.
   Subscriptions Tabs: Feliratkozások lapok
   Load More Posts: További bejegyzések betöltése
@@ -129,7 +129,7 @@ User Playlists:
     mentett videók üresek. Kattintson a videó sarkában található mentés gombra, hogy
     itt szerepeljen
   Playlist Message: Ez az oldal nem tükrözi a teljesen működő lejátszási listákat.
-    Csak azokat a videókat sorolja fel, amelyeket Ön elmentett vagy a kedvencek közé
+    Csak azokat a videókat sorolja fel, amelyeket ön elmentett vagy a kedvencek közé
     helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
     lejátszási listára.
   Search bar placeholder: Keresés a lejátszási listákban
@@ -171,17 +171,17 @@ User Playlists:
         ennek ellenére.
       This playlist does not exist: Ez a lejátszási lista nem létezik
       Playlist name cannot be empty. Please input a name.: A lejátszási lista neve
-        nem lehet üres. Kérjük, adjon meg egy nevet.
+        nem lehet üres. Adjon meg egy nevet.
       There was a problem with removing this video: Probléma adódott a videó eltávolításával
       "{videoCount} video(s) have been removed": 1 videó eltávolításra került | {videoCount}
         videó eltávolításra került
       This video cannot be moved down.: Ez a videó nem mozgatható lejjebb.
-      This playlist is now used for quick bookmark: Ezt a lejátszási listát most gyors
-        könyvjelzőként használjuk
+      This playlist is now used for quick bookmark: Ez a lejátszási lista most gyors
+        könyvjelzőként van használva
       Quick bookmark disabled: Gyors könyvjelző letiltva
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: A(z)
         {oldPlaylistName} helyett mostantól ez a lejátszási lista szolgál gyors könyvjelzőként.
-        Kattints ide a visszavonáshoz
+        Kattintson ide a visszavonáshoz
       Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName}
         használatára a gyors könyvjelzőhöz
     Search for Videos: Videók keresése
@@ -198,7 +198,7 @@ User Playlists:
     LatestUpdatedFirst: Nemrég frissítve
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: Nincsenek
-    lejátszási listáid. Kattints az új lejátszási lista létrehozása gombra egy új
+    lejátszási listái. Kattintson az új lejátszási lista létrehozása gombra egy új
     lejátszási lista létrehozásához.
   Remove from Playlist: Eltávolítás a lejátszási listáról
   Save Changes: Változtatások mentése
@@ -210,7 +210,7 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: A lejátszási lista {playlistName}
         sikeresen létrehozva.
       There is already a playlist with this name. Please pick a different name.: Már
-        van egy lejátszási lista ezzel a névvel. Kérjük, válasszon egy másik nevet.
+        van egy lejátszási lista ezzel a névvel. Válasszon egy másik nevet.
     New Playlist Name: Új lejátszási lista neve
   This playlist currently has no videos.: Ez a lejátszási lista jelenleg nem tartalmaz
     videókat.
@@ -435,7 +435,7 @@ Settings:
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Only Show Latest Video for Each Channel: Csak a legújabb videókat megjelenítése
+    Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
       a csatornáktól
   Data Settings:
     Data Settings: 'Adatbeállítások'
@@ -569,7 +569,7 @@ Settings:
       közben
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
-      lekérésekor. Kérjük, ellenőrizze még egyszer, hogy helyes-e az azonosító.
+      lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
     Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
     Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási
       listák elrejtése
@@ -688,7 +688,7 @@ About:
   Credits: Közreműködők
   Translate: Fordítás
   room rules: szobaszabályok
-  Please read the: Kérjük, olvassa el a(z)
+  Please read the: Olvassa el a(z)
   Chat on Matrix: Matrix csevegése
   Mastodon: Mastodon
   Blog: Napló
@@ -840,8 +840,8 @@ Video:
   Play Previous Video: 'Előző videó lejátszása'
   Watched: 'Megtekintett'
   Autoplay: 'Automatikus lejátszás'
-  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, kérjük,
-    frissítse a lapot az ellenőrzéshez'
+  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, frissítse
+    a lapot az ellenőrzéshez'
   # As in a Live Video
   Live: 'Élő'
   Live Now: 'Élő most'
