@@ -90,8 +90,9 @@ export default defineComponent({
     multiVideoPresenceCountInPlaylistText() {
       if (this.multiVideoPresenceCountInPlaylist == null) { return null }
 
-      return this.$tc('User Playlists.AddVideoPrompt.{videoCount} Videos Already Added', this.multiVideoPresenceCountInPlaylist, {
+      return this.$tc('User Playlists.AddVideoPrompt.{videoCount}/{totalVideoCount} Videos Already Added', this.multiVideoPresenceCountInPlaylist, {
         videoCount: this.multiVideoPresenceCountInPlaylist,
+        totalVideoCount: this.toBeAddedToPlaylistVideoList.length,
       })
     },
     videoPresenceCountInPlaylistText() {
