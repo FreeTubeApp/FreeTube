@@ -38,8 +38,8 @@ Global:
 
 # Search Bar
   Counts:
-    Video Count: Contagem de videos
-    Channel Count: Contagem de Canais
+    Video Count: 1 vídeo | {count} vídeos
+    Channel Count: 1 canal | {count} canais
     Subscriber Count: 1 inscrito | {count} inscritos
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
@@ -58,7 +58,7 @@ Search Filters:
   Time:
     Time: 'Tempo'
     Any Time: 'Qualquer momento'
-    Last Hour: 'Última hora'
+    Last Hour: 'Últimas horas'
     Today: 'Hoje'
     This Week: 'Esta semana'
     This Month: 'Este mês'
@@ -207,7 +207,7 @@ User Playlists:
       You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar
       seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
-    N playlists selected: '{playlistCount} selecionadas'
+    N playlists selected: '{playlistCount} selecionada(s)'
     Search in Playlists: Pesquisar nas playlists
     Save: Salvar
     Added {count} Times: Adicionado {count} vez | Adicionado {count} vezes
