@@ -1098,3 +1098,6 @@ Playlist will not pause when current video is finished: Soittolistaa ei keskeyte
 Channel Hidden: '{channel} lisätty kanavasuodattimeen'
 Go to page: Siirry sivulle {page}
 Channel Unhidden: '{channel} poistettu kanavasuodattimesta'
+Age Restricted:
+  This video is age restricted: Tämä video on ikärajoitettu
+  This channel is age restricted: Tämä kanava on ikärajoitettu
