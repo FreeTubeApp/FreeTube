@@ -66,6 +66,7 @@
           top: dropdownPositionY === 'top'
         }"
         @focusout="handleDropdownFocusOut"
+        @keydown.esc.stop="handleDropdownEscape"
       >
         <slot>
           <ul

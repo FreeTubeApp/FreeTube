@@ -2,10 +2,10 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { setPublishedTimestampsInvidious, copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../../helpers/api/local'
-import { addPublishedDatesInvidious, addPublishedDatesLocal, parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
+import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
 export default defineComponent({
   name: 'SubscriptionsLive',
@@ -198,8 +198,6 @@ export default defineComponent({
           }
         }
 
-        addPublishedDatesLocal(result.videos)
-
         return result
       } catch (err) {
         console.error(err)
@@ -294,7 +292,7 @@ export default defineComponent({
         invidiousAPICall(subscriptionsPayload).then((result) => {
           const videos = result.videos.filter(e => e.type === 'video')
 
-          addPublishedDatesInvidious(videos)
+          setPublishedTimestampsInvidious(videos)
 
           let name
 

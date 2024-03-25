@@ -11,6 +11,7 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import packageDetails from '../../../../package.json'
 import { pathExists } from '../../helpers/filesystem'
 import {
   buildVTTFileLocally,
@@ -1774,7 +1775,7 @@ export default defineComponent({
     },
 
     updateTitle: function () {
-      document.title = `${this.videoTitle} - FreeTube`
+      document.title = `${this.videoTitle} - ${packageDetails.productName}`
     },
 
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {

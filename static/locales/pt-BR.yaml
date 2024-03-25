@@ -38,14 +38,14 @@ Global:
 
 # Search Bar
   Counts:
-    Video Count: Contagem de videos
-    Channel Count: Contagem de Canais
+    Video Count: 1 vídeo | {count} vídeos
+    Channel Count: 1 canal | {count} canais
     Subscriber Count: 1 inscrito | {count} inscritos
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
   Input Tags:
     Length Requirement: A tag deve ter pelo menos {number} caracteres
-Search / Go to URL: 'Buscar/Ir ao URL'
+Search / Go to URL: 'Pesquisar ou digitar URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de busca'
@@ -58,7 +58,7 @@ Search Filters:
   Time:
     Time: 'Tempo'
     Any Time: 'Qualquer momento'
-    Last Hour: 'Última hora'
+    Last Hour: 'Últimas horas'
     Today: 'Hoje'
     This Week: 'Esta semana'
     This Month: 'Este mês'
@@ -122,7 +122,7 @@ User Playlists:
     apenas os vídeos que você salvou ou adicionou aos favoritos. Quando o trabalho
     terminar, todos os vídeos atualmente aqui serão migrados para uma playlist chamada
     "Favoritos".
-  Search bar placeholder: Pesquisar na playlist
+  Search bar placeholder: Pesquisar playlists
   Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
   You have no playlists. Click on the create new playlist button to create a new one.: Você
     não tem playlists. Clique no botão "Criar playlist" para criar uma.
@@ -207,7 +207,7 @@ User Playlists:
       You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar
       seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
-    N playlists selected: '{playlistCount} selecionadas'
+    N playlists selected: '{playlistCount} selecionada(s)'
     Search in Playlists: Pesquisar nas playlists
     Save: Salvar
     Added {count} Times: Adicionado {count} vez | Adicionado {count} vezes
@@ -215,6 +215,7 @@ User Playlists:
     certeza de que deseja remover todos os vídeos assistidos desta playlist? Isto
     não pode ser desfeito.
   Remove Watched Videos: Remove vídeos assistidos
+  Playlists with Matching Videos: Playlists com vídeos correspondentes
 History:
   # On History Page
   History: 'Histórico'
@@ -387,7 +388,7 @@ Settings:
         criar subpastas.
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela para
       o modo paisagem
-    Skip by Scrolling Over Video Player: Ignorar ao rolar sobre o player
+    Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Comment Auto Load:
       Comment Auto Load: Carregar automaticamente os comentários
@@ -522,7 +523,7 @@ Settings:
     Hide Trending Videos: Ocultar vídeos em alta
     Hide Recommended Videos: Ocultar vídeos recomendados
     Hide Comment Likes: Ocultar "curtidas" em comentários
-    Distraction Free Settings: Configurações de Modo sem Distração
+    Distraction Free Settings: Configurações de distrações
     Hide Channel Subscribers: Ocultar número de inscritos
     Hide Video Likes And Dislikes: Ocultar "curtidas" em vídeo
     Hide Video Views: Ocultar visualizações de vídeo
@@ -621,7 +622,7 @@ Settings:
     Download in app: Baixar no aplicativo
     Download Behavior: Comportamento de download
   Parental Control Settings:
-    Show Family Friendly Only: Mostrar Apenas Amigável à Família
+    Show Family Friendly Only: Mostrar apenas conteúdo adequado para toda a família
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de Controle Parental
     Hide Unsubscribe Button: Ocultar botão de cancelamento de inscrição
@@ -837,7 +838,7 @@ Video:
   Download Video: Baixar vídeo
   Starting soon, please refresh the page to check again: Vai começar em breve, atualize
     a página para verificar novamente
-  Autoplay: Reprodução Automática
+  Autoplay: Reprodução automática
   Play Previous Video: Reproduzir vídeo anterior
   Play Next Video: Reproduzir próximo vídeo
   Reverse Playlist: Inverter ordem da playlist
@@ -957,7 +958,7 @@ Share:
     área de transferência
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a
     área de transferência
-  Include Timestamp: Incluir marcação de tempo
+  Include Timestamp: Incluir momento atual
   Share Channel: Compartilhar canal
 Mini Player: 'Mini Player'
 Comments:
@@ -1060,7 +1061,7 @@ Profile:
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
-  {blogTitle}. Clique para ver mais'
+  {blogTitle}. Clique aqui para saber mais'
 Download From Site: Baixar do site
 The playlist has been reversed: A playlist foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
@@ -1153,9 +1154,10 @@ Tooltips:
       a partir do DeArrow.
     UseDeArrowThumbnails: Substitua as miniaturas de vídeo pelas miniaturas do DeArrow.
 More: Mais
-Playing Next Video Interval: Reproduzir próximo vídeo imediatamente. Clique para cancelar.
-  | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique para cancelar.
-  | Reproduzir próximo vídeo em {nextVideoInterval} segundos. Clique para cancelar.
+Playing Next Video Interval: A reproduzir o próximo vídeo imediatamente. Clique para
+  cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundo(s). Clique
+  para cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundos. Clique
+  para cancelar.
 Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
   implementadas, tente novamente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,

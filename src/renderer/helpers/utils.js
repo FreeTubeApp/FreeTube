@@ -12,11 +12,27 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 /**
  * @param {string} publishedText
+ * @param {boolean} isLive
+ * @param {boolean} isUpcoming
+ * @param {Date|undefined} premiereDate
  */
-export function calculatePublishedDate(publishedText) {
+export function calculatePublishedDate(publishedText, isLive = false, isUpcoming = false, premiereDate = undefined) {
   const date = new Date()
-  if (publishedText === 'Live') {
-    return publishedText
+
+  if (isLive) {
+    return date.getTime()
+  } else if (isUpcoming) {
+    if (premiereDate) {
+      return premiereDate.getTime()
+    } else {
+      // should never happen but just to be sure that we always return a number
+      return date.getTime()
+    }
+  }
+
+  if (!publishedText) {
+    console.error("publishedText is missing but the video isn't live or upcoming")
+    return undefined
   }
 
   const match = publishedText.match(PUBLISHED_TEXT_REGEX)
@@ -42,6 +58,26 @@ export function calculatePublishedDate(publishedText) {
   }
 
   return date.getTime() - timeSpan
+}
+
+/**
+ * @param {{
+ *  liveNow: boolean,
+ *  isUpcoming: boolean,
+ *  premiereTimestamp: number,
+ *  published: number
+ * }[]} videos
+ */
+export function setPublishedTimestampsInvidious(videos) {
+  videos.forEach(video => {
+    if (video.liveNow) {
+      video.published = new Date().getTime()
+    } else if (video.isUpcoming) {
+      video.published = video.premiereTimestamp * 1000
+    } else if (typeof video.published === 'number') {
+      video.published *= 1000
+    }
+  })
 }
 
 export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {

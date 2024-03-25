@@ -12,7 +12,7 @@ import {
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString, showToast } from '../../helpers/utils'
+import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -113,6 +113,17 @@ export default defineComponent({
       }
     },
 
+    searchVideoModeAllowed() {
+      return this.isUserPlaylistRequested
+    },
+    searchQueryTextRequested() {
+      return this.$route.query.searchQueryText
+    },
+    searchQueryTextPresent() {
+      const searchQueryText = this.searchQueryTextRequested
+      return typeof searchQueryText === 'string' && searchQueryText !== ''
+    },
+
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
     },
@@ -181,6 +192,11 @@ export default defineComponent({
   },
   created: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
+
+    if (this.searchVideoModeAllowed && this.searchQueryTextPresent) {
+      this.playlistInVideoSearchMode = true
+      this.videoSearchQuery = this.searchQueryTextRequested
+    }
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()
@@ -283,6 +299,8 @@ export default defineComponent({
 
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
+
+        setPublishedTimestampsInvidious(result.videos)
 
         this.playlistItems = result.videos
 

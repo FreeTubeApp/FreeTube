@@ -116,6 +116,11 @@ export default defineComponent({
       }
     },
 
+    handleDropdownEscape: function () {
+      this.$refs.iconButton.focus()
+      // handleDropdownFocusOut will hide the dropdown for us
+    },
+
     handleDropdownClick: function ({ url, index }) {
       if (this.returnIndex) {
         this.$emit('click', index)

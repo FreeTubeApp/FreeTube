@@ -5,6 +5,7 @@ import { join } from 'path'
 import { PlayerCache } from './PlayerCache'
 import {
   CHANNEL_HANDLE_REGEX,
+  calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
   getUserDataPath,
@@ -681,8 +682,7 @@ export function parseLocalPlaylistVideo(video) {
       }
     }
 
-    let publishedText = null
-
+    let publishedText
     // normal videos have 3 text runs with the last one containing the published date
     // live videos have 2 text runs with the number of people watching
     // upcoming either videos don't have any info text or the number of people waiting,
@@ -691,13 +691,20 @@ export function parseLocalPlaylistVideo(video) {
       publishedText = video_.video_info.runs[2].text
     }
 
+    const published = calculatePublishedDate(
+      publishedText,
+      video_.is_live,
+      video_.is_upcoming,
+      video_.upcoming
+    )
+
     return {
       videoId: video_.id,
       title: video_.title.text,
       author: video_.author.name,
       authorId: video_.author.id,
       viewCount,
-      publishedText,
+      published,
       lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
       liveNow: video_.is_live,
       isUpcoming: video_.is_upcoming,
@@ -728,6 +735,20 @@ export function parseLocalListVideo(item) {
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
+
+    let publishedText
+
+    if (!video.published?.isEmpty()) {
+      publishedText = video.published.text
+    }
+
+    const published = calculatePublishedDate(
+      publishedText,
+      video.is_live,
+      video.is_upcoming || video.is_premiere,
+      video.upcoming
+    )
+
     return {
       type: 'video',
       videoId: video.id,
@@ -736,7 +757,7 @@ export function parseLocalListVideo(item) {
       authorId: video.author.id,
       description: video.description,
       viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
-      publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
+      published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
@@ -811,6 +832,14 @@ function parseListItem(item) {
  * @param {import('youtubei.js').YTNodes.CompactVideo} video
  */
 export function parseLocalWatchNextVideo(video) {
+  let publishedText
+
+  if (!video.published?.isEmpty()) {
+    publishedText = video.published.text
+  }
+
+  const published = calculatePublishedDate(publishedText, video.is_live, video.is_premiere)
+
   return {
     type: 'video',
     videoId: video.id,
@@ -818,7 +847,7 @@ export function parseLocalWatchNextVideo(video) {
     author: video.author.name,
     authorId: video.author.id,
     viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
-    publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
+    published,
     lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
     liveNow: video.is_live,
     isUpcoming: video.is_premiere
