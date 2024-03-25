@@ -117,7 +117,7 @@
 
       <div class="playlistOptions">
         <ft-icon-button
-          v-if="isUserPlaylist && videoCount > 0 && !editMode"
+          v-if="searchVideoModeAllowed && videoCount > 0 && !editMode"
           ref="enableSearchModeButton"
           :title="$t('User Playlists.SinglePlaylistView.Search for Videos')"
           :icon="['fas', 'search']"
@@ -207,7 +207,7 @@
     </div>
 
     <div
-      v-if="isUserPlaylist && searchVideoMode"
+      v-if="searchVideoModeAllowed && searchVideoMode"
       class="searchInputsRow"
     >
       <ft-input
@@ -216,11 +216,11 @@
         :placeholder="$t('User Playlists.SinglePlaylistView.Search for Videos')"
         :show-clear-text-button="true"
         :show-action-button="false"
+        :value="query"
         @input="(input) => updateQueryDebounce(input)"
         @clear="updateQueryDebounce('')"
       />
       <ft-icon-button
-        v-if="isUserPlaylist && searchVideoMode"
         :title="$t('User Playlists.Cancel')"
         :icon="['fas', 'times']"
         theme="secondary"
