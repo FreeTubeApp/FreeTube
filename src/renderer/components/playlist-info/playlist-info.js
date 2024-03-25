@@ -83,6 +83,18 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    searchVideoModeAllowed: {
+      type: Boolean,
+      required: true,
+    },
+    searchVideoModeEnabled: {
+      type: Boolean,
+      required: true,
+    },
+    searchQueryText: {
+      type: String,
+      required: true,
+    },
   },
   emits: ['enter-edit-mode', 'exit-edit-mode', 'search-video-mode-on', 'search-video-query-change', 'search-video-mode-off'],
 
@@ -240,6 +252,12 @@ export default defineComponent({
   created: function () {
     this.newTitle = this.title
     this.newDescription = this.description
+
+    if (this.videoCount > 0) {
+      // Only enable search video mode when viewing non empty playlists
+      this.searchVideoMode = this.searchVideoModeEnabled
+      this.query = this.searchQueryText
+    }
 
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },

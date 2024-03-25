@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+      ref="iconButton"
       class="colorOption"
       :title="$t('Profile.Toggle Profile List')"
       :style="{ background: activeProfile.bgColor, color: activeProfile.textColor }"
@@ -26,6 +27,7 @@
       class="profileList"
       tabindex="-1"
       @focusout="handleProfileListFocusOut"
+      @keydown.esc.stop="handleProfileListEscape"
     >
       <h3
         id="profileListTitle"

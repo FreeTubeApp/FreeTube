@@ -1,7 +1,6 @@
 <template>
   <div
     class="ft-card"
-    @focusout="focusout"
   >
     <slot />
   </div>
