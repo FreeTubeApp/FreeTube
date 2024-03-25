@@ -1069,7 +1069,14 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secGruvboxGreen {     
-  --text-with-accent-color: #282828;                                                              
+  --text-with-accent-color: #1d2021;                                                              
+}
+
+.secGruvboxGreen {
+  --accent-color-opacity1: rgba(102, 92, 84, 0.04);
+  --accent-color-opacity2: rgba(102, 92, 84, 0.12);
+  --accent-color-opacity3: rgba(102, 92, 84, 0.16);
+  --accent-color-opacity4: rgba(102, 92, 84, 0.24);
 }
 
 .secGruvboxGreen {
