@@ -496,7 +496,7 @@ function runApp() {
         case 'gruvbox-dark':
           return '282828'
         case 'gruvbox-light':
-	  return 'fbf1c7'
+          return 'fbf1c7'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
