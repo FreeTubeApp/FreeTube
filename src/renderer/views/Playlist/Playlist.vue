@@ -42,6 +42,9 @@
         :is-invidious-playlist="isInvidiousPlaylist"
         :origin="origin"
         :more-video-data-available="moreVideoDataAvailable"
+        :search-video-mode-allowed="searchVideoModeAllowed"
+        :search-video-mode-enabled="playlistInVideoSearchMode"
+        :search-query-text="searchQueryTextRequested"
         class="playlistInfo"
         :class="{
           promptOpen,
