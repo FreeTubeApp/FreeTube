@@ -1029,7 +1029,7 @@ export function mapLocalFormat(format) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Comment} comment
+ * @param {import('youtubei.js').YTNodes.Comment|import('youtubei.js').YTNodes.CommentView} comment
  * @param {import('youtubei.js').YTNodes.CommentThread} commentThread
  */
 export function parseLocalComment(comment, commentThread = undefined) {
@@ -1041,26 +1041,48 @@ export function parseLocalComment(comment, commentThread = undefined) {
     replyToken = commentThread
   }
 
-  return {
+  const parsed = {
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
     authorId: comment.author.id,
     authorThumb: comment.author.best_thumbnail.url,
     isPinned: comment.is_pinned,
-    isOwner: comment.author_is_channel_owner,
-    isMember: comment.is_member,
-    memberIconUrl: comment.is_member ? comment.sponsor_comment_badge.custom_badge[0].url : '',
+    isOwner: !!comment.author_is_channel_owner,
+    isMember: !!comment.is_member,
     text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
-    time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
-    likes: comment.vote_count,
-    isHearted: comment.is_hearted,
-    numReplies: comment.reply_count,
+    isHearted: !!comment.is_hearted,
     hasOwnerReplied,
     replyToken,
     showReplies: false,
-    replies: []
+    replies: [],
+
+    // default values for the properties set below
+    memberIconUrl: '',
+    time: '',
+    likes: 0,
+    numReplies: 0
   }
+
+  if (comment.type === 'Comment') {
+    /** @type {import('youtubei.js').YTNodes.Comment} */
+    const comment_ = comment
+
+    parsed.memberIconUrl = comment_.is_member ? comment_.sponsor_comment_badge.custom_badge[0].url : ''
+    parsed.time = toLocalePublicationString({ publishText: comment_.published.text.replace('(edited)', '').trim() })
+    parsed.likes = comment_.vote_count
+    parsed.numReplies = comment_.reply_count
+  } else {
+    /** @type {import('youtubei.js').YTNodes.CommentView} */
+    const commentView = comment
+
+    parsed.memberIconUrl = commentView.is_member ? commentView.member_badge.url : ''
+    parsed.time = toLocalePublicationString({ publishText: commentView.published_time.replace('(edited)', '').trim() })
+    parsed.likes = commentView.like_count
+    parsed.numReplies = parseLocalSubscriberCount(commentView.reply_count)
+  }
+
+  return parsed
 }
 
 /**
