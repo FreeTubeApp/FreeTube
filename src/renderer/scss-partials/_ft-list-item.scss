@@ -370,7 +370,9 @@ $watched-transition-duration: 0.5s;
     }
 
     &:hover .optionsButton,
-    &:has(:focus-visible) .optionsButton {
+    &:has(:focus-visible) .optionsButton,
+    // Keep visible when the drop down is open
+    :deep(.optionsButton:has(> .iconDropdown:focus-within)) {
       opacity: 1;
     }
 
