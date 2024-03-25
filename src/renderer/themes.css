@@ -410,9 +410,17 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .mainGruvboxGreen {
     --text-with-main-color: #282828;
-    --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.png");                           
-  --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.png"); 
+    
+    --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.png");                          
+    --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.png");
+    
 }
+.mainGruvboxGreen {
+    --primary-color: #b8bb26;
+    --primary-color-hover: #98971a;
+  --primary-color-active: #cace24;
+}
+
 
 .mainDraculaCyan,
 .mainDraculaGreen,
@@ -431,11 +439,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
-.mainGruvboxGreen {
-    --pimary-color: #b8bb26;
-    --primary-color-hover: #98971a;
-    --primary-color-active: #b8bb26;
-}
+
 
 .mainDraculaCyan {
   --primary-color: #8BE9FD;
