@@ -8624,7 +8624,7 @@ webpack-cli@^5.1.4:
     rechoir "^0.8.0"
     webpack-merge "^5.7.3"
 
-webpack-dev-middleware@^7.0.0:
+webpack-dev-middleware@^7.1.0:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-7.1.1.tgz#29aefd73720a03889e1c5c8dd7e552c4d333d572"
   integrity sha512-NmRVq4AvRQs66dFWyDR4GsFDJggtSi2Yn38MXLk0nffgF9n/AIP4TFBg2TQKYaRAN4sHuKOTiz9BnNCENDLEVA==
@@ -8636,10 +8636,10 @@ webpack-dev-middleware@^7.0.0:
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
 
-webpack-dev-server@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-5.0.3.tgz#694bf56308b9c5568c9026302bb1fe2f6130804c"
-  integrity sha512-4aj4I8FJLsFbd4Vt6YBXC8CWrOOwviEI9DdVTu9hrgIBGWs4oKOVfDnaRc+vgf1JUSir1psph1ChPFDkTGHR2Q==
+webpack-dev-server@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-5.0.4.tgz#cb6ea47ff796b9251ec49a94f24a425e12e3c9b8"
+  integrity sha512-dljXhUgx3HqKP2d8J/fUMvhxGhzjeNVarDLcbO/EWMSgRizDkxHQDZQaLFL5VJY9tRBj2Gz+rvCEYYvhbqPHNA==
   dependencies:
     "@types/bonjour" "^3.5.13"
     "@types/connect-history-api-fallback" "^1.5.4"
@@ -8669,7 +8669,7 @@ webpack-dev-server@^5.0.3:
     serve-index "^1.9.1"
     sockjs "^0.3.24"
     spdy "^4.0.2"
-    webpack-dev-middleware "^7.0.0"
+    webpack-dev-middleware "^7.1.0"
     ws "^8.16.0"
 
 webpack-merge@^5.7.3:
