@@ -7,7 +7,8 @@
 .pastelPink,
 .hotPink
 .nordic,
-.gruvbox {
+.gruvboxDark,
+.gruvboxLight{
   --primary-input-color: rgba(0, 0, 0, 0.50);
 }
 
@@ -19,7 +20,8 @@
 .pastelPink,
 .hotPink,
 .nordic,
-.gruvbox {
+.gruvboxDark,
+.gruvboxLight{
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -33,7 +35,8 @@
 .catppuccinMocha,
 .pastelPink,
 .nordic,
-.gruvbox {
+.gruvboxDark,
+.gruvboxLight{
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
@@ -45,7 +48,8 @@
 .dracula,
 .catppuccinMocha,
 .nordic,
-.gruvbox {
+.gruvboxDark,
+.gruvboxLight{
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -66,7 +70,8 @@
 .catppuccinMocha,
 .hotPink,
 .nordic,
-.gruvbox {
+.gruvboxDark,
+.gruvboxLight {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -266,7 +271,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url("../../_icons/textNordicLightSmall.png");
 }
 
-.gruvbox {
+.gruvboxDark {
   --primary-text-color: #ebdbb2;
   --secondary-text-color: #fbf1c7;
   --tertiary-text-color: #ebdbb2;
@@ -285,6 +290,25 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url("../../_icons/textGruvboxLightSmall.png");
 }
 
+
+.gruvboxLight {
+  --primary-text-color: #282828;
+  --secondary-text-color: #1d2021;
+  --tertiary-text-color: #3c3836;
+  --title-color: #282828;
+  --bg-color: #fbf1c7;
+  --favorite-icon-color: #d79921;
+  --card-bg-color: #fbf1c7;
+  --secondary-card-bg-color: #ebdbb2;
+  --scrollbar-color: #d5c4a1;
+  --scrollbar-color-hover: #f2e5bc;
+  --side-nav-color: #ebdbb2;
+  --side-nav-hover-color: #f9f5d7;
+  --side-nav-active-color: #f9f5d7;
+  --search-bar-color: #f2e5bc;
+  --logo-icon: url("../../_icons/iconGruvboxDarkSmall.png");
+  --logo-text: url("../../_icons/textGruvboxDarkSmall.png");
+}
 
 .mainRed,
 .mainPink,
@@ -418,7 +442,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainGruvboxGreen {
     --primary-color: #b8bb26;
     --primary-color-hover: #98971a;
-  --primary-color-active: #cace24;
+  --primary-color-active: #79740e;
 }
 
 
@@ -1082,7 +1106,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secGruvboxGreen {
   --accent-color: #b8bb26;
   --accent-color-hover: #98971a;
-  --accent-color-active: #bec23d;
+  --accent-color-active: #79740e;
   --accent-color-light: #c9cd35;
   --accent-color-visited: #d4d767;
 }
