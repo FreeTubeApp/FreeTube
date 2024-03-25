@@ -491,8 +491,10 @@ function runApp() {
           return '#ffd1dc'
         case 'hot-pink':
           return '#de1c85'
-        case 'nordic':
+        case 'nordic':  
           return '#2b2f3a'
+        case 'gruvbox':
+	  return '282828'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

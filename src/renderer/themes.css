@@ -5,8 +5,9 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink,
-.nordic {
+.hotPink
+.nordic,
+.gruvbox {
   --primary-input-color: rgba(0, 0, 0, 0.50);
 }
 
@@ -17,7 +18,8 @@
 .catppuccinMocha,
 .pastelPink,
 .hotPink,
-.nordic {
+.nordic,
+.gruvbox {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -30,7 +32,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.nordic {
+.nordic,
+.gruvbox {
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
@@ -41,7 +44,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.nordic {
+.nordic,
+.gruvbox {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -61,7 +65,8 @@
 .dracula,
 .catppuccinMocha,
 .hotPink,
-.nordic {
+.nordic,
+.gruvbox {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -260,6 +265,26 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-icon: url("../../_icons/iconNordicLightSmall.png");
   --logo-text: url("../../_icons/textNordicLightSmall.png");
 }
+
+.gruvbox {
+  --primary-text-color: #ebdbb2;
+  --secondary-text-color: #fbf1c7;
+  --tertiary-text-color: #ebdbb2;
+  --title-color: #ebdbb2;
+  --bg-color: #1d2021;
+  --favorite-icon-color: #fabd2f;
+  --card-bg-color: #282828;
+  --secondary-card-bg-color: #282828;
+  --scrollbar-color: #32302f;
+  --scrollbar-color-hover: #504945;
+  --side-nav-color: #282828;
+  --side-nav-hover-color: #3c3836;
+  --side-nav-active-color: #3c3836;
+  --search-bar-color: #504945;
+  --logo-icon: url("../../_icons/iconGruvboxLightSmall.png");
+  --logo-text: url("../../_icons/textGruvboxLightSmall.png");
+}
+
 
 .mainRed,
 .mainPink,
