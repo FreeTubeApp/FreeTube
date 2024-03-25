@@ -73,6 +73,11 @@ export default defineComponent({
       }
     },
 
+    handleProfileListEscape: function () {
+      this.$refs.iconButton.focus()
+      // handleProfileListFocusOut will hide the dropdown for us
+    },
+
     setActiveProfile: function (profile) {
       if (this.activeProfile._id !== profile._id) {
         const targetProfile = this.profileList.find((x) => {

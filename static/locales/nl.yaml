@@ -44,18 +44,18 @@ Global:
     View Count: 1 weergave | {count} weergaven
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
-  Community: Gemeenschap
+  Community: Gemeen­schap
   Input Tags:
     Length Requirement: Tag moet minstens {number} tekens lang zijn
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Zoekfilters'
+  Search Filters: 'Zoek­filters'
   Sort By:
     Sort By: 'Sorteren op'
     Most Relevant: 'Meest relevant'
     Rating: 'Beoordeling'
-    Upload Date: 'Uploaddatum'
+    Upload Date: 'Upload­datum'
     View Count: 'Aantal weergaven'
   Time:
     Time: 'Tijd'
@@ -73,36 +73,36 @@ Search Filters:
     #& Playlists
     Movies: Films
   Duration:
-    Duration: 'Tijdsduur'
-    All Durations: 'Alle tijdsduren'
+    Duration: 'Tijds­duur'
+    All Durations: 'Alle tijds­duren'
     Short (< 4 minutes): 'Kort (< 4 minuten)'
     Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
     Medium (4 - 20 minutes): Gemiddeld (4 - 20 minuten)
-  Search Results: 'Zoekresultaten'
-  Fetching results. Please wait: 'Resultaten verzamelen. Even geduld aub'
-  Fetch more results: 'Meer resultaten laden'
+  Search Results: 'Zoek­resultaten'
+  Fetching results. Please wait: 'Resultaten ophalen, even geduld'
+  Fetch more results: 'Meer resultaten ophalen'
 # Sidebar
   There are no more results for this search: Er zijn geen verdere resultaten voor
-    deze zoekopdracht
+    deze zoek­opdracht
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
   Latest Subscriptions: 'Nieuwste abonnementen'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
-    heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Uw
+    abonnementen­lĳst is momenteel leeg. Voeg abonnementen toe om ze hier te zien.'
   Refresh Subscriptions: Abonnementen vernieuwen
-  Getting Subscriptions. Please wait.: Abonnementen verzamelen. Even geduld aub.
+  Getting Subscriptions. Please wait.: Abonnementen ophalen, even geduld.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit
-    profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
+    profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om rate-limiting
     te vermijden
   Load More Videos: Meer video's laden
-  Error Channels: Kanalen met storingen
-  Disabled Automatic Fetching: U hebt het automatisch ophalen van abonnementen uitgeschakeld.
+  Error Channels: Kanalen met fouten
+  Disabled Automatic Fetching: U heeft het automatisch ophalen van abonnementen uitgeschakeld.
     Vernieuw abonnementen om ze hier te zien.
-  Empty Channels: Je geabonneerde kanalen hebben momenteel geen video's.
+  Empty Channels: De kanalen waarop u geabonneerd bent hebben momenteel geen video's.
   Subscriptions Tabs: Abonnement­tabbladen
-  All Subscription Tabs Hidden: Alle abonnementstabbladen zijn verborgen. Om de inhoud
+  All Subscription Tabs Hidden: Alle abonnement­tabbladen zijn verborgen. Om de inhoud
     hier te zien moet u enkele tabbladen zichtbaar maken in de sectie ‘{subsection}’
     onder ‘{settingsSection}’.
   Load More Posts: Meer berichten laden
@@ -115,9 +115,9 @@ Trending:
   Music: Muziek
   Default: Standaard
 Most Popular: 'Populairst'
-Playlists: 'Afspeellijsten'
+Playlists: 'Afspeel­lĳsten'
 User Playlists:
-  Your Playlists: 'Uw afspeellijsten'
+  Your Playlists: 'Uw afspeel­lĳsten'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Je
     opgeslagen video's is leeg. Klik op de opslaan knop in de hoek van een video om
     het hier in de lijst te plaatsen
@@ -125,7 +125,7 @@ User Playlists:
     Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
-  Search bar placeholder: In afspeellijst zoeken
+  Search bar placeholder: Zoeken naar afspeel­lĳsten
   Empty Search Message: Deze afspeellijst bevat geen video's die overeenkomen met
     de zoekopdracht
   Cancel: Annuleren
@@ -220,6 +220,7 @@ User Playlists:
     kan niet ongedaan gemaakt worden.
   Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
     dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
+  Playlists with Matching Videos: Afspeel­lĳsten met overeen­komende video's
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -257,17 +258,16 @@ Settings:
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor trending'
         #! List countries
-    Check for Latest Blog Posts: Controleer op nieuwe blogposts
+    Check for Latest Blog Posts: Op nieuwe blog­posts controleren
     Check for Updates: Op updates controleren
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
     System Default: Systeemstandaard
     Current Invidious Instance: Huidige Invidious-instantie
-    Clear Default Instance: Standaardinstantie wissen
-    Set Current Instance as Default: Stel momenteel geselecteerde instantie in als
-      standaard
+    Clear Default Instance: Standaard­instantie wissen
+    Set Current Instance as Default: Huidige instantie instellen als standaard
     Current instance will be randomized on startup: Momenteel gebruikte instantie
       zal willekeurig worden gekozen bij het starten
-    No default instance has been set: Er is geen standaard instantie ingesteld
+    No default instance has been set: Er is geen standaard­instantie ingesteld
     The currently set default instance is {instance}: De momenteel als standaard ingestelde
       instantie is {instance}
     External Link Handling:
@@ -333,8 +333,8 @@ Settings:
     UI Scale: Interface­schaal
     Expand Side Bar by Default: Zijbalk standaard uitklappen
     Disable Smooth Scrolling: Vloeiend scrollen uitschakelen
-    Hide Side Bar Labels: Labels op zijbalk verbergen
-    Hide FreeTube Header Logo: Verberg het FreeTube-koplogo
+    Hide Side Bar Labels: Labels in zĳbalk verbergen
+    Hide FreeTube Header Logo: FreeTube-koplogo verbergen
   Player Settings:
     Player Settings: 'Videospelerinstellingen'
     Force Local Backend for Legacy Formats: 'Lokale backend voor oudere formaten forceren'
@@ -343,7 +343,7 @@ Settings:
     Autoplay Videos: 'Video''s automatisch afspelen'
     Proxy Videos Through Invidious: 'Video''s via Invidious-proxy afspelen'
     Autoplay Playlists: 'Afspeellijsten automatisch afspelen'
-    Enable Theatre Mode by Default: 'Theatermodus standaard inschakelen'
+    Enable Theatre Mode by Default: 'Theater­modus standaard inschakelen'
     Default Volume: 'Standaardvolume'
     Default Playback Rate: 'Standaard­afspeel­snelheid'
     Default Video Format:
@@ -421,8 +421,8 @@ Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Manage Subscriptions: 'Abonnementen beheren'
-    Fetch Feeds from RSS: Verzamel feeds via RSS
-    Fetch Automatically: Haal feed automatisch op
+    Fetch Feeds from RSS: Feeds ophalen via RSS
+    Fetch Automatically: Feed automatisch ophalen
     Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
       tonen
   Advanced Settings:
@@ -485,7 +485,7 @@ Settings:
       met succes geëxporteerd
     All watched history has been successfully imported: De bekeken geschiedenis is
       met succes geïmporteerd
-    Check for Legacy Subscriptions: Controleer op Legacy Abonnementen
+    Check for Legacy Subscriptions: Op legacy-abonnementen controleren
     Manage Subscriptions: Abonnementen beheren
     Export Playlists: Afspeellijsten exporteren
     All playlists has been successfully imported: Alle speellijsten zijn met succes
@@ -507,21 +507,21 @@ Settings:
         de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n
         3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
   Distraction Free Settings:
-    Hide Live Chat: Livechat verbergen
+    Hide Live Chat: Live­chat verbergen
     Hide Popular Videos: Populaire video's verbergen
     Hide Trending Videos: Trending video's verbergen
     Hide Recommended Videos: Aanbevolen video's verbergen
     Hide Comment Likes: Likes op opmerkingen verbergen
     Hide Channel Subscribers: Aantal abonnees verbergen
     Hide Video Likes And Dislikes: Likes en dislikes verbergen
-    Hide Video Views: Aantal videoweergaven verbergen
+    Hide Video Views: Aantal video­weergaven verbergen
     Distraction Free Settings: Instellingen voor afleidingsvrij kijken
     Hide Active Subscriptions: Actieve abonnementen verbergen
-    Hide Playlists: Afspeellijsten verbergen
-    Hide Sharing Actions: Verberg knoppen om te delen
+    Hide Playlists: Afspeel­lĳsten verbergen
+    Hide Sharing Actions: Deel­acties verbergen
     Hide Video Description: Video-omschrijving verbergen
     Hide Comments: Opmerkingen verbergen
-    Hide Live Streams: Verberg rechtstreekse uitzendingen
+    Hide Live Streams: Live­streams verbergen
     Display Titles Without Excessive Capitalisation: Titels tonen zonder overmatig
       hoofdletter­gebruik en inter­punctie
     Sections:
@@ -610,14 +610,14 @@ Settings:
     Choose Path: Pad kiezen
     Download Settings: Downloadinstellingen
     Ask Download Path: Om downloadpad vragen
-    Download in app: Opslaan in programma
-    Open in web browser: Openen in webstruiner
+    Download in app: Downloaden in app
+    Open in web browser: Openen in web­browser
     Download Behavior: Gedrag downloaden
   Parental Control Settings:
-    Hide Unsubscribe Button: Verberg knop "Afmelden"
+    Hide Unsubscribe Button: Deabonneer­knop verbergen
     Parental Control Settings: Instellingen voor ouderlijk toezicht
     Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
-    Hide Search Bar: Zoekbalk verbergen
+    Hide Search Bar: Zoek­balk verbergen
   Experimental Settings:
     Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken.
       Het is raadzaam backups te maken. Gebruiken op eigen risico!
@@ -679,8 +679,8 @@ About:
   Email: E-mail
   Blog: Blog
   Website: Website
-  Please check for duplicates before posting: Controleer a.u.b. eerst of een probleem
-    al gerapporteerd is
+  Please check for duplicates before posting: Controleer eerst of een probleem al
+    gerapporteerd is
   GitHub issues: GitHub-issues
   Report a problem: Probleem melden
   FAQ: Veelgestelde vragen
@@ -1015,7 +1015,7 @@ Profile:
   Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wilt
     verwijderen?
   Delete Profile: Profiel verwijderen
-  Make Default Profile: Als standaardprofiel instellen
+  Make Default Profile: Als standaard­profiel instellen
   Update Profile: Profiel bijwerken
   Create Profile: Profiel aanmaken
   Profile Preview: Profielvoorbeeld
@@ -1049,8 +1049,8 @@ Profile:
   Create Profile Name: Profiel­naam aanmaken
   Close Profile Dropdown: Profiel­menu sluiten
   Open Profile Dropdown: Profiel­menu openen
-A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
-  is beschikbaar, {blogTitle}. Klik voor meer informatie
+A new blog is now available, {blogTitle}. Click to view more: 'Een nieuwe blogpost
+  is beschikbaar: {blogTitle}. Druk voor meer informatie'
 Download From Site: Van website downloaden
 Version {versionNumber} is now available!  Click for more details: Versie {versionNumber}
   is nu beschikbaar! Klik voor meer informatie
@@ -1084,16 +1084,16 @@ Tooltips:
       te spoelen, zoals bij MPV.
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
-      van de standaard methode om de videolijsten van je abonnementen te verzamelen.
-      RSS is sneller en voorkomt dat je IP wordt geblokkeerd maar geeft geen toegang
-      tot sommige informatie zoals de videoduur en live-status
+      van de standaard­methode om uw abonnementen­feed op te halen. RSS is sneller
+      en voorkomt IP-blokkering, maar geeft geen toegang tot sommige informatie zoals
+      de video­duur en live-status
     Fetch Automatically: Indien ingeschakeld, haalt FreeTube automatisch uw abonnementen­feed
       op wanneer een nieuw venster wordt geopend en wanneer u van profiel verandert.
   General Settings:
     Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden
       om API calls te maken.
-    Thumbnail Preference: Alle thumbnails in FreeTube zullen worden vervangen met
-      een momentopname uit de video in plaats van de standaard thumbnail.
+    Thumbnail Preference: Alle miniaturen in FreeTube zullen worden vervangen met
+      een moment­opname uit de video in plaats van de standaard­miniatuur.
     Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
       geeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
       API wanneer deze instelling is ingeschakeld.
@@ -1155,7 +1155,7 @@ Open New Window: Nieuw venster openen
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
 Default Invidious instance has been set to {instance}: Standaard Invidious-instantie
   is ingesteld op {instance}
-Are you sure you want to open this link?: Weet je zeker dat je deze link wilt openen?
+Are you sure you want to open this link?: Weet u zeker dat u deze link wilt openen?
 Search Bar:
   Clear Input: Invoer wissen
 External link opening has been disabled in the general settings: Het openen van externe
@@ -1173,9 +1173,9 @@ Channels:
   Search bar placeholder: Kanalen zoeken
   Count: '{number} kanaal/kanalen gevonden'
   Channels: Kanalen
-  Empty: Uw lijst van kanalen is thans leeg.
+  Empty: Uw lijst van kanalen is momenteel leeg.
   Unsubscribe: Deabonneren
-  Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
+  Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnementen'
   Unsubscribe Prompt: Weet u zeker dat u zich wilt deabonneren van ‘{channelName}’?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
@@ -1198,7 +1198,7 @@ Playlist will pause when current video is finished: Afspeellijst zal pauzeren wa
   de huidige video is afgelopen
 Playlist will not pause when current video is finished: Afspeellijst zal niet pauzeren
   wanneer de huidige video is afgelopen
-Go to page: Ga naar {page}
+Go to page: Pagina {page}
 Tag already exists: Tag ‘{tagName}’ bestaat al
 Channel Unhidden: ‘{channel}’ verwijderd uit kanaal­filter
 Channel Hidden: ‘{channel}’ toe­gevoegd aan kanaal­filter

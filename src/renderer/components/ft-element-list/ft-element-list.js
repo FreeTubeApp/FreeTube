@@ -33,7 +33,12 @@ export default defineComponent({
     hideForbiddenTitles: {
       type: Boolean,
       default: true
-    }
+    },
+    searchQueryText: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     listType: function () {
