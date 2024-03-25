@@ -20,6 +20,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      usingElectron: process.env.IS_ELECTRON,
       minUiScale: 50,
       maxUiScale: 300,
       uiScaleStep: 5,
@@ -122,10 +123,6 @@ export default defineComponent({
 
     areColorThemesEnabled: function() {
       return this.baseTheme !== 'hotPink'
-    },
-
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
     }
   },
   mounted: function () {
