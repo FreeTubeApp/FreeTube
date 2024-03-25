@@ -408,6 +408,12 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #D84315;
 }
 
+.mainGruvboxGreen {
+    --text-with-main-color: #282828;
+    --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.png");                           
+  --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.png"); 
+}
+
 .mainDraculaCyan,
 .mainDraculaGreen,
 .mainDraculaOrange,
@@ -423,6 +429,12 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-main-color: #F8F8F2;
   --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
   --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
+}
+
+.mainGruvboxGreen {
+    --pimary-color: #b8bb26;
+    --primary-color-hover: #98971a;
+    --primary-color-active: #b8bb26;
 }
 
 .mainDraculaCyan {
@@ -1050,6 +1062,18 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity2: rgba(180,190,254,0.12);
   --accent-color-opacity3: rgba(180,190,254,0.16);
   --accent-color-opacity4: rgba(180,190,254,0.24);
+}
+
+.secGruvboxGreen {     
+  --text-with-accent-color: #282828;                                                              
+}
+
+.secGruvboxGreen {
+  --accent-color: #b8bb26;
+  --accent-color-hover: #98971a;
+  --accent-color-active: #bec23d;
+  --accent-color-light: #c9cd35;
+  --accent-color-visited: #d4d767;
 }
 
 body[dir='ltr'] {
