@@ -118,7 +118,7 @@ User Playlists:
   Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
-  Search bar placeholder: بحث في قائمة التشغيل
+  Search bar placeholder: بحث عن قوائم التشغيل
   Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
   This playlist currently has no videos.: لا تحتوي قائمة التشغيل هذه حاليًا على مقاطع
     فيديو.
@@ -210,6 +210,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: تمكين الإشارة المرجعية السريعة مع قائمة
     التشغيل هذه
   Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
+  Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
 History:
   # On History Page
   History: 'السجلّ'

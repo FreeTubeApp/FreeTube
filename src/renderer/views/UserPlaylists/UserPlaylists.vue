@@ -19,24 +19,39 @@
           class="newPlaylistButton"
           @click="createNewPlaylist"
         />
-        <ft-input
+        <div
           v-if="fullData.length > 1"
-          ref="searchBar"
-          :placeholder="$t('User Playlists.Search bar placeholder')"
-          :show-clear-text-button="true"
-          :show-action-button="false"
-          @input="(input) => query = input"
-          @clear="query = ''"
-        />
-        <ft-select
-          v-if="fullData.length > 1"
-          class="sortSelect"
-          :value="sortBy"
-          :select-names="sortBySelectNames"
-          :select-values="sortBySelectValues"
-          :placeholder="$t('User Playlists.Sort By.Sort By')"
-          @change="sortBy = $event"
-        />
+          class="searchInputsRow"
+        >
+          <ft-input
+            ref="searchBar"
+            :placeholder="$t('User Playlists.Search bar placeholder')"
+            :show-clear-text-button="true"
+            :show-action-button="false"
+            @input="(input) => query = input"
+            @clear="query = ''"
+          />
+        </div>
+        <div
+          class="optionsRow"
+        >
+          <ft-toggle-switch
+            v-if="fullData.length > 1"
+            :label="$t('User Playlists.Playlists with Matching Videos')"
+            :compact="true"
+            :default-value="doSearchPlaylistsWithMatchingVideos"
+            @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+          />
+          <ft-select
+            v-if="fullData.length > 1"
+            class="sortSelect"
+            :value="sortBy"
+            :select-names="sortBySelectNames"
+            :select-values="sortBySelectValues"
+            :placeholder="$t('User Playlists.Sort By.Sort By')"
+            @change="sortBy = $event"
+          />
+        </div>
       </div>
       <ft-flex-box
         v-if="fullData.length === 0"
@@ -56,6 +71,7 @@
         v-else-if="activeData.length > 0 && !isLoading"
         :data="activeData"
         :data-type="'playlist'"
+        :search-query-text="doSearchPlaylistsWithMatchingVideos ? lowerCaseQuery : ''"
         :use-channels-hidden-preference="false"
         :hide-forbidden-titles="false"
       />

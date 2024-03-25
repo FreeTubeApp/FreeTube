@@ -116,7 +116,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
-  Search bar placeholder: Etsi soittolistalta
+  Search bar placeholder: Etsi soittolistoja
   Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
   Sort By:
     NameAscending: A-Ö
@@ -143,6 +143,7 @@ User Playlists:
         ja sitä ei voi poistaa.
       Playlist {playlistName} has been deleted.: Soittolista {playlistName} on poistettu.
       This playlist does not exist: Soittolistaa ei ole olemassa
+    Search for Videos: Etsi videot
   Move Video Down: Siirrä video alas
   Remove from Playlist: Poista soittolistalta
   Playlist Name: Soittolistan nimi
@@ -1039,7 +1040,7 @@ Tooltips:
     Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}”-asetuksella,
       joka on ”{settingsSection}”-osion ”{subsection}”-osiossa.
   SponsorBlock Settings:
-    UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow'n otsikoilla.
+    UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow’n otsikoilla.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -1096,3 +1097,6 @@ Playlist will not pause when current video is finished: Soittolistaa ei keskeyte
 Channel Hidden: '{channel} lisätty kanavasuodattimeen'
 Go to page: Siirry sivulle {page}
 Channel Unhidden: '{channel} poistettu kanavasuodattimesta'
+Age Restricted:
+  This video is age restricted: Tämä video on ikärajoitettu
+  This channel is age restricted: Tämä kanava on ikärajoitettu

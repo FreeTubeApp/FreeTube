@@ -7,6 +7,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
   showToast,
 } from '../../helpers/utils'
@@ -31,12 +32,14 @@ export default defineComponent({
     'ft-playlist-selector': FtPlaylistSelector,
     'ft-input': FtInput,
     'ft-select': FtSelect,
+    'ft-toggle-switch': FtToggleSwitch,
   },
   data: function () {
     return {
       selectedPlaylistIdList: [],
       createdSincePromptShownPlaylistIdList: [],
       query: '',
+      doSearchPlaylistsWithMatchingVideos: false,
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
       lastActiveElement: null,
@@ -114,6 +117,12 @@ export default defineComponent({
 
       return this.allPlaylists.filter((playlist) => {
         if (typeof (playlist.playlistName) !== 'string') { return false }
+
+        if (this.doSearchPlaylistsWithMatchingVideos) {
+          if (playlist.videos.some((v) => v.title.toLowerCase().includes(this.processedQuery))) {
+            return true
+          }
+        }
 
         return playlist.playlistName.toLowerCase().includes(this.processedQuery)
       })

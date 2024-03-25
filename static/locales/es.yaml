@@ -120,7 +120,7 @@ User Playlists:
   Playlist Message: Esta página no refleja el estado final de las listas de reproducción,
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
-  Search bar placeholder: Buscar en la lista de reproducción
+  Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
     con tu búsqueda
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
@@ -219,6 +219,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Activar marcadores rápidos con esta lista
     de reproducción
   Disable Quick Bookmark: Desactivar el marcador rápido
+  Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
 History:
   # On History Page
   History: 'Historial'

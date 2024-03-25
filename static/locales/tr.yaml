@@ -127,7 +127,7 @@ User Playlists:
     Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
-  Search bar placeholder: Oynatma Listesinde Ara
+  Search bar placeholder: Oynatma Listesi Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
   This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
     yok.
@@ -222,6 +222,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
     Etkinleştir
   Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
+  Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
 History:
   # On History Page
   History: 'Geçmiş'

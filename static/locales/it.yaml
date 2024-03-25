@@ -123,7 +123,7 @@ User Playlists:
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist preferiti.
-  Search bar placeholder: Cerca nella playlist
+  Search bar placeholder: Cerca nelle playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sei
@@ -219,6 +219,7 @@ User Playlists:
   Remove from Favorites: Rimuovi da {playlistName}
   Enable Quick Bookmark With This Playlist: Abilita segnalibro rapido con questa playlist
   Disable Quick Bookmark: Disabilita segnalibro rapido
+  Playlists with Matching Videos: Playlist con video corrispondenti
 History:
   # On History Page
   History: 'Cronologia'

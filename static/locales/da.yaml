@@ -33,22 +33,29 @@ Forward: 'Fremad'
 Global:
   Videos: Videoer
 
+  Counts:
+    Watching Count: 1 ser | {count} ser
+    Subscriber Count: 1 abonnent | {count} abonnenter
+    View Count: 1 visning | {count} visninger
+    Video Count: 1 video | {count} videoer
+    Channel Count: 1 kanal | {count} kanaler
+  Community: Fællesskab
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
-  {blogTitle}. Klik for at vise mere'
+  {blogTitle}. Klik for at se mere'
 
 # Search Bar
-Search / Go to URL: 'Søg / Gå til URL'
+Search / Go to URL: 'Søg/gå til URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søgefiltre'
   Sort By:
-    Sort By: 'Sortér Efter'
+    Sort By: 'Sortér efter'
     Most Relevant: 'Mest Relevante'
     Rating: 'Bedømmelse'
-    Upload Date: 'Indsendelsesdato'
+    Upload Date: 'Dato for Upload'
     View Count: 'Visningstal'
   Time:
     Time: 'Tid'
@@ -66,34 +73,36 @@ Search Filters:
     #& Playlists
     Movies: Film
   Duration:
-    Duration: 'Længde'
-    All Durations: 'Alle Længder'
+    Duration: 'Varighed'
+    All Durations: 'Alle Varigheder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
-    Medium (4 - 20 minutes): Medium (4-20 minutter)
+    Medium (4 - 20 minutes): Mellemlang (4-20 minutter)
   Search Results: 'Søgeresultater'
-  Fetching results. Please wait: 'Skaffer resultater. Vent venligst'
-  Fetch more results: 'Skaf flere resultater'
+  Fetching results. Please wait: 'Henter resultater. Vent venligst'
+  Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Der er ikke flere resultater for denne
     søgning
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Abonnementer'
-  Latest Subscriptions: 'Seneste Abonnementer'
+  Subscriptions: 'Abonnenter'
+  Latest Subscriptions: 'Seneste Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abonnementsliste er i øjeblikket tom. Begynd at tilføje abonnementer, for at se
-    dem her.'
-  'Getting Subscriptions. Please wait.': 'Henter Abonnementer. Vent venligst.'
-  Refresh Subscriptions: 'Genopfrisk Abonnementer'
+    abonnentliste er i øjeblikket tom. Begynd at tilføje abonnenter for at se dem
+    her.'
+  'Getting Subscriptions. Please wait.': 'Henter Abonnenter. Vent venligst.'
+  Refresh Subscriptions: 'Opdatér Abonnenter'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
-    profil har et stort antal abonnementer.  Gennemtvinger RSS for at undgå adgangsbegrænsning
+    profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med Fejl
   Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
-  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnementer.
-    Opdater abonnementer for at se dem her.
+  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnenter.
+    Opdatér abonnenter for at se dem her.
+  Empty Posts: Dine abonnerede kanaler har i øjeblikket ingen opslag.
+  Load More Posts: Indlæs Flere Opslag
 Trending:
   Trending: 'Trender'
   Music: Musik
@@ -109,18 +118,94 @@ User Playlists:
     liste over gemte videoer er tom. Klik på gem-knappen i hjørnet af en video, for
     at få den optegnet her
   Playlist Message: Denne side afspejler ikke fuldt funktionelle playlister. Den optegner
-    blot videoer som du har gemt eller favoriseret. Når arbejdet er færdigt, vil alle
-    videoer her blive flyttet til en 'Favoritter'-playliste.
+    blot videoer, som du har gemt eller favoriseret. Når arbejdet er færdigt, vil
+    alle videoer her blive flyttet til en 'Favoritter'-playliste.
   Search bar placeholder: Søg i Playliste
   Empty Search Message: Der er ingen videoer i denne playliste, der passer til din
     søgning
+  This playlist currently has no videos.: Denne playliste har i øjeblikket ingen videoer.
+  Create New Playlist: Opret Ny Playliste
+  Add to Playlist: Føj til Playliste
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    har ingen playlister. Klik på 'Opret Ny Playliste'-knappen for at oprette en ny.
+  Remove from Favorites: Fjern fra {playlistName}
+  Move Video Up: Flyt Video Op
+  Copy Playlist: Kopiér Playliste
+  Remove Watched Videos: Fjern Sete Videoer
+  Delete Playlist: Slet Playliste
+  Sort By:
+    EarliestCreatedFirst: Tidligst Oprettet
+    EarliestUpdatedFirst: Tidligst Opdateret
+    LatestPlayedFirst: Afspillet For Nyligt
+    LatestCreatedFirst: Oprettet For Nyligt
+    Sort By: Sortér efter
+    LatestUpdatedFirst: Opdateret For Nyligt
+    EarliestPlayedFirst: Tidligst Afspillet
+  Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
+    på, at du vil slette denne playliste? Dette kan ikke fortrydes.
+  SinglePlaylistView:
+    Search for Videos: Søg efter Videoer
+    Toast:
+      This video cannot be moved up.: Denne video kan ikke flyttes op.
+      This video cannot be moved down.: Denne video kan ikke flyttes ned.
+      Video has been removed: Video er blevet fjernet
+      There was a problem with removing this video: Der opstod et problem med at fjerne
+        denne video
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nogle
+        videoer i denne playliste er ikke indlæst endnu. Klik her for at kopiere alligevel.
+      Playlist name cannot be empty. Please input a name.: Playliste navn kan ikke
+        være tomt. Indtast venligst et navn.
+      This playlist is protected and cannot be removed.: Denne playliste er beskyttet
+        og kan ikke fjernes.
+      There was an issue with updating this playlist.: Der opstod et problem med at
+        opdatere denne playliste.
+      This playlist does not exist: Denne playliste eksisterer ikke
+      Playlist has been updated.: Playliste er blevet opdateret.
+      "{videoCount} video(s) have been removed": 1 video er blevet fjernet | {videoCount}
+        videoer er blevet fjernet
+      There were no videos to remove.: Der var ingen videoer at fjerne.
+      Playlist {playlistName} has been deleted.: Playliste {playlistName} er blevet
+        slettet.
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Vælg en playliste, du vil føje din
+      video til | Vælg en playliste, du vil føje dine {videoCount} videoer til
+    N playlists selected: '{playlistCount} Valgt'
+    Search in Playlists: Søg i Playlister
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video tilføjet
+        til {playlistCount} playlister | {videoCount} videoer tilføjet til {playlistCount}
+        playlister
+      You haven't selected any playlist yet.: Du har ikke valgt nogen playliste endnu.
+      "{videoCount} video(s) added to 1 playlist": 1 video tilføjet til 1 playliste
+        | {videoCount} videoer tilføjet til 1 playliste
+    Added {count} Times: Tilføjet {count} Gang | Tilføjet {count} Gange
+    Save: Gem
+  CreatePlaylistPrompt:
+    Toast:
+      There was an issue with creating the playlist.: Der opstod et problem med at
+        oprette denne playliste.
+      There is already a playlist with this name. Please pick a different name.: En
+        playliste med dette navn eksisterer allerede. Vælg venligst et andet navn.
+    New Playlist Name: Ny Playliste Navn
+    Create: Opret
+  Move Video Down: Flyt Video Ned
+  Playlist Description: Playliste Beskrivelse
+  Save Changes: Gem Ændringer
+  Cancel: Annullér
+  Edit Playlist Info: Redigér Playliste Info
+  Add to Favorites: Føj til {playlistName}
+  Remove from Playlist: Fjern fra Playliste
+  Playlist Name: Playliste Navn
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Er
+    du sikker på, at du vil fjerne alle sete videoer fra denne playliste? Dette kan
+    ikke fortrydes.
 History:
   # On History Page
   History: 'Historik'
   Watch History: 'Set Historik'
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
-  Empty Search Message: Der er ingen videoer i din historie som passer til din søgning
-  Search bar placeholder: Søg i Historie
+  Empty Search Message: Der er ingen videoer i din historik som passer til din søgning
+  Search bar placeholder: Søg i Historik
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
@@ -142,14 +227,16 @@ Settings:
       Grid: 'Gitter'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Indstilling for Forhåndsvisning'
+      Thumbnail Preference: 'Præference for Miniaturebillede'
       Default: 'Standard'
-      Beginning: 'Begyndelsen'
+      Beginning: 'Begyndelse'
       Middle: 'Midten'
-      End: 'Slutningen'
+      End: 'Slutning'
+      Blur: Slør
+      Hidden: Skjult
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-Instans
       (Standard er https://invidious.snopyta.org)'
-    Region for Trending: 'Område for Mode'
+    Region for Trending: 'Område for Trending'
         #! List countries
     View all Invidious instance information: Vis al Invidious-instans-information
     Clear Default Instance: Ryd Standard Instans
@@ -172,59 +259,62 @@ Settings:
     Base Theme:
       Base Theme: 'Grundtema'
       Black: 'Sort'
-      Dark: 'Mørkt'
-      Light: 'Lyst'
+      Dark: 'Mørk'
+      Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemstandard
       Catppuccin Mocha: Catppuccin Mokka
+      Pastel Pink: Pastel Lyserød
+      Nordic: Nordisk
     Main Color Theme:
-      Main Color Theme: 'Primært Farvetema'
-      Red: 'Rødt'
-      Pink: 'Lyserødt'
+      Main Color Theme: 'Primær Farvetema'
+      Red: 'Rød'
+      Pink: 'Lyserød'
       Purple: 'Lilla'
       Deep Purple: 'Mørkelilla'
       Indigo: 'Indigoblå'
-      Blue: 'Blåt'
-      Light Blue: 'Lyseblåt'
+      Blue: 'Blå'
+      Light Blue: 'Lyseblå'
       Cyan: 'Cyan'
-      Teal: 'Turkisfarvet'
-      Green: 'Grønt'
-      Light Green: 'Lysegrønt'
-      Lime: 'Limegrønt'
-      Yellow: 'Gult'
+      Teal: 'Turkis'
+      Green: 'Grøn'
+      Light Green: 'Lysegrøn'
+      Lime: 'Limegrøn'
+      Yellow: 'Gul'
       Amber: 'Rav'
       Orange: 'Orange'
-      Deep Orange: 'Dybt Orange'
+      Deep Orange: 'Dyb Orange'
       Dracula Cyan: 'Dracula Cyan'
-      Dracula Green: 'Dracula Grønt'
+      Dracula Green: 'Dracula Grøn'
       Dracula Orange: 'Dracula Orange'
-      Dracula Pink: 'Dracula Lyserødt'
+      Dracula Pink: 'Dracula Lyserød'
       Dracula Purple: 'Dracula Lilla'
-      Dracula Red: 'Dracula Rødt'
-      Dracula Yellow: 'Dracula Gult'
-      Catppuccin Mocha Green: Catppuccin Mokka Grønt
+      Dracula Red: 'Dracula Rød'
+      Dracula Yellow: 'Dracula Gul'
+      Catppuccin Mocha Green: Catppuccin Mokka Grøn
       Catppuccin Mocha Rosewater: Catppuccin Mokka Rosenvand
       Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
       Catppuccin Mocha Mauve: Capttuccin Mokka Lysviolet
-      Catppuccin Mocha Peach: Catppuccin Mokka Ferskenfarvet
-      Catppuccin Mocha Yellow: Catppuccin Mokka Gult
-      Catppuccin Mocha Pink: Catppuccin Mokka Lyserødt
-      Catppuccin Mocha Red: Catppuccin Mokka Rødt
-      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrunt
-      Catppuccin Mocha Teal: Catppuccin Mokka Turkisfarvet
+      Catppuccin Mocha Peach: Catppuccin Mokka Fersken
+      Catppuccin Mocha Yellow: Catppuccin Mokka Gul
+      Catppuccin Mocha Pink: Catppuccin Mokka Lyserød
+      Catppuccin Mocha Red: Catppuccin Mokka Rød
+      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrun
+      Catppuccin Mocha Teal: Catppuccin Mokka Turkis
       Catppuccin Mocha Sky: Catppuccin Mokka Himmel
       Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
-      Catppuccin Mocha Blue: Catppuccin Mokka Blåt
-      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendelblå
-    Secondary Color Theme: 'Sekundært Farvetema'
+      Catppuccin Mocha Blue: Catppuccin Mokka Blå
+      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+    Secondary Color Theme: 'Sekundær Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade
     Disable Smooth Scrolling: Deaktivér Jævn Rulning
     Expand Side Bar by Default: Udvid Sidebar som Standard
     Hide Side Bar Labels: Skjul Sidebarens Etiketter
+    Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
-    Force Local Backend for Legacy Formats: 'Tving Lokal Server for Gamle Formater'
+    Force Local Backend for Legacy Formats: 'Tving Lokal Backend til Ældre Formater'
     Play Next Video: 'Afspil Næste Video'
     Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
     Autoplay Videos: 'Autospil Videoer'
@@ -236,7 +326,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Standard Videoformat'
       Dash Formats: 'DASH-Formater'
-      Legacy Formats: 'Gamle Formater'
+      Legacy Formats: 'Ældre Formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Standardkvalitet'
@@ -266,35 +356,46 @@ Settings:
       Ask Path: Spørg efter Mappe til at Gemme
       Folder Label: Mappe til Skærmbilleder
     Next Video Interval: Næste Videointerval
-    Max Video Playback Rate: Maks Videoafspilningshastighed
-    Display Play Button In Video Player: Vis Afspilningsknap I Videoafspiller
+    Max Video Playback Rate: Maks. Videoafspilningshastighed
+    Display Play Button In Video Player: Vis Afspilningsknap i Videoafspiller
     Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
     Video Playback Rate Interval: Videoafspilningshastighed Interval
-    Scroll Playback Rate Over Video Player: Scroll-afspilningshastighed i Videoafspiller
-    Scroll Volume Over Video Player: Scroll-lydstyrke i Videoafspiller
-    Skip by Scrolling Over Video Player: Spring over ved at scrolle over videoafspilleren
+    Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
+    Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
+    Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
+    Comment Auto Load:
+      Comment Auto Load: Kommentar Auto-Indlæs
+    Allow DASH AV1 formats: Tillad DASH AV1-formater
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
     Save Watched Progress: 'Gem Set Fremskridt'
-    Clear Search Cache: 'Ryd Lokalt Søgelager'
+    Clear Search Cache: 'Ryd Søgecache'
     Are you sure you want to clear out your search cache?: 'Er du sikker på, at du
-      vil udrydde dit lokale søgelager?'
-    Search cache has been cleared: 'Lokalt søgelager er blevet ryddet'
+      vil rydde din søgecache?'
+    Search cache has been cleared: 'Søgecache blev ryddet'
     Remove Watch History: 'Fjern Set Historik'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på,
       at du vil fjerne hele din sete historik?'
-    Watch history has been cleared: 'Set historik er blevet ryddet'
+    Watch history has been cleared: 'Set historik blev ryddet'
     Remove All Subscriptions / Profiles: 'Fjern Alle Abonnementer / Profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
-      du sikker på, at du vil fjerne alle abonnementer og profiler?  Dette kan ikke
+      du sikker på, at du vil fjerne alle abonnementer og profiler? Dette kan ikke
       fortrydes.'
     Automatically Remove Video Meta Files: Fjern Automatisk Video Metafiler
+    All playlists have been removed: Alle playlister blev fjernet
+    Are you sure you want to remove all your playlists?: Er du sikker på, at du vil
+      fjerne alle dine playlister?
+    Save Watched Videos With Last Viewed Playlist: Gem Sete Videoer med Sidst Sete
+      Playliste
+    Remove All Playlists: Fjern Alle Playlister
   Subscription Settings:
     Subscription Settings: 'Abonnementsindstillinger'
     Hide Videos on Watch: 'Skjul Videoer på Se'
-    Fetch Feeds from RSS: 'Skaf Strømme fra RSS'
+    Fetch Feeds from RSS: 'Hent Feeds fra RSS'
     Manage Subscriptions: 'Abonnementshåndtering'
+    Only Show Latest Video for Each Channel: Vis Kun Seneste Video for Hver Kanal
+    Fetch Automatically: Hent Feed Automatisk
   Data Settings:
     Data Settings: 'Dataindstillinger'
     Select Import Type: 'Vælg Importtype'
@@ -334,13 +435,15 @@ Settings:
     Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
     Export Playlists: Eksportér Playlister
-    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer
+    Playlist insufficient data: Utilstrækkelig data for "{playlist}" playliste, springer
       objektet over
     Import Playlists: Importér Playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
       succesfuldt
     All playlists has been successfully exported: Alle playlister er blevet eksporteret
       succesfuldt
+    History File: Historik-fil
+    Playlist File: Playliste-fil
   Advanced Settings:
     Advanced Settings: 'Avancerede indstillinger'
     Enable Debug Mode (Prints data to the console): 'Aktivér fejlretningstilstand
@@ -386,13 +489,13 @@ Settings:
     Proxy Settings: Indstillinger for Proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Skjul Aktive Abonnementer
-    Hide Live Chat: Skjul Direkte Chat
+    Hide Live Chat: Skjul Live Chat
     Hide Popular Videos: Skjul Populære Videoer
-    Hide Trending Videos: Skjul Videoer På Mode
+    Hide Trending Videos: Skjul Trending Videoer
     Hide Recommended Videos: Skjul Anbefalede Videoer
-    Hide Comment Likes: Skjul Kommentar-Tilkendegivelser
+    Hide Comment Likes: Skjul Kommentar-Likes
     Hide Channel Subscribers: Skjul Kanal-Abonnenter
-    Hide Video Likes And Dislikes: Skjul Video-Tilkendegivelser
+    Hide Video Likes And Dislikes: Skjul Video-Likes og -Dislikes
     Hide Video Views: Skjul Videovisninger
     Distraction Free Settings: Distraktionsfri Indstillinger
     Hide Live Streams: Skjul Livestreams
@@ -400,6 +503,25 @@ Settings:
     Hide Sharing Actions: Skjul Delingshandlinger
     Hide Video Description: Skjul Videobeskrivelse
     Hide Playlists: Skjul Playlister
+    Hide Upcoming Premieres: Skjul Kommende Premierer
+    Hide Channels: Skjul Videoer Fra Kanaler
+    Hide Chapters: Skjul Kapitler
+    Hide Channels Already Exists: Kanal-ID eksisterer allerede
+    Hide Featured Channels: Skjul Fremhævede Kanaler
+    Hide Videos and Playlists Containing Text: Skjul Videoer og Playlister med Tekst
+    Hide Profile Pictures in Comments: Skjul Profilbilleder i Kommentarer
+    Display Titles Without Excessive Capitalisation: Vis Titler Uden Overdrevne Store
+      Bogstaver og Tegnsætning
+    Sections:
+      General: Generelt
+      Side Bar: Sidebjælke
+    Hide Channels Placeholder: Kanal-ID
+    Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
+      venligst igen, om ID'et er korrekt.
+    Hide Channel Playlists: Skjul Kanal-playlister
+    Hide Channel Community: Skjul Kanal-fællesskab
+    Hide Channel Podcasts: Skjul Kanal-podcasts
+    Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -434,8 +556,28 @@ Settings:
       Fil
     Custom External Player Arguments: Brugerdefineret Ekstern Afspiller Argumenter
     External Player: Ekstern Afspiller
-    Ignore Unsupported Action Warnings: Ignorér Advarsler Om Ikke-understøttede Handlinger
+    Ignore Unsupported Action Warnings: Ignorér Advarsler om Ikke-understøttede Handlinger
     External Player Settings: Indstillinger for Ekstern Afspiller
+    Players:
+      None:
+        Name: Ingen
+  Password Settings:
+    Set Password: Indstil Adgangskode
+    Password Settings: Adgangskode-indstillinger
+    Remove Password: Fjern Adgangskode
+    Set Password To Prevent Access: Indstil en adgangskode for at forhindre adgang
+      til indstillinger
+  Password Dialog:
+    Password: Adgangskode
+    Enter Password To Unlock: Indtast adgangskode for at låse indstillinger op
+    Unlock: Lås op
+    Password Incorrect: Forkert Adgangskode
+  Experimental Settings:
+    Experimental Settings: Eksperimentelle Indstillinger
+    Warning: Disse indstillinger er eksperimentelle og kan forårsage nedbrud, mens
+      de er aktiveret. Det anbefales stærkt at lave sikkerhedskopier. Brug på eget
+      ansvar!
+    Replace HTTP Cache: Erstat HTTP-cache
 About:
   #On About page
   About: 'Om'
@@ -536,6 +678,9 @@ Profile:
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profilindstillinger
+  Create Profile Name: Opret Profilnavn
+  Profile Name: Profilnavn
+  Edit Profile Name: Redigér Profilnavn
 Channel:
   Subscribe: 'Abonnér'
   Unsubscribe: 'Afmeld'
@@ -567,6 +712,23 @@ Channel:
     About: 'Om'
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Fremhævede Kanaler'
+    Details: Detaljer
+  Community:
+    Hide Answers: Skjul Svar
+    This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
+      opslag
+    Video hidden by FreeTube: Video skjult af FreeTube
+    votes: '{votes} stemmer'
+  This channel does not allow searching: Denne kanal tillader ikke søgninger
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
+    kanal er aldersbegrænset og kan i øjeblikket ikke ses på FreeTube.
+  Live:
+    This channel does not currently have any live streams: Denne kanal har i øjeblikket
+      ingen livestreams
+  Podcasts:
+    This channel does not currently have any podcasts: Denne kanal har i øjeblikket
+      ingen podcasts
+  This channel does not exist: Denne kanal eksisterer ikke
 Video:
   Mark As Watched: 'Markér Som Set'
   Remove From History: 'Fjern Fra Historik'
@@ -691,6 +853,15 @@ Video:
     playlist: playliste
     UnsupportedActionTemplate: '{externalPlayer} understøtter ikke: {action}'
   Skipped segment: Sprunget over segment
+  Hide Channel: Skjul Kanal
+  Unhide Channel: Vis Kanal
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
+    Chat er ikke tilgængelig for denne stream. Den er muligvis blevet deaktiveret
+    af uploaderen.
+  Premieres: Premierer
+  Upcoming: Kommende
+  Scroll to Bottom: Rul til Bunden
+  Pause on Current Video: Pause på Nuværende Video
 Videos:
   #& Sort By
   Sort By:
@@ -736,6 +907,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube Indlejrings-URL kopieret til udklipsholder'
   YouTube Channel URL copied to clipboard: YouTube Kanal-URL kopieret til udklipsholder
   Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopieret til udklipsholder
+  Share Channel: Del Kanal
 Mini Player: 'Miniafspiller'
 Comments:
   Comments: 'Kommentarer'
@@ -762,6 +934,8 @@ Comments:
   And others: og andre
   Show More Replies: Vis Flere Svar
   Member: Medlem
+  Subscribed: Abonneret
+  View {replyCount} replies: Vis {replyCount} svar
 Up Next: 'Næste'
 
 # Toast Messages
@@ -838,6 +1012,11 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: Når det er aktiveret, sletter FreeTube automatisk metafiler
       oprettet under videoafspilning, når siden lukkes.
+  Distraction Free Settings:
+    Hide Channels: Indtast et kanal-ID for at skjule alle videoer, playlister og selve
+      kanalen fra at blive vist i søgning, trending, mest populære og anbefalet. Det
+      indtastede kanal-ID skal være et komplet match, og der skelnes mellem store
+      og små bogstaver.
 New Window: Nyt Vindue
 More: Mere
 Open New Window: Åbn Nyt Vindue
@@ -854,7 +1033,7 @@ Default Invidious instance has been set to {instance}: Standard Invidious-instan
   er blevet sat til {instance}
 Default Invidious instance has been cleared: Standard Invidious-instans er blevet
   ryddet
-Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
+Are you sure you want to open this link?: Er du sikker på, at du vil åbne dette link?
 Search Bar:
   Clear Input: Ryd Input
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
@@ -872,3 +1051,18 @@ Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde
   Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
 Preferences: Præferencer
+Go to page: Gå til {page}
+Close Banner: Luk Banner
+Playlist will not pause when current video is finished: Playliste sættes ikke på pause,
+  når nuværende video er færdig
+Playlist will pause when current video is finished: Playliste vil sættes på pause,
+  når nuværende video er færdig
+Clipboard:
+  Cannot access clipboard without a secure connection: Kan ikke tilgå udklipsholder
+    uden en sikker forbindelse
+  Copy failed: Kopiering til udklipsholder mislykkedes
+Chapters:
+  Chapters: Kapitler
+Age Restricted:
+  This video is age restricted: Denne video er aldersbegrænset
+  This channel is age restricted: Denne kanal er aldersbegrænset

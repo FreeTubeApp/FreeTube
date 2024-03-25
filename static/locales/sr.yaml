@@ -130,7 +130,7 @@ User Playlists:
     га додали на ову листу'
   Empty Search Message: На овој плејлисти нема видео снимака који одговарају вашој
     претрази
-  Search bar placeholder: Претрага у плејлисти
+  Search bar placeholder: Претрага плејлиста
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Желите
     ли заиста да уклоните све одгледане видео снимке са ове плејлисте? Ово се не може
     поништити.
@@ -223,6 +223,7 @@ User Playlists:
   Disable Quick Bookmark: Онемогући брзо обележавање
   Add to Favorites: Додај на плејлисту „{playlistName}“
   Remove from Favorites: Уклони са плејлисте „{playlistName}“
+  Playlists with Matching Videos: Плејлисте с подударајућим видео снимцима
 History:
   # On History Page
   History: 'Историја'

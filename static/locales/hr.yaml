@@ -121,7 +121,7 @@ User Playlists:
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
     samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
     videa premjestit će se u zbirku „Favoriti”.
-  Search bar placeholder: Pretraži zbirku
+  Search bar placeholder: Traži zbirke
   Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
   This playlist currently has no videos.: Ova zbirka trenutačno nema nijedan video.
   Create New Playlist: Stvori novu zbirku
@@ -182,6 +182,7 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
         se zbirka sada koristi za brze zabilješke umjesto zbirke {oldPlaylistName}.
         Pritisni ovdje za poništavanje
+    Search for Videos: Traži videa
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
     Search in Playlists: Traži u zbirkama
@@ -209,6 +210,7 @@ User Playlists:
   Remove from Favorites: Ukloni iz zbirke {playlistName}
   Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
   Disable Quick Bookmark: Deaktiviraj brze zabilješke
+  Playlists with Matching Videos: Zbirke s poklapajućim videima
 History:
   # On History Page
   History: 'Povijest'
