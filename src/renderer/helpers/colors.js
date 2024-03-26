@@ -36,7 +36,13 @@ export const colors = [
   { name: 'CatppuccinMochaSapphire', value: '#74C7EC' },
   { name: 'CatppuccinMochaBlue', value: '#89B4FA' },
   { name: 'CatppuccinMochaLavender', value: '#B4BEFE' },
-  { name: 'GruvboxGreen', value: '#b8bb26' }
+  { name: 'GruvboxGreen', value: '#b8bb26' },
+  { name: 'GruvboxRed', value: 'fb4934' },
+  { name: 'GruvboxYellow', value: '#fabd2f' },
+  { name: 'GruvboxBlue', value: '#83a598' },
+  { name: 'GruvboxPurple', value: '#d3869b' },
+  { name: 'GruvboxAqua', value: '#8ec07c' },
+  { name: 'GruvboxOrange', value: '#fe8019' },
 ]
 
 export function getRandomColorClass() {

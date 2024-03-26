@@ -432,9 +432,14 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #D84315;
 }
 
-.mainGruvboxGreen {
-    --text-with-main-color: #282828;
-    
+.mainGruvboxGreen,
+.mainGruvboxRed,
+.mainGruvboxYellow,
+.mainGruvboxBlue,
+.mainGruvboxPurple,
+.mainGruvboxAqua,
+.mainGruvboxOrange {
+    --text-with-main-color: #282828;    
     --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.png");                          
     --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.png");
     
@@ -442,7 +447,37 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainGruvboxGreen {
     --primary-color: #b8bb26;
     --primary-color-hover: #98971a;
-  --primary-color-active: #79740e;
+    --primary-color-active: #79740e;
+}
+.mainGruvboxRed {
+    --primary-color: #fb4934;
+    --primary-color-hover: #cc241d;
+    --primary-color-active: #9d0006;
+}
+.mainGruvboxYellow {
+    --primary-color: #fabd2f;
+    --primary-color-hover: #d79921;
+    --primary-color-active: #b57614;
+}
+.mainGruvboxBlue {
+    --primary-color: #83a598;
+    --primary-color-hover: #458588;
+    --primary-color-active: #076678;
+}
+.mainGruvboxPurple {
+    --primary-color: #d3869b;
+    --primary-color-hover: #b16286;
+    --primary-color-active: #8f3f71;
+}
+.mainGruvboxAqua {
+    --primary-color: #8ec07c;
+    --primary-color-hover: #689d6a;
+    --primary-color-active: #427b58;
+}
+.mainGruvboxOrange {
+    --primary-color: #fe8019;
+    --primary-color-hover: #d65d0e;
+    --primary-color-active: #af3a03;
 }
 
 
@@ -1096,7 +1131,13 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #1d2021;                                                              
 }
 
-.secGruvboxGreen {
+.secGruvboxGreen,
+.secGruvboxRed,
+.secGruvboxYellow,
+.secGruvboxBlue,
+.secGruvboxPurple,
+.secGruvboxAqua,
+.secGruvboxOrange {
   --accent-color-opacity1: rgba(102, 92, 84, 0.04);
   --accent-color-opacity2: rgba(102, 92, 84, 0.12);
   --accent-color-opacity3: rgba(102, 92, 84, 0.16);
@@ -1109,6 +1150,48 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-active: #79740e;
   --accent-color-light: #c9cd35;
   --accent-color-visited: #d4d767;
+}
+.secGruvboxRed {
+  --accent-color: #fb4934;
+  --accent-color-hover: #cc241d;
+  --accent-color-active: #9d0006;
+  --accent-color-light: #f55441;
+  --accent-color-visited: #fe7d6e;
+}
+.secGruvboxYellow {
+  --accent-color: #fabd2f;
+  --accent-color-hover: #d79921;
+  --accent-color-active: #b57614;
+  --accent-color-light: #fec44e;
+  --accent-color-visited: #ffe179;
+}
+.secGruvboxBlue {
+  --accent-color: #83a598;
+  --accent-color-hover: #458588;
+  --accent-color-active: #076678;
+  --accent-color-light: #91bfad;
+  --accent-color-visited: #abead2;
+}
+.secGruvboxPurple {
+  --accent-color: #d3869b;
+  --accent-color-hover: #b16286;
+  --accent-color-active: #8f3f71;
+  --accent-color-light: #ebabbc;
+  --accent-color-visited: #f3c4d1;
+}
+.secGruvboxAqua {
+  --accent-color: #8ec07c;
+  --accent-color-hover: #689d6a;
+  --accent-color-active: #427b58;
+  --accent-color-light: #9dd389;
+  --accent-color-visited: #b7e8a4;
+}
+.secGruvboxOrange {
+  --accent-color: #fe8019;
+  --accent-color-hover: #d65d0e;
+  --accent-color-active: #af3a03;
+  --accent-color-light: #f49140;
+  --accent-color-visited: #ffad69;
 }
 
 body[dir='ltr'] {
