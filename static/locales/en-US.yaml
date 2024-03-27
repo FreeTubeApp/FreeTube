@@ -303,6 +303,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -342,6 +344,13 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Gruvbox Green: Gruvbox Green
+      Gruvbox Red: Gruvbox Red
+      Gruvbox Yellow: Gruvbox Yellow
+      Gruvbox Blue: Gruvbox Blue
+      Gruvbox Purple: Gruvbox Purple
+      Gruvbox Aqua: Gruvbox Aqua
+      Gruvbox Orange: Gruvbox Orange
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:

@@ -39,7 +39,9 @@ export default defineComponent({
         'catppuccinMocha',
         'pastelPink',
         'hotPink',
-        'nordic'
+        'nordic',
+        'gruvboxDark',
+        'gruvboxLight'
       ]
     }
   },
@@ -105,7 +107,9 @@ export default defineComponent({
         this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
         this.$t('Settings.Theme Settings.Base Theme.Pastel Pink'),
         this.$t('Settings.Theme Settings.Base Theme.Hot Pink'),
-        this.$t('Settings.Theme Settings.Base Theme.Nordic')
+        this.$t('Settings.Theme Settings.Base Theme.Nordic'),
+        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
+        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Light')
       ]
     },
 
