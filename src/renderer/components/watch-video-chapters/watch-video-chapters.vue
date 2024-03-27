@@ -1,12 +1,5 @@
 <template>
   <ft-card class="videoChapters">
-    <div
-      v-observe-visibility="observeVisibilityOptions"
-    >
-      <!--
-        Dummy element to be observed by Intersection Observer
-      -->
-    </div>
     <h3
       class="chaptersTitle"
       tabindex="0"
@@ -35,6 +28,7 @@
     <div
       v-show="showChapters"
       ref="chaptersWrapper"
+      v-observe-visibility="observeVisibilityOptions"
       class="chaptersWrapper"
       :class="{ compact }"
       @keydown.arrow-up.stop.prevent="navigateChapters('up')"
