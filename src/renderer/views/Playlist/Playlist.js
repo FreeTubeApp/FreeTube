@@ -14,7 +14,7 @@ import {
 } from '../../helpers/api/local'
 import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-
+import { getPipedPlaylist, getPipedPlaylistMore, pipedImageToYouTube } from '../../helpers/api/piped'
 export default defineComponent({
   name: 'Playlist',
   components: {
@@ -69,6 +69,9 @@ export default defineComponent({
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
@@ -223,6 +226,9 @@ export default defineComponent({
         case 'invidious':
           this.getPlaylistInvidious()
           break
+        case 'piped':
+          this.getPlaylistPiped()
+          break
       }
     },
     getPlaylistLocal: function () {
@@ -271,8 +277,13 @@ export default defineComponent({
       }).catch((err) => {
         console.error(err)
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.warn('Falling back to Invidious API')
-          this.getPlaylistInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            console.warn('Falling back to Invidious API')
+            this.getPlaylistInvidious()
+          } else {
+            console.warn('Falling back to Piped API')
+            this.getPlaylistPiped()
+          }
         } else {
           this.isLoading = false
         }
@@ -307,14 +318,63 @@ export default defineComponent({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-          console.warn('Error getting data with Invidious, falling back to local backend')
-          this.getPlaylistLocal()
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            console.warn('Error getting data with Invidious, falling back to local backend')
+            this.getPlaylistLocal()
+          } else if (this.fallbackPreference === 'piped') {
+            console.warn('Error getting data with Invidious, falling back to Piped backend')
+            this.getPlaylistPiped()
+          } else {
+            this.isLoading = false
+          }
         } else {
           this.isLoading = false
           // TODO: Show toast with error message
         }
       })
+    },
+
+    getPlaylistPiped: async function () {
+      try {
+        this.isLoading = true
+        const { playlist, videos, nextpage } = await getPipedPlaylist(this.playlistId)
+        this.playlistTitle = playlist.title
+        this.playlistDescription = playlist.description
+        this.firstVideoId = videos.at(0)?.videoId
+        this.playlistThumbnail = playlist.thumbnailUrl
+        this.viewCount = playlist.viewCount
+        this.videoCount = playlist.videoCount
+        this.channelName = playlist.channelName
+        this.channelThumbnail = playlist.channelThumbnail
+        this.channelId = playlist.channelId
+        this.infoSource = 'piped'
+        this.continuationData = nextpage
+        this.playlistItems = videos
+
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: pipedImageToYouTube(playlist.channelThumbnail),
+          channelName: playlist.channelName,
+          channelId: playlist.channelId
+        })
+        this.isLoading = false
+      } catch (err) {
+        console.error(err)
+        if (this.backendPreference === 'piped' && this.backendFallback) {
+          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            console.warn('Error getting data with Piped, falling back to local backend')
+            this.getPlaylistLocal()
+          } else if (this.fallbackPreference === 'invidious') {
+            console.warn('Error getting data with Piped, falling back to Invidious backend')
+            this.getPlaylistInvidious()
+          } else {
+            this.isLoading = false
+          }
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
+      }
     },
 
     parseUserPlaylist: function (playlist) {
@@ -367,6 +427,9 @@ export default defineComponent({
         case 'invidious':
           console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
           break
+        case 'piped':
+          this.getNextPagePiped()
+          break
       }
     },
 
@@ -395,6 +458,22 @@ export default defineComponent({
         this.isLoadingMore = false
         if (shouldGetNextPage) { this.getNextPageLocal() }
       })
+    },
+
+    getNextPagePiped: async function() {
+      this.isLoadingMore = true
+      const { videos, nextpage } = await getPipedPlaylistMore({
+        playlistId: this.playlistId,
+        continuation: this.continuationData
+      })
+
+      this.playlistItems = this.playlistItems.concat(videos)
+      if (nextpage) {
+        this.continuationData = nextpage
+      } else {
+        this.continuationData = null
+      }
+      this.isLoadingMore = false
     },
 
     moveVideoUp: function (videoId, playlistItemId) {

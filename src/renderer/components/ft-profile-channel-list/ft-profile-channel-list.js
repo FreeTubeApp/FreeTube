@@ -41,7 +41,11 @@ export default defineComponent({
   },
   computed: {
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      let preference = this.$store.getters.getBackendPreference
+      if (preference === 'piped') {
+        preference = this.$store.getters.getFallbackPreference
+      }
+      return preference
     },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance

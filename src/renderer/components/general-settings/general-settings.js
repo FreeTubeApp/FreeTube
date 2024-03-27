@@ -2,10 +2,8 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
-import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtInstanceSelector from '../ft-instance-selector/ft-instance-selector.vue'
 
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
@@ -16,16 +14,15 @@ export default defineComponent({
   components: {
     'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
-    'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-flex-box': FtFlexBox,
-    'ft-button': FtButton
+    'ft-instance-selector': FtInstanceSelector
   },
   data: function () {
     return {
       backendValues: [
         'invidious',
-        'local'
+        'local',
+        'piped'
       ],
       viewTypeValues: [
         'grid',
@@ -56,6 +53,9 @@ export default defineComponent({
     }
   },
   computed: {
+    currentPipedInstance: function () {
+      return this.$store.getters.getCurrentPipedInstance
+    },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -64,6 +64,9 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
     blurThumbnails: function () {
       return this.$store.getters.getBlurThumbnails
@@ -132,6 +135,12 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    pipedInstancesList: function () {
+      return this.$store.getters.getPipedInstancesList
+    },
+    defaultPipedInstance: function () {
+      return this.$store.getters.getDefaultPipedInstance
+    },
 
     localeOptions: function () {
       return [
@@ -150,7 +159,8 @@ export default defineComponent({
     backendNames: function () {
       return [
         this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Local API')
+        this.$t('Settings.General Settings.Preferred API Backend.Local API'),
+        this.$t('Settings.General Settings.Preferred API Backend.Piped API')
       ]
     },
 
@@ -187,17 +197,26 @@ export default defineComponent({
   mounted: function () {
     this.setCurrentInvidiousInstanceBounce =
       debounce(this.setCurrentInvidiousInstance, 500)
+
+    this.setCurrentPipedInstanceBounce =
+      debounce(this.setCurrentPipedInstance, 500)
   },
   beforeDestroy: function () {
+    // FIXME: If we call an action from here, there's no guarantee it will finish
+    // before the component is destroyed, which could bring up some problems
+    // Since I can't see any way to await it (because lifecycle hooks must be
+    // synchronous), unfortunately, we have to copy/paste the logic
+    // from the `setRandomCurrentInvidiousInstance` action onto here
     if (this.currentInvidiousInstance === '') {
-      // FIXME: If we call an action from here, there's no guarantee it will finish
-      // before the component is destroyed, which could bring up some problems
-      // Since I can't see any way to await it (because lifecycle hooks must be
-      // synchronous), unfortunately, we have to copy/paste the logic
-      // from the `setRandomCurrentInvidiousInstance` action onto here
       const instanceList = this.invidiousInstancesList
       const randomIndex = Math.floor(Math.random() * instanceList.length)
       this.setCurrentInvidiousInstance(instanceList[randomIndex])
+    }
+
+    if (this.setCurrentPipedInstance === '') {
+      const instanceList = this.pipedInstanceList
+      const randomIndex = Math.floor(Math.random() * instanceList.length)
+      this.setCurrentPipedInstance(instanceList[randomIndex])
     }
   },
   methods: {
@@ -210,7 +229,11 @@ export default defineComponent({
       this.setCurrentInvidiousInstanceBounce(instance)
     },
 
-    handleSetDefaultInstanceClick: function () {
+    handlePipedInstanceInput: function (input) {
+      this.setCurrentPipedInstanceBounce(input)
+    },
+
+    handleSetDefaultInvidiousInstanceClick: function () {
       const instance = this.currentInvidiousInstance
       this.updateDefaultInvidiousInstance(instance)
 
@@ -218,16 +241,53 @@ export default defineComponent({
       showToast(message)
     },
 
-    handleClearDefaultInstanceClick: function () {
+    handleSetDefaultPipedInstanceClick: function () {
+      const instance = this.currentPipedInstance
+      this.updateDefaultPipedInstance(instance)
+
+      const message = this.$t('Default Piped instance has been set to {instance}', { instance })
+      showToast(message)
+    },
+
+    handleClearDefaultInvidiousInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
       showToast(this.$t('Default Invidious instance has been cleared'))
     },
 
+    handleClearDefaultPipedInstanceClick: function () {
+      this.updateDefaultPipedInstance('')
+      showToast(this.$t('Default Piped instance has been cleared'))
+    },
+
     handlePreferredApiBackend: function (backend) {
       this.updateBackendPreference(backend)
+      if (backend === 'piped') {
+        if (!this.backendFallback) {
+          this.updateBackendFallback(true)
+        }
+      }
 
-      if (backend === 'local') {
+      if (this.fallbackPreference === backend) {
+        if (backend === 'invidious') {
+          this.updateFallbackPreference('local')
+        } else {
+          this.updateFallbackPreference('invidious')
+        }
+      }
+
+      if (backend === 'local' || backend === 'piped') {
         this.updateForceLocalBackendForLegacy(false)
+      }
+    },
+
+    handleFallbackApiBackend: function (backend) {
+      this.updateFallbackPreference(backend)
+      if (this.backendPreference === backend) {
+        if (backend === 'invidious') {
+          this.handlePreferredApiBackend('local')
+        } else {
+          this.handlePreferredApiBackend('invidious')
+        }
       }
     },
 
@@ -237,7 +297,8 @@ export default defineComponent({
     },
 
     ...mapMutations([
-      'setCurrentInvidiousInstance'
+      'setCurrentInvidiousInstance',
+      'setCurrentPipedInstance'
     ]),
 
     ...mapActions([
@@ -248,7 +309,9 @@ export default defineComponent({
       'updateCheckForBlogPosts',
       'updateBarColor',
       'updateBackendPreference',
+      'updateFallbackPreference',
       'updateDefaultInvidiousInstance',
+      'updateDefaultPipedInstance',
       'updateLandingPage',
       'updateRegion',
       'updateListType',

@@ -97,6 +97,9 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    defaultPipedInstance: function () {
+      return this.$store.getters.getDefaultPipedInstance
+    },
 
     baseTheme: function () {
       return this.$store.getters.getBaseTheme
@@ -159,9 +162,17 @@ export default defineComponent({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances()
+      await Promise.allSettled([
+        this.fetchInvidiousInstances(),
+        this.fetchPipedInstances()
+      ])
+
       if (this.defaultInvidiousInstance === '') {
-        await this.setRandomCurrentInvidiousInstance()
+        this.setRandomCurrentInvidiousInstance()
+      }
+
+      if (this.defaultPipedInstance === '') {
+        this.setRandomCurrentPipedInstance()
       }
 
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
@@ -547,6 +558,8 @@ export default defineComponent({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'setRandomCurrentInvidiousInstance',
+      'fetchPipedInstances',
+      'setRandomCurrentPipedInstance',
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',

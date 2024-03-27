@@ -9,6 +9,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getPipedTrending } from '../../helpers/api/piped'
 
 export default defineComponent({
   name: 'Trending',
@@ -24,12 +25,16 @@ export default defineComponent({
       isLoading: false,
       shownResults: [],
       currentTab: 'default',
-      trendingInstance: null
+      trendingInstance: null,
+      hideTabs: false
     }
   },
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+    fallbackPreference: function() {
+      return this.$store.getters.getFallbackPreference
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
@@ -43,6 +48,8 @@ export default defineComponent({
   },
   mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
+
+    this.hideTabs = this.backendPreference === 'piped' && !this.backendFallback
 
     if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
       this.getTrendingInfoCache()
@@ -85,7 +92,9 @@ export default defineComponent({
         this.$store.commit('clearTrendingCache')
       }
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (this.backendPreference === 'piped') {
+        this.getTrendingInfoPiped()
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getTrendingInfoInvidious()
       } else {
         this.getTrendingInfoLocal()
@@ -112,9 +121,14 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getTrendingInfoInvidious()
+        if (this.backendFallback && this.backendPreference === 'local') {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getTrendingInfoInvidious()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getTrendingInfoPiped()
+          }
         } else {
           this.isLoading = false
         }
@@ -161,13 +175,56 @@ export default defineComponent({
           copyToClipboard(err.responseText)
         })
 
-        if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
-          showToast(this.$t('Falling back to Local API'))
-          this.getTrendingInfoLocal()
+        if (this.backendFallback && this.backendPreference === 'invidious') {
+          if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getTrendingInfoPiped()
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to local API'))
+            this.getTrendingInfoLocal()
+          }
         } else {
           this.isLoading = false
         }
       })
+    },
+
+    getTrendingInfoPiped: async function() {
+      try {
+        this.hideTabs = this.backendPreference === 'piped' && !this.backendFallback
+        this.isLoading = true
+        if (this.currentTab === 'default') {
+          this.currentTab = 'default'
+          const returnData = await getPipedTrending(this.region)
+          this.shownResults = returnData
+          this.isLoading = false
+          this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
+        } else {
+          throw new Error('Trending Tabs are not supported by Piped')
+        }
+      } catch (err) {
+        if (err.message !== 'Trending Tabs are not supported by Piped' || this.backendPreference !== 'piped') {
+          console.error(err)
+          const errorMessage = this.$t('Piped API Error (Click to copy)')
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
+          })
+        } else {
+          console.error(err.message)
+        }
+
+        if (this.backendFallback && this.backendPreference === 'piped') {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getTrendingInfoInvidious()
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to local API'))
+            this.getTrendingInfoLocal()
+          }
+        } else {
+          this.isLoading = false
+        }
+      }
     },
 
     /**

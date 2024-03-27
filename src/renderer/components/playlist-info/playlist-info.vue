@@ -48,11 +48,14 @@
       </h2>
       <p>
         {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
+        <span v-if="infoSource !== 'piped'">
+          -
+        </span>
         <span v-if="!hideViews && !isUserPlaylist">
           - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
-        <span>- </span>
-        <span v-if="infoSource !== 'local'">
+        <span v-if="infoSource !== 'piped'">- </span>
+        <span v-if="infoSource !== 'local' && infoSource !== 'piped'">
           {{ $t("Playlist.Last Updated On") }}
         </span>
         {{ lastUpdated }}
@@ -66,6 +69,12 @@
       :show-label="false"
       :value="newDescription"
       @input="(input) => newDescription = input"
+    />
+
+    <p
+      v-if="infoSource === 'piped'"
+      class="playlistDescription"
+      v-html="description"
     />
     <p
       v-else

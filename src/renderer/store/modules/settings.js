@@ -167,6 +167,7 @@ const state = {
   autoplayVideos: true,
   backendFallback: process.env.IS_ELECTRON,
   backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
+  fallbackPreference: !process.env.IS_ELECTRON ? 'piped' : 'invidious',
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
@@ -367,6 +368,15 @@ const stateWithSideEffects = {
     sideEffectsHandler: ({ commit, getters }, value) => {
       if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
         commit('setCurrentInvidiousInstance', value)
+      }
+    }
+  },
+
+  defaultPipedInstance: {
+    defaultValue: '', // s
+    sideEffectsHandler: ({ commit, getters }, value) => {
+      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+        commit('setCurrentPipedInstance', value)
       }
     }
   },
