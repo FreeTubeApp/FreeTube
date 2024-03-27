@@ -79,16 +79,19 @@ export default defineComponent({
         sessionStorage.removeItem('Subscriptions/currentTab')
       }
     },
+    visibleTabs: {
     /**
      * @param {string[]} newValue
      */
-    visibleTabs: function (newValue) {
-      if (newValue.length === 0) {
-        this.currentTab = null
-      } else if (!newValue.includes(this.currentTab)) {
-        this.currentTab = newValue[0]
-      }
-    }
+      handler(newValue) {
+        if (newValue.length === 0) {
+          this.currentTab = null
+        } else if (!newValue.includes(this.currentTab)) {
+          this.currentTab = newValue[0]
+        }
+      },
+      deep: true
+    },
   },
   created: async function () {
     if (this.visibleTabs.length === 0) {

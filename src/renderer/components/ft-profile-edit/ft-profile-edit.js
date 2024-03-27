@@ -32,6 +32,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['new-profile-created', 'profile-deleted'],
   data: function () {
     return {
       showDeletePrompt: false,

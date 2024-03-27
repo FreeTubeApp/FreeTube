@@ -18,14 +18,18 @@
         </p>
       </slot>
     </div>
-    <font-awesome-icon
-      class="bannerIcon"
-      :icon="['fas', 'times']"
+    <span
+      role="button"
       tabindex="0"
-      :title="$t('Close Banner')"
       @click.stop="handleClose"
       @keydown.enter.stop.prevent="handleClose"
-    />
+    >
+      <font-awesome-icon
+        class="bannerIcon"
+        :icon="['fas', 'times']"
+        :title="$t('Close Banner')"
+      />
+    </span>
   </div>
 </template>
 

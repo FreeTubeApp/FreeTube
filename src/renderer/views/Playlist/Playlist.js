@@ -162,8 +162,10 @@ export default defineComponent({
     },
   },
   watch: {
-    $route () {
+    $route (to) {
       // react to route changes...
+      if (!to.fullPath.startsWith('/playlist')) { return }
+
       this.getPlaylistInfoDebounce()
     },
     userPlaylistsReady () {

@@ -7,7 +7,7 @@
       backgroundColor: backgroundColor,
       border: `2px solid ${backgroundColor}`
     }"
-    @click="$emit('click')"
+    @click="click"
   >
     <slot>
       {{ label }}

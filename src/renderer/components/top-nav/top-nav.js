@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
@@ -13,6 +14,7 @@ import { invidiousAPICall } from '../../helpers/api/invidious'
 export default defineComponent({
   name: 'TopNav',
   components: {
+    'ft-icon-button': FtIconButton,
     FtInput,
     FtSearchFilters,
     FtProfileSelector
@@ -92,6 +94,10 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    },
+
+    usingElectron: function () {
+      return process.env.IS_ELECTRON
     }
   },
   mounted: function () {

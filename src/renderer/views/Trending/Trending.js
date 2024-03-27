@@ -50,7 +50,7 @@ export default defineComponent({
       this.getTrendingInfo()
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {

@@ -37,6 +37,7 @@ export default defineComponent({
       default: null,
     },
   },
+  emits: ['timestamp-event'],
   data: function () {
     return {
       isLoading: false,

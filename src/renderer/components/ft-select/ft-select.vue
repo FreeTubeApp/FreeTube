@@ -9,7 +9,7 @@
       :value="value"
       :name="sanitizedId ?? sanitizedPlaceholder"
       :disabled="disabled"
-      @change="$emit('change', $event.target.value)"
+      @change="change($event.target.value)"
     >
       <option
         v-for="(name, index) in selectNames"

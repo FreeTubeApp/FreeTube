@@ -20,6 +20,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['change', 'click'],
   data: function () {
     return {
       id: '',
@@ -33,12 +34,15 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.id = this._uid
+    this.id = this._.uid
     this.selectedValue = this.values[0]
   },
   methods: {
     updateSelectedValue: function (value) {
       this.selectedValue = value
+    },
+    change: function(value) {
+      this.$emit('change', value)
     }
   }
 })

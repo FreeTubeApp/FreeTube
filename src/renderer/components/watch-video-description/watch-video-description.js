@@ -19,6 +19,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['timestamp-event'],
   data: function () {
     return {
       shownDescription: ''

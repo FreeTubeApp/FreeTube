@@ -25,6 +25,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['selected'],
   data: function () {
     return {
       title: '',

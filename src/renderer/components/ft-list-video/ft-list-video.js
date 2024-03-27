@@ -84,6 +84,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['pause-player', 'move-video-up', 'move-video-down', 'remove-from-playlist'],
   data: function () {
     return {
       id: '',
@@ -846,6 +847,18 @@ export default defineComponent({
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
+    moveVideoUp: function() {
+      this.$emit('move-video-up')
+    },
+
+    moveVideoDown: function() {
+      this.$emit('move-video-down')
+    },
+
+    removeFromPlaylist: function() {
+      this.$emit('remove-from-playlist')
     },
 
     ...mapActions([

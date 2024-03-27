@@ -104,6 +104,8 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['set-info-area-sticky', 'scroll-to-info-area', 'pause-player', 'change-format'],
+
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
@@ -353,6 +355,7 @@ export default defineComponent({
         this.addToQuickBookmarkPlaylist()
       }
     },
+
     addToQuickBookmarkPlaylist() {
       const videoData = {
         videoId: this.id,
@@ -374,6 +377,7 @@ export default defineComponent({
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been saved'))
     },
+
     removeFromQuickBookmarkPlaylist() {
       this.removeVideo({
         _id: this.quickBookmarkPlaylist._id,
@@ -385,6 +389,10 @@ export default defineComponent({
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
+    changeFormat: function(value) {
+      this.$emit('change-format', value)
     },
 
     ...mapActions([

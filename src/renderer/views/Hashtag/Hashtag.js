@@ -41,7 +41,8 @@ export default defineComponent({
     }
   },
   watch: {
-    $route() {
+    $route(to) {
+      if (!to.fullPath.startsWith('/hashtag')) { return }
       this.resetData()
       this.getHashtag()
     }

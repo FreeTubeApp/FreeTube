@@ -40,6 +40,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['pause-player'],
   data: function () {
     return {
       isLoading: true,
@@ -231,7 +232,7 @@ export default defineComponent({
       navigator.mediaSession.setActionHandler('nexttrack', this.playNextVideo)
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('previoustrack', null)
       navigator.mediaSession.setActionHandler('nexttrack', null)
@@ -516,6 +517,10 @@ export default defineComponent({
         // Watch view can be ready sooner than this component
         container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
       }
+    },
+
+    pausePlayer: function () {
+      this.$emit('pause-player')
     },
 
     ...mapMutations([

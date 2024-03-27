@@ -2,7 +2,7 @@ const path = require('path')
 const { readFileSync, readdirSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
@@ -50,6 +50,7 @@ const config = {
         options: {
           compilerOptions: {
             whitespace: 'condense',
+            isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
           }
         }
       },
@@ -117,6 +118,9 @@ const config = {
   plugins: [
     processLocalesPlugin,
     new webpack.DefinePlugin({
+      '__VUE_PROD_DEVTOOLS__': isDevMode,
+      '__VUE_OPTIONS_API__': true,
+      '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': false,
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
@@ -148,7 +152,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm.js',
+      vue$: 'vue/dist/vue.runtime.esm-bundler.js',
 
       'youtubei.js$': 'youtubei.js/web',
 

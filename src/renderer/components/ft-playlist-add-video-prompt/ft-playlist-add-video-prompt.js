@@ -201,7 +201,7 @@ export default defineComponent({
     // User might want to search first if they have many playlists
     this.$refs.searchBar.focus()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.lastActiveElement?.focus()
   },
   methods: {

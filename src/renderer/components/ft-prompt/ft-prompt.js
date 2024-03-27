@@ -38,6 +38,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['click'],
   data: function () {
     return {
       promptButtons: [],
@@ -49,7 +50,7 @@ export default defineComponent({
       return sanitizeForHtmlId(this.label)
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
     this.lastActiveElement?.focus()
   },
@@ -102,6 +103,10 @@ export default defineComponent({
         const direction = (e.key === 'ArrowLeft') ? -1 : 1
         this.focusItem(parseInt(currentIndex) + direction)
       }
+    },
+
+    click: function(option) {
+      this.$emit('click', option)
     },
 
     ...mapActions([

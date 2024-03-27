@@ -26,8 +26,8 @@
       ref="profileList"
       class="profileList"
       tabindex="-1"
-      @focusout.native="handleProfileListFocusOut"
-      @keydown.native.esc.stop="handleProfileListEscape"
+      @focusout="handleProfileListFocusOut"
+      @keydown.esc.stop="handleProfileListEscape"
     >
       <h3
         id="profileListTitle"

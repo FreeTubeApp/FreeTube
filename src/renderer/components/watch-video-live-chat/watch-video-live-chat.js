@@ -88,7 +88,7 @@ export default defineComponent({
       return this.watchingCount !== null ? formatNumber(this.watchingCount) : '0'
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     this.hasEnded = true
     this.liveChatInstance?.stop()
     this.liveChatInstance = null

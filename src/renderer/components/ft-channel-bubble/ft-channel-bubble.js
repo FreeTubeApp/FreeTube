@@ -20,6 +20,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['click'],
   data: function () {
     return {
       selected: false

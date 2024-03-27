@@ -84,7 +84,7 @@ export default defineComponent({
   created: function () {
     this.debounceEnableProxy = debounce(this.enableProxy, 200)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     if (this.proxyHostname === '') {
       this.updateProxyHostname('127.0.0.1')
     }

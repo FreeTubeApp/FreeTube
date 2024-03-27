@@ -117,6 +117,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['ready', 'ended', 'error', 'timeupdate', 'toggle-theatre-mode', 'store-caption-list'],
   data: function () {
     return {
       powerSaveBlocker: null,
@@ -407,7 +408,7 @@ export default defineComponent({
 
     window.addEventListener('beforeunload', this.stopPowerSaveBlocker)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {
       this.exitFullWindow()

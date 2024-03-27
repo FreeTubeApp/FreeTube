@@ -64,6 +64,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['input', 'click', 'clear'],
   data: function () {
     let actionIcon = ['fas', 'search']
     if (this.forceActionButtonIconName !== null) {
@@ -120,10 +121,13 @@ export default defineComponent({
     },
   },
   watch: {
-    dataList(val, oldVal) {
-      if (val !== oldVal) {
-        this.updateVisibleDataList()
-      }
+    dataList: {
+      handler(val, oldVal) {
+        if (val !== oldVal) {
+          this.updateVisibleDataList()
+        }
+      },
+      deep: true
     },
     inputData(val, oldVal) {
       if (val !== oldVal) {
@@ -137,7 +141,7 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.id = this._uid
+    this.id = this._.uid
     this.inputData = this.value
     this.updateVisibleDataList()
   },

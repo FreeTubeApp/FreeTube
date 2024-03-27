@@ -4,13 +4,13 @@
       {{ title }}
     </h3>
     <!--  eslint-disable vue/no-template-key -->
-    <template
+    <div
       v-for="(label, index) in labels"
+      :key="index"
       class="radioButtonContainer"
     >
       <input
         :id="values[index] + id"
-        :key="index"
         v-model="selectedValue"
         :name="inputName"
         :value="values[index]"
@@ -18,15 +18,14 @@
         :disabled="disabled"
         class="radio"
         type="radio"
-        @change="$emit('change', values[index])"
+        @change="change(values[index])"
       >
       <label
-        :key="label"
         :for="values[index] + id"
       >
         {{ label }}
       </label>
-    </template>
+    </div>
   </div>
 </template>
 

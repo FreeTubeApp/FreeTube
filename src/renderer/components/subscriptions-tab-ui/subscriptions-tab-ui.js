@@ -45,6 +45,7 @@ export default defineComponent({
       default: 100
     }
   },
+  emits: ['refresh'],
   data: function () {
     return {
       dataLimit: 100,
@@ -83,7 +84,7 @@ export default defineComponent({
   mounted: async function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
@@ -109,10 +110,14 @@ export default defineComponent({
         case 'R':
         case 'F5':
           if (!this.isLoading && this.activeSubscriptionList.length > 0) {
-            this.$emit('refresh')
+            this.refresh()
           }
           break
       }
+    },
+
+    refresh: function() {
+      this.$emit('refresh')
     }
   }
 })
