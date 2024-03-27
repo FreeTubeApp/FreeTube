@@ -39,14 +39,11 @@ export default defineComponent({
   },
   data: function () {
     return {
+      usingElectron: process.env.IS_ELECTRON,
       unlocked: false
     }
   },
   computed: {
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
-    },
-
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
     },
