@@ -513,7 +513,13 @@ export function parseLocalChannelHeader(channel) {
       }
 
       if (header.content.metadata) {
-        subscriberText = header.content.metadata.metadata_rows[0].metadata_parts[1].text.text
+        // YouTube has already changed the indexes for where the information is stored once,
+        // so we should search for it instead of using hardcoded indexes, just to be safe for the future
+
+        subscriberText = header.content.metadata.metadata_rows
+          .flatMap(row => row.metadata_parts ? row.metadata_parts : [])
+          .find(part => part.text.text?.includes('subscriber'))
+          ?.text.text
       }
 
       break
@@ -1088,32 +1094,40 @@ export function filterLocalFormats(formats, allowAv1 = false) {
 }
 
 /**
- * Really not a fan of this :(, YouTube returns the subscribers as "15.1M subscribers"
- * so we have to parse it somehow
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
-  const match = text
-    .replace(',', '.')
-    .toUpperCase()
-    .match(/([\d.]+)\s*([KM]?)/)
+  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm])\b/)
 
-  let subscribers
   if (match) {
-    subscribers = parseFloat(match[1])
+    let multiplier = 0
 
-    if (match[2] === 'K') {
-      subscribers *= 1000
-    } else if (match[2] === 'M') {
-      subscribers *= 1000_000
+    switch (match[3]) {
+      case 'K':
+      case 'k':
+        multiplier = 3
+        break
+      case 'M':
+      case 'm':
+        multiplier = 6
+        break
+      case 'B':
+      case 'b':
+        multiplier = 9
+        break
     }
 
-    subscribers = Math.trunc(subscribers)
-  } else {
-    subscribers = extractNumberFromString(text)
-  }
+    let parsedDecimals
+    if (typeof match[2] === 'undefined') {
+      parsedDecimals = '0'.repeat(multiplier)
+    } else {
+      parsedDecimals = match[2].padEnd(multiplier, '0')
+    }
 
-  return subscribers
+    return parseInt(match[1] + parsedDecimals)
+  } else {
+    return extractNumberFromString(text)
+  }
 }
 
 /**
