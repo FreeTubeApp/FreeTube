@@ -15,6 +15,7 @@ import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
+import { translateWindowTitle } from './helpers/strings'
 
 let ipcRenderer = null
 
@@ -77,12 +78,12 @@ export default defineComponent({
       return this.$store.getters.getShowCreatePlaylistPrompt
     },
     windowTitle: function () {
-      const routeTitle = this.$route.meta.title
-      if (routeTitle !== 'Channel' && routeTitle !== 'Watch' && routeTitle !== 'Hashtag') {
+      const routeName = this.$route.name
+      if (routeName !== 'channel' && routeName !== 'watch' && routeName !== 'hashtag') {
         let title =
         this.$route.meta.path === '/home'
           ? packageDetails.productName
-          : `${this.$t(this.$route.meta.title)} - ${packageDetails.productName}`
+          : `${translateWindowTitle(this.$route.meta.title, this.$i18n)} - ${packageDetails.productName}`
         if (!title) {
           title = packageDetails.productName
         }
@@ -466,12 +467,7 @@ export default defineComponent({
 
           default: {
             // Unknown URL type
-            let message = 'Unknown YouTube url type, cannot be opened in app'
-            if (this.$te(message) && this.$t(message) !== '') {
-              message = this.$t(message)
-            }
-
-            showToast(message)
+            showToast(this.$t('Unknown YouTube url type, cannot be opened in app'))
           }
         }
       })

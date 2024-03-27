@@ -1,13 +1,11 @@
 [
     {
         "name": "None",
-        "nameTranslationKey": "Settings.External Player Settings.Players.None.Name",
         "value": "",
         "cmdArguments": null
     },
     {
         "name": "mpv",
-        "nameTranslationKey": "Settings.External Player Settings.Players.mpv.Name",
         "value": "mpv",
         "cmdArguments": {
             "defaultExecutable": "mpv",
@@ -25,7 +23,6 @@
     },
     {
         "name": "VLC",
-        "nameTranslationKey": "Settings.External Player Settings.Players.VLC.Name",
         "value": "vlc",
         "cmdArguments": {
             "defaultExecutable": "vlc",
@@ -43,7 +40,6 @@
     },
     {
         "name": "iina",
-        "nameTranslationKey": "Settings.External Player Settings.Players.iina.Name",
         "value": "iina",
         "cmdArguments": {
             "defaultExecutable": "iina",
@@ -61,7 +57,6 @@
     },
       {
         "name": "SMPlayer",
-        "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
         "value": "smplayer",
         "cmdArguments": {
             "defaultExecutable": "smplayer",
@@ -79,7 +74,6 @@
     },
     {
         "name": "MPC-BE",
-        "nameTranslationKey": "Settings.External Player Settings.Players.MPC-BE.Name",
         "value": "mpc-be",
         "cmdArguments": {
             "defaultExecutable": "mpc-be64",
@@ -97,7 +91,6 @@
     },
     {
         "name": "MPC-HC",
-        "nameTranslationKey": "Settings.External Player Settings.Players.MPC-HC.Name",
         "value": "mpc-hc",
         "cmdArguments": {
             "defaultExecutable": "mpc-hc64",
@@ -115,7 +108,6 @@
     },
     {
         "name": "PotPlayer",
-        "nameTranslationKey": "Settings.External Player Settings.Players.PotPlayer.Name",
         "value": "potplayer",
         "cmdArguments": {
             "defaultExecutable": "potplayermini64",
@@ -133,7 +125,6 @@
     },
     {
       "name": "Clapper",
-      "nameTranslationKey": "Settings.External Player Settings.Players.Clapper.Name",
       "value": "clapper",
       "cmdArguments": {
           "defaultExecutable": "clapper",
@@ -151,7 +142,6 @@
     },
     {
       "name": "Celluloid",
-      "nameTranslationKey": "Settings.External Player Settings.Players.Celluloid.Name",
       "value": "celluloid",
       "cmdArguments": {
           "defaultExecutable": "celluloid",
@@ -169,7 +159,6 @@
     },
     {
       "name": "Haruna",
-      "nameTranslationKey": "Settings.External Player Settings.Players.Haruna.Name",
       "value": "haruna",
       "cmdArguments": {
           "defaultExecutable": "haruna",

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: '한국어'
-FreeTube: '프리튜브'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   아직 구현 되지 않은 기능입니다. 개발이 완료된 후 다시 시도해주세요.

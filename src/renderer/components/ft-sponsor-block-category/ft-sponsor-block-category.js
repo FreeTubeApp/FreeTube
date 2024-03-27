@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import { colors } from '../../helpers/colors'
+import { colors, getColorTranslations } from '../../helpers/colors'
 import FtSelect from '../ft-select/ft-select.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
@@ -31,11 +31,7 @@ export default defineComponent({
     },
 
     colorNames: function () {
-      return this.colorValues.map(colorVal => {
-        // add spaces before capital letters
-        const colorName = colorVal.replaceAll(/([A-Z])/g, ' $1').trim()
-        return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)
-      })
+      return getColorTranslations()
     },
 
     sponsorBlockValues: function() {
@@ -80,6 +76,29 @@ export default defineComponent({
         this.$t('Settings.SponsorBlock Settings.Skip Options.Show In Seek Bar'),
         this.$t('Settings.SponsorBlock Settings.Skip Options.Do Nothing')
       ]
+    },
+
+    translatedCategoryName: function() {
+      switch (this.categoryName.toLowerCase()) {
+        case 'sponsor':
+          return this.$t('Video.Sponsor Block category.sponsor')
+        case 'self-promotion':
+          return this.$t('Video.Sponsor Block category.self-promotion')
+        case 'interaction':
+          return this.$t('Video.Sponsor Block category.interaction')
+        case 'intro':
+          return this.$t('Video.Sponsor Block category.intro')
+        case 'outro':
+          return this.$t('Video.Sponsor Block category.outro')
+        case 'recap':
+          return this.$t('Video.Sponsor Block category.recap')
+        case 'music offtopic':
+          return this.$t('Video.Sponsor Block category.music offtopic')
+        case 'filler':
+          return this.$t('Video.Sponsor Block category.filler')
+        default:
+          return ''
+      }
     }
   },
 

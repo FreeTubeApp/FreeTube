@@ -1,3 +1,5 @@
+import i18n from '../i18n/index'
+
 export const colors = [
   { name: 'Red', value: '#d50000' },
   { name: 'Pink', value: '#C51162' },
@@ -38,14 +40,55 @@ export const colors = [
   { name: 'CatppuccinMochaLavender', value: '#B4BEFE' }
 ]
 
+export function getColorTranslations() {
+  return [
+    i18n.t('Settings.Theme Settings.Main Color Theme.Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Pink'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Purple'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Deep Purple'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Indigo'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Light Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Cyan'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Teal'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Green'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Light Green'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Lime'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Amber'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Orange'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Deep Orange'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Cyan'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Green'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Orange'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Pink'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Purple'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Rosewater'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Flamingo'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Pink'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Mauve'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Maroon'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Peach'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Green'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Teal'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Sky'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Sapphire'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Lavender')
+  ]
+}
+
 export function getRandomColorClass() {
-  const randomInt = Math.floor(Math.random() * colors.length)
-  return 'main' + colors[randomInt].name
+  return 'main' + getRandomColor().name
 }
 
 export function getRandomColor() {
   const randomInt = Math.floor(Math.random() * colors.length)
-  return colors[randomInt].value
+  return colors[randomInt]
 }
 
 export function calculateColorLuminance(colorValue) {

@@ -4,7 +4,7 @@
       :id="sanitizedId"
       class="sponsorTitle"
     >
-      {{ $t("Video.Sponsor Block category." + categoryName) }}
+      {{ translatedCategoryName }}
     </div>
     <ft-select
       :sanitized-id="sanitizedId + 'categoryColor'"

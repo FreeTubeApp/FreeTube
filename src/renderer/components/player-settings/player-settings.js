@@ -283,7 +283,7 @@ export default defineComponent({
         this.screenshotFilenameExample = `${res}.${this.screenshotFormat}`
         return true
       }).catch(err => {
-        this.screenshotFilenameExample = `❗ ${this.$t(`Settings.Player Settings.Screenshot.Error.${err.message}`)}`
+        this.screenshotFilenameExample = `❗ ${err.message}`
         return false
       })
     },

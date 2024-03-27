@@ -23,7 +23,7 @@ export default defineComponent({
         return this.$t('Age Restricted.This channel is age restricted')
       }
 
-      return this.$t('Age Restricted.This video is age restricted:')
+      return this.$t('Age Restricted.This video is age restricted')
     }
   }
 })
