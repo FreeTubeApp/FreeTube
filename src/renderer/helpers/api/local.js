@@ -513,7 +513,13 @@ export function parseLocalChannelHeader(channel) {
       }
 
       if (header.content.metadata) {
-        subscriberText = header.content.metadata.metadata_rows[0].metadata_parts[1].text.text
+        // YouTube has already changed the indexes for where the information is stored once,
+        // so we should search for it instead of using hardcoded indexes, just to be safe for the future
+
+        subscriberText = header.content.metadata.metadata_rows
+          .flatMap(row => row.metadata_parts ? row.metadata_parts : [])
+          .find(part => part.text.text?.includes('subscriber'))
+          ?.text.text
       }
 
       break
