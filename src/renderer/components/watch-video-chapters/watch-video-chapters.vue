@@ -28,6 +28,7 @@
     <div
       v-show="showChapters"
       ref="chaptersWrapper"
+      v-observe-visibility="observeVisibilityOptions"
       class="chaptersWrapper"
       :class="{ compact }"
       @keydown.arrow-up.stop.prevent="navigateChapters('up')"
