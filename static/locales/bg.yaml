@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Английски (USA)'
+Locale Name: 'Български'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -877,7 +877,7 @@ Video:
     Upcoming: 'Премиера на'
     Less than a minute: По-малко от минута
     In less than a minute: След по-малко от минута
-  Published on: 'Публикуван на'
+  Published on: 'Публикувано на'
   Publicationtemplate: 'Преди {number} {unit}'
 #& Videos
   Audio:
