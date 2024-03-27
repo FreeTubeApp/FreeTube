@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
@@ -294,6 +294,13 @@ export default defineComponent({
     toggleSearchContainer: function () {
       this.showSearchContainer = !this.showSearchContainer
       this.showFilters = false
+    },
+
+    toggleSearchFiltersDisplayed: function() {
+      this.showFilters = !this.showFilters
+      if (this.showFilters) {
+        nextTick(() => this.$refs.sortByRadio?.focus())
+      }
     },
 
     handleSearchFilterValueChanged: function (filterValueChanged) {
