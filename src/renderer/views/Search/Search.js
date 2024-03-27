@@ -10,6 +10,7 @@ import {
 } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import TopNavEvents from '../../components/top-nav/top-nav-events'
 
 export default defineComponent({
   name: 'Search',
@@ -52,6 +53,7 @@ export default defineComponent({
       // react to route changes...
 
       const query = this.$route.params.query
+      TopNavEvents.dispatchEvent(new CustomEvent('updateSearchInput', { detail: { query } }))
       const searchSettings = {
         sortBy: this.$route.query.sortBy,
         time: this.$route.query.time,
@@ -71,7 +73,10 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.query = this.$route.params.query
+    const query = this.$route.params.query
+
+    this.query = query
+    TopNavEvents.dispatchEvent(new CustomEvent('updateSearchInput', { detail: { query } }))
 
     this.searchSettings = {
       sortBy: this.$route.query.sortBy,
@@ -81,7 +86,7 @@ export default defineComponent({
     }
 
     const payload = {
-      query: this.query,
+      query,
       options: {},
       searchSettings: this.searchSettings
     }
