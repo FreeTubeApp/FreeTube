@@ -6,6 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 export default defineComponent({
   name: 'History',
@@ -15,7 +16,8 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-element-list': FtElementList,
     'ft-button': FtButton,
-    'ft-input': FtInput
+    'ft-input': FtInput,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -38,7 +40,7 @@ export default defineComponent({
       } else {
         return this.historyCacheSorted.slice(0, this.dataLimit)
       }
-    }
+    },
   },
   watch: {
     query() {
