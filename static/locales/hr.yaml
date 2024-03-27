@@ -463,7 +463,6 @@ Settings:
       podataka. Preskače se
     Subscriptions have been successfully exported: Pretplate su uspješno izvezene
     Invalid history file: Nevaljana datoteka povijesti
-    This might take a while, please wait: Ovo može potrajati. Pričekaj
     Invalid subscriptions file: Nevaljana datoteka pretplata
     All subscriptions have been successfully imported: Sve pretplate su uspješno uvezene
     All subscriptions and profiles have been successfully imported: Sve pretplate
@@ -484,8 +483,6 @@ Settings:
     Select Import Type: Odaberi vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako uvesti pretplate?
-    One or more subscriptions were unable to be imported: Neuspio uvoz jedne ili više
-      pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke

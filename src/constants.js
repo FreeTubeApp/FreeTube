@@ -73,9 +73,14 @@ const SyncEvents = {
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
+const MiscConstants = {
+  CHANNEL_IMAGE_BROKEN: '_',
+  CHANNEL_IMAGE_NOT_EXISTENT: '//'
+}
 export {
   IpcChannels,
   DBActions,
   SyncEvents,
-  MAIN_PROFILE_ID
+  MAIN_PROFILE_ID,
+  MiscConstants
 }

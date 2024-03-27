@@ -461,7 +461,6 @@ Settings:
     Export History: تصدير السجلّ
     Import History: استيراد السجلّ
     Invalid history file: ملف السجلّ غير صالح
-    This might take a while, please wait: قد يستغرق هذا بعض الوقت، يرجى الانتظار
     Invalid subscriptions file: ملف الاشتراكات غير صالح
     All subscriptions have been successfully imported: تم استيراد جميع الاشتراكات
       بنجاح
@@ -480,8 +479,6 @@ Settings:
     Select Export Type: حدّد نوع التصدير
     Select Import Type: حدّد نوع الاستيراد
     Data Settings: إعدادات البيانات
-    One or more subscriptions were unable to be imported: تعذر استيراد واحد أو أكثر
-      من الاشتراكات
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح

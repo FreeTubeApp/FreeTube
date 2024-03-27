@@ -420,7 +420,6 @@ Settings:
     History object has insufficient data, skipping item: 觀看紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的觀看紀錄檔案
-    This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
@@ -438,7 +437,6 @@ Settings:
     Select Export Type: 選取匯出類型
     Select Import Type: 選取匯入類型
     Data Settings: 資料設定
-    One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被匯入
     Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單

@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { MiscConstants } from '../../../constants'
 
 export default defineComponent({
   name: 'FtChannelBubble',
@@ -22,13 +23,16 @@ export default defineComponent({
   },
   data: function () {
     return {
-      selected: false
+      selected: false,
     }
   },
   computed: {
     sanitizedId: function() {
       return 'channelBubble' + this.channelId
     }
+  },
+  created () {
+    this.CHANNEL_IMAGE_BROKEN = MiscConstants.CHANNEL_IMAGE_BROKEN
   },
   methods: {
     handleClick: function (event) {

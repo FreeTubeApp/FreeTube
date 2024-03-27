@@ -4,8 +4,9 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
-import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
+import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious, invidiousImageUrlToYoutube } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
+import { MiscConstants } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscribedChannels',
@@ -18,15 +19,14 @@ export default defineComponent({
   data: function () {
     return {
       query: '',
-      subscribedChannels: [],
-      filteredChannels: [],
       re: {
         url: /(.+=\w)\d+(.+)/,
-        ivToYt: /^.+ggpht\/(.+)/
       },
       thumbnailSize: 176,
-      ytBaseURL: 'https://yt3.ggpht.com',
-      errorCount: 0
+      subscribedChannels: [],
+      filteredChannels: [],
+      errorCount: 0,
+      updatingChannels: new Set()
     }
   },
   computed: {
@@ -64,7 +64,11 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    }
+    },
+
+    hideActiveSubscriptions: function () {
+      return this.$store.getters.getHideActiveSubscriptions
+    },
   },
   watch: {
     activeProfileId: function() {
@@ -77,8 +81,17 @@ export default defineComponent({
       this.filterChannels()
     }
   },
+  created: function () {
+    this.CHANNEL_IMAGE_BROKEN = MiscConstants.CHANNEL_IMAGE_BROKEN
+    this.CHANNEL_IMAGE_NOT_EXISTENT = MiscConstants.CHANNEL_IMAGE_NOT_EXISTENT
+  },
   mounted: function () {
     this.getSubscription()
+    this.subscribedChannels.forEach(channel => {
+      if (channel.thumbnail === null) {
+        this.updateThumbnail(channel)
+      }
+    })
   },
   methods: {
     getSubscription: function () {
@@ -106,21 +119,25 @@ export default defineComponent({
     },
 
     thumbnailURL: function(originalURL) {
+      if (originalURL == null) { return null }
+
       let newURL = originalURL
-      // Sometimes relative protocol URLs are passed in
-      if (originalURL.startsWith('//')) {
-        newURL = `https:${originalURL}`
-      }
-      const hostname = new URL(newURL).hostname
-      if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
-        if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+      if (newURL) {
+        // Sometimes relative protocol URLs are passed in
+        if (newURL.startsWith('//')) {
+          newURL = `https:${newURL}`
         }
-      } else {
-        if (this.backendPreference === 'local') { // IV to YT
-          newURL = newURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
-        } else { // IV to IV
-          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+        const hostname = new URL(newURL).hostname
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious') {
+          if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
+            newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+          } else {
+            newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+          }
+        } else {
+          if (hostname !== 'yt3.ggpht.com' && hostname !== 'yt3.googleusercontent.com') {
+            newURL = invidiousImageUrlToYoutube(newURL)
+          }
         }
       }
 
@@ -128,30 +145,55 @@ export default defineComponent({
     },
 
     updateThumbnail: function(channel) {
-      this.errorCount += 1
-      if (this.backendPreference === 'local') {
-        // avoid too many concurrent requests
-        setTimeout(() => {
-          getLocalChannel(channel.id).then(response => {
-            if (!response.alert) {
-              this.updateSubscriptionDetails({
-                channelThumbnailUrl: this.thumbnailURL(response.header.author.thumbnails[0].url),
-                channelName: channel.name,
-                channelId: channel.id
-              })
-            }
-          })
-        }, this.errorCount * 500)
-      } else {
-        setTimeout(() => {
-          invidiousGetChannelInfo(channel.id).then(response => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
-              channelName: channel.name,
-              channelId: channel.id
-            })
-          })
-        }, this.errorCount * 500)
+      if (this.hideActiveSubscriptions) {
+        if (!this.updatingChannels.has(channel.id)) {
+          this.updatingChannels.add(channel.id)
+          this.errorCount += 1
+          if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+            // avoid too many concurrent requests
+            setTimeout(() => {
+              const existChannel = this.activeSubscriptions.find(e => e.id === channel.id)
+              // check again in-case someone unsubscribed
+              if (existChannel && existChannel.thumbnail === null) {
+                invidiousGetChannelInfo(channel.id).then(response => {
+                  this.updateSubscriptionDetails({
+                    channelThumbnailUrl: response.authorThumbnails[0].url,
+                    channelName: channel.name,
+                    channelId: channel.id
+                  })
+                }).catch(e => {
+                  this.updateSubscriptionDetails({
+                    channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
+                    channelName: channel.name,
+                    channelId: channel.id
+                  })
+                })
+              }
+            }, this.errorCount * 500)
+          } else {
+            setTimeout(() => {
+              const existChannel = this.activeSubscriptions.find(e => e.id === channel.id)
+              // check again in-case someone unsubscribed
+              if (existChannel && existChannel.thumbnail === null) {
+                getLocalChannel(channel.id).then(response => {
+                  if (!response.alert) {
+                    this.updateSubscriptionDetails({
+                      channelThumbnailUrl: response.header.author.thumbnails[0].url,
+                      channelName: channel.name,
+                      channelId: channel.id
+                    })
+                  } else {
+                    this.updateSubscriptionDetails({
+                      channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
+                      channelName: channel.name,
+                      channelId: channel.id
+                    })
+                  }
+                })
+              }
+            }, this.errorCount * 500)
+          }
+        }
       }
     },
 

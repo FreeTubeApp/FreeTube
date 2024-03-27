@@ -323,11 +323,7 @@ Settings:
       in profili so bili uspešno uvoženi'
     All subscriptions have been successfully imported: 'Vse naročnine so bile uspešno
       uvožene'
-    One or more subscriptions were unable to be imported: 'Ene ali več naročnin ni
-      bilo mogoče uvoziti'
     Invalid subscriptions file: 'Neveljavna datoteka z naročninami'
-    This might take a while, please wait: 'To bo lahko trajalo nekaj časa. Prosimo,
-      počakajte'
     Invalid history file: 'Neveljavna datoteka z zgodovino'
     Subscriptions have been successfully exported: 'Naročnine so bile uspešno izvožene'
     History object has insufficient data, skipping item: 'Zgodovinski objekt ima pomankljive

@@ -341,8 +341,6 @@ Settings:
       importert
     History object has insufficient data, skipping item: Hopper over historikkobjekt
       med utilstrekkelig data
-    One or more subscriptions were unable to be imported: Ett eller flere abonnement
-      kunne ikke importeres
     All subscriptions have been successfully imported: Alle abonnementer har blitt
       importert
     All subscriptions and profiles have been successfully imported: Importerte alle
@@ -354,7 +352,6 @@ Settings:
       siden det har utilstrekkelig data.
     Check for Legacy Subscriptions: Se etter foreldede abonnementer
     Subscriptions have been successfully exported: Abonnementer eksportert
-    This might take a while, please wait: Dette kan ta litt tid …
     Export History: Eksporter historikk
     Import History: Importer historikk
     Export NewPipe: NewPipe-eksport

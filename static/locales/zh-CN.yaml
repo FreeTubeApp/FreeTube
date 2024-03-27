@@ -410,7 +410,6 @@ Settings:
     Are you sure you want to remove all your playlists?: 你确定要删除所有播放列表吗？
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
-    This might take a while, please wait: 这可能需要一段时间，请稍候
     Invalid subscriptions file: 无效的订阅文件
     All subscriptions have been successfully imported: 所有订阅已成功导入
     All subscriptions and profiles have been successfully imported: 所有订阅和配置文件已成功导入
@@ -436,7 +435,6 @@ Settings:
     Select Export Type: 选择导出类型
     Select Import Type: 选择导入类型
     Data Settings: 数据设置
-    One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表

@@ -23,7 +23,7 @@ export default defineComponent({
     },
     channelThumbnail: {
       type: String,
-      required: true
+      default: null,
     },
     hideProfileDropdownToggle: {
       type: Boolean,

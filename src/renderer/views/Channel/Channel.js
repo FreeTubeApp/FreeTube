@@ -39,6 +39,7 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
+import { MiscConstants } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -440,6 +441,9 @@ export default defineComponent({
           this.getChannelPlaylistsLocal()
       }
     }
+  },
+  created: function() {
+    this.CHANNEL_IMAGE_BROKEN = MiscConstants.CHANNEL_IMAGE_BROKEN
   },
   mounted: function () {
     this.isLoading = true

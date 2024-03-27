@@ -142,6 +142,19 @@ export function invidiousImageUrlToInvidious(url, currentInstance = null) {
   return url.replaceAll(/(\/ggpht\/)/g, `${currentInstance}/ggpht/`)
 }
 
+export function invidiousImageUrlToYoutube(url) {
+  const ivToYt = /^.+ggpht\/(.+)/
+  const ytBaseURL = 'https://yt3.ggpht.com'
+  if (url == null) {
+    return null
+  }
+  // Can be prefixed with `https://` or `//` (protocol relative)
+  if (url.startsWith('//')) {
+    url = 'https:' + url
+  }
+  return url.replace(ivToYt, `${ytBaseURL}/$1`)
+}
+
 function parseInvidiousCommentData(response) {
   return response.comments.map((comment) => {
     comment.showReplies = false

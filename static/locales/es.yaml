@@ -450,7 +450,6 @@ Settings:
     All subscriptions have been successfully imported: 'Todas las suscripciones han
       sido importadas con éxito'
     Invalid subscriptions file: 'Archivo de suscripciones no válido'
-    This might take a while, please wait: 'Esto puede tardar un rato. Por favor, espere'
     Invalid history file: 'Archivo de historial no válido'
     Subscriptions have been successfully exported: 'Las suscripciones han sido exportadas
       con éxito'
@@ -464,8 +463,6 @@ Settings:
     Unable to write file: 'Imposible escribir el archivo'
     Unknown data key: 'Clave de datos desconocida'
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
-    One or more subscriptions were unable to be imported: Una o varias de las suscripciones
-      no han podido ser importadas
     Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
     Import Playlists: Importar listas de reproducción
