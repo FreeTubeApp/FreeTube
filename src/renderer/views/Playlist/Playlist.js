@@ -122,7 +122,7 @@ export default defineComponent({
       return this.isUserPlaylistRequested
     },
     searchQueryTextRequested() {
-      return this.$route.query.searchQueryText
+      return this.$route.query.searchQueryText ?? ''
     },
     searchQueryTextPresent() {
       const searchQueryText = this.searchQueryTextRequested
