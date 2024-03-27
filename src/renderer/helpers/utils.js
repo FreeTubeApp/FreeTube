@@ -583,7 +583,7 @@ export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionN
 export function getVideoParamsFromUrl(url) {
   /** @type {URL} */
   let urlObject
-  const paramsObject = { videoId: null, timestamp: null, playlistId: null }
+  const paramsObject = { videoId: null, timestamp: null, playlistId: null, origin: null, playlistType: null }
   try {
     urlObject = new URL(url)
   } catch (e) {
@@ -595,12 +595,20 @@ export function getVideoParamsFromUrl(url) {
     paramsObject.timestamp = urlObject.searchParams.get('t')
   }
 
+  function extractPlaylistParams(urlObj) {
+    paramsObject.playlistId = urlObject.searchParams.get('list')
+    if (paramsObject.playlistId.startsWith('IV')) {
+      paramsObject.origin = urlObject.origin
+      paramsObject.playlistType = 'invidious'
+    }
+  }
+
   const extractors = [
     // anything with /watch?v=
     function () {
       if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
         extractParams(urlObject.searchParams.get('v'))
-        paramsObject.playlistId = urlObject.searchParams.get('list')
+        extractPlaylistParams(urlObject)
         return paramsObject
       }
     },
@@ -608,7 +616,7 @@ export function getVideoParamsFromUrl(url) {
     function () {
       if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice(1))
-        paramsObject.playlistId = urlObject.searchParams.get('list')
+        extractPlaylistParams(urlObject)
         return paramsObject
       }
     },
@@ -617,7 +625,7 @@ export function getVideoParamsFromUrl(url) {
       if (/^\/embed\/[\w-]+$/.test(urlObject.pathname)) {
         const urlTail = urlObject.pathname.replace('/embed/', '')
         if (urlTail === 'videoseries') {
-          paramsObject.playlistId = urlObject.searchParams.get('list')
+          extractPlaylistParams(urlObject)
         } else {
           extractParams(urlTail)
         }

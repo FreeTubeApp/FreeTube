@@ -4,6 +4,25 @@
       v-if="isLoading"
     />
     <div
+      v-else-if="isInvidiousPlaylist && !fetchIVPlaylist"
+      class="messageContainer"
+    >
+      <p
+        class="message"
+      >
+        {{ backendPreference === 'invidious' ? $t('Playlist.Invidious Playlist Cannot Be Viewed IV', {currentInstance: currentInvidiousInstance, invidiousInstance: origin}) : $t('Playlist.Invidious Playlist Cannot Be Viewed Local', { invidiousInstance: origin }) }}
+      </p>
+      <font-awesome-icon
+        :icon="['fas', 'exclamation-circle']"
+        class="errorIcon"
+      />
+      <ft-button
+        :label="$t('Playlist.View Playlist')"
+        class="viewPlaylist"
+        @click="enableViewPlaylist"
+      />
+    </div>
+    <div
       v-else
     >
       <h3
@@ -121,7 +140,7 @@
       >
         <ft-list-video-numbered
           v-for="(item, index) in playlistItems"
-          :key="item.playlistItemId || item.videoId"
+          :key="item.playlistItemId || item.videoId+'-'+index"
           :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
           class="playlistItem"
           :data="item"
@@ -134,6 +153,8 @@
           :playlist-loop="loopEnabled"
           :video-index="index"
           :is-current-video="currentVideoIndexZeroBased === index"
+          :origin="origin"
+          :is-invidious-playlist="isInvidiousPlaylist"
           appearance="watchPlaylistItem"
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
           @pause-player="$emit('pause-player')"

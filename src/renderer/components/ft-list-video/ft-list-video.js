@@ -83,6 +83,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    origin: {
+      type: String,
+      default: null
+    }
   },
   data: function () {
     return {
@@ -458,6 +466,9 @@ export default defineComponent({
       if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }
       if (this.playlistTypeFinal) { query.playlistType = this.playlistTypeFinal }
       if (this.playlistItemIdFinal) { query.playlistItemId = this.playlistItemIdFinal }
+      if (this.isInvidiousPlaylist) { query.isInvidiousPlaylist = true }
+      if (this.origin) { query.origin = this.origin }
+
       return query
     },
 

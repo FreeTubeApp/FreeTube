@@ -404,13 +404,16 @@ const actions = {
       urlStr = `https://www.youtube.com/${urlStr}`
     }
 
-    const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
+    const { videoId, timestamp, playlistId, origin, playlistType } = getVideoParamsFromUrl(urlStr)
+
     if (videoId) {
       return {
         urlType: 'video',
         videoId,
         playlistId,
-        timestamp
+        timestamp,
+        origin,
+        playlistType
       }
     }
 
@@ -456,6 +459,12 @@ const actions = {
         const query = {}
         for (const [param, value] of url.searchParams) {
           query[param] = value
+        }
+
+        // special handling for Invidious playlist
+        if (playlistId.startsWith('IV')) {
+          query.origin = url.origin
+          query.playlistType = 'invidious'
         }
 
         return {

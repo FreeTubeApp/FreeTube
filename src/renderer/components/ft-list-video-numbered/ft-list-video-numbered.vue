@@ -40,6 +40,8 @@
         :can-move-video-up="canMoveVideoUp"
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
+        :origin="origin"
+        :is-invidious-playlist="isInvidiousPlaylist"
         @pause-player="$emit('pause-player')"
         @move-video-up="$emit('move-video-up')"
         @move-video-down="$emit('move-video-down')"
