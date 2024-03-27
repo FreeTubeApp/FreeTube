@@ -6,7 +6,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
-import { getColors } from '../../helpers/colors'
+import { colors, getColorTranslations } from '../../helpers/colors'
 
 export default defineComponent({
   name: 'ThemeSettings',
@@ -108,16 +108,12 @@ export default defineComponent({
       ]
     },
 
-    colors: function () {
-      return getColors()
-    },
-
     colorValues: function () {
-      return this.colors.map(color => color.name)
+      return colors.map(color => color.name)
     },
 
     colorNames: function () {
-      return this.colors.map(color => color.translated)
+      return getColorTranslations()
     },
 
     areColorThemesEnabled: function() {

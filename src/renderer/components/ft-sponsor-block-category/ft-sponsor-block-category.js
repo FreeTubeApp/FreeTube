@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import { getColors } from '../../helpers/colors'
+import { colors, getColorTranslations } from '../../helpers/colors'
 import FtSelect from '../ft-select/ft-select.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
@@ -26,16 +26,12 @@ export default defineComponent({
     }
   },
   computed: {
-    colors: function () {
-      return getColors()
-    },
-
     colorValues: function () {
-      return this.colors.map(color => color.name)
+      return colors.map(color => color.name)
     },
 
     colorNames: function () {
-      return this.colors.map(color => color.translated)
+      return getColorTranslations()
     },
 
     sponsorBlockValues: function() {

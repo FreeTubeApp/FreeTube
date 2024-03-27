@@ -6,7 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { calculateColorLuminance, getColors } from '../../helpers/colors'
+import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
@@ -47,7 +47,7 @@ export default defineComponent({
   },
   computed: {
     colorValues: function () {
-      return getColors().map(color => color.value)
+      return colors.map(color => color.value)
     },
     profileInitial: function () {
       return this?.profileName?.length > 0 ? Array.from(this.translatedProfileName)[0].toUpperCase() : ''
