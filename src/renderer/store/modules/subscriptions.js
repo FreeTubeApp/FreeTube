@@ -1,9 +1,3 @@
-import { deepCopy } from '../../helpers/utils'
-
-const defaultCacheEntryValueForForOneChannel = {
-  videos: null,
-}
-
 const state = {
   videoCache: {},
   liveCache: {},
@@ -77,7 +71,7 @@ const actions = {
 const mutations = {
   updateVideoCacheByChannel(state, { channelId, videos }) {
     const existingObject = state.videoCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
     state.videoCache[channelId] = newObject
   },
@@ -86,7 +80,7 @@ const mutations = {
   },
   updateShortsCacheByChannel(state, { channelId, videos }) {
     const existingObject = state.shortsCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
     state.shortsCache[channelId] = newObject
   },
@@ -120,7 +114,7 @@ const mutations = {
   },
   updateLiveCacheByChannel(state, { channelId, videos }) {
     const existingObject = state.liveCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
     state.liveCache[channelId] = newObject
   },
@@ -129,7 +123,7 @@ const mutations = {
   },
   updatePostsCacheByChannel(state, { channelId, posts }) {
     const existingObject = state.postsCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { posts: null }
     if (posts != null) { newObject.posts = posts }
     state.postsCache[channelId] = newObject
   },
