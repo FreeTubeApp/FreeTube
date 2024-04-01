@@ -64,6 +64,7 @@
             bookmarked: isInQuickBookmarkPlaylist,
             alwaysVisible: alwaysShowAddToPlaylistButton,
           }"
+          :theme="quickBookmarkIconTheme"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="toggleQuickBookmarked"

@@ -242,6 +242,9 @@ export default defineComponent({
         ? this.$t('User Playlists.Remove from Favorites', translationProperties)
         : this.$t('User Playlists.Add to Favorites', translationProperties)
     },
+    quickBookmarkIconTheme: function () {
+      return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
+    },
   },
   mounted: function () {
     if ('mediaSession' in navigator) {

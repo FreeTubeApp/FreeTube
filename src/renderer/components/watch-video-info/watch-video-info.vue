@@ -95,6 +95,7 @@
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,
           }"
+          :theme="quickBookmarkIconTheme"
           @click="toggleQuickBookmarked"
         />
         <ft-icon-button
