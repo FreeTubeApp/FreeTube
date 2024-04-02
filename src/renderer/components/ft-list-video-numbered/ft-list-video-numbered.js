@@ -83,7 +83,8 @@ export default defineComponent({
   data: function () {
     return {
       visible: false,
-      show: true
+      show: true,
+      stopWatchingInitialVisibleState: null
     }
   },
   computed: {
@@ -111,13 +112,29 @@ export default defineComponent({
   },
   created() {
     this.visible = this.initialVisibleState
+
+    if (!this.initialVisibleState) {
+      this.stopWatchingInitialVisibleState = this.$watch('initialVisibleState', (newValue) => {
+        this.visible = newValue
+        this.stopWatchingInitialVisibleState()
+        this.stopWatchingInitialVisibleState = null
+      })
+    }
   },
   methods: {
     onVisibilityChanged: function (visible) {
       if (visible && this.shouldBeVisible) {
         this.visible = visible
+        if (this.stopWatchingInitialVisibleState) {
+          this.stopWatchingInitialVisibleState()
+          this.stopWatchingInitialVisibleState = null
+        }
       } else if (visible) {
         this.show = false
+        if (this.stopWatchingInitialVisibleState) {
+          this.stopWatchingInitialVisibleState()
+          this.stopWatchingInitialVisibleState = null
+        }
       }
     }
   }

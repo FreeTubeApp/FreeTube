@@ -127,7 +127,7 @@ User Playlists:
   Playlist Message: See leht ei kirjelda terviklikke ja toimivad esitusloendeid. Siin
     on kirjas vaid videod, mida oled salvestanud või mille oled märkinud lemmikuks.
     Kui kõik on valmis, siis siin nähtavad videod on leitavad esitusloendist „Lemmikud“.
-  Search bar placeholder: Otsi esindusloendist
+  Search bar placeholder: Otsi esindusloendeid
   Empty Search Message: Selles esitusloendis pole sinu otsingule vastavaid videosid
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Kas
     sa oled kindel, et soovid kõik vaadatud videod sellest esitusloendist eemaldada?
@@ -219,6 +219,7 @@ User Playlists:
   Remove from Favorites: Eemalda esitusloendist {playlistName}
   Enable Quick Bookmark With This Playlist: Võimalda kiirjärjehoidjate kasutamist
     selle esitusloendiga
+  Playlists with Matching Videos: Sobivate videotega esitusloendid
 History:
   # On History Page
   History: 'Ajalugu'
@@ -244,7 +245,7 @@ Settings:
       Invidious API: 'API Invidious''e veebirakenduses'
     Video View Type:
       Video View Type: 'Kasutatav videote vaade'
-      Grid: 'Võrgustik'
+      Grid: 'Ruudustik'
       List: 'Loend'
     Thumbnail Preference:
       Thumbnail Preference: 'Pisipiltide eelistus'
@@ -343,7 +344,7 @@ Settings:
     Turn on Subtitles by Default: 'Vaikimisi näita subtiitreid'
     Autoplay Videos: 'Esita videod automaatselt'
     Proxy Videos Through Invidious: 'Puhverda videosid Invidious''e veebiteenuse kaudu'
-    Autoplay Playlists: 'Automaatselt mängi esitusloendit'
+    Autoplay Playlists: 'Mängi esitusloendit automaatselt'
     Enable Theatre Mode by Default: 'Vaikimisi kasuta teatrivaadet (laia vaadet)'
     Default Volume: 'Vaikimisi helivaljus'
     Default Playback Rate: 'Vaikimisi videoesituse kiirus'
@@ -391,7 +392,7 @@ Settings:
     Allow DASH AV1 formats: Luba DASH AV1 vormingud
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
     Comment Auto Load:
-      Comment Auto Load: Kommentaaride automaatne laadimine
+      Comment Auto Load: Laadi kommentaarid automaatselt
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -408,7 +409,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Kas
       sa oled kindel, et soovid kustutada kõik tellimused/profiilid? Seda tegevust
       ei saa tagasi pöörata.'
-    Automatically Remove Video Meta Files: Automaatselt kustuta videote metateave
+    Automatically Remove Video Meta Files: Kustuta videote metateave automaatselt
     Save Watched Videos With Last Viewed Playlist: Salvesta vaadatud videod viimati
       vaadatud videote esitusloendisse
     All playlists have been removed: Kõik esitusloendid on eemaldatud
@@ -575,7 +576,7 @@ Settings:
     Ignore Default Arguments: Eira vaikimisi käsureaargumente
   Download Settings:
     Download Settings: Allalaadimise seadistused
-    Ask Download Path: Küsi kausta, kuhu soovid faile alla laadida
+    Ask Download Path: Küsi kuhu kausta soovid faile alla laadida
     Choose Path: Vali asukoht
     Download Behavior: Tegevus allalaadimisel
     Open in web browser: Ava veebibrauseris
@@ -877,7 +878,7 @@ Video:
     Video statistics are not available for legacy videos: Vana tüüpi videote puhul
       pole statistika saataval
     Resolution: Resolutsioon
-  Premieres: Esilinastused
+  Premieres: Esilinastus
   Show Super Chat Comment: Näita Super Chat'i kommentaare
   Scroll to Bottom: Keri alla
   Upcoming: Tulemas
@@ -997,7 +998,7 @@ Tooltips:
       on leitav PATH keskkonnamuutuja alusel. Aga kui vaja, siis saad siin seadistada
       muu asukoha.
     Ignore Warnings: Kui väline meediamängija antud funktsionaalsust (näiteks esitusloendi
-      järjekorra pööramine) ei toeta siis ära näita hoiatusi.
+      järjekorra pööramine) ei toeta, siis ära näita hoiatusi.
     Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
       mida sa soovid välisele meediamängijale saata.
     External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video
