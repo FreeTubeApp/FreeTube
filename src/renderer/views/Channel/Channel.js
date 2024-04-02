@@ -105,14 +105,10 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoLiveSelectValues: [
+      videoLiveShortSelectValues: [
         'newest',
         'popular',
         'oldest'
-      ],
-      shortSelectValues: [
-        'newest',
-        'popular'
       ],
       playlistSelectValues: [
         'newest',
@@ -188,18 +184,11 @@ export default defineComponent({
       return profileList[0].subscriptions.some((channel) => channel.id === this.id)
     },
 
-    videoLiveSelectNames: function () {
+    videoLiveShortSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular'),
         this.$t('Channel.Videos.Sort Types.Oldest')
-      ]
-    },
-
-    shortSelectNames: function () {
-      return [
-        this.$t('Channel.Videos.Sort Types.Newest'),
-        this.$t('Channel.Videos.Sort Types.Most Popular')
       ]
     },
 
@@ -773,7 +762,7 @@ export default defineComponent({
         this.showVideoSortBy = videosTab.filters.length > 1
 
         if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoLiveSelectValues.indexOf(this.videoSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
 
@@ -841,7 +830,7 @@ export default defineComponent({
         this.showShortSortBy = shortsTab.filters.length > 1
 
         if (this.showShortSortBy && this.shortSortBy !== 'newest') {
-          const index = this.shortSelectValues.indexOf(this.shortSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.shortSortBy)
           shortsTab = await shortsTab.applyFilter(shortsTab.filters[index])
         }
 
@@ -909,7 +898,7 @@ export default defineComponent({
         this.showLiveSortBy = liveTab.filters.length > 1
 
         if (this.showLiveSortBy && this.liveSortBy !== 'newest') {
-          const index = this.videoLiveSelectValues.indexOf(this.liveSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.liveSortBy)
           liveTab = await liveTab.applyFilter(liveTab.filters[index])
         }
 
