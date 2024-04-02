@@ -1,3 +1,8 @@
+const path = require('path')
+const { readFileSync } = require('fs')
+
+const activeLocales = JSON.parse(readFileSync(path.join(__dirname, './static/locales/activeLocales.json')))
+
 module.exports = {
   // https://eslint.org/docs/user-guide/configuring#using-configuration-files-1
   root: true,
@@ -110,7 +115,8 @@ module.exports = {
   },
   settings: {
     'vue-i18n': {
-      localeDir: './static/locales/*.yaml'
+      localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
+      messageSyntaxVersion: '^8.0.0'
     }
   }
 }

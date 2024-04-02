@@ -257,7 +257,7 @@ const actions = {
       }
 
       if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))) // use message as translation key
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters')))
       }
 
       let filename
@@ -598,7 +598,7 @@ const actions = {
     const fileData = await fs.readFile(`${fileLocation}${fileName}`)
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
     })
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
     const playerNone = externalPlayerMap.shift()
