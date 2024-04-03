@@ -11,6 +11,7 @@ import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
 import { showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
+
 export default defineComponent({
   name: 'GeneralSettings',
   components: {
