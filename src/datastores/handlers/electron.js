@@ -42,12 +42,12 @@ class History {
     )
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_HISTORY,
       {
         action: DBActions.HISTORY.UPDATE_PLAYLIST,
-        data: { videoId, lastViewedPlaylistId }
+        data: { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }
       }
     )
   }
@@ -126,22 +126,29 @@ class Playlists {
     )
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
+  static upsert(playlist) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_PLAYLISTS,
+      { action: DBActions.GENERAL.UPSERT, data: playlist }
+    )
+  }
+
+  static upsertVideoByPlaylistId(_id, videoData) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.UPSERT_VIDEO,
-        data: { playlistName, videoData }
+        data: { _id, videoData }
       }
     )
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
+  static upsertVideosByPlaylistId(_id, videos) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
-        action: DBActions.PLAYLISTS.UPSERT_VIDEO_IDS,
-        data: { _id, videoIds }
+        action: DBActions.PLAYLISTS.UPSERT_VIDEOS,
+        data: { _id, videos }
       }
     )
   }
@@ -153,32 +160,32 @@ class Playlists {
     )
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
+  static deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId }) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_VIDEO_ID,
-        data: { playlistName, videoId }
+        data: { _id, videoId, playlistItemId }
       }
     )
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
+  static deleteVideoIdsByPlaylistId(_id, videoIds) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_VIDEO_IDS,
-        data: { playlistName, videoIds }
+        data: { _id, videoIds }
       }
     )
   }
 
-  static deleteAllVideosByPlaylistName(playlistName) {
+  static deleteAllVideosByPlaylistId(_id) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_ALL_VIDEOS,
-        data: playlistName
+        data: _id
       }
     )
   }

@@ -12,11 +12,27 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 /**
  * @param {string} publishedText
+ * @param {boolean} isLive
+ * @param {boolean} isUpcoming
+ * @param {Date|undefined} premiereDate
  */
-export function calculatePublishedDate(publishedText) {
+export function calculatePublishedDate(publishedText, isLive = false, isUpcoming = false, premiereDate = undefined) {
   const date = new Date()
-  if (publishedText === 'Live') {
-    return publishedText
+
+  if (isLive) {
+    return date.getTime()
+  } else if (isUpcoming) {
+    if (premiereDate) {
+      return premiereDate.getTime()
+    } else {
+      // should never happen but just to be sure that we always return a number
+      return date.getTime()
+    }
+  }
+
+  if (!publishedText) {
+    console.error("publishedText is missing but the video isn't live or upcoming")
+    return undefined
   }
 
   const match = publishedText.match(PUBLISHED_TEXT_REGEX)
@@ -42,6 +58,26 @@ export function calculatePublishedDate(publishedText) {
   }
 
   return date.getTime() - timeSpan
+}
+
+/**
+ * @param {{
+ *  liveNow: boolean,
+ *  isUpcoming: boolean,
+ *  premiereTimestamp: number,
+ *  published: number
+ * }[]} videos
+ */
+export function setPublishedTimestampsInvidious(videos) {
+  videos.forEach(video => {
+    if (video.liveNow) {
+      video.published = new Date().getTime()
+    } else if (video.isUpcoming) {
+      video.published = video.premiereTimestamp * 1000
+    } else if (typeof video.published === 'number') {
+      video.published *= 1000
+    }
+  })
 }
 
 export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
@@ -572,6 +608,7 @@ export function getVideoParamsFromUrl(url) {
     function () {
       if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice(1))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
     },
@@ -615,9 +652,10 @@ export function getVideoParamsFromUrl(url) {
 
 /**
  * This will match sequences of upper case characters and convert them into title cased words.
+ * This will also match excessive strings of punctionation and convert them to one representative character
  * @param {string} title the title to process
  * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
- * @returns {string} the title with upper case characters removed
+ * @returns {string} the title with upper case characters removed and punctuation normalized
  */
 export function toDistractionFreeTitle(title, minUpperCase = 3) {
   const firstValidCharIndex = (word) => {
@@ -633,7 +671,10 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
   }
 
   const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
-  return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
+  return title
+    .replaceAll(/!{2,}/g, '!')
+    .replaceAll(/[!?]{2,}/g, '?')
+    .replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
 export function formatNumber(number, options = undefined) {
@@ -671,4 +712,36 @@ export function escapeHTML(untrusted) {
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
+}
+
+/**
+ * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
+ * @param {number} timeoutMs
+ * @param {RequestInfo|URL} input
+ * @param {RequestInit=} init
+ */
+export async function fetchWithTimeout(timeoutMs, input, init) {
+  const timeoutSignal = AbortSignal.timeout(timeoutMs)
+
+  if (typeof init !== 'undefined') {
+    init.signal = timeoutSignal
+  } else {
+    init = {
+      signal: timeoutSignal
+    }
+  }
+
+  try {
+    return await fetch(input, init)
+  } catch (err) {
+    if (err.name === 'AbortError' && timeoutSignal.aborted) {
+      // According to the spec, fetch should use the original abort reason.
+      // Unfortunately chromium browsers always throw an AbortError, even when it was caused by a TimeoutError,
+      // so we need manually throw the original abort reason
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=1431720
+      throw timeoutSignal.reason
+    } else {
+      throw err
+    }
+  }
 }

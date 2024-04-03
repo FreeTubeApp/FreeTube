@@ -678,7 +678,7 @@ Local API Error (Click to copy): 'Error de la API local (Presione para copiar)'
 Invidious API Error (Click to copy): 'Error de la API de Invidious (Presione para
   copiar)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
-Falling back to the local API: 'Recurriendo a la API local'
+Falling back to Local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: 'El bucle esta desactivado'
 Loop is now enabled: 'El bucle esta activado'
@@ -759,9 +759,9 @@ Tooltips:
       del país que deseé ver mostradas.
     Thumbnail Preference: Todas las miniaturas a través de FreeTube serán reemplazadas
       con un fotograma del video en vez de su miniatura por defecto.
-    External Link Handling: "Elija el comportamiento previsto para cuando un link,\
-      \ que no pueda ser abierto en FreeTube, sea cliqueado.\nPor defecto FreeTube\
-      \ abrirá el link cliqueado en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento previsto para cuando un link,
+      que no pueda ser abierto en FreeTube, sea cliqueado.\nPor defecto FreeTube abrirá
+      el link cliqueado en su navegador predeterminado.\n"
     Fallback to Non-Preferred Backend on Failure: Si la API que eligió sufre algún
       problema, FreeTube intentará usar automáticamente otra API como método de respaldo
       al activar esta opción.
@@ -804,6 +804,9 @@ Tooltips:
       para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen
       su IP, pero no es capaz de proveer ciertos datos del video, como su duración,
       o si está en directo
+  Distraction Free Settings:
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
+      «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
 Downloading has completed: '"{videoTitle}" ha acabado de descargarse'
 Default Invidious instance has been cleared: La dirección de Invidious predeterminada
   se ha borrado

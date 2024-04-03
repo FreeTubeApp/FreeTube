@@ -116,6 +116,11 @@ export default defineComponent({
       }
     },
 
+    handleDropdownEscape: function () {
+      this.$refs.iconButton.focus()
+      // handleDropdownFocusOut will hide the dropdown for us
+    },
+
     handleDropdownClick: function ({ url, index }) {
       if (this.returnIndex) {
         this.$emit('click', index)
@@ -128,6 +133,11 @@ export default defineComponent({
 
     handleResize: function () {
       this.useModal = window.innerWidth <= 900
-    }
+    },
+
+    focus() {
+      // To be called by parent components
+      this.$refs.iconButton.focus()
+    },
   }
 })

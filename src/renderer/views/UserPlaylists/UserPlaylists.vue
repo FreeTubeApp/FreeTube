@@ -1,48 +1,79 @@
 <template>
   <div>
     <ft-loader
-      v-show="isLoading"
+      v-if="isLoading"
       :fullscreen="true"
     />
     <ft-card
-      v-show="!isLoading"
+      v-if="!isLoading"
       class="card"
     >
-      <h2>
-        {{ $t("User Playlists.Your Playlists") }}
-        <ft-tooltip
-          class="selectTooltip"
-          position="bottom"
-          :tooltip="$t('User Playlists.Playlist Message')"
+      <div class="heading">
+        <h2 class="headingText">
+          {{ $t("User Playlists.Your Playlists") }}
+        </h2>
+        <ft-icon-button
+          :title="$t('User Playlists.Create New Playlist')"
+          :icon="['fas', 'plus']"
+          theme="secondary"
+          class="newPlaylistButton"
+          @click="createNewPlaylist"
         />
-      </h2>
-      <ft-input
-        v-show="fullData.length > 0"
-        ref="searchBar"
-        :placeholder="$t('User Playlists.Search bar placeholder')"
-        :show-clear-text-button="true"
-        :show-action-button="false"
-        @input="(input) => query = input"
-        @clear="query = ''"
-      />
+        <div
+          v-if="fullData.length > 1"
+          class="searchInputsRow"
+        >
+          <ft-input
+            ref="searchBar"
+            :placeholder="$t('User Playlists.Search bar placeholder')"
+            :show-clear-text-button="true"
+            :show-action-button="false"
+            @input="(input) => query = input"
+            @clear="query = ''"
+          />
+        </div>
+        <div
+          class="optionsRow"
+        >
+          <ft-toggle-switch
+            v-if="fullData.length > 1"
+            :label="$t('User Playlists.Playlists with Matching Videos')"
+            :compact="true"
+            :default-value="doSearchPlaylistsWithMatchingVideos"
+            @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+          />
+          <ft-select
+            v-if="fullData.length > 1"
+            class="sortSelect"
+            :value="sortBy"
+            :select-names="sortBySelectNames"
+            :select-values="sortBySelectValues"
+            :placeholder="$t('User Playlists.Sort By.Sort By')"
+            @change="sortBy = $event"
+          />
+        </div>
+      </div>
       <ft-flex-box
-        v-show="fullData.length === 0"
+        v-if="fullData.length === 0"
       >
         <p class="message">
-          {{ $t("User Playlists['Your saved videos are empty. Click on the save button on the corner of a video to have it listed here']") }}
+          {{ $t("User Playlists['You have no playlists. Click on the create new playlist button to create a new one.']") }}
         </p>
       </ft-flex-box>
       <ft-flex-box
-        v-show="activeData.length === 0 && fullData.length > 0"
+        v-else-if="activeData.length === 0 && fullData.length > 0"
       >
         <p class="message">
           {{ $t("User Playlists['Empty Search Message']") }}
         </p>
       </ft-flex-box>
       <ft-element-list
-        v-if="activeData.length > 0 && !isLoading"
+        v-else-if="activeData.length > 0 && !isLoading"
         :data="activeData"
+        :data-type="'playlist'"
+        :search-query-text="doSearchPlaylistsWithMatchingVideos ? lowerCaseQuery : ''"
         :use-channels-hidden-preference="false"
+        :hide-forbidden-titles="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

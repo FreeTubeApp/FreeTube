@@ -2,6 +2,22 @@
   <ft-card
     class="card"
   >
+    <h3
+      v-if="commentData.length > 0 && !isLoading && showComments"
+      class="commentsTitle"
+    >
+      {{ $t("Comments.Comments") }}
+      <span
+        class="hideComments"
+        role="button"
+        tabindex="0"
+        @click="showComments = false"
+        @keydown.space.prevent="showComments = false"
+        @keydown.enter.prevent="showComments = false"
+      >
+        {{ $t("Comments.Hide Comments") }}
+      </span>
+    </h3>
     <h4
       v-if="canPerformInitialCommentLoading"
       class="getCommentsTitle"
@@ -33,22 +49,6 @@
       :select-values="sortValues"
       @change="handleSortChange"
     />
-    <h3
-      v-if="commentData.length > 0 && !isLoading && showComments"
-      class="commentsTitle"
-    >
-      {{ $t("Comments.Comments") }}
-      <span
-        class="hideComments"
-        role="button"
-        tabindex="0"
-        @click="showComments = false"
-        @keydown.space.prevent="showComments = false"
-        @keydown.enter.prevent="showComments = false"
-      >
-        {{ $t("Comments.Hide Comments") }}
-      </span>
-    </h3>
     <div
       v-if="commentData.length > 0 && showComments"
     >
@@ -268,7 +268,7 @@
       v-else-if="showComments && !isLoading"
     >
       <h3 class="noCommentMsg">
-        {{ $t("There are no comments available for this video") }}
+        {{ $t("Comments.There are no comments available for this video") }}
       </h3>
     </div>
     <h4

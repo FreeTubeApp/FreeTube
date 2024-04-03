@@ -1,7 +1,3 @@
-.groupTitle {
-  text-align: center;
-}
-
 @media only screen and (max-width: 800px) {
   br.hide-on-mobile {
     display: none;

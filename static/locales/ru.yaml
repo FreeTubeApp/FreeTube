@@ -36,6 +36,12 @@ Global:
   Community: Сообщество
 
 # Search Bar
+  Counts:
+    Video Count: 1 видео | {count} видео
+    Subscriber Count: 1 подписчик | {count} подписчика(ов)
+    View Count: 1 просмотр | {count} просмотра(ов)
+    Watching Count: 1 смотрящий | {count} смотрящих
+    Channel Count: 1 канал | {count} канала(ов)
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -94,6 +100,8 @@ Subscriptions:
   Subscriptions Tabs: Вкладки подписок
   All Subscription Tabs Hidden: Все вкладки подписок скрыты. Чтобы увидеть содержимое
     здесь, пожалуйста, раскройте некоторые вкладки в разделе «{subsection}» в «{settingsSection}».
+  Empty Posts: Каналы, на которые вы подписаны, сейчас без постов.
+  Load More Posts: Загрузить больше постов
 Trending:
   Trending: 'Тренды'
   Trending Tabs: Тренды
@@ -114,6 +122,77 @@ User Playlists:
     «Избранное».
   Search bar placeholder: Поиск в подборке
   Empty Search Message: В этой подборке нет видео, соответствующих вашему запросу
+  This playlist currently has no videos.: Пока в этой подборке нет видео.
+  Add to Playlist: Добавить в подборку
+  Move Video Up: Передвинуть видео вверх
+  Move Video Down: Передвинуть видео вниз
+  Remove from Playlist: Удалить из подборки
+  Playlist Name: Название подборки
+  Copy Playlist: Скопировать подборку
+  Delete Playlist: Удалить подборку
+  Are you sure you want to delete this playlist? This cannot be undone: Ты действительно
+    хочешь удалить эту подборку? Это действие необратимо.
+  Sort By:
+    Sort By: Упорядочивать по
+    NameAscending: А-Я
+    NameDescending: Я-А
+    EarliestCreatedFirst: Самые ранние
+    LatestCreatedFirst: Недавно созданные
+    LatestUpdatedFirst: Недавно обновлённые
+    EarliestUpdatedFirst: Последние обновлённые
+    LatestPlayedFirst: Недавно проигранные
+    EarliestPlayedFirst: Последние проигранные
+  SinglePlaylistView:
+    Toast:
+      There was a problem with removing this video: Неудаётся удалить это видео
+      Playlist name cannot be empty. Please input a name.: У подборки должно быть
+        название. Пожалуйста, вставьте название.
+      Playlist has been updated.: Подборка была обновлена.
+      "{videoCount} video(s) have been removed": 1 видео было удалено | {videoCount}
+        видео было удалено
+      This playlist does not exist: Этой подборки не существует
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некоторые
+        видео в подборке ещё не загружены. Нажми сюда, чтобы всё равно скопировать.
+      There were no videos to remove.: Нет видео для удаления.
+      This playlist is protected and cannot be removed.: Эта подборка защищена и не
+        может быть удалена.
+      There was an issue with updating this playlist.: Есть затруднение с обновлением
+        этой подборки.
+      Playlist {playlistName} has been deleted.: Подборка {playlistName} была удалена.
+      This video cannot be moved up.: Это видео нельзя передвинуть вверх.
+      This video cannot be moved down.: Это видео нельзя передвинуть вниз.
+      Video has been removed: Видео было удалено
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} выбрано'
+    Search in Playlists: Поиск подборок
+    Save: Сохранить
+    Toast:
+      You haven't selected any playlist yet.: Ещё не выбрана ни одна подборка.
+      "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку
+        | {videoCount} видео добавлено в 1 подборку
+    Select a playlist to add your N videos to: Выбери подборку на добавление твоего
+      видео | Выбери подборку на добавление твоих {videoCount} видео в неё
+  CreatePlaylistPrompt:
+    Toast:
+      Playlist {playlistName} has been successfully created.: Подборка {playlistName}
+        была успешно создана.
+      There is already a playlist with this name. Please pick a different name.: Уже
+        есть подборка с этим названием. Пожалуйста, выбери другое название.
+      There was an issue with creating the playlist.: Есть затруднение с созданием
+        подборки.
+    New Playlist Name: Новое название подборки
+    Create: Создать
+  Playlist Description: Описание подборки
+  Save Changes: Сохранить изменения
+  Edit Playlist Info: Изменить сведения о подборке
+  Remove Watched Videos: Удалить просмотренные видео
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ты
+    действительно хочешь удалить все просмотренные видео из этой подборки? Это действие
+    необратимо.
+  Cancel: Отмена
+  You have no playlists. Click on the create new playlist button to create a new one.: У
+    тебя нет подборок. Нажми на кнопку создания новой подборки, чтобы создать новую.
+  Create New Playlist: Создать новую подборку
 History:
   # On History Page
   History: 'История'
@@ -145,6 +224,8 @@ Settings:
       Beginning: 'В начале'
       Middle: 'В середине'
       End: 'В конце'
+      Blur: Размытие
+      Hidden: Скрыто
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
       (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион подбора трендов'
@@ -177,6 +258,8 @@ Settings:
       Dracula: 'Дракула'
       System Default: Системная
       Catppuccin Mocha: Мокко с капучино
+      Pastel Pink: Пастельно-розовый
+      Hot Pink: Ярко-розовый
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -298,6 +381,8 @@ Settings:
     How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
     Fetch Feeds from RSS: Получать ленты из RSS
     Fetch Automatically: Автоматически получать ленту
+    Only Show Latest Video for Each Channel: Показывать только последние видео для
+      каждого канала
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -343,6 +428,10 @@ Settings:
     Automatically Remove Video Meta Files: Автоудаление метафайлов видео
     Save Watched Videos With Last Viewed Playlist: Сохранить просмотренные видео с
       последней просмотренной подборкой
+    Are you sure you want to remove all your playlists?: Ты действительно хочешь удалить
+      все свои подборки?
+    All playlists have been removed: Все подборки были удалены
+    Remove All Playlists: Удалить все подборки
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
@@ -389,6 +478,14 @@ Settings:
     Playlist File: Файл подборки
     Subscription File: Файл подписок
     History File: Файл истории
+    Export Playlists For Older FreeTube Versions:
+      Label: Экспортировать подборки для старых выпусков FreeTube
+      Tooltip: "Эта настройка экспортирует видео из всех подборок в одну с названием
+        «Избранное».\nКак экспортировать и импортировать видео в подборках для старых
+        версий FreeTube:\n1. Экспортируй свои подборки с этой включённой настройкой.\n
+        2. Удали все свои существующие подборки, используя настройку удаления всех
+        подборок под разделом Конфиденциальность.\n3. Запусти старый выпуск Freetube
+        и импортируй экспортированные подборки."
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
@@ -407,7 +504,7 @@ Settings:
     Hide Video Description: Скрыть описание видео
     Hide Chapters: Скрыть разделы
     Hide Upcoming Premieres: Скрыть предстоящие премьеры
-    Hide Channels Placeholder: Название или идентификатор канала
+    Hide Channels Placeholder: Идентификатор канала
     Hide Channels: Скрыть видео с каналов
     Display Titles Without Excessive Capitalisation: Отображать заголовки без чрезмерного
       использования заглавных букв
@@ -426,6 +523,14 @@ Settings:
     Hide Subscriptions Live: Скрыть трансляции из подписок
     Hide Channel Podcasts: Скрыть звукопередачи канала
     Hide Subscriptions Shorts: Скрыть короткие видео из подписок
+    Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
+    Hide Channels Invalid: Указанный идентификатор канала недействителен
+    Hide Subscriptions Community: Скрыть сообщество подписок
+    Hide Channels Disabled Message: Некоторые каналы были заблокированы по идентификатору
+      и не были обработаны. Функция заблокирована, пока эти идентификаторы обновляются
+    Hide Channels Already Exists: Идентификатор канала уже существует
+    Hide Channels API Error: Ошибка при получении пользователя с предоставленным идентификатором.
+      Пожалуйста, проверьте еще раз, правильно ли указан идентификатор.
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -469,6 +574,7 @@ Settings:
     Players:
       None:
         Name: Нет
+    Ignore Default Arguments: Не учитывать аргументы по умолчанию
   Download Settings:
     Download Settings: Скачивание
     Ask Download Path: Запрашивать путь при скачивании
@@ -497,6 +603,7 @@ Settings:
       настройкам
     Set Password: Установить пароль
     Remove Password: Удалить пароль
+  Expand All Settings Sections: Расширить все разделы настроек
 About:
   #On About page
   About: 'О приложении'
@@ -760,6 +867,9 @@ Video:
   Upcoming: Предстоящее
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
     прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
+  Pause on Current Video: Остановиться на текущем видео
+  Hide Channel: Скрыть канал
+  Unhide Channel: Показать канал
 Videos:
   #& Sort By
   Sort By:
@@ -836,6 +946,7 @@ Comments:
   Member: Участник
   View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
   Hearted: С сердечком
+  Subscribed: Подписан(а)
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -844,7 +955,7 @@ Local API Error (Click to copy): 'Ошибка локального набора
 Invidious API Error (Click to copy): 'Ошибка набора функций Invidious (Нажмите, чтобы
   скопировать)'
 Falling back to Invidious API: 'Возврат к набору функций Invidious'
-Falling back to the local API: 'Возврат к локальному набору функций'
+Falling back to Local API: 'Возврат к локальному набору функций'
 Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
 Loop is now disabled: 'Повторение теперь отключено'
 Loop is now enabled: 'Повторение теперь включено'
@@ -902,6 +1013,9 @@ Profile:
   Profile Filter: Фильтр профилей
   Profile Settings: Настройки профиля
   Toggle Profile List: Переключить список профилей
+  Create Profile Name: Создать название учётки
+  Profile Name: Название учётки
+  Edit Profile Name: Изменить название учётки
 The playlist has been reversed: Подборка была перевёрнута
 A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
   {blogTitle}. Нажмите здесь, чтобы посмотреть подробности
@@ -975,14 +1089,16 @@ Tooltips:
       позволяющий открыть видео (подборку, если поддерживается) во внешнем проигрывателе.
       Внимание, настройки Invidious не применяются ко внешним проигрывателям.
     DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
+    Ignore Default Arguments: 'Не передавать никаких аргументов внешнему проигрывателю
+      по умолчанию, кроме адреса видео (напр.: частота проигрывания, адрес списка
+      воспроизведения и т. д.). Пользовательские аргументы всё ещё будут передаваться.'
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский
       кэш изображений в памяти. Приведёт к увеличению использования оперативной памяти.
   Distraction Free Settings:
-    Hide Channels: Введите название канала или его идентификатор, чтобы скрыть все
-      видео, подборки и сам канал от показа в поиске, трендах, наиболее просматриваемых
-      и желательных. Введённое название канала должно полностью совпадать и учитывать
-      регистр.
+    Hide Channels: Введите идентификатор канала, чтобы скрыть все видео, плейлисты
+      и сам канал от появления в результатах поиска, трендах, самых популярных и рекомендуемых.
+      Введенный идентификатор канала должен полностью совпадать и чувствителен к регистру.
     Hide Subscriptions Live: Эта настройка переопределена общей настройкой «{appWideSetting}»,
       в подразделе «{subsection}» раздела «{settingsSection}»
   SponsorBlock Settings:
@@ -1012,13 +1128,6 @@ Downloading failed: Возникла проблема с загрузкой «{v
 Screenshot Success: Снимок экрана сохранён как «{filePath}»
 Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
-Age Restricted:
-  The currently set default instance is {instance}: У {instance} ограничение по возрасту
-  Type:
-    Channel: Канал
-    Video: Видео
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} имеет ограничение по
-    возрасту'
 Channels:
   Title: Список каналов
   Count: '{number} канал(ов) найдено.'
@@ -1044,3 +1153,9 @@ Hashtag:
   Hashtag: Распределительная метка
   This hashtag does not currently have any videos: Этой распределительной метки пока
     нет ни у одного видео
+Playlist will not pause when current video is finished: Подборка не будет останавливаться,
+  если текущее видео закончится
+Playlist will pause when current video is finished: Подборка остановится, если текущее
+  видео закончится
+Channel Unhidden: '{channel} удалён из канального фильтровщика'
+Channel Hidden: '{channel} добавлен в канальный фильтровщик'

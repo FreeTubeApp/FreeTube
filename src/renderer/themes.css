@@ -5,7 +5,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink {
+.hotPink,
+.nordic {
   --primary-input-color: rgba(0, 0, 0, 0.50);
 }
 
@@ -15,7 +16,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink {
+.hotPink,
+.nordic {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -27,7 +29,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.pastelPink {
+.pastelPink,
+.nordic {
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
@@ -37,7 +40,8 @@
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.nordic {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -56,7 +60,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.hotPink {
+.hotPink,
+.nordic {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -67,7 +72,7 @@
   --primary-shadow-color: rgba(232, 232, 232, 1);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
-  --favorite-icon-color: #FFD600;
+  --favorite-icon-color: #00CC00;
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
   --scrollbar-color: #CCCCCC;
@@ -84,7 +89,7 @@
   --tertiary-text-color: #999;
   --title-color: #EEEEEE;
   --bg-color: #212121;
-  --favorite-icon-color: #FFEA00;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
   --scrollbar-color: #414141;
@@ -101,7 +106,7 @@
     --tertiary-text-color: #EEEEEE;
     --title-color: #EEEEEE;
     --bg-color: #000000;
-    --favorite-icon-color: #FFEA00;
+    --favorite-icon-color: #00FF00;
     --card-bg-color: #000000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
     --scrollbar-color: #515151;
@@ -132,7 +137,7 @@
   --tertiary-text-color: #e5e8f3;
   --title-color: #BD93F9;
   --bg-color: #282A36;
-  --favorite-icon-color: #F1FA8C;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #33353F;
   --secondary-card-bg-color: #282A36;
   --scrollbar-color: #44475A;
@@ -151,7 +156,7 @@
   --tertiary-text-color: #a6adc8;
   --title-color: var(--accent-color);
   --bg-color: #1e1e2e;
-  --favorite-icon-color: #f9e2af;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #181825;
   --secondary-card-bg-color: #1e1e2e;
   --scrollbar-color: #313244;
@@ -192,7 +197,7 @@
   --tertiary-text-color: #FFFF;
   --title-color: #000000;
   --bg-color: #ff008a;
-  --favorite-icon-color: #FFEA00;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #DE1C85;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
   --scrollbar-color: #FFFFFF;
@@ -235,6 +240,25 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .hotPink a:hover {
   text-decoration: underline;
+}
+
+.nordic {
+  --primary-text-color: #EEEEEE;
+  --secondary-text-color: #ddd;
+  --tertiary-text-color: #EEEEEE;
+  --title-color: #EEEEEE;
+  --bg-color: #2b2f3a;
+  --favorite-icon-color: #00FF00;
+  --card-bg-color: #2e3440;
+  --secondary-card-bg-color: rgba(59, 66, 82, 0.75);
+  --scrollbar-color: #4b566a;
+  --scrollbar-color-hover: #4b566a;
+  --side-nav-color: #2e3440;
+  --side-nav-hover-color: #3b4252;
+  --side-nav-active-color: #3b4252;
+  --search-bar-color: #4b566a;
+  --logo-icon: url("../../_icons/iconNordicLightSmall.png");
+  --logo-text: url("../../_icons/textNordicLightSmall.png");
 }
 
 .mainRed,

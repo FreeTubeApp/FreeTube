@@ -1,10 +1,14 @@
 import { defineComponent } from 'vue'
+import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { formatNumber } from '../../helpers/utils'
 import { parseLocalSubscriberCount } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'FtListChannel',
+  components: {
+    'ft-subscribe-button': FtSubscribeButton
+  },
   props: {
     data: {
       type: Object,
@@ -82,9 +86,14 @@ export default defineComponent({
       this.channelName = this.data.author
       this.id = this.data.authorId
       this.subscriberCount = this.data.subCount
-      this.videoCount = this.data.videoCount
-      this.formattedVideoCount = formatNumber(this.data.videoCount)
       this.formattedSubscriberCount = formatNumber(this.data.subCount)
+      this.handle = this.data.channelHandle
+      if (this.handle != null) {
+        this.videoCount = null
+      } else {
+        this.videoCount = this.data.videoCount
+        this.formattedVideoCount = formatNumber(this.data.videoCount)
+      }
       this.description = this.data.description
     }
   }

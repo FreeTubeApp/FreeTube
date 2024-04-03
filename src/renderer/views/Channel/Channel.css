@@ -69,6 +69,7 @@
   display: flex;
   gap: 30px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .subscribeButton {
@@ -86,8 +87,11 @@
   flex: 1 1 0%;
 }
 
-.sortSelect {
-  margin-inline-start: auto;
+.select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-block-end: 10px;
 }
 
 .channelInfoTabs {
@@ -103,7 +107,8 @@
 
 .tabs {
   display: flex;
-  flex: 0 1 33%;
+  flex: 0 1 66%;
+  flex-wrap: wrap;
 }
 
 .tab {
@@ -201,7 +206,6 @@
 
   .tabs {
     flex: 1 1 0;
-    flex-wrap: wrap;
   }
 
   .tab {
@@ -213,6 +217,23 @@
   }
 }
 
+@media only screen and (max-width: 680px) {
+  .channelInfo {
+    flex-direction: column;
+    margin-block: 20px 10px;
+  }
+  .card {
+    max-inline-size: none;
+    inline-size: 100%;
+  }
+  .channelInfoActionsContainer {
+    flex-direction: row-reverse;
+    justify-content: left;
+    gap: 10px;
+    margin-block-start: 5px;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .channelInfo {
     justify-content: center;
@@ -220,7 +241,11 @@
   }
 
   .channelInfoActionsContainer {
-    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .channelLineContainer {
+    padding-inline-start: 0;
   }
 
   .thumbnailContainer {

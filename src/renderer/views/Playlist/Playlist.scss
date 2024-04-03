@@ -1,0 +1,96 @@
+.routerView {
+  display: flex;
+}
+
+.playlistInfo {
+  background-color: var(--card-bg-color);
+  box-sizing: border-box;
+  block-size: calc(100vh - 132px);
+  margin-inline-end: 1em;
+  padding: 10px;
+  position: sticky;
+  inset-block-start: 96px;
+  /* This is needed to make prompt always above video entries */
+  /* Value being too high would block search suggestions */
+  z-index: 1;
+  inline-size: 30%;
+
+  &.promptOpen {
+    // Otherwise sidebar would be above the prompt
+    z-index: 200;
+  }
+}
+
+.playlistItems {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  margin: 0;
+  padding: 10px;
+  inline-size: 60%;
+}
+
+.playlistItem {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.playlistItem-move ,
+.playlistItem-enter-active,
+.playlistItem-leave-active {
+  transition: all 0.2s ease;
+
+  // Hide action buttons during transitions
+  //
+  // The class for icon container is mainly styled in `_ft-list-item.scss`
+  // But the transition related classes are all on container elements
+  // So `:deep` is used
+  :deep(.ft-list-item .videoThumbnail .playlistIcons) {
+    display: none;
+  }
+  // Prevent link click
+  :deep(.ft-list-item .videoThumbnail .thumbnailLink) {
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+    pointer-events: none;
+  }
+}
+.playlistItem-enter, .playlistItem-leave-to {
+  opacity: 0;
+  transform: translate(calc(10% * var(--horizontal-directionality-coefficient)));
+}
+
+.loadNextPageWrapper {
+  /* about the same height as the button */
+  max-block-size: 7vh;
+}
+
+:deep(.videoThumbnail) {
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+@media only screen and (max-width: 850px) {
+  .routerView {
+    flex-direction: column;
+  }
+
+  .playlistInfo {
+    box-sizing: border-box;
+    position: relative;
+    inset-block-start: 0;
+    z-index: 1;
+    block-size: auto;
+    inline-size: 100%;
+  }
+
+  .playlistItems {
+    box-sizing: border-box;
+    inline-size: 100%;
+  }
+}
+
+.message {
+  color: var(--tertiary-text-color);
+}

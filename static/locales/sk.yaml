@@ -7,17 +7,17 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Súbor'
 Quit: 'Ukončiť'
-Edit: 'Upravovať'
+Edit: 'Upraviť'
 Undo: 'Vrátiť späť'
 Redo: 'Znovu vykonať'
-Cut: 'Strih'
+Cut: 'Vystrihnúť'
 Copy: 'Kopírovať'
 Paste: 'Vložiť'
 Delete: 'Vymazať'
 Select all: 'Vybrať všetko'
 Reload: 'Obnoviť'
 Force Reload: 'Vynútiť obnovenie'
-Toggle Developer Tools: 'Spínať nástroje pre vývojárov'
+Toggle Developer Tools: 'Prepnúť vývojárske nástroje'
 Actual size: 'Skutočná veľkosť'
 Zoom in: 'Priblížiť'
 Zoom out: 'Oddialiť'
@@ -25,8 +25,8 @@ Toggle fullscreen: 'Prepnúť na celú obrazovku'
 Window: 'Okno'
 Minimize: 'Minimalizovať'
 Close: 'Zavrieť'
-Back: 'Späť'
-Forward: 'Vpred'
+Back: 'Dozadu'
+Forward: 'Dopredu'
 
 # Global
 # Anything shared among components / views should be put here
@@ -34,16 +34,23 @@ Global:
   Videos: 'Videá'
 
 # Search Bar
-Search / Go to URL: 'Hľadať / Ísť na adresu URL'
+  Counts:
+    Video Count: 1 video | {count} videí
+    Subscriber Count: 1 odberateľ | {count} odberateľov
+    Channel Count: 1 kanál | {count} kanálov
+  Live: Naživo
+  Community: Komunita
+  Shorts: Shorts
+Search / Go to URL: 'Hľadať / Ísť na URL adresu'
   # In Filter Button
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
   Sort By:
     Sort By: 'Triediť podľa'
-    Most Relevant: 'Najrelevantnejšie'
+    Most Relevant: 'Najvhodnejšie'
     Rating: 'Hodnotenie'
     Upload Date: 'Dátum nahratia'
-    View Count: 'Počet zhliadnutí'
+    View Count: 'Počet zobrazení'
   Time:
     Time: 'Čas'
     Any Time: 'Kedykoľvek'
@@ -53,37 +60,36 @@ Search Filters:
     This Month: 'Tento mesiac'
     This Year: 'Tento rok'
   Type:
-    Type: 'Typ'
-    All Types: 'Všetky druhy'
+    Type: 'Druh'
+    All Types: 'Všetky'
     Videos: 'Videá'
     Channels: 'Kanály'
     #& Playlists
     Movies: Filmy
   Duration:
     Duration: 'Trvanie'
-    All Durations: 'Všetky trvania'
+    All Durations: 'Všetky'
     Short (< 4 minutes): 'Krátke (menej ako 4 minúty)'
     Long (> 20 minutes): 'Dlhé (viac ako 20 minút)'
   # On Search Page
     Medium (4 - 20 minutes): Stredné (4 až 20 minút)
   Search Results: 'Výsledky vyhľadávania'
-  Fetching results. Please wait: 'Načítavajú sa výsledky. Prosím čakajte'
+  Fetching results. Please wait: 'Načítavam výsledky. Prosím čakajte'
   Fetch more results: 'Načítať viac výsledkov'
 # Sidebar
-  There are no more results for this search: Pre toto hľadanie nie sú k dispozícii
-    žiadne ďalšie výsledky
+  There are no more results for this search: Pre toto hľadanie nie sú ďalšie výsledky
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
-  Latest Subscriptions: 'Najnovšie Odbery'
+  Latest Subscriptions: 'Najnovšie odbery'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Váš
-    zoznam odberov je momentálne prázdny. Začnite pridávať odbery aby sa tu zobrazili.'
+    zoznam odberov je prázdny. Začnite pridávať odbery aby sa tu zobrazili.'
   'Getting Subscriptions.  Please wait.': 'Získavanie odberov. Prosím čakajte.'
   Load More Videos: Načítať viac videí
-  Refresh Subscriptions: Načítať odbery znovu
-  'Getting Subscriptions. Please wait.': Nahrávam odbery, prosím počkajte.
+  Refresh Subscriptions: Obnoviť odbery
+  'Getting Subscriptions. Please wait.': Sťahujem odbery, prosím čakajte.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tento
-    profil má mnoho odberateľov. Vždy použite RSS, aby ste obišli limit
+    profil má priveľa odberov. Vynucujem RSS na obídenie limitov
 Trending:
   Trending: 'Trendy'
   Default: Predvolené
@@ -91,30 +97,30 @@ Trending:
   Movies: Filmy
   Trending Tabs: Karty trendov
   Gaming: Hry
-Most Popular: 'Najpopulárnejšie'
-Playlists: 'Zoznamy'
+Most Popular: 'Populárne'
+Playlists: 'Playlist'
 User Playlists:
-  Your Playlists: 'Vaše zoznamy'
+  Your Playlists: 'Tvoj playlist'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vaše
     uložené videá sú prázdne. Kliknutím na tlačidlo uložiť v rohu videa ho tu zobrazíte
-  Playlist Message: Táto stránka neodráža plne funkčné zoznamy videí. Uvádza iba zoznam
-    videí, ktoré ste uložili alebo zaradili medzi obľúbené. Po dokončení práce sa
-    všetky videá, ktoré sa tu nachádzajú, migrujú do zoznamu „Obľúbené“.
+  Playlist Message: Zatiaľ tu nie sú plne funkčné playlisty. Sú tu len videá, ktoré
+    ste uložili medzi obľúbené. Keď playlisty plne implementujeme do aplikácie, presunú
+    sa do „Obľúbené“.
 History:
   # On History Page
   History: 'História'
-  Watch History: 'História pozeraných videí'
+  Watch History: 'Pozreté videá'
   Your history list is currently empty.: 'Váša história je momentálne prázdna.'
 Settings:
   # On Settings Page
   Settings: 'Nastavenia'
   General Settings:
     General Settings: 'Všeobecné nastavenia'
-    Fallback to Non-Preferred Backend on Failure: 'Záloha k nepreferovanému backendu
-      pri poruche'
-    Enable Search Suggestions: 'Povoliť návrhy na vyhľadávanie'
+    Fallback to Non-Preferred Backend on Failure: 'Pri chybe prepnúť na alternatívny
+      backend'
+    Enable Search Suggestions: 'Zapnúť návrhy vyhľadávania'
     Default Landing Page: 'Predvolená vstupná stránka'
-    Locale Preference: 'Predvoľba miestneho nastavenia'
+    Locale Preference: 'Nastaviť jazyk'
     Preferred API Backend:
       Preferred API Backend: 'Preferované API Backend'
       Local API: 'Lokálne API'
@@ -133,10 +139,10 @@ Settings:
       (Predvolená je https://invidious.snopyta.org)'
     Region for Trending: 'Región pre trendy'
         #! List countries
-    Check for Latest Blog Posts: Skontrolovať najnovšie príspevky na blogu
-    Check for Updates: Skontrolovať aktualizácie
+    Check for Latest Blog Posts: Kontrolovať najnovšie príspevky na blogu
+    Check for Updates: Kontrolovať aktualizácie
     View all Invidious instance information: Zobraziť všetko info o Invidious inštancií
-    System Default: Určené Systémom
+    System Default: Podľa systému
     Set Current Instance as Default: Nastaviť Aktuálne vybranú inštanciu ako predvolenú
     External Link Handling:
       External Link Handling: Spracovanie externých odkazov
@@ -325,7 +331,7 @@ Settings:
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
     Automatically Remove Video Meta Files: Automaticky Odstrániť Metasúbory Videa
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia
-    požaduje reštartovanie aby sa prejavili zmeny. Reštartovať a aplikovať zmeny?
+    požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri
       získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
@@ -465,8 +471,8 @@ Video:
     momentálne podporovaný.'
   'Chat is disabled or the Live Stream has ended.': 'Chat je zakázaný alebo sa priamy
     prenos skončil.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat je
-    povolený. Po odoslaní sa tu zobrazia četové správy.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat je povolený.
+    Po odoslaní sa tu zobrazia četové správy.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
     Chat momentálne nie je podporovaný pomocou API Invidious. Vyžaduje sa priame pripojenie
     k službe YouTube.'
@@ -528,7 +534,7 @@ Video:
   Video has been saved: Video uložené
   Save Video: Uložiť Video
   Sponsor Block category:
-    music offtopic: hudba ostatné
+    music offtopic: Hudba offtopic
     interaction: Interakcia
     self-promotion: Samopropagácia
     outro: Záver
@@ -640,7 +646,7 @@ Up Next: 'Nasledujúci'
 Local API Error (Click to copy): 'Local API chyba (kliknutím skopírujete)'
 Invidious API Error (Click to copy): 'Invidious API chyba (kliknutím skopírujete)'
 Falling back to Invidious API: 'Návrat k Invidious API'
-Falling back to the local API: 'Návrat k local API'
+Falling back to Local API: 'Návrat k local API'
 Subscriptions have not yet been implemented: 'Odbery ešte nie sú implementované'
 Loop is now disabled: 'Opakovanie je teraz deaktivované'
 Loop is now enabled: 'Opakovanie je teraz povolené'
@@ -692,9 +698,9 @@ Tooltips:
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov.
       Lokálne API je zabudovaný extraktor. Invidious API vyžaduje na pripojenie server
       Invidious.
-    External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý\
-      \ nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz,\
-      \ na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
+    External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý
+      nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz,
+      na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
   Privacy Settings:
     Remove Video Meta Files: Ak je povolené, FreeTube po zatvorení stránky prezerania
       automaticky odstráni metasúbory vytvorené počas prehrávania videa.
@@ -751,12 +757,12 @@ Profile:
   Profile Select: Vyberte profil
   Profile Filter: Filter Profilov
   Profile Settings: Nastavenia profilu
-A new blog is now available, {blogTitle}. Click to view more: 'Nový príspevok na blogu
-  je k dispozícií, {blogTitle}. Klikni pre viac informácií'
-Download From Site: Stiahnuť zo stránky
-Version {versionNumber} is now available!  Click for more details: Je k dispozícií
-  verzia {versionNumber} ! Klikni pre viac informácií
-Locale Name: slovenčina
+A new blog is now available, {blogTitle}. Click to view more: 'Dostupný nový článok
+  na blogu: {blogTitle}. Klikni pre viac informácií'
+Download From Site: Stiahnuť z webu
+Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber}
+  je k dispozícii! Klikni pre viac informácií
+Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa za chvíľu. Kliknutím zrušíte.
   | Prehráva sa ďalšie video o {nextVideoInterval} sekundu. Kliknutím zrušíte. | Prehráva
   sa ďalšie video o {nextVideoInterval} sekúnd. Kliknutím zrušíte.
@@ -765,11 +771,11 @@ Hashtags have not yet been implemented, try again later: Neznámy typ adresy URL
   v aplikácii sa nedá otvoriť
 Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube,
   v aplikácii sa nedá otvoriť
-Open New Window: Otvoriť Nové Okno
+Open New Window: Otvoriť nové okno
 Default Invidious instance has been set to {instance}: Predvolená Invidious inštancia
   bola nastavená na {instance}
 Search Bar:
-  Clear Input: Čistý vstup
+  Clear Input: Vymazať
 Default Invidious instance has been cleared: Predvolená Invidious inštancia bola vymazaná
 External link opening has been disabled in the general settings: V nastaveniach bolo
   vypnuté otváranie odkazov v externých aplikáciach
@@ -777,7 +783,7 @@ Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?
 New Window: Nové okno
 Channels:
   Channels: Kanály
-  Title: List kanálov
-  Count: '{číslo} kanál(e) sa nenašli.'
-  Search bar placeholder: Vyhľadávať kanále
-Preferences: Preferencie
+  Title: Zoznam kanálov
+  Count: 'Nájdených {number} kanálov.'
+  Search bar placeholder: Vyhľadať kanály
+Preferences: Predvoľby

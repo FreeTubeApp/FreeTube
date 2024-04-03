@@ -1,11 +1,14 @@
 <template>
   <div>
     <div
+      ref="iconButton"
       class="colorOption"
       :title="$t('Profile.Toggle Profile List')"
       :style="{ background: activeProfile.bgColor, color: activeProfile.textColor }"
       tabindex="0"
       role="button"
+      :aria-expanded="profileListShown"
+      aria-controls="profileSelectorList"
       @click="toggleProfileList"
       @mousedown="handleIconMouseDown"
       @keydown.space.prevent="toggleProfileList"
@@ -19,10 +22,12 @@
     </div>
     <ft-card
       v-show="profileListShown"
+      id="profileSelectorList"
       ref="profileList"
       class="profileList"
       tabindex="-1"
-      @focusout="handleProfileListFocusOut"
+      @focusout.native="handleProfileListFocusOut"
+      @keydown.native.esc.stop="handleProfileListEscape"
     >
       <h3
         id="profileListTitle"
@@ -46,7 +51,7 @@
           :key="index"
           class="profile"
           :aria-labelledby="'profile-' + index + '-name'"
-          aria-selected="false"
+          :aria-selected="isActiveProfile(profile)"
           tabindex="0"
           role="option"
           @click="setActiveProfile(profile)"
@@ -66,7 +71,7 @@
             :id="'profile-' + index + '-name'"
             class="profileName"
           >
-            {{ profile.name }}
+            {{ translatedProfileName(profile) }}
           </p>
         </div>
       </div>

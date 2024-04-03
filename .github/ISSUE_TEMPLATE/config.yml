@@ -1,1 +1,17 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url:  https://github.com/FreeTubeApp/FreeTube/discussions/categories/general
+    about: View discussions or start one yourself
+  - name: Questions
+    url:  https://github.com/FreeTubeApp/FreeTube/discussions/categories/q-a
+    about: Ask and answer questions
+  - name: Matrix Community
+    url: https://matrix.to/#/+freetube:matrix.org
+    about: Join our Matrix chatroom - "Note: Bugs and Feature requests should be made on GitHub and not in the Matrix room"
+  - name: Translate FreeTube
+    url: https://hosted.weblate.org/engage/free-tube/
+    about: Help translate FreeTube on Weblate
+  - name: FreeTube Documentation
+    url: https://docs.freetubeapp.io/
+    about: View the Documentation to find all relevant information about FreeTube

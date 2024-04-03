@@ -5,23 +5,30 @@ import router from './router/index'
 import store from './store/index'
 import i18n from './i18n/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
+
+import { register as registerSwiper } from 'swiper/element'
+
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
 import {
   faAngleDown,
+  faAngleUp,
   faArrowDown,
   faArrowLeft,
   faArrowRight,
+  faArrowUp,
   faBars,
   faBookmark,
   faCheck,
   faChevronRight,
   faCircleUser,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
   faCopy,
   faDownload,
+  faEdit,
   faEllipsisH,
   faEllipsisV,
   faEnvelope,
@@ -40,20 +47,23 @@ import {
   faHistory,
   faInfoCircle,
   faLanguage,
+  faLink,
+  faLinkSlash,
   faList,
   faNewspaper,
   faPause,
   faPlay,
+  faPlus,
   faQuestionCircle,
   faRandom,
   faRetweet,
   faRss,
   faSatelliteDish,
+  faSave,
   faSearch,
   faShareAlt,
   faSlidersH,
   faSortDown,
-  faStar,
   faStepBackward,
   faStepForward,
   faSync,
@@ -62,6 +72,7 @@ import {
   faThumbtack,
   faTimes,
   faTimesCircle,
+  faTrash,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -81,19 +92,23 @@ Vue.config.productionTip = process.env.NODE_ENV === 'development'
 library.add(
   // solid icons
   faAngleDown,
+  faAngleUp,
   faArrowDown,
   faArrowLeft,
   faArrowRight,
+  faArrowUp,
   faBars,
   faBookmark,
   faCheck,
   faChevronRight,
   faCircleUser,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
   faCopy,
   faDownload,
+  faEdit,
   faEllipsisH,
   faEllipsisV,
   faEnvelope,
@@ -112,20 +127,23 @@ library.add(
   faHistory,
   faInfoCircle,
   faLanguage,
+  faLink,
+  faLinkSlash,
   faList,
   faNewspaper,
   faPause,
   faPlay,
+  faPlus,
   faQuestionCircle,
   faRandom,
   faRetweet,
   faRss,
   faSatelliteDish,
+  faSave,
   faSearch,
   faShareAlt,
   faSlidersH,
   faSortDown,
-  faStar,
   faStepBackward,
   faStepForward,
   faSync,
@@ -134,6 +152,7 @@ library.add(
   faThumbtack,
   faTimes,
   faTimesCircle,
+  faTrash,
   faUsers,
 
   // brand icons
@@ -142,6 +161,8 @@ library.add(
   faMastodon,
   faMonero
 )
+
+registerSwiper()
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 

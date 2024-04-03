@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 
 import SubscriptionsVideos from '../../components/subscriptions-videos/subscriptions-videos.vue'
 import SubscriptionsLive from '../../components/subscriptions-live/subscriptions-live.vue'
@@ -7,7 +8,6 @@ import SubscriptionsCommunity from '../../components/subscriptions-community/sub
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Subscriptions',
@@ -18,9 +18,6 @@ export default defineComponent({
     'subscriptions-community': SubscriptionsCommunity,
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox
-  },
-  inject: {
-    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -148,6 +145,10 @@ export default defineComponent({
         this.$refs[visibleTabs[index]].focus()
         this.showOutlines()
       }
-    }
+    },
+
+    ...mapActions([
+      'showOutlines'
+    ])
   }
 })
