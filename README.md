@@ -78,6 +78,10 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 
 ## Download Links
 ### Official Downloads
+
+> [!CAUTION]
+> FreeTube does not support Windows 7/8/8.1 and macOS 10.13 / 10.14
+
 * [GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
 
 * [FreeTube Website](https://freetubeapp.io/#download)
