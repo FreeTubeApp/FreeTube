@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Эта часть приложения ещё не готова. Вернитесь позже, когда выйдет новая версия.
+  Эта часть приложения ещё не готова. Вернитесь позже, когда появится новая версия.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -170,8 +170,8 @@ User Playlists:
       You haven't selected any playlist yet.: Ещё не выбрана ни одна подборка.
       "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку
         | {videoCount} видео добавлено в 1 подборку
-    Select a playlist to add your N videos to: Выбери подборку на добавление твоего
-      видео | Выбери подборку на добавление твоих {videoCount} видео в неё
+    Select a playlist to add your N videos to: Выбери подборку на добавление видео
+      | Выбери подборку на добавление {videoCount} видео в неё
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Подборка {playlistName}
