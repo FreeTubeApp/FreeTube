@@ -531,6 +531,10 @@ Settings:
     Hide Channels Already Exists: Идентификатор канала уже существует
     Hide Channels API Error: Ошибка при получении пользователя с предоставленным идентификатором.
       Пожалуйста, проверьте еще раз, правильно ли указан идентификатор.
+    Hide Videos and Playlists Containing Text: Скрыть видео и подборки, содержащие
+      текст
+    Hide Videos and Playlists Containing Text Placeholder: Слово, часть слова, или
+      выражение
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -564,6 +568,7 @@ Settings:
       Do Nothing: Ничего не делать
     Category Color: Цвет категории
     UseDeArrowTitles: Использовать заголовки видео «DeArrow»
+    UseDeArrowThumbnails: Использовать DeArrow для заставок
   External Player Settings:
     Custom External Player Arguments: Аргументы внешнего проигрывателя
     Custom External Player Executable: Исполняемый файл внешнего проигрывателя
