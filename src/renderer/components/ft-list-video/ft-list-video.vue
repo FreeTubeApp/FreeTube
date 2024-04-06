@@ -14,11 +14,7 @@
       <router-link
         class="thumbnailLink"
         tabindex="-1"
-        aria-hidden="true"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
-        }"
+        :to="watchPageLinkTo"
       >
         <img
           :src="thumbnail"
@@ -28,14 +24,14 @@
         >
       </router-link>
       <div
-        v-if="isLive || duration !== '0:00'"
+        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
           live: isLive,
           upcoming: isUpcoming
         }"
       >
-        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : duration) }}
+        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : displayDuration) }}
       </div>
       <ft-icon-button
         v-if="externalPlayer !== ''"
@@ -47,17 +43,60 @@
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
         @click="handleExternalPlayer"
       />
-      <ft-icon-button
-        v-if="!isUpcoming"
-        :title="$t('Video.Save Video')"
-        :icon="['fas', 'star']"
-        class="favoritesIcon"
-        :class="{ favorited: favoriteIconTheme === 'base favorite'}"
-        :theme="favoriteIconTheme"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="toggleSave"
-      />
+      <span class="playlistIcons">
+        <ft-icon-button
+          v-if="showPlaylists"
+          ref="addToPlaylistIcon"
+          :title="$t('User Playlists.Add to Playlist')"
+          :icon="['fas', 'plus']"
+          class="addToPlaylistIcon"
+          :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
+          :title="quickBookmarkIconText"
+          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'clock']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+            alwaysVisible: alwaysShowAddToPlaylistButton,
+          }"
+          :theme="quickBookmarkIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleQuickBookmarked"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canMoveVideoUp"
+          :title="$t('User Playlists.Move Video Up')"
+          :icon="['fas', 'arrow-up']"
+          class="upArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-up')"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canMoveVideoDown"
+          :title="$t('User Playlists.Move Video Down')"
+          :icon="['fas', 'arrow-down']"
+          class="downArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-down')"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canRemoveFromPlaylist"
+          :title="$t('User Playlists.Remove from Playlist')"
+          :icon="['fas', 'trash']"
+          class="trashIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('remove-from-playlist')"
+        />
+      </span>
       <div
         v-if="addWatchedStyle"
         class="videoWatched"
@@ -65,7 +104,7 @@
         {{ $t("Video.Watched") }}
       </div>
       <div
-        v-if="watched"
+        v-if="historyEntryExists"
         class="watchedProgressBar"
         :style="{inlineSize: progressPercentage + '%'}"
       />
@@ -73,10 +112,7 @@
     <div class="info">
       <router-link
         class="title"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
-        }"
+        :to="watchPageLinkTo"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
@@ -90,20 +126,20 @@
         >
           <span>{{ channelName }}</span>
         </router-link>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount">
-            <template v-if="channelId !== null"> • </template>
-            {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-          </span>
-        </template>
+        <span v-else-if="channelName !== null">
+          {{ channelName }}
+        </span>
         <span
-          v-if="uploadedTime !== '' && !isLive && !inHistory"
+          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
+          class="viewCount"
+        >
+          <template v-if="channelId !== null || channelName !== null"> • </template>
+          {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+        </span>
+        <span
+          v-if="uploadedTime !== '' && !isLive"
           class="uploadedTime"
         > • {{ uploadedTime }}</span>
-        <span
-          v-if="inHistory"
-          class="uploadedTime"
-        > • {{ publishedText }}</span>
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
@@ -112,7 +148,7 @@
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
-        title="More Options"
+        :title="$t('Video.More Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"
@@ -121,7 +157,8 @@
         @click="handleOptionsClick"
       />
       <p
-        v-if="listType !== 'grid' && appearance === 'result'"
+        v-if="description && ((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
+          appearance === 'result'"
         class="description"
         v-html="description"
       />

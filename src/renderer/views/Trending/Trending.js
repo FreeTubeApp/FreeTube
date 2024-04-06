@@ -6,7 +6,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -146,6 +146,8 @@ export default defineComponent({
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
+        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
+
         this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
@@ -183,6 +185,7 @@ export default defineComponent({
       switch (event.key) {
         case 'r':
         case 'R':
+        case 'F5':
           if (!this.isLoading) {
             this.getTrendingInfo(true)
           }

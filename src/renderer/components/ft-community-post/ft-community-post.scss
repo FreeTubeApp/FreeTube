@@ -14,6 +14,12 @@
   box-sizing: border-box;
 }
 
+.hiddenVideo {
+  font-style: italic;
+  opacity: 0.85;
+  text-align: center;
+}
+
 .communityImage {
   block-size: 100%;
   inline-size: 100%;
@@ -134,4 +140,8 @@
 .ft-list-item.grid {
   min-block-size: 0 !important;
   padding-block-end: 20px;
+}
+
+.sliderContainer {
+  display: grid;
 }

@@ -32,6 +32,7 @@ Back: Back
 Forward: Forward
 Open New Window: Open New Window
 Go to page: Go to {page}
+Close Banner: Close Banner
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -53,6 +54,8 @@ Global:
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
     Watching Count: 1 watching | {count} watching
+  Input Tags:
+    Length Requirement: Tag must be at least {number} characters long
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -138,8 +141,96 @@ User Playlists:
     videos currently here will be migrated to a 'Favorites' playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
+  You have no playlists. Click on the create new playlist button to create a new one.: You have no playlists. Click on the create new playlist button to create a new one.
   Empty Search Message: There are no videos in this playlist that matches your search
-  Search bar placeholder: Search in Playlist
+  Search bar placeholder: Search for Playlists
+  Playlists with Matching Videos: Playlists with Matching Videos
+
+  This playlist currently has no videos.: This playlist currently has no videos.
+
+  Create New Playlist: Create New Playlist
+
+  Add to Playlist: Add to Playlist
+  Add to Favorites: Add to {playlistName}
+  Remove from Favorites: Remove from {playlistName}
+
+  Move Video Up: Move Video Up
+  Move Video Down: Move Video Down
+  Remove from Playlist: Remove from Playlist
+
+  Playlist Name: Playlist Name
+  Playlist Description: Playlist Description
+
+  Save Changes: Save Changes
+  Cancel: Cancel
+  Edit Playlist Info: Edit Playlist Info
+  Copy Playlist: Copy Playlist
+  Remove Watched Videos: Remove Watched Videos
+  Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
+  Disable Quick Bookmark: Disable Quick Bookmark
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are you sure you want to remove all watched videos from this playlist? This cannot be undone.
+  Delete Playlist: Delete Playlist
+  Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
+
+  Sort By:
+    Sort By: Sort By
+
+    NameAscending: 'A-Z'
+    NameDescending: 'Z-A'
+
+    LatestCreatedFirst: 'Recently Created'
+    EarliestCreatedFirst: 'Earliest Created'
+
+    LatestUpdatedFirst: 'Recently Updated'
+    EarliestUpdatedFirst: 'Earliest Updated'
+
+    LatestPlayedFirst: 'Recently Played'
+    EarliestPlayedFirst: 'Earliest Played'
+
+  SinglePlaylistView:
+    Search for Videos: Search for Videos
+
+    Toast:
+      This video cannot be moved up.: This video cannot be moved up.
+      This video cannot be moved down.: This video cannot be moved down.
+      Video has been removed: Video has been removed
+      There was a problem with removing this video: There was a problem with removing this video
+
+      This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
+      Quick bookmark disabled: Quick bookmark disabled
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
+      Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
+
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Some videos in the playlist are not loaded yet. Click here to copy anyway.
+      Playlist name cannot be empty. Please input a name.: Playlist name cannot be empty. Please input a name.
+      Playlist has been updated.: Playlist has been updated.
+      There was an issue with updating this playlist.: There was an issue with updating this playlist.
+      "{videoCount} video(s) have been removed": "1 video has been removed | {videoCount} videos have been removed"
+      There were no videos to remove.: There were no videos to remove.
+      This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
+      Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
+
+      This playlist does not exist: This playlist does not exist
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
+    N playlists selected: '{playlistCount} Selected'
+    Search in Playlists: Search in Playlists
+    Save: Save
+
+    Added {count} Times: 'Added {count} Time | Added {count} Times'
+
+    Toast:
+      You haven't selected any playlist yet.: You haven't selected any playlist yet.
+      "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"
+      "{videoCount} video(s) added to {playlistCount} playlists": "1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists"
+  CreatePlaylistPrompt:
+    New Playlist Name: New Playlist Name
+    Create: Create
+
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: There is already a playlist with this name. Please pick a different name.
+      Playlist {playlistName} has been successfully created.: Playlist {playlistName} has been successfully created.
+      There was an issue with creating the playlist.: There was an issue with creating the playlist.
 History:
   # On History Page
   History: History
@@ -150,6 +241,7 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
+  Expand All Settings Sections: Expand All Settings Sections
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
@@ -210,6 +302,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -309,6 +402,7 @@ Settings:
     External Player Settings: External Player Settings
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Ignore Default Arguments: Ignore Default Arguments
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
     Players:
@@ -332,12 +426,16 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Are
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.
+    Remove All Playlists: Remove All Playlists
+    All playlists have been removed: All playlists have been removed
+    Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
   Subscription Settings:
     Subscription Settings: Subscription Settings
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
+    Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Sections:
@@ -359,7 +457,7 @@ Settings:
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
     Hide Profile Pictures in Comments: Hide Profile Pictures in Comments
-    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation
+    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation And Punctuation
     Hide Live Streams: Hide Live Streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
@@ -376,6 +474,8 @@ Settings:
     Hide Channel Shorts: Hide Channel Shorts
     Hide Channel Podcasts: Hide Channel Podcasts
     Hide Channel Releases: Hide Channel Releases
+    Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
+    Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
@@ -397,6 +497,15 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
+    Export Playlists For Older FreeTube Versions:
+      Label: Export Playlists For Older FreeTube Versions
+      # |- = Keep newlines, No newline at end
+      Tooltip: |-
+        This option exports videos from all playlists into one playlist named 'Favorites'.
+        How to export & import videos in playlists for an older version of FreeTube:
+        1. Export your playlists with this option enabled.
+        2. Delete all of your existing playlists using the Remove All Playlists option under Privacy Settings.
+        3. Launch the older version of FreeTube and import the exported playlists."
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -446,6 +555,8 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     UseDeArrowTitles: Use DeArrow Video Titles
+    UseDeArrowThumbnails: Use DeArrow for thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: Skip Option
       Auto Skip: Auto Skip
@@ -517,6 +628,9 @@ Profile:
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
   Edit Profile: Edit Profile
+  Edit Profile Name: Edit Profile Name
+  Create Profile Name: Create Profile Name
+  Profile Name: Profile Name
   Color Picker: Color Picker
   Custom Color: Custom Color
   Profile Preview: Profile Preview
@@ -551,6 +665,8 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are
     you sure you want to delete the selected channels?  This will not delete the channel
     from any other profile.
+  Close Profile Dropdown: Close Profile Dropdown
+  Open Profile Dropdown: Open Profile Dropdown
 #On Channel Page
 Channel:
   Subscribe: Subscribe
@@ -610,7 +726,9 @@ Channel:
     votes: '{votes} votes'
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
+    Video hidden by FreeTube: Video hidden by FreeTube
 Video:
+  More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
@@ -844,7 +962,7 @@ Tooltips:
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-      default. When enabled, the local API will run and use the legacy formats returned
+      default. When enabled, the Local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
       by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
@@ -868,6 +986,9 @@ Tooltips:
       be set here.
     Ignore Warnings: Suppress warnings for when the current external player does not support
       the current action (e.g. reversing playlists, etc.).
+    Ignore Default Arguments: Do not send any default arguments to the external player
+      aside from the video URL (e.g. playback rate, playlist URL, etc.).
+      Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
@@ -875,6 +996,7 @@ Tooltips:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
+    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
@@ -888,12 +1010,13 @@ Tooltips:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
 Invidious API Error (Click to copy): Invidious API Error (Click to copy)
 Falling back to Invidious API: Falling back to Invidious API
-Falling back to the local API: Falling back to the local API
+Falling back to Local API: Falling back to Local API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen due to country
   unavailability.
@@ -917,10 +1040,8 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Channel: Channel
-    Video: Video
+  This channel is age restricted: This channel is age restricted
+  This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
@@ -929,6 +1050,8 @@ Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
+Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
+Tag already exists: '"{tagName}" tag already exists'
 
 Hashtag:
   Hashtag: Hashtag

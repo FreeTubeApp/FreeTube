@@ -87,7 +87,7 @@
     <ft-age-restricted
       v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :content-type-string="'Video'"
+      :is-video="true"
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
@@ -172,7 +172,9 @@
         ref="watchVideoPlaylist"
         :watch-view-loading="isLoading"
         :playlist-id="playlistId"
+        :playlist-type="playlistType"
         :video-id="videoId"
+        :playlist-item-id="playlistItemId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
         @pause-player="pausePlayer"

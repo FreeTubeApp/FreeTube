@@ -8,9 +8,9 @@
 }
 
 .text {
-  background-color: rgb(0 0 0 / 80%);
+  background-color: color-mix(in srgb, var(--primary-text-color) 80%, transparent);
   border-radius: 20px;
-  color: #fff;
+  color: var(--card-bg-color);
   font-size: 1rem;
   line-height: 120%;
   margin: 0;
@@ -63,26 +63,14 @@
   transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
 }
 
-.button:focus + .text,
-.button:hover + .text {
-  opacity: 1;
-  visibility: visible;
+.text.allowNewlines {
+  white-space: pre-wrap;
+  text-align: start;
+  inline-size: 55vw;
 }
 
-.button:focus + .text.bottom,
-.button:hover + .text.bottom,
-.button:focus + .text.bottom-left,
-.button:hover + .text.bottom-left,
-.button:focus + .text.top,
-.button:hover + .text.top {
-  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
-}
-
-.button:focus + .text.left,
-.button:hover + .text.left,
-.button:focus + .text.right,
-.button:hover + .text.right {
-  transform: translate(0, -50%);
+@media only screen and (max-width: 1100px) {
+  inline-size: 40vw;
 }
 
 .tooltip {

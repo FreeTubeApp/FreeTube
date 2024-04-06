@@ -27,9 +27,8 @@
 }
 
 .sectionLine {
-  background-color: var(--primary-color);
   border: 0;
-  block-size: 2px;
+  border-block-start: 2px solid var(--primary-color);
   margin-block-start: -1px;
   inline-size: 100%;
 }
@@ -43,6 +42,16 @@
 .sectionTitle {
   user-select: none;
   margin-inline-start: 2%;
+  margin-block: 0.5em;
+}
+
+.dataSettingsBox {
+  justify-content: center;
+}
+
+:deep(.groupTitle) {
+  text-align: center;
+  margin-block: 0.5em;
 }
 
 %switch-grid {

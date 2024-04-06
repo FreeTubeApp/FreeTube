@@ -29,3 +29,9 @@
   background-color: #000;
 }
 /* stylelint-enable liberty/use-logical-spec */
+
+@media only screen and (max-width: 460px) {
+  :deep(.dash-selector .vjs-menu) {
+    max-block-size: 14em;
+  }
+}

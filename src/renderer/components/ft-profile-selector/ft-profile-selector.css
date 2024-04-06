@@ -25,7 +25,7 @@
   inset-block-start: 60px;
   inset-inline-end: 10px;
   min-inline-size: 250px;
-  block-size: 400px;
+  block-size: auto;
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
@@ -33,8 +33,22 @@
 
 .profileWrapper {
   margin-block-start: 60px;
-  block-size: 340px;
+  block-size: auto;
   overflow-y: auto;
+  /*
+  profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution. 
+  Offset of 100px is to compensate for the fixed size of elements above the list, which takes more screen space on lower resolutions
+  */
+  max-block-size: calc(90vh - 100px); 
+  min-block-size: 340px;
+}
+
+/* Navbar changes position to horizontal with this media rule.
+Height adjust for profile list so it won't cover navbar.  */
+@media only screen and (max-width: 680px){
+  .profileWrapper {
+    max-block-size: calc(95vh - 180px);
+  }
 }
 
 .profile {

@@ -26,6 +26,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      usingElectron: process.env.IS_ELECTRON,
       formatValues: [
         'dash',
         'legacy',
@@ -60,10 +61,6 @@ export default defineComponent({
     }
   },
   computed: {
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -80,8 +77,8 @@ export default defineComponent({
       return this.$store.getters.getPlayNextVideo
     },
 
-    enableSubtitles: function () {
-      return this.$store.getters.getEnableSubtitles
+    enableSubtitlesByDefault: function () {
+      return this.$store.getters.getEnableSubtitlesByDefault
     },
 
     forceLocalBackendForLegacy: function () {
@@ -295,7 +292,7 @@ export default defineComponent({
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
       'updatePlayNextVideo',
-      'updateEnableSubtitles',
+      'updateEnableSubtitlesByDefault',
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',

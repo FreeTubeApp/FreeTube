@@ -1,6 +1,7 @@
 <template>
   <div class="ftIconButton">
     <font-awesome-icon
+      ref="iconButton"
       class="iconButton"
       :title="title"
       :icon="icon"
@@ -14,6 +15,7 @@
       }"
       tabindex="0"
       role="button"
+      :aria-expanded="dropdownShown"
       @click="handleIconClick"
       @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
@@ -33,7 +35,6 @@
             v-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
-            :aria-expanded="dropdownShown"
           >
             <li
               v-for="(option, index) in dropdownOptions"
@@ -65,13 +66,13 @@
           top: dropdownPositionY === 'top'
         }"
         @focusout="handleDropdownFocusOut"
+        @keydown.esc.stop="handleDropdownEscape"
       >
         <slot>
           <ul
             v-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
-            :aria-expanded="dropdownShown"
           >
             <li
               v-for="(option, index) in dropdownOptions"

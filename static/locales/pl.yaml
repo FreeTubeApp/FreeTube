@@ -7,7 +7,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Plik'
 Quit: 'Wyjdź'
-Edit: 'Edycja'
+Edit: 'Edytuj'
 Undo: 'Cofnij'
 Redo: 'Ponów'
 Cut: 'Wytnij'
@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 subskrybujący | {count} subskrybentów
     View Count: 1 wyświetlenie | {count} wyświetle(nia/ń)
     Watching Count: 1 oglądający | {count} oglądających
+  Input Tags:
+    Length Requirement: Tag musi mieć przynajmniej {number} znak(i/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -121,9 +123,102 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
-  Search bar placeholder: Przeszukaj playlisty
+  Search bar placeholder: Szukaj playlist
   Empty Search Message: Na tej playliście nie ma filmów, które pasowałyby do Twojego
     zapytania
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Czy
+    na pewno chcesz usunąć wszystkie obejrzane filmy z tej playlisty? Nie można cofnąć
+    tej czynności.
+  AddVideoPrompt:
+    Search in Playlists: Szukaj w playlistach
+    Save: Zapisz
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 film dodano do
+        {playlistCount} playlist | {videoCount} film(y/ów) dodano do {playlistCount}
+        playlist
+      "{videoCount} video(s) added to 1 playlist": 1 film dodano do 1 playlisty |
+        Do 1 playlisty dodano {videoCount} film(y/ów)
+      You haven't selected any playlist yet.: Nie wybrano jeszcze żadnych playlist.
+    Select a playlist to add your N videos to: Wybierz playlistę, do której chcesz
+      dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
+      film(y/ów)
+    N playlists selected: Zaznaczono {playlistCount}
+    Added {count} Times: Dodano {count} raz | Dodano {count} razy
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Nie było żadnych filmów do usunięcia.
+      Video has been removed: Film został usunięty
+      Playlist has been updated.: Playlista została zmieniona.
+      There was an issue with updating this playlist.: Pojawił się problem podczas
+        wprowadzania zmian w playliście.
+      This video cannot be moved up.: Ten film nie może zostać przeniesiony wyżej.
+      This playlist is protected and cannot be removed.: Ta playlista jest zabezpieczona
+        i nie może zostać usunięta.
+      Playlist {playlistName} has been deleted.: Playlista {playlistName} została
+        usunięta.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Niektóre
+        filmy z playlisty nie zostały jeszcze załadowane. Kliknij tutaj, by powielić
+        playlistę mimo wszystko.
+      This playlist does not exist: Ta playlista nie istnieje
+      Playlist name cannot be empty. Please input a name.: Nazwa playlisty nie może
+        być pusta. Proszę, nadaj nazwę.
+      There was a problem with removing this video: Pojawił się problem z usunięciem
+        tego filmu
+      "{videoCount} video(s) have been removed": 1 film został usunięty | Usunięto
+        {videoCount} film(y/ów)
+      This video cannot be moved down.: Ten film nie może zostać przeniesiony niżej.
+      This playlist is now used for quick bookmark: Ta playlista będzie używana dla
+        funkcji Szybkiej Zakładki
+      Reverted to use {oldPlaylistName} for quick bookmark: Cofnięto zmianę. „{oldPlaylistName}”
+        będzie używana dla funkcji Szybkiej Zakładki
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Teraz
+        ta playlista, zamiast „{oldPlaylistName}”, będzie używana dla funkcji Szybkiej
+        Zakładki . Kliknij tutaj, by cofnąć zmianę
+      Quick bookmark disabled: Wyłączono Szybką Zakładkę
+    Search for Videos: Szukaj filmów
+  Are you sure you want to delete this playlist? This cannot be undone: Czy na pewno
+    chcesz usunąć tę playlistę? Nie można cofnąć tej czynności.
+  Sort By:
+    LatestPlayedFirst: Odtwarzane ostatnio
+    EarliestCreatedFirst: Utworzone najdawniej
+    LatestCreatedFirst: Utworzone ostatnio
+    EarliestUpdatedFirst: Zmieniane najdawniej
+    Sort By: Sortuj według
+    NameDescending: Z-A
+    EarliestPlayedFirst: Odtwarzane najdawniej
+    LatestUpdatedFirst: Zmieniane ostatnio
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: Nie
+    masz żadnych playlist. Kliknij na przycisk „Utwórz nową playlistę”, by dodać jedną.
+  Remove from Playlist: Usuń z playlisty
+  Save Changes: Zapisz zmiany
+  CreatePlaylistPrompt:
+    Create: Utwórz
+    Toast:
+      There was an issue with creating the playlist.: Pojawił się problem z utworzeniem
+        playlisty.
+      Playlist {playlistName} has been successfully created.: Playlista „{playlistName}”
+        została utworzona..
+      There is already a playlist with this name. Please pick a different name.: Istnieje
+        już playlista z taką nazwą. Proszę wybrać inną nazwę.
+    New Playlist Name: Nowa nazwa playlisty
+  This playlist currently has no videos.: Ta playlista nie ma żadnych filmów.
+  Add to Playlist: Dodaj do playlisty
+  Move Video Down: Przenieś film niżej
+  Playlist Name: Nazwa playlisty
+  Remove Watched Videos: Usuń obejrzane filmy
+  Move Video Up: Przenieś film wyżej
+  Cancel: Anuluj
+  Delete Playlist: Usuń playlistę
+  Create New Playlist: Utwórz nową playlistę
+  Edit Playlist Info: Zmień opis playlisty
+  Copy Playlist: Powiel playlistę
+  Playlist Description: Opis playlisty
+  Add to Favorites: Dodaj do „{playlistName}”
+  Remove from Favorites: Usuń z „{playlistName}”
+  Disable Quick Bookmark: Wyłącz Szybką Zakładkę
+  Enable Quick Bookmark With This Playlist: Włącz Szybką Zakładkę z tą playlistą
+  Playlists with Matching Videos: Playlisty z pasującymi filmami
 History:
   # On History Page
   History: 'Historia'
@@ -192,6 +287,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Gorący róż
       Pastel Pink: Pastelowy róż
+      Nordic: Nordycki
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -313,6 +409,8 @@ Settings:
     How do I import my subscriptions?: 'Jak zaimportować swoje subskrypcje?'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
+    Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
+      kanału
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -359,6 +457,10 @@ Settings:
     Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
     Save Watched Videos With Last Viewed Playlist: Zapisuj do historii film wraz z
       ostatnią odtwarzaną playlistą, która go zawierała
+    All playlists have been removed: Wszystkie playlisty zostały usunięte
+    Remove All Playlists: Usuń wszystkie playlisty
+    Are you sure you want to remove all your playlists?: Czy na pewno usunąć wszystkie
+      Twoje playlisty?
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
@@ -391,7 +493,7 @@ Settings:
     Import YouTube: Import z YouTube
     Import FreeTube: Import z FreeTube
     Import Subscriptions: Zaimportuj subskrypcje
-    Select Export Type: Wybierz typ exportu
+    Select Export Type: Wybierz typ eksportu
     Select Import Type: Wybierz typ importu
     Data Settings: Ustawienia danych
     One or more subscriptions were unable to be imported: Nie można było zaimportować
@@ -407,6 +509,14 @@ Settings:
     History File: Plik historii
     Playlist File: Plik playlist
     Subscription File: Plik subskrypcji
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Opcja ta wyeksportuje filmy ze wszystkich playlist, jako jedną playlistę
+        o nazwie „Ulubione”.\nOto jak wyeksportować i zaimportować filmy z playlist
+        do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n
+        2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie
+        playlisty” z ustawień prywatności.\n3. Uruchom starszą wersję FreeTube, następnie
+        zaimportuj wyeksportowane playlisty."
+      Label: Wyeksportuj playlisty dla starszych wersji FreeTube
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -418,7 +528,7 @@ Settings:
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
-    Hide Playlists: Schowaj playlistę
+    Hide Playlists: Schowaj playlisty
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj linki do dzielenia się filmem
@@ -427,8 +537,8 @@ Settings:
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
     Hide Channels: Schowaj filmy z kanałów
     Hide Channels Placeholder: ID kanału
-    Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły bez nadmiernych
-      wielkich liter
+    Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
+      wielkich liter i interpunkcji
     Hide Channel Community: Schowaj społeczność kanału
     Hide Channel Shorts: Schowaj filmy Short kanału
     Hide Featured Channels: Schowaj polecane kanały
@@ -454,6 +564,10 @@ Settings:
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
       sprawdzić, czy wpisane ID jest poprawne.
+    Hide Videos and Playlists Containing Text: Schowaj filmy i playlisty zawierające
+      poniższy tekst
+    Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
+      lub wyrażenie
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -488,6 +602,9 @@ Settings:
       Do Nothing: Nic nie rób
     Category Color: Kolor segmentu
     UseDeArrowTitles: Użyj tytułów filmów z DeArrow
+    UseDeArrowThumbnails: Użyj DeArrow do miniaturek
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      do API generatora miniaturek DeArrow (Domyślny jest https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -498,6 +615,7 @@ Settings:
     Players:
       None:
         Name: Żaden
+    Ignore Default Arguments: Zignoruj argumenty domyślne
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
@@ -525,6 +643,7 @@ Settings:
     Set Password To Prevent Access: Ustaw hasło, aby zabezpieczyć dostęp do ustawień
     Set Password: Ustaw hasło
     Remove Password: Usuń hasło
+  Expand All Settings Sections: Rozwiń wszystkie sekcje ustawień
 About:
   #On About page
   About: 'O projekcie'
@@ -641,6 +760,7 @@ Channel:
     votes: '{votes} głosów'
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi
+    Video hidden by FreeTube: Film schowany przez FreeTube
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -798,6 +918,9 @@ Video:
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
   Pause on Current Video: Zatrzymaj po tym filmie
+  Unhide Channel: Pokaż kanał
+  Hide Channel: Ukryj kanał
+  More Options: Więcej opcji
 Videos:
   #& Sort By
   Sort By:
@@ -880,7 +1003,7 @@ Up Next: 'Następne'
 Local API Error (Click to copy): 'Błąd lokalnego API (kliknij by skopiować)'
 Invidious API Error (Click to copy): 'Błąd API Invidious (kliknij by skopiować)'
 Falling back to Invidious API: 'Wycofywanie do API Invidious'
-Falling back to the local API: 'Wycofywanie do lokalnego API'
+Falling back to Local API: 'Wycofywanie do lokalnego API'
 Subscriptions have not yet been implemented: 'Subskrypcje nie zostały jeszcze wprowadzone'
 Loop is now disabled: 'Zapętlenie jest teraz wyłączone'
 Loop is now enabled: 'Zapętlenie jest teraz włączone'
@@ -912,12 +1035,12 @@ Profile:
   Delete Profile: Usuń profil
   Make Default Profile: Ustaw jako profil domyślny
   Update Profile: Zaktualizuj profil
-  Create Profile: Stwórz profil
+  Create Profile: Utwórz profil
   Profile Preview: Podgląd profilu
   Custom Color: Własny kolor
   Color Picker: Wybór koloru
   Edit Profile: Edytuj profil
-  Create New Profile: Stwórz nowy profil
+  Create New Profile: Utwórz nowy profil
   Profile Manager: Menadżer profili
   All Channels: Wszystkie kanały
   Profile Select: Wybór profilu
@@ -939,12 +1062,17 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
   Toggle Profile List: Włącz/wyłącz listę profili
+  Open Profile Dropdown: Otwórz rozwijane menu profilu
+  Close Profile Dropdown: Zamknij rozwijane menu profilu
+  Profile Name: Nazwa profilu
+  Edit Profile Name: Edytuj nazwę profilu
+  Create Profile Name: Nadaj nazwę profilowi
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
 Download From Site: Pobierz ze strony
 Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber}
-  jest już dostępna! Kliknij po więcej szczegółów
+  jest już dostępna!  Kliknij po więcej szczegółów
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
   regionalna.
@@ -1008,6 +1136,9 @@ Tooltips:
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
     DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Nie wysyłaj do zewnętrznego odtwarzacza żadnych domyślnych
+      argumentów (takich jak prędkość odtwarzania, URL playlisty itp.), oprócz URL-u
+      filmu. Niestandardowe argumenty zostaną wysłane.
   Experimental Settings:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
@@ -1019,9 +1150,14 @@ Tooltips:
       liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}”
       z podgrupy „{subsection}” grupy „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Wprowadź słowo, fragment słowa, lub
+      wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i
+      playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube,
+      poza Historią, Twoimi playlistami i filmami w tych playlistach.
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
       DeArrow.
+    UseDeArrowThumbnails: Zastąp miniaturki filmów miniaturkami z DeArrow.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
@@ -1049,13 +1185,6 @@ Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączo
   tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
 Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
-Age Restricted:
-  Type:
-    Channel: kanał
-    Video: film
-  The currently set default instance is {instance}: Ten {instance} ma ograniczenie
-    wiekowe
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} ma ograniczenie wiekowe'
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów
@@ -1086,3 +1215,13 @@ Playlist will pause when current video is finished: Playlista zatrzyma się, gdy
   film się zakończy
 Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
   gdy obecny film się zakończy
+Channel Hidden: '{channel} dodany do filtra kanałów'
+Go to page: Idź do {page}
+Channel Unhidden: '{channel} usunięty z filtra kanału'
+Tag already exists: Tag „{tagName}” już istnieje
+Trimmed input must be at least N characters long: Przycięte wyrażenie musi mieć przynajmniej
+  1 znak | Przycięte wyrażenie musi mieć przynajmniej {length} znaki/ów
+Age Restricted:
+  This video is age restricted: Ten film ma ograniczenie wiekowe
+  This channel is age restricted: Ten kanał ma ograniczenie wiekowe
+Close Banner: Zamknij Baner

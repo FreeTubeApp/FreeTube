@@ -37,6 +37,9 @@ export default defineComponent({
     externalPlayerIgnoreWarnings: function () {
       return this.$store.getters.getExternalPlayerIgnoreWarnings
     },
+    externalPlayerIgnoreDefaultArgs: function () {
+      return this.$store.getters.getExternalPlayerIgnoreDefaultArgs
+    },
     externalPlayerCustomArgs: function () {
       return this.$store.getters.getExternalPlayerCustomArgs
     },
@@ -58,6 +61,7 @@ export default defineComponent({
       'updateExternalPlayer',
       'updateExternalPlayerExecutable',
       'updateExternalPlayerIgnoreWarnings',
+      'updateExternalPlayerIgnoreDefaultArgs',
       'updateExternalPlayerCustomArgs'
     ])
   }

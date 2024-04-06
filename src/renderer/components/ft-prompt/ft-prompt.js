@@ -40,7 +40,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      promptButtons: []
+      promptButtons: [],
+      lastActiveElement: null,
     }
   },
   computed: {
@@ -50,8 +51,11 @@ export default defineComponent({
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
+    this.lastActiveElement?.focus()
   },
   mounted: function () {
+    this.lastActiveElement = document.activeElement
+
     document.addEventListener('keydown', this.closeEventFunction, true)
     document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
     this.promptButtons = Array.from(
@@ -73,7 +77,7 @@ export default defineComponent({
     focusItem: function (value) {
       let index = value
       if (index < 0) {
-        index = this.promptButtons.length
+        index = this.promptButtons.length - 1
       } else if (index >= this.promptButtons.length) {
         index = 0
       }
