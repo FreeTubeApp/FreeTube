@@ -24,7 +24,6 @@ import {
 } from '../../helpers/utils'
 import { getProxyUrl } from '../../helpers/api/invidious'
 import store from '../../store'
-import keycode from 'keycode' // package already exists via video.js
 
 const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
   // This is thrown when `play()` called but user already viewing another page
@@ -771,8 +770,8 @@ export default defineComponent({
             // Also handle seeking via keyboard
             // https://docs.videojs.com/control-bar_progress-control_seek-bar.js#line435
             const keydownListener = (event) => {
-              const keys = ['Left', 'Right', 'pgup', 'pgdn']
-              if (/^\d$/.test(keycode(event)) || keys.some(key => keycode.isEventKey(event, key))) {
+              const keys = ['ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown']
+              if (/^\d$/.test(event.key) || keys.some(key => event.key === key)) {
                 this.ignoreSponsorBlock(skipSegments)
               }
             }
