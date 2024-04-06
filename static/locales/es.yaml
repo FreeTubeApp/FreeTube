@@ -827,6 +827,8 @@ Video:
     chat en vivo no está disponible para esta transmisión. Tal vez estaba deshabilitado
     antes de la retransmisión.
   Pause on Current Video: Pausa en el vídeo actual
+  Unhide Channel: Mostrar el canal
+  Hide Channel: Ocultar el canal
 Videos:
   #& Sort By
   Sort By:
@@ -1072,3 +1074,6 @@ Playlist will pause when current video is finished: La lista de reproducción se
   cuando termine el vídeo actual
 Playlist will not pause when current video is finished: La lista de reproducción no
   se detendrá cuando termine el vídeo actual
+Go to page: Ir a la {page}
+Channel Hidden: '{channel} añadido al filtro de canales'
+Channel Unhidden: '{channel} eliminado del filtro de canales'

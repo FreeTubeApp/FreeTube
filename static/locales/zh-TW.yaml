@@ -131,7 +131,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
       Local API: '本機 API'
-      Invidious API: 'Invidious API(應用程式介面)'
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: '影片觀看類別'
       Grid: '網格'
@@ -141,7 +141,7 @@ Settings:
       Default: '預設'
       Beginning: '片頭'
       Middle: '中間'
-      End: '結尾'
+      End: '片尾'
       Hidden: 隱藏
       Blur: 模糊
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
@@ -410,7 +410,7 @@ Settings:
     Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
     Hide Channels Already Exists: 頻道 ID 已存在
     Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
-  The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
+  The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
     City: 城市
@@ -590,12 +590,12 @@ Channel:
     Releases: 發布
     This channel does not currently have any releases: 此頻道目前沒有任何發布
 Video:
-  Open in YouTube: '在YouTube中開啟'
-  Copy YouTube Link: '複製YouTube連結'
-  Open YouTube Embedded Player: '開啟YouTube內嵌播放器'
-  Copy YouTube Embedded Player Link: '複製YouTube內嵌播放器連結'
-  Open in Invidious: '在Invidious中開啟'
-  Copy Invidious Link: '複製Invidious連結'
+  Open in YouTube: '在 YouTube 中開啟'
+  Copy YouTube Link: '複製 YouTube 連結'
+  Open YouTube Embedded Player: '開啟 YouTube 內嵌播放器'
+  Copy YouTube Embedded Player Link: '複製 YouTube 內嵌播放器連結'
+  Open in Invidious: '在 Invidious 中開啟'
+  Copy Invidious Link: '複製 Invidious 連結'
   Views: '觀看'
   Watched: '已觀看'
   # As in a Live Video
@@ -661,10 +661,10 @@ Video:
   audio only: 僅音訊
   video only: 僅影片
   Download Video: 下載影片
-  Copy Invidious Channel Link: 複製Invidious頻道連結
-  Open Channel in Invidious: 在Invidious開啟頻道
-  Copy YouTube Channel Link: 複製YouTube頻道連結
-  Open Channel in YouTube: 在YouTube開啟頻道
+  Copy Invidious Channel Link: 複製 Invidious 頻道連結
+  Open Channel in Invidious: 在 Invidious 開啟頻道
+  Copy YouTube Channel Link: 複製 YouTube 頻道連結
+  Open Channel in YouTube: 在 YouTube 開啟頻道
   Started streaming on: '開始直播時間'
   Streamed on: 直播於
   Video has been removed from your saved list: 影片已從您的播放清單移除
@@ -722,6 +722,8 @@ Video:
   Upcoming: 即將到來
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 即時聊天在此串流不可用。其可能被上傳者停用了。
   Pause on Current Video: 暫停目前影片
+  Unhide Channel: 顯示頻道
+  Hide Channel: 隱藏頻道
 Videos:
   #& Sort By
   Sort By:
@@ -944,3 +946,6 @@ Hashtag:
   This hashtag does not currently have any videos: 此標籤目前沒有任何影片
 Playlist will pause when current video is finished: 當目前影片結束時，播放清單將會暫停
 Playlist will not pause when current video is finished: 當目前影片結束時，播放清單將不會暫停
+Channel Hidden: '{channel} 已新增至頻道過濾條件'
+Go to page: 到 {page}
+Channel Unhidden: '{channel} 已從頻道過濾條件移除'

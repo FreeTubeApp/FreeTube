@@ -43,7 +43,7 @@ async function findChannelById(id, backendOptions) {
 * @returns {Promise<{icon: string, iconHref: string, preferredName: string} | { invalidId: boolean }>}
 */
 export async function findChannelTagInfo(id, backendOptions) {
-  if (!/UC\S{22}/.test(id)) return { invalidId: true }
+  if (!checkYoutubeChannelId(id)) return { invalidId: true }
   try {
     const channel = await findChannelById(id, backendOptions)
     if (!process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
@@ -71,6 +71,6 @@ export async function findChannelTagInfo(id, backendOptions) {
  * @param {string} id
  * @returns {boolean}
  */
-export function checkYoutubeId(id) {
-  return /UC\S{22}/.test(id)
+export function checkYoutubeChannelId(id) {
+  return /^UC[\w-]{22}$/.test(id)
 }

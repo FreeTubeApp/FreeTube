@@ -22,6 +22,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
+      name: 'default',
       meta: {
         title: 'Subscriptions.Subscriptions'
       },
@@ -29,6 +30,7 @@ const router = new Router({
     },
     {
       path: '/subscriptions',
+      name: 'subscriptions',
       meta: {
         title: 'Subscriptions.Subscriptions'
       },
@@ -36,13 +38,63 @@ const router = new Router({
     },
     {
       path: '/subscribedchannels',
+      name: 'subscribedChannels',
       meta: {
         title: 'Channels.Title'
       },
       component: SubscribedChannels
     },
     {
+      path: '/trending',
+      name: 'trending',
+      meta: {
+        title: 'Trending.Trending'
+      },
+      component: Trending
+    },
+    {
+      path: '/popular',
+      name: 'popular',
+      meta: {
+        title: 'Most Popular'
+      },
+      component: Popular
+    },
+    {
+      path: '/userplaylists',
+      name: 'userPlaylists',
+      meta: {
+        title: 'User Playlists.Your Playlists'
+      },
+      component: UserPlaylists
+    },
+    {
+      path: '/history',
+      name: 'history',
+      meta: {
+        title: 'History.History'
+      },
+      component: History
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      meta: {
+        title: 'Settings.Settings'
+      },
+      component: Settings
+    },
+    {
+      path: '/about',
+      name: 'about',
+      meta: {
+        title: 'About.About'
+      },
+      component: About
+    },
+    {
       path: '/settings/profile',
+      name: 'profileSettings',
       meta: {
         title: 'Profile.Profile Settings'
       },
@@ -63,49 +115,6 @@ const router = new Router({
         title: 'Profile.Edit Profile'
       },
       component: ProfileEdit
-    },
-    {
-      path: '/trending',
-      meta: {
-        title: 'Trending.Trending'
-      },
-      component: Trending
-    },
-    {
-      path: '/popular',
-      meta: {
-        title: 'Most Popular'
-      },
-      component: Popular
-    },
-    {
-      path: '/userplaylists',
-      meta: {
-        title: 'User Playlists.Your Playlists'
-      },
-      component: UserPlaylists
-    },
-    {
-      path: '/history',
-      name: 'history',
-      meta: {
-        title: 'History.History'
-      },
-      component: History
-    },
-    {
-      path: '/settings',
-      meta: {
-        title: 'Settings.Settings'
-      },
-      component: Settings
-    },
-    {
-      path: '/about',
-      meta: {
-        title: 'About.About'
-      },
-      component: About
     },
     {
       path: '/search/:query',
