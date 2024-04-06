@@ -75,7 +75,6 @@
 
 .searchInputsRow {
   margin-block-start: 8px;
-
   display: grid;
 
   /* 2 columns */
@@ -83,9 +82,8 @@
   column-gap: 8px;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (width <= 1250px) {
   :deep(.sharePlaylistIcon .iconDropdown) {
-    inset-inline-start: auto;
-    inset-inline-end: auto;
+    inset-inline: auto auto;
   }
 }

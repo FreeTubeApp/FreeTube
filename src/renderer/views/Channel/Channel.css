@@ -209,15 +209,17 @@
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .channelInfo {
     flex-direction: column;
     margin-block: 20px 10px;
   }
+
   .card {
     max-inline-size: none;
     inline-size: 100%;
   }
+
   .channelInfoActionsContainer {
     flex-direction: row-reverse;
     justify-content: left;
@@ -226,7 +228,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (width <= 400px) {
   .channelInfo {
     justify-content: center;
     gap: 10px;

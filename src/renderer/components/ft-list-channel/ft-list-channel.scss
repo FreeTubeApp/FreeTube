@@ -1,4 +1,4 @@
-@use '../../scss-partials/_ft-list-item';
+@use '../../scss-partials/ft-list-item';
 
 .ft-list-channel {
   &.grid {
@@ -6,6 +6,9 @@
     text-align: center;
 
     .infoAndSubscribe {
+      display: flex;
+      justify-content: center;
+      inline-size: 100%;
       flex-flow: column wrap;
       align-items: center;
 
@@ -30,13 +33,6 @@
       }
     }
   }
-}
-
-.infoAndSubscribe {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  inline-size: 100%;
 }
 
 .handle {

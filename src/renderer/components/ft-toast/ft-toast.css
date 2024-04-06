@@ -3,6 +3,7 @@
   inset-inline-start: 50vw;
   transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
   inset-block-end: 50px;
+
   /* Higher than any prompt */
   z-index: 300;
   display: flex;

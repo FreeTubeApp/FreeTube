@@ -6,7 +6,7 @@ hr {
   border-block-start: 2px solid var(--scrollbar-color-hover);
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   hr {
     inline-size: 100%;
   }

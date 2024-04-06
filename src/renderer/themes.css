@@ -7,7 +7,7 @@
 .pastelPink,
 .hotPink,
 .nordic {
-  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-input-color: rgb(0 0 0 / 50%);
 }
 
 .system[data-system-theme*='light'], .light,
@@ -31,7 +31,7 @@
 .catppuccinMocha,
 .pastelPink,
 .nordic {
-  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-input-color: rgb(0 0 0 / 50%);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
 
@@ -62,7 +62,7 @@
 .catppuccinMocha,
 .hotPink,
 .nordic {
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
+  --primary-shadow-color: rgb(0 0 0 / 75%);
 }
 
 .system[data-system-theme*='light'], .light {
@@ -72,10 +72,10 @@
   --primary-shadow-color: rgb(232 232 232 / 100%);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
-  --favorite-icon-color: #00CC00;
-  --card-bg-color: #FFFFFF;
-  --secondary-card-bg-color: #eeeeee;
-  --scrollbar-color: #CCCCCC;
+  --favorite-icon-color: #0C0;
+  --card-bg-color: #FFF;
+  --secondary-card-bg-color: #eee;
+  --scrollbar-color: #CCC;
   --scrollbar-color-hover: #BDBDBD;
   --side-nav-color: #FFF;
   --side-nav-hover-color: #e0e0e0;
@@ -89,7 +89,7 @@
   --tertiary-text-color: #999;
   --title-color: #EEE;
   --bg-color: #212121;
-  --favorite-icon-color: #00FF00;
+  --favorite-icon-color: #0F0;
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgb(0 0 0 / 75%);
   --scrollbar-color: #414141;
@@ -103,12 +103,12 @@
 .black {
     --primary-text-color: #EEE;
     --secondary-text-color: #ddd;
-    --tertiary-text-color: #EEEEEE;
-    --title-color: #EEEEEE;
-    --bg-color: #000000;
-    --favorite-icon-color: #00FF00;
-    --card-bg-color: #000000;
-    --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+    --tertiary-text-color: #EEE;
+    --title-color: #EEE;
+    --bg-color: #000;
+    --favorite-icon-color: #0F0;
+    --card-bg-color: #000;
+    --secondary-card-bg-color: rgb(0 0 0 / 75%);
     --scrollbar-color: #515151;
     --scrollbar-color-hover: #424242;
     --side-nav-color: #0f0f0f;
@@ -137,7 +137,7 @@
   --tertiary-text-color: #e5e8f3;
   --title-color: #BD93F9;
   --bg-color: #282A36;
-  --favorite-icon-color: #00FF00;
+  --favorite-icon-color: #0F0;
   --card-bg-color: #33353F;
   --secondary-card-bg-color: #282A36;
   --scrollbar-color: #44475A;
@@ -156,7 +156,7 @@
   --tertiary-text-color: #a6adc8;
   --title-color: var(--accent-color);
   --bg-color: #1e1e2e;
-  --favorite-icon-color: #00FF00;
+  --favorite-icon-color: #0F0;
   --card-bg-color: #181825;
   --secondary-card-bg-color: #1e1e2e;
   --scrollbar-color: #313244;
@@ -197,7 +197,7 @@
   --tertiary-text-color: #FFFF;
   --title-color: #000;
   --bg-color: #ff008a;
-  --favorite-icon-color: #00FF00;
+  --favorite-icon-color: #0F0;
   --card-bg-color: #DE1C85;
   --secondary-card-bg-color: rgb(0 0 0 / 75%);
   --scrollbar-color: #FFF;
@@ -244,14 +244,14 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .nordic {
-  --primary-text-color: #EEEEEE;
+  --primary-text-color: #EEE;
   --secondary-text-color: #ddd;
-  --tertiary-text-color: #EEEEEE;
-  --title-color: #EEEEEE;
+  --tertiary-text-color: #EEE;
+  --title-color: #EEE;
   --bg-color: #2b2f3a;
-  --favorite-icon-color: #00FF00;
+  --favorite-icon-color: #0F0;
   --card-bg-color: #2e3440;
-  --secondary-card-bg-color: rgba(59, 66, 82, 0.75);
+  --secondary-card-bg-color: rgb(59 66 82 / 75%);
   --scrollbar-color: #4b566a;
   --scrollbar-color-hover: #4b566a;
   --side-nav-color: #2e3440;

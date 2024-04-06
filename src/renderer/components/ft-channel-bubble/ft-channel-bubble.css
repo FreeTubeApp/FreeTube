@@ -24,7 +24,6 @@
   inline-size: 50px;
   block-size: 50px;
   border-radius: 100%;
-  -webkit-border-radius: 100%;
   object-fit: cover;
 }
 

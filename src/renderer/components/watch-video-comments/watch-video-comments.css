@@ -31,7 +31,7 @@
   float: var(--float-right-ltr-rtl-value);
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (width <= 1000px) {
   .commentSort {
     float: none;
   }

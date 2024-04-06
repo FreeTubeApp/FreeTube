@@ -37,7 +37,7 @@
   padding-inline-start: 1rem;
   font-size: 16px;
   border-radius: 5px;
-  border: none;
+  border: 0;
 }
 
 .select option {
@@ -61,6 +61,7 @@
   position: absolute;
   inset-block-start: 10px;
   inset-inline-end: 10px;
+
   /* Styling the down arrow */
   padding: 0;
   content: '';
@@ -141,7 +142,7 @@
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .select {
     inline-size: 100%;
   }
