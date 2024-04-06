@@ -24,6 +24,7 @@ import {
 } from '../../helpers/utils'
 import { getProxyUrl } from '../../helpers/api/invidious'
 import store from '../../store'
+import keycode from 'keycode' // package already exists via video.js
 
 const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
   // This is thrown when `play()` called but user already viewing another page
@@ -146,10 +147,7 @@ export default defineComponent({
       showStatsModal: false,
       statsModalEventName: 'updateStats',
       usingTouch: false,
-      // whether or not sponsor segments should be skipped
-      skipSponsors: true,
-      // countdown before actually skipping sponsor segments
-      skipCountdown: 1,
+      manuallySeeked: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -744,14 +742,45 @@ export default defineComponent({
             return
           }
 
+          skipSegments.forEach(segment => {
+            segment.ignore = false
+          })
+
           this.player.ready(() => {
             this.player.on('timeupdate', () => {
+              if (this.manuallySeeked === true) {
+                return // prevent race condition with ignoreSponsorBlock
+              }
               this.skipSponsorBlocks(skipSegments)
             })
 
-            this.player.on('seeking', () => {
+            this.player.controlBar.progressControl.seekBar.on('mousedown', () => {
               // disabling sponsors auto skipping when the user manually seeks
-              this.skipSponsors = false
+              this.manuallySeeked = true
+            })
+
+            const mouseupListener = () => {
+              if (this.manuallySeeked) {
+                this.ignoreSponsorBlock(skipSegments)
+                this.manuallySeeked = false
+              }
+            }
+            // needs listener on document for when mousedown has started on seekbar but mouseup off seekbar (dragged)
+            document.addEventListener('mouseup', mouseupListener)
+
+            // Also handle seeking via keyboard
+            // https://docs.videojs.com/control-bar_progress-control_seek-bar.js#line435
+            const keydownListener = (event) => {
+              const keys = ['Left', 'Right', 'pgup', 'pgdn']
+              if (/^\d$/.test(keycode(event)) || keys.some(key => keycode.isEventKey(event, key))) {
+                this.ignoreSponsorBlock(skipSegments)
+              }
+            }
+            document.addEventListener('keydown', keydownListener)
+
+            this.player.on('dispose', () => {
+              document.removeEventListener('mouseup', mouseupListener)
+              document.removeEventListener('keydown', keydownListener)
             })
 
             skipSegments.forEach(({
@@ -774,28 +803,36 @@ export default defineComponent({
       const duration = this.player.duration()
       let newTime = null
       let skippedCategory = null
-      skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
-        if (startTime <= currentTime && currentTime < endTime) {
+      skipSegments.forEach(segment => { // inject object itself so ignore flag can be changed
+        const category = segment.category
+        const startTime = segment.segment[0]
+        const endTime = segment.segment[1]
+        if (startTime > currentTime || endTime <= currentTime) {
+          // reset ignore flag if outside of segment
+          segment.ignore = false
+        }
+        if (startTime <= currentTime && currentTime < endTime && segment.ignore === false) {
           newTime = endTime
           skippedCategory = category
         }
       })
-      if (this.skipSponsors && newTime !== null && Math.abs(duration - currentTime) > 0.500) {
+      if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
         if (this.sponsorSkips.autoSkip[skippedCategory]) {
-          if (this.skipCountdown === 0) {
-            if (this.sponsorBlockShowSkippedToast) {
-              this.showSkippedSponsorSegmentInformation(skippedCategory)
-            }
-            this.player.currentTime(newTime)
-          } else {
-            this.skipCountdown--
+          if (this.sponsorBlockShowSkippedToast) {
+            this.showSkippedSponsorSegmentInformation(skippedCategory)
           }
+          this.player.currentTime(newTime)
         }
       }
-      // restoring sponsors skipping default values
-      if (newTime === null && !this.skipSponsors) {
-        this.skipSponsors = true
-        this.skipCountdown = 1
+    },
+
+    ignoreSponsorBlock(skipSegments) {
+      const currentTime = this.player.currentTime()
+      for (let index = 0; index < skipSegments.length; index++) {
+        if (skipSegments[index].segment[0] <= currentTime && currentTime < skipSegments[index].segment[1]) {
+          // set ignore flag on segment at current time
+          skipSegments[index].ignore = true
+        }
       }
     },
 
