@@ -105,6 +105,10 @@ export default defineComponent({
       const currentProfile = deepCopy(profile)
 
       if (this.isProfileSubscribed(profile)) {
+        // confirmation pop-up
+        if (!confirm('Are you sure you want to unsubscribe?')) {
+          return
+        }
         currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
           return channel.id !== this.channelId
         })
