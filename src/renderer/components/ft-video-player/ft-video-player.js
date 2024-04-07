@@ -826,12 +826,14 @@ export default defineComponent({
 
     ignoreSponsorBlock(skipSegments) {
       const currentTime = this.player.currentTime()
-      for (let index = 0; index < skipSegments.length; index++) {
-        if (skipSegments[index].segment[0] <= currentTime && currentTime < skipSegments[index].segment[1]) {
+      skipSegments.forEach(segment => {
+        const startTime = segment.segment[0]
+        const endTime = segment.segment[1]
+        if (startTime <= currentTime && currentTime < endTime) {
           // set ignore flag on segment at current time
-          skipSegments[index].ignore = true
+          segment.ignore = true
         }
-      }
+      })
     },
 
     showSkippedSponsorSegmentInformation(category) {
