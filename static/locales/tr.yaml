@@ -1213,3 +1213,5 @@ Close Banner: Afişi Kapat
 Age Restricted:
   This video is age restricted: Bu videoda yaş sınırlaması var
   This channel is age restricted: Bu kanalda yaş sınırlaması var
+Display Label: '{label}: {value}'
+checkmark: ✓
