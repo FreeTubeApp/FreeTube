@@ -110,6 +110,11 @@ User Playlists:
   Search bar placeholder: Buscar en la Lista de Reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan
     con tu búsqueda
+  This playlist currently has no videos.: Esta lista de reproducción no tiene videos.
+  Playlists with Matching Videos: Listas de reproducción con videos repetidos
+  Create New Playlist: Crear nueva lista de reproducción
+  Add to Favorites: Añadir a {playlistName}
+  Add to Playlist: Añadir a la lista de reproducción
 History:
   # On History Page
   History: 'Historial'
@@ -488,3 +493,5 @@ Tooltips:
   Distraction Free Settings:
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
+Go to page: Ir a {page}
+Close Banner: Cerrar banner
