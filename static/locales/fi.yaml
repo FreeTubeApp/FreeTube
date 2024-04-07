@@ -144,6 +144,8 @@ User Playlists:
         ja sitä ei voi poistaa.
       Playlist {playlistName} has been deleted.: Soittolista {playlistName} on poistettu.
       This playlist does not exist: Soittolistaa ei ole olemassa
+      There was an issue with updating this playlist.: Tätä soittolistaa päivittäessä
+        ilmeni ongelma.
     Search for Videos: Etsi videot
   Move Video Down: Siirrä video alas
   Remove from Playlist: Poista soittolistalta
@@ -174,6 +176,8 @@ User Playlists:
         nimellä on jo olemassa soittolista. Valitse eri nimi.
       Playlist {playlistName} has been successfully created.: Soittolista {playlistName}
         on luotu.
+      There was an issue with creating the playlist.: Soittolistaa luotaessa ilmeni
+        ongelma.
   Add to Favorites: Lisää soittolistaan {playlistName}
   Remove from Favorites: Poista soittolistalta {playlistName}
   Remove Watched Videos: Poista katsotut videot
@@ -363,6 +367,7 @@ Settings:
     How do I import my subscriptions?: 'Miten voin tuoda tilaukseni?'
     Fetch Feeds from RSS: Nouda RSS-syöte
     Fetch Automatically: Nouda syöte automaattisesti
+    Only Show Latest Video for Each Channel: Näytä vain jokaisen kanavan uusin video
   Advanced Settings:
     Advanced Settings: 'Lisäasetukset'
     Enable Debug Mode (Prints data to the console): 'Ota virheenkorjaustila käyttöön
@@ -458,6 +463,8 @@ Settings:
     Playlist File: Soittolistatiedosto
     History File: Historia-tiedosto
     Subscription File: Tilaustiedosto
+    Export Playlists For Older FreeTube Versions:
+      Label: Vie soittolistat FreeTuben vanhempiin versioihin
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -570,6 +577,7 @@ Settings:
     Password Settings: Salasana-asetukset
     Set Password: Aseta salasana
     Remove Password: Poista salasana
+  Expand All Settings Sections: Laajenna asetusten kaikki osiot
 About:
   #On About page
   About: 'Tietoja'
