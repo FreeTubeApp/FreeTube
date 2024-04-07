@@ -1172,3 +1172,5 @@ Close Banner: Zavřít panel
 Age Restricted:
   This channel is age restricted: Tento kanál je omezen věkem
   This video is age restricted: Toto video je omezeno věkem
+checkmark: ✓
+Display Label: '{label}: {value}'
