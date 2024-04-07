@@ -1218,3 +1218,5 @@ Close Banner: Cerrar el banner
 Age Restricted:
   This channel is age restricted: Este canal está restringido por edad
   This video is age restricted: Este vídeo está restringido por edad
+checkmark: ✓
+Display Label: '{label}: {value}'
