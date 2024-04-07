@@ -106,7 +106,7 @@ export default defineComponent({
 
       if (this.isProfileSubscribed(profile)) {
         // confirmation pop-up
-        if (!confirm('Are you sure you want to unsubscribe?')) {
+        if (!confirm(this.$t('Channels.Unsubscribe Prompt', { channelName: this.channelName }))) {
           return
         }
         currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
