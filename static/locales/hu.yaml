@@ -1210,3 +1210,5 @@ Close Banner: Banner bezárása
 Age Restricted:
   This channel is age restricted: Ez a csatorna korhatáros
   This video is age restricted: Ez a videó korhatáros
+Display Label: '{label}: {value}'
+checkmark: ✓
