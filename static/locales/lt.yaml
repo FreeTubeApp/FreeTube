@@ -311,8 +311,6 @@ Settings:
     Privacy Settings: 'Privatumo nustatymai'
     Remember History: 'Įsiminti istoriją'
     Save Watched Progress: 'Išsaugoti peržiūros progresą'
-    Automatically Remove Video Meta Files: 'Automatiškai pašalinti vaizdo įrašų meta
-      failus'
     Clear Search Cache: 'Išvalyti paieškos talpyklą'
     Are you sure you want to clear out your search cache?: 'Ar tikrai norite išvalyti
       paieškos talpyklą?'
@@ -832,9 +830,6 @@ Tooltips:
       trukmės ar tiesioginės transliacijos būsenos'
     Fetch Automatically: Kai ši funkcija įjungta, FreeTube automatiškai įkels naują
       turinį iš prenumeratų, kai atidaromas naujas langas ir perjungiamas profilis.
-  Privacy Settings:
-    Remove Video Meta Files: 'Įjungus FreeTube, uždarius žiūrėjimo puslapį, automatiškai
-      ištrinami meta failai, sukurti vaizdo atkūrimo metu.'
 
 # Toast Messages
   Experimental Settings:

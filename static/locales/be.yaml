@@ -307,7 +307,6 @@ Settings:
     Remember History: ''
     Save Watched Progress: ''
     Save Watched Videos With Last Viewed Playlist: ''
-    Automatically Remove Video Meta Files: ''
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
@@ -802,8 +801,6 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
-  Privacy Settings:
-    Remove Video Meta Files: ''
   Experimental Settings:
     Replace HTTP Cache: ''
   SponsorBlock Settings:

@@ -412,8 +412,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
       abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
-    Automatically Remove Video Meta Files: Video Meta Dosyalarını Otomatik Olarak
-      Kaldır
     Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
       Oynatma Listesiyle Kaydet
     All playlists have been removed: Tüm oynatma listeleri kaldırıldı
@@ -1107,9 +1105,6 @@ Tooltips:
     External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
       davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
       açacaktır.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
-      oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
   External Player Settings:
     Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, noktalı
       virgülle (';') ayrılmış özel komut satırı argümanları.

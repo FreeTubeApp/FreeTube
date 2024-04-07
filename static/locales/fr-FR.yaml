@@ -471,8 +471,6 @@ Settings:
       sûr(e) de vouloir supprimer tous les abonnements et les profils ? Cette action
       est définitive.
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
-    Automatically Remove Video Meta Files: Supprimer automatiquement les métafichiers
-      vidéo
     Save Watched Videos With Last Viewed Playlist: Sauvegarder les vidéos regardées
       avec la dernière liste de lecture vue
     All playlists have been removed: Toutes les listes de lecture ont été supprimées
@@ -1159,10 +1157,6 @@ Tooltips:
     External Link Handling: "Choisissez le comportement par défaut quand on clique
       sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira
       le lien dans votre navigateur par défaut.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Lorsqu'il est activé, FreeTube supprime automatiquement
-      les MétaFichiers créés pendant la lecture de la vidéo, dès que la page de la
-      vidéo est quittée.
   External Player Settings:
     Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés,
       séparés par des points-virgules (';'), que vous souhaitez transmettre au lecteur

@@ -417,7 +417,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Are
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
-    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
       Playlist
     Remove All Playlists: Remove all playlists
@@ -1084,9 +1083,6 @@ Tooltips:
     Custom External Player Arguments: Any custom command line arguments, separated
       by semicolons (';'), you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: '(Default: ‘{defaultCustomArguments}’)'
-  Privacy Settings:
-    Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
-      created during video playback, when the watch page is closed.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
       in-memory image cache. Will lead to increased RAM usage.

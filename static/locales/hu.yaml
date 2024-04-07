@@ -422,7 +422,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
-    Automatically Remove Video Meta Files: Videó-metafájlok automatikus eltávolítása
     Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
       utoljára megtekintett lejátszási listával
     All playlists have been removed: Minden lejátszási lista eltávolításra került
@@ -1109,9 +1108,6 @@ Tooltips:
       H.264 formátumok. A DASH AV1 formátumok több energiát igényelnek a lejátszáshoz!
       Nem minden videónál érhetők el, ilyenkor a lejátszó a DASH H.264 formátumot
       használja helyette.
-  Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a FreeTube automatikusan törli a
-      videolejátszás során létrehozott metafájlokat, amikor a nézőlapot bezárják.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti

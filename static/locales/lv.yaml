@@ -309,7 +309,6 @@ Settings:
     Remember History: 'Atcerēties vēsturi'
     Save Watched Progress: 'Saglabāt skatīto attīstību'
     Save Watched Videos With Last Viewed Playlist: ''
-    Automatically Remove Video Meta Files: 'Automātiski noņemt video metadatus'
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
@@ -817,8 +816,6 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
-  Privacy Settings:
-    Remove Video Meta Files: ''
   Experimental Settings:
     Replace HTTP Cache: ''
   SponsorBlock Settings:
