@@ -146,7 +146,7 @@ export default defineComponent({
       showStatsModal: false,
       statsModalEventName: 'updateStats',
       usingTouch: false,
-      manuallySeeked: false,
+      isManuallySeeking: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -747,21 +747,21 @@ export default defineComponent({
 
           this.player.ready(() => {
             this.player.on('timeupdate', () => {
-              if (this.manuallySeeked === true) {
-                return // prevent race condition with ignoreSponsorBlock
+              if (this.isManuallySeeking === true) {
+                return
               }
               this.skipSponsorBlocks(skipSegments)
             })
 
             this.player.controlBar.progressControl.seekBar.on('mousedown', () => {
               // disabling sponsors auto skipping when the user manually seeks
-              this.manuallySeeked = true
+              this.isManuallySeeking = true
             })
 
             const mouseupListener = () => {
-              if (this.manuallySeeked) {
+              if (this.isManuallySeeking) {
                 this.ignoreSponsorBlock(skipSegments)
-                this.manuallySeeked = false
+                this.isManuallySeeking = false
               }
             }
             // needs listener on document for when mousedown has started on seekbar but mouseup off seekbar (dragged)
