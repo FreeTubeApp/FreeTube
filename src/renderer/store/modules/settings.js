@@ -369,6 +369,13 @@ const stateWithSideEffects = {
         )
       }
 
+      // "pt" is used as a fallback for "pt-PT" and "pt-BR"
+      if (targetLocale === 'pt-PT' || targetLocale === 'pt-BR') {
+        loadPromises.push(
+          loadLocale('pt')
+        )
+      }
+
       loadPromises.push(
         loadLocale(targetLocale)
       )

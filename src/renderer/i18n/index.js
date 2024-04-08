@@ -15,6 +15,10 @@ const i18n = new VueI18n({
     es_AR: ['es'],
     // es-MX -> es -> en-US
     'es-MX': ['es'],
+    // pt-BR -> pt -> en-US
+    'pt-BR': ['pt'],
+    // pt-PT -> pt -> en-US
+    'pt-PT': ['pt'],
     // any -> en-US
     default: ['en-US'],
   }
