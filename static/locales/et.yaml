@@ -408,7 +408,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Kas
       sa oled kindel, et soovid kustutada kõik tellimused/profiilid? Seda tegevust
       ei saa tagasi pöörata.'
-    Automatically Remove Video Meta Files: Kustuta videote metateave automaatselt
     Save Watched Videos With Last Viewed Playlist: Salvesta vaadatud videod viimati
       vaadatud videote esitusloendisse
     All playlists have been removed: Kõik esitusloendid on eemaldatud
@@ -1013,9 +1012,6 @@ Tooltips:
       IP-aadressi blokeerimise, kuid ei sisalda video kestust ja otseesituse olekut
     Fetch Automatically: Kui see valik on kasutusel, siis FreeTube automaatselt laadib
       uue akna avamisel ja profiili vahetamisel sinu tellimuste loendi.
-  Privacy Settings:
-    Remove Video Meta Files: Selle valiku kasutamisel FreeTube automaatselt kustutab
-      peale video esitamist kogu metateabe.
   General Settings:
     Region for Trending: Piirkond, mille alusel kuvame hetkel menukad ehk populaarsust
       koguvad videod.

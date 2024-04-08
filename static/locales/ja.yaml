@@ -331,7 +331,6 @@ Settings:
     Privacy Settings: 個人情報の設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
-    Automatically Remove Video Meta Files: 動画のメタファイルの自動削除
     Save Watched Videos With Last Viewed Playlist: 「最後に再生した」リストで視聴済み動画を保存
   Data Settings:
     How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
@@ -881,8 +880,6 @@ Tooltips:
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
-  Privacy Settings:
-    Remove Video Meta Files: 有効にすると、FreeTube は動画再生中に作成したメタファイルを、再生ページを閉じるときに自動的に削除します。
   External Player Settings:
     Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（動画リストの反転など）に警告を抑制します。

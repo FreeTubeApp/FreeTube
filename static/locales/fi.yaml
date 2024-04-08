@@ -408,7 +408,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Haluatko
       cvarmasti poistaa kaikki tilaukset ja profiilit. Tätä toimintoa ei voi perua.
     Remove All Subscriptions / Profiles: Poista kaikki tilaukset / profiilit
-    Automatically Remove Video Meta Files: Poista videoiden metadata automaattisesti
     Save Watched Videos With Last Viewed Playlist: Tallenna katsotut videot viimeksi
       katsotulla soittolistalla
     Remove All Playlists: Poista kaikki soittolistat
@@ -1020,9 +1019,6 @@ Tooltips:
       H.264 formaatit. DASH AV1 formaatit vaativat enemmän tehoa toistamiseen! Ne
       eivät ole käytettävissä kaikissa videoissa ja näissä tapauksissa soitin käyttää
       sen sijaan DASH H.264 formaatteja.
-  Privacy Settings:
-    Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
-      meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
   External Player Settings:
     Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
       puolipisteillä eroteltuina (';'), jotka haluat siirtää eteenpäin ulkoiselle

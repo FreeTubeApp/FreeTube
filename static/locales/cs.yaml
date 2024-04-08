@@ -410,7 +410,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Odstranit všechny odběry / profily'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Opravdu
       chcete odstranit všechny odběry a profily? Tato akce je nevratná.'
-    Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
     Save Watched Videos With Last Viewed Playlist: Uložit zhlédnutá videa s naposledy
       zobrazeným playlistem
     All playlists have been removed: Všechny playlisty byly odstraněny
@@ -1056,9 +1055,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
       vaše odběry při otevření nového okna a při přepínání profilů.
-  Privacy Settings:
-    Remove Video Meta Files: Pokud je povoleno, FreeTube automaticky odstraní meta
-      soubory vytvořené během přehrávání videa, když se stránka sledování zavře.
   External Player Settings:
     Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
       aktuální akci (např. obrácení seznamů skladeb apod.).

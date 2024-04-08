@@ -408,8 +408,6 @@ Settings:
       u zeker dat u alle abonnementen en profielen wil verwijderen? Dit kan niet ongedaan
       worden gemaakt.
     Remove All Subscriptions / Profiles: Verwijder alle abonnementen / profielen
-    Automatically Remove Video Meta Files: Bestanden met metadata van video's automatisch
-      verwijderen
     Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de
       afspeellijst ‘Laatst bekeken’
     Remove All Playlists: Alle afspeel­lijsten verwijderen
@@ -1107,10 +1105,6 @@ Tooltips:
     External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet
       kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
       link openen in je standaardbrowser.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
-      die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
-      wordt gesloten.
   External Player Settings:
     Custom External Player Arguments: Aangepaste opdrachtregelargumenten, gescheiden
       door puntkomma's (';'), die je wil doorgeven aan de externe videospeler.

@@ -304,8 +304,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Limpar tódalas subscricións / perfís'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Estás
       seguro de querer limpar tódalas subscricións e perfís? Esta acción é irreversible.'
-    Automatically Remove Video Meta Files: Elimina automaticamente os ficheiros meta
-      de vídeo
     Save Watched Videos With Last Viewed Playlist: Gardalos vídeos vistos coa última
       lista de reprodución vista
   Subscription Settings:
@@ -882,10 +880,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Cando estea activado, FreeTube buscará automaticamente o
       teu feed da subscrición, cando se abra unha nova ventá e cando cambies de perfil.
-  Privacy Settings:
-    Remove Video Meta Files: Cando está activado, FreeTube elimina automaticamente
-      os ficheiros meta creados durante a reprodución de vídeo cando a páxina de visualización
-      está pechada.
   External Player Settings:
     Custom External Player Arguments: Calquera argumento de liña de comandos personalizado,
       separado por puntos e coma (';'), que desexa que se pase ao reprodutor externo.

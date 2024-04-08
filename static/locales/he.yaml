@@ -306,7 +306,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'למחק את כל המינויים / פרופילים'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'למחוק
       כל את המינויים והפרופילים? זופעולה בלתי הפיכה.'
-    Automatically Remove Video Meta Files: להסיר אוטומטית קובצי נתוני על של הסרטון
     Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
       הנגינה לאחרונים שנצפו
   Subscription Settings:
@@ -942,9 +941,6 @@ Tooltips:
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
     Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
       מופרדים בפסיקים (‚;’).
-  Privacy Settings:
-    Remove Video Meta Files: כאשר אפשרות זו מופעלת, FreeTube מוחק באופן אוטומטי קובצי
-      על שנוצרים במהלך ניגון סרטון, לאחר סגירת עמוד הצפייה.
   Experimental Settings:
     Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
       אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).

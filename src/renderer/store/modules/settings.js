@@ -240,7 +240,6 @@ const state = {
   proxyVideos: !process.env.IS_ELECTRON,
   region: 'US',
   rememberHistory: true,
-  removeVideoMetaFiles: true,
   saveWatchedProgress: true,
   saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,

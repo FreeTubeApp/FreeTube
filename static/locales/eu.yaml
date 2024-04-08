@@ -399,7 +399,6 @@ Settings:
     Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
     Remember History: 'Historikoa oroitu'
     Save Watched Progress: 'Ikusitakoaren progresioa gorde'
-    Automatically Remove Video Meta Files: 'Bideo metafitxategiak ezabatu automatikoki'
     Clear Search Cache: 'Bilaketen cachea ezabatu'
     Are you sure you want to clear out your search cache?: 'Ziur al zaude bilaketa-cachea
       garbitu nahi duzula?'
@@ -1018,10 +1017,6 @@ Tooltips:
       bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
     Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure
       harpidetza-jarioa leiho berri bat irekitzen denean eta profila aldatzean.
-  Privacy Settings:
-    Remove Video Meta Files: 'Gaituta dagoenean, FreeTube-k automatikoki ezabatzen
-      ditu bideoen erreprodukzioan sortutako metafitxategiak, bistaratze orria ixten
-      denean.'
 
 # Toast Messages
   External Player Settings:

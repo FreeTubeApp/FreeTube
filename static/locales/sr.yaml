@@ -418,8 +418,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Уклони сва праћења/профиле'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Желите
       ли заиста да уклоните сва праћења и профиле?   Ово се не може поништити.'
-    Automatically Remove Video Meta Files: Аутоматски уклони мета фајлове за видео
-      снимак
     Save Watched Videos With Last Viewed Playlist: Сачувај одгледане видео снимке
       са последње гледане плејлисте
     All playlists have been removed: Све плејлисте су уклоњене
@@ -939,9 +937,6 @@ Tooltips:
       разликује велика и мала слова) да бисте сакрили све видео снимке и плејлисте
       чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју,
       ваше плејлисте и видео снимке унутар плејлиста.
-  Privacy Settings:
-    Remove Video Meta Files: Када је омогућено, FreeTube аутоматски брише мета фајлове
-      направљене током репродукције видео снимка, када се страница гледања затвори.
   Player Settings:
     Allow DASH AV1 formats: DASH AV1 формати могу изгледати боље од DASH H.264 формата.
       DASH AV1 формати захтевају више снаге за репродукцију! Они нису доступни на

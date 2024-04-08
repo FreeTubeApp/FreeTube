@@ -460,7 +460,6 @@ Settings:
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
       nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abos / Profile entfernen
-    Automatically Remove Video Meta Files: Video-Metadateien automatisch entfernen
     Save Watched Videos With Last Viewed Playlist: Angesehene Videos mit der zuletzt
       angesehenen Wiedergabeliste speichern
     Remove All Playlists: Alle Wiedergabelisten entfernen
@@ -1139,10 +1138,6 @@ Tooltips:
       Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
       bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
       die DASH H.264-Formate.
-  Privacy Settings:
-    Remove Video Meta Files: Wenn aktiviert, löscht FreeTube automatisch die während
-      der Videowiedergabe erstellten Metadateien, wenn die Abspielseite geschlossen
-      wird.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
       getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
