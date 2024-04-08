@@ -1050,3 +1050,5 @@ Close Banner: 關閉橫幅
 Age Restricted:
   This channel is age restricted: 此頻道有年齡限制
   This video is age restricted: 此影片有年齡限制
+checkmark: ✓
+Display Label: '{label}：{value}'
