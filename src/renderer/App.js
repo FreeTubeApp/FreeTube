@@ -78,14 +78,13 @@ export default defineComponent({
       return this.$store.getters.getShowCreatePlaylistPrompt
     },
     windowTitle: function () {
-      const routeName = this.$route.name
-      if (routeName !== 'channel' && routeName !== 'watch' && routeName !== 'hashtag') {
-        let title =
-        this.$route.meta.path === '/home'
-          ? packageDetails.productName
-          : `${translateWindowTitle(this.$route.meta.title, this.$i18n)} - ${packageDetails.productName}`
+      const routePath = this.$route.path
+      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/')) {
+        let title = translateWindowTitle(this.$route.meta.title, this.$i18n)
         if (!title) {
           title = packageDetails.productName
+        } else {
+          title = `${title} - ${packageDetails.productName}`
         }
         return title
       } else {
