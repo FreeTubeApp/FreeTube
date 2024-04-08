@@ -512,9 +512,9 @@ function runApp() {
       backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: process.env.NODE_ENV === 'development'
-        ? path.join(__dirname, '../../_icons/iconColor.png')
+        ? path.join(__dirname, '../../_icons/iconColor.svg')
         /* eslint-disable-next-line n/no-path-concat */
-        : `${__dirname}/_icons/iconColor.png`,
+        : `${__dirname}/_icons/iconColor.svg`,
       autoHideMenuBar: true,
       // useContentSize: true,
       webPreferences: {
