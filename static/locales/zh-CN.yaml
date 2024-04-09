@@ -1040,3 +1040,5 @@ Close Banner: 关闭横幅
 Age Restricted:
   This video is age restricted: 此视频有年龄限制
   This channel is age restricted: 此频道有年龄限制
+checkmark: ✓
+Display Label: '{label}: {value}'
