@@ -1243,3 +1243,5 @@ Close Banner: Banner schließen
 Age Restricted:
   This channel is age restricted: Dieser Kanal ist altersbeschränkt
   This video is age restricted: Dieses Video ist altersbeschränkt
+Display Label: '{label}: {value}'
+checkmark: ✓
