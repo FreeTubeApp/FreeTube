@@ -1170,3 +1170,5 @@ Age Restricted:
   This channel is age restricted: هذه القناة مقيدة بالعمر
   This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
 Close Banner: إغلاق الشعار
+checkmark: ✓
+Display Label: '{label}: {value}'
