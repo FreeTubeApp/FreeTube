@@ -1264,3 +1264,4 @@ Age Restricted:
 Close Banner: Fermer la bannière
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label} : {value}'
+checkmark: ✓
