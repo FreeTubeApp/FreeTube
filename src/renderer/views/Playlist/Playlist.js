@@ -142,7 +142,11 @@ export default defineComponent({
       if (this.processedVideoSearchQuery === '') { return this.playlistItems }
 
       return this.playlistItems.filter((v) => {
-        return v.title.toLowerCase().includes(this.processedVideoSearchQuery)
+        if (typeof (v.title) !== 'string' || typeof (v.author) !== 'string') {
+          return false
+        } else {
+          return v.title.toLowerCase().includes(this.processedVideoSearchQuery) || v.author.toLowerCase().includes(this.processedVideoSearchQuery)
+        }
       })
     },
     visiblePlaylistItems: function () {
