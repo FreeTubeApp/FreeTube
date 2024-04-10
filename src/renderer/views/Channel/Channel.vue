@@ -233,27 +233,27 @@
         <ft-select
           v-if="showVideoSortBy"
           v-show="currentTab === 'videos' && latestVideos.length > 0"
-          :value="videoLiveSelectValues[0]"
-          :select-names="videoLiveSelectNames"
-          :select-values="videoLiveSelectValues"
+          :value="videoLiveShortSelectValues[0]"
+          :select-names="videoLiveShortSelectNames"
+          :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
           @change="videoSortBy = $event"
         />
         <ft-select
           v-if="!hideChannelShorts && showShortSortBy"
           v-show="currentTab === 'shorts' && latestShorts.length > 0"
-          :value="shortSelectValues[0]"
-          :select-names="shortSelectNames"
-          :select-values="shortSelectValues"
+          :value="videoLiveShortSelectValues[0]"
+          :select-names="videoLiveShortSelectNames"
+          :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
           @change="shortSortBy = $event"
         />
         <ft-select
           v-if="!hideLiveStreams && showLiveSortBy"
           v-show="currentTab === 'live' && latestLive.length > 0"
-          :value="videoLiveSelectValues[0]"
-          :select-names="videoLiveSelectNames"
-          :select-values="videoLiveSelectValues"
+          :value="videoLiveShortSelectValues[0]"
+          :select-names="videoLiveShortSelectNames"
+          :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
           @change="liveSortBy = $event"
         />
@@ -417,7 +417,7 @@
     <ft-age-restricted
       v-else-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :content-type-string="'Channel'"
+      :is-channel="true"
     />
   </div>
 </template>

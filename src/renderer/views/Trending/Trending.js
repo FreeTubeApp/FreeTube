@@ -7,7 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 
-import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -152,6 +152,8 @@ export default defineComponent({
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
+
+        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
 
         this.shownResults = returnData
         this.isLoading = false

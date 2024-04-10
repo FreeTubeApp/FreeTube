@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ta część aplikacji nie jest jeszcze gotowa. Wróć później, gdy zostaną poczynione
@@ -7,7 +6,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Plik'
 Quit: 'Wyjdź'
-Edit: 'Edycja'
+Edit: 'Edytuj'
 Undo: 'Cofnij'
 Redo: 'Ponów'
 Cut: 'Wytnij'
@@ -123,7 +122,7 @@ User Playlists:
     tu jedynie wymienione filmy, które zapisałeś lub oznaczyłeś jako ulubione. Kiedy
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
-  Search bar placeholder: Przeszukaj playlisty
+  Search bar placeholder: Szukaj playlist
   Empty Search Message: Na tej playliście nie ma filmów, które pasowałyby do Twojego
     zapytania
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Czy
@@ -143,6 +142,7 @@ User Playlists:
       dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
       film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
+    Added {count} Times: Dodano {count} raz | Dodano {count} razy
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nie było żadnych filmów do usunięcia.
@@ -174,6 +174,7 @@ User Playlists:
         ta playlista, zamiast „{oldPlaylistName}”, będzie używana dla funkcji Szybkiej
         Zakładki . Kliknij tutaj, by cofnąć zmianę
       Quick bookmark disabled: Wyłączono Szybką Zakładkę
+    Search for Videos: Szukaj filmów
   Are you sure you want to delete this playlist? This cannot be undone: Czy na pewno
     chcesz usunąć tę playlistę? Nie można cofnąć tej czynności.
   Sort By:
@@ -216,6 +217,7 @@ User Playlists:
   Remove from Favorites: Usuń z „{playlistName}”
   Disable Quick Bookmark: Wyłącz Szybką Zakładkę
   Enable Quick Bookmark With This Playlist: Włącz Szybką Zakładkę z tą playlistą
+  Playlists with Matching Videos: Playlisty z pasującymi filmami
 History:
   # On History Page
   History: 'Historia'
@@ -451,7 +453,6 @@ Settings:
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
-    Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
     Save Watched Videos With Last Viewed Playlist: Zapisuj do historii film wraz z
       ostatnią odtwarzaną playlistą, która go zawierała
     All playlists have been removed: Wszystkie playlisty zostały usunięte
@@ -525,7 +526,7 @@ Settings:
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
-    Hide Playlists: Schowaj playlistę
+    Hide Playlists: Schowaj playlisty
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj linki do dzielenia się filmem
@@ -534,8 +535,8 @@ Settings:
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
     Hide Channels: Schowaj filmy z kanałów
     Hide Channels Placeholder: ID kanału
-    Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły bez nadmiernych
-      wielkich liter
+    Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
+      wielkich liter i interpunkcji
     Hide Channel Community: Schowaj społeczność kanału
     Hide Channel Shorts: Schowaj filmy Short kanału
     Hide Featured Channels: Schowaj polecane kanały
@@ -917,6 +918,7 @@ Video:
   Pause on Current Video: Zatrzymaj po tym filmie
   Unhide Channel: Pokaż kanał
   Hide Channel: Ukryj kanał
+  More Options: Więcej opcji
 Videos:
   #& Sort By
   Sort By:
@@ -999,7 +1001,7 @@ Up Next: 'Następne'
 Local API Error (Click to copy): 'Błąd lokalnego API (kliknij by skopiować)'
 Invidious API Error (Click to copy): 'Błąd API Invidious (kliknij by skopiować)'
 Falling back to Invidious API: 'Wycofywanie do API Invidious'
-Falling back to the local API: 'Wycofywanie do lokalnego API'
+Falling back to Local API: 'Wycofywanie do lokalnego API'
 Subscriptions have not yet been implemented: 'Subskrypcje nie zostały jeszcze wprowadzone'
 Loop is now disabled: 'Zapętlenie jest teraz wyłączone'
 Loop is now enabled: 'Zapętlenie jest teraz włączone'
@@ -1117,9 +1119,6 @@ Tooltips:
       H.264 DASH. Dekodowanie formatu AV1 DASH wymaga większej mocy obliczeniowej.
       W filmach, dla których ten format nie jest dostępny, zostanie użyty format H.264
       DASH.
-  Privacy Settings:
-    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
-      utworzone podczas odtwarzania filmu, gdy strona odtwarzacza zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
@@ -1181,13 +1180,6 @@ Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączo
   tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
 Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
-Age Restricted:
-  Type:
-    Channel: kanał
-    Video: film
-  The currently set default instance is {instance}: Ten {instance} ma ograniczenie
-    wiekowe
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} ma ograniczenie wiekowe'
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów
@@ -1224,3 +1216,7 @@ Channel Unhidden: '{channel} usunięty z filtra kanału'
 Tag already exists: Tag „{tagName}” już istnieje
 Trimmed input must be at least N characters long: Przycięte wyrażenie musi mieć przynajmniej
   1 znak | Przycięte wyrażenie musi mieć przynajmniej {length} znaki/ów
+Age Restricted:
+  This video is age restricted: Ten film ma ograniczenie wiekowe
+  This channel is age restricted: Ten kanał ma ograniczenie wiekowe
+Close Banner: Zamknij Baner

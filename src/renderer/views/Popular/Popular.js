@@ -7,7 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'Popular',
@@ -66,12 +66,15 @@ export default defineComponent({
         return
       }
 
-      this.shownResults = result.filter((item) => {
+      const items = result.filter((item) => {
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
-      this.setLastPopularRefreshTimestamp(new Date())
+      setPublishedTimestampsInvidious(items.filter(item => item.type === 'video' || item.type === 'shortVideo'))
+
+      this.shownResults = items
+
       this.isLoading = false
-      this.$store.commit('setPopularCache', this.shownResults)
+      this.$store.commit('setPopularCache', items)
     },
 
     /**

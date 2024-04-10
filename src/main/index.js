@@ -10,6 +10,7 @@ import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
+import asyncFs from 'fs/promises'
 
 import packageDetails from '../../package.json'
 
@@ -64,7 +65,9 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+            visible = ['/channel', '/watch'].some(p => path.startsWith(p)) ||
+              // Only show copy link entry for non user playlists
+              (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
         } else {
           visible = true
@@ -103,17 +106,17 @@ function runApp() {
             let url
 
             if (toYouTube) {
-              url = `https://youtu.be/${id}`
+              url = new URL(`https://youtu.be/${id}`)
             } else {
-              url = `https://redirect.invidious.io/watch?v=${id}`
+              url = new URL(`https://redirect.invidious.io/watch?v=${id}`)
             }
 
             if (query) {
               const params = new URLSearchParams(query)
-              const newParams = new URLSearchParams()
+              const newParams = new URLSearchParams(url.search)
               let hasParams = false
 
-              if (params.has('playlistId')) {
+              if (params.has('playlistId') && params.get('playlistType') !== 'user') {
                 newParams.set('list', params.get('playlistId'))
                 hasParams = true
               }
@@ -124,11 +127,11 @@ function runApp() {
               }
 
               if (hasParams) {
-                url += '?' + newParams.toString()
+                url.search = newParams.toString()
               }
             }
 
-            return url
+            return url.toString()
           }
         }
       }
@@ -172,14 +175,11 @@ function runApp() {
     app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
   }
 
-  // Work around for context menus in the devtools being displayed behind the window
-  // https://github.com/electron/electron/issues/38790
-  app.commandLine.appendSwitch('disable-features', 'WidgetLayering')
-
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
-  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  const REPLACE_HTTP_CACHE_PATH = `${app.getPath('userData')}/experiment-replace-http-cache`
+  const replaceHttpCache = existsSync(REPLACE_HTTP_CACHE_PATH)
   if (replaceHttpCache) {
     // the http cache causes excessive disk usage during video playback
     // we've got a custom image cache to make up for disabling the http cache
@@ -664,7 +664,7 @@ function runApp() {
     }
   })
 
-  ipcMain.once('relaunchRequest', () => {
+  function relaunch() {
     if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
@@ -695,6 +695,10 @@ function runApp() {
     }
 
     app.quit()
+  }
+
+  ipcMain.once('relaunchRequest', () => {
+    relaunch()
   })
 
   nativeTheme.on('updated', () => {
@@ -780,6 +784,22 @@ function runApp() {
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
     child.unref()
+  })
+
+  ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, () => {
+    return replaceHttpCache
+  })
+
+  ipcMain.once(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE, async () => {
+    if (replaceHttpCache) {
+      await asyncFs.rm(REPLACE_HTTP_CACHE_PATH)
+    } else {
+      // create an empty file
+      const handle = await asyncFs.open(REPLACE_HTTP_CACHE_PATH, 'w')
+      await handle.close()
+    }
+
+    relaunch()
   })
 
   // ************************************************* //

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Italiano'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Questa parte dell'app non è ancora pronta. Torna più tardi quando saranno stati
@@ -124,7 +123,7 @@ User Playlists:
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
     tutti i video che si trovano qui saranno spostati in una playlist preferiti.
-  Search bar placeholder: Cerca nella playlist
+  Search bar placeholder: Cerca nelle playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sei
@@ -143,6 +142,7 @@ User Playlists:
     Select a playlist to add your N videos to: Seleziona una playlist a cui aggiungere
       il tuo video | Seleziona una playlist a cui aggiungere i tuoi {videoCount} video
     N playlists selected: '{playlistCount} selezionate'
+    Added {count} Times: Aggiunto {count} volta | Aggiunti {count} volte
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Non c'erano video da rimuovere.
@@ -175,6 +175,7 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Questa
         playlist è ora usata per i segnalibri rapidi al posto di {oldPlaylistName}.
         Fai clic qui per annullare
+    Search for Videos: Cerca video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
   Sort By:
@@ -218,6 +219,7 @@ User Playlists:
   Remove from Favorites: Rimuovi da {playlistName}
   Enable Quick Bookmark With This Playlist: Abilita segnalibro rapido con questa playlist
   Disable Quick Bookmark: Disabilita segnalibro rapido
+  Playlists with Matching Videos: Playlist con video corrispondenti
 History:
   # On History Page
   History: 'Cronologia'
@@ -287,6 +289,7 @@ Settings:
       Catppuccin Mocha: Cappuccino moka
       Pastel Pink: Rosa pastello
       Hot Pink: Rosa caldo
+      Nordic: Nordico
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -408,8 +411,6 @@ Settings:
       sicuro di volere eliminare tutte le iscrizioni e i profili? L'operazione non
       può essere annullata.
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni e i profili
-    Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dai
-      video
     Save Watched Videos With Last Viewed Playlist: Salva i video guardati con l'ultima
       playlist vista
     All playlists have been removed: Tutte le playlist sono state rimosse
@@ -536,8 +537,8 @@ Settings:
     Hide Upcoming Premieres: Nascondi le prossime Première
     Hide Channels: Nascondi i video dai canali
     Hide Channels Placeholder: ID del canale
-    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
-      uso eccessivo di maiuscole
+    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole
+      e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
     Hide Channel Playlists: Nascondi le playlist del canale
     Hide Channel Community: Nascondi la comunità del canale
@@ -913,6 +914,7 @@ Video:
   Pause on Current Video: Pausa sul video attuale
   Unhide Channel: Mostra canale
   Hide Channel: Nascondi canale
+  More Options: Più opzioni
 Videos:
   #& Sort By
   Sort By:
@@ -996,7 +998,7 @@ Up Next: 'Prossimi video'
 Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
 Invidious API Error (Click to copy): 'Errore API Invidious (Clicca per copiare)'
 Falling back to Invidious API: 'Torno alle API Invidious'
-Falling back to the local API: 'Torno alle API locali'
+Falling back to Local API: 'Torno alle API locali'
 Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state
   implementate'
 Loop is now disabled: 'Il loop è ora disabilitato'
@@ -1130,10 +1132,6 @@ Tooltips:
     Ignore Default Arguments: Non inviare argomenti predefiniti al lettore esterno
       oltre all'URL del video (ad esempio velocità di riproduzione, URL della playlist,
       ecc.). Gli argomenti personalizzati verranno comunque trasmessi.
-  Privacy Settings:
-    Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
-      , FreeTube eliminerà automaticamente i metafile creati durante la visione del
-      video .
   Experimental Settings:
     Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'uso
@@ -1177,13 +1175,6 @@ Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
 Screenshot Success: Screenshot salvato come "{filePath}"
 Screenshot Error: Screenshot non riuscito. {error}
-Age Restricted:
-  The currently set default instance is {instance}: Questo {instance} è limitato dall'età
-  Type:
-    Channel: Canale
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Questo {videoOrPlaylist} ha limiti di
-    età
 New Window: Nuova finestra
 Channels:
   Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'
@@ -1220,3 +1211,9 @@ Channel Unhidden: '{channel} rimosso dal filtro canali'
 Tag already exists: Il tag "{tagName}" esiste già
 Trimmed input must be at least N characters long: L'input troncato deve essere lungo
   almeno 1 carattere | L'input troncato deve essere lungo almeno {length} caratteri
+Age Restricted:
+  This video is age restricted: Questo video è soggetto a limiti di età
+  This channel is age restricted: Questo canale è soggetto a limiti di età
+Close Banner: Chiudi banner
+checkmark: ✓
+Display Label: '{label}: {value}'

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Ελληνικά (EL)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Αυτό το μέρος της εφαρμογής δεν είναι ακόμη έτοιμο. Επιστρέψτε αργότερα όταν έχει
@@ -323,7 +322,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
-    Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
     Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
       Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
   Subscription Settings:
@@ -945,7 +943,7 @@ Local API Error (Click to copy): 'Τοπικό σφάλμα Διεπαφής π�
 Invidious API Error (Click to copy): 'Σφάλμα Διεπαφής προγραμματισμού εφαρμογής Invidious(*API)
   (Κάντε κλικ για αντιγραφή)'
 Falling back to Invidious API: 'Επιστροφή στο Invidious API'
-Falling back to the local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής
+Falling back to Local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής
   (API)'
 Subscriptions have not yet been implemented: 'Οι συνδρομές δεν έχουν ακόμη υλοποιηθεί'
 Loop is now disabled: 'Η επανάληψη είναι πλέον απενεργοποιημένη'
@@ -1019,10 +1017,6 @@ Tooltips:
       σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,
       το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα
       περιήγησης.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
-      τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
-      παρακολούθησης είναι κλειστή.
   External Player Settings:
     Custom External Player Executable: Από προεπιλογή, το FreeTube θα υποθέσει ότι
       το επιλεγμένο εξωτερικό πρόγραμμα αναπαραγωγής μπορεί να βρεθεί μέσω της μεταβλητής
@@ -1097,12 +1091,6 @@ Chapters:
   Chapters: Κεφάλαια
   'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων,
     τρέχον κεφάλαιο: {chapterName}'
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Αυτό το {videoOrPlaylist} έχει περιορισμό
-    ηλικίας
-  Type:
-    Channel: Κανάλι
-    Video: Βίντεο
 Ok: Εντάξει
 Preferences: Προτιμήσεις
 Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"

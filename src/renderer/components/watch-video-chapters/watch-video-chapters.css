@@ -54,7 +54,6 @@
 .chapterThumbnail {
   grid-area: thumbnail;
   inline-size: 130px;
-  block-size: auto;
   margin: 3px;
 }
 

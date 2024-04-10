@@ -9,7 +9,12 @@
     </div>
     <div class="videoMetrics">
       <div class="datePublishedAndViewCount">
-        {{ publishedString }} {{ dateString }} • {{ parsedViewCount }}
+        {{ publishedString }} {{ dateString }}
+        <template
+          v-if="!hideVideoViews"
+        >
+          <span class="seperator">• </span><span class="videoViews">{{ parsedViewCount }}</span>
+        </template>
       </div>
       <div
         v-if="!hideVideoLikesAndDislikes"
@@ -85,7 +90,7 @@
         <ft-icon-button
           v-if="isQuickBookmarkEnabled"
           :title="quickBookmarkIconText"
-          :icon="['fas', 'star']"
+          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'clock']"
           class="quickBookmarkVideoIcon"
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,

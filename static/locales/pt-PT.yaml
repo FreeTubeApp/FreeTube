@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: Português (PT)
-FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
@@ -401,8 +400,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
       a certeza de que pretende remover todas as suas subscrições e perfis? Esta ação
       não pode ser revertida.
-    Automatically Remove Video Meta Files: Remover automaticamente os meta-ficheiros
-      dos vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
       última lista de reprodução vista
     Remove All Playlists: Remover todas as listas de reprodução
@@ -1004,9 +1001,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Se ativa, FreeTube irá obter automaticamente as subscrições
       ao abrir uma nova janela e/ou quando mudar de perfil.
-  Privacy Settings:
-    Remove Video Meta Files: Se ativa, ao fechar uma página, FreeTube apagará automaticamente
-      os meta-ficheiros criados durante a reprodução de um vídeo.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
       por ponto e vírgula (';'), que quiser passar ao reprodutor externo.
@@ -1035,7 +1029,7 @@ Tooltips:
 Local API Error (Click to copy): Erro na API local (clique para copiar)
 Invidious API Error (Click to copy): Erro na API Invidious (clique para copiar)
 Falling back to Invidious API: Ocorreu um erro e vamos usar a API Invidious
-Falling back to the local API: Ocorreu um erro e vamos usar a API local
+Falling back to Local API: Ocorreu um erro e vamos usar a API local
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
   no seu país.
@@ -1083,13 +1077,6 @@ Channels:
   Unsubscribe: Anular subscrição
   Unsubscribed: '{channelName} foi removido das suas subscrições'
   Unsubscribe Prompt: Tem a certeza de que pretende anular a subscrição de "{channelName}"?
-Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição
-    de idade
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} tem restrição de idade'
 Downloading has completed: '"{videoTitle}" foi descarregado'
 Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"

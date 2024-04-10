@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   此功能尚未製作完成。有更新再來喔。
@@ -112,7 +111,7 @@ User Playlists:
   Your Playlists: '您的播放清單'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
-  Search bar placeholder: 在播放清單搜尋
+  Search bar placeholder: 搜尋播放清單
   Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
   This playlist currently has no videos.: 此播放清單目前沒有影片。
   Create New Playlist: 建立新播放清單
@@ -158,6 +157,7 @@ User Playlists:
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
         進行快速書籤
+    Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
       部影片新增至其中
@@ -170,6 +170,7 @@ User Playlists:
         部影片新增至 1 個播放清單
       "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount}
         個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
+    Added {count} Times: 新增了 {count} 次 | 新增了 {count} 次
   CreatePlaylistPrompt:
     New Playlist Name: 新播放清單名稱
     Toast:
@@ -186,6 +187,7 @@ User Playlists:
   Remove from Favorites: 從 {playlistName} 移除
   Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
   Disable Quick Bookmark: 停用快速書籤
+  Playlists with Matching Videos: 包含相符影片的播放清單
 History:
   # On History Page
   History: '觀看紀錄'
@@ -245,11 +247,12 @@ Settings:
       Black: '黑色'
       Dark: '深色'
       Light: '淺色'
-      Dracula: '德古拉'
+      Dracula: 'Dracula'
       System Default: 系統預設值
       Catppuccin Mocha: 卡布奇諾摩卡
       Pastel Pink: 淡粉紅色
       Hot Pink: 亮粉紅色
+      Nordic: 北歐
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -401,7 +404,6 @@ Settings:
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
-    Automatically Remove Video Meta Files: 自動刪除影片元檔案
     Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
     Remove All Playlists: 移除所有播放清單
     All playlists have been removed: 所有播放清單已被移除
@@ -469,7 +471,7 @@ Settings:
     Hide Upcoming Premieres: 隱藏即將到來的首映
     Hide Channels Placeholder: 頻道 ID
     Hide Channels: 隱藏頻道中的影片
-    Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫的標題
+    Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫與標點符號的標題
     Hide Featured Channels: 隱藏精選頻道
     Hide Channel Playlists: 隱藏頻道播放清單
     Hide Channel Community: 隱藏頻道社群
@@ -814,6 +816,7 @@ Video:
   Pause on Current Video: 暫停目前影片
   Unhide Channel: 顯示頻道
   Hide Channel: 隱藏頻道
+  More Options: 更多選項
 Videos:
   #& Sort By
   Sort By:
@@ -890,7 +893,7 @@ Up Next: '觀看其他類似影片'
 Local API Error (Click to copy): '區域API錯誤（點擊複製）'
 Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
-Falling back to the local API: '回退到區域API'
+Falling back to Local API: '回退到區域API'
 Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
 Loop is now disabled: '循環播放現在被停用'
 Loop is now enabled: '循環播放現在被啟用'
@@ -978,8 +981,6 @@ Tooltips:
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
-  Privacy Settings:
-    Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
   External Player Settings:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
@@ -1016,12 +1017,6 @@ Starting download: 正在開始下載「{videoTitle}」
 Screenshot Success: 已儲存螢幕截圖為 "{filePath}"
 Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗
-Age Restricted:
-  The currently set default instance is {instance}: 此 {instance} 有年齡限制
-  Type:
-    Channel: 頻道
-    Video: 影片
-  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年齡限制
 Channels:
   Channels: 頻道
   Title: 頻道清單
@@ -1051,3 +1046,9 @@ Channel Unhidden: '{channel} 已從頻道過濾條件移除'
 Trimmed input must be at least N characters long: 修剪後的輸入必須至少有 1 個字元長 | 修剪後的輸入必須至少有
   {length} 個字元長
 Tag already exists: 「{tagName}」標籤已存在
+Close Banner: 關閉橫幅
+Age Restricted:
+  This channel is age restricted: 此頻道有年齡限制
+  This video is age restricted: 此影片有年齡限制
+checkmark: ✓
+Display Label: '{label}：{value}'

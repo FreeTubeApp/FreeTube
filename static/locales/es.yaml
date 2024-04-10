@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'español (España)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
@@ -121,7 +120,7 @@ User Playlists:
   Playlist Message: Esta página no refleja el estado final de las listas de reproducción,
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
-  Search bar placeholder: Buscar en la lista de reproducción
+  Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
     con tu búsqueda
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
@@ -142,6 +141,7 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
+    Added {count} Times: Añadido {count} vez | Añadido {count} veces
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.
@@ -173,6 +173,7 @@ User Playlists:
         Haga clic aquí para deshacer
       Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
         para un marcador rápido
+    Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
   Sort By:
@@ -218,6 +219,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Activar marcadores rápidos con esta lista
     de reproducción
   Disable Quick Bookmark: Desactivar el marcador rápido
+  Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
 History:
   # On History Page
   History: 'Historial'
@@ -287,6 +289,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Moca
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
+      Nordic: Nórdico
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -409,8 +412,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones/perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
       que quieres borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
-    Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
-      de vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última
       lista de reproducción vista
     All playlists have been removed: Se han eliminado todas las listas de reproducción
@@ -531,8 +532,8 @@ Settings:
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar vídeos de los canales
     Hide Channels Placeholder: ID del canal
-    Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
-      mayúsculas
+    Display Titles Without Excessive Capitalisation: Mostrar títulos sin mayúsculas
+      ni signos de puntuación excesivos
     Hide Featured Channels: Ocultar canales recomendados
     Hide Channel Playlists: Ocultar las listas de reproducción de los canales
     Hide Channel Community: Ocultar canales de la comunidad
@@ -954,6 +955,7 @@ Video:
   Pause on Current Video: Pausa en el vídeo actual
   Unhide Channel: Mostrar el canal
   Hide Channel: Ocultar el canal
+  More Options: Más opciones
 Videos:
   #& Sort By
   Sort By:
@@ -1037,7 +1039,7 @@ Local API Error (Click to copy): 'Error de la API local (Clic para copiar el có
 Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para copiar
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
-Falling back to the local API: 'Recurriendo a la API local'
+Falling back to Local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Todavía no se han implementado las suscripciones'
 Loop is now disabled: 'Reproducción en bucle desactivada'
 Loop is now enabled: 'Reproducción en bucle activada'
@@ -1076,10 +1078,11 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Solo funciona cuando la API de Invidious
-      es la predeterminada. la API local se ejecutará y usará los formatos heredados
-      en lugar de Invidious. Esto ayudará cuando Invidious no pueda reproducir un
-      vídeo por culpa de las restricciones regionales.
+    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
+      es la predeterminada. Si está activada, la API local se ejecutará y utilizará
+      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
+      Es útil cuando los vídeos devueltos por Invidious no se reproducen debido a
+      restricciones nacionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -1107,10 +1110,6 @@ Tooltips:
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic
       en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá
       el enlace en el que se hizo clic en su navegador predeterminado.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
-      meta-archivos creados durante la reproducción del vídeo una vez se cierre la
-      página de visualizado.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
       externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
@@ -1183,12 +1182,6 @@ Channels:
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
   Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
-Age Restricted:
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción
-    de edad
 Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
@@ -1215,3 +1208,9 @@ Channel Unhidden: '{channel} eliminado del filtro de canales'
 Tag already exists: La etiqueta "{tagName}" ya existe
 Trimmed input must be at least N characters long: La entrada recortada debe tener
   al menos 1 carácter | La entrada recortada debe tener al menos {length} caracteres
+Close Banner: Cerrar el banner
+Age Restricted:
+  This channel is age restricted: Este canal está restringido por edad
+  This video is age restricted: Este vídeo está restringido por edad
+checkmark: ✓
+Display Label: '{label}: {value}'

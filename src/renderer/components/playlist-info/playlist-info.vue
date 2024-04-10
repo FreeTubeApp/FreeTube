@@ -76,6 +76,7 @@
     <hr>
 
     <div
+      v-if="!searchVideoMode"
       class="channelShareWrapper"
     >
       <router-link
@@ -106,6 +107,14 @@
       </div>
 
       <div class="playlistOptions">
+        <ft-icon-button
+          v-if="searchVideoModeAllowed && videoCount > 0 && !editMode"
+          ref="enableSearchModeButton"
+          :title="$t('User Playlists.SinglePlaylistView.Search for Videos')"
+          :icon="['fas', 'search']"
+          theme="secondary"
+          @click="enableVideoSearchMode"
+        />
         <ft-icon-button
           v-if="editMode"
           :title="$t('User Playlists.Save Changes')"
@@ -166,6 +175,7 @@
         <ft-share-button
           v-if="sharePlaylistButtonVisible"
           :id="id"
+          class="sharePlaylistIcon"
           :dropdown-position-y="description ? 'top' : 'bottom'"
           share-target-type="Playlist"
         />
@@ -184,6 +194,28 @@
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         @click="handleRemoveVideosOnWatchPromptAnswer"
+      />
+    </div>
+
+    <div
+      v-if="searchVideoModeAllowed && searchVideoMode"
+      class="searchInputsRow"
+    >
+      <ft-input
+        ref="searchInput"
+        class="searchInput"
+        :placeholder="$t('User Playlists.SinglePlaylistView.Search for Videos')"
+        :show-clear-text-button="true"
+        :show-action-button="false"
+        :value="query"
+        @input="(input) => updateQueryDebounce(input)"
+        @clear="updateQueryDebounce('')"
+      />
+      <ft-icon-button
+        :title="$t('User Playlists.Cancel')"
+        :icon="['fas', 'times']"
+        theme="secondary"
+        @click="disableVideoSearchMode"
       />
     </div>
   </div>

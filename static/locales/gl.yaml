@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'galego'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte da aplicación non está lista aínda. Volve máis adiante, cando se avance
@@ -36,6 +35,10 @@ Global:
   Videos: 'Vídeos'
   Community: Comunidade
 
+  Shorts: Cortos
+  Input Tags:
+    Length Requirement: A etiqueta debe ser de polo menos {number} caracteres.
+  Live: En vivo
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
 Download From Site: 'Descargar do sitio'
@@ -301,8 +304,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Limpar tódalas subscricións / perfís'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Estás
       seguro de querer limpar tódalas subscricións e perfís? Esta acción é irreversible.'
-    Automatically Remove Video Meta Files: Elimina automaticamente os ficheiros meta
-      de vídeo
     Save Watched Videos With Last Viewed Playlist: Gardalos vídeos vistos coa última
       lista de reprodución vista
   Subscription Settings:
@@ -656,8 +657,8 @@ Video:
     nesta versión.'
   'Chat is disabled or the Live Stream has ended.': 'O chat foi desactivado ou a transmisión
     en vivo rematou.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Chat en vivo
-    activado.  As mensaxes aparecerán aquí ao seren enviadas.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Chat en vivo activado.  As
+    mensaxes aparecerán aquí ao seren enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat
     en vivo actualmente non soportado coa API de Invidious.  Precísase dunha conexión
     directa con YouTube.'
@@ -844,9 +845,9 @@ Tooltips:
       as chamadas da aplicacion.'
     Region for Trending: 'A rexión das tendencias permíteche escoller os vídeos máis
       populares nun Estado.'
-    External Link Handling: "Escolla o comportamento predeterminado cando se fai clic\
-      \ nunha ligazón, que non se pode abrir en FreeTube.\nDe forma predeterminada,\
-      \ FreeTube abrirá a ligazón na que premeches no teu navegador predeterminado.\n"
+    External Link Handling: "Escolla o comportamento predeterminado cando se fai clic
+      nunha ligazón, que non se pode abrir en FreeTube.\nDe forma predeterminada,
+      FreeTube abrirá a ligazón na que premeches no teu navegador predeterminado.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Só funcionará se a API de Invidious está
       escollida por defecto. Cando estea activa, a API local usará formatos antigos
@@ -879,10 +880,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Cando estea activado, FreeTube buscará automaticamente o
       teu feed da subscrición, cando se abra unha nova ventá e cando cambies de perfil.
-  Privacy Settings:
-    Remove Video Meta Files: Cando está activado, FreeTube elimina automaticamente
-      os ficheiros meta creados durante a reprodución de vídeo cando a páxina de visualización
-      está pechada.
   External Player Settings:
     Custom External Player Arguments: Calquera argumento de liña de comandos personalizado,
       separado por puntos e coma (';'), que desexa que se pase ao reprodutor externo.
@@ -907,7 +904,7 @@ Tooltips:
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
-Falling back to the local API: 'Recorrendo á API local'
+Falling back to Local API: 'Recorrendo á API local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Este
   vídeo non está dispoñible porque faltan formatos. Isto pode ocorrer debido á non
   dispoñibilidade do país.'
@@ -954,12 +951,6 @@ Downloading has completed: '"{videoTitle}" rematou de descargarse'
 External link opening has been disabled in the general settings: A apertura das ligazóns
   externas desactivouse na configuración xeral
 Starting download: Comenzando a descarga de "{videoTitle}"
-Age Restricted:
-  Type:
-    Channel: Canle
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Esta {videoOrPlaylist} ten restricións
-    de idade
 Default Invidious instance has been cleared: Borrouse a instancia predeterminada de
   Invidious
 Screenshot Error: Produciuse un erro na captura de pantalla. {error}
@@ -977,3 +968,4 @@ Chapters:
     capítulo actual: {chapterName}'
 Screenshot Success: Captura da pantalla gardada como "{filePath}"
 Ok: De acordo
+Go to page: Ir a {page}

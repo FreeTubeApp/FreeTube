@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Türkçe'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
@@ -128,7 +127,7 @@ User Playlists:
     Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
-  Search bar placeholder: Oynatma Listesinde Ara
+  Search bar placeholder: Oynatma Listesi Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
   This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
     yok.
@@ -178,6 +177,7 @@ User Playlists:
         kullanımına geri dönüldü
       This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
         yer imi için kullanılıyor
+    Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
       listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
@@ -191,6 +191,7 @@ User Playlists:
         | {videoCount} video 1 oynatma listesine eklendi
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
+    Added {count} Times: '{count} Defa Eklendi | {count} Defa Eklendi'
   CreatePlaylistPrompt:
     New Playlist Name: Yeni Oynatma Listesi Adı
     Create: Oluştur
@@ -221,6 +222,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
     Etkinleştir
   Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
+  Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
 History:
   # On History Page
   History: 'Geçmiş'
@@ -409,8 +411,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
       abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
-    Automatically Remove Video Meta Files: Video Meta Dosyalarını Otomatik Olarak
-      Kaldır
     Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
       Oynatma Listesiyle Kaydet
     All playlists have been removed: Tüm oynatma listeleri kaldırıldı
@@ -532,8 +532,8 @@ Settings:
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
     Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
-    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
-      Görüntüle
+    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve
+      Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
     Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
     Hide Channel Community: Kanal Topluluğunu Gizle
@@ -960,6 +960,7 @@ Video:
   Pause on Current Video: Geçerli Videoda Duraklat
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
+  More Options: Daha Fazla Seçenek
 Videos:
   #& Sort By
   Sort By:
@@ -1040,7 +1041,7 @@ Up Next: 'Sonraki'
 Local API Error (Click to copy): 'Yerel API Hatası (Kopyalamak için tıklayın)'
 Invidious API Error (Click to copy): 'Invidious API Hatası (Kopyalamak için tıklayın)'
 Falling back to Invidious API: 'Invidious API''ye geri dönülüyor'
-Falling back to the local API: 'Yerel API''ye geri dönülüyor'
+Falling back to Local API: 'Yerel API''ye geri dönülüyor'
 Subscriptions have not yet been implemented: 'Abonelikler henüz uygulanmadı'
 Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
@@ -1103,9 +1104,6 @@ Tooltips:
     External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
       davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
       açacaktır.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
-      oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
   External Player Settings:
     Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, noktalı
       virgülle (';') ayrılmış özel komut satırı argümanları.
@@ -1171,12 +1169,6 @@ Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor"
 Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
-Age Restricted:
-  The currently set default instance is {instance}: Bu {instance} yaş kısıtlamalıdır
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Bu {videoOrPlaylist} yaş kısıtlamalıdır
 Channels:
   Empty: Kanal listeniz şu anda boş.
   Channels: Kanallar
@@ -1212,3 +1204,9 @@ Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
 Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
   uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
 Tag already exists: '"{tagName}" etiketi zaten var'
+Close Banner: Afişi Kapat
+Age Restricted:
+  This video is age restricted: Bu videoda yaş sınırlaması var
+  This channel is age restricted: Bu kanalda yaş sınırlaması var
+Display Label: '{label}: {value}'
+checkmark: ✓

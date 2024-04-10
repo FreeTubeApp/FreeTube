@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Hrvatski'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ovaj dio programa još nije gotov. Navrati kasnije.
@@ -122,7 +121,7 @@ User Playlists:
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
     samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
     videa premjestit će se u zbirku „Favoriti”.
-  Search bar placeholder: Pretraži zbirku
+  Search bar placeholder: Traži zbirke
   Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
   This playlist currently has no videos.: Ova zbirka trenutačno nema nijedan video.
   Create New Playlist: Stvori novu zbirku
@@ -183,6 +182,7 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
         se zbirka sada koristi za brze zabilješke umjesto zbirke {oldPlaylistName}.
         Pritisni ovdje za poništavanje
+    Search for Videos: Traži videa
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
     Search in Playlists: Traži u zbirkama
@@ -195,6 +195,7 @@ User Playlists:
         videa dodana u 1 zbirku
     Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa
       | Odaberi zbirku za dodavanje tvojih {videoCount} videa
+    Added {count} Times: Dodano {count} puta | Dodano {count} puta
   CreatePlaylistPrompt:
     Create: Stvori
     Toast:
@@ -209,6 +210,7 @@ User Playlists:
   Remove from Favorites: Ukloni iz zbirke {playlistName}
   Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
   Disable Quick Bookmark: Deaktiviraj brze zabilješke
+  Playlists with Matching Videos: Zbirke s poklapajućim videima
 History:
   # On History Page
   History: 'Povijest'
@@ -272,11 +274,12 @@ Settings:
       Black: 'Crna'
       Dark: 'Tamna'
       Light: 'Svijetla'
-      Dracula: 'Drakula'
+      Dracula: 'Dracula'
       System Default: Standard sustava
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastelno ružičasta
       Hot Pink: Vruća ružičasta
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -397,8 +400,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Stvarno
       želiš ukloniti sve pretplate i profile? Ovo je nepovratna radnja.
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
-    Automatically Remove Video Meta Files: Automatski ukloni datoteke metapodataka
-      videa
     Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
       gledanom zbirkom
     Remove All Playlists: Ukloni sve zbirke
@@ -521,7 +522,7 @@ Settings:
     Hide Channels: Sakrij videa iz kanala
     Hide Channels Placeholder: ID kanala
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
-      korištenja velikih slova
+      korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
     Hide Channel Playlists: Sakrij kanal zbirki
     Hide Channel Community: Sakrij kanal zajednice
@@ -927,7 +928,7 @@ Video:
     Resolution: Razlučivost
     Player Dimensions: Dimenzije playera
     Bitrate: Brzina prijenosa
-    Volume: Glasnoća
+    Volume: Direktorij
     Bandwidth: Propusnost
     Buffered: Učitano u memoriju
     Mimetype: Mimetype
@@ -942,6 +943,7 @@ Video:
   Pause on Current Video: Zaustavi trenutačni video
   Unhide Channel: Prikaži kanal
   Hide Channel: Sakrij kanal
+  More Options: Više opcija
 Videos:
   #& Sort By
   Sort By:
@@ -1022,7 +1024,7 @@ Up Next: 'Sljedeći'
 Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
 Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
 Falling back to Invidious API: 'Koristit će se Invidious sučelje'
-Falling back to the local API: 'Koristit će se lokalno sučelje'
+Falling back to Local API: 'Koristit će se lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
@@ -1053,7 +1055,7 @@ Tooltips:
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
-      standardno sučelje. Kada je aktivirano, lokalno sučelje će pokretati i koristiti
+      standardno sučelje. Kada je aktivirano, lokalno API sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
@@ -1090,10 +1092,6 @@ Tooltips:
       ili stanja „uživo”
     Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
       tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
-  Privacy Settings:
-    Remove Video Meta Files: Kada je aktivirano, FreeTube automatski uklanja datoteke
-      metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
-      gledanja.
   External Player Settings:
     External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje
       videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,
@@ -1148,11 +1146,6 @@ Starting download: Početak preuzimanja „{videoTitle}”
 Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
-  Type:
-    Channel: Kanal
-    Video: Video
 Channels:
   Channels: Kanali
   Title: Popis kanala
@@ -1187,3 +1180,7 @@ Channel Unhidden: '{channel} je uklonjen iz filtra kanala'
 Trimmed input must be at least N characters long: Skraćeni unos mora imati barem 1
   znak | Skraćeni unos mora imati barem {length} znaka
 Tag already exists: Oznaka „{tagName}” već postoji
+Age Restricted:
+  This channel is age restricted: Ovaj je dobno ograničeni kanal
+  This video is age restricted: Ovaj je dobno ograničeni video
+Close Banner: Zatvori natpis

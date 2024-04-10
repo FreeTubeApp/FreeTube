@@ -1,4 +1,3 @@
-FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Dieser Teil der App ist noch nicht bereit. Komme später wieder, wenn Fortschritte
@@ -125,7 +124,7 @@ User Playlists:
     wider. Sie listet nur Videos auf, die du gespeichert oder favorisiert hast. Wenn
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
-  Search bar placeholder: In Wiedergabeliste suchen
+  Search bar placeholder: Nach Wiedergabelisten suchen
   Empty Search Message: Es gibt keine Videos in dieser Wiedergabeliste, die deiner
     Suche entsprechen
   This playlist currently has no videos.: Diese Wiedergabeliste enthält derzeit keine
@@ -190,6 +189,7 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
+    Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
     Search in Playlists: In Wiedergabelisten suchen
@@ -204,6 +204,7 @@ User Playlists:
     Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
       dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
       Videos hinzufügen möchtest
+    Added {count} Times: '{count} Mal hinzugefügt | {count} Mal hinzugefügt'
   CreatePlaylistPrompt:
     New Playlist Name: Neuer Name der Wiedergabeliste
     Create: Erstellen
@@ -225,6 +226,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Schnelles Merken für diese Wiedergabeliste
     aktivieren
   Disable Quick Bookmark: Schnelles Merken deaktivieren
+  Playlists with Matching Videos: Wiedergabelisten mit passenden Videos
 History:
   # On History Page
   History: Verlauf
@@ -294,6 +296,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -457,7 +460,6 @@ Settings:
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
       nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abos / Profile entfernen
-    Automatically Remove Video Meta Files: Video-Metadateien automatisch entfernen
     Save Watched Videos With Last Viewed Playlist: Angesehene Videos mit der zuletzt
       angesehenen Wiedergabeliste speichern
     Remove All Playlists: Alle Wiedergabelisten entfernen
@@ -543,7 +545,7 @@ Settings:
     Hide Channels: Videos aus Kanälen ausblenden
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
-      anzeigen
+      und Zeichensetzung anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
     Hide Channel Shorts: Kanal-Kurzvideos ausblenden
@@ -929,6 +931,7 @@ Video:
   Pause on Current Video: Pause für aktuelles Video
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
+  More Options: Weitere Optionen
 Videos:
   #& Sort By
   Sort By:
@@ -1013,7 +1016,7 @@ Up Next: Nächster Titel
 Local API Error (Click to copy): Lokaler API-Fehler (Zum Kopieren anklicken)
 Invidious API Error (Click to copy): Invidious-API-Fehler (Zum Kopieren anklicken)
 Falling back to Invidious API: Rückgriff auf Invidious-API
-Falling back to the local API: Rückgriff auf lokale API
+Falling back to Local API: Rückgriff auf lokale API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
@@ -1135,10 +1138,6 @@ Tooltips:
       Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
       bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
       die DASH H.264-Formate.
-  Privacy Settings:
-    Remove Video Meta Files: Wenn aktiviert, löscht FreeTube automatisch die während
-      der Videowiedergabe erstellten Metadateien, wenn die Abspielseite geschlossen
-      wird.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
       getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
@@ -1203,11 +1202,6 @@ Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
 Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
-Age Restricted:
-  Type:
-    Video: Video
-    Channel: Kanal
-  This {videoOrPlaylist} is age restricted: Dieses {videoOrPlaylist} ist altersbeschränkt
 Channels:
   Channels: Kanäle
   Title: Kanalliste
@@ -1244,4 +1238,10 @@ Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
 Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
   1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
   sein
-Tag already exists: Der Tag "{tagName}" existiert bereits
+Tag already exists: Die Markierung „{tagName}“ existiert bereits
+Close Banner: Banner schließen
+Age Restricted:
+  This channel is age restricted: Dieser Kanal ist altersbeschränkt
+  This video is age restricted: Dieses Video ist altersbeschränkt
+Display Label: '{label}: {value}'
+checkmark: ✓

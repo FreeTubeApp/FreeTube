@@ -8,7 +8,6 @@ import {
   getRelativeTimeFromDate,
   openExternalLink,
   showToast,
-  toLocalePublicationString,
   toDistractionFreeTitle,
   deepCopy
 } from '../../helpers/utils'
@@ -99,7 +98,7 @@ export default defineComponent({
       duration: '',
       description: '',
       watchProgress: 0,
-      publishedText: '',
+      published: undefined,
       isLive: false,
       isUpcoming: false,
       isPremium: false,
@@ -344,6 +343,10 @@ export default defineComponent({
 
     addWatchedStyle: function () {
       return this.historyEntryExists && !this.inHistory
+    },
+
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
     },
 
     externalPlayer: function () {
@@ -650,23 +653,19 @@ export default defineComponent({
         if (typeof premiereDate === 'string') {
           premiereDate = new Date(premiereDate)
         }
-        this.publishedText = premiereDate.toLocaleString()
+        this.uploadedTime = premiereDate.toLocaleString([this.currentLocale, 'en'])
+        this.published = premiereDate.getTime()
       } else if (typeof (this.data.premiereTimestamp) !== 'undefined') {
-        this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
-      } else {
-        this.publishedText = this.data.publishedText
-      }
+        this.uploadedTime = new Date(this.data.premiereTimestamp * 1000).toLocaleString([this.currentLocale, 'en'])
+        this.published = this.data.premiereTimestamp * 1000
+      } else if (typeof this.data.published === 'number' && !this.isLive) {
+        this.published = this.data.published
 
-      if (this.data.isRSS && this.data.publishedDate != null && !this.isLive) {
-        this.uploadedTime = getRelativeTimeFromDate(this.data.publishedDate)
-      } else if (this.publishedText && !this.isLive) {
-        // produces a string according to the template in the locales string
-        this.uploadedTime = toLocalePublicationString({
-          publishText: this.publishedText,
-          isLive: this.isLive,
-          isUpcoming: this.isUpcoming,
-          isRSS: this.data.isRSS
-        })
+        if (this.inHistory) {
+          this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
+        } else {
+          this.uploadedTime = getRelativeTimeFromDate(new Date(this.data.published).toDateString())
+        }
       }
 
       if (this.hideVideoViews) {
@@ -688,14 +687,6 @@ export default defineComponent({
           // For UX consistency, no progress reading if writing disabled
           this.watchProgress = historyEntry.watchProgress
         }
-
-        if (historyEntry.published !== '') {
-          const videoPublished = historyEntry.published
-          const videoPublishedDate = new Date(videoPublished)
-          this.publishedText = videoPublishedDate.toLocaleDateString()
-        } else {
-          this.publishedText = ''
-        }
       } else {
         this.watchProgress = 0
       }
@@ -707,7 +698,7 @@ export default defineComponent({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: this.publishedText ? this.publishedText.split(',')[0] : this.publishedText,
+        published: this.published,
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,

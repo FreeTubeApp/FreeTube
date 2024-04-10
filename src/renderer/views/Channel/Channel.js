@@ -12,7 +12,13 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 
 import autolinker from 'autolinker'
-import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
+import {
+  setPublishedTimestampsInvidious,
+  copyToClipboard,
+  extractNumberFromString,
+  formatNumber,
+  showToast
+} from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
@@ -25,6 +31,7 @@ import {
 import {
   getLocalChannel,
   getLocalChannelId,
+  parseLocalChannelHeader,
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
@@ -98,14 +105,10 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoLiveSelectValues: [
+      videoLiveShortSelectValues: [
         'newest',
         'popular',
         'oldest'
-      ],
-      shortSelectValues: [
-        'newest',
-        'popular'
       ],
       playlistSelectValues: [
         'newest',
@@ -170,18 +173,18 @@ export default defineComponent({
       return this.subscriptionInfo !== null
     },
 
-    videoLiveSelectNames: function () {
+    isSubscribedInAnyProfile: function () {
+      const profileList = this.$store.getters.getProfileList
+
+      // check the all channels profile
+      return profileList[0].subscriptions.some((channel) => channel.id === this.id)
+    },
+
+    videoLiveShortSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular'),
         this.$t('Channel.Videos.Sort Types.Oldest')
-      ]
-    },
-
-    shortSelectNames: function () {
-      return [
-        this.$t('Channel.Videos.Sort Types.Newest'),
-        this.$t('Channel.Videos.Sort Types.Most Popular')
       ]
     },
 
@@ -532,90 +535,22 @@ export default defineComponent({
           return
         }
 
-        let channelId
-        let subscriberText = null
-        let tags = []
+        const parsedHeader = parseLocalChannelHeader(channel)
 
-        switch (channel.header.type) {
-          case 'C4TabbedHeader': {
-            // example: Linus Tech Tips
-            // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
+        const channelId = parsedHeader.id ?? this.id
+        const subscriberText = parsedHeader.subscriberText ?? null
+        let tags = parsedHeader.tags
 
-            /**
-             * @type {import('youtubei.js').YTNodes.C4TabbedHeader}
-             */
-            const header = channel.header
+        channelThumbnailUrl = parsedHeader.thumbnailUrl ?? this.subscriptionInfo?.thumbnail
+        channelName = parsedHeader.name ?? this.subscriptionInfo?.name
 
-            channelId = header.author.id
-            channelName = header.author.name
-            channelThumbnailUrl = header.author.best_thumbnail.url
-            subscriberText = header.subscribers?.text
-            break
-          }
-          case 'CarouselHeader': {
-            // examples: Music and YouTube Gaming
-            // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
-            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
-
-            /**
-             * @type {import('youtubei.js').YTNodes.CarouselHeader}
-             */
-            const header = channel.header
-
-            /**
-             * @type {import('youtubei.js').YTNodes.TopicChannelDetails}
-             */
-            const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
-            channelName = topicChannelDetails.title.text
-            subscriberText = topicChannelDetails.subtitle.text
-            channelThumbnailUrl = topicChannelDetails.avatar[0].url
-
-            if (channel.metadata.external_id) {
-              channelId = channel.metadata.external_id
-            } else {
-              channelId = topicChannelDetails.subscribe_button.channel_id
-            }
-            break
-          }
-          case 'InteractiveTabbedHeader': {
-            // example: Minecraft - Topic
-            // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
-
-            /**
-             * @type {import('youtubei.js').YTNodes.InteractiveTabbedHeader}
-             */
-            const header = channel.header
-            channelName = header.title.text
-            channelId = this.id
-            channelThumbnailUrl = header.box_art.at(-1).url
-
-            const badges = header.badges.map(badge => badge.label).filter(tag => tag)
-            tags.push(...badges)
-            break
-          }
-          case 'PageHeader': {
-            // example: YouTube Gaming (an A/B test at the time of writing)
-            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
-
-            /**
-             * @type {import('youtubei.js').YTNodes.PageHeader}
-             */
-            const header = channel.header
-
-            channelName = header.content.title.text
-            channelThumbnailUrl = header.content.image.image[0].url
-            channelId = this.id
-
-            break
-          }
-        }
-
-        if (channelThumbnailUrl.startsWith('//')) {
+        if (channelThumbnailUrl?.startsWith('//')) {
           channelThumbnailUrl = `https:${channelThumbnailUrl}`
         }
 
         this.channelName = channelName
         this.thumbnailUrl = channelThumbnailUrl
+        this.bannerUrl = parsedHeader.bannerUrl ?? null
         this.isFamilyFriendly = !!channel.metadata.is_family_safe
 
         if (channel.metadata.tags) {
@@ -645,12 +580,6 @@ export default defineComponent({
         }
 
         this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
-
-        if (channel.header.banner?.length > 0) {
-          this.bannerUrl = channel.header.banner[0].url
-        } else {
-          this.bannerUrl = null
-        }
 
         let relatedChannels = channel.channels.map(({ author }) => ({
           name: author.name,
@@ -829,7 +758,7 @@ export default defineComponent({
         this.showVideoSortBy = videosTab.filters.length > 1
 
         if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoLiveSelectValues.indexOf(this.videoSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
 
@@ -837,9 +766,19 @@ export default defineComponent({
           return
         }
 
-        this.latestVideos = parseLocalChannelVideos(videosTab.videos, channel.header.author)
+        this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
         this.videoContinuationData = videosTab.has_continuation ? videosTab : null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
+          this.updateSubscriptionVideosCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            videos: [...this.latestVideos]
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -862,7 +801,7 @@ export default defineComponent({
          */
         const continuation = await this.videoContinuationData.getContinuation()
 
-        this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
+        this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
         this.videoContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
@@ -887,7 +826,7 @@ export default defineComponent({
         this.showShortSortBy = shortsTab.filters.length > 1
 
         if (this.showShortSortBy && this.shortSortBy !== 'newest') {
-          const index = this.shortSelectValues.indexOf(this.shortSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.shortSortBy)
           shortsTab = await shortsTab.applyFilter(shortsTab.filters[index])
         }
 
@@ -895,9 +834,19 @@ export default defineComponent({
           return
         }
 
-        this.latestShorts = parseLocalChannelShorts(shortsTab.videos, channel.header.author)
+        this.latestShorts = parseLocalChannelShorts(shortsTab.videos, this.id, this.channelName)
         this.shortContinuationData = shortsTab.has_continuation ? shortsTab : null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && this.latestShorts.length > 0 && this.shortSortBy === 'newest') {
+          // As the shorts tab API response doesn't include the published dates,
+          // we can't just write the results to the subscriptions cache like we do with videos and live (can't sort chronologically without the date).
+          // However we can still update the metadata in the cache such as the view count and title that might have changed since it was cached
+          this.updateSubscriptionShortsCacheWithChannelPageShorts({
+            channelId: this.id,
+            videos: this.latestShorts
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -920,7 +869,7 @@ export default defineComponent({
          */
         const continuation = await this.shortContinuationData.getContinuation()
 
-        this.latestShorts.push(...parseLocalChannelShorts(continuation.videos, this.channelInstance.header.author))
+        this.latestShorts.push(...parseLocalChannelShorts(continuation.videos, this.id, this.channelName))
         this.shortContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
@@ -945,7 +894,7 @@ export default defineComponent({
         this.showLiveSortBy = liveTab.filters.length > 1
 
         if (this.showLiveSortBy && this.liveSortBy !== 'newest') {
-          const index = this.videoLiveSelectValues.indexOf(this.liveSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.liveSortBy)
           liveTab = await liveTab.applyFilter(liveTab.filters[index])
         }
 
@@ -953,9 +902,28 @@ export default defineComponent({
           return
         }
 
-        this.latestLive = parseLocalChannelVideos(liveTab.videos, channel.header.author)
+        // work around YouTube bug where it will return a bunch of responses with only continuations in them
+        // e.g. https://www.youtube.com/@TWLIVES/streams
+
+        let videos = liveTab.videos
+        while (videos.length === 0 && liveTab.has_continuation) {
+          liveTab = await liveTab.getContinuation()
+          videos = liveTab.videos
+        }
+
+        this.latestLive = parseLocalChannelVideos(videos, this.id, this.channelName)
         this.liveContinuationData = liveTab.has_continuation ? liveTab : null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && this.latestLive.length > 0 && this.liveSortBy === 'newest') {
+          this.updateSubscriptionLiveCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            videos: [...this.latestLive]
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -978,7 +946,7 @@ export default defineComponent({
          */
         const continuation = await this.liveContinuationData.getContinuation()
 
-        this.latestLive.push(...parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
+        this.latestLive.push(...parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
         this.liveContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
@@ -1022,7 +990,6 @@ export default defineComponent({
             thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
           }
         })
-        this.latestVideos = response.latestVideos
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
           this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
@@ -1118,6 +1085,8 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.videos)
+
         if (more) {
           this.latestVideos = this.latestVideos.concat(response.videos)
         } else {
@@ -1125,6 +1094,15 @@ export default defineComponent({
         }
         this.videoContinuationData = response.continuation || null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
+          this.updateSubscriptionVideosCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, it will also contain all the next pages
+            videos: [...this.latestVideos]
+          })
+        }
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1163,7 +1141,7 @@ export default defineComponent({
         // https://github.com/iv-org/invidious/issues/3801
         response.videos.forEach(video => {
           video.isUpcoming = false
-          delete video.publishedText
+          delete video.published
           delete video.premiereTimestamp
         })
 
@@ -1174,6 +1152,17 @@ export default defineComponent({
         }
         this.shortContinuationData = response.continuation || null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestShorts.length > 0 && this.shortSortBy === 'newest') {
+          // As the shorts tab API response doesn't include the published dates,
+          // we can't just write the results to the subscriptions cache like we do with videos and live (can't sort chronologically without the date).
+          // However we can still update the metadata in the cache e.g. adding the duration, as that isn't included in the RSS feeds
+          // and updating the view count and title that might have changed since it was cached
+          this.updateSubscriptionShortsCacheWithChannelPageShorts({
+            channelId: this.id,
+            videos: this.latestShorts
+          })
+        }
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1208,6 +1197,8 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.videos)
+
         if (more) {
           this.latestLive.push(...response.videos)
         } else {
@@ -1215,6 +1206,16 @@ export default defineComponent({
         }
         this.liveContinuationData = response.continuation || null
         this.isElementListLoading = false
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestLive.length > 0 && this.liveSortBy === 'newest') {
+          this.updateSubscriptionLiveCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            videos: [...this.latestLive]
+          })
+        }
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1270,7 +1271,7 @@ export default defineComponent({
           return
         }
 
-        this.latestPlaylists = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.latestPlaylists = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.playlistContinuationData = playlistsTab.has_continuation ? playlistsTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -1295,7 +1296,7 @@ export default defineComponent({
          */
         const continuation = await this.playlistContinuationData.getContinuation()
 
-        const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestPlaylists = this.latestPlaylists.concat(parsedPlaylists)
         this.playlistContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
@@ -1393,7 +1394,7 @@ export default defineComponent({
           return
         }
 
-        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -1418,7 +1419,7 @@ export default defineComponent({
          */
         const continuation = await this.releaseContinuationData.getContinuation()
 
-        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestReleases = this.latestReleases.concat(parsedReleases)
         this.releaseContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
@@ -1506,7 +1507,7 @@ export default defineComponent({
           return
         }
 
-        this.latestPodcasts = podcastTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.latestPodcasts = podcastTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.podcastContinuationData = podcastTab.has_continuation ? podcastTab : null
         this.isElementListLoading = false
       } catch (err) {
@@ -1517,7 +1518,7 @@ export default defineComponent({
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
-          this.getChannelPodcastsInvidious()
+          this.channelInvidiousPodcasts()
         } else {
           this.isLoading = false
         }
@@ -1531,7 +1532,7 @@ export default defineComponent({
          */
         const continuation = await this.podcastContinuationData.getContinuation()
 
-        const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestPodcasts = this.latestPodcasts.concat(parsedPodcasts)
         this.releaseContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
@@ -1632,6 +1633,19 @@ export default defineComponent({
 
         this.latestCommunityPosts = parseLocalCommunityPosts(posts)
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
+
+        if (this.latestCommunityPosts.length > 0) {
+          this.latestCommunityPosts.forEach(post => {
+            post.authorId = this.id
+          })
+          this.updateSubscriptionPostsCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            posts: [...this.latestCommunityPosts]
+          })
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1683,6 +1697,19 @@ export default defineComponent({
           this.latestCommunityPosts = posts
         }
         this.communityContinuationData = continuation
+
+        if (this.isSubscribedInAnyProfile && !more && this.latestCommunityPosts.length > 0) {
+          this.latestCommunityPosts.forEach(post => {
+            post.authorId = this.id
+          })
+          this.updateSubscriptionPostsCacheByChannel({
+            channelId: this.id,
+            // create a copy so that we only cache the first page
+            // if we use the same array, the store will get angry at us for modifying it outside of the store,
+            // when the user clicks load more
+            posts: [...this.latestCommunityPosts]
+          })
+        }
       }).catch(async (err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1857,7 +1884,7 @@ export default defineComponent({
             if (item.type === 'Video') {
               return parseLocalListVideo(item)
             } else {
-              return parseLocalListPlaylist(item, this.channelInstance.header.author)
+              return parseLocalListPlaylist(item, this.id, this.channelName)
             }
           })
 
@@ -1898,6 +1925,7 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.filter(item => item.type === 'video'))
         if (this.hideChannelPlaylists) {
           this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {
@@ -1922,7 +1950,11 @@ export default defineComponent({
 
     ...mapActions([
       'showOutlines',
-      'updateSubscriptionDetails'
+      'updateSubscriptionDetails',
+      'updateSubscriptionVideosCacheByChannel',
+      'updateSubscriptionLiveCacheByChannel',
+      'updateSubscriptionShortsCacheWithChannelPageShorts',
+      'updateSubscriptionPostsCacheByChannel'
     ])
   }
 })

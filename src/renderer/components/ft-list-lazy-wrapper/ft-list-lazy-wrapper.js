@@ -47,6 +47,11 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
+    searchQueryText: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data: function () {
     return {

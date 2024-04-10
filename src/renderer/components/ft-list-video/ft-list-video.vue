@@ -58,7 +58,7 @@
         <ft-icon-button
           v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
           :title="quickBookmarkIconText"
-          :icon="['fas', 'star']"
+          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'clock']"
           class="quickBookmarkVideoIcon"
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,
@@ -137,13 +137,9 @@
           {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
         <span
-          v-if="uploadedTime !== '' && !isLive && !inHistory"
+          v-if="uploadedTime !== '' && !isLive"
           class="uploadedTime"
         > • {{ uploadedTime }}</span>
-        <span
-          v-if="inHistory"
-          class="uploadedTime"
-        > • {{ publishedText }}</span>
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
@@ -152,7 +148,7 @@
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
-        title="More Options"
+        :title="$t('Video.More Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"

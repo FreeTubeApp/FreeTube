@@ -12,7 +12,7 @@ import {
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString, showToast } from '../../helpers/utils'
+import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -60,6 +60,9 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
 
+      playlistInVideoSearchMode: false,
+      videoSearchQuery: '',
+
       promptOpen: false,
     }
   },
@@ -104,10 +107,21 @@ export default defineComponent({
 
     moreVideoDataAvailable() {
       if (this.isUserPlaylistRequested) {
-        return this.userPlaylistVisibleLimit < this.videoCount
+        return this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length
       } else {
         return this.continuationData !== null
       }
+    },
+
+    searchVideoModeAllowed() {
+      return this.isUserPlaylistRequested
+    },
+    searchQueryTextRequested() {
+      return this.$route.query.searchQueryText
+    },
+    searchQueryTextPresent() {
+      const searchQueryText = this.searchQueryTextRequested
+      return typeof searchQueryText === 'string' && searchQueryText !== ''
     },
 
     isUserPlaylistRequested: function () {
@@ -123,17 +137,29 @@ export default defineComponent({
       return this.selectedUserPlaylist?._id !== this.quickBookmarkPlaylistId
     },
 
+    sometimesFilteredUserPlaylistItems() {
+      if (!this.isUserPlaylistRequested) { return this.playlistItems }
+      if (this.processedVideoSearchQuery === '') { return this.playlistItems }
+
+      return this.playlistItems.filter((v) => {
+        return v.title.toLowerCase().includes(this.processedVideoSearchQuery)
+      })
+    },
     visiblePlaylistItems: function () {
       if (!this.isUserPlaylistRequested) {
+        // No filtering for non user playlists yet
         return this.playlistItems
       }
 
-      if (this.userPlaylistVisibleLimit < this.videoCount) {
-        return this.playlistItems.slice(0, this.userPlaylistVisibleLimit)
+      if (this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length) {
+        return this.sometimesFilteredUserPlaylistItems.slice(0, this.userPlaylistVisibleLimit)
       } else {
-        return this.playlistItems
+        return this.sometimesFilteredUserPlaylistItems
       }
-    }
+    },
+    processedVideoSearchQuery() {
+      return this.videoSearchQuery.trim().toLowerCase()
+    },
   },
   watch: {
     $route () {
@@ -166,6 +192,11 @@ export default defineComponent({
   },
   created: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
+
+    if (this.searchVideoModeAllowed && this.searchQueryTextPresent) {
+      this.playlistInVideoSearchMode = true
+      this.videoSearchQuery = this.searchQueryTextRequested
+    }
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()
@@ -269,7 +300,9 @@ export default defineComponent({
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
-        this.allPlaylistItems = result.videos
+        setPublishedTimestampsInvidious(result.videos)
+
+        this.playlistItems = result.videos
 
         this.isLoading = false
       }).catch((err) => {

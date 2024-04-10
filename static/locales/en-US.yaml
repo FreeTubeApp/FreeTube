@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: English (US)
-FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   This part of the app is not ready yet. Come back later when progress has been made.
@@ -32,6 +31,7 @@ Back: Back
 Forward: Forward
 Open New Window: Open New Window
 Go to page: Go to {page}
+Close Banner: Close Banner
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -144,7 +144,8 @@ User Playlists:
     it listed here
   You have no playlists. Click on the create new playlist button to create a new one.: You have no playlists. Click on the create new playlist button to create a new one.
   Empty Search Message: There are no videos in this playlist that matches your search
-  Search bar placeholder: Search in Playlist
+  Search bar placeholder: Search for Playlists
+  Playlists with Matching Videos: Playlists with Matching Videos
 
   This playlist currently has no videos.: This playlist currently has no videos.
 
@@ -188,6 +189,8 @@ User Playlists:
     EarliestPlayedFirst: 'Earliest Played'
 
   SinglePlaylistView:
+    Search for Videos: Search for Videos
+
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
       This video cannot be moved down.: This video cannot be moved down.
@@ -214,6 +217,8 @@ User Playlists:
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
     Save: Save
+
+    Added {count} Times: 'Added {count} Time | Added {count} Times'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
@@ -409,7 +414,6 @@ Settings:
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
-    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Clear Search Cache: Clear Search Cache
     Are you sure you want to clear out your search cache?: Are you sure you want to
       clear out your search cache?
@@ -453,7 +457,7 @@ Settings:
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
     Hide Profile Pictures in Comments: Hide Profile Pictures in Comments
-    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation
+    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation And Punctuation
     Hide Live Streams: Hide Live Streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
@@ -724,6 +728,7 @@ Channel:
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
 Video:
+  More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
@@ -957,7 +962,7 @@ Tooltips:
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-      default. When enabled, the local API will run and use the legacy formats returned
+      default. When enabled, the Local API will run and use the legacy formats returned
       by that instead of the ones returned by Invidious. Helps when the videos returned
       by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
@@ -998,9 +1003,6 @@ Tooltips:
       but doesn't provide certain information like video duration or live status
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
-  Privacy Settings:
-    Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
-      when the watch page is closed.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
@@ -1011,7 +1013,7 @@ Tooltips:
 Local API Error (Click to copy): Local API Error (Click to copy)
 Invidious API Error (Click to copy): Invidious API Error (Click to copy)
 Falling back to Invidious API: Falling back to Invidious API
-Falling back to the local API: Falling back to the local API
+Falling back to Local API: Falling back to Local API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen due to country
   unavailability.
@@ -1035,10 +1037,8 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Channel: Channel
-    Video: Video
+  This channel is age restricted: This channel is age restricted
+  This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
@@ -1058,3 +1058,7 @@ Moments Ago: moments ago
 Yes: Yes
 No: No
 Ok: Ok
+# symbol used to indicate that an item is correct
+checkmark: ✓
+# French is the only language that should change this (they have a space before the colon)
+Display Label: '{label}: {value}'

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'الإنجليزية (الولايات المتحدة)'
-FreeTube: 'فري تيوب'
+Locale Name: 'العربية'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
@@ -119,7 +118,7 @@ User Playlists:
   Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
-  Search bar placeholder: بحث في قائمة التشغيل
+  Search bar placeholder: بحث عن قوائم التشغيل
   Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
   This playlist currently has no videos.: لا تحتوي قائمة التشغيل هذه حاليًا على مقاطع
     فيديو.
@@ -173,6 +172,7 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
         للإشارة المرجعية السريعة
       Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+    Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
       بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
@@ -186,6 +186,7 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
+    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
@@ -209,6 +210,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: تمكين الإشارة المرجعية السريعة مع قائمة
     التشغيل هذه
   Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
+  Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
 History:
   # On History Page
   History: 'السجلّ'
@@ -396,7 +398,6 @@ Settings:
       أنت متأكد أنك تريد إزالة جميع الاشتراكات والملفات الشخصية؟ لا يمكن التراجع عن
       هذا.
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
-    Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
     Save Watched Videos With Last Viewed Playlist: حفظ مقاطع الفيديو التي تمت مشاهدتها
       مع آخر قائمة تشغيل تم عرضها
     All playlists have been removed: تمت إزالة جميع قوائم التشغيل
@@ -518,8 +519,8 @@ Settings:
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
     Hide Channels: إخفاء مقاطع الفيديو من القنوات
     Hide Channels Placeholder: معرف القناة
-    Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
-      بشكل مفرط
+    Display Titles Without Excessive Capitalisation: عرض العناوين بدون استخدام الأحرف
+      الكبيرة وعلامات الترقيم بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
     Hide Channel Playlists: إخفاء قوائم تشغيل القناة
     Hide Channel Community: إخفاء مجتمع القناة
@@ -931,6 +932,7 @@ Video:
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
+  More Options: المزيد من الخيارات
 Videos:
   #& Sort By
   Sort By:
@@ -1007,7 +1009,7 @@ Up Next: 'التالي'
 Local API Error (Click to copy): 'خطأ API المحلي (انقر للنسخ)'
 Invidious API Error (Click to copy): 'خطأ Invidious API ( انقر للنسخ)'
 Falling back to Invidious API: 'التراجع إلى Invidious API'
-Falling back to the local API: 'التراجع إلى API المحلي'
+Falling back to Local API: 'التراجع إلى API المحلي'
 Subscriptions have not yet been implemented: 'لم يتم تنفيذ الاشتراكات بعد'
 Loop is now disabled: 'تم تعطيل التكرار'
 Loop is now enabled: 'تم تمكين التكرار'
@@ -1064,9 +1066,6 @@ Tooltips:
     Allow DASH AV1 formats: قد تبدو تنسيقات DASH AV1 أفضل من تنسيقات DASH H.264. تتطلب
       تنسيقات DASH AV1 مزيدا من الطاقة للتشغيل! وهي غير متوفرة في جميع مقاطع الفيديو
       ، وفي هذه الحالات سيستخدم المشغل تنسيقات DASH H.264 بدلا من ذلك.
-  Privacy Settings:
-    Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
-      تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
   Subscription Settings:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
@@ -1131,11 +1130,6 @@ Starting download: بدء تنزيل "{videoTitle}"
 Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
-Age Restricted:
-  Type:
-    Channel: القناة
-    Video: فيديو
-  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
 Channels:
   Count: تم العثور على قناة (قنوات) {number}.
   Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
@@ -1172,3 +1166,9 @@ Trimmed input must be at least N characters long: يجب أن يكون طول ا
   حرفًا واحدًا على الأقل | يجب أن يبلغ طول الإدخال المقتطع {length} من الأحرف على
   الأقل
 Tag already exists: العلامة "{tagName}" موجودة بالفعل
+Age Restricted:
+  This channel is age restricted: هذه القناة مقيدة بالعمر
+  This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
+Close Banner: إغلاق الشعار
+checkmark: ✓
+Display Label: '{label}: {value}'

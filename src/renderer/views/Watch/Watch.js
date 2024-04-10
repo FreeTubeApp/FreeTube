@@ -1,6 +1,5 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import fs from 'fs/promises'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
@@ -11,14 +10,13 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
-import { pathExists } from '../../helpers/filesystem'
+import packageDetails from '../../../../package.json'
 import {
   buildVTTFileLocally,
   copyToClipboard,
   formatDurationAsTimestamp,
   formatNumber,
   getFormatsFromHLSManifest,
-  getUserDataPath,
   showToast
 } from '../../helpers/utils'
 import {
@@ -139,9 +137,6 @@ export default defineComponent({
     },
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
-    },
-    removeVideoMetaFiles: function () {
-      return this.$store.getters.getRemoveVideoMetaFiles
     },
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
@@ -450,7 +445,7 @@ export default defineComponent({
                 timestamp: formatDurationAsTimestamp(start),
                 startSeconds: start,
                 endSeconds: 0,
-                thumbnail: chapter.thumbnail[0].url
+                thumbnail: chapter.thumbnail[0]
               })
             }
           } else {
@@ -702,7 +697,7 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            await this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
+            this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
           }
         }
 
@@ -1399,9 +1394,7 @@ export default defineComponent({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleRouteChange: async function (videoId) {
-      // if the user navigates to another video, the ipc call for the userdata path
-      // takes long enough for the video id to have already changed to the new one
+    handleRouteChange: function (videoId) {
       // receiving it as an arg instead of accessing it ourselves means we always have the right one
 
       clearTimeout(this.playNextTimeout)
@@ -1432,21 +1425,9 @@ export default defineComponent({
         }
       }
 
-      if (process.env.IS_ELECTRON && this.removeVideoMetaFiles) {
-        if (process.env.NODE_ENV === 'development') {
-          const vttFileLocation = `static/storyboards/${videoId}.vtt`
-          // only delete the file it actually exists
-          if (await pathExists(vttFileLocation)) {
-            await fs.rm(vttFileLocation)
-          }
-        } else {
-          const userData = await getUserDataPath()
-          const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
-
-          if (await pathExists(vttFileLocation)) {
-            await fs.rm(vttFileLocation)
-          }
-        }
+      if (this.videoStoryboardSrc.startsWith('blob:')) {
+        URL.revokeObjectURL(this.videoStoryboardSrc)
+        this.videoStoryboardSrc = ''
       }
     },
 
@@ -1611,36 +1592,14 @@ export default defineComponent({
         })
     },
 
-    createLocalStoryboardUrls: async function (storyboardInfo) {
+    createLocalStoryboardUrls: function (storyboardInfo) {
       const results = buildVTTFileLocally(storyboardInfo, this.videoLengthSeconds)
-      const userData = await getUserDataPath()
-      let fileLocation
-      let uriSchema
 
-      // Dev mode doesn't have access to the file:// schema, so we access
-      // storyboards differently when run in dev
-      if (process.env.NODE_ENV === 'development') {
-        fileLocation = `static/storyboards/${this.videoId}.vtt`
-        uriSchema = `storyboards/${this.videoId}.vtt`
-        // if the location does not exist, writeFile will not create the directory, so we have to do that manually
-        if (!(await pathExists('static/storyboards/'))) {
-          fs.mkdir('static/storyboards/')
-        } else if (await pathExists(fileLocation)) {
-          await fs.rm(fileLocation)
-        }
+      // after the player migration, switch to using a data URI, as those don't need to be revoked
 
-        await fs.writeFile(fileLocation, results)
-      } else {
-        if (!(await pathExists(`${userData}/storyboards/`))) {
-          await fs.mkdir(`${userData}/storyboards/`)
-        }
-        fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
-        uriSchema = `file://${fileLocation}`
+      const blob = new Blob([results], { type: 'text/vtt;charset=UTF-8' })
 
-        await fs.writeFile(fileLocation, results)
-      }
-
-      this.videoStoryboardSrc = uriSchema
+      this.videoStoryboardSrc = URL.createObjectURL(blob)
     },
 
     tryAddingTranslatedLocaleCaption: function (captionTracks, locale, baseUrl) {
@@ -1774,7 +1733,7 @@ export default defineComponent({
     },
 
     updateTitle: function () {
-      document.title = `${this.videoTitle} - FreeTube`
+      document.title = `${this.videoTitle} - ${packageDetails.productName}`
     },
 
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {

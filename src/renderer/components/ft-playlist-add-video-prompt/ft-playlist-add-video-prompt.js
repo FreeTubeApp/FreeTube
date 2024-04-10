@@ -7,6 +7,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
   showToast,
 } from '../../helpers/utils'
@@ -31,12 +32,14 @@ export default defineComponent({
     'ft-playlist-selector': FtPlaylistSelector,
     'ft-input': FtInput,
     'ft-select': FtSelect,
+    'ft-toggle-switch': FtToggleSwitch,
   },
   data: function () {
     return {
       selectedPlaylistIdList: [],
       createdSincePromptShownPlaylistIdList: [],
       query: '',
+      doSearchPlaylistsWithMatchingVideos: false,
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
       lastActiveElement: null,
@@ -114,6 +117,12 @@ export default defineComponent({
 
       return this.allPlaylists.filter((playlist) => {
         if (typeof (playlist.playlistName) !== 'string') { return false }
+
+        if (this.doSearchPlaylistsWithMatchingVideos) {
+          if (playlist.videos.some((v) => v.title.toLowerCase().includes(this.processedQuery))) {
+            return true
+          }
+        }
 
         return playlist.playlistName.toLowerCase().includes(this.processedQuery)
       })
@@ -231,13 +240,20 @@ export default defineComponent({
         this.updatePlaylist({ _id: playlist._id })
       })
 
-      const translationEntryKey = addedPlaylistIds.size === 1
-        ? 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist'
-        : 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists'
-      showToast(this.$tc(translationEntryKey, this.toBeAddedToPlaylistVideoCount, {
-        videoCount: this.toBeAddedToPlaylistVideoCount,
-        playlistCount: addedPlaylistIds.size,
-      }))
+      let message
+      if (addedPlaylistIds.size === 1) {
+        message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', this.toBeAddedToPlaylistVideoCount, {
+          videoCount: this.toBeAddedToPlaylistVideoCount,
+          playlistCount: addedPlaylistIds.size,
+        })
+      } else {
+        message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', this.toBeAddedToPlaylistVideoCount, {
+          videoCount: this.toBeAddedToPlaylistVideoCount,
+          playlistCount: addedPlaylistIds.size,
+        })
+      }
+
+      showToast(message)
       this.hide()
     },
 

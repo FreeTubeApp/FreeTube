@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Čeština'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Tato část aplikace ještě není hotova. Vraťte se později.
@@ -128,7 +127,7 @@ User Playlists:
   Playlist Message: Tato stránka neodráží plně funkční playlisty. Uvádí pouze videa,
     která jste si uložili nebo zařadili mezi oblíbená. Po dokončení práce budou všechna
     aktuálně zde umístěná videa přenesena do seznamu „Oblíbené“.
-  Search bar placeholder: Hledat v playlistu
+  Search bar placeholder: Hledat playlisty
   Empty Search Message: V tomto playlistu nejsou žádná videa, která by odpovídala
     vašemu vyhledávání
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Opravdu
@@ -146,6 +145,7 @@ User Playlists:
     Select a playlist to add your N videos to: Vyberte playlist, do kterého přidat
       vaše video | Vyberte playlist, do kterého přidat vašich {videoCount} videí
     N playlists selected: Vybráno {playlistCount}
+    Added {count} Times: Přidáno {count}krát | Přidáno {count}krát
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nejsou zde žádná videa k odstranění.
@@ -175,6 +175,7 @@ User Playlists:
       This playlist is now used for quick bookmark: Tento playlist bude nyní použit
         pro rychlé uložení
       Quick bookmark disabled: Rychlé uložení vypnuto
+    Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
   Sort By:
@@ -218,6 +219,7 @@ User Playlists:
   Remove from Favorites: Odebrat z playlistu {playlistName}
   Disable Quick Bookmark: Vypnout rychlé uložení
   Enable Quick Bookmark With This Playlist: Zapnout u tohoto playlistu rychlé uložení
+  Playlists with Matching Videos: Playlisty s odpovídajícími videi
 History:
   # On History Page
   History: 'Historie'
@@ -234,7 +236,7 @@ Settings:
   General Settings:
     General Settings: 'Obecné nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
-    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky blogů'
+    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
       backend'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
@@ -408,7 +410,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Odstranit všechny odběry / profily'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Opravdu
       chcete odstranit všechny odběry a profily? Tato akce je nevratná.'
-    Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
     Save Watched Videos With Last Viewed Playlist: Uložit zhlédnutá videa s naposledy
       zobrazeným playlistem
     All playlists have been removed: Všechny playlisty byly odstraněny
@@ -444,7 +445,7 @@ Settings:
     Hide Channels: Skrýt videa z kanálů
     Hide Channels Placeholder: ID kanálu
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
-      použití velkých písmen
+      použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
     Hide Channel Playlists: Skrýt playlisty kanálu
     Hide Channel Community: Skrýt komunitu kanálu
@@ -926,6 +927,7 @@ Video:
   Pause on Current Video: Pozastavit na současném videu
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
+  More Options: Další možnosti
 Videos:
   #& Sort By
   Sort By:
@@ -1025,10 +1027,10 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
-      nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
+    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
+      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
       formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána kvůli regionálnímu omezení.'
+      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
@@ -1053,9 +1055,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
       vaše odběry při otevření nového okna a při přepínání profilů.
-  Privacy Settings:
-    Remove Video Meta Files: Pokud je povoleno, FreeTube automaticky odstraní meta
-      soubory vytvořené během přehrávání videa, když se stránka sledování zavře.
   External Player Settings:
     Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
       aktuální akci (např. obrácení seznamů skladeb apod.).
@@ -1090,7 +1089,7 @@ Tooltips:
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
-Falling back to the local API: 'Přepínám na lokální API'
+Falling back to Local API: 'Přepínám na lokální API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Toto
   video není k dispozici z důvodu chybějících formátů. K tomu může dojít z důvodu
   nedostupnosti země.'
@@ -1129,11 +1128,6 @@ Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
 Downloading failed: Došlo k problému při stahování "{videoTitle}"
 Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Toto {videoOrPlaylist} je omezeno věkem
-  Type:
-    Channel: kanál
-    Video: Video
 Channels:
   Channels: Kanály
   Title: Seznam kanálů
@@ -1170,3 +1164,9 @@ Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů
 Trimmed input must be at least N characters long: Oříznutý vstup musí být dlouhý alespoň
   1 znak | Oříznutý vstup musí být dlouhý alespoň {length} znaků
 Tag already exists: Štítek „{tagName}“ již existuje
+Close Banner: Zavřít panel
+Age Restricted:
+  This channel is age restricted: Tento kanál je omezen věkem
+  This video is age restricted: Toto video je omezeno věkem
+checkmark: ✓
+Display Label: '{label}: {value}'

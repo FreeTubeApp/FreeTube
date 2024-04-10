@@ -28,6 +28,7 @@
     <div
       v-show="showChapters"
       ref="chaptersWrapper"
+      v-observe-visibility="observeVisibilityOptions"
       class="chaptersWrapper"
       :class="{ compact }"
       @keydown.arrow-up.stop.prevent="navigateChapters('up')"
@@ -46,13 +47,15 @@
         @keydown.space.stop.prevent="changeChapter(index)"
         @keydown.enter.stop.prevent="changeChapter(index)"
       >
+        <!-- Setting the aspect ratio avoids layout shifts when the images load -->
         <img
           v-if="!compact"
           alt=""
           aria-hidden="true"
           class="chapterThumbnail"
           loading="lazy"
-          :src="chapter.thumbnail"
+          :src="chapter.thumbnail.url"
+          :style="{ aspectRatio: chapter.thumbnail.width / chapter.thumbnail.height }"
         >
         <div class="chapterTimestamp">
           {{ chapter.timestamp }}

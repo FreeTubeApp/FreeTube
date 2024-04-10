@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Schwiizerdütsch'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   De Teil vom Programm isch nonig fertig. Bitte chum zumene spötere Ziitpunkt wider
@@ -49,4 +48,3 @@ Settings:
   SponsorBlock Settings: {}
 Channel: {}
 Tooltips: {}
-Age Restricted: {}
