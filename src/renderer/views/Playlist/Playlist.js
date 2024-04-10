@@ -142,11 +142,13 @@ export default defineComponent({
       if (this.processedVideoSearchQuery === '') { return this.playlistItems }
 
       return this.playlistItems.filter((v) => {
-        if (typeof (v.title) !== 'string' || typeof (v.author) !== 'string') {
-          return false
-        } else {
-          return v.title.toLowerCase().includes(this.processedVideoSearchQuery) || v.author.toLowerCase().includes(this.processedVideoSearchQuery)
+        if (typeof (v.title) === 'string' && v.title.toLowerCase().includes(this.processedVideoSearchQuery)) {
+          return true
+        } else if (typeof (v.author) === 'string' && v.author.toLowerCase().includes(this.processedVideoSearchQuery)) {
+          return true
         }
+
+        return false
       })
     },
     visiblePlaylistItems: function () {

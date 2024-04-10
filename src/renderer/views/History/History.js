@@ -93,11 +93,13 @@ export default defineComponent({
       } else {
         const lowerCaseQuery = this.query.toLowerCase()
         const filteredQuery = this.historyCacheSorted.filter((video) => {
-          if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
-            return false
-          } else {
-            return video.title.toLowerCase().includes(lowerCaseQuery) || video.author.toLowerCase().includes(lowerCaseQuery)
+          if (typeof (video.title) === 'string' && video.title.toLowerCase().includes(lowerCaseQuery)) {
+            return true
+          } else if (typeof (video.author) === 'string' && video.author.toLowerCase().includes(lowerCaseQuery)) {
+            return true
           }
+
+          return false
         }).sort((a, b) => {
           return b.timeWatched - a.timeWatched
         })
