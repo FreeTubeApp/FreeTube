@@ -46,12 +46,13 @@
         v-if="playlistItems.length > 0"
       >
         <ft-select
+          v-if="isUserPlaylistRequested"
           class="sortSelect"
-          :value="sortOrder"
+          :value="userPlaylistSortOrder"
           :select-names="sortBySelectNames"
           :select-values="sortBySelectValues"
           :placeholder="$t('Playlist.Sort By.Sort By')"
-          @change="updateSortOrder($event)"
+          @change="updateUserPlaylistSortOrder"
         />
         <template
           v-if="visiblePlaylistItems.length > 0"
@@ -77,8 +78,8 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
-              @move-video-up="sortOrder !== 'custom_descending' ? moveVideoUp(item.videoId, item.playlistItemId) : moveVideoDown(item.videoId, item.playlistItemId)"
-              @move-video-down="sortOrder !== 'custom_descending' ? moveVideoDown(item.videoId, item.playlistItemId) : moveVideoUp(item.videoId, item.playlistItemId)"
+              @move-video-up="userPlaylistSortOrder !== 'custom_descending' ? moveVideoUp(item.videoId, item.playlistItemId) : moveVideoDown(item.videoId, item.playlistItemId)"
+              @move-video-down="userPlaylistSortOrder !== 'custom_descending' ? moveVideoDown(item.videoId, item.playlistItemId) : moveVideoUp(item.videoId, item.playlistItemId)"
               @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
             />
           </transition-group>

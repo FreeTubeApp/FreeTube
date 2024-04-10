@@ -21,23 +21,14 @@ const SORT_BY_VALUES = {
   CustomDescending: 'custom_descending',
   DateAddedNewest: 'date_added_descending',
   DateAddedOldest: 'date_added_ascending',
-  DatePublishedNewest: 'date_published_newest',
-  DatePublishedOldest: 'date_published_oldest',
+  // TODO: store video.published for user playlists
+  // DatePublishedNewest: 'date_published_newest',
+  // DatePublishedOldest: 'date_published_oldest',
   VideoTitleAscending: 'video_title_ascending',
   VideoTitleDescending: 'video_title_descending',
   AuthorAscending: 'author_ascending',
   AuthorDescending: 'author_descending',
 }
-
-const USER_PLAYLIST_ONLY_SORT_BY_VALUES = [
-  SORT_BY_VALUES.DateAddedNewest,
-  SORT_BY_VALUES.DateAddedOldest
-]
-
-const REMOTE_PLAYLIST_ONLY_SORT_BY_VALUES = [
-  SORT_BY_VALUES.DatePublishedNewest,
-  SORT_BY_VALUES.DatePublishedOldest
-]
 
 export default defineComponent({
   name: 'Playlist',
@@ -104,9 +95,6 @@ export default defineComponent({
     },
     userPlaylistSortOrder: function () {
       return this.$store.getters.getUserPlaylistSortOrder
-    },
-    sortOrder: function () {
-      return this.isUserPlaylistRequested ? this.userPlaylistSortOrder : this.localSortOrder
     },
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
@@ -178,25 +166,20 @@ export default defineComponent({
       })
     },
     sortByValues() {
-      const sortByValues = Object.values(SORT_BY_VALUES)
-      if (!this.isUserPlaylistRequested) {
-        return sortByValues.filter((k) => !USER_PLAYLIST_ONLY_SORT_BY_VALUES.includes(k))
-      } else {
-        return sortByValues.filter((k) => !REMOTE_PLAYLIST_ONLY_SORT_BY_VALUES.includes(k))
-      }
+      return Object.values(SORT_BY_VALUES)
     },
     isSortOrderCustom() {
-      return this.sortOrder === SORT_BY_VALUES.Custom || this.sortOrder === SORT_BY_VALUES.CustomDescending
+      return this.userPlaylistSortOrder === SORT_BY_VALUES.Custom || this.userPlaylistSortOrder === SORT_BY_VALUES.CustomDescending
     },
     sortedPlaylistItems: function () {
-      if (this.sortOrder === SORT_BY_VALUES.Custom) {
+      if (this.userPlaylistSortOrder === SORT_BY_VALUES.Custom) {
         return this.playlistItems
-      } else if (this.sortOrder === SORT_BY_VALUES.CustomDescending) {
+      } else if (this.userPlaylistSortOrder === SORT_BY_VALUES.CustomDescending) {
         return this.playlistItems.toReversed()
       }
 
       return this.playlistItems.toSorted((a, b) => {
-        switch (this.sortOrder) {
+        switch (this.userPlaylistSortOrder) {
           case SORT_BY_VALUES.DateAddedNewest:
             return b.timeAdded - a.timeAdded
           case SORT_BY_VALUES.DateAddedOldest:
@@ -214,7 +197,7 @@ export default defineComponent({
           case SORT_BY_VALUES.AuthorDescending:
             return b.author.localeCompare(a.author, this.currentLocale)
           default:
-            console.error(`Unknown sortOrder: ${this.sortOrder}`)
+            console.error(`Unknown sortOrder: ${this.userPlaylistSortOrder}`)
             return 0
         }
       })
@@ -238,9 +221,9 @@ export default defineComponent({
       return this.sortByValues.map((k) => {
         switch (k) {
           case SORT_BY_VALUES.Custom:
-            return this.isUserPlaylistRequested ? this.$t('Playlist.Sort By.Custom') : this.$t('Playlist.Sort By.Default')
+            return this.$t('Playlist.Sort By.Custom')
           case SORT_BY_VALUES.CustomDescending:
-            return this.isUserPlaylistRequested ? this.$t('Playlist.Sort By.CustomDescending') : this.$t('Playlist.Sort By.DefaultDescending')
+            return this.$t('Playlist.Sort By.CustomDescending')
           case SORT_BY_VALUES.DateAddedNewest:
             return this.$t('Playlist.Sort By.DateAddedNewest')
           case SORT_BY_VALUES.DateAddedOldest:
@@ -580,14 +563,6 @@ export default defineComponent({
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
-      }
-    },
-
-    updateSortOrder: function (sortOrder) {
-      if (this.isUserPlaylistRequested) {
-        this.updateUserPlaylistSortOrder(sortOrder)
-      } else {
-        this.localSortOrder = sortOrder
       }
     },
 
