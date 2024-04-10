@@ -45,6 +45,14 @@
       <template
         v-if="playlistItems.length > 0"
       >
+        <ft-select
+          class="sortSelect"
+          :value="sortOrder"
+          :select-names="sortBySelectNames"
+          :select-values="sortBySelectValues"
+          :placeholder="$t('Playlist.Sort By.Sort By')"
+          @change="updateSortOrder($event)"
+        />
         <template
           v-if="visiblePlaylistItems.length > 0"
         >
@@ -64,13 +72,13 @@
               appearance="result"
               :always-show-add-to-playlist-button="true"
               :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
-              :can-move-video-up="index > 0 && !playlistInVideoSearchMode"
-              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode"
+              :can-move-video-up="index > 0 && !playlistInVideoSearchMode && isSortOrderCustom"
+              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode && isSortOrderCustom"
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
-              @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
-              @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
+              @move-video-up="sortOrder !== 'custom_descending' ? moveVideoUp(item.videoId, item.playlistItemId) : moveVideoDown(item.videoId, item.playlistItemId)"
+              @move-video-down="sortOrder !== 'custom_descending' ? moveVideoDown(item.videoId, item.playlistItemId) : moveVideoUp(item.videoId, item.playlistItemId)"
               @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
             />
           </transition-group>

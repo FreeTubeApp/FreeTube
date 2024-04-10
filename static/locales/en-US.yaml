@@ -185,7 +185,6 @@ User Playlists:
 
     LatestPlayedFirst: 'Recently Played'
     EarliestPlayedFirst: 'Earliest Played'
-
   SinglePlaylistView:
     Search for Videos: Search for Videos
 
@@ -871,6 +870,20 @@ Playlist:
   View: View
   Views: Views
   Last Updated On: Last Updated On
+  Sort By:
+    Sort By: Sort By
+    Custom: Custom
+    CustomDescending: Custom (descending)
+    Default: Default
+    DefaultDescending: Default (descending)
+    DateAddedNewest: Date added (newest)
+    DateAddedOldest: Date added (oldest)
+    DatePublishedNewest: Date published (newest)
+    DatePublishedOldest: Date published (oldest)
+    VideoTitleAscending: Title (A-Z)
+    VideoTitleDescending: Title (Z-A)
+    AuthorAscending: Author (A-Z)
+    AuthorDescending: Author (Z-A)
 
 # On Video Watch Page
 #* Published

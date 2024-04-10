@@ -107,7 +107,9 @@ export default defineComponent({
     newPlaylistDefaultProperties: function () {
       return this.$store.getters.getNewPlaylistDefaultProperties
     },
-
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     processedQuery: function() {
       return this.query.trim().toLowerCase()
     },
