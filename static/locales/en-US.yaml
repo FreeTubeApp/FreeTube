@@ -872,10 +872,10 @@ Playlist:
   Last Updated On: Last Updated On
   Sort By:
     Sort By: Sort By
-    DatePublishedNewest: Latest added first
-    DatePublishedOldest: Earliest added first
-    DateAddedNewest: Latest published first
-    DateAddedOldest: Earliest published first
+    DateAddedNewest: Latest added first
+    DateAddedOldest: Earliest added first
+    DatePublishedNewest: Latest published first
+    DatePublishedOldest: Earliest published first
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)

@@ -79,7 +79,6 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
-      localSortOrder: SORT_BY_VALUES.Custom
     }
   },
   computed: {
