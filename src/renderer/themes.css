@@ -440,8 +440,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainGruvboxAqua,
 .mainGruvboxOrange {
     --text-with-main-color: #282828;    
-    --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.png");                          
-    --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.png");
+    --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.svg");                          
+    --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.svg");
     
 }
 .mainGruvboxGreen {
