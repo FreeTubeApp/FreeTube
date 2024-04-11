@@ -66,6 +66,11 @@
   max-block-size: 7vh;
 }
 
+.sortSelect {
+  /* Put it on the right */
+  margin-inline-start: auto;
+}
+
 :deep(.videoThumbnail) {
   margin-block-start: auto;
   margin-block-end: auto;

@@ -18,7 +18,6 @@ import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../help
 
 const SORT_BY_VALUES = {
   Custom: 'custom',
-  CustomDescending: 'custom_descending',
   DateAddedNewest: 'date_added_descending',
   DateAddedOldest: 'date_added_ascending',
   // TODO: store video.published for user playlists
@@ -169,13 +168,11 @@ export default defineComponent({
       return Object.values(SORT_BY_VALUES)
     },
     isSortOrderCustom() {
-      return this.userPlaylistSortOrder === SORT_BY_VALUES.Custom || this.userPlaylistSortOrder === SORT_BY_VALUES.CustomDescending
+      return this.userPlaylistSortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
       if (this.userPlaylistSortOrder === SORT_BY_VALUES.Custom) {
         return this.playlistItems
-      } else if (this.userPlaylistSortOrder === SORT_BY_VALUES.CustomDescending) {
-        return this.playlistItems.toReversed()
       }
 
       return this.playlistItems.toSorted((a, b) => {
@@ -222,8 +219,6 @@ export default defineComponent({
         switch (k) {
           case SORT_BY_VALUES.Custom:
             return this.$t('Playlist.Sort By.Custom')
-          case SORT_BY_VALUES.CustomDescending:
-            return this.$t('Playlist.Sort By.CustomDescending')
           case SORT_BY_VALUES.DateAddedNewest:
             return this.$t('Playlist.Sort By.DateAddedNewest')
           case SORT_BY_VALUES.DateAddedOldest:

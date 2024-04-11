@@ -873,9 +873,6 @@ Playlist:
   Sort By:
     Sort By: Sort By
     Custom: Custom
-    CustomDescending: Custom (descending)
-    Default: Default
-    DefaultDescending: Default (descending)
     DateAddedNewest: Date added (newest)
     DateAddedOldest: Date added (oldest)
     DatePublishedNewest: Date published (newest)

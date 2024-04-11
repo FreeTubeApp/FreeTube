@@ -78,8 +78,8 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
-              @move-video-up="userPlaylistSortOrder !== 'custom_descending' ? moveVideoUp(item.videoId, item.playlistItemId) : moveVideoDown(item.videoId, item.playlistItemId)"
-              @move-video-down="userPlaylistSortOrder !== 'custom_descending' ? moveVideoDown(item.videoId, item.playlistItemId) : moveVideoUp(item.videoId, item.playlistItemId)"
+              @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
+              @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
               @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
             />
           </transition-group>
