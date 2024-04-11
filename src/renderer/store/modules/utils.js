@@ -47,7 +47,6 @@ const state = {
     duration: ''
   },
   externalPlayerNames: [],
-  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -131,10 +130,6 @@ const getters = {
 
   getExternalPlayerNames () {
     return state.externalPlayerNames
-  },
-
-  getExternalPlayerNameTranslationKeys () {
-    return state.externalPlayerNameTranslationKeys
   },
 
   getExternalPlayerValues () {
@@ -262,7 +257,7 @@ const actions = {
       }
 
       if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-        reject(new Error('Forbidden Characters')) // use message as translation key
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters')))
       }
 
       let filename
@@ -274,7 +269,7 @@ const actions = {
       }
 
       if (!filename) {
-        reject(new Error('Empty File Name'))
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name')))
       }
 
       resolve(parsedString)
@@ -603,7 +598,7 @@ const actions = {
     const fileData = await fs.readFile(`${fileLocation}${fileName}`)
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
     })
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
     const playerNone = externalPlayerMap.shift()
@@ -611,7 +606,6 @@ const actions = {
     externalPlayerMap.unshift(playerNone)
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
-    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -619,7 +613,6 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
-    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -667,7 +660,7 @@ const actions = {
             args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
           }
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.starting video at offset'))
         }
       }
 
@@ -675,7 +668,7 @@ const actions = {
         if (typeof cmdArgs.playbackRate === 'string') {
           args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.setting a playback rate'))
         }
       }
 
@@ -685,7 +678,7 @@ const actions = {
           if (typeof cmdArgs.playlistIndex === 'string') {
             args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
           }
         }
 
@@ -693,7 +686,7 @@ const actions = {
           if (typeof cmdArgs.playlistReverse === 'string') {
             args.push(cmdArgs.playlistReverse)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.reversing playlists'))
           }
         }
 
@@ -701,7 +694,7 @@ const actions = {
           if (typeof cmdArgs.playlistShuffle === 'string') {
             args.push(cmdArgs.playlistShuffle)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.shuffling playlists'))
           }
         }
 
@@ -709,7 +702,7 @@ const actions = {
           if (typeof cmdArgs.playlistLoop === 'string') {
             args.push(cmdArgs.playlistLoop)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.looping playlists'))
           }
         }
 
@@ -721,7 +714,7 @@ const actions = {
         }
       } else {
         if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening playlists'))
         }
         if (payload.videoId != null) {
           args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
@@ -872,10 +865,6 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
-  },
-
-  setExternalPlayerNameTranslationKeys (state, value) {
-    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

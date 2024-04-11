@@ -2111,6 +2111,8 @@ export default defineComponent({
 
           // Unexpected errors should be reported
           console.error(err)
+          // ignore as this will most likely be removed by shaka player changes
+          // eslint-disable-next-line @intlify/vue-i18n/no-missing-keys
           const errorMessage = this.$t('play() request Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)

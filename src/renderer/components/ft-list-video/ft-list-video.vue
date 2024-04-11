@@ -58,7 +58,7 @@
         <ft-icon-button
           v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
           :title="quickBookmarkIconText"
-          :icon="['fas', 'star']"
+          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
           class="quickBookmarkVideoIcon"
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,

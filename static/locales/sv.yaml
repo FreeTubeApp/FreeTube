@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Svenska'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
@@ -331,7 +330,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
-    Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
     Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast
       tittade spellista
   Subscription Settings:
@@ -978,9 +976,6 @@ Tooltips:
     External Link Handling: "Välj standardförfarande när en länk klickas, som inte
       kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din
       standardwebbläsare.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
-      filer som skapades under uppspelning, när sidan stängs.
   External Player Settings:
     Custom External Player Arguments: Alla anpassade kommandoradsargument, åtskilda
       av semikolon (';'), ska skickas till den externa spelaren.

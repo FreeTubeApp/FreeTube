@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando o progresso
@@ -451,8 +450,6 @@ Settings:
       certeza de que deseja remover todas as inscrições e perfis? Isto não pode ser
       desfeito.
     Remove All Subscriptions / Profiles: Remover todas as inscrições ou perfis
-    Automatically Remove Video Meta Files: Remover automaticamente os metarquivos
-      de vídeo
     Save Watched Videos With Last Viewed Playlist: Salvar vídeos assistidos com a
       última playlist visualizada
     All playlists have been removed: Todas as playlists foram removidas
@@ -1115,10 +1112,6 @@ Tooltips:
     External Link Handling: "Escolha o comportamento padrão quando um link que não
       pode ser aberto no FreeTube for clicado.\nPor padrão, o FreeTube abrirá o link
       clicado em seu navegador padrão.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
-      metarquivos criados durante a reprodução do vídeo quando a página de exibição
-      é fechada.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
       separados por ponto e vírgula (';'), você deseja que seja passado para o player
@@ -1216,3 +1209,5 @@ Close Banner: Fechar Banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrição de idade
   This video is age restricted: Este vídeo tem restrição de idade
+checkmark: ✓
+Display Label: '{label}: {value}'
