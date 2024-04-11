@@ -286,8 +286,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #3c3836;
   --side-nav-active-color: #3c3836;
   --search-bar-color: #504945;
-  --logo-icon: url("../../_icons/iconGruvboxLightSmall.png");
-  --logo-text: url("../../_icons/textGruvboxLightSmall.png");
+  --logo-icon: url("../../_icons/iconGruvboxLightSmall.svg");
+  --logo-text: url("../../_icons/textGruvboxLightSmall.svg");
 }
 
 
@@ -306,8 +306,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #f9f5d7;
   --side-nav-active-color: #f9f5d7;
   --search-bar-color: #f2e5bc;
-  --logo-icon: url("../../_icons/iconGruvboxDarkSmall.png");
-  --logo-text: url("../../_icons/textGruvboxDarkSmall.png");
+  --logo-icon: url("../../_icons/iconGruvboxDarkSmall.svg");
+  --logo-text: url("../../_icons/textGruvboxDarkSmall.svg");
 }
 
 .mainRed,
