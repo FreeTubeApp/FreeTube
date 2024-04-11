@@ -22,7 +22,7 @@
       :view-count="viewCount"
       :info-source="infoSource"
       :more-video-data-available="moreVideoDataAvailable"
-      :search-video-mode-allowed="isUserPlaylistRequested"
+      :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
       :search-video-mode-enabled="playlistInVideoSearchMode"
       :search-query-text="searchQueryTextRequested"
       class="playlistInfo"
