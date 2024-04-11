@@ -223,7 +223,7 @@ export default defineComponent({
         if (typeof (playlist.playlistName) !== 'string') { return false }
 
         if (this.doSearchPlaylistsWithMatchingVideos) {
-          if (playlist.videos.some((v) => v.title.toLowerCase().includes(this.lowerCaseQuery))) {
+          if (playlist.videos.some((v) => v.author.toLowerCase().includes(this.lowerCaseQuery) || v.title.toLowerCase().includes(this.lowerCaseQuery))) {
             return true
           }
         }
