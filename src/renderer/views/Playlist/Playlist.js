@@ -91,6 +91,9 @@ export default defineComponent({
     userPlaylistSortOrder: function () {
       return this.$store.getters.getUserPlaylistSortOrder
     },
+    sortOrder: function () {
+      return this.isUserPlaylistRequested ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
+    },
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
@@ -170,15 +173,15 @@ export default defineComponent({
       return Object.values(SORT_BY_VALUES)
     },
     isSortOrderCustom() {
-      return this.userPlaylistSortOrder === SORT_BY_VALUES.Custom
+      return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
-      if (this.userPlaylistSortOrder === SORT_BY_VALUES.Custom) {
+      if (this.sortOrder === SORT_BY_VALUES.Custom) {
         return this.playlistItems
       }
 
       return this.playlistItems.toSorted((a, b) => {
-        switch (this.userPlaylistSortOrder) {
+        switch (this.sortOrder) {
           case SORT_BY_VALUES.DateAddedNewest:
             return b.timeAdded - a.timeAdded
           case SORT_BY_VALUES.DateAddedOldest:
@@ -192,7 +195,7 @@ export default defineComponent({
           case SORT_BY_VALUES.AuthorDescending:
             return b.author.localeCompare(a.author, this.currentLocale)
           default:
-            console.error(`Unknown sortOrder: ${this.userPlaylistSortOrder}`)
+            console.error(`Unknown sortOrder: ${this.sortOrder}`)
             return 0
         }
       })

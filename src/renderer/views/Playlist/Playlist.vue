@@ -48,7 +48,7 @@
         <ft-select
           v-if="isUserPlaylistRequested"
           class="sortSelect"
-          :value="userPlaylistSortOrder"
+          :value="sortOrder"
           :select-names="sortBySelectNames"
           :select-values="sortBySelectValues"
           :placeholder="$t('Playlist.Sort By.Sort By')"
