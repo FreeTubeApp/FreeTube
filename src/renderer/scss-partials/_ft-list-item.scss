@@ -1,4 +1,4 @@
-$thumbnail-overlay-opacity: 1;
+$thumbnail-overlay-opacity: 0.85;
 $watched-transition-duration: 0.5s;
 
 @mixin is-result {
@@ -366,7 +366,7 @@ $watched-transition-duration: 0.5s;
     &:has(:focus-visible) .addToPlaylistIcon:not(.alwaysVisible),
     &:has(:focus-visible) .quickBookmarkVideoIcon:not(.alwaysVisible),
     &:has(:focus-visible) .externalPlayerIcon {
-      opacity: $thumbnail-overlay-opacity;
+      opacity: 1;
     }
 
     &:hover .optionsButton,
