@@ -145,8 +145,7 @@ export default defineComponent({
         this.setProgressBarPercentage(percentageComplete)
         this.updateSubscriptionShortsCacheByChannel({
           channelId: channel.id,
-          videos: videos,
-          timestamp: new Date()
+          videos: videos
         })
 
         if (name) {

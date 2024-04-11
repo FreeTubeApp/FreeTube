@@ -776,8 +776,7 @@ export default defineComponent({
             // create a copy so that we only cache the first page
             // if we use the same array, the store will get angry at us for modifying it outside of the store,
             // when the user clicks load more
-            videos: [...this.latestVideos],
-            timestamp: new Date()
+            videos: [...this.latestVideos]
           })
         }
       } catch (err) {
@@ -922,8 +921,7 @@ export default defineComponent({
             // create a copy so that we only cache the first page
             // if we use the same array, the store will get angry at us for modifying it outside of the store,
             // when the user clicks load more
-            videos: [...this.latestLive],
-            timestamp: new Date()
+            videos: [...this.latestLive]
           })
         }
       } catch (err) {
@@ -1102,8 +1100,7 @@ export default defineComponent({
             channelId: this.id,
             // create a copy so that we only cache the first page
             // if we use the same array, it will also contain all the next pages
-            videos: [...this.latestVideos],
-            timestamp: new Date()
+            videos: [...this.latestVideos]
           })
         }
       }).catch((err) => {
@@ -1216,8 +1213,7 @@ export default defineComponent({
             // create a copy so that we only cache the first page
             // if we use the same array, the store will get angry at us for modifying it outside of the store,
             // when the user clicks load more
-            videos: [...this.latestLive],
-            timestamp: new Date()
+            videos: [...this.latestLive]
           })
         }
       }).catch((err) => {
@@ -1647,8 +1643,7 @@ export default defineComponent({
             // create a copy so that we only cache the first page
             // if we use the same array, the store will get angry at us for modifying it outside of the store,
             // when the user clicks load more
-            posts: [...this.latestCommunityPosts],
-            timestamp: new Date()
+            posts: [...this.latestCommunityPosts]
           })
         }
       } catch (err) {
@@ -1712,8 +1707,7 @@ export default defineComponent({
             // create a copy so that we only cache the first page
             // if we use the same array, the store will get angry at us for modifying it outside of the store,
             // when the user clicks load more
-            posts: [...this.latestCommunityPosts],
-            timestamp: new Date()
+            posts: [...this.latestCommunityPosts]
           })
         }
       }).catch(async (err) => {

@@ -69,21 +69,21 @@ const actions = {
 }
 
 const mutations = {
-  updateVideoCacheByChannel(state, { channelId, videos, timestamp }) {
+  updateVideoCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.videoCache[channelId]
     const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
-    if (timestamp != null) newObject.timestamp = timestamp
+    newObject.timestamp = timestamp
     state.videoCache[channelId] = newObject
   },
   clearVideoCache(state) {
     state.videoCache = {}
   },
-  updateShortsCacheByChannel(state, { channelId, videos, timestamp }) {
+  updateShortsCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.shortsCache[channelId]
     const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
-    if (timestamp != null) newObject.timestamp = timestamp
+    newObject.timestamp = timestamp
     state.shortsCache[channelId] = newObject
   },
   updateShortsCacheWithChannelPageShorts(state, { channelId, videos }) {
@@ -114,21 +114,21 @@ const mutations = {
   clearShortsCache(state) {
     state.shortsCache = {}
   },
-  updateLiveCacheByChannel(state, { channelId, videos, timestamp }) {
+  updateLiveCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.liveCache[channelId]
     const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
-    if (timestamp != null) newObject.timestamp = timestamp
+    newObject.timestamp = timestamp
     state.liveCache[channelId] = newObject
   },
   clearLiveCache(state) {
     state.liveCache = {}
   },
-  updatePostsCacheByChannel(state, { channelId, posts, timestamp }) {
+  updatePostsCacheByChannel(state, { channelId, posts, timestamp = new Date() }) {
     const existingObject = state.postsCache[channelId]
     const newObject = existingObject ?? { posts: null }
     if (posts != null) { newObject.posts = posts }
-    if (timestamp != null) newObject.timestamp = timestamp
+    newObject.timestamp = timestamp
     state.postsCache[channelId] = newObject
   },
   clearPostsCache(state) {

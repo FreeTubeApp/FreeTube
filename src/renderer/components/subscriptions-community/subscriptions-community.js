@@ -151,8 +151,7 @@ export default defineComponent({
 
         this.updateSubscriptionPostsCacheByChannel({
           channelId: channel.id,
-          posts: posts,
-          timestamp: new Date()
+          posts: posts
         })
 
         if (posts.length > 0) {
