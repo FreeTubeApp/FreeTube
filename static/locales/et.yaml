@@ -1123,3 +1123,5 @@ Age Restricted:
   This channel is age restricted: Kanali vaatamisel on vanusepiirang
   This video is age restricted: Video vaatamisel on vanusepiirang
 Close Banner: Sulge rekaampilt
+checkmark: ✓
+Display Label: '{label}: {value}'
