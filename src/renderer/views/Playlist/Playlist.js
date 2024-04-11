@@ -17,9 +17,6 @@ import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } f
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 const SORT_BY_VALUES = {
-  // TODO: store video.published for user playlists
-  // DatePublishedNewest: 'date_published_newest',
-  // DatePublishedOldest: 'date_published_oldest',
   DateAddedNewest: 'date_added_descending',
   DateAddedOldest: 'date_added_ascending',
   AuthorAscending: 'author_ascending',
@@ -180,10 +177,6 @@ export default defineComponent({
             return b.timeAdded - a.timeAdded
           case SORT_BY_VALUES.DateAddedOldest:
             return a.timeAdded - b.timeAdded
-          case SORT_BY_VALUES.DatePublishedNewest:
-            return b.published - a.published
-          case SORT_BY_VALUES.DatePublishedOldest:
-            return a.published - b.published
           case SORT_BY_VALUES.VideoTitleAscending:
             return a.title.localeCompare(b.title, this.currentLocale)
           case SORT_BY_VALUES.VideoTitleDescending:
@@ -222,10 +215,6 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.DateAddedNewest')
           case SORT_BY_VALUES.DateAddedOldest:
             return this.$t('Playlist.Sort By.DateAddedOldest')
-          case SORT_BY_VALUES.DatePublishedNewest:
-            return this.$t('Playlist.Sort By.DatePublishedNewest')
-          case SORT_BY_VALUES.DatePublishedOldest:
-            return this.$t('Playlist.Sort By.DatePublishedOldest')
           case SORT_BY_VALUES.VideoTitleAscending:
             return this.$t('Playlist.Sort By.VideoTitleAscending')
           case SORT_BY_VALUES.VideoTitleDescending:
