@@ -107,7 +107,7 @@ The first build with a green check mark is the latest build.
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-* FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
+* FreeTubeAndroid (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeAndroid/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeAndroid)
 
 * Homebrew Formulae (Mac only): [Download](https://formulae.brew.sh/cask/freetube)
 
