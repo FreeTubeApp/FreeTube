@@ -17,16 +17,16 @@ import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } f
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 const SORT_BY_VALUES = {
-  Custom: 'custom',
-  DateAddedNewest: 'date_added_descending',
-  DateAddedOldest: 'date_added_ascending',
   // TODO: store video.published for user playlists
   // DatePublishedNewest: 'date_published_newest',
   // DatePublishedOldest: 'date_published_oldest',
-  VideoTitleAscending: 'video_title_ascending',
-  VideoTitleDescending: 'video_title_descending',
+  DateAddedNewest: 'date_added_descending',
+  DateAddedOldest: 'date_added_ascending',
   AuthorAscending: 'author_ascending',
   AuthorDescending: 'author_descending',
+  VideoTitleAscending: 'video_title_ascending',
+  VideoTitleDescending: 'video_title_descending',
+  Custom: 'custom',
 }
 
 export default defineComponent({

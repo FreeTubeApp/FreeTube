@@ -69,6 +69,8 @@
 .sortSelect {
   /* Put it on the right */
   margin-inline-start: auto;
+  /* Align with 'More Options' dropdown button */
+  margin-inline-end: 20px;
 }
 
 :deep(.videoThumbnail) {
