@@ -52,7 +52,7 @@
           class="addToPlaylistIcon"
           :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-          :size="appearance === `watchPlaylistItem` ? 14 : 22"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
         />
         <ft-icon-button
@@ -66,7 +66,7 @@
           }"
           :theme="quickBookmarkIconTheme"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-          :size="appearance === `watchPlaylistItem` ? 14 : 22"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="toggleQuickBookmarked"
         />
         <ft-icon-button
