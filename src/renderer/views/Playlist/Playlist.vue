@@ -46,7 +46,7 @@
         v-if="playlistItems.length > 0"
       >
         <ft-select
-          v-if="isUserPlaylistRequested"
+          v-if="isUserPlaylistRequested && playlistItems.length > 1"
           class="sortSelect"
           :value="sortOrder"
           :select-names="sortBySelectNames"
