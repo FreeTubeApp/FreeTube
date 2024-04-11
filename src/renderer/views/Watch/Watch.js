@@ -289,7 +289,7 @@ export default defineComponent({
       this.checkIfPlaylist()
       this.checkIfTimestamp()
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getVideoInformationInvidious()
       } else {
         this.getVideoInformationLocal()
@@ -870,8 +870,8 @@ export default defineComponent({
             this.audioTracks = []
             this.dashSrc = await this.createInvidiousDashManifest()
 
-            if (process.env.IS_ELECTRON && this.audioTracks.length > 0) {
-              // when we are in Electron and the video has multiple audio tracks,
+            if (process.env.SUPPORTS_LOCAL_API && this.audioTracks.length > 0) {
+              // when the local API is supported and the video has multiple audio tracks,
               // we populate the list inside createInvidiousDashManifest
               // as we need to work out the different audio tracks for the DASH manifest anyway
               this.audioSourceList = this.audioTracks.find(track => track.isDefault).sourceList
@@ -908,7 +908,7 @@ export default defineComponent({
             copyToClipboard(err.responseText)
           })
           console.error(err)
-          if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
             showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {
@@ -1233,7 +1233,7 @@ export default defineComponent({
             copyToClipboard(err)
           })
           console.error(err)
-          if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
+          if (!process.env.SUPPORTS_LOCAL_API || (this.backendPreference === 'local' && this.backendFallback)) {
             showToast(this.$t('Falling back to Invidious API'))
             this.getVideoInformationInvidious()
           }
@@ -1471,7 +1471,7 @@ export default defineComponent({
       // If we are in Electron,
       // we can use YouTube.js' DASH manifest generator to generate the manifest.
       // Using YouTube.js' gives us support for multiple audio tracks (currently not supported by Invidious)
-      if (process.env.IS_ELECTRON) {
+      if (process.env.SUPPORTS_LOCAL_API) {
         // Invidious' API response doesn't include the height and width (and fps and qualityLabel for AV1) of video streams
         // so we need to extract them from Invidious' manifest
         const response = await fetch(url)
