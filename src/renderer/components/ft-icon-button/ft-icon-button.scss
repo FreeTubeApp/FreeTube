@@ -76,10 +76,6 @@
     }
   }
 
-  &.fa-bookmark, &.fa-bookmark:hover, &.fa-bookmark:focus-visible {
-    color: var(--primary-color);
-  }
-
   &.favorite, &.favorite:hover, &.favorite:focus-visible {
     color: var(--favorite-icon-color);
   }
