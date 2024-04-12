@@ -84,11 +84,8 @@ export default defineComponent({
     playlistId: function() {
       return this.$route.params.id
     },
-    userPlaylistListType: function () {
-      return this.$store.getters.getUserPlaylistListType
-    },
     listType: function () {
-      return this.isUserPlaylistRequested ? this.userPlaylistListType : 'list'
+      return this.isUserPlaylistRequested ? this.$store.getters.getListType : 'list'
     },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady

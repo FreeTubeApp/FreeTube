@@ -231,7 +231,6 @@ const state = {
   showDistractionFreeTitles: false,
   landingPage: 'subscriptions',
   listType: 'grid',
-  userPlaylistListType: 'grid',
   maxVideoPlaybackRate: 3,
   onlyShowLatestFromChannel: false,
   playNextVideo: false,

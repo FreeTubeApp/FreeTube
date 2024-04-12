@@ -10,38 +10,38 @@
 
     <div class="playlistInfoContainer">
       <playlist-info
-      v-if="!isLoading"
-      :id="playlistId"
-      :first-video-id="firstVideoId"
-      :first-video-playlist-item-id="firstVideoPlaylistItemId"
-      :playlist-thumbnail="playlistThumbnail"
-      :title="playlistTitle"
-      :channel-name="channelName"
-      :channel-thumbnail="channelThumbnail"
-      :channel-id="channelId"
-      :last-updated="lastUpdated"
-      :description="playlistDescription"
-      :video-count="videoCount"
-      :videos="playlistItems"
-      :view-count="viewCount"
-      :info-source="infoSource"
-      :theme="listType === 'list' ? 'base' : 'top-bar'"
-      :more-video-data-available="moreVideoDataAvailable"
-      :search-video-mode-allowed="searchVideoModeAllowed"
-      :search-video-mode-enabled="playlistInVideoSearchMode"
-      :search-query-text="searchQueryTextRequested"
-      class="playlistInfo"
-      :class="{
-        promptOpen,
-      }"
-      @enter-edit-mode="playlistInEditMode = true"
-      @exit-edit-mode="playlistInEditMode = false"
-      @search-video-mode-on="playlistInVideoSearchMode = true"
-      @search-video-mode-off="playlistInVideoSearchMode = false"
-      @search-video-query-change="(v) => videoSearchQuery = v"
-      @prompt-open="promptOpen = true"
-      @prompt-close="promptOpen = false"
-    />
+        v-if="!isLoading"
+        :id="playlistId"
+        :first-video-id="firstVideoId"
+        :first-video-playlist-item-id="firstVideoPlaylistItemId"
+        :playlist-thumbnail="playlistThumbnail"
+        :title="playlistTitle"
+        :channel-name="channelName"
+        :channel-thumbnail="channelThumbnail"
+        :channel-id="channelId"
+        :last-updated="lastUpdated"
+        :description="playlistDescription"
+        :video-count="videoCount"
+        :videos="playlistItems"
+        :view-count="viewCount"
+        :info-source="infoSource"
+        :theme="listType === 'list' ? 'base' : 'top-bar'"
+        :more-video-data-available="moreVideoDataAvailable"
+        :search-video-mode-allowed="searchVideoModeAllowed"
+        :search-video-mode-enabled="playlistInVideoSearchMode"
+        :search-query-text="searchQueryTextRequested"
+        class="playlistInfo"
+        :class="{
+          promptOpen,
+        }"
+        @enter-edit-mode="playlistInEditMode = true"
+        @exit-edit-mode="playlistInEditMode = false"
+        @search-video-mode-on="playlistInVideoSearchMode = true"
+        @search-video-mode-off="playlistInVideoSearchMode = false"
+        @search-video-query-change="(v) => videoSearchQuery = v"
+        @prompt-open="promptOpen = true"
+        @prompt-close="promptOpen = false"
+      />
     </div>
 
     <ft-card
@@ -55,9 +55,9 @@
           v-if="visiblePlaylistItems.length > 0"
         >
           <ft-element-list
-            v-if="userPlaylistListType === 'grid'"
+            v-if="listType === 'grid'"
             :data="visiblePlaylistItems"
-            :display="userPlaylistListType"
+            display="grid"
             :show-video-with-last-viewed-playlist="true"
             :use-channels-hidden-preference="false"
             :hide-forbidden-titles="false"
