@@ -414,7 +414,7 @@ export default defineComponent({
       switch (event.key) {
         case 'F':
         case 'f':
-          if ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey)) {
+          if (this.searchVideoModeAllowed && ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
             nextTick(() => {
               // Some elements only present after rendering update
               this.$refs.searchInput.focus()
