@@ -225,7 +225,7 @@ export default defineComponent({
     },
     playlistId: function (newVal, oldVal) {
       if (oldVal !== newVal) {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
           this.getPlaylistInformationLocal()
@@ -270,7 +270,7 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && (this.fetchIVPlaylist || this.backendFallback))) {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && (this.fetchIVPlaylist || this.backendFallback))) {
         if (this.isInvidiousPlaylist) {
           const curInstance = new URL(this.currentInvidiousInstance)
           // auto-fetch playlist since the playlist is on the same instance as the currently set invidious instance.
@@ -431,7 +431,7 @@ export default defineComponent({
         this.fetchIVPlaylist = true
       }
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
@@ -507,7 +507,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistInformationLocal()
         } else {

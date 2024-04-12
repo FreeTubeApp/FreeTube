@@ -84,7 +84,7 @@
         id="invidiousShare"
         class="header invidious"
       >
-        <span class="invidiousLogo" />Invidious
+        <span class="invidiousLogo" /> Invidious
       </div>
 
       <div class="buttons">

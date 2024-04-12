@@ -125,7 +125,7 @@ export default defineComponent({
 
       const postListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let posts = []
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           posts = await this.getChannelPostsInvidious(channel)
         } else {
           posts = await this.getChannelPostsLocal(channel)
@@ -229,7 +229,7 @@ export default defineComponent({
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)
           })
-          if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
             showToast(this.$t('Falling back to Local API'))
             resolve(this.getChannelPostsLocal(channel))
           } else {

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Hrvatski'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ovaj dio programa još nije gotov. Navrati kasnije.
@@ -401,8 +400,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Stvarno
       želiš ukloniti sve pretplate i profile? Ovo je nepovratna radnja.
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
-    Automatically Remove Video Meta Files: Automatski ukloni datoteke metapodataka
-      videa
     Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
       gledanom zbirkom
     Remove All Playlists: Ukloni sve zbirke
@@ -1095,10 +1092,6 @@ Tooltips:
       ili stanja „uživo”
     Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
       tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
-  Privacy Settings:
-    Remove Video Meta Files: Kada je aktivirano, FreeTube automatski uklanja datoteke
-      metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
-      gledanja.
   External Player Settings:
     External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje
       videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,

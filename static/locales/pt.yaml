@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Português'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
@@ -128,7 +127,7 @@ User Playlists:
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
     os vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
-  Search bar placeholder: Procurar na lista de reprodução
+  Search bar placeholder: Procurar listas de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com
     a sua pesquisa
   This playlist currently has no videos.: Esta lista de reprodução não tem vídeos
@@ -196,6 +195,7 @@ User Playlists:
       qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar
       os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionadas'
+    Added {count} Times: Adicionada {count} vez | Adicionada {count} vezes
   CreatePlaylistPrompt:
     New Playlist Name: Novo nome da lista de reprodução
     Create: Criar
@@ -221,6 +221,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Ativar marcador rápido para esta lista
     de reprodução
   Disable Quick Bookmark: Desativar marcador rápido
+  Playlists with Matching Videos: Listas de reprodução coincidentes
 History:
   # On History Page
   History: 'Histórico'
@@ -409,8 +410,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tem
       a certeza de que pretende remover todas as suas subscrições e perfis? Esta ação
       não pode ser revertida.'
-    Automatically Remove Video Meta Files: Remover automaticamente os meta-ficheiros
-      dos vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
       última lista de reprodução vista
     Remove All Playlists: Remover todas as listas de reprodução
@@ -565,7 +564,7 @@ Settings:
     Hide Channels: Ocultar vídeos dos canais
     Hide Channels Placeholder: ID do canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem maiúsculas
-      em excesso
+      ou pontuação em excesso
     Hide Featured Channels: Ocultar canais em destaque
     Hide Channel Playlists: Ocultar listas de reprodução dos canais
     Hide Channel Community: Ocultar canal Comunidade
@@ -1071,9 +1070,6 @@ This video is unavailable because of missing formats. This can happen due to cou
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
   no seu país.
 Tooltips:
-  Privacy Settings:
-    Remove Video Meta Files: Se ativa, ao fechar uma página, FreeTube apagará automaticamente
-      os meta-ficheiros criados durante a reprodução de um vídeo.
   Subscription Settings:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
@@ -1102,9 +1098,9 @@ Tooltips:
       vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
       API.
     Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é o seu sistema usado. Se ativa, a API local será executada para usar os formatos
-      antigos em vez dos usados pelo Invidious. Útil quando os vídeos do Invidious
-      não funcionam devido a restrições geográficas.
+      é sistema usado. Se ativa, a API local será executada para usar os formatos
+      antigos em vez dos usados pelo Invidious. Útil quando os vídeos Invidious não
+      funcionam devido a restrições geográficas.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)
@@ -1190,3 +1186,6 @@ Go to page: Ir para {page}
 Channel Unhidden: '{channel} removido do filtro do canal'
 Tag already exists: '"{tagName}" já existe'
 Close Banner: Fechar banner
+Age Restricted:
+  This channel is age restricted: Este canal tem restrições de idade
+  This video is age restricted: Este vídeo tem restrições de idade

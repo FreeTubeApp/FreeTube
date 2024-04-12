@@ -4,7 +4,7 @@
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
-Available for Windows, Mac & Linux thanks to Electron.
+Available for Windows (10 and later), Mac (macOS 10.15 and later) & Linux thanks to Electron.
 
 <p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
 <p align="center">
@@ -21,17 +21,20 @@ Available for Windows, Mac & Linux thanks to Electron.
 <p align="center"><a href="https://freetubeapp.io/">Website</a> &bull; <a href="https://blog.freetubeapp.io/">Blog</a> &bull; <a href="https://docs.freetubeapp.io/">Documentation</a> &bull; <a href="https://docs.freetubeapp.io/faq/">FAQ</a> &bull; <a href="https://github.com/FreeTubeApp/FreeTube/discussions">Discussions</a></p>
 <hr>
 
-<b>Please note that FreeTube is currently in Beta. While it should work well for most users, there are still bugs and missing features that need to be addressed. If you have an idea or if you found a bug, please submit a [GitHub issue](https://github.com/FreeTubeApp/FreeTube/issues/new/choose) so that
-we can track it.  Please search [the existing issues](https://github.com/FreeTubeApp/FreeTube/issues) before submitting to
-prevent duplicates!</b>
+> [!NOTE] 
+> FreeTube is currently in Beta. While it should work well for most users, there are still bugs and missing features that need to be addressed.
+>
+> If you have an idea or if you found a bug, please submit a [GitHub issue](https://github.com/FreeTubeApp/FreeTube/issues/new/choose) so that we can track it.  Please search [the existing issues](https://github.com/FreeTubeApp/FreeTube/issues) before submitting to prevent duplicates!
 
 ## Screenshots
 <img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## How does it work?
 FreeTube uses a built in extractor to grab and serve data / videos. The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used. FreeTube does not use any official APIs to obtain data. While YouTube can still see your video requests, it can no
-longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out. Using a VPN or Tor is highly recommended
-to hide your IP while using FreeTube.
+longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.
+
+> [!IMPORTANT]  
+> Using a VPN or Tor is highly recommended to hide your IP while using FreeTube.
 
 ## Features
 * Watch videos without ads
@@ -59,16 +62,26 @@ to hide your IP while using FreeTube.
 * View most age restricted videos
 
 ### Browser Extension
-FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings of the extension for it to work.
+FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. 
+
+> [!IMPORTANT]  
+> You must enable the option within the advanced settings of the extension for it to work.
 
 * Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
 
 * Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://libredirect.github.io/download_chromium.html).
 
-If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository. This extension does not work on Linux portable builds!
+> [!NOTE]
+> This extension does not work on Linux portable builds!
+>
+> If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
 ## Download Links
 ### Official Downloads
+
+> [!CAUTION]
+> FreeTube is only supported on Windows 10 and later, macOS 10.15 and above, and various Linux distributions. Installing it on unsupported systems may result in unexpected issues.
+
 * [GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
 
 * [FreeTube Website](https://freetubeapp.io/#download)
@@ -76,18 +89,25 @@ If you have issues with the extension working with FreeTube, please create an is
 * Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) and [Source Code](https://github.com/flathub/io.freetubeapp.FreeTube)
 
 #### Automated Builds (Nightly / Weekly)
+> [!WARNING]
+> Use these builds at your own risk. These are pre-release versions and are only intended for people that want to test changes early and are willing to accept that things could break from one build to another. 
+
 Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
 
-The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
+The first build with a green check mark is the latest build.  
+
+> [!IMPORTANT]
+> You will need to have a GitHub account to download these builds.
 
 ### Unofficial Downloads
-These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer. <b>Make sure u always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!</b>
+> [!WARNING]
+> These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer. Make sure u always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
 
 * Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-* FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
+* FreeTubeAndroid (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeAndroid/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeAndroid)
 
 * Homebrew Formulae (Mac only): [Download](https://formulae.brew.sh/cask/freetube)
 
@@ -106,13 +126,13 @@ These builds are maintained by the community. While they should be safe, downloa
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
 ## Contributing
-If you like to get your hands dirty and want to contribute, we would love to
-have your help.  Send a pull request and someone will review your code. Please
-follow the [Contribution
-Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/development/CONTRIBUTING.md)
-before sending your pull request.
-
 Thank you very much to the [People and Projects](https://docs.freetubeapp.io/credits/) that make FreeTube possible!
+
+If you like to get your hands dirty and want to contribute, we would love to
+have your help.  Send a pull request and someone will review your code. 
+
+> [!IMPORTANT]
+> Please follow the [Contribution Guidelines](https://github.com/FreeTubeApp/FreeTube/blob/development/CONTRIBUTING.md) before sending your pull request.
 
 ## Localization
 <a href="https://hosted.weblate.org/engage/free-tube/">
@@ -124,7 +144,10 @@ We are actively looking for translations!  We use [Weblate](https://hosted.webla
 For the Linux Flatpak, the desktop entry comment string can be translated at our [Flatpak repository](https://github.com/flathub/io.freetubeapp.FreeTube/blob/master/io.freetubeapp.FreeTube.desktop).
 
 ## Contact
-If you ever have any questions, feel free to ask it on our [Discussions](https://github.com/FreeTubeApp/FreeTube/discussions) page.  Alternatively, you can email us at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://matrix.to/#/+freetube:matrix.org).  Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.
+If you ever have any questions, feel free to ask it on our [Discussions](https://github.com/FreeTubeApp/FreeTube/discussions) page.  Alternatively, you can email us at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://matrix.to/#/+freetube:matrix.org).  
+
+> [!IMPORTANT]
+> Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.
 
 ## Donate
 If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  
@@ -135,7 +158,10 @@ If you enjoy using FreeTube, you're welcome to leave a donation using the follow
 
 * Monero Address: `48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB`
 
-While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs. If you are using the Invidious API then we recommend that you donate to the instance that you use. You can also donate to the [Invidious team](https://invidious.io/donate/) or the [Local API developer](https://github.com/sponsors/LuanRT).
+While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs. 
+
+> [!TIP]
+> If you are using the Invidious API then we recommend that you donate to the instance that you use. You can also donate to the [Invidious team](https://invidious.io/donate/) or the [Local API developer](https://github.com/sponsors/LuanRT).
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
