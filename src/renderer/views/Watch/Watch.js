@@ -125,7 +125,7 @@ export default defineComponent({
       infoAreaSticky: true,
       commentsEnabled: true,
 
-      onMountedRun: false
+      onMountedRun: false,
     }
   },
   computed: {
