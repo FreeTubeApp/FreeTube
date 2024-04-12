@@ -124,6 +124,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+
       onMountedRun: false
     }
   },
