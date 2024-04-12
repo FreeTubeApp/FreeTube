@@ -217,8 +217,7 @@ export default defineComponent({
       if (oldVal !== newVal) {
         if (this.backendPreference === 'piped') {
           this.getPlaylistInformationPiped()
-        }
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
           this.getPlaylistInformationLocal()
@@ -259,7 +258,7 @@ export default defineComponent({
         this.parseUserPlaylist(this.selectedUserPlaylist)
       } else if (this.backendPreference === 'piped') {
         this.getPlaylistInformationPiped()
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getPlaylistInformationInvidious()
       } else {
         this.getPlaylistInformationLocal()
@@ -415,7 +414,7 @@ export default defineComponent({
         }
 
         this.playlistItems = items
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
@@ -538,7 +537,7 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             showToast(this.$t('Falling back to Local API'))
             this.getPlaylistInformationLocal()
           } else if (this.fallbackPreference === 'piped') {

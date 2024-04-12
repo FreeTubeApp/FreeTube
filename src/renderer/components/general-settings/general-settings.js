@@ -20,11 +20,16 @@ export default defineComponent({
   },
   data: function () {
     return {
-      backendValues: [
-        'invidious',
-        'local',
-        'piped'
-      ],
+      backendValues: process.env.SUPPORTS_LOCAL_API
+        ? [
+            'invidious',
+            'local',
+            'piped'
+          ]
+        : [
+            'invidious',
+            'piped'
+          ],
       viewTypeValues: [
         'grid',
         'list'
@@ -102,6 +107,10 @@ export default defineComponent({
       return this.defaultPages.map((route) => route.path.substring(1))
     },
     backendPreference: function () {
+      if (!process.env.SUPPORTS_LOCAL_API && this.$store.getters.getBackendPreference === 'local') {
+        this.handlePreferredApiBackend('invidious')
+      }
+
       return this.$store.getters.getBackendPreference
     },
     landingPage: function () {
@@ -158,11 +167,18 @@ export default defineComponent({
     },
 
     backendNames: function () {
-      return [
-        this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Local API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Piped API')
-      ]
+      if (process.env.SUPPORTS_LOCAL_API) {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
+          this.$t('Settings.General Settings.Preferred API Backend.Local API'),
+          this.$t('Settings.General Settings.Preferred API Backend.Piped API')
+        ]
+      } else {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
+          this.$t('Settings.General Settings.Preferred API Backend.Piped API')
+        ]
+      }
     },
 
     viewTypeNames: function () {

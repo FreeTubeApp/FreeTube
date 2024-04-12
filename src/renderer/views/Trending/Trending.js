@@ -94,7 +94,7 @@ export default defineComponent({
 
       if (this.backendPreference === 'piped') {
         this.getTrendingInfoPiped()
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getTrendingInfoInvidious()
       } else {
         this.getTrendingInfoLocal()
@@ -179,7 +179,7 @@ export default defineComponent({
           if (this.fallbackPreference === 'piped') {
             showToast(this.$t('Falling back to Piped API'))
             this.getTrendingInfoPiped()
-          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             showToast(this.$t('Falling back to local API'))
             this.getTrendingInfoLocal()
           }

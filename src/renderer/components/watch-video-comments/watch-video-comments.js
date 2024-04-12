@@ -158,7 +158,7 @@ export default defineComponent({
       this.isLoading = true
       if (this.backendPreference === 'piped') {
         this.getCommentDataPiped()
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
       } else {
         this.getCommentDataLocal()
@@ -171,7 +171,7 @@ export default defineComponent({
       } else {
         if (this.apiUsed === 'piped') {
           this.getCommentDataPipedMore(this.nextPageToken)
-        } else if (!process.env.IS_ELECTRON || this.apiUsed === 'invidious') {
+        } else if (!process.env.SUPPORTS_LOCAL_API || this.apiUsed === 'invidious') {
           this.getCommentDataInvidious()
         } else {
           this.getCommentDataLocal(true)
@@ -190,7 +190,7 @@ export default defineComponent({
     getCommentReplies: function (index) {
       if (this.commentData[index].dataType === 'piped') {
         this.getCommentDataPipedMore(this.commentData[index].replyToken, index)
-      } else if (process.env.IS_ELECTRON) {
+      } else if (process.env.SUPPORTS_LOCAL_API) {
         switch (this.commentData[index].dataType) {
           case 'local':
             this.getCommentRepliesLocal(index)
@@ -383,7 +383,7 @@ export default defineComponent({
           if (this.fallbackPreference === 'piped') {
             showToast(this.$t('Falling back to Piped API'))
             this.getCommentDataPiped()
-          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             showToast(this.$t('Falling back to Local API'))
             this.getCommentDataLocal()
           }
