@@ -5,9 +5,22 @@ import activeLocales from '../../../static/locales/activeLocales.json'
 
 const i18n = createI18n({
   locale: 'en-US',
-  fallbackLocale: { default: 'en-US' },
+  fallbackLocale: {
+    // https://kazupon.github.io/vue-i18n/guide/fallback.html#explicit-fallback-with-decision-maps
+
+    // es_AR -> es -> en-US
+    es_AR: ['es'],
+    // es-MX -> es -> en-US
+    'es-MX': ['es'],
+    // pt-BR -> pt -> en-US
+    'pt-BR': ['pt'],
+    // pt-PT -> pt -> en-US
+    'pt-PT': ['pt'],
+    // any -> en-US
+    default: ['en-US'],
+  },
   globalInjection: true,
-  legacy: true
+  legacy: true,
 })
 
 export async function loadLocale(locale) {
@@ -18,6 +31,7 @@ export async function loadLocale(locale) {
   }
   if (!activeLocales.includes(locale)) {
     console.error(`Unable to load unknown locale: "${locale}"`)
+    return
   }
 
   // locales are only compressed in our production Electron builds

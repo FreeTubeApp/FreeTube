@@ -94,7 +94,7 @@ export default defineComponent({
     this.liveChatInstance = null
   },
   created: function () {
-    if (!process.env.IS_ELECTRON) {
+    if (!process.env.SUPPORTS_LOCAL_API) {
       this.hasError = true
       this.errorMessage = this.$t('Video["Live Chat is currently not supported in this build."]')
       this.isLoading = false

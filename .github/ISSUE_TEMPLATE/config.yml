@@ -8,7 +8,7 @@ contact_links:
     about: Ask and answer questions
   - name: Matrix Community
     url: https://matrix.to/#/+freetube:matrix.org
-    about: Join our Matrix chatroom - "Note: Bugs and Feature requests should be made on GitHub and not in the Matrix room"
+    about: 'Join our Matrix chatroom - "Note: Bugs and Feature requests should be made on GitHub and not in the Matrix room"'
   - name: Translate FreeTube
     url: https://hosted.weblate.org/engage/free-tube/
     about: Help translate FreeTube on Weblate

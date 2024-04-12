@@ -92,43 +92,67 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
 
   const match = publishText.match(PUBLISHED_TEXT_REGEX)
   const singular = (match[1] === '1')
-  let translationKey = ''
+  let unit = ''
   switch (match[2].substring(0, 2)) {
     case 'se':
     case 's':
-      translationKey = 'Video.Published.Second'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Second')
+      } else {
+        unit = i18n.global.t('Video.Published.Seconds')
+      }
       break
     case 'mi':
     case 'm':
-      translationKey = 'Video.Published.Minute'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Minute')
+      } else {
+        unit = i18n.global.t('Video.Published.Minutes')
+      }
       break
     case 'ho':
     case 'h':
-      translationKey = 'Video.Published.Hour'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Hour')
+      } else {
+        unit = i18n.global.t('Video.Published.Hours')
+      }
       break
     case 'da':
     case 'd':
-      translationKey = 'Video.Published.Day'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Day')
+      } else {
+        unit = i18n.global.t('Video.Published.Days')
+      }
       break
     case 'we':
     case 'w':
-      translationKey = 'Video.Published.Week'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Week')
+      } else {
+        unit = i18n.global.t('Video.Published.Weeks')
+      }
       break
     case 'mo':
-      translationKey = 'Video.Published.Month'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Month')
+      } else {
+        unit = i18n.global.t('Video.Published.Months')
+      }
       break
     case 'ye':
     case 'y':
-      translationKey = 'Video.Published.Year'
+      if (singular) {
+        unit = i18n.global.t('Video.Published.Year')
+      } else {
+        unit = i18n.global.t('Video.Published.Years')
+      }
       break
     default:
       return publishText
   }
-  if (!singular) {
-    translationKey += 's'
-  }
 
-  const unit = i18n.global.t(translationKey)
   return i18n.global.t('Video.Publicationtemplate', { number: match[1], unit })
 }
 
@@ -574,8 +598,7 @@ export function extractNumberFromString(str) {
   }
 }
 
-export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionName) {
-  const action = i18n.global.t(`Video.External Player.Unsupported Actions.${actionName}`)
+export function showExternalPlayerUnsupportedActionToast(externalPlayer, action) {
   const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
   showToast(message)
 }

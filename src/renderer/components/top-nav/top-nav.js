@@ -8,6 +8,7 @@ import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -49,9 +50,10 @@ export default defineComponent({
     headerLogoTitle: function () {
       return this.$t('Go to page',
         {
-          page: this.$t(this.$router.getRoutes()
+          page: translateWindowTitle(this.$router.getRoutes()
             .find((route) => route.path === '/' + this.landingPage)
-            .meta.title
+            .meta.title,
+          this.$i18n
           )
         })
     },
@@ -288,7 +290,7 @@ export default defineComponent({
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
           console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )

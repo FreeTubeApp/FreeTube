@@ -78,7 +78,7 @@ export default defineComponent({
     focusItem: function (value) {
       let index = value
       if (index < 0) {
-        index = this.promptButtons.length
+        index = this.promptButtons.length - 1
       } else if (index >= this.promptButtons.length) {
         index = 0
       }

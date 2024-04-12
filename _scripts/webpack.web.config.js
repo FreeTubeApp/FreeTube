@@ -120,6 +120,7 @@ const config = {
       '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': false,
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': false,
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
 
       // video.js' vhs-utils supports both atob() in web browsers and Buffer in node
@@ -140,8 +141,7 @@ const config = {
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
-      template: path.resolve(__dirname, '../src/index.ejs'),
-      nodeModules: false,
+      template: path.resolve(__dirname, '../src/index.ejs')
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({

@@ -142,7 +142,13 @@ export default defineComponent({
       if (this.processedVideoSearchQuery === '') { return this.playlistItems }
 
       return this.playlistItems.filter((v) => {
-        return v.title.toLowerCase().includes(this.processedVideoSearchQuery)
+        if (typeof (v.title) === 'string' && v.title.toLowerCase().includes(this.processedVideoSearchQuery)) {
+          return true
+        } else if (typeof (v.author) === 'string' && v.author.toLowerCase().includes(this.processedVideoSearchQuery)) {
+          return true
+        }
+
+        return false
       })
     },
     visiblePlaylistItems: function () {
@@ -309,7 +315,7 @@ export default defineComponent({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {

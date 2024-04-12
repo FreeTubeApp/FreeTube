@@ -119,7 +119,7 @@ export default defineComponent({
         if (typeof (playlist.playlistName) !== 'string') { return false }
 
         if (this.doSearchPlaylistsWithMatchingVideos) {
-          if (playlist.videos.some((v) => v.title.toLowerCase().includes(this.processedQuery))) {
+          if (playlist.videos.some((v) => v.author.toLowerCase().includes(this.processedQuery) || v.title.toLowerCase().includes(this.processedQuery))) {
             return true
           }
         }
@@ -240,13 +240,20 @@ export default defineComponent({
         this.updatePlaylist({ _id: playlist._id })
       })
 
-      const translationEntryKey = addedPlaylistIds.size === 1
-        ? 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist'
-        : 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists'
-      showToast(this.$tc(translationEntryKey, this.toBeAddedToPlaylistVideoCount, {
-        videoCount: this.toBeAddedToPlaylistVideoCount,
-        playlistCount: addedPlaylistIds.size,
-      }))
+      let message
+      if (addedPlaylistIds.size === 1) {
+        message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', this.toBeAddedToPlaylistVideoCount, {
+          videoCount: this.toBeAddedToPlaylistVideoCount,
+          playlistCount: addedPlaylistIds.size,
+        })
+      } else {
+        message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', this.toBeAddedToPlaylistVideoCount, {
+          videoCount: this.toBeAddedToPlaylistVideoCount,
+          playlistCount: addedPlaylistIds.size,
+        })
+      }
+
+      showToast(message)
       this.hide()
     },
 

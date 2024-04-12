@@ -52,7 +52,7 @@ export default defineComponent({
   methods: {
     openSettingsForNewProfile: function () {
       this.isNewProfileOpen = true
-      const bgColor = getRandomColor()
+      const bgColor = getRandomColor().value
       const textColor = calculateColorLuminance(bgColor)
       this.openSettingsProfile = {
         name: '',

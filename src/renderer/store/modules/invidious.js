@@ -28,7 +28,7 @@ const actions = {
         return !(instance[0].includes('.onion') ||
           instance[0].includes('.i2p') ||
           !instance[1].api ||
-          (!process.env.IS_ELECTRON && !instance[1].cors))
+          (!process.env.SUPPORTS_LOCAL_API && !instance[1].cors))
       }).map((instance) => {
         return instance[1].uri.replace(/\/$/, '')
       })
@@ -50,7 +50,7 @@ const actions = {
       console.warn('reading static file for invidious instances')
       const fileData = process.env.IS_ELECTRON ? await fs.readFile(filePath, 'utf8') : await (await fetch(createWebURL(filePath))).text()
       instances = JSON.parse(fileData).filter(e => {
-        return process.env.IS_ELECTRON || e.cors
+        return process.env.SUPPORTS_LOCAL_API || e.cors
       }).map(e => {
         return e.url
       })

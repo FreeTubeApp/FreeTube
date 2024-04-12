@@ -1315,7 +1315,7 @@ export default defineComponent({
 
       this.useDash = false
       this.useHls = false
-      this.activeSourceList = (this.proxyVideos || !process.env.IS_ELECTRON)
+      this.activeSourceList = (this.proxyVideos || !process.env.SUPPORTS_LOCAL_API)
         // use map here to return slightly different list without modifying original
         ? this.sourceList.map((source) => {
           return {
@@ -2112,6 +2112,8 @@ export default defineComponent({
 
           // Unexpected errors should be reported
           console.error(err)
+          // ignore as this will most likely be removed by shaka player changes
+          // eslint-disable-next-line @intlify/vue-i18n/no-missing-keys
           const errorMessage = this.$t('play() request Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)

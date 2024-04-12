@@ -26,6 +26,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      usingElectron: process.env.IS_ELECTRON,
       formatValues: [
         'dash',
         'legacy',
@@ -60,10 +61,6 @@ export default defineComponent({
     }
   },
   computed: {
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -286,7 +283,7 @@ export default defineComponent({
         this.screenshotFilenameExample = `${res}.${this.screenshotFormat}`
         return true
       }).catch(err => {
-        this.screenshotFilenameExample = `❗ ${this.$t(`Settings.Player Settings.Screenshot.Error.${err.message}`)}`
+        this.screenshotFilenameExample = `❗ ${err.message}`
         return false
       })
     },

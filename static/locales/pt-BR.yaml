@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando o progresso
@@ -208,7 +207,7 @@ User Playlists:
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar
       seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionada(s)'
-    Search in Playlists: Pesquisar nas playlists
+    Search in Playlists: Buscar nas playlists
     Save: Salvar
     Added {count} Times: Adicionado {count} vez | Adicionado {count} vezes
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
@@ -232,7 +231,7 @@ Settings:
       em caso de falha'
     Enable Search Suggestions: 'Habilitar sugestões de pesquisa'
     Default Landing Page: 'Página inicial preferida'
-    Locale Preference: 'Preferência de localização'
+    Locale Preference: 'Idioma'
     Preferred API Backend:
       Preferred API Backend: 'API de processamento preferida'
       Local API: 'API local'
@@ -242,7 +241,7 @@ Settings:
       Grid: 'Em grade'
       List: 'Em lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferência por miniaturas'
+      Thumbnail Preference: 'Preferências de miniaturas'
       Default: 'Normal'
       Beginning: 'No começo'
       Middle: 'No meio'
@@ -251,7 +250,7 @@ Settings:
       Blur: Desfocar
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
       Invidious (A padrão é https://invidious.snopyta.org)'
-    Region for Trending: 'Região da Tendência'
+    Region for Trending: 'Região'
         #! List countries
     Check for Updates: Buscar por atualizações
     Check for Latest Blog Posts: Verificar se há novas postagens no blog
@@ -270,10 +269,10 @@ Settings:
       No Action: Nenhuma ação
       Ask Before Opening Link: Perguntar antes de abrir o link
       Open Link: Abrir link
-      External Link Handling: Tratamento de link externo
+      External Link Handling: Ação de link externo
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
-    Match Top Bar with Main Color: 'Usar a cor principal para a barra superior'
+    Match Top Bar with Main Color: 'Usar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
       Black: 'Preto'
@@ -332,7 +331,7 @@ Settings:
     Hide Side Bar Labels: Ocultar título na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube na barra superior
   Player Settings:
-    Player Settings: 'Configurações do player'
+    Player Settings: 'Configurações de reprodução'
     Force Local Backend for Legacy Formats: 'Forçar processamento local para formatos
       antigos'
     Remember History: 'Lembrar do histórico'
@@ -364,10 +363,10 @@ Settings:
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
     Next Video Interval: Próximo intervalo de vídeo
     Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
-    Scroll Volume Over Video Player: Alterar volume sobre o player de vídeo
+    Scroll Volume Over Video Player: Alterar volume ao rolar sobre o player
     Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
-    Scroll Playback Rate Over Video Player: Alterar taxa de reprodução sobre o player
-      de vídeo
+    Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao rolar sobre
+      o player
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
@@ -406,8 +405,8 @@ Settings:
     How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
     Fetch Feeds from RSS: Buscar Informações através de RSS
     Fetch Automatically: Buscar feed automaticamente
-    Only Show Latest Video for Each Channel: Exibe apenas vídeo mais recente de cada
-      canal
+    Only Show Latest Video for Each Channel: Mostrar apenas vídeo mais recente para
+      cada canal
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -451,8 +450,6 @@ Settings:
       certeza de que deseja remover todas as inscrições e perfis? Isto não pode ser
       desfeito.
     Remove All Subscriptions / Profiles: Remover todas as inscrições ou perfis
-    Automatically Remove Video Meta Files: Remover automaticamente os metarquivos
-      de vídeo
     Save Watched Videos With Last Viewed Playlist: Salvar vídeos assistidos com a
       última playlist visualizada
     All playlists have been removed: Todas as playlists foram removidas
@@ -542,7 +539,7 @@ Settings:
     Sections:
       Side Bar: Barra lateral
       Channel Page: Página do canal
-      Watch Page: Página de assistidos
+      Watch Page: Página de reprodução
       General: Geral
       Subscriptions Page: Página de inscrições
     Hide Featured Channels: Ocultar canais em destaque
@@ -625,7 +622,7 @@ Settings:
     Show Family Friendly Only: Mostrar apenas conteúdo adequado para toda a família
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de Controle Parental
-    Hide Unsubscribe Button: Ocultar botão de cancelamento de inscrição
+    Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
   Experimental Settings:
     Experimental Settings: Configurações experimentais
     Warning: Essas configurações são experimentais, elas podem causar travamentos
@@ -685,13 +682,13 @@ About:
   Licensed under the AGPLv3: Licença AGPLv3
   Source code: Código-fonte
   Beta: Beta
-  Donate: Doar
+  Donate: Fazer doação
   these people and projects: estas pessoas e projetos
   FreeTube is made possible by: O FreeTube é possível graças a
   Credits: Créditos
   Translate: Traduzir
   room rules: regras da sala
-  Please read the: Por favor, leia o
+  Please read the: Por favor leia as
   Chat on Matrix: Bate-papo na Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -1013,7 +1010,7 @@ Profile:
   Delete Profile: Excluir perfil
   Update Profile: Atualizar perfil
   Profile Preview: Pré-visualização do perfil
-  Color Picker: Seletor de cores
+  Color Picker: Escolha uma cor
   Create New Profile: Criar novo perfil
   All Channels: Todos os canais
   All subscriptions will also be deleted.: Todas as inscrições serão também excluídas.
@@ -1025,7 +1022,7 @@ Profile:
   Custom Color: Cor personalizada
   Edit Profile: Editar perfil
   Profile Manager: Gerenciador de perfis
-  Profile Select: Seleção de perfil
+  Profile Select: Escolha um perfil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Tem
     certeza de que deseja excluir os canais selecionados? Isso não excluirá o canal
     de nenhum outro perfil.
@@ -1115,10 +1112,6 @@ Tooltips:
     External Link Handling: "Escolha o comportamento padrão quando um link que não
       pode ser aberto no FreeTube for clicado.\nPor padrão, o FreeTube abrirá o link
       clicado em seu navegador padrão.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Quando ativado, o FreeTube exclui automaticamente os
-      metarquivos criados durante a reprodução do vídeo quando a página de exibição
-      é fechada.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
       separados por ponto e vírgula (';'), você deseja que seja passado para o player
@@ -1216,3 +1209,5 @@ Close Banner: Fechar Banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrição de idade
   This video is age restricted: Este vídeo tem restrição de idade
+checkmark: ✓
+Display Label: '{label}: {value}'

@@ -34,7 +34,27 @@ export default defineComponent({
 
     compact: function () {
       return !this.chapters[0].thumbnail
-    }
+    },
+
+    observeVisibilityOptions() {
+      return {
+        callback: (isVisible, _entry) => {
+          // This is also fired when **hidden**
+          // No point doing anything if not visible
+          if (!isVisible) { return }
+          // Only auto scroll when expanded
+          if (!this.showChapters) { return }
+
+          this.scrollToCurrentChapter()
+        },
+        intersection: {
+          // Only when it intersects with N% above bottom
+          rootMargin: '0% 0% 0% 0%',
+        },
+        // Callback responsible for scolling to current chapter multiple times
+        once: false,
+      }
+    },
   },
   watch: {
     currentChapterIndex: function (value) {
