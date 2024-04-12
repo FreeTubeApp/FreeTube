@@ -664,7 +664,8 @@ export default defineComponent({
         if (this.inHistory) {
           this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
         } else {
-          this.uploadedTime = getRelativeTimeFromDate(new Date(this.data.published).toDateString())
+          // Use 30 days per month, just like calculatePublishedDate
+          this.uploadedTime = getRelativeTimeFromDate(new Date(this.data.published).toDateString(), false)
         }
       }
 
