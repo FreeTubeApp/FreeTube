@@ -10,6 +10,7 @@ import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
+import asyncFs from 'fs/promises'
 
 import packageDetails from '../../package.json'
 
@@ -177,7 +178,8 @@ function runApp() {
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
-  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  const REPLACE_HTTP_CACHE_PATH = `${app.getPath('userData')}/experiment-replace-http-cache`
+  const replaceHttpCache = existsSync(REPLACE_HTTP_CACHE_PATH)
   if (replaceHttpCache) {
     // the http cache causes excessive disk usage during video playback
     // we've got a custom image cache to make up for disabling the http cache
@@ -662,7 +664,7 @@ function runApp() {
     }
   })
 
-  ipcMain.once('relaunchRequest', () => {
+  function relaunch() {
     if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
@@ -693,6 +695,10 @@ function runApp() {
     }
 
     app.quit()
+  }
+
+  ipcMain.once('relaunchRequest', () => {
+    relaunch()
   })
 
   nativeTheme.on('updated', () => {
@@ -778,6 +784,22 @@ function runApp() {
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
     child.unref()
+  })
+
+  ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, () => {
+    return replaceHttpCache
+  })
+
+  ipcMain.once(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE, async () => {
+    if (replaceHttpCache) {
+      await asyncFs.rm(REPLACE_HTTP_CACHE_PATH)
+    } else {
+      // create an empty file
+      const handle = await asyncFs.open(REPLACE_HTTP_CACHE_PATH, 'w')
+      await handle.close()
+    }
+
+    relaunch()
   })
 
   // ************************************************* //

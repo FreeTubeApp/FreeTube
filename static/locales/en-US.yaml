@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: English (US)
-FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   This part of the app is not ready yet. Come back later when progress has been made.
@@ -413,7 +412,6 @@ Settings:
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
-    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Clear Search Cache: Clear Search Cache
     Are you sure you want to clear out your search cache?: Are you sure you want to
       clear out your search cache?
@@ -1003,9 +1001,6 @@ Tooltips:
       but doesn't provide certain information like video duration or live status
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
-  Privacy Settings:
-    Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
-      when the watch page is closed.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
@@ -1060,3 +1055,7 @@ Hashtag:
 Yes: Yes
 No: No
 Ok: Ok
+# symbol used to indicate that an item is correct
+checkmark: ✓
+# French is the only language that should change this (they have a space before the colon)
+Display Label: '{label}: {value}'

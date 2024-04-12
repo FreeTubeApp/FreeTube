@@ -29,15 +29,6 @@
           @change="updateSaveVideoHistoryWithLastViewedPlaylist"
         />
       </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Privacy Settings.Automatically Remove Video Meta Files')"
-          :compact="true"
-          :default-value="removeVideoMetaFiles"
-          :tooltip="$t('Tooltips.Privacy Settings.Remove Video Meta Files')"
-          @change="handleVideoMetaFiles"
-        />
-      </div>
     </div>
     <br>
     <ft-flex-box>
