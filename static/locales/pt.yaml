@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Português'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
@@ -411,8 +410,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tem
       a certeza de que pretende remover todas as suas subscrições e perfis? Esta ação
       não pode ser revertida.'
-    Automatically Remove Video Meta Files: Remover automaticamente os meta-ficheiros
-      dos vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
       última lista de reprodução vista
     Remove All Playlists: Remover todas as listas de reprodução
@@ -1073,9 +1070,6 @@ This video is unavailable because of missing formats. This can happen due to cou
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
   no seu país.
 Tooltips:
-  Privacy Settings:
-    Remove Video Meta Files: Se ativa, ao fechar uma página, FreeTube apagará automaticamente
-      os meta-ficheiros criados durante a reprodução de um vídeo.
   Subscription Settings:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo

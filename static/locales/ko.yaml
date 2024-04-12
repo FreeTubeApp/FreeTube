@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: '한국어'
-FreeTube: '프리튜브'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   아직 구현 되지 않은 기능입니다. 개발이 완료된 후 다시 시도해주세요.
@@ -286,7 +285,6 @@ Settings:
     Remove All Subscriptions / Profiles: '모든 구독채널과 프로필 삭제'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '정말로
       모든 구독채널과 프로필을 삭제하시겠습니까? 삭제하면 복구가되지않습니다.'
-    Automatically Remove Video Meta Files: 비디오 메타 파일 자동 제거
   Subscription Settings:
     Subscription Settings: '구독 설정'
     Hide Videos on Watch: '시청한 동영상 숨기기'
@@ -752,9 +750,6 @@ Tooltips:
     Ignore Warnings: '현재 외부 플레이어가 현재 작업을 지원하지 않는 경우(예: 재생 목록 반전 등) 경고를 표시하지 않습니다.'
     Custom External Player Arguments: 외부 플레이어로 전달되기를 원하는사용자 지정 명령줄 인수는 세미콜론(';')으로
       구분됩니다.
-  Privacy Settings:
-    Remove Video Meta Files: 활성화되면 FreeTube는 보기 페이지가 닫힐 때 비디오 재생 중에 생성된 메타 파일을 자동으로
-      삭제합니다.
   Distraction Free Settings:
     Hide Channels: 채널 이름이나 채널 ID를 입력해 해당 채널의 영상이나 재생목록, 채널 자체가 검색이나 인기 영상에 나타나지 않도록
       합니다. 입력되는 채널 이름은 완전히 일치해야하며, 대소문자를 구별합니다.

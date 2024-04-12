@@ -906,7 +906,16 @@ export default defineComponent({
           return
         }
 
-        this.latestLive = parseLocalChannelVideos(liveTab.videos, this.id, this.channelName)
+        // work around YouTube bug where it will return a bunch of responses with only continuations in them
+        // e.g. https://www.youtube.com/@TWLIVES/streams
+
+        let videos = liveTab.videos
+        while (videos.length === 0 && liveTab.has_continuation) {
+          liveTab = await liveTab.getContinuation()
+          videos = liveTab.videos
+        }
+
+        this.latestLive = parseLocalChannelVideos(videos, this.id, this.channelName)
         this.liveContinuationData = liveTab.has_continuation ? liveTab : null
         this.isElementListLoading = false
 
@@ -1920,6 +1929,7 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.filter(item => item.type === 'video'))
         if (this.hideChannelPlaylists) {
           this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {

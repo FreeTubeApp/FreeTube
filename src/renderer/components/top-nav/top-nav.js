@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -47,9 +48,10 @@ export default defineComponent({
     headerLogoTitle: function () {
       return this.$t('Go to page',
         {
-          page: this.$t(this.$router.getRoutes()
+          page: translateWindowTitle(this.$router.getRoutes()
             .find((route) => route.path === '/' + this.landingPage)
-            .meta.title
+            .meta.title,
+          this.$i18n
           )
         })
     },

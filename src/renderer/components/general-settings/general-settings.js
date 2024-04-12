@@ -8,6 +8,7 @@ import FtInstanceSelector from '../ft-instance-selector/ft-instance-selector.vue
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
 import { showToast } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'GeneralSettings',
@@ -94,7 +95,7 @@ export default defineComponent({
       return this.$router.getRoutes().filter((route) => includedPageNames.includes(route.name))
     },
     defaultPageNames: function () {
-      return this.defaultPages.map((route) => this.$t(route.meta.title))
+      return this.defaultPages.map((route) => translateWindowTitle(route.meta.title, this.$i18n))
     },
     defaultPageValues: function () {
       // avoid Vue parsing issues by excluding '/' from path values

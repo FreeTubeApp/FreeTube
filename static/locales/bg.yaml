@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Български'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Тази част от приложението все още не е готова. Върнете се по-късно, когато може
@@ -415,7 +414,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сигурни
       ли сте, че искате да премахнете всички абонаменти и профили? Това не може да
       бъде възстановено.'
-    Automatically Remove Video Meta Files: Автоматично премахване на видео метафайловете
     Save Watched Videos With Last Viewed Playlist: Запазване на гледани видеа с последно
       гледан плейлист
     Remove All Playlists: Премахване на всички плейлисти
@@ -1099,10 +1097,6 @@ Tooltips:
     External Link Handling: "Избор на поведението по подразбиране, когато щракнете
       върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране
       FreeTube ще отвори връзката в браузъра по подразбиране.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Когато страницата за гледане бъде затворена, FreeTube
-      автоматично ще изтрива метафайловете, създадени по време на възпроизвеждане
-      на видеото.
   External Player Settings:
     Custom External Player Arguments: Всички персонализирани аргументи от командния
       ред, разделени с точка и запетая (";"), които искате да бъдат предадени на външния

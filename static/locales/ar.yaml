@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
@@ -399,7 +398,6 @@ Settings:
       أنت متأكد أنك تريد إزالة جميع الاشتراكات والملفات الشخصية؟ لا يمكن التراجع عن
       هذا.
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
-    Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
     Save Watched Videos With Last Viewed Playlist: حفظ مقاطع الفيديو التي تمت مشاهدتها
       مع آخر قائمة تشغيل تم عرضها
     All playlists have been removed: تمت إزالة جميع قوائم التشغيل
@@ -1068,9 +1066,6 @@ Tooltips:
     Allow DASH AV1 formats: قد تبدو تنسيقات DASH AV1 أفضل من تنسيقات DASH H.264. تتطلب
       تنسيقات DASH AV1 مزيدا من الطاقة للتشغيل! وهي غير متوفرة في جميع مقاطع الفيديو
       ، وفي هذه الحالات سيستخدم المشغل تنسيقات DASH H.264 بدلا من ذلك.
-  Privacy Settings:
-    Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
-      تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
   Subscription Settings:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
@@ -1175,3 +1170,5 @@ Age Restricted:
   This channel is age restricted: هذه القناة مقيدة بالعمر
   This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
 Close Banner: إغلاق الشعار
+checkmark: ✓
+Display Label: '{label}: {value}'
