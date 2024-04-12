@@ -259,7 +259,7 @@ export default defineComponent({
 
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },
-  mounted: async function () {
+  mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
   },
   beforeDestroy: function () {

@@ -80,7 +80,7 @@ export default defineComponent({
       this.dataLimit = this.initialDataLimit
     }
   },
-  mounted: async function () {
+  mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
   },
   beforeDestroy: function () {
