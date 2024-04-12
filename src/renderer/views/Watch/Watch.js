@@ -124,9 +124,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
-
-      onMountedRun: false,
-      storyboardResizeCallback: null
+      onMountedRun: false
     }
   },
   computed: {
@@ -279,24 +277,6 @@ export default defineComponent({
     this.onMountedDependOnLocalStateLoading()
   },
   methods: {
-    /**
-     * Generates the callback for setting the storyboards which is called when the window is resized
-     * @param {Array<import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData>} boards
-     * @returns {Function} callback to be passed to window
-     */
-    getStoryboardsResizeCallback(boards) {
-      return () => {
-        let source = boards
-        if (window.innerWidth < 500) {
-          source = source.filter((board) => board.thumbnail_height <= 90)
-        }
-        this.createLocalStoryboardUrls(source.at(-1))
-        if (this.$refs?.videoPlayer?.player !== undefined) {
-          this.$refs.videoPlayer.player.vttThumbnails.options.src = this.videoStoryboardSrc
-          this.$refs.videoPlayer.player.vttThumbnails.initializeThumbnails()
-        }
-      }
-    },
     onMountedDependOnLocalStateLoading() {
       // Prevent running twice
       if (this.onMountedRun) { return }
@@ -716,9 +696,11 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            this.storyboardResizeCallback = this.getStoryboardsResizeCallback(result.storyboards.boards)
-            window.addEventListener('resize', this.storyboardResizeCallback)
-            this.storyboardResizeCallback()
+            let source = result.storyboards.boards
+            if (window.innerWidth < 500) {
+              source = source.filter((board) => board.thumbnail_height <= 90)
+            }
+            this.createLocalStoryboardUrls(source.at(-1))
           }
         }
 
@@ -1416,9 +1398,6 @@ export default defineComponent({
     },
 
     handleRouteChange: function (videoId) {
-      if (this.storyboardResizeCallback !== null) {
-        window.removeEventListener('resize', this.storyboardResizeCallback)
-      }
       // receiving it as an arg instead of accessing it ourselves means we always have the right one
 
       clearTimeout(this.playNextTimeout)
