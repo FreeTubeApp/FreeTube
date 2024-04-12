@@ -697,7 +697,12 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
+            let source = result.storyboards.boards
+            const thumbnailsUnder90 = source.filter((board) => board.thumbnail_height <= 90)
+            if (thumbnailsUnder90.length > 0) {
+              source = thumbnailsUnder90
+            }
+            this.createLocalStoryboardUrls(source.at(-1))
           }
         }
 
