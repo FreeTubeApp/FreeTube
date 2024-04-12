@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Эта часть приложения ещё не готова. Вернитесь позже, когда появится новая версия.
@@ -428,7 +427,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Выполнить
       удаление всех подписок и учётных записей?  Невозможно отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
-    Automatically Remove Video Meta Files: Автоудаление метафайлов видео
     Save Watched Videos With Last Viewed Playlist: Сохранить просмотренные видео с
       последней просмотренной подборкой
     Are you sure you want to remove all your playlists?: Ты действительно хочешь удалить
@@ -1085,10 +1083,6 @@ Tooltips:
       H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
       Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
       будет использовать форматы DASH H.264.
-  Privacy Settings:
-    Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
-      метаданные, созданные во время воспроизведения видео, когда страница просмотра
-      закрывается.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.

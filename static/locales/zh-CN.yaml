@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   应用此部分尚未完成。有了进展再来。
@@ -403,7 +402,6 @@ Settings:
     Clear Search Cache: 清除搜索缓存
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
-    Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
     Save Watched Videos With Last Viewed Playlist: 记住上次看过的播放列表中看过的视频 ID
     All playlists have been removed: 已删除所有播放列表
     Remove All Playlists: 删除所有播放列表
@@ -979,8 +977,6 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
     Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
     Ignore Default Arguments: 不要向外部播放器发送除视频 URL 外的任何默认变量（如播放速度、播放列表 URL 等）。自定义变量仍将被传递。
-  Privacy Settings:
-    Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
   Distraction Free Settings:
@@ -1044,3 +1040,5 @@ Close Banner: 关闭横幅
 Age Restricted:
   This video is age restricted: 此视频有年龄限制
   This channel is age restricted: 此频道有年龄限制
+checkmark: ✓
+Display Label: '{label}: {value}'

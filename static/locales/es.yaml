@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'español (España)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
@@ -413,8 +412,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones/perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
       que quieres borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
-    Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
-      de vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última
       lista de reproducción vista
     All playlists have been removed: Se han eliminado todas las listas de reproducción
@@ -1113,10 +1110,6 @@ Tooltips:
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic
       en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá
       el enlace en el que se hizo clic en su navegador predeterminado.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
-      meta-archivos creados durante la reproducción del vídeo una vez se cierre la
-      página de visualizado.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
       externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
@@ -1219,3 +1212,5 @@ Close Banner: Cerrar el banner
 Age Restricted:
   This channel is age restricted: Este canal está restringido por edad
   This video is age restricted: Este vídeo está restringido por edad
+checkmark: ✓
+Display Label: '{label}: {value}'

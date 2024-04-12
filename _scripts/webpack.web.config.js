@@ -116,6 +116,7 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': false,
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
 
       // video.js' vhs-utils supports both atob() in web browsers and Buffer in node

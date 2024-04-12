@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Čeština'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Tato část aplikace ještě není hotova. Vraťte se později.
@@ -411,7 +410,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Odstranit všechny odběry / profily'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Opravdu
       chcete odstranit všechny odběry a profily? Tato akce je nevratná.'
-    Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
     Save Watched Videos With Last Viewed Playlist: Uložit zhlédnutá videa s naposledy
       zobrazeným playlistem
     All playlists have been removed: Všechny playlisty byly odstraněny
@@ -1057,9 +1055,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
       vaše odběry při otevření nového okna a při přepínání profilů.
-  Privacy Settings:
-    Remove Video Meta Files: Pokud je povoleno, FreeTube automaticky odstraní meta
-      soubory vytvořené během přehrávání videa, když se stránka sledování zavře.
   External Player Settings:
     Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
       aktuální akci (např. obrácení seznamů skladeb apod.).
@@ -1173,3 +1168,5 @@ Close Banner: Zavřít panel
 Age Restricted:
   This channel is age restricted: Tento kanál je omezen věkem
   This video is age restricted: Toto video je omezeno věkem
+checkmark: ✓
+Display Label: '{label}: {value}'

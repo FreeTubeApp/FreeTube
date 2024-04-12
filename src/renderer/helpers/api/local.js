@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, Utils, YT } from 'youtubei.js'
+import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
@@ -39,8 +39,12 @@ const TRACKING_PARAM_NAMES = [
 async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true } = {}) {
   let cache
   if (withPlayer) {
-    const userData = await getUserDataPath()
-    cache = new PlayerCache(join(userData, 'player_cache'))
+    if (process.env.IS_ELECTRON) {
+      const userData = await getUserDataPath()
+      cache = new PlayerCache(join(userData, 'player_cache'))
+    } else {
+      cache = new UniversalCache(false)
+    }
   }
 
   return await Innertube.create({
@@ -331,7 +335,7 @@ export async function getLocalChannelLiveStreams(id) {
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     }))
 
-    const liveStreamsTab = new YT.Channel(null, response)
+    let liveStreamsTab = new YT.Channel(innertube.actions, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab)
 
     let videos
@@ -339,7 +343,16 @@ export async function getLocalChannelLiveStreams(id) {
     // if the channel doesn't have a live tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (liveStreamsTab.current_tab?.endpoint.metadata.url?.endsWith('/streams')) {
-      videos = parseLocalChannelVideos(liveStreamsTab.videos, channelId, name)
+      // work around YouTube bug where it will return a bunch of responses with only continuations in them
+      // e.g. https://www.youtube.com/@TWLIVES/streams
+
+      let tempVideos = liveStreamsTab.videos
+      while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
+        liveStreamsTab = await liveStreamsTab.getContinuation()
+        tempVideos = liveStreamsTab.videos
+      }
+
+      videos = parseLocalChannelVideos(tempVideos, channelId, name)
     } else {
       videos = []
     }

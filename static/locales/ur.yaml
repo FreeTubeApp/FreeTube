@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'اردو'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   'ایپ کا یہ حصہ ابھی تک تیار نہیں ہے۔ جب پیش رفت ہو جائے تو بعد میں واپس آئیں۔'
@@ -201,9 +200,6 @@ Tooltips:
       کرے گا۔ آپ کی سبسکرپشن فیڈ حاصل کرنے کا طریقہ۔ آر ایس ایس تیز ہے اور آئی پی
       کو بلاک کرنے سے روکتا ہے، لیکن کچھ معلومات فراہم نہیں کرتا ہے جیسے ویڈیو کا
       دورانیہ یا لائیو اسٹیٹس'
-  Privacy Settings:
-    Remove Video Meta Files: 'فعال ہونے پر، FreeTube ویڈیو پلے بیک کے دوران بنائی
-      گئی میٹا فائلوں کو خود بخود حذف کر دیتا ہے، جب دیکھنے کا صفحہ بند ہوتا ہے۔'
 
 # Toast Messages
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
