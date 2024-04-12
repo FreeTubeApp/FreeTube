@@ -85,7 +85,14 @@ export function getColorTranslations() {
     i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Sky'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Sapphire'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Blue'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Lavender')
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Lavender'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Green'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Purple'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Aqua'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Orange')
   ]
 }
 
