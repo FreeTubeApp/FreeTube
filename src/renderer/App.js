@@ -102,6 +102,10 @@ export default defineComponent({
       return this.$store.getters.getBaseTheme
     },
 
+    isSideNavOpen: function () {
+      return this.$store.getters.getIsSideNavOpen
+    },
+
     mainColor: function () {
       return this.$store.getters.getMainColor
     },

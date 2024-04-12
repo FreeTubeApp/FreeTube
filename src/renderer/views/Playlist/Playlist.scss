@@ -1,34 +1,76 @@
-.routerView {
+@use '../../scss-partials/ft-list-item';
+
+.playlistItemsCard {
   display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  margin: 0;
+  padding: 10px;
 }
 
-.playlistInfo {
-  background-color: var(--card-bg-color);
+.playlistInfoContainer {
   box-sizing: border-box;
-  block-size: calc(100vh - 132px);
-  margin-inline-end: 1em;
   padding: 10px;
-  position: sticky;
-  inset-block-start: 96px;
   /* This is needed to make prompt always above video entries */
   /* Value being too high would block search suggestions */
   z-index: 1;
-  inline-size: 30%;
-
   &.promptOpen {
     // Otherwise sidebar would be above the prompt
     z-index: 200;
   }
 }
 
-.playlistItems {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 10px;
-  margin: 0;
-  padding: 10px;
-  inline-size: 60%;
+.playlistInfo {
+  background-color: var(--card-bg-color);
 }
+
+.routerView {
+  display: flex;
+
+  &.grid {
+    flex-direction: column;
+    margin-block-start: 200px;
+
+    .playlistItemsCard {
+      inline-size: 85%;
+      margin-block: 0px 60px;
+      margin-inline: auto;
+    }
+
+    .playlistInfoContainer {
+      @include ft-list-item.fixed-top-bar;
+      padding-block: 0;
+    }
+
+    .playlistInfo {
+      inline-size: 85%;
+      margin-inline: auto;
+      padding-block: 10px;
+      padding-inline: 16px;
+      box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &.list {
+    .playlistItemsCard {
+      inline-size: 60%;
+    }
+
+    .playlistInfoContainer {
+      block-size: calc(100vh - 132px);
+      inline-size: 30%;
+      inset-block-start: 96px;
+      margin-inline-end: 1em;
+      position: sticky;
+      inline-size: 60%;
+    }
+  }
+}
+
 
 .playlistItem {
   display: grid;
@@ -74,18 +116,20 @@
 @media only screen and (max-width: 850px) {
   .routerView {
     flex-direction: column;
+
+    &.list {
+      .playlistInfo {
+        box-sizing: border-box;
+        position: relative;
+        inset-block-start: 0;
+        z-index: 1;
+        block-size: auto;
+        inline-size: 100%;
+      }
+    }
   }
 
-  .playlistInfo {
-    box-sizing: border-box;
-    position: relative;
-    inset-block-start: 0;
-    z-index: 1;
-    block-size: auto;
-    inline-size: 100%;
-  }
-
-  .playlistItems {
+  .playlistItemsCard {
     box-sizing: border-box;
     inline-size: 100%;
   }
@@ -93,4 +137,16 @@
 
 .message {
   color: var(--tertiary-text-color);
+}
+
+@media only screen and (max-width: 680px) {
+  .routerView.grid {
+    margin-block-start: 218px;
+    .playlistInfoContainer {
+      position: absolute;
+    }
+    .playlistInfo {
+      inline-size: 90%;
+    }
+  }
 }

@@ -6,6 +6,7 @@
   cursor: pointer;
 }
 
+
 .playlistThumbnail img {
   inline-size: 100%;
   // Ensure placeholder image displayed at same aspect ratio as most other images
@@ -18,6 +19,43 @@
 
 .playlistStats {
   font-size: 15px;
+}
+
+.top-bar {
+  .playlistThumbnail, .playlistInfoSeparator {
+    display: none;
+  }
+  .playlistDescription {
+    overflow-x: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-inline-size: 750px;
+    inline-size: 100%;
+    margin-block: 8px;
+  }
+  .descriptionInput {
+    margin-block-start: 8px;
+  }
+  .playlistStats {
+    text-align: center;
+  }
+  .playlistTitle {
+    margin-block-start: 0.2em;
+  }
+  .playlistOptionsAndSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .channelShareWrapper, .searchInputsRow, .playlistStats {
+    column-gap: 0;
+    inline-size: 100%;
+  }
+  .searchInput {
+    inline-size: 100%;
+  }
 }
 
 .playlistStats p {

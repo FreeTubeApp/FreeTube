@@ -1,11 +1,15 @@
 <template>
-  <div>
+  <div
+    :class="{ [listType]: true }"
+    class="playlistPage"
+  >
     <ft-loader
       v-if="isLoading"
       :fullscreen="true"
     />
 
-    <playlist-info
+    <div class="playlistInfoContainer">
+      <playlist-info
       v-if="!isLoading"
       :id="playlistId"
       :first-video-id="firstVideoId"
@@ -21,6 +25,7 @@
       :videos="playlistItems"
       :view-count="viewCount"
       :info-source="infoSource"
+      :theme="listType === 'list' ? 'base' : 'top-bar'"
       :more-video-data-available="moreVideoDataAvailable"
       :search-video-mode-allowed="searchVideoModeAllowed"
       :search-video-mode-enabled="playlistInVideoSearchMode"
@@ -37,10 +42,11 @@
       @prompt-open="promptOpen = true"
       @prompt-close="promptOpen = false"
     />
+    </div>
 
     <ft-card
       v-if="!isLoading"
-      class="playlistItems"
+      class="playlistItemsCard"
     >
       <template
         v-if="playlistItems.length > 0"
@@ -48,9 +54,19 @@
         <template
           v-if="visiblePlaylistItems.length > 0"
         >
+          <ft-element-list
+            v-if="userPlaylistListType === 'grid'"
+            :data="visiblePlaylistItems"
+            :display="userPlaylistListType"
+            :show-video-with-last-viewed-playlist="true"
+            :use-channels-hidden-preference="false"
+            :hide-forbidden-titles="false"
+          />
           <transition-group
+            v-else
             name="playlistItem"
             tag="span"
+            class="playlistItems"
           >
             <ft-list-video-numbered
               v-for="(item, index) in visiblePlaylistItems"

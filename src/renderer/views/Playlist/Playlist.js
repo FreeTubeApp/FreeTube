@@ -7,6 +7,7 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import {
   getLocalPlaylist,
   getLocalPlaylistContinuation,
@@ -23,7 +24,8 @@ export default defineComponent({
     'playlist-info': PlaylistInfo,
     'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-element-list': FtElementList
   },
   beforeRouteLeave(to, from, next) {
     if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
@@ -81,6 +83,12 @@ export default defineComponent({
     },
     playlistId: function() {
       return this.$route.params.id
+    },
+    userPlaylistListType: function () {
+      return this.$store.getters.getUserPlaylistListType
+    },
+    listType: function () {
+      return this.isUserPlaylistRequested ? this.userPlaylistListType : 'list'
     },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady

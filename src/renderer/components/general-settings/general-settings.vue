@@ -57,6 +57,13 @@
         @change="updateListType"
       />
       <ft-select
+        :placeholder="$t('Settings.General Settings.User Playlist View Type')"
+        :value="userPlaylistListType"
+        :select-names="viewTypeNames"
+        :select-values="viewTypeValues"
+        @change="updateUserPlaylistListType"
+      />
+      <ft-select
         :placeholder="$t('Settings.General Settings.Thumbnail Preference.Thumbnail Preference')"
         :value="thumbnailPreference"
         :select-names="thumbnailTypeNames"

@@ -1,6 +1,35 @@
 $thumbnail-overlay-opacity: 0.85;
 $watched-transition-duration: 0.5s;
 
+@mixin is-side-nav-open {
+  @at-root {
+    .sideNavOpen#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin fixed-top-bar {
+  position: fixed;
+  inset-block-start: 60px;
+  inset-inline-end: 0;
+  inline-size: calc(100% - 80px);
+  margin-inline: 0;
+  padding-inline: 10px;
+
+
+  @include is-side-nav-open {
+    inline-size: calc(100% - 200px);
+  }
+
+  @media only screen and (max-width: 680px) {
+    inline-size: 100%;
+    @include is-side-nav-open {
+      inline-size: 100%;
+    }
+  }
+}
+
 @mixin is-result {
   @at-root {
     .result#{&} {

@@ -115,6 +115,9 @@ export default defineComponent({
     listType: function () {
       return this.$store.getters.getListType
     },
+    userPlaylistListType: function () {
+      return this.$store.getters.getUserPlaylistListType
+    },
     thumbnailPreference: function () {
       return this.blurThumbnails ? 'blur' : this.$store.getters.getThumbnailPreference
     },
@@ -253,6 +256,7 @@ export default defineComponent({
       'updateLandingPage',
       'updateRegion',
       'updateListType',
+      'updateUserPlaylistListType',
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',

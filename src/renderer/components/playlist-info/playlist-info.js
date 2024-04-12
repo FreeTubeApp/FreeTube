@@ -39,6 +39,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    theme: {
+      type: String,
+      default: 'base'
+    },
     title: {
       type: String,
       required: true,
