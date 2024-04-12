@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Táto časť aplikácie ešte nie je dokončená. Vráťte sa neskôr keď na nej spravíme
@@ -326,7 +325,6 @@ Settings:
     Are you sure you want to remove your entire watch history?: Naozaj chcete odstrániť
       celú históriu pozerania?
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
-    Automatically Remove Video Meta Files: Automaticky Odstrániť Metasúbory Videa
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia
     požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
@@ -698,9 +696,6 @@ Tooltips:
     External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý
       nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz,
       na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Ak je povolené, FreeTube po zatvorení stránky prezerania
-      automaticky odstráni metasúbory vytvorené počas prehrávania videa.
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(Predvolené: '{defaultCustomArguments}')"
     External Player: Po výbere externého prehrávača sa na miniatúre zobrazí ikona

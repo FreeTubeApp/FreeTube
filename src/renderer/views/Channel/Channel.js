@@ -106,14 +106,10 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoLiveSelectValues: [
+      videoLiveShortSelectValues: [
         'newest',
         'popular',
         'oldest'
-      ],
-      shortSelectValues: [
-        'newest',
-        'popular'
       ],
       playlistSelectValues: [
         'newest',
@@ -185,18 +181,11 @@ export default defineComponent({
       return profileList[0].subscriptions.some((channel) => channel.id === this.id)
     },
 
-    videoLiveSelectNames: function () {
+    videoLiveShortSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular'),
         this.$t('Channel.Videos.Sort Types.Oldest')
-      ]
-    },
-
-    shortSelectNames: function () {
-      return [
-        this.$t('Channel.Videos.Sort Types.Newest'),
-        this.$t('Channel.Videos.Sort Types.Most Popular')
       ]
     },
 
@@ -363,7 +352,7 @@ export default defineComponent({
       this.errorMessage = ''
 
       // Re-enable auto refresh on sort value change AFTER update done
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
         this.autoRefreshOnSortByChangeEnabled = true
       } else {
@@ -464,7 +453,7 @@ export default defineComponent({
     }
 
     // Enable auto refresh on sort value change AFTER initial update done
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
       this.autoRefreshOnSortByChangeEnabled = true
     } else {
@@ -477,7 +466,7 @@ export default defineComponent({
     resolveChannelUrl: async function (url, tab = undefined) {
       let id
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         id = await invidiousGetChannelId(url)
       } else {
         id = await getLocalChannelId(url)
@@ -773,7 +762,7 @@ export default defineComponent({
         this.showVideoSortBy = videosTab.filters.length > 1
 
         if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoLiveSelectValues.indexOf(this.videoSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
 
@@ -841,7 +830,7 @@ export default defineComponent({
         this.showShortSortBy = shortsTab.filters.length > 1
 
         if (this.showShortSortBy && this.shortSortBy !== 'newest') {
-          const index = this.shortSelectValues.indexOf(this.shortSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.shortSortBy)
           shortsTab = await shortsTab.applyFilter(shortsTab.filters[index])
         }
 
@@ -909,7 +898,7 @@ export default defineComponent({
         this.showLiveSortBy = liveTab.filters.length > 1
 
         if (this.showLiveSortBy && this.liveSortBy !== 'newest') {
-          const index = this.videoLiveSelectValues.indexOf(this.liveSortBy)
+          const index = this.videoLiveShortSelectValues.indexOf(this.liveSortBy)
           liveTab = await liveTab.applyFilter(liveTab.filters[index])
         }
 
@@ -917,7 +906,16 @@ export default defineComponent({
           return
         }
 
-        this.latestLive = parseLocalChannelVideos(liveTab.videos, this.id, this.channelName)
+        // work around YouTube bug where it will return a bunch of responses with only continuations in them
+        // e.g. https://www.youtube.com/@TWLIVES/streams
+
+        let videos = liveTab.videos
+        while (videos.length === 0 && liveTab.has_continuation) {
+          liveTab = await liveTab.getContinuation()
+          videos = liveTab.videos
+        }
+
+        this.latestLive = parseLocalChannelVideos(videos, this.id, this.channelName)
         this.liveContinuationData = liveTab.has_continuation ? liveTab : null
         this.isElementListLoading = false
 
@@ -1057,7 +1055,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1335,7 +1333,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1376,7 +1374,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1455,7 +1453,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1489,7 +1487,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1568,7 +1566,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1602,7 +1600,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1722,7 +1720,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1931,6 +1929,7 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.filter(item => item.type === 'video'))
         if (this.hideChannelPlaylists) {
           this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {
@@ -1944,7 +1943,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.searchChannelLocal()
         } else {

@@ -1,5 +1,4 @@
 Locale Name: Tiếng Việt
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Phần này của app vẫn chưa sẵn sàng. Quay lại sau khi quá trình đã được thực hiện.
@@ -539,7 +538,6 @@ Settings:
     Save Watched Progress: Lưu quá trình xem
     Remember History: Nhớ lịch sử
     Privacy Settings: Cài đặt quyền riêng tư
-    Automatically Remove Video Meta Files: Tự động xóa các tệp meta video
     Remove All Playlists: Xóa tất cả danh sách phát
     Are you sure you want to remove all your playlists?: Bạn có chắc muốn xóa tất
       cả các danh sách phát không?
@@ -1109,9 +1107,6 @@ Tooltips:
       hoặc trạng thái phát trực tiếp
     Fetch Automatically: Khi được bật, FreeTube sẽ tự động tìm nạp nguồn cấp dữ liệu
       đăng ký của bạn khi cửa sổ mới được mở và khi chuyển đổi hồ sơ.
-  Privacy Settings:
-    Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
-      được tạo trong quá trình phát lại video, khi trang xem bị đóng.
   Distraction Free Settings:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và
       chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được

@@ -39,9 +39,6 @@ export default defineComponent({
     saveVideoHistoryWithLastViewedPlaylist: function () {
       return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
     },
-    removeVideoMetaFiles: function () {
-      return this.$store.getters.getRemoveVideoMetaFiles
-    },
 
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -72,13 +69,6 @@ export default defineComponent({
       }
 
       this.updateRememberHistory(value)
-    },
-
-    handleVideoMetaFiles: function (value) {
-      if (!value) {
-        this.updateRemoveVideoMetaFiles(false)
-      }
-      this.updateRemoveVideoMetaFiles(value)
     },
 
     handleRemoveHistory: function (option) {
@@ -126,7 +116,6 @@ export default defineComponent({
 
     ...mapActions([
       'updateRememberHistory',
-      'updateRemoveVideoMetaFiles',
       'removeAllHistory',
       'updateSaveWatchedProgress',
       'updateSaveVideoHistoryWithLastViewedPlaylist',

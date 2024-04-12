@@ -366,7 +366,7 @@ $watched-transition-duration: 0.5s;
     &:has(:focus-visible) .addToPlaylistIcon:not(.alwaysVisible),
     &:has(:focus-visible) .quickBookmarkVideoIcon:not(.alwaysVisible),
     &:has(:focus-visible) .externalPlayerIcon {
-      opacity: $thumbnail-overlay-opacity;
+      opacity: 1;
     }
 
     &:hover .optionsButton,
@@ -382,45 +382,6 @@ $watched-transition-duration: 0.5s;
     .optionsButton {
       opacity: 0;
       transition: visibility 0s, opacity 0.2s linear;
-    }
-  }
-}
-
-.ft-list-channel {
-  .infoAndSubscribe {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    inline-size: 100%;
-  }
-
-  &.grid {
-    align-items: center;
-    text-align: center;
-
-    .infoAndSubscribe {
-      flex-flow: column wrap;
-      align-items: center;
-
-      .info {
-        margin-block-end: 12px;
-
-        .infoLine {
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  &.list {
-    .infoAndSubscribe {
-      flex-flow: row wrap;
-      justify-content: center;
-
-      .channelSubscribeButton {
-        margin-block: auto;
-        margin-inline: 7px;
-      }
     }
   }
 }

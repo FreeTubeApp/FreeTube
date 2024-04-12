@@ -9,13 +9,6 @@
     <link rel="manifest" href="static/manifest.json" />
     <% } %>
     <title></title>
-    <% if (htmlWebpackPlugin.options.nodeModules) { %>
-    <script>
-      require('module').globalPaths.push(
-        `<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>`
-      )
-    </script>
-    <% } %>
   </head>
 
   <body>

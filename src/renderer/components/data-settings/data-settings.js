@@ -440,7 +440,7 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, subscriptionsDb, 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, subscriptionsDb, this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -493,7 +493,7 @@ export default defineComponent({
         return object
       })
 
-      await this.promptAndWriteToFile(options, JSON.stringify(subscriptionsObject), 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, JSON.stringify(subscriptionsObject), this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
@@ -521,7 +521,7 @@ export default defineComponent({
 
       opmlData += '</outline></body></opml>'
 
-      await this.promptAndWriteToFile(options, opmlData, 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, opmlData, this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -549,7 +549,7 @@ export default defineComponent({
       })
       exportText += '\n'
 
-      await this.promptAndWriteToFile(options, exportText, 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, exportText, this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -583,7 +583,7 @@ export default defineComponent({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     importHistory: async function () {
@@ -777,7 +777,7 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, historyDb, 'All watched history has been successfully exported')
+      await this.promptAndWriteToFile(options, historyDb, this.$t('Settings.Data Settings.All watched history has been successfully exported'))
     },
 
     importPlaylists: async function () {
@@ -956,7 +956,7 @@ export default defineComponent({
         return JSON.stringify(playlist)
       }).join('\n') + '\n'// a trailing line is expected
 
-      await this.promptAndWriteToFile(options, playlistsDb, 'All playlists has been successfully exported')
+      await this.promptAndWriteToFile(options, playlistsDb, this.$t('Settings.Data Settings.All playlists has been successfully exported'))
     },
 
     exportPlaylistsForOlderVersionsSometimes: function () {
@@ -1005,7 +1005,7 @@ export default defineComponent({
         })
       })
 
-      await this.promptAndWriteToFile(options, JSON.stringify([favoritesPlaylistData]), 'All playlists has been successfully exported')
+      await this.promptAndWriteToFile(options, JSON.stringify([favoritesPlaylistData]), this.$t('Settings.Data Settings.All playlists has been successfully exported'))
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
@@ -1015,7 +1015,7 @@ export default defineComponent({
         for (const profile of channel.profile) {
           let index = convertedData.findIndex(p => p.name === profile.value)
           if (index === -1) { // profile doesn't exist yet
-            const randomBgColor = getRandomColor()
+            const randomBgColor = getRandomColor().value
             const contrastyTextColor = calculateColorLuminance(randomBgColor)
             convertedData.push({
               name: profile.value,
@@ -1039,7 +1039,7 @@ export default defineComponent({
       return convertedData
     },
 
-    promptAndWriteToFile: async function (saveOptions, content, successMessageKeySuffix) {
+    promptAndWriteToFile: async function (saveOptions, content, successMessage) {
       const response = await showSaveDialog(saveOptions)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -1054,7 +1054,7 @@ export default defineComponent({
         return
       }
 
-      showToast(this.$t(`Settings.Data Settings.${successMessageKeySuffix}`))
+      showToast(successMessage)
     },
 
     isChannelSubscribed(channelId, subscriptions) {

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Gagana Samoa'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   E le saauni le vaega o le polokalama lenei. Fa'amolemole toe fo'i mai afea na fai
@@ -308,7 +307,6 @@ Settings:
     Remember History: ''
     Save Watched Progress: ''
     Save Watched Videos With Last Viewed Playlist: ''
-    Automatically Remove Video Meta Files: ''
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
@@ -801,8 +799,6 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
-  Privacy Settings:
-    Remove Video Meta Files: ''
   Experimental Settings:
     Replace HTTP Cache: ''
   SponsorBlock Settings:

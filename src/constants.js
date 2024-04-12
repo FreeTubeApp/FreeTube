@@ -23,7 +23,10 @@ const IpcChannels = {
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
   SYNC_PROFILES: 'sync-profiles',
-  SYNC_PLAYLISTS: 'sync-playlists'
+  SYNC_PLAYLISTS: 'sync-playlists',
+
+  GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
+  TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache'
 }
 
 const DBActions = {

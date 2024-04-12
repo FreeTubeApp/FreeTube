@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Norsk bokmål'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Denne delen av programmet er ikke klart enda. Kom tilbake senere når ting er i orden.
@@ -295,7 +294,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er
       du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
       angres.
-    Automatically Remove Video Meta Files: Fjern metadata automatisk fra videoer
     Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette
       spilleliste
   Subscription Settings:
@@ -885,9 +883,6 @@ Tooltips:
     Allow DASH AV1 formats: DASH AV1-formater kan ha bedre kvalitet enn DASH H.264
       -formater. DASH AV1-formater krever dog mer regnekraft for avspilling. Ikke
       tilgjengelig for alle videoer, og i sådant fall bruker avspilleren DASH H.264-formater.
-  Privacy Settings:
-    Remove Video Meta Files: Hvis denne instillingen er på, vil FreeTube automatisk
-      slette metadata generert under videoavspilling når du lukker avspillingsiden.
   External Player Settings:
     Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
       semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
@@ -965,3 +960,4 @@ Hashtag:
   Hashtag: Emneknagg
   This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer
     enda
+checkmark: ✓

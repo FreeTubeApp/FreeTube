@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'dansk'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Denne del af app'en er ikke klar endnu. Kom tilbage senere, når der er gjort fremskridt.
@@ -383,7 +382,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
       du sikker på, at du vil fjerne alle abonnementer og profiler? Dette kan ikke
       fortrydes.'
-    Automatically Remove Video Meta Files: Fjern Automatisk Video Metafiler
     All playlists have been removed: Alle playlister blev fjernet
     Are you sure you want to remove all your playlists?: Er du sikker på, at du vil
       fjerne alle dine playlister?
@@ -1007,9 +1005,6 @@ Tooltips:
       Advarsel: Invidious-indstillinger har ingen effekt på eksterne afspillere.'
     Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
       den gældende handling (fx vende playlister om, etc.).
-  Privacy Settings:
-    Remove Video Meta Files: Når det er aktiveret, sletter FreeTube automatisk metafiler
-      oprettet under videoafspilning, når siden lukkes.
   Distraction Free Settings:
     Hide Channels: Indtast et kanal-ID for at skjule alle videoer, playlister og selve
       kanalen fra at blive vist i søgning, trending, mest populære og anbefalet. Det

@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ta część aplikacji nie jest jeszcze gotowa. Wróć później, gdy zostaną poczynione
@@ -454,7 +453,6 @@ Settings:
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
-    Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
     Save Watched Videos With Last Viewed Playlist: Zapisuj do historii film wraz z
       ostatnią odtwarzaną playlistą, która go zawierała
     All playlists have been removed: Wszystkie playlisty zostały usunięte
@@ -525,7 +523,7 @@ Settings:
     Hide Video Likes And Dislikes: Schowaj łapki w górę i w dół
     Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
-    Hide Playlists: Schowaj playlistę
+    Hide Playlists: Schowaj playlisty
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj linki do dzielenia się filmem
@@ -1118,9 +1116,6 @@ Tooltips:
       H.264 DASH. Dekodowanie formatu AV1 DASH wymaga większej mocy obliczeniowej.
       W filmach, dla których ten format nie jest dostępny, zostanie użyty format H.264
       DASH.
-  Privacy Settings:
-    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
-      utworzone podczas odtwarzania filmu, gdy strona odtwarzacza zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
@@ -1222,3 +1217,5 @@ Age Restricted:
   This video is age restricted: Ten film ma ograniczenie wiekowe
   This channel is age restricted: Ten kanał ma ograniczenie wiekowe
 Close Banner: Zamknij Baner
+checkmark: ✓
+Display Label: '{label}: {value}'

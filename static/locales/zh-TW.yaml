@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   此功能尚未製作完成。有更新再來喔。
@@ -405,7 +404,6 @@ Settings:
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
-    Automatically Remove Video Meta Files: 自動刪除影片元檔案
     Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
     Remove All Playlists: 移除所有播放清單
     All playlists have been removed: 所有播放清單已被移除
@@ -981,8 +979,6 @@ Tooltips:
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
-  Privacy Settings:
-    Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
   External Player Settings:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
@@ -1052,3 +1048,5 @@ Close Banner: 關閉橫幅
 Age Restricted:
   This channel is age restricted: 此頻道有年齡限制
   This video is age restricted: 此影片有年齡限制
+checkmark: ✓
+Display Label: '{label}：{value}'

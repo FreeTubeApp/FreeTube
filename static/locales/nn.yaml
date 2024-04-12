@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Norsk nynorsk'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Denne delen av programmet er ikkje klar enda. Ver venleg og kom tilbake på eit seinare
@@ -298,7 +297,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
       du sikker på at du vil fjerne alle abonnentar og profil? Dette kan ikkje bli
       ugjort.'
-    Automatically Remove Video Meta Files: Fjern metadata automatisk frå videoar
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
     Hide Videos on Watch: 'Skjul sette videoar'
@@ -795,9 +793,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Om dette alternativet er aktivert, vil FreeTube automatisk
       hente abonnementfeeden din når eit nytt vindauge opnast og når du bytter profil.
-  Privacy Settings:
-    Remove Video Meta Files: Viss denne innstillinga er på, vil FreeTube automatisk
-      slette metadata generert under videoavspeling når du lukker avspelingsida.
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
     Custom External Player Executable: Som standard vil FreeTube anta at den valte

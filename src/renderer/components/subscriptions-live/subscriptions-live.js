@@ -135,7 +135,7 @@ export default defineComponent({
         let videos = []
         let name, thumbnailUrl
 
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           if (useRss) {
             ({ videos, name, thumbnailUrl } = await this.getChannelLiveInvidiousRSS(channel))
           } else {
@@ -315,7 +315,7 @@ export default defineComponent({
               resolve(this.getChannelLiveInvidiousRSS(channel, failedAttempts + 1))
               break
             case 1:
-              if (process.env.IS_ELECTRON && this.backendFallback) {
+              if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
                 showToast(this.$t('Falling back to Local API'))
                 resolve(this.getChannelLiveLocal(channel, failedAttempts + 1))
               } else {
@@ -360,7 +360,7 @@ export default defineComponent({
           case 0:
             return this.getChannelLiveInvidious(channel, failedAttempts + 1)
           case 1:
-            if (process.env.IS_ELECTRON && this.backendFallback) {
+            if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
               showToast(this.$t('Falling back to Local API'))
               return this.getChannelLiveLocalRSS(channel, failedAttempts + 1)
             } else {

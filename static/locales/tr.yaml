@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Türkçe'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
@@ -412,8 +411,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
       abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
-    Automatically Remove Video Meta Files: Video Meta Dosyalarını Otomatik Olarak
-      Kaldır
     Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
       Oynatma Listesiyle Kaydet
     All playlists have been removed: Tüm oynatma listeleri kaldırıldı
@@ -1104,9 +1101,6 @@ Tooltips:
     External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
       davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
       açacaktır.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
-      oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
   External Player Settings:
     Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, noktalı
       virgülle (';') ayrılmış özel komut satırı argümanları.
@@ -1211,3 +1205,5 @@ Close Banner: Afişi Kapat
 Age Restricted:
   This video is age restricted: Bu videoda yaş sınırlaması var
   This channel is age restricted: Bu kanalda yaş sınırlaması var
+Display Label: '{label}: {value}'
+checkmark: ✓
