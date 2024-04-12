@@ -287,13 +287,8 @@ export default defineComponent({
     getStoryboardsResizeCallback(boards) {
       return () => {
         let source = boards
-        let maxHeight = Infinity
         if (window.innerWidth < 500) {
-          maxHeight = 90
-        }
-        const thumbnailsUnder90 = source.filter((board) => board.thumbnail_height <= maxHeight)
-        if (thumbnailsUnder90.length > 0) {
-          source = thumbnailsUnder90
+          source = source.filter((board) => board.thumbnail_height <= 90)
         }
         this.createLocalStoryboardUrls(source.at(-1))
         if (this.$refs?.videoPlayer?.player !== undefined) {
