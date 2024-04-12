@@ -1204,3 +1204,5 @@ Age Restricted:
   This video is age restricted: Deze video heeft een leeftijds­beperking
 Trimmed input must be at least N characters long: Bij­gesneden invoer moet minimaal
   1 teken lang zijn | Bij­gesneden invoer moet minimaal {length} tekens lang zijn
+checkmark: ✓
+Display Label: '{label}: {value}'

@@ -1116,3 +1116,5 @@ Close Banner: Затвори банер
 Age Restricted:
   This channel is age restricted: Овај канал је ограничен према узрасту
   This video is age restricted: Овај видео снимак је ограничен према узрасту
+Display Label: '{label}: {value}'
+checkmark: ✓

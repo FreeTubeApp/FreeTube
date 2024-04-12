@@ -119,6 +119,7 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': true,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`

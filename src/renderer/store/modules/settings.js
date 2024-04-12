@@ -165,8 +165,8 @@ const state = {
   allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
-  backendFallback: process.env.IS_ELECTRON,
-  backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
+  backendFallback: process.env.SUPPORTS_LOCAL_API,
+  backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
@@ -237,7 +237,7 @@ const state = {
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
-  proxyVideos: !process.env.IS_ELECTRON,
+  proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
   rememberHistory: true,
   saveWatchedProgress: true,
@@ -352,7 +352,34 @@ const stateWithSideEffects = {
         }
       }
 
-      await loadLocale(targetLocale)
+      const loadPromises = []
+
+      if (targetLocale !== defaultLocale) {
+        // "en-US" is used as a fallback for missing strings in other locales
+        loadPromises.push(
+          loadLocale(defaultLocale)
+        )
+      }
+
+      // "es" is used as a fallback for "es_AR" and "es-MX"
+      if (targetLocale === 'es_AR' || targetLocale === 'es-MX') {
+        loadPromises.push(
+          loadLocale('es')
+        )
+      }
+
+      // "pt" is used as a fallback for "pt-PT" and "pt-BR"
+      if (targetLocale === 'pt-PT' || targetLocale === 'pt-BR') {
+        loadPromises.push(
+          loadLocale('pt')
+        )
+      }
+
+      loadPromises.push(
+        loadLocale(targetLocale)
+      )
+
+      await Promise.allSettled(loadPromises)
 
       i18n.locale = targetLocale
       await dispatch('getRegionData', {
