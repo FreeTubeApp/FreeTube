@@ -1,5 +1,4 @@
 /* stylelint-disable no-descending-specificity */
-
 $thumbnail-overlay-opacity: 0.85;
 $watched-transition-duration: 0.5s;
 
@@ -56,17 +55,6 @@ $watched-transition-duration: 0.5s;
 .ft-list-item {
   padding: 6px;
 
-  .thumbnailImage {
-    @include is-sidebar-item {
-      block-size: 75px;
-    }
-
-    @include is-recommendation {
-      block-size: auto;
-      inline-size: 163px;
-    }
-  }
-
   &.watched {
     @include low-contrast-when-watched(var(--primary-text-color));
 
@@ -81,36 +69,6 @@ $watched-transition-duration: 0.5s;
     &:focus .thumbnailImage {
       opacity: 1;
       transition-duration: $watched-transition-duration;
-    }
-  }
-
-  .favoritesIcon,
-  .externalPlayerIcon {
-    opacity: $thumbnail-overlay-opacity;
-  }
-
-  .favoritesIcon,
-  .externalPlayerIcon,
-  .optionsButton {
-    visibility: none;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.2s linear;
-  }
-
-  @media (hover: hover) {
-    .favoritesIcon.favorited,
-    &:hover .favoritesIcon,
-    &:hover .externalPlayerIcon,
-    &:focus-within .favoritesIcon,
-    &:focus-within .externalPlayerIcon {
-      visibility: visible;
-      opacity: $thumbnail-overlay-opacity;
-    }
-
-    &:hover .optionsButton,
-    &:focus-within .optionsButton {
-      visibility: visible;
-      opacity: 1;
     }
   }
 
@@ -136,6 +94,17 @@ $watched-transition-duration: 0.5s;
       overflow: hidden;
     }
 
+    .thumbnailImage {
+      @include is-sidebar-item {
+        block-size: 75px;
+      }
+
+      @include is-recommendation {
+        block-size: auto;
+        inline-size: 163px;
+      }
+    }
+
     .videoWatched {
       place-self: flex-start start;
       background-color: var(--bg-color);
@@ -143,13 +112,6 @@ $watched-transition-duration: 0.5s;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
-    }
-
-    .videoWatched,
-    .live,
-    .upcoming {
-      text-transform: uppercase;
-      user-select: none;
     }
 
     .videoDuration {
@@ -206,20 +168,6 @@ $watched-transition-duration: 0.5s;
       background-color: var(--primary-color);
       block-size: 2px;
       z-index: 2;
-    }
-
-    .thumbnailLink,
-    .videoWatched,
-    .videoDuration,
-    .externalPlayerIcon,
-    .favoritesIcon,
-    .watchedProgressBar,
-    .videoCountContainer,
-    .background,
-    .inner {
-      grid-column: 1;
-      grid-row: 1;
-      user-select: none;
     }
 
     .videoCountContainer {
@@ -411,7 +359,7 @@ $watched-transition-duration: 0.5s;
     &:has(:focus-visible) .addToPlaylistIcon:not(.alwaysVisible),
     &:has(:focus-visible) .quickBookmarkVideoIcon:not(.alwaysVisible),
     &:has(:focus-visible) .externalPlayerIcon {
-      opacity: $thumbnail-overlay-opacity;
+      opacity: 1;
     }
 
     &:hover .optionsButton,
