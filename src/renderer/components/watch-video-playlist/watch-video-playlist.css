@@ -51,16 +51,22 @@
   border-radius: 50%;
   color: var(--tertiary-text-color);
   transition: background 0.2s ease-out;
+  stroke-width: 20;
+  stroke: var(--bg-color);
 }
 
 .playlistIcon:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
+  stroke-width: 10;
+  stroke: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
 .playlistIconActive {
-  color: var(--accent-color)
+  color: var(--accent-color);
+  stroke-width: 10;
+  stroke: var(--accent-color);
 }
 
 .playlistItems {
