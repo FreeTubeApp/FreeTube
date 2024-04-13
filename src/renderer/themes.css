@@ -51,8 +51,8 @@
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray {
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconColorSmall.svg");
+  --logo-text: url("../../_icons/textColorSmall.svg");
 }
 
 .system[data-system-theme*='dark'], .dark,
@@ -146,8 +146,8 @@
   --side-nav-hover-color: #57596B;
   --side-nav-active-color: #3D4051;
   --search-bar-color: #3E3F4A;
-  --logo-icon: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text: url("../../_icons/textDraculaLightSmall.png");
+  --logo-icon: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text: url("../../_icons/textDraculaLightSmall.svg");
 }
 
 .catppuccinMocha {
@@ -165,8 +165,8 @@
   --side-nav-hover-color: #11111b;
   --side-nav-active-color: #11111b;
   --search-bar-color: #313244;
-  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.png");
-  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
+  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.svg");
+  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.svg");
 }
 
 .pastelPink {
@@ -187,8 +187,8 @@
   --side-nav-active-color: #3124E7;
   --side-nav-active-text-color: #FFFF;
   --search-bar-color: #FFF0DD;
-  --logo-icon: url("../../_icons/iconBlackSmall.png");
-  --logo-text: url("../../_icons/textBlackSmall.png");
+  --logo-icon: url("../../_icons/iconBlackSmall.svg");
+  --logo-text: url("../../_icons/textBlackSmall.svg");
 }
 
 .hotPink {
@@ -209,8 +209,8 @@
   --side-nav-active-color: #959595;
   --side-nav-active-text-color: #000;
   --search-bar-color: #9C2D5D;
-  --logo-icon: url("../../_icons/iconWhiteSmall.png");
-  --logo-text: url("../../_icons/textWhiteSmall.png");
+  --logo-icon: url("../../_icons/iconWhiteSmall.svg");
+  --logo-text: url("../../_icons/textWhiteSmall.svg");
 
   /* The hot pink theme does not have a great color contrast with
   many other colors than black and white. This means that the primary and
@@ -258,8 +258,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #3b4252;
   --side-nav-active-color: #3b4252;
   --search-bar-color: #4b566a;
-  --logo-icon: url("../../_icons/iconNordicLightSmall.png");
-  --logo-text: url("../../_icons/textNordicLightSmall.png");
+  --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
+  --logo-text: url("../../_icons/textNordicLightSmall.svg");
 }
 
 .mainRed,
@@ -273,8 +273,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainTeal,
 .mainGreen {
   --text-with-main-color: #FFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
-  --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textWhiteSmall.svg");
 }
 
 .mainLightGreen,
@@ -284,8 +284,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainOrange,
 .mainDeepOrange {
   --text-with-main-color: #000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.svg");
 }
 
 .mainRed {
@@ -389,16 +389,16 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainDraculaOrange,
 .mainDraculaYellow {
   --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainDraculaPink,
 .mainDraculaPurple,
 .mainDraculaRed {
   --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
 }
 
 .mainDraculaCyan {
@@ -458,8 +458,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainCatppuccinMochaBlue,
 .mainCatppuccinMochaLavender {
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.svg");
 }
 
 .mainCatppuccinMochaRosewater {
