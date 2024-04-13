@@ -63,6 +63,14 @@
   transition: background 0.2s ease-in;
 }
 
+.playlistIconActive:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  stroke-width: 10;
+  stroke: var(--side-nav-hover-text-color);
+  transition: background 0.2s ease-in;
+}
+
 .playlistIconActive {
   color: var(--accent-color);
   stroke-width: 10;
