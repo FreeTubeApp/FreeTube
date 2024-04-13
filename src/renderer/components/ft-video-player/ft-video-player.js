@@ -2179,6 +2179,9 @@ export default defineComponent({
           case 'f':
             // Toggle Fullscreen Playback
             event.preventDefault()
+            if (this.player.isInPictureInPicture()) {
+              this.player.exitPictureInPicture()
+            }
             this.toggleFullscreen()
             break
           case 'M':
