@@ -63,6 +63,27 @@
   transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
 }
 
+.button:focus + .text,
+.button:hover + .text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:focus + .text.bottom,
+.button:hover + .text.bottom,
+.button:hover + .text.bottom-left,
+.button:focus + .text.top,
+.button:hover + .text.top {
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
+}
+
+.button:focus + .text.left,
+.button:hover + .text.left,
+.button:focus + .text.right,
+.button:hover + .text.right {
+  transform: translate(0, -50%);
+}
+
 .text.allowNewlines {
   white-space: pre-wrap;
   text-align: start;

@@ -1,14 +1,18 @@
 @use '../../scss-partials/ft-list-item';
 
+.infoAndSubscribe {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  inline-size: 100%;
+}
+
 .ft-list-channel {
   &.grid {
     align-items: center;
     text-align: center;
 
     .infoAndSubscribe {
-      display: flex;
-      justify-content: center;
-      inline-size: 100%;
       flex-flow: column wrap;
       align-items: center;
 
@@ -24,9 +28,6 @@
 
   &.list {
     .infoAndSubscribe {
-      flex-flow: row wrap;
-      justify-content: center;
-
       .channelSubscribeButton {
         margin-block: auto;
         margin-inline: 7px;

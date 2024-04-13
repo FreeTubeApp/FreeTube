@@ -52,7 +52,7 @@
 
   /* Use custom arrow */
 .select .select-text {
-  appearance:none;
+  appearance: none;
   text-overflow: ellipsis;
   padding-inline-end: 1.5rem;
 }
