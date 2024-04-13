@@ -100,7 +100,7 @@ export default defineComponent({
 
   },
   methods: {
-    handleSubscription: function (option, profile = this.activeProfile) {
+    handleSubscription: function (profile = this.activeProfile) {
       if (this.channelId === '') {
         return
       }
