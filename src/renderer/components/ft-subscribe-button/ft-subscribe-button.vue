@@ -17,6 +17,14 @@
         text-color="var(--text-with-main-color)"
         @click="handleSubscription"
       />
+      <ft-prompt
+        v-if="showUnsubscribePopup"
+        :label="$t('Channels.Unsubscribe Prompt', { channelName: channelName })"
+        :option-names="[$t('Yes'), $t('No')]"
+        :option-values="['yes', 'no']"
+        :autosize="true"
+        @click="handleUnsubscribeConfirmation"
+      />
       <ft-button
         v-if="isProfileDropdownEnabled"
         :no-border="true"

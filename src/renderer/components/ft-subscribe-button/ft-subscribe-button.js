@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { deepCopy, showToast } from '../../helpers/utils'
@@ -10,7 +11,8 @@ import { deepCopy, showToast } from '../../helpers/utils'
 export default defineComponent({
   name: 'FtSubscribeButton',
   components: {
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-prompt': FtPrompt
   },
   props: {
     channelId: {
@@ -41,7 +43,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isProfileDropdownOpen: false
+      isProfileDropdownOpen: false,
+      showUnsubscribePopup: false
     }
   },
   computed: {
@@ -97,43 +100,19 @@ export default defineComponent({
 
   },
   methods: {
-    handleSubscription: function (profile = this.activeProfile) {
+    handleSubscription: function (option, profile = this.activeProfile) {
       if (this.channelId === '') {
         return
       }
 
-      const currentProfile = deepCopy(profile)
-
       if (this.isProfileSubscribed(profile)) {
-        // confirmation pop-up
-        if (!confirm(this.$t('Channels.Unsubscribe Prompt', { channelName: this.channelName }))) {
-          return
-        }
-        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-          return channel.id !== this.channelId
-        })
-
-        this.updateProfile(currentProfile)
-        showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
-
-        if (profile._id === MAIN_PROFILE_ID) {
-          // Check if a subscription exists in a different profile.
-          // Remove from there as well.
-          let duplicateSubscriptions = 0
-
-          this.profileList.forEach((profileInList) => {
-            if (profileInList._id === MAIN_PROFILE_ID) {
-              return
-            }
-            duplicateSubscriptions += this.unsubscribe(profileInList, this.channelId)
-          })
-
-          if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
-            showToast(message)
-          }
+        if (this.$store.getters.getUnsubscriptionPopupStatus) {
+          this.showUnsubscribePopup = true
+        } else {
+          this.handleUnsubscription()
         }
       } else {
+        const currentProfile = deepCopy(profile)
         const subscription = {
           id: this.channelId,
           name: this.channelName,
@@ -171,8 +150,43 @@ export default defineComponent({
       }
     },
 
-    toggleProfileDropdown: function() {
+    toggleProfileDropdown: function () {
       this.isProfileDropdownOpen = !this.isProfileDropdownOpen
+    },
+
+    handleUnsubscribeConfirmation: async function (value) {
+      this.showUnsubscribePopup = false
+      if (value === 'yes') {
+        this.handleUnsubscription()
+      }
+    },
+
+    handleUnsubscription: function (profile = this.activeProfile) {
+      const currentProfile = deepCopy(profile)
+      currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
+        return channel.id !== this.channelId
+      })
+
+      this.updateProfile(currentProfile)
+      showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
+
+      if (profile._id === MAIN_PROFILE_ID) {
+        // Check if a subscription exists in a different profile.
+        // Remove from there as well.
+        let duplicateSubscriptions = 0
+
+        this.profileList.forEach((profileInList) => {
+          if (profileInList._id === MAIN_PROFILE_ID) {
+            return
+          }
+          duplicateSubscriptions += this.unsubscribe(profileInList, this.channelId)
+        })
+
+        if (duplicateSubscriptions > 0) {
+          const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
+          showToast(message)
+        }
+      }
     },
 
     isActiveProfile: function (profile) {
