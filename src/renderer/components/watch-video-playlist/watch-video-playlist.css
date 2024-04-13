@@ -58,8 +58,8 @@
 .playlistIcon:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  stroke-width: 10;
-  stroke: var(--side-nav-hover-text-color);
+  stroke-width: 20;
+  stroke: var(--side-nav-hover-color);
   transition: background 0.2s ease-in;
 }
 
