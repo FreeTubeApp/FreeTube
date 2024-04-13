@@ -10,6 +10,7 @@ import {
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { getSortedPlaylistItems } from '../../helpers/playlists'
 
 export default defineComponent({
   name: 'WatchVideoPlaylist',
@@ -151,6 +152,15 @@ export default defineComponent({
           playlistType: this.isUserPlaylist ? 'user' : '',
         },
       }
+    },
+    userPlaylistSortOrder: function () {
+      return this.$store.getters.getUserPlaylistSortOrder
+    },
+    sortOrder: function () {
+      return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
+    },
+    sortedPlaylistItems: function () {
+      return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
   },
   watch: {
@@ -387,14 +397,18 @@ export default defineComponent({
       this.channelId = cachedPlaylist.channelId
 
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
-        this.playlistItems = cachedPlaylist.items
+        this.playlistItems = this.isUserPlaylist
+          ? getSortedPlaylistItems(cachedPlaylist.items, this.sortOrder, this.currentLocale)
+          : cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
         await untilEndOfLocalPlayList(cachedPlaylist.continuationData, (p) => {
           videos.push(...p.items.map(parseLocalPlaylistVideo))
         }, { runCallbackOnceFirst: false })
 
-        this.playlistItems = videos
+        this.playlistItems = this.isUserPlaylist
+          ? getSortedPlaylistItems(videos, this.sortOrder, this.currentLocale)
+          : videos
       }
 
       this.isLoading = false
@@ -478,13 +492,13 @@ export default defineComponent({
       this.channelId = ''
 
       if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
-        this.playlistItems = playlist.videos
+        this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale)
       } else {
         // `this.currentVideo` relies on `playlistItems`
         const latestPlaylistContainsCurrentVideo = playlist.videos.some(v => v.playlistItemId === this.playlistItemId)
         // Only update list of videos if latest video list still contains currently playing video
         if (latestPlaylistContainsCurrentVideo) {
-          this.playlistItems = playlist.videos
+          this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale)
         }
       }
 

@@ -15,16 +15,7 @@ import {
 } from '../../helpers/api/local'
 import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-
-const SORT_BY_VALUES = {
-  DateAddedNewest: 'date_added_descending',
-  DateAddedOldest: 'date_added_ascending',
-  AuthorAscending: 'author_ascending',
-  AuthorDescending: 'author_descending',
-  VideoTitleAscending: 'video_title_ascending',
-  VideoTitleDescending: 'video_title_descending',
-  Custom: 'custom',
-}
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 export default defineComponent({
   name: 'Playlist',
@@ -176,29 +167,7 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
-      if (this.sortOrder === SORT_BY_VALUES.Custom) {
-        return this.playlistItems
-      }
-
-      return this.playlistItems.toSorted((a, b) => {
-        switch (this.sortOrder) {
-          case SORT_BY_VALUES.DateAddedNewest:
-            return b.timeAdded - a.timeAdded
-          case SORT_BY_VALUES.DateAddedOldest:
-            return a.timeAdded - b.timeAdded
-          case SORT_BY_VALUES.VideoTitleAscending:
-            return a.title.localeCompare(b.title, this.currentLocale)
-          case SORT_BY_VALUES.VideoTitleDescending:
-            return b.title.localeCompare(a.title, this.currentLocale)
-          case SORT_BY_VALUES.AuthorAscending:
-            return a.author.localeCompare(b.author, this.currentLocale)
-          case SORT_BY_VALUES.AuthorDescending:
-            return b.author.localeCompare(a.author, this.currentLocale)
-          default:
-            console.error(`Unknown sortOrder: ${this.sortOrder}`)
-            return 0
-        }
-      })
+      return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
       if (!this.isUserPlaylistRequested) {
