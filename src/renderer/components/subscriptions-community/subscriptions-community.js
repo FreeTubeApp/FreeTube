@@ -99,6 +99,8 @@ export default defineComponent({
         return
       }
 
+      // clear timestamp if not all entries are present in the cache
+      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadPostsForSubscriptionsFromRemote()
     },
 

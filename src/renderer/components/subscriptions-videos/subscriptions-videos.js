@@ -107,6 +107,8 @@ export default defineComponent({
         return
       }
 
+      // clear timestamp if not all entries are present in the cache
+      this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
