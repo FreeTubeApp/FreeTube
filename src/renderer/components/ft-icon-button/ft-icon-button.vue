@@ -6,6 +6,7 @@
         [theme]: true,
         shadow: useShadow
       }"
+      :title="title"
       tabindex="0"
       role="button"
       :aria-expanded="dropdownShown"
@@ -16,7 +17,6 @@
     >
       <font-awesome-icon
         class="iconButton"
-        :title="title"
         :icon="icon"
         :style="{
           [buttonPaddingProperty]: padding + 'px',

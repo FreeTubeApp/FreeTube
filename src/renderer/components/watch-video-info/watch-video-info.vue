@@ -100,6 +100,13 @@
           :theme="quickBookmarkIconTheme"
           @click="toggleQuickBookmarked"
         />
+        <ft-share-button
+          v-if="!hideSharingActions"
+          :id="id"
+          :get-timestamp="getTimestamp"
+          :playlist-id="playlistId"
+          class="option"
+        />
         <ft-icon-button
           v-if="externalPlayer !== ''"
           :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
@@ -127,13 +134,6 @@
           :icon="['fas', 'file-video']"
           :dropdown-options="formatTypeOptions"
           @click="$emit('change-format', $event)"
-        />
-        <ft-share-button
-          v-if="!hideSharingActions"
-          :id="id"
-          :get-timestamp="getTimestamp"
-          :playlist-id="playlistId"
-          class="option"
         />
       </div>
     </div>
