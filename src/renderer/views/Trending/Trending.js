@@ -90,7 +90,7 @@ export default defineComponent({
         this.$store.commit('clearTrendingCache')
       }
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getTrendingInfoInvidious()
       } else {
         this.getTrendingInfoLocal()
@@ -168,7 +168,7 @@ export default defineComponent({
           copyToClipboard(err.responseText)
         })
 
-        if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
+        if (process.env.SUPPORTS_LOCAL_API && (this.backendPreference === 'invidious' && this.backendFallback)) {
           showToast(this.$t('Falling back to Local API'))
           this.getTrendingInfoLocal()
         } else {

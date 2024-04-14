@@ -758,8 +758,10 @@ const actions = {
 
     showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+    }
   },
 
   updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
@@ -776,8 +778,7 @@ const actions = {
 
   updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
     commit('updateLastVideoRefreshTimestampByProfile', payload)
-  },
-
+  }
 }
 
 const mutations = {

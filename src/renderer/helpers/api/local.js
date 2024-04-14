@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, Utils, YT } from 'youtubei.js'
+import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
@@ -39,8 +39,12 @@ const TRACKING_PARAM_NAMES = [
 async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true } = {}) {
   let cache
   if (withPlayer) {
-    const userData = await getUserDataPath()
-    cache = new PlayerCache(join(userData, 'player_cache'))
+    if (process.env.IS_ELECTRON) {
+      const userData = await getUserDataPath()
+      cache = new PlayerCache(join(userData, 'player_cache'))
+    } else {
+      cache = new UniversalCache(false)
+    }
   }
 
   return await Innertube.create({

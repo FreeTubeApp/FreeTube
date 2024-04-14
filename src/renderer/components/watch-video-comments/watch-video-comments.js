@@ -151,7 +151,7 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
       } else {
         this.getCommentDataLocal()
@@ -162,7 +162,7 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getCommentDataInvidious()
         } else {
           this.getCommentDataLocal(true)
@@ -179,7 +179,7 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (process.env.IS_ELECTRON) {
+      if (process.env.SUPPORTS_LOCAL_API) {
         switch (this.commentData[index].dataType) {
           case 'local':
             this.getCommentRepliesLocal(index)
@@ -292,7 +292,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to Local API'))
           this.getCommentDataLocal()
         } else {

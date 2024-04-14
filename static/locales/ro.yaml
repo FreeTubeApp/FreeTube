@@ -50,7 +50,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este 
   disponibil, {blogTitle}. Click to view more'
 
 # Search Bar
-Search / Go to URL: 'Căutare / Întrodu la URL'
+Search / Go to URL: 'Căutare / Accesați URL-ul'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtre de căutare'
@@ -129,8 +129,48 @@ User Playlists:
     Aceasta enumeră doar videoclipurile pe care le-ați salvat sau le-ați favorizat.
     Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
     aici vor fi migrate într-o listă de redare "Favorite".
-  Search bar placeholder: Caută în Listă De Redare
+  Search bar placeholder: Căutați liste de redare
   Empty Search Message: Nu sunt videoclipuri pentru căutarea ta
+  Move Video Down: Mutați video în jos
+  Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
+    de redare
+  Sort By:
+    Sort By: Sortează după
+    NameDescending: Z-A
+    LatestCreatedFirst: Creat recent
+    NameAscending: A-Z
+    LatestUpdatedFirst: Actualizat recent
+    EarliestCreatedFirst: Cel mai devreme creat
+  This playlist currently has no videos.: Această listă de redare nu are în prezent
+    niciun videoclip.
+  You have no playlists. Click on the create new playlist button to create a new one.: Nu
+    aveți liste de redare. Faceți clic pe butonul de creare a unei noi liste de redare
+    pentru a crea una nouă.
+  Playlists with Matching Videos: Liste de redare cu videoclipuri corespunzătoare
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Selectați o listă de redare la care
+      să adăugați videoclipul dvs. | Selectați o listă de redare la care să adăugați
+      videoclipurile {videoCount}
+  Cancel: Anulare
+  Edit Playlist Info: Editați informațiile despre lista de redare
+  Copy Playlist: Copiați lista de redare
+  Remove Watched Videos: Eliminați videoclipurile vizionate
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sunteți
+    sigur că doriți să eliminați toate videoclipurile vizionate din această listă
+    de redare? Acest lucru nu poate fi anulat.
+  Create New Playlist: Creați o nouă listă de redare
+  Add to Playlist: Adăugați la lista de redare
+  Add to Favorites: Adaugă la {playlistName}
+  Remove from Favorites: Eliminați din {playlistName}
+  Move Video Up: Mutați video în sus
+  Remove from Playlist: Eliminați din lista de redare
+  Playlist Name: Numele listei de redare
+  Playlist Description: Descrierea listei de redare
+  Save Changes: Salvați modificările
+  Disable Quick Bookmark: Dezactivați marcajul rapid
+  Delete Playlist: Ștergeți lista de redare
+  Are you sure you want to delete this playlist? This cannot be undone: Sunteți sigur
+    că doriți să ștergeți această listă de redare? Acest lucru nu poate fi anulat.
 History:
   # On History Page
   History: 'Istoric'
@@ -405,8 +445,8 @@ Settings:
     Hide Live Streams: Ascunde stream-urile live
     Hide Sharing Actions: Ascunde butoanele de sharing
     Hide Chapters: Ascundeți capitolele
-    Display Titles Without Excessive Capitalisation: Afișați titluri fără majuscule
-      excesive
+    Display Titles Without Excessive Capitalisation: Afișați titlurile fără majuscule
+      și semne de punctuație excesive
     Sections:
       Subscriptions Page: Pagina de abonamente
       Side Bar: Bară laterală
@@ -422,7 +462,7 @@ Settings:
     Hide Channel Community: Ascunde comunitatea canalului
     Hide Channel Shorts: Ascundeți canalul Shorts
     Hide Featured Channels: Ascundeți canalele recomandate
-    Hide Channels Placeholder: Numele canalului sau ID-ul
+    Hide Channels Placeholder: ID-ul canalului
     Hide Channel Playlists: Ascunde playlisturile canalului
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Blur Thumbnails: Estomparea miniaturilor
