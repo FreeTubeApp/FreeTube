@@ -67,6 +67,9 @@
 
     @media screen and (max-width: 460px) {
       flex-wrap: nowrap;
+      max-inline-size: 100vw;
+      overflow-x: scroll;
+      justify-content: flex-start;
       :deep(.iconDropdown) {
         inset-inline-start: auto;
         inset-inline-end: auto;

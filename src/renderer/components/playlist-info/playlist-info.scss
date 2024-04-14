@@ -67,10 +67,10 @@
 }
 
 .playlistOptions {
-  display: grid;
-  grid-auto-flow: column;
-  column-gap: 8px;
-  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
 
 .searchInputsRow {

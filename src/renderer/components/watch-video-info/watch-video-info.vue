@@ -100,20 +100,21 @@
           :theme="quickBookmarkIconTheme"
           @click="toggleQuickBookmarked"
         />
+        <ft-icon-button
+          v-if="externalPlayer !== ''"
+          :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
+          :icon="['fas', 'external-link-alt']"
+          :hide-label="true"
+          class="option"
+          theme="secondary"
+          @click="handleExternalPlayer"
+        />
         <ft-share-button
           v-if="!hideSharingActions"
           :id="id"
           :get-timestamp="getTimestamp"
           :playlist-id="playlistId"
           class="option"
-        />
-        <ft-icon-button
-          v-if="externalPlayer !== ''"
-          :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
-          :icon="['fas', 'external-link-alt']"
-          class="option"
-          theme="secondary"
-          @click="handleExternalPlayer"
         />
         <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
