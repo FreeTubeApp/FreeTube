@@ -19,6 +19,10 @@ export default defineComponent({
       type: Object,
       required: true
     },
+    dataType: {
+      type: String,
+      default: null,
+    },
     appearance: {
       type: String,
       required: true
@@ -39,6 +43,15 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    },
+    searchQueryText: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data: function () {
     return {
@@ -53,7 +66,17 @@ export default defineComponent({
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
 
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
+    },
+    forbiddenTitles: function() {
+      if (!this.hideForbiddenTitles) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
@@ -65,10 +88,11 @@ export default defineComponent({
      */
     showResult: function () {
       const { data } = this
-      if (!data.type) {
+      const dataType = this.finalDataType
+      if (!dataType) {
         return false
       }
-      if (data.type === 'video' || data.type === 'shortVideo') {
+      if (dataType === 'video' || dataType === 'shortVideo') {
         if (this.hideLiveStreams && (data.liveNow || data.lengthSeconds == null)) {
           // hide livestreams
           return false
@@ -87,11 +111,14 @@ export default defineComponent({
           // hide upcoming
           return false
         }
-        if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
+        if (this.channelsHidden.some(ch => ch.name === data.authorId) || this.channelsHidden.some(ch => ch.name === data.author)) {
           // hide videos by author
           return false
         }
-      } else if (data.type === 'channel') {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
+      } else if (dataType === 'channel') {
         const attrsToCheck = [
           // Local API
           data.id,
@@ -101,11 +128,14 @@ export default defineComponent({
           data.author,
           data.authorId,
         ]
-        if (attrsToCheck.some(a => a != null && this.channelsHidden.includes(a))) {
+        if (attrsToCheck.some(a => a != null && this.channelsHidden.some(ch => ch.name === a))) {
           // hide channels by author
           return false
         }
-      } else if (data.type === 'playlist') {
+      } else if (dataType === 'playlist') {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
         const attrsToCheck = [
           // Local API
           data.channelId,
@@ -115,13 +145,17 @@ export default defineComponent({
           data.author,
           data.authorId,
         ]
-        if (attrsToCheck.some(a => a != null && this.channelsHidden.includes(a))) {
+        if (attrsToCheck.some(a => a != null && this.channelsHidden.some(ch => ch.name === a))) {
           // hide playlists by author
           return false
         }
       }
       return true
-    }
+    },
+
+    finalDataType() {
+      return this.data.type ?? this.dataType
+    },
   },
   methods: {
     onVisibilityChanged: function (visible) {

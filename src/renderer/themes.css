@@ -5,7 +5,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink {
+.hotPink,
+.nordic {
   --primary-input-color: rgba(0, 0, 0, 0.50);
 }
 
@@ -15,7 +16,8 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.hotPink {
+.hotPink,
+.nordic {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -27,7 +29,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.pastelPink {
+.pastelPink,
+.nordic {
   --primary-input-color: rgba(0, 0, 0, 0.50);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
@@ -37,7 +40,8 @@
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.nordic {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -47,8 +51,8 @@
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray {
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconColorSmall.svg");
+  --logo-text: url("../../_icons/textColorSmall.svg");
 }
 
 .system[data-system-theme*='dark'], .dark,
@@ -56,7 +60,8 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.hotPink {
+.hotPink,
+.nordic {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -67,7 +72,7 @@
   --primary-shadow-color: rgba(232, 232, 232, 1);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
-  --favorite-icon-color: #FFD600;
+  --favorite-icon-color: #00CC00;
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
   --scrollbar-color: #CCCCCC;
@@ -84,7 +89,7 @@
   --tertiary-text-color: #999;
   --title-color: #EEEEEE;
   --bg-color: #212121;
-  --favorite-icon-color: #FFEA00;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
   --scrollbar-color: #414141;
@@ -101,7 +106,7 @@
     --tertiary-text-color: #EEEEEE;
     --title-color: #EEEEEE;
     --bg-color: #000000;
-    --favorite-icon-color: #FFEA00;
+    --favorite-icon-color: #00FF00;
     --card-bg-color: #000000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
     --scrollbar-color: #515151;
@@ -132,7 +137,7 @@
   --tertiary-text-color: #e5e8f3;
   --title-color: #BD93F9;
   --bg-color: #282A36;
-  --favorite-icon-color: #F1FA8C;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #33353F;
   --secondary-card-bg-color: #282A36;
   --scrollbar-color: #44475A;
@@ -141,8 +146,8 @@
   --side-nav-hover-color: #57596B;
   --side-nav-active-color: #3D4051;
   --search-bar-color: #3E3F4A;
-  --logo-icon: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text: url("../../_icons/textDraculaLightSmall.png");
+  --logo-icon: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text: url("../../_icons/textDraculaLightSmall.svg");
 }
 
 .catppuccinMocha {
@@ -151,7 +156,7 @@
   --tertiary-text-color: #a6adc8;
   --title-color: var(--accent-color);
   --bg-color: #1e1e2e;
-  --favorite-icon-color: #f9e2af;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #181825;
   --secondary-card-bg-color: #1e1e2e;
   --scrollbar-color: #313244;
@@ -160,8 +165,8 @@
   --side-nav-hover-color: #11111b;
   --side-nav-active-color: #11111b;
   --search-bar-color: #313244;
-  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.png");
-  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
+  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.svg");
+  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.svg");
 }
 
 .pastelPink {
@@ -182,8 +187,8 @@
   --side-nav-active-color: #3124E7;
   --side-nav-active-text-color: #FFFF;
   --search-bar-color: #FFF0DD;
-  --logo-icon: url("../../_icons/iconBlackSmall.png");
-  --logo-text: url("../../_icons/textBlackSmall.png");
+  --logo-icon: url("../../_icons/iconBlackSmall.svg");
+  --logo-text: url("../../_icons/textBlackSmall.svg");
 }
 
 .hotPink {
@@ -192,7 +197,7 @@
   --tertiary-text-color: #FFFF;
   --title-color: #000000;
   --bg-color: #ff008a;
-  --favorite-icon-color: #FFEA00;
+  --favorite-icon-color: #00FF00;
   --card-bg-color: #DE1C85;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
   --scrollbar-color: #FFFFFF;
@@ -204,8 +209,8 @@
   --side-nav-active-color: #959595;
   --side-nav-active-text-color: #000000;
   --search-bar-color: #9C2D5D;
-  --logo-icon: url("../../_icons/iconWhiteSmall.png");
-  --logo-text: url("../../_icons/textWhiteSmall.png");
+  --logo-icon: url("../../_icons/iconWhiteSmall.svg");
+  --logo-text: url("../../_icons/textWhiteSmall.svg");
   /* The hot pink theme does not have a great color contrast with
   many other colors than black and white. This means that the primary and
   secondary theme colors are forced here to be black so as to avoid any
@@ -237,6 +242,25 @@ it can be safely elided. This looks quite pleasant on this theme. */
   text-decoration: underline;
 }
 
+.nordic {
+  --primary-text-color: #EEEEEE;
+  --secondary-text-color: #ddd;
+  --tertiary-text-color: #EEEEEE;
+  --title-color: #EEEEEE;
+  --bg-color: #2b2f3a;
+  --favorite-icon-color: #00FF00;
+  --card-bg-color: #2e3440;
+  --secondary-card-bg-color: rgba(59, 66, 82, 0.75);
+  --scrollbar-color: #4b566a;
+  --scrollbar-color-hover: #4b566a;
+  --side-nav-color: #2e3440;
+  --side-nav-hover-color: #3b4252;
+  --side-nav-active-color: #3b4252;
+  --search-bar-color: #4b566a;
+  --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
+  --logo-text: url("../../_icons/textNordicLightSmall.svg");
+}
+
 .mainRed,
 .mainPink,
 .mainPurple,
@@ -248,8 +272,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainTeal,
 .mainGreen {
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
-  --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textWhiteSmall.svg");
 }
 
 .mainLightGreen,
@@ -259,8 +283,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainOrange,
 .mainDeepOrange {
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.svg");
 }
 
 .mainRed {
@@ -364,16 +388,16 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainDraculaOrange,
 .mainDraculaYellow {
   --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainDraculaPink,
 .mainDraculaPurple,
 .mainDraculaRed {
   --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
 }
 
 .mainDraculaCyan {
@@ -433,8 +457,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainCatppuccinMochaBlue,
 .mainCatppuccinMochaLavender {
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.svg");
 }
 
 .mainCatppuccinMochaRosewater {

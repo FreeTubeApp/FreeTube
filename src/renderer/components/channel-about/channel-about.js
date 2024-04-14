@@ -24,6 +24,10 @@ export default defineComponent({
       type: Number,
       default: null
     },
+    videos: {
+      type: Number,
+      default: null
+    },
     location: {
       type: String,
       default: null
@@ -60,6 +64,10 @@ export default defineComponent({
 
     formattedViews: function () {
       return formatNumber(this.views)
+    },
+
+    formattedVideos: function () {
+      return formatNumber(this.videos)
     },
   }
 })

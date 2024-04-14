@@ -114,12 +114,16 @@ export default defineComponent({
       this.attemptedFetch = true
 
       this.errorChannels = []
+      const subscriptionUpdates = []
+
       const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let videos = []
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-          videos = await this.getChannelShortsInvidious(channel)
+        let name
+
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+          ({ videos, name } = await this.getChannelShortsInvidious(channel))
         } else {
-          videos = await this.getChannelShortsLocal(channel)
+          ({ videos, name } = await this.getChannelShortsLocal(channel))
         }
 
         channelCount++
@@ -129,6 +133,14 @@ export default defineComponent({
           channelId: channel.id,
           videos: videos,
         })
+
+        if (name) {
+          subscriptionUpdates.push({
+            channelId: channel.id,
+            channelName: name
+          })
+        }
+
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
@@ -136,6 +148,8 @@ export default defineComponent({
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
       this.updateShowProgressBar(false)
+
+      this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
 
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
@@ -168,7 +182,9 @@ export default defineComponent({
             this.errorChannels.push(channel)
           }
 
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -184,10 +200,14 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return this.getChannelShortsInvidious(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -199,8 +219,10 @@ export default defineComponent({
       try {
         const response = await fetch(feedUrl)
 
-        if (response.status === 500) {
-          return []
+        if (response.status === 500 || response.status === 404) {
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -212,19 +234,24 @@ export default defineComponent({
         })
         switch (failedAttempts) {
           case 0:
-            if (process.env.IS_ELECTRON && this.backendFallback) {
-              showToast(this.$t('Falling back to the local API'))
+            if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
+              showToast(this.$t('Falling back to Local API'))
               return this.getChannelShortsLocal(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
 
     ...mapActions([
+      'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionShortsCacheByChannel',
     ]),

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'română'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Această parte a aplicației nu este gata încă. Revino mai târziu pentru modificări.
@@ -42,6 +41,8 @@ Global:
     View Count: 1 vizionare | {count} vizionări
     Channel Count: 1 canal | {count} canale
     Watching Count: 1 se uită | {count} se uită
+  Input Tags:
+    Length Requirement: Tag-ul trebuie să aibă cel puțin {number} caractere
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -49,7 +50,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este 
   disponibil, {blogTitle}. Click to view more'
 
 # Search Bar
-Search / Go to URL: 'Căutare / Întrodu la URL'
+Search / Go to URL: 'Căutare / Accesați URL-ul'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtre de căutare'
@@ -108,6 +109,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea
     conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din
     "{settingsSection}”.
+  Empty Posts: Canalele tale abonate nu au momentan nicio postare.
+  Load More Posts: Încarcă mai multe postări
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
@@ -126,8 +129,48 @@ User Playlists:
     Aceasta enumeră doar videoclipurile pe care le-ați salvat sau le-ați favorizat.
     Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
     aici vor fi migrate într-o listă de redare "Favorite".
-  Search bar placeholder: Caută în Listă De Redare
+  Search bar placeholder: Căutați liste de redare
   Empty Search Message: Nu sunt videoclipuri pentru căutarea ta
+  Move Video Down: Mutați video în jos
+  Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
+    de redare
+  Sort By:
+    Sort By: Sortează după
+    NameDescending: Z-A
+    LatestCreatedFirst: Creat recent
+    NameAscending: A-Z
+    LatestUpdatedFirst: Actualizat recent
+    EarliestCreatedFirst: Cel mai devreme creat
+  This playlist currently has no videos.: Această listă de redare nu are în prezent
+    niciun videoclip.
+  You have no playlists. Click on the create new playlist button to create a new one.: Nu
+    aveți liste de redare. Faceți clic pe butonul de creare a unei noi liste de redare
+    pentru a crea una nouă.
+  Playlists with Matching Videos: Liste de redare cu videoclipuri corespunzătoare
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Selectați o listă de redare la care
+      să adăugați videoclipul dvs. | Selectați o listă de redare la care să adăugați
+      videoclipurile {videoCount}
+  Cancel: Anulare
+  Edit Playlist Info: Editați informațiile despre lista de redare
+  Copy Playlist: Copiați lista de redare
+  Remove Watched Videos: Eliminați videoclipurile vizionate
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sunteți
+    sigur că doriți să eliminați toate videoclipurile vizionate din această listă
+    de redare? Acest lucru nu poate fi anulat.
+  Create New Playlist: Creați o nouă listă de redare
+  Add to Playlist: Adăugați la lista de redare
+  Add to Favorites: Adaugă la {playlistName}
+  Remove from Favorites: Eliminați din {playlistName}
+  Move Video Up: Mutați video în sus
+  Remove from Playlist: Eliminați din lista de redare
+  Playlist Name: Numele listei de redare
+  Playlist Description: Descrierea listei de redare
+  Save Changes: Salvați modificările
+  Disable Quick Bookmark: Dezactivați marcajul rapid
+  Delete Playlist: Ștergeți lista de redare
+  Are you sure you want to delete this playlist? This cannot be undone: Sunteți sigur
+    că doriți să ștergeți această listă de redare? Acest lucru nu poate fi anulat.
 History:
   # On History Page
   History: 'Istoric'
@@ -313,7 +356,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți
       sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
       nu poate fi anulat.'
-    Automatically Remove Video Meta Files: Îndepărtați automat fișierele meta video
     Save Watched Videos With Last Viewed Playlist: Salvați videoclipurile vizionate
       cu ultima listă de redare vizualizată
   Subscription Settings:
@@ -403,8 +445,8 @@ Settings:
     Hide Live Streams: Ascunde stream-urile live
     Hide Sharing Actions: Ascunde butoanele de sharing
     Hide Chapters: Ascundeți capitolele
-    Display Titles Without Excessive Capitalisation: Afișați titluri fără majuscule
-      excesive
+    Display Titles Without Excessive Capitalisation: Afișați titlurile fără majuscule
+      și semne de punctuație excesive
     Sections:
       Subscriptions Page: Pagina de abonamente
       Side Bar: Bară laterală
@@ -420,7 +462,7 @@ Settings:
     Hide Channel Community: Ascunde comunitatea canalului
     Hide Channel Shorts: Ascundeți canalul Shorts
     Hide Featured Channels: Ascundeți canalele recomandate
-    Hide Channels Placeholder: Numele canalului sau ID-ul
+    Hide Channels Placeholder: ID-ul canalului
     Hide Channel Playlists: Ascunde playlisturile canalului
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Blur Thumbnails: Estomparea miniaturilor
@@ -853,7 +895,7 @@ Up Next: 'În continuare'
 Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copia)'
 Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
 Falling back to Invidious API: 'Revenine la Invidious API'
-Falling back to the local API: 'Revenire la API-ul local'
+Falling back to Local API: 'Revenire la API-ul local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest
   videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla
   din cauza indisponibilității țării.'
@@ -889,9 +931,6 @@ Hashtags have not yet been implemented, try again later: Hashtag-urile nu au fos
 Unknown YouTube url type, cannot be opened in app: Tip url YouTube necunoscut, nu
   poate fi deschis în aplicație
 Tooltips:
-  Privacy Settings:
-    Remove Video Meta Files: Atunci când este activat, FreeTube șterge automat fișierele
-      meta create în timpul redării video, atunci când pagina de vizionare este închisă.
   Subscription Settings:
     Fetch Feeds from RSS: Atunci când este activată, FreeTube va utiliza RSS în locul
       metodei implicite pentru a prelua feed-ul de abonament. RSS este mai rapid și
@@ -972,14 +1011,6 @@ Starting download: Se începe descărcarea a "{videoTitle}"
 Downloading failed: A existat o problemă la descărcarea "{videoTitle}"
 Downloading has completed: '"{videoTitle}" s-a terminat de descărcat'
 New Window: Fereastră nouă
-Age Restricted:
-  The currently set default instance is {instance}: Acest {instance} este restricționat
-    datorită vârstei
-  Type:
-    Channel: Canal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Acest {videoOrPlaylist} are restricții
-    de vârstă
 Channels:
   Channels: Canale
   Title: Listă de canale
@@ -1011,3 +1042,5 @@ Playlist will pause when current video is finished: Lista de redare se va între
   când videoclipul curent este terminat
 Playlist will not pause when current video is finished: Lista de redare nu se va întrerupe
   când videoclipul curent este terminat
+Go to page: Mergeți la {page}
+Close Banner: Închideți bannerul

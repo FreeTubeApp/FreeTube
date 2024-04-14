@@ -1,15 +1,18 @@
 <template>
   <div
     class="ft-list-video ft-list-item"
-    :appearance="appearance"
-    :class="{ list: listType === 'list', grid: listType === 'grid' }"
+    :class="{
+      [appearance]: true,
+      list: listType === 'list',
+      grid: listType === 'grid'
+    }"
   >
     <div
       class="videoThumbnail"
     >
       <router-link
         class="thumbnailLink"
-        :to="`/playlist/${playlistId}`"
+        :to="playlistPageLinkTo"
         tabindex="-1"
         aria-hidden="true"
       >
@@ -33,10 +36,10 @@
     <div class="info">
       <router-link
         class="title"
-        :to="`/playlist/${playlistId}`"
+        :to="playlistPageLinkTo"
       >
         <h3 class="h3Title">
-          {{ title }}
+          {{ titleForDisplay }}
         </h3>
       </router-link>
       <div class="infoLine">
@@ -55,7 +58,7 @@
         </span>
       </div>
       <ft-icon-button
-        v-if="externalPlayer !== ''"
+        v-if="externalPlayer !== '' && !isUserPlaylist"
         :hide-label="true"
         :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
         :icon="['fas', 'external-link-alt']"

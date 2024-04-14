@@ -51,16 +51,30 @@
   border-radius: 50%;
   color: var(--tertiary-text-color);
   transition: background 0.2s ease-out;
+  stroke-width: 20;
+  stroke: var(--bg-color);
 }
 
 .playlistIcon:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
+  stroke-width: 20;
+  stroke: var(--side-nav-hover-color);
+  transition: background 0.2s ease-in;
+}
+
+.playlistIconActive:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--accent-color-hover);
+  stroke-width: 10;
+  stroke: var(--accent-color-hover);
   transition: background 0.2s ease-in;
 }
 
 .playlistIconActive {
-  color: var(--accent-color)
+  color: var(--accent-color);
+  stroke-width: 10;
+  stroke: var(--accent-color);
 }
 
 .playlistItems {
@@ -83,19 +97,6 @@
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
-}
-
-.videoIndexContainer {
-  text-align: center;
-}
-
-.videoIndex {
-  color: var(--tertiary-text-color);
-}
-
-.videoIndexIcon {
-  font-size: 14px;
-  color: var(--tertiary-text-color);
 }
 
 .videoInfo {

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Hrvatski'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ovaj dio programa još nije gotov. Navrati kasnije.
@@ -44,6 +43,8 @@ Global:
     View Count: 1 prikaz | {count} prikaza
     Watching Count: 1 praćenje | {count} praćenja
     Channel Count: 1 kanal | {count} kanala
+  Input Tags:
+    Length Requirement: Oznaka mora imati barem {number} znakova
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
@@ -99,8 +100,8 @@ Subscriptions:
   Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
     pretplate da bi se ovdje prikazale.
   Subscriptions Tabs: Kartica pretplata
-  All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
-    na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
+  All Subscription Tabs Hidden: Sve kartice pretplata su skrivene. Za prikaz sadržaja
+    na ovom mjestu, sakrij neke kartice u pododjeljku „{subsection}” u „{settingsSection}”.
   Empty Posts: Kanali na koje si pretplaćen/a trenutačno nemaju objave.
   Load More Posts: Učitaj još objava
 Trending:
@@ -120,8 +121,96 @@ User Playlists:
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
     samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
     videa premjestit će se u zbirku „Favoriti”.
-  Search bar placeholder: Pretraži zbirku
+  Search bar placeholder: Traži zbirke
   Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
+  This playlist currently has no videos.: Ova zbirka trenutačno nema nijedan video.
+  Create New Playlist: Stvori novu zbirku
+  Add to Playlist: Dodaj u zbirku
+  Move Video Up: Premjesti video prema gore
+  Move Video Down: Premjesti video prema dolje
+  Remove from Playlist: Ukloni iz zbirke
+  Playlist Name: Ime zbirke
+  Playlist Description: Opis zbirke
+  Cancel: Odustani
+  Edit Playlist Info: Uredi podatke zbirke
+  Copy Playlist: Kopiraj zbirku
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Stvarno
+    želiš ukloniti sva gledana videa iz ove zbirke? To se ne može poništiti.
+  Delete Playlist: Ukloni zbirku
+  Are you sure you want to delete this playlist? This cannot be undone: Stvarno želiš
+    izbrisati ovu zbirku? To se ne može poništiti.
+  Sort By:
+    Sort By: Redoslijed
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Nedavno stvoreno
+    EarliestCreatedFirst: Najnovije stvoreno
+    LatestUpdatedFirst: Nedavno aktualizirano
+    EarliestUpdatedFirst: Najnovije aktualizirano
+    LatestPlayedFirst: Nedavno reproducirano
+    EarliestPlayedFirst: Najnovije reproducirano
+  Remove Watched Videos: Ukloni gledana videa
+  Save Changes: Spremi promjene
+  You have no playlists. Click on the create new playlist button to create a new one.: Nemaš
+    zbirke. Za stvaranje nove zbirke pritisni gumb za stvaranje nove zbirke.
+  SinglePlaylistView:
+    Toast:
+      Playlist {playlistName} has been deleted.: Zbirka {playlistName} je uklonjena.
+      This playlist is protected and cannot be removed.: Ova je zbirka zaštićena i
+        ne može se ukloniti.
+      This playlist does not exist: Ova zbirka ne postoji
+      This video cannot be moved up.: Ovaj se video ne može premjestiti prema gore.
+      This video cannot be moved down.: Ovaj se video ne može premjestiti prema dolje.
+      Playlist name cannot be empty. Please input a name.: Ime zbirke ne može biti
+        prazano. Upiši ime.
+      Playlist has been updated.: Zbirka je aktualizirana.
+      "{videoCount} video(s) have been removed": 1 video je uklonjen | {videoCount}
+        videa su uklonjena
+      Video has been removed: Video je uklonjen
+      There was a problem with removing this video: Došlo je do problema pri uklanjanju
+        ovog videa
+      There was an issue with updating this playlist.: Došlo je do problema s aktualiziranjem
+        ove zbirke.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Neka
+        videa zbirke još nisu učitani. Pritisni ovdje za kopiranje.
+      There were no videos to remove.: Nije bilo videa za uklanjanje.
+      This playlist is now used for quick bookmark: Ova se zbirka sada koristi za
+        brze zabilješke
+      Quick bookmark disabled: Brze zabilješke su deaktivirane
+      Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje
+        zbirke {oldPlaylistName} za brze zabilješke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
+        se zbirka sada koristi za brze zabilješke umjesto zbirke {oldPlaylistName}.
+        Pritisni ovdje za poništavanje
+    Search for Videos: Traži videa
+  AddVideoPrompt:
+    N playlists selected: 'Odabrano: {playlistCount}'
+    Search in Playlists: Traži u zbirkama
+    Save: Spremi
+    Toast:
+      You haven't selected any playlist yet.: Još nisi odabrao/la nijednu zbirku.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video dodan u
+        {playlistCount} zbirke | {videoCount} videa dodana u {playlistCount} zbirke
+      "{videoCount} video(s) added to 1 playlist": 1 video dodan u 1 zbirku | {videoCount}
+        videa dodana u 1 zbirku
+    Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa
+      | Odaberi zbirku za dodavanje tvojih {videoCount} videa
+    Added {count} Times: Dodano {count} puta | Dodano {count} puta
+  CreatePlaylistPrompt:
+    Create: Stvori
+    Toast:
+      There was an issue with creating the playlist.: Došlo je do problema s izradom
+        zbirke.
+      There is already a playlist with this name. Please pick a different name.: Zbirka
+        s ovim imenom već postoji. Odaberi jedno drugo ime.
+      Playlist {playlistName} has been successfully created.: Zbirka {playlistName}
+        je uspješno stvorena.
+    New Playlist Name: Ime nove zbirke
+  Add to Favorites: Dodaj u zbirku {playlistName}
+  Remove from Favorites: Ukloni iz zbirke {playlistName}
+  Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
+  Disable Quick Bookmark: Deaktiviraj brze zabilješke
+  Playlists with Matching Videos: Zbirke s poklapajućim videima
 History:
   # On History Page
   History: 'Povijest'
@@ -155,6 +244,7 @@ Settings:
       Middle: 'Sredina'
       End: 'Kraj'
       Hidden: Skriveno
+      Blur: Neoštro
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videa u trendu'
@@ -184,11 +274,12 @@ Settings:
       Black: 'Crna'
       Dark: 'Tamna'
       Light: 'Svijetla'
-      Dracula: 'Drakula'
+      Dracula: 'Dracula'
       System Default: Standard sustava
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastelno ružičasta
       Hot Pink: Vruća ružičasta
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -309,10 +400,12 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Stvarno
       želiš ukloniti sve pretplate i profile? Ovo je nepovratna radnja.
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
-    Automatically Remove Video Meta Files: Automatski ukloni datoteke metapodataka
-      videa
     Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
       gledanom zbirkom
+    Remove All Playlists: Ukloni sve zbirke
+    All playlists have been removed: Sve zbirke su uklonjene
+    Are you sure you want to remove all your playlists?: Stvarno želiš ukloniti sve
+      tvoje zbirke?
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
@@ -327,6 +420,8 @@ Settings:
     Export Subscriptions: 'Izvoz pretplata'
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
     Fetch Automatically: Automatski dohvati feed
+    Only Show Latest Video for Each Channel: Prikaži samo najnoviji video za svaki
+      kanal
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -356,7 +451,7 @@ Settings:
   Data Settings:
     Unknown data key: Nepoznat podatkovni ključ
     Unable to write file: Datoteka se ne može zapisati
-    Unable to read file: Datoteka se ne može pročitati
+    Unable to read file: Datoteka se ne može čitati
     All watched history has been successfully exported: Sva povijest gledanja je uspješno
       izvezena
     All watched history has been successfully imported: Sva povijest gledanja je uspješno
@@ -399,6 +494,13 @@ Settings:
     Subscription File: Datoteka pretplate
     History File: Datoteka povijesti
     Playlist File: Datoteka zbirke
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Ova opcija izvozi videa iz svih zbirki u jednu zbirku pod nazivom
+        „Favoriti”.\nKako izvesti i uvesti videa zbirki za stariju FreeTube verziju:\n
+        1. Izvezi svoje zbirke s ovom opcijom aktiviranom.\n2. Izbriši sve svoje postojeće
+        zbirke pomoću opcije „Ukloni sve zbirke” u postavkama privatnosti.\n3. Pokreni
+        stariju FreeTube verziju i uvezi izvezene zbirke.\""
+      Label: Izvezi zbirke za starije FreeTube verzije
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -418,9 +520,9 @@ Settings:
     Hide Chapters: Sakrij poglavlja
     Hide Upcoming Premieres: Sakrij nadolazeće premijere
     Hide Channels: Sakrij videa iz kanala
-    Hide Channels Placeholder: Ime kanala ili ID
+    Hide Channels Placeholder: ID kanala
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
-      korištenja velikih slova
+      korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
     Hide Channel Playlists: Sakrij kanal zbirki
     Hide Channel Community: Sakrij kanal zajednice
@@ -439,6 +541,15 @@ Settings:
     Blur Thumbnails: Zamuti minijature
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
     Hide Subscriptions Community: Sakrij pretplate zajednice
+    Hide Channels Invalid: Navedeni ID kanala nije bio ispravan
+    Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu
+      obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
+    Hide Channels Already Exists: ID kanala već postoji
+    Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo
+      provjeri točnost ID-a.
+    Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
+      ili fraza
+    Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -465,21 +576,25 @@ Settings:
     SponsorBlock Settings: Postavke blokiranja sponzora
     Skip Options:
       Auto Skip: Automatsko preskakanje
-      Show In Seek Bar: Pokaži u traci napretka
+      Show In Seek Bar: Prikaži u traci napretka
       Skip Option: Opcija preskakanja
       Prompt To Skip: Poziv za preskakanje
       Do Nothing: Ne čini ništa
     Category Color: Boja kategorije
     UseDeArrowTitles: Koristi DeArrow Video naslove
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
+      za API DeArrow generatora minijatura (Standardna adresa je: https://dearrow-thumb.ajay.app)'
+    UseDeArrowThumbnails: Koristi DeArrow za minijature
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
-    Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
+    Custom External Player Executable: Izvršna datoteka prilagođenog eksternog playera
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
     Players:
       None:
         Name: Bez
+    Ignore Default Arguments: Zanemari zadane argumente
   Download Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
@@ -507,6 +622,7 @@ Settings:
     Set Password: Postavi lozinku
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
+  Expand All Settings Sections: Rasklopi sve odjeljke postavki
 About:
   #On About page
   About: 'Informacije'
@@ -616,6 +732,11 @@ Profile:
   Profile Filter: Filtar profila
   Profile Settings: Postavke profila
   Toggle Profile List: Uključi/Isključi popis profila
+  Profile Name: Ime profila
+  Edit Profile Name: Uredi ime profila
+  Create Profile Name: Stvori ime profila
+  Open Profile Dropdown: Otvori rasklopiv izbornik profila
+  Close Profile Dropdown: Zatvori rasklopiv izbornik profila
 Channel:
   Subscribe: 'Pretplati se'
   Unsubscribe: 'Otkaži pretplatu'
@@ -665,7 +786,8 @@ Channel:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
     Reveal Answers: Prikaži odgovore
     Hide Answers: Sakrij odgovore
-    votes: '{votes} glasanja'
+    votes: '{votes} glasa'
+    Video hidden by FreeTube: Video skriven od FreeTubea
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
@@ -734,7 +856,7 @@ Video:
     Ago: 'Prije'
     Upcoming: 'Premijera'
     Less than a minute: Manje od jedne minute
-    In less than a minute: Manje od minute
+    In less than a minute: Manje od jedne minute
   Published on: 'Objavljeno'
   Publicationtemplate: 'prije {number} {unit}'
 #& Videos
@@ -806,7 +928,7 @@ Video:
     Resolution: Razlučivost
     Player Dimensions: Dimenzije playera
     Bitrate: Brzina prijenosa
-    Volume: Glasnoća
+    Volume: Direktorij
     Bandwidth: Propusnost
     Buffered: Učitano u memoriju
     Mimetype: Mimetype
@@ -819,6 +941,9 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
     uživo nije dostupan za ovaj prijenos. Možda ga je prenosnik deaktivirao.
   Pause on Current Video: Zaustavi trenutačni video
+  Unhide Channel: Prikaži kanal
+  Hide Channel: Sakrij kanal
+  More Options: Više opcija
 Videos:
   #& Sort By
   Sort By:
@@ -885,7 +1010,7 @@ Comments:
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
-  Show More Replies: Pokaži više odgovora
+  Show More Replies: Prikaži više odgovora
   From {channelName}: od {channelName}
   And others: i drugi
   Pinned by: Prikvačio/la
@@ -899,7 +1024,7 @@ Up Next: 'Sljedeći'
 Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiranje)'
 Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
 Falling back to Invidious API: 'Koristit će se Invidious sučelje'
-Falling back to the local API: 'Koristit će se lokalno sučelje'
+Falling back to Local API: 'Koristit će se lokalno sučelje'
 Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
@@ -930,7 +1055,7 @@ Tooltips:
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
-      standardno sučelje. Kad je aktivirano, lokalno sučelje će pokretati i koristiti
+      standardno sučelje. Kada je aktivirano, lokalno API sučelje će pokretati i koristiti
       stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
       je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
@@ -961,16 +1086,12 @@ Tooltips:
       koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom
       standardnom pregledniku.\n"
   Subscription Settings:
-    Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
+    Fetch Feeds from RSS: Kada je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
     Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
       tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
-  Privacy Settings:
-    Remove Video Meta Files: Kad je aktivirano, FreeTube automatski uklanja datoteke
-      metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
-      gledanja.
   External Player Settings:
     External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje
       videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,
@@ -983,17 +1104,25 @@ Tooltips:
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
     DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
+    Ignore Default Arguments: Ne šalji bilo koje standardne argumente eksternom playeru
+      osim URL-a videa (npr. brzina reprodukcije, URL zbirke itd.). Prilagođeni argumenti
+      će se i dalje prosljediti.
   Experimental Settings:
     Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
   Distraction Free Settings:
-    Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
-      kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
-      ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+    Hide Channels: Upiši ID kanala za skrivanje svih videa, zbirki kao i samog kanala
+      u prikazu pretrage, trendova, najpopularniji i preporučeni. Upisani ID kanala
+      se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
       u odjeljku „{subsection}” u „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Upiši riječ, fragment riječi ili izraz
+      (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem
+      u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest,
+      tvoje zbirke i videa unutar zbirki.
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
+    UseDeArrowThumbnails: Zamijeni minijature videa s DeArrow minijaturama.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -1006,8 +1135,8 @@ Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
 Default Invidious instance has been set to {instance}: Standardna Invidious instanca
   je postavljena na {instance}
-External link opening has been disabled in the general settings: Vanjsko otvaranje
-  poveznica je deaktivirano u općim postavkama
+External link opening has been disabled in the general settings: Otvaranje eksterne
+  poveznice je deaktivirano u općim postavkama
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
@@ -1017,18 +1146,13 @@ Starting download: Početak preuzimanja „{videoTitle}”
 Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
-  Type:
-    Channel: Kanal
-    Video: Video
 Channels:
   Channels: Kanali
   Title: Popis kanala
   Search bar placeholder: Pretraži kanale
   Count: '{number} kanala pronađena.'
   Empty: Tvoj popis kanala je trenutačno prazan.
-  Unsubscribe: Prekini pretplatu
+  Unsubscribe: Otkaži pretplatu
   Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „{channelName}”?
   Unsubscribed: '{channelName} je uklonjen iz tvojih pretplata'
 Clipboard:
@@ -1050,3 +1174,15 @@ Playlist will pause when current video is finished: Zbirka će se zaustaviti kad
   video završi
 Playlist will not pause when current video is finished: Zbirka se neće zaustaviti
   kada trenutačni video završi
+Go to page: Idi na {page}
+Channel Hidden: '{channel} je dodan u filtar kanala'
+Channel Unhidden: '{channel} je uklonjen iz filtra kanala'
+Trimmed input must be at least N characters long: Skraćeni unos mora imati barem 1
+  znak | Skraćeni unos mora imati barem {length} znaka
+Tag already exists: Oznaka „{tagName}” već postoji
+Age Restricted:
+  This channel is age restricted: Ovaj je dobno ograničeni kanal
+  This video is age restricted: Ovaj je dobno ograničeni video
+Close Banner: Zatvori natpis
+Display Label: '{label}: {value}'
+checkmark: ✓

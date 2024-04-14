@@ -3,3 +3,8 @@
 .thumbnailLink:hover {
   outline: 3px solid var(--side-nav-hover-color);
 }
+
+.thumbnailImage {
+  // Makes img element sized correctly before image loading starts
+  aspect-ratio: 16/9 auto;
+}

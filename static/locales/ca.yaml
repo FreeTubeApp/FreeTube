@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'català'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Aquesta secció de l'aplicació encara no està llesta. Torna més endavant quan s'hagin
@@ -35,6 +34,8 @@ Forward: 'Endavant'
 Global:
   Videos: 'Vídeos'
 
+  Live: En directe
+  Community: Comunitat
 Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber}
   està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
@@ -92,6 +93,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Aquest
     perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació
     fixada
+  Error Channels: Canals amb errors
 Trending:
   Trending: 'Tendències'
   Default: Per defecte
@@ -263,8 +265,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Esteu
       segur que voleu esborrar totes les subscripcions i perfils?  Aquesta acció no
       es pot desfer.'
-    Automatically Remove Video Meta Files: Suprimeix automàticament les metadades
-      dels vídeos
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'

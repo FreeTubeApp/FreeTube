@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Svenska'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
@@ -43,6 +42,8 @@ Global:
     View Count: 1 visning | {count} visningar
     Watching Count: 1 tittar | {count} tittare
     Channel Count: 1 kanal | {count} kanaler
+  Input Tags:
+    Length Requirement: Taggen måste vara minst {number} tecken långt
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -128,6 +129,24 @@ User Playlists:
     för 'Favoriter'.
   Search bar placeholder: Sök i Spellistor
   Empty Search Message: Det finns inga videor i denna spellista som matchar din sökning
+  Playlist Name: Spellistenamn
+  Playlist Description: Spellistebeskrivning
+  Delete Playlist: Ta bort Spellista
+  Create New Playlist: Skapa ny spellista
+  Save Changes: Spara Ändringar
+  Cancel: Avbryt
+  Edit Playlist Info: Redigera Spellisteinformation
+  Copy Playlist: Kopiera Spellista
+  Add to Favorites: Lägg till {playlistName}
+  Remove from Favorites: Ta bort från {playlistName}
+  Move Video Up: Flytta upp Video
+  Move Video Down: Flytta ner Video
+  Remove from Playlist: Ta bort från Spellista
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    har inga spellistor. Klicka på Skapa ny spellista-knappen för att skapa en ny.
+  This playlist currently has no videos.: Denna spellista har för närvarande inga
+    videor.
+  Add to Playlist: Lägg till Spellista
 History:
   # On History Page
   History: 'Historik'
@@ -162,6 +181,7 @@ Settings:
       Middle: 'Mitten'
       End: 'Slutet'
       Hidden: Dold
+      Blur: Oskärpa
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Standard är https://invidious.snopyta.org)'
     Region for Trending: 'Region för Trender'
@@ -310,7 +330,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
-    Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
     Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast
       tittade spellista
   Subscription Settings:
@@ -319,6 +338,8 @@ Settings:
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
     Fetch Automatically: Hämta flöde automatiskt
+    Only Show Latest Video for Each Channel: Visa endast den senaste videon för varje
+      kanal
   Data Settings:
     Data Settings: 'Datainställningar'
     Select Import Type: 'Välj import-typen'
@@ -412,7 +433,7 @@ Settings:
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj permiärer
     Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering
-    Hide Channels Placeholder: Kanalnamn eller ID
+    Hide Channels Placeholder: Kanal ID
     Hide Featured Channels: Dölj Utvalda kanaler
     Hide Channel Shorts: Dölj Kanal Shorts
     Sections:
@@ -431,6 +452,12 @@ Settings:
     Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
     Blur Thumbnails: Oskärpa tumnaglar
     Hide Subscriptions Community: Dölj prenumerationsgemenskap
+    Hide Channels Invalid: Det angivna kanal-ID var ogiltigt
+    Hide Channels Disabled Message: Vissa kanaler blockerades med ID och bearbetades
+      inte. Funktionen är blockerad medan dessa ID:n uppdateras
+    Hide Channels Already Exists: Kanal-ID finns redan
+    Hide Channels API Error: Det gick inte att hämta användaren med angett ID. Kontrollera
+      igen om ID:t är korrekt.
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -463,6 +490,8 @@ Settings:
       Prompt To Skip: Prompt för att hoppa över
     Category Color: Kategorifärg
     UseDeArrowTitles: Använd DeArrow-videotitlar
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en
+      till DeArrows Miniatyrbildsgenerator-API (Standard är https://dearrow-thumb.ajay.app)
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
     External Player: Extern spelare
@@ -499,7 +528,8 @@ Settings:
     Experimental Settings: Experimentella inställningar
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
-    Replace HTTP Cache: Ersätt HTTP-chachen
+    Replace HTTP Cache: Ersätt HTTP-cache
+  Expand All Settings Sections: Expandera alla inställningssektioner
 About:
   #On About page
   About: 'Om'
@@ -601,6 +631,11 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profilinställningar
   Toggle Profile List: Aktivera Profillista
+  Open Profile Dropdown: Öppna profilrullgardinsmenyn
+  Close Profile Dropdown: Stäng profilrullgardinsmenyn
+  Profile Name: Profilnamn
+  Edit Profile Name: Redigera profilnamn
+  Create Profile Name: Skapa profilnamn
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -797,6 +832,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt
     är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
   Pause on Current Video: Pausa på aktuell video
+  Unhide Channel: Visa kanal
+  Hide Channel: Dölj kanal
 Videos:
   #& Sort By
   Sort By:
@@ -877,7 +914,7 @@ Up Next: 'Kommer härnäst'
 Local API Error (Click to copy): 'Lokalt API-fel (Klicka för att kopiera koden)'
 Invidious API Error (Click to copy): 'Invidious API-fel (Klicka för att kopiera koden)'
 Falling back to Invidious API: 'Faller tillbaka till Invidious API'
-Falling back to the local API: 'Faller tillbaka till lokal API'
+Falling back to Local API: 'Faller tillbaka till lokal API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Den
   här videon är inte tillgänglig på grund av format som saknas. Detta kan hända på
   grund av landets otillgänglighet.'
@@ -939,9 +976,6 @@ Tooltips:
     External Link Handling: "Välj standardförfarande när en länk klickas, som inte
       kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din
       standardwebbläsare.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
-      filer som skapades under uppspelning, när sidan stängs.
   External Player Settings:
     Custom External Player Arguments: Alla anpassade kommandoradsargument, åtskilda
       av semikolon (';'), ska skickas till den externa spelaren.
@@ -955,9 +989,9 @@ Tooltips:
       Invidiousinställningar påverkar inte externa videospelare.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: Ange ett kanalnamn eller kanal-ID för att dölja alla videor, spellistor
-      och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
-      Det angivna kanalnamnet måste vara en fullständig matchning och är skiftlägeskänsligt.
+    Hide Channels: Ange ett kanal-ID för att dölja alla videor, spellistor och själva
+      kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
+      Det angivna kanal-ID:t måste vara en fullständig matchning och är skiftlägeskänsligt.
     Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande
       "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
   Experimental Settings:
@@ -998,11 +1032,6 @@ Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparade skärmdump som "{filePath}"
 Screenshot Error: Skärmdump misslyckades {felkod}
-Age Restricted:
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Denna {videoOrPlaylist} är åldersbegränsad
 Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
     utan en säker anslutning
@@ -1024,3 +1053,6 @@ Playlist will pause when current video is finished: Spellistan pausas när den a
   videon är klar
 Playlist will not pause when current video is finished: Spellistan kommer inte att
   pausas när den aktuella videon är klar
+Channel Hidden: '{channel} har lagts till i kanalfiltret'
+Go to page: Gå till {page}
+Channel Unhidden: '{channel} har tagits bort från kanalfiltret'

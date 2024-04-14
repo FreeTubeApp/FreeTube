@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Українська'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ця частина застосунка ще не готова. Поверніться пізніше.
@@ -43,6 +42,8 @@ Global:
     Subscriber Count: 1 підписник | {count} підписників
     View Count: 1 перегляд | {count} переглядів
     Watching Count: 1 глядач | {count} глядачів
+  Input Tags:
+    Length Requirement: Тег повинен мати довжину не менше {number} символів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -116,17 +117,36 @@ Trending:
   Music: Музика
   Default: Типово
 Most Popular: 'Найпопулярніші'
-Playlists: 'Добірки'
+Playlists: 'Списки відтворення'
 User Playlists:
-  Your Playlists: 'Ваші добірки'
+  Your Playlists: 'Ваші списки відтворення'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Збережені
     відео порожні. Клацніть на кнопку збереження у куті відео, щоб воно було перелічено
     тут
-  Playlist Message: Ця сторінка не показує повністю робочих добірок. На ній перелічено
-    лише відео, які ви зберегли або вибрали. Коли робота завершиться, усі відео, які
-    зараз знаходяться тут, буде переміщено до добірки "Вибране".
+  Playlist Message: Ця сторінка не показує повністю робочих списків відтворення. На
+    ній перелічено лише відео, які ви зберегли або вибрали. Коли робота завершиться,
+    усі відео, які зараз знаходяться тут, буде переміщено до списку відтворення "Вибране".
   Search bar placeholder: Шукати у добірці
   Empty Search Message: Немає відео в цій добірці, які відповідають вашому запиту
+  Create New Playlist: Створити новий список відтворення
+  Add to Playlist: Додати список відтворення
+  Remove from Favorites: Вилучити з {playlistName}
+  Move Video Up: Посунути відео вгору
+  Move Video Down: Посунути відео вниз
+  Remove from Playlist: Вилучити зі списку відтворення
+  Playlist Description: Опис списку відтворення
+  Save Changes: Зберегти зміни
+  Cancel: Скасувати
+  Copy Playlist: Скопіювати список відтворення
+  You have no playlists. Click on the create new playlist button to create a new one.: У
+    вас немає списків відтворення. Натисніть на кнопку створити новий список відтворення,
+    щоб створити його.
+  This playlist currently has no videos.: Наразі у цьому списку відтворення немає
+    відео.
+  Add to Favorites: Додати до {playlistName}
+  Playlist Name: Назва списку відтворення
+  Edit Playlist Info: Змінити інформацію списку відтворення
+  Remove Watched Videos: Вилучити з переглянутих відео
 History:
   # On History Page
   History: 'Історія'
@@ -160,11 +180,12 @@ Settings:
       List: 'Список'
     Thumbnail Preference:
       Thumbnail Preference: 'Налаштування мініатюр'
-      Default: 'За замовчуванням'
+      Default: 'Типово'
       Beginning: 'На початку'
-      Middle: 'В середині'
+      Middle: 'У середині'
       End: 'У кінці'
       Hidden: Сховано
+      Blur: Розмиття
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Екземпляр Invidious
       (За замовчуванням https://invidious.snopyta.org)'
     Region for Trending: 'Регіон для Популярних'
@@ -319,15 +340,16 @@ Settings:
     Remove All Subscriptions / Profiles: 'Видалити всі підписки / профілі'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Справді
       хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
-    Automatically Remove Video Meta Files: Автоматично вилучати метафайли відео
-    Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео в добірку,
-      яку ви переглядали останнім часом
+    Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео у список
+      відтворення, який ви переглядали останнім часом
   Subscription Settings:
     Subscription Settings: 'Налаштування підписки'
     Hide Videos on Watch: 'Ховати відео при перегляді'
     Fetch Feeds from RSS: 'Отримати канали з RSS'
     Manage Subscriptions: 'Керування підписками'
     Fetch Automatically: Автоматично отримувати стрічку
+    Only Show Latest Video for Each Channel: Показувати лише останні відео для кожного
+      каналу
   Distraction Free Settings:
     Distraction Free Settings: 'Налаштування зосередження'
     Hide Video Views: 'Сховати перегляди відео'
@@ -339,7 +361,7 @@ Settings:
     Hide Popular Videos: 'Не показувати популярні відео'
     Hide Live Chat: 'Не показувати живий чат'
     Hide Active Subscriptions: Сховати активні підписки
-    Hide Playlists: Сховати добірки
+    Hide Playlists: Сховати списки відтворення
     Hide Video Description: Сховати опис відео
     Hide Comments: Сховати коментарі
     Hide Sharing Actions: Сховати дії поширення
@@ -347,11 +369,11 @@ Settings:
     Hide Chapters: Сховати розділи
     Hide Upcoming Premieres: Сховати майбутні прем'єри
     Hide Channels: Сховати відео з каналів
-    Hide Channels Placeholder: Назва або ID каналу
+    Hide Channels Placeholder: ID каналу
     Display Titles Without Excessive Capitalisation: Показувати заголовки без надмірно
       великих літер
     Hide Featured Channels: Сховати пропоновані канали
-    Hide Channel Playlists: Сховати добірки з каналів
+    Hide Channel Playlists: Сховати списки відтворення каналу
     Hide Channel Community: Сховати спільноту каналу
     Hide Channel Shorts: Сховати Shorts каналу
     Sections:
@@ -368,6 +390,12 @@ Settings:
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
     Blur Thumbnails: Розмиті мініатюри
     Hide Subscriptions Community: Сховати спільноту підписників
+    Hide Channels Invalid: Вказаний ID каналу недійсний
+    Hide Channels Disabled Message: Деякі канали були заблоковані за допомогою ID
+      і не були оброблені. Функція заблокована в той час, як ці ID оновлювалися
+    Hide Channels Already Exists: ID каналу вже існує
+    Hide Channels API Error: Помилка під час пошуку користувача з наданим ID. Перевірте
+      ще раз, чи правильний ID.
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -405,13 +433,13 @@ Settings:
     Unknown data key: 'Невідомий ключ даних'
     How do I import my subscriptions?: 'Як імпортувати свої підписки?'
     Manage Subscriptions: Керування підписками
-    Playlist insufficient data: Недостатньо даних для добірки "{playlist}", пропуск
-      елемента
-    All playlists has been successfully exported: Усі добірки успішно експортовано
+    Playlist insufficient data: Недостатньо даних для списку відтворення "{playlist}",
+      пропуск елемента
+    All playlists has been successfully exported: Усі списки відтворення успішно експортовано
     Import Playlists: Імпорт добірок
     Export Playlists: Експорт добірок
-    All playlists has been successfully imported: Усі добірки успішно імпортовано
-    Playlist File: Файл добірки
+    All playlists has been successfully imported: Усі списки відтворення успішно імпортовано
+    Playlist File: Файл списку відтворення
     Subscription File: Файл підписки
     History File: Файл історії
   Advanced Settings: {}
@@ -482,6 +510,7 @@ Settings:
     Set Password: Установити пароль
     Remove Password: Вилучити пароль
     Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
+  Expand All Settings Sections: Розгорнути всі розділи налаштувань
 About:
   #On About page
   About: 'Про'
@@ -554,6 +583,11 @@ Profile:
   Profile Filter: Фільтр профілю
   Profile Settings: Налаштування профілю
   Toggle Profile List: Перемкнути список профілів
+  Profile Name: Назва профілю
+  Edit Profile Name: Змінити назву профілю
+  Create Profile Name: Створити назву профілю
+  Open Profile Dropdown: Відкрити спадне меню профілю
+  Close Profile Dropdown: Закрити спадне меню профілю
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'
@@ -575,7 +609,7 @@ Channel:
       Oldest: 'Найдавніші'
       Most Popular: 'Найпопулярніші'
   Playlists:
-    Playlists: 'Добірки'
+    Playlists: 'Списки відтворення'
     This channel does not currently have any playlists: 'Цей канал наразі не має добірок'
     Sort Types:
       Last Video Added: 'Останнє додане відео'
@@ -631,9 +665,9 @@ Video:
   Open Channel in Invidious: 'Відкрити канал у Invidious'
   Copy Invidious Channel Link: 'Копіювати посилання на канал Invidious'
   Views: 'Перегляди'
-  Loop Playlist: 'Зациклити добірку'
-  Shuffle Playlist: 'Перемішати добірку'
-  Reverse Playlist: 'Змінити напрямок добірки'
+  Loop Playlist: 'Повторювати список відтворення'
+  Shuffle Playlist: 'Перемішати список відтворення'
+  Reverse Playlist: 'Зворотний напрямок списку відтворення'
   Play Next Video: 'Відтворити наступне відео'
   Play Previous Video: 'Відтворити попереднє відео'
   Watched: 'Переглянуто'
@@ -724,7 +758,7 @@ Video:
       starting video at offset: запуск відео зі зміщенням
     UnsupportedActionTemplate: '{externalPlayer} не підтримує: {action}'
     OpeningTemplate: Відкриття {videoOrPlaylist} у {externalPlayer}...
-    playlist: добірка
+    playlist: список відтворення
     video: відео
     OpenInTemplate: Відкрити у {externalPlayer}
   Premieres on: Прем'єри
@@ -756,6 +790,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Спілкування
     наживо недоступне для цієї трансляції. Можливо, вивантажувач вимкнув його.
   Pause on Current Video: Призупинити на поточному відео
+  Unhide Channel: Показати канал
+  Hide Channel: Сховати канал
 Videos:
   #& Sort By
   Sort By:
@@ -765,7 +801,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Переглянути всю добірку'
+  View Full Playlist: 'Переглянути весь список відтворення'
   Videos: 'Відео'
   View: 'Перегляд'
   Views: 'Переглядів'
@@ -774,7 +810,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: Добірка
+  Playlist: Список відтворення
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
   Change Media Formats: 'Зміна форматів відео'
@@ -787,7 +823,7 @@ Change Format:
     відео'
 Share:
   Share Video: 'Поділитися відео'
-  Share Playlist: 'Поділитися добіркою'
+  Share Playlist: 'Поділитися списком відтворення'
   Include Timestamp: 'Включити позначку часу'
   Copy Link: 'Копіювати посилання'
   Open Link: 'Відкрити посилання'
@@ -884,9 +920,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Якщо увімкнено, FreeTube автоматично отримуватиме вашу стрічку
       підписок під час відкриття нового вікна та за перемикання профілю.
-  Privacy Settings:
-    Remove Video Meta Files: Якщо увімкнено, FreeTube автоматично видаляє метафайли,
-      створені під час відтворення відео, коли сторінку перегляду закрито.
   External Player Settings:
     Custom External Player Arguments: Будь-які нетипові аргументи командного рядка
       розділяються (';') крапкою з комою, ви бажаєте, щоб вас було перенаправлено
@@ -898,16 +931,16 @@ Tooltips:
       програвач можна знайти за допомогою змінної середовища PATH. Якщо потрібно,
       тут можна призначити нетиповий шлях.
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
-      відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
-      Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
+      відео (список відтворення, якщо підтримується) у зовнішньому програвачі, на
+      мініатюрі. Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
     DefaultCustomArgumentsTemplate: "(Типово: '{defaultCustomArguments}')"
   Experimental Settings:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
   Distraction Free Settings:
-    Hide Channels: Введіть назву або ID каналу, щоб сховати всі відео, списки відтворення
-      та сам канал від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введена
-      назва каналу повинна повністю збігатися і чутлива до регістру.
+    Hide Channels: Введіть ID, щоб сховати всі відео, списки відтворення та сам канал
+      від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введений ID каналу
+      повинен повністю збігатися і чутливий до регістру.
     Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням
       "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
   SponsorBlock Settings:
@@ -915,7 +948,7 @@ Tooltips:
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
-Falling back to the local API: 'Повернення до локального API'
+Falling back to Local API: 'Повернення до локального API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Це
   відео недоступне через відсутність форматів. Це може статися через недоступність
   країни.'
@@ -924,12 +957,12 @@ Loop is now disabled: 'Цикл вимкнено'
 Loop is now enabled: 'Цикл увімкнено'
 Shuffle is now disabled: 'Випадковий порядок вимкнено'
 Shuffle is now enabled: 'Випадковий порядок увімкнено'
-The playlist has been reversed: 'Добірку обернено'
+The playlist has been reversed: 'Список відтворення обернено'
 Playing Next Video: 'Відтворення наступного відео'
 Playing Previous Video: 'Відтворення попереднього відео'
 Canceled next video autoplay: 'Скасовано автовідтворення наступного відео'
-'The playlist has ended. Enable loop to continue playing': 'Добірка завершилася. Увімкніть
-  цикл, щоб продовжити відтворення'
+'The playlist has ended. Enable loop to continue playing': 'Список відтворення завершився.
+  Увімкніть повторення, щоб продовжити відтворення'
 
 Yes: 'Так'
 No: 'Ні'
@@ -960,13 +993,6 @@ Download folder does not exist: Каталог завантаження "$" не
 Screenshot Success: Знімок екрана збережено як «{filePath}»
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
-Age Restricted:
-  The currently set default instance is {instance}: Цей {instance} має обмеження за
-    віком
-  Type:
-    Video: Відео
-    Channel: Канал
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} має вікове обмеження'
 Channels:
   Count: 'Знайдено каналів: {number}.'
   Empty: Ваш список каналів наразі порожній.
@@ -991,7 +1017,11 @@ Ok: Гаразд
 Hashtag:
   Hashtag: Хештег
   This hashtag does not currently have any videos: За цим хештегом наразі немає відео
-Playlist will pause when current video is finished: Добірка призупиняється, коли поточне
-  відео завершено
-Playlist will not pause when current video is finished: Добірка не призупиняється,
+Playlist will pause when current video is finished: Список відтворення призупиняється,
   коли поточне відео завершено
+Playlist will not pause when current video is finished: Список відтворення не призупиняється,
+  коли поточне відео завершено
+Channel Hidden: '{channel} додано до фільтра каналу'
+Go to page: Перейти до {page}
+Channel Unhidden: '{channel} вилучено з фільтра каналу'
+Close Banner: Закрити банер

@@ -10,6 +10,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
 import { showToast } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'GeneralSettings',
@@ -23,24 +24,14 @@ export default defineComponent({
   },
   data: function () {
     return {
-      backendValues: [
-        'invidious',
-        'local'
-      ],
-      defaultPageNames: [
-        'Subscriptions',
-        'Trending',
-        'Most Popular',
-        'Playlists',
-        'History'
-      ],
-      defaultPageValues: [
-        'subscriptions',
-        'trending',
-        'mostPopular',
-        'playlists',
-        'history'
-      ],
+      backendValues: process.env.SUPPORTS_LOCAL_API
+        ? [
+            'invidious',
+            'local'
+          ]
+        : [
+            'invidious'
+          ],
       viewTypeValues: [
         'grid',
         'list'
@@ -50,12 +41,22 @@ export default defineComponent({
         'start',
         'middle',
         'end',
-        'hidden'
+        'hidden',
+        'blur'
       ],
       externalLinkHandlingValues: [
         '',
         'openLinkAfterPrompt',
         'doNothing'
+      ],
+      includedDefaultPageNames: [
+        'subscriptions',
+        'subscribedChannels',
+        'trending',
+        'popular',
+        'userPlaylists',
+        'history',
+        'settings'
       ]
     }
   },
@@ -69,16 +70,51 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
     },
+    hidePlaylists: function () {
+      return this.$store.getters.getHidePlaylists
+    },
+    hidePopularVideos: function () {
+      return this.$store.getters.getHidePopularVideos
+    },
+    hideTrendingVideos: function () {
+      return this.$store.getters.getHideTrendingVideos
+    },
+    defaultPages: function () {
+      let includedPageNames = this.includedDefaultPageNames
+      if (this.hideTrendingVideos) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'trending')
+      if (this.hidePlaylists) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'userPlaylists')
+      if (!(!this.hidePopularVideos && (this.backendFallback || this.backendPreference === 'invidious'))) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'popular')
+      return this.$router.getRoutes().filter((route) => includedPageNames.includes(route.name))
+    },
+    defaultPageNames: function () {
+      return this.defaultPages.map((route) => translateWindowTitle(route.meta.title, this.$i18n))
+    },
+    defaultPageValues: function () {
+      // avoid Vue parsing issues by excluding '/' from path values
+      return this.defaultPages.map((route) => route.path.substring(1))
+    },
     backendPreference: function () {
+      if (!process.env.SUPPORTS_LOCAL_API && this.$store.getters.getBackendPreference === 'local') {
+        this.handlePreferredApiBackend('invidious')
+      }
+
       return this.$store.getters.getBackendPreference
     },
     landingPage: function () {
+      const landingPage = this.$store.getters.getLandingPage
+      // invalidate landing page selection & restore to default value if no longer valid
+      if (!this.defaultPageValues.includes(landingPage)) {
+        this.updateLandingPage('subscriptions')
+      }
       return this.$store.getters.getLandingPage
     },
     region: function () {
@@ -88,7 +124,7 @@ export default defineComponent({
       return this.$store.getters.getListType
     },
     thumbnailPreference: function () {
-      return this.$store.getters.getThumbnailPreference
+      return this.blurThumbnails ? 'blur' : this.$store.getters.getThumbnailPreference
     },
     currentLocale: function () {
       return this.$store.getters.getCurrentLocale
@@ -121,10 +157,16 @@ export default defineComponent({
     },
 
     backendNames: function () {
-      return [
-        this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Local API')
-      ]
+      if (process.env.SUPPORTS_LOCAL_API) {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
+          this.$t('Settings.General Settings.Preferred API Backend.Local API')
+        ]
+      } else {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API')
+        ]
+      }
     },
 
     viewTypeNames: function () {
@@ -140,7 +182,8 @@ export default defineComponent({
         this.$t('Settings.General Settings.Thumbnail Preference.Beginning'),
         this.$t('Settings.General Settings.Thumbnail Preference.Middle'),
         this.$t('Settings.General Settings.Thumbnail Preference.End'),
-        this.$t('Settings.General Settings.Thumbnail Preference.Hidden')
+        this.$t('Settings.General Settings.Thumbnail Preference.Hidden'),
+        this.$t('Settings.General Settings.Thumbnail Preference.Blur')
       ]
     },
 
@@ -203,6 +246,11 @@ export default defineComponent({
       }
     },
 
+    handleThumbnailPreferenceChange: function (value) {
+      this.updateBlurThumbnails(value === 'blur')
+      this.updateThumbnailPreference(value)
+    },
+
     ...mapMutations([
       'setCurrentInvidiousInstance'
     ]),
@@ -210,6 +258,7 @@ export default defineComponent({
     ...mapActions([
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
+      'updateBlurThumbnails',
       'updateCheckForUpdates',
       'updateCheckForBlogPosts',
       'updateBarColor',

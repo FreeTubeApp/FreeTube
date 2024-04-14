@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte de la aplicación aún no está lista. Vuelva más tarde cuando se haya avanzado.
@@ -290,7 +289,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ¿Estás
       seguro de que deseas eliminar todos los suscripciones y perfiles? Esto no puede
       ser deshecho.
-    Automatically Remove Video Meta Files: Borrar automáticamente metadatos del video
   Data Settings:
     How do I import my subscriptions?: ¿Cómo puedo importar mis suscripciones?
     Export History: Exportar Historia
@@ -678,7 +676,7 @@ Local API Error (Click to copy): 'Error de la API local (Presione para copiar)'
 Invidious API Error (Click to copy): 'Error de la API de Invidious (Presione para
   copiar)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
-Falling back to the local API: 'Recurriendo a la API local'
+Falling back to Local API: 'Recurriendo a la API local'
 Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: 'El bucle esta desactivado'
 Loop is now enabled: 'El bucle esta activado'
@@ -759,9 +757,9 @@ Tooltips:
       del país que deseé ver mostradas.
     Thumbnail Preference: Todas las miniaturas a través de FreeTube serán reemplazadas
       con un fotograma del video en vez de su miniatura por defecto.
-    External Link Handling: "Elija el comportamiento previsto para cuando un link,\
-      \ que no pueda ser abierto en FreeTube, sea cliqueado.\nPor defecto FreeTube\
-      \ abrirá el link cliqueado en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento previsto para cuando un link,
+      que no pueda ser abierto en FreeTube, sea cliqueado.\nPor defecto FreeTube abrirá
+      el link cliqueado en su navegador predeterminado.\n"
     Fallback to Non-Preferred Backend on Failure: Si la API que eligió sufre algún
       problema, FreeTube intentará usar automáticamente otra API como método de respaldo
       al activar esta opción.
@@ -796,14 +794,14 @@ Tooltips:
       presionada la tecla Ctrl (tecla Comando en Mac) y haga clic izquierdo para reestablecer
       la velocidad de reproducción predeterminada (que es de 1x, a menos que la haya
       cambiado en configuración).
-  Privacy Settings:
-    Remove Video Meta Files: Si se habilita, FreeTube borrará automáticamente los
-      metadatos creados al abrir el video, una vez que la ventana se cierre.
   Subscription Settings:
     Fetch Feeds from RSS: Si se habilita, FreeTube usará RSS en lugar del método predeterminado
       para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen
       su IP, pero no es capaz de proveer ciertos datos del video, como su duración,
       o si está en directo
+  Distraction Free Settings:
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
+      «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
 Downloading has completed: '"{videoTitle}" ha acabado de descargarse'
 Default Invidious instance has been cleared: La dirección de Invidious predeterminada
   se ha borrado

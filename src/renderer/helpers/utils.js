@@ -12,11 +12,27 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 /**
  * @param {string} publishedText
+ * @param {boolean} isLive
+ * @param {boolean} isUpcoming
+ * @param {Date|undefined} premiereDate
  */
-export function calculatePublishedDate(publishedText) {
+export function calculatePublishedDate(publishedText, isLive = false, isUpcoming = false, premiereDate = undefined) {
   const date = new Date()
-  if (publishedText === 'Live') {
-    return publishedText
+
+  if (isLive) {
+    return date.getTime()
+  } else if (isUpcoming) {
+    if (premiereDate) {
+      return premiereDate.getTime()
+    } else {
+      // should never happen but just to be sure that we always return a number
+      return date.getTime()
+    }
+  }
+
+  if (!publishedText) {
+    console.error("publishedText is missing but the video isn't live or upcoming")
+    return undefined
   }
 
   const match = publishedText.match(PUBLISHED_TEXT_REGEX)
@@ -44,6 +60,26 @@ export function calculatePublishedDate(publishedText) {
   return date.getTime() - timeSpan
 }
 
+/**
+ * @param {{
+ *  liveNow: boolean,
+ *  isUpcoming: boolean,
+ *  premiereTimestamp: number,
+ *  published: number
+ * }[]} videos
+ */
+export function setPublishedTimestampsInvidious(videos) {
+  videos.forEach(video => {
+    if (video.liveNow) {
+      video.published = new Date().getTime()
+    } else if (video.isUpcoming) {
+      video.published = video.premiereTimestamp * 1000
+    } else if (typeof video.published === 'number') {
+      video.published *= 1000
+    }
+  })
+}
+
 export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
   if (isLive) {
     return i18n.tc('Global.Counts.Watching Count', 0, { count: 0 })
@@ -56,43 +92,67 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
 
   const match = publishText.match(PUBLISHED_TEXT_REGEX)
   const singular = (match[1] === '1')
-  let translationKey = ''
+  let unit = ''
   switch (match[2].substring(0, 2)) {
     case 'se':
     case 's':
-      translationKey = 'Video.Published.Second'
+      if (singular) {
+        unit = i18n.t('Video.Published.Second')
+      } else {
+        unit = i18n.t('Video.Published.Seconds')
+      }
       break
     case 'mi':
     case 'm':
-      translationKey = 'Video.Published.Minute'
+      if (singular) {
+        unit = i18n.t('Video.Published.Minute')
+      } else {
+        unit = i18n.t('Video.Published.Minutes')
+      }
       break
     case 'ho':
     case 'h':
-      translationKey = 'Video.Published.Hour'
+      if (singular) {
+        unit = i18n.t('Video.Published.Hour')
+      } else {
+        unit = i18n.t('Video.Published.Hours')
+      }
       break
     case 'da':
     case 'd':
-      translationKey = 'Video.Published.Day'
+      if (singular) {
+        unit = i18n.t('Video.Published.Day')
+      } else {
+        unit = i18n.t('Video.Published.Days')
+      }
       break
     case 'we':
     case 'w':
-      translationKey = 'Video.Published.Week'
+      if (singular) {
+        unit = i18n.t('Video.Published.Week')
+      } else {
+        unit = i18n.t('Video.Published.Weeks')
+      }
       break
     case 'mo':
-      translationKey = 'Video.Published.Month'
+      if (singular) {
+        unit = i18n.t('Video.Published.Month')
+      } else {
+        unit = i18n.t('Video.Published.Months')
+      }
       break
     case 'ye':
     case 'y':
-      translationKey = 'Video.Published.Year'
+      if (singular) {
+        unit = i18n.t('Video.Published.Year')
+      } else {
+        unit = i18n.t('Video.Published.Years')
+      }
       break
     default:
       return publishText
   }
-  if (!singular) {
-    translationKey += 's'
-  }
 
-  const unit = i18n.t(translationKey)
   return i18n.t('Video.Publicationtemplate', { number: match[1], unit })
 }
 
@@ -538,8 +598,7 @@ export function extractNumberFromString(str) {
   }
 }
 
-export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionName) {
-  const action = i18n.t(`Video.External Player.Unsupported Actions.${actionName}`)
+export function showExternalPlayerUnsupportedActionToast(externalPlayer, action) {
   const message = i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
   showToast(message)
 }
@@ -572,6 +631,7 @@ export function getVideoParamsFromUrl(url) {
     function () {
       if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice(1))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
     },
@@ -615,9 +675,10 @@ export function getVideoParamsFromUrl(url) {
 
 /**
  * This will match sequences of upper case characters and convert them into title cased words.
+ * This will also match excessive strings of punctionation and convert them to one representative character
  * @param {string} title the title to process
  * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
- * @returns {string} the title with upper case characters removed
+ * @returns {string} the title with upper case characters removed and punctuation normalized
  */
 export function toDistractionFreeTitle(title, minUpperCase = 3) {
   const firstValidCharIndex = (word) => {
@@ -633,7 +694,10 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
   }
 
   const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
-  return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
+  return title
+    .replaceAll(/!{2,}/g, '!')
+    .replaceAll(/[!?]{2,}/g, '?')
+    .replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
 export function formatNumber(number, options = undefined) {

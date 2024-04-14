@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'اردو'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   'ایپ کا یہ حصہ ابھی تک تیار نہیں ہے۔ جب پیش رفت ہو جائے تو بعد میں واپس آئیں۔'
@@ -201,9 +200,6 @@ Tooltips:
       کرے گا۔ آپ کی سبسکرپشن فیڈ حاصل کرنے کا طریقہ۔ آر ایس ایس تیز ہے اور آئی پی
       کو بلاک کرنے سے روکتا ہے، لیکن کچھ معلومات فراہم نہیں کرتا ہے جیسے ویڈیو کا
       دورانیہ یا لائیو اسٹیٹس'
-  Privacy Settings:
-    Remove Video Meta Files: 'فعال ہونے پر، FreeTube ویڈیو پلے بیک کے دوران بنائی
-      گئی میٹا فائلوں کو خود بخود حذف کر دیتا ہے، جب دیکھنے کا صفحہ بند ہوتا ہے۔'
 
 # Toast Messages
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
@@ -230,10 +226,6 @@ Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال ک
   گیا ہے۔'
 'The playlist has ended. Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔
   فعال کھیل جاری رکھنے کے لیے لوپ'
-Age Restricted:
-  Type:
-    Channel: 'چینل'
-    Video: 'ویڈیو'
 External link opening has been disabled in the general settings: 'عام ترتیبات میں
   بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے۔'
 Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'

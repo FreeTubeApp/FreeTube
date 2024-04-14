@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { mapActions } from 'vuex'
+
+import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
 export default defineComponent({
@@ -143,7 +144,9 @@ export default defineComponent({
   methods: {
     handleClick: function (e) {
       // No action if no input text
-      if (!this.inputDataPresent) { return }
+      if (!this.inputDataPresent) {
+        return
+      }
 
       this.searchState.showOptions = false
       this.searchState.selectedOption = -1
@@ -313,6 +316,10 @@ export default defineComponent({
 
     focus() {
       this.$refs.input.focus()
+    },
+
+    select() {
+      this.$refs.input.select()
     },
 
     blur() {

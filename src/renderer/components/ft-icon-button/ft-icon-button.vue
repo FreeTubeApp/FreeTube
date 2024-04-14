@@ -8,6 +8,7 @@
       }"
       tabindex="0"
       role="button"
+      :aria-expanded="dropdownShown"
       @click="handleIconClick"
       @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
@@ -25,7 +26,9 @@
       <p
         v-if="!hideLabel"
         class="iconButtonLabel"
-      >{{ title }}</p>
+      >
+        {{ title }}
+      </p>
     </div>
     <template
       v-if="dropdownShown"
@@ -41,7 +44,6 @@
             v-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
-            :aria-expanded="dropdownShown"
           >
             <li
               v-for="(option, index) in dropdownOptions"
@@ -73,13 +75,13 @@
           top: dropdownPositionY === 'top'
         }"
         @focusout="handleDropdownFocusOut"
+        @keydown.esc.stop="handleDropdownEscape"
       >
         <slot>
           <ul
             v-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
-            :aria-expanded="dropdownShown"
           >
             <li
               v-for="(option, index) in dropdownOptions"
