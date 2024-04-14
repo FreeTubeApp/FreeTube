@@ -65,9 +65,9 @@
 
 .playlistIconActive:hover {
   background-color: var(--side-nav-hover-color);
-  color: var(--side-nav-hover-text-color);
+  color: var(--accent-color-hover);
   stroke-width: 10;
-  stroke: var(--side-nav-hover-text-color);
+  stroke: var(--accent-color-hover);
   transition: background 0.2s ease-in;
 }
 
