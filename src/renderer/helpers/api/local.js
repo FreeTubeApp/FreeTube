@@ -1,6 +1,7 @@
 import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
+import store from '../../store/index'
 
 import { PlayerCache } from './PlayerCache'
 import {
@@ -68,7 +69,14 @@ export async function getLocalSearchSuggestions(query) {
     searchSuggestionsSession = await createInnertube()
   }
 
-  return await searchSuggestionsSession.getSearchSuggestions(query)
+  const searchCharLimit = store.getters.getSearchCharacterLimit
+
+  if (query.length <= searchCharLimit) {
+    return await searchSuggestionsSession.getSearchSuggestions(query)
+  } else {
+    // There's an event handler on the search input so avoid displaying an exception
+    console.error('Query is over ' + searchCharLimit + ' characters')
+  }
 }
 
 export function clearLocalSearchSuggestionsSession() {

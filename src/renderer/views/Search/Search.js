@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import i18n from '../../i18n/index'
 import {
   copyToClipboard,
   searchFiltersMatch,
@@ -90,26 +91,33 @@ export default defineComponent({
   },
   methods: {
     checkSearchCache: function (payload) {
-      const sameSearch = this.sessionSearchHistory.filter((search) => {
-        return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
-      })
+      const searchCharLimit = this.$store.getters.getSearchCharacterLimit
 
-      if (sameSearch.length > 0) {
-        // No loading effect needed here, only rendered result update
-        this.replaceShownResults(sameSearch[0])
-      } else {
-        // Show loading effect coz there will be network request(s)
-        this.isLoading = true
-        this.searchSettings = payload.searchSettings
+      if (payload.query.length <= searchCharLimit) {
+        const sameSearch = this.sessionSearchHistory.filter((search) => {
+          return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
+        })
 
-        switch (this.backendPreference) {
-          case 'local':
-            this.performSearchLocal(payload)
-            break
-          case 'invidious':
-            this.performSearchInvidious(payload, { resetSearchPage: true })
-            break
+        if (sameSearch.length > 0) {
+          // No loading effect needed here, only rendered result update
+          this.replaceShownResults(sameSearch[0])
+        } else {
+          // Show loading effect coz there will be network request(s)
+          this.isLoading = true
+          this.searchSettings = payload.searchSettings
+
+          switch (this.backendPreference) {
+            case 'local':
+              this.performSearchLocal(payload)
+              break
+            case 'invidious':
+              this.performSearchInvidious(payload, { resetSearchPage: true })
+              break
+          }
         }
+      } else {
+        console.warn('Search character limit is: ', searchCharLimit)
+        showToast(i18n.t('Search character limit', { searchCharacterLimit: searchCharLimit }))
       }
     },
 
