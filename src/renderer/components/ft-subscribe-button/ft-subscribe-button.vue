@@ -18,7 +18,7 @@
         @click="handleSubscription"
       />
       <ft-prompt
-        v-if="showUnsubscribePopup"
+        v-if="showUnsubscribePopupForProfile !== null"
         :label="$t('Channels.Unsubscribe Prompt', { channelName: channelName })"
         :option-names="[$t('Yes'), $t('No')]"
         :option-values="['yes', 'no']"

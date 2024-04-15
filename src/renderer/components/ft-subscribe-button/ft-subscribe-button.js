@@ -44,7 +44,7 @@ export default defineComponent({
   data: function () {
     return {
       isProfileDropdownOpen: false,
-      showUnsubscribePopup: false
+      showUnsubscribePopupForProfile: null
     }
   },
   computed: {
@@ -107,9 +107,9 @@ export default defineComponent({
 
       if (this.isProfileSubscribed(profile)) {
         if (this.$store.getters.getUnsubscriptionPopupStatus) {
-          this.showUnsubscribePopup = true
+          this.showUnsubscribePopupForProfile = profile
         } else {
-          this.handleUnsubscription()
+          this.handleUnsubscription(profile)
         }
       } else {
         const currentProfile = deepCopy(profile)
@@ -155,13 +155,14 @@ export default defineComponent({
     },
 
     handleUnsubscribeConfirmation: async function (value) {
-      this.showUnsubscribePopup = false
+      const profile = this.showUnsubscribePopupForProfile
+      this.showUnsubscribePopupForProfile = null
       if (value === 'yes') {
-        this.handleUnsubscription()
+        this.handleUnsubscription(profile)
       }
     },
 
-    handleUnsubscription: function (profile = this.activeProfile) {
+    handleUnsubscription: function (profile) {
       const currentProfile = deepCopy(profile)
       currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
         return channel.id !== this.channelId
