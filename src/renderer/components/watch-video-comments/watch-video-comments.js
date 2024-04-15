@@ -63,10 +63,6 @@ export default defineComponent({
       return this.$store.getters.getHideCommentPhotos
     },
 
-    commentAutoLoadEnabled: function () {
-      return this.$store.getters.getCommentAutoLoadEnabled
-    },
-
     sortNames: function () {
       return [
         this.$t('Comments.Top comments'),
@@ -89,7 +85,7 @@ export default defineComponent({
       return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
     },
     observeVisibilityOptions: function () {
-      if (!(this.commentAutoLoadEnabled || this.generalAutoLoadMorePaginatedItemsEnabled)) {
+      if (!this.generalAutoLoadMorePaginatedItemsEnabled) {
         return false
       }
       if (!this.videoPlayerReady) { return false }
@@ -100,7 +96,7 @@ export default defineComponent({
           // No point doing anything if not visible
           if (!isVisible) { return }
           // It's possible the comments are being loaded/already loaded
-          if (this.canPerformInitialCommentLoading && this.commentAutoLoadEnabled) {
+          if (this.canPerformInitialCommentLoading) {
             this.getCommentData()
           } else if (this.canPerformMoreCommentLoading) {
             this.getMoreComments()

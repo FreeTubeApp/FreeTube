@@ -253,7 +253,7 @@ Settings:
     Enable Search Suggestions: Enable Search Suggestions
     Auto Load Next Page:
       Label: Auto Load Next Page
-      Tooltip: This does NOT handle video comment auto load
+      Tooltip: This also handles video comment auto load
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
     System Default: System Default
@@ -399,8 +399,6 @@ Settings:
       Error:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
-    Comment Auto Load:
-      Comment Auto Load: Comment Auto Load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player

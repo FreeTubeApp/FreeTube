@@ -255,14 +255,6 @@
       </ft-flex-box>
       <br>
     </div>
-    <ft-flex-box>
-      <ft-toggle-switch
-        :label="$t('Settings.Player Settings.Comment Auto Load.Comment Auto Load')"
-        :default-value="commentAutoLoadEnabled"
-        :disabled="hideComments"
-        @change="updateCommentAutoLoadEnabled"
-      />
-    </ft-flex-box>
   </ft-settings-section>
 </template>
 

@@ -293,8 +293,6 @@ Settings:
       Error:
         Forbidden Characters: 'Aizliegtās rakstzīmes'
         Empty File Name: 'Tukšs datnes nosaukums'
-    Comment Auto Load:
-      Comment Auto Load: 'Komentāru autoielāde'
   External Player Settings:
     External Player Settings: 'Ārējā atskaņotāja iestatījumi'
     External Player: 'Ārējais atskaņotājs'

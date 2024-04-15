@@ -197,10 +197,6 @@ export default defineComponent({
       return this.$store.getters.getScreenshotFilenamePattern
     },
 
-    commentAutoLoadEnabled: function () {
-      return this.$store.getters.getCommentAutoLoadEnabled
-    },
-
     hideComments: function () {
       return this.$store.getters.getHideComments
     },
@@ -209,11 +205,6 @@ export default defineComponent({
     screenshotFolder: function() {
       this.getScreenshotFolderPlaceholder()
     },
-    hideComments: function(newValue) {
-      if (newValue) {
-        this.updateCommentAutoLoadEnabled(false)
-      }
-    }
   },
   mounted: function() {
     this.getScreenshotFolderPlaceholder()
@@ -317,7 +308,6 @@ export default defineComponent({
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
-      'updateCommentAutoLoadEnabled',
     ])
   }
 })
