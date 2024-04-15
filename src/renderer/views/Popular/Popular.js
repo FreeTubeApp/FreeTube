@@ -70,6 +70,7 @@ export default defineComponent({
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
       setPublishedTimestampsInvidious(items.filter(item => item.type === 'video' || item.type === 'shortVideo'))
+      this.setLastPopularRefreshTimestamp(new Date())
 
       this.shownResults = items
 
