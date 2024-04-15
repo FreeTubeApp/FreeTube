@@ -7500,10 +7500,10 @@ sanitize-filename@^1.6.3:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass-loader@^14.1.1:
-  version "14.1.1"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-14.1.1.tgz#2c9d2277c5b1c5fe789cd0570c046d8ad23cb7ca"
-  integrity sha512-QX8AasDg75monlybel38BZ49JP5Z+uSKfKwF2rO7S74BywaRmGQMUBw9dtkS+ekyM/QnP+NOrRYq8ABMZ9G8jw==
+sass-loader@^14.2.0:
+  version "14.2.0"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-14.2.0.tgz#0d4440170fd9c9d93684e274a5ef73dbf55f414b"
+  integrity sha512-jxmjDXD9OYNDb2bp9JvopdE6QjecQY9beTWik/6sEHrsMxyo90Gyc471A4NUz60NLs4WsAh6yVtIvhLwEZcXeg==
   dependencies:
     neo-async "^2.6.2"
 
