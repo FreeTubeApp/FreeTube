@@ -52,6 +52,7 @@
         <span
           role="button"
           tabindex="0"
+          :aria-pressed="loopEnabled"
           @click="toggleLoop"
           @keydown.enter.prevent="toggleLoop"
           @keydown.space.prevent="toggleLoop"
@@ -66,6 +67,7 @@
         <span
           role="button"
           tabindex="0"
+          :aria-pressed="shuffleEnabled"
           @click="toggleShuffle"
           @keydown.enter.prevent="toggleShuffle"
           @keydown.space.prevent="toggleShuffle"
@@ -80,6 +82,7 @@
         <span
           role="button"
           tabindex="0"
+          :aria-pressed="reversePlaylist"
           @click="toggleReversePlaylist"
           @keydown.enter.prevent="toggleReversePlaylist"
           @keydown.space.prevent="toggleReversePlaylist"
@@ -120,6 +123,7 @@
         <span
           role="button"
           tabindex="0"
+          :aria-pressed="pauseOnCurrentVideo"
           @click="togglePauseOnCurrentVideo"
           @keydown.enter.prevent="togglePauseOnCurrentVideo"
           @keydown.space.prevent="togglePauseOnCurrentVideo"

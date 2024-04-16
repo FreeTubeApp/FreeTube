@@ -261,6 +261,12 @@ export default defineComponent({
 
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },
+  mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+  },
+  beforeUnmount: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
+  },
   methods: {
     toggleCopyVideosPrompt: function (force = false) {
       if (this.moreVideoDataAvailable && !this.isUserPlaylist && !force) {
@@ -405,24 +411,18 @@ export default defineComponent({
       this.query = query
       this.$emit('search-video-query-change', query)
     },
-    enableVideoSearchMode() {
-      this.searchVideoMode = true
-      this.$emit('search-video-mode-on')
 
-      nextTick(() => {
-        // Some elements only present after rendering update
-        this.$refs.searchInput.focus()
-      })
-    },
-    disableVideoSearchMode() {
-      this.searchVideoMode = false
-      this.updateQuery('')
-      this.$emit('search-video-mode-off')
-
-      nextTick(() => {
-        // Some elements only present after rendering update
-        this.$refs.enableSearchModeButton?.focus()
-      })
+    keyboardShortcutHandler(event) {
+      switch (event.key) {
+        case 'F':
+        case 'f':
+          if (this.searchVideoModeAllowed && ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
+            nextTick(() => {
+              // Some elements only present after rendering update
+              this.$refs.searchInput.focus()
+            })
+          }
+      }
     },
 
     ...mapActions([

@@ -8,7 +8,6 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
@@ -125,11 +124,17 @@ export default defineComponent({
     },
 
     enableProxy: function () {
-      ipcRenderer.send(IpcChannels.ENABLE_PROXY, this.proxyUrl)
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.ENABLE_PROXY, this.proxyUrl)
+      }
     },
 
     disableProxy: function () {
-      ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+      }
 
       this.dataAvailable = false
       this.proxyIp = ''

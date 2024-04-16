@@ -25,7 +25,6 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    electron: '{}',
     'youtubei.js': '{}'
   },
   module: {

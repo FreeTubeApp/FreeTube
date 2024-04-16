@@ -2,7 +2,8 @@
 Locale Name: 'română'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Această parte a aplicației nu este gata încă. Revino mai târziu pentru modificări.
+  Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
+  progrese.
 
 # Webkit Menu Bar
 File: 'Filă'
@@ -42,7 +43,7 @@ Global:
     Channel Count: 1 canal | {count} canale
     Watching Count: 1 se uită | {count} se uită
   Input Tags:
-    Length Requirement: Tag-ul trebuie să aibă cel puțin {number} caractere
+    Length Requirement: Eticheta trebuie să aibă cel puțin {number} caractere
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -70,7 +71,7 @@ Search Filters:
     This Year: 'Anul acesta'
   Type:
     Type: 'Tip'
-    All Types: 'Toate Tipurile'
+    All Types: 'Toate tipurile'
     Videos: 'Videoclipuri'
     Channels: 'Canale'
     #& Playlists
@@ -336,8 +337,6 @@ Settings:
     Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
       de scroll
     Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
-    Comment Auto Load:
-      Comment Auto Load: Comentariu Încărcare automată
     Skip by Scrolling Over Video Player: Omiteți derulând peste player-ul video
     Allow DASH AV1 formats: Permiteți formatele DASH AV1
   Privacy Settings:
@@ -812,6 +811,8 @@ Video:
   Premieres: Premiere
   Show Super Chat Comment: Afișați comentariul Super Chat
   Pause on Current Video: Pauză la videoclipul curent
+  Hide Channel: Ascunde canalul
+  Unhide Channel: Arată canalul
 Videos:
   #& Sort By
   Sort By:

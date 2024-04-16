@@ -76,7 +76,6 @@
     <hr>
 
     <div
-      v-if="!searchVideoMode"
       class="channelShareWrapper"
     >
       <router-link
@@ -107,14 +106,6 @@
       </div>
 
       <div class="playlistOptions">
-        <ft-icon-button
-          v-if="searchVideoModeAllowed && videoCount > 0 && !editMode"
-          ref="enableSearchModeButton"
-          :title="$t('User Playlists.SinglePlaylistView.Search for Videos')"
-          :icon="['fas', 'search']"
-          theme="secondary"
-          @click="enableVideoSearchMode"
-        />
         <ft-icon-button
           v-if="editMode"
           :title="$t('User Playlists.Save Changes')"
@@ -198,7 +189,7 @@
     </div>
 
     <div
-      v-if="searchVideoModeAllowed && searchVideoMode"
+      v-if="searchVideoModeAllowed"
       class="searchInputsRow"
     >
       <ft-input
@@ -210,12 +201,6 @@
         :value="query"
         @input="(input) => updateQueryDebounce(input)"
         @clear="updateQueryDebounce('')"
-      />
-      <ft-icon-button
-        :title="$t('User Playlists.Cancel')"
-        :icon="['fas', 'times']"
-        theme="secondary"
-        @click="disableVideoSearchMode"
       />
     </div>
   </div>

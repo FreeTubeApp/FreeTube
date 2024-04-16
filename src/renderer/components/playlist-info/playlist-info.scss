@@ -75,12 +75,6 @@
 
 .searchInputsRow {
   margin-block-start: 8px;
-
-  display: grid;
-
-  /* 2 columns */
-  grid-template-columns: 1fr auto;
-  column-gap: 8px;
 }
 
 @media only screen and (max-width: 1250px) {
