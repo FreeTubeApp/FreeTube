@@ -7,6 +7,7 @@ import FtRefreshWidget from '../ft-refresh-widget/ft-refresh-widget.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
+import FtAutoLoadNextPageWrapper from '../ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 export default defineComponent({
   name: 'SubscriptionsTabUI',
@@ -17,7 +18,8 @@ export default defineComponent({
     'ft-refresh-widget': FtRefreshWidget,
     'ft-flex-box': FtFlexBox,
     'ft-element-list': FtElementList,
-    'ft-channel-bubble': FtChannelBubble
+    'ft-channel-bubble': FtChannelBubble,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   props: {
     isLoading: {
@@ -88,7 +90,7 @@ export default defineComponent({
       this.dataLimit = this.initialDataLimit
     }
   },
-  mounted: async function () {
+  mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
   },
   beforeDestroy: function () {

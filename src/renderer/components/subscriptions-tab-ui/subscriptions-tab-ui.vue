@@ -45,16 +45,19 @@
       :use-channels-hidden-preference="false"
       :display="isCommunity ? 'list' : ''"
     />
-    <ft-flex-box
+    <ft-auto-load-next-page-wrapper
       v-if="!isLoading && videoList.length > dataLimit"
+      @load-next-page="increaseLimit"
     >
-      <ft-button
-        :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
-        background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
-        @click="increaseLimit"
-      />
-    </ft-flex-box>
+      <ft-flex-box>
+        <ft-button
+          :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="increaseLimit"
+        />
+      </ft-flex-box>
+    </ft-auto-load-next-page-wrapper>
     <ft-refresh-widget
       :disable-refresh="isLoading || activeSubscriptionList.length === 0"
       :last-refresh-timestamp="lastRefreshTimestamp"
