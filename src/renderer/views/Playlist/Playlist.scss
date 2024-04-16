@@ -10,7 +10,6 @@
 
 .playlistInfoContainer {
   box-sizing: border-box;
-  padding: 10px;
   /* This is needed to make prompt always above video entries */
   /* Value being too high would block search suggestions */
   z-index: 1;
@@ -67,6 +66,10 @@
       margin-inline-end: 1em;
       position: sticky;
       inline-size: 60%;
+
+      .playlistInfo {
+        padding: 10px;
+      }
     }
   }
 }
@@ -127,6 +130,12 @@
         inline-size: 100%;
       }
     }
+
+    &.grid {
+      .playlistInfoContainer {
+        padding-inline: 20px;
+      }
+    }
   }
 
   .playlistItemsCard {
@@ -141,12 +150,9 @@
 
 @media only screen and (max-width: 680px) {
   .routerView.grid {
-    margin-block-start: 218px;
+    margin-block-start: 230px;
     .playlistInfoContainer {
       position: absolute;
-    }
-    .playlistInfo {
-      inline-size: 90%;
     }
   }
 }

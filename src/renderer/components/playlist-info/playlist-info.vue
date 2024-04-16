@@ -37,7 +37,7 @@
       <ft-input
         v-if="editMode"
         ref="playlistTitleInput"
-        class="searchInput"
+        class="inputElement"
         :placeholder="$t('User Playlists.Playlist Name')"
         :show-action-button="false"
         :show-label="false"
@@ -65,7 +65,7 @@
 
     <ft-input
       v-if="editMode"
-      class="searchInput descriptionInput"
+      class="inputElement descriptionInput"
       :placeholder="$t('User Playlists.Playlist Description')"
       :show-action-button="false"
       :show-label="false"
@@ -81,7 +81,6 @@
     <hr class="playlistInfoSeparator">
 
     <div
-      v-if="!searchVideoMode"
       class="channelShareWrapper"
     >
       <router-link
@@ -127,7 +126,6 @@
             theme="secondary"
             @click="exitEditMode"
           />
-
           <ft-icon-button
             v-if="!editMode && isUserPlaylist"
             :title="$t('User Playlists.Edit Playlist Info')"
@@ -178,14 +176,13 @@
             share-target-type="Playlist"
           />
         </div>
-
         <div
           v-if="searchVideoModeAllowed"
           class="searchInputsRow"
         >
           <ft-input
             ref="searchInput"
-            class="searchInput"
+            class="inputElement"
             :placeholder="$t('User Playlists.SinglePlaylistView.Search for Videos')"
             :show-clear-text-button="true"
             :show-action-button="false"

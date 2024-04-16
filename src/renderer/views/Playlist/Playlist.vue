@@ -7,7 +7,6 @@
       v-if="isLoading"
       :fullscreen="true"
     />
-
     <div class="playlistInfoContainer">
       <playlist-info
         v-if="!isLoading"
@@ -25,19 +24,17 @@
         :videos="playlistItems"
         :view-count="viewCount"
         :info-source="infoSource"
-        :theme="listType === 'list' ? 'base' : 'top-bar'"
         :more-video-data-available="moreVideoDataAvailable"
-        :search-video-mode-allowed="searchVideoModeAllowed"
+        :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
         :search-video-mode-enabled="playlistInVideoSearchMode"
         :search-query-text="searchQueryTextRequested"
+        :theme="listType === 'list' ? 'base' : 'top-bar'"
         class="playlistInfo"
         :class="{
           promptOpen,
         }"
         @enter-edit-mode="playlistInEditMode = true"
         @exit-edit-mode="playlistInEditMode = false"
-        @search-video-mode-on="playlistInVideoSearchMode = true"
-        @search-video-mode-off="playlistInVideoSearchMode = false"
         @search-video-query-change="(v) => videoSearchQuery = v"
         @prompt-open="promptOpen = true"
         @prompt-close="promptOpen = false"
