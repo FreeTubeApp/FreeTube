@@ -146,12 +146,14 @@ export default defineComponent({
         return
       }
 
-      this.updateDisableSmoothScrolling(
-        this.disableSmoothScrollingToggleValue
-      ).then(() => {
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.send('relaunchRequest')
-      })
+      if (process.env.IS_ELECTRON) {
+        this.updateDisableSmoothScrolling(
+          this.disableSmoothScrollingToggleValue
+        ).then(() => {
+          const { ipcRenderer } = require('electron')
+          ipcRenderer.send('relaunchRequest')
+        })
+      }
     },
 
     ...mapActions([

@@ -383,8 +383,6 @@ Settings:
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
     Allow DASH AV1 formats: Dozvoli DASH AV1 formate
-    Comment Auto Load:
-      Comment Auto Load: Automatski učitaj komentare
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -1184,3 +1182,5 @@ Age Restricted:
   This channel is age restricted: Ovaj je dobno ograničeni kanal
   This video is age restricted: Ovaj je dobno ograničeni video
 Close Banner: Zatvori natpis
+Display Label: '{label}: {value}'
+checkmark: ✓
