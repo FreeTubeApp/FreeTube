@@ -185,7 +185,6 @@ User Playlists:
 
     LatestPlayedFirst: 'Recently Played'
     EarliestPlayedFirst: 'Earliest Played'
-
   SinglePlaylistView:
     Search for Videos: Search for Videos
 
@@ -250,6 +249,9 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Auto Load Next Page:
+      Label: Auto Load Next Page
+      Tooltip: Load additional pages and comments automatically.
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
     System Default: System Default
@@ -395,8 +397,6 @@ Settings:
       Error:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
-    Comment Auto Load:
-      Comment Auto Load: Comment Auto Load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -871,6 +871,15 @@ Playlist:
   View: View
   Views: Views
   Last Updated On: Last Updated On
+  Sort By:
+    Sort By: Sort By
+    DateAddedNewest: Latest added first
+    DateAddedOldest: Earliest added first
+    AuthorAscending: Author (A-Z)
+    AuthorDescending: Author (Z-A)
+    VideoTitleAscending: Title (A-Z)
+    VideoTitleDescending: Title (Z-A)
+    Custom: Custom
 
 # On Video Watch Page
 #* Published

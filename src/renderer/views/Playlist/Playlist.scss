@@ -69,6 +69,11 @@
   max-block-size: 7vh;
 }
 
+.sortSelect {
+  /* Put it on the right and align with 'More Options' dropdown button */
+  margin-inline: auto 20px;
+}
+
 :deep(.videoThumbnail) {
   margin-block: auto;
 }
