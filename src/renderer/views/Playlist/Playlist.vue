@@ -72,16 +72,19 @@
               @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
             />
           </transition-group>
-          <ft-flex-box
+          <ft-auto-load-next-page-wrapper
             v-if="moreVideoDataAvailable && !isLoadingMore"
+            @load-next-page="getNextPage"
           >
-            <ft-button
-              :label="$t('Subscriptions.Load More Videos')"
-              background-color="var(--primary-color)"
-              text-color="var(--text-with-main-color)"
-              @click="getNextPage"
-            />
-          </ft-flex-box>
+            <ft-flex-box>
+              <ft-button
+                :label="$t('Subscriptions.Load More Videos')"
+                background-color="var(--primary-color)"
+                text-color="var(--text-with-main-color)"
+                @click="getNextPage"
+              />
+            </ft-flex-box>
+          </ft-auto-load-next-page-wrapper>
           <div
             v-if="isLoadingMore"
             class="loadNextPageWrapper"
