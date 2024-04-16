@@ -64,19 +64,20 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
 let searchSuggestionsSession = null
 
 export async function getLocalSearchSuggestions(query) {
+  const searchCharLimit = store.getters.getSearchCharacterLimit
+
+  if (query.length > searchCharLimit) {
+    // There's an event handler on the search input so avoid displaying an exception
+    console.error('Query is over ' + searchCharLimit + ' characters')
+    return
+  }
+
   // reuse innertube instance to keep the search suggestions snappy
   if (searchSuggestionsSession === null) {
     searchSuggestionsSession = await createInnertube()
   }
 
-  const searchCharLimit = store.getters.getSearchCharacterLimit
-
-  if (query.length <= searchCharLimit) {
-    return await searchSuggestionsSession.getSearchSuggestions(query)
-  } else {
-    // There's an event handler on the search input so avoid displaying an exception
-    console.error('Query is over ' + searchCharLimit + ' characters')
-  }
+  return await searchSuggestionsSession.getSearchSuggestions(query)
 }
 
 export function clearLocalSearchSuggestionsSession() {

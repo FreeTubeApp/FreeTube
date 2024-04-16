@@ -93,31 +93,32 @@ export default defineComponent({
     checkSearchCache: function (payload) {
       const searchCharLimit = this.$store.getters.getSearchCharacterLimit
 
-      if (payload.query.length <= searchCharLimit) {
-        const sameSearch = this.sessionSearchHistory.filter((search) => {
-          return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
-        })
-
-        if (sameSearch.length > 0) {
-          // No loading effect needed here, only rendered result update
-          this.replaceShownResults(sameSearch[0])
-        } else {
-          // Show loading effect coz there will be network request(s)
-          this.isLoading = true
-          this.searchSettings = payload.searchSettings
-
-          switch (this.backendPreference) {
-            case 'local':
-              this.performSearchLocal(payload)
-              break
-            case 'invidious':
-              this.performSearchInvidious(payload, { resetSearchPage: true })
-              break
-          }
-        }
-      } else {
+      if (payload.query.length > searchCharLimit) {
         console.warn('Search character limit is: ', searchCharLimit)
         showToast(i18n.t('Search character limit', { searchCharacterLimit: searchCharLimit }))
+        return
+      }
+
+      const sameSearch = this.sessionSearchHistory.filter((search) => {
+        return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
+      })
+
+      if (sameSearch.length > 0) {
+        // No loading effect needed here, only rendered result update
+        this.replaceShownResults(sameSearch[0])
+      } else {
+        // Show loading effect coz there will be network request(s)
+        this.isLoading = true
+        this.searchSettings = payload.searchSettings
+
+        switch (this.backendPreference) {
+          case 'local':
+            this.performSearchLocal(payload)
+            break
+          case 'invidious':
+            this.performSearchInvidious(payload, { resetSearchPage: true })
+            break
+        }
       }
     },
 
