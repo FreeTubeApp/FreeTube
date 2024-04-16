@@ -51,7 +51,7 @@
         <span v-if="infoSource !== 'piped'">
           -
         </span>
-        <span v-if="!hideViews && !isUserPlaylist">
+        <span v-if="!hideViews && !isUserPlaylist && infoSource !== 'piped'">
           - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
         <span v-if="infoSource !== 'piped'">- </span>
