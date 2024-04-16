@@ -3,6 +3,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
@@ -15,7 +16,8 @@ export default defineComponent({
     'ft-card': FtCard,
     'ft-element-list': FtElementList,
     'ft-flex-box': FtFlexBox,
-    'ft-loader': FtLoader
+    'ft-loader': FtLoader,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function() {
     return {
@@ -42,7 +44,7 @@ export default defineComponent({
 
     showFetchMoreButton() {
       return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === 'invidious'
-    }
+    },
   },
   watch: {
     $route() {

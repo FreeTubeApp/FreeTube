@@ -6,7 +6,6 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import { mapActions } from 'vuex'
-import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 
 export default defineComponent({
@@ -48,16 +47,19 @@ export default defineComponent({
     handleDownloadingSettingChange: function (value) {
       this.updateDownloadAskPath(value)
     },
-    chooseDownloadingFolder: async function() {
-      // only use with electron
-      const folder = await ipcRenderer.invoke(
-        IpcChannels.SHOW_OPEN_DIALOG,
-        { properties: ['openDirectory'] }
-      )
+    chooseDownloadingFolder: async function () {
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
 
-      if (folder.canceled) return
+        const folder = await ipcRenderer.invoke(
+          IpcChannels.SHOW_OPEN_DIALOG,
+          { properties: ['openDirectory'] }
+        )
 
-      this.updateDownloadFolderPath(folder.filePaths[0])
+        if (folder.canceled) return
+
+        this.updateDownloadFolderPath(folder.filePaths[0])
+      }
     },
     ...mapActions([
       'updateDownloadAskPath',

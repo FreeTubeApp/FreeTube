@@ -10,6 +10,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import {
@@ -52,7 +53,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
-    'channel-about': ChannelAbout
+    'channel-about': ChannelAbout,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -296,7 +298,7 @@ export default defineComponent({
       })
 
       return values
-    }
+    },
   },
   watch: {
     $route() {

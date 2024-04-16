@@ -151,6 +151,9 @@ export default defineComponent({
     defaultPipedInstance: function () {
       return this.$store.getters.getDefaultPipedInstance
     },
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
 
     localeOptions: function () {
       return [
@@ -335,7 +338,8 @@ export default defineComponent({
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
-      'updateExternalLinkHandling'
+      'updateExternalLinkHandling',
+      'updateGeneralAutoLoadMorePaginatedItemsEnabled',
     ])
   }
 })
