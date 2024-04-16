@@ -205,11 +205,9 @@ class Playlists {
   }
 }
 
-const handlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists
 }
-
-export default handlers
