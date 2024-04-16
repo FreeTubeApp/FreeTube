@@ -276,6 +276,9 @@ Settings:
       Ask Before Opening Link: Preguntar antes de abrir el enlace
       Open Link: Abrir el enlace
       External Link Handling: Gestión de enlaces externos
+    Auto Load Next Page:
+      Label: Carga automática de la página siguiente
+      Tooltip: Cargar automáticamente páginas adicionales y comentarios.
   Theme Settings:
     Theme Settings: 'Configuración del tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
