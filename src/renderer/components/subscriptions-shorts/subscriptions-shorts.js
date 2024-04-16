@@ -120,7 +120,7 @@ export default defineComponent({
         let videos = []
         let name
 
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           ({ videos, name } = await this.getChannelShortsInvidious(channel))
         } else {
           ({ videos, name } = await this.getChannelShortsLocal(channel))
@@ -234,7 +234,7 @@ export default defineComponent({
         })
         switch (failedAttempts) {
           case 0:
-            if (process.env.IS_ELECTRON && this.backendFallback) {
+            if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
               showToast(this.$t('Falling back to Local API'))
               return this.getChannelShortsLocal(channel, failedAttempts + 1)
             } else {

@@ -166,13 +166,6 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist updated
       this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
-    playlistItemId (newId, _oldId) {
-      // Playing online video
-      if (newId == null) { return }
-
-      // Re-fetch from local store when different item played
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
-    },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
       if (this.shuffleEnabled) {
@@ -210,7 +203,7 @@ export default defineComponent({
     },
     playlistId: function (newVal, oldVal) {
       if (oldVal !== newVal) {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
           this.getPlaylistInformationLocal()
@@ -249,7 +242,7 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getPlaylistInformationInvidious()
       } else {
         this.getPlaylistInformationLocal()
@@ -284,7 +277,7 @@ export default defineComponent({
       this.reversePlaylist = !this.reversePlaylist
       // Create a new array to avoid changing array in data store state
       // it could be user playlist or cache playlist
-      this.playlistItems = [].concat(this.playlistItems).reverse()
+      this.playlistItems = this.playlistItems.toReversed()
       setTimeout(() => {
         this.isLoading = false
       }, 1)
@@ -386,7 +379,7 @@ export default defineComponent({
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
@@ -462,7 +455,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistInformationLocal()
         } else {
@@ -486,6 +479,10 @@ export default defineComponent({
         if (latestPlaylistContainsCurrentVideo) {
           this.playlistItems = playlist.videos
         }
+      }
+
+      if (this.reversePlaylist) {
+        this.playlistItems = this.playlistItems.toReversed()
       }
 
       this.isLoading = false

@@ -24,10 +24,14 @@ export default defineComponent({
   },
   data: function () {
     return {
-      backendValues: [
-        'invidious',
-        'local'
-      ],
+      backendValues: process.env.SUPPORTS_LOCAL_API
+        ? [
+            'invidious',
+            'local'
+          ]
+        : [
+            'invidious'
+          ],
       viewTypeValues: [
         'grid',
         'list'
@@ -99,6 +103,10 @@ export default defineComponent({
       return this.defaultPages.map((route) => route.path.substring(1))
     },
     backendPreference: function () {
+      if (!process.env.SUPPORTS_LOCAL_API && this.$store.getters.getBackendPreference === 'local') {
+        this.handlePreferredApiBackend('invidious')
+      }
+
       return this.$store.getters.getBackendPreference
     },
     landingPage: function () {
@@ -133,6 +141,9 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
 
     localeOptions: function () {
       return [
@@ -149,10 +160,16 @@ export default defineComponent({
     },
 
     backendNames: function () {
-      return [
-        this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Local API')
-      ]
+      if (process.env.SUPPORTS_LOCAL_API) {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
+          this.$t('Settings.General Settings.Preferred API Backend.Local API')
+        ]
+      } else {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API')
+        ]
+      }
     },
 
     viewTypeNames: function () {
@@ -256,7 +273,8 @@ export default defineComponent({
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
-      'updateExternalLinkHandling'
+      'updateExternalLinkHandling',
+      'updateGeneralAutoLoadMorePaginatedItemsEnabled',
     ])
   }
 })

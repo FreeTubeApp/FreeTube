@@ -8,6 +8,7 @@ import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
   getLocalPlaylist,
   getLocalPlaylistContinuation,
@@ -35,7 +36,8 @@ export default defineComponent({
     'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
-    'ft-select': FtSelect
+    'ft-select': FtSelect,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   beforeRouteLeave(to, from, next) {
     if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
@@ -72,7 +74,6 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
 
-      playlistInVideoSearchMode: false,
       videoSearchQuery: '',
 
       promptOpen: false,
@@ -130,12 +131,11 @@ export default defineComponent({
         return this.continuationData !== null
       }
     },
-
-    searchVideoModeAllowed() {
-      return this.isUserPlaylistRequested
+    playlistInVideoSearchMode() {
+      return this.processedVideoSearchQuery !== ''
     },
     searchQueryTextRequested() {
-      return this.$route.query.searchQueryText
+      return this.$route.query.searchQueryText ?? ''
     },
     searchQueryTextPresent() {
       const searchQueryText = this.searchQueryTextRequested
@@ -274,8 +274,7 @@ export default defineComponent({
   created: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
 
-    if (this.searchVideoModeAllowed && this.searchQueryTextPresent) {
-      this.playlistInVideoSearchMode = true
+    if (this.isUserPlaylistRequested && this.searchQueryTextPresent) {
       this.videoSearchQuery = this.searchQueryTextRequested
     }
   },
@@ -388,7 +387,7 @@ export default defineComponent({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {

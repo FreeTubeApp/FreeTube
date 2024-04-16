@@ -165,8 +165,8 @@ const state = {
   allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
-  backendFallback: process.env.IS_ELECTRON,
-  backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
+  backendFallback: process.env.SUPPORTS_LOCAL_API,
+  backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
@@ -237,7 +237,7 @@ const state = {
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
-  proxyVideos: !process.env.IS_ELECTRON,
+  proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
   rememberHistory: true,
   saveWatchedProgress: true,
@@ -299,13 +299,13 @@ const state = {
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
   allowDashAv1Formats: false,
-  commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
   useDeArrowThumbnails: false,
   deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
   // This makes the `favorites` playlist uses as quick bookmark target
   // If the playlist is removed quick bookmark is disabled
   quickBookmarkTargetPlaylistId: 'favorites',
+  generalAutoLoadMorePaginatedItemsEnabled: false,
 }
 
 const stateWithSideEffects = {
@@ -472,101 +472,102 @@ const customActions = {
 
   // Should be a root action, but we'll tolerate
   setupListenersToSyncWindows: ({ commit, dispatch, getters }) => {
-    // Already known to be Electron, no need to check
-    const { ipcRenderer } = require('electron')
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
 
-    ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.UPSERT:
-          if (getters.settingHasSideEffects(data._id)) {
-            dispatch(defaultSideEffectsTriggerId(data._id), data.value)
-          }
+      ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.UPSERT:
+            if (getters.settingHasSideEffects(data._id)) {
+              dispatch(defaultSideEffectsTriggerId(data._id), data.value)
+            }
 
-          commit(defaultMutationId(data._id), data.value)
-          break
+            commit(defaultMutationId(data._id), data.value)
+            break
 
-        default:
-          console.error('settings: invalid sync event received')
-      }
-    })
+          default:
+            console.error('settings: invalid sync event received')
+        }
+      })
 
-    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.UPSERT:
-          commit('upsertToHistoryCache', data)
-          break
+      ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertToHistoryCache', data)
+            break
 
-        case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
-          commit('updateRecordWatchProgressInHistoryCache', data)
-          break
+          case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
+            commit('updateRecordWatchProgressInHistoryCache', data)
+            break
 
-        case SyncEvents.HISTORY.UPDATE_PLAYLIST:
-          commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
-          break
+          case SyncEvents.HISTORY.UPDATE_PLAYLIST:
+            commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE:
-          commit('removeFromHistoryCacheById', data)
-          break
+          case SyncEvents.GENERAL.DELETE:
+            commit('removeFromHistoryCacheById', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE_ALL:
-          commit('setHistoryCacheSorted', [])
-          commit('setHistoryCacheById', {})
-          break
+          case SyncEvents.GENERAL.DELETE_ALL:
+            commit('setHistoryCacheSorted', [])
+            commit('setHistoryCacheById', {})
+            break
 
-        default:
-          console.error('history: invalid sync event received')
-      }
-    })
+          default:
+            console.error('history: invalid sync event received')
+        }
+      })
 
-    ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.CREATE:
-          commit('addProfileToList', data)
-          break
+      ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.CREATE:
+            commit('addProfileToList', data)
+            break
 
-        case SyncEvents.GENERAL.UPSERT:
-          commit('upsertProfileToList', data)
-          break
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertProfileToList', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE:
-          commit('removeProfileFromList', data)
-          break
+          case SyncEvents.GENERAL.DELETE:
+            commit('removeProfileFromList', data)
+            break
 
-        default:
-          console.error('profiles: invalid sync event received')
-      }
-    })
+          default:
+            console.error('profiles: invalid sync event received')
+        }
+      })
 
-    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.CREATE:
-          commit('addPlaylists', data)
-          break
+      ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.CREATE:
+            commit('addPlaylists', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE:
-          commit('removePlaylist', data)
-          break
+          case SyncEvents.GENERAL.DELETE:
+            commit('removePlaylist', data)
+            break
 
-        case SyncEvents.GENERAL.UPSERT:
-          commit('upsertPlaylistToList', data)
-          break
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertPlaylistToList', data)
+            break
 
-        case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
-          commit('addVideo', data)
-          break
+          case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
+            commit('addVideo', data)
+            break
 
-        case SyncEvents.PLAYLISTS.UPSERT_VIDEOS:
-          commit('addVideos', data)
-          break
+          case SyncEvents.PLAYLISTS.UPSERT_VIDEOS:
+            commit('addVideos', data)
+            break
 
-        case SyncEvents.PLAYLISTS.DELETE_VIDEO:
-          commit('removeVideo', data)
-          break
+          case SyncEvents.PLAYLISTS.DELETE_VIDEO:
+            commit('removeVideo', data)
+            break
 
-        default:
-          console.error('playlists: invalid sync event received')
-      }
-    })
+          default:
+            console.error('playlists: invalid sync event received')
+        }
+      })
+    }
   }
 }
 

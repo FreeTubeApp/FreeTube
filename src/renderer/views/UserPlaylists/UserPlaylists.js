@@ -11,6 +11,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 const SORT_BY_VALUES = {
   NameAscending: 'name_ascending',
@@ -39,6 +40,7 @@ export default defineComponent({
     'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {

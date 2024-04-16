@@ -10,6 +10,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import {
@@ -52,7 +53,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
-    'channel-about': ChannelAbout
+    'channel-about': ChannelAbout,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -292,7 +294,7 @@ export default defineComponent({
       })
 
       return values
-    }
+    },
   },
   watch: {
     $route() {
@@ -351,7 +353,7 @@ export default defineComponent({
       this.errorMessage = ''
 
       // Re-enable auto refresh on sort value change AFTER update done
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
         this.autoRefreshOnSortByChangeEnabled = true
       } else {
@@ -449,7 +451,7 @@ export default defineComponent({
     }
 
     // Enable auto refresh on sort value change AFTER initial update done
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
       this.autoRefreshOnSortByChangeEnabled = true
     } else {
@@ -462,7 +464,7 @@ export default defineComponent({
     resolveChannelUrl: async function (url, tab = undefined) {
       let id
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         id = await invidiousGetChannelId(url)
       } else {
         id = await getLocalChannelId(url)
@@ -1051,7 +1053,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1329,7 +1331,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1370,7 +1372,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1449,7 +1451,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1483,7 +1485,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1562,7 +1564,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1596,7 +1598,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1716,7 +1718,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1939,7 +1941,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.searchChannelLocal()
         } else {
