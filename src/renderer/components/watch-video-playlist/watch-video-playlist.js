@@ -10,7 +10,7 @@ import {
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
-import { getSortedPlaylistItems } from '../../helpers/playlists'
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 export default defineComponent({
   name: 'WatchVideoPlaylist',
@@ -159,9 +159,6 @@ export default defineComponent({
     sortOrder: function () {
       return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
-    sortedPlaylistItems: function () {
-      return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
-    },
   },
   watch: {
     userPlaylistsReady: function() {
@@ -174,13 +171,6 @@ export default defineComponent({
     },
     selectedUserPlaylistLastUpdatedAt () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
-    },
-    playlistItemId (newId, _oldId) {
-      // Playing online video
-      if (newId == null) { return }
-
-      // Re-fetch from local store when different item played
       this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
     videoId: function (newId, oldId) {
@@ -220,7 +210,7 @@ export default defineComponent({
     },
     playlistId: function (newVal, oldVal) {
       if (oldVal !== newVal) {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
           this.getPlaylistInformationLocal()
@@ -259,7 +249,7 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getPlaylistInformationInvidious()
       } else {
         this.getPlaylistInformationLocal()
@@ -294,7 +284,7 @@ export default defineComponent({
       this.reversePlaylist = !this.reversePlaylist
       // Create a new array to avoid changing array in data store state
       // it could be user playlist or cache playlist
-      this.playlistItems = [].concat(this.playlistItems).reverse()
+      this.playlistItems = this.playlistItems.toReversed()
       setTimeout(() => {
         this.isLoading = false
       }, 1)
@@ -396,19 +386,15 @@ export default defineComponent({
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
-        this.playlistItems = this.isUserPlaylist
-          ? getSortedPlaylistItems(cachedPlaylist.items, this.sortOrder, this.currentLocale)
-          : cachedPlaylist.items
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+        this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
         await untilEndOfLocalPlayList(cachedPlaylist.continuationData, (p) => {
           videos.push(...p.items.map(parseLocalPlaylistVideo))
         }, { runCallbackOnceFirst: false })
 
-        this.playlistItems = this.isUserPlaylist
-          ? getSortedPlaylistItems(videos, this.sortOrder, this.currentLocale)
-          : videos
+        this.playlistItems = videos
       }
 
       this.isLoading = false
@@ -476,7 +462,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistInformationLocal()
         } else {
@@ -491,17 +477,23 @@ export default defineComponent({
       this.channelName = ''
       this.channelId = ''
 
-      if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
-        this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale)
-      } else {
-        // `this.currentVideo` relies on `playlistItems`
-        const latestPlaylistContainsCurrentVideo = playlist.videos.some(v => v.playlistItemId === this.playlistItemId)
-        // Only update list of videos if latest video list still contains currently playing video
-        if (latestPlaylistContainsCurrentVideo) {
-          this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale)
-        }
+      // Don't update list of videos if allowPlayingVideoRemoval is false
+      //  and the latest video list does not contain the currently playing video
+      if (this.playlistItems.length > 0 && !allowPlayingVideoRemoval &&
+        !playlist.videos.some(v => v.playlistItemId === this.playlistItemId)) {
+        this.isLoading = false
+        return
       }
 
+      let playlistItems = []
+      playlistItems = playlist.videos
+      playlistItems = getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
+
+      if (this.reversePlaylist) {
+        playlistItems = playlistItems.toReversed()
+      }
+
+      this.playlistItems = playlistItems
       this.isLoading = false
     },
 

@@ -119,9 +119,9 @@
       <ft-slider
         :label="$t('Settings.Player Settings.Default Playback Rate')"
         :default-value="defaultPlayback"
-        :min-value="0.25"
+        :min-value="parseFloat(videoPlaybackRateInterval)"
         :max-value="8"
-        :step="0.25"
+        :step="parseFloat(videoPlaybackRateInterval)"
         value-extension="x"
         @change="updateDefaultPlayback"
       />

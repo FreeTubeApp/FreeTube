@@ -25,3 +25,5 @@ jobs:
         cache: "yarn"
     - run: yarn run ci
     - run: yarn run lint
+    # let's verify that webpack is able to package the project
+    - run: yarn run pack

@@ -1184,3 +1184,5 @@ Age Restricted:
   This channel is age restricted: Ovaj je dobno ograničeni kanal
   This video is age restricted: Ovaj je dobno ograničeni video
 Close Banner: Zatvori natpis
+Display Label: '{label}: {value}'
+checkmark: ✓
