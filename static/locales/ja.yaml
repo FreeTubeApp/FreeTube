@@ -280,8 +280,6 @@ Settings:
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
     Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
     Allow DASH AV1 formats: DASH AV1形式を許可
-    Comment Auto Load:
-      Comment Auto Load: コメント自動読み込み
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'

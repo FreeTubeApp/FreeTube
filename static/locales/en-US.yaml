@@ -141,7 +141,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
   You have no playlists. Click on the create new playlist button to create a new one.: You have no playlists. Click on the create new playlist button to create a new one.
-  Empty Search Message: There are no videos in this playlist that matches your search
+  Empty Search Message: There are no videos in this playlist that match your search
   Search bar placeholder: Search for Playlists
   Playlists with Matching Videos: Playlists with Matching Videos
 
@@ -235,7 +235,7 @@ History:
   History: History
   Watch History: Watch History
   Your history list is currently empty.: Your history list is currently empty.
-  Empty Search Message: There are no videos in your history that matches your search
+  Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
 Settings:
   # On Settings Page
@@ -250,6 +250,9 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Auto Load Next Page:
+      Label: Auto Load Next Page
+      Tooltip: Load additional pages and comments automatically.
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
     System Default: System Default
@@ -395,8 +398,6 @@ Settings:
       Error:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
-    Comment Auto Load:
-      Comment Auto Load: Comment Auto Load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player

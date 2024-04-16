@@ -126,7 +126,7 @@ User Playlists:
     batera migratuko dira.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Gordetako
     bideoak hutsik daude. Egin klik bideoaren izkinan den "gorde" botoian hemen zerrendatzeko'
-  Search bar placeholder: Bilatu Erreprodukzio-zerrendan
+  Search bar placeholder: Bilatu erreprodukzio-zerrendak
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
     bat datorren bideorik
   Remove Watched Videos: Kendu ikusitako bideoak
@@ -223,6 +223,7 @@ User Playlists:
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ziur
     ikusitako bideo guztiak erreprodukzio-zerrenda honetatik kendu nahi dituzula?
     Hau ezin da desegin.
+  Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio-zerrendak
 History:
   # On History Page
   History: 'Historikoa'
@@ -390,8 +391,6 @@ Settings:
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
-    Comment Auto Load:
-      Comment Auto Load: Iruzkin karga automatikoa
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
     Allow DASH AV1 formats: Baimendu DASH AV1 formatuak
@@ -1140,3 +1139,5 @@ Hashtag:
     honetan
 Ok: Ados
 Channel Hidden: '{channel} gehitu da kanalaren iragazkian'
+Display Label: '{label}: {value}'
+checkmark: ✓
