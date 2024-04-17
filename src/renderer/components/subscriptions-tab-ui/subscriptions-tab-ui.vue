@@ -58,13 +58,11 @@
         />
       </ft-flex-box>
     </ft-auto-load-next-page-wrapper>
-    <ft-icon-button
-      v-if="!isLoading && activeSubscriptionList.length > 0"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :title="$t('Subscriptions.Refresh Subscriptions')"
-      :size="12"
-      theme="primary"
+
+    <ft-refresh-widget
+      :disable-refresh="isLoading || activeSubscriptionList.length === 0"
+      :last-refresh-timestamp="lastRefreshTimestamp"
+      :title="title"
       @click="refresh"
     />
   </div>
