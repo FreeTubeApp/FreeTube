@@ -39,6 +39,7 @@
         :show-label="false"
         :value="newTitle"
         @input="(input) => (newTitle = input)"
+        @keydown.enter.native="savePlaylistInfo"
       />
       <h2
         v-else
@@ -66,6 +67,7 @@
       :show-label="false"
       :value="newDescription"
       @input="(input) => newDescription = input"
+      @keydown.enter.native="savePlaylistInfo"
     />
     <p
       v-else
