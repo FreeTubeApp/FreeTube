@@ -21,9 +21,4 @@ export default defineComponent({
       required: true
     }
   },
-  computed: {
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
-    }
-  }
 })
