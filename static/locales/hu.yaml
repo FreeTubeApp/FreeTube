@@ -285,6 +285,9 @@ Settings:
       Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
       Open Link: Hivatkozás megnyitása
       External Link Handling: Külső hivatkozás kezelése
+    Auto Load Next Page:
+      Label: Következő oldal automatikus betöltése
+      Tooltip: További oldalak és megjegyzések automatikus betöltése.
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -972,6 +975,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lejátszási lista
+  Sort By:
+    DateAddedOldest: Legrégebbiek elől
+    DateAddedNewest: Legújabbak elől
+    Sort By: Rendezés
+    AuthorAscending: Szerző szerint (A-Z)
+    AuthorDescending: Szerző szerint (Z-A)
+    VideoTitleAscending: Cím szerint (A-Z)
+    VideoTitleDescending: Cím szerint (Z-A)
+    Custom: Egyéni rendezés
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
