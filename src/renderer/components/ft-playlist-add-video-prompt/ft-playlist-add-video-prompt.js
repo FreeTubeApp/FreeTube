@@ -45,8 +45,6 @@ export default defineComponent({
       lastShownAt: Date.now(),
       lastActiveElement: null,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
-      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchBar),
-
     }
   },
   computed: {
@@ -271,6 +269,10 @@ export default defineComponent({
 
     updateQuery: function(query) {
       this.query = query
+    },
+
+    keyboardShortcutHandler: function (event) {
+      return ctrlFHandler(event, this.$refs.searchBar)
     },
 
     ...mapActions([

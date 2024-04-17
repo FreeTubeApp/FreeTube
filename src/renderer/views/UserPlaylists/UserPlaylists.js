@@ -53,7 +53,6 @@ export default defineComponent({
       doSearchPlaylistsWithMatchingVideos: false,
       activeData: [],
       sortBy: SORT_BY_VALUES.LatestPlayedFirst,
-      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchBar),
     }
   },
   computed: {
@@ -246,6 +245,10 @@ export default defineComponent({
       this.showCreatePlaylistPrompt({
         title: '',
       })
+    },
+
+    keyboardShortcutHandler: function (event) {
+      return ctrlFHandler(event, this.$refs.searchBar)
     },
 
     ...mapActions([

@@ -107,7 +107,6 @@ export default defineComponent({
       showRemoveVideosOnWatchPrompt: false,
       newTitle: '',
       newDescription: '',
-      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchInput),
       deletePlaylistPromptValues: [
         'yes',
         'no'
@@ -412,6 +411,9 @@ export default defineComponent({
       this.$emit('search-video-query-change', query)
     },
 
+    keyboardShortcutHandler: function (event) {
+      return ctrlFHandler(event, this.$refs.searchInput)
+    },
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',

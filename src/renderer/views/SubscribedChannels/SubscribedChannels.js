@@ -28,7 +28,6 @@ export default defineComponent({
       thumbnailSize: 176,
       ytBaseURL: 'https://yt3.ggpht.com',
       errorCount: 0,
-      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchBarChannels),
     }
   },
   computed: {
@@ -159,6 +158,10 @@ export default defineComponent({
           })
         }, this.errorCount * 500)
       }
+    },
+
+    keyboardShortcutHandler: function (event) {
+      return ctrlFHandler(event, this.$refs.searchBarChannels)
     },
 
     ...mapActions([

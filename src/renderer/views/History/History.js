@@ -28,7 +28,6 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
-      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchBar),
     }
   },
   computed: {
@@ -119,5 +118,8 @@ export default defineComponent({
         this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       }
     },
+    keyboardShortcutHandler: function (event) {
+      return ctrlFHandler(event, this.$refs.searchBar)
+    }
   }
 })
