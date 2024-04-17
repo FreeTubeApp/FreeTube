@@ -7,6 +7,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import { ctrlFHandler } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'History',
@@ -27,6 +28,7 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
+      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchBar),
     }
   },
   computed: {
@@ -53,6 +55,7 @@ export default defineComponent({
     }
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
     const limit = sessionStorage.getItem('historyLimit')
 
     if (limit !== null) {
@@ -68,6 +71,9 @@ export default defineComponent({
     }
 
     this.filterHistoryDebounce = debounce(this.filterHistory, 500)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     increaseLimit: function () {

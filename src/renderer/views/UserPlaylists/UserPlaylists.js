@@ -12,6 +12,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import { ctrlFHandler } from '../../helpers/utils'
 
 const SORT_BY_VALUES = {
   NameAscending: 'name_ascending',
@@ -52,6 +53,7 @@ export default defineComponent({
       doSearchPlaylistsWithMatchingVideos: false,
       activeData: [],
       sortBy: SORT_BY_VALUES.LatestPlayedFirst,
+      keyboardShortcutHandler: (e) => ctrlFHandler(e, this.$refs.searchBar),
     }
   },
   computed: {
@@ -183,6 +185,7 @@ export default defineComponent({
     },
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
     const limit = sessionStorage.getItem('favoritesLimit')
     if (limit !== null) {
       this.dataLimit = limit
@@ -198,6 +201,9 @@ export default defineComponent({
     this.showLoadMoreButton = this.activeData.length < this.allPlaylists.length
 
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     increaseLimit: function () {
