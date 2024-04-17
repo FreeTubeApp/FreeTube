@@ -108,8 +108,8 @@ const config = {
     ]
   },
   node: {
-    __dirname: true,
-    __filename: isDevMode,
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     new webpack.DefinePlugin({

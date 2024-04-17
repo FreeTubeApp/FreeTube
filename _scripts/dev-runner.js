@@ -111,13 +111,14 @@ function startRenderer(callback) {
 
   const server = new WebpackDevServer({
     static: {
-      directory: path.join(process.cwd(), 'static'),
+      directory: path.resolve(__dirname, '..', 'static'),
       watch: {
         ignored: [
           /(dashFiles|storyboards)\/*/,
           '/**/.DS_Store',
         ]
-      }
+      },
+      publicPath: '/static'
     },
     port
   }, compiler)
