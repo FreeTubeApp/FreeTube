@@ -84,6 +84,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['pause-player'],
   data: function () {
     return {
       id: '',

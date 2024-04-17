@@ -47,6 +47,7 @@ export default defineComponent({
       default: 100
     }
   },
+  emits: ['refresh'],
   data: function () {
     return {
       dataLimit: 100,

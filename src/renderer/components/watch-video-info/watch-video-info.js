@@ -104,6 +104,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['set-info-area-sticky', 'scroll-to-info-area', 'pause-player'],
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
