@@ -59,6 +59,10 @@ export default defineComponent({
     dropdownModalOnMobile: {
       type: Boolean,
       default: false
+    },
+    hideLabel: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -66,6 +70,11 @@ export default defineComponent({
       dropdownShown: false,
       mouseDownOnIcon: false,
       useModal: false
+    }
+  },
+  computed: {
+    buttonPaddingProperty: function () {
+      return this.hideLabel ? 'padding' : 'padding-block'
     }
   },
   mounted: function () {

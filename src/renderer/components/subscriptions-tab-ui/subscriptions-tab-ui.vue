@@ -60,6 +60,7 @@
     </ft-auto-load-next-page-wrapper>
     <ft-icon-button
       v-if="!isLoading && activeSubscriptionList.length > 0"
+      :hide-label="true"
       :icon="['fas', 'sync']"
       class="floatingTopButton"
       :title="$t('Subscriptions.Refresh Subscriptions')"

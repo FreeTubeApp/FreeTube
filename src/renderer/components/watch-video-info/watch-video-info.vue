@@ -83,6 +83,7 @@
           v-if="showPlaylists && !isUpcoming"
           :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
+          :hide-label="true"
           class="option"
           theme="base"
           @click="togglePlaylistPrompt"
@@ -91,6 +92,7 @@
           v-if="isQuickBookmarkEnabled"
           :title="quickBookmarkIconText"
           :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
+          :hide-label="true"
           class="quickBookmarkVideoIcon"
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,
@@ -102,9 +104,17 @@
           v-if="externalPlayer !== ''"
           :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
           :icon="['fas', 'external-link-alt']"
+          :hide-label="true"
           class="option"
           theme="secondary"
           @click="handleExternalPlayer"
+        />
+        <ft-share-button
+          v-if="!hideSharingActions"
+          :id="id"
+          :get-timestamp="getTimestamp"
+          :playlist-id="playlistId"
+          class="option"
         />
         <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
@@ -125,13 +135,6 @@
           :icon="['fas', 'file-video']"
           :dropdown-options="formatTypeOptions"
           @click="$emit('change-format', $event)"
-        />
-        <ft-share-button
-          v-if="!hideSharingActions"
-          :id="id"
-          :get-timestamp="getTimestamp"
-          :playlist-id="playlistId"
-          class="option"
         />
       </div>
     </div>

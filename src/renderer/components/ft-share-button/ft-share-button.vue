@@ -4,6 +4,7 @@
     :title="shareTitle"
     theme="secondary"
     :icon="['fas', 'share-alt']"
+    :hide-label="true"
     :dropdown-modal-on-mobile="true"
     dropdown-position-x="left"
     :dropdown-position-y="dropdownPositionY"

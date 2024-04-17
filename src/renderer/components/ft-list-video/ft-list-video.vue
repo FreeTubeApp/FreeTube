@@ -37,6 +37,7 @@
         v-if="externalPlayer !== ''"
         :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
         :icon="['fas', 'external-link-alt']"
+        :hide-label="true"
         class="externalPlayerIcon"
         theme="base"
         :padding="appearance === `watchPlaylistItem` ? 6 : 7"
@@ -49,6 +50,7 @@
           ref="addToPlaylistIcon"
           :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
+          :hide-label="true"
           class="addToPlaylistIcon"
           :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
@@ -59,6 +61,7 @@
           v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
           :title="quickBookmarkIconText"
           :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
+          :hide-label="true"
           class="quickBookmarkVideoIcon"
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,
@@ -73,6 +76,7 @@
           v-if="inUserPlaylist && canMoveVideoUp"
           :title="$t('User Playlists.Move Video Up')"
           :icon="['fas', 'arrow-up']"
+          :hide-label="true"
           class="upArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -82,6 +86,7 @@
           v-if="inUserPlaylist && canMoveVideoDown"
           :title="$t('User Playlists.Move Video Down')"
           :icon="['fas', 'arrow-down']"
+          :hide-label="true"
           class="downArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -91,6 +96,7 @@
           v-if="inUserPlaylist && canRemoveFromPlaylist"
           :title="$t('User Playlists.Remove from Playlist')"
           :icon="['fas', 'trash']"
+          :hide-label="true"
           class="trashIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -147,6 +153,7 @@
       </div>
       <ft-icon-button
         class="optionsButton"
+        :hide-label="true"
         :icon="['fas', 'ellipsis-v']"
         :title="$t('Video.More Options')"
         theme="base-no-default"
