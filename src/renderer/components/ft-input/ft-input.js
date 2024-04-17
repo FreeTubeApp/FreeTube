@@ -64,7 +64,7 @@ export default defineComponent({
       default: ''
     }
   },
-  emits: ['input', 'click', 'clear'],
+  emits: ['clear', 'click', 'input'],
   data: function () {
     let actionIcon = ['fas', 'search']
     if (this.forceActionButtonIconName !== null) {

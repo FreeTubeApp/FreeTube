@@ -105,7 +105,6 @@ export default defineComponent({
     }
   },
   emits: ['set-info-area-sticky', 'scroll-to-info-area', 'pause-player', 'change-format'],
-
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions

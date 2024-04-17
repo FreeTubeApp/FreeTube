@@ -117,7 +117,7 @@ export default defineComponent({
       default: false
     }
   },
-  emits: ['ready', 'ended', 'error', 'timeupdate', 'toggle-theatre-mode', 'store-caption-list'],
+  emits: ['ended', 'error', 'ready', 'store-caption-list', 'timeupdate', 'toggle-theatre-mode'],
   data: function () {
     return {
       powerSaveBlocker: null,

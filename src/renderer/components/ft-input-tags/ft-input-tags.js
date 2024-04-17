@@ -53,7 +53,7 @@ export default defineComponent({
       default: (_) => ({ preferredName: '', icon: '' }),
     }
   },
-  emits: ['invalid-name', 'error-find-tag-info', 'change', 'already-exists'],
+  emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name'],
   methods: {
     updateTags: async function (text, _e) {
       if (this.areChannelTags) {

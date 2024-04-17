@@ -22,7 +22,7 @@
       role="button"
       tabindex="0"
       @click.stop="handleClose"
-      @keydown.enter.stop.prevent="handleClose"
+      @keydown.enter.space.stop.prevent="handleClose"
     >
       <font-awesome-icon
         class="bannerIcon"

@@ -20,7 +20,7 @@ export default defineComponent({
       default: false
     }
   },
-  emits: ['change', 'click'],
+  emits: ['change'],
   data: function () {
     return {
       id: '',
