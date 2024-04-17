@@ -1,13 +1,18 @@
 <template>
   <div
-    :class="{ [listType]: true }"
+    :class="{ [listType]: true, playlistInEditMode }"
     class="playlistPage"
   >
     <ft-loader
       v-if="isLoading"
       :fullscreen="true"
     />
-    <div class="playlistInfoContainer">
+    <div
+      class="playlistInfoContainer"
+      :class="{
+        promptOpen,
+      }"
+    >
       <playlist-info
         v-if="!isLoading"
         :id="playlistId"
@@ -30,9 +35,6 @@
         :search-query-text="searchQueryTextRequested"
         :theme="listType === 'list' ? 'base' : 'top-bar'"
         class="playlistInfo"
-        :class="{
-          promptOpen,
-        }"
         @enter-edit-mode="playlistInEditMode = true"
         @exit-edit-mode="playlistInEditMode = false"
         @search-video-query-change="(v) => videoSearchQuery = v"

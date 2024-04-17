@@ -5,20 +5,16 @@
   flex-direction: column;
   grid-gap: 10px;
   margin: 0;
-  padding: 10px;
 }
 
 .playlistInfoContainer {
   box-sizing: border-box;
-  background-color: var(--card-bg-color);
   /* This is needed to make prompt always above video entries */
   /* Value being too high would block search suggestions */
   z-index: 1;
-  .playlistInfo {
-    &.promptOpen {
-      // Otherwise sidebar would be above the prompt
-      z-index: 200;
-    }
+  &.promptOpen {
+    // Otherwise sidebar would be above the prompt
+    z-index: 200;
   }
 }
 
@@ -31,36 +27,38 @@
     flex-direction: column;
     margin-block-start: 200px;
 
-    .playlistItemsCard {
-      inline-size: 85%;
-      margin-block: 0px 60px;
-      margin-inline: auto;
+    &.playlistInEditMode {
+      margin-block-start: 250px;
     }
 
     .playlistInfoContainer {
       @include ft-list-item.fixed-top-bar;
       padding-block: 0;
+
+      .playlistInfo {
+        background-color: var(--card-bg-color);
+        inline-size: 85%;
+        margin-inline: auto;
+        padding-block: 10px;
+        padding-inline: 16px;
+        box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
-    .playlistInfo {
+    .playlistItemsCard {
       inline-size: 85%;
+      margin-block: 0px 60px;
       margin-inline: auto;
-      padding-block: 10px;
-      padding-inline: 16px;
-      box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
   }
 
   &.list {
-    .playlistItemsCard {
-      inline-size: 60%;
-    }
-
     .playlistInfoContainer {
+      background-color: var(--card-bg-color);
       block-size: calc(100vh - 132px);
       inline-size: 30%;
       inset-block-start: 96px;
@@ -70,6 +68,11 @@
       .playlistInfo {
         padding: 10px;
       }
+    }
+
+    .playlistItemsCard {
+      inline-size: 60%;
+      padding: 10px;
     }
   }
 }
@@ -132,19 +135,10 @@
         box-sizing: border-box;
         position: relative;
         inset-block-start: 0;
-        z-index: 1;
         block-size: auto;
         inline-size: 100%;
       }
-    }
 
-    &.grid {
-      .playlistInfoContainer {
-        padding-inline: 20px;
-      }
-    }
-
-    &.grid, &.list {
       .playlistItemsCard {
         box-sizing: border-box;
         inline-size: 100%;
@@ -158,10 +152,17 @@
 }
 
 @media only screen and (max-width: 680px) {
-  .routerView.grid {
-    margin-block-start: 230px;
-    .playlistInfoContainer {
-      position: absolute;
+  .routerView{
+    &.grid {
+      margin-block-start: 230px;
+
+      &.playlistInEditMode {
+        margin-block-start: 280px;
+      }
+
+      .playlistInfoContainer {
+        position: absolute;
+      }
     }
   }
 }
