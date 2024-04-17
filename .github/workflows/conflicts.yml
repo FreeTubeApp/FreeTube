@@ -6,7 +6,7 @@ on:
   # We recommend `pull_request_target` so that github secrets are available.
   # In `pull_request` we wouldn't be able to change labels of fork PRs
   pull_request_target:
-    types: [synchronize]
+    types: [synchronize, ready_for_review]
 
 jobs:
   main:
