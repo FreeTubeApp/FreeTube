@@ -266,6 +266,9 @@ Settings:
       Ask Before Opening Link: Pitaj prije otvaranja poveznice
       Open Link: Otvori poveznicu
       External Link Handling: Rukovanje vanjskim poveznicama
+    Auto Load Next Page:
+      Label: Automatski učitaj sljedeću stranicu
+      Tooltip: Automatski učitaj dodatne stranice i komentare.
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
@@ -961,6 +964,8 @@ Playlist:
 #* Published
 #& Views
   Playlist: Zbirka
+  Sort By:
+    Sort By: Redoslijed
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
