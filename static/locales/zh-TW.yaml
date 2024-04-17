@@ -239,6 +239,9 @@ Settings:
       Ask Before Opening Link: 開啟連結前詢問
       Open Link: 開啟連結
       External Link Handling: 外部連結處理
+    Auto Load Next Page:
+      Tooltip: 自動載入額外頁面與留言。
+      Label: 自動載入下一頁
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -834,6 +837,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放清單
+  Sort By:
+    Sort By: 排序方式
+    DateAddedNewest: 最後新增優先
+    DateAddedOldest: 最早新增優先
+    AuthorAscending: 作者 (A-Z)
+    AuthorDescending: 作者 (Z-A)
+    VideoTitleAscending: 標題 (A-Z)
+    VideoTitleDescending: 標題 (Z-A)
+    Custom: 自訂
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Media Formats: '變更影片格式'

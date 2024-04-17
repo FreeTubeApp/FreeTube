@@ -31,7 +31,7 @@
   float: var(--float-right-ltr-rtl-value);
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (width <= 1000px) {
   .commentSort {
     float: none;
   }
@@ -54,7 +54,6 @@
   inline-size: 60px;
   block-size: 60px;
   border-radius: 200px;
-  -webkit-border-radius: 200px;
 }
 
 .commentThumbnailHidden {
@@ -70,7 +69,6 @@
   color: rgb(0 0 0);
   background-color: rgb(235 160 172);
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .commentAuthorWrapper {
@@ -104,9 +102,8 @@
 .commentPinned {
   font-weight: normal;
   font-size: 12px;
-  margin-block-start: 0;
+  margin-block: 0 5px;
   margin-inline-start: 68px;
-  margin-block-end: 5px;
 }
 
 .commentDate {
@@ -150,7 +147,6 @@
   inline-size: 15px;
   block-size: 15px;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .commentHeartBadgeWhite {
