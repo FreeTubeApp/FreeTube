@@ -11,6 +11,7 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.draft }}
     steps:
       - name: check if prs are dirty
         uses: eps1lon/actions-label-merge-conflict@releases/2.x
