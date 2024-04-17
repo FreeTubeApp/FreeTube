@@ -273,6 +273,9 @@ Settings:
       Ask Before Opening Link: Zapytaj przed otworzeniem linku
       Open Link: Otwórz link
       External Link Handling: Obsługa zewnętrznych linków
+    Auto Load Next Page:
+      Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
+      Label: Automatycznie wczytaj kolejną stronę
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
