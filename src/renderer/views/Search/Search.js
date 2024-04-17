@@ -2,7 +2,6 @@ import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import i18n from '../../i18n/index'
 import {
   copyToClipboard,
   searchFiltersMatch,
@@ -95,7 +94,7 @@ export default defineComponent({
 
       if (payload.query.length > searchCharLimit) {
         console.warn('Search character limit is: ', searchCharLimit)
-        showToast(i18n.t('Search character limit', { searchCharacterLimit: searchCharLimit }))
+        showToast(this.$t('Search character limit', { searchCharacterLimit: searchCharLimit }))
         return
       }
 
