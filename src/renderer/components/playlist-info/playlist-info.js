@@ -100,6 +100,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['enter-edit-mode', 'exit-edit-mode', 'search-video-query-change'],
   data: function () {
     return {
       searchVideoMode: false,

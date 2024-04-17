@@ -30,3 +30,11 @@
   inset-inline-end: 10px;
   cursor: pointer;
 }
+
+@media only screen and (width <= 680px) {
+  .bannerIcon {
+    inset-block-start: 27%;
+    block-size: 25px;
+    inline-size: 25px;
+  }
+}

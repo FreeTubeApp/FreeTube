@@ -4,12 +4,6 @@
   margin-inline: auto;
 }
 
-.floatingTopButton {
-  position: fixed;
-  inset-block-start: 70px;
-  inset-inline-end: 10px;
-}
-
 .trendingInfoTabs {
   inline-size: 100%;
   display: grid;
@@ -36,12 +30,6 @@
 
 .tab:hover {
   font-weight: bold;
-}
-
-@media only screen and (width <= 350px) {
-  .floatingTopButton {
-    position: absolute
-  }
 }
 
 @media only screen and (width <= 680px) {

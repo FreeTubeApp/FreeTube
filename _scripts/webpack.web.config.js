@@ -160,6 +160,8 @@ const config = {
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
 
+      'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$': path.resolve(__dirname, '../src/datastores/handlers/web.js'),
+
       // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
       // As FreeTube only runs in electron and web browsers, we can use the native DOMParser class, instead of the "polyfill"
       // https://caniuse.com/mdn-api_domparser

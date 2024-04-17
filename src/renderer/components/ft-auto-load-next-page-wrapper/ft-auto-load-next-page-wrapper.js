@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'FtAutoLoadNextPageWrapper',
+  emits: ['load-next-page'],
   computed: {
     generalAutoLoadMorePaginatedItemsEnabled() {
       return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
