@@ -77,16 +77,14 @@ jobs:
           } else if (${{ env.IS_RC }}) {
             return "${{ env.VERSION_NUMBER_RC }}"
           } else {
-           return "${{env.VERSION_NUMBER }}"
+            return "${{env.VERSION_NUMBER }}"
           }
         # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
 
     - name: Update package.json version
-      uses: jossef/action-set-json-field@v2.1
+      uses: jaywcjlove/github-action-package@main
       with:
-        file: package.json
-        field: version
-        value: ${{ steps.versionNumber.outputs.result }}
+        version: ${{ steps.versionNumber.outputs.result }}
 
 
     - name: Install libarchive-tools
