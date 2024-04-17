@@ -8,6 +8,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['click'],
   methods: {
     handleClick: function (response) {
       this.$emit('click', response)
