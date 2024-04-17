@@ -3,7 +3,7 @@
   margin-inline: auto;
   inline-size: 85%;
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     inline-size: 90%;
   }
 }
@@ -30,7 +30,7 @@
   margin-inline: auto;
   max-inline-size: 860px;
 
-  @media only screen and (max-width: 650px) {
+  @media only screen and (width <= 650px) {
     grid-template-columns: 1fr;
   }
 }

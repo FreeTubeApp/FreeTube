@@ -368,6 +368,7 @@
         <ft-element-list
           v-if="!hideChannelCommunity && currentTab === 'community'"
           id="communityPanel"
+          class="communityPanel"
           :data="latestCommunityPosts"
           :use-channels-hidden-preference="false"
           role="tabpanel"
