@@ -4,7 +4,8 @@
   inset-inline-start: 0;
   inline-size: 100%;
   block-size: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(0 0 0 / 70%);
+
   /* Higher than components like playlist info */
   z-index: 200;
   padding: 15px;

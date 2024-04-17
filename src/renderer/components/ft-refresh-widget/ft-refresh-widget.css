@@ -9,7 +9,6 @@
   box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
   background-color: var(--card-bg-color);
   border-inline-start: 2px solid var(--primary-color);
-
   display: flex;
   align-items: center;
   gap: 5px;
@@ -30,7 +29,7 @@
   font-size: 16px;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .floatingRefreshSection, .floatingRefreshSection.sideNavOpen {
     inline-size: 100%;
   }
