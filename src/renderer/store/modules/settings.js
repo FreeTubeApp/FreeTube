@@ -280,6 +280,7 @@ const state = {
   thumbnailPreference: '',
   blurThumbnails: false,
   useProxy: false,
+  userPlaylistSortOrder: 'date_added_descending',
   useRssFeeds: false,
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,

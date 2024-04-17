@@ -221,7 +221,7 @@ History:
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'Seu histórico está vazio no momento.'
   Search bar placeholder: Pesquisar no histórico
-  Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
+  Empty Search Message: Não há vídeos em seu histórico que correspondam à sua pesquisa
 Settings:
   # On Settings Page
   Settings: 'Configurações'
@@ -270,6 +270,9 @@ Settings:
       Ask Before Opening Link: Perguntar antes de abrir o link
       Open Link: Abrir link
       External Link Handling: Ação de link externo
+    Auto Load Next Page:
+      Label: Carregamento automático da próxima página
+      Tooltip: Carregar páginas e comentários adicionais automaticamente.
   Theme Settings:
     Theme Settings: 'Configurações de aparência'
     Match Top Bar with Main Color: 'Usar cor principal na barra superior'
@@ -925,6 +928,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
+  Sort By:
+    Sort By: Ordenar por
+    AuthorAscending: Autor (A-Z)
+    VideoTitleAscending: Título (A-Z)
+    Custom: Personalizado
+    DateAddedNewest: Mais recentes
+    DateAddedOldest: Mais antigos
+    AuthorDescending: Autor (Z-A)
+    VideoTitleDescending: Título (Z-A)
 Toggle Theatre Mode: 'Alternar Modo Teatro'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
