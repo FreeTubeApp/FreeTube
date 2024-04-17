@@ -65,7 +65,7 @@
       :title="$t('Subscriptions.Refresh Subscriptions')"
       :size="12"
       theme="primary"
-      @click="$emit('refresh')"
+      @click="refresh"
     />
   </div>
 </template>

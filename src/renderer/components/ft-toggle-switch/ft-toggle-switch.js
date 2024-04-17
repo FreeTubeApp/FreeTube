@@ -36,6 +36,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['change'],
   data: function () {
     return {
       id: '',
@@ -50,5 +51,10 @@ export default defineComponent({
   mounted: function () {
     this.id = this._uid
     this.currentValue = this.defaultValue
+  },
+  methods: {
+    change: function () {
+      this.$emit('change', this.currentValue)
+    },
   }
 })

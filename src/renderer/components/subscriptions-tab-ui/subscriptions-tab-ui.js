@@ -116,6 +116,10 @@ export default defineComponent({
           }
           break
       }
+    },
+
+    refresh: function() {
+      this.$emit('refresh')
     }
   }
 })
