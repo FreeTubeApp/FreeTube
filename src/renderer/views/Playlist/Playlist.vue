@@ -8,13 +8,13 @@
       :fullscreen="true"
     />
     <div
+      v-if="!isLoading"
       class="playlistInfoContainer"
       :class="{
         promptOpen,
       }"
     >
       <playlist-info
-        v-if="!isLoading"
         :id="playlistId"
         :first-video-id="firstVideoId"
         :first-video-playlist-item-id="firstVideoPlaylistItemId"
