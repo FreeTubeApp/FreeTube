@@ -4,7 +4,8 @@ $watched-transition-duration: 0.5s;
 
 @mixin is-side-nav-open {
   @at-root {
-    .sideNavOpen#{&} {
+    .isSideNavOpen &,
+    .isSideNavOpen#{&} {
       @content;
     }
   }
