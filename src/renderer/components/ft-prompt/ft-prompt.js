@@ -15,7 +15,7 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: ''
+      required: true
     },
     extraLabels: {
       type: Array,

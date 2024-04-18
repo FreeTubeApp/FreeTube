@@ -1,11 +1,13 @@
 <template>
   <ft-prompt
     theme="slim"
+    :label="title"
     @click="hideSearchFilters"
   >
     <div>
       <h2
         class="center"
+        name="title"
       >
         {{ title }}
       </h2>

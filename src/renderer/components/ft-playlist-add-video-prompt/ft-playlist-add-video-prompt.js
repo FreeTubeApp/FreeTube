@@ -47,6 +47,12 @@ export default defineComponent({
     }
   },
   computed: {
+    title: function () {
+      return this.$tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', this.toBeAddedToPlaylistVideoCount, {
+        videoCount: this.toBeAddedToPlaylistVideoCount,
+      })
+    },
+
     showingCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
     },

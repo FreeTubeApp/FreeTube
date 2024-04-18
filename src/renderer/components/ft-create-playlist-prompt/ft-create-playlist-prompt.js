@@ -24,6 +24,9 @@ export default defineComponent({
     }
   },
   computed: {
+    title: function () {
+      return this.$t('User Playlists.CreatePlaylistPrompt.New Playlist Name')
+    },
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
