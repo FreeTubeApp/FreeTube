@@ -355,7 +355,6 @@ Settings:
         或 "/" 來建立子資料夾。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
-    Allow DASH AV1 formats: 允許 DASH AV1 格式
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -746,11 +745,6 @@ Video:
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
   Starting soon, please refresh the page to check again: 影片即將開始，請重新整理頁面以再次檢查是否有更新
-  Audio:
-    Best: 最佳
-    High: 高
-    Medium: 中
-    Low: 低
   audio only: 僅音訊
   video only: 僅影片
   Download Video: 下載影片
@@ -763,7 +757,6 @@ Video:
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
-  translated from English: 從英文翻譯
   Sponsor Block category:
     music offtopic: 音樂離題
     interaction: 互動
@@ -773,7 +766,6 @@ Video:
     sponsor: 贊助商
     recap: 回顧
     filler: 填充
-  Skipped segment: 已跳過的片段
   External Player:
     Unsupported Actions:
       looping playlists: 循環播放清單
@@ -789,25 +781,6 @@ Video:
     video: 視訊
     OpenInTemplate: 在 {externalPlayer} 中開啟
   Premieres on: 首映日期
-  Stats:
-    buffered: 已緩衝
-    out of: 中的
-    video id: Video ID (YouTube)
-    volume: 音量
-    player resolution: 視野
-    fps: FPS
-    frame drop: 丟棄畫面
-    bandwidth: 連線速度
-    Resolution: 解析度
-    Player Dimensions: 播放器大小
-    Bitrate: 位元率
-    Volume: 音量
-    Bandwidth: 頻寬
-    Buffered: 已緩衝
-    Dropped / Total Frames: 丟棄／總畫面數
-    Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
-    Video ID: 影片 ID
-    Mimetype: 多媒體類型
   Premieres in: 首映於
   Premieres: 首映
   Show Super Chat Comment: 顯示超級聊天留言
@@ -980,8 +953,6 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
       Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
-    Allow DASH AV1 formats: DASH AV1 格式可能會看起來比 DASH H.264 格式更好。DASH AV1 格式需要更大的功率來播放！且並非所有影片都提供，在這種情況下，播放程式會使用
-      DASH H.264 格式代替。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。

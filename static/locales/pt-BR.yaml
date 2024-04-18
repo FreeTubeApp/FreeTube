@@ -391,7 +391,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela para
       o modo paisagem
     Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
@@ -826,11 +825,6 @@ Video:
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
-  Audio:
-    Best: Máxima
-    Medium: Média
-    Low: Baixa
-    High: Alta
   audio only: somente áudio
   video only: somente vídeo
   Download Video: Baixar vídeo
@@ -850,7 +844,6 @@ Video:
     vídeos salvos
   Video has been saved: O vídeo foi salvo
   Save Video: Salvar vídeo
-  translated from English: traduzido do Inglês
   Sponsor Block category:
     music offtopic: Música fora do contexto
     interaction: Interação
@@ -860,7 +853,6 @@ Video:
     sponsor: Patrocinador
     filler: Preenchimento
     recap: Recapitulação
-  Skipped segment: Segmentos pulados
   External Player:
     Unsupported Actions:
       shuffling playlists: Playlists aleatórias
@@ -877,26 +869,6 @@ Video:
     OpenInTemplate: Abrir em {externalPlayer}
     video: vídeo
   Premieres on: Estreia em
-  Stats:
-    video id: ID do vídeo (YouTube)
-    volume: Volume
-    fps: FPS
-    frame drop: Frame Drop
-    bandwidth: Velocidade de conexão
-    buffered: Buffered
-    out of: de
-    player resolution: Janela de exibição
-    Mimetype: Mimetype
-    Video statistics are not available for legacy videos: As estatísticas de vídeo
-      não estão disponíveis para vídeos mais antigos
-    Video ID: ID do vídeo
-    Player Dimensions: Dimensões do player
-    Bitrate: Taxa de bits
-    Volume: Volume
-    Bandwidth: Largura de banda
-    Resolution: Resolução
-    Buffered: Em buffer
-    Dropped / Total Frames: Quadros perdidos / Total de quadros
   Premieres in: Estréias em
   Premieres: Estreia
   Scroll to Bottom: Ir para o final
@@ -1102,10 +1074,6 @@ Tooltips:
       sido alterada nas configurações).
     Skip by Scrolling Over Video Player: Use a roda de rolagem para pular o vídeo,
       estilo MPV.
-    Allow DASH AV1 formats: Os formatos DASH AV1 podem ter melhor aspecto do que os
-      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Eles não estão disponíveis em todos os vídeos, e nesses casos o player usará
-      os formatos DASH H.264.
   General Settings:
     Region for Trending: A região de tendências permite que você escolha os vídeos
       em alta do país que deseja exibir.

@@ -16,42 +16,40 @@
       class="videoArea"
     >
       <div class="videoAreaMargin">
-        <ft-video-player
-          v-if="!isLoading && !hidePlayer && !isUpcoming"
-          ref="videoPlayer"
-          :dash-src="dashSrc"
-          :source-list="activeSourceList"
-          :audio-tracks="audioTracks"
-          :adaptive-formats="adaptiveFormats"
-          :caption-hybrid-list="captionHybridList"
+        <ft-shaka-video-player
+          v-if="!isLoading && !isUpcoming && !errorMessage"
+          ref="player"
+          :manifest-src="manifestSrc"
+          :manifest-mime-type="manifestMimeType"
+          :legacy-formats="legacyFormats"
+          :start-time="startTimeSeconds"
+          :captions="captions"
           :storyboard-src="videoStoryboardSrc"
           :format="activeFormat"
           :thumbnail="thumbnail"
           :video-id="videoId"
-          :length-seconds="videoLengthSeconds"
           :chapters="videoChapters"
           :current-chapter-index="videoCurrentChapterIndex"
+          :title="videoTitle"
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
           class="videoPlayer"
-          :class="{ theatrePlayer: useTheatreMode }"
-          @ready="handleVideoReady"
-          @ended="handleVideoEnded"
-          @error="handleVideoError"
-          @store-caption-list="captionHybridList = $event"
+          @error="handlePlayerError"
+          @loaded="handleVideoLoaded"
+          @timeupdate="!hideChapters && videoChapters.length > 0 ? updateCurrentChapter : null"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
-          v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
-          v-if="!isLoading && isUpcoming"
+          v-if="!isLoading && (isUpcoming || errorMessage)"
           class="videoPlayer"
         >
           <img
             :src="thumbnail"
-            class="upcomingThumbnail"
+            class="videoThumbnail"
             alt=""
           >
           <div
+            v-if="isUpcoming"
             class="premiereDate"
           >
             <font-awesome-icon
@@ -80,6 +78,25 @@
             >
               {{ $t("Video.Starting soon, please refresh the page to check again") }}
             </p>
+          </div>
+          <div
+            v-else-if="errorMessage"
+            class="errorContainer"
+          >
+            <div
+              class="errorWrapper"
+            >
+              <font-awesome-icon
+                :icon="customErrorIcon || ['fas', 'exclamation-circle']"
+                aria-hidden="true"
+                class="errorIcon"
+              />
+              <p
+                class="errorMessage"
+              >
+                {{ errorMessage }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -149,7 +166,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
-        :video-player-ready="videoPlayerReady"
+        :video-player-ready="videoPlayerLoaded"
         :force-state="commentsEnabled ? null : 'noComment'"
         @timestamp-event="changeTimestamp"
       />

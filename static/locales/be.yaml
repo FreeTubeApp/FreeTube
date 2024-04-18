@@ -277,7 +277,6 @@ Settings:
       1440p: ''
       4k: ''
       8k: ''
-    Allow DASH AV1 formats: ''
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -613,11 +612,6 @@ Video:
   Download Video: ''
   video only: ''
   audio only: ''
-  Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
   Published:
     Jan: ''
     Feb: ''
@@ -651,9 +645,7 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -677,17 +669,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: ''
-    Resolution: ''
-    Player Dimensions: ''
-    Bitrate: ''
-    Volume: ''
-    Bandwidth: ''
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: ''
 #& Videos
 Videos:
   #& Sort By
@@ -783,7 +764,6 @@ Tooltips:
     Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

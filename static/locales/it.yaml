@@ -395,7 +395,6 @@ Settings:
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
-    Allow DASH AV1 formats: Consenti formati DASH AV1
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -839,11 +838,6 @@ Video:
   Autoplay: Riproduzione automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra
     breve, aggiorna la pagina per ricontrollare
-  Audio:
-    Best: Migliore
-    High: Alto
-    Medium: Medio
-    Low: Basso
   audio only: solo audio
   video only: solo video
   Download Video: Download video
@@ -881,29 +875,7 @@ Video:
     sponsor: Sponsor
     recap: Ricapitolazione
     filler: Riempitivo
-  Skipped segment: Segmento saltato
-  translated from English: tradotto dall'inglese
   Premieres on: Première il
-  Stats:
-    volume: Volume
-    fps: FPS
-    frame drop: Perdita di immagine
-    buffered: Bufferizzato
-    bandwidth: Velocità di connessione
-    out of: per
-    video id: ID video (YouTube)
-    player resolution: Finestra di visualizzazione
-    Video statistics are not available for legacy videos: Le statistiche sui video
-      non sono disponibili per i video obsoleti
-    Video ID: ID video
-    Resolution: Risoluzione
-    Player Dimensions: Dimensioni del lettore
-    Bitrate: Velocità di trasmissione
-    Volume: Volume
-    Bandwidth: Larghezza di banda
-    Buffered: Memoria buffer
-    Dropped / Total Frames: Frame persi / Frame totali
-    Mimetype: Tipo di media
   Premieres in: Anteprima in
   Premieres: Première
   Scroll to Bottom: Scorri fino in fondo
@@ -1101,10 +1073,6 @@ Tooltips:
       nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
-    Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
-      formati DASH H.264. I formati DASH AV1 richiedono più potenza per la riproduzione!
-      Non sono disponibili su tutti i video, in questo caso il lettore userà invece
-      i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,

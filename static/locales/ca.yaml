@@ -536,11 +536,6 @@ Video:
   Published on: 'Publicat el'
   Publicationtemplate: '{number} {unit} fa'
 #& Videos
-  Audio:
-    High: Alta
-    Best: Millor
-    Low: Baixa
-    Medium: Mitjana
   Started streaming on: Retransmissió iniciada el
   Sponsor Block category:
     interaction: interacció
@@ -549,7 +544,6 @@ Video:
     intro: introducció
     outro: conclusió
     self-promotion: autopromoció
-  Skipped segment: Segment saltat
   External Player:
     Unsupported Actions:
       starting video at offset: començant el vídeo al punt donat
@@ -574,7 +568,6 @@ Video:
   Download Video: Descàrrega El Vídeo
   video only: només vídeo
   Streamed on: Retransmès en directe el
-  translated from English: traduït de l'anglès
 Videos:
   #& Sort By
   Sort By:

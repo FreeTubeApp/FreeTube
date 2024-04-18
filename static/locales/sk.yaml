@@ -511,11 +511,6 @@ Video:
     a znova skontrolujte
   Started streaming on: Vysielanie začaté o
   Streamed on: Odvysielané dňa
-  Audio:
-    Medium: Stredná
-    Low: Nízka
-    High: Vysoká
-    Best: Najlepšia
   audio only: len zvuk
   video only: len video
   Download Video: Stiahnuť video
@@ -538,17 +533,6 @@ Video:
     outro: Záver
     intro: Úvod
     sponsor: Sponzor
-  Skipped segment: Preskočený segment
-  translated from English: preložené z angličtiny
-  Stats:
-    fps: Obrázky za sekundu
-    frame drop: Vyhodené obrázky
-    volume: Hlasitosť
-    player resolution: Výrez
-    out of: z
-    bandwidth: Rýchlosť pripojenia
-    video id: ID videa (YouTube)
-    buffered: Prednačítané
   External Player:
     OpenInTemplate: Otvoriť v {externalPlayer}
     Unsupported Actions:

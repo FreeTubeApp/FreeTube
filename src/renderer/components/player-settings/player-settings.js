@@ -39,7 +39,9 @@ export default defineComponent({
         360,
         480,
         720,
-        1080
+        1080,
+        1440,
+        2160
       ],
       playbackRateIntervalValues: [
         0.1,
@@ -113,10 +115,6 @@ export default defineComponent({
       return this.$store.getters.getDefaultQuality
     },
 
-    allowDashAv1Formats: function () {
-      return this.$store.getters.getAllowDashAv1Formats
-    },
-
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
     },
@@ -169,7 +167,9 @@ export default defineComponent({
         this.$t('Settings.Player Settings.Default Quality.360p'),
         this.$t('Settings.Player Settings.Default Quality.480p'),
         this.$t('Settings.Player Settings.Default Quality.720p'),
-        this.$t('Settings.Player Settings.Default Quality.1080p')
+        this.$t('Settings.Player Settings.Default Quality.1080p'),
+        this.$t('Settings.Player Settings.Default Quality.1440p'),
+        this.$t('Settings.Player Settings.Default Quality.4k')
       ]
     },
 
@@ -293,7 +293,6 @@ export default defineComponent({
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
-      'updateAllowDashAv1Formats',
       'updateVideoVolumeMouseScroll',
       'updateVideoPlaybackRateMouseScroll',
       'updateVideoSkipMouseScroll',

@@ -406,7 +406,6 @@ Settings:
     Video Playback Rate Interval: Videó lejátszási sebesség időköze
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
-    Allow DASH AV1 formats: DASH AV1 formátumok engedélyezése
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -888,11 +887,6 @@ Video:
   Published on: 'Megjelent'
   Publicationtemplate: '{number} {unit} ezelőtt'
 #& Videos
-  Audio:
-    Best: Legjobb
-    High: Magas
-    Medium: Közepes
-    Low: Alacsony
   audio only: csak hang
   video only: csak videó
   Download Video: Videó letöltése
@@ -905,7 +899,6 @@ Video:
   Video has been removed from your saved list: A videót eltávolítottuk a mentett listáról
   Video has been saved: A videó mentve
   Save Video: Videó mentése
-  translated from English: angolról fordítva
   Sponsor Block category:
     music offtopic: Témán kívüli zene
     interaction: Kölcsönhatás
@@ -915,7 +908,6 @@ Video:
     sponsor: Szponzor
     filler: Kitöltő
     recap: Összegzés
-  Skipped segment: Szegmens kihagyva
   External Player:
     Unsupported Actions:
       looping playlists: lejátszási lista folyamatos lejátszása
@@ -934,18 +926,6 @@ Video:
     video: videó
     OpenInTemplate: '{externalPlayer} megnyításaban'
   Premieres on: 'Első előadás dátuma'
-  Stats:
-    Player Dimensions: Lejátszó méretei
-    Video ID: Videóazonosító
-    Video statistics are not available for legacy videos: Az örökölt videókhoz videóstatisztika
-      nem érhető el
-    Resolution: Felbontás
-    Mimetype: MIME-típus
-    Volume: Hangerő
-    Bandwidth: Sávszélesség
-    Buffered: Pufferelt
-    Dropped / Total Frames: Elvetve/Összes képkocka
-    Bitrate: Átviteli sebesség
   Premieres: Első előadások
   Show Super Chat Comment: Haladó csevegési megjegyzés megjelenítése
   Scroll to Bottom: Görgetés legalulra
@@ -1113,10 +1093,6 @@ Tooltips:
       (1x, hacsak nem módosították a beállításokban).
     Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja
       a videót.
-    Allow DASH AV1 formats: A DASH AV1 formátumok jobban nézhetnek ki, mint a DASH
-      H.264 formátumok. A DASH AV1 formátumok több energiát igényelnek a lejátszáshoz!
-      Nem minden videónál érhetők el, ilyenkor a lejátszó a DASH H.264 formátumot
-      használja helyette.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti

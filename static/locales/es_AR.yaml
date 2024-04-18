@@ -274,7 +274,6 @@ Settings:
     Scroll Volume Over Video Player: Barra de volumen en el reproductor
     Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de
       Video
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
     Scroll Playback Rate Over Video Player: Acelerar video con la rueda del mouse
     Fast-Forward / Rewind Interval: Período de Avance Rápido / Retroceso
     Video Playback Rate Interval: Intervalo entre velocidades del video
@@ -448,10 +447,6 @@ Channel:
     Tags:
       Search for: Buscar por «{tag}»
     Details: Detalles
-Video:
-  translated from English: traducido del inglés
-  Stats:
-    Mimetype: Tipo de medio
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está

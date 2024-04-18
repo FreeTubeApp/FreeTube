@@ -279,7 +279,6 @@ Settings:
       Folder Button: フォルダーの選択
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
     Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
-    Allow DASH AV1 formats: DASH AV1形式を許可
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -648,11 +647,6 @@ Video:
   Shuffle Playlist: 再生リストのシャッフル
   Loop Playlist: 再生リストのループ
   Starting soon, please refresh the page to check again: すぐに再生されます、ページを再読み込みしてお待ちください
-  Audio:
-    Best: 最適
-    High: 高
-    Medium: 中
-    Low: 低
   audio only: '音声のみ'
   video only: '映像のみ'
   Download Video: '動画のダウンロード'
@@ -665,7 +659,6 @@ Video:
   Video has been removed from your saved list: 動画を保存一覧から削除しました
   Video has been saved: 動画を保存しました
   Save Video: 動画の保存
-  translated from English: 英語から翻訳
   Sponsor Block category:
     sponsor: スポンサー
     music offtopic: 音楽以外
@@ -675,7 +668,6 @@ Video:
     intro: イントロ（冒頭）
     recap: 要約
     filler: フィラー（穴埋め）
-  Skipped segment: スキップされたセグメント
   External Player:
     OpeningTemplate: '{externalPlayer} で {videoOrPlaylist} を開く...'
     Unsupported Actions:
@@ -692,25 +684,6 @@ Video:
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
   Premieres on: プレミア公開
-  Stats:
-    player resolution: 表示領域
-    fps: FPS
-    frame drop: コマ落ち
-    buffered: バッファー
-    video id: Video ID (YouTube)
-    volume: 音量
-    bandwidth: 接続速度
-    out of: のうち
-    Mimetype: メディアタイプ
-    Video ID: ビデオ ID
-    Resolution: 解像度
-    Bitrate: ビットレート
-    Volume: 音量
-    Buffered: バッファー
-    Player Dimensions: プレーヤーのサイズ
-    Video statistics are not available for legacy videos: 従来のビデオでは、ビデオ統計を使用できません
-    Bandwidth: 帯域幅
-    Dropped / Total Frames: ドロップ率 / 総フレーム数
   Premieres in: 配信開始まで
   Premieres: プレミア
   Show Super Chat Comment: Super Chat のコメント表示
@@ -866,8 +839,6 @@ Tooltips:
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: スクロール ホイールを使用して、ビデオ、MPV スタイルをスキップします。
-    Allow DASH AV1 formats: DASH H.264形式よりもDASH AV1形式の方がきれいに見える可能性がありますが、再生にはより多くの処理能力が必要となります。DASH
-      AV1形式を使用できない場合、プレイヤーはDASH H.264形式を自動で使用します。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious

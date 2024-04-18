@@ -382,7 +382,6 @@ Settings:
         أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
-    Allow DASH AV1 formats: السماح بتنسيقات DASH AV1
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -859,11 +858,6 @@ Video:
   Loop Playlist: تكرار قائمة التشغيل
   Starting soon, please refresh the page to check again: سيبدأ قريباً ، يرجى تحديث
     الصفحة للتحقق مرة أخرى
-  Audio:
-    Best: الأفضل
-    High: عال
-    Medium: متوسط
-    Low: منخفض
   audio only: الصوت فقط
   video only: الفيديو فقط
   Download Video: تحميل الفيديو
@@ -876,7 +870,6 @@ Video:
   Video has been saved: تم حفظ الفيديو
   Save Video: احفظ الفيديو
   Video has been removed from your saved list: تمت إزالة الفيديو من قائمتك المحفوظة
-  translated from English: مترجمة من الإنجليزية
   Sponsor Block category:
     music offtopic: موسيقى خارجة عن المألوف
     interaction: تفاعل
@@ -886,7 +879,6 @@ Video:
     sponsor: الرعاة
     filler: حشو
     recap: الخلاصة
-  Skipped segment: تم تخطي المقطع
   External Player:
     Unsupported Actions:
       looping playlists: تكرار قوائم التشغيل
@@ -903,26 +895,6 @@ Video:
     video: فيديو
     OpenInTemplate: فتح في {externalPlayer}
   Premieres on: العرض الأول بتاريخ
-  Stats:
-    video id: معرف الفيديو (يوتيوب)
-    player resolution: المعاينه
-    fps: معدل الإطارات
-    frame drop: إسقاط الإطار
-    buffered: مخزنة
-    out of: خارج عن
-    bandwidth: سرعة الاتصال
-    volume: الصوت
-    Video statistics are not available for legacy videos: إحصائيات الفيديو غير متوفرة
-      لمقاطع الفيديو القديمة
-    Video ID: معرف الفيديو
-    Resolution: الدقة
-    Bitrate: معدل البت
-    Player Dimensions: عدد اللاعبين
-    Volume: الصوت
-    Bandwidth: عرض النطاق الترددي
-    Buffered: مخزنة
-    Dropped / Total Frames: إسقاط / إجمالي الإطارات
-    Mimetype: نمط ميمي
   Premieres in: العرض الأول في
   Premieres: العرض الأولي
   Scroll to Bottom: انتقل إلى الأسفل
@@ -1073,9 +1045,6 @@ Tooltips:
       على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم
       يتم تغييره في الإعدادات).
     Skip by Scrolling Over Video Player: استخدم عجلة التمرير لتخطي الفيديو بنمط MPV.
-    Allow DASH AV1 formats: قد تبدو تنسيقات DASH AV1 أفضل من تنسيقات DASH H.264. تتطلب
-      تنسيقات DASH AV1 مزيدا من الطاقة للتشغيل! وهي غير متوفرة في جميع مقاطع الفيديو
-      ، وفي هذه الحالات سيستخدم المشغل تنسيقات DASH H.264 بدلا من ذلك.
   Subscription Settings:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا

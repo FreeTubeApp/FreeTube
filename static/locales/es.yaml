@@ -397,7 +397,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar historial'
@@ -880,11 +879,6 @@ Video:
   Loop Playlist: Reproducción en bucle
   Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
     recarga la página para comprobarlo
-  Audio:
-    Best: Máxima
-    High: Alta
-    Medium: Media
-    Low: Baja
   audio only: audio únicamente
   video only: vídeo únicamente
   Download Video: Descargar vídeo
@@ -898,7 +892,6 @@ Video:
     de guardados
   Video has been saved: El vídeo ha sido guardado
   Save Video: Guardar el vídeo
-  translated from English: traducido del inglés
   Sponsor Block category:
     music offtopic: No relacionado con la música
     interaction: Interacción
@@ -908,7 +901,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulación
     filler: Relleno
-  Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
     video: vídeo
@@ -925,26 +917,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
     OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
   Premieres on: Se estrena el
-  Stats:
-    bandwidth: Velocidad de conexión
-    volume: Volumen
-    video id: ID del vídeo (Youtube)
-    player resolution: Ventana
-    fps: FPS
-    frame drop: Pérdida de fotogramas
-    buffered: En buffer
-    out of: sin
-    Video statistics are not available for legacy videos: Las estadísticas de vídeo
-      no están disponibles para los vídeos heredados
-    Bitrate: Tasa de bits
-    Volume: Volumen
-    Mimetype: Tipo de medio
-    Resolution: Resolución
-    Player Dimensions: Dimensiones del reproductor
-    Bandwidth: Ancho de banda
-    Video ID: ID de vídeo
-    Buffered: En búfer
-    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
   Premieres in: Estrenos en
   Premieres: Estrenos
   Show Super Chat Comment: Mostrar los comentarios del Super Chat
@@ -1101,10 +1073,6 @@ Tooltips:
       ajustes).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
       el vídeo, estilo MPV.
-    Allow DASH AV1 formats: Los formatos DASH AV1 pueden verse mejor que los formatos
-      DASH H.264. ¡Los formatos DASH AV1 requieren más potencia para reproducirse!
-      No están disponibles en todos los videos, en esos casos el reproductor usará
-      los formatos DASH H.264 en su lugar.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado.

@@ -8,6 +8,11 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 const WatchExternalFilesPlugin = require('webpack-watch-external-files-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const {
+  SHAKA_LOCALE_MAPPINGS,
+  SHAKA_LOCALES_PREBUNDLED,
+  SHAKA_LOCALES_TO_BE_BUNDLED
+} = require('./getShakaLocales')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
@@ -122,7 +127,9 @@ const config = {
       'process.env.SUPPORTS_LOCAL_API': true,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
-      'process.env.SWIPER_VERSION': `'${swiperVersion}'`
+      'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
+      'process.env.SHAKA_LOCALE_MAPPINGS': JSON.stringify(SHAKA_LOCALE_MAPPINGS),
+      'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -143,7 +150,21 @@ const config = {
           transformAll: (assets) => {
             return Buffer.concat(assets.map(asset => asset.data))
           }
-        }
+        },
+        // Don't need to copy them in dev mode,
+        // as we configure WebpackDevServer to serve them
+        ...(isDevMode ? [] : [
+          {
+            from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
+            to: path.join(__dirname, '../dist/static/shaka-player-locales'),
+            context: path.join(__dirname, '../node_modules/shaka-player/ui/locales'),
+            transform: {
+              transformer: (input) => {
+                return JSON.stringify(JSON.parse(input.toString('utf-8')))
+              }
+            }
+          }
+        ])
       ]
     })
   ],
@@ -155,10 +176,8 @@ const config = {
 
       'youtubei.js$': 'youtubei.js/web',
 
-      // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
-      // as FreeTube only runs in electron and web browsers we can use the native DOMParser class, instead of the "polyfill"
-      // https://caniuse.com/mdn-api_domparser
-      '@xmldom/xmldom$': path.resolve(__dirname, '_domParser.js')
+      // change to "shaka-player.ui.debug.js" to get debug logs (update jsconfig to get updated types)
+      'shaka-player$': 'shaka-player/dist/shaka-player.ui.js',
     },
     extensions: ['.js', '.vue']
   },
@@ -175,6 +194,10 @@ if (isDevMode) {
       ],
     }),
   )
+
+  // hack to pass it through to the dev-runner.js script
+  // gets removed there before the config object is passed to webpack
+  config.SHAKA_LOCALES_TO_BE_BUNDLED = SHAKA_LOCALES_TO_BE_BUNDLED
 }
 
 module.exports = config

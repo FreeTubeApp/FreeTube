@@ -411,7 +411,6 @@ Settings:
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
-    Allow DASH AV1 formats: Autoriser les formats DASH AV1
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -870,11 +869,6 @@ Video:
   Loop Playlist: Liste de lecture en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez
     actualiser la page pour vérifier à nouveau
-  Audio:
-    Best: Meilleure
-    Medium: Normale
-    Low: Basse
-    High: Haute
   audio only: audio uniquement
   video only: vidéo uniquement
   Download Video: Télécharger la vidéo
@@ -888,7 +882,6 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
-  translated from English: traduit de l'anglais
   Sponsor Block category:
     music offtopic: Musique hors sujet
     interaction: Interaction
@@ -898,7 +891,6 @@ Video:
     intro: Intro
     filler: Bouche-trou
     recap: Récap
-  Skipped segment: Segment ignoré
   External Player:
     playlist: liste de lecture
     video: vidéo
@@ -915,26 +907,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
     OpeningTemplate: Ouverture de {videoOrPlaylist} en {externalPlayer}…
     OpenInTemplate: Ouvrir avec {externalPlayer}
-  Stats:
-    video id: "Identifiant de la vidéo (YouTube)"
-    player resolution: "Résolution du lecteur"
-    volume: "Volume"
-    fps: "IPS"
-    frame drop: "Perte d'image"
-    bandwidth: "Vitesse de connexion"
-    buffered: "En tampon"
-    out of: "sur"
-    Player Dimensions: Dimensions du lecteur
-    Bitrate: Débit binaire
-    Volume: Volume
-    Mimetype: Type de médias
-    Video statistics are not available for legacy videos: Les statistiques vidéo ne
-      sont pas disponibles pour les anciennes vidéos
-    Resolution: Résolution
-    Bandwidth: Bande passante
-    Video ID: Identifiant vidéo
-    Buffered: En mémoire tampon
-    Dropped / Total Frames: Images perdues / Nombre total d'images
   Premieres on: Avant-première le
   Premieres in: Première dans
   Premieres: Avant-première
@@ -1146,10 +1118,6 @@ Tooltips:
       de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer
       d'une vidéo à l'autre, en style MPV.
-    Allow DASH AV1 formats: Les formats DASH AV1 peuvent être plus beaux que les formats
-      DASH H.264. Les formats DASH AV1 nécessitent plus de puissance pour être lus !
-      Ils ne sont pas disponibles sur toutes les vidéos, dans ce cas le lecteur utilisera
-      les formats DASH H.264 à la place.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.

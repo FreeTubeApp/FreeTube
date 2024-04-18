@@ -350,7 +350,6 @@ Settings:
       de scroll
     Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
     Skip by Scrolling Over Video Player: Omiteți derulând peste player-ul video
-    Allow DASH AV1 formats: Permiteți formatele DASH AV1
   Privacy Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
@@ -774,15 +773,8 @@ Video:
     sponsor: Sponsor
     recap: Recapitulare
     filler: Filler
-  Skipped segment: Segment omis
-  translated from English: tradus din engleză
   Started streaming on: A început să transmită pe
   Streamed on: Difuzat pe
-  Audio:
-    Best: Cea mai bună
-    Medium: Medie
-    Low: Scăzută
-    High: Înaltă
   audio only: numai audio
   video only: numai video
   Download Video: Descărcați video
@@ -794,26 +786,6 @@ Video:
     ta de salvări
   Video has been saved: Videoclipul a fost salvat
   Save Video: Salvați video
-  Stats:
-    video id: Identificator videoclip (YouTube)
-    player resolution: Fereastră de vizualizare
-    volume: Sonor
-    fps: CPS
-    frame drop: Aruncare cadre
-    bandwidth: Viteză conexiune
-    out of: din
-    buffered: Preîncărcat
-    Video statistics are not available for legacy videos: Statisticile videoclipurilor
-      nu sunt disponibile pentru videoclipurile vechi
-    Video ID: Video ID
-    Resolution: Rezoluție
-    Player Dimensions: Dimensiunile player-ului
-    Bitrate: Rată de biți
-    Volume: Volum
-    Bandwidth: Lățime de bandă
-    Buffered: Încărcat
-    Dropped / Total Frames: Cadre pierdute / totale
-    Mimetype: Mimetype
   Premieres on: Premieră pe
   Premieres in: Are premiera în
   Scroll to Bottom: Derulați până jos
@@ -983,10 +955,6 @@ Tooltips:
       (tasta Command pe Mac) și faceți clic cu butonul stâng al mouse-ului pentru
       a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care
       aceasta a fost modificată în setări).
-    Allow DASH AV1 formats: Formatele DASH AV1 pot arăta mai bine decât formatele
-      DASH H.264. Formatele DASH AV1 necesită mai multă putere pentru redare! Nu sunt
-      disponibile pe toate videoclipurile, în acele cazuri playerul va folosi în schimb
-      formatele DASH H.264.
     Skip by Scrolling Over Video Player: Utilizați rotița de derulare pentru a trece
       prin videoclip, stil MPV.
   General Settings:

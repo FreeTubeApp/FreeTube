@@ -1,0 +1,186 @@
+/* stylelint-disable liberty/use-logical-spec */
+.ftVideoPlayer {
+  display: flex;
+  position: relative;
+
+  /*
+    For vertical videos and full window mode the background is visible,
+    so we want to make it black as it defaults to transparent
+   */
+  background-color: #000;
+}
+
+.player {
+  width: 100%;
+}
+
+:deep(.shaka-bottom-controls) {
+  /*
+    Force left to right, so that the UI doesn't break.
+    With rtl, the progress bar was filling from the left, but the scrubber was moving from the right.
+    video.js forced the direction for their controls too
+  */
+  direction: ltr;
+
+  /* Place the seek bar above the controls (the default is below) */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/*
+  With the legacy formats, shaka hands over the captions to the browser,
+  that causes issues like the captions being displayed under the player controls.
+  The browser positions captions based on the video element as it doesn't know about shaka's custom controls.
+  To solve that we use shaka's caption displayer (UITextDisplayer), so we need to hide the browser's ones
+ */
+.player::-webkit-media-text-track-container {
+  display: none;
+}
+
+.sixteenByNine {
+  aspect-ratio: 16 / 9;
+}
+
+.stats {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  line-height: 1.4em;
+  background-color: rgb(0 0 0 / 70%);
+  color: #fff;
+  z-index: 2;
+
+  /* user-select is intentionally not disabled, so that you can select and copy the stats */
+}
+
+:deep(.shaka-volume-bar-container) {
+  flex-shrink: initial;
+}
+
+.skippedSegmentsWrapper {
+  position: absolute;
+  right: 2%;
+  top: 20%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  pointer-events: none;
+}
+
+.skippedSegment {
+  margin-block: 0;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgb(0 0 0 / 80%);
+  color: #fff;
+}
+
+:deep(.sponsorBlockMarkerContainer) {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:deep(.sponsorBlockMarker) {
+  position: absolute;
+  opacity: 0.6;
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+:deep(.playerFullscreenTitleOverlay) {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  left: 5px;
+  font-size: xx-large;
+  color: #fff;
+  font-weight: normal;
+  background-color: rgb(0 0 0 / 50%);
+  border-radius: 5px;
+  user-select: none;
+
+  /* copied from .shaka-scrim-container */
+  transition: opacity cubic-bezier(.4, 0, .6, 1) .6s;
+}
+
+:global(body[dir='rtl'] .playerFullscreenTitleOverlay) {
+  left: initial;
+  right: 5px;
+}
+
+.ftVideoPlayer:fullscreen :deep(.playerFullscreenTitleOverlay) {
+  display: block;
+}
+
+:deep(.shaka-controls-container[shown="true"] > .playerFullscreenTitleOverlay) {
+  opacity: 1;
+}
+
+@media only screen and (width <= 400px) {
+  :deep(.shaka-text-container) {
+    /* make subtitles take up slightly less space when a mobile phone is in portrait orientation */
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (width <= 1000px) {
+  :deep(.playerFullscreenTitleOverlay) {
+    font-size: large;
+  }
+}
+
+:deep(.player-icon) {
+  font-size: 18px;
+}
+
+:deep(.shaka-overflow-menu .player-icon) {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+:deep(.screenshot-button-icon) {
+  font-size: 20px;
+}
+
+.ftVideoPlayer:fullscreen :deep(.theatre-button),
+.ftVideoPlayer:fullscreen :deep(.full-window-button),
+.fullWindow :deep(.theatre-button) {
+  display: none;
+}
+
+@media only screen and (width <= 1350px) {
+  :deep(.theatre-button) {
+    display: none
+  }
+}
+
+.fullWindow {
+  position: absolute !important;
+  max-width: initial !important;
+  inset: 0;
+  z-index: 1000;
+}
+
+.fullWindow > .player {
+  width: 100%;
+  height: 100%;
+}
+
+/* added to the body element */
+:global(.playerFullWindow) {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* stylelint-enable liberty/use-logical-spec */

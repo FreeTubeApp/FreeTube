@@ -394,7 +394,6 @@ Settings:
     Scroll Volume Over Video Player: Превуци за јачину звука преко плејера видео снимка
     Skip by Scrolling Over Video Player: Прескочи превлачењем преко плејера видео
       снимка
-    Allow DASH AV1 formats: Дозволи DASH AV1 формате
     Scroll Playback Rate Over Video Player: Превуци за брзину репродукције преко плејера
       видео снимка
     Fast-Forward / Rewind Interval: Интервал брзог премотавања унапред/уназад
@@ -821,18 +820,6 @@ Video:
     Ago: Пре
     Aug: Авг.
   Upcoming: Предстојеће
-  Stats:
-    Video statistics are not available for legacy videos: Статистика видео снимака
-      није доступна за застареле видео снимке
-    Buffered: Баферовано
-    Bitrate: Брзина кадра
-    Volume: Волумен (партиција)
-    Mimetype: Mimetype
-    Resolution: Резолуција
-    Dropped / Total Frames: Испуштено / Укупно кадрова
-    Bandwidth: Проток
-    Player Dimensions: Димензије плејера
-    Video ID: ID видео снимка
   Sponsor Block category:
     interaction: Интеракција
     filler: Попуњавање
@@ -842,7 +829,6 @@ Video:
     sponsor: Спонзор
     recap: Рекапитулација
     intro: Уводна анимација
-  translated from English: преведено са енглеског
   External Player:
     Unsupported Actions:
       opening playlists: отварање плејлиста
@@ -861,13 +847,7 @@ Video:
   Live chat is enabled. Chat messages will appear here once sent.: Ћаскање уживо је
     омогућено.  Поруке ћаскања ће се појавити овде када буду послате.
   Streamed on: Стримовано
-  Audio:
-    Medium: Средње
-    High: Високо
-    Best: Најбоље
-    Low: Ниско
   video only: само видео снимак
-  Skipped segment: Прескочен сегмент
   Pause on Current Video: Паузирај на тренутном видео снимку
   Premieres on: Премијера на
   audio only: само аудио снимак (звук)
@@ -939,10 +919,6 @@ Tooltips:
       чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју,
       ваше плејлисте и видео снимке унутар плејлиста.
   Player Settings:
-    Allow DASH AV1 formats: DASH AV1 формати могу изгледати боље од DASH H.264 формата.
-      DASH AV1 формати захтевају више снаге за репродукцију! Они нису доступни на
-      свим видео снимцима, у тим случајевима плејер ће уместо њих користити DASH H.264
-      формате.
     Default Video Format: Подесите формате који се користе када се видео снимак пушта.
       DASH формати могу да пуштају виши квалитет. Застарели формати су ограничени
       на максимално 720p, али користе мање протока. Аудио формати су само звучни снимци.

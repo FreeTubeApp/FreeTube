@@ -91,5 +91,4 @@
 <script src="./App.js" />
 
 <style src="./themes.css" />
-<style src="./videoJS.css" />
 <style scoped src="./App.css" />

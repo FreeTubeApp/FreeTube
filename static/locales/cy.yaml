@@ -284,7 +284,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Allow DASH AV1 formats: ''
     Screenshot:
       Enable: 'Galluogi Sgrinlun'
       Format Label: 'Fformat Sgrinluniau'
@@ -631,11 +630,6 @@ Video:
   Download Video: 'Lawrlwytho Fideo'
   video only: 'fideo yn unig'
   audio only: 'sain yn unig'
-  Audio:
-    Low: 'Isel'
-    Medium: 'Canolig'
-    High: 'Uwch'
-    Best: 'Gorau'
   Published:
     Jan: 'Ion'
     Feb: 'Chw'
@@ -669,9 +663,7 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: 'Noddwr'
     intro: 'Cyflwyniad'
@@ -695,17 +687,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: 'ID fideo'
-    Resolution: 'Eglurdeb'
-    Player Dimensions: ''
-    Bitrate: 'Cyfradd didau'
-    Volume: 'Sain'
-    Bandwidth: 'Lled band'
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: 'Math mime'
 #& Videos
 Videos:
   #& Sort By
@@ -801,7 +782,6 @@ Tooltips:
     Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

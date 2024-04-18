@@ -388,7 +388,6 @@ Settings:
         %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
         Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
-    Allow DASH AV1 formats: Luba DASH AV1 vormingud
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
@@ -817,14 +816,8 @@ Video:
     videote loendist
   Video has been saved: Video on salvestatud
   Save Video: Salvesta video
-  translated from English: tõlgitud inglise keelest
   Started streaming on: Voogedastus algas
   Streamed on: Voogedastatud
-  Audio:
-    High: Kõrge kvaliteet
-    Medium: Keskmine kvaliteet
-    Low: Madal kvaliteet
-    Best: Parim kvaliteet
   audio only: vaid helivoog
   video only: vaid videovoog
   Download Video: Laadi video alla
@@ -837,7 +830,6 @@ Video:
     sponsor: Sponsor
     filler: Täitevideo
     recap: Kokkuvõte
-  Skipped segment: Vahelejäetud lõik
   External Player:
     UnsupportedActionTemplate: 'Rakenduses {externalPlayer} puudub tugi: {action}'
     OpeningTemplate: Avan {videoOrPlaylist} {externalPlayer} rakendusega...
@@ -854,26 +846,6 @@ Video:
       setting a playback rate: taasesituskiiruse määramine
       starting video at offset: video esitamine ajanihkega
   Premieres on: Esilinastub
-  Stats:
-    video id: YouTube video tunnus
-    player resolution: Vaate suurus
-    volume: Helivaljus
-    fps: FPS
-    frame drop: Vahelejäetud kaadreid
-    bandwidth: Võrguühenduse kiirus
-    buffered: Puhverdatud
-    out of: /
-    Bandwidth: Ribalaius
-    Bitrate: Bitikiirus
-    Volume: Helivaljus
-    Dropped / Total Frames: Vahele jäetud kaadreid / kaadreid kokku
-    Player Dimensions: Meediaesitaja mõõdud
-    Buffered: Puhverdatud
-    Video ID: Video tunnus
-    Mimetype: Meedia MIME-tüüp
-    Video statistics are not available for legacy videos: Vana tüüpi videote puhul
-      pole statistika saataval
-    Resolution: Resolutsioon
   Premieres: Esilinastus
   Show Super Chat Comment: Näita Super Chat'i kommentaare
   Scroll to Bottom: Keri alla
@@ -1039,10 +1011,6 @@ Tooltips:
       edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,
       siis on see 1x) hoia all Ctrl klahvi (Mac'is ⌘ klahvi) ja klõpsi hiire vasakut
       nuppu.
-    Allow DASH AV1 formats: DASH AV1 vormingu puhul pilt võib tunduda paremad kui
-      DASH H.264 puhul. DASH AV1 vormingu dekodeerimine kasutab esitamise ajal rohkem
-      energiat! See vorming ei ole saadaval kõikide videote puhul, mispuhul kasutab
-      videoesitaja selle asemel DASH H.264 vormingut.
     Skip by Scrolling Over Video Player: MPV-stiilis video läbilappamiseks kasuta
       hiire ratast.
   Distraction Free Settings:
