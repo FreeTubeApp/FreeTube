@@ -6,7 +6,7 @@ function getPreloadedLocales() {
   const localesLine = localesFile.match(/^\/\/ LOCALES: ([\w, -]+)$/m)
 
   if (!localesLine) {
-    throw new Error('Failed to parse shaka-player's preloaded locales')
+    throw new Error("Failed to parse shaka-player's preloaded locales")
   }
 
   return localesLine[1].split(',').map(locale => locale.trim())
