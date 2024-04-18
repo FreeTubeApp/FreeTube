@@ -112,8 +112,8 @@ const config = {
     ]
   },
   node: {
-    __dirname: isDevMode,
-    __filename: isDevMode
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     processLocalesPlugin,
@@ -154,6 +154,8 @@ const config = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.runtime.esm-bundler.js',
+
+      'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$': path.resolve(__dirname, '../src/datastores/handlers/electron.js'),
 
       'youtubei.js$': 'youtubei.js/web',
 

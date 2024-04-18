@@ -1,4 +1,3 @@
-import fs from 'fs/promises'
 import { createWebURL, fetchWithTimeout } from '../../helpers/utils'
 
 const state = {
@@ -42,14 +41,11 @@ const actions = {
 
     // If the invidious instance fetch isn't returning anything interpretable
     if (instances.length === 0) {
-      // Fallback: read from static file
-      const fileName = 'invidious-instances.json'
-      /* eslint-disable-next-line n/no-path-concat */
-      const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
-      const filePath = `${fileLocation}${fileName}`
       console.warn('reading static file for invidious instances')
-      const fileData = process.env.IS_ELECTRON ? await fs.readFile(filePath, 'utf8') : await (await fetch(createWebURL(filePath))).text()
-      instances = JSON.parse(fileData).filter(e => {
+      const url = createWebURL('/static/invidious-instances.json')
+
+      const fileData = await (await fetch(url)).json()
+      instances = fileData.filter(e => {
         return process.env.SUPPORTS_LOCAL_API || e.cors
       }).map(e => {
         return e.url

@@ -3,6 +3,13 @@
     "target": 3.3
   },
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": "./",
+    "paths": {
+      "DB_HANDLERS_ELECTRON_RENDERER_OR_WEB": [
+        "src/datastores/handlers/electron",
+        "src/datastores/handlers/web"
+      ]
+    }
   }
 }

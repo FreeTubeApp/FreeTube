@@ -444,7 +444,7 @@ Settings:
     Are you sure you want to clear out your search cache?: Tem certeza de que deseja
       limpar o cache de pesquisa?
     Clear Search Cache: Limpar cache de buscas
-    Save Watched Progress: Salvar progresso de exibição
+    Save Watched Progress: Habilitar o histórico de exibição
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
@@ -489,7 +489,7 @@ Settings:
       importado com sucesso
     History object has insufficient data, skipping item: O histórico tem dados insuficientes,
       pulando item
-    This might take a while, please wait: Este processo pode demorar, por favor espere
+    This might take a while, please wait: Este processo pode demorar, por favor aguarde
     Invalid subscriptions file: Arquivo de inscrições inválido
     All subscriptions and profiles have been successfully imported: Todas as inscrições
       e perfis foram importados com sucesso
@@ -1221,3 +1221,7 @@ Age Restricted:
   This video is age restricted: Este vídeo tem restrição de idade
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} última atualização do feed: {date}'
+  Refresh Feed: Atualizar {subscriptionName}
+Moments Ago: momentos atrás

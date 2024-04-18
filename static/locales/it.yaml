@@ -1227,3 +1227,7 @@ Age Restricted:
 Close Banner: Chiudi banner
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: pochi istanti fa
+Feed:
+  Feed Last Updated: 'Ultimo aggiornamento del feed {feedName}: {date}'
+  Refresh Feed: Aggiorna {subscriptionName}
