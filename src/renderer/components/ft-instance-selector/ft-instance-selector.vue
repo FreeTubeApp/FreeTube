@@ -20,7 +20,7 @@
         </a>
       </div>
       <div
-        v-else
+        v-else-if="backendType === 'invidious'"
       >
         <a
           href="https://api.invidious.io"

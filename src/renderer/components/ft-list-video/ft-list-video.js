@@ -317,6 +317,10 @@ export default defineComponent({
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
+      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail != null) {
+        return this.deArrowCache.thumbnail
+      }
+
       let baseUrl = ''
       let backendPreference = this.backendPreference
       if (backendPreference === 'piped') {

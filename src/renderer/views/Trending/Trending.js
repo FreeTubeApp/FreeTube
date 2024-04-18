@@ -180,7 +180,7 @@ export default defineComponent({
             showToast(this.$t('Falling back to Piped API'))
             this.getTrendingInfoPiped()
           } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
-            showToast(this.$t('Falling back to local API'))
+            showToast(this.$t('Falling back to Local API'))
             this.getTrendingInfoLocal()
           }
         } else {
@@ -218,7 +218,7 @@ export default defineComponent({
             showToast(this.$t('Falling back to Invidious API'))
             this.getTrendingInfoInvidious()
           } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
-            showToast(this.$t('Falling back to local API'))
+            showToast(this.$t('Falling back to Local API'))
             this.getTrendingInfoLocal()
           }
         } else {
