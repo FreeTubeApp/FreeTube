@@ -280,10 +280,7 @@ export default defineComponent({
     },
 
     checkExternalPlayer: async function () {
-      const payload = {
-        externalPlayer: this.externalPlayer
-      }
-      this.getExternalPlayerCmdArgumentsData(payload)
+      this.getExternalPlayerCmdArgumentsData()
     },
 
     handleUpdateBannerClick: function (response) {

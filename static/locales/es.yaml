@@ -122,7 +122,7 @@ User Playlists:
     a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
-    con tu búsqueda
+    con su búsqueda
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
     seguro de que quieres eliminar todos los vídeos vistos de esta lista de reproducción?
     Esto no se puede deshacer.
@@ -976,6 +976,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reproducción
+  Sort By:
+    Custom: Personalizado
+    DateAddedNewest: Último añadido primero
+    DateAddedOldest: Primeros añadidos primero
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Título (A-Z)
+    Sort By: Ordenar por
+    VideoTitleDescending: Título (Z-A)
 Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
@@ -1215,3 +1224,7 @@ Age Restricted:
   This video is age restricted: Este vídeo está restringido por edad
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} feed actualizado por última vez: {date}'
+  Refresh Feed: Actualizar {subscriptionName}
+Moments Ago: hace unos instantes
