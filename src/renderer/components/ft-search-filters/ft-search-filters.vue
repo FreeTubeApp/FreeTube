@@ -1,5 +1,6 @@
 <template>
   <ft-prompt
+    theme="slim"
     @click="hideSearchFilters"
   >
     <div>

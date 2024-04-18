@@ -36,6 +36,10 @@ export default defineComponent({
     autosize: {
       type: Boolean,
       default: false
+    },
+    theme: {
+      type: String,
+      default: 'base'
     }
   },
   emits: ['click'],

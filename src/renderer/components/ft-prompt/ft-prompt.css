@@ -17,6 +17,7 @@
 
 .promptCard {
   overflow-y: scroll;
+  max-block-size: 95%;
 }
 
 .promptCard.autosize {
@@ -34,6 +35,31 @@
   box-sizing: border-box;
 }
 
+.promptCard.flex-column {
+    /* Some child(ren) will grow vertically */
+    display: flex;
+    flex-direction: column;
+}
+
+.promptCard.slim {
+  max-inline-size: 70%;
+  inset-inline-start: 15%;
+  padding-block: 10px;
+}
+
 .center {
   text-align: center;
+}
+
+@media only screen and (width <= 680px) {
+  .promptCard.slim {
+    padding-block: 5px;
+  }
+}
+
+@media only screen and (width <= 500px) {
+  .promptCard.slim {
+    max-inline-size: 80%;
+    inset-inline-start: 10%;
+  }
 }

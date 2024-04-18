@@ -4,16 +4,6 @@
   user-select: none;
 }
 
-/* Style for `ft-prompt` */
-:deep(.promptCard):has(.searchFilterCloseButtonContainer) {
-  max-inline-size: 70%;
-  inset-inline-start: 15%;
-  padding-block: 10px;
-
-  /* Currently only this prompt has enough content to make prompt too high */
-  max-block-size: 95%;
-}
-
 .searchRadio {
   padding: 5px;
 }
@@ -29,11 +19,6 @@
 }
 
 @media only screen and (width <= 680px) {
-  /* Style for `ft-prompt` */
-  :deep(.promptCard):has(.searchFilterCloseButtonContainer) {
-    padding-block: 5px;
-  }
-
   .searchRadio {
     border-inline-end: 0;
     padding-block-start: 0;
@@ -41,13 +26,5 @@
 
   .radioFlexBox {
     flex-flow: column;
-  }
-}
-
-@media only screen and (width <= 500px) {
-  /* Style for `ft-prompt` */
-  :deep(.promptCard):has(.searchFilterCloseButtonContainer) {
-    max-inline-size: 80%;
-    inset-inline-start: 10%;
   }
 }

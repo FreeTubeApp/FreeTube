@@ -1,5 +1,6 @@
 <template>
   <ft-prompt
+    theme="flex-column"
     @click="hide"
   >
     <h2 class="heading">
