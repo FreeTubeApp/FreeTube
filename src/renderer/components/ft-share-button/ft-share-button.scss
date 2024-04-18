@@ -1,36 +1,44 @@
+/* stylelint-disable no-descending-specificity */
 .shareLinks {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: auto auto;
   padding: 12px;
-  width: max-content;
+  inline-size: max-content;
 
   .header {
     color: var(--primary-text-color);
     font-size: 18px;
     font-weight: bold;
-    margin: 4px 0 8px;
+    margin-block: 4px 8px;
+    margin-inline: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .buttons {
     display: flex;
     flex-direction: column;
+    max-inline-size: min-content;
+    min-inline-size: 150px;
 
     .action {
       padding: 6px;
+      white-space: initial;
     }
   }
 
   .divider {
     background: var(--tertiary-text-color);
     grid-row: span 3;
-    margin: 0 12px;
-    width: 1px;
+    margin-block: 0;
+    margin-inline: 12px;
+    inline-size: 1px;
   }
 
   .youtubeLogo {
-    height: 18px;
-    width: auto;
+    block-size: 18px;
+    inline-size: auto;
 
     @at-root {
       .dark &,
@@ -44,6 +52,7 @@
 
       /* no changes for the dracula theme */
 
+      .pastelPink &,
       .light &,
       .system[data-system-theme*='light'] & {
         filter: invert(0.87);
@@ -52,31 +61,53 @@
   }
 
   .invidious {
-    display: flex;
-    justify-content: center;
     letter-spacing: -0.4px;
 
     .invidiousLogo {
       background-size: cover;
       display: inline-block;
-      height: 20px;
-      margin-right: 2px;
-      width: 20px;
+      block-size: 20px;
+      margin-inline-end: 2px;
+      inline-size: 20px;
 
       @at-root {
         .dark &,
         .black &,
         .dracula &,
         .CatppuccinMocha &,
+        .hotPink &,
         .system[data-system-theme*='dark'] & {
           background-image: url('../../assets/img/invidious-logo-dark.svg');
         }
 
+        .pastelPink &,
         .light &,
         .system[data-system-theme*='light'] & {
           background-image: url('../../assets/img/invidious-logo-light.svg');
         }
       }
+    }
+  }
+}
+
+@media only screen and (width <= 450px) {
+  .shareLinks {
+    grid-auto-flow: row;
+    margin-inline: auto;
+    justify-items: center;
+    max-inline-size: max-content;
+
+    .header.invidious {
+      margin-block-start: 20px;
+    }
+
+    .buttons {
+      max-inline-size: min-content;
+      min-inline-size: 180px;
+    }
+
+    .divider {
+      display: none;
     }
   }
 }

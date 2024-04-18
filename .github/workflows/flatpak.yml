@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         repository: flathub/io.freetubeapp.FreeTube
         token: ${{ secrets.FLATHUB_TOKEN }}
@@ -36,7 +36,7 @@ jobs:
     - name: Install xmlstarlet
       run: sudo apt -y install xmlstarlet
     - name: Create Version Variable
-      uses: bluwy/substitute-string-action@v2
+      uses: bluwy/substitute-string-action@v3
       id: sub
       with:
         _input-text: ${{ fromJson(steps.api_results.outputs.result).tag_name }}
@@ -103,7 +103,7 @@ jobs:
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip
     - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"

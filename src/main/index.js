@@ -7,9 +7,10 @@ import path from 'path'
 import cp from 'child_process'
 
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
-import baseHandlers from '../datastores/handlers/base'
+import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
+import asyncFs from 'fs/promises'
 
 import packageDetails from '../../package.json'
 
@@ -64,7 +65,9 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+            visible = ['/channel', '/watch'].some(p => path.startsWith(p)) ||
+              // Only show copy link entry for non user playlists
+              (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
         } else {
           visible = true
@@ -103,17 +106,17 @@ function runApp() {
             let url
 
             if (toYouTube) {
-              url = `https://youtu.be/${id}`
+              url = new URL(`https://youtu.be/${id}`)
             } else {
-              url = `https://redirect.invidious.io/watch?v=${id}`
+              url = new URL(`https://redirect.invidious.io/watch?v=${id}`)
             }
 
             if (query) {
               const params = new URLSearchParams(query)
-              const newParams = new URLSearchParams()
+              const newParams = new URLSearchParams(url.search)
               let hasParams = false
 
-              if (params.has('playlistId')) {
+              if (params.has('playlistId') && params.get('playlistType') !== 'user') {
                 newParams.set('list', params.get('playlistId'))
                 hasParams = true
               }
@@ -124,11 +127,11 @@ function runApp() {
               }
 
               if (hasParams) {
-                url += '?' + newParams.toString()
+                url.search = newParams.toString()
               }
             }
 
-            return url
+            return url.toString()
           }
         }
       }
@@ -166,14 +169,17 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  app.commandLine.appendSwitch('enable-accelerated-video-decode')
-  app.commandLine.appendSwitch('enable-file-cookies')
-  app.commandLine.appendSwitch('ignore-gpu-blacklist')
+  if (process.platform === 'linux') {
+    // Enable hardware acceleration via VA-API
+    // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
+    app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+  }
 
   // command line switches need to be added before the app ready event first
-  // that means we can't use the normal settings system as that is asynchonous,
+  // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
-  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  const REPLACE_HTTP_CACHE_PATH = `${app.getPath('userData')}/experiment-replace-http-cache`
+  const replaceHttpCache = existsSync(REPLACE_HTTP_CACHE_PATH)
   if (replaceHttpCache) {
     // the http cache causes excessive disk usage during video playback
     // we've got a custom image cache to make up for disabling the http cache
@@ -285,6 +291,13 @@ function runApp() {
       })
     })
 
+    session.defaultSession.cookies.set({
+      url: 'https://www.youtube.com',
+      name: 'SOCS',
+      value: 'CAI',
+      sameSite: 'no_restriction',
+    })
+
     // make InnerTube requests work with the fetch function
     // InnerTube rejects requests if the referer isn't YouTube or empty
     const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
@@ -304,7 +317,7 @@ function runApp() {
       // For the DASH formats we are fine as video.js doesn't seem to ever request chunks that big.
       // The legacy formats don't have any chunk size limits.
       // For the audio formats we need to handle it ourselves, as the browser requests the entire audio file,
-      // which means that for most videos that are loger than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
+      // which means that for most videos that are longer than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
 
       // This code checks if the file is larger than the limit, by checking the `clen` query param,
       // which YouTube helpfully populates with the content length for us.
@@ -336,93 +349,81 @@ function runApp() {
       callback({ requestHeaders })
     })
 
+    // when we create a real session on the watch page, youtube returns tracking cookies, which we definitely don't want
+    const trackingCookieRequestFilter = { urls: ['https://www.youtube.com/sw.js_data', 'https://www.youtube.com/iframe_api'] }
+
+    session.defaultSession.webRequest.onHeadersReceived(trackingCookieRequestFilter, ({ responseHeaders }, callback) => {
+      if (responseHeaders) {
+        delete responseHeaders['set-cookie']
+      }
+      // eslint-disable-next-line n/no-callback-literal
+      callback({ responseHeaders })
+    })
+
     if (replaceHttpCache) {
       // in-memory image cache
 
       const imageCache = new ImageCache()
 
-      protocol.registerBufferProtocol('imagecache', (request, callback) => {
-        // Remove `imagecache://` prefix
-        const url = decodeURIComponent(request.url.substring(13))
-        if (imageCache.has(url)) {
-          const cached = imageCache.get(url)
+      protocol.handle('imagecache', (request) => {
+        return new Promise((resolve, reject) => {
+          const url = decodeURIComponent(request.url.substring(13))
+          if (imageCache.has(url)) {
+            const cached = imageCache.get(url)
 
-          callback(cached)
-          return
-        }
-
-        const newRequest = net.request({
-          method: request.method,
-          url
-        })
-
-        // Electron doesn't allow certain headers to be set:
-        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
-        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
-        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
-
-        for (const header of Object.keys(request.headers)) {
-          if (!blacklistedHeaders.includes(header.toLowerCase())) {
-            newRequest.setHeader(header, request.headers[header])
+            resolve(new Response(cached.data, {
+              headers: { 'content-type': cached.mimeType }
+            }))
+            return
           }
-        }
 
-        newRequest.on('response', (response) => {
-          const chunks = []
-          response.on('data', (chunk) => {
-            chunks.push(chunk)
+          const newRequest = net.request({
+            method: request.method,
+            url
           })
 
-          response.on('end', () => {
-            const data = Buffer.concat(chunks)
+          // Electron doesn't allow certain headers to be set:
+          // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+          // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+          const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
 
-            const expiryTimestamp = extractExpiryTimestamp(response.headers)
-            const mimeType = response.headers['content-type']
+          for (const header of Object.keys(request.headers)) {
+            if (!blacklistedHeaders.includes(header.toLowerCase())) {
+              newRequest.setHeader(header, request.headers[header])
+            }
+          }
 
-            imageCache.add(url, mimeType, data, expiryTimestamp)
+          newRequest.on('response', (response) => {
+            const chunks = []
+            response.on('data', (chunk) => {
+              chunks.push(chunk)
+            })
 
-            // eslint-disable-next-line n/no-callback-literal
-            callback({
-              mimeType,
-              data: data
+            response.on('end', () => {
+              const data = Buffer.concat(chunks)
+
+              const expiryTimestamp = extractExpiryTimestamp(response.headers)
+              const mimeType = response.headers['content-type']
+
+              imageCache.add(url, mimeType, data, expiryTimestamp)
+
+              resolve(new Response(data, {
+                headers: { 'content-type': mimeType }
+              }))
+            })
+
+            response.on('error', (error) => {
+              console.error('image cache error', error)
+              reject(error)
             })
           })
 
-          response.on('error', (error) => {
-            console.error('image cache error', error)
-
-            // error objects don't get serialised properly
-            // https://stackoverflow.com/a/53624454
-
-            const errorJson = JSON.stringify(error, (key, value) => {
-              if (value instanceof Error) {
-                return {
-                  // Pull all enumerable properties, supporting properties on custom Errors
-                  ...value,
-                  // Explicitly pull Error's non-enumerable properties
-                  name: value.name,
-                  message: value.message,
-                  stack: value.stack
-                }
-              }
-
-              return value
-            })
-
-            // eslint-disable-next-line n/no-callback-literal
-            callback({
-              statusCode: response.statusCode ?? 400,
-              mimeType: 'application/json',
-              data: Buffer.from(errorJson)
-            })
+          newRequest.on('error', (err) => {
+            console.error(err)
           })
+
+          newRequest.end()
         })
-
-        newRequest.on('error', (err) => {
-          console.error(err)
-        })
-
-        newRequest.end()
       })
 
       const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
@@ -472,8 +473,12 @@ function runApp() {
       searchQueryText = null
     } = { }) {
     // Syncing new window background to theme choice.
-    const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
-      switch (value) {
+    const windowBackground = await baseHandlers.settings._findTheme().then((setting) => {
+      if (!setting) {
+        return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+      }
+
+      switch (setting.value) {
         case 'dark':
           return '#212121'
         case 'light':
@@ -484,6 +489,12 @@ function runApp() {
           return '#282a36'
         case 'catppuccin-mocha':
           return '#1e1e2e'
+        case 'pastel-pink':
+          return '#ffd1dc'
+        case 'hot-pink':
+          return '#de1c85'
+        case 'nordic':
+          return '#2b2f3a'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -653,7 +664,7 @@ function runApp() {
     }
   })
 
-  ipcMain.once('relaunchRequest', () => {
+  function relaunch() {
     if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
@@ -684,6 +695,10 @@ function runApp() {
     }
 
     app.quit()
+  }
+
+  ipcMain.once('relaunchRequest', () => {
+    relaunch()
   })
 
   nativeTheme.on('updated', () => {
@@ -698,10 +713,12 @@ function runApp() {
     session.defaultSession.setProxy({
       proxyRules: url
     })
+    session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
     session.defaultSession.setProxy({})
+    session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
@@ -709,7 +726,8 @@ function runApp() {
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
-    return app.getLocale()
+    // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
+    return app.getSystemLocale()
   })
 
   ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {
@@ -766,6 +784,22 @@ function runApp() {
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
     const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
     child.unref()
+  })
+
+  ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, () => {
+    return replaceHttpCache
+  })
+
+  ipcMain.once(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE, async () => {
+    if (replaceHttpCache) {
+      await asyncFs.rm(REPLACE_HTTP_CACHE_PATH)
+    } else {
+      // create an empty file
+      const handle = await asyncFs.open(REPLACE_HTTP_CACHE_PATH, 'w')
+      await handle.close()
+    }
+
+    relaunch()
   })
 
   // ************************************************* //
@@ -838,7 +872,7 @@ function runApp() {
           return null
 
         case DBActions.HISTORY.UPDATE_PLAYLIST:
-          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId)
+          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId, data.lastViewedPlaylistType, data.lastViewedPlaylistItemId)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,
@@ -939,15 +973,27 @@ function runApp() {
       switch (action) {
         case DBActions.GENERAL.CREATE:
           await baseHandlers.playlists.create(data)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.CREATE, data }
+          )
           return null
 
         case DBActions.GENERAL.FIND:
           return await baseHandlers.playlists.find()
 
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.playlists.upsert(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
-          await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
+          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.videoData)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -955,20 +1001,30 @@ function runApp() {
           )
           return null
 
-        case DBActions.PLAYLISTS.UPSERT_VIDEO_IDS:
-          await baseHandlers.playlists.upsertVideoIdsByPlaylistId(data._id, data.videoIds)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+        case DBActions.PLAYLISTS.UPSERT_VIDEOS:
+          await baseHandlers.playlists.upsertVideosByPlaylistId(data._id, data.videos)
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.PLAYLISTS.UPSERT_VIDEOS, data }
+          )
           return null
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.playlists.delete(data)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistName(data.playlistName, data.videoId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
+            _id: data._id,
+            videoId: data.videoId,
+            playlistItemId: data.playlistItemId,
+          })
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -977,13 +1033,13 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
-          await baseHandlers.playlists.deleteVideoIdsByPlaylistName(data.playlistName, data.videoIds)
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.videoIds)
           // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.PLAYLISTS.DELETE_ALL_VIDEOS:
-          await baseHandlers.playlists.deleteAllVideosByPlaylistName(data)
+          await baseHandlers.playlists.deleteAllVideosByPlaylistId(data)
           // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
@@ -1024,6 +1080,8 @@ function runApp() {
 
   // ************************************************* //
 
+  let resourcesCleanUpDone = false
+
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
@@ -1033,8 +1091,32 @@ function runApp() {
     })
   })
 
-  function cleanUpResources() {
-    return Promise.allSettled([
+  if (process.platform === 'darwin') {
+    // `window-all-closed` doesn't fire for Cmd+Q
+    // https://www.electronjs.org/docs/latest/api/app#event-window-all-closed
+    // This is also fired when `app.quit` called
+    // Not using `before-quit` since that one is fired before windows are closed
+    app.on('will-quit', e => {
+      // Let app quit when the cleanup is finished
+
+      if (resourcesCleanUpDone) { return }
+
+      e.preventDefault()
+      cleanUpResources().finally(() => {
+        // Quit AFTER the resources cleanup is finished
+        // Which calls the listener again, which is why we have the variable
+
+        app.quit()
+      })
+    })
+  }
+
+  async function cleanUpResources() {
+    if (resourcesCleanUpDone) {
+      return
+    }
+
+    await Promise.allSettled([
       baseHandlers.compactAllDatastores(),
       session.defaultSession.clearCache(),
       session.defaultSession.clearStorageData({
@@ -1050,6 +1132,8 @@ function runApp() {
         ]
       })
     ])
+
+    resourcesCleanUpDone = true
   }
 
   // MacOS event
@@ -1294,6 +1378,13 @@ function runApp() {
             accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/history', browserWindow)
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Profile Manager',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/settings/profile/', browserWindow)
             },
             type: 'normal'
           },

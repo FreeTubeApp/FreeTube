@@ -1,5 +1,15 @@
 {
   "vueCompilerOptions": {
     "target": 2.7
+  },
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "baseUrl": "./",
+    "paths": {
+      "DB_HANDLERS_ELECTRON_RENDERER_OR_WEB": [
+        "src/datastores/handlers/electron",
+        "src/datastores/handlers/web"
+      ]
+    }
   }
 }

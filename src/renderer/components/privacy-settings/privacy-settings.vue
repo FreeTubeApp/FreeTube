@@ -29,15 +29,6 @@
           @change="updateSaveVideoHistoryWithLastViewedPlaylist"
         />
       </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Privacy Settings.Automatically Remove Video Meta Files')"
-          :compact="true"
-          :default-value="removeVideoMetaFiles"
-          :tooltip="$t('Tooltips.Privacy Settings.Remove Video Meta Files')"
-          @change="handleVideoMetaFiles"
-        />
-      </div>
     </div>
     <br>
     <ft-flex-box>
@@ -58,6 +49,12 @@
         text-color="var(--text-with-main-color)"
         background-color="var(--primary-color)"
         @click="showRemoveSubscriptionsPrompt = true"
+      />
+      <ft-button
+        :label="$t('Settings.Privacy Settings.Remove All Playlists')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
+        @click="showRemovePlaylistsPrompt = true"
       />
     </ft-flex-box>
     <ft-prompt
@@ -80,6 +77,13 @@
       :option-names="promptNames"
       :option-values="promptValues"
       @click="handleRemoveSubscriptions"
+    />
+    <ft-prompt
+      v-if="showRemovePlaylistsPrompt"
+      :label="$t('Settings.Privacy Settings.Are you sure you want to remove all your playlists?')"
+      :option-names="promptNames"
+      :option-values="promptValues"
+      @click="handleRemovePlaylists"
     />
   </ft-settings-section>
 </template>

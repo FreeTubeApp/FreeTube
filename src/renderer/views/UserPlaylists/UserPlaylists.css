@@ -1,15 +1,63 @@
 .card {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 60px;
+  position: relative;
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
+}
+
+.headingText {
+  display: inline-block;
+}
+
+.newPlaylistButton {
+  margin-inline-start: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.searchInputsRow {
+  display: grid;
+
+  /* 2 columns */
+  grid-template-columns: 1fr auto;
+  column-gap: 16px;
+}
+
+@media only screen and (width <= 800px) {
+  .searchInputsRow {
+    /* Switch to 2 rows from 2 columns */
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+}
+
+.optionsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+@media only screen and (width <= 800px) {
+  .optionsRow {
+    /* Switch to 2 rows from 2 columns */
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+  }
+}
+
+.sortSelect {
+  /* Put it on the right */
+  margin-inline-start: auto;
 }
 
 .message {
   color: var(--tertiary-text-color);
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 }

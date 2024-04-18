@@ -104,6 +104,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['set-info-area-sticky', 'scroll-to-info-area', 'pause-player'],
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
@@ -125,20 +126,8 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
-    favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
-    },
-
-    inFavoritesPlaylist: function () {
-      const index = this.favoritesPlaylist.videos.findIndex((video) => {
-        return video.videoId === this.id
-      })
-
-      return index !== -1
-    },
-
-    favoriteIconTheme: function () {
-      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+    showPlaylists: function () {
+      return !this.$store.getters.getHidePlaylists
     },
 
     downloadLinkOptions: function () {
@@ -199,7 +188,8 @@ export default defineComponent({
       if (this.hideVideoViews) {
         return null
       }
-      return formatNumber(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
+
+      return this.$tc('Global.Counts.View Count', this.viewCount, { count: formatNumber(this.viewCount) })
     },
 
     dateString: function () {
@@ -225,7 +215,37 @@ export default defineComponent({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
-    }
+    },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    isQuickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    isInQuickBookmarkPlaylist: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      return this.quickBookmarkPlaylist.videos.some((video) => {
+        return video.videoId === this.id
+      })
+    },
+    quickBookmarkIconText: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      const translationProperties = {
+        playlistName: this.quickBookmarkPlaylist.playlistName,
+      }
+      return this.isInQuickBookmarkPlaylist
+        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
+        : this.$t('User Playlists.Add to Favorites', translationProperties)
+    },
+    quickBookmarkIconTheme: function () {
+      return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
+    },
   },
   mounted: function () {
     if ('mediaSession' in navigator) {
@@ -258,7 +278,7 @@ export default defineComponent({
     handleExternalPlayer: function () {
       this.$emit('pause-player')
 
-      this.openInExternalPlayer({
+      const payload = {
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -267,16 +287,19 @@ export default defineComponent({
         playlistIndex: this.getPlaylistIndex(),
         playlistReverse: this.getPlaylistReverse(),
         playlistShuffle: this.getPlaylistShuffle(),
-        playlistLoop: this.getPlaylistLoop()
-      })
-    },
-
-    toggleSave: function () {
-      if (this.inFavoritesPlaylist) {
-        this.removeFromPlaylist()
-      } else {
-        this.addToPlaylist()
+        playlistLoop: this.getPlaylistLoop(),
       }
+      // Only play video in non playlist mode when user playlist detected
+      if (this.inUserPlaylist) {
+        Object.assign(payload, {
+          playlistId: null,
+          playlistIndex: null,
+          playlistReverse: null,
+          playlistShuffle: null,
+          playlistLoop: null,
+        })
+      }
+      this.openInExternalPlayer(payload)
     },
 
     handleDownload: function (index) {
@@ -305,48 +328,73 @@ export default defineComponent({
       return group[1]
     },
 
-    addToPlaylist: function () {
+    togglePlaylistPrompt: function () {
       const videoData = {
         videoId: this.id,
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        published: '',
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
-        timeAdded: new Date().getTime(),
-        isLive: false,
-        paid: false,
-        type: 'video'
       }
 
-      const payload = {
-        playlistName: 'Favorites',
-        videoData: videoData
-      }
-
-      this.addVideo(payload)
-
-      showToast(this.$t('Video.Video has been saved'))
+      this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
     },
 
-    removeFromPlaylist: function () {
-      const payload = {
-        playlistName: 'Favorites',
-        videoId: this.id
+    toggleQuickBookmarked() {
+      if (!this.isQuickBookmarkEnabled) {
+        // This should be prevented by UI
+        return
       }
 
-      this.removeVideo(payload)
+      if (this.isInQuickBookmarkPlaylist) {
+        this.removeFromQuickBookmarkPlaylist()
+      } else {
+        this.addToQuickBookmarkPlaylist()
+      }
+    },
+    addToQuickBookmarkPlaylist() {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+      }
 
+      this.addVideos({
+        _id: this.quickBookmarkPlaylist._id,
+        videos: [videoData],
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
+      showToast(this.$t('Video.Video has been saved'))
+    },
+    removeFromQuickBookmarkPlaylist() {
+      this.removeVideo({
+        _id: this.quickBookmarkPlaylist._id,
+        // Remove all playlist items with same videoId
+        videoId: this.id,
+      })
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
+
+      // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
       'openInExternalPlayer',
-      'addVideo',
+      'downloadMedia',
+      'showAddToPlaylistPromptForManyVideos',
+      'addVideos',
+      'updatePlaylist',
       'removeVideo',
-      'downloadMedia'
     ])
   }
 })

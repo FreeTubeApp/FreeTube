@@ -4,6 +4,8 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import { showToast } from '../../helpers/utils'
+import { checkYoutubeChannelId, findChannelTagInfo } from '../../helpers/channels'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -11,9 +13,20 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-input-tags': FtInputTags,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+  },
+  data: function () {
+    return {
+      channelHiderDisabled: false,
+    }
   },
   computed: {
+    backendOptions: function () {
+      return {
+        preference: this.$store.getters.getBackendPreference,
+        fallback: this.$store.getters.getBackendFallback
+      }
+    },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },
@@ -50,7 +63,10 @@ export default defineComponent({
     hideComments: function () {
       return this.$store.getters.getHideComments
     },
-    hideLiveStreams: function() {
+    hideCommentPhotos: function () {
+      return this.$store.getters.getHideCommentPhotos
+    },
+    hideLiveStreams: function () {
       return this.$store.getters.getHideLiveStreams
     },
     hideUpcomingPremieres: function () {
@@ -62,38 +78,50 @@ export default defineComponent({
     hideChapters: function () {
       return this.$store.getters.getHideChapters
     },
-    hideFeaturedChannels: function() {
+    hideFeaturedChannels: function () {
       return this.$store.getters.getHideFeaturedChannels
     },
-    hideChannelShorts: function() {
+    hideChannelShorts: function () {
       return this.$store.getters.getHideChannelShorts
     },
-    hideChannelPlaylists: function() {
+    hideChannelPlaylists: function () {
       return this.$store.getters.getHideChannelPlaylists
     },
-    hideChannelPodcasts: function() {
+    hideChannelPodcasts: function () {
       return this.$store.getters.getHideChannelPodcasts
     },
-    hideChannelReleases: function() {
+    hideChannelReleases: function () {
       return this.$store.getters.getHideChannelReleases
     },
-    hideChannelCommunity: function() {
+    hideChannelCommunity: function () {
       return this.$store.getters.getHideChannelCommunity
     },
-    hideSubscriptionsVideos: function() {
+    hideSubscriptionsVideos: function () {
       return this.$store.getters.getHideSubscriptionsVideos
     },
-    hideSubscriptionsShorts: function() {
+    hideSubscriptionsShorts: function () {
       return this.$store.getters.getHideSubscriptionsShorts
     },
-    hideSubscriptionsLive: function() {
+    hideSubscriptionsLive: function () {
       return this.$store.getters.getHideSubscriptionsLive
+    },
+    hideSubscriptionsCommunity: function () {
+      return this.$store.getters.getHideSubscriptionsCommunity
     },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
     channelsHidden: function () {
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
+    },
+    forbiddenTitles: function() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
     hideSubscriptionsLiveTooltip: function () {
       return this.$t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {
@@ -101,7 +129,10 @@ export default defineComponent({
         subsection: this.$t('Settings.Distraction Free Settings.Sections.General'),
         settingsSection: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
       })
-    }
+    },
+  },
+  mounted: function () {
+    this.verifyChannelsHidden()
   },
   methods: {
     handleHideRecommendedVideos: function (value) {
@@ -111,8 +142,53 @@ export default defineComponent({
 
       this.updateHideRecommendedVideos(value)
     },
-    handleChannelsHidden: function(value) {
+    handleInvalidChannel: function () {
+      showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Invalid'))
+    },
+    handleChannelAPIError: function () {
+      showToast(this.$t('Settings.Distraction Free Settings.Hide Channels API Error'))
+    },
+    handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
+    },
+    handleForbiddenTitles: function (value) {
+      this.updateForbiddenTitles(JSON.stringify(value))
+    },
+    handleChannelsExists: function () {
+      showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
+    },
+    validateChannelId: function (text) {
+      return checkYoutubeChannelId(text)
+    },
+    findChannelTagInfo: async function (text) {
+      return await findChannelTagInfo(text, this.backendOptions)
+    },
+    verifyChannelsHidden: async function () {
+      const channelsHiddenCpy = [...this.channelsHidden]
+
+      for (let i = 0; i < channelsHiddenCpy.length; i++) {
+        const tag = this.channelsHidden[i]
+
+        // if channel has been processed and confirmed as non existent, skip
+        if (tag.invalid) continue
+
+        // process if no preferred name and is possibly a YouTube ID
+        if (tag.preferredName === '' && checkYoutubeChannelId(tag.name)) {
+          this.channelHiderDisabled = true
+
+          const { preferredName, icon, iconHref, invalidId } = await this.findChannelTagInfo(tag.name)
+          if (invalidId) {
+            channelsHiddenCpy[i] = { name: tag.name, invalid: invalidId }
+          } else {
+            channelsHiddenCpy[i] = { name: tag.name, preferredName, icon, iconHref }
+          }
+
+          // update on every tag in case it closes
+          this.handleChannelsHidden(channelsHiddenCpy)
+        }
+      }
+
+      this.channelHiderDisabled = false
     },
 
     ...mapActions([
@@ -130,11 +206,13 @@ export default defineComponent({
       'updateDefaultTheatreMode',
       'updateHideVideoDescription',
       'updateHideComments',
+      'updateHideCommentPhotos',
       'updateHideLiveStreams',
       'updateHideUpcomingPremieres',
       'updateHideSharingActions',
       'updateHideChapters',
       'updateChannelsHidden',
+      'updateForbiddenTitles',
       'updateShowDistractionFreeTitles',
       'updateHideFeaturedChannels',
       'updateHideChannelShorts',
@@ -144,7 +222,8 @@ export default defineComponent({
       'updateHideChannelReleases',
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
-      'updateHideSubscriptionsLive'
+      'updateHideSubscriptionsLive',
+      'updateHideSubscriptionsCommunity',
     ])
   }
 })

@@ -1,4 +1,10 @@
-.playlistTitle, .channelName {
+.playlistTitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.playlistTitleLink, .channelName {
   text-decoration: none;
   color: inherit;
 }
@@ -6,57 +12,79 @@
 .channelName {
   font-size: 15px;
   position: relative;
-  bottom: 15px;
+  inset-block-end: 15px;
 }
 
 .playlistIndex {
   position: relative;
-  bottom: 15px;
+  inset-block-end: 15px;
   color: var(--tertiary-text-color);
 }
 
 .playlistProgressBar {
-  margin-left: 10px;
+  margin-inline-start: 10px;
+
   /* > In order to let ::-webkit-progress-value take effect, appearance needs to be set to none on the <progress> element. */
+
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
   appearance: none;
 }
 
 .playlistProgressBar::-webkit-progress-value {
   /* Color for filled part */
+
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
+
   /* background-color is required to be declared here to prevent color being green */
   background-color: var(--accent-color);
 }
 
 .playlistProgressBar::-webkit-progress-bar {
   /* Color for unfilled part */
+
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-bar */
   background-color: var(--secondary-text-color);
 }
 
 .playlistIcon {
+  block-size: 20px;
+  inline-size: 20px;
   font-size: 20px;
   padding: 10px;
-  margin-top: -25px;
+  margin-block-start: -25px;
   cursor: pointer;
   border-radius: 50%;
   color: var(--tertiary-text-color);
   transition: background 0.2s ease-out;
+  stroke-width: 20;
+  stroke: var(--bg-color);
 }
 
 .playlistIcon:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  stroke-width: 20;
+  stroke: var(--side-nav-hover-color);
   transition: background 0.2s ease-in;
 }
 
 .playlistIconActive {
-  color: var(--accent-color)
+  color: var(--accent-color);
+  stroke-width: 10;
+  stroke: var(--accent-color);
+}
+
+.playlistIconActive:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--accent-color-hover);
+  stroke-width: 10;
+  stroke: var(--accent-color-hover);
+  transition: background 0.2s ease-in;
 }
 
 .playlistItems {
   overflow-y: auto;
-  height: 360px;
+  block-size: 360px;
 }
 
 .playlistItem {
@@ -67,29 +95,17 @@
 }
 
 .playlistItem:not(:last-child) {
-  margin-bottom: 8px;
+  margin-block-end: 8px;
 }
 
 .playlistItem:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
-.videoIndexContainer {
-  text-align: center;
-}
-
-.videoIndex {
-  color: var(--tertiary-text-color);
-}
-
-.videoIndexIcon {
-  font-size: 14px;
-  color: var(--tertiary-text-color);
-}
-
 .videoInfo {
-  margin-left: 30px;
+  margin-inline-start: 30px;
   position: relative;
-  bottom: 7px;
+  inset-block-end: 7px;
 }

@@ -52,9 +52,7 @@
                 v-if="subCount !== null && !hideChannelSubscriptions"
                 class="channelSubCount"
               >
-                {{ formattedSubCount }}
-                <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
-                <span v-else>{{ $t("Channel.Subscribers") }}</span>
+                {{ $tc('Global.Counts.Subscriber Count', subCount, { count: formattedSubCount }) }}
               </p>
             </div>
           </div>
@@ -188,7 +186,7 @@
               @click="changeTab('community')"
               @keydown.left.right.enter.space="changeTab('community', $event)"
             >
-              {{ $t("Channel.Community.Community").toUpperCase() }}
+              {{ $t("Global.Community").toUpperCase() }}
             </div>
             <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
@@ -225,51 +223,50 @@
         id="aboutPanel"
         :description="description"
         :joined="joined"
-        :views="views"
+        :views="viewCount"
+        :videos="videoCount"
         :location="location"
         :tags="tags"
         :related-channels="relatedChannels"
       />
-      <ft-select
-        v-if="showVideoSortBy"
-        v-show="currentTab === 'videos' && latestVideos.length > 0"
-        class="sortSelect"
-        :value="videoLiveSelectValues[0]"
-        :select-names="videoLiveSelectNames"
-        :select-values="videoLiveSelectValues"
-        :placeholder="$t('Search Filters.Sort By.Sort By')"
-        @change="videoSortBy = $event"
-      />
-      <ft-select
-        v-if="!hideChannelShorts && showShortSortBy"
-        v-show="currentTab === 'shorts' && latestShorts.length > 0"
-        class="sortSelect"
-        :value="shortSelectValues[0]"
-        :select-names="shortSelectNames"
-        :select-values="shortSelectValues"
-        :placeholder="$t('Search Filters.Sort By.Sort By')"
-        @change="shortSortBy = $event"
-      />
-      <ft-select
-        v-if="!hideLiveStreams && showLiveSortBy"
-        v-show="currentTab === 'live' && latestLive.length > 0"
-        class="sortSelect"
-        :value="videoLiveSelectValues[0]"
-        :select-names="videoLiveSelectNames"
-        :select-values="videoLiveSelectValues"
-        :placeholder="$t('Search Filters.Sort By.Sort By')"
-        @change="liveSortBy = $event"
-      />
-      <ft-select
-        v-if="!hideChannelPlaylists && showPlaylistSortBy"
-        v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
-        class="sortSelect"
-        :value="playlistSelectValues[0]"
-        :select-names="playlistSelectNames"
-        :select-values="playlistSelectValues"
-        :placeholder="$t('Search Filters.Sort By.Sort By')"
-        @change="playlistSortBy = $event"
-      />
+      <div class="select-container">
+        <ft-select
+          v-if="showVideoSortBy"
+          v-show="currentTab === 'videos' && latestVideos.length > 0"
+          :value="videoLiveShortSelectValues[0]"
+          :select-names="videoLiveShortSelectNames"
+          :select-values="videoLiveShortSelectValues"
+          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          @change="videoSortBy = $event"
+        />
+        <ft-select
+          v-if="!hideChannelShorts && showShortSortBy"
+          v-show="currentTab === 'shorts' && latestShorts.length > 0"
+          :value="videoLiveShortSelectValues[0]"
+          :select-names="videoLiveShortSelectNames"
+          :select-values="videoLiveShortSelectValues"
+          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          @change="shortSortBy = $event"
+        />
+        <ft-select
+          v-if="!hideLiveStreams && showLiveSortBy"
+          v-show="currentTab === 'live' && latestLive.length > 0"
+          :value="videoLiveShortSelectValues[0]"
+          :select-names="videoLiveShortSelectNames"
+          :select-values="videoLiveShortSelectValues"
+          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          @change="liveSortBy = $event"
+        />
+        <ft-select
+          v-if="!hideChannelPlaylists && showPlaylistSortBy"
+          v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
+          :value="playlistSelectValues[0]"
+          :select-names="playlistSelectNames"
+          :select-values="playlistSelectValues"
+          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          @change="playlistSortBy = $event"
+        />
+      </div>
       <ft-loader
         v-if="isElementListLoading"
       />
@@ -371,6 +368,7 @@
         <ft-element-list
           v-if="!hideChannelCommunity && currentTab === 'community'"
           id="communityPanel"
+          class="communityPanel"
           :data="latestCommunityPosts"
           :use-channels-hidden-preference="false"
           role="tabpanel"
@@ -396,17 +394,21 @@
             {{ $t("Channel.Your search results have returned 0 results") }}
           </p>
         </ft-flex-box>
-        <div
+        <ft-auto-load-next-page-wrapper
           v-if="showFetchMoreButton"
-          class="getNextPage"
-          role="button"
-          tabindex="0"
-          @click="handleFetchMore"
-          @keydown.space.prevent="handleFetchMore"
-          @keydown.enter.prevent="handleFetchMore"
+          @load-next-page="handleFetchMore"
         >
-          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
-        </div>
+          <div
+            class="getNextPage"
+            role="button"
+            tabindex="0"
+            @click="handleFetchMore"
+            @keydown.space.prevent="handleFetchMore"
+            @keydown.enter.prevent="handleFetchMore"
+          >
+            <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
+          </div>
+        </ft-auto-load-next-page-wrapper>
       </div>
     </ft-card>
     <ft-card
@@ -420,7 +422,7 @@
     <ft-age-restricted
       v-else-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :content-type-string="'Channel'"
+      :is-channel="true"
     />
   </div>
 </template>

@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <div class="searchFilterInner">
+  <ft-prompt
+    @click="hideSearchFilters"
+  >
+    <div>
       <h2 class="center">
-        {{ $t("Search Filters.Search Filters") }}
+        {{ title }}
       </h2>
       <ft-flex-box class="radioFlexBox">
         <ft-radio-button
@@ -38,8 +40,16 @@
           @change="updateDuration"
         />
       </ft-flex-box>
+      <div class="searchFilterCloseButtonContainer">
+        <ft-button
+          :label="$t('Close')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="hideSearchFilters"
+        />
+      </div>
     </div>
-  </div>
+  </ft-prompt>
 </template>
 
 <script src="./ft-search-filters.js" />

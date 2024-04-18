@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Ελληνικά (EL)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Αυτό το μέρος της εφαρμογής δεν είναι ακόμη έτοιμο. Επιστρέψτε αργότερα όταν έχει
@@ -36,8 +35,15 @@ Global:
   Videos: 'Βίντεο'
   Shorts: Shorts
   Live: Ζωντανά
+  Community: Κοινότητα
 
 # Search Bar
+  Counts:
+    Video Count: 1 βίντεο | {count} βίντεο
+    Channel Count: 1 κανάλι | {count} κανάλια
+    Subscriber Count: 1 συνδρομητής | {count} συνδρομητές
+    View Count: 1 προβολή | {count} προβολές
+    Watching Count: 1 παρακολούθηση | {count} παρακολουθούν
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -97,6 +103,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Όλες οι καρτέλες Συνδρομών είναι κρυμμένες. Για να
     δείτε περιεχόμενο εδώ, εμφανίστε ορισμένες καρτέλες στην ενότητα "{subsection}"
     στο "{settingsSection}".
+  Load More Posts: Φόρτωση Περισσότερων Αναρτήσεων
+  Empty Posts: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν αναρτήσεις.
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -151,6 +159,8 @@ Settings:
       Beginning: 'Αρχή'
       Middle: 'Μέση'
       End: 'Τέλος'
+      Hidden: Κρυμμένο
+      Blur: 'Θάμπωμα'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Διακομιστής
       Invidious (προεπιλογή https://invidious.snopyta.org)'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
@@ -185,6 +195,8 @@ Settings:
       Dracula: 'Δράκουλας'
       System Default: Προεπιλογή Συστήματος
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Παστέλ Ρόζ
+      Hot Pink: Ζεστό Ρόζ
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -292,8 +304,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
     Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Αυτόματη Φόρτωση Σχολίων
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -310,7 +320,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
-    Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
     Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
       Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
   Subscription Settings:
@@ -319,6 +328,8 @@ Settings:
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Manage Subscriptions: 'Διαχείριση Εγγραφών'
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
+    Only Show Latest Video for Each Channel: Εμφάνιση μόνο του τελευταίου βίντεο για
+      κάθε κανάλι
   Data Settings:
     Data Settings: 'Ρυθμίσεις Δεδομένων'
     Select Import Type: 'Επιλογή Τρόπου Εισαγωγής'
@@ -414,7 +425,7 @@ Settings:
     Hide Sharing Actions: Απόκρυψη Ενεργειών Κοινής Χρήσης
     Hide Channels: Απόκρυψη Βίντεο Από Κανάλια
     Hide Upcoming Premieres: Απόκρυψη Επερχόμενων Πρεμιέρων
-    Hide Channels Placeholder: Όνομα Καναλιού ή Αναγνωριστικό
+    Hide Channels Placeholder: Αναγνωριστικό καναλιού
     Hide Comments: Απόκρυψη Σχολίων
     Hide Chapters: Απόκρυψη Κεφαλαίων
     Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
@@ -435,6 +446,16 @@ Settings:
     Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
     Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
+    Blur Thumbnails: Θάμπωμα Μικρογραφιών
+    Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
+    Hide Subscriptions Community: Απόκρυψη Συνδρομών Κοινότητας
+    Hide Channels Invalid: Το αναγνωριστικό καναλιού που δόθηκε δεν ήταν έγκυρο
+    Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού
+      και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση
+      αυτών των αναγνωριστικών
+    Hide Channels Already Exists: Το αναγνωριστικό καναλιού υπάρχει ήδη
+    Hide Channels API Error: Σφάλμα κατά την ανάκτηση χρήστη με το παρεχόμενο αναγνωριστικό.
+      Ελέγξτε ξανά εάν το αναγνωριστικό είναι σωστό.
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -510,6 +531,7 @@ Settings:
     Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
     Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
     Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
+  Expand All Settings Sections: Αναπτύξτε όλες τις ενότητες ρυθμίσεων
 About:
   #On About page
   About: 'Σχετικά με'
@@ -617,9 +639,12 @@ Profile:
   Profile Filter: Φίλτρο προφίλ
   Profile Settings: Ρυθμίσεις προφίλ
   Toggle Profile List: Εναλλαγή Λίστας Προφίλ
+  Profile Name: Όνομα προφίλ
+  Edit Profile Name: Επεξεργασία ονόματος προφίλ
+  Create Profile Name: Δημιουργία ονόματος προφίλ
+  Open Profile Dropdown: Ανοίξτε το αναπτυσσόμενο μενού προφίλ
+  Close Profile Dropdown: Κλείστε το αναπτυσσόμενο μενού προφίλ
 Channel:
-  Subscriber: 'Συνδρομητής'
-  Subscribers: 'Συνδρομητές'
   Subscribe: 'Εγγραφή'
   Unsubscribe: 'Απεγγραφή'
   Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
@@ -665,9 +690,11 @@ Channel:
   Channel Tabs: Καρτέλες Καναλιών
   This channel does not exist: Αυτό το κανάλι δεν υπάρχει
   Community:
-    Community: Κοινότητα
     This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν
       έχει αναρτήσεις
+    Reveal Answers: Εμφάνιση Απαντήσεων
+    Hide Answers: Απόκρυψη Απαντήσεων
+    votes: '{votes} ψήφοι'
   Live:
     Live: Ζωντανά
     This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
@@ -696,15 +723,12 @@ Video:
     αναπαραγωγής από το YouTube'
   Open in Invidious: 'Άνοιγμα στο Invidious'
   Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-  View: 'Προβολή'
   Views: 'Προβολές'
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
   Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
   Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
-  # Context is "X People Watching"
-  Watching: 'Παρακολουθούν τώρα'
   Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video
@@ -828,6 +852,9 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
     Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
     από τον χρήστη."
+  Pause on Current Video: Παύση στο Τρέχον Βίντεο
+  Unhide Channel: Εμφάνιση καναλιού
+  Hide Channel: Απόκρυψη καναλιού
 Videos:
   #& Sort By
   Sort By:
@@ -905,6 +932,7 @@ Comments:
   Member: Μέλος
   Hearted: Αγαπημένο
   View {replyCount} replies: Προβολή {replyCount} απαντήσεων
+  Subscribed: Εγγεγραμμένος
 Up Next: 'Επόμενο'
 
 # Toast Messages
@@ -913,7 +941,7 @@ Local API Error (Click to copy): 'Τοπικό σφάλμα Διεπαφής π�
 Invidious API Error (Click to copy): 'Σφάλμα Διεπαφής προγραμματισμού εφαρμογής Invidious(*API)
   (Κάντε κλικ για αντιγραφή)'
 Falling back to Invidious API: 'Επιστροφή στο Invidious API'
-Falling back to the local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής
+Falling back to Local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής
   (API)'
 Subscriptions have not yet been implemented: 'Οι συνδρομές δεν έχουν ακόμη υλοποιηθεί'
 Loop is now disabled: 'Η επανάληψη είναι πλέον απενεργοποιημένη'
@@ -987,10 +1015,6 @@ Tooltips:
       σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,
       το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα
       περιήγησης.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
-      τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
-      παρακολούθησης είναι κλειστή.
   External Player Settings:
     Custom External Player Executable: Από προεπιλογή, το FreeTube θα υποθέσει ότι
       το επιλεγμένο εξωτερικό πρόγραμμα αναπαραγωγής μπορεί να βρεθεί μέσω της μεταβλητής
@@ -1012,11 +1036,11 @@ Tooltips:
       μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη
       χρήση RAM.
   Distraction Free Settings:
-    Hide Channels: Εισαγάγετε ένα όνομα καναλιού ή ένα αναγνωριστικό καναλιού για
-      να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι ώστε
-      να μην εμφανίζονται στην αναζήτηση, στις τάσεις, στα πιο δημοφιλή και προτεινόμενα.
-      Το όνομα του καναλιού που καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει
-      διάκριση πεζών-κεφαλαίων.
+    Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα
+      βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται
+      στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό
+      καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση
+      πεζών-κεφαλαίων.
     Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}"
       σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
   SponsorBlock Settings:
@@ -1065,12 +1089,6 @@ Chapters:
   Chapters: Κεφάλαια
   'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων,
     τρέχον κεφάλαιο: {chapterName}'
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Αυτό το {videoOrPlaylist} έχει περιορισμό
-    ηλικίας
-  Type:
-    Channel: Κανάλι
-    Video: Βίντεο
 Ok: Εντάξει
 Preferences: Προτιμήσεις
 Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"
@@ -1078,3 +1096,10 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
     παρόν κανένα βίντεο
+Playlist will pause when current video is finished: Η Λίστα Αναπαραγωγής θα σταματήσει
+  όταν ολοκληρωθεί το τρέχον βίντεο
+Playlist will not pause when current video is finished: Η Λίστα Αναπαραγωγής δεν θα
+  σταματήσει όταν ολοκληρωθεί το τρέχον βίντεο
+Channel Hidden: Το {channel} προστέθηκε στο φίλτρο καναλιού
+Go to page: Μετάβαση σε {page}
+Channel Unhidden: Το {channel} καταργήθηκε από το φίλτρο καναλιού

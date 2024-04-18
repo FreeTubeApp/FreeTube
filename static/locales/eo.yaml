@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Esperanto'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 File: 'Dosiero'
 Quit: 'Eliri'
@@ -20,6 +19,9 @@ Minimize: 'Minimumigi'
 Close: 'Fermi'
 Back: 'Reen'
 Forward: 'Antaŭen'
+
+Globals:
+  Community: Komunumo
 
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
   disponeblas nun!  Alklaki por pli informoj.'
@@ -105,11 +107,13 @@ About:
 Channel:
   About:
     Details: Detaloj
-  Community:
-    Community: Komunumo
 Video: {}
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
 Are you sure you want to open this link?: Ĉu vi certe volas malfermi ĉi-ligilon?
 Open New Window: Malfermi novan fenestron
+Reload: Reŝarĝi
+Preferences: Agordoj
+New Window: Nova Fenestro
+Go to page: Iri al {page}

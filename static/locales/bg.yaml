@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Български'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Тази част от приложението все още не е готова. Върнете се по-късно, когато може
@@ -36,7 +35,16 @@ Global:
   Videos: 'видеа'
   Shorts: Кратки видеа
   Live: На живо
+  Community: Общност
 
+  Counts:
+    Video Count: 1 видео | {count} видеа
+    Channel Count: 1 канал | {count} канала
+    Subscriber Count: 1 абонат | {count} абоната
+    View Count: 1 преглед | {count} прегледа
+    Watching Count: 1 гледане | {count} гледания
+  Input Tags:
+    Length Requirement: Дължината на етикета трябва да бъде поне {number} знака
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
   е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
@@ -101,6 +109,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да виждате
     съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}"
     на "{settingsSection}".
+  Load More Posts: Зареждане на още публикации
+  Empty Posts: В момента в абонираните от вас канали няма публикации.
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
@@ -118,14 +128,105 @@ User Playlists:
     изброени само видеа, които сте запазили или избрали за предпочитани. Когато работата
     приключи, всички видеа, които в момента са тук, ще бъдат преместени в плейлист
     „Предпочитани“.
-  Search bar placeholder: Търсене в плейлиста
+  Search bar placeholder: Търсене за плейлисти
   Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето
     ви
+  This playlist currently has no videos.: В този плейлист в момента няма видеа.
+  Add to Favorites: Добавяне към {playlistName}
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Сигурни
+    ли сте, че искате да премахнете всички гледани видеа от този плейлист? Това не
+    може да бъде отменено.
+  Are you sure you want to delete this playlist? This cannot be undone: Сигурни ли
+    сте, че искате да изтриете този плейлист? Това не може да бъде отменено.
+  SinglePlaylistView:
+    Toast:
+      Reverted to use {oldPlaylistName} for quick bookmark: Възстановено е използването
+        на {oldPlaylistName} за бързи отметки
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои
+        видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
+      Playlist {playlistName} has been deleted.: Плейлиста {playlistName} е изтрит.
+      There were no videos to remove.: Няма видеа за премахване.
+      This video cannot be moved up.: Това видео не може да бъде преместено нагоре.
+      This video cannot be moved down.: Това видео не може да бъде преместено надолу.
+      Video has been removed: Видеото е премахнато
+      Quick bookmark disabled: Бързите отметки са деактивирани
+      There was a problem with removing this video: Имаше проблем с премахването на
+        това видео
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този
+        плейлист вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете
+        тук, за отмяна
+      This playlist is now used for quick bookmark: Този плейлист вече се използва
+        за бързи отметки
+      Playlist name cannot be empty. Please input a name.: Името на плейлиста не може
+        да бъде празно. Моля, въведете име.
+      Playlist has been updated.: Плейлиста е актуализиран.
+      There was an issue with updating this playlist.: Имаше проблем с актуализирането
+        на този плейлист.
+      "{videoCount} video(s) have been removed": 1 видео е премахнато | {videoCount}
+        видеа са премахнати
+      This playlist is protected and cannot be removed.: Този плейлист е защитен и
+        не може да бъде премахнат.
+      This playlist does not exist: Този плейлист не съществува
+    Search for Videos: Търсене за видеа
+  CreatePlaylistPrompt:
+    Toast:
+      Playlist {playlistName} has been successfully created.: Плейлиста {playlistName}
+        е създаден успешно.
+      There is already a playlist with this name. Please pick a different name.: Вече
+        има плейлист с това име. Моля, изберете друго.
+      There was an issue with creating the playlist.: Имаше проблем при създаването
+        на плейлиста.
+    New Playlist Name: Име на нов плейлист
+    Create: Създаване
+  You have no playlists. Click on the create new playlist button to create a new one.: Нямате
+    плейлисти. Щракнете върху бутона за създаване на нов плейлист, за да създадете
+    нов.
+  Create New Playlist: Създаване на нов
+  Add to Playlist: Добавяне към плейлист за изпълнение
+  Move Video Up: Преместване нагоре
+  Playlist Description: Описание
+  Cancel: Отказ
+  Sort By:
+    LatestCreatedFirst: Наскоро създадени
+    EarliestCreatedFirst: Най-рано създадени
+    EarliestPlayedFirst: Най-рано възпроизведени
+    Sort By: Подреждане по
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestUpdatedFirst: Наскоро обновени
+    EarliestUpdatedFirst: Най-рано обновени
+    LatestPlayedFirst: Наскоро възпроизведени
+  AddVideoPrompt:
+    Search in Playlists: Търсене в плейлисти
+    Select a playlist to add your N videos to: Изберете плейлист, в който да добавите
+      своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
+    N playlists selected: '{playlistCount} избрани'
+    Toast:
+      You haven't selected any playlist yet.: Все още не сте избрали плейлист.
+      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 плейлист |
+        Добавени {videoCount} видеа в 1 плейлист
+      "{videoCount} video(s) added to {playlistCount} playlists": Добавено 1 видео
+        към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount}
+        плейлиста
+    Save: Запазване
+    Added {count} Times: Добавено {count} път | Добавено {count} пъти
+  Remove from Playlist: Премахване от плейлиста за изпълнение
+  Playlist Name: Име на плейлиста
+  Save Changes: Запазване на промените
+  Edit Playlist Info: Редактиране на инфо
+  Copy Playlist: Копиране на плейлиста
+  Remove Watched Videos: Премахване на гледаните видеа
+  Enable Quick Bookmark With This Playlist: Активиране на бърза отметка с този плейлист
+  Disable Quick Bookmark: Деактивиране на бърза отметка
+  Delete Playlist: Изтриване на плейлиста
+  Remove from Favorites: Премахване от {playlistName}
+  Move Video Down: Преместване надолу
+  Playlists with Matching Videos: Плейлисти със съвпадащи видеа
 History:
   # On History Page
   History: 'История'
   Watch History: 'История на гледане'
-  Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
+  Your history list is currently empty.: 'Плейлиста с история на гледанията е празен.'
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
 Settings:
@@ -154,6 +255,8 @@ Settings:
       Beginning: 'Начало на видео'
       Middle: 'Среда на видео'
       End: 'Край на видео'
+      Hidden: Скриване
+      Blur: Размазано
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Излед на Invidious
       (по подразбиране е https://invidious.snopyta.org)'
     Region for Trending: 'Регион за набиращи популярност'
@@ -186,6 +289,9 @@ Settings:
       Dracula: Dracula
       System Default: Стандартна за системата
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Пастелно розово
+      Hot Pink: Горещо розово
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -290,8 +396,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
     Allow DASH AV1 formats: Разрешаване на форматите DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Атоматично зареждане на коментари
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -308,15 +412,20 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сигурни
       ли сте, че искате да премахнете всички абонаменти и профили? Това не може да
       бъде възстановено.'
-    Automatically Remove Video Meta Files: Автоматично премахване на видео метафайловете
     Save Watched Videos With Last Viewed Playlist: Запазване на гледани видеа с последно
       гледан плейлист
+    Remove All Playlists: Премахване на всички плейлисти
+    All playlists have been removed: Всички плейлисти са премахнати
+    Are you sure you want to remove all your playlists?: Сигурни ли сте, че искате
+      да премахнете всичките си плейлисти?
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
     Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Manage Subscriptions: 'Управление на абонаменти'
     Fetch Automatically: Автоматично извличане на съдържание
+    Only Show Latest Video for Each Channel: Показване само най-новите видеа за всеки
+      канал
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -365,6 +474,14 @@ Settings:
     History File: Файл с история
     Playlist File: Файл с плейлисти
     Subscription File: Файл с абонаменти
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Тази опция изнася видеа от всички плейлисти в един плейлист с име
+        \"Предпочитани\".\nКак да изнесете и внесете видеа в плейлисти за по-стара
+        версия на FreeTube:\n1. Изнесете плейлистите си с включена тази опция.\n2.
+        Изтрийте всичките си съществуващи плейлисти, като използвате опцията \"Премахване
+        на всички плейлисти\" в Настройки за поверителност.\n3. Стартирайте по-старата
+        версия на FreeTube и внесете изнесените плейлисти.\""
+      Label: Изнасяне на плейлисти за по-стари версии на FreeTube
   Advanced Settings:
     Advanced Settings: 'Разширени настройки'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
@@ -411,9 +528,9 @@ Settings:
     Hide Chapters: Скриване на главите
     Hide Upcoming Premieres: Скриване на предстоящите премиери
     Hide Channels: Скриване видеата от каналите
-    Hide Channels Placeholder: Име или идентификатор на канала
+    Hide Channels Placeholder: Идентификатор на канала
     Display Titles Without Excessive Capitalisation: Показване на заглавията без излишни
-      главни букви
+      главни букви и препинателни знаци
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на плейлистите на каналите
     Hide Channel Community: Скриване на общността на каналите
@@ -429,6 +546,19 @@ Settings:
     Hide Subscriptions Shorts: Скриване на кратките видеа в абонаментите
     Hide Subscriptions Live: Скриване на абонаментите на живо
     Hide Channel Podcasts: Скриване на подкастите на канала
+    Blur Thumbnails: Размазване на миниатюрите
+    Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
+    Hide Subscriptions Community: Скриване на абонаментите Общност
+    Hide Channels Disabled Message: Някои канали бяха блокирани с чрез идентификатор
+      и не бяха обработени. Функцията е блокирана, докато тези идентификатори се актуализират
+    Hide Channels API Error: Грешка при извличането на потребител с предоставения
+      идентификатор. Моля, проверете отново дали идентификаторът е правилен.
+    Hide Channels Invalid: Предоставеният идентификатор на канала е невалиден
+    Hide Channels Already Exists: Идентификаторът на канала вече съществува
+    Hide Videos and Playlists Containing Text: Скриване на видеа и плейлисти, съдържащи
+      текст
+    Hide Videos and Playlists Containing Text Placeholder: Дума, част от дума или
+      фраза
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -463,6 +593,9 @@ Settings:
       Do Nothing: Не правете нищо
     Category Color: Категория Цвят
     UseDeArrowTitles: Използване на DeArrow за заглавия на видео
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      API адрес за генератор на миниатюри (по подразбиране е https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Използване на DeArrow за миниатюри
   External Player Settings:
     Custom External Player Arguments: Персонализирани аргументи за външен плейър
     Custom External Player Executable: Персонализирано изпълнение на външен плейър
@@ -473,6 +606,7 @@ Settings:
     Players:
       None:
         Name: Няма
+    Ignore Default Arguments: Игнориране на аргументите по подразбиране
   Download Settings:
     Download Settings: Настройки за изтегляне
     Choose Path: Избор на път
@@ -502,6 +636,7 @@ Settings:
     Password Incorrect: Грешна парола
     Unlock: Отключване
     Password: Парола
+  Expand All Settings Sections: Разширяване на всички раздели с настройки
 About:
   #On About page
   About: 'Относно'
@@ -603,9 +738,12 @@ Profile:
   Profile Filter: Профилен филтър
   Profile Settings: Настройки на профил
   Toggle Profile List: Превключване на списъка с профили
+  Profile Name: Име на профила
+  Open Profile Dropdown: Отваряне на падащото меню на профила
+  Close Profile Dropdown: Затваряне на падащото меню на профила
+  Edit Profile Name: Редактиране на името на профила
+  Create Profile Name: Създаване на име на профил
 Channel:
-  Subscriber: 'Абонат'
-  Subscribers: 'Абонати'
   Subscribe: 'Абониране'
   Unsubscribe: 'Отписване'
   Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
@@ -643,12 +781,12 @@ Channel:
     Joined: Присъединен на
     Location: Местоположение
   Community:
-    Community: Общност
     This channel currently does not have any posts: В момента този канал няма никакви
       публикации
     votes: '{votes} гласа'
     Reveal Answers: Разкриване на отговорите
     Hide Answers: Скриване на отговорите
+    Video hidden by FreeTube: Видео, скрито от FreeTube
   This channel does not exist: Каналът не съществува
   This channel does not allow searching: Каналът не позволява търсене
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Каналът
@@ -680,15 +818,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Копиране на връзка за вградения YouTube плейър'
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
-  View: 'показване'
   Views: 'Показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
   Play Next Video: 'Следващо видео'
   Play Previous Video: 'Предишно видео'
-  # Context is "X People Watching"
-  Watching: 'Гледащи'
   Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете
@@ -738,7 +873,7 @@ Video:
     Upcoming: 'Премиера на'
     Less than a minute: По-малко от минута
     In less than a minute: След по-малко от минута
-  Published on: 'Публикуван на'
+  Published on: 'Публикувано на'
   Publicationtemplate: 'Преди {number} {unit}'
 #& Videos
   Audio:
@@ -813,6 +948,10 @@ Video:
   Upcoming: Предстои
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чатът
     на живо не е наличен за този поток. Възможно е да е бил деактивиран от качващия.
+  Pause on Current Video: Пауза на текущото видео
+  Unhide Channel: Показване на канала
+  Hide Channel: Скриване на канала
+  More Options: Още опции
 Videos:
   #& Sort By
   Sort By:
@@ -885,13 +1024,14 @@ Comments:
   Member: Член
   View {replyCount} replies: Преглед на {replyCount} отговора
   Hearted: Сърдечно
+  Subscribed: Абониран
 Up Next: 'Следващ'
 
 # Toast Messages
 Local API Error (Click to copy): 'Грешка в локалния интерфейс (щракнете за копиране)'
 Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
-Falling back to the local API: 'Връщане към локалния интерфейс'
+Falling back to Local API: 'Връщане към локалния интерфейс'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
   не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп
   за страната.'
@@ -955,10 +1095,6 @@ Tooltips:
     External Link Handling: "Избор на поведението по подразбиране, когато щракнете
       върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране
       FreeTube ще отвори връзката в браузъра по подразбиране.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Когато страницата за гледане бъде затворена, FreeTube
-      автоматично ще изтрива метафайловете, създадени по време на възпроизвеждане
-      на видеото.
   External Player Settings:
     Custom External Player Arguments: Всички персонализирани аргументи от командния
       ред, разделени с точка и запетая (";"), които искате да бъдат предадени на външния
@@ -972,20 +1108,29 @@ Tooltips:
       за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание,
       настройките на Invidious не влияят на външните плейъри.
     DefaultCustomArgumentsTemplate: "(По подразбиране: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Без изпращане на аргументи по подразбиране към външния
+      плейър, освен URL адреса на видеото (напр. скорост на възпроизвеждане, URL адрес
+      на плейлиста за възпроизвеждане и т.н.). Потребителските аргументи все пак ще
+      бъдат изпратени.
   Experimental Settings:
     Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира
       персонализиран кеш за изображения в паметта. Ще доведе до увеличаване на използването
       на RAM паметта.
   Distraction Free Settings:
-    Hide Channels: Въведете име или идентификатор на канал, за да скриете всички видеа,
-      плейлисти и самия канал от показване в търсенето, тенденциите, най-популярните
-      и препоръчаните. Въведеното име трябва да съвпада напълно и е чувствително към
-      главни и малки букви.
+    Hide Channels: Въведете идентификатор на канал, за да скриете всички видеа, плейлисти
+      и самия канал от показване в търсенето, тенденциите, най-популярните и препоръчаните.
+      Въведеният идентификатор трябва да съвпада напълно и е чувствителен към главни
+      и малки букви.
     Hide Subscriptions Live: Тази настройка се отменя от настройката за цялото приложение
       "{appWideSetting}" в секция "{subsection}" на "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Въведете дума, част от дума или фраза
+      (без значение от главни и малки букви), за да скриете всички видеа и плейлисти,
+      чиито оригинални заглавия ги съдържат в целия FreeTube, с изключение само на
+      Историята, Вашите плейлисти и видеата в плейлистите.
   SponsorBlock Settings:
     UseDeArrowTitles: Заменя заглавията на видеата с подадени от потребителите заглавия
       от DeArrow.
+    UseDeArrowThumbnails: Заменя миниатюрите на видеата с миниатюри от DeArrow.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
@@ -1011,12 +1156,6 @@ Downloading failed: Имаше проблем при изтеглянето на
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана като "{filePath}"
 New Window: Нов прозорец
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово
-    ограничение
-  Type:
-    Channel: Канал
-    Video: Видео
 Channels:
   Count: Намерени са {number} канала.
   Unsubscribe: Отписване
@@ -1041,3 +1180,17 @@ Ok: Добре
 Hashtag:
   Hashtag: Хаштаг
   This hashtag does not currently have any videos: В момента този хаштаг няма видеа
+Playlist will pause when current video is finished: Плейлистът ще бъде спрян на пауза,
+  когато текущото видео приключи
+Playlist will not pause when current video is finished: Плейлистът няма да спре, когато
+  текущото видео е завършено
+Channel Hidden: '{channel} е добавен към филтъра за канали'
+Channel Unhidden: '{channel} е премахнат от филтъра за канали'
+Go to page: Отиване на {page}
+Tag already exists: Етикетът "{tagName}" вече съществува
+Trimmed input must be at least N characters long: Орязаният вход трябва да бъде дълъг
+  поне 1 символ | Орязаният вход трябва да бъде дълъг поне {length} символа
+Age Restricted:
+  This channel is age restricted: Този канал е с възрастово ограничение
+  This video is age restricted: Това видео е с възрастово ограничение
+Close Banner: Затваряне на банер

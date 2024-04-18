@@ -6,6 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 export default defineComponent({
   name: 'History',
@@ -15,7 +16,8 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-element-list': FtElementList,
     'ft-button': FtButton,
-    'ft-input': FtInput
+    'ft-input': FtInput,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -28,17 +30,17 @@ export default defineComponent({
     }
   },
   computed: {
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyCacheSorted: function () {
+      return this.$store.getters.getHistoryCacheSorted
     },
 
     fullData: function () {
-      if (this.historyCache.length < this.dataLimit) {
-        return this.historyCache
+      if (this.historyCacheSorted.length < this.dataLimit) {
+        return this.historyCacheSorted
       } else {
-        return this.historyCache.slice(0, this.dataLimit)
+        return this.historyCacheSorted.slice(0, this.dataLimit)
       }
-    }
+    },
   },
   watch: {
     query() {
@@ -59,7 +61,7 @@ export default defineComponent({
 
     this.activeData = this.fullData
 
-    if (this.activeData.length < this.historyCache.length) {
+    if (this.activeData.length < this.historyCacheSorted.length) {
       this.showLoadMoreButton = true
     } else {
       this.showLoadMoreButton = false
@@ -85,19 +87,21 @@ export default defineComponent({
     filterHistory: function() {
       if (this.query === '') {
         this.activeData = this.fullData
-        if (this.activeData.length < this.historyCache.length) {
+        if (this.activeData.length < this.historyCacheSorted.length) {
           this.showLoadMoreButton = true
         } else {
           this.showLoadMoreButton = false
         }
       } else {
         const lowerCaseQuery = this.query.toLowerCase()
-        const filteredQuery = this.historyCache.filter((video) => {
-          if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
-            return false
-          } else {
-            return video.title.toLowerCase().includes(lowerCaseQuery) || video.author.toLowerCase().includes(lowerCaseQuery)
+        const filteredQuery = this.historyCacheSorted.filter((video) => {
+          if (typeof (video.title) === 'string' && video.title.toLowerCase().includes(lowerCaseQuery)) {
+            return true
+          } else if (typeof (video.author) === 'string' && video.author.toLowerCase().includes(lowerCaseQuery)) {
+            return true
           }
+
+          return false
         }).sort((a, b) => {
           return b.timeWatched - a.timeWatched
         })

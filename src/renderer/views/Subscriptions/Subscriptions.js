@@ -1,12 +1,13 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 
 import SubscriptionsVideos from '../../components/subscriptions-videos/subscriptions-videos.vue'
 import SubscriptionsLive from '../../components/subscriptions-live/subscriptions-live.vue'
 import SubscriptionsShorts from '../../components/subscriptions-shorts/subscriptions-shorts.vue'
+import SubscriptionsCommunity from '../../components/subscriptions-community/subscriptions-community.vue'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Subscriptions',
@@ -14,11 +15,9 @@ export default defineComponent({
     'subscriptions-videos': SubscriptionsVideos,
     'subscriptions-live': SubscriptionsLive,
     'subscriptions-shorts': SubscriptionsShorts,
+    'subscriptions-community': SubscriptionsCommunity,
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox
-  },
-  inject: {
-    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -35,6 +34,19 @@ export default defineComponent({
     hideSubscriptionsLive: function () {
       return this.$store.getters.getHideLiveStreams || this.$store.getters.getHideSubscriptionsLive
     },
+    hideSubscriptionsCommunity: function() {
+      return this.$store.getters.getHideSubscriptionsCommunity
+    },
+    activeProfile: function () {
+      return this.$store.getters.getActiveProfile
+    },
+    activeSubscriptionList: function () {
+      return this.activeProfile.subscriptions
+    },
+    useRssFeeds: function () {
+      return this.$store.getters.getUseRssFeeds
+    },
+
     visibleTabs: function () {
       const tabs = []
 
@@ -48,6 +60,11 @@ export default defineComponent({
 
       if (!this.hideSubscriptionsLive) {
         tabs.push('live')
+      }
+
+      // community does not support rss
+      if (!this.hideSubscriptionsCommunity && !this.useRssFeeds && this.activeSubscriptionList.length < 125) {
+        tabs.push('community')
       }
 
       return tabs
@@ -91,7 +108,8 @@ export default defineComponent({
       if (this.visibleTabs.includes(tab)) {
         this.currentTab = tab
       } else {
-        this.currentTab = null
+        // First visible tab or no tab
+        this.currentTab = this.visibleTabs.length > 0 ? this.visibleTabs[0] : null
       }
     },
 
@@ -127,6 +145,10 @@ export default defineComponent({
         this.$refs[visibleTabs[index]].focus()
         this.showOutlines()
       }
-    }
+    },
+
+    ...mapActions([
+      'showOutlines'
+    ])
   }
 })

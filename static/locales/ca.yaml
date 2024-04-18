@@ -1,29 +1,28 @@
 # Put the name of your locale in the same language
 Locale Name: 'català'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Aquesta secció de l'aplicació encara no està llesta. Torna més endavant quan s'hagin
   fet progressos.
 
 # Webkit Menu Bar
-File: 'Archiu'
+File: 'Fitxer'
 Quit: 'Surt'
 Edit: 'Edita'
-Undo: 'Desfer'
+Undo: 'Desfés'
 Redo: 'Refés'
-Cut: 'Talla'
+Cut: 'Retalla'
 Copy: 'Copia'
 Paste: 'Enganxa'
 Delete: 'Borra'
 Select all: 'Seleccionar-ho tot'
 Reload: 'Tornar a carregar'
 Force Reload: 'Forçar la Recàrrega'
-Toggle Developer Tools: 'Acrivar les eines per a desenvolupadors'
-Actual size: 'Mida actual'
-Zoom in: 'Agrandar'
-Zoom out: 'Reduir'
-Toggle fullscreen: 'Commutar la pantalla completa'
+Toggle Developer Tools: 'Activa les eines per a desenvolupadors'
+Actual size: 'Mida real'
+Zoom in: 'Amplia'
+Zoom out: 'Allunya'
+Toggle fullscreen: 'Commuta la pantalla completa'
 Window: 'Finestra'
 Minimize: 'Minimitzar'
 Close: 'Tancar'
@@ -35,6 +34,8 @@ Forward: 'Endavant'
 Global:
   Videos: 'Vídeos'
 
+  Live: En directe
+  Community: Comunitat
 Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber}
   està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
@@ -42,7 +43,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació 
   blog disponible, {blogTitle}. Fes clic per saber-ne més'
 
 # Search Bar
-Search / Go to URL: 'Cercar / Vés a l''enllaç'
+Search / Go to URL: 'Cerca / Ves a l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de cerca'
@@ -66,12 +67,14 @@ Search Filters:
     Videos: 'Vídeos'
     Channels: 'Canals'
     #& Playlists
+    Movies: Pel·lícules
   Duration:
     Duration: 'Duració'
     All Durations: 'Qualsevol duració'
     Short (< 4 minutes): 'Curts (< 4 minuts)'
     Long (> 20 minutes): 'Llargs (> 20 minuts)'
   # On Search Page
+    Medium (4 - 20 minutes): Mitjans (4 - 20 minuts)
   Search Results: 'Resultats de la cerca'
   Fetching results. Please wait: 'Obtenint resultats. Espera si us plau'
   Fetch more results: 'Obtenir més resultats'
@@ -90,8 +93,9 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Aquest
     perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació
     fixada
+  Error Channels: Canals amb errors
 Trending:
-  Trending: 'Tendencies'
+  Trending: 'Tendències'
   Default: Per defecte
   Music: Música
   Gaming: Jocs
@@ -212,7 +216,8 @@ Settings:
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
     Autoplay Videos: 'Reprodueix automàticament els vídeos'
-    Proxy Videos Through Invidious: 'Emmascarar vídeos a través de invidious'
+    Proxy Videos Through Invidious: 'Fes servir Invidious com a intermediari per baixar
+      els vídeos'
     Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
     Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
     Default Volume: 'Volum per defecte'
@@ -234,12 +239,13 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Scroll Volume Over Video Player: Desplaça el volum sobre el reproductor de vídeo
+    Scroll Volume Over Video Player: Canvia el volum amb la roda del ratolí sobre
+      el vídeo
     Display Play Button In Video Player: Mostra el botó de reproducció al reproductor
       de vídeo
     Next Video Interval: Interval de vídeo següent
-    Scroll Playback Rate Over Video Player: Desplaça la velocitat de reproducció sobre
-      el reproductor de vídeo
+    Scroll Playback Rate Over Video Player: Canvia la velocitat de reproducció amb
+      la roda del ratolí sobre el vídeo
     Fast-Forward / Rewind Interval: Interval d'Avançament / Retrocés Ràpid
     Max Video Playback Rate: Velocitat màxima de reproducció de vídeo
     Video Playback Rate Interval: Interval de velocitat de reproducció de vídeo
@@ -256,10 +262,9 @@ Settings:
       eliminar tot l''historial de reproduccions?'
     Watch history has been cleared: 'L''historial de reproduccions s''ha eliminat'
     Remove All Subscriptions / Profiles: 'Elimina totes les subscripcions / perfils'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Estàs
-      segur que vols eliminar totes les subscripcions i perfils? Aquesta acció no
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Esteu
+      segur que voleu esborrar totes les subscripcions i perfils?  Aquesta acció no
       es pot desfer.'
-    Automatically Remove Video Meta Files: Elimina automàticament els arxius de metadades
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'
@@ -324,25 +329,25 @@ Settings:
     Custom External Player Executable: Executable de reproductor extern personalitzat
     Custom External Player Arguments: Arguments personalitzats del reproductor extern
   Proxy Settings:
-    Proxy Settings: Configuració de Proxy
-    Clicking on Test Proxy will send a request to: Fer clic a Test Proxy enviarà una
-      sol·licitud a
+    Proxy Settings: Configuració del servidor intermediari
+    Clicking on Test Proxy will send a request to: En fer clic a "Prova el servidor
+      intermediari" s'enviarà una sol·licitud a
     Ip: IP
     Country: País
-    Error getting network information. Is your proxy configured properly?: Error a
-      l'obtenir informació de la xarxa. La teva proxy està ben configurada?
+    Error getting network information. Is your proxy configured properly?: Error en
+      obtenir informació de la xarxa. El servidor intermediari està ben configurat?
     Region: Regió
     City: Ciutat
-    Proxy Port Number: Número de Port del Proxy
-    Test Proxy: Test Proxy
-    Enable Tor / Proxy: Activa Tor / Proxy
-    Proxy Host: Amfitrió del Proxy
+    Proxy Port Number: Port del servidor intermediari
+    Test Proxy: Prova el servidor intermediari
+    Enable Tor / Proxy: Activa Tor / Servidor intermediari
+    Proxy Host: Amfitrió del servidor intermediari
     Your Info: La teva informació
-    Proxy Protocol: Protocol Proxy
+    Proxy Protocol: Protocol del servidor intermediari
   SponsorBlock Settings:
     Enable SponsorBlock: Activa l'SponsorBlock
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      Url (Per defecte és https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API de
+      SponsorBlock (per defecte és https://sponsor.ajay.app)
     SponsorBlock Settings: Configuració de l'SponsorBlock
     Notify when sponsor segment is skipped: Notificar quan se salta un segment esponsoritzat
   Distraction Free Settings:
@@ -363,7 +368,7 @@ Settings:
     Ask Download Path: Demaneu la ruta de descàrrega
 About:
   #On About page
-  About: 'Sobre'
+  About: 'Quant a'
   #& About
   Blog: Blog
   Website: Lloc web
@@ -383,7 +388,7 @@ About:
   Please check for duplicates before posting: Si us plau, abans de publicar comprova
     no duplicar temes
   Credits: Crèdits
-  FAQ: Preguntes Freqüents
+  FAQ: PMF
   Report a problem: Informa d'un problema
   Mastodon: Mastodon
   Donate: Dona
@@ -393,7 +398,7 @@ About:
 Profile:
   Profile Select: 'Selecciona perfil'
   All Channels: 'Tots els canals'
-  Profile Manager: 'Gestor de Perfils'
+  Profile Manager: 'Gestor de perfils'
   Create New Profile: 'Crea un Nou Perfil'
   Edit Profile: 'Editar el perfil'
   Color Picker: 'Selector de colors'
@@ -416,33 +421,31 @@ Profile:
   Your default profile has been changed to your primary profile: 'El perfil per defecte
     s''ha canviat al perfil principal'
   '{profile} is now the active profile': '{profile} és ara el perfil actiu'
-  Subscription List: 'Lista de Subcripcions'
+  Subscription List: 'Llista de subscripcions'
   Other Channels: 'Altres Canals'
   '{number} selected': '{number} seleccionat'
   Select All: 'Selecciona Tot'
   Select None: 'Selecciona Ningú'
-  Delete Selected: 'Esborra Seleccionats'
+  Delete Selected: 'Suprimeix els seleccionats'
   Add Selected To Profile: 'Afegeix Seleccionats al Perfil'
   No channel(s) have been selected: 'Cap canal s''ha seleccionat'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Aquest és el teu perfil principal. Estàs segur que vols esborrar els canals seleccionats?
-    Els mateixos canals seran esborrats de qualsevol perfil en que es troben.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Estàs
-    segur que vols esborrar els canals seleccionats? Açò no esborrarà el canal de
-    qualsevol altre perfil.'
+  : 'Aquest és el perfil principal.  Esteu segur que voleu suprimir els canals seleccionats?   Se
+    suprimiran de tots els perfils.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Esteu
+    segur que voleu suprimir els canals seleccionats?  No se suprimiran de cap altre
+    perfil.'
 #On Channel Page
   Profile Settings: Configuració del perfil
   Profile Filter: Filtre de perfil
 Channel:
-  Subscriber: 'Subscriptor'
-  Subscribers: 'Subscriptors'
   Subscribe: 'Subscriu-te'
-  Unsubscribe: 'Des-subscriu-te'
+  Unsubscribe: 'Cancel·la la subscripció'
   Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les
     teves subscripcions'
-  Removed subscription from {count} other channel(s): 'Elimina subscripció de altres
-    {count} canals(s)'
+  Removed subscription from {count} other channel(s): 'S''ha suprimit la subscripció
+    dels altres {count} canals'
   Added channel to your subscriptions: 'Afegeix canal a les teves subscripcions'
   Search Channel: 'Cerca Canal'
   Your search results have returned 0 results: 'Els resultats de la teva cerca han
@@ -465,29 +468,26 @@ Channel:
       Newest: 'Més Nou'
       Oldest: 'Més Vell'
   About:
-    About: 'Sobre'
+    About: 'Quant a'
     Channel Description: 'Descripció del Canal'
     Featured Channels: 'Canals Destacats'
 Video:
   Mark As Watched: 'Marca Com A Vist'
-  Remove From History: 'Esborra De L''Historial'
+  Remove From History: 'Suprimeix de l''historial'
   Video has been marked as watched: 'El vídeo ha sigut marcat com a vist'
   Video has been removed from your history: 'El vídeo ha sigut eliminat del teu historial'
   Open in YouTube: 'Obri a YouTube'
   Copy YouTube Link: 'Copia Enllaç de YouTube'
   Open YouTube Embedded Player: 'Obri Reproductor de YouTube Incrustat'
-  Copy YouTube Embedded Player Link: 'Copia el Enllaç del Reproductor de YouTube Incrustat'
-  Open in Invidious: 'Obri a Invidious'
-  Copy Invidious Link: 'Copia Enllaç d''Invidious'
-  View: 'Visualitza'
+  Copy YouTube Embedded Player Link: 'Copia l''enllaç del reproductor de YouTube incrustat'
+  Open in Invidious: 'Obra a Invidious'
+  Copy Invidious Link: 'Copia l''enllaç d''Invidious'
   Views: 'Visualitzacions'
   Loop Playlist: 'Llista de reproducció en bucle'
   Shuffle Playlist: 'Llista de reproducció en aleatori'
   Reverse Playlist: 'Llista de reproducció invertida'
   Play Next Video: 'Reprodueix el vídeo següent'
   Play Previous Video: 'Reprodueix el vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'Visualitzant'
   Watched: 'Visualitzat'
   Autoplay: 'Reproducció Automàtica'
   # As in a Live Video
@@ -502,7 +502,7 @@ Video:
   Live chat is enabled. Chat messages will appear here once sent.: 'El Xat En Directe
     està activat. Els missatges del Xat apareixeran ací una vegada s''envien.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
-    Xat En Directe està actualment no soportat per la API d''Indivious. Es requereix
+    xat en directe no està actualment suportat per l''API d''Invidious.  Es requereix
     una connexió directa a YouTube.'
   Published:
     Jan: 'Gen'
@@ -552,7 +552,7 @@ Video:
   Skipped segment: Segment saltat
   External Player:
     Unsupported Actions:
-      starting video at offset: començant el vídeo al òfset
+      starting video at offset: començant el vídeo al punt donat
       setting a playback rate: establint una velocitat de reproducció
     OpenInTemplate: Obri a {externalPlayer}
     OpeningTemplate: Obrint {videoOrPlaylist} a {externalPlayer}…
@@ -563,12 +563,12 @@ Video:
   Premieres on: S'estrena el
   audio only: només àudio
   Video has been saved: El vídeo s'ha desat
-  Video has been removed from your saved list: El vídeo ha sigut eliminat de la teva
-    llista desada
+  Video has been removed from your saved list: S'ha suprimit el vídeo de la llista
+    desada
   Open Channel in YouTube: Obri Canal a YouTube
-  Copy YouTube Channel Link: Copia Enllaç del Canal de YouTube
-  Open Channel in Invidious: Obri Canal a Invidious
-  Copy Invidious Channel Link: Copia Enllaç del Canal d'Invidious
+  Copy YouTube Channel Link: Copia l'enllaç del canal de YouTube
+  Open Channel in Invidious: Obra el canal a Invidious
+  Copy Invidious Channel Link: Copia l'enllaç del canal d'Invidious
   Starting soon, please refresh the page to check again: Començant prompte, si us
     plau recàrrega la pàgina per comprovar-ho de nou
   Download Video: Descàrrega El Vídeo
@@ -584,7 +584,7 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Visualitza La Llista De Reproducció Sencera'
+  View Full Playlist: 'Visualitza la llista de reproducció sencera'
   Videos: 'Vídeos'
   View: 'Visualitza'
   Views: 'Visualitzacions'
@@ -593,7 +593,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Conmuta El Mode Cinema'
+Toggle Theatre Mode: 'Commuta el mode teatre'
 Change Format:
   Change Media Formats: 'Canvia Els Formats De Vídeo'
   Use Dash Formats: 'Utilitza Formats DASH'
@@ -605,19 +605,21 @@ Change Format:
     per aquest vídeo'
 Share:
   Share Video: 'Comparteix Vídeo'
-  Share Playlist: 'Comparteix La Llista De Reproducció'
+  Share Playlist: 'Comparteix la llista de reproducció'
   Include Timestamp: 'Afegeix Marca De Temps'
   Copy Link: 'Copia l''Enllaç'
   Open Link: 'Obri l''Enllaç'
   Copy Embed: 'Copia Incrustat'
   Open Embed: 'Obri Incrustat'
   # On Click
-  Invidious URL copied to clipboard: 'URL d''Invidious copiada al porta-retalls'
-  Invidious Embed URL copied to clipboard: 'URL d''Incrustació d''Invidious copiada
+  Invidious URL copied to clipboard: 'S''ha copiat l''URL d''Invidious al porta-retalls'
+  Invidious Embed URL copied to clipboard: 'S''ha copiat l''URL d''incrustació d''Invidious
     al porta-retalls'
   YouTube URL copied to clipboard: 'URL de YouTube copiada al porta-retalls'
   YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
     porta-retalls'
+  Invidious Channel URL copied to clipboard: S'ha copiat l'URL del canal d'Invidious
+    al porta-retalls
 Yes: 'Sí'
 No: 'No'
 More: Més
@@ -625,3 +627,12 @@ Open New Window: Obre una finestra nova
 Search Bar:
   Clear Input: Netejar
 Are you sure you want to open this link?: Estàs segur/a que vols obrir aquest enllaç?
+New Window: Finestra nova
+Preferences: Preferències
+Channels:
+  Search bar placeholder: Cerca canals
+  Channels: Canals
+  Title: Llista de canals
+Falling back to Invidious API: Recorrent a l'API d'Invidious
+Invidious API Error (Click to copy): S'ha produït un error en l'API d'Invidious (feu
+  clic per copiar-lo)

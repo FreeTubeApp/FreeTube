@@ -1,4 +1,5 @@
-import i18n from '../../i18n/index'
+import i18n, { loadLocale } from '../../i18n/index'
+import allLocales from '../../../../static/locales/activeLocales.json'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
 import { getSystemLocale, showToast } from '../../helpers/utils'
@@ -161,10 +162,11 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
+  allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
-  backendFallback: process.env.IS_ELECTRON,
-  backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
+  backendFallback: process.env.SUPPORTS_LOCAL_API,
+  backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
@@ -182,12 +184,13 @@ const state = {
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
-  enableSubtitles: true,
+  enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
   externalLinkHandling: '',
   externalPlayer: '',
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
+  externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '',
   expandSideBar: false,
   forceLocalBackendForLegacy: false,
@@ -199,9 +202,11 @@ const state = {
   hideChannelShorts: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
+  hideCommentPhotos: false,
   hideComments: false,
   hideFeaturedChannels: false,
   channelsHidden: '[]',
+  forbiddenTitles: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
@@ -214,6 +219,7 @@ const state = {
   hideSubscriptionsVideos: false,
   hideSubscriptionsShorts: false,
   hideSubscriptionsLive: false,
+  hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
   hideUnsubscribeButton: false,
   hideUpcomingPremieres: false,
@@ -226,14 +232,14 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
+  onlyShowLatestFromChannel: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
-  proxyVideos: !process.env.IS_ELECTRON,
+  proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
   rememberHistory: true,
-  removeVideoMetaFiles: true,
   saveWatchedProgress: true,
   saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
@@ -272,15 +278,18 @@ const state = {
     skip: 'doNothing'
   },
   thumbnailPreference: '',
+  blurThumbnails: false,
   useProxy: false,
+  userPlaylistSortOrder: 'date_added_descending',
   useRssFeeds: false,
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
   videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
+  downloadAskPath: true,
   downloadFolderPath: '',
-  downloadBehavior: 'download',
+  downloadBehavior: 'open',
   enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
@@ -290,8 +299,13 @@ const state = {
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
   allowDashAv1Formats: false,
-  commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  useDeArrowThumbnails: false,
+  deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
+  // This makes the `favorites` playlist uses as quick bookmark target
+  // If the playlist is removed quick bookmark is disabled
+  quickBookmarkTargetPlaylistId: 'favorites',
+  generalAutoLoadMorePaginatedItemsEnabled: false,
 }
 
 const stateWithSideEffects = {
@@ -303,18 +317,20 @@ const stateWithSideEffects = {
       let targetLocale = value
       if (value === 'system') {
         const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
-        const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
-        const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
+        const systemLocaleSplit = systemLocaleName.split('_') // ex: en
+        const targetLocaleOptions = allLocales.filter((locale) => {
+          // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
-          return localeLang.includes(systemLocaleLang)
+          return localeLang.includes(systemLocaleSplit[0])
         }).sort((a, b) => {
           const aLocaleName = a.replace('-', '_')
           const bLocaleName = b.replace('-', '_')
           const aLocale = aLocaleName.split('_') // ex: [en, US]
           const bLocale = bLocaleName.split('_')
-          if (aLocale.includes(systemLocaleName)) { // country & language match, prefer a
+
+          if (aLocaleName === systemLocaleName) { // country & language match, prefer a
             return -1
-          } else if (bLocale.includes(systemLocaleName)) { // country & language match, prefer b
+          } else if (bLocaleName === systemLocaleName) { // country & language match, prefer b
             return 1
           } else if (aLocale.length === 1) { // no country code for a, prefer a
             return -1
@@ -324,12 +340,11 @@ const stateWithSideEffects = {
             return aLocaleName.localeCompare(bLocaleName)
           }
         })
+
         if (targetLocaleOptions.length > 0) {
           targetLocale = targetLocaleOptions[0]
-        }
-
-        // Go back to default value if locale is unavailable
-        if (!targetLocale) {
+        } else {
+          // Go back to default value if locale is unavailable
           targetLocale = defaultLocale
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
@@ -338,7 +353,34 @@ const stateWithSideEffects = {
         }
       }
 
-      await i18n.loadLocale(targetLocale)
+      const loadPromises = []
+
+      if (targetLocale !== defaultLocale) {
+        // "en-US" is used as a fallback for missing strings in other locales
+        loadPromises.push(
+          loadLocale(defaultLocale)
+        )
+      }
+
+      // "es" is used as a fallback for "es_AR" and "es-MX"
+      if (targetLocale === 'es_AR' || targetLocale === 'es-MX') {
+        loadPromises.push(
+          loadLocale('es')
+        )
+      }
+
+      // "pt" is used as a fallback for "pt-PT" and "pt-BR"
+      if (targetLocale === 'pt-PT' || targetLocale === 'pt-BR') {
+        loadPromises.push(
+          loadLocale('pt')
+        )
+      }
+
+      loadPromises.push(
+        loadLocale(targetLocale)
+      )
+
+      await Promise.allSettled(loadPromises)
 
       i18n.locale = targetLocale
       await dispatch('getRegionData', {
@@ -430,84 +472,102 @@ const customActions = {
 
   // Should be a root action, but we'll tolerate
   setupListenersToSyncWindows: ({ commit, dispatch, getters }) => {
-    // Already known to be Electron, no need to check
-    const { ipcRenderer } = require('electron')
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
 
-    ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.UPSERT:
-          if (getters.settingHasSideEffects(data._id)) {
-            dispatch(defaultSideEffectsTriggerId(data._id), data.value)
-          }
+      ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.UPSERT:
+            if (getters.settingHasSideEffects(data._id)) {
+              dispatch(defaultSideEffectsTriggerId(data._id), data.value)
+            }
 
-          commit(defaultMutationId(data._id), data.value)
-          break
+            commit(defaultMutationId(data._id), data.value)
+            break
 
-        default:
-          console.error('settings: invalid sync event received')
-      }
-    })
+          default:
+            console.error('settings: invalid sync event received')
+        }
+      })
 
-    ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.UPSERT:
-          commit('upsertToHistoryCache', data)
-          break
+      ipcRenderer.on(IpcChannels.SYNC_HISTORY, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertToHistoryCache', data)
+            break
 
-        case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
-          commit('updateRecordWatchProgressInHistoryCache', data)
-          break
+          case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
+            commit('updateRecordWatchProgressInHistoryCache', data)
+            break
 
-        case SyncEvents.HISTORY.UPDATE_PLAYLIST:
-          commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
-          break
+          case SyncEvents.HISTORY.UPDATE_PLAYLIST:
+            commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE:
-          commit('removeFromHistoryCacheById', data)
-          break
+          case SyncEvents.GENERAL.DELETE:
+            commit('removeFromHistoryCacheById', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE_ALL:
-          commit('setHistoryCache', [])
-          break
+          case SyncEvents.GENERAL.DELETE_ALL:
+            commit('setHistoryCacheSorted', [])
+            commit('setHistoryCacheById', {})
+            break
 
-        default:
-          console.error('history: invalid sync event received')
-      }
-    })
+          default:
+            console.error('history: invalid sync event received')
+        }
+      })
 
-    ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.GENERAL.CREATE:
-          commit('addProfileToList', data)
-          break
+      ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.CREATE:
+            commit('addProfileToList', data)
+            break
 
-        case SyncEvents.GENERAL.UPSERT:
-          commit('upsertProfileToList', data)
-          break
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertProfileToList', data)
+            break
 
-        case SyncEvents.GENERAL.DELETE:
-          commit('removeProfileFromList', data)
-          break
+          case SyncEvents.GENERAL.DELETE:
+            commit('removeProfileFromList', data)
+            break
 
-        default:
-          console.error('profiles: invalid sync event received')
-      }
-    })
+          default:
+            console.error('profiles: invalid sync event received')
+        }
+      })
 
-    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
-      switch (event) {
-        case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
-          commit('addVideo', data)
-          break
+      ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.CREATE:
+            commit('addPlaylists', data)
+            break
 
-        case SyncEvents.PLAYLISTS.DELETE_VIDEO:
-          commit('removeVideo', data)
-          break
+          case SyncEvents.GENERAL.DELETE:
+            commit('removePlaylist', data)
+            break
 
-        default:
-          console.error('playlists: invalid sync event received')
-      }
-    })
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertPlaylistToList', data)
+            break
+
+          case SyncEvents.PLAYLISTS.UPSERT_VIDEO:
+            commit('addVideo', data)
+            break
+
+          case SyncEvents.PLAYLISTS.UPSERT_VIDEOS:
+            commit('addVideos', data)
+            break
+
+          case SyncEvents.PLAYLISTS.DELETE_VIDEO:
+            commit('removeVideo', data)
+            break
+
+          default:
+            console.error('playlists: invalid sync event received')
+        }
+      })
+    }
   }
 }
 

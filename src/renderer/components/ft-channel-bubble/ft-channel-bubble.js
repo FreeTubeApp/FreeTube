@@ -1,9 +1,12 @@
 import { defineComponent } from 'vue'
-import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({
   name: 'FtChannelBubble',
   props: {
+    channelId: {
+      type: String,
+      required: true
+    },
     channelName: {
       type: String,
       required: true
@@ -17,6 +20,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['click'],
   data: function () {
     return {
       selected: false
@@ -24,15 +28,12 @@ export default defineComponent({
   },
   computed: {
     sanitizedId: function() {
-      return 'channelBubble' + sanitizeForHtmlId(this.channelName)
+      return 'channelBubble' + this.channelId
     }
   },
   methods: {
     handleClick: function (event) {
       if (event instanceof KeyboardEvent) {
-        if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
-          return
-        }
         event.preventDefault()
       }
 

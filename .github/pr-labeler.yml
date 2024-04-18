@@ -1,0 +1,8 @@
+'PR: waiting for review':
+- changed-files:
+  - any-glob-to-any-file: '**'
+
+'PR: dependencies':
+- any:
+  - changed-files:
+    - any-glob-to-any-file: ['yarn.lock', 'package.json']

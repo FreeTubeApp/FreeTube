@@ -1,7 +1,23 @@
 hr {
-  height: 2px;
-  width: 85%;
-  margin: 0 auto;
+  inline-size: 85%;
+  margin-block: 0;
+  margin-inline: auto;
   border: 0;
-  background-color: var(--scrollbar-color-hover);
+  border-block-start: 2px solid var(--scrollbar-color-hover);
+}
+
+@media only screen and (width <= 800px) {
+  hr {
+    inline-size: 100%;
+  }
+}
+
+.switchColumnGrid {
+  inline-size: 85%;
+  margin-inline: auto;
+}
+
+.settingsToggle {
+  padding-block: 0;
+  margin-block: 10px 5px;
 }

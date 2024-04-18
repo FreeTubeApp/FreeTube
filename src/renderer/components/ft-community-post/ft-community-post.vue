@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="!isLoading"
     class="ft-list-post ft-list-item outside"
     :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
@@ -8,16 +7,43 @@
     <div
       class="author-div"
     >
-      <img
+      <template
         v-if="authorThumbnails.length > 0"
-        :src="getBestQualityImage(authorThumbnails)"
-        class="communityThumbnail"
-        alt=""
       >
+        <router-link
+          v-if="authorId"
+          :to="`/channel/${authorId}`"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <img
+            :src="getBestQualityImage(authorThumbnails)"
+            class="communityThumbnail"
+            alt=""
+          >
+        </router-link>
+        <img
+          v-else
+          :src="getBestQualityImage(authorThumbnails)"
+          class="communityThumbnail"
+          alt=""
+        >
+      </template>
       <p
         class="authorName"
       >
-        {{ author }}
+        <router-link
+          v-if="authorId"
+          :to="`/channel/${authorId}`"
+          class="authorNameLink"
+        >
+          {{ author }}
+        </router-link>
+        <template
+          v-else
+        >
+          {{ author }}
+        </template>
       </p>
       <p
         class="publishedText"
@@ -29,19 +55,25 @@
       class="postText"
       v-html="postText"
     />
-    <tiny-slider
+    <swiper-container
       v-if="type === 'multiImage' && postContent.content.length > 0"
-      v-bind="tinySliderOptions"
-      class="slider"
+      ref="swiperContainer"
+      init="false"
+      class="sliderContainer"
     >
-      <img
+      <swiper-slide
         v-for="(img, index) in postContent.content"
         :key="index"
-        :src="getBestQualityImage(img)"
-        class="communityImage tns-lazy-img"
-        alt=""
+        lazy="true"
       >
-    </tiny-slider>
+        <img
+          :src="getBestQualityImage(img)"
+          class="communityImage"
+          alt=""
+          loading="lazy"
+        >
+      </swiper-slide>
+    </swiper-container>
     <div
       v-if="type === 'image' && postContent.content.length > 0"
     >
@@ -55,9 +87,16 @@
       v-if="type === 'video'"
     >
       <ft-list-video
+        v-if="!hideVideo"
         :data="data.postContent.content"
         appearance=""
       />
+      <p
+        v-else
+        class="hiddenVideo"
+      >
+        {{ '[' + $t('Channel.Community.Video hidden by FreeTube') + ']' }}
+      </p>
     </div>
     <div
       v-if="type === 'poll' || type === 'quiz'"
@@ -91,4 +130,3 @@
 
 <script src="./ft-community-post.js" />
 <style scoped src="./ft-community-post.scss" lang="scss" />
-<style src="./slider-style.css" lang="css" />

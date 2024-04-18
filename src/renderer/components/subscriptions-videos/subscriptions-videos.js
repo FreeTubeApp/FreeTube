@@ -2,10 +2,10 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { setPublishedTimestampsInvidious, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
-import { addPublishedDatesInvidious, addPublishedDatesLocal, parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
+import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
 export default defineComponent({
   name: 'SubscriptionsVideos',
@@ -31,6 +31,14 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
+    lastVideoRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastVideoRefreshTimestampByProfile(this.activeProfileId), true)
     },
 
     useRssFeeds: function () {
@@ -87,9 +95,20 @@ export default defineComponent({
       // This method is called on view visible
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
+        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+          let minTimestamp = null
+          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+              minTimestamp = cacheEntry.timestamp
+            }
+          })
+          this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+        }
         return
       }
 
+      // clear timestamp if not all entries are present in the cache
+      this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
@@ -129,19 +148,23 @@ export default defineComponent({
       this.attemptedFetch = true
 
       this.errorChannels = []
+      const subscriptionUpdates = []
+
       const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let videos = []
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        let name, thumbnailUrl
+
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           if (useRss) {
-            videos = await this.getChannelVideosInvidiousRSS(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosInvidiousRSS(channel))
           } else {
-            videos = await this.getChannelVideosInvidiousScraper(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosInvidiousScraper(channel))
           }
         } else {
           if (useRss) {
-            videos = await this.getChannelVideosLocalRSS(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosLocalRSS(channel))
           } else {
-            videos = await this.getChannelVideosLocalScraper(channel)
+            ({ videos, name, thumbnailUrl } = await this.getChannelVideosLocalScraper(channel))
           }
         }
 
@@ -150,15 +173,27 @@ export default defineComponent({
         this.setProgressBarPercentage(percentageComplete)
         this.updateSubscriptionVideosCacheByChannel({
           channelId: channel.id,
-          videos: videos,
+          videos: videos
         })
+
+        if (name || thumbnailUrl) {
+          subscriptionUpdates.push({
+            channelId: channel.id,
+            channelName: name,
+            channelThumbnailUrl: thumbnailUrl
+          })
+        }
+
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
+      this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
       this.updateShowProgressBar(false)
+
+      this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
 
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
@@ -174,16 +209,16 @@ export default defineComponent({
 
     getChannelVideosLocalScraper: async function (channel, failedAttempts = 0) {
       try {
-        const videos = await getLocalChannelVideos(channel.id)
+        const result = await getLocalChannelVideos(channel.id)
 
-        if (videos === null) {
+        if (result === null) {
           this.errorChannels.push(channel)
-          return []
+          return {
+            videos: []
+          }
         }
 
-        addPublishedDatesLocal(videos)
-
-        return videos
+        return result
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -198,12 +233,16 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return await this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return await this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -227,7 +266,9 @@ export default defineComponent({
             this.errorChannels.push(channel)
           }
 
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -245,12 +286,16 @@ export default defineComponent({
               showToast(this.$t('Falling back to Invidious API'))
               return this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return this.getChannelVideosLocalScraper(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
@@ -264,9 +309,18 @@ export default defineComponent({
         }
 
         invidiousAPICall(subscriptionsPayload).then((result) => {
-          addPublishedDatesInvidious(result.videos)
+          setPublishedTimestampsInvidious(result.videos)
 
-          resolve(result.videos)
+          let name
+
+          if (result.videos.length > 0) {
+            name = result.videos.find(video => video.type === 'video' && video.author).author
+          }
+
+          resolve({
+            name,
+            videos: result.videos
+          })
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -278,18 +332,22 @@ export default defineComponent({
               resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               break
             case 1:
-              if (process.env.IS_ELECTRON && this.backendFallback) {
-                showToast(this.$t('Falling back to the local API'))
+              if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
+                showToast(this.$t('Falling back to Local API'))
                 resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               } else {
-                resolve([])
+                resolve({
+                  videos: []
+                })
               }
               break
             case 2:
               resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               break
             default:
-              resolve([])
+              resolve({
+                videos: []
+              })
           }
         })
       })
@@ -302,9 +360,11 @@ export default defineComponent({
       try {
         const response = await fetch(feedUrl)
 
-        if (response.status === 500) {
+        if (response.status === 500 || response.status === 404) {
           this.errorChannels.push(channel)
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
@@ -318,23 +378,29 @@ export default defineComponent({
           case 0:
             return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
           case 1:
-            if (process.env.IS_ELECTRON && this.backendFallback) {
-              showToast(this.$t('Falling back to the local API'))
+            if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
+              showToast(this.$t('Falling back to Local API'))
               return this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
             } else {
-              return []
+              return {
+                videos: []
+              }
             }
           case 2:
             return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
           default:
-            return []
+            return {
+              videos: []
+            }
         }
       }
     },
 
     ...mapActions([
+      'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionVideosCacheByChannel',
+      'updateLastVideoRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

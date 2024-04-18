@@ -1,5 +1,4 @@
 import store from '../store/index'
-import { calculatePublishedDate } from './utils'
 
 /**
  * Filtering and sort based on user preferences
@@ -7,11 +6,6 @@ import { calculatePublishedDate } from './utils'
  */
 export function updateVideoListAfterProcessing(videos) {
   let videoList = videos
-
-  // Filtering and sorting based in preference
-  videoList.sort((a, b) => {
-    return b.publishedDate - a.publishedDate
-  })
 
   if (store.getters.getHideLiveStreams) {
     videoList = videoList.filter(item => {
@@ -38,16 +32,32 @@ export function updateVideoListAfterProcessing(videos) {
   }
 
   if (store.getters.getHideWatchedSubs) {
-    const historyCache = store.getters.getHistoryCache
+    const historyCacheById = store.getters.getHistoryCacheById
 
     videoList = videoList.filter((video) => {
-      const historyIndex = historyCache.findIndex((x) => {
-        return x.videoId === video.videoId
-      })
-
-      return historyIndex === -1
+      return !Object.hasOwn(historyCacheById, video.videoId)
     })
   }
+
+  // ordered last to show first eligible video from channel
+  // if the first one incidentally failed one of the above checks
+  if (store.getters.getOnlyShowLatestFromChannel) {
+    const authors = new Set()
+    videoList = videoList.filter((video) => {
+      if (!video.authorId) {
+        return true
+      } else if (!authors.has(video.authorId)) {
+        authors.add(video.authorId)
+        return true
+      }
+
+      return false
+    })
+  }
+
+  videoList.sort((a, b) => {
+    return b.published - a.published
+  })
 
   return videoList
 }
@@ -69,9 +79,14 @@ export async function parseYouTubeRSSFeed(rssString, channelId) {
       promises.push(parseRSSEntry(entry, channelId, channelName))
     }
 
-    return await Promise.all(promises)
+    return {
+      name: channelName,
+      videos: await Promise.all(promises)
+    }
   } catch (e) {
-    return []
+    return {
+      videos: []
+    }
   }
 }
 
@@ -90,57 +105,10 @@ async function parseRSSEntry(entry, channelId, channelName) {
     // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
     videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
     title: entry.querySelector('title').textContent,
-    publishedDate: published,
-    publishedText: published.toLocaleString(),
+    published: published.getTime(),
     viewCount: entry.getElementsByTagName('media:statistics')[0]?.getAttribute('views') || null,
     type: 'video',
     lengthSeconds: '0:00',
     isRSS: true
   }
-}
-
-/**
- * @param {{
- *  liveNow: boolean,
- *  isUpcoming: boolean,
- *  premiereDate: Date,
- *  publishedText: string,
- *  publishedDate: number
- * }[]} videos publishedDate is added by this function,
- * but adding it to the type definition stops vscode warning that the property doesn't exist
- */
-export function addPublishedDatesLocal(videos) {
-  videos.forEach(video => {
-    if (video.liveNow) {
-      video.publishedDate = new Date().getTime()
-    } else if (video.isUpcoming) {
-      video.publishedDate = video.premiereDate
-    } else {
-      video.publishedDate = calculatePublishedDate(video.publishedText)
-    }
-    return video
-  })
-}
-
-/**
- * @param {{
- *  liveNow: boolean,
- *  isUpcoming: boolean,
- *  premiereTimestamp: number,
- *  published: number,
- *  publishedDate: number
- * }[]} videos publishedDate is added by this function,
- * but adding it to the type definition stops vscode warning that the property doesn't exist
- */
-export function addPublishedDatesInvidious(videos) {
-  videos.forEach(video => {
-    if (video.liveNow) {
-      video.publishedDate = new Date().getTime()
-    } else if (video.isUpcoming) {
-      video.publishedDate = new Date(video.premiereTimestamp * 1000)
-    } else {
-      video.publishedDate = new Date(video.published * 1000)
-    }
-    return video
-  })
 }

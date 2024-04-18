@@ -2,9 +2,10 @@
   <div
     v-if="dataReady"
     id="app"
+    class="app"
     :class="{
-      hideOutlines: hideOutlines,
-      rightAligned: isRightAligned
+      hideOutlines: outlinesHidden,
+      isLocaleRightToLeft: isLocaleRightToLeft
     }"
   >
     <top-nav ref="topNav" />
@@ -52,7 +53,7 @@
       @click="showReleaseNotes = !showReleaseNotes"
     >
       <span
-        id="changeLogText"
+        class="changeLogText"
         v-html="updateChangelog"
       />
       <ft-flex-box>
@@ -73,6 +74,16 @@
       :option-names="externalLinkOpeningPromptNames"
       :option-values="externalLinkOpeningPromptValues"
       @click="handleExternalLinkOpeningPromptAnswer"
+    />
+    <!-- !hideSearchBar &&  -->
+    <ft-search-filters
+      v-show="showSearchFilters"
+    />
+    <ft-playlist-add-video-prompt
+      v-if="showAddToPlaylistPrompt"
+    />
+    <ft-create-playlist-prompt
+      v-if="showCreatePlaylistPrompt"
     />
     <ft-toast />
     <ft-progress-bar

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: '한국어'
-FreeTube: '프리튜브'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   아직 구현 되지 않은 기능입니다. 개발이 완료된 후 다시 시도해주세요.
@@ -34,6 +33,9 @@ Forward: '앞으로가기'
 Global:
   Videos: '비디오'
 
+  Live: 실시간
+  Community: 커뮤니티
+  Shorts: 쇼츠
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
@@ -283,7 +285,6 @@ Settings:
     Remove All Subscriptions / Profiles: '모든 구독채널과 프로필 삭제'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '정말로
       모든 구독채널과 프로필을 삭제하시겠습니까? 삭제하면 복구가되지않습니다.'
-    Automatically Remove Video Meta Files: 비디오 메타 파일 자동 제거
   Subscription Settings:
     Subscription Settings: '구독 설정'
     Hide Videos on Watch: '시청한 동영상 숨기기'
@@ -528,15 +529,12 @@ Video:
   Copy YouTube Channel Link: 'YouTube 채널 링크 복사'
   Open Channel in Invidious: 'Invidious에서 채널 열기'
   Copy Invidious Channel Link: 'Invidious 채널 링크 복사'
-  View: '보기'
   Views: '보기'
   Loop Playlist: '재생 목록 반복'
   Shuffle Playlist: '재생 목록 셔플'
   Reverse Playlist: '재생 목록 역재생'
   Play Next Video: '다음 동영상 재생'
   Play Previous Video: '이전 동영상 재생'
-  # Context is "X People Watching"
-  Watching: '시청중'
   Watched: '시청함'
   Autoplay: '자동 재생'
   Starting soon, please refresh the page to check again: '곧 시작됩니다. 다시 확인하려면 페이지를 새로고침하십시오'
@@ -722,8 +720,8 @@ Tooltips:
     Thumbnail Preference: 'FreeTube 전체의 모든 썸네일은 기본 썸네일 대신 비디오 프레임으로 대체됩니다.'
     Invidious Instance: 'FreeTube가 API 호출을 위해 연결할 Invidious 인스턴스입니다.'
     Region for Trending: '트렌드 지역을 통해 표시하고 싶은 국가의 트렌드 비디오를 선택할 수 있습니다.'
-    External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는\
-      \ 기본 브라우저에서 클릭한 링크를 엽니다.\n"
+    External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는
+      기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Invidious API가 기본값인 경우에만 작동합니다. 활성화되면
       로컬 API가 실행되고 Invidious에서 반환된 형식 대신 해당 형식에서 반환된 레거시 형식을 사용합니다. Invidious에서 반환한
@@ -752,16 +750,13 @@ Tooltips:
     Ignore Warnings: '현재 외부 플레이어가 현재 작업을 지원하지 않는 경우(예: 재생 목록 반전 등) 경고를 표시하지 않습니다.'
     Custom External Player Arguments: 외부 플레이어로 전달되기를 원하는사용자 지정 명령줄 인수는 세미콜론(';')으로
       구분됩니다.
-  Privacy Settings:
-    Remove Video Meta Files: 활성화되면 FreeTube는 보기 페이지가 닫힐 때 비디오 재생 중에 생성된 메타 파일을 자동으로
-      삭제합니다.
   Distraction Free Settings:
     Hide Channels: 채널 이름이나 채널 ID를 입력해 해당 채널의 영상이나 재생목록, 채널 자체가 검색이나 인기 영상에 나타나지 않도록
       합니다. 입력되는 채널 이름은 완전히 일치해야하며, 대소문자를 구별합니다.
 Local API Error (Click to copy): '로컬 API 오류(복사하려면 클릭)'
 Invidious API Error (Click to copy): 'Invidious API 오류(복사하려면 클릭)'
 Falling back to Invidious API: 'Invidious API로 대체'
-Falling back to the local API: '로컬 API로 대체'
+Falling back to Local API: '로컬 API로 대체'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: '이
   동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
 Subscriptions have not yet been implemented: '구독이 아직 구현되지 않았습니다'
@@ -804,11 +799,6 @@ Channels:
   Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
   Count: '{number} 채널이 발견되었습니다.'
   Unsubscribed: '{channelName} 구독에서 제거되었습니다'
-Age Restricted:
-  Type:
-    Video: 비디오
-    Channel: 채널
-  The currently set default instance is {instance}: 이 {instance}는 연령 제한입니다
 Downloading has completed: '"{videoTitle}" 다운로드가 완료되었습니다'
 Starting download: '"{videoTitle}" 다운로드를 시작하는 중'
 Downloading failed: '"{videoTitle}"를 다운로드하는 동안 문제가 발생했습니다'

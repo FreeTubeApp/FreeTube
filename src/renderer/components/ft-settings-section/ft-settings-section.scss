@@ -1,35 +1,36 @@
 .settingsSection {
   background-color: var(--card-bg-color);
-  margin: 0 auto;
-  width: 85%;
+  margin-block: 0;
+  margin-inline: auto;
+  inline-size: 85%;
 
-  @media only screen and (max-width: 800px) {
-    width: 100%;
+  @media only screen and (width <= 800px) {
+    inline-size: 100%;
   }
 
   &[open] {
-    padding-bottom: 15px;
+    padding-block-end: 15px;
   }
 
   > div {
     box-sizing: border-box;
-    padding: 0 20px;
-    width: 100%;
+    padding-block: 0;
+    padding-inline: 20px;
+    inline-size: 100%;
   }
 
   > div:not(:last-child, .ft-flex-box) {
-    @media only screen and (max-width: 800px) {
-      margin-bottom: 20px;
+    @media only screen and (width <= 800px) {
+      margin-block-end: 20px;
     }
   }
 }
 
 .sectionLine {
-  background-color: var(--primary-color);
   border: 0;
-  height: 2px;
-  margin-top: -1px;
-  width: 100%;
+  border-block-start: 2px solid var(--primary-color);
+  margin-block-start: -1px;
+  inline-size: 100%;
 }
 
 .sectionHeader {
@@ -39,24 +40,37 @@
 }
 
 .sectionTitle {
-  -webkit-user-select: none;
   user-select: none;
-  margin-left: 2%;
+  margin-inline-start: 2%;
+  margin-block: 0.5em;
 }
 
-:deep(.switchGrid) {
+.dataSettingsBox {
+  justify-content: center;
+}
+
+:deep(.groupTitle) {
+  text-align: center;
+  margin-block: 0.5em;
+}
+
+%switch-grid {
   align-items: center;
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-evenly;
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     grid-template-columns: auto;
   }
 }
 
+:deep(.switchGrid) {
+  @extend %switch-grid;
+}
+
 :deep(.switchColumnGrid) {
-  @extend :deep(.switchGrid);
+  @extend %switch-grid;
 
   align-items: start;
 }
@@ -64,55 +78,57 @@
 :deep(.switchColumn) {
   display: flex;
   flex-direction: column;
-  justify-items: start;
+  align-items: start;
 }
 
 :deep(.center) {
   text-align: center;
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (width <= 460px) {
   :deep(.settingsFlexStart460px) {
     justify-content: flex-start;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (width <= 500px) {
   :deep(.settingsFlexStart500px) {
     justify-content: flex-start;
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .settingsSection {
     > div {
       :deep(.text.bottom) {
-        left: -85px;
+        inset-inline-start: -85px;
       }
     }
 
     :deep(.switch-ctn.containsTooltip) {
-      left: -10px;
-      margin-right: 5px;
-      padding: 0 10px;
+      inset-inline-start: -10px;
+      margin-inline-end: 5px;
+      padding-block: 0;
+      padding-inline: 10px;
     }
 
     :not(.select, .selectLabel) {
       > :deep(.tooltip) {
         display: inline-block;
         position: absolute;
-        right: -25px;
-        top: 12px;
+        inset-inline-end: -25px;
+        inset-block-start: 12px;
       }
     }
 
     .settingsFlexStart460px :deep(.tooltip) {
-      right: 0;
-      top: -2px;
+      inset-inline-end: 0;
+      inset-block-start: -2px;
     }
 
     :deep(.switch-ctn) {
-      margin: 10px 7px;
+      margin-block: 10px;
+      margin-inline: 7px;
     }
   }
 }

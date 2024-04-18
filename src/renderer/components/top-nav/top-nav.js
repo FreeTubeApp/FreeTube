@@ -1,12 +1,12 @@
-import { defineComponent, nextTick } from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
-import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -14,17 +14,16 @@ export default defineComponent({
   name: 'TopNav',
   components: {
     FtInput,
-    FtSearchFilters,
     FtProfileSelector
   },
   data: () => {
     return {
       component: this,
       showSearchContainer: true,
-      showFilters: false,
-      searchFilterValueChanged: false,
       historyIndex: 1,
       isForwardOrBack: false,
+      isArrowBackwardDisabled: true,
+      isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -36,6 +35,21 @@ export default defineComponent({
 
     hideHeaderLogo: function () {
       return this.$store.getters.getHideHeaderLogo
+    },
+
+    landingPage: function () {
+      return this.$store.getters.getLandingPage
+    },
+
+    headerLogoTitle: function () {
+      return this.$t('Go to page',
+        {
+          page: translateWindowTitle(this.$router.getRoutes()
+            .find((route) => route.path === '/' + this.landingPage)
+            .meta.title,
+          this.$i18n
+          )
+        })
     },
 
     enableSearchSuggestions: function () {
@@ -64,6 +78,14 @@ export default defineComponent({
 
     expandSideBar: function () {
       return this.$store.getters.getExpandSideBar
+    },
+
+    searchFilterValueChanged: function () {
+      return this.$store.getters.getSearchFilterValueChanged
+    },
+
+    showFilters: function () {
+      return this.$store.getters.getShowSearchFilters
     },
 
     forwardText: function () {
@@ -198,14 +220,18 @@ export default defineComponent({
           }
         }
       })
-
-      // Close the filter panel
-      this.showFilters = false
     },
 
     focusSearch: function () {
       if (!this.hideSearchBar) {
-        this.$refs.searchInput.focus()
+        // In order to prevent Klipper's "Synchronize contents of the clipboard
+        // and the selection" feature from being triggered when running
+        // Chromium on KDE Plasma, it seems both focus() focus and
+        // select() have to be called asynchronously (see issue #2019).
+        setTimeout(() => {
+          this.$refs.searchInput.focus()
+          this.$refs.searchInput.select()
+        }, 0)
       }
     },
 
@@ -259,7 +285,7 @@ export default defineComponent({
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
           console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )
@@ -270,25 +296,13 @@ export default defineComponent({
 
     toggleSearchContainer: function () {
       this.showSearchContainer = !this.showSearchContainer
-      this.showFilters = false
-    },
-
-    toggleSearchFiltersDisplayed: function() {
-      this.showFilters = !this.showFilters
-      if (this.showFilters) {
-        nextTick(() => this.$refs.searchFilters?.$refs.sortByRadio?.$el?.focus())
-      }
-    },
-
-    handleSearchFilterValueChanged: function (filterValueChanged) {
-      this.searchFilterValueChanged = filterValueChanged
     },
 
     navigateHistory: function () {
       if (!this.isForwardOrBack) {
         this.historyIndex = window.history.length
-        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
-        this.$refs.historyArrowForward.classList.add('fa-arrow-right')
+        this.isArrowBackwardDisabled = false
+        this.isArrowForwardDisabled = true
       } else {
         this.isForwardOrBack = false
       }
@@ -300,9 +314,9 @@ export default defineComponent({
 
       if (this.historyIndex > 1) {
         this.historyIndex--
-        this.$refs.historyArrowForward.classList.remove('fa-arrow-right')
+        this.isArrowForwardDisabled = false
         if (this.historyIndex === 1) {
-          this.$refs.historyArrowBack.classList.add('fa-arrow-left')
+          this.isArrowBackwardDisabled = true
         }
       }
     },
@@ -313,10 +327,10 @@ export default defineComponent({
 
       if (this.historyIndex < window.history.length) {
         this.historyIndex++
-        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
+        this.isArrowBackwardDisabled = false
 
         if (this.historyIndex === window.history.length) {
-          this.$refs.historyArrowForward.classList.add('fa-arrow-right')
+          this.isArrowForwardDisabled = true
         }
       }
     },
@@ -336,14 +350,12 @@ export default defineComponent({
     navigate: function (route) {
       this.$router.push('/' + route)
     },
-    hideFilters: function () {
-      this.showFilters = false
-    },
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
       'getYoutubeUrlInfo',
+      'showSearchFilters'
     ])
   }
 })

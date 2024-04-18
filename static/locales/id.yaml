@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Bahasa Indonesia'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Bagian dari aplikasi ini belum disiapkan. Kembali lagi nanti saat kemajuan telah
@@ -35,6 +34,10 @@ Forward: 'Maju'
 Global:
   Videos: 'Video'
 
+  Counts:
+    Video Count: 1 video | {count} video
+    Subscriber Count: 1 subscriber | {count} subscriber
+  Community: Komunitas
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
@@ -92,6 +95,8 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Profil
     ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan
     akses
+  Load More Posts: Muat Lebih Banyak Pos
+  Subscriptions Tabs: Tab Langganan
 Trending:
   Trending: 'Sedang Tren'
   Movies: Film
@@ -145,6 +150,7 @@ Settings:
       Beginning: 'Awal'
       Middle: 'Tengah'
       End: 'Akhir'
+      Hidden: Tersembunyi
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Situs Invidious
       (Bawaan: https://invidious.snopyta.org)'
     Region for Trending: 'Wilayah untuk Sedang Tren'
@@ -205,6 +211,7 @@ Settings:
     UI Scale: Skala UI
     Disable Smooth Scrolling: Nonaktifkan Gulir Halus
     Hide Side Bar Labels: Sembunyikan Label Bilah Samping
+    Hide FreeTube Header Logo: Sembunyikan Logo Header FreeTube
   Player Settings:
     Player Settings: 'Pengaturan Pemutar'
     Force Local Backend for Legacy Formats: 'Paksa Layanan Lokal untuk Format Lama'
@@ -242,6 +249,18 @@ Settings:
       Video
     Max Video Playback Rate: Maks Laju Pemutaran Video
     Video Playback Rate Interval: Interval Laju Pemutaran Video
+    Screenshot:
+      Folder Label: Folder Tangkapan Layar
+      Error:
+        Empty File Name: Nama Berkas Kosong
+        Forbidden Characters: Karakter Terlarang
+      Folder Button: Pilih Folder
+      Format Label: Format Tangkapan Layar
+      Enable: Aktifkan Tangkapan Layar
+      Ask Path: Tanya Lokasi Penyimpanan
+      Quality Label: Kualitas Tangkapan Layar
+      File Name Label: Pola Nama Berkas
+    Allow DASH AV1 formats: Izinkan format DASH AV1
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -258,7 +277,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Apakah
       Anda yakin ingin menghapus semua langganan dan profil? Tindakan ini tidak bisa
       diurungkan.'
-    Automatically Remove Video Meta Files: Secara Otomatis Hapus File Meta Video
   Subscription Settings:
     Subscription Settings: 'Pengaturan Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
@@ -348,6 +366,8 @@ Settings:
     Hide Video Views: Sembunyikan Tinjauan Video
     Hide Active Subscriptions: Sembunyikan Langganan Aktif
     Hide Playlists: Sembunyikan Daftar Putar
+    Sections:
+      Side Bar: Bilah Samping
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi
     butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
@@ -378,10 +398,22 @@ Settings:
     Ignore Unsupported Action Warnings: Abaikan Peringatan Tindakan yang Tidak Didukung
     External Player: Pemutar Eksternal
     External Player Settings: Pengaturan Pemutar Eksternal
+    Players:
+      None:
+        Name: Nihil
   Download Settings:
     Ask Download Path: Minta jalur unduhan
     Download Settings: Pengaturan Unduh
     Choose Path: Pilih Tempat
+  Experimental Settings:
+    Experimental Settings: Pengaturan Eksperimental
+  Password Settings:
+    Set Password To Prevent Access: Tetapkan sandi untuk mencegah akses ke pengaturan
+    Password Settings: Pengaturan Sandi
+  Password Dialog:
+    Enter Password To Unlock: Masukkan sandi untuk membuka kunci pengaturan
+  Parental Control Settings:
+    Parental Control Settings: Pengaturan Kontrol Orang Tua
 About:
   #On About page
   About: 'Ihwal'
@@ -481,8 +513,6 @@ Profile:
   Profile Filter: Filter Profil
   Profile Settings: Pengaturan Profil
 Channel:
-  Subscriber: 'Pelanggan'
-  Subscribers: 'Pelanggan'
   Subscribe: 'Langganan'
   Unsubscribe: 'Berhenti Langganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
@@ -525,15 +555,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Salin Tautan Pemutar Tersemat YouTube'
   Open in Invidious: 'Buka di Invidious'
   Copy Invidious Link: 'Salin Tautan Invidious'
-  View: 'Ditonton'
   Views: 'Ditonton'
   Loop Playlist: 'Ulangi Daftar Putar'
   Shuffle Playlist: 'Acak Daftar Putar'
   Reverse Playlist: 'Putar-Balik Daftar Putar'
   Play Next Video: 'Putar Video Berikutnya'
   Play Previous Video: 'Putar Video Sebelumnya'
-  # Context is "X People Watching"
-  Watching: 'Sedang Ditonton'
   Watched: 'Sudah Ditonton'
   Autoplay: 'Putar-Otomatis'
   # As in a Live Video
@@ -604,12 +631,12 @@ Video:
   Save Video: Simpan Video
   translated from English: diterjemahkan dari Bahasa Inggris
   Sponsor Block category:
-    interaction: interaksi
-    music offtopic: musik non-topik
-    self-promotion: promosi diri sendiri
-    outro: outro
-    intro: intro
-    sponsor: sponsor
+    interaction: Interaksi
+    music offtopic: Musik Non-Topik
+    self-promotion: Promosi Diri Sendiri
+    outro: Outro
+    intro: Intro
+    sponsor: Sponsor
   Skipped segment: Segmen yang dilewati
   External Player:
     Unsupported Actions:
@@ -722,7 +749,7 @@ Up Next: 'Akan Datang'
 Local API Error (Click to copy): 'API Lokal Galat (Klik untuk menyalin)'
 Invidious API Error (Click to copy): 'API Invidious Galat (Klik untuk menyalin)'
 Falling back to Invidious API: 'Kembali ke API Invidious'
-Falling back to the local API: 'Kembali ke API lokal'
+Falling back to Local API: 'Kembali ke API lokal'
 Subscriptions have not yet been implemented: 'Langganan masih belum diterapkan'
 Loop is now disabled: 'Putar-Ulang sekarang dimatikan'
 Loop is now enabled: 'Putar-Ulang sekarang diaktifkan'
@@ -778,9 +805,6 @@ Tooltips:
     External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat
       dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang
       diklik dengan browser default Anda.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
-      meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.
   External Player Settings:
     Custom External Player Arguments: Semua argumen perintah khusus, dipisahkan dengan
       titik koma (';'), yang Anda ingin gunakan dengan pemutar eksternal.
@@ -791,7 +815,7 @@ Tooltips:
       Jika diperlukan, bisa menggunakan jalur khusus di sini.
     External Player: Memilih pemutar eksternal akan menampilkan ikon khusus, untuk
       membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
-      thumbnail.
+      thumbnail. Peringatan, pengaturan Invidious tidak berdampak pada pemutar eksternal.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
@@ -819,4 +843,8 @@ Channels:
   Title: Daftar Channel
   Search bar placeholder: Cari Channel
   Count: '{number} channel ditemukan.'
+  Unsubscribe Prompt: Apakah Anda yakin ingin berhenti berlangganan "{channelName}"?
+  Empty: Daftar channel Anda kosong.
+  Unsubscribe: Berhenti langganan
+  Unsubscribed: '{channelName} telah dihapus dari daftar langganan Anda'
 Preferences: Preferensi

@@ -1,12 +1,14 @@
 <template>
   <div class="ftIconButton">
     <font-awesome-icon
+      ref="iconButton"
       class="iconButton"
       :title="title"
       :icon="icon"
       :class="{
         [theme]: true,
-        shadow: useShadow
+        shadow: useShadow,
+        disabled
       }"
       :style="{
         padding: padding + 'px',
@@ -14,6 +16,7 @@
       }"
       tabindex="0"
       role="button"
+      :aria-expanded="dropdownShown"
       @click="handleIconClick"
       @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
@@ -33,7 +36,6 @@
             v-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
-            :aria-expanded="dropdownShown"
           >
             <li
               v-for="(option, index) in dropdownOptions"
@@ -65,21 +67,21 @@
           top: dropdownPositionY === 'top'
         }"
         @focusout="handleDropdownFocusOut"
+        @keydown.esc.stop="handleDropdownEscape"
       >
         <slot>
           <ul
             v-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
-            :aria-expanded="dropdownShown"
           >
             <li
               v-for="(option, index) in dropdownOptions"
               :id="sanitizeForHtmlId(title + '-' + index)"
               :key="index"
-              role="option"
+              :role="option.type === 'divider' ? 'separator' : 'option'"
               aria-selected="false"
-              tabindex="-1"
+              :tabindex="option.type === 'divider' ? '-1' : '0'"
               :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
               @click="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"

@@ -14,7 +14,6 @@
           :channel-name="channel.name"
           :channel-id="channel.id"
           :channel-thumbnail="channel.thumbnail"
-          @click="goToChannel(channel.id)"
         />
       </ft-flex-box>
     </div>
@@ -37,31 +36,32 @@
         v-else
         class="message"
       >
-        {{ $t("Subscriptions.Empty Channels") }}
+        {{ isCommunity ? $t("Subscriptions.Empty Posts") : $t("Subscriptions.Empty Channels") }}
       </p>
     </ft-flex-box>
     <ft-element-list
       v-if="!isLoading && activeVideoList.length > 0"
       :data="activeVideoList"
       :use-channels-hidden-preference="false"
+      :display="isCommunity ? 'list' : ''"
     />
-    <ft-flex-box
+    <ft-auto-load-next-page-wrapper
       v-if="!isLoading && videoList.length > dataLimit"
+      @load-next-page="increaseLimit"
     >
-      <ft-button
-        :label="$t('Subscriptions.Load More Videos')"
-        background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
-        @click="increaseLimit"
-      />
-    </ft-flex-box>
-    <ft-icon-button
-      v-if="!isLoading"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :title="$t('Subscriptions.Refresh Subscriptions')"
-      :size="12"
-      theme="primary"
+      <ft-flex-box>
+        <ft-button
+          :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="increaseLimit"
+        />
+      </ft-flex-box>
+    </ft-auto-load-next-page-wrapper>
+    <ft-refresh-widget
+      :disable-refresh="isLoading || activeSubscriptionList.length === 0"
+      :last-refresh-timestamp="lastRefreshTimestamp"
+      :title="title"
       @click="$emit('refresh')"
     />
   </div>

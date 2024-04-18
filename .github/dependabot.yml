@@ -8,6 +8,27 @@ updates:
       - "PR: waiting for review"
       - "PR: dependencies"
     open-pull-requests-limit: 15
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "babel-*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "yaml-eslint-parser"
+          - "vue-eslint-parser"
+      stylelint:
+        patterns:
+          - "stylelint"
+          - "stylelint-*"
+          - "postcss"
+          - "postcss-*"
+          - "@double-great/stylelint-a11y"
+      fortawesome:
+        patterns:
+          - "@fortawesome/*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

@@ -1,5 +1,5 @@
 .vote-count {
-  padding-bottom: 6px;
+  padding-block-end: 6px;
   font-size: smaller;
 }
 
@@ -9,49 +9,62 @@
   border-style: solid;
   border-width: 2px;
   display: block;
-  float: left;
-  height: 10px;
-  left: 5px;
+  float: var(--float-left-ltr-rtl-value);
+  block-size: 10px;
   position: relative;
-  top: 8px;
-  width: 10px;
+  inline-size: 10px;
 }
-  
+
 .filled-circle {
   border-radius: 50%;
-  background-color: black;
-  float: left;
-  height: 6px;
-  left: 2px;
-  top: 2px;
+  background-color: #000;
+  float: var(--float-left-ltr-rtl-value);
+  block-size: 6px;
+  inset-inline-start: 2px;
+  inset-block-start: 2px;
   position: relative;
-  width: 6px;
+  inline-size: 6px;
 }
 
 .option-text {
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  padding: 5px 25px;
+  margin-inline-start: 10px;
 }
 
 .option {
-  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  padding-block: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  padding-inline-start: 10px;
+  margin-block-end: 10px;
+}
+
+.option > img {
+  margin-inline-start: 10px;
+  block-size: 125px;
 }
 
 .correct-option {
+  border-color: #78da71;
+  border-width: 2px;
+}
+
+.correct-option .filled-circle {
   background-color: #78da71;
 }
 
 .incorrect-option {
-  background-color: #dd4e4e;
+  border-color: #dd4e4e;
+  border-width: 2px;
 }
 
-.reveal-answer  {
-  text-align: center;
+.reveal-answer {
+  justify-content: center;
   cursor: pointer;
 }
 
-.reveal-answer:hover > .option-text, .reveal-answer:focus > .option-text {
+.reveal-answer:hover, .reveal-answer:focus {
   background-color: var(--side-nav-hover-color)
 }

@@ -36,7 +36,7 @@ const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
 videojs.Vhs.xhr.beforeRequest = (options) => {
-  if (store.getters.getProxyVideos) {
+  if (store.getters.getProxyVideos && !options.uri.startsWith('data:application/dash+xml')) {
     const { uri } = options
     options.uri = getProxyUrl(uri)
   }
@@ -117,6 +117,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['ended', 'error', 'ready', 'store-caption-list', 'timeupdate', 'toggle-theatre-mode'],
   data: function () {
     return {
       powerSaveBlocker: null,
@@ -319,6 +320,10 @@ export default defineComponent({
       }
 
       return playbackRates
+    },
+
+    enableSubtitlesByDefault: function () {
+      return this.$store.getters.getEnableSubtitlesByDefault
     },
 
     enableScreenshot: function () {
@@ -1310,7 +1315,7 @@ export default defineComponent({
 
       this.useDash = false
       this.useHls = false
-      this.activeSourceList = (this.proxyVideos || !process.env.IS_ELECTRON)
+      this.activeSourceList = (this.proxyVideos || !process.env.SUPPORTS_LOCAL_API)
         // use map here to return slightly different list without modifying original
         ? this.sourceList.map((source) => {
           return {
@@ -1406,6 +1411,14 @@ export default defineComponent({
       const trackIndex = this.useDash ? 1 : 0
 
       const tracks = this.player.textTracks()
+
+      // visually and semantically disable any other enabled tracks
+      for (let i = 0; i < tracks.length; ++i) {
+        if (i !== trackIndex && tracks[i].mode === 'showing') {
+          tracks[i].mode = 'disabled'
+        }
+      }
+
       if (tracks.length > trackIndex) {
         if (tracks[trackIndex].mode === 'showing') {
           tracks[trackIndex].mode = 'disabled'
@@ -1711,6 +1724,9 @@ export default defineComponent({
       const VjsButton = videojs.getComponent('Button')
       class dashQualitySelector extends VjsButton {
         handleClick(event) {
+          if (!event.target.classList.contains('quality-item') && !event.target.classList.contains('vjs-menu-item-text')) {
+            return
+          }
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
           setDashQualityLevel(bitrate)
@@ -1802,6 +1818,34 @@ export default defineComponent({
 
           // For default auto, it may select a resolution before generating the quality buttons
           button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? autoQualityLabel : currentQualityLabel
+          const vjsMenu = button.querySelector('.vjs-menu')
+          let isTapping = false
+          button.addEventListener('touchstart', () => {
+            isTapping = true
+          })
+          button.addEventListener('touchmove', () => {
+            // if they are moving, they cannot be tapping
+            isTapping = false
+          })
+          button.addEventListener('touchend', (e) => {
+            if (isTapping) {
+              button.focus()
+              // make it easier to toggle the vjs-menu on touch (hover css is inconsistent w/ touch)
+              if (!e.target.classList.contains('quality-item') && !e.target.classList.contains('vjs-menu-item-text')) {
+                vjsMenu.classList.toggle('vjs-lock-showing')
+              } else {
+                // hide the quality selector on select (just like the other quality selectors do on mobile)
+                vjsMenu.classList.remove('vjs-lock-showing')
+              }
+              this.handleClick(e)
+              isTapping = false
+            }
+          })
+          button.addEventListener('focusout', () => {
+            // remove class which shows the selector
+            vjsMenu.classList.remove('vjs-lock-showing')
+          })
+          button.classList.add('dash-selector')
 
           return button.children[0]
         }
@@ -1817,6 +1861,8 @@ export default defineComponent({
         const bCode = captionB.language_code.split('-')
         const aName = (captionA.label) // ex: english (auto-generated)
         const bName = (captionB.label)
+        const aIsAutotranslated = captionA.is_autotranslated
+        const bIsAutotranslated = captionB.is_autotranslated
         const userLocale = this.currentLocale.split('-') // ex. [en,US]
         if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
           if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
@@ -1825,6 +1871,12 @@ export default defineComponent({
               return -1
             } else if (aName.search('auto') !== -1) {
               // prefer caption b: a is auto-generated captions
+              return 1
+            } else if (bIsAutotranslated) {
+              // prefer caption a: b is auto-translated captions
+              return -1
+            } else if (aIsAutotranslated) {
+              // prefer caption b: a is auto-translated captions
               return 1
             } else if (aCode[1] === userLocale[1]) {
               // prefer caption a: caption a has same county code as user's locale
@@ -1861,15 +1913,16 @@ export default defineComponent({
         captionList = this.captionHybridList
       }
 
-      for (const caption of this.sortCaptions(captionList)) {
+      this.sortCaptions(captionList).forEach((caption, i) =>
         this.player.addRemoteTextTrack({
           kind: 'subtitles',
           src: caption.url,
           srclang: caption.language_code,
           label: caption.label,
-          type: caption.type
+          type: caption.type,
+          default: i === 0 && this.enableSubtitlesByDefault
         }, true)
-      }
+      )
     },
 
     toggleFullWindow: function () {
@@ -2059,6 +2112,8 @@ export default defineComponent({
 
           // Unexpected errors should be reported
           console.error(err)
+          // ignore as this will most likely be removed by shaka player changes
+          // eslint-disable-next-line @intlify/vue-i18n/no-missing-keys
           const errorMessage = this.$t('play() request Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)

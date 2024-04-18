@@ -37,6 +37,7 @@ export default defineComponent({
       default: null,
     },
   },
+  emits: ['timestamp-event'],
   data: function () {
     return {
       isLoading: false,
@@ -59,8 +60,8 @@ export default defineComponent({
       return this.$store.getters.getHideCommentLikes
     },
 
-    commentAutoLoadEnabled: function () {
-      return this.$store.getters.getCommentAutoLoadEnabled
+    hideCommentPhotos: function () {
+      return this.$store.getters.getHideCommentPhotos
     },
 
     sortNames: function () {
@@ -81,8 +82,13 @@ export default defineComponent({
       return (this.sortNewest) ? 'newest' : 'top'
     },
 
-    observeVisibilityOptions: function() {
-      if (!this.commentAutoLoadEnabled) { return false }
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
+    observeVisibilityOptions: function () {
+      if (!this.generalAutoLoadMorePaginatedItemsEnabled) {
+        return false
+      }
       if (!this.videoPlayerReady) { return false }
 
       return {
@@ -106,13 +112,17 @@ export default defineComponent({
       }
     },
 
-    canPerformInitialCommentLoading: function() {
+    canPerformInitialCommentLoading: function () {
       return this.commentData.length === 0 && !this.isLoading && !this.showComments
     },
 
-    canPerformMoreCommentLoading: function() {
+    canPerformMoreCommentLoading: function () {
       return this.commentData.length > 0 && !this.isLoading && this.showComments && this.nextPageToken
     },
+
+    subscriptions: function() {
+      return this.$store.getters.getActiveProfile.subscriptions
+    }
   },
   mounted: function () {
     // region No comment detection
@@ -143,7 +153,7 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
       } else {
         this.getCommentDataLocal()
@@ -154,7 +164,7 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getCommentDataInvidious()
         } else {
           this.getCommentDataLocal(true)
@@ -171,7 +181,7 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (process.env.IS_ELECTRON) {
+      if (process.env.SUPPORTS_LOCAL_API) {
         switch (this.commentData[index].dataType) {
           case 'local':
             this.getCommentRepliesLocal(index)
@@ -284,8 +294,8 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
-          showToast(this.$t('Falling back to local API'))
+        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback && this.backendPreference === 'invidious') {
+          showToast(this.$t('Falling back to Local API'))
           this.getCommentDataLocal()
         } else {
           this.isLoading = false

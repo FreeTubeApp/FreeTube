@@ -66,6 +66,12 @@
           :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
           v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Community')"
+          :compact="true"
+          :default-value="hideSubscriptionsCommunity"
+          @change="updateHideSubscriptionsCommunity"
+        />
       </div>
     </div>
     <h4
@@ -166,6 +172,12 @@
           :default-value="hideComments"
           @change="updateHideComments"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
+          :compact="true"
+          :default-value="hideCommentPhotos"
+          @change="updateHideCommentPhotos"
+        />
       </div>
     </div>
     <h4
@@ -218,12 +230,31 @@
     <br class="hide-on-mobile">
     <ft-flex-box>
       <ft-input-tags
+        :disabled="channelHiderDisabled"
+        :disabled-msg="$t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
-        :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"
         :tag-list="channelsHidden"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
+        :validate-tag-name="validateChannelId"
+        :find-tag-info="findChannelTagInfo"
+        :are-channel-tags="true"
+        @invalid-name="handleInvalidChannel"
+        @error-find-tag-info="handleChannelAPIError"
         @change="handleChannelsHidden"
+        @already-exists="handleChannelsExists"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-input-tags
+        :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
+        :show-action-button="true"
+        :tag-list="forbiddenTitles"
+        :min-input-length="3"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        @change="handleForbiddenTitles"
       />
     </ft-flex-box>
   </ft-settings-section>

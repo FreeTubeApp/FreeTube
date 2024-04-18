@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Norsk nynorsk'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Denne delen av programmet er ikkje klar enda. Ver venleg og kom tilbake på eit seinare
@@ -298,7 +297,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
       du sikker på at du vil fjerne alle abonnentar og profil? Dette kan ikkje bli
       ugjort.'
-    Automatically Remove Video Meta Files: Fjern metadata automatisk frå videoar
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
     Hide Videos on Watch: 'Skjul sette videoar'
@@ -567,15 +565,12 @@ Video:
   Copy YouTube Channel Link: 'Kopier YouTube-kanallenke'
   Open Channel in Invidious: 'Opne kanal i Invidious'
   Copy Invidious Channel Link: 'Kopier Invidious-kanallenke'
-  View: 'Vis'
   Views: 'Visingar'
   Loop Playlist: 'Gjenta speleliste'
   Shuffle Playlist: 'Spel av tilfeldig frå spelelista'
   Reverse Playlist: 'Snu spelelista'
   Play Next Video: 'Spel av neste video'
   Play Previous Video: 'Spel av førre video'
-  # Context is "X People Watching"
-  Watching: 'Ser på'
   Watched: 'Sett'
   Autoplay: 'Automatisk avspeling'
   Starting soon, please refresh the page to check again: 'Starter snart. Ver venleg
@@ -773,9 +768,9 @@ Tooltips:
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.'
     Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar
       du ynskjer å vise.'
-    External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke,\
-      \ som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i\
-      \ din standardnettlesar.\n"
+    External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke,
+      som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i din
+      standardnettlesar.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
       standard. Når det er påslått, vil det lokale API-et køyre og bruke dei utdaterte
@@ -801,9 +796,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Om dette alternativet er aktivert, vil FreeTube automatisk
       hente abonnementfeeden din når eit nytt vindauge opnast og når du bytter profil.
-  Privacy Settings:
-    Remove Video Meta Files: Viss denne innstillinga er på, vil FreeTube automatisk
-      slette metadata generert under videoavspeling når du lukker avspelingsida.
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
     Custom External Player Executable: Som standard vil FreeTube anta at den valte
@@ -828,7 +820,7 @@ Tooltips:
 Local API Error (Click to copy): 'Lokal API-feil (Klikk her for å kopiere)'
 Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk her for å kopiere)'
 Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
-Falling back to the local API: 'Faller tilbake til det lokale API-et'
+Falling back to Local API: 'Faller tilbake til det lokale API-et'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Denne
   videoen er utilgjengeleg grunna manglande format. Dette kan skuldast tilgangsavgrensingar
   i ditt land.'
@@ -871,11 +863,6 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du vil avslutte abonnementet på "{channelName}"?
   Unsubscribe: Opphev abonnement
 Screenshot Success: Lagra skjermbilete som "{filePath}"
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er alderavgrensa
-  Type:
-    Video: Video
-    Channel: Kanal
 Screenshot Error: Skjermbilete feila. {error}
 Downloading has completed: Nedlastinga av "{videoTitle}" er fullført
 Ok: OK

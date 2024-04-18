@@ -4,11 +4,16 @@
   padding: 20px;
   border-radius: 5px;
   display: block;
-  width: 60%;
+  inline-size: 60%;
+}
+
+.disabledMsg {
+  color: rgb(233 255 108);
+  padding-block-end: 10px;
 }
 
 .ft-tag-box ul {
-  overflow: auto;
+  overflow: visible;
   display: block;
   padding: 0;
   margin: 0;
@@ -19,25 +24,36 @@
   background-color: var(--card-bg-color);
   margin: 5px;
   border-radius: 5px;
-  display:flex;
-  float: left;
+  display: flex;
+  float: var(--float-left-ltr-rtl-value);
 }
 
 .ft-tag-box li>span {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+  padding-block: 10px;
+  padding-inline: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
   hyphens: auto;
+  user-select: text;
 }
 
+.tag-icon {
+  border-radius: 50%;
+  block-size: 24px;
+  vertical-align: middle;
+}
+
+.tag-icon-link {
+  margin: auto;
+  margin-inline-start: 10px;
+}
 
 .removeTagButton {
   color: var(--primary-text-color);
   opacity: 0.5;
   padding: 10px;
+  padding-inline-start: 0;
 }
 
 .removeTagButton:hover {
@@ -45,11 +61,11 @@
 }
 
 :deep(.ft-input-component .ft-input) {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (width <= 576px) {
   .ft-input-tags-component {
-    width: 100%;
+    inline-size: 100%;
   }
 }

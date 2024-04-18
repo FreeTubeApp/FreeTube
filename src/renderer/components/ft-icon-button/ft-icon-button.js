@@ -16,6 +16,10 @@ export default defineComponent({
       type: Array,
       default: () => ['fas', 'ellipsis-v']
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     theme: {
       type: String,
       default: 'base'
@@ -61,6 +65,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['click'],
   data: function () {
     return {
       dropdownShown: false,
@@ -87,6 +92,7 @@ export default defineComponent({
     },
 
     handleIconClick: function () {
+      if (this.disabled) { return }
       if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.dropdownShown = !this.dropdownShown
 
@@ -103,6 +109,7 @@ export default defineComponent({
     },
 
     handleIconMouseDown: function () {
+      if (this.disabled) { return }
       if (this.dropdownShown) {
         this.mouseDownOnIcon = true
       }
@@ -114,6 +121,11 @@ export default defineComponent({
       } else if (!this.$refs.dropdown.matches(':focus-within')) {
         this.dropdownShown = false
       }
+    },
+
+    handleDropdownEscape: function () {
+      this.$refs.iconButton.focus()
+      // handleDropdownFocusOut will hide the dropdown for us
     },
 
     handleDropdownClick: function ({ url, index }) {
@@ -128,6 +140,11 @@ export default defineComponent({
 
     handleResize: function () {
       this.useModal = window.innerWidth <= 900
-    }
+    },
+
+    focus() {
+      // To be called by parent components
+      this.$refs.iconButton.focus()
+    },
   }
 })

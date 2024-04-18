@@ -20,29 +20,24 @@
 * https://codepen.io/pavelvaravko/pen/qjojOr
 */
 
-/* select starting stylings ------------------------------*/
+/* select starting stylings ------------------------------ */
 .select {
   position: relative;
-  width: 200px;
-  padding: 0px 10px 10px 0;
-  margin-top: 30px;
-}
-
-.disabled, .disabled + svg.iconSelect {
-  opacity: 0.4;
-  cursor: not-allowed;
+  inline-size: 200px;
+  margin-block-start: 30px;
 }
 
 .select-text {
   position: relative;
   font-family: inherit;
-  background-color: transparent;
+  background-color: var(--search-bar-color);
   color: var(--primary-text-color);
-  width: 240px;
-  padding: 10px 10px 10px 0;
-  font-size: 18px;
-  border-radius: 0;
-  border: none;
+  inline-size: 100%;
+  block-size: 45px;
+  padding-inline-start: 1rem;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
 }
 
 .select option {
@@ -50,7 +45,7 @@
   background-color: var(--card-bg-color);
 }
 
-/* Remove focus */
+/* stylelint-disable-next-line a11y/no-outline-none */
 .select-text:focus {
   outline: none;
 }
@@ -58,28 +53,33 @@
   /* Use custom arrow */
 .select .select-text {
   appearance: none;
-  -webkit-appearance:none;
   text-overflow: ellipsis;
-  padding-right: 1.1rem;
+  padding-inline-end: 1.5rem;
 }
 
 .iconSelect {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+
   /* Styling the down arrow */
   padding: 0;
   content: '';
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
+  border-inline-start: 6px solid transparent;
+  border-inline-end: 6px solid transparent;
   pointer-events: none;
   color: var(--tertiary-text-color);
 }
 
+.disabled, .disabled + .iconSelect {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .selectTooltip {
   position: absolute;
-  top: -20px;
-  right: 17px;
+  inset-block-start: -22px;
+  inset-inline-end: 13px;
 }
 
 
@@ -88,8 +88,8 @@
   font-size: 18px;
   font-weight: normal;
   position: absolute;
-  left: 0;
-  top: 10px;
+  inset-inline-start: 0;
+  inset-block-start: 10px;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
 }
@@ -97,7 +97,7 @@
 /* active state */
 .select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
   color: var(--accent-color);
-  top: -20px;
+  inset-block-start: -20px;
   transition: 0.2s ease all;
   font-size: 14px;
 }
@@ -106,62 +106,44 @@
 .select-bar {
   position: relative;
   display: block;
-  width: 200px;
 }
 
-.select-bar:before, .select-bar:after {
+.select-bar::before, .select-bar::after {
   content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
+  block-size: 2px;
+  inline-size: 0;
+  inset-block-end: 1px;
   position: absolute;
   background: var(--accent-color);
   transition: 0.2s ease all;
 }
 
-.select-bar:before {
-  left: 50%;
+.select-bar::before {
+  inset-inline-start: 50%;
 }
 
-.select-bar:after {
-  right: 50%;
+.select-bar::after {
+  inset-inline-end: 50%;
 }
 
 /* active state */
-.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
-  width: 50%;
+.select-text:focus ~ .select-bar::before, .select-text:focus ~ .select-bar::after {
+  inline-size: 50%;
 }
 
 /* HIGHLIGHTER ================================== */
 .select-highlight {
   position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
+  block-size: 60%;
+  inline-size: 100px;
+  inset-block-start: 25%;
+  inset-inline-start: 0;
   pointer-events: none;
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 1000px) {
-  .select .select-text {
-    max-width: 240px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .select {
-    width: 100%;
+    inline-size: 100%;
   }
-  .select .select-text {
-    display:block;
-    max-width: 95%;
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .select {
-    padding: 0px;
-    margin-right: -15px;
-  }  
 }

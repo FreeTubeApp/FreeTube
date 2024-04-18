@@ -14,10 +14,10 @@
   @include single-column-template;
 
   display: inline-block;
-  max-width: calc(80vh * 1.78);
+  max-inline-size: calc(80vh * 1.78);
 
-  @media only screen and (min-width: 901px) {
-    width: 300%;
+  @media only screen and (width >= 1051px) {
+    inline-size: 300%;
   }
 }
 
@@ -36,40 +36,45 @@
     grid-area: video;
 
     .videoAreaMargin {
-      margin: 0 0 16px;
+      margin-block: 0 16px;
+      margin-inline: 0;
     }
 
     .videoPlayer {
       grid-column: 1;
-      margin: 0 auto;
-      max-width: calc(80vh * 1.78);
+      margin-block: 0;
+      margin-inline: auto;
+      max-inline-size: calc(80vh * 1.78);
       position: relative;
 
       .upcomingThumbnail {
-        width: 100%;
+        inline-size: 100%;
       }
 
       .premiereDate {
         align-items: center;
         background-color: rgb(0 0 0 / 80%);
         border-radius: 5px;
-        bottom: 12px;
+        inset-block-end: 12px;
         color: #fff;
         display: flex;
-        height: 60px;
-        left: 12px;
-        padding: 0 12px;
+        block-size: 60px;
+        inset-inline-start: 12px;
+        padding-block: 0;
+        padding-inline: 12px;
         position: absolute;
 
         .premiereIcon {
-          float: left;
+          float: var(--float-left-ltr-rtl-value);
           font-size: 25px;
-          margin: 0 12px;
+          margin-block: 0;
+          margin-inline: 12px;
         }
 
         .premiereText {
-          margin: 0 12px;
-          min-width: 200px;
+          margin-block: 0;
+          margin-inline: 12px;
+          min-inline-size: 200px;
 
           .premiereTextTimestamp {
             font-size: 0.85em;
@@ -82,7 +87,8 @@
 
   .watchVideo {
     grid-column: 1;
-    margin: 0 0 16px;
+    margin-block: 0 16px;
+    margin-inline: 0;
   }
 
   .infoArea {
@@ -93,8 +99,8 @@
   .sidebarArea {
     grid-area: sidebar;
 
-    @media only screen and (min-width: 901px) {
-      min-width: 380px;
+    @media only screen and (width >= 1051px) {
+      min-inline-size: 380px;
     }
 
     @at-root .noSidebar#{&} {
@@ -105,55 +111,58 @@
   .watchVideoPlaylist,
   .watchVideoSidebar,
   .theatrePlaylist {
-    margin: 0 8px 16px;
+    margin-block: 0 16px;
+    margin-inline: 8px;
   }
 
   .watchVideoSidebar,
   .watchVideoPlaylist {
-    height: 500px;
+    block-size: 500px;
   }
 
   .watchVideoPlaylist {
     :deep(.videoThumbnail) {
-      margin-top: auto;
-      margin-bottom: auto;
+      margin-block: auto;
     }
-    @media (max-width: 768px) {
-      height: auto;
+
+    @media (width <= 768px) {
+      block-size: auto;
     }
   }
 
   .watchVideoRecommendations,
   .theatreRecommendations {
-    margin: 0 0 16px;
+    margin-block: 0 16px;
+    margin-inline: 0;
 
-    @media only screen and (min-width: 901px) {
-      margin: 0 8px 16px;
+    @media only screen and (width >= 1051px) {
+      margin-block: 0 16px;
+      margin-inline: 8px;
     }
   }
 
-  @media only screen and (max-width: 1350px) {
+  @media only screen and (width <= 1350px) {
     @include theatre-mode-template;
   }
 
-  @media only screen and (min-width: 901px) {
+  @media only screen and (width >= 1051px) {
     &.useTheatreMode {
       @include theatre-mode-template;
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (width <= 1050px) {
     @include single-column-template;
   }
 
-  @media only screen and (min-width: 901px) {
+  @media only screen and (width >= 1051px) {
     .infoArea {
-      scroll-margin-top: 76px;
+      scroll-margin-block-start: 76px;
     }
 
     .infoAreaSticky {
       position: sticky;
-      top: 76px;
+      inset-block-start: 76px;
     }
   }
 }

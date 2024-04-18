@@ -24,6 +24,10 @@ export default defineComponent({
       type: Number,
       default: null
     },
+    videos: {
+      type: Number,
+      default: null
+    },
     location: {
       type: String,
       default: null
@@ -61,10 +65,9 @@ export default defineComponent({
     formattedViews: function () {
       return formatNumber(this.views)
     },
-  },
-  methods: {
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
+
+    formattedVideos: function () {
+      return formatNumber(this.videos)
     },
   }
 })

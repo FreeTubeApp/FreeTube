@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'slovenščina'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ta del programa še ni pripravljen za uporabo. Prosimo, pridite nazaj kasneje, ko
@@ -297,7 +296,6 @@ Settings:
       mogoče razveljaviti.'
     Save Watched Videos With Last Viewed Playlist: Shrani gledane videoposnetke z
       nazadnje ogledanim seznamom predvajanja
-    Automatically Remove Video Meta Files: Samodejno izbriši meta datoteke videoposnetkov
   Subscription Settings:
     Subscription Settings: 'Nastavitve naročnin'
     Hide Videos on Watch: 'Skrij gledane videoposnetke'
@@ -558,15 +556,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj povezavo vgrajenega YouTube predvajalnika'
   Open in Invidious: 'Odpri v Invidious'
   Copy Invidious Link: 'Kopiraj Invidious povezavo'
-  View: 'Ogled'
   Views: 'Ogledi'
   Loop Playlist: 'Ponovno predvajaj seznam predvajanja'
   Shuffle Playlist: 'Mešaj seznam predvajanja'
   Reverse Playlist: 'Obrni seznam predvajanja'
   Play Next Video: 'Predvajaj naslednji videoposnetek'
   Play Previous Video: 'Predvajaj prejšnji videoposnetek'
-  # Context is "X People Watching"
-  Watching: 'Gledano'
   Watched: 'Ogledano'
   Autoplay: 'Samodejno predvajanje'
   Starting soon, please refresh the page to check again: 'Predvajanje se začenja.
@@ -712,7 +707,7 @@ Up Next: 'Naslednje na sporedu'
 Local API Error (Click to copy): 'Napaka lokalnega APV (kliknite za kopiranje)'
 Invidious API Error (Click to copy): 'Napaka Invidious APV (kliknite za kopiranje)'
 Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
-Falling back to the local API: 'Začasno bo uporabljen lokalni APV'
+Falling back to Local API: 'Začasno bo uporabljen lokalni APV'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek
   zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
 Subscriptions have not yet been implemented: 'Naročnine še niso bile implementirane'
@@ -724,8 +719,8 @@ The playlist has been reversed: 'Sezam predvajanja je bil obrnjen'
 Playing Next Video: 'Predvaja se naslednji videoposnetek'
 Playing Previous Video: 'Predvaja se prejšnji videoposnetek'
 Canceled next video autoplay: 'Samodejno predvajanje preklicano'
-'The playlist has ended. Enable loop to continue playing': "Seznama predvajanja je\
-  \ konec.  Vklopite ponovno predvajanje, če želite nadaljevati"
+'The playlist has ended. Enable loop to continue playing': "Seznama predvajanja je
+  konec.  Vklopite ponovno predvajanje, če želite nadaljevati"
 
 Yes: 'Da'
 No: 'Ne'

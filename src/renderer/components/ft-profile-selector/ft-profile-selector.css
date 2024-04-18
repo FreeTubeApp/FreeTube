@@ -1,12 +1,11 @@
 .colorOption {
-  width: 40px;
-  height: 40px;
+  inline-size: 40px;
+  block-size: 40px;
   cursor: pointer;
   align-items: center;
   display: flex;
   justify-content: center;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .colorOption:hover {
@@ -18,66 +17,76 @@
   line-height: 1em;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .profileList {
   display: inline;
   position: absolute;
-  top: 60px;
-  right: 10px;
-  min-width: 250px;
-  height: 400px;
+  inset-block-start: 60px;
+  inset-inline-end: 10px;
+  min-inline-size: 250px;
+  block-size: auto;
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
 }
 
 .profileWrapper {
-  margin-top: 60px;
-  height: 340px;
+  margin-block-start: 60px;
+  block-size: auto;
   overflow-y: auto;
+
+  /*
+  profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution. 
+  Offset of 100px is to compensate for the fixed size of elements above the list, which takes more screen space on lower resolutions
+  */
+  max-block-size: calc(90vh - 100px); 
+  min-block-size: 340px;
+}
+
+/* Navbar changes position to horizontal with this media rule.
+Height adjust for profile list so it won't cover navbar.  */
+@media only screen and (width <= 680px){
+  .profileWrapper {
+    max-block-size: calc(95vh - 180px);
+  }
 }
 
 .profile {
   cursor: pointer;
-  height: 50px;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
+  block-size: 50px;
   transition: background 0.2s ease-out;
 }
 
 .profile:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
 .profile .colorOption {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   position: relative;
-  bottom: 5px;
+  inset-block-end: 5px;
   margin: 10px;
 }
 
 .profileName {
   display: flex;
   align-items: center;
-  height: 50px;
-  padding-right: 10px;
+  block-size: 50px;
+  padding-inline-end: 10px;
 }
 
 .profileListTitle {
   position: absolute;
   margin: 0;
-  left: 10px;
+  inset-inline-start: 10px;
 }
 
 .profileSettings {
-  float: right;
+  float: var(--float-right-ltr-rtl-value);
   position: absolute;
-  top: 10px;
-  right: 5px;
+  inset-block-start: 10px;
+  inset-inline-end: 5px;
 }

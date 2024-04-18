@@ -1,47 +1,89 @@
-.card {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 15px;
+h2 {
+  text-align: center;
+}
+
+h3 {
+  margin-block: 0 10px;
+  text-align: center;
 }
 
 .message {
   color: var(--tertiary-text-color);
 }
 
-.profileName {
-  width: 400px;
+.profileName, .colorSelection {
+  margin: auto;
+  inline-size: 350px;
 }
 
-.bottomMargin {
-  margin-bottom: 30px;
+.profileEdit {
+  flex-direction: column;
+  column-gap: 10px;
+}
+
+.profileEdit > * {
+  flex: 1;
 }
 
 .colorOptions {
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  margin-inline: auto;
+  justify-content: center;
+  min-inline-size: 250px;
+}
+
+.customColorSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-block-start: 5px;
 }
 
 .colorOption {
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  inline-size: 40px;
+  block-size: 40px;
+  margin: 2px;
   cursor: pointer;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .initial {
-  font-size: 50px;
-  line-height: 1em;
+  font-size: 37.5px;
   text-align: center;
-  padding: 25px 0;
   user-select: none;
-  -webkit-user-select: none;
 }
 
-@media only screen and (max-width: 680px) {
+.colorOption:has(.initial) {
+  inline-size: 75px;
+  block-size: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.profilePreviewSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.secondEditRow {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
+}
+
+@media only screen and (width <= 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 }

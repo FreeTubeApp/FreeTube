@@ -1,6 +1,5 @@
 process.env.NODE_ENV = 'development'
 
-const open = require('open')
 const electron = require('electron')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
@@ -112,13 +111,14 @@ function startRenderer(callback) {
 
   const server = new WebpackDevServer({
     static: {
-      directory: path.join(process.cwd(), 'static'),
+      directory: path.resolve(__dirname, '..', 'static'),
       watch: {
         ignored: [
           /(dashFiles|storyboards)\/*/,
           '/**/.DS_Store',
         ]
-      }
+      },
+      publicPath: '/static'
     },
     port
   }, compiler)
@@ -161,7 +161,8 @@ function startWeb (callback) {
 if (!web) {
   startRenderer(startMain)
 } else {
-  startWeb(({ port }) => {
+  startWeb(async ({ port }) => {
+    const open = (await import('open')).default
     open(`http://localhost:${port}`)
   })
 }

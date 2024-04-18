@@ -13,6 +13,10 @@ export default defineComponent({
       type: Array,
       required: true
     },
+    dataType: {
+      type: String,
+      default: null,
+    },
     display: {
       type: String,
       required: false,
@@ -25,6 +29,15 @@ export default defineComponent({
     useChannelsHiddenPreference: {
       type: Boolean,
       default: true,
+    },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    },
+    searchQueryText: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
   computed: {

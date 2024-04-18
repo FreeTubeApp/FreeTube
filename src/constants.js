@@ -23,7 +23,10 @@ const IpcChannels = {
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
   SYNC_PROFILES: 'sync-profiles',
-  SYNC_PLAYLISTS: 'sync-playlists'
+  SYNC_PLAYLISTS: 'sync-playlists',
+
+  GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
+  TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache'
 }
 
 const DBActions = {
@@ -44,10 +47,10 @@ const DBActions = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
-    UPSERT_VIDEO_IDS: 'db-action-playlists-upsert-video-ids-by-playlist-id',
+    UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
     DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
     DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
-    DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos'
+    DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos',
   }
 }
 
@@ -66,13 +69,8 @@ const SyncEvents = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
-    DELETE_VIDEO: 'sync-playlists-delete-video'
+    DELETE_VIDEO: 'sync-playlists-delete-video',
   }
-}
-
-// https://v2.vuejs.org/v2/api/#provide-inject
-const Injectables = {
-  SHOW_OUTLINES: 'showOutlines'
 }
 
 // Utils
@@ -82,6 +80,5 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
-  Injectables,
   MAIN_PROFILE_ID
 }

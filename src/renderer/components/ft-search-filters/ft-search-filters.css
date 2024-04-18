@@ -1,22 +1,17 @@
-.searchFilterInner {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-
-  padding: 20px 20px 70px 20px;
-  max-height: 410px;
-  overflow-y: auto;
-
-  background-color: var(--card-bg-color);
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
-
-  opacity: 0.9;
-}
-
 .center {
+  margin-block: 5px 10px;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
+}
+
+/* Style for `ft-prompt` */
+:deep(.promptCard):has(.searchFilterCloseButtonContainer) {
+  max-inline-size: 70%;
+  inset-inline-start: 15%;
+  padding-block: 10px;
+
+  /* Currently only this prompt has enough content to make prompt too high */
+  max-block-size: 95%;
 }
 
 .searchRadio {
@@ -24,12 +19,35 @@
 }
 
 .radioFlexBox {
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
 }
 
-@media only screen and (max-width: 600px) {
+.searchFilterCloseButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (width <= 680px) {
+  /* Style for `ft-prompt` */
+  :deep(.promptCard):has(.searchFilterCloseButtonContainer) {
+    padding-block: 5px;
+  }
+
   .searchRadio {
-    border-right: 0;
+    border-inline-end: 0;
+    padding-block-start: 0;
+  }
+
+  .radioFlexBox {
+    flex-flow: column;
+  }
+}
+
+@media only screen and (width <= 500px) {
+  /* Style for `ft-prompt` */
+  :deep(.promptCard):has(.searchFilterCloseButtonContainer) {
+    max-inline-size: 80%;
+    inset-inline-start: 10%;
   }
 }

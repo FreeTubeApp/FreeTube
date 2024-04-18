@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'lietuvių'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ši programėlės dalis dar neparengta. Grįžkite vėliau, kai bus padaryta pažanga.
@@ -35,6 +34,15 @@ Open New Window: 'Atidaryti naują langą'
 Global:
   Videos: 'Vaizdo įrašai'
 
+  Live: Tiesiogiai
+  Shorts: Šortai
+  Community: Bendruomenė
+  Counts:
+    Subscriber Count: 1 prenumeruoti | {count} prenumeratorių
+    Channel Count: 1 kanalas | {count} kanalai
+    Video Count: 1 vaizdo įrašas | {count} vaizdo įrašai
+    View Count: 1 peržiūrėti | {count} peržiūrų
+    Watching Count: 1 žiūri | {count} žiūri
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
   jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
@@ -286,8 +294,6 @@ Settings:
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
     Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
     Skip by Scrolling Over Video Player: Praleiskite slinkdami per vaizdo grotuvą
-    Comment Auto Load:
-      Comment Auto Load: Komentuoti Automatinis įkėlimas
     Allow DASH AV1 formats: Leisti DASH AV1 formatus
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
@@ -302,8 +308,6 @@ Settings:
     Privacy Settings: 'Privatumo nustatymai'
     Remember History: 'Įsiminti istoriją'
     Save Watched Progress: 'Išsaugoti peržiūros progresą'
-    Automatically Remove Video Meta Files: 'Automatiškai pašalinti vaizdo įrašų meta
-      failus'
     Clear Search Cache: 'Išvalyti paieškos talpyklą'
     Are you sure you want to clear out your search cache?: 'Ar tikrai norite išvalyti
       paieškos talpyklą?'
@@ -577,15 +581,12 @@ Video:
   Copy YouTube Channel Link: 'Kopijuoti YouTube kanalo nuorodą'
   Open Channel in Invidious: 'Atidaryti kanalą Invidious'
   Copy Invidious Channel Link: 'Kopijuoti Invidious kanalo nuorodą'
-  View: 'Peržiūra'
   Views: 'Peržiūros'
   Loop Playlist: 'Sukti grojaraštį ciklu'
   Shuffle Playlist: 'Maišyti grojaraštį'
   Reverse Playlist: 'Apsukti grojaraštį'
   Play Next Video: 'Groti sekantį vaizdo įrašą'
   Play Previous Video: 'Groti ankstesnį vaizdo įrašą'
-  # Context is "X People Watching"
-  Watching: 'Žiūri'
   Watched: 'Žiūrėta'
   Autoplay: 'Paleisti automatiškai'
   Starting soon, please refresh the page to check again: 'Greitai prasidės, atnaujinkite
@@ -826,9 +827,6 @@ Tooltips:
       trukmės ar tiesioginės transliacijos būsenos'
     Fetch Automatically: Kai ši funkcija įjungta, FreeTube automatiškai įkels naują
       turinį iš prenumeratų, kai atidaromas naujas langas ir perjungiamas profilis.
-  Privacy Settings:
-    Remove Video Meta Files: 'Įjungus FreeTube, uždarius žiūrėjimo puslapį, automatiškai
-      ištrinami meta failai, sukurti vaizdo atkūrimo metu.'
 
 # Toast Messages
   Experimental Settings:
@@ -839,7 +837,7 @@ Local API Error (Click to copy): 'Vietinė API klaida (spustelėkite, jei norite
 Invidious API Error (Click to copy): 'Invidious API klaida (spustelėkite, jei norite
   kopijuoti)'
 Falling back to Invidious API: 'Grįžtama prie Invidious API'
-Falling back to the local API: 'Grįžtama prie vietinio API'
+Falling back to Local API: 'Grįžtama prie vietinio API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Šis
   vaizdo įrašas nepasiekiamas, nes trūksta formatų. Tai gali nutikti dėl to, kad šalis
   yra nepasiekiama.'
@@ -884,12 +882,6 @@ Channels:
   Unsubscribe: Atšaukti prenumeratą
   Unsubscribed: '{channelName} buvo pašalintas iš jūsų prenumeratų'
   Unsubscribe Prompt: Ar tikrai norite atšaukti {channelName} prenumeratą?
-Age Restricted:
-  Type:
-    Channel: Kanalas
-    Video: Vaizdo įrašas
-  This {videoOrPlaylist} is age restricted: Šis {videoOrPlaylist} ribojamas pagal
-    amžių
 Downloading has completed: „{videoTitle}“ atsisiuntimas baigtas
 Starting download: Pradedamas „{videoTitle}“ atsisiuntimas
 Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
@@ -906,3 +898,5 @@ Clipboard:
   Cannot access clipboard without a secure connection: Negalima pasiekti iškarpinės
     be saugaus ryšio
 Preferences: Nuostatos
+Go to page: Eiti į {page}
+Close Banner: Uždaryti baneris

@@ -1,7 +1,7 @@
 .bubblePadding {
   position: relative;
-  width: 100px;
-  height: 100px;
+  inline-size: 100px;
+  block-size: 100px;
   padding: 10px;
   cursor: pointer;
   display: flex;
@@ -9,38 +9,36 @@
   align-items: center;
   gap: 16px;
   overflow: hidden;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
+  color: inherit;
+  text-decoration: none;
   transition: background 0.2s ease-out;
 }
 
 .bubblePadding:hover {
   background-color: var(--side-nav-hover-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
 .bubble {
-  width: 50px;
-  height: 50px;
+  inline-size: 50px;
+  block-size: 50px;
   border-radius: 100%;
-  -webkit-border-radius: 100%;
+  object-fit: cover;
 }
 
 .selected {
   position: absolute;
-  top: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset-block-start: 10px;
+  background-color: rgb(0 0 0 / 50%);
 }
 
 .icon {
-  color: #EEEEEE;
+  color: #EEE;
   font-size: 25px;
   position: absolute;
-  top: 12px;
-  left: 12px;
+  inset-block-start: 12px;
+  inset-inline-start: 12px;
 }
 
 .channelName {
@@ -49,5 +47,5 @@
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
-  width: 100%;
+  inline-size: 100%;
 }

@@ -1,15 +1,14 @@
 # Put the name of your locale in the same language
-Locale Name: 'ខ្មែរ'
-FreeTube: 'ខ្មែរ'
+Locale Name: 'ភាសាខ្មែរ'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ខ្មែរ
+  ផ្នែកនេះនៃកម្មវិធីមិនទាន់រួចរាល់នៅឡើយទេ។ ត្រលប់មកវិញនៅពេលក្រោយ ពេលដែលវឌ្ឍនភាពត្រូវបានបង្កើតឡើង។
 
 # Webkit Menu Bar
-File: 'ខ្មែរ'
-Quit: 'ខ្មែរ'
-Edit: 'ខ្មែរ'
-Undo: 'ខ្មែរ'
+File: 'ឯកសារ'
+Quit: 'ចាកចេញ'
+Edit: 'កែ'
+Undo: 'អាន់ឌូ'
 Search Filters: {}
 Settings:
   # On Settings Page
@@ -18,3 +17,12 @@ Settings:
 Channel:
   Videos: {}
 Tooltips: {}
+New Window: ផ្ទាំងថ្មី
+Copy: ចម្លង
+Redo: រីឌូ
+Reload: ផ្ទុកជាថ្មី
+Select all: រើសទាំងអស់
+Paste: បិតភ្ជាប់
+Force Reload: បង្ខំឱ្យផ្ទុកជាថ្មី
+Delete: លុប
+Cut: កាត់

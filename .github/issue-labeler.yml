@@ -1,0 +1,65 @@
+'B: visual':
+    - '(visual bug)'
+
+'B: Unofficial Download':
+    - '(AUR \(Unofficial\)|Chocolatey \(Unofficial\)|\.apk \(FreeTubeAndroid Unofficial\)|Homebrew \(Unofficial\)|PortableApps \(Unofficial\)|WAPT \(Unofficial\)|winget \(Unofficial\)|Scoop \(Unofficial\)|Snapcraft \(Unofficial\)|MPR \(Unofficial\)|Nix \(Unofficial\))'
+
+'B: keyboard control':
+    - '(keyboard control not working)'
+
+'B: text/string':
+    - '(text/string issue)'
+
+'B: content not loading':
+    - '(content not loading)'
+
+'B: accessibility':
+    - '(accessibility issue)'
+
+'B: usability':
+    - '(usability issue)'
+
+'B: crash':
+    - '(causes crash)'
+
+'B: feature stopped working':
+    - '(feature stopped working)'
+
+'B: inconsistent behavior':
+    - '(inconsistent behavior)'
+
+'B: data loss':
+    - '(data loss)'
+
+'B: race condition':
+    - '(race condition)'
+
+'B: API issue':
+    - '(API issue)'
+
+'B: developer mode':
+    - '(only happens in developer mode)'
+
+'E: improvement existing feature':
+    - '(improvement to existing feature)'
+
+'E: new optional setting':
+    - '(new optional setting)'
+
+'E: visual improvement':
+    - '(visual improvement)'
+
+'E: display more information':
+    - '(display more information to user)'
+
+'E: ease of use improvement':
+    - '(ease of use improvement)'
+
+'E: support external software':
+    - '(support for external software)'
+
+'E: new feature':
+    - '(new feature)'
+
+'E: keyboard shortcut':
+    - '(new keyboard shortcut)'

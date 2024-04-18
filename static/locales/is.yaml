@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Íslenska'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Þessi hluti forritsins er ekki tilbúinn. Skoðaðu þetta seinna þegar meira hefur
@@ -36,7 +35,16 @@ Global:
   Videos: 'Myndskeið'
   Shorts: Stuttmyndir
   Live: Í beinni
+  Community: Samfélag
 
+  Counts:
+    Video Count: 1 myndskeið | {count} myndskeið
+    Channel Count: 1 rás | {count} rásir
+    Subscriber Count: 1 áskrifandi | {count} áskrifendur
+    View Count: 1 áhorf | {count} áhorf
+    Watching Count: 1 að horfa | {count} að horfa
+  Input Tags:
+    Length Requirement: Merki þarf að vera a.m.k. {number} stafa langt
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -102,6 +110,8 @@ Subscriptions:
   Subscriptions Tabs: Áskriftaflipar
   All Subscription Tabs Hidden: Allir áskriftaflipar eru faldir. Til að sjá efni hér,
     skaltu gera einhverja flipa sýnilega í "{subsection}" hlutanum í "{settingsSection}".
+  Load More Posts: Hlaða inn fleiri færslum
+  Empty Posts: Rásirnar sem þú ert áskrifandi að eru ekki með neinar færslur.
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -123,6 +133,96 @@ User Playlists:
   Search bar placeholder: Leita í spilunarlista
   Empty Search Message: Það eru engin myndskeið í þessum spilunarlista sem samsvara
     leitinni þinni
+  You have no playlists. Click on the create new playlist button to create a new one.: Þú
+    ert ekki með neina spilunarlista. Smelltu á hnappinn til að búa til nýjan spilunarlista.
+  Move Video Up: Færa myndskeið upp
+  Remove from Playlist: Fjarlægja af spilunarlista
+  Playlist Name: Heiti spilunarlista
+  Playlist Description: Lýsing spilunarlista
+  Save Changes: Vista breytingar
+  Cancel: Hætta við
+  Edit Playlist Info: Breyta upplýsingum spilunarlista
+  Sort By:
+    Sort By: Raða eftir
+    NameDescending: Ö-A
+    LatestCreatedFirst: Nýlega útbúið
+    EarliestCreatedFirst: Fyrst búið til
+    LatestUpdatedFirst: Nýlega uppfært
+    EarliestPlayedFirst: Fyrst spilað
+    NameAscending: A-Ö
+    EarliestUpdatedFirst: Fyrst uppfært
+    LatestPlayedFirst: Nýlega spilað
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Ekki er hægt að færa þetta myndskeið upp.
+      Video has been removed: Myndskeið hefur verið fjarlægt
+      There was a problem with removing this video: Það kom upp vandamál með að fjarlægja
+        þetta myndskeið
+      Playlist has been updated.: Spilunarlisti hefur verið uppfærður.
+      There was an issue with updating this playlist.: Vandamál kom upp við að uppfæra
+        þennan spilunarlista.
+      This playlist is protected and cannot be removed.: Þetta er varinn spilunarlisti
+        sem ekki er hægt að fjarlægja.
+      Playlist {playlistName} has been deleted.: Spilunarlistanum {playlistName} hefur
+        verið eytt.
+      This video cannot be moved down.: Ekki er hægt að færa þetta myndskeið niður.
+      Playlist name cannot be empty. Please input a name.: Heiti spilunarlista getur
+        ekki verið tómt. Settu inn heiti á listann.
+      "{videoCount} video(s) have been removed": 1 myndskeið hefur verið fjarlægt
+        | {videoCount} myndskeið hafa verið fjarlægð
+      There were no videos to remove.: Það eru engin myndskeið til að fjarlægja.
+      This playlist does not exist: Þessi spilunarlisti er ekki til
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sum
+        myndskeið í spilunarlistanum hafa ekki enn hlaðist inn. Smelltu hér til að
+        afrita samt.
+      This playlist is now used for quick bookmark: Þessi spilunarlisti er núna notaður
+        undir flýtibókamerki
+      Quick bookmark disabled: Flýtibókamerki óvirk
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Þessi
+        spilunarlisti er núna notaður undir flýtibókamerki í stað {oldPlaylistName}.
+        Smelltu hér til að afturkalla
+      Reverted to use {oldPlaylistName} for quick bookmark: Snéri aftur í að nota
+        {oldPlaylistName} undir flýtibókamerki
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} valin'
+    Search in Playlists: Leita í spilunarlistum
+    Save: Vista
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 myndskeiði bætt
+        við  {playlistCount} spilunarlista | {videoCount} myndskeiðum bætt við {playlistCount}
+        spilunarlista
+      You haven't selected any playlist yet.: Þú hefur enn ekki valið neina spilunarlista.
+      "{videoCount} video(s) added to 1 playlist": 1 myndskeiði bætt við 1 spilunarlista
+        | {videoCount} myndskeiðum bætt við 1 spilunarlista
+    Select a playlist to add your N videos to: Veldu spilunarlista til að bæta myndskeiðinu
+      þínu á | Veldu spilunarlista til að bæta {videoCount}̣ myndskeiðunum þínum á
+    Added {count} Times: Bætt við {count} sinni | Bætt við {count} sinnum
+  CreatePlaylistPrompt:
+    Create: Búa til
+    New Playlist Name: Heiti á nýjum spilunarlista
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Spilunarlisti
+        með þessu heiti er þegar í notkun, veldu eitthvað annað nafn.
+      Playlist {playlistName} has been successfully created.: Tókst að útbúa spilunarlistann
+        {playlistName}.
+      There was an issue with creating the playlist.: Vandamál kom upp við að útbúa
+        þennan spilunarlista.
+  This playlist currently has no videos.: Þessi spilunarlisti er ekki með nein myndskeið.
+  Create New Playlist: Búa til nýjan spilunarlista
+  Add to Playlist: Bæta við spilunarlista
+  Move Video Down: Færa myndskeið niður
+  Copy Playlist: Afrita spilunarlista
+  Remove Watched Videos: Fjarlægja áhorfð myndskeið
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ertu
+    viss um að þú viljir eyða öllum myndskeiðum sem búið er að horfa á af þessum spilunarlista?
+    Aðgerðin er ekki afturkallanleg.
+  Delete Playlist: Eyða spilunarlista
+  Are you sure you want to delete this playlist? This cannot be undone: Ertu viss
+    um að þú viljir eyða þessum spilunarlista? Aðgerðin er ekki afturkallanleg.
+  Add to Favorites: Bæta á {playlistName}
+  Remove from Favorites: Fjarlægja af {playlistName}
+  Enable Quick Bookmark With This Playlist: Virkja flýtibókamerki með þessum spilunarlista
+  Disable Quick Bookmark: Eyða flýtibókamerki
 History:
   # On History Page
   History: 'Áhorf'
@@ -160,6 +260,8 @@ Settings:
       Beginning: 'Upphaf'
       Middle: 'Miðja'
       End: 'Endir'
+      Hidden: Falið
+      Blur: Móska
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-tilvik
       (sjálfgefið er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
@@ -193,6 +295,9 @@ Settings:
       Dracula: 'Drakúla'
       System Default: Sjálfgefið í kerfinu
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelbleikt
+      Hot Pink: Dimmbleikt
+      Nordic: Norrænt
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -292,8 +397,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
     Allow DASH AV1 formats: Leyfa DASH AV1 snið
-    Comment Auto Load:
-      Comment Auto Load: Hlaða sjálfkrafa inn athugasemdum
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna áhorfsferil'
@@ -310,15 +413,20 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ertu
       viss um að þú viljir fjarlægja allar áskriftir og notkunarsnið? Ekki er hægt
       að afturkalla þetta.'
-    Automatically Remove Video Meta Files: Sjálfvirkt fjarlægja lýsigögn úr myndskeiðaskrám
     Save Watched Videos With Last Viewed Playlist: Vista myndskeið sem horft var á
       með síðast notaða spilunarlista
+    Remove All Playlists: Fjarlægja alla spilunarlista
+    Are you sure you want to remove all your playlists?: Ertu viss um að þú viljir
+      fjarlægja alla spilunarlistana þína?
+    All playlists have been removed: Allir spilunarlistar hafa verið fjarlægðir
   Subscription Settings:
     Subscription Settings: 'Stillingar áskrifta'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Manage Subscriptions: 'Sýsla með áskriftir'
     Fetch Automatically: Sækja streymi sjálfvirkt
+    Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
+      hverja myndskeiðarás
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi stillingar'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -338,8 +446,9 @@ Settings:
     Hide Chapters: Fela kafla
     Hide Upcoming Premieres: Fela væntanlegar frumsýningar
     Hide Channels: Fela myndskeið úr rásum
-    Hide Channels Placeholder: Heiti eða auðkenni rásar
+    Hide Channels Placeholder: Auðkenni rásar
     Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
+      og greinarmerkja
     Sections:
       Side Bar: Hliðarspjald
       Channel Page: Rásasíða
@@ -355,6 +464,19 @@ Settings:
     Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
+    Blur Thumbnails: Móska smámyndir
+    Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
+    Hide Subscriptions Community: Fela samfélag áskrifenda
+    Hide Channels Invalid: Uppgefið auðkenni rásar er ógilt
+    Hide Channels Disabled Message: Sumar rásir voru útilokaðar út frá auðkenni og
+      voru ekki meðhöndlaðar. Lokað er á eiginleikann á meðan verið er að uppfæra
+      þessi auðkenni
+    Hide Channels Already Exists: Auðkenni rásar er þegar til
+    Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu
+      aftur hvort auðkennið ré rétt.
+    Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem
+      innihalda texta
+    Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -404,6 +526,15 @@ Settings:
     Subscription File: Skrá með áskriftum
     History File: Skrá með atvikaferli
     Playlist File: Spilunarlistaskrá
+    Export Playlists For Older FreeTube Versions:
+      Label: Flytja út spilunarlista fyrir eldri útgáfur FreeTube
+      Tooltip: "Þessi valkostur flytur út myndskeið úr öllum spilunarlistum inn í
+        einn spilunarlista sem kallast 'Eftirlæti'.\nHér er skýrt hvernig eigi að
+        flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n
+        1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu út
+        öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja alla
+        spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
+        og flyttu inn spilunarlistana sem þú fluttir út.\""
   Proxy Settings:
     Proxy Settings: 'Stillingar milliþjóns (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -434,6 +565,10 @@ Settings:
       Do Nothing: Gera ekkert
     Category Color: Litur flokks
     UseDeArrowTitles: Nota DeArrow myndskeiðatitla
+    UseDeArrowThumbnails: Nota DeArrow fyrir smámyndir
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Slóð
+      á API-kerfisviðmót DeArrow Thumbnail Generator smámyndagerðar (sjálfgefið er
+      https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
     Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
@@ -443,6 +578,7 @@ Settings:
     Players:
       None:
         Name: Ekkert
+    Ignore Default Arguments: Hunsa sjálfgefnar breytur
   Download Settings:
     Download Settings: Stillingar niðurhals
     Ask Download Path: Spyrja hvar eigi að vista skrár
@@ -470,6 +606,7 @@ Settings:
     Set Password: Setja lykilorð
     Remove Password: Fjarlægja lykilorð
     Password Settings: Stillingar lykilorðs
+  Expand All Settings Sections: Fletta út öllum stillingahlutum
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -499,6 +636,7 @@ About:
   these people and projects: 'þessu fólki og verkefnum'
   Donate: 'Styrkja'
 
+  Discussions: Umræður
 Profile:
   Profile Select: 'Val á notkunarsniði'
   Profile Filter: 'Sía notkunarsnið'
@@ -544,9 +682,12 @@ Profile:
 #On Channel Page
   Profile Settings: Stillingar notkunarsniðs
   Toggle Profile List: Víxla lista með notkunarsniðum af/á
+  Profile Name: Heiti notkunarsniðs
+  Edit Profile Name: Breyta heiti notkunarsniðs
+  Create Profile Name: Útbúa heiti á notkunarsnið
+  Open Profile Dropdown: Opna fellivalmynd notkunarsniðs
+  Close Profile Dropdown: Loka fellivalmynd notkunarsniðs
 Channel:
-  Subscriber: 'Áskrifandi'
-  Subscribers: 'Áskrifendur'
   Subscribe: 'Gerast áskrifandi'
   Unsubscribe: 'Segja upp áskrift'
   Channel has been removed from your subscriptions: 'Rás var fjarlægð úr áskriftunum
@@ -592,8 +733,11 @@ Channel:
     This channel does not currently have any live streams: Þessi rás er í augnablikinu
       ekki með nein bein streymi
   Community:
-    Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
+    Reveal Answers: Birta svör
+    Hide Answers: Fela svör
+    votes: '{votes} atkvæði'
+    Video hidden by FreeTube: Myndskeið falið af FreeTube
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
@@ -625,15 +769,12 @@ Video:
   Copy YouTube Channel Link: 'Afrita tengil YouTube-rásar'
   Open Channel in Invidious: 'Opna rás í Invidious'
   Copy Invidious Channel Link: 'Afrita tengil Invidious-rásar'
-  View: 'Áhorf'
   Views: 'Áhorf'
   Loop Playlist: 'Endurtaka spilunarlista endalaust'
   Shuffle Playlist: 'Stokka spilunarlista'
   Reverse Playlist: 'Snúa við spilunarlista'
   Play Next Video: 'Spila næsta myndskeið'
   Play Previous Video: 'Spila fyrra myndskeið'
-  # Context is "X People Watching"
-  Watching: 'Verið að horfa'
   Watched: 'Búið að horfa'
   Autoplay: 'Spila sjálfkrafa'
   Starting soon, please refresh the page to check again: 'Byrjar bráðum, endurlestu
@@ -751,6 +892,10 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Spjall
     í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
     gert það óvirkt.
+  Pause on Current Video: Setja núverandi myndskeið í bið
+  Unhide Channel: Birta rás
+  Hide Channel: Fela rás
+  More Options: Fleiri valkostir
 Videos:
   #& Sort By
   Sort By:
@@ -825,6 +970,7 @@ Comments:
   Member: Meðlimur
   View {replyCount} replies: Skoða {replyCount} svör
   Hearted: Líkað
+  Subscribed: Áskrifandi
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -877,9 +1023,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
       þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
-  Privacy Settings:
-    Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
-      sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
   External Player Settings:
     Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, aðskilin
       með semíkommum (';'), sem beina á til utanaðkomandi spilarans.
@@ -893,25 +1036,29 @@ Tooltips:
       utanaðkomandi spilara. Aðvörun, stillingar Invidious hafa ekki áhrif á utanaðkomandi
       spilara.
     DefaultCustomArgumentsTemplate: "(Sjálfgefið: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Ekki senda nein sjálfgefin viðföng til utanaðkomandi
+      spilarans önnur en URL-slóð myndskeiðs (t.d. afspilunarhraða, slóð spilunarlista,
+      o.s.frv.). Sérsniðin viðföng verða send eftir sem áður.
   Experimental Settings:
     Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna
       minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
   Distraction Free Settings:
-    Hide Channels: Settu inn heiti eða auðkenni rásar til að fela öll myndskeið, spilunarlista
+    Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista
       og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með.
-      Heiti rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit
-      til hástafa/lágstafa.
+      Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur
+      tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}"
       stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent
       inn á DeArrow.
+    UseDeArrowThumbnails: Skipta út smámyndum myndskeiða fyrir smámyndir frá DeArrow.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
   til að afrita)'
 Falling back to Invidious API: 'Nota til vara Invidious API-kerfisviðmót'
-Falling back to the local API: 'Nota til vara staðvært API-kerfisviðmót'
+Falling back to Local API: 'Nota til vara staðvært API-kerfisviðmót'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Þetta
   myndskeiðer ekki tiltækt vegna þess að það vantar skráasnið. Þetta getur gest ef
   þau eru ekki tiltæk í viðkomandi landi.'
@@ -952,11 +1099,6 @@ Starting download: Byrja að sækja "{videoTitle}"
 Downloading failed: Vandamál kom upp við að sækja "{videoTitle}"
 Screenshot Error: Skjámyndataka mistókst. {error}
 Screenshot Success: Vistaði skjámynd sem "{filePath}"
-Age Restricted:
-  Type:
-    Channel: Rás
-    Video: Myndskeið
-  This {videoOrPlaylist} is age restricted: Þetta {videoOrPlaylist} er með aldurstakmörkunum
 New Window: Nýr gluggi
 Channels:
   Search bar placeholder: Leita í rásum
@@ -983,3 +1125,15 @@ Hashtag:
   Hashtag: Myllumerki
   This hashtag does not currently have any videos: Þetta myllumerki er í augnablikinu
     ekki með nein myndskeið
+Playlist will pause when current video is finished: Spilunarlisti mun fara í bið eftir
+  að núverandi myndskeið klárast
+Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
+  í bið eftir að núverandi myndskeið klárast
+Go to page: Fara á {page}
+Channel Hidden: '{channel} bætt við rásasíu'
+Channel Unhidden: '{channel} fjarlægt úr rásasíu'
+Close Banner: Loka borða
+Age Restricted:
+  This video is age restricted: Þetta myndskeið er með aldurstakmörkunum
+  This channel is age restricted: Þessi rás er með aldurstakmörkunum
+Tag already exists: '"{tagName}" merkið er þegar til staðar'

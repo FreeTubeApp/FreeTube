@@ -8,7 +8,6 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
@@ -29,7 +28,7 @@ export default defineComponent({
     return {
       isLoading: false,
       dataAvailable: false,
-      proxyTestUrl: 'https://ipwho.is/',
+      proxyIp: '',
       proxyCountry: '',
       proxyRegion: '',
       proxyCity: '',
@@ -44,7 +43,8 @@ export default defineComponent({
         'https',
         'socks4',
         'socks5'
-      ]
+      ],
+      debounceEnableProxy: () => { }
     }
   },
   computed: {
@@ -62,9 +62,25 @@ export default defineComponent({
     },
     proxyUrl: function () {
       return `${this.proxyProtocol}://${this.proxyHostname}:${this.proxyPort}`
+    },
+    lang: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+    localeToUse: function() {
+      // locales found here: https://ipwhois.io/documentation
+      const supportedLangs = ['en', 'ru', 'de', 'es', 'pt-BR', 'fr', 'zh-CN', 'ja']
+      return supportedLangs.find(lang => this.lang === lang) ?? supportedLangs.find(lang => this.lang.substring(0, 2) === lang.substring(0, 2))
+    },
+    proxyTestUrl: function() {
+      let proxyTestUrl = 'https://ipwho.is/?output=json&fields=ip,country,city,region'
+      if (this.localeToUse) {
+        proxyTestUrl += `&lang=${this.localeToUse}`
+      }
+
+      return proxyTestUrl
     }
   },
-  mounted: function () {
+  created: function () {
     this.debounceEnableProxy = debounce(this.enableProxy, 200)
   },
   beforeDestroy: function () {
@@ -108,11 +124,23 @@ export default defineComponent({
     },
 
     enableProxy: function () {
-      ipcRenderer.send(IpcChannels.ENABLE_PROXY, this.proxyUrl)
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.ENABLE_PROXY, this.proxyUrl)
+      }
     },
 
     disableProxy: function () {
-      ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+      }
+
+      this.dataAvailable = false
+      this.proxyIp = ''
+      this.proxyCountry = ''
+      this.proxyRegion = ''
+      this.proxyCity = ''
     },
 
     testProxy: function () {
