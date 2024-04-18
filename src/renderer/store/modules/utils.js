@@ -384,11 +384,10 @@ const actions = {
 
   async getRegionData ({ commit }, { locale }) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
-    // Exclude __dirname from path if not in electron
-    const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
 
-    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}.json`
-    const countries = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
+    const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)
+
+    const countries = await (await fetch(url)).json()
 
     const regionNames = countries.map((entry) => { return entry.name })
     const regionValues = countries.map((entry) => { return entry.code })
@@ -620,16 +619,9 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
-  async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
-    const fileName = 'external-player-map.json'
-    /* eslint-disable-next-line n/no-path-concat */
-    const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
-
-    const fileData = await fs.readFile(`${fileLocation}${fileName}`)
-
-    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
-    })
+  async getExternalPlayerCmdArgumentsData ({ commit }) {
+    const url = createWebURL('/static/external-player-map.json')
+    const externalPlayerMap = await (await fetch(url)).json()
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
     const playerNone = externalPlayerMap.shift()
     externalPlayerMap.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))

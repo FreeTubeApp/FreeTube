@@ -111,8 +111,8 @@ const config = {
     ]
   },
   node: {
-    __dirname: isDevMode,
-    __filename: isDevMode
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     processLocalesPlugin,
