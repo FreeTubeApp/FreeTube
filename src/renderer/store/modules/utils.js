@@ -178,7 +178,7 @@ const getters = {
 
   getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastVideoRefreshTimestampByProfile[profileId]
-  }
+  },
 }
 
 const actions = {
@@ -921,12 +921,12 @@ const mutations = {
     state.cachedPlaylist = value
   },
 
-  setSearchSortBy (state, value) {
-    state.searchSettings.sortBy = value
-  },
-
   setSearchFilterValueChanged (state, value) {
     state.searchFilterValueChanged = value
+  },
+
+  setSearchSortBy (state, value) {
+    state.searchSettings.sortBy = value
   },
 
   setSearchTime (state, value) {

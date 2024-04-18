@@ -92,8 +92,7 @@
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"
-          :class="{ filterChanged: searchFilterValueChanged, showFilters: showFilters }"
-          :aria-pressed="showFilters"
+          :class="{ filterChanged: searchFilterValueChanged }"
           :icon="['fas', 'filter']"
           :title="$t('Search Filters.Search Filters')"
           role="button"

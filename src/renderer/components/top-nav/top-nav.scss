@@ -89,11 +89,6 @@
 
   margin-inline-start: $effect-distance;
 
-  &.showFilters {
-    box-shadow: 0 0 $effect-distance var(--primary-color);
-    transform: translateY(1px);
-  }
-
   &.filterChanged {
     box-shadow: 0 0 $effect-distance var(--primary-color);
     color: var(--primary-color);
@@ -212,18 +207,4 @@
       flex: 1;
     }
   }
-
-  // .searchFilters {
-  //   inset-inline: 0;
-  //   margin-block: 10px 20px;
-  //   margin-inline: 220px 20px;
-  //   position: absolute;
-  //   transition: margin 150ms ease-in-out;
-
-  //   @media only screen and (width <= 680px) {
-  //     inset-inline: 0;
-  //     margin-block: 95px 0;
-  //     margin-inline: 10px;
-  //   }
-  // }
 }

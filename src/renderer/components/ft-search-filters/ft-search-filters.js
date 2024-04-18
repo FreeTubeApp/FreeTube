@@ -15,6 +15,10 @@ export default defineComponent({
   },
   data: function () {
     return {
+      searchSortByStartIndex: 0,
+      searchTimeStartIndex: 0,
+      searchTypeStartIndex: 0,
+      searchDurationStartIndex: 0,
       sortByValues: [
         'relevance',
         'rating',
@@ -100,6 +104,12 @@ export default defineComponent({
         this.$t('Search Filters.Duration.Long (> 20 minutes)')
       ]
     }
+  },
+  created: function () {
+    this.searchSortByStartIndex = this.sortByValues.indexOf(this.searchSettings.sortBy)
+    this.searchTimeStartIndex = this.timeValues.indexOf(this.searchSettings.time)
+    this.searchTypeStartIndex = this.typeValues.indexOf(this.searchSettings.type)
+    this.searchDurationStartIndex = this.durationValues.indexOf(this.searchSettings.duration)
   },
   methods: {
     isVideoOrMovieOrAll(type) {

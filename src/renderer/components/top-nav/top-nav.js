@@ -84,10 +84,6 @@ export default defineComponent({
       return this.$store.getters.getSearchFilterValueChanged
     },
 
-    showFilters: function () {
-      return this.$store.getters.getShowSearchFilters
-    },
-
     forwardText: function () {
       return this.$t('Forward')
     },

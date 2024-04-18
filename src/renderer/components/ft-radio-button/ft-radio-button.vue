@@ -14,7 +14,7 @@
         v-model="selectedValue"
         :name="inputName"
         :value="values[index]"
-        :checked="index === 0"
+        :checked="index === initialValueIndex"
         :disabled="disabled"
         class="radio"
         type="radio"

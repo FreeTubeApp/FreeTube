@@ -17,6 +17,7 @@
           :title="$t('Search Filters.Sort By.Sort By')"
           :labels="sortByLabels"
           :values="sortByValues"
+          :initial-value-index="searchSortByStartIndex"
           class="searchRadio"
           @change="updateSortBy"
         />
@@ -25,6 +26,7 @@
           :title="$t('Search Filters.Time.Time')"
           :labels="timeLabels"
           :values="timeValues"
+          :initial-value-index="searchTimeStartIndex"
           class="searchRadio"
           @change="updateTime"
         />
@@ -33,6 +35,7 @@
           :title="$t('Search Filters.Type.Type')"
           :labels="typeLabels"
           :values="typeValues"
+          :initial-value-index="searchTypeStartIndex"
           class="searchRadio"
           @change="updateType"
         />
@@ -41,6 +44,7 @@
           :title="$t('Search Filters.Duration.Duration')"
           :labels="durationLabels"
           :values="durationValues"
+          :initial-value-index="searchDurationStartIndex"
           class="searchRadio"
           @change="updateDuration"
         />
