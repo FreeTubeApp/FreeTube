@@ -36,6 +36,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['clearDefaultInstance', 'input', 'setDefaultInstance'],
   methods: {
     handleInstanceInput: function (inputData) {
       this.$emit('input', inputData)
