@@ -48,6 +48,7 @@ export default defineComponent({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
+      isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -148,12 +149,6 @@ export default defineComponent({
     secColor: 'checkThemeSettings',
 
     locale: 'setLocale',
-
-    $route () {
-      // react to route changes...
-      // Hide top nav filter panel on page change
-      this.$refs.topNav?.hideFilters()
-    }
   },
   created () {
     this.checkThemeSettings()
@@ -298,6 +293,10 @@ export default defineComponent({
       }
 
       this.showBlogBanner = false
+    },
+
+    handlePromptPortalUpdate: function(newVal) {
+      this.isPromptOpen = newVal
     },
 
     openDownloadsPage: function () {
@@ -549,7 +548,7 @@ export default defineComponent({
       'updateMainColor',
       'updateSecColor',
       'showOutlines',
-      'hideOutlines'
+      'hideOutlines',
     ])
   }
 })

@@ -3,7 +3,9 @@
     @click="hideSearchFilters"
   >
     <div>
-      <h2 class="center">
+      <h2
+        class="center"
+      >
         {{ title }}
       </h2>
       <ft-flex-box class="radioFlexBox">

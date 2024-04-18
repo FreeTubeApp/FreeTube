@@ -8,45 +8,10 @@
       isLocaleRightToLeft: isLocaleRightToLeft
     }"
   >
-    <top-nav ref="topNav" />
-    <side-nav ref="sideNav" />
-    <ft-flex-box
-      class="flexBox routerView"
-      role="main"
-    >
-      <div
-        v-if="showUpdatesBanner || showBlogBanner"
-        class="banner-wrapper"
-      >
-        <ft-notification-banner
-          v-if="showUpdatesBanner"
-          class="banner"
-          :message="updateBannerMessage"
-          role="link"
-          @click="handleUpdateBannerClick"
-        />
-        <ft-notification-banner
-          v-if="showBlogBanner"
-          class="banner"
-          :message="blogBannerMessage"
-          role="link"
-          @click="handleNewBlogBannerClick"
-        />
-      </div>
-      <transition
-        v-if="dataReady"
-        mode="out-in"
-        name="fade"
-      >
-        <!-- <keep-alive> -->
-        <RouterView
-          ref="router"
-          class="routerView"
-        />
-      <!-- </keep-alive> -->
-      </transition>
-    </ft-flex-box>
-
+    <portal-target
+      name="promptPortal"
+      @change="handlePromptPortalUpdate"
+    />
     <ft-prompt
       v-if="showReleaseNotes"
       :label="changeLogTitle"
@@ -77,7 +42,7 @@
     />
     <!-- !hideSearchBar &&  -->
     <ft-search-filters
-      v-show="showSearchFilters"
+      v-if="showSearchFilters"
     />
     <ft-playlist-add-video-prompt
       v-if="showAddToPlaylistPrompt"
@@ -89,6 +54,51 @@
     <ft-progress-bar
       v-if="showProgressBar"
     />
+    <top-nav
+      ref="topNav"
+      :inert="isPromptOpen"
+    />
+    <side-nav
+      ref="sideNav"
+      :inert="isPromptOpen"
+    />
+    <ft-flex-box
+      class="flexBox routerView"
+      role="main"
+      :inert="isPromptOpen"
+    >
+      <div
+        v-if="showUpdatesBanner || showBlogBanner"
+        class="banner-wrapper"
+      >
+        <ft-notification-banner
+          v-if="showUpdatesBanner"
+          class="banner"
+          :message="updateBannerMessage"
+          role="link"
+          @click="handleUpdateBannerClick"
+        />
+        <ft-notification-banner
+          v-if="showBlogBanner"
+          class="banner"
+          :message="blogBannerMessage"
+          role="link"
+          @click="handleNewBlogBannerClick"
+        />
+      </div>
+      <transition
+        v-if="dataReady"
+        mode="out-in"
+        name="fade"
+      >
+        <!-- <keep-alive> -->
+        <RouterView
+          ref="router"
+          class="routerView"
+        />
+        <!-- </keep-alive> -->
+      </transition>
+    </ft-flex-box>
   </div>
 </template>
 

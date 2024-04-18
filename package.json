@@ -64,6 +64,7 @@
     "lodash.debounce": "^4.0.8",
     "marked": "^12.0.1",
     "path-browserify": "^1.0.1",
+    "portal-vue": "^2.1.7",
     "process": "^0.11.10",
     "swiper": "^11.1.1",
     "video.js": "7.21.5",

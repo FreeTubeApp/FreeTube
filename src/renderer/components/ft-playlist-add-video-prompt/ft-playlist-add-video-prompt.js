@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -201,7 +201,7 @@ export default defineComponent({
 
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
     // User might want to search first if they have many playlists
-    this.$refs.searchBar.focus()
+    nextTick(() => this.$refs.searchBar.focus())
   },
   beforeDestroy() {
     this.lastActiveElement?.focus()

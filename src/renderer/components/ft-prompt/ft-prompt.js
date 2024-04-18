@@ -56,15 +56,16 @@ export default defineComponent({
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
-
-    document.addEventListener('keydown', this.closeEventFunction, true)
-    document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
-    this.promptButtons = Array.from(
-      document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
-    ).filter((e) => {
-      return e.id && e.id.startsWith('prompt')
+    this.$nextTick(() => {
+      document.addEventListener('keydown', this.closeEventFunction, true)
+      document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
+      this.promptButtons = Array.from(
+        document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
+      ).filter((e) => {
+        return e.id && e.id.startsWith('prompt')
+      })
+      this.focusItem(0)
     })
-    this.focusItem(0)
   },
   methods: {
     hide: function() {
