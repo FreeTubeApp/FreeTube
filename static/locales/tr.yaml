@@ -1220,3 +1220,7 @@ Age Restricted:
   This channel is age restricted: Bu kanalda yaş sınırlaması var
 Display Label: '{label}: {value}'
 checkmark: ✓
+Feed:
+  Refresh Feed: '{subscriptionName} yenile'
+  Feed Last Updated: '{feedName} akışı son güncelenme: {date}'
+Moments Ago: az önce
