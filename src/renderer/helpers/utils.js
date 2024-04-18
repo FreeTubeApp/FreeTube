@@ -762,7 +762,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     In other contexts, like when working with calculatePublishedDate, we use 30. */
   const daysInMonth = useThirtyDayMonths ? 30 : 31
   if (timeUnit === 'week' && timeDiffFromNowDays >= daysInMonth) {
-    timeDiffFromNow /= daysInMonth
+    timeDiffFromNow = timeDiffFromNowDays / daysInMonth
     timeUnit = 'month'
   }
 
