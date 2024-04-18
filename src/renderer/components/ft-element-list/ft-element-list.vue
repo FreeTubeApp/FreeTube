@@ -13,6 +13,7 @@
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
       :hide-forbidden-titles="hideForbiddenTitles"
+      :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
       :search-query-text="searchQueryText"
     />
   </ft-auto-grid>

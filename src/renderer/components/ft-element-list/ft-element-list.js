@@ -39,6 +39,10 @@ export default defineComponent({
       required: false,
       default: '',
     },
+    quickBookmarkButtonEnabled: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     listType: function () {

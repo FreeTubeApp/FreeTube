@@ -18,6 +18,7 @@
         :appearance="appearance"
         :data="data"
         :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
+        :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
       />
       <ft-list-channel
         v-else-if="finalDataType === 'channel'"

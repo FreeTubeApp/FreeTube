@@ -69,6 +69,7 @@
             :show-video-with-last-viewed-playlist="true"
             :use-channels-hidden-preference="false"
             :hide-forbidden-titles="false"
+            :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
           />
           <transition-group
             v-else
