@@ -1182,3 +1182,7 @@ Age Restricted:
 Close Banner: إغلاق الشعار
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: منذ لحظات
+Feed:
+  Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
+  Refresh Feed: تحديث {subscriptionName}
