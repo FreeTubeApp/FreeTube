@@ -15,7 +15,7 @@
       class="switch-input"
       :checked="currentValue"
       :disabled="disabled"
-      @change="change(currentValue)"
+      @change="change"
     >
     <label
       :for="id"
