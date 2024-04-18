@@ -8,6 +8,7 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-radio-button': FtRadioButton
   },
+  emits: ['filterValueUpdated'],
   data: function () {
     return {
       sortByValues: [

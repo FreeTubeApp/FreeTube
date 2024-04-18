@@ -3,7 +3,7 @@ import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SubscriptionsShorts',
@@ -33,6 +33,10 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+
+    lastShortRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastShortRefreshTimestampByProfile(this.activeProfileId), true)
     },
 
     activeProfile: function () {
@@ -83,11 +87,23 @@ export default defineComponent({
   methods: {
     loadVideosFromCacheSometimes() {
       // This method is called on view visible
+
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
+        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+          let minTimestamp = null
+          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+              minTimestamp = cacheEntry.timestamp
+            }
+          })
+          this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+        }
         return
       }
 
+      // clear timestamp if not all entries are present in the cache
+      this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
@@ -135,7 +151,7 @@ export default defineComponent({
         this.setProgressBarPercentage(percentageComplete)
         this.updateSubscriptionShortsCacheByChannel({
           channelId: channel.id,
-          videos: videos,
+          videos: videos
         })
 
         if (name) {
@@ -148,6 +164,7 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
+      this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -258,6 +275,7 @@ export default defineComponent({
       'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionShortsCacheByChannel',
+      'updateLastShortRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
+import { calculatePublishedDate, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalChannelCommunity } from '../../helpers/api/local'
 import { invidiousGetCommunityPosts } from '../../helpers/api/invidious'
 
@@ -53,6 +53,11 @@ export default defineComponent({
       })
       return entries
     },
+
+    lastCommunityRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastCommunityRefreshTimestampByProfile(this.activeProfileId), true)
+    },
+
     postCacheForAllActiveProfileChannelsPresent() {
       if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return false }
       if (this.cacheEntriesForAllActiveProfileChannels.length < this.activeSubscriptionList.length) { return false }
@@ -73,22 +78,33 @@ export default defineComponent({
   watch: {
     activeProfile: async function (_) {
       this.isLoading = true
-      this.loadpostsFromCacheSometimes()
+      this.loadPostsFromCacheSometimes()
     },
   },
   mounted: async function () {
     this.isLoading = true
 
-    this.loadpostsFromCacheSometimes()
+    this.loadPostsFromCacheSometimes()
   },
   methods: {
-    loadpostsFromCacheSometimes() {
+    loadPostsFromCacheSometimes() {
       // This method is called on view visible
       if (this.postCacheForAllActiveProfileChannelsPresent) {
         this.loadPostsFromCacheForAllActiveProfileChannels()
+        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+          let minTimestamp = null
+          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+              minTimestamp = cacheEntry.timestamp
+            }
+          })
+          this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+        }
         return
       }
 
+      // clear timestamp if not all entries are present in the cache
+      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadPostsForSubscriptionsFromRemote()
     },
 
@@ -141,7 +157,7 @@ export default defineComponent({
 
         this.updateSubscriptionPostsCacheByChannel({
           channelId: channel.id,
-          posts: posts,
+          posts: posts
         })
 
         if (posts.length > 0) {
@@ -172,6 +188,7 @@ export default defineComponent({
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
+      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
       postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
@@ -247,6 +264,7 @@ export default defineComponent({
       'updateShowProgressBar',
       'batchUpdateSubscriptionDetails',
       'updateSubscriptionPostsCacheByChannel',
+      'updateLastCommunityRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

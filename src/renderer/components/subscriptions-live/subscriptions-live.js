@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { setPublishedTimestampsInvidious, copyToClipboard, showToast } from '../../helpers/utils'
+import { setPublishedTimestampsInvidious, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
@@ -74,6 +74,10 @@ export default defineComponent({
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
     },
+
+    lastLiveRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastLiveRefreshTimestampByProfile(this.activeProfileId), true)
+    }
   },
   watch: {
     activeProfile: async function (_) {
@@ -91,9 +95,20 @@ export default defineComponent({
       // This method is called on view visible
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
+        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+          let minTimestamp = null
+          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+              minTimestamp = cacheEntry.timestamp
+            }
+          })
+          this.updateLastLiveRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+        }
         return
       }
 
+      // clear timestamp if not all entries are present in the cache
+      this.updateLastLiveRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
@@ -158,7 +173,7 @@ export default defineComponent({
         this.setProgressBarPercentage(percentageComplete)
         this.updateSubscriptionLiveCacheByChannel({
           channelId: channel.id,
-          videos: videos,
+          videos: videos
         })
 
         if (name || thumbnailUrl) {
@@ -172,6 +187,7 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
+      this.updateLastLiveRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -386,6 +402,7 @@ export default defineComponent({
       'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionLiveCacheByChannel',
+      'updateLastLiveRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

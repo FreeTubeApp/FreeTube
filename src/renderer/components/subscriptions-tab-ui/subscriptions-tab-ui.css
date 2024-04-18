@@ -8,18 +8,6 @@
   color: var(--tertiary-text-color);
 }
 
-.floatingTopButton {
-  position: fixed;
-  inset-block-start: 70px;
-  inset-inline-end: 10px;
-}
-
-@media only screen and (width <= 350px) {
-  .floatingTopButton {
-    position: absolute
-  }
-}
-
 @media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;
