@@ -22,6 +22,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['click'],
   computed: {
     isMainProfile: function () {
       return this.profileId === MAIN_PROFILE_ID
@@ -35,5 +36,10 @@ export default defineComponent({
     translatedProfileName: function () {
       return this.isMainProfile ? this.$t('Profile.All Channels') : this.profileName
     }
+  },
+  methods: {
+    click: function() {
+      this.$emit('click')
+    },
   }
 })

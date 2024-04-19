@@ -4,8 +4,8 @@
     tabindex="0"
     role="button"
     :aria-labelledby="sanitizedId"
-    @click="$emit('click')"
-    @keydown.space.enter.prevent="$emit('click')"
+    @click="click"
+    @keydown.space.enter.prevent="click"
   >
     <div
       class="bubble"

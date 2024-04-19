@@ -729,9 +729,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
   const now = new Date().getTime()
   // Convert from ms to second
   // For easier code interpretation the value is made to be positive
-  // `comparisonDate` is sometimes a string
-  const comparisonDate = Date.parse(date)
-  let timeDiffFromNow = ((now - comparisonDate) / 1000)
+  let timeDiffFromNow = ((now - date) / 1000)
   let timeUnit = 'second'
 
   if (timeDiffFromNow < 60 && hideSeconds) {
@@ -753,12 +751,18 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     timeUnit = 'day'
   }
 
+  const timeDiffFromNowDays = timeDiffFromNow
+  if (timeUnit === 'day' && timeDiffFromNow >= 7) {
+    timeDiffFromNow /= 7
+    timeUnit = 'week'
+  }
+
   /* Different months might have a different number of days.
     In some contexts, to ensure the display is fine, we use 31.
     In other contexts, like when working with calculatePublishedDate, we use 30. */
   const daysInMonth = useThirtyDayMonths ? 30 : 31
-  if (timeUnit === 'day' && timeDiffFromNow >= daysInMonth) {
-    timeDiffFromNow /= daysInMonth
+  if (timeUnit === 'week' && timeDiffFromNowDays >= daysInMonth) {
+    timeDiffFromNow = timeDiffFromNowDays / daysInMonth
     timeUnit = 'month'
   }
 
