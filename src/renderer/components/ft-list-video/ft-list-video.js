@@ -805,7 +805,6 @@ export default defineComponent({
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
-
     moveVideoUp: function() {
       this.$emit('move-video-up')
     },

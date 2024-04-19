@@ -66,5 +66,5 @@ export default defineComponent({
     change: function(value) {
       this.$emit('change', value)
     }
-  }
+  },
 })

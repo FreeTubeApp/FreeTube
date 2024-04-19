@@ -55,6 +55,6 @@ export default defineComponent({
   methods: {
     change: function () {
       this.$emit('change', this.currentValue)
-    }
+    },
   }
 })

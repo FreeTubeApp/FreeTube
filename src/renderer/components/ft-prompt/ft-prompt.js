@@ -67,6 +67,9 @@ export default defineComponent({
     this.focusItem(0)
   },
   methods: {
+    click: function (value) {
+      this.$emit('click', value)
+    },
     hide: function() {
       this.$emit('click', null)
     },
@@ -103,10 +106,6 @@ export default defineComponent({
         const direction = (e.key === 'ArrowLeft') ? -1 : 1
         this.focusItem(parseInt(currentIndex) + direction)
       }
-    },
-
-    click: function(option) {
-      this.$emit('click', option)
     },
 
     ...mapActions([

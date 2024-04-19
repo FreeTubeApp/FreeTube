@@ -40,6 +40,6 @@ export default defineComponent({
   methods: {
     click: function() {
       this.$emit('click')
-    }
+    },
   }
 })
