@@ -401,7 +401,7 @@ export default defineComponent({
         console.error(err)
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
-            console.warn('Error getting data with Invidious, falling back to local backend')
+            console.warn('Error getting data with Invidious, falling back to Local backend')
             this.getPlaylistLocal()
           } else if (this.fallbackPreference === 'piped') {
             console.warn('Error getting data with Invidious, falling back to Piped backend')
@@ -443,7 +443,7 @@ export default defineComponent({
         console.error(err)
         if (this.backendPreference === 'piped' && this.backendFallback) {
           if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
-            console.warn('Error getting data with Piped, falling back to local backend')
+            console.warn('Error getting data with Piped, falling back to Local backend')
             this.getPlaylistLocal()
           } else if (this.fallbackPreference === 'invidious') {
             console.warn('Error getting data with Piped, falling back to Invidious backend')
