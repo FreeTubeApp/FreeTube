@@ -13,6 +13,7 @@
   align-items: center;
   gap: 5px;
   justify-content: flex-end;
+  z-index: 4;
 }
 
 .floatingRefreshSection:has(.lastRefreshTimestamp + .refreshButton) {
