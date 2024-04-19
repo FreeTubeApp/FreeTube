@@ -67,6 +67,9 @@ export default defineComponent({
     this.focusItem(0)
   },
   methods: {
+    click: function (value) {
+      this.$emit('click', value)
+    },
     hide: function() {
       this.$emit('click', null)
     },
