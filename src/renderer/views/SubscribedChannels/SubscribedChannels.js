@@ -161,7 +161,7 @@ export default defineComponent({
     },
 
     keyboardShortcutHandler: function (event) {
-      return ctrlFHandler(event, this.$refs.searchBarChannels)
+      ctrlFHandler(event, this.$refs.searchBarChannels)
     },
 
     ...mapActions([

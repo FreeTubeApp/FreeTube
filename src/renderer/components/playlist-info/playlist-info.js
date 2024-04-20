@@ -412,7 +412,7 @@ export default defineComponent({
     },
 
     keyboardShortcutHandler: function (event) {
-      return ctrlFHandler(event, this.$refs.searchInput)
+      ctrlFHandler(event, this.$refs.searchInput)
     },
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',

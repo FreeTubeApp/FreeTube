@@ -119,7 +119,7 @@ export default defineComponent({
       }
     },
     keyboardShortcutHandler: function (event) {
-      return ctrlFHandler(event, this.$refs.searchBar)
+      ctrlFHandler(event, this.$refs.searchBar)
     }
   }
 })
