@@ -9,7 +9,7 @@
 .nordic,
 .gruvboxDark,
 .gruvboxLight{
-  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-input-color: rgb(0 0 0 / 50%);
 }
 
 .system[data-system-theme*='light'], .light,
@@ -37,7 +37,7 @@
 .nordic,
 .gruvboxDark,
 .gruvboxLight{
-  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-input-color: rgb(0 0 0 / 50%);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
 
@@ -72,7 +72,7 @@
 .nordic,
 .gruvboxDark,
 .gruvboxLight {
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
+  --primary-shadow-color: rgb(0 0 0 / 75%);
 }
 
 .system[data-system-theme*='light'], .light {
