@@ -16,6 +16,7 @@ import autolinker from 'autolinker'
 import {
   setPublishedTimestampsInvidious,
   copyToClipboard,
+  ctrlFHandler,
   extractNumberFromString,
   formatNumber,
   showToast
@@ -434,6 +435,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.isLoading = true
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
 
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
@@ -459,6 +461,9 @@ export default defineComponent({
         this.autoRefreshOnSortByChangeEnabled = true
       })
     }
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     resolveChannelUrl: async function (url, tab = undefined) {
@@ -1948,6 +1953,10 @@ export default defineComponent({
           this.isLoading = false
         }
       })
+    },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.channelSearchBar)
     },
 
     ...mapActions([
