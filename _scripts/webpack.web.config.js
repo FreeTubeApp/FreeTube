@@ -11,6 +11,8 @@ const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
+const { version: swiperVersion } = JSON.parse(fs.readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
+
 const config = {
   name: 'web',
   mode: process.env.NODE_ENV,
@@ -23,7 +25,6 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    electron: '{}',
     'youtubei.js': '{}'
   },
   module: {
@@ -107,13 +108,15 @@ const config = {
     ]
   },
   node: {
-    __dirname: true,
-    __filename: isDevMode,
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': false,
+      'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
 
       // video.js' vhs-utils supports both atob() in web browsers and Buffer in node
       // As the FreeTube web build only runs in web browsers, we can override their check for atob() here: https://github.com/videojs/vhs-utils/blob/main/src/decode-b64-to-uint8-array.js#L3
@@ -133,18 +136,31 @@ const config = {
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
-      template: path.resolve(__dirname, '../src/index.ejs'),
-      nodeModules: false,
+      template: path.resolve(__dirname, '../src/index.ejs')
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
+          to: `swiper-${swiperVersion}.css`,
+          context: path.join(__dirname, '../node_modules/swiper/modules'),
+          transformAll: (assets) => {
+            return Buffer.concat(assets.map(asset => asset.data))
+          }
+        }
+      ]
     })
   ],
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
+
+      'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$': path.resolve(__dirname, '../src/datastores/handlers/web.js'),
 
       // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
       // As FreeTube only runs in electron and web browsers, we can use the native DOMParser class, instead of the "polyfill"

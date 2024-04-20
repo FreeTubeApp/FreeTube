@@ -15,7 +15,7 @@
       class="switch-input"
       :checked="currentValue"
       :disabled="disabled"
-      @change="$emit('change', currentValue)"
+      @change="change"
     >
     <label
       :for="id"
@@ -29,6 +29,7 @@
         class="selectTooltip"
         :position="tooltipPosition"
         :tooltip="tooltip"
+        :allow-newlines="tooltipAllowNewlines"
       />
     </label>
   </div>

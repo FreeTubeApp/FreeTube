@@ -20,31 +20,24 @@
 * https://codepen.io/pavelvaravko/pen/qjojOr
 */
 
-/* select starting stylings ------------------------------*/
+/* select starting stylings ------------------------------ */
 .select {
   position: relative;
   inline-size: 200px;
-  padding-block: 0 10px;
-  padding-inline: 0 10px;
   margin-block-start: 30px;
-}
-
-.disabled, .disabled + svg.iconSelect {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 
 .select-text {
   position: relative;
   font-family: inherit;
-  background-color: transparent;
+  background-color: var(--search-bar-color);
   color: var(--primary-text-color);
-  inline-size: 240px;
-  padding-block: 10px;
-  padding-inline: 0 10px;
-  font-size: 18px;
-  border-radius: 0;
-  border: none;
+  inline-size: 100%;
+  block-size: 45px;
+  padding-inline-start: 1rem;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 0;
 }
 
 .select option {
@@ -52,7 +45,7 @@
   background-color: var(--card-bg-color);
 }
 
-/* Remove focus */
+/* stylelint-disable-next-line a11y/no-outline-none */
 .select-text:focus {
   outline: none;
 }
@@ -60,15 +53,15 @@
   /* Use custom arrow */
 .select .select-text {
   appearance: none;
-  -webkit-appearance:none;
   text-overflow: ellipsis;
-  padding-inline-end: 1.1rem;
+  padding-inline-end: 1.5rem;
 }
 
 .iconSelect {
   position: absolute;
   inset-block-start: 10px;
-  inset-inline-end: 15px;
+  inset-inline-end: 10px;
+
   /* Styling the down arrow */
   padding: 0;
   content: '';
@@ -78,10 +71,15 @@
   color: var(--tertiary-text-color);
 }
 
+.disabled, .disabled + .iconSelect {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .selectTooltip {
   position: absolute;
-  inset-block-start: -20px;
-  inset-inline-end: 17px;
+  inset-block-start: -22px;
+  inset-inline-end: 13px;
 }
 
 
@@ -108,10 +106,9 @@
 .select-bar {
   position: relative;
   display: block;
-  inline-size: 200px;
 }
 
-.select-bar:before, .select-bar:after {
+.select-bar::before, .select-bar::after {
   content: '';
   block-size: 2px;
   inline-size: 0;
@@ -121,16 +118,16 @@
   transition: 0.2s ease all;
 }
 
-.select-bar:before {
+.select-bar::before {
   inset-inline-start: 50%;
 }
 
-.select-bar:after {
+.select-bar::after {
   inset-inline-end: 50%;
 }
 
 /* active state */
-.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+.select-text:focus ~ .select-bar::before, .select-text:focus ~ .select-bar::after {
   inline-size: 50%;
 }
 
@@ -145,25 +142,8 @@
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 1000px) {
-  .select .select-text {
-    max-inline-size: 240px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .select {
     inline-size: 100%;
-  }
-  .select .select-text {
-    display:block;
-    max-inline-size: 95%;
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .select {
-    padding: 0px;
-    margin-inline-end: -15px;
   }
 }

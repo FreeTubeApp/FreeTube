@@ -2,8 +2,8 @@ import { defineComponent, nextTick } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
+import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
   parseLocalPlaylistVideo,
@@ -16,25 +16,34 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video-lazy': FtListVideoLazy,
+    'ft-list-video-numbered': FtListVideoNumbered
   },
   props: {
     playlistId: {
       type: String,
-      required: true
+      required: true,
+    },
+    playlistType: {
+      type: String,
+      default: null
     },
     videoId: {
       type: String,
-      required: true
+      required: true,
+    },
+    playlistItemId: {
+      type: String,
+      default: null,
     },
     watchViewLoading: {
       type: Boolean,
-      required: true
+      required: true,
     },
   },
+  emits: ['pause-player'],
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       shuffleEnabled: false,
       loopEnabled: false,
       reversePlaylist: false,
@@ -44,6 +53,8 @@ export default defineComponent({
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: [],
+
+      getPlaylistInfoRun: false,
     }
   },
   computed: {
@@ -55,16 +66,40 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    currentVideoIndex: function () {
-      const index = this.playlistItems.findIndex((item) => {
-        if (typeof item.videoId !== 'undefined') {
+    isUserPlaylist: function () {
+      return this.playlistType === 'user'
+    },
+    userPlaylistsReady: function () {
+      return this.$store.getters.getPlaylistsReady
+    },
+    selectedUserPlaylist: function () {
+      if (this.playlistId == null || this.playlistId === '') { return null }
+
+      return this.$store.getters.getPlaylist(this.playlistId)
+    },
+    selectedUserPlaylistVideoCount () {
+      return this.selectedUserPlaylist?.videos?.length
+    },
+    selectedUserPlaylistLastUpdatedAt () {
+      return this.selectedUserPlaylist?.lastUpdatedAt
+    },
+
+    currentVideoIndexZeroBased: function () {
+      return this.playlistItems.findIndex((item) => {
+        if (item.playlistItemId != null && this.playlistItemId != null) {
+          return item.playlistItemId === this.playlistItemId
+        } else if (item.videoId != null) {
           return item.videoId === this.videoId
         } else {
           return item.id === this.videoId
         }
       })
-
-      return index + 1
+    },
+    currentVideoIndexOneBased: function () {
+      return this.currentVideoIndexZeroBased + 1
+    },
+    currentVideo: function () {
+      return this.playlistItems[this.currentVideoIndexZeroBased]
     },
 
     playlistVideoCount: function () {
@@ -87,27 +122,60 @@ export default defineComponent({
     },
 
     videoIndexInPlaylistItems: function () {
-      if (this.shuffleEnabled) {
-        return this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
-        })
-      } else {
-        return this.playlistItems.findIndex((item) => {
-          return (item.id ?? item.videoId) === this.videoId
-        })
+      const playlistItems = this.shuffleEnabled ? this.randomizedPlaylistItems : this.playlistItems
+
+      return playlistItems.findIndex((item) => {
+        if (item.playlistItemId != null && this.playlistItemId != null) {
+          return item.playlistItemId === this.playlistItemId
+        } else if (item.videoId != null) {
+          return item.videoId === this.videoId
+        } else {
+          return item.id === this.videoId
+        }
+      })
+    },
+    videoIsFirstPlaylistItem: function () {
+      return this.videoIndexInPlaylistItems === 0
+    },
+    videoIsLastPlaylistItem: function () {
+      return this.videoIndexInPlaylistItems === (this.playlistItems.length - 1)
+    },
+    videoIsNotPlaylistItem: function () {
+      return this.videoIndexInPlaylistItems === -1
+    },
+
+    playlistPageLinkTo() {
+      // For `router-link` attribute `to`
+      return {
+        path: `/playlist/${this.playlistId}`,
+        query: {
+          playlistType: this.isUserPlaylist ? 'user' : '',
+        },
       }
     },
   },
   watch: {
+    userPlaylistsReady: function() {
+      this.getPlaylistInfoWithDelay()
+    },
+    selectedUserPlaylistVideoCount () {
+      // Re-fetch from local store when current user playlist updated
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+      this.shufflePlaylistItems()
+    },
+    selectedUserPlaylistLastUpdatedAt () {
+      // Re-fetch from local store when current user playlist updated
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+    },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
       if (this.shuffleEnabled) {
         const newVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === newId
+          return item.videoId === newId
         })
 
         const oldVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === oldId
+          return item.videoId === oldId
         })
 
         if ((newVideoIndex - 1) !== oldVideoIndex) {
@@ -136,23 +204,20 @@ export default defineComponent({
     },
     playlistId: function (newVal, oldVal) {
       if (oldVal !== newVal) {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
           this.getPlaylistInformationLocal()
         }
       }
-    }
+    },
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
-
     if (cachedPlaylist?.id === this.playlistId) {
       this.loadCachedPlaylistInformation(cachedPlaylist)
-    } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-      this.getPlaylistInformationInvidious()
     } else {
-      this.getPlaylistInformationLocal()
+      this.getPlaylistInfoWithDelay()
     }
 
     if ('mediaSession' in navigator) {
@@ -167,6 +232,24 @@ export default defineComponent({
     }
   },
   methods: {
+    getPlaylistInfoWithDelay: function () {
+      if (this.getPlaylistInfoRun) { return }
+
+      this.isLoading = true
+      // `selectedUserPlaylist` result accuracy relies on data being ready
+      if (this.isUserPlaylist && !this.userPlaylistsReady) { return }
+
+      this.getPlaylistInfoRun = true
+
+      if (this.selectedUserPlaylist != null) {
+        this.parseUserPlaylist(this.selectedUserPlaylist)
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        this.getPlaylistInformationInvidious()
+      } else {
+        this.getPlaylistInformationLocal()
+      }
+    },
+
     toggleLoop: function () {
       if (this.loopEnabled) {
         this.loopEnabled = false
@@ -193,7 +276,9 @@ export default defineComponent({
       showToast(this.$t('The playlist has been reversed'))
 
       this.reversePlaylist = !this.reversePlaylist
-      this.playlistItems = this.playlistItems.reverse()
+      // Create a new array to avoid changing array in data store state
+      // it could be user playlist or cache playlist
+      this.playlistItems = this.playlistItems.toReversed()
       setTimeout(() => {
         this.isLoading = false
       }, 1)
@@ -211,124 +296,91 @@ export default defineComponent({
 
     enableAutoplay: function () {
       const playlistInfo = {
-        playlistId: this.playlistId
+        playlistId: this.playlistId,
+        playlistType: this.playlistType,
       }
 
+      const videoIndex = this.videoIndexInPlaylistItems
+      const targetVideoIndex = (this.videoIsNotPlaylistItem || this.videoIsLastPlaylistItem) ? 0 : videoIndex + 1
       if (this.shuffleEnabled) {
-        const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
-        })
-
-        if (videoIndex === this.randomizedPlaylistItems.length - 1) {
-          if (this.loopEnabled) {
-            this.$router.push(
-              {
-                path: `/watch/${this.randomizedPlaylistItems[0]}`,
-                query: playlistInfo
-              }
-            )
-            showToast(this.$t('Playing Next Video'))
-            this.shufflePlaylistItems()
-          } else {
-            showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
-          }
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.randomizedPlaylistItems[videoIndex + 1]}`,
-              query: playlistInfo
-            }
-          )
-          showToast(this.$t('Playing Next Video'))
+        let doShufflePlaylistItems = false
+        if (this.videoIsLastPlaylistItem && !this.loopEnabled) {
+          showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
+          return
         }
+        // loopEnabled = true
+        if (this.videoIsLastPlaylistItem || this.videoIsNotPlaylistItem) { doShufflePlaylistItems = true }
+
+        const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
+
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
+          }
+        )
+        showToast(this.$t('Playing Next Video'))
+        if (doShufflePlaylistItems) { this.shufflePlaylistItems() }
       } else {
-        const videoIndex = this.playlistItems.findIndex((item) => {
-          return (item.id ?? item.videoId) === this.videoId
-        })
+        const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
-        if (videoIndex === this.playlistItems.length - 1) {
-          if (this.loopEnabled) {
-            this.$router.push(
-              {
-                path: `/watch/${this.playlistItems[0].id ?? this.playlistItems[0].videoId}`,
-                query: playlistInfo
-              }
-            )
-            showToast(this.$t('Playing Next Video'))
-          } else {
-            showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
-          }
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.playlistItems[videoIndex + 1].id ?? this.playlistItems[videoIndex + 1].videoId}`,
-              query: playlistInfo
-            }
-          )
-          showToast(this.$t('Playing Next Video'))
+        const stopDueToLoopDisabled = this.videoIsLastPlaylistItem && !this.loopEnabled
+        if (stopDueToLoopDisabled) {
+          showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
+          return
         }
+
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
+          }
+        )
+        showToast(this.$t('Playing Next Video'))
       }
     },
 
     playPreviousVideo: function () {
-      showToast('Playing previous video')
+      showToast(this.$t('Playing Previous Video'))
 
       const playlistInfo = {
-        playlistId: this.playlistId
+        playlistId: this.playlistId,
+        playlistType: this.playlistType,
       }
 
+      const videoIndex = this.videoIndexInPlaylistItems
+      const targetVideoIndex = (this.videoIsFirstPlaylistItem || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
       if (this.shuffleEnabled) {
-        const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
-        })
+        const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
 
-        if (videoIndex === 0) {
-          this.$router.push(
-            {
-              path: `/watch/${this.randomizedPlaylistItems[this.randomizedPlaylistItems.length - 1]}`,
-              query: playlistInfo
-            }
-          )
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.randomizedPlaylistItems[videoIndex - 1]}`,
-              query: playlistInfo
-            }
-          )
-        }
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
+          }
+        )
       } else {
-        const videoIndex = this.playlistItems.findIndex((item) => {
-          return (item.id ?? item.videoId) === this.videoId
-        })
+        const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
-        if (videoIndex === 0) {
-          this.$router.push(
-            {
-              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].id ?? this.playlistItems[this.randomizedPlaylistItems.length - 1].videoId}`,
-              query: playlistInfo
-            }
-          )
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.playlistItems[videoIndex - 1].id ?? this.playlistItems[videoIndex - 1].videoId}`,
-              query: playlistInfo
-            }
-          )
-        }
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
+          }
+        )
       }
     },
 
     loadCachedPlaylistInformation: async function (cachedPlaylist) {
       this.isLoading = true
+      this.getPlaylistInfoRun = true
       this.setCachedPlaylist(null)
 
       this.playlistTitle = cachedPlaylist.title
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
@@ -393,6 +445,8 @@ export default defineComponent({
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId
+
+        setPublishedTimestampsInvidious(result.videos)
         this.playlistItems = this.playlistItems.concat(result.videos)
 
         this.isLoading = false
@@ -402,7 +456,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistInformationLocal()
         } else {
@@ -412,22 +466,43 @@ export default defineComponent({
       })
     },
 
+    parseUserPlaylist: function (playlist, { allowPlayingVideoRemoval = true } = {}) {
+      this.playlistTitle = playlist.playlistName
+      this.channelName = ''
+      this.channelId = ''
+
+      if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
+        this.playlistItems = playlist.videos
+      } else {
+        // `this.currentVideo` relies on `playlistItems`
+        const latestPlaylistContainsCurrentVideo = playlist.videos.some(v => v.playlistItemId === this.playlistItemId)
+        // Only update list of videos if latest video list still contains currently playing video
+        if (latestPlaylistContainsCurrentVideo) {
+          this.playlistItems = playlist.videos
+        }
+      }
+
+      if (this.reversePlaylist) {
+        this.playlistItems = this.playlistItems.toReversed()
+      }
+
+      this.isLoading = false
+    },
+
     shufflePlaylistItems: function () {
       // Prevents the array from affecting the original object
       const remainingItems = [].concat(this.playlistItems)
       const items = []
 
-      items.push(this.videoId)
+      items.push(this.currentVideo)
+      remainingItems.splice(this.currentVideoIndexZeroBased, 1)
 
-      this.playlistItems.forEach((item) => {
+      while (remainingItems.length > 0) {
         const randomInt = Math.floor(Math.random() * remainingItems.length)
 
-        if ((remainingItems[randomInt].id ?? remainingItems[randomInt].videoId) !== this.videoId) {
-          items.push(remainingItems[randomInt].id ?? remainingItems[randomInt].videoId)
-        }
-
+        items.push(remainingItems[randomInt])
         remainingItems.splice(randomInt, 1)
-      })
+      }
 
       this.randomizedPlaylistItems = items
     },
@@ -437,8 +512,12 @@ export default defineComponent({
       const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
       if (container != null && currentVideoItem != null) {
         // Watch view can be ready sooner than this component
-        container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
+        container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
       }
+    },
+
+    pausePlayer: function () {
+      this.$emit('pause-player')
     },
 
     ...mapMutations([

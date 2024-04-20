@@ -32,13 +32,13 @@
             :id="'prompt-' + sanitizedLabel + '-' + index"
             :key="index"
             :label="option"
-            @click="$emit('click', optionValues[index])"
+            @click="click(optionValues[index])"
           />
           <ft-button
             v-if="showClose"
             :id="'prompt-' + sanitizedLabel + '-close'"
             :label="$t('Close')"
-            tabindex="0"
+            :tabindex="0"
             text-color="'var(--accent-color)'"
             background-color="'var(--text-with-accent-color)'"
             @click="hide"

@@ -37,17 +37,21 @@
         :data="activeData"
         :show-video-with-last-viewed-playlist="true"
         :use-channels-hidden-preference="false"
+        :hide-forbidden-titles="false"
       />
-      <ft-flex-box
+      <ft-auto-load-next-page-wrapper
         v-if="showLoadMoreButton"
+        @load-next-page="increaseLimit"
       >
-        <ft-button
-          label="Load More"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="increaseLimit"
-        />
-      </ft-flex-box>
+        <ft-flex-box>
+          <ft-button
+            label="Load More"
+            background-color="var(--primary-color)"
+            text-color="var(--text-with-main-color)"
+            @click="increaseLimit"
+          />
+        </ft-flex-box>
+      </ft-auto-load-next-page-wrapper>
     </ft-card>
   </div>
 </template>

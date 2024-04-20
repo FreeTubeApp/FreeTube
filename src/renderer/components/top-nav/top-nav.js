@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -38,6 +39,21 @@ export default defineComponent({
 
     hideHeaderLogo: function () {
       return this.$store.getters.getHideHeaderLogo
+    },
+
+    landingPage: function () {
+      return this.$store.getters.getLandingPage
+    },
+
+    headerLogoTitle: function () {
+      return this.$t('Go to page',
+        {
+          page: translateWindowTitle(this.$router.getRoutes()
+            .find((route) => route.path === '/' + this.landingPage)
+            .meta.title,
+          this.$i18n
+          )
+        })
     },
 
     enableSearchSuggestions: function () {
@@ -207,7 +223,14 @@ export default defineComponent({
 
     focusSearch: function () {
       if (!this.hideSearchBar) {
-        this.$refs.searchInput.focus()
+        // In order to prevent Klipper's "Synchronize contents of the clipboard
+        // and the selection" feature from being triggered when running
+        // Chromium on KDE Plasma, it seems both focus() focus and
+        // select() have to be called asynchronously (see issue #2019).
+        setTimeout(() => {
+          this.$refs.searchInput.focus()
+          this.$refs.searchInput.select()
+        }, 0)
       }
     },
 
@@ -261,7 +284,7 @@ export default defineComponent({
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
           console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )

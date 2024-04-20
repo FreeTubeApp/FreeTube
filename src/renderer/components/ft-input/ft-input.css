@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .ft-input-component {
   position: relative;
 }
@@ -49,6 +50,7 @@
   position: absolute;
   inset-block-start: 5px;
   inset-inline-start: 0;
+
   /* To be higher than `.inputWrapper` */
   z-index: 1;
   margin-block: 0;
@@ -57,8 +59,6 @@
   border-radius: 100%;
   color: var(--primary-text-color);
   opacity: 0;
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -74,8 +74,6 @@
 .clearInputTextButton.visible:active {
   background-color: var(--tertiary-text-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -84,7 +82,7 @@
 }
 
 .forceTextColor .clearInputTextButton {
-  color: #EEEEEE;
+  color: #EEE;
 }
 
 .forceTextColor .clearInputTextButton:active {
@@ -93,12 +91,10 @@
 
 .ft-input {
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   outline: none;
   inline-size: 100%;
   padding: 1rem;
-  border: none;
+  border: 0;
   margin-block-end: 10px;
   font-size: 16px;
   block-size: 45px;
@@ -107,26 +103,23 @@
   background-color: var(--search-bar-color);
 }
 
-.ft-input-component ::-webkit-input-placeholder {
+.ftcomponent ::placeholder {
   color: var(--tertiary-text-color);
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .forceTextColor .ft-input {
-  color: #EEEEEE;
+  color: #EEE;
   background-color: var(--primary-input-color);
 }
 
 .forceTextColor .ft-input:focus {
   box-shadow: 0 0 1rem 0 var(--primary-input-color);
-  -moz-transition: box-shadow 0.2s ease-in-out;
-  -o-transition: box-shadow 0.2s ease-in-out;
   transition: box-shadow 0.2s ease-in-out;
 }
 
-.forceTextColor ::-webkit-input-placeholder {
-  color: #EEEEEE;
+.forceTextColor ::placeholder {
+  color: #EEE;
 }
 
 .inputWrapper {
@@ -142,12 +135,14 @@
   inset-inline-end: 0;
   border-radius: 100%;
   color: var(--primary-text-color);
+
   /* this should look disabled by default */
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .inputAction.enabled {
-  opacity: 100%;
+  opacity: 1;
+
   /* Only look respond to cursor when enabled */
   cursor: pointer;
 }
@@ -158,7 +153,7 @@
 }
 
 .forceTextColor .inputAction {
-  color: #EEEEEE;
+  color: #EEE;
 }
 
 .ft-input-component.showActionButton .ft-input {
@@ -172,8 +167,6 @@
 .inputAction.enabled:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -184,8 +177,6 @@
 .inputAction.enabled:active {
   background-color: var(--tertiary-text-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 

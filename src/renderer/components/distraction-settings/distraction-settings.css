@@ -1,9 +1,5 @@
-.groupTitle {
-  text-align: center;
-}
-
-@media only screen and (max-width: 800px) {
-  br.hide-on-mobile {
+@media only screen and (width <= 800px) {
+  .hide-on-mobile {
     display: none;
   }
 }

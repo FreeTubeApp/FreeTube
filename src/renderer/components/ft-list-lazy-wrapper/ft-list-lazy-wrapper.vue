@@ -14,23 +14,25 @@
       v-if="visible"
     >
       <ft-list-video
-        v-if="data.type === 'video' || data.type === 'shortVideo'"
+        v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
         :data="data"
         :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       />
       <ft-list-channel
-        v-else-if="data.type === 'channel'"
+        v-else-if="finalDataType === 'channel'"
         :appearance="appearance"
         :data="data"
       />
       <ft-list-playlist
-        v-else-if="data.type === 'playlist'"
+        v-else-if="finalDataType === 'playlist'"
         :appearance="appearance"
         :data="data"
+        :search-query-text="searchQueryText"
       />
       <ft-community-post
-        v-else-if="data.type === 'community'"
+        v-else-if="finalDataType === 'community'"
+        :hide-forbidden-titles="hideForbiddenTitles"
         :appearance="appearance"
         :data="data"
       />

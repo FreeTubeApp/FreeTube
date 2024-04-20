@@ -1,17 +1,19 @@
-.card {
-  inline-size: 85%;
-  margin-block: 0 30px;
-  margin-inline: auto;
+h2 {
+  text-align: center;
 }
 
 .selected {
   text-align: center;
 }
 
-:deep(.select-label) {
-  inline-size: 95%;
+.card {
+  inline-size: 85%;
+  margin-block: 0 15px;
+  margin-inline: auto;
 }
 
-:deep(.select) {
-  text-align-last: center;
+@media only screen and (width <= 680px) {
+  .card {
+    inline-size: 90%;
+  }
 }

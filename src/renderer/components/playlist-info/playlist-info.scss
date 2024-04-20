@@ -2,11 +2,16 @@
   inline-size: 100%;
 }
 
-.playlistThumbnail img {
+.playlistThumbnail .firstVideoLink {
   cursor: pointer;
-  inline-size: 100%;
+}
 
-  @media only screen and (max-width: 800px) {
+.playlistThumbnail img {
+  inline-size: 100%;
+  // Ensure placeholder image displayed at same aspect ratio as most other images
+  aspect-ratio: 16/9;
+
+  @media only screen and (width <= 800px) {
     display: none;
   }
 }
@@ -29,7 +34,7 @@
   overflow-y: auto;
   white-space: break-spaces;
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (width <= 500px) {
     max-block-size: 10vh;
   }
 }
@@ -58,5 +63,22 @@
 .channelShareWrapper {
   column-gap: 8px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto minmax(min-content, 1fr);
+}
+
+.playlistOptions {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  justify-content: flex-end;
+}
+
+.searchInputsRow {
+  margin-block-start: 8px;
+}
+
+@media only screen and (width <= 1250px) {
+  :deep(.sharePlaylistIcon .iconDropdown) {
+    inset-inline: auto auto;
+  }
 }

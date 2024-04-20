@@ -1,19 +1,8 @@
 'PR: waiting for review':
-  - '*'  
-  - '.babelrc'        
-  - '.editorconfig'
-  - '.eslintignore'
-  - '.eslintrc.js'
-  - '.gitignore'
-  - '.prettierrc'       
-  - '.whitesource'       
-  - '.github/**/*'         
-  - '.vscode/**/*'          
-  - '_icons/**/*'          
-  - '_scripts/**/*'         
-  - 'src/**/*'          
-  - 'static/**/*'       
+- changed-files:
+  - any-glob-to-any-file: '**'
 
 'PR: dependencies':
-  - 'yarn.lock'
-  - 'package.json'
+- any:
+  - changed-files:
+    - any-glob-to-any-file: ['yarn.lock', 'package.json']

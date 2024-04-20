@@ -1,4 +1,4 @@
-import db from '../index'
+import * as db from '../index'
 
 class Settings {
   static find() {
@@ -68,8 +68,8 @@ class History {
     return db.history.updateAsync({ videoId }, { $set: { watchProgress } }, { upsert: true })
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
-    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId } }, { upsert: true })
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
+    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId } }, { upsert: true })
   }
 
   static delete(videoId) {
@@ -116,18 +116,22 @@ class Playlists {
     return db.playlists.findAsync({})
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
+  static upsert(playlist) {
+    return db.playlists.updateAsync({ _id: playlist._id }, { $set: playlist }, { upsert: true })
+  }
+
+  static upsertVideoByPlaylistId(_id, videoData) {
     return db.playlists.updateAsync(
-      { playlistName },
+      { _id },
       { $push: { videos: videoData } },
       { upsert: true }
     )
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
+  static upsertVideosByPlaylistId(_id, videos) {
     return db.playlists.updateAsync(
       { _id },
-      { $push: { videos: { $each: videoIds } } },
+      { $push: { videos: { $each: videos } } },
       { upsert: true }
     )
   }
@@ -136,25 +140,35 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
+  static deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId }) {
+    if (playlistItemId != null) {
+      return db.playlists.updateAsync(
+        { _id },
+        { $pull: { videos: { playlistItemId } } },
+        { upsert: true }
+      )
+    } else if (videoId != null) {
+      return db.playlists.updateAsync(
+        { _id },
+        { $pull: { videos: { videoId } } },
+        { upsert: true }
+      )
+    } else {
+      throw new Error(`Both videoId & playlistItemId are absent, _id: ${_id}`)
+    }
+  }
+
+  static deleteVideoIdsByPlaylistId(_id, videoIds) {
     return db.playlists.updateAsync(
-      { playlistName },
-      { $pull: { videos: { videoId } } },
+      { _id },
+      { $pull: { videos: { videoId: { $in: videoIds } } } },
       { upsert: true }
     )
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
+  static deleteAllVideosByPlaylistId(_id) {
     return db.playlists.updateAsync(
-      { playlistName },
-      { $pull: { videos: { $in: videoIds } } },
-      { upsert: true }
-    )
-  }
-
-  static deleteAllVideosByPlaylistName(playlistName) {
-    return db.playlists.updateAsync(
-      { playlistName },
+      { _id },
       { $set: { videos: [] } },
       { upsert: true }
     )
@@ -165,7 +179,7 @@ class Playlists {
   }
 
   static deleteAll() {
-    return db.playlists.removeAsync({ protected: { $ne: true } })
+    return db.playlists.removeAsync({}, { multi: true })
   }
 
   static persist() {
@@ -178,17 +192,15 @@ function compactAllDatastores() {
     Settings.persist(),
     History.persist(),
     Profiles.persist(),
-    Playlists.persist()
+    Playlists.persist(),
   ])
 }
 
-const baseHandlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists,
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists,
 
-  compactAllDatastores
+  compactAllDatastores,
 }
-
-export default baseHandlers

@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   应用此部分尚未完成。有了进展再来。
@@ -42,6 +41,8 @@ Global:
     Subscriber Count: 1 位订阅者 | {count} 位订阅者
     View Count: 1 次观看 | {count} 次观看
     Watching Count: 1 人正在观看 | {count} 人正在观看
+  Input Tags:
+    Length Requirement: 标签长度至少为 {number} 个字符
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
@@ -111,15 +112,89 @@ User Playlists:
   Your Playlists: '您的播放列表'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
-  Search bar placeholder: 在播放列表中搜索
-  Empty Search Message: 这个与你的搜索匹配的播放列表中没有视频
+  Search bar placeholder: 搜索播放列表
+  Empty Search Message: 此播放列表中没有匹配你搜索的视频
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除所有已观看的视频吗？此操作无法撤销。
+  AddVideoPrompt:
+    Search in Playlists: 在播放列表中搜索
+    Save: 保存
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 添加了 1 则视频到 {playlistCount}
+        个播放列表 | 添加了 {videoCount} 则视频到 {playlistCount} 个播放列表
+      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {playlistCount}
+        则视频到 1 个播放列表
+      You haven't selected any playlist yet.: 你尚未选中任何播放列表。
+    Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
+      个视频
+    N playlists selected: 选中了 {playlistCount} 个播放列表
+    Added {count} Times: 添加了 {count} 次
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: 没有可删除的视频。
+      Video has been removed: 视频已被删除
+      Playlist has been updated.: 播放列表已更新。
+      There was an issue with updating this playlist.: 更新此播放列表遇到问题。
+      This video cannot be moved up.: 无法上移此视频。
+      This playlist is protected and cannot be removed.: 此播放列表受保护，无法删除。
+      Playlist {playlistName} has been deleted.: 播放列表 {playlistName} 已被删除。
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 播放列表中的某些视频尚未加载。如果仍需复制，请单击此处。
+      This playlist does not exist: 此播放列表不存在
+      Playlist name cannot be empty. Please input a name.: 播放列表名不能为空。请输入一个名称。
+      There was a problem with removing this video: 删除此视频遇到问题
+      "{videoCount} video(s) have been removed": 1 则视频已被删除 | {videoCount} 则视频已被删除
+      This video cannot be moved down.: 无法下移此视频。
+      This playlist is now used for quick bookmark: 此播放列表现用于快速添加书签
+      Quick bookmark disabled: 停用了快速添加书签
+      Reverted to use {oldPlaylistName} for quick bookmark: 恢复到使用播放列表 {oldPlaylistName}
+        进行快速添加书签操作
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放列表现用于快速添加书签，而非
+        {oldPlaylistName}。单击此处撤销
+    Search for Videos: 搜索视频
+  Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
+  Sort By:
+    LatestPlayedFirst: 最近播放的
+    EarliestCreatedFirst: 最先创建的
+    LatestCreatedFirst: 最近创建的
+    EarliestUpdatedFirst: 最先更新的
+    Sort By: 排序方式
+    NameDescending: Z-A
+    EarliestPlayedFirst: 最先播放的
+    LatestUpdatedFirst: 最近更新的
+    NameAscending: A-Z
+  You have no playlists. Click on the create new playlist button to create a new one.: 你没有播放列表。单击新建播放列表来新建一个。
+  Remove from Playlist: 从播放列表删除
+  Save Changes: 保存更改
+  CreatePlaylistPrompt:
+    Create: 创建
+    Toast:
+      There was an issue with creating the playlist.: 创建播放列表遇到问题。
+      Playlist {playlistName} has been successfully created.: 成功创建了播放列表 {playlistName}。
+      There is already a playlist with this name. Please pick a different name.: 已经存在同名播放列表。请另选一个名称。
+    New Playlist Name: 新播放列表名
+  This playlist currently has no videos.: 播放列表当前无视频。
+  Add to Playlist: 添加到播放列表
+  Move Video Down: 下移视频
+  Playlist Name: 播放列表名称
+  Remove Watched Videos: 删除已观看的视频
+  Move Video Up: 上移视频
+  Cancel: 取消
+  Delete Playlist: 删除播放列表
+  Create New Playlist: 新建播放列表
+  Edit Playlist Info: 编辑播放列表信息
+  Copy Playlist: 复制播放列表
+  Playlist Description: 播放列表描述
+  Add to Favorites: 添加到播放列表 {playlistName}
+  Enable Quick Bookmark With This Playlist: 开启使用此播放列表来快速添加书签
+  Remove from Favorites: 从播放列表 {playlistName} 删除
+  Disable Quick Bookmark: 停用快速添加书签
+  Playlists with Matching Videos: 有匹配视频的播放列表
 History:
   # On History Page
   History: '历史记录'
   Watch History: '观看历史记录'
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
-  Empty Search Message: 匹配搜索的历史记录中没有视频
+  Empty Search Message: 历史记录中没有匹配你搜索的视频
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -163,6 +238,9 @@ Settings:
       No Action: 无操作
       External Link Handling: 外部链接处理
       Open Link: 打开链接
+    Auto Load Next Page:
+      Label: 自动加载下一页
+      Tooltip: 自动加载额外页面和评论。
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -176,6 +254,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -275,8 +354,6 @@ Settings:
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
     Allow DASH AV1 formats: 允许 DASH AV1 格式
-    Comment Auto Load:
-      Comment Auto Load: 自动加载评论
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -291,6 +368,7 @@ Settings:
     How do I import my subscriptions?: '如何导入我的订阅？'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
+    Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -325,8 +403,10 @@ Settings:
     Clear Search Cache: 清除搜索缓存
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
-    Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
     Save Watched Videos With Last Viewed Playlist: 记住上次看过的播放列表中看过的视频 ID
+    All playlists have been removed: 已删除所有播放列表
+    Remove All Playlists: 删除所有播放列表
+    Are you sure you want to remove all your playlists?: 你确定要删除所有播放列表吗？
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
     This might take a while, please wait: 这可能需要一段时间，请稍候
@@ -366,6 +446,11 @@ Settings:
     Playlist File: 播放列表文件
     Subscription File: 订阅文件
     History File: 历史文件
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "此选项将所有播放列表中的视频导出到一个名为'Favorities'的播放列表文件\n如何为老版本的 FreeTube 导出&导入播放列表中的视频：\n
+        1. 启用此选项来导出播放列表\n2. 使用“隐私”设置下的“删除所有播放列表”选项来删除所有现存播放列表\n3. 启动老版本的 FreeTube
+        并导入导出的播放列表。“"
+      Label: 为老版本 FreeTube 导出播放列表
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -386,7 +471,7 @@ Settings:
     Hide Upcoming Premieres: 隐藏即将到来的首映
     Hide Channels: 隐藏频道中的视频
     Hide Channels Placeholder: 频道ID
-    Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
+    Display Titles Without Excessive Capitalisation: 去除标题中对字母大写和标点符号的过度使用
     Hide Featured Channels: 隐藏精选频道
     Hide Channel Playlists: 隐藏频道播放列表
     Hide Channel Community: 隐藏频道社区
@@ -409,6 +494,8 @@ Settings:
     Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
     Hide Channels Already Exists: 频道 ID 已存在
     Hide Channels API Error: 获取 ID 为所提供值的用户出错。请再次检查 ID 是否正确。
+    Hide Videos and Playlists Containing Text: 隐藏包含文本的视频和播放列表
+    Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -438,6 +525,9 @@ Settings:
       Skip Option: 跳过选项
     Category Color: 类别颜色
     UseDeArrowTitles: 使用 DeArrow 视频标题
+    UseDeArrowThumbnails: 对缩略图使用 DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      缩略图生成器 API Url （默认值 https://dearrow-thumb.ajay.app）
   External Player Settings:
     Custom External Player Arguments: 定制外部播放器的参数
     Custom External Player Executable: 自定义外部播放器的可执行文件
@@ -447,6 +537,7 @@ Settings:
     Players:
       None:
         Name: 无
+    Ignore Default Arguments: 忽略默认变量
   Download Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
@@ -473,6 +564,7 @@ Settings:
     Set Password To Prevent Access: 设置密码防止访问设置
     Set Password: 设置密码
     Remove Password: 删除密码
+  Expand All Settings Sections: 展开所有设置部分
 About:
   #On About page
   About: '关于'
@@ -568,6 +660,7 @@ Channel:
     votes: '{votes} 票'
     Reveal Answers: 揭晓答案
     Hide Answers: 隐藏答案
+    Video hidden by FreeTube: 视频被 FreeTube 隐藏
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流
@@ -713,6 +806,9 @@ Video:
   Upcoming: 即将到来
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 实时聊天对此音视频流不可用。上传者可能禁用了它。
   Pause on Current Video: 当前视频播完后不自动播放列表中下一视频
+  Unhide Channel: 显示频道
+  Hide Channel: 隐藏频道
+  More Options: 更多选项
 Videos:
   #& Sort By
   Sort By:
@@ -732,6 +828,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放列表
+  Sort By:
+    Sort By: 排序依据
+    DateAddedNewest: 最近添加的优先
+    DateAddedOldest: 最早添加的优先
+    AuthorAscending: 作者名（A-Z）
+    AuthorDescending: 作者名（Z-A）
+    VideoTitleDescending: 标题（Z-A)
+    Custom: 自定义
+    VideoTitleAscending: 标题（A-Z）
 Toggle Theatre Mode: '切换剧场模式'
 Change Format:
   Change Media Formats: '更换视频格式'
@@ -789,7 +894,7 @@ Up Next: 'Up Next'
 Local API Error (Click to copy): '本地API错误（点击复制）'
 Invidious API Error (Click to copy): 'Invidious API错误（点击复制）'
 Falling back to Invidious API: '回退到Invidious API'
-Falling back to the local API: '回退到本地API'
+Falling back to Local API: '回退到本地API'
 Subscriptions have not yet been implemented: '订阅功能尚未被推行'
 Loop is now disabled: '循环播放现在被禁用'
 Loop is now enabled: '循环播放现在被允许'
@@ -842,6 +947,11 @@ Profile:
   Profile Settings: 个人资料设置
   Profile Filter: 个人资料筛选器
   Toggle Profile List: 切换个人资料列表
+  Open Profile Dropdown: 打开配置文件下拉菜单
+  Close Profile Dropdown: 关闭配置文件下拉菜单
+  Profile Name: 配置文件名
+  Edit Profile Name: 编辑配置文件名
+  Create Profile Name: 创建配置文件名
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
@@ -876,16 +986,17 @@ Tooltips:
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
     DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
     Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
-  Privacy Settings:
-    Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
+    Ignore Default Arguments: 不要向外部播放器发送除视频 URL 外的任何默认变量（如播放速度、播放列表 URL 等）。自定义变量仍将被传递。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
   Distraction Free Settings:
     Hide Channels: 输入频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道 ID 必须完全匹配，并且区分大小写。
     Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}"
       位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
+    Hide Videos and Playlists Containing Text: 输入单词、单词片段或词组（区分大小写）在整个 FreeTube 软件中隐藏所有原始标题包含这些内容的视频和播放列表。注意：历史记录、你的播放列表和播放列表内的视频不受限制约束。
   SponsorBlock Settings:
     UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
+    UseDeArrowThumbnails: 用来自 DeArrow 的缩略图替换原本的视频缩略图。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
@@ -906,12 +1017,6 @@ Download folder does not exist: 下载目录“$”不存在，退回到 “询�
 Screenshot Error: 截屏失败。{error}
 Screenshot Success: 另存截屏为 “{filePath}”
 New Window: 新窗口
-Age Restricted:
-  Type:
-    Channel: 频道
-    Video: 视频
-  The currently set default instance is {instance}: 此 {instance} 有年龄限制
-  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年龄限制
 Channels:
   Search bar placeholder: 搜索频道
   Count: 找到了 {number} 个频道。
@@ -935,3 +1040,19 @@ Hashtag:
   This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频
 Playlist will pause when current video is finished: 当前视频播完后播放列表会暂停
 Playlist will not pause when current video is finished: 当前视频播完后播放列表不会暂停
+Go to page: 转到页{page}
+Channel Hidden: '{channel} 频道已添加到频道过滤器'
+Channel Unhidden: 从频道过滤器删除了{channel} 频道
+Tag already exists: '"{tagName}" 标签已存在'
+Trimmed input must be at least N characters long: 缩减输入的长度需至少为 1 个字符 | 缩减输入的长度需至少为
+  {length} 个字符
+Close Banner: 关闭横幅
+Age Restricted:
+  This video is age restricted: 此视频有年龄限制
+  This channel is age restricted: 此频道有年龄限制
+checkmark: ✓
+Display Label: '{label}: {value}'
+Moments Ago: 片刻前
+Feed:
+  Feed Last Updated: '{feedName} 上次更新: {date}'
+  Refresh Feed: 刷新 {subscriptionName}

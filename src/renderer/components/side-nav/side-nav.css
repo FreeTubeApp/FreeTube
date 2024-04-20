@@ -13,14 +13,12 @@
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .inner {
   block-size: 100%;
   inline-size: 200px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
 }
 
 .closed .inner {
@@ -50,30 +48,33 @@
   display: none;
 }
 
+.navOption, .channelLink {
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+
+.navOption .navLabel {
+  margin-inline-start: 40px;
+  overflow: hidden;
+  word-break: break-word;
+}
+
 .navOption:hover, .navChannel:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .navOption:active, .navChannel:active {
   background-color: var(--side-nav-active-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .navIcon {
   margin-inline-start: 10px;
-}
-
-.navOption .navLabel {
-  margin-inline-start: 40px;
-  overflow: hidden;
-  word-break: break-word;
 }
 
 .navChannel .navLabel {
@@ -88,14 +89,7 @@
   margin: 0;
   position: absolute;
   inset-block-start: 50%;
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-}
-
-.navOption, .channelLink {
-  display: block;
-  color: inherit;
-  text-decoration: inherit;
 }
 
 .channelThumbnail {
@@ -131,22 +125,23 @@
 }
 
 .closed .navIcon {
-  margin-inline-start: 0px;
+  margin-inline-start: 0;
   inline-size: 100%;
   display: block;
-  margin-block-end: 0px;
+  margin-block-end: 0;
 }
+
 .closed .navIconExpand{
   block-size:1.3em;
 }
 
 .closed .navLabel {
-  margin-inline-start: 0px;
+  margin-inline-start: 0;
   inline-size: 100%;
   text-align: center;
-  inset-inline-start: 0px;
+  inset-inline-start: 0;
   font-size: 11px;
-  margin-block-end: 0em;
+  margin-block-end: 0;
 }
 
 .closed .navChannel {
@@ -160,16 +155,13 @@
   position: static;
   display: block;
   float: none;
-  margin-block: 0;
   margin-inline: auto;
-  inset-block-start: 0px;
-  -ms-transform: none;
+  inset-block-start: 0;
   transform: none;
-  margin-block-start: 0.3em;
-  margin-block-end: 0.3em;
+  margin-block: 0.3em;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .inner {
     display: contents; /* sunglasses emoji */
   }
@@ -182,44 +174,41 @@
     position: fixed;
     inset-inline-start: 0;
     inset-block-end: 0;
-
     display: flex;
   }
 
   .topNavOption {
-    margin-block-start: 0px;
-    padding-inline-start: 10px;
-    padding-inline-end: 10px;
+    margin-block-start: 0;
+    padding-inline: 10px;
   }
 
   .sideNav, .closed {
-    margin-block-start: 0px;
+    margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
-    inset-block-end: 0px;
-    inset-block-start: auto;
+    inset-block: auto 0;
     overflow-y: hidden;
   }
 
   .navOption, .closed .navOption {
     inline-size: 70px;
     block-size: 40px;
-    padding: 0px;
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding: 0;
+    padding-block: 10px 10px;
   }
 
   .navLabel {
-    margin-inline-start: 0px;
+    margin-inline-start: 0;
     inline-size: 100%;
     text-align: center;
-    inset-inline-start: 0px;
+    inset-inline-start: 0;
     font-size: 11px;
   }
 
   .moreOption {
     display: block;
   }
+
   .closed.hiddenLabels{
     inline-size: 100%;
   }

@@ -2,7 +2,13 @@ import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import {
+  copyToClipboard,
+  searchFiltersMatch,
+  setPublishedTimestampsInvidious,
+  showToast,
+} from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -11,7 +17,8 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -40,7 +47,7 @@ export default defineComponent({
 
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
-    }
+    },
   },
   watch: {
     $route () {
@@ -214,6 +221,8 @@ export default defineComponent({
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
         })
 
+        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
+
         if (this.searchPage !== 1) {
           this.shownResults = this.shownResults.concat(returnData)
         } else {
@@ -239,7 +248,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.performSearchLocal(payload)
         } else {

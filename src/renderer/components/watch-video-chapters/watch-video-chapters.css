@@ -3,8 +3,7 @@
 }
 
 .chaptersTitle {
-  margin-block-start: 10px;
-  margin-block-end: 0;
+  margin-block: 10px 0;
   cursor: pointer;
 }
 
@@ -35,11 +34,9 @@
 
 .chapter {
   display: grid;
-  grid-template-areas:
-    'thumbnail title'
-    'thumbnail timestamp';
-  grid-template-columns: auto 1fr;
-  grid-template-rows: min(auto, 2fr) 1fr;
+  grid-template:
+    'thumbnail title' 2fr
+    'thumbnail timestamp' 2fr / auto 1fr;
   column-gap: 10px;
   justify-items: start;
   cursor: pointer;
@@ -54,7 +51,6 @@
 .chapterThumbnail {
   grid-area: thumbnail;
   inline-size: 130px;
-  block-size: auto;
   margin: 3px;
 }
 

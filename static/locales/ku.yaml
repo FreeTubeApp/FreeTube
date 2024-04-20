@@ -1,26 +1,25 @@
 # Put the name of your locale in the same language
-Locale Name: 'kur-ckb'
-FreeTube: 'فریتیوب'
+Locale Name: 'کوردی ناوەڕاست'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   ئە بەشە لە ئەپلیکەیشنەکە هێشتا بەردەست نییە. لە کاتێکی دواتردا وەرەوە کە پێشکەوتنێک
   رویداوە.
 
 # Webkit Menu Bar
-File: 'فایل'
-Quit: 'چونەدەرەوە'
-Edit: 'دەستکاریکردن'
-Undo: 'گەڕانەوە'
+File: 'پەڕگە'
+Quit: 'دەرچوون'
+Edit: 'دەستکاری'
+Undo: 'پووچکردنەوە'
 Redo: 'هێنانەوە'
 Cut: 'بڕین'
-Copy: 'کۆپی'
-Paste: 'پەیست'
+Copy: 'لەبەرگرتنەوە'
+Paste: 'لکاندن'
 Delete: 'سڕینەوە'
 Select all: 'دیاریکردنی هەمووی'
-Reload: 'دوبارە دابەزاندن'
-Force Reload: 'دوباری دابەزاندی بەهێز'
-Toggle Developer Tools: 'ئەدەواتەکانی دیڤیڵۆپەر بەردەست بخە'
-Actual size: 'گەورەیی راستی'
+Reload: 'بارکردنەوە'
+Force Reload: 'بارکردنەوەی بەزۆر'
+Toggle Developer Tools: 'زامنی ئامرازەکانی گەشەپێدەر'
+Actual size: 'قەبارەی ڕاستەقینە'
 Zoom in: 'زووم کردنە ناوەوە'
 Zoom out: 'زووم کردنە دەرەوە'
 Toggle fullscreen: 'شاشەکەت پرکەرەوە'
@@ -30,9 +29,9 @@ Close: 'داخستن'
 Back: 'گەڕانەوە'
 Forward: 'چونەپێشەوە'
 
-Version {versionNumber} is now available!  Click for more details: 'ڤێرژنی {versionNumber}
-  ئێستا بەردەستە! کلیک بکە بۆ زانیاری زیاتر'
-Download From Site: 'دایبەزێنە لە سایتەکەوە'
+Version {versionNumber} is now available!  Click for more details: 'ئێستا وەشانی {versionNumber}
+  بەردەستە..بۆ زانیاری زۆرتر کرتە بکە'
+Download From Site: 'لە وێبگەوە دایگرە'
 A new blog is now available, {blogTitle}. Click to view more: 'بڵۆگێکی نوێ بەردەستە،
   {blogTitle}. کلیک بکە بۆ بینینی زیاتر'
 
@@ -190,3 +189,8 @@ Profile:
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
 Channel:
   Playlists: {}
+New Window: پەنجەرەی نوێ
+Go to page: بڕۆ بۆ {page}
+Preferences: هەڵبژاردەکان
+Are you sure you want to open this link?: دڵنیایت دەتەوێت ئەم بەستەرە بکەیتەوە؟
+Open New Window: کردنەوەی پەنجەرەیەکی نوێ

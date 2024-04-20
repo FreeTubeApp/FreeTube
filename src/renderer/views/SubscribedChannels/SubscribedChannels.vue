@@ -26,7 +26,7 @@
         <ft-flex-box class="channels">
           <div
             v-for="channel in channelList"
-            :key="channel.key"
+            :key="channel.id"
             class="channel"
           >
             <router-link
@@ -53,10 +53,10 @@
               class="unsubscribeContainer"
             >
               <ft-subscribe-button
-                class="btn"
                 :channel-id="channel.id"
                 :channel-name="channel.name"
                 :channel-thumbnail="channel.thumbnail"
+                :open-dropdown-on-subscribe="false"
               />
             </div>
           </div>

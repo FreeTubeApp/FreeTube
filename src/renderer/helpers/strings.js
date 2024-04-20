@@ -23,3 +23,32 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
 
   return false
 }
+
+export function translateWindowTitle(title, i18n) {
+  switch (title) {
+    case 'Subscriptions':
+      return i18n.t('Subscriptions.Subscriptions')
+    case 'Channels':
+      return i18n.t('Channels.Title')
+    case 'Trending':
+      return i18n.t('Trending.Trending')
+    case 'Most Popular':
+      return i18n.t('Most Popular')
+    case 'Your Playlists':
+      return i18n.t('User Playlists.Your Playlists')
+    case 'History':
+      return i18n.t('History.History')
+    case 'Settings':
+      return i18n.t('Settings.Settings')
+    case 'About':
+      return i18n.t('About.About')
+    case 'Profile Settings':
+      return i18n.t('Profile.Profile Settings')
+    case 'Search Results':
+      return i18n.t('Search Filters.Search Results')
+    case 'Playlist':
+      return i18n.t('Playlist.Playlist')
+    default:
+      return null
+  }
+}

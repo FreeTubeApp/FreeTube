@@ -1,9 +1,3 @@
-import { deepCopy } from '../../helpers/utils'
-
-const defaultCacheEntryValueForForOneChannel = {
-  videos: null,
-}
-
 const state = {
   videoCache: {},
   liveCache: {},
@@ -54,6 +48,10 @@ const actions = {
     commit('updateShortsCacheByChannel', payload)
   },
 
+  updateSubscriptionShortsCacheWithChannelPageShorts: ({ commit }, payload) => {
+    commit('updateShortsCacheWithChannelPageShorts', payload)
+  },
+
   updateSubscriptionLiveCacheByChannel: ({ commit }, payload) => {
     commit('updateLiveCacheByChannel', payload)
   },
@@ -71,37 +69,66 @@ const actions = {
 }
 
 const mutations = {
-  updateVideoCacheByChannel(state, { channelId, videos }) {
+  updateVideoCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.videoCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
+    newObject.timestamp = timestamp
     state.videoCache[channelId] = newObject
   },
   clearVideoCache(state) {
     state.videoCache = {}
   },
-  updateShortsCacheByChannel(state, { channelId, videos }) {
+  updateShortsCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.shortsCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
+    newObject.timestamp = timestamp
     state.shortsCache[channelId] = newObject
+  },
+  updateShortsCacheWithChannelPageShorts(state, { channelId, videos }) {
+    const cachedObject = state.shortsCache[channelId]
+
+    if (cachedObject && cachedObject.videos.length > 0) {
+      cachedObject.videos.forEach(cachedVideo => {
+        const channelVideo = videos.find(short => cachedVideo.videoId === short.videoId)
+
+        if (channelVideo) {
+          // authorId probably never changes, so we don't need to update that
+
+          cachedVideo.title = channelVideo.title
+          cachedVideo.author = channelVideo.author
+
+          // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
+          // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
+          // 12345 vs 12000 => 12345
+          // 12345 vs 15000 => 15000
+
+          if (channelVideo.viewCount > cachedVideo.viewCount) {
+            cachedVideo.viewCount = channelVideo.viewCount
+          }
+        }
+      })
+    }
   },
   clearShortsCache(state) {
     state.shortsCache = {}
   },
-  updateLiveCacheByChannel(state, { channelId, videos }) {
+  updateLiveCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.liveCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
+    newObject.timestamp = timestamp
     state.liveCache[channelId] = newObject
   },
   clearLiveCache(state) {
     state.liveCache = {}
   },
-  updatePostsCacheByChannel(state, { channelId, posts }) {
+  updatePostsCacheByChannel(state, { channelId, posts, timestamp = new Date() }) {
     const existingObject = state.postsCache[channelId]
-    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    const newObject = existingObject ?? { posts: null }
     if (posts != null) { newObject.posts = posts }
+    newObject.timestamp = timestamp
     state.postsCache[channelId] = newObject
   },
   clearPostsCache(state) {
