@@ -1,8 +1,34 @@
 import * as db from '../index'
 
+/* Mapping of older settings whose variable names have changed to their newer values */
+const outdatedSettings = {
+  defaultTheatreMode: 'defaultTheaterMode',
+  playNextVideo: 'enableAutoplay',
+  autoplayPlaylists: 'enablePlaylistAutoplay',
+  hideUnsubscribeButton: 'hideSubscribeButton',
+  autoplayVideos: 'startVideosAutomatically'
+}
+
 class Settings {
-  static find() {
-    return db.settings.findAsync({ _id: { $ne: 'bounds' } })
+  static async find() {
+    const settings = await db.settings.findAsync({ _id: { $ne: 'bounds' } })
+    // Apply existing values of outdated setting variables in the DB to their newer equivalents,
+    // then delete those older settings
+    const parseableSettings = {}
+    settings.forEach(({ _id, value }) => { parseableSettings[_id] = value })
+    for (const outdatedSetting of Object.keys(outdatedSettings)) {
+      const outdatedSettingInDB = parseableSettings[outdatedSetting]
+      if (!outdatedSettingInDB) {
+        return
+      }
+
+      const newSettingId = outdatedSettings[outdatedSetting]
+      const outdatedSettingValue = outdatedSettingInDB[1]
+      await this.upsert(newSettingId, outdatedSettingValue)
+      await this.delete(outdatedSetting)
+    }
+
+    return settings
   }
 
   static upsert(_id, value) {

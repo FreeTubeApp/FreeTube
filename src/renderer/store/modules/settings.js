@@ -308,15 +308,6 @@ const state = {
   generalAutoLoadMorePaginatedItemsEnabled: false,
 }
 
-/* Mapping of older settings whose variable names have changed to their newer values */
-const outdatedSettings = {
-  defaultTheatreMode: 'defaultTheaterMode',
-  playNextVideo: 'enableAutoplay',
-  autoplayPlaylists: 'enablePlaylistAutoplay',
-  hideUnsubscribeButton: 'hideSubscribeButton',
-  autoplayVideos: 'startVideosAutomatically'
-}
-
 const stateWithSideEffects = {
   currentLocale: {
     defaultValue: 'en-US',
@@ -477,19 +468,6 @@ const customActions = {
       for (const setting of userSettings) {
         const [_id, value] = setting
         loadSetting(_id, value)
-      }
-
-      // Apply existing values of outdated setting variables in the DB to their newer equivalents,
-      // then delete those older settings
-      for (const outdatedSetting of Object.keys(outdatedSettings)) {
-        const outdatedSettingInDB = userSettings.find((setting) => setting[0] === outdatedSetting)
-        if (!outdatedSettingInDB) {
-          return
-        }
-        const newSetting = outdatedSettings[outdatedSetting]
-        const oldValue = outdatedSettingInDB[1]
-        loadSetting(newSetting, oldValue)
-        await DBSettingHandlers.delete(outdatedSetting)
       }
     } catch (errMessage) {
       console.error(errMessage)
