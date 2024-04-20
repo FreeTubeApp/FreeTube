@@ -40,7 +40,6 @@
       :option-values="externalLinkOpeningPromptValues"
       @click="handleExternalLinkOpeningPromptAnswer"
     />
-    <!-- !hideSearchBar &&  -->
     <ft-search-filters
       v-if="showSearchFilters"
     />
