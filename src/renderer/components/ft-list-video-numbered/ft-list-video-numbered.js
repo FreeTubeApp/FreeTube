@@ -80,6 +80,7 @@ export default defineComponent({
       default: false,
     }
   },
+  emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {
     return {
       visible: false,
@@ -136,6 +137,18 @@ export default defineComponent({
           this.stopWatchingInitialVisibleState = null
         }
       }
+    },
+    pausePlayer: function () {
+      this.$emit('pause-player')
+    },
+    moveVideoUp: function () {
+      this.$emit('move-video-up')
+    },
+    moveVideoDown: function () {
+      this.$emit('move-video-down')
+    },
+    removeFromPlaylist: function () {
+      this.$emit('remove-from-playlist')
     }
   }
 })

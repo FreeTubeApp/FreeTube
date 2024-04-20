@@ -36,7 +36,7 @@
               :id="'prompt-' + sanitizedLabel + '-' + index"
               :key="index"
               :label="option"
-              @click="$emit('click', optionValues[index])"
+              @click="click(optionValues[index])"
             />
             <ft-button
               v-if="showClose"

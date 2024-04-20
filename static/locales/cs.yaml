@@ -1180,3 +1180,7 @@ Age Restricted:
   This video is age restricted: Toto video je omezeno věkem
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
+  Refresh Feed: Obnovit {subscriptionName}
+Moments Ago: chvílí

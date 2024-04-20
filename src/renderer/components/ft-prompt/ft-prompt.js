@@ -72,6 +72,9 @@ export default defineComponent({
     })
   },
   methods: {
+    click: function (value) {
+      this.$emit('click', value)
+    },
     hide: function() {
       this.$emit('click', null)
     },

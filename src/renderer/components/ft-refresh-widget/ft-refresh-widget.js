@@ -21,9 +21,15 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['click'],
   computed: {
     isSideNavOpen: function () {
       return this.$store.getters.getIsSideNavOpen
+    }
+  },
+  methods: {
+    click: function() {
+      this.$emit('click')
     }
   }
 })

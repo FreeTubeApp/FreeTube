@@ -18,7 +18,7 @@
         :disabled="disabled"
         class="radio"
         type="radio"
-        @change="$emit('change', values[index])"
+        @change="change(values[index])"
       >
       <label
         :key="label"

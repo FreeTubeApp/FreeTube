@@ -1062,3 +1062,7 @@ Age Restricted:
   This video is age restricted: 此影片有年齡限制
 checkmark: ✓
 Display Label: '{label}：{value}'
+Moments Ago: 不久前
+Feed:
+  Feed Last Updated: '{feedName} feed 上次更新時間：{date}'
+  Refresh Feed: 重新整理 {subscriptionName}

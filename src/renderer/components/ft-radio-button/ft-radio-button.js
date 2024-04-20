@@ -24,6 +24,7 @@ export default defineComponent({
       default: 0
     }
   },
+  emits: ['change'],
   data: function () {
     return {
       id: '',
@@ -43,6 +44,9 @@ export default defineComponent({
   methods: {
     updateSelectedValue: function (value) {
       this.selectedValue = value
-    }
+    },
+    change: function(value) {
+      this.$emit('change', value)
+    },
   }
 })

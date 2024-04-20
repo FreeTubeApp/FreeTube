@@ -251,7 +251,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Traži najnovije objave na blogu
     Check for Updates: Traži nove verzije
-    View all Invidious instance information: Prikaži podatke svih Invidious primjeraka
+    View all Invidious instance information: Pogledaj podatke svih Invidious instanci
     System Default: Standard sustava
     Clear Default Instance: Izbriši standardnu instancu
     Set Current Instance as Default: Postavi trenutačnu instancu kao standardnu
@@ -401,7 +401,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Stvarno
       želiš ukloniti sve pretplate i profile? Ovo je nepovratna radnja.
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
-    Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
+    Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjom
       gledanom zbirkom
     Remove All Playlists: Ukloni sve zbirke
     All playlists have been removed: Sve zbirke su uklonjene
@@ -778,7 +778,7 @@ Channel:
   This channel does not exist: Ovaj kanal ne postoji
   This channel does not allow searching: Ovaj kanal ne dozvoljava pretraživanje
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Ovaj
-    kanal je dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
+    je kanal dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
   Live:
     Live: Uživo
     This channel does not currently have any live streams: Ovaj kanal trenutačno nema
@@ -811,7 +811,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
   Open in Invidious: 'Otvori na Invidious stranici'
   Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-  Views: 'gledanja'
+  Views: 'Gledanja'
   Watched: 'Pogledano'
   # As in a Live Video
   Live: 'Uživo'
@@ -956,8 +956,8 @@ Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
   Videos: 'Videa'
-  View: 'Pogled'
-  Views: 'Pogledi'
+  View: 'Prikaz'
+  Views: 'Prikazi'
   Last Updated On: 'Zadnje aktualiziranje'
 
 # On Video Watch Page
@@ -966,6 +966,13 @@ Playlist:
   Playlist: Zbirka
   Sort By:
     Sort By: Redoslijed
+    DateAddedNewest: Najprije najnovije dodane
+    DateAddedOldest: Najprije najstarije dodane
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Naslov (A-Z)
+    VideoTitleDescending: Naslov (Z-A)
+    Custom: Prilagođeno
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
@@ -1189,3 +1196,7 @@ Age Restricted:
 Close Banner: Zatvori natpis
 Display Label: '{label}: {value}'
 checkmark: ✓
+Feed:
+  Feed Last Updated: 'Zadnje aktualiziranje feeda {feedName}: {date}'
+  Refresh Feed: Aktualiziraj {subscriptionName}
+Moments Ago: nedavno
