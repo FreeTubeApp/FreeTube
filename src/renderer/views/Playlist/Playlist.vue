@@ -66,10 +66,20 @@
             v-if="listType === 'grid'"
             :data="visiblePlaylistItems"
             display="grid"
+            :playlist-id="playlistId"
+            :playlist-type="infoSource"
             :show-video-with-last-viewed-playlist="true"
             :use-channels-hidden-preference="false"
             :hide-forbidden-titles="false"
+            :always-show-add-to-playlist-button="true"
             :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
+            :can-move-video-up="!playlistInVideoSearchMode && isSortOrderCustom"
+            :can-move-video-down="!playlistInVideoSearchMode && isSortOrderCustom"
+            :playlist-items-length="playlistItems.length"
+            :can-remove-from-playlist="true"
+            @move-video-up="moveVideoUp"
+            @move-video-down="moveVideoDown"
+            @remove-from-playlist="removeVideoFromPlaylist"
           />
           <transition-group
             v-else

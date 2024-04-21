@@ -39,11 +39,40 @@ export default defineComponent({
       required: false,
       default: '',
     },
+    alwaysShowAddToPlaylistButton: {
+      type: Boolean,
+      default: false,
+    },
     quickBookmarkButtonEnabled: {
       type: Boolean,
       default: true,
     },
+    canMoveVideoUp: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoDown: {
+      type: Boolean,
+      default: false,
+    },
+    canRemoveFromPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    playlistItemsLength: {
+      type: Number,
+      default: 0
+    },
+    playlistId: {
+      type: String,
+      default: null
+    },
+    playlistType: {
+      type: String,
+      default: null
+    },
   },
+  emits: ['move-video-down', 'move-video-up', 'remove-from-playlist'],
   computed: {
     listType: function () {
       return this.$store.getters.getListType
@@ -52,5 +81,18 @@ export default defineComponent({
     displayValue: function () {
       return this.display === '' ? this.listType : this.display
     }
+  },
+  methods: {
+    moveVideoUp: function(videoId, playlistItemId) {
+      this.$emit('move-video-up', videoId, playlistItemId)
+    },
+
+    moveVideoDown: function(videoId, playlistItemId) {
+      this.$emit('move-video-down', videoId, playlistItemId)
+    },
+
+    removeFromPlaylist: function(videoId, playlistItemId) {
+      this.$emit('remove-from-playlist', videoId, playlistItemId)
+    },
   }
 })
