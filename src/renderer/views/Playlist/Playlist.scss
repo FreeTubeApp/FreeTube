@@ -26,10 +26,19 @@
 
   &.grid {
     flex-direction: column;
-    margin-block-start: 200px;
+    margin-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-mobile) + var(--top-bar-push-down-adjustment-has-description) + var(--top-bar-push-down-adjustment-empty));
+
+    &.hasPlaylistDescription {
+      --top-bar-push-down-adjustment-has-description: 19px;
+    }
 
     &.playlistInEditMode {
-      margin-block-start: 250px;
+      --top-bar-push-down-adjustment-edit-mode: 50px;
+      --top-bar-push-down-adjustment-has-description: 11px;
+    }
+
+    &.empty {
+      --top-bar-push-down-adjustment-empty: -62px;
     }
 
     .playlistInfoContainer {
@@ -153,11 +162,7 @@
 @media only screen and (width <= 680px) {
   .routerView{
     &.grid {
-      margin-block-start: 230px;
-
-      &.playlistInEditMode {
-        margin-block-start: 280px;
-      }
+      --top-bar-push-down-adjustment-mobile: 20px;
 
       .playlistInfoContainer {
         position: absolute;
