@@ -189,7 +189,7 @@ export default defineComponent({
       if (val > oldVal) {
         // Focus back to search input only when playlist added
         // Allow search and easier deselecting new created playlist
-        this.$refs.searchBar.focus()
+        nextTick(() => this.$refs.searchBar.focus())
       }
     },
 
@@ -199,7 +199,7 @@ export default defineComponent({
       // Only care when CreatePlaylistPrompt hidden
       // Shift focus from button to prevent unwanted click event
       // due to enter key press in CreatePlaylistPrompt
-      this.$refs.searchBar.focus()
+      nextTick(() => this.$refs.searchBar.focus())
     },
   },
   mounted: function () {
@@ -210,7 +210,7 @@ export default defineComponent({
     nextTick(() => this.$refs.searchBar.focus())
   },
   beforeDestroy() {
-    this.lastActiveElement?.focus()
+    nextTick(() => this.lastActiveElement?.focus())
   },
   methods: {
     hide: function () {
