@@ -1,5 +1,5 @@
 // This script fixes shaka not exporting its type definitions and referencing remote google fonts in its CSS
-// by adding an export line to the type definitions and donwloading the fonts and updating the CSS to point to the local files
+// by adding an export line to the type definitions and downloading the fonts and updating the CSS to point to the local files
 // this script only makes changes if they are needed, so running it multiple times doesn't cause any problems
 
 import { appendFileSync, closeSync, ftruncateSync, openSync, readFileSync, writeFileSync, writeSync } from 'fs'
