@@ -1071,15 +1071,15 @@ function runApp() {
   ipcMain.handle(IpcChannels.DB_SEARCH_HISTORY, async (event, { action, data }) => {
     try {
       switch (action) {
-        case DBActions.GENERAL.CREATE:
-          await baseHandlers.searchHistory.create(data)
+        case DBActions.GENERAL.CREATE: {
+          const pageBookmark = await baseHandlers.searchHistory.create(data)
           syncOtherWindows(
             IpcChannels.SYNC_SEARCH_HISTORY,
             event,
             { event: SyncEvents.GENERAL.CREATE, data }
           )
-          return null
-
+          return pageBookmark
+        }
         case DBActions.GENERAL.FIND:
           return await baseHandlers.searchHistory.find()
 

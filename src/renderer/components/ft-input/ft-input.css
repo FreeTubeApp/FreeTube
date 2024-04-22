@@ -205,6 +205,10 @@
   line-height: 2rem;
 }
 
+/* .list .li.bookmarked {
+  color: green;
+} */
+
 .hover {
   background-color: var(--scrollbar-color-hover);
   color: var(--scrollbar-text-color-hover);

@@ -84,7 +84,7 @@
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :data-list="searchSuggestionsDataList"
+          :data-list="[...matchingBookmarksDataList, ...searchSuggestionsDataList]"
           :spellcheck="false"
           :show-clear-text-button="true"
           @input="getSearchSuggestionsDebounce"

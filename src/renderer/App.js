@@ -171,6 +171,7 @@ export default defineComponent({
 
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
+        this.grabPageBookmarks()
         this.grabAllPlaylists()
 
         if (process.env.IS_ELECTRON) {
@@ -539,6 +540,7 @@ export default defineComponent({
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',
+      'grabPageBookmarks',
       'grabAllPlaylists',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',

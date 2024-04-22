@@ -97,12 +97,12 @@ export default defineComponent({
       return this.$t('Open New Window')
     },
 
-    // currentRouteFullPath: function () {
-    //   return this.$router.currentRoute.fullPath
-    // },
-
     isPageBookmarked: function () {
       return this.$store.getters.getPageBookmarkWithRoute(this.currentRouteFullPath) != null
+    },
+
+    matchingBookmarksDataList: function () {
+      return this.$store.getters.getPageBookmarksWithRouteSubstring(this.lastSuggestionQuery, this.currentRouteFullPath)
     },
 
     pageBookmarkIconTitle: function () {
@@ -124,6 +124,7 @@ export default defineComponent({
       this.showSearchContainer = false
     }
 
+    this.currentRouteFullPath = this.$router.currentRoute.fullPath
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
       if (this.expandSideBar) {

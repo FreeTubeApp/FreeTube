@@ -231,9 +231,13 @@ export default defineComponent({
       }
     },
 
-    handleOptionClick: function (index) {
+    handleOptionClick: function (index, isBookmark) {
       this.searchState.showOptions = false
-      this.inputData = this.visibleDataList[index]
+      if (isBookmark) {
+        this.inputData = `ft:${this.visibleDataList[index].route}`
+      } else {
+        this.inputData = this.visibleDataList[index]
+      }
       this.$emit('input', this.inputData)
       this.handleClick()
     },
@@ -307,6 +311,10 @@ export default defineComponent({
       const lowerCaseInputData = this.inputData.toLowerCase()
 
       this.visibleDataList = this.dataList.filter(x => {
+        if (x.bookmarkName) {
+          return x.bookmarkName.toLowerCase().indexOf(lowerCaseInputData) !== -1
+        }
+
         return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
       })
     },

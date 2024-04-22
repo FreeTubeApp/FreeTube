@@ -76,14 +76,18 @@
       >
         <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
-          v-for="(list, index) in visibleDataList"
+          v-for="(entry, index) in visibleDataList"
           :key="index"
-          :class="searchState.selectedOption === index ? 'hover': ''"
-          @click="handleOptionClick(index)"
+          :class="{ hover: searchState.selectedOption === index , bookmarked: entry.bookmarkName }"
+          @click="handleOptionClick(index, entry.bookmarkName)"
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"
         >
-          {{ list }}
+          <!-- <font-awesome-icon
+            v-if="!!entry.bookmarkName"
+            :icon="['fas', 'star']"
+          /> -->
+          {{ entry.bookmarkName ?? entry }}
         </li>
         <!-- skipped -->
       </ul>

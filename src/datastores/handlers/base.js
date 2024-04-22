@@ -193,11 +193,11 @@ class SearchHistory {
   }
 
   static upsert(pageBookmark) {
-    return db.searchHistory.updateAsync({ _id: pageBookmark.route }, pageBookmark, { upsert: true })
+    return db.searchHistory.updateAsync({ _id: pageBookmark._id }, pageBookmark, { upsert: true })
   }
 
   static delete(route) {
-    return db.searchHistory.removeAsync({ _id: route })
+    return db.searchHistory.removeAsync({ route: route })
   }
 
   static deleteAll() {

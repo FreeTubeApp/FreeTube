@@ -17,9 +17,9 @@ const IpcChannels = {
 
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
-  DB_SEARCH_HISTORY: 'db-search-history',
   DB_PROFILES: 'db-profiles',
   DB_PLAYLISTS: 'db-playlists',
+  DB_SEARCH_HISTORY: 'db-search-history',
 
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',

@@ -12,12 +12,36 @@ const getters = {
   getPageBookmarkWithRoute: (state) => (route) => {
     const pageBookmark = state.pageBookmarks.find(p => p.route === route)
     return pageBookmark
+  },
+
+  getPageBookmarksWithRouteSubstring: (state) => (routeSubstring, routeToExclude) => {
+    if (routeSubstring === '') {
+      return []
+    }
+    const routeSubstringToLower = routeSubstring.toLowerCase()
+    const pageBookmarks = state.pageBookmarks.filter((pageBookmark) =>
+      pageBookmark && pageBookmark.route.toLowerCase().includes(routeSubstringToLower) && pageBookmark.route !== routeToExclude
+    )
+    return pageBookmarks
   }
 }
-
 const actions = {
+  async grabPageBookmarks({ commit }) {
+    try {
+      const results = await DBSearchHistoryHandlers.find()
+      commit('setPageBookmarks', results)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async createPageBookmark({ commit }, pageBookmark) {
-    state.pageBookmarks.push(pageBookmark)
+    try {
+      const newPageBookmark = await DBSearchHistoryHandlers.create(pageBookmark)
+      commit('addPageBookmarkToList', newPageBookmark)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
   async updatePageBookmark({ commit }, pageBookmark) {
@@ -49,6 +73,10 @@ const actions = {
 }
 
 const mutations = {
+  addPageBookmarkToList(state, pageBookmark) {
+    state.pageBookmarks.push(pageBookmark)
+  },
+
   setPageBookmarks(state, pageBookmarks) {
     state.pageBookmarks = pageBookmarks
   },
@@ -65,9 +93,9 @@ const mutations = {
     }
   },
 
-  removePageBookmarkFromList(state, pageBookmarkId) {
+  removePageBookmarkFromList(state, route) {
     const i = state.pageBookmarks.findIndex((pageBookmark) => {
-      return pageBookmark.route === pageBookmarkId
+      return pageBookmark.route === route
     })
 
     state.pageBookmarks.splice(i, 1)
