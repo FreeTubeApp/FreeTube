@@ -17,6 +17,13 @@
           :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Auto Load Next Page.Label')"
+          :default-value="generalAutoLoadMorePaginatedItemsEnabled"
+          :compact="true"
+          :tooltip="$t('Settings.General Settings.Auto Load Next Page.Tooltip')"
+          @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

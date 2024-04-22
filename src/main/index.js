@@ -7,7 +7,7 @@ import path from 'path'
 import cp from 'child_process'
 
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
-import baseHandlers from '../datastores/handlers/base'
+import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
 import asyncFs from 'fs/promises'

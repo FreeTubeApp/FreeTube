@@ -11,7 +11,7 @@
   // Ensure placeholder image displayed at same aspect ratio as most other images
   aspect-ratio: 16/9;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (width <= 800px) {
     display: none;
   }
 }
@@ -34,7 +34,7 @@
   overflow-y: auto;
   white-space: break-spaces;
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (width <= 500px) {
     max-block-size: 10vh;
   }
 }
@@ -75,17 +75,10 @@
 
 .searchInputsRow {
   margin-block-start: 8px;
-
-  display: grid;
-
-  /* 2 columns */
-  grid-template-columns: 1fr auto;
-  column-gap: 8px;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (width <= 1250px) {
   :deep(.sharePlaylistIcon .iconDropdown) {
-    inset-inline-start: auto;
-    inset-inline-end: auto;
+    inset-inline: auto auto;
   }
 }

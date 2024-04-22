@@ -276,6 +276,9 @@ Settings:
       Ask Before Opening Link: Chiedi prima di aprire il link
       Open Link: Apri link
       External Link Handling: Gestione dei link esterni
+    Auto Load Next Page:
+      Label: Carica automaticamente la pagina successiva
+      Tooltip: Carica automaticamente pagine e commenti aggiuntivi.
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -393,8 +396,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
     Allow DASH AV1 formats: Consenti formati DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Carica automaticamente i commenti
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -934,6 +935,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
+  Sort By:
+    Sort By: Ordina per
+    Custom: Personalizzato
+    VideoTitleDescending: Titolo (Z-A)
+    AuthorDescending: Autore (Z-A)
+    AuthorAscending: Autore (A-Z)
+    DateAddedNewest: Prima gli aggiunti più nuovi
+    DateAddedOldest: Prima gli aggiunti più vecchi
+    VideoTitleAscending: Titolo (A-Z)
 Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
@@ -1217,3 +1227,7 @@ Age Restricted:
 Close Banner: Chiudi banner
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: pochi istanti fa
+Feed:
+  Feed Last Updated: 'Ultimo aggiornamento del feed {feedName}: {date}'
+  Refresh Feed: Aggiorna {subscriptionName}

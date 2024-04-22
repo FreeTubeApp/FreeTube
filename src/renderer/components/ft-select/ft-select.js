@@ -41,6 +41,7 @@ export default defineComponent({
       default: null
     }
   },
+  emits: ['change'],
   computed: {
     sanitizedPlaceholder: function() {
       return sanitizeForHtmlId(this.placeholder)
@@ -56,6 +57,11 @@ export default defineComponent({
       nextTick(() => {
         this.$refs.select.value = this.value
       })
+    }
+  },
+  methods: {
+    change: function(value) {
+      this.$emit('change', value)
     }
   }
 })

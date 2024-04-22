@@ -40,6 +40,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['pause-player'],
   data: function () {
     return {
       isLoading: true,
@@ -166,13 +167,6 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist updated
       this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
-    playlistItemId (newId, _oldId) {
-      // Playing online video
-      if (newId == null) { return }
-
-      // Re-fetch from local store when different item played
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
-    },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
       if (this.shuffleEnabled) {
@@ -284,7 +278,7 @@ export default defineComponent({
       this.reversePlaylist = !this.reversePlaylist
       // Create a new array to avoid changing array in data store state
       // it could be user playlist or cache playlist
-      this.playlistItems = [].concat(this.playlistItems).reverse()
+      this.playlistItems = this.playlistItems.toReversed()
       setTimeout(() => {
         this.isLoading = false
       }, 1)
@@ -488,6 +482,10 @@ export default defineComponent({
         }
       }
 
+      if (this.reversePlaylist) {
+        this.playlistItems = this.playlistItems.toReversed()
+      }
+
       this.isLoading = false
     },
 
@@ -516,6 +514,10 @@ export default defineComponent({
         // Watch view can be ready sooner than this component
         container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
       }
+    },
+
+    pausePlayer: function () {
+      this.$emit('pause-player')
     },
 
     ...mapMutations([

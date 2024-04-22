@@ -239,6 +239,9 @@ Settings:
       Ask Before Opening Link: 開啟連結前詢問
       Open Link: 開啟連結
       External Link Handling: 外部連結處理
+    Auto Load Next Page:
+      Tooltip: 自動載入額外頁面與留言。
+      Label: 自動載入下一頁
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -353,8 +356,6 @@ Settings:
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
     Allow DASH AV1 formats: 允許 DASH AV1 格式
-    Comment Auto Load:
-      Comment Auto Load: 留言自動載入
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -836,6 +837,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放清單
+  Sort By:
+    Sort By: 排序方式
+    DateAddedNewest: 最後新增優先
+    DateAddedOldest: 最早新增優先
+    AuthorAscending: 作者 (A-Z)
+    AuthorDescending: 作者 (Z-A)
+    VideoTitleAscending: 標題 (A-Z)
+    VideoTitleDescending: 標題 (Z-A)
+    Custom: 自訂
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Media Formats: '變更影片格式'
@@ -1052,3 +1062,7 @@ Age Restricted:
   This video is age restricted: 此影片有年齡限制
 checkmark: ✓
 Display Label: '{label}：{value}'
+Moments Ago: 不久前
+Feed:
+  Feed Last Updated: '{feedName} feed 上次更新時間：{date}'
+  Refresh Feed: 重新整理 {subscriptionName}
