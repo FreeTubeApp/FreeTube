@@ -3969,10 +3969,10 @@ eslint-plugin-vue@^9.25.0:
     vue-eslint-parser "^9.4.2"
     xml-name-validator "^4.0.0"
 
-eslint-plugin-vuejs-accessibility@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-vuejs-accessibility/-/eslint-plugin-vuejs-accessibility-2.2.1.tgz#51c53b24f7e76c958334773a213b1085f3ceaee5"
-  integrity sha512-+QpTYEb4UcVD5+RIfKs3YVPoH1mfUj3nadTixmpPw9+kYp6AFAiZ3CQ/HMiexAAgFGBgL3Np5/nwbqcfQomdEQ==
+eslint-plugin-vuejs-accessibility@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vuejs-accessibility/-/eslint-plugin-vuejs-accessibility-2.3.0.tgz#19ee9d1951d9f25348c429f3418978d42d83f0d9"
+  integrity sha512-zQ6IzK+3obZzPsjeVUeL3xAUlMHXZgRZ8vgXvQAmoZVbsp1xZe6UwXIKUFIim5h3tq/7bOLgei09GoBjJQs+Cw==
   dependencies:
     aria-query "^5.3.0"
     emoji-regex "^10.0.0"
