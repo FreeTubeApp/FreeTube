@@ -33,6 +33,7 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  showPageBookmarkPrompt: false,
   progressBarPercentage: 0,
   toBeAddedToPlaylistVideoList: [],
   newPlaylistDefaultProperties: {},
@@ -100,6 +101,10 @@ const getters = {
 
   getShowCreatePlaylistPrompt () {
     return state.showCreatePlaylistPrompt
+  },
+
+  getShowPageBookmarkPrompt () {
+    return state.showPageBookmarkPrompt
   },
 
   getToBeAddedToPlaylistVideoList () {
@@ -376,6 +381,14 @@ const actions = {
 
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
+  },
+
+  showPageBookmarkPrompt ({ commit }, data) {
+    commit('setShowPageBookmarkPrompt', true)
+  },
+
+  hidePageBookmarkPrompt ({ commit }) {
+    commit('setShowPageBookmarkPrompt', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -837,6 +850,10 @@ const mutations = {
 
   setShowCreatePlaylistPrompt (state, payload) {
     state.showCreatePlaylistPrompt = payload
+  },
+
+  setShowPageBookmarkPrompt (state, payload) {
+    state.showPageBookmarkPrompt = payload
   },
 
   setToBeAddedToPlaylistVideoList (state, payload) {

@@ -107,6 +107,16 @@
         @filterValueUpdated="handleSearchFilterValueChanged"
       />
     </div>
+    <font-awesome-icon
+      class="bookmarkedPageIcon navIcon"
+      :icon="['fas', 'star']"
+      :title="pageBookmarkIconTitle"
+      :class="{ [pageBookmarkIconTheme]: true }"
+      role="button"
+      tabindex="0"
+      @click="openPageBookmarkPrompt"
+      @keydown.enter.prevent="openPageBookmarkPrompt"
+    />
     <ft-profile-selector class="side profiles" />
   </div>
 </template>

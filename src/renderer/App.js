@@ -11,6 +11,7 @@ import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
+import PageBookmarkPrompt from './components/page-bookmark-prompt/page-bookmark-prompt.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
@@ -34,6 +35,7 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
+    PageBookmarkPrompt
   },
   data: function () {
     return {
@@ -76,6 +78,9 @@ export default defineComponent({
     },
     showCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+    showPageBookmarkPrompt: function () {
+      return this.$store.getters.getShowPageBookmarkPrompt
     },
     windowTitle: function () {
       const routePath = this.$route.path

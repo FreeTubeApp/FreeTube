@@ -21,6 +21,7 @@ export default defineComponent({
   data: () => {
     return {
       component: this,
+      currentRouteFullPath: '',
       showSearchContainer: true,
       showFilters: false,
       searchFilterValueChanged: false,
@@ -94,6 +95,27 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    },
+
+    // currentRouteFullPath: function () {
+    //   return this.$router.currentRoute.fullPath
+    // },
+
+    isPageBookmarked: function () {
+      return this.$store.getters.getPageBookmarkWithRoute(this.currentRouteFullPath) != null
+    },
+
+    pageBookmarkIconTitle: function () {
+      return this.isPageBookmarked ? this.$t('Edit bookmark for this page') : this.$t('Bookmark this page')
+    },
+
+    pageBookmarkIconTheme: function () {
+      return this.isPageBookmarked ? 'base favorite' : 'base'
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.currentRouteFullPath = to.fullPath
     }
   },
   mounted: function () {
@@ -132,6 +154,17 @@ export default defineComponent({
       }
 
       clearLocalSearchSuggestionsSession()
+
+      if (query.startsWith('ft:')) {
+        this.$refs.searchInput.handleClearTextClick()
+        const adjustedQuery = query.substring(3)
+        openInternalPath({
+          path: adjustedQuery,
+          adjustedQuery,
+          doCreateNewWindow
+        })
+        return
+      }
 
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
@@ -360,8 +393,14 @@ export default defineComponent({
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
+    openPageBookmarkPrompt: function () {
+      // if (!this.isPageBookmarked) {
+      // }
+      this.showPageBookmarkPrompt()
+    },
     ...mapActions([
       'getYoutubeUrlInfo',
+      'showPageBookmarkPrompt'
     ])
   }
 })

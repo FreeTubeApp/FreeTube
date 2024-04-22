@@ -1,0 +1,9 @@
+.heading {
+  text-align: center;
+}
+
+.pageBookmarkNameInput {
+  inline-size: 80%;
+  max-inline-size: 600px;
+  margin-inline: auto;
+}

@@ -17,11 +17,13 @@ const IpcChannels = {
 
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
+  DB_SEARCH_HISTORY: 'db-search-history',
   DB_PROFILES: 'db-profiles',
   DB_PLAYLISTS: 'db-playlists',
 
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
+  SYNC_SEARCH_HISTORY: 'sync-search-history',
   SYNC_PROFILES: 'sync-profiles',
   SYNC_PLAYLISTS: 'sync-playlists',
 
@@ -44,6 +46,9 @@ const DBActions = {
     UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
     UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
+
+  // SEARCH_HISTORY: {
+  // },
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',

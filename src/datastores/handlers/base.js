@@ -183,12 +183,39 @@ class Playlists {
   }
 }
 
+class SearchHistory {
+  static create(pageBookmark) {
+    return db.searchHistory.insertAsync(pageBookmark)
+  }
+
+  static find() {
+    return db.searchHistory.findAsync({})
+  }
+
+  static upsert(pageBookmark) {
+    return db.searchHistory.updateAsync({ _id: pageBookmark.route }, pageBookmark, { upsert: true })
+  }
+
+  static delete(route) {
+    return db.searchHistory.removeAsync({ _id: route })
+  }
+
+  static deleteAll() {
+    return db.searchHistory.removeAsync({}, { multi: true })
+  }
+
+  static persist() {
+    return db.searchHistory.compactDatafileAsync()
+  }
+}
+
 function compactAllDatastores() {
   return Promise.allSettled([
     Settings.persist(),
     History.persist(),
     Profiles.persist(),
     Playlists.persist(),
+    SearchHistory.persist()
   ])
 }
 
@@ -197,6 +224,7 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
+  SearchHistory as searchHistory,
 
   compactAllDatastores,
 }

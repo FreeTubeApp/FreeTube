@@ -32,6 +32,11 @@ Forward: Forward
 Open New Window: Open New Window
 Go to page: Go to {page}
 Close Banner: Close Banner
+Bookmark this page: Bookmark this page
+Edit bookmark for this page: Edit bookmark for this page
+Save: Save
+Cancel: Cancel
+Name: Name
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -1063,6 +1068,14 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
+Page Bookmark:
+  Bookmark this page: Bookmark this page
+  Create Bookmark: Create Bookmark
+  Edit Bookmark: Edit Bookmark
+  Remove Bookmark: Remove Bookmark
+  Created page bookmark: Created page bookmark "{bookmarkName}"
+  Updated page bookmark: Updated page bookmark "{bookmarkName}"
+  Removed page bookmark: Removed page bookmark "{bookmarkName}"
 Moments Ago: moments ago
 Yes: Yes
 No: No

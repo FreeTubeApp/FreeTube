@@ -27,7 +27,7 @@
 
   @media only screen and (width >= 961px) {
     display: grid;
-    grid-template-columns: 1fr 440px 1fr;
+    grid-template-columns: 1fr 440px 0.5fr 0.5fr;
   }
 
   @include top-nav-is-colored {
@@ -100,6 +100,10 @@
       box-shadow: 0 0 $effect-distance var(--text-with-main-color);
     }
   }
+}
+
+.bookmarkedPageIcon.favorite {
+  color: var(--favorite-icon-color);
 }
 
 .side {

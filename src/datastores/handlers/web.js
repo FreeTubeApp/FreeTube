@@ -118,9 +118,32 @@ class Playlists {
   }
 }
 
+class SearchHistory {
+  static create(pageBookmark) {
+    return baseHandlers.searchHistory.create(pageBookmark)
+  }
+
+  static find() {
+    return baseHandlers.searchHistory.find()
+  }
+
+  static upsert(pageBookmark) {
+    return baseHandlers.searchHistory.upsert(pageBookmark)
+  }
+
+  static delete(route) {
+    return baseHandlers.searchHistory.delete(route)
+  }
+
+  static deleteAll() {
+    return baseHandlers.searchHistory.deleteAll()
+  }
+}
+
 export {
   Settings as settings,
   History as history,
   Profiles as profiles,
-  Playlists as playlists
+  Playlists as playlists,
+  SearchHistory as searchHistory
 }
