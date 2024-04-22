@@ -275,6 +275,8 @@ Settings:
       External Link Handling: Rakenduseväline lingikäsitlus
       Open Link: Ava link
       Ask Before Opening Link: Küsi enne lingi avamist
+    Auto Load Next Page:
+      Label: Laadi järgmine leht automaatselt
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -1123,3 +1125,6 @@ Age Restricted:
 Close Banner: Sulge rekaampilt
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} tellimustevoo viimane uuendus: {date}'
+  Refresh Feed: Uuenda {subscriptionName} andmed
