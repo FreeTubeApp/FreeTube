@@ -56,6 +56,12 @@
         background-color="var(--primary-color)"
         @click="showRemovePlaylistsPrompt = true"
       />
+      <ft-button
+        :label="$t('Settings.Privacy Settings.Remove All Page Bookmarks')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
+        @click="showRemovePageBookmarksPrompt = true"
+      />
     </ft-flex-box>
     <ft-prompt
       v-if="showSearchCachePrompt"
@@ -84,6 +90,13 @@
       :option-names="promptNames"
       :option-values="promptValues"
       @click="handleRemovePlaylists"
+    />
+    <ft-prompt
+      v-if="showRemovePageBookmarksPrompt"
+      :label="removePageBookmarksPromptMessage"
+      :option-names="promptNames"
+      :option-values="promptValues"
+      @click="handleRemovePageBookmarks"
     />
   </ft-settings-section>
 </template>

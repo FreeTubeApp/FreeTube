@@ -23,6 +23,7 @@ export default defineComponent({
       showRemoveHistoryPrompt: false,
       showRemoveSubscriptionsPrompt: false,
       showRemovePlaylistsPrompt: false,
+      showRemovePageBookmarksPrompt: false,
       promptValues: [
         'yes',
         'no'
@@ -45,6 +46,9 @@ export default defineComponent({
     },
     removeSubscriptionsPromptMessage: function () {
       return this.$t('Settings.Privacy Settings["Are you sure you want to remove all subscriptions and profiles?  This cannot be undone."]')
+    },
+    removePageBookmarksPromptMessage: function () {
+      return this.$t('Settings.Privacy Settings["Are you sure you want to remove all page bookmarks?  This cannot be undone."]')
     },
     promptNames: function () {
       return [
@@ -114,6 +118,14 @@ export default defineComponent({
       showToast(this.$t('Settings.Privacy Settings.All playlists have been removed'))
     },
 
+    handleRemovePageBookmarks: function (option) {
+      this.showRemovePageBookmarksPrompt = false
+      if (option !== 'yes') { return }
+
+      this.removeAllPageBookmarks()
+      showToast(this.$t('Settings.Privacy Settings.All page bookmarks have been removed'))
+    },
+
     ...mapActions([
       'updateRememberHistory',
       'removeAllHistory',
@@ -127,6 +139,7 @@ export default defineComponent({
       'updateAllSubscriptionsList',
       'updateProfileSubscriptions',
       'removeAllPlaylists',
+      'removeAllPageBookmarks',
       'updateQuickBookmarkTargetPlaylistId',
     ])
   }
