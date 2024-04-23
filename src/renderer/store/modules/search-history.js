@@ -14,13 +14,13 @@ const getters = {
     return pageBookmark
   },
 
-  getPageBookmarksWithRouteSubstring: (state) => (routeSubstring, routeToExclude) => {
-    if (routeSubstring === '') {
+  getPageBookmarksMatchingQuery: (state) => (query, routeToExclude) => {
+    if (query === '') {
       return []
     }
-    const routeSubstringToLower = routeSubstring.toLowerCase()
+    const queryToLower = query.toLowerCase()
     const pageBookmarks = state.pageBookmarks.filter((pageBookmark) =>
-      pageBookmark && pageBookmark.route.toLowerCase().includes(routeSubstringToLower) && pageBookmark.route !== routeToExclude
+      pageBookmark && pageBookmark.bookmarkName.toLowerCase().includes(queryToLower) && pageBookmark.route !== routeToExclude
     )
     return pageBookmarks
   }

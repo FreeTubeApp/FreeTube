@@ -102,7 +102,7 @@ export default defineComponent({
     },
 
     matchingBookmarksDataList: function () {
-      return this.$store.getters.getPageBookmarksWithRouteSubstring(this.lastSuggestionQuery, this.currentRouteFullPath)
+      return this.$store.getters.getPageBookmarksMatchingQuery(this.lastSuggestionQuery, this.currentRouteFullPath)
     },
 
     pageBookmarkIconTitle: function () {
