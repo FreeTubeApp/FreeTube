@@ -8,7 +8,11 @@
       isLocaleRightToLeft: isLocaleRightToLeft
     }"
   >
-    <top-nav ref="topNav" />
+    <top-nav
+      ref="topNav"
+      :current-route-full-path="currentRouteFullPath"
+      :page-bookmarks-available="pageBookmarksAvailable"
+    />
     <side-nav ref="sideNav" />
     <ft-flex-box
       class="flexBox routerView"

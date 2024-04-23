@@ -113,10 +113,11 @@
       :title="pageBookmarkIconTitle"
       :active="isPageBookmarked"
       :class="{ [pageBookmarkIconTheme]: true }"
+      :disabled="!pageBookmarksAvailable"
       role="button"
       tabindex="0"
-      @click="openPageBookmarkPrompt"
-      @keydown.enter.prevent="openPageBookmarkPrompt"
+      @click="showPageBookmarkPrompt"
+      @keydown.enter.prevent="showPageBookmarkPrompt"
     />
     <ft-profile-selector class="side profiles" />
   </div>

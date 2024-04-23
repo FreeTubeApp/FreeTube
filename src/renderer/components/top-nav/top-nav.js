@@ -18,10 +18,19 @@ export default defineComponent({
     FtSearchFilters,
     FtProfileSelector
   },
+  props: {
+    currentRouteFullPath: {
+      type: String,
+      default: ''
+    },
+    pageBookmarksAvailable: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => {
     return {
       component: this,
-      currentRouteFullPath: '',
       showSearchContainer: true,
       showFilters: false,
       searchFilterValueChanged: false,
@@ -98,7 +107,7 @@ export default defineComponent({
     },
 
     isPageBookmarked: function () {
-      return this.$store.getters.getPageBookmarkWithRoute(this.currentRouteFullPath) != null
+      return this.pageBookmarksAvailable && this.$store.getters.getPageBookmarkWithRoute(this.currentRouteFullPath) != null
     },
 
     matchingBookmarksDataList: function () {
@@ -113,18 +122,11 @@ export default defineComponent({
       return this.isPageBookmarked ? 'base favorite' : 'base'
     }
   },
-  watch: {
-    $route (to, from) {
-      this.currentRouteFullPath = to.fullPath
-    }
-  },
   mounted: function () {
     let previousWidth = window.innerWidth
     if (window.innerWidth <= 680) {
       this.showSearchContainer = false
     }
-
-    this.currentRouteFullPath = this.$router.currentRoute.fullPath
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
       if (this.expandSideBar) {
@@ -393,11 +395,6 @@ export default defineComponent({
     },
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
-    },
-    openPageBookmarkPrompt: function () {
-      // if (!this.isPageBookmarked) {
-      // }
-      this.showPageBookmarkPrompt()
     },
     ...mapActions([
       'getYoutubeUrlInfo',

@@ -227,10 +227,10 @@ class SearchHistory {
     )
   }
 
-  static delete(route) {
+  static delete(_id) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.DELETE, data: route }
+      { action: DBActions.GENERAL.DELETE, data: _id }
     )
   }
 

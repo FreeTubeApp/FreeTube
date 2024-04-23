@@ -196,8 +196,8 @@ class SearchHistory {
     return db.searchHistory.updateAsync({ _id: pageBookmark._id }, pageBookmark, { upsert: true })
   }
 
-  static delete(route) {
-    return db.searchHistory.removeAsync({ route: route })
+  static delete(_id) {
+    return db.searchHistory.removeAsync({ _id: _id })
   }
 
   static deleteAll() {

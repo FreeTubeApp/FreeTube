@@ -55,7 +55,7 @@ const actions = {
 
   async removePageBookmark({ commit }, route) {
     try {
-      await DBSearchHistoryHandlers.delete(route)
+      await DBSearchHistoryHandlers.delete(route._id)
       commit('removePageBookmarkFromList', route)
     } catch (errMessage) {
       console.error(errMessage)

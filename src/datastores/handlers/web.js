@@ -131,8 +131,8 @@ class SearchHistory {
     return baseHandlers.searchHistory.upsert(pageBookmark)
   }
 
-  static delete(route) {
-    return baseHandlers.searchHistory.delete(route)
+  static delete(_id) {
+    return baseHandlers.searchHistory.delete(_id)
   }
 
   static deleteAll() {

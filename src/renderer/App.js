@@ -43,11 +43,13 @@ export default defineComponent({
       showUpdatesBanner: false,
       showBlogBanner: false,
       showReleaseNotes: false,
+      pageBookmarksAvailable: false,
       updateBannerMessage: '',
       blogBannerMessage: '',
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
+      currentRouteFullPath: '',
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -136,7 +138,11 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
-    }
+    },
+
+    // pageBookmark: function () {
+    //   return this.pageBookmarksAvailable ? $this.store.getters.get
+    // }
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -171,8 +177,10 @@ export default defineComponent({
 
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
-        this.grabPageBookmarks()
         this.grabAllPlaylists()
+        this.grabPageBookmarks().then(async () => {
+          this.pageBookmarksAvailable = true
+        })
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -196,12 +204,15 @@ export default defineComponent({
 
       this.$router.afterEach((to, from) => {
         this.$refs.topNav?.navigateHistory()
+        this.currentRouteFullPath = to.fullPath
       })
 
       this.$router.onReady(() => {
         if (this.$router.currentRoute.path === '/') {
           this.$router.replace({ path: this.landingPage })
         }
+
+        this.currentRouteFullPath = this.$router.currentRoute.fullPath
       })
     })
   },
