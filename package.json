@@ -42,7 +42,7 @@
     "lint-style": "stylelint \"**/*.{css,scss}\"",
     "lint-style-fix": "stylelint --fix \"**/*.{css,scss}\"",
     "lint-yml": "eslint --ext .yml,.yaml ./",
-    "pack": "run-p pack:main pack:renderer",
+    "pack": "run-p pack:main pack:renderer && node _scripts/injectAllowedPaths.mjs",
     "pack:main": "webpack --mode=production --node-env=production --config _scripts/webpack.main.config.js",
     "pack:renderer": "webpack --mode=production --node-env=production --config _scripts/webpack.renderer.config.js",
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
