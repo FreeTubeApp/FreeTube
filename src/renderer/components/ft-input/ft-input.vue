@@ -79,15 +79,16 @@
           v-for="(entry, index) in visibleDataList"
           :key="index"
           :class="{ hover: searchState.selectedOption === index , bookmarked: entry.bookmarkName }"
-          @click="handleOptionClick(index, entry.bookmarkName)"
+          @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"
         >
-          <!-- <font-awesome-icon
-            v-if="!!entry.bookmarkName"
-            :icon="['fas', 'star']"
-          /> -->
           {{ entry.bookmarkName ?? entry }}
+          <font-awesome-icon
+            v-if="entry.bookmarkName"
+            :icon="['fas', 'star']"
+            class="bookmarkStarIcon"
+          />
         </li>
         <!-- skipped -->
       </ul>

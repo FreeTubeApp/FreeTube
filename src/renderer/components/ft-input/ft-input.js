@@ -116,8 +116,7 @@ export default defineComponent({
 
     searchStateKeyboardSelectedOptionValue() {
       if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
-
-      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+      return this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.keyboardSelectedOptionIndex)
     },
   },
   watch: {
@@ -143,6 +142,9 @@ export default defineComponent({
     this.updateVisibleDataList()
   },
   methods: {
+    getTextForArrayAtIndex: function (array, index) {
+      return array[index].bookmarkName ?? array[index]
+    },
     handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) {
@@ -231,9 +233,9 @@ export default defineComponent({
       }
     },
 
-    handleOptionClick: function (index, isBookmark) {
+    handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      if (isBookmark) {
+      if (this.visibleDataList[index].route) {
         this.inputData = `ft:${this.visibleDataList[index].route}`
       } else {
         this.inputData = this.visibleDataList[index]
@@ -251,9 +253,11 @@ export default defineComponent({
         if (this.searchState.selectedOption !== -1) {
           this.searchState.showOptions = false
           event.preventDefault()
-          this.inputData = this.visibleDataList[this.searchState.selectedOption]
+          this.inputData = this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.selectedOption)
+          this.handleOptionClick(this.searchState.selectedOption)
+        } else {
+          this.handleClick(event)
         }
-        this.handleClick(event)
         // Early return
         return
       }

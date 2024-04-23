@@ -205,9 +205,15 @@
   line-height: 2rem;
 }
 
-/* .list .li.bookmarked {
-  color: green;
-} */
+.list .bookmarked {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookmarkStarIcon {
+  color: var(--favorite-icon-color);
+}
 
 .hover {
   background-color: var(--scrollbar-color-hover);
