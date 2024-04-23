@@ -17,7 +17,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      bookmarkName: ''
+      name: ''
     }
   },
   computed: {
@@ -36,7 +36,7 @@ export default defineComponent({
   },
   mounted: function () {
     nextTick(() => {
-      this.bookmarkName = this.pageBookmark?.bookmarkName ?? defaultBookmarkNameForRoute(this.$router.currentRoute)
+      this.name = this.pageBookmark?.name ?? defaultBookmarkNameForRoute(this.$router.currentRoute)
       this.lastActiveElement = document.activeElement
       this.$refs.pageBookmarkNameInput.focus()
     })
@@ -58,21 +58,22 @@ export default defineComponent({
 
     removeBookmark: function () {
       this.removePageBookmark(this.pageBookmark)
-      showToast(this.$t('Page Bookmark.Removed page bookmark', { bookmarkName: this.bookmarkName }))
+      showToast(this.$t('Page Bookmark.Removed page bookmark', { name: this.name }))
     },
 
     save: function () {
       const pageBookmark = {
         route: this.$router.currentRoute.fullPath,
-        bookmarkName: this.bookmarkName
+        name: this.name,
+        isBookmark: true
       }
 
       if (this.isBookmarkBeingCreated) {
         this.createPageBookmark(pageBookmark)
-        showToast(this.$t('Page Bookmark.Created page bookmark', { bookmarkName: this.bookmarkName }))
-      } else if (this.pageBookmark.bookmarkName !== pageBookmark.bookmarkName) {
+        showToast(this.$t('Page Bookmark.Created page bookmark', { name: this.name }))
+      } else if (this.pageBookmark.name !== pageBookmark.name) {
         this.updatePageBookmark(pageBookmark)
-        showToast(this.$t('Page Bookmark.Updated page bookmark', { bookmarkName: this.bookmarkName }))
+        showToast(this.$t('Page Bookmark.Updated page bookmark', { name: this.name }))
       }
 
       this.hide()

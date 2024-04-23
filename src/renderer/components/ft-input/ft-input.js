@@ -143,7 +143,7 @@ export default defineComponent({
   },
   methods: {
     getTextForArrayAtIndex: function (array, index) {
-      return array[index].bookmarkName ?? array[index]
+      return array[index].name ?? array[index]
     },
     handleClick: function (e) {
       // No action if no input text
@@ -314,8 +314,8 @@ export default defineComponent({
       const lowerCaseInputData = this.inputData.toLowerCase()
 
       this.visibleDataList = this.dataList.filter(x => {
-        if (x.bookmarkName) {
-          return x.bookmarkName.toLowerCase().indexOf(lowerCaseInputData) !== -1
+        if (x.name) {
+          return x.name.toLowerCase().indexOf(lowerCaseInputData) !== -1
         }
 
         return x.toLowerCase().indexOf(lowerCaseInputData) !== -1

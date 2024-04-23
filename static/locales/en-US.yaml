@@ -1077,9 +1077,9 @@ Page Bookmark:
   Create Bookmark: Create Bookmark
   Edit Bookmark: Edit Bookmark
   Remove Bookmark: Remove Bookmark
-  Created page bookmark: Created page bookmark "{bookmarkName}"
-  Updated page bookmark: Updated page bookmark "{bookmarkName}"
-  Removed page bookmark: Removed page bookmark "{bookmarkName}"
+  Created page bookmark: Created page bookmark "{name}"
+  Updated page bookmark: Updated page bookmark "{name}"
+  Removed page bookmark: Removed page bookmark "{name}"
 Role Descriptions:
   bookmark: bookmark
 Moments Ago: moments ago

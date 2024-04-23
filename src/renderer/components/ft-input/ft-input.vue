@@ -78,15 +78,15 @@
         <li
           v-for="(entry, index) in visibleDataList"
           :key="index"
-          :class="{ hover: searchState.selectedOption === index , bookmarked: entry.bookmarkName }"
-          :aria-roledescription="entry.bookmarkName ? $t('Role Descriptions.bookmark') : null"
+          :class="{ hover: searchState.selectedOption === index , bookmarked: entry.isBookmark }"
+          :aria-roledescription="entry.isBookmark ? $t('Role Descriptions.bookmark') : null"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"
         >
-          {{ entry.bookmarkName ?? entry }}
+          {{ entry.name ?? entry }}
           <font-awesome-icon
-            v-if="entry.bookmarkName"
+            v-if="entry.isBookmark"
             :icon="['fas', 'star']"
             class="bookmarkStarIcon"
           />

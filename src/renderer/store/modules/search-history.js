@@ -20,7 +20,7 @@ const getters = {
     }
     const queryToLower = query.toLowerCase()
     const pageBookmarks = state.pageBookmarks.filter((pageBookmark) =>
-      pageBookmark && pageBookmark.bookmarkName.toLowerCase().includes(queryToLower) && pageBookmark.route !== routeToExclude
+      pageBookmark && pageBookmark.name.toLowerCase().includes(queryToLower) && pageBookmark.route !== routeToExclude
     )
     return pageBookmarks
   }

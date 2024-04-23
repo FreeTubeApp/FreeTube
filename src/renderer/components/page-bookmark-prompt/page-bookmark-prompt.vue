@@ -13,11 +13,11 @@
         ref="pageBookmarkNameInput"
         class="pageBookmarkNameInput"
         :placeholder="$t('Name')"
-        :value="bookmarkName"
+        :value="name"
         :show-clear-text-button="true"
         :show-action-button="false"
-        @input="e => bookmarkName = e"
-        @clear="e => bookmarkName = ''"
+        @input="e => name = e"
+        @clear="e => name = ''"
         @keydown.enter.native="save"
       />
     </div>
@@ -29,7 +29,7 @@
         />
         <ft-button
           :label="$t('Save')"
-          :disabled="bookmarkName === ''"
+          :disabled="name === ''"
           @click="save"
         />
       </ft-flex-box>
