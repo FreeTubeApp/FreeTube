@@ -18,6 +18,7 @@
         :show-action-button="false"
         @input="e => bookmarkName = e"
         @clear="e => bookmarkName = ''"
+        @keydown.enter.native="save"
       />
     </div>
     <div class="actions-container">

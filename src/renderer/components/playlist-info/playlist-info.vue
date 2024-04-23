@@ -42,6 +42,7 @@
       />
       <h2
         v-else
+        id="playlistTitle"
         class="playlistTitle"
       >
         {{ title }}

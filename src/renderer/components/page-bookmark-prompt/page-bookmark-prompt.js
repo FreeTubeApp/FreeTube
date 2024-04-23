@@ -5,6 +5,7 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import { showToast } from '../../helpers/utils'
+import { defaultBookmarkNameForRoute } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'PageBookmarkPrompt',
@@ -35,7 +36,7 @@ export default defineComponent({
   },
   mounted: function () {
     nextTick(() => {
-      this.bookmarkName = this.pageBookmark?.bookmarkName ?? document.title
+      this.bookmarkName = this.pageBookmark?.bookmarkName ?? defaultBookmarkNameForRoute(this.$router.currentRoute)
       this.lastActiveElement = document.activeElement
       this.$refs.pageBookmarkNameInput.focus()
     })
