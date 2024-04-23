@@ -241,6 +241,20 @@ export default defineComponent({
     sortBySelectValues() {
       return this.sortByValues
     },
+    sortIcon: function () {
+      switch (this.sortOrder) {
+        case SORT_BY_VALUES.DateAddedNewest:
+        case SORT_BY_VALUES.VideoTitleDescending:
+        case SORT_BY_VALUES.AuthorDescending:
+          return ['fas', 'arrow-down-short-wide']
+        case SORT_BY_VALUES.DateAddedOldest:
+        case SORT_BY_VALUES.VideoTitleAscending:
+        case SORT_BY_VALUES.AuthorAscending:
+        case SORT_BY_VALUES.Custom:
+        default:
+          return ['fas', 'arrow-up-wide-short']
+      }
+    }
   },
   watch: {
     $route () {

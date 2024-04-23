@@ -30,6 +30,12 @@
       :for="sanitizedId ?? sanitizedPlaceholder"
       :hidden="disabled"
     >
+      <font-awesome-icon
+        v-if="icon"
+        :icon="icon"
+        class="select-icon"
+        :color="iconColor"
+      />
       {{ placeholder }}
     </label>
     <ft-tooltip

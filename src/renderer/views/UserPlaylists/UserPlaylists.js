@@ -164,6 +164,21 @@ export default defineComponent({
     sortBySelectValues() {
       return Object.values(SORT_BY_VALUES)
     },
+    sortIcon: function () {
+      switch (this.sortBy) {
+        case SORT_BY_VALUES.NameDescending:
+        case SORT_BY_VALUES.LatestCreatedFirst:
+        case SORT_BY_VALUES.LatestUpdatedFirst:
+        case SORT_BY_VALUES.LatestPlayedFirst:
+          return ['fas', 'arrow-down-short-wide']
+        case SORT_BY_VALUES.NameAscending:
+        case SORT_BY_VALUES.EarliestCreatedFirst:
+        case SORT_BY_VALUES.EarliestPlayedFirst:
+        case SORT_BY_VALUES.EarliestUpdatedFirst:
+        default:
+          return ['fas', 'arrow-up-wide-short']
+      }
+    }
   },
   watch: {
     lowerCaseQuery() {

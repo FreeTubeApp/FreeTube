@@ -237,6 +237,7 @@
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="sortIconFor(videoSortBy)"
           @change="videoSortBy = $event"
         />
         <ft-select
@@ -246,6 +247,7 @@
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="sortIconFor(shortSortBy)"
           @change="shortSortBy = $event"
         />
         <ft-select
@@ -255,6 +257,7 @@
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="sortIconFor(liveSortBy)"
           @change="liveSortBy = $event"
         />
         <ft-select
@@ -264,6 +267,7 @@
           :select-names="playlistSelectNames"
           :select-values="playlistSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="sortIconFor(playlistSortBy)"
           @change="playlistSortBy = $event"
         />
       </div>

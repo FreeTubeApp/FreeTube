@@ -1950,6 +1950,18 @@ export default defineComponent({
       })
     },
 
+    sortIconFor: function (sortPreference) {
+      switch (sortPreference) {
+        case 'last':
+        case 'newest':
+        case 'popular':
+          return ['fas', 'arrow-down-short-wide']
+        case 'oldest':
+        default:
+          return ['fas', 'arrow-up-wide-short']
+      }
+    },
+
     ...mapActions([
       'showOutlines',
       'updateSubscriptionDetails',
