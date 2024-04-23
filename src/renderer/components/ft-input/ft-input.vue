@@ -79,6 +79,7 @@
           v-for="(entry, index) in visibleDataList"
           :key="index"
           :class="{ hover: searchState.selectedOption === index , bookmarked: entry.bookmarkName }"
+          :aria-roledescription="entry.bookmarkName ? $t('Role Descriptions.bookmark') : null"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"

@@ -1080,6 +1080,8 @@ Page Bookmark:
   Created page bookmark: Created page bookmark "{bookmarkName}"
   Updated page bookmark: Updated page bookmark "{bookmarkName}"
   Removed page bookmark: Removed page bookmark "{bookmarkName}"
+Role Descriptions:
+  bookmark: bookmark
 Moments Ago: moments ago
 Yes: Yes
 No: No
