@@ -139,10 +139,6 @@ export default defineComponent({
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
     },
-
-    // pageBookmark: function () {
-    //   return this.pageBookmarksAvailable ? $this.store.getters.get
-    // }
   },
   watch: {
     windowTitle: 'setWindowTitle',

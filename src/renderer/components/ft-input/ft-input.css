@@ -213,6 +213,7 @@
 
 .bookmarkStarIcon {
   color: var(--favorite-icon-color);
+  opacity: 0.6;
 }
 
 .hover {
