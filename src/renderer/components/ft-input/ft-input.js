@@ -303,7 +303,6 @@ export default defineComponent({
     },
 
     updateVisibleDataList: function () {
-      if (this.dataList.length === 0) { return }
       // Reset selected option before it's updated
       this.searchState.selectedOption = -1
       this.searchState.keyboardSelectedOptionIndex = -1
