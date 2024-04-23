@@ -68,7 +68,7 @@ export async function getLocalSearchSuggestions(query) {
 
   if (query.length > searchCharLimit) {
     // There's an event handler on the search input so avoid displaying an exception
-    console.error('Query is over ' + searchCharLimit + ' characters')
+    console.error(`Query is over ${searchCharLimit} characters`)
     return
   }
 

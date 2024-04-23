@@ -95,7 +95,7 @@ export default defineComponent({
       const searchCharLimit = this.$store.getters.getSearchCharacterLimit
 
       if (payload.query.length > searchCharLimit) {
-        console.warn('Search character limit is: ', searchCharLimit)
+        console.warn(`Search character limit is: ${searchCharLimit}`)
         showToast(this.$t('Search character limit', { searchCharacterLimit: searchCharLimit }))
         return
       }
