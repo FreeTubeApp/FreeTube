@@ -102,8 +102,14 @@
   }
 }
 
-.bookmarkedPageIcon.favorite {
-  color: var(--favorite-icon-color);
+.pageBookmarkIcon {
+  &.favorite {
+    color: var(--favorite-icon-color);
+
+    @include top-nav-is-colored {
+      color: var(--accent-color);
+    }
+  }
 }
 
 .side {

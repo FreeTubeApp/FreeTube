@@ -8,6 +8,7 @@
 .hotPink,
 .nordic {
   --primary-input-color: rgb(0 0 0 / 50%);
+  --side-nav-hover-text-color: var(--primary-text-color);
 }
 
 .system[data-system-theme*='light'], .light,
@@ -21,18 +22,6 @@
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
-}
-
-.system[data-system-theme*='light'], .light,
-.system[data-system-theme*='dark'], .dark,
-.black,
-.gray,
-.dracula,
-.catppuccinMocha,
-.pastelPink,
-.nordic {
-  --primary-input-color: rgb(0 0 0 / 50%);
-  --side-nav-hover-text-color: var(--primary-text-color);
 }
 
 .system[data-system-theme*='light'], .light,

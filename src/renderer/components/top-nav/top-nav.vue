@@ -108,9 +108,10 @@
       />
     </div>
     <font-awesome-icon
-      class="bookmarkedPageIcon navIcon"
+      class="pageBookmarkIcon navIcon"
       :icon="['fas', 'star']"
       :title="pageBookmarkIconTitle"
+      :active="isPageBookmarked"
       :class="{ [pageBookmarkIconTheme]: true }"
       role="button"
       tabindex="0"
