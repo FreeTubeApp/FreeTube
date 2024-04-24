@@ -177,6 +177,7 @@
         :label="$t('User Playlists.Are you sure you want to delete this playlist? This cannot be undone')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
         @click="handleDeletePlaylistPromptAnswer"
       />
       <ft-prompt
@@ -184,6 +185,7 @@
         :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
         @click="handleRemoveVideosOnWatchPromptAnswer"
       />
     </div>

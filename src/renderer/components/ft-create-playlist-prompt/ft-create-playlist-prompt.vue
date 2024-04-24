@@ -24,6 +24,8 @@
       />
       <ft-button
         :label="$t('User Playlists.Cancel')"
+        :text-color="null"
+        :background-color="null"
         @click="hideCreatePlaylistPrompt"
       />
     </ft-flex-box>

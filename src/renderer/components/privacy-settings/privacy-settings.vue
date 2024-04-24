@@ -86,6 +86,7 @@
       :label="$t('Settings.Privacy Settings.Are you sure you want to remove all your playlists?')"
       :option-names="promptNames"
       :option-values="promptValues"
+      :is-first-option-destructive="true"
       @click="handleRemovePlaylists"
     />
   </ft-settings-section>
