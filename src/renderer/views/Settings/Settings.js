@@ -39,7 +39,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      usingElectron: process.env.IS_ELECTRON,
       unlocked: false,
       settingsComponentsData: [
         {
@@ -124,7 +123,7 @@ export default defineComponent({
 
     settingsSectionComponents: function () {
       let settingsSections
-      if (!this.usingElectron) {
+      if (!process.env.IS_ELECTRON) {
         settingsSections = this.settingsComponentsData.filter((settingsComponent) => !settingsComponent.usingElectron)
       } else {
         settingsSections = this.settingsComponentsData
