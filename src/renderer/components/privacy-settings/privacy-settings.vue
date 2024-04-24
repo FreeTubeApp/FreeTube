@@ -52,8 +52,8 @@
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove All Playlists')"
-        text-color="var(--text-with-main-color)"
-        background-color="var(--primary-color)"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
         @click="showRemovePlaylistsPrompt = true"
       />
     </ft-flex-box>

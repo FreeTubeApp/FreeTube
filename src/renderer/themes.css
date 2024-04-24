@@ -195,6 +195,25 @@
   --logo-text: url("../../_icons/textBlackSmall.svg");
 }
 
+.nordic {
+  --primary-text-color: #EEE;
+  --secondary-text-color: #ddd;
+  --tertiary-text-color: #EEE;
+  --title-color: #EEE;
+  --bg-color: #2b2f3a;
+  --favorite-icon-color: #0F0;
+  --card-bg-color: #2e3440;
+  --secondary-card-bg-color: rgb(59 66 82 / 75%);
+  --scrollbar-color: #4b566a;
+  --scrollbar-color-hover: #4b566a;
+  --side-nav-color: #2e3440;
+  --side-nav-hover-color: #3b4252;
+  --side-nav-active-color: #3b4252;
+  --search-bar-color: #4b566a;
+  --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
+  --logo-text: url("../../_icons/textNordicLightSmall.svg");
+}
+
 .hotPink {
   --primary-text-color: #FFFF;
   --secondary-text-color: #FFFF;
@@ -245,32 +264,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .hotPink a:hover, .hotPink a:focus {
   text-decoration: underline;
-}
-
-.mainRed, .secRed {
-  --destructive-color: #7F0000 !important;
-  --destructive-text-color: #FFF !important;
-  --destructive-hover-color: #FF2F2F !important;
-  --destructive-active-color: #AD6060 !important;
-}
-
-.nordic {
-  --primary-text-color: #EEE;
-  --secondary-text-color: #ddd;
-  --tertiary-text-color: #EEE;
-  --title-color: #EEE;
-  --bg-color: #2b2f3a;
-  --favorite-icon-color: #0F0;
-  --card-bg-color: #2e3440;
-  --secondary-card-bg-color: rgb(59 66 82 / 75%);
-  --scrollbar-color: #4b566a;
-  --scrollbar-color-hover: #4b566a;
-  --side-nav-color: #2e3440;
-  --side-nav-hover-color: #3b4252;
-  --side-nav-active-color: #3b4252;
-  --search-bar-color: #4b566a;
-  --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
-  --logo-text: url("../../_icons/textNordicLightSmall.svg");
 }
 
 .mainRed,
@@ -1038,6 +1031,34 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity3: rgb(180 190 254 / 16%);
   --accent-color-opacity4: rgb(180 190 254 / 24%);
 }
+
+  /* region destructive color for red color themes
+  using :has(.app) to increase specificity */
+  .mainRed:has(.app), .secRed:has(.app), .mainDraculaRed:has(.app), .secDraculaRed:has(.app) {
+    --destructive-color: #9C27B0;
+    --destructive-text-color: #FFF;
+    --destructive-hover-color: #8E24AA;
+    --destructive-active-color: #6A1B9A;
+  }
+
+  /* Deal with theme conflict on destructive colors */
+  .mainRed.secPurple,
+  .mainRed.secDeepPurple,
+  .mainRed.secDraculaPurple,
+  .mainDraculaRed.secPurple,
+  .mainDraculaRed.secDeepPurple,
+  .mainDraculaRed.secDraculaPurple,
+  .mainPurple.secRed,
+  .mainPurple.secDraculaRed,
+  .mainDeepPurple.secRed,
+  .mainDeepPurple.secDraculaRed,
+  .mainDraculaPurple.secRed,
+  .mainDraculaPurple.secDraculaRed {
+    --destructive-color: #FF9800;
+    --destructive-text-color: #FFF;
+    --destructive-hover-color: #FB8C00;
+    --destructive-active-color: #EF6C00;
+  }
 
 body[dir='ltr'] {
   --ltr-or-rtl: ltr;

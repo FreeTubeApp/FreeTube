@@ -153,14 +153,14 @@
           v-if="!editMode && isUserPlaylist && videoCount > 0"
           :title="$t('User Playlists.Remove Watched Videos')"
           :icon="['fas', 'eye-slash']"
-          theme="primary"
+          theme="destructive"
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
           :title="$t('User Playlists.Delete Playlist')"
           :icon="['fas', 'trash']"
-          theme="primary"
+          theme="destructive"
           @click="showDeletePlaylistPrompt = true"
         />
         <ft-share-button
