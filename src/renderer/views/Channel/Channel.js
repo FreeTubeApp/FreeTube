@@ -18,7 +18,8 @@ import {
   copyToClipboard,
   extractNumberFromString,
   formatNumber,
-  showToast
+  showToast,
+  getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
@@ -1950,17 +1951,7 @@ export default defineComponent({
       })
     },
 
-    sortIconFor: function (sortPreference) {
-      switch (sortPreference) {
-        case 'last':
-        case 'newest':
-        case 'popular':
-          return ['fas', 'arrow-down-short-wide']
-        case 'oldest':
-        default:
-          return ['fas', 'arrow-up-wide-short']
-      }
-    },
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showOutlines',

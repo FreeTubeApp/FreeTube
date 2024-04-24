@@ -50,7 +50,7 @@
           :select-names="sortBySelectNames"
           :select-values="sortBySelectValues"
           :placeholder="$t('Playlist.Sort By.Sort By')"
-          :icon="sortIcon"
+          :icon="getIconForSortPreference(sortOrder)"
           @change="updateUserPlaylistSortOrder"
         />
         <template

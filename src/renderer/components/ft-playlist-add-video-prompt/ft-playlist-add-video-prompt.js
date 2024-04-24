@@ -10,6 +10,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
   showToast,
+  getIconForSortPreference
 } from '../../helpers/utils'
 
 const SORT_BY_VALUES = {
@@ -154,19 +155,6 @@ export default defineComponent({
     sortBySelectValues() {
       return Object.values(SORT_BY_VALUES)
     },
-    sortIcon: function () {
-      switch (this.sortBy) {
-        case SORT_BY_VALUES.NameDescending:
-        case SORT_BY_VALUES.LatestCreatedFirst:
-        case SORT_BY_VALUES.LatestUpdatedFirst:
-          return ['fas', 'arrow-down-short-wide']
-        case SORT_BY_VALUES.NameAscending:
-        case SORT_BY_VALUES.EarliestCreatedFirst:
-        case SORT_BY_VALUES.EarliestUpdatedFirst:
-        default:
-          return ['fas', 'arrow-up-wide-short']
-      }
-    }
   },
   watch: {
     allPlaylistsLength(val, oldVal) {
@@ -281,6 +269,8 @@ export default defineComponent({
     updateQuery: function(query) {
       this.query = query
     },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'addVideos',
