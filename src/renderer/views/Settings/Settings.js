@@ -40,16 +40,103 @@ export default defineComponent({
   data: function () {
     return {
       usingElectron: process.env.IS_ELECTRON,
-      unlocked: false
+      unlocked: false,
+      settingsComponentsData: [
+        {
+          type: 'general-settings',
+          title: this.$t('Settings.General Settings.General Settings')
+        },
+        {
+          type: 'theme-settings',
+          title: this.$t('Settings.Theme Settings.Theme Settings')
+        },
+        {
+          type: 'player-settings',
+          title: this.$t('Settings.Player Settings.Player Settings')
+        },
+        {
+          type: 'external-player-settings',
+          title: this.$t('Settings.External Player Settings.External Player Settings'),
+          usingElectron: true
+        },
+        {
+          type: 'subscription-settings',
+          title: this.$t('Settings.Subscription Settings.Subscription Settings')
+        },
+        {
+          type: 'distraction-settings',
+          title: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
+        },
+        {
+          type: 'privacy-settings',
+          title: this.$t('Settings.Privacy Settings.Privacy Settings')
+        },
+        {
+          type: 'data-settings',
+          title: this.$t('Settings.Data Settings.Data Settings')
+        },
+        {
+          type: 'proxy-settings',
+          title: this.$t('Settings.Proxy Settings.Proxy Settings'),
+          usingElectron: true
+        },
+        {
+          type: 'download-settings',
+          title: this.$t('Settings.Download Settings.Download Settings'),
+          usingElectron: true
+        },
+        {
+          type: 'parental-control-settings',
+          title: this.$t('Settings.Parental Control Settings.Parental Control Settings')
+        },
+        {
+          type: 'sponsor-block-settings',
+          title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
+        },
+        {
+          type: 'experimental-settings',
+          title: this.$t('Settings.Experimental Settings.Experimental Settings'),
+          usingElectron: true
+        },
+        {
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings')
+        },
+      ]
     }
   },
   computed: {
+    locale: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
     },
 
     allSettingsSectionsExpandedByDefault: function () {
       return this.$store.getters.getAllSettingsSectionsExpandedByDefault
+    },
+
+    settingsSectionSortEnabled: function () {
+      return this.$store.getters.getSettingsSectionSortEnabled
+    },
+
+    settingsSectionComponents: function () {
+      let settingsSections
+      if (!this.usingElectron) {
+        settingsSections = this.settingsComponentsData.filter((settingsComponent) => !settingsComponent.usingElectron)
+      } else {
+        settingsSections = this.settingsComponentsData
+      }
+
+      if (this.settingsSectionSortEnabled) {
+        return settingsSections.toSorted((a, b) =>
+          a.title.toLowerCase().localeCompare(b.title.toLowerCase(), this.locale)
+        )
+      }
+
+      return settingsSections
     },
   },
   created: function () {
@@ -60,6 +147,7 @@ export default defineComponent({
   methods: {
     ...mapActions([
       'updateAllSettingsSectionsExpandedByDefault',
+      'updateSettingsSectionSortEnabled'
     ])
   }
 })
