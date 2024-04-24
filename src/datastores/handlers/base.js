@@ -1,4 +1,4 @@
-import db from '../index'
+import * as db from '../index'
 
 class Settings {
   static find() {
@@ -192,13 +192,11 @@ function compactAllDatastores() {
   ])
 }
 
-const baseHandlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists,
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists,
 
   compactAllDatastores,
 }
-
-export default baseHandlers

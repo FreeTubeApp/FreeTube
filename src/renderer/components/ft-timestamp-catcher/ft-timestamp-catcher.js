@@ -8,6 +8,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['timestamp-event'],
   methods: {
     catchTimestampClick: function (event) {
       this.$emit('timestamp-event', event.detail)

@@ -104,6 +104,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
@@ -385,6 +386,10 @@ export default defineComponent({
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+
+    changeFormat: function(value) {
+      this.$emit('change-format', value)
     },
 
     ...mapActions([

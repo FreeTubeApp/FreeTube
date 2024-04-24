@@ -387,8 +387,6 @@ Settings:
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
         video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
         te maken.'
-    Comment Auto Load:
-      Comment Auto Load: Commentaar Automatisch Laden
     Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
     Allow DASH AV1 formats: DASH-AV1-bestandstypes toestaan
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm

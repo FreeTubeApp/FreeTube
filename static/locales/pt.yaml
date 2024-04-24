@@ -392,8 +392,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
     Allow DASH AV1 formats: Permitir formatos DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Carregamento automático de comentários
   Privacy Settings:
     Privacy Settings: 'Configurações de privacidade'
     Remember History: 'Memorizar histórico'
@@ -974,6 +972,8 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reprodução
+  Sort By:
+    Sort By: Ordenar por
 Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
@@ -1189,3 +1189,6 @@ Close Banner: Fechar banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrições de idade
   This video is age restricted: Este vídeo tem restrições de idade
+Feed:
+  Feed Last Updated: 'Última atualização de {feedName}: {date}'
+  Refresh Feed: Recarregar {subscriptionName}

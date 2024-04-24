@@ -37,6 +37,7 @@ export default defineComponent({
       default: null,
     },
   },
+  emits: ['timestamp-event'],
   data: function () {
     return {
       isLoading: false,
@@ -63,10 +64,6 @@ export default defineComponent({
       return this.$store.getters.getHideCommentPhotos
     },
 
-    commentAutoLoadEnabled: function () {
-      return this.$store.getters.getCommentAutoLoadEnabled
-    },
-
     sortNames: function () {
       return [
         this.$t('Comments.Top comments'),
@@ -85,8 +82,13 @@ export default defineComponent({
       return (this.sortNewest) ? 'newest' : 'top'
     },
 
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
     observeVisibilityOptions: function () {
-      if (!this.commentAutoLoadEnabled) { return false }
+      if (!this.generalAutoLoadMorePaginatedItemsEnabled) {
+        return false
+      }
       if (!this.videoPlayerReady) { return false }
 
       return {

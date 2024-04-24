@@ -98,7 +98,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
   Refresh Subscriptions: 'Опресняване на абонаментите'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този
-    профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
+    профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
     на ограниченията
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
@@ -396,8 +396,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
     Allow DASH AV1 formats: Разрешаване на форматите DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Атоматично зареждане на коментари
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'

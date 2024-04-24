@@ -8,6 +8,7 @@ import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
   getLocalPlaylist,
   getLocalPlaylistContinuation,
@@ -26,7 +27,8 @@ export default defineComponent({
     'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
-    'ft-select': FtSelect
+    'ft-select': FtSelect,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   beforeRouteLeave(to, from, next) {
     if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
