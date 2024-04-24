@@ -76,9 +76,13 @@ const SyncEvents = {
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
+// Width threshold in px at which we switch to using a more heavily altered view for mobile users
+const MOBILE_WIDTH_THRESHOLD = 680
+
 export {
   IpcChannels,
   DBActions,
   SyncEvents,
-  MAIN_PROFILE_ID
+  MAIN_PROFILE_ID,
+  MOBILE_WIDTH_THRESHOLD
 }

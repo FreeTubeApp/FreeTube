@@ -17,6 +17,7 @@ import {
 } from '../../helpers/api/local'
 import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { MOBILE_WIDTH_THRESHOLD } from '../../../constants'
 
 const SORT_BY_VALUES = {
   DateAddedNewest: 'date_added_descending',
@@ -75,6 +76,7 @@ export default defineComponent({
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
+      forceListView: false,
 
       videoSearchQuery: '',
 
@@ -104,7 +106,7 @@ export default defineComponent({
       return this.$route.params.id
     },
     listType: function () {
-      return this.isUserPlaylistRequested ? this.$store.getters.getListType : 'list'
+      return this.isUserPlaylistRequested && !this.forceListView ? this.$store.getters.getListType : 'list'
     },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady
@@ -285,6 +287,11 @@ export default defineComponent({
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()
+    this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     getPlaylistInfo: function () {
@@ -560,6 +567,10 @@ export default defineComponent({
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
       }
+    },
+
+    handleResize: function () {
+      this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD
     },
 
     ...mapActions([
