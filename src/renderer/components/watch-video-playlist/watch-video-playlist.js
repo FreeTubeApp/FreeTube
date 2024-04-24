@@ -486,15 +486,7 @@ export default defineComponent({
         return
       }
 
-      let playlistItems = []
-      playlistItems = playlist.videos
-      playlistItems = getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
-
-      if (this.reversePlaylist) {
-        playlistItems = playlistItems.toReversed()
-      }
-
-      this.playlistItems = playlistItems
+      this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale, this.reversePlaylist)
       this.isLoading = false
     },
 
