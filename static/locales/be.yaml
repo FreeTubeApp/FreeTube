@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Беларуская'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Гэтая частка праграмы яшчэ не гатова. Прыходзьце пазней.
@@ -291,8 +290,6 @@ Settings:
       Error:
         Forbidden Characters: ''
         Empty File Name: ''
-    Comment Auto Load:
-      Comment Auto Load: ''
   External Player Settings:
     External Player Settings: ''
     External Player: ''
@@ -307,7 +304,6 @@ Settings:
     Remember History: ''
     Save Watched Progress: ''
     Save Watched Videos With Last Viewed Playlist: ''
-    Automatically Remove Video Meta Files: ''
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
@@ -802,8 +798,6 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
-  Privacy Settings:
-    Remove Video Meta Files: ''
   Experimental Settings:
     Replace HTTP Cache: ''
   SponsorBlock Settings:
@@ -813,7 +807,7 @@ Tooltips:
 Local API Error (Click to copy): ''
 Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
-Falling back to the local API: ''
+Falling back to Local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
 Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
@@ -833,11 +827,6 @@ Canceled next video autoplay: ''
 Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: ''
-  Type:
-    Channel: ''
-    Video: ''
 External link opening has been disabled in the general settings: ''
 Downloading has completed: ''
 Starting download: ''

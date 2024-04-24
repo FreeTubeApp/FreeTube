@@ -1,6 +1,7 @@
 <template>
   <label
     class="pure-material-slider"
+    :for="id"
   >
     <input
       :id="id"
@@ -10,13 +11,10 @@
       :min="minValue"
       :max="maxValue"
       :step="step"
-      @change="$emit('change', currentValue)"
+      @change="change"
     >
     <span>
-      {{ label }}:
-      <span>
-        {{ displayLabel }}
-      </span>
+      {{ $t('Display Label', {label: label, value: displayLabel}) }}
     </span>
   </label>
 </template>

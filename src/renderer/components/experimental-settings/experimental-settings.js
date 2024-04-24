@@ -1,11 +1,9 @@
-import fs from 'fs/promises'
 import { defineComponent } from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
-import { pathExists } from '../../helpers/filesystem'
-import { getUserDataPath } from '../../helpers/utils'
+import { IpcChannels } from '../../../constants'
 
 export default defineComponent({
   name: 'ExperimentalSettings',
@@ -19,19 +17,16 @@ export default defineComponent({
     return {
       replaceHttpCacheLoading: true,
       replaceHttpCache: false,
-      replaceHttpCachePath: '',
       showRestartPrompt: false
     }
   },
-  mounted: function () {
-    getUserDataPath().then((userData) => {
-      this.replaceHttpCachePath = `${userData}/experiment-replace-http-cache`
+  mounted: async function () {
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+      this.replaceHttpCache = await ipcRenderer.invoke(IpcChannels.GET_REPLACE_HTTP_CACHE)
+    }
 
-      pathExists(this.replaceHttpCachePath).then((exists) => {
-        this.replaceHttpCache = exists
-        this.replaceHttpCacheLoading = false
-      })
-    })
+    this.replaceHttpCacheLoading = false
   },
   methods: {
     handleRestartPrompt: function (value) {
@@ -39,7 +34,7 @@ export default defineComponent({
       this.showRestartPrompt = true
     },
 
-    handleReplaceHttpCache: async function (value) {
+    handleReplaceHttpCache: function (value) {
       this.showRestartPrompt = false
 
       if (value === null || value === 'cancel') {
@@ -47,16 +42,10 @@ export default defineComponent({
         return
       }
 
-      if (this.replaceHttpCache) {
-        // create an empty file
-        const handle = await fs.open(this.replaceHttpCachePath, 'w')
-        await handle.close()
-      } else {
-        await fs.rm(this.replaceHttpCachePath)
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE)
       }
-
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send('relaunchRequest')
     }
   }
 })

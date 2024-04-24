@@ -10,6 +10,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
 import { showToast } from '../../helpers/utils'
+import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'GeneralSettings',
@@ -23,10 +24,14 @@ export default defineComponent({
   },
   data: function () {
     return {
-      backendValues: [
-        'invidious',
-        'local'
-      ],
+      backendValues: process.env.SUPPORTS_LOCAL_API
+        ? [
+            'invidious',
+            'local'
+          ]
+        : [
+            'invidious'
+          ],
       viewTypeValues: [
         'grid',
         'list'
@@ -91,13 +96,17 @@ export default defineComponent({
       return this.$router.getRoutes().filter((route) => includedPageNames.includes(route.name))
     },
     defaultPageNames: function () {
-      return this.defaultPages.map((route) => this.$t(route.meta.title))
+      return this.defaultPages.map((route) => translateWindowTitle(route.meta.title, this.$i18n))
     },
     defaultPageValues: function () {
       // avoid Vue parsing issues by excluding '/' from path values
       return this.defaultPages.map((route) => route.path.substring(1))
     },
     backendPreference: function () {
+      if (!process.env.SUPPORTS_LOCAL_API && this.$store.getters.getBackendPreference === 'local') {
+        this.handlePreferredApiBackend('invidious')
+      }
+
       return this.$store.getters.getBackendPreference
     },
     landingPage: function () {
@@ -132,6 +141,9 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
 
     localeOptions: function () {
       return [
@@ -148,10 +160,16 @@ export default defineComponent({
     },
 
     backendNames: function () {
-      return [
-        this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Local API')
-      ]
+      if (process.env.SUPPORTS_LOCAL_API) {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
+          this.$t('Settings.General Settings.Preferred API Backend.Local API')
+        ]
+      } else {
+        return [
+          this.$t('Settings.General Settings.Preferred API Backend.Invidious API')
+        ]
+      }
     },
 
     viewTypeNames: function () {
@@ -255,7 +273,8 @@ export default defineComponent({
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
-      'updateExternalLinkHandling'
+      'updateExternalLinkHandling',
+      'updateGeneralAutoLoadMorePaginatedItemsEnabled',
     ])
   }
 })

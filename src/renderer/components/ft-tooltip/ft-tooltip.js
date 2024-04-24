@@ -13,7 +13,11 @@ export default defineComponent({
     tooltip: {
       type: String,
       required: true
-    }
+    },
+    allowNewlines: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     const id = `ft-tooltip-${++idCounter}`

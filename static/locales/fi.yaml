@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin kun olemme edistyneet.
@@ -37,8 +36,8 @@ Global:
   Counts:
     Video Count: 1 video | {count} videota
     Subscriber Count: 1 tilaaja | {count} tilaajaa
-    View Count: 1 näyttökerta | {count} näyttökertaa
-    Watching Count: 1 katselee | {count} katselee
+    View Count: 1 katselukerta | {count} katselukertaa
+    Watching Count: 1 katsoja | {count} katsojaa
     Channel Count: 1 kanava | {count} kanavaa
 # Search Bar
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
@@ -117,8 +116,70 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
-  Search bar placeholder: Etsi soittolistalta
+  Search bar placeholder: Etsi soittolistoja
   Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
+  Sort By:
+    NameAscending: A-Ö
+    NameDescending: Ö-A
+    Sort By: Järjestä
+    LatestCreatedFirst: Viimeksi luotu
+    EarliestCreatedFirst: Ensin luotu
+    LatestUpdatedFirst: Viimeksi päivitetty
+    EarliestUpdatedFirst: Ensin päivitetty
+    LatestPlayedFirst: Viimeksi toistettu
+    EarliestPlayedFirst: Ensin toistettu
+  Move Video Up: Siirrä video ylös
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: Video on poistettu
+      Playlist name cannot be empty. Please input a name.: Soittolistan nimi ei voi
+        olla tyhjä. Anna soittolistalle nimi.
+      Playlist has been updated.: Soittolista on päivitetty.
+      "{videoCount} video(s) have been removed": 1 video on poistettu | {videoCount}
+        videota on poistettu
+      This video cannot be moved up.: Tätä videota ei voi siirtää ylös.
+      This video cannot be moved down.: Tätä videota ei voi siirtää alas.
+      This playlist is protected and cannot be removed.: Tämä soittolista on suojattu
+        ja sitä ei voi poistaa.
+      Playlist {playlistName} has been deleted.: Soittolista {playlistName} on poistettu.
+      This playlist does not exist: Soittolistaa ei ole olemassa
+      There was an issue with updating this playlist.: Tätä soittolistaa päivittäessä
+        ilmeni ongelma.
+    Search for Videos: Etsi videot
+  Move Video Down: Siirrä video alas
+  Remove from Playlist: Poista soittolistalta
+  Playlist Name: Soittolistan nimi
+  Playlist Description: Soittolistan kuvaus
+  Edit Playlist Info: Muokkaa soittolistan tietoja
+  Copy Playlist: Kopioi soittolista
+  This playlist currently has no videos.: Tällä soittolistalla ei ole videoita.
+  Delete Playlist: Poista soittolista
+  Are you sure you want to delete this playlist? This cannot be undone: Haluatko varmasti
+    poistaa tämän soittolistan? Toimintoa ei voi perua.
+  You have no playlists. Click on the create new playlist button to create a new one.: Sinulla
+    ei ole soittolistoja. Luo uusi soittolista napsauttamalla "Luo uusi soittolista".
+  Create New Playlist: Luo uusi soittolista
+  Add to Playlist: Lisää soittolistalle
+  Save Changes: Tallenna muutokset
+  Cancel: Peruuta
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} valittu'
+    Save: Tallenna
+    Toast:
+      You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
+  CreatePlaylistPrompt:
+    New Playlist Name: Uuden soittolistan nimi
+    Create: Luo
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Samalla
+        nimellä on jo olemassa soittolista. Valitse eri nimi.
+      Playlist {playlistName} has been successfully created.: Soittolista {playlistName}
+        on luotu.
+      There was an issue with creating the playlist.: Soittolistaa luotaessa ilmeni
+        ongelma.
+  Add to Favorites: Lisää soittolistaan {playlistName}
+  Remove from Favorites: Poista soittolistalta {playlistName}
+  Remove Watched Videos: Poista katsotut videot
 History:
   # On History Page
   History: 'Historia'
@@ -151,6 +212,7 @@ Settings:
       Middle: 'Puoliväli'
       End: 'Loppu'
       Hidden: Piilotettu
+      Blur: Sumennettu
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanssi
       (Oletus on https://invidious.snopyta.org)'
     Region for Trending: 'Nousussa-sivun alue'
@@ -183,6 +245,8 @@ Settings:
       Dracula: 'Dracula-teema'
       System Default: Järjestelmän oletusarvo
       Catppuccin Mocha: Catppuccin Mocha -teema
+      Hot Pink: Pinkki
+      Pastel Pink: Pastellinpinkki
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -286,8 +350,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
     Allow DASH AV1 formats: Salli DASH AV1 -formaatit
-    Comment Auto Load:
-      Comment Auto Load: Kommenttien automaattinen lataus
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -302,6 +364,7 @@ Settings:
     How do I import my subscriptions?: 'Miten voin tuoda tilaukseni?'
     Fetch Feeds from RSS: Nouda RSS-syöte
     Fetch Automatically: Nouda syöte automaattisesti
+    Only Show Latest Video for Each Channel: Näytä vain jokaisen kanavan uusin video
   Advanced Settings:
     Advanced Settings: 'Lisäasetukset'
     Enable Debug Mode (Prints data to the console): 'Ota virheenkorjaustila käyttöön
@@ -343,9 +406,12 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Haluatko
       cvarmasti poistaa kaikki tilaukset ja profiilit. Tätä toimintoa ei voi perua.
     Remove All Subscriptions / Profiles: Poista kaikki tilaukset / profiilit
-    Automatically Remove Video Meta Files: Poista videoiden metadata automaattisesti
     Save Watched Videos With Last Viewed Playlist: Tallenna katsotut videot viimeksi
       katsotulla soittolistalla
+    Remove All Playlists: Poista kaikki soittolistat
+    All playlists have been removed: Kaikki soittolistat on poistettu
+    Are you sure you want to remove all your playlists?: Haluatko varmasti poistaa
+      kaikki soittolistat?
   Data Settings:
     How do I import my subscriptions?: Kuinka voin tuoda tilaukseni?
     Unknown data key: Tuntematon data-avain
@@ -393,6 +459,8 @@ Settings:
     Playlist File: Soittolistatiedosto
     History File: Historia-tiedosto
     Subscription File: Tilaustiedosto
+    Export Playlists For Older FreeTube Versions:
+      Label: Vie soittolistat FreeTuben vanhempiin versioihin
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -412,7 +480,7 @@ Settings:
     Hide Chapters: Piilota kappaleet
     Hide Channels: Piilota videot kanavilta
     Hide Upcoming Premieres: Piilota Tulevat Ensiesitykset
-    Hide Channels Placeholder: Kanavan nimi tai tunnus
+    Hide Channels Placeholder: Kanavan tunnus
     Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista
       isoja kirjaimia
     Hide Featured Channels: Piilota esillä olevat kanavat
@@ -431,6 +499,9 @@ Settings:
     Hide Subscriptions Live: Piilota tilausten livet
     Blur Thumbnails: Sumenna pikkukuvat
     Hide Profile Pictures in Comments: Piilota profiilikuvat kommenteissa
+    Hide Channels Invalid: Annettu kanavatunnus oli virheellinen
+    Hide Subscriptions Shorts: Piilota tilattujen kanavien Shorts-videot
+    Hide Subscriptions Community: Piilota tilattujen kanavien yhteisö
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -502,6 +573,7 @@ Settings:
     Password Settings: Salasana-asetukset
     Set Password: Aseta salasana
     Remove Password: Poista salasana
+  Expand All Settings Sections: Laajenna asetusten kaikki osiot
 About:
   #On About page
   About: 'Tietoja'
@@ -757,6 +829,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
     ei ole käytettävissä tässä suoratoistossa. Lataaja on saattanut poistaa sen käytöstä.
   Pause on Current Video: Keskeytä nykyiseen videoon
+  Unhide Channel: Näytä kanava
+  Hide Channel: Piilota kanava
 Videos:
   #& Sort By
   Sort By:
@@ -835,7 +909,7 @@ Up Next: 'Seuraavaksi'
 Local API Error (Click to copy): 'Paikallinen API-virhe (Kopioi napsauttamalla)'
 Invidious API Error (Click to copy): 'Invidious API-virhe (Kopioi napsauttamalla)'
 Falling back to Invidious API: 'Palaa takaisin Invidious-sovellusliittymään'
-Falling back to the local API: 'Palaa takaisin paikalliseen sovellusliittymään'
+Falling back to Local API: 'Palaa takaisin paikalliseen sovellusliittymään'
 Subscriptions have not yet been implemented: 'Tilauksia ei ole vielä jalkautettu'
 Loop is now disabled: 'Silmukka on poistettu käytöstä'
 Loop is now enabled: 'Silmukka on nyt käytössä'
@@ -892,6 +966,9 @@ Profile:
   Subscription List: Tilauslista
   Profile Filter: Profiilisuodatin
   Profile Settings: Profiiliasetukset
+  Profile Name: Profiilin nimi
+  Edit Profile Name: Muokkaa profiilin nimeä
+  Create Profile Name: Luo profiilin nimi
 Version {versionNumber} is now available!  Click for more details: Versio {versionNumber}
   on nyt saatavilla! Napsauta saadaksesi lisätietoja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
@@ -940,9 +1017,6 @@ Tooltips:
       H.264 formaatit. DASH AV1 formaatit vaativat enemmän tehoa toistamiseen! Ne
       eivät ole käytettävissä kaikissa videoissa ja näissä tapauksissa soitin käyttää
       sen sijaan DASH H.264 formaatteja.
-  Privacy Settings:
-    Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
-      meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
   External Player Settings:
     Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
       puolipisteillä eroteltuina (';'), jotka haluat siirtää eteenpäin ulkoiselle
@@ -968,7 +1042,7 @@ Tooltips:
     Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}”-asetuksella,
       joka on ”{settingsSection}”-osion ”{subsection}”-osiossa.
   SponsorBlock Settings:
-    UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow'n otsikoilla.
+    UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow’n otsikoilla.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -992,11 +1066,6 @@ Downloading has completed: Videon "{videoTitle}" lataus on valmis
 Starting download: Aloitetaan lataamaan "{videoTitle}"
 Screenshot Success: Kuvakaappaus tallennettu nimellä ”{filePath}”
 New Window: Uusi Ikkuna
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Tämä {videoOrPlaylist} on ikärajoitettu
-  Type:
-    Video: Video
-    Channel: Kanava
 Screenshot Error: Ruutukaappaus epäonnistui. {error}
 Channels:
   Channels: Kanavat
@@ -1027,3 +1096,9 @@ Playlist will pause when current video is finished: Soittolista keskeytetään, 
   nykyinen video päättyy
 Playlist will not pause when current video is finished: Soittolistaa ei keskeytetä,
   kun nykyinen video päättyy
+Channel Hidden: '{channel} lisätty kanavasuodattimeen'
+Go to page: Siirry sivulle {page}
+Channel Unhidden: '{channel} poistettu kanavasuodattimesta'
+Age Restricted:
+  This video is age restricted: Tämä video on ikärajoitettu
+  This channel is age restricted: Tämä kanava on ikärajoitettu

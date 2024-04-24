@@ -14,15 +14,18 @@
   box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
   display: flex;
   block-size: 60px;
-  inset-inline-start: 0;
+  inset-inline: 0;
   line-height: 60px;
   position: sticky;
-  inset-inline-end: 0;
   inset-block-start: 0;
   inline-size: 100%;
   z-index: 4;
 
-  @media only screen and (min-width: 961px) {
+  &:has(+ .sideNav + .routerView .floatingRefreshSection) {
+    box-shadow: none;
+  }
+
+  @media only screen and (width >= 961px) {
     display: grid;
     grid-template-columns: 1fr 440px 1fr;
   }
@@ -31,13 +34,13 @@
     background-color: var(--primary-color);
   }
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     position: fixed;
   }
 }
 
 .menuIcon {
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     display: none;
   }
 }
@@ -58,10 +61,9 @@
 
   &.arrowBackwardDisabled,
   &.arrowForwardDisabled {
-    color: gray;
+    color: #808080;
     opacity: 0.5;
     pointer-events: none;
-    -webkit-user-select: none;
     user-select: none;
   }
 
@@ -112,13 +114,13 @@
   }
 
   .navSearchIcon {
-    @media only screen and (min-width: 681px) {
+    @media only screen and (width >= 681px) {
       display: none;
     }
   }
 
   .navNewWindowIcon {
-    @media only screen and (max-width: 680px) {
+    @media only screen and (width <= 680px) {
       display: none;
     }
   }
@@ -173,7 +175,7 @@
       inset-block-start: -3px;
       inline-size: 100px;
 
-      @media only screen and (max-width: 680px) {
+      @media only screen and (width <= 680px) {
         display: none;
       }
 
@@ -192,11 +194,10 @@
     align-items: center;
     display: flex;
 
-    @media only screen and (max-width: 680px) {
+    @media only screen and (width <= 680px) {
       background-color: var(--side-nav-color);
-      inset-inline-start: 0;
+      inset-inline: 0;
       position: fixed;
-      inset-inline-end: 0;
       inset-block-start: 60px;
 
       @include top-nav-is-colored {
@@ -210,18 +211,16 @@
   }
 
   .searchFilters {
-    inset-inline-start: 0;
+    inset-inline: 0;
     margin-block: 10px 20px;
     margin-inline: 220px 20px;
     position: absolute;
-    inset-inline-end: 0;
     transition: margin 150ms ease-in-out;
 
-    @media only screen and (max-width: 680px) {
-      inset-inline-start: 0;
+    @media only screen and (width <= 680px) {
+      inset-inline: 0;
       margin-block: 95px 0;
       margin-inline: 10px;
-      inset-inline-end: 0;
     }
   }
 }

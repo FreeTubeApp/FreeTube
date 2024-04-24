@@ -2,6 +2,7 @@
   <div
     v-if="dataReady"
     id="app"
+    class="app"
     :class="{
       hideOutlines: outlinesHidden,
       isLocaleRightToLeft: isLocaleRightToLeft
@@ -52,7 +53,7 @@
       @click="showReleaseNotes = !showReleaseNotes"
     >
       <span
-        id="changeLogText"
+        class="changeLogText"
         v-html="updateChangelog"
       />
       <ft-flex-box>
@@ -73,6 +74,12 @@
       :option-names="externalLinkOpeningPromptNames"
       :option-values="externalLinkOpeningPromptValues"
       @click="handleExternalLinkOpeningPromptAnswer"
+    />
+    <ft-playlist-add-video-prompt
+      v-if="showAddToPlaylistPrompt"
+    />
+    <ft-create-playlist-prompt
+      v-if="showCreatePlaylistPrompt"
     />
     <ft-toast />
     <ft-progress-bar

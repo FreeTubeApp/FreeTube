@@ -4,7 +4,7 @@
   margin-inline: auto;
   inline-size: 85%;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (width <= 800px) {
     inline-size: 100%;
   }
 
@@ -20,16 +20,15 @@
   }
 
   > div:not(:last-child, .ft-flex-box) {
-    @media only screen and (max-width: 800px) {
+    @media only screen and (width <= 800px) {
       margin-block-end: 20px;
     }
   }
 }
 
 .sectionLine {
-  background-color: var(--primary-color);
   border: 0;
-  block-size: 2px;
+  border-block-start: 2px solid var(--primary-color);
   margin-block-start: -1px;
   inline-size: 100%;
 }
@@ -41,24 +40,37 @@
 }
 
 .sectionTitle {
-  -webkit-user-select: none;
   user-select: none;
   margin-inline-start: 2%;
+  margin-block: 0.5em;
 }
 
-:deep(.switchGrid) {
+.dataSettingsBox {
+  justify-content: center;
+}
+
+:deep(.groupTitle) {
+  text-align: center;
+  margin-block: 0.5em;
+}
+
+%switch-grid {
   align-items: center;
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-evenly;
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     grid-template-columns: auto;
   }
 }
 
+:deep(.switchGrid) {
+  @extend %switch-grid;
+}
+
 :deep(.switchColumnGrid) {
-  @extend :deep(.switchGrid);
+  @extend %switch-grid;
 
   align-items: start;
 }
@@ -73,19 +85,19 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (width <= 460px) {
   :deep(.settingsFlexStart460px) {
     justify-content: flex-start;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (width <= 500px) {
   :deep(.settingsFlexStart500px) {
     justify-content: flex-start;
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .settingsSection {
     > div {
       :deep(.text.bottom) {

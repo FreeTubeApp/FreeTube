@@ -9,10 +9,13 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
+import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
+import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
+import { translateWindowTitle } from './helpers/strings'
 
 let ipcRenderer = null
 
@@ -28,7 +31,9 @@ export default defineComponent({
     FtPrompt,
     FtButton,
     FtToast,
-    FtProgressBar
+    FtProgressBar,
+    FtPlaylistAddVideoPrompt,
+    FtCreatePlaylistPrompt,
   },
   data: function () {
     return {
@@ -66,15 +71,20 @@ export default defineComponent({
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
     },
+    showAddToPlaylistPrompt: function () {
+      return this.$store.getters.getShowAddToPlaylistPrompt
+    },
+    showCreatePlaylistPrompt: function () {
+      return this.$store.getters.getShowCreatePlaylistPrompt
+    },
     windowTitle: function () {
-      const routeTitle = this.$route.meta.title
-      if (routeTitle !== 'Channel' && routeTitle !== 'Watch' && routeTitle !== 'Hashtag') {
-        let title =
-        this.$route.meta.path === '/home'
-          ? packageDetails.productName
-          : `${this.$t(this.$route.meta.title)} - ${packageDetails.productName}`
+      const routePath = this.$route.path
+      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/')) {
+        let title = translateWindowTitle(this.$route.meta.title, this.$i18n)
         if (!title) {
           title = packageDetails.productName
+        } else {
+          title = `${title} - ${packageDetails.productName}`
         }
         return title
       } else {
@@ -183,8 +193,8 @@ export default defineComponent({
       })
 
       this.$router.onReady(() => {
-        if (this.$router.currentRoute.path !== this.landingPage && this.landingPage !== '/subscriptions') {
-          this.$router.push({ path: this.landingPage })
+        if (this.$router.currentRoute.path === '/') {
+          this.$router.replace({ path: this.landingPage })
         }
       })
     })
@@ -266,10 +276,7 @@ export default defineComponent({
     },
 
     checkExternalPlayer: async function () {
-      const payload = {
-        externalPlayer: this.externalPlayer
-      }
-      this.getExternalPlayerCmdArgumentsData(payload)
+      this.getExternalPlayerCmdArgumentsData()
     },
 
     handleUpdateBannerClick: function (response) {
@@ -456,12 +463,7 @@ export default defineComponent({
 
           default: {
             // Unknown URL type
-            let message = 'Unknown YouTube url type, cannot be opened in app'
-            if (this.$te(message) && this.$t(message) !== '') {
-              message = this.$t(message)
-            }
-
-            showToast(message)
+            showToast(this.$t('Unknown YouTube url type, cannot be opened in app'))
           }
         }
       })

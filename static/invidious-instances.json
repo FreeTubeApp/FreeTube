@@ -8,11 +8,11 @@
     "cors": true
   },
   {
-    "url": "https://invidious.flokinet.to",
+    "url": "https://invidious.nerdvpn.de",
     "cors": true
   },
   {
-    "url": "https://inv.bp.projectsegfau.lt",
+    "url": "https://invidious.projectsegfau.lt",
     "cors": true
   },
   {
@@ -20,11 +20,11 @@
     "cors": true
   },
   {
-    "url": "https://invidious.io.lol",
+    "url": "https://inv.tux.pizza",
     "cors": true
   },
   {
-    "url": "https://inv.tux.pizza",
+    "url": "https://invidious.flokinet.to",
     "cors": true
   },
   {
@@ -32,19 +32,11 @@
     "cors": true
   },
   {
-    "url": "https://yt.artemislena.eu",
+    "url": "https://iv.ggtyler.dev",
     "cors": true
   },
   {
-    "url": "https://vid.priv.au",
-    "cors": true
-  },
-  {
-    "url": "https://onion.tube",
-    "cors": true
-  },
-  {
-    "url": "https://yt.oelrichsgarcia.de",
+    "url": "https://inv.nadeko.net",
     "cors": true
   },
   {
@@ -52,11 +44,11 @@
     "cors": true
   },
   {
-    "url": "https://invidious.asir.dev",
+    "url": "https://iv.nboeck.de",
     "cors": true
   },
   {
-    "url": "https://iv.nboeck.de",
+    "url": "https://yt.artemislena.eu",
     "cors": true
   },
   {
@@ -64,15 +56,11 @@
     "cors": true
   },
   {
+    "url": "https://inv.n8pjl.ca",
+    "cors": true
+  },
+  {
     "url": "https://iv.datura.network",
-    "cors": true
-  },
-  {
-    "url": "https://anontube.lvkaszus.pl",
-    "cors": true
-  },
-  {
-    "url": "https://inv.us.projectsegfau.lt",
     "cors": true
   },
   {
@@ -84,15 +72,19 @@
     "cors": true
   },
   {
+    "url": "https://invidious.jing.rocks",
+    "cors": true
+  },
+  {
     "url": "https://invidious.einfachzocken.eu",
     "cors": true
   },
   {
-    "url": "https://invidious.slipfox.xyz",
+    "url": "https://inv.oikei.net",
     "cors": true
   },
   {
-    "url": "https://invidious.no-logs.com",
+    "url": "https://vid.lilay.dev",
     "cors": true
   },
   {
@@ -108,7 +100,7 @@
     "cors": true
   },
   {
-    "url": "https://inv.citw.lgbt",
+    "url": "https://invidious.privacyredirect.com",
     "cors": true
   }
 ]

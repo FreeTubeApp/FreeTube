@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+      ref="iconButton"
       class="colorOption"
       :title="$t('Profile.Toggle Profile List')"
       :style="{ background: activeProfile.bgColor, color: activeProfile.textColor }"
@@ -25,7 +26,8 @@
       ref="profileList"
       class="profileList"
       tabindex="-1"
-      @focusout="handleProfileListFocusOut"
+      @focusout.native="handleProfileListFocusOut"
+      @keydown.native.esc.stop="handleProfileListEscape"
     >
       <h3
         id="profileListTitle"
@@ -69,7 +71,7 @@
             :id="'profile-' + index + '-name'"
             class="profileName"
           >
-            {{ profile.name }}
+            {{ translatedProfileName(profile) }}
           </p>
         </div>
       </div>

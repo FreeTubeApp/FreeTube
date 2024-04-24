@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'עברית'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   החלק הזה ביישומון עדיין לא מוכן. מזמינים אותך לשוב ולבדוק בהמשך כשנתקדם.
@@ -123,7 +122,7 @@ User Playlists:
     ‚מועדפים’.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
-  Search bar placeholder: חיפוש ברשימת הנגינה
+  Search bar placeholder: חיפוש רשימות נגינה
   Empty Search Message: אין סרטונים ברשימת הנגינה הזו שעונים לחיפוש שלך
 History:
   # On History Page
@@ -291,8 +290,6 @@ Settings:
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
     Allow DASH AV1 formats: לאפשר תצורות DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: טעינת תגובות אוטומטית
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -307,7 +304,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'למחק את כל המינויים / פרופילים'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'למחוק
       כל את המינויים והפרופילים? זופעולה בלתי הפיכה.'
-    Automatically Remove Video Meta Files: להסיר אוטומטית קובצי נתוני על של הסרטון
     Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
       הנגינה לאחרונים שנצפו
   Subscription Settings:
@@ -874,7 +870,7 @@ Up Next: 'הסרטון הבא'
 Local API Error (Click to copy): 'בעיה ב־API המקומי (יש ללחוץ להעתקה)'
 Invidious API Error (Click to copy): 'בעיה ב־API של Invidious (יש ללחוץ להעתקה)'
 Falling back to Invidious API: 'מתבצעת נסיגה ל־API של Invidious'
-Falling back to the local API: 'מתבצעת נסיגה ל־API המקומי'
+Falling back to Local API: 'מתבצעת נסיגה ל־API המקומי'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות
   תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
 Subscriptions have not yet been implemented: 'מנגנון המינויים עדיין לא מוכן'
@@ -943,9 +939,6 @@ Tooltips:
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
     Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
       מופרדים בפסיקים (‚;’).
-  Privacy Settings:
-    Remove Video Meta Files: כאשר אפשרות זו מופעלת, FreeTube מוחק באופן אוטומטי קובצי
-      על שנוצרים במהלך ניגון סרטון, לאחר סגירת עמוד הצפייה.
   Experimental Settings:
     Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
       אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
@@ -980,11 +973,6 @@ Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה
 Screenshot Success: צילום המסך נשמר בתור „{filePath}”
 Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
-Age Restricted:
-  Type:
-    Channel: ערוץ
-    Video: סרטון
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} זה מוגבל בגיל'
 Channels:
   Search bar placeholder: חיפוש ערוצים
   Empty: רשימת הערוצים שלך ריקה כרגע.

@@ -90,16 +90,18 @@ body:
         - Flathub
         - .pacman
         - Portable
-        - .rpm 
+        - .rpm
         - .zip
-        - .apk (Android, FreeTubeCordova Unofficial)
+        - .apk (FreeTubeAndroid Unofficial)
         - AUR (Unofficial)
         - Chocolatey (Unofficial)
+        - Homebrew (Unofficial)
         - MPR (Unofficial)
         - Nix (Unofficial)
         - PortableApps (Unofficial)
         - Scoop (Unofficial)
         - Snapcraft (Unofficial)
+        - WAPT (Unofficial)
         - winget (Unofficial)
         - other
     validations:

@@ -34,13 +34,13 @@
             :label="option"
             :text-color="index === 0 && isFirstOptionDestructive ? 'var(--destructive-text-color)' : null"
             :background-color="index === 0 && isFirstOptionDestructive ? 'var(--destructive-color)' : null"
-            @click="$emit('click', optionValues[index])"
+            @click="click(optionValues[index])"
           />
           <ft-button
             v-if="showClose"
             :id="'prompt-' + sanitizedLabel + '-close'"
             :label="$t('Close')"
-            tabindex="0"
+            :tabindex="0"
             text-color="'var(--accent-color)'"
             background-color="'var(--text-with-accent-color)'"
             @click="hide"

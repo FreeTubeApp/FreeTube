@@ -1,12 +1,13 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -17,7 +18,8 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-refresh-widget': FtRefreshWidget,
   },
   data: function () {
     return {
@@ -33,6 +35,9 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    lastTrendingRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastTrendingRefreshTimestamp, true)
     },
     region: function () {
       return this.$store.getters.getRegion.toUpperCase()
@@ -85,11 +90,13 @@ export default defineComponent({
         this.$store.commit('clearTrendingCache')
       }
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getTrendingInfoInvidious()
       } else {
         this.getTrendingInfoLocal()
       }
+
+      this.setLastTrendingRefreshTimestamp(new Date())
     },
 
     getTrendingInfoLocal: async function () {
@@ -146,6 +153,8 @@ export default defineComponent({
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
+        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
+
         this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
@@ -159,7 +168,7 @@ export default defineComponent({
           copyToClipboard(err.responseText)
         })
 
-        if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
+        if (process.env.SUPPORTS_LOCAL_API && (this.backendPreference === 'invidious' && this.backendFallback)) {
           showToast(this.$t('Falling back to Local API'))
           this.getTrendingInfoLocal()
         } else {
@@ -183,6 +192,7 @@ export default defineComponent({
       switch (event.key) {
         case 'r':
         case 'R':
+        case 'F5':
           if (!this.isLoading) {
             this.getTrendingInfo(true)
           }
@@ -192,6 +202,10 @@ export default defineComponent({
 
     ...mapActions([
       'showOutlines'
+    ]),
+
+    ...mapMutations([
+      'setLastTrendingRefreshTimestamp'
     ])
   }
 })

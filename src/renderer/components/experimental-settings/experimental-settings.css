@@ -1,6 +1,5 @@
 .experimental-warning {
   text-align: center;
   font-weight: bold;
-  padding-inline-start: 4%;
-  padding-inline-end: 4%
+  padding-inline: 4% 4%
 }

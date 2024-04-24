@@ -20,7 +20,7 @@
 }
 
 .channelBannerContainer.default {
-  background-color: black;
+  background-color: #000;
   background-image: url("../../assets/img/defaultBanner.png");
   background-repeat: repeat;
   background-size: contain;
@@ -49,7 +49,6 @@
   inline-size: 100px;
   block-size: 100px;
   border-radius: 200px;
-  -webkit-border-radius: 200px;
   object-fit: cover;
 }
 
@@ -81,14 +80,19 @@
 }
 
 .channelSearch {
+  margin-block-start: 10px;
+  max-inline-size: 250px;
   inline-size: 220px;
   margin-inline-start: auto;
   align-self: flex-end;
   flex: 1 1 0%;
 }
 
-.sortSelect {
-  margin-inline-start: auto;
+.select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-block-end: 10px;
 }
 
 .channelInfoTabs {
@@ -131,11 +135,6 @@
   box-sizing: border-box;
 }
 
-.channelSearch {
-  margin-block-start: 10px;
-  max-inline-size: 250px;
-}
-
 .elementListLoading {
   margin-block-start: 200px;
 }
@@ -171,8 +170,6 @@
 }
 
 .communityThumbnail {
-  /* stylelint-disable-next-line property-no-vendor-prefix */
-  -webkit-border-radius: 200px;
   border-radius: 200px;
   block-size: 12%;
   inline-size: 12%;
@@ -180,16 +177,14 @@
 
 .ft-community-image {
   display: block;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
+  margin-inline: auto;
 }
 
 .community-post-container {
-  padding-inline-start: 30%;
-  padding-inline-end: 30%;
+  padding-inline: 30%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .channelInfoTabs {
     block-size: auto;
     flex-flow: column-reverse;
@@ -209,19 +204,42 @@
     flex: 1 1 0%;
   }
 
-  #communityPanel {
+  .communityPanel {
     margin-block-start: 1rem;
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (width <= 680px) {
+  .channelInfo {
+    flex-direction: column;
+    margin-block: 20px 10px;
+  }
+
+  .card {
+    max-inline-size: none;
+    inline-size: 100%;
+  }
+
+  .channelInfoActionsContainer {
+    flex-direction: row-reverse;
+    justify-content: left;
+    gap: 10px;
+    margin-block-start: 5px;
+  }
+}
+
+@media only screen and (width <= 400px) {
   .channelInfo {
     justify-content: center;
     gap: 10px;
   }
 
   .channelInfoActionsContainer {
-    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .channelLineContainer {
+    padding-inline-start: 0;
   }
 
   .thumbnailContainer {
@@ -236,7 +254,7 @@
   }
 }
 
-@media only screen and (max-width: 260px) {
+@media only screen and (width <= 260px) {
    .channelDetails {
     max-inline-size: none;
   }

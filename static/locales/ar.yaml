@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'الإنجليزية (الولايات المتحدة)'
-FreeTube: 'فري تيوب'
+Locale Name: 'العربية'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
@@ -44,6 +43,8 @@ Global:
     Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
     Watching Count: 1 مشاهد | {count} مشاهدون
+  Input Tags:
+    Length Requirement: يجب أن يبلغ طول العلامة {number} حرفًا على الأقل
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -117,8 +118,99 @@ User Playlists:
   Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
-  Search bar placeholder: بحث في قائمة التشغيل
+  Search bar placeholder: بحث عن قوائم التشغيل
   Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
+  This playlist currently has no videos.: لا تحتوي قائمة التشغيل هذه حاليًا على مقاطع
+    فيديو.
+  Create New Playlist: إنشاء قائمة تشغيل جديدة
+  Add to Playlist: أضف إلى قائمة التشغيل
+  Move Video Up: نقل الفيديو لأعلى
+  Move Video Down: نقل الفيديو إلى الأسفل
+  Remove from Playlist: إزالة من قائمة التشغيل
+  Playlist Name: اسم قائمة التشغيل
+  Playlist Description: وصف قائمة التشغيل
+  Save Changes: حفظ التغييرات
+  Edit Playlist Info: تعديل معلومات قائمة التشغيل
+  Copy Playlist: نسخ قائمة التشغيل
+  Cancel: إلغاء
+  Delete Playlist: حذف قائمة التشغيل
+  Sort By:
+    Sort By: ترتيب حسب
+    LatestCreatedFirst: تم إنشاؤها مؤخرًا
+    LatestUpdatedFirst: تم تحديثه مؤخرا
+    NameAscending: أ-ي
+    NameDescending: ي-أ
+    EarliestCreatedFirst: الاقدم إنشائا
+    EarliestUpdatedFirst: الاحدث إنشائا
+    LatestPlayedFirst: تم تشغيلها مؤخرا
+    EarliestPlayedFirst: الاقدم تشغيلا
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: ‬لا يمكن نقل هذا الفيديو لأعلى.
+      Video has been removed: تمت إزالة الفيديو
+      Playlist name cannot be empty. Please input a name.: لا يمكن أن يكون اسم قائمة
+        التشغيل فارغًا. الرجاء إدخال اسم.
+      There was an issue with updating this playlist.: حدثت مشكلة أثناء تحديث قائمة
+        التشغيل هذه.
+      Playlist has been updated.: تم تحديث قائمة التشغيل.
+      "{videoCount} video(s) have been removed": تمت إزالة فيديو واحد | تمت إزالة
+        {videoCount} من مقاطع الفيديو
+      This playlist is protected and cannot be removed.: قائمة التشغيل هذه محمية ولا
+        يمكن إزالتها.
+      There were no videos to remove.: لم تكن هناك مقاطع فيديو لإزالتها.
+      This playlist does not exist: قائمة التشغيل هذه غير موجودة
+      This video cannot be moved down.: لا يمكن نقل هذا الفيديو إلى الأسفل.
+      Playlist {playlistName} has been deleted.: تم حذف قائمة التشغيل {playlistName}.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: لم
+        يتم تحميل بعض مقاطع الفيديو في قائمة التشغيل بعد. انقر هنا للنسخ على أي حال.
+      There was a problem with removing this video: حدثت مشكلة أثناء إزالة هذا الفيديو
+      This playlist is now used for quick bookmark: يتم الآن استخدام قائمة التشغيل
+        هذه للإشارة المرجعية السريعة
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: يتم
+        الآن استخدام قائمة التشغيل هذه للإشارة المرجعية السريعة بدلاً من {oldPlaylistName}.
+        انقر هنا للتراجع
+      Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
+        للإشارة المرجعية السريعة
+      Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+    Search for Videos: ‬البحث عن مقاطع الفيديو
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
+      بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
+    Toast:
+      You haven't selected any playlist yet.: لم تقم بتحديد أي قائمة تشغيل حتى الآن.
+      "{videoCount} video(s) added to 1 playlist": تمت إضافة فيديو واحد إلى قائمة
+        تشغيل واحدة | تمت إضافة {videoCount} من مقاطع الفيديو إلى قائمة تشغيل واحدة
+      "{videoCount} video(s) added to {playlistCount} playlists": تمت إضافة مقطع فيديو
+        واحد إلى قوائم التشغيل {playlistCount} | تمت إضافة {videoCount} من مقاطع الفيديو
+        إلى قوائم التشغيل {playlistCount}
+    Save: حفظ
+    Search in Playlists: البحث في قوائم التشغيل
+    N playlists selected: تم تحديد {playlistCount}
+    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
+  CreatePlaylistPrompt:
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: توجد
+        بالفعل قائمة تشغيل بهذا الاسم. يرجى اختيار اسم مختلف.
+      There was an issue with creating the playlist.: حدثت مشكلة أثناء إنشاء قائمة
+        التشغيل.
+      Playlist {playlistName} has been successfully created.: تم إنشاء قائمة التشغيل
+        {playlistName} بنجاح.
+    New Playlist Name: اسم قائمة تشغيل جديد
+    Create: انشئ
+  Remove Watched Videos: إزالة مقاطع الفيديو التي تمت مشاهدتها
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: هل
+    أنت متأكد أنك تريد إزالة جميع مقاطع الفيديو التي تمت مشاهدتها من قائمة التشغيل
+    هذه؟ هذا لا يمكن التراجع عنها.
+  You have no playlists. Click on the create new playlist button to create a new one.: ليس
+    لديك قوائم تشغيل. انقر على زر إنشاء قائمة تشغيل جديدة لإنشاء قائمة تشغيل جديدة.
+  Are you sure you want to delete this playlist? This cannot be undone: هل أنت متأكد
+    أنك تريد حذف قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنه.
+  Add to Favorites: إضافة إلى {اسم قائمة التشغيل}
+  Remove from Favorites: إزالة من {اسم قائمة التشغيل}
+  Enable Quick Bookmark With This Playlist: تمكين الإشارة المرجعية السريعة مع قائمة
+    التشغيل هذه
+  Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
+  Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
 History:
   # On History Page
   History: 'السجلّ'
@@ -173,6 +265,9 @@ Settings:
       Ask Before Opening Link: اسأل قبل فتح الرابط
       Open Link: افتح الرابط
       External Link Handling: معالجة الارتباط الخارجي
+    Auto Load Next Page:
+      Label: تحميل تلقائي للصفحة التالية
+      Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -186,6 +281,7 @@ Settings:
       Catppuccin Mocha: كاتبوتشين موكا
       Pastel Pink: الباستيل الوردي
       Hot Pink: وردي فاقع
+      Nordic: بلدان الشمال الأوروبي
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -287,8 +383,6 @@ Settings:
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
     Allow DASH AV1 formats: السماح بتنسيقات DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: تحميل التلقائي للتعليقات
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -305,9 +399,12 @@ Settings:
       أنت متأكد أنك تريد إزالة جميع الاشتراكات والملفات الشخصية؟ لا يمكن التراجع عن
       هذا.
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
-    Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
     Save Watched Videos With Last Viewed Playlist: حفظ مقاطع الفيديو التي تمت مشاهدتها
       مع آخر قائمة تشغيل تم عرضها
+    All playlists have been removed: تمت إزالة جميع قوائم التشغيل
+    Remove All Playlists: إزالة كافة قوائم التشغيل
+    Are you sure you want to remove all your playlists?: هل أنت متأكد أنك تريد إزالة
+      جميع قوائم التشغيل الخاصة بك؟
   Subscription Settings:
     Subscription Settings: 'إعدادات الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
@@ -322,6 +419,7 @@ Settings:
     Export Subscriptions: 'تصدير الاشتراكات'
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
     Fetch Automatically: جلب الخلاصة تلقائيا
+    Only Show Latest Video for Each Channel: عرض أحدث فيديو فقط لكل قناة
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -394,6 +492,14 @@ Settings:
     Subscription File: Subscription ملف
     History File: ملف التاريخ
     Playlist File: Playlist ملف
+    Export Playlists For Older FreeTube Versions:
+      Label: تصدير قوائم التشغيل لإصدارات FreeTube الأقدم
+      Tooltip: "يقوم هذا الخيار بتصدير مقاطع الفيديو من جميع قوائم التشغيل إلى قائمة
+        تشغيل واحدة تسمى \"المفضلة\".\nكيفية تصدير واستيراد مقاطع الفيديو في قوائم
+        التشغيل لإصدار أقدم من FreeTube:\n1. قم بتصدير قوائم التشغيل الخاصة بك مع
+        تمكين هذا الخيار.\n2. احذف جميع قوائم التشغيل الموجودة لديك باستخدام خيار
+        إزالة جميع قوائم التشغيل ضمن إعدادات الخصوصية.\n3. قم بتشغيل الإصدار الأقدم
+        من FreeTube واستورد قوائم التشغيل المصدرة.\""
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -414,8 +520,8 @@ Settings:
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
     Hide Channels: إخفاء مقاطع الفيديو من القنوات
     Hide Channels Placeholder: معرف القناة
-    Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
-      بشكل مفرط
+    Display Titles Without Excessive Capitalisation: عرض العناوين بدون استخدام الأحرف
+      الكبيرة وعلامات الترقيم بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
     Hide Channel Playlists: إخفاء قوائم تشغيل القناة
     Hide Channel Community: إخفاء مجتمع القناة
@@ -440,6 +546,9 @@ Settings:
     Hide Channels Already Exists: معرف القناة موجود بالفعل
     Hide Channels API Error: ‬حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى
       التحقق مرة أخرى إذا كان المعرف صحيحا.
+    Hide Videos and Playlists Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل
+      التي تحتوي على نص
+    Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -472,6 +581,9 @@ Settings:
       Show In Seek Bar: إظهار في الشريط
       Do Nothing: لا تفعل شيئا
     UseDeArrowTitles: استخدام عناوين فيديو DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': عنوان
+      URL لواجهة برمجة التطبيقات DeArrow Thumbnail Generator (الافتراضي هو https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: استخدم DeArarrow للصور المصغرة
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
@@ -481,6 +593,7 @@ Settings:
     Players:
       None:
         Name: لاشيء
+    Ignore Default Arguments: تجاهل الحجج الافتراضية
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
@@ -508,6 +621,7 @@ Settings:
     Password: كلمة السر
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
     Unlock: الغاء القفل
+  Expand All Settings Sections: توسيع كافة أقسام الإعدادات
 About:
   #On About page
   About: 'حول'
@@ -609,6 +723,11 @@ Profile:
   Profile Filter: مرشح الملف الشخصي
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
+  Open Profile Dropdown: فتح القائمة المنسدلة للملف الشخصي
+  Close Profile Dropdown: إغلاق القائمة المنسدلة للملف الشخصي
+  Profile Name: اسم الملف الشخصي
+  Edit Profile Name: تحرير اسم الملف الشخصي
+  Create Profile Name: إنشاء اسم الملف الشخصي
 Channel:
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
@@ -656,6 +775,7 @@ Channel:
     Hide Answers: إخفاء الأجوبة
     votes: '{votes} أصوات'
     Reveal Answers: كشف الإجابات
+    Video hidden by FreeTube: تم إخفاء الفيديو بواسطة FreeTube
   Live:
     Live: مباشر
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر
@@ -813,6 +933,7 @@ Video:
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
+  More Options: المزيد من الخيارات
 Videos:
   #& Sort By
   Sort By:
@@ -832,6 +953,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: قائمة التشغيل
+  Sort By:
+    Sort By: ترتيب حسب
+    DateAddedNewest: آخر مضاف أولا
+    DateAddedOldest: الأقدم إضافتا أولا
+    AuthorAscending: الكاتب (A-Z)
+    AuthorDescending: الكاتب (Z-A)
+    VideoTitleAscending: العنوان (A-Z)
+    VideoTitleDescending: العنوان (Z-A)
+    Custom: مُخصّص
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
@@ -889,7 +1019,7 @@ Up Next: 'التالي'
 Local API Error (Click to copy): 'خطأ API المحلي (انقر للنسخ)'
 Invidious API Error (Click to copy): 'خطأ Invidious API ( انقر للنسخ)'
 Falling back to Invidious API: 'التراجع إلى Invidious API'
-Falling back to the local API: 'التراجع إلى API المحلي'
+Falling back to Local API: 'التراجع إلى API المحلي'
 Subscriptions have not yet been implemented: 'لم يتم تنفيذ الاشتراكات بعد'
 Loop is now disabled: 'تم تعطيل التكرار'
 Loop is now enabled: 'تم تمكين التكرار'
@@ -946,9 +1076,6 @@ Tooltips:
     Allow DASH AV1 formats: قد تبدو تنسيقات DASH AV1 أفضل من تنسيقات DASH H.264. تتطلب
       تنسيقات DASH AV1 مزيدا من الطاقة للتشغيل! وهي غير متوفرة في جميع مقاطع الفيديو
       ، وفي هذه الحالات سيستخدم المشغل تنسيقات DASH H.264 بدلا من ذلك.
-  Privacy Settings:
-    Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
-      تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
   Subscription Settings:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
@@ -967,6 +1094,9 @@ Tooltips:
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+    Ignore Default Arguments: لا ترسل أي وسائط افتراضية إلى المشغل الخارجي بخلاف عنوان
+      URL للفيديو (مثل معدل التشغيل وعنوان URL لقائمة التشغيل وما إلى ذلك). سيستمر
+      تمرير الوسائط المخصصة.
   Experimental Settings:
     Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
       وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
@@ -977,8 +1107,13 @@ Tooltips:
       معرف القناة الذي تم إدخاله متطابقًا تمامًا وأن يكون حساسًا لحالة الأحرف.
     Hide Subscriptions Live: يتم تجاوز هذا الإعداد من خلال إعداد "{appWideSetting}"
       على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
+    Hide Videos and Playlists Containing Text: أدخل كلمة أو جزء كلمة أو عبارة (غير
+      حساسة لحالة الأحرف) لإخفاء جميع مقاطع الفيديو وقوائم التشغيل التي تحتوي عناوينها
+      الأصلية عليها في جميع أنحاء FreeTube، باستثناء السجل وقوائم التشغيل الخاصة بك
+      ومقاطع الفيديو الموجودة داخل قوائم التشغيل فقط.
   SponsorBlock Settings:
     UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.
+    UseDeArrowThumbnails: استبدل الصور المصغرة للفيديو بالصور المصغرة من DeArrow.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -1005,11 +1140,6 @@ Starting download: بدء تنزيل "{videoTitle}"
 Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
-Age Restricted:
-  Type:
-    Channel: القناة
-    Video: فيديو
-  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
 Channels:
   Count: تم العثور على قناة (قنوات) {number}.
   Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
@@ -1042,3 +1172,17 @@ Playlist will not pause when current video is finished: لن تتوقف قائم
 Channel Hidden: تم إضافة {channel} إلى مرشح القناة
 Go to page: إذهب إلى {page}
 Channel Unhidden: تمت إزالة {channel} من مرشح القناة
+Trimmed input must be at least N characters long: يجب أن يكون طول الإدخال المقتطع
+  حرفًا واحدًا على الأقل | يجب أن يبلغ طول الإدخال المقتطع {length} من الأحرف على
+  الأقل
+Tag already exists: العلامة "{tagName}" موجودة بالفعل
+Age Restricted:
+  This channel is age restricted: هذه القناة مقيدة بالعمر
+  This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
+Close Banner: إغلاق الشعار
+checkmark: ✓
+Display Label: '{label}: {value}'
+Moments Ago: منذ لحظات
+Feed:
+  Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
+  Refresh Feed: تحديث {subscriptionName}

@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'বাংলা'
-FreeTube: 'ফ্রিটিউব'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   অ্যাপের এই অংশটি এখনও প্রস্তুত নয়। পরে ফিরে এসো যখন অগ্রগতি হয়েছে।
@@ -135,10 +134,6 @@ External link opening has been disabled in the general settings: সাধার
   বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
 Are you sure you want to open this link?: তুমি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
 Preferences: পছন্দসমূহ
-Age Restricted:
-  Type:
-    Channel: চ্যানেল
-    Video: ভিডিও
 Most Popular: অতিপরিচিত
 Channels:
   Search bar placeholder: চ্যানেল খুঁজুন
@@ -152,4 +147,26 @@ Channels:
 Playlists: প্লে লিস্ট
 User Playlists:
   Your Playlists: আপনার প্লেলিস্ট
+  Search bar placeholder: নির্বাচিত তালিকাতে খুঁজুন
+  This playlist currently has no videos.: এই নির্বাচিত তালিকাতে কোন ভিডিও নেই।
+  Create New Playlist: নতুন একটি নির্বাচিত তালিকা তৈরি করুন
+  Add to Playlist: নির্বাচিত তালিকাতে যুক্ত করুন
+  Move Video Up: ভিডিও উপরে নিন
+  Move Video Down: ভিডিও নিচে নিন
+  Remove from Playlist: তালিকা থেকে মুছুন
+  Playlist Name: তালিকার নাম
+  Playlist Description: তালিকার বিবরন
+  Save Changes: পরিবর্তন সংরক্ষণ করুন
+  Cancel: বাতিল
+  Edit Playlist Info: নির্বাচিত তালিকার তথ্য পরিবর্তন
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: আপনার
+    কোন সংরক্ষিত ভিডিও নেই, ভিডিও সংরক্ষণ করার জন্য ভিডিওর কোনায় যে বাটন আছে সেটিতে
+    চাপ দিলে সংরক্ষণ সম্পূর্ণ হবে।
+  Playlist Message: এই পেইজ এ সব গুলো প্লেলিস্ট নেই। এখানে শুধু যে ভিডিও গুলো সেইভ
+    করেছেন বা প্রিয় তালিকায় ছিল সেগুলো আছে। যখন কাজ শেষ হয়ে যাবে তখন, এখানকার সব ভিডিও
+    গুলো প্রিয় তালিকাতে নিয়ে যাওয়া হবে।
+  Empty Search Message: এই তালিকাতে আপনার কাংখিত ভিডিও নেই যেটি আপনি খুঁজছেন
+  You have no playlists. Click on the create new playlist button to create a new one.: নির্বাচিত
+    তালিকা নেই। নতুন তালিকা তৈরির জন্য নিউ প্লে-লিস্ট বাটন এ চাপ দিয়ে অগ্রসর হতে পারেন।
 More: অতিরিক্ত
+Go to page: পরবর্তী {পেইজ}

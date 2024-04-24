@@ -13,6 +13,7 @@
       :disabled="disabled"
       :placeholder="tagNamePlaceholder"
       :label="label"
+      :min-input-length="minInputLength"
       :show-label="true"
       :tooltip="tooltip"
       :show-action-button="showActionButton"
@@ -26,18 +27,21 @@
           v-for="tag in tagList"
           :key="tag.id"
         >
-          <router-link
-            v-if="tag.icon"
-            :to="tag.iconHref ?? ''"
-            class="tag-icon-link"
-          >
-            <img
-              :src="tag.icon"
-              alt=""
-              class="tag-icon"
+          <template v-if="areChannelTags">
+            <router-link
+              v-if="tag.icon"
+              :to="tag.iconHref ?? ''"
+              class="tag-icon-link"
             >
-          </router-link>
-          <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
+              <img
+                :src="tag.icon"
+                alt=""
+                class="tag-icon"
+              >
+            </router-link>
+            <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
+          </template>
+          <span v-else>{{ tag }}</span>
           <font-awesome-icon
             v-if="!disabled"
             :icon="['fas', 'fa-times']"

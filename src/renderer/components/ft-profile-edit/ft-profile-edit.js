@@ -19,15 +19,20 @@ export default defineComponent({
     'ft-button': FtButton
   },
   props: {
-    profile: {
-      type: Object,
+    isMainProfile: {
+      type: Boolean,
       required: true
     },
     isNew: {
       type: Boolean,
       required: true
+    },
+    profile: {
+      type: Object,
+      required: true
     }
   },
+  emits: ['new-profile-created', 'profile-deleted'],
   data: function () {
     return {
       showDeletePrompt: false,
@@ -42,14 +47,11 @@ export default defineComponent({
     }
   },
   computed: {
-    isMainProfile: function () {
-      return this.profileId === MAIN_PROFILE_ID
-    },
     colorValues: function () {
       return colors.map(color => color.value)
     },
     profileInitial: function () {
-      return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
+      return this?.profileName?.length > 0 ? Array.from(this.translatedProfileName)[0].toUpperCase() : ''
     },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
@@ -65,6 +67,15 @@ export default defineComponent({
         this.$t('Yes, Delete'),
         this.$t('Cancel')
       ]
+    },
+    editOrCreateProfileLabel: function () {
+      return this.isNew ? this.$t('Profile.Create Profile') : this.$t('Profile.Edit Profile')
+    },
+    editOrCreateProfileNameLabel: function () {
+      return this.isNew ? this.$t('Profile.Create Profile Name') : this.$t('Profile.Edit Profile Name')
+    },
+    translatedProfileName: function () {
+      return this.isMainProfile ? this.$t('Profile.All Channels') : this.profileName
     }
   },
   watch: {
@@ -73,7 +84,7 @@ export default defineComponent({
     }
   },
   created: function () {
-    this.profileId = this.$route.params.id
+    this.profileId = this.profile._id
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
     this.profileTextColor = this.profile.textColor
@@ -110,9 +121,7 @@ export default defineComponent({
       if (this.isNew) {
         this.createProfile(profile)
         showToast(this.$t('Profile.Profile has been created'))
-        this.$router.push({
-          path: '/settings/profile/'
-        })
+        this.$emit('new-profile-created')
       } else {
         this.updateProfile(profile)
         showToast(this.$t('Profile.Profile has been updated'))
@@ -121,7 +130,7 @@ export default defineComponent({
 
     setDefaultProfile: function () {
       this.updateDefaultProfile(this.profileId)
-      const message = this.$t('Profile.Your default profile has been set to {profile}', { profile: this.profileName })
+      const message = this.$t('Profile.Your default profile has been set to {profile}', { profile: this.translatedProfileName })
       showToast(message)
     },
 
@@ -132,7 +141,7 @@ export default defineComponent({
 
       this.removeProfile(this.profileId)
 
-      const message = this.$t('Profile.Removed {profile} from your profiles', { profile: this.profileName })
+      const message = this.$t('Profile.Removed {profile} from your profiles', { profile: this.translatedProfileName })
       showToast(message)
 
       if (this.defaultProfile === this.profileId) {
@@ -140,9 +149,7 @@ export default defineComponent({
         showToast(this.$t('Profile.Your default profile has been changed to your primary profile'))
       }
 
-      this.$router.push({
-        path: '/settings/profile/'
-      })
+      this.$emit('profile-deleted')
     },
 
     ...mapActions([

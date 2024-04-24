@@ -1,10 +1,11 @@
-import { ClientType, Endpoints, Innertube, Misc, Utils, YT } from 'youtubei.js'
+import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
 import {
   CHANNEL_HANDLE_REGEX,
+  calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
   getUserDataPath,
@@ -35,23 +36,27 @@ const TRACKING_PARAM_NAMES = [
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @returns the Innertube instance
  */
-async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined, generateSessionLocally: true }) {
+async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true } = {}) {
   let cache
-  if (options.withPlayer) {
-    const userData = await getUserDataPath()
-    cache = new PlayerCache(join(userData, 'player_cache'))
+  if (withPlayer) {
+    if (process.env.IS_ELECTRON) {
+      const userData = await getUserDataPath()
+      cache = new PlayerCache(join(userData, 'player_cache'))
+    } else {
+      cache = new UniversalCache(false)
+    }
   }
 
   return await Innertube.create({
-    retrieve_player: !!options.withPlayer,
-    location: options.location,
-    enable_safety_mode: !!options.safetyMode,
-    client_type: options.clientType,
+    retrieve_player: !!withPlayer,
+    location: location,
+    enable_safety_mode: !!safetyMode,
+    client_type: clientType,
 
     // use browser fetch
     fetch: (input, init) => fetch(input, init),
     cache,
-    generate_session_locally: !!options.generateSessionLocally
+    generate_session_locally: !!generateSessionLocally
   })
 }
 
@@ -76,8 +81,8 @@ export async function getLocalPlaylist(id) {
 }
 
 /**
- * @param {Playlist} playlist
- * @returns {Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
+ * @param {import('youtubei.js').YT.Playlist} playlist
+ * @returns {import('youtubei.js').YT.Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
  */
 export async function getLocalPlaylistContinuation(playlist) {
   try {
@@ -97,11 +102,11 @@ export async function getLocalPlaylistContinuation(playlist) {
  * Callback for adding two numbers.
  *
  * @callback untilEndOfLocalPlayListCallback
- * @param {Playlist} playlist
+ * @param {import('youtubei.js').YT.Playlist} playlist
  */
 
 /**
- * @param {Playlist} playlist
+ * @param {import('youtubei.js').YT.Playlist} playlist
  * @param {untilEndOfLocalPlayListCallback} callback
  * @param {object} options
  * @param {boolean} options.runCallbackOnceFirst
@@ -274,6 +279,9 @@ export async function getLocalChannel(id) {
   return result
 }
 
+/**
+ * @param {string} id
+ */
 export async function getLocalChannelVideos(id) {
   const innertube = await createInnertube()
 
@@ -286,13 +294,22 @@ export async function getLocalChannelVideos(id) {
     }))
 
     const videosTab = new YT.Channel(null, response)
+    const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(videosTab)
+
+    let videos
 
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      return parseLocalChannelVideos(videosTab.videos, videosTab.header.author)
+      videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
     } else {
-      return []
+      videos = []
+    }
+
+    return {
+      name,
+      thumbnailUrl,
+      videos
     }
   } catch (error) {
     console.error(error)
@@ -304,6 +321,9 @@ export async function getLocalChannelVideos(id) {
   }
 }
 
+/**
+ * @param {string} id
+ */
 export async function getLocalChannelLiveStreams(id) {
   const innertube = await createInnertube()
 
@@ -315,14 +335,32 @@ export async function getLocalChannelLiveStreams(id) {
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     }))
 
-    const liveStreamsTab = new YT.Channel(null, response)
+    let liveStreamsTab = new YT.Channel(innertube.actions, response)
+    const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab)
+
+    let videos
 
     // if the channel doesn't have a live tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (liveStreamsTab.current_tab?.endpoint.metadata.url?.endsWith('/streams')) {
-      return parseLocalChannelVideos(liveStreamsTab.videos, liveStreamsTab.header.author)
+      // work around YouTube bug where it will return a bunch of responses with only continuations in them
+      // e.g. https://www.youtube.com/@TWLIVES/streams
+
+      let tempVideos = liveStreamsTab.videos
+      while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
+        liveStreamsTab = await liveStreamsTab.getContinuation()
+        tempVideos = liveStreamsTab.videos
+      }
+
+      videos = parseLocalChannelVideos(tempVideos, channelId, name)
     } else {
-      return []
+      videos = []
+    }
+
+    return {
+      name,
+      thumbnailUrl,
+      videos
     }
   } catch (error) {
     console.error(error)
@@ -365,16 +403,164 @@ export async function getLocalChannelCommunity(id) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Video[]} videos
- * @param {Misc.Author} author
+ * @param {YT.Channel} channel
  */
-export function parseLocalChannelVideos(videos, author) {
+export function parseLocalChannelHeader(channel) {
+  /** @type {string=} */
+  let id
+  /** @type {string} */
+  let name
+  /** @type {string=} */
+  let thumbnailUrl
+  /** @type {string=} */
+  let bannerUrl
+  /** @type {string=} */
+  let subscriberText
+  /** @type {string[]} */
+  const tags = []
+
+  switch (channel.header.type) {
+    case 'C4TabbedHeader': {
+      // example: Linus Tech Tips
+      // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
+
+      /**
+       * @type {import('youtubei.js').YTNodes.C4TabbedHeader}
+       */
+      const header = channel.header
+
+      id = header.author.id
+      name = header.author.name
+      thumbnailUrl = header.author.best_thumbnail.url
+      bannerUrl = header.banner?.[0]?.url
+      subscriberText = header.subscribers?.text
+      break
+    }
+    case 'CarouselHeader': {
+      // examples: Music and YouTube Gaming
+      // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
+      // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+      /**
+       * @type {import('youtubei.js').YTNodes.CarouselHeader}
+       */
+      const header = channel.header
+
+      /**
+       * @type {import('youtubei.js').YTNodes.TopicChannelDetails}
+       */
+      const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
+      name = topicChannelDetails.title.text
+      subscriberText = topicChannelDetails.subtitle.text
+      thumbnailUrl = topicChannelDetails.avatar[0].url
+
+      if (channel.metadata.external_id) {
+        id = channel.metadata.external_id
+      } else {
+        id = topicChannelDetails.subscribe_button.channel_id
+      }
+      break
+    }
+    case 'InteractiveTabbedHeader': {
+      // example: Minecraft - Topic
+      // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
+
+      /**
+       * @type {import('youtubei.js').YTNodes.InteractiveTabbedHeader}
+       */
+      const header = channel.header
+      name = header.title.text
+      thumbnailUrl = header.box_art.at(-1).url
+      bannerUrl = header.banner[0]?.url
+
+      const badges = header.badges.map(badge => badge.label).filter(tag => tag)
+      tags.push(...badges)
+
+      id = channel.current_tab?.endpoint.payload.browseId
+      break
+    }
+    case 'PageHeader': {
+      // example: YouTube Gaming
+      // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+      // User channels (an A/B test at the time of writing)
+
+      /**
+       * @type {import('youtubei.js').YTNodes.PageHeader}
+       */
+      const header = channel.header
+
+      name = header.content.title.text.text
+      if (header.content.image) {
+        if (header.content.image.type === 'ContentPreviewImageView') {
+          /** @type {import('youtubei.js').YTNodes.ContentPreviewImageView} */
+          const image = header.content.image
+
+          thumbnailUrl = image.image[0].url
+        } else {
+          /** @type {import('youtubei.js').YTNodes.DecoratedAvatarView} */
+          const image = header.content.image
+          thumbnailUrl = image.avatar?.image[0].url
+        }
+      }
+
+      if (!thumbnailUrl && channel.metadata.thumbnail) {
+        thumbnailUrl = channel.metadata.thumbnail[0].url
+      }
+
+      if (header.content.banner) {
+        bannerUrl = header.content.banner.image[0]?.url
+      }
+
+      if (header.content.actions) {
+        const modal = header.content.actions.actions_rows[0].actions[0].on_tap.modal
+
+        if (modal && modal.type === 'ModalWithTitleAndButton') {
+          /** @type {import('youtubei.js').YTNodes.ModalWithTitleAndButton} */
+          const typedModal = modal
+
+          id = typedModal.button.endpoint.next_endpoint?.payload.browseId
+        }
+      } else if (channel.metadata.external_id) {
+        id = channel.metadata.external_id
+      }
+
+      if (header.content.metadata) {
+        // YouTube has already changed the indexes for where the information is stored once,
+        // so we should search for it instead of using hardcoded indexes, just to be safe for the future
+
+        subscriberText = header.content.metadata.metadata_rows
+          .flatMap(row => row.metadata_parts ? row.metadata_parts : [])
+          .find(part => part.text.text?.includes('subscriber'))
+          ?.text.text
+      }
+
+      break
+    }
+  }
+
+  return {
+    id,
+    name,
+    thumbnailUrl,
+    bannerUrl,
+    subscriberText,
+    tags
+  }
+}
+
+/**
+ * @param {import('youtubei.js').YTNodes.Video[]} videos
+ * @param {string} channelId
+ * @param {string} channelName
+ */
+export function parseLocalChannelVideos(videos, channelId, channelName) {
   const parsedVideos = videos.map(parseLocalListVideo)
 
   // fix empty author info
   parsedVideos.forEach(video => {
-    video.author = author.name
-    video.authorId = author.id
+    video.author = channelName
+    video.authorId = channelId
   })
 
   return parsedVideos
@@ -382,120 +568,84 @@ export function parseLocalChannelVideos(videos, author) {
 
 /**
  * @param {import('youtubei.js').YTNodes.ReelItem[]} shorts
- * @param {Misc.Author} author
+ * @param {string} channelId
+ * @param {string} channelName
  */
-export function parseLocalChannelShorts(shorts, author) {
+export function parseLocalChannelShorts(shorts, channelId, channelName) {
   return shorts.map(short => {
-    // unfortunately the only place with the duration is the accesibility string
-    const duration = parseShortDuration(short.accessibility_label, short.id)
-
     return {
       type: 'video',
       videoId: short.id,
       title: short.title.text,
-      author: author.name,
-      authorId: author.id,
-      viewCount: parseLocalSubscriberCount(short.views.text),
-      lengthSeconds: isNaN(duration) ? '' : duration
+      author: channelName,
+      authorId: channelId,
+      viewCount: short.views.isEmpty() ? null : parseLocalSubscriberCount(short.views.text),
+      lengthSeconds: ''
     }
   })
 }
 
 /**
- * Shorts can only be up to 60 seconds long, so we only need to handle seconds and minutes
- * Of course this is YouTube, so are edge cases that don't match the docs, like example 3 taken from LTT
- *
- * https://support.google.com/youtube/answer/10059070?hl=en
- *
- * Example input strings:
- * - These mice keep getting WEIRDER... - 59 seconds - play video
- * - How Low Can Our Resolution Go? - 1 minute - play video
- * - I just found out about Elon. #SHORTS - 1 minute, 1 second - play video
- * @param {string} accessibilityLabel
- * @param {string} videoId only used for error logging
+ * @param {import('youtubei.js').YTNodes.Playlist|import('youtubei.js').YTNodes.GridPlaylist|import('youtubei.js').YTNodes.LockupView} playlist
+ * @param {string} channelId
+ * @param {string} chanelName
  */
-function parseShortDuration(accessibilityLabel, videoId) {
-  // we want to count from the end of the array,
-  // as it's possible that the title could contain a `-` too
-  const timeString = accessibilityLabel.split('-').at(-2)
+export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
+  if (playlist.type === 'LockupView') {
+    /** @type {import('youtubei.js').YTNodes.LockupView} */
+    const lockupView = playlist
 
-  if (typeof timeString === 'undefined') {
-    console.error(`Failed to parse local API short duration from accessibility label. video ID: ${videoId}, text: "${accessibilityLabel}"`)
-    return NaN
-  }
+    /** @type {import('youtubei.js').YTNodes.ThumbnailOverlayBadgeView} */
+    const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
+      .find(overlay => overlay.type === 'ThumbnailOverlayBadgeView')
 
-  let duration = 0
-
-  const matches = timeString.matchAll(/(\d+) (second|minute)s?/g)
-
-  // matchAll returns an iterator, which doesn't have a length property
-  // so we need to check if it's empty this way instead
-  let validDuration = false
-
-  for (const match of matches) {
-    let number = parseInt(match[1])
-
-    if (isNaN(number) || match[2].length === 0) {
-      validDuration = false
-      break
-    }
-
-    validDuration = true
-
-    if (match[2] === 'minute') {
-      number *= 60
-    }
-
-    duration += number
-  }
-
-  if (!validDuration) {
-    console.error(`Failed to parse local API short duration from accessibility label. video ID: ${videoId}, text: "${accessibilityLabel}"`)
-    return NaN
-  }
-
-  return duration
-}
-
-/**
- * @typedef {import('youtubei.js').YTNodes.Playlist} Playlist
- * @typedef {import('youtubei.js').YTNodes.GridPlaylist} GridPlaylist
- */
-
-/**
- * @param {Playlist|GridPlaylist} playlist
- * @param {Misc.Author} author
- */
-export function parseLocalListPlaylist(playlist, author = undefined) {
-  let channelName
-  let channelId = null
-  /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
-  const thumbnailRenderer = playlist.thumbnail_renderer
-  if (playlist.author && playlist.author.id !== 'N/A') {
-    if (playlist.author instanceof Misc.Text) {
-      channelName = playlist.author.text
-
-      if (author) {
-        channelId = author.id
-      }
-    } else {
-      channelName = playlist.author.name
-      channelId = playlist.author.id
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: lockupView.metadata.title.text,
+      thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
+      channelName,
+      channelId,
+      playlistId: lockupView.content_id,
+      videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
     }
   } else {
-    channelName = author.name
-    channelId = author.id
-  }
+    let internalChannelName
+    let internalChannelId = null
 
-  return {
-    type: 'playlist',
-    dataSource: 'local',
-    title: playlist.title.text,
-    thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
-    channelName,
-    channelId,
-    playlistId: playlist.id,
-    videoCount: extractNumberFromString(playlist.video_count.text)
+    if (playlist.author && playlist.author.id !== 'N/A') {
+      if (playlist.author instanceof Misc.Text) {
+        internalChannelName = playlist.author.text
+
+        if (channelId) {
+          internalChannelId = channelId
+        }
+      } else {
+        internalChannelName = playlist.author.name
+        internalChannelId = playlist.author.id
+      }
+    } else if (channelId || channelName) {
+      internalChannelName = channelName
+      internalChannelId = channelId
+    } else if (playlist.author?.name) {
+      // auto-generated album playlists don't have an author
+      // so in search results, the author text is "Playlist" and doesn't have a link or channel ID
+      internalChannelName = playlist.author.name
+    }
+
+    /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
+    const thumbnailRenderer = playlist.thumbnail_renderer
+
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: playlist.title.text,
+      thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
+      channelName: internalChannelName,
+      channelId: internalChannelId,
+      playlistId: playlist.id,
+      videoCount: extractNumberFromString(playlist.video_count.text)
+    }
   }
 }
 
@@ -512,7 +662,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie'
     })
     .map((item) => parseListItem(item))
 
@@ -531,15 +681,12 @@ export function parseLocalPlaylistVideo(video) {
     /** @type {import('youtubei.js').YTNodes.ReelItem} */
     const short = video
 
-    // unfortunately the only place with the duration is the accesibility string
-    const duration = parseShortDuration(video.accessibility_label, short.id)
-
     return {
       type: 'video',
       videoId: short.id,
       title: short.title.text,
       viewCount: parseLocalSubscriberCount(short.views.text),
-      lengthSeconds: isNaN(duration) ? '' : duration
+      lengthSeconds: ''
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
@@ -550,14 +697,16 @@ export function parseLocalPlaylistVideo(video) {
     // the accessiblity label contains the full view count
     // the video info only contains the short view count
     if (video_.accessibility_label) {
-      const match = video_.accessibility_label.match(/([\d,.]+|no) views?$/i)
+      // the `.*\s+` at the start of the regex, ensures we match the last occurence
+      // just in case the video title also contains that pattern
+      const match = video_.accessibility_label.match(/.*\s+([\d,.]+|no)\s+views?/)
 
       if (match) {
         const count = match[1]
 
         // as it's rare that a video has no views,
         // checking the length allows us to avoid running toLowerCase unless we have to
-        if (count.length === 2 && count.toLowerCase() === 'no') {
+        if (count.length === 2 && count === 'no') {
           viewCount = 0
         } else {
           const views = extractNumberFromString(count)
@@ -569,15 +718,29 @@ export function parseLocalPlaylistVideo(video) {
       }
     }
 
-    let publishedText = null
-
+    let publishedText
     // normal videos have 3 text runs with the last one containing the published date
+    // OR no runs and just text with the published date (if the view count is missing)
     // live videos have 2 text runs with the number of people watching
     // upcoming either videos don't have any info text or the number of people waiting,
     // but we have the premiere date for those, so we don't need the published date
-    if (video_.video_info.runs && video_.video_info.runs.length === 3) {
-      publishedText = video_.video_info.runs[2].text
+
+    if (!video_.is_upcoming && !video_.is_live) {
+      const hasRuns = !!video_.video_info.runs
+
+      if (hasRuns && video_.video_info.runs.length === 3) {
+        publishedText = video_.video_info.runs[2].text
+      } else if (!hasRuns && video_.video_info.text) {
+        publishedText = video_.video_info.text
+      }
     }
+
+    const published = calculatePublishedDate(
+      publishedText,
+      video_.is_live,
+      video_.is_upcoming,
+      video_.upcoming
+    )
 
     return {
       videoId: video_.id,
@@ -585,7 +748,7 @@ export function parseLocalPlaylistVideo(video) {
       author: video_.author.name,
       authorId: video_.author.id,
       viewCount,
-      publishedText,
+      published,
       lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
       liveNow: video_.is_live,
       isUpcoming: video_.is_upcoming,
@@ -595,22 +758,55 @@ export function parseLocalPlaylistVideo(video) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Video} video
+ * @param {import('youtubei.js').YTNodes.Video | import('youtubei.js').YTNodes.Movie} item
  */
-export function parseLocalListVideo(video) {
-  return {
-    type: 'video',
-    videoId: video.id,
-    title: video.title.text,
-    author: video.author.name,
-    authorId: video.author.id,
-    description: video.description,
-    viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.isEmpty() ? null : video.published.text,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
-    liveNow: video.is_live,
-    isUpcoming: video.is_upcoming || video.is_premiere,
-    premiereDate: video.upcoming
+export function parseLocalListVideo(item) {
+  if (item.type === 'Movie') {
+    /** @type {import('youtubei.js').YTNodes.Movie} */
+    const movie = item
+
+    return {
+      type: 'video',
+      videoId: movie.id,
+      title: movie.title.text,
+      author: movie.author.name,
+      authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
+      description: movie.description_snippet?.text,
+      lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
+      liveNow: false,
+      isUpcoming: false,
+    }
+  } else {
+    /** @type {import('youtubei.js').YTNodes.Video} */
+    const video = item
+
+    let publishedText
+
+    if (video.published != null && !video.published.isEmpty()) {
+      publishedText = video.published.text
+    }
+
+    const published = calculatePublishedDate(
+      publishedText,
+      video.is_live,
+      video.is_upcoming || video.is_premiere,
+      video.upcoming
+    )
+
+    return {
+      type: 'video',
+      videoId: video.id,
+      title: video.title.text,
+      author: video.author.name,
+      authorId: video.author.id,
+      description: video.description,
+      viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+      published,
+      lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
+      liveNow: video.is_live,
+      isUpcoming: video.is_upcoming || video.is_premiere,
+      premiereDate: video.upcoming
+    }
   }
 }
 
@@ -619,6 +815,7 @@ export function parseLocalListVideo(video) {
  */
 function parseListItem(item) {
   switch (item.type) {
+    case 'Movie':
     case 'Video':
       return parseLocalListVideo(item)
     case 'Channel': {
@@ -679,14 +876,22 @@ function parseListItem(item) {
  * @param {import('youtubei.js').YTNodes.CompactVideo} video
  */
 export function parseLocalWatchNextVideo(video) {
+  let publishedText
+
+  if (video.published != null && !video.published.isEmpty()) {
+    publishedText = video.published.text
+  }
+
+  const published = calculatePublishedDate(publishedText, video.is_live, video.is_premiere)
+
   return {
     type: 'video',
     videoId: video.id,
     title: video.title.text,
     author: video.author.name,
     authorId: video.author.id,
-    viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.isEmpty() ? null : video.published.text,
+    viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+    published,
     lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
     liveNow: video.is_live,
     isUpcoming: video.is_premiere
@@ -780,7 +985,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
             // In comments, mention can be `@Channel Name` (not handle, but name)
-            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && trimmedText.startsWith('@'))) {
+            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || options.looseChannelNameDetection) {
               // Note that in regex `\s` must be used since the text contain non-default space (the half-width space char when we press spacebar)
               const spacesBefore = (spacesBeforeRegex.exec(text) || [''])[0]
               const spacesAfter = (spacesAfterRegex.exec(text) || [''])[0]
@@ -862,7 +1067,7 @@ export function mapLocalFormat(format) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Comment} comment
+ * @param {import('youtubei.js').YTNodes.Comment|import('youtubei.js').YTNodes.CommentView} comment
  * @param {import('youtubei.js').YTNodes.CommentThread} commentThread
  */
 export function parseLocalComment(comment, commentThread = undefined) {
@@ -874,26 +1079,48 @@ export function parseLocalComment(comment, commentThread = undefined) {
     replyToken = commentThread
   }
 
-  return {
+  const parsed = {
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
     authorId: comment.author.id,
     authorThumb: comment.author.best_thumbnail.url,
     isPinned: comment.is_pinned,
-    isOwner: comment.author_is_channel_owner,
-    isMember: comment.is_member,
-    memberIconUrl: comment.is_member ? comment.sponsor_comment_badge.custom_badge[0].url : '',
+    isOwner: !!comment.author_is_channel_owner,
+    isMember: !!comment.is_member,
     text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
-    time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
-    likes: comment.vote_count,
-    isHearted: comment.is_hearted,
-    numReplies: comment.reply_count,
+    isHearted: !!comment.is_hearted,
     hasOwnerReplied,
     replyToken,
     showReplies: false,
-    replies: []
+    replies: [],
+
+    // default values for the properties set below
+    memberIconUrl: '',
+    time: '',
+    likes: 0,
+    numReplies: 0
   }
+
+  if (comment.type === 'Comment') {
+    /** @type {import('youtubei.js').YTNodes.Comment} */
+    const comment_ = comment
+
+    parsed.memberIconUrl = comment_.is_member ? comment_.sponsor_comment_badge.custom_badge[0].url : ''
+    parsed.time = toLocalePublicationString({ publishText: comment_.published.text.replace('(edited)', '').trim() })
+    parsed.likes = comment_.vote_count
+    parsed.numReplies = comment_.reply_count
+  } else {
+    /** @type {import('youtubei.js').YTNodes.CommentView} */
+    const commentView = comment
+
+    parsed.memberIconUrl = commentView.is_member ? commentView.member_badge.url : ''
+    parsed.time = toLocalePublicationString({ publishText: commentView.published_time.replace('(edited)', '').trim() })
+    parsed.likes = commentView.like_count
+    parsed.numReplies = parseLocalSubscriberCount(commentView.reply_count)
+  }
+
+  return parsed
 }
 
 /**
@@ -927,32 +1154,40 @@ export function filterLocalFormats(formats, allowAv1 = false) {
 }
 
 /**
- * Really not a fan of this :(, YouTube returns the subscribers as "15.1M subscribers"
- * so we have to parse it somehow
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
-  const match = text
-    .replace(',', '.')
-    .toUpperCase()
-    .match(/([\d.]+)\s*([KM]?)/)
+  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm])\b/)
 
-  let subscribers
   if (match) {
-    subscribers = parseFloat(match[1])
+    let multiplier = 0
 
-    if (match[2] === 'K') {
-      subscribers *= 1000
-    } else if (match[2] === 'M') {
-      subscribers *= 1000_000
+    switch (match[3]) {
+      case 'K':
+      case 'k':
+        multiplier = 3
+        break
+      case 'M':
+      case 'm':
+        multiplier = 6
+        break
+      case 'B':
+      case 'b':
+        multiplier = 9
+        break
     }
 
-    subscribers = Math.trunc(subscribers)
-  } else {
-    subscribers = extractNumberFromString(text)
-  }
+    let parsedDecimals
+    if (typeof match[2] === 'undefined') {
+      parsedDecimals = '0'.repeat(multiplier)
+    } else {
+      parsedDecimals = match[2].padEnd(multiplier, '0')
+    }
 
-  return subscribers
+    return parseInt(match[1] + parsedDecimals)
+  } else {
+    return extractNumberFromString(text)
+  }
 }
 
 /**

@@ -19,6 +19,10 @@ export default defineComponent({
       type: Object,
       required: true
     },
+    dataType: {
+      type: String,
+      default: null,
+    },
     appearance: {
       type: String,
       required: true
@@ -38,6 +42,15 @@ export default defineComponent({
     useChannelsHiddenPreference: {
       type: Boolean,
       default: true,
+    },
+    hideForbiddenTitles: {
+      type: Boolean,
+      default: true
+    },
+    searchQueryText: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
   data: function () {
@@ -61,6 +74,10 @@ export default defineComponent({
         return ch
       })
     },
+    forbiddenTitles: function() {
+      if (!this.hideForbiddenTitles) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
+    },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
     },
@@ -71,10 +88,11 @@ export default defineComponent({
      */
     showResult: function () {
       const { data } = this
-      if (!data.type) {
+      const dataType = this.finalDataType
+      if (!dataType) {
         return false
       }
-      if (data.type === 'video' || data.type === 'shortVideo') {
+      if (dataType === 'video' || dataType === 'shortVideo') {
         if (this.hideLiveStreams && (data.liveNow || data.lengthSeconds == null)) {
           // hide livestreams
           return false
@@ -97,7 +115,10 @@ export default defineComponent({
           // hide videos by author
           return false
         }
-      } else if (data.type === 'channel') {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
+      } else if (dataType === 'channel') {
         const attrsToCheck = [
           // Local API
           data.id,
@@ -111,7 +132,10 @@ export default defineComponent({
           // hide channels by author
           return false
         }
-      } else if (data.type === 'playlist') {
+      } else if (dataType === 'playlist') {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
         const attrsToCheck = [
           // Local API
           data.channelId,
@@ -127,7 +151,11 @@ export default defineComponent({
         }
       }
       return true
-    }
+    },
+
+    finalDataType() {
+      return this.data.type ?? this.dataType
+    },
   },
   methods: {
     onVisibilityChanged: function (visible) {

@@ -1,4 +1,3 @@
-FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Dieser Teil der App ist noch nicht bereit. Komme später wieder, wenn Fortschritte
@@ -43,6 +42,8 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
+  Input Tags:
+    Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
@@ -123,9 +124,109 @@ User Playlists:
     wider. Sie listet nur Videos auf, die du gespeichert oder favorisiert hast. Wenn
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
-  Search bar placeholder: In Wiedergabeliste suchen
+  Search bar placeholder: Nach Wiedergabelisten suchen
   Empty Search Message: Es gibt keine Videos in dieser Wiedergabeliste, die deiner
     Suche entsprechen
+  This playlist currently has no videos.: Diese Wiedergabeliste enthält derzeit keine
+    Videos.
+  Add to Playlist: Zur Wiedergabeliste hinzufügen
+  Move Video Up: Video nach oben verschieben
+  Move Video Down: Video nach unten verschieben
+  Playlist Name: Name der Wiedergabeliste
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    hast keine Wiedergabelisten. Klicke auf die Schaltfläche Neue Wiedergabeliste
+    erstellen, um eine neue zu erstellen.
+  Playlist Description: Beschreibung der Wiedergabeliste
+  Save Changes: Änderungen speichern
+  Cancel: Abbrechen
+  Edit Playlist Info: Wiedergabelisten-Infos bearbeiten
+  Copy Playlist: Wiedergabeliste kopieren
+  Remove Watched Videos: Angesehene Videos entfernen
+  Delete Playlist: Wiedergabeliste löschen
+  Are you sure you want to delete this playlist? This cannot be undone: Bist du sicher,
+    dass du diese Wiedergabeliste löschen möchtest? Dies kann nicht rückgängig gemacht
+    werden.
+  Sort By:
+    Sort By: Sortieren nach
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Kürzlich erstellt
+    EarliestCreatedFirst: Am frühesten erstellt
+    LatestUpdatedFirst: Kürzlich aktualisiert
+    EarliestUpdatedFirst: Am frühesten aktualisiert
+    LatestPlayedFirst: Kürzlich abgespielt
+    EarliestPlayedFirst: Am frühesten abgespielt
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Dieses Video kann nicht nach oben verschoben
+        werden.
+      This video cannot be moved down.: Dieses Video kann nicht nach unten verschoben
+        werden.
+      Video has been removed: Video wurde entfernt
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Einige
+        Videos in der Wiedergabeliste sind noch nicht geladen. Klicke hier, um sie
+        trotzdem zu kopieren.
+      Playlist name cannot be empty. Please input a name.: Der Name der Wiedergabeliste
+        darf nicht leer sein. Bitte gib einen Namen ein.
+      Playlist has been updated.: Wiedergabeliste wurde aktualisiert.
+      There was an issue with updating this playlist.: Es gab ein Problem beim Aktualisieren
+        dieser Wiedergabeliste.
+      "{videoCount} video(s) have been removed": 1 Video wurde entfernt | {videoCount}
+        Videos wurden entfernt
+      There were no videos to remove.: Es gab keine Videos zum Entfernen.
+      This playlist is protected and cannot be removed.: Diese Wiedergabeliste ist
+        geschützt und kann nicht entfernt werden.
+      There was a problem with removing this video: Es gab ein Problem beim Entfernen
+        dieses Videos
+      Playlist {playlistName} has been deleted.: Wiedergabeliste {playlistName} wurde
+        gelöscht.
+      This playlist does not exist: Diese Wiedergabeliste existiert nicht
+      This playlist is now used for quick bookmark: Diese Wiedergabeliste wird jetzt
+        für Schnelles Merken genutzt
+      Quick bookmark disabled: 'Schnelles Merken deaktiviert'
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese
+        Wiedergabeliste wird jetzt für Schnelles Merken genutzt, statt {oldPlaylistName}.
+        Klicke hier zum zurücksetzen
+      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
+        wieder für Schnelles Merken genutzt'
+    Search for Videos: Nach Videos suchen
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} ausgewählt'
+    Search in Playlists: In Wiedergabelisten suchen
+    Save: Speichern
+    Toast:
+      You haven't selected any playlist yet.: Du hast noch keine Wiedergabeliste ausgewählt.
+      "{videoCount} video(s) added to 1 playlist": 1 Video zu 1 Wiedergabeliste hinzugefügt
+        | {videoCount} Videos zu 1 Wiedergabeliste hinzugefügt
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount}
+        Wiedergabelisten hinzugefügt | {videoCount} Videos zu {playlistCount} Wiedergabelisten
+        hinzugefügt
+    Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
+      dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
+      Videos hinzufügen möchtest
+    Added {count} Times: '{count} Mal hinzugefügt | {count} Mal hinzugefügt'
+  CreatePlaylistPrompt:
+    New Playlist Name: Neuer Name der Wiedergabeliste
+    Create: Erstellen
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Es
+        gibt bereits eine Wiedergabeliste mit diesem Namen. Bitte wähle einen anderen
+        Namen.
+      There was an issue with creating the playlist.: Es gab ein Problem beim Erstellen
+        der Wiedergabeliste.
+      Playlist {playlistName} has been successfully created.: Wiedergabeliste {playlistName}
+        wurde erfolgreich erstellt.
+  Create New Playlist: Neue Wiedergabeliste erstellen
+  Remove from Playlist: Aus der Wiedergabeliste entfernen
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Bist
+    du sicher, dass du alle angesehenen Videos aus dieser Wiedergabeliste entfernen
+    möchtest? Dies kann nicht rückgängig gemacht werden.
+  Add to Favorites: Hinzufügen zu {playlistName}
+  Remove from Favorites: Löschen aus {playlistName}
+  Enable Quick Bookmark With This Playlist: Schnelles Merken für diese Wiedergabeliste
+    aktivieren
+  Disable Quick Bookmark: Schnelles Merken deaktivieren
+  Playlists with Matching Videos: Wiedergabelisten mit passenden Videos
 History:
   # On History Page
   History: Verlauf
@@ -182,6 +283,9 @@ Settings:
       Ask Before Opening Link: Vor dem Öffnen des Links nachfragen
       Open Link: Link öffnen
       External Link Handling: Handhabung externer Links
+    Auto Load Next Page:
+      Label: Nächste Seite automatisch laden
+      Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
   Theme Settings:
     Theme Settings: Farbschema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -195,6 +299,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -297,8 +402,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
     Allow DASH AV1 formats: DASH AV1-Formate zulassen
-    Comment Auto Load:
-      Comment Auto Load: Kommentare automatisch laden
   Subscription Settings:
     Subscription Settings: Abo-Einstellungen
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -313,6 +416,8 @@ Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Fetch Feeds from RSS: Feeds von RSS abrufen
     Fetch Automatically: Feed automatisch abrufen
+    Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
+      anzeigen
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -356,9 +461,12 @@ Settings:
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
       nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abos / Profile entfernen
-    Automatically Remove Video Meta Files: Video-Metadateien automatisch entfernen
     Save Watched Videos With Last Viewed Playlist: Angesehene Videos mit der zuletzt
       angesehenen Wiedergabeliste speichern
+    Remove All Playlists: Alle Wiedergabelisten entfernen
+    All playlists have been removed: Alle Wiedergabelisten wurden entfernt
+    Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle
+      deine Wiedergabelisten entfernen möchtest?
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -408,6 +516,15 @@ Settings:
     Playlist File: Wiedergabelistendatei
     Subscription File: Abo-Datei
     History File: Verlaufsdatei
+    Export Playlists For Older FreeTube Versions:
+      Label: Wiedergabelisten für ältere FreeTube-Versionen exportieren
+      Tooltip: "Diese Option exportiert Videos aus allen Wiedergabelisten in eine
+        Wiedergabeliste namens „Favoriten“.\nSo kann man Videos in Wiedergabelisten
+        für eine ältere Version von FreeTube exportieren und importieren:\n1. Exportiere
+        deine Wiedergabelisten, wenn diese Option aktiviert ist.\n2. Lösche alle deine
+        bestehenden Wiedergabelisten mit der Option Alle Wiedergabelisten entfernen
+        unter Datenschutzeinstellungen.\n3. Starte die ältere Version von FreeTube
+        und importiere die exportierten Wiedergabelisten.\""
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
@@ -429,7 +546,7 @@ Settings:
     Hide Channels: Videos aus Kanälen ausblenden
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
-      anzeigen
+      und Zeichensetzung anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
     Hide Channel Shorts: Kanal-Kurzvideos ausblenden
@@ -454,6 +571,10 @@ Settings:
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
       ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
+    Hide Videos and Playlists Containing Text: Videos und Playlisten verstecken, die
+      Text enthalten
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
+      oder Satz
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -488,6 +609,9 @@ Settings:
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
+    UseDeArrowThumbnails: Nutze DeArrow für Thumbnails
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
       ignorieren
@@ -498,6 +622,7 @@ Settings:
     Players:
       None:
         Name: Keine
+    Ignore Default Arguments: Ignoriere Standardargument
   Download Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -527,6 +652,7 @@ Settings:
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
+  Expand All Settings Sections: Alle Einstellungsabschnitte aufklappen
 About:
   #On About page
   About: Über
@@ -645,6 +771,7 @@ Channel:
     votes: '{votes} Stimmen'
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
+    Video hidden by FreeTube: Video versteckt von FreeTube
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
@@ -753,7 +880,7 @@ Video:
     music offtopic: Musik Offtopic
     interaction: Interaktion
     self-promotion: Eigenwerbung
-    outro: Outro
+    outro: Abspann
     intro: Intro
     sponsor: Sponsor
     recap: Rekapitulation
@@ -803,6 +930,9 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
   Pause on Current Video: Pause für aktuelles Video
+  Unhide Channel: Kanal anzeigen
+  Hide Channel: Kanal ausblenden
+  More Options: Weitere Optionen
 Videos:
   #& Sort By
   Sort By:
@@ -822,6 +952,15 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    VideoTitleDescending: Titel (Z-A)
+    Sort By: Sortieren nach
+    DateAddedNewest: Zuletzt hinzugefügt zuerst
+    DateAddedOldest: Am frühesten hinzugefügt zuerst
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Titel (A-Z)
+    Custom: Benutzerdefiniert
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
@@ -887,7 +1026,7 @@ Up Next: Nächster Titel
 Local API Error (Click to copy): Lokaler API-Fehler (Zum Kopieren anklicken)
 Invidious API Error (Click to copy): Invidious-API-Fehler (Zum Kopieren anklicken)
 Falling back to Invidious API: Rückgriff auf Invidious-API
-Falling back to the local API: Rückgriff auf lokale API
+Falling back to Local API: Rückgriff auf lokale API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
@@ -949,6 +1088,11 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profileinstellungen
   Toggle Profile List: Profilliste umschalten
+  Profile Name: Profilname
+  Edit Profile Name: Profilname bearbeiten
+  Create Profile Name: Profilname erstellen
+  Open Profile Dropdown: Profil-Klappliste öffnen
+  Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
   ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
@@ -1004,10 +1148,6 @@ Tooltips:
       Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
       bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
       die DASH H.264-Formate.
-  Privacy Settings:
-    Remove Video Meta Files: Wenn aktiviert, löscht FreeTube automatisch die während
-      der Videowiedergabe erstellten Metadateien, wenn die Abspielseite geschlossen
-      wird.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
       getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
@@ -1022,6 +1162,9 @@ Tooltips:
       im externen Abspieler öffnen kannst. Achtung, die Einstellungen von Invidious
       wirken sich nicht auf externe Abspieler aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
+    Ignore Default Arguments: Schicke keine Standardargumente an den externen Videoplayer
+      außer der Video URL (z.B. Abspiel-Geschwindigkeit, Wiedergabeliste-URL etc.).
+      Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
@@ -1034,9 +1177,15 @@ Tooltips:
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
       „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
       Kraft gesetzt
+    Hide Videos and Playlists Containing Text: Gebe ein Wort, einen Teil eines Wortes
+      oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
+      Playlisten, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
+      Dein Verlauf, deine eigenen Playlisten und Videos innerhalb deiner Playlisten
+      sind davon nicht betroffen.
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
+    UseDeArrowThumbnails: Ersetze Video-Thumbnails mit Thumbnails von DeArrow.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1063,11 +1212,6 @@ Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
 Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
-Age Restricted:
-  Type:
-    Video: Video
-    Channel: Kanal
-  This {videoOrPlaylist} is age restricted: Dieses {videoOrPlaylist} ist altersbeschränkt
 Channels:
   Channels: Kanäle
   Title: Kanalliste
@@ -1098,3 +1242,19 @@ Playlist will pause when current video is finished: Wiedergabeliste wird pausier
   wenn das aktuelle Video beendet ist
 Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
   pausiert, wenn das aktuelle Video beendet ist
+Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
+Go to page: Gehe zu {page}
+Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
+Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
+  1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
+  sein
+Tag already exists: Die Markierung „{tagName}“ existiert bereits
+Close Banner: Banner schließen
+Age Restricted:
+  This channel is age restricted: Dieser Kanal ist altersbeschränkt
+  This video is age restricted: Dieses Video ist altersbeschränkt
+Display Label: '{label}: {value}'
+checkmark: ✓
+Moments Ago: vor wenigen Augenblicken
+Feed:
+  Refresh Feed: '{subscriptionName} auffrischen'

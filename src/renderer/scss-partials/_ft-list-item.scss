@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 $thumbnail-overlay-opacity: 0.85;
 $watched-transition-duration: 0.5s;
 
@@ -78,7 +79,7 @@ $watched-transition-duration: 0.5s;
     .videoWatched,
     .videoDuration,
     .externalPlayerIcon,
-    .favoritesIcon,
+    .playlistIcons,
     .watchedProgressBar,
     .videoCountContainer,
     .background,
@@ -86,7 +87,6 @@ $watched-transition-duration: 0.5s;
       grid-column: 1;
       grid-row: 1;
       user-select: none;
-      -webkit-user-select: none;
     }
 
     .thumbnailLink {
@@ -106,22 +106,20 @@ $watched-transition-duration: 0.5s;
     }
 
     .videoWatched {
-      align-self: flex-start;
+      place-self: flex-start start;
       background-color: var(--bg-color);
       color: var(--primary-text-color);
-      justify-self: start;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
     }
 
     .videoDuration {
-      align-self: flex-end;
+      place-self: flex-end end;
       background-color: var(--card-bg-color);
       border-radius: 5px;
       color: var(--primary-text-color);
       font-size: 15px;
-      justify-self: end;
       line-height: 1.2;
       margin-block: 0 4px;
       margin-inline: 0 4px;
@@ -141,35 +139,43 @@ $watched-transition-duration: 0.5s;
     }
 
     .externalPlayerIcon {
-      align-self: flex-end;
+      place-self: flex-end start;
       font-size: 17px;
-      justify-self: start;
       margin-block-end: 4px;
       margin-inline-start: 4px;
     }
 
-    .favoritesIcon {
-      font-size: 17px;
+    .playlistIcons {
       justify-self: end;
       margin-inline-end: 3px;
       margin-block-start: 3px;
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: flex-end;
       block-size: fit-content;
     }
 
+    .quickBookmarkVideoIcon,
+    .addToPlaylistIcon,
+    .trashIcon,
+    .upArrowIcon,
+    .downArrowIcon {
+      font-size: 17px;
+    }
+
     .watchedProgressBar {
-      align-self: flex-end;
+      place-self: flex-end stretch;
       background-color: var(--primary-color);
       block-size: 2px;
-      justify-self: stretch;
       z-index: 2;
     }
 
     .videoCountContainer {
-      align-self: stretch;
+      place-self: stretch end;
       display: grid;
       font-size: 20px;
-      justify-self: end;
       inline-size: 60px;
+      pointer-events: none;
 
       .background {
         background-color: var(--bg-color);
@@ -191,9 +197,14 @@ $watched-transition-duration: 0.5s;
     display: flex;
     justify-content: center;
 
-    .channelImage {
-      border-radius: 50%;
-      block-size: 130px;
+    .channelThumbnailLink {
+      inline-size: 100%;
+      text-align: center;
+
+      .channelImage {
+        border-radius: 50%;
+        block-size: 130px;
+      }
     }
   }
 
@@ -201,6 +212,7 @@ $watched-transition-duration: 0.5s;
     align-content: flex-start;
     display: grid;
     flex: 1;
+    min-inline-size: 10em;
     grid-template:
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
@@ -239,9 +251,7 @@ $watched-transition-duration: 0.5s;
         font-size: 12px;
       }
 
-      & {
-        @include low-contrast-when-watched(var(--secondary-text-color));
-      }
+      @include low-contrast-when-watched(var(--secondary-text-color));
 
       .channelName {
         @include low-contrast-when-watched(var(--secondary-text-color));
@@ -268,13 +278,38 @@ $watched-transition-duration: 0.5s;
       }
     }
 
+    &.result {
+      .videoThumbnail,
+      .channelThumbnailLink,
+      .thumbnailLink,
+      .thumbnailImage {
+        inline-size: 336px;
+        max-inline-size: 25vw;
+
+        @media only screen and (width <= 680px) {
+          max-inline-size: 30vw;
+        }
+      }
+
+      .channelImage {
+        max-inline-size: 25vw;
+        max-block-size: 25vw;
+
+        @media only screen and (width <= 680px) {
+          max-inline-size: 30vw;
+          max-block-size: 30vw;
+        }
+      }
+    }
+
+
     .videoThumbnail,
     .channelThumbnail {
       margin-inline-end: 20px;
     }
 
-    .channelThumbnail {
-      inline-size: 231px;
+    .info .description {
+      margin-inline-end: 10px;
     }
   }
 
@@ -291,8 +326,14 @@ $watched-transition-duration: 0.5s;
       margin-block-end: 12px;
 
       .thumbnailImage {
-        inline-size: 100%;
+        // Ensure placeholder image displayed at same aspect ratio as most other images
+        aspect-ratio: 16/9;
       }
+    }
+
+    .thumbnailImage,
+    .channelThumbnail {
+      inline-size: 100%;
     }
 
     .title {
@@ -305,31 +346,33 @@ $watched-transition-duration: 0.5s;
     }
   }
 
-  .favoritesIcon,
+  .playlistIcons,
   .externalPlayerIcon {
     opacity: $thumbnail-overlay-opacity;
   }
 
   @media (hover: hover) {
-    .favoritesIcon.favorited,
-    &:hover .favoritesIcon,
+    &:hover .quickBookmarkVideoIcon:not(.alwaysVisible),
+    .quickBookmarkVideoIcon.bookmarked:not(.alwaysVisible),
+    &:hover .addToPlaylistIcon:not(.alwaysVisible),
     &:hover .externalPlayerIcon,
-    &:focus-within .favoritesIcon,
-    &:focus-within .externalPlayerIcon {
-      visibility: visible;
-      opacity: $thumbnail-overlay-opacity;
-    }
-
-    &:hover .optionsButton,
-    &:focus-within .optionsButton {
-      visibility: visible;
+    &:has(:focus-visible) .addToPlaylistIcon:not(.alwaysVisible),
+    &:has(:focus-visible) .quickBookmarkVideoIcon:not(.alwaysVisible),
+    &:has(:focus-visible) .externalPlayerIcon {
       opacity: 1;
     }
 
-    .favoritesIcon,
+    &:hover .optionsButton,
+    &:has(:focus-visible) .optionsButton,
+    // Keep visible when the drop down is open
+    :deep(.optionsButton:has(> .iconDropdown:focus-within)) {
+      opacity: 1;
+    }
+
+    .quickBookmarkVideoIcon:not(.alwaysVisible),
+    .addToPlaylistIcon:not(.alwaysVisible),
     .externalPlayerIcon,
     .optionsButton {
-      visibility: none;
       opacity: 0;
       transition: visibility 0s, opacity 0.2s linear;
     }
@@ -341,7 +384,6 @@ $watched-transition-duration: 0.5s;
 .upcoming {
   text-transform: uppercase;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 // we use h3 for semantic reasons but don't want to keep the h3 style

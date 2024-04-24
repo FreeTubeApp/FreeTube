@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'فارسی (ایرانی)'
-FreeTube: 'یوتیوب آزاد'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   این بخش از نرم افزار هنوز آماده نیست.زمانی که پیشرفتی صورت گرفت به اینجا باز گردید.
@@ -257,8 +256,6 @@ Settings:
       پخش کننده ویدیو
     Video Playback Rate Interval: فاصله سرعت پخش ویدیو
     Max Video Playback Rate: حداکثر سرعت پخش ویدیو
-    Comment Auto Load:
-      Comment Auto Load: نظرات اتوماتیک بارگذاری شود
     Enter Fullscreen on Display Rotate: در چرخه نمایشگر وارد صفحه تمام صفحه شوید
     Screenshot:
       Format Label: فرمت اسکرین شات
@@ -290,8 +287,6 @@ Settings:
     Privacy Settings: 'تنظیمات امنیتی'
     Remember History: 'حفظ تاریخچه'
     Save Watched Progress: 'ذخیره ویدیو های دیده شده'
-    Automatically Remove Video Meta Files: 'به صورت خودکار متا فایل های ویدیو را حذف
-      کردن'
     Clear Search Cache: 'پاک کردن کش جستجو'
     Are you sure you want to clear out your search cache?: 'آیا مطمئن هستید که میخواهید
       کش جستجویتان را پاک کنید؟'
@@ -702,9 +697,6 @@ Tooltips:
       نمی دهد
     Fetch Automatically: هنگامی که فعال باشد، FreeTube به طور خودکار فید اشتراک شما
       را هنگام باز شدن یک پنجره جدید و هنگام تغییر نمایه دریافت می کند.
-  Privacy Settings:
-    Remove Video Meta Files: هنگامی که FreeTube فعال باشد، به طور خودکار فایل های
-      متا ایجاد شده در حین پخش ویدیو را حذف می کند، زمانی که صفحه تماشا بسته می شود.
   External Player Settings:
     Custom External Player Executable: به طور پیش فرض، FreeTube فرض می کند که پخش
       کننده خارجی انتخاب شده را می توان از طریق متغیر محیطی PATH پیدا کرد. در صورت
@@ -900,12 +892,6 @@ Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیر�
 Ok: تایید
 Downloading has completed: دانلود '{videoTitle}' به پایان رسید
 Loop is now enabled: حلقه اکنون فعال است
-Age Restricted:
-  Type:
-    Video: ویدیو
-    Channel: کانال
-  This {videoOrPlaylist} is age restricted: این {videoOrPlaylist} دارای محدودیت سنی
-    است
 Shuffle is now enabled: Shuffle اکنون فعال است
 Falling back to Invidious API: بازگشت به Invidious API
 Local API Error (Click to copy): خطای Local API (برای کپی کلیک کنید)
@@ -913,7 +899,7 @@ Shuffle is now disabled: Shuffle اکنون غیرفعال است
 Canceled next video autoplay: پخش خودکار ویدیوی بعدی لغو شد
 Unknown YouTube url type, cannot be opened in app: نوع URL ناشناخته YouTube، در برنامه
   باز نمی شود
-Falling back to the local API: بازگشت به API محلی
+Falling back to Local API: بازگشت به API محلی
 This video is unavailable because of missing formats. This can happen due to country unavailability.: این
   ویدیو به دلیل عدم وجود قالب در دسترس نیست. این ممکن است به دلیل در دسترس نبودن کشور
   اتفاق بیفتد.
