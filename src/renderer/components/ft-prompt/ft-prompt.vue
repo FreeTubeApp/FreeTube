@@ -32,18 +32,10 @@
             :id="'prompt-' + sanitizedLabel + '-' + index"
             :key="index"
             :label="option"
-            :text-color="index === 0 && isFirstOptionDestructive ? 'var(--destructive-text-color)' : null"
-            :background-color="index === 0 && isFirstOptionDestructive ? 'var(--destructive-color)' : null"
+            :text-color="optionButtonTextColor(index)"
+            :background-color="optionButtonBackgroundColor(index)"
+            :icon="index === 0 && isFirstOptionDestructive ? ['fas', 'trash'] : null"
             @click="click(optionValues[index])"
-          />
-          <ft-button
-            v-if="showClose"
-            :id="'prompt-' + sanitizedLabel + '-close'"
-            :label="$t('Close')"
-            :tabindex="0"
-            text-color="'var(--accent-color)'"
-            background-color="'var(--text-with-accent-color)'"
-            @click="hide"
           />
         </ft-flex-box>
       </slot>

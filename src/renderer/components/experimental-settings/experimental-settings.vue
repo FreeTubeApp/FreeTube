@@ -21,7 +21,6 @@
       :label="$t('Settings[\'The app needs to restart for changes to take effect. Restart and apply change?\']')"
       :option-names="[$t('Yes, Restart'), $t('Cancel')]"
       :option-values="['restart', 'cancel']"
-      :is-first-option-destructive="true"
       @click="handleReplaceHttpCache"
     />
   </ft-settings-section>

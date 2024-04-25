@@ -84,6 +84,7 @@
                     :label="$t('Profile.Delete Profile')"
                     text-color="var(--destructive-text-color)"
                     background-color="var(--destructive-color)"
+                    :icon="['fas', 'trash']"
                     @click="openDeletePrompt"
                   />
                 </template>
