@@ -3,9 +3,10 @@
   margin-block-end: 10px;
   border-radius: 4px;
   block-size: fit-content;
-  box-shadow: 0px 1px 2px rgb(0 0 0 / 50%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
   display: flex;
   flex-wrap: nowrap;
+
   /* addresses odd clipping behavior when adjusting window size */
   background-color: var(--primary-color);
 }
@@ -76,7 +77,6 @@
   overflow-y: scroll;
   position: absolute;
   text-align: center;
-  -webkit-user-select: none;
   user-select: none;
   z-index: 3;
   // accounts for parent's left and right margins
@@ -112,7 +112,6 @@
       justify-content: center;
       flex-shrink: 0;
       border-radius: 50%;
-      -webkit-border-radius: 50%;
     }
 
     .initial {
@@ -120,7 +119,6 @@
       line-height: 1em;
       text-align: center;
       user-select: none;
-      -webkit-user-select: none;
     }
 
     .profileName {

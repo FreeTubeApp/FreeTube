@@ -218,7 +218,7 @@ User Playlists:
 History:
   # On History Page
   History: 'Histórico'
-  Watch History: 'Histórico de visualizações'
+  Watch History: 'Histórico de exibição'
   Your history list is currently empty.: 'Seu histórico está vazio no momento.'
   Search bar placeholder: Pesquisar no histórico
   Empty Search Message: Não há vídeos em seu histórico que correspondam à sua pesquisa
@@ -436,15 +436,15 @@ Settings:
       #& No
 
   Privacy Settings:
-    Watch history has been cleared: Histórico de visualizações foi apagado
+    Watch history has been cleared: O histórico de exibição foi apagado
     Are you sure you want to remove your entire watch history?: Tem certeza de que
-      deseja remover todo o seu histórico de visualizações?
-    Remove Watch History: Remover histórico
+      deseja remover todo o seu histórico de exibição?
+    Remove Watch History: Remover histórico de exibição
     Search cache has been cleared: Cache de pesquisas foi apagado
     Are you sure you want to clear out your search cache?: Tem certeza de que deseja
       limpar o cache de pesquisa?
     Clear Search Cache: Limpar cache de buscas
-    Save Watched Progress: Salvar progresso de visualização
+    Save Watched Progress: Habilitar o histórico de exibição
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
@@ -483,13 +483,13 @@ Settings:
     Unknown data key: Chave de dados desconhecida
     Unable to write file: O arquivo não pôde ser salvo
     Unable to read file: O arquivo não pôde ser lido
-    All watched history has been successfully exported: Todo o histórico de visualizações
-      foi exportado com sucesso
-    All watched history has been successfully imported: Todo o histórico de visualizações
-      foi importado com sucesso
+    All watched history has been successfully exported: O histórico de exibição foi
+      exportado com sucesso
+    All watched history has been successfully imported: O histórico de exibição foi
+      importado com sucesso
     History object has insufficient data, skipping item: O histórico tem dados insuficientes,
       pulando item
-    This might take a while, please wait: Este processo pode demorar, por favor espere
+    This might take a while, please wait: Este processo pode demorar, por favor aguarde
     Invalid subscriptions file: Arquivo de inscrições inválido
     All subscriptions and profiles have been successfully imported: Todas as inscrições
       e perfis foram importados com sucesso
@@ -1221,3 +1221,7 @@ Age Restricted:
   This video is age restricted: Este vídeo tem restrição de idade
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} última atualização do feed: {date}'
+  Refresh Feed: Atualizar {subscriptionName}
+Moments Ago: momentos atrás

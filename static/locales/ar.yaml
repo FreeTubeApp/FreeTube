@@ -265,6 +265,9 @@ Settings:
       Ask Before Opening Link: اسأل قبل فتح الرابط
       Open Link: افتح الرابط
       External Link Handling: معالجة الارتباط الخارجي
+    Auto Load Next Page:
+      Label: تحميل تلقائي للصفحة التالية
+      Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -950,6 +953,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: قائمة التشغيل
+  Sort By:
+    Sort By: ترتيب حسب
+    DateAddedNewest: آخر مضاف أولا
+    DateAddedOldest: الأقدم إضافتا أولا
+    AuthorAscending: الكاتب (A-Z)
+    AuthorDescending: الكاتب (Z-A)
+    VideoTitleAscending: العنوان (A-Z)
+    VideoTitleDescending: العنوان (Z-A)
+    Custom: مُخصّص
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
@@ -1170,3 +1182,7 @@ Age Restricted:
 Close Banner: إغلاق الشعار
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: منذ لحظات
+Feed:
+  Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
+  Refresh Feed: تحديث {subscriptionName}

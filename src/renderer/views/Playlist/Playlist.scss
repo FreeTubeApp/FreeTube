@@ -10,7 +10,9 @@
   padding: 10px;
   position: sticky;
   inset-block-start: 96px;
+
   /* This is needed to make prompt always above video entries */
+
   /* Value being too high would block search suggestions */
   z-index: 1;
   inline-size: 30%;
@@ -44,7 +46,7 @@
 
   // Hide action buttons during transitions
   //
-  // The class for icon container is mainly styled in `_ft-list-item.scss`
+  // The class for icon container is mainly styled in `ft-list-item.scss`
   // But the transition related classes are all on container elements
   // So `:deep` is used
   :deep(.ft-list-item .videoThumbnail .playlistIcons) {
@@ -56,6 +58,7 @@
     pointer-events: none;
   }
 }
+
 .playlistItem-enter, .playlistItem-leave-to {
   opacity: 0;
   transform: translate(calc(10% * var(--horizontal-directionality-coefficient)));
@@ -67,18 +70,15 @@
 }
 
 .sortSelect {
-  /* Put it on the right */
-  margin-inline-start: auto;
-  /* Align with 'More Options' dropdown button */
-  margin-inline-end: 20px;
+  /* Put it on the right and align with 'More Options' dropdown button */
+  margin-inline: auto 20px;
 }
 
 :deep(.videoThumbnail) {
-  margin-block-start: auto;
-  margin-block-end: auto;
+  margin-block: auto;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (width <= 850px) {
   .routerView {
     flex-direction: column;
   }

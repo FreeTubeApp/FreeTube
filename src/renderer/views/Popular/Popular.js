@@ -1,11 +1,13 @@
 import { defineComponent } from 'vue'
+import { mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'Popular',
@@ -13,7 +15,8 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'ft-element-list': FtElementList,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-refresh-widget': FtRefreshWidget,
   },
   data: function () {
     return {
@@ -22,6 +25,9 @@ export default defineComponent({
     }
   },
   computed: {
+    lastPopularRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastPopularRefreshTimestamp, true)
+    },
     popularCache: function () {
       return this.$store.getters.getPopularCache
     }
@@ -64,6 +70,7 @@ export default defineComponent({
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
       setPublishedTimestampsInvidious(items.filter(item => item.type === 'video' || item.type === 'shortVideo'))
+      this.setLastPopularRefreshTimestamp(new Date())
 
       this.shownResults = items
 
@@ -92,6 +99,10 @@ export default defineComponent({
           }
           break
       }
-    }
+    },
+
+    ...mapMutations([
+      'setLastPopularRefreshTimestamp'
+    ])
   }
 })

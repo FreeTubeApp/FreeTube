@@ -109,7 +109,6 @@ Subscriptions:
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Empty Posts: Your subscribed channels currently do not have any posts.
-  Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
   Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
@@ -132,6 +131,9 @@ Trending:
   Movies: Movies
   Trending Tabs: Trending Tabs
 Most Popular: Most Popular
+Feed:
+  Feed Last Updated: '{feedName} feed last updated: {date}'
+  Refresh Feed: Refresh {subscriptionName}
 Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
@@ -1061,6 +1063,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
+Moments Ago: moments ago
 Yes: Yes
 No: No
 Ok: Ok

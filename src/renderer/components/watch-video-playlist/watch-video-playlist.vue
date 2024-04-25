@@ -140,7 +140,7 @@
           :is-current-video="currentVideoIndexZeroBased === index"
           appearance="watchPlaylistItem"
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
-          @pause-player="$emit('pause-player')"
+          @pause-player="pausePlayer"
         />
       </div>
     </div>

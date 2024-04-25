@@ -972,6 +972,8 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reprodução
+  Sort By:
+    Sort By: Ordenar por
 Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
@@ -1187,3 +1189,6 @@ Close Banner: Fechar banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrições de idade
   This video is age restricted: Este vídeo tem restrições de idade
+Feed:
+  Feed Last Updated: 'Última atualização de {feedName}: {date}'
+  Refresh Feed: Recarregar {subscriptionName}

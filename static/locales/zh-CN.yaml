@@ -1052,3 +1052,7 @@ Age Restricted:
   This channel is age restricted: 此频道有年龄限制
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: 片刻前
+Feed:
+  Feed Last Updated: '{feedName} 上次更新: {date}'
+  Refresh Feed: 刷新 {subscriptionName}

@@ -11,6 +11,44 @@ import { nextTick } from 'vue'
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+
+function currentLocale () {
+  return i18n.locale.replace('_', '-')
+}
+
+export function getIconForSortPreference(sortPreference) {
+  switch (sortPreference) {
+    case 'name_descending':
+    case 'author_descending':
+    case 'video_title_descending':
+      // text descending
+      return ['fas', 'sort-alpha-down-alt']
+    case 'name_ascending':
+    case 'author_ascending':
+    case 'video_title_ascending':
+      // text ascending
+      return ['fas', 'sort-alpha-down']
+    case 'latest_updated_first':
+    case 'latest_created_first':
+    case 'latest_played_first':
+    case 'date_added_descending':
+    case 'last':
+    case 'newest':
+    case 'popular':
+    case 'custom':
+      // quantity descending
+      return ['fas', 'arrow-down-wide-short']
+    case 'earliest_updated_first':
+    case 'earliest_created_first':
+    case 'earliest_played_first':
+    case 'date_added_ascending':
+    case 'oldest':
+    default:
+      // quantity ascending
+      return ['fas', 'arrow-down-short-wide']
+  }
+}
+
 /**
  * @param {string} publishedText
  * @param {boolean} isLive
@@ -53,6 +91,7 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
   } else if (timeFrame.startsWith('week') || timeFrame === 'w') {
     timeSpan = timeAmount * 604800000
   } else if (timeFrame.startsWith('month') || timeFrame === 'mo') {
+    // 30 day month being used
     timeSpan = timeAmount * 2592000000
   } else if (timeFrame.startsWith('year') || timeFrame === 'y') {
     timeSpan = timeAmount * 31556952000
@@ -714,6 +753,61 @@ export function getTodayDateStrLocalTimezone() {
   // e.g. 2011-10-05T14:48:00.000Z
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
   return timeNowStr.split('T')[0]
+}
+
+export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayMonths = true) {
+  if (!date) {
+    return ''
+  }
+
+  const now = new Date().getTime()
+  // Convert from ms to second
+  // For easier code interpretation the value is made to be positive
+  let timeDiffFromNow = ((now - date) / 1000)
+  let timeUnit = 'second'
+
+  if (timeDiffFromNow < 60 && hideSeconds) {
+    return i18n.t('Moments Ago')
+  }
+
+  if (timeDiffFromNow >= 60) {
+    timeDiffFromNow /= 60
+    timeUnit = 'minute'
+  }
+
+  if (timeUnit === 'minute' && timeDiffFromNow >= 60) {
+    timeDiffFromNow /= 60
+    timeUnit = 'hour'
+  }
+
+  if (timeUnit === 'hour' && timeDiffFromNow >= 24) {
+    timeDiffFromNow /= 24
+    timeUnit = 'day'
+  }
+
+  const timeDiffFromNowDays = timeDiffFromNow
+  if (timeUnit === 'day' && timeDiffFromNow >= 7) {
+    timeDiffFromNow /= 7
+    timeUnit = 'week'
+  }
+
+  /* Different months might have a different number of days.
+    In some contexts, to ensure the display is fine, we use 31.
+    In other contexts, like when working with calculatePublishedDate, we use 30. */
+  const daysInMonth = useThirtyDayMonths ? 30 : 31
+  if (timeUnit === 'week' && timeDiffFromNowDays >= daysInMonth) {
+    timeDiffFromNow = timeDiffFromNowDays / daysInMonth
+    timeUnit = 'month'
+  }
+
+  if (timeUnit === 'month' && timeDiffFromNow >= 12) {
+    timeDiffFromNow /= 12
+    timeUnit = 'year'
+  }
+
+  // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
+  // Notice that the value is turned to negative to be displayed as "ago"
+  return new Intl.RelativeTimeFormat([currentLocale(), 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**

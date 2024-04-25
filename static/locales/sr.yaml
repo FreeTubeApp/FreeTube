@@ -282,6 +282,9 @@ Settings:
     The currently set default instance is {instance}: Тренутно подешена подразумевана
       инстанца је {instance}
     Current Invidious Instance: Тренутна Invidious инстанца
+    Auto Load Next Page:
+      Label: Аутоматски учитај следећу страницу
+      Tooltip: Аутоматско учитавање додатних страница и коментара.
   Theme Settings:
     Theme Settings: 'Подешавања теме'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
@@ -979,6 +982,15 @@ Playlist:
   View: Преглед
   Playlist: Плејлиста
   Views: Прегледа
+  Sort By:
+    DateAddedOldest: Најраније додато прво
+    AuthorAscending: Аутор (A-Z)
+    VideoTitleAscending: Наслов (A-Z)
+    VideoTitleDescending: Наслов (Z-A)
+    Custom: Прилагођено
+    Sort By: Сортирање по
+    AuthorDescending: Аутор (Z-A)
+    DateAddedNewest: Најновије додато прво
 Falling back to Invidious API: Повратак на Invidious API
 Change Format:
   Dash formats are not available for this video: DASH формати нису доступни за овај
@@ -1116,3 +1128,7 @@ Age Restricted:
   This video is age restricted: Овај видео снимак је ограничен према узрасту
 Display Label: '{label}: {value}'
 checkmark: ✓
+Feed:
+  Feed Last Updated: 'Фид {feedName} је последњи пут ажуриран: {date}'
+  Refresh Feed: Освежи {subscriptionName}
+Moments Ago: пре неколико тренутака

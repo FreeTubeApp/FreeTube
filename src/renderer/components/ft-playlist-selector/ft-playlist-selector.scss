@@ -15,11 +15,9 @@
 
     .videoCountContainer {
       position: absolute;
-
       inset-inline-end: 0;
       inset-block: 0;
       inline-size: 60px;
-
       font-size: 20px;
 
       .background,
@@ -38,7 +36,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
         color: var(--primary-text-color);
       }
     }
@@ -63,7 +60,6 @@
   &.grid {
     display: flex;
     flex-direction: column;
-
     inline-size: 245px;
     min-block-size: 230px;
     padding-block-end: 20px;
@@ -77,6 +73,7 @@
         aspect-ratio: 16/9;
       }
     }
+
     .title {
       font-size: 22px;
     }
@@ -85,9 +82,7 @@
 
 .selectedIcon {
   position: absolute;
-
   inset-block-start: calc(50% - 25px);
   inset-inline-start: calc(50% - 25px);
-
   font-size: 50px;
 }

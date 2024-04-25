@@ -1,18 +1,6 @@
-let handlers
-if (process.env.IS_ELECTRON) {
-  handlers = require('./electron').default
-} else {
-  handlers = require('./web').default
-}
-
-const DBSettingHandlers = handlers.settings
-const DBHistoryHandlers = handlers.history
-const DBProfileHandlers = handlers.profiles
-const DBPlaylistHandlers = handlers.playlists
-
 export {
-  DBSettingHandlers,
-  DBHistoryHandlers,
-  DBProfileHandlers,
-  DBPlaylistHandlers
-}
+  settings as DBSettingHandlers,
+  history as DBHistoryHandlers,
+  profiles as DBProfileHandlers,
+  playlists as DBPlaylistHandlers
+} from 'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB'
