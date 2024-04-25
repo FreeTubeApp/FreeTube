@@ -8,10 +8,10 @@
 .hotPink,
 .nordic {
   --primary-input-color: rgb(0 0 0 / 50%);
-  --destructive-color: #F00;
-  --destructive-text-color: #FFF;
-  --destructive-hover-color: #e00000;
-  --destructive-active-color: #bb0900;
+  --destructive-color: #f44336;
+  --destructive-text-color: #000;
+  --destructive-hover-color: #e53935;
+  --destructive-active-color: #c62828;
 }
 
 .system[data-system-theme*='light'], .light,
@@ -266,7 +266,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   text-decoration: underline;
 }
 
-.mainRed,
 .mainPink,
 .mainPurple,
 .mainDeepPurple,
@@ -281,6 +280,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url("../../_icons/textWhiteSmall.svg");
 }
 
+.mainRed,
 .mainLightGreen,
 .mainLime,
 .mainYellow,
@@ -293,9 +293,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .mainRed {
-  --primary-color: #F00;
-  --primary-color-hover: #e00000;
-  --primary-color-active: #bb0900;
+  --primary-color: #f44336;
+  --primary-color-hover: #e53935;
+  --primary-color-active: #c62828;
 }
 
 .mainPink {
@@ -391,6 +391,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainDraculaCyan,
 .mainDraculaGreen,
 .mainDraculaOrange,
+.mainDraculaRed,
 .mainDraculaYellow {
   --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
@@ -398,8 +399,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .mainDraculaPink,
-.mainDraculaPurple,
-.mainDraculaRed {
+.mainDraculaPurple {
   --text-with-main-color: #F8F8F2;
   --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
   --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
@@ -550,7 +550,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
-.secRed,
 .secPink,
 .secPurple,
 .secDeepPurple,
@@ -563,6 +562,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #FFF;
 }
 
+.secRed,
 .secLightGreen,
 .secLime,
 .secYellow,
@@ -573,11 +573,11 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secRed {
-  --accent-color: #F00;
-  --accent-color-hover: #e00000;
-  --accent-color-active: #bb0900;
-  --accent-color-light: #ff1a0e;
-  --accent-color-visited: #b92020;
+  --accent-color: #f44336;
+  --accent-color-hover: #e53935;
+  --accent-color-active: #c62828;
+  --accent-color-light: #ef9a9a;
+  --accent-color-visited: #b71c1c;
   --accent-color-opacity1: rgb(244 67 54 / 4%);
   --accent-color-opacity2: rgb(244 67 54 / 12%);
   --accent-color-opacity3: rgb(244 67 54 / 16%);
@@ -767,13 +767,13 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secDraculaCyan,
 .secDraculaGreen,
 .secDraculaOrange,
+.secDraculaRed,
 .secDraculaYellow {
   --text-with-accent-color: #212121;
 }
 
 .secDraculaPink,
-.secDraculaPurple,
-.secDraculaRed {
+.secDraculaPurple {
   --text-with-accent-color: #F8F8F2;
 }
 
@@ -1055,7 +1055,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   .mainDraculaPurple.secRed,
   .mainDraculaPurple.secDraculaRed {
     --destructive-color: #FF9800;
-    --destructive-text-color: #000;
+    --destructive-text-color: #FFF;
     --destructive-hover-color: #FB8C00;
     --destructive-active-color: #EF6C00;
   }
