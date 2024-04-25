@@ -57,6 +57,7 @@
         :value="baseTheme"
         :select-names="baseThemeNames"
         :select-values="baseThemeValues"
+        :icon="['fas', 'palette']"
         @change="updateBaseTheme"
       />
       <ft-select
@@ -65,6 +66,8 @@
         :select-names="colorNames"
         :select-values="colorValues"
         :disabled="!areColorThemesEnabled"
+        :icon="['fas', 'palette']"
+        icon-color="var(--primary-color)"
         @change="updateMainColor"
       />
       <ft-select
@@ -73,6 +76,8 @@
         :select-names="colorNames"
         :select-values="colorValues"
         :disabled="!areColorThemesEnabled"
+        :icon="['fas', 'palette']"
+        icon-color="var(--accent-color)"
         @change="updateSecColor"
       />
     </ft-flex-box>
