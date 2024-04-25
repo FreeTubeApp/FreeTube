@@ -1055,7 +1055,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   .mainDraculaPurple.secRed,
   .mainDraculaPurple.secDraculaRed {
     --destructive-color: #FF9800;
-    --destructive-text-color: #FFF;
+    --destructive-text-color: #000;
     --destructive-hover-color: #FB8C00;
     --destructive-active-color: #EF6C00;
   }
