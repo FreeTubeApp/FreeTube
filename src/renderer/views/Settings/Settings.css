@@ -1,24 +1,31 @@
-hr {
-  inline-size: 85%;
-  margin-block: 0;
-  margin-inline: auto;
-  border: 0;
-  border-block-start: 2px solid var(--scrollbar-color-hover);
+.settingsPage {
+  display: flex;
 }
 
-@media only screen and (width <= 800px) {
-  hr {
-    inline-size: 100%;
-  }
+.settingsContent {
+  margin-inline-start: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settingsSections {
+  margin-inline: auto;
 }
 
 .switchRow {
-  inline-size: 85%;
-  margin-inline: auto;
   display: flex;
 }
+
+/* .settingsSections {
+
+} */
 
 .settingsToggle {
   padding-block: 0;
   margin-block: 10px 5px;
+}
+
+.section + .section {
+  padding-block-start: 20px;
 }

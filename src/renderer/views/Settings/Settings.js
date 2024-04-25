@@ -16,6 +16,7 @@ import ExperimentalSettings from '../../components/experimental-settings/experim
 import PasswordSettings from '../../components/password-settings/password-settings.vue'
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
+import FtSettingsMenu from '../../components/ft-settings-menu/ft-settings-menu.vue'
 
 export default defineComponent({
   name: 'Settings',
@@ -35,73 +36,12 @@ export default defineComponent({
     'experimental-settings': ExperimentalSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
-    'ft-toggle-switch': FtToggleSwitch
+    'ft-toggle-switch': FtToggleSwitch,
+    'ft-settings-menu': FtSettingsMenu,
   },
   data: function () {
     return {
-      unlocked: false,
-      settingsComponentsData: [
-        {
-          type: 'general-settings',
-          title: this.$t('Settings.General Settings.General Settings')
-        },
-        {
-          type: 'theme-settings',
-          title: this.$t('Settings.Theme Settings.Theme Settings')
-        },
-        {
-          type: 'player-settings',
-          title: this.$t('Settings.Player Settings.Player Settings')
-        },
-        {
-          type: 'external-player-settings',
-          title: this.$t('Settings.External Player Settings.External Player Settings'),
-          usingElectron: true
-        },
-        {
-          type: 'subscription-settings',
-          title: this.$t('Settings.Subscription Settings.Subscription Settings')
-        },
-        {
-          type: 'distraction-settings',
-          title: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
-        },
-        {
-          type: 'privacy-settings',
-          title: this.$t('Settings.Privacy Settings.Privacy Settings')
-        },
-        {
-          type: 'data-settings',
-          title: this.$t('Settings.Data Settings.Data Settings')
-        },
-        {
-          type: 'proxy-settings',
-          title: this.$t('Settings.Proxy Settings.Proxy Settings'),
-          usingElectron: true
-        },
-        {
-          type: 'download-settings',
-          title: this.$t('Settings.Download Settings.Download Settings'),
-          usingElectron: true
-        },
-        {
-          type: 'parental-control-settings',
-          title: this.$t('Settings.Parental Control Settings.Parental Control Settings')
-        },
-        {
-          type: 'sponsor-block-settings',
-          title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
-        },
-        {
-          type: 'experimental-settings',
-          title: this.$t('Settings.Experimental Settings.Experimental Settings'),
-          usingElectron: true
-        },
-        {
-          type: 'password-settings',
-          title: this.$t('Settings.Password Settings.Password Settings')
-        },
-      ]
+      unlocked: false
     }
   },
   computed: {
@@ -113,12 +53,88 @@ export default defineComponent({
       return this.$store.getters.getSettingsPassword
     },
 
-    allSettingsSectionsExpandedByDefault: function () {
-      return this.$store.getters.getAllSettingsSectionsExpandedByDefault
-    },
-
     settingsSectionSortEnabled: function () {
       return this.$store.getters.getSettingsSectionSortEnabled
+    },
+
+    settingsComponentsData: function () {
+      return [
+        {
+          type: 'general-settings',
+          title: this.$t('Settings.General Settings.General Settings'),
+          icon: 'border-all'
+        },
+        {
+          type: 'theme-settings',
+          title: this.$t('Settings.Theme Settings.Theme Settings'),
+          icon: 'display'
+        },
+        {
+          type: 'player-settings',
+          title: this.$t('Settings.Player Settings.Player Settings'),
+          icon: 'circle-play'
+        },
+        {
+          type: 'external-player-settings',
+          title: this.$t('Settings.External Player Settings.External Player Settings'),
+          icon: 'clapperboard',
+          usingElectron: true
+        },
+        {
+          type: 'subscription-settings',
+          title: this.$t('Settings.Subscription Settings.Subscription Settings'),
+          icon: 'play'
+        },
+        {
+          type: 'distraction-settings',
+          title: this.$t('Settings.Distraction Free Settings.Distraction Free Settings'),
+          icon: 'eye-slash'
+        },
+        {
+          type: 'privacy-settings',
+          title: this.$t('Settings.Privacy Settings.Privacy Settings'),
+          icon: 'lock'
+        },
+        {
+          type: 'data-settings',
+          title: this.$t('Settings.Data Settings.Data Settings'),
+          icon: 'database'
+        },
+        {
+          type: 'proxy-settings',
+          title: this.$t('Settings.Proxy Settings.Proxy Settings'),
+          icon: 'microchip',
+          usingElectron: true
+        },
+        {
+          type: 'download-settings',
+          title: this.$t('Settings.Download Settings.Download Settings'),
+          icon: 'download',
+          usingElectron: true
+        },
+        {
+          type: 'parental-control-settings',
+          title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
+          icon: 'user-lock'
+        },
+        {
+          type: 'sponsor-block-settings',
+          title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
+          // TODO: replace with SponsorBlock icon
+          icon: 'shield'
+        },
+        {
+          type: 'experimental-settings',
+          title: this.$t('Settings.Experimental Settings.Experimental Settings'),
+          icon: 'flask',
+          usingElectron: true
+        },
+        {
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings'),
+          icon: 'key'
+        },
+      ]
     },
 
     settingsSectionComponents: function () {
@@ -144,8 +160,12 @@ export default defineComponent({
     }
   },
   methods: {
+    scrollToSection(section) {
+      const sectionElement = this.$refs[section]
+      sectionElement?.scrollIntoView()
+    },
+
     ...mapActions([
-      'updateAllSettingsSectionsExpandedByDefault',
       'updateSettingsSectionSortEnabled'
     ])
   }

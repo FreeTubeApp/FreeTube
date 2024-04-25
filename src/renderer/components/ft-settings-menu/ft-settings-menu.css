@@ -1,0 +1,43 @@
+.settingsMenu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 5px;
+  font-size: 22px;
+  inline-size: fit-content;
+  max-inline-size: 250px;
+}
+
+.header {
+  font-size: 26px;
+}
+
+.settingsMenuTitle {
+  text-decoration: none;
+  color: var(--tertiary-text-color);
+  overflow-x: hidden;
+  inline-size: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.settingsMenuTitle:hover {
+  color: var(--primary-text-color);
+}
+
+.settingsMenuTitle.active {
+  color: var(--primary-text-color);
+  border-block-end: 3px solid var(--primary-text-color);
+}
+
+.settingsMenuTitleIcon {
+  inline-size: 22px;
+  block-size: 22px;
+}
+
+@media only screen and (width <= 800px) {
+  .settingsMenu {
+    text-align: center;
+  }
+}

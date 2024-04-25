@@ -1,14 +1,11 @@
 <template>
-  <div>
+  <div class="settingsPage">
     <template v-if="unlocked">
+      <ft-settings-menu
+        :settings-sections="settingsSectionComponents"
+      />
+      <div class="settingsContent">
       <div class="switchRow">
-        <ft-toggle-switch
-          class="settingsToggle"
-          :label="$t('Settings.Expand All Settings Sections')"
-          :default-value="allSettingsSectionsExpandedByDefault"
-          :compact="false"
-          @change="updateAllSettingsSectionsExpandedByDefault"
-        />
         <ft-toggle-switch
           class="settingsToggle"
           :label="$t('Settings.Sort Settings Sections (A-Z)')"
@@ -17,18 +14,20 @@
           @change="updateSettingsSectionSortEnabled"
         />
       </div>
-      <template
-        v-for="(settingsComponent, i) in settingsSectionComponents"
-      >
-        <hr
-          v-if="i !== 0"
-          :key="settingsComponent.type + 'hr'"
+      <div class="settingsSections">
+        <template
+          v-for="(settingsComponent) in settingsSectionComponents"
         >
-        <component
-          :is="settingsComponent.type"
-          :key="settingsComponent.type + 'component'"
-        />
-      </template>
+          <component
+            :is="settingsComponent.type"
+            :id="settingsComponent.type"
+            :ref="settingsComponent.type"
+            :key="settingsComponent.type + 'component'"
+            class="section"
+          />
+        </template>
+      </div>
+    </div>
     </template>
     <password-dialog
       v-else

@@ -162,7 +162,6 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
   backendFallback: process.env.SUPPORTS_LOCAL_API,
