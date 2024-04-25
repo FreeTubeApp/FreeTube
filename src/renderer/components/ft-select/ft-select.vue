@@ -20,7 +20,6 @@
       </option>
     </select>
     <font-awesome-icon
-      v-if="!disabled"
       :icon="['fas', 'sort-down']"
       class="iconSelect"
     />
@@ -29,7 +28,7 @@
     <label
       class="select-label"
       :for="sanitizedId ?? sanitizedPlaceholder"
-      :hidden="disabled"
+      v-if="!disabled"
     >
       <font-awesome-icon
         :icon="icon"
