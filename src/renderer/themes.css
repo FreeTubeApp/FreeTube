@@ -8,10 +8,10 @@
 .hotPink,
 .nordic {
   --primary-input-color: rgb(0 0 0 / 50%);
-  --destructive-color: #f44336;
+  --destructive-color: #A9261F;
   --destructive-text-color: #FFF;
-  --destructive-hover-color: #e53935;
-  --destructive-active-color: #c62828;
+  --destructive-hover-color: #9E1009;
+  --destructive-active-color: #82130D;
 }
 
 .system[data-system-theme*='light'], .light,
@@ -293,9 +293,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .mainRed {
-  --primary-color: #f44336;
-  --primary-color-hover: #e53935;
-  --primary-color-active: #c62828;
+  --primary-color: #A9261F;
+  --primary-color-hover: #9E1009;
+  --primary-color-active: #82130D;
 }
 
 .mainPink {
@@ -573,11 +573,11 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secRed {
-  --accent-color: #f44336;
-  --accent-color-hover: #e53935;
-  --accent-color-active: #c62828;
-  --accent-color-light: #ef9a9a;
-  --accent-color-visited: #b71c1c;
+  --accent-color: #A9261F;
+  --accent-color-hover: #9E1009;
+  --accent-color-active: #82130D;
+  --accent-color-light: #bb2f28;
+  --accent-color-visited: #bb1a1a;
   --accent-color-opacity1: rgb(244 67 54 / 4%);
   --accent-color-opacity2: rgb(244 67 54 / 12%);
   --accent-color-opacity3: rgb(244 67 54 / 16%);
