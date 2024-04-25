@@ -18,7 +18,8 @@ import {
   copyToClipboard,
   extractNumberFromString,
   formatNumber,
-  showToast
+  showToast,
+  getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
@@ -1949,6 +1950,8 @@ export default defineComponent({
         }
       })
     },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showOutlines',

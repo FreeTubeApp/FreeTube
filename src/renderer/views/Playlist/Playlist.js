@@ -15,7 +15,12 @@ import {
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import {
+  extractNumberFromString,
+  getIconForSortPreference,
+  setPublishedTimestampsInvidious,
+  showToast,
+} from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { MOBILE_WIDTH_THRESHOLD } from '../../../constants'
 
@@ -572,6 +577,8 @@ export default defineComponent({
     handleResize: function () {
       this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD
     },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'updateSubscriptionDetails',

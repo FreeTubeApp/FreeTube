@@ -88,10 +88,17 @@
   font-size: 18px;
   font-weight: normal;
   position: absolute;
+  display: flex;
+  column-gap: 6px;
   inset-inline-start: 0;
   inset-block-start: 10px;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
+}
+
+.select-icon {
+  inline-size: 14px;
+  block-size: 14px;
 }
 
 /* active state */

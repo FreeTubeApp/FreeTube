@@ -939,6 +939,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlista
+  Sort By:
+    VideoTitleDescending: Po tytule (Z-A)
+    VideoTitleAscending: Po tytule (A-Z)
+    Custom: Własny porządek
+    DateAddedOldest: Od najstarszych
+    DateAddedNewest: Od najnowszych
+    Sort By: Sortuj
+    AuthorAscending: Po autorze (A-Z)
+    AuthorDescending: Po autorze (Z-A)
 Toggle Theatre Mode: 'Włącz/wyłącz tryb kinowy'
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
@@ -1223,3 +1232,7 @@ Age Restricted:
 Close Banner: Zamknij Baner
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Refresh Feed: Odśwież „{subscriptionName}”
+  Feed Last Updated: 'Ostatnia aktualizacja „{feedName}”: {date}'
+Moments Ago: chwilę temu

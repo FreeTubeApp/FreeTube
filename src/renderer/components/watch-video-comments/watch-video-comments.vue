@@ -47,6 +47,7 @@
       :value="currentSortValue"
       :select-names="sortNames"
       :select-values="sortValues"
+      :icon="['fas', 'arrow-down-short-wide']"
       @change="handleSortChange"
     />
     <div
