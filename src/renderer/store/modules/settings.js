@@ -242,7 +242,6 @@ const state = {
   rememberHistory: true,
   saveWatchedProgress: true,
   saveVideoHistoryWithLastViewedPlaylist: true,
-  searchCharacterLimit: 100,
   showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',

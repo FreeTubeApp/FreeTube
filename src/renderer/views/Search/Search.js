@@ -11,6 +11,7 @@ import {
 } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 export default defineComponent({
   name: 'Search',
@@ -92,11 +93,9 @@ export default defineComponent({
   },
   methods: {
     checkSearchCache: function (payload) {
-      const searchCharLimit = this.$store.getters.getSearchCharacterLimit
-
-      if (payload.query.length > searchCharLimit) {
-        console.warn(`Search character limit is: ${searchCharLimit}`)
-        showToast(this.$t('Search character limit', { searchCharacterLimit: searchCharLimit }))
+      if (payload.query.length > SEARCH_CHAR_LIMIT) {
+        console.warn(`Search character limit is: ${SEARCH_CHAR_LIMIT}`)
+        showToast(this.$t('Search character limit', { searchCharacterLimit: SEARCH_CHAR_LIMIT }))
         return
       }
 
