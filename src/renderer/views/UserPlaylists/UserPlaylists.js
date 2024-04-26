@@ -12,6 +12,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import { getIconForSortPreference } from '../../helpers/utils'
 
 const SORT_BY_VALUES = {
   NameAscending: 'name_ascending',
@@ -241,6 +242,8 @@ export default defineComponent({
         title: '',
       })
     },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showCreatePlaylistPrompt'
