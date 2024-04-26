@@ -8,10 +8,9 @@ export default defineComponent({
       required: true
     },
   },
-  // emits: ['click'],
-  // methods: {
-  //   goToSection: function (section) {
-  //     this.$emit('scroll-to-section', section)
-  //   }
-  // }
+  methods: {
+    getTitleForSection: function(settingsSection) {
+      return settingsSection.shortTitle !== '' ? settingsSection.shortTitle : settingsSection.title
+    }
+  }
 })

@@ -247,6 +247,7 @@ Settings:
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
     General Settings: General Settings
+    General Settings Short Label: General
     Check for Updates: Check for Updates
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
@@ -290,6 +291,7 @@ Settings:
       No Action: No Action
   Theme Settings:
     Theme Settings: Theme Settings
+    Theme Settings Short Label: Theme
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
     Disable Smooth Scrolling: Disable Smooth Scrolling
@@ -350,6 +352,7 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Player Settings
+    Player Settings Short Label: Player
     Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
     Play Next Video: Play Next Video
     Turn on Subtitles by Default: Turn on Subtitles by Default
@@ -412,6 +415,7 @@ Settings:
         Name: None
   Privacy Settings:
     Privacy Settings: Privacy Settings
+    Privacy Settings Short Label: Privacy
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
@@ -432,6 +436,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
   Subscription Settings:
     Subscription Settings: Subscription Settings
+    Subscription Settings Short Label: Subscription
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
@@ -439,6 +444,7 @@ Settings:
     Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
+    Distraction Free Settings Short Label: Distraction Free
     Sections:
       Side Bar: Side Bar
       Subscriptions Page: Subscriptions Page
@@ -483,6 +489,7 @@ Settings:
     Hide Subscriptions Community: Hide Subscriptions Community
   Data Settings:
     Data Settings: Data Settings
+    Data Settings Short Label: Data
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
@@ -538,6 +545,7 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
     Proxy Settings: Proxy Settings
+    Proxy Settings Short Label: Proxy
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -552,6 +560,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
   SponsorBlock Settings:
     SponsorBlock Settings: SponsorBlock Settings
+    SponsorBlock Settings Short Label: SponsorBlock
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
@@ -567,11 +576,13 @@ Settings:
     Category Color: Category Color
   Parental Control Settings:
     Parental Control Settings: Parental Control Settings
+    Parental Control Settings Short Label: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
   Download Settings:
     Download Settings: Download Settings
+    Download Settings Short Label: Download
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
     Download Behavior: Download Behavior
@@ -579,6 +590,7 @@ Settings:
     Open in web browser: Open in web browser
   Experimental Settings:
     Experimental Settings: Experimental Settings
+    Experimental Settings Short Label: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
   Password Dialog:
@@ -588,6 +600,7 @@ Settings:
     Unlock: Unlock
   Password Settings:
     Password Settings: Password Settings
+    Password Settings Short Label: Password
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
@@ -622,6 +635,7 @@ About:
 
 Profile:
   Profile Settings: Profile Settings
+  Profile Settings Short Label: Profile
   Toggle Profile List: Toggle Profile List
   Profile Select: Profile Select
   Profile Filter: Profile Filter

@@ -15,7 +15,7 @@
         :icon="['fas', settingsSection.icon]"
         class="settingsMenuTitleIcon"
       />
-      {{ settingsSection.title }}
+      {{ getTitleForSection(settingsSection) }}
     </a>
   </menu>
 </template>
