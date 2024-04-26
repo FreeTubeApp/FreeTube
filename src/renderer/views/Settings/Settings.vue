@@ -5,29 +5,29 @@
         :settings-sections="settingsSectionComponents"
       />
       <div class="settingsContent">
-      <div class="switchRow">
-        <ft-toggle-switch
-          class="settingsToggle"
-          :label="$t('Settings.Sort Settings Sections (A-Z)')"
-          :default-value="settingsSectionSortEnabled"
-          :compact="false"
-          @change="updateSettingsSectionSortEnabled"
-        />
-      </div>
-      <div class="settingsSections">
-        <template
-          v-for="(settingsComponent) in settingsSectionComponents"
-        >
-          <component
-            :is="settingsComponent.type"
-            :id="settingsComponent.type"
-            :ref="settingsComponent.type"
-            :key="settingsComponent.type + 'component'"
-            class="section"
+        <div class="switchRow">
+          <ft-toggle-switch
+            class="settingsToggle"
+            :label="$t('Settings.Sort Settings Sections (A-Z)')"
+            :default-value="settingsSectionSortEnabled"
+            :compact="false"
+            @change="updateSettingsSectionSortEnabled"
           />
-        </template>
+        </div>
+        <div class="settingsSections">
+          <template
+            v-for="(settingsComponent) in settingsSectionComponents"
+            ref=""
+          >
+            <component
+              :is="settingsComponent.type"
+              :id="settingsComponent.type"
+              :key="settingsComponent.type + '-component'"
+              class="section"
+            />
+          </template>
+        </div>
       </div>
-    </div>
     </template>
     <password-dialog
       v-else

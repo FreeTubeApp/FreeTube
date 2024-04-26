@@ -7,15 +7,21 @@
     </h2>
     <a
       v-for="(settingsSection) in settingsSections"
-      :key="settingsSection.type + 'link'"
+      :id="settingsSection.type + '-link'"
+      :key="settingsSection.type + '-link'"
       :href="'#' + settingsSection.type"
       class="settingsMenuTitle"
     >
-      <font-awesome-icon
-        :icon="['fas', settingsSection.icon]"
-        class="settingsMenuTitleIcon"
-      />
-      {{ getTitleForSection(settingsSection) }}
+      <div class="settingsMenuTitleContent">
+        <div class="settingsMenuTitleAndIcon">
+          <font-awesome-icon
+            :icon="['fas', settingsSection.icon]"
+            class="settingsMenuTitleIcon"
+          />
+          {{ getTitleForSection(settingsSection) }}
+        </div>
+        <div class="settingsMenuTitleUnderline" />
+      </div>
     </a>
   </menu>
 </template>

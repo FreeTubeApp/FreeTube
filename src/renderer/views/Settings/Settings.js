@@ -45,10 +45,6 @@ export default defineComponent({
     }
   },
   computed: {
-    locale: function() {
-      return this.$i18n.locale.replace('_', '-')
-    },
-
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
     },
@@ -170,15 +166,39 @@ export default defineComponent({
       return settingsSections
     },
   },
+  watch: {
+    locale: 'scrollToGeneralSettings'
+  },
   created: function () {
     if (this.settingsPassword === '') {
       this.unlocked = true
     }
   },
+  mounted: function () {
+    document.addEventListener('scroll', this.scrollCurrentSection)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('scroll', this.scrollCurrentSection)
+  },
   methods: {
-    scrollToSection(section) {
-      const sectionElement = this.$refs[section]
-      sectionElement?.scrollIntoView()
+    scrollToGeneralSettings() {
+      document.getElementById('general-settings')?.scrollIntoView()
+    },
+
+    scrollCurrentSection: function() {
+      const scrollY = window.scrollY + innerHeight / 4
+      this.settingsSectionComponents.forEach((section) => {
+        const sectionElement = document.getElementById(section.type)
+        const sectionHeight = sectionElement.offsetHeight
+        const sectionTop = sectionElement.offsetTop
+
+        const menuElement = document.getElementById(`${section.type}-link`)
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          menuElement.classList.add('active')
+        } else {
+          menuElement.classList.remove('active')
+        }
+      })
     },
 
     ...mapActions([

@@ -7,25 +7,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-inline-size: 80%;
 }
 
 .settingsSections {
   margin-inline: auto;
 }
 
-.switchRow {
-  display: flex;
+.settingsSections:last-child {
+  margin-block-end: calc(76vh - 150px)
 }
 
-/* .settingsSections {
-
-} */
+.switchRow {
+  display: flex;
+  margin-inline-end: auto;
+}
 
 .settingsToggle {
   padding-block: 0;
-  margin-block: 10px 5px;
+  margin-block: 0;
+}
+
+.section {
+  /* enables anchor link clicks to land right at the section headings */
+  scroll-margin-top: 24vh;
 }
 
 .section + .section {
   padding-block-start: 20px;
+}
+
+@media only screen and (width <= 950px) {
+  ft-settings-menu {
+    display: none;
+  }
+
+  .settingsContent {
+    margin-inline: auto;
+  }
 }

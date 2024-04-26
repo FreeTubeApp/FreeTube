@@ -2,11 +2,10 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  gap: 5px;
+  gap: 2px;
   font-size: 22px;
-  inline-size: fit-content;
-  max-inline-size: 250px;
+  inline-size: 250px;
+  padding-inline-start: 10px;
 }
 
 .header {
@@ -26,9 +25,29 @@
   color: var(--primary-text-color);
 }
 
+.settingsMenuTitleContent {
+  inline-size: fit-content;
+}
+
+.settingsMenuTitleAndIcon {
+  /* needed to have underline poke out */
+  margin-inline-start: 3px;
+}
+
+.settingsMenuTitleUnderline {
+  /* have underline poke out */
+  inline-size: calc(100% + 3px);
+
+  /* prevent "active" border from visibly pushing the content up */
+  border-block-end: 3px solid transparent;
+}
+
 .settingsMenuTitle.active {
   color: var(--primary-text-color);
-  border-block-end: 3px solid var(--primary-text-color);
+}
+
+.settingsMenuTitle.active .settingsMenuTitleUnderline {
+  border-block-end: 3px solid var(--primary-color);
 }
 
 .settingsMenuTitleIcon {
