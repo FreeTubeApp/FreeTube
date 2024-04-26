@@ -56,12 +56,6 @@ export default defineComponent({
     settingsComponentsData: function () {
       return [
         {
-          type: 'general-settings',
-          title: this.$t('Settings.General Settings.General Settings'),
-          shortTitle: this.$te('Settings.General Settings.General Settings Short Label') ? this.$t('Settings.General Settings.General Settings Short Label') : '',
-          icon: 'border-all'
-        },
-        {
           type: 'theme-settings',
           title: this.$t('Settings.Theme Settings.Theme Settings'),
           shortTitle: this.$te('Settings.Theme Settings.Theme Settings Short Label') ? this.$t('Settings.Theme Settings.Theme Settings Short Label') : '',
@@ -156,18 +150,22 @@ export default defineComponent({
       }
 
       if (this.settingsSectionSortEnabled) {
-        return settingsSections.toSorted((a, b) => {
+        settingsSections = settingsSections.toSorted((a, b) => {
           const aTitle = a.shortTitle !== '' ? a.shortTitle : a.title
           const bTitle = b.shortTitle !== '' ? b.shortTitle : b.title
           return aTitle.toLowerCase().localeCompare(bTitle.toLowerCase(), this.locale)
         })
       }
 
-      return settingsSections
+      const generalSettingsEntry = {
+        type: 'general-settings',
+        title: this.$t('Settings.General Settings.General Settings'),
+        shortTitle: this.$te('Settings.General Settings.General Settings Short Label') ? this.$t('Settings.General Settings.General Settings Short Label') : '',
+        icon: 'border-all'
+      }
+
+      return [generalSettingsEntry, ...settingsSections]
     },
-  },
-  watch: {
-    locale: 'scrollToGeneralSettings'
   },
   created: function () {
     if (this.settingsPassword === '') {
@@ -181,10 +179,6 @@ export default defineComponent({
     document.removeEventListener('scroll', this.scrollCurrentSection)
   },
   methods: {
-    scrollToGeneralSettings() {
-      document.getElementById('general-settings')?.scrollIntoView()
-    },
-
     scrollCurrentSection: function() {
       const scrollY = window.scrollY + innerHeight / 4
       this.settingsSectionComponents.forEach((section) => {
