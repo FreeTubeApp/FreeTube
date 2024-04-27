@@ -39,6 +39,14 @@ export default defineComponent({
     describeById: {
       type: String,
       default: null
+    },
+    icon: {
+      type: Array,
+      required: true
+    },
+    iconColor: {
+      type: String,
+      default: null
     }
   },
   emits: ['change'],

@@ -15,6 +15,39 @@ function currentLocale () {
   return i18n.locale.replace('_', '-')
 }
 
+export function getIconForSortPreference(sortPreference) {
+  switch (sortPreference) {
+    case 'name_descending':
+    case 'author_descending':
+    case 'video_title_descending':
+      // text descending
+      return ['fas', 'sort-alpha-down-alt']
+    case 'name_ascending':
+    case 'author_ascending':
+    case 'video_title_ascending':
+      // text ascending
+      return ['fas', 'sort-alpha-down']
+    case 'latest_updated_first':
+    case 'latest_created_first':
+    case 'latest_played_first':
+    case 'date_added_descending':
+    case 'last':
+    case 'newest':
+    case 'popular':
+    case 'custom':
+      // quantity descending
+      return ['fas', 'arrow-down-wide-short']
+    case 'earliest_updated_first':
+    case 'earliest_created_first':
+    case 'earliest_played_first':
+    case 'date_added_ascending':
+    case 'oldest':
+    default:
+      // quantity ascending
+      return ['fas', 'arrow-down-short-wide']
+  }
+}
+
 /**
  * @param {string} publishedText
  * @param {boolean} isLive

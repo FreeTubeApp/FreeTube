@@ -30,4 +30,5 @@
     "yml",
     "yaml"
   ],
+  "javascript.preferences.importModuleSpecifier": "relative"
 }

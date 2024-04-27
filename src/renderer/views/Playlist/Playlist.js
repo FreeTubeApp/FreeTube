@@ -14,7 +14,12 @@ import {
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import {
+  extractNumberFromString,
+  getIconForSortPreference,
+  setPublishedTimestampsInvidious,
+  showToast,
+} from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 const SORT_BY_VALUES = {
@@ -556,6 +561,8 @@ export default defineComponent({
         console.error(e)
       }
     },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'updateSubscriptionDetails',

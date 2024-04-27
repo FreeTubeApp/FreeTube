@@ -53,6 +53,12 @@ export function translateWindowTitle(title, i18n) {
   }
 }
 
+/**
+ * Returns an appropriate default bookmark name
+ * for a given route.
+ * @param {import('vue-router').Route} route
+ * @returns {string}
+ */
 export function defaultBookmarkNameForRoute(route) {
   switch (route.meta.title) {
     case 'Playlist':
@@ -63,5 +69,33 @@ export function defaultBookmarkNameForRoute(route) {
       return route.params.query
     default:
       return document.title
+  }
+}
+
+/**
+ * Returns the first user-perceived character,
+ * respecting language specific rules and
+ * emojis made up of multiple codepoints
+ * like flags, families and skin tone modifiers.
+ * @param {string} text
+ * @param {string} locale
+ * @returns {string}
+ */
+export function getFirstCharacter(text, locale) {
+  if (text.length === 0) {
+    return ''
+  }
+
+  // Firefox only received support for Intl.Segmenter support in version 125 (2024-04-16)
+  // so fallback to Array.from just in case.
+  // TODO: Remove fallback in the future
+  if (Intl.Segmenter) {
+    const segmenter = new Intl.Segmenter([locale, 'en'], { granularity: 'grapheme' })
+
+    // Use iterator directly as we only need the first segment
+    const firstSegment = segmenter.segment(text)[Symbol.iterator]().next().value
+    return firstSegment.segment
+  } else {
+    return Array.from(text)[0]
   }
 }
