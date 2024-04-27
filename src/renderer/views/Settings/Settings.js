@@ -178,6 +178,12 @@ export default defineComponent({
   },
   mounted: function () {
     document.addEventListener('scroll', this.markScrolledToSectionAsActive)
+
+    // mark first section as active before any scrolling has taken place
+    if (this.settingsSectionComponents.length > 0) {
+      const firstSection = document.getElementById(`${this.settingsSectionComponents[0].type}-link`)
+      firstSection.classList.add('active')
+    }
   },
   beforeDestroy: function () {
     document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
