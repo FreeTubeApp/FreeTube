@@ -17,6 +17,7 @@ import PasswordSettings from '../../components/password-settings/password-settin
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtSettingsMenu from '../../components/ft-settings-menu/ft-settings-menu.vue'
+import { ACTIVE_CLASS_NAME } from '../../../constants'
 
 export default defineComponent({
   name: 'Settings',
@@ -161,6 +162,7 @@ export default defineComponent({
         })
       }
 
+      // ensure General Settings is placed first regardless of sorting
       const generalSettingsEntry = {
         type: 'general-settings',
         title: this.$t('Settings.General Settings.General Settings'),
@@ -182,15 +184,15 @@ export default defineComponent({
     // mark first section as active before any scrolling has taken place
     if (this.settingsSectionComponents.length > 0) {
       const firstSection = document.getElementById(`${this.settingsSectionComponents[0].type}-link`)
-      firstSection.classList.add('active')
+      firstSection.classList.add(ACTIVE_CLASS_NAME)
     }
   },
   beforeDestroy: function () {
     document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
   },
   methods: {
-    /* Set whether the current section is shown as active in the Settings Menu based
-      on if it is the lowest section within the top quarter of the viewport (25vh) */
+    /* Set the current section to be shown as active in the Settings Menu
+    * if it is the lowest section within the top quarter of the viewport (25vh) */
     markScrolledToSectionAsActive: function() {
       const scrollY = window.scrollY + innerHeight / 4
       this.settingsSectionComponents.forEach((section) => {
@@ -200,9 +202,9 @@ export default defineComponent({
         const correspondingMenuLink = document.getElementById(`${section.type}-link`)
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          correspondingMenuLink.classList.add('active')
+          correspondingMenuLink.classList.add(ACTIVE_CLASS_NAME)
         } else {
-          correspondingMenuLink.classList.remove('active')
+          correspondingMenuLink.classList.remove(ACTIVE_CLASS_NAME)
         }
       })
     },

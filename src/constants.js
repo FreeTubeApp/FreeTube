@@ -73,6 +73,9 @@ const SyncEvents = {
   }
 }
 
+// Settings
+const ACTIVE_CLASS_NAME = 'active'
+
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -80,5 +83,6 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  ACTIVE_CLASS_NAME,
   MAIN_PROFILE_ID
 }
