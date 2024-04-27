@@ -200,7 +200,7 @@ export default defineComponent({
       })
 
       this.$router.afterEach((to, from) => {
-        this.$refs.topNav?.navigateHistory()
+        this.$refs.topNav?.navigateHistory(to)
       })
 
       this.$router.onReady(() => {

@@ -21,6 +21,8 @@ const state = {
   isSideNavOpen: false,
   outlinesHidden: true,
   sessionSearchHistory: [],
+  sessionNavigationHistory: [],
+  sessionNavigationHistoryCurrentIndex: -1,
   popularCache: null,
   trendingCache: {
     default: null,
@@ -75,6 +77,14 @@ const getters = {
 
   getSessionSearchHistory(state) {
     return state.sessionSearchHistory
+  },
+
+  getSessionNavigationHistory () {
+    return state.sessionNavigationHistory
+  },
+
+  getSessionNavigationHistoryCurrentIndex () {
+    return state.sessionNavigationHistoryCurrentIndex
   },
 
   getDeArrowCache: (state) => {
@@ -639,6 +649,10 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
+  clearSessionNavigationHistory ({ commit }) {
+    commit('setSessionNavigationHistory', [])
+  },
+
   async getExternalPlayerCmdArgumentsData ({ commit }) {
     const url = createWebURL('/static/external-player-map.json')
     const externalPlayerMap = await (await fetch(url)).json()
@@ -814,6 +828,10 @@ const mutations = {
     state.sessionSearchHistory = history
   },
 
+  setSessionNavigationHistory (state, history) {
+    state.sessionNavigationHistory = history
+  },
+
   setDeArrowCache (state, cache) {
     state.deArrowCache = cache
   },
@@ -851,8 +869,19 @@ const mutations = {
     }
   },
 
-  setShowAddToPlaylistPrompt (state, payload) {
-    state.showAddToPlaylistPrompt = payload
+  setSessionNavigationHistoryCurrentIndex (state, value) {
+    state.sessionNavigationHistoryCurrentIndex = value
+  },
+
+  navigateSessionNavigationHistoryForward (state, route) {
+    // remove "forward" history if that history is diverged from
+    // !route.name !== state.sessionNavigationHistory[state.sessionNavigationHistoryCurrentIndex]
+    if (route) {
+      state.sessionSearchHistory.length = state.sessionNavigationHistoryCurrentIndex + 1
+      state.sessionNavigationHistory.push(route.meta.title)
+    }
+
+    state.sessionNavigationHistoryCurrentIndex++
   },
 
   setShowCreatePlaylistPrompt (state, payload) {

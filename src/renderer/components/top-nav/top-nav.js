@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
@@ -13,6 +14,7 @@ import { invidiousAPICall } from '../../helpers/api/invidious'
 export default defineComponent({
   name: 'TopNav',
   components: {
+    FtIconButton,
     FtInput,
     FtProfileSelector
   },
@@ -94,6 +96,22 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    },
+
+    sessionNavigationHistory: function () {
+      return this.$store.getters.getSessionNavigationHistory
+    },
+
+    sessionNavigationHistoryCurrentIndex: function () {
+      return this.$store.getters.getSessionNavigationHistoryCurrentIndex
+    },
+
+    sessionNavigationHistoryPastRouteNames: function () {
+      return this.sessionNavigationHistory.slice(0, this.sessionNavigationHistoryCurrentIndex)
+    },
+
+    sessionNavigationHistoryFutureRouteNames: function () {
+      return this.sessionNavigationHistory.slice(this.sessionNavigationHistoryCurrentIndex + 1)
     }
   },
   mounted: function () {
@@ -295,9 +313,9 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function () {
+    navigateHistory: function (toRoute) {
       if (!this.isForwardOrBack) {
-        this.historyIndex = window.history.length
+        this.$store.commit('navigateSessionNavigationHistoryForward', toRoute)
         this.isArrowBackwardDisabled = false
         this.isArrowForwardDisabled = true
       } else {
@@ -305,31 +323,44 @@ export default defineComponent({
       }
     },
 
-    historyBack: function () {
+    historyBack: function (option) {
+      if (option != null) {
+        this.goToSessionNavigationHistoryIndex(this.sessionNavigationHistoryFutureRouteNames.length - option)
+      }
       this.isForwardOrBack = true
       window.history.back()
+      this.$store.commit('navigateSessionNavigationHistoryForward')
 
-      if (this.historyIndex > 1) {
-        this.historyIndex--
+      if (this.sessionNavigationHistoryCurrentIndex > 1) {
+        this.sessionNavigationHistoryCurrentIndex--
         this.isArrowForwardDisabled = false
-        if (this.historyIndex === 1) {
+        if (this.sessionNavigationHistoryCurrentIndex === 1) {
           this.isArrowBackwardDisabled = true
         }
       }
     },
 
-    historyForward: function () {
+    historyForward: function (option) {
+      if (option != null) {
+        this.goToSessionNavigationHistoryIndex(this.sessionNavigationHistoryFutureRouteNames.length + option)
+      }
       this.isForwardOrBack = true
       window.history.forward()
+      this.$store.commit('navigateSessionNavigationHistoryForward')
 
-      if (this.historyIndex < window.history.length) {
-        this.historyIndex++
+      if (this.sessionNavigationHistoryCurrentIndex < window.history.length) {
+        this.sessionNavigationHistoryCurrentIndex++
         this.isArrowBackwardDisabled = false
 
-        if (this.historyIndex === window.history.length) {
+        if (this.sessionNavigationHistoryCurrentIndex === window.history.length) {
           this.isArrowForwardDisabled = true
         }
       }
+    },
+
+    goToSessionNavigationHistoryIndex: function (n) {
+      window.history.go(this.sessionNavigationHistoryCurrentIndex + n)
+      this.$store.commit('setSessionNavigationHistoryCurrentIndex', n)
     },
 
     toggleSideNav: function () {

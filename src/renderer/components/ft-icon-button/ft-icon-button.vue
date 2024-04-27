@@ -22,6 +22,8 @@
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @click="handleIconClick"
+      @pointerdown="handleIconPointerDown"
+      @pointerup="handleIconPointerUp"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
     />

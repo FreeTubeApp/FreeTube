@@ -63,12 +63,17 @@ export default defineComponent({
     dropdownModalOnMobile: {
       type: Boolean,
       default: false
+    },
+    openOnRightOrLongClick: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['click', 'disabled-click'],
   data: function () {
     return {
       dropdownShown: false,
+      longPressTimer: null,
       useModal: false
     }
   },
@@ -90,14 +95,15 @@ export default defineComponent({
       this.dropdownShown = false
     },
 
-    handleIconClick: function () {
+    handleIconClick: function (event, isRightOrLongClick) {
       if (this.disabled) {
         this.$emit('disabled-click')
         return
       }
-      if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
-        this.dropdownShown = !this.dropdownShown
 
+      if ((!this.openOnRightOrLongClick || (this.openOnRightOrLongClick && isRightOrLongClick)) &&
+       (this.forceDropdown || this.dropdownOptions.length > 0)) {
+        this.dropdownShown = !this.dropdownShown
         if (this.dropdownShown && !this.useModal) {
           // wait until the dropdown is visible
           // then focus it so we can hide it automatically when it loses focus
@@ -108,6 +114,28 @@ export default defineComponent({
       } else {
         this.$emit('click')
       }
+    },
+
+    triggerRightOrLongClick: function (event) {
+      event.preventDefault()
+      event.stopPropagation()
+      this.handleIconClick(event, true)
+    },
+
+    handleIconPointerDown: function (event) {
+      if (!this.openOnRightOrLongClick) { return }
+      if (event.button === 2) { // right button click
+        this.triggerRightOrLongClick(event)
+      } else if (event.button === 0) { // left button click
+        this.longPressTimer = setTimeout(() => {
+          this.triggerRightOrLongClick(event)
+        }, 500)
+      }
+    },
+
+    handleIconPointerUp: function (event) {
+      if (!this.longPressTimer) { return }
+      clearTimeout(this.longPressTimer)
     },
 
     handleDropdownFocusOut: function () {
