@@ -65,6 +65,20 @@
 
 @media only screen and (width <= 950px) {
   .settingsMenu {
-    text-align: center;
+    display: none;
   }
+
+  /* .header {
+    display: none;
+  }
+  .settingsMenu {
+    position: fixed;
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: scroll;
+  }
+
+  .title {
+    inline-size: 100%;
+  } */
 }

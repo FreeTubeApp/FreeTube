@@ -33,11 +33,15 @@
 }
 
 @media only screen and (width <= 950px) {
-  ft-settings-menu {
-    display: none;
+  .settingsPage {
+    flex-direction: column;
   }
 
-  .settingsContent {
+  .switchRow, .settingsSections {
     margin-inline: auto;
+  }
+
+  .settingsSections:last-child {
+    margin-block-end: 0;
   }
 }
