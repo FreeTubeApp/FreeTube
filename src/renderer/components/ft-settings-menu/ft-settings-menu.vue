@@ -10,17 +10,17 @@
       :id="settingsSection.type + '-link'"
       :key="settingsSection.type + '-link'"
       :href="'#' + settingsSection.type"
-      class="settingsMenuTitle"
+      class="title"
     >
-      <div class="settingsMenuTitleContent">
-        <div class="settingsMenuTitleAndIcon">
+      <div class="titleContent">
+        <div class="iconAndTitleText">
           <font-awesome-icon
             :icon="['fas', settingsSection.icon]"
-            class="settingsMenuTitleIcon"
+            class="titleIcon"
           />
           {{ getTitleForSection(settingsSection) }}
         </div>
-        <div class="settingsMenuTitleUnderline" />
+        <div class="titleUnderline" />
       </div>
     </a>
   </menu>

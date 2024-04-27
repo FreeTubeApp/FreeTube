@@ -1,61 +1,69 @@
 .settingsMenu {
-  position: fixed;
+  position: sticky;
+  inset-block-start: 120px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   font-size: 22px;
-  inline-size: 250px;
-  padding-inline-start: 10px;
+  padding-inline-start: 0;
+  block-size: fit-content;
 }
 
 .header {
   font-size: 26px;
 }
 
-.settingsMenuTitle {
+.title {
   text-decoration: none;
   color: var(--tertiary-text-color);
+  inline-size: 220px;
+}
+
+/* prevent hover styling from showing on title click for mobile */
+@media (hover: hover) {
+  .title:hover {
+    color: var(--primary-text-color);
+  }
+}
+
+.titleContent {
+  inline-size: fit-content;
+  max-inline-size: 100%;
+}
+
+
+.iconAndTitleText {
   overflow-x: hidden;
-  inline-size: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
 
-.settingsMenuTitle:hover {
-  color: var(--primary-text-color);
-}
-
-.settingsMenuTitleContent {
-  inline-size: fit-content;
-}
-
-.settingsMenuTitleAndIcon {
   /* needed to have underline poke out */
   margin-inline-start: 3px;
 }
 
-.settingsMenuTitleUnderline {
+.titleUnderline {
   /* have underline poke out */
   inline-size: calc(100% + 3px);
 
   /* prevent "active" border from visibly pushing the content up */
-  border-block-end: 3px solid transparent;
+  border-block-end: 4px solid transparent;
 }
 
-.settingsMenuTitle.active {
+.title.active {
   color: var(--primary-text-color);
+  font-weight: 600;
 }
 
-.settingsMenuTitle.active .settingsMenuTitleUnderline {
-  border-block-end: 3px solid var(--primary-color);
+.title.active .titleUnderline {
+  border-block-end: 4px solid var(--primary-color);
 }
 
-.settingsMenuTitleIcon {
+.titleIcon {
   inline-size: 22px;
   block-size: 22px;
 }
 
-@media only screen and (width <= 800px) {
+@media only screen and (width <= 950px) {
   .settingsMenu {
     text-align: center;
   }

@@ -1,20 +1,15 @@
 .settingsPage {
   display: flex;
-}
-
-.settingsContent {
-  margin-inline-start: 270px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-inline-size: 80%;
+  gap: 20px;
 }
 
 .settingsSections {
-  margin-inline: auto;
+  overflow-x: hidden;
+  max-inline-size: 90%;
 }
 
 .settingsSections:last-child {
+  /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to */
   margin-block-end: calc(76vh - 150px)
 }
 
@@ -29,7 +24,7 @@
 }
 
 .section {
-  /* enables anchor link clicks to land right at the section headings */
+  /* enables anchor link clicks to land with the section title in the top quarter of the page */
   scroll-margin-top: 24vh;
 }
 

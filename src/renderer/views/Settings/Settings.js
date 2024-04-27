@@ -173,24 +173,26 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    document.addEventListener('scroll', this.scrollCurrentSection)
+    document.addEventListener('scroll', this.markScrolledToSectionAsActive)
   },
   beforeDestroy: function () {
-    document.removeEventListener('scroll', this.scrollCurrentSection)
+    document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
   },
   methods: {
-    scrollCurrentSection: function() {
+    /* Set whether the current section is shown as active in the Settings Menu based
+      on if it is the lowest section within the top quarter of the viewport (25vh) */
+    markScrolledToSectionAsActive: function() {
       const scrollY = window.scrollY + innerHeight / 4
       this.settingsSectionComponents.forEach((section) => {
         const sectionElement = document.getElementById(section.type)
         const sectionHeight = sectionElement.offsetHeight
         const sectionTop = sectionElement.offsetTop
+        const correspondingMenuLink = document.getElementById(`${section.type}-link`)
 
-        const menuElement = document.getElementById(`${section.type}-link`)
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          menuElement.classList.add('active')
+          correspondingMenuLink.classList.add('active')
         } else {
-          menuElement.classList.remove('active')
+          correspondingMenuLink.classList.remove('active')
         }
       })
     },

@@ -232,17 +232,6 @@
   --accent-color-opacity4: rgb(255 255 255 / 24%) !important;
 }
 
-/* Given that the Hot Pink theme does not need link underlining due to meeting
-WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
-it can be safely elided. This looks quite pleasant on this theme. */
-.hotPink a:not(:hover, :focus), .hotPink .navOption:hover, .hotPink .navOption:focus, .hotPink *:not(:hover, :focus) {
-  text-decoration: none;
-}
-
-.hotPink a:hover, .hotPink a:focus {
-  text-decoration: underline;
-}
-
 .nordic {
   --primary-text-color: #EEE;
   --secondary-text-color: #ddd;
