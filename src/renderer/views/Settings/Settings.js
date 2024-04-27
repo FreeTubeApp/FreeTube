@@ -45,6 +45,10 @@ export default defineComponent({
     }
   },
   computed: {
+    locale: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
     },
