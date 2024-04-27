@@ -3,7 +3,6 @@
   inset-block-start: 120px;
   display: flex;
   flex-direction: column;
-  gap: 1px;
   font-size: 22px;
   padding-inline-start: 0;
   block-size: fit-content;
@@ -17,6 +16,7 @@
   text-decoration: none;
   color: var(--tertiary-text-color);
   inline-size: 220px;
+  padding-block: 3px;
 }
 
 /* prevent hover styling from showing on title click for mobile */
