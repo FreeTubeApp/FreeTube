@@ -43,7 +43,7 @@
 
 .titleUnderline {
   /* have underline poke out */
-  inline-size: calc(100% + 3px);
+  inline-size: calc(100% + 6px);
 
   /* prevent "active" border from visibly pushing the content up */
   border-block-end: 4px solid transparent;
