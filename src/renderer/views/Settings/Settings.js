@@ -107,7 +107,7 @@ export default defineComponent({
           type: 'proxy-settings',
           title: this.$t('Settings.Proxy Settings.Proxy Settings'),
           shortTitle: this.$te('Settings.Proxy Settings.Proxy Settings Short Label') ? this.$t('Settings.Proxy Settings.Proxy Settings Short Label') : '',
-          icon: 'microchip',
+          icon: 'network-wired',
           usingElectron: true
         },
         {
