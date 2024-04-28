@@ -217,6 +217,9 @@ export default defineComponent({
         }
       })
 
+      // Reset search filters
+      this.$store.commit('setSearchSettingsToDefault')
+      this.searchFilterValueChanged = false
       // Close the filter panel
       this.showFilters = false
     },
