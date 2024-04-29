@@ -464,7 +464,7 @@ export default defineComponent({
 
       uiConfig.controlPanelElements.push('fullscreen')
 
-      if (!this.enableScreenshot || this.format === 'audio') {
+      if (!process.env.IS_ELECTRON || !this.enableScreenshot || this.format === 'audio') {
         const index = elementList.indexOf('ft_screenshot')
         elementList.splice(index, 1)
       }
@@ -702,7 +702,9 @@ export default defineComponent({
 
     await this.setLocale(this.locale)
 
-    this.registerScreenshotButton()
+    if (process.env.IS_ELECTRON) {
+      this.registerScreenshotButton()
+    }
     this.registerTheatreModeButton()
     this.registerFullWindowButton()
     this.registerLegacyQualitySelection()
@@ -1799,128 +1801,130 @@ export default defineComponent({
           (process.platform === 'darwin' && event.metaKey))
     },
 
-    takeScreenshot: async function () {
-      // TODO: needs to be refactored to be less reliant on node stuff, so that it can be used in the web (and cordova) builds
+    takeScreenshot: !process.env.IS_ELECTRON
+      ? async function () { }
+      : async function () {
+        // TODO: needs to be refactored to be less reliant on node stuff, so that it can be used in the web (and android) builds
 
-      /** @type {HTMLVideoElement} */
-      const video = this.$refs.video
+        /** @type {HTMLVideoElement} */
+        const video = this.$refs.video
 
-      const width = video.videoWidth
-      const height = video.videoHeight
+        const width = video.videoWidth
+        const height = video.videoHeight
 
-      if (width <= 0) {
-        return
-      }
-
-      // Need to set crossorigin="anonymous" for LegacyFormat on Invidious
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
-      const canvas = document.createElement('canvas')
-      canvas.width = width
-      canvas.height = height
-      canvas.getContext('2d').drawImage(video, 0, 0)
-
-      const format = this.screenshotFormat
-      const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
-
-      let filename
-      try {
-        filename = await this.parseScreenshotCustomFileName({
-          date: new Date(Date.now()),
-          playerTime: video.currentTime,
-          videoId: this.videoId
-        })
-      } catch (err) {
-        console.error(`Parse failed: ${err.message}`)
-        showToast(this.$t('Screenshot Error', { error: err.message }))
-        canvas.remove()
-        return
-      }
-
-      let subDir = ''
-      if (filename.indexOf(path.sep) !== -1) {
-        const lastIndex = filename.lastIndexOf(path.sep)
-        subDir = filename.substring(0, lastIndex)
-        filename = filename.substring(lastIndex + 1)
-      }
-      const filenameWithExtension = `${filename}.${format}`
-
-      let dirPath
-      let filePath
-      if (this.screenshotAskPath) {
-        const wasPlaying = !video.paused
-        if (wasPlaying) {
-          video.pause()
+        if (width <= 0) {
+          return
         }
 
-        if (this.screenshotFolder === '' || !(await pathExists(this.screenshotFolder))) {
-          dirPath = await getPicturesPath()
-        } else {
-          dirPath = this.screenshotFolder
-        }
+        // Need to set crossorigin="anonymous" for LegacyFormat on Invidious
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image
+        const canvas = document.createElement('canvas')
+        canvas.width = width
+        canvas.height = height
+        canvas.getContext('2d').drawImage(video, 0, 0)
 
-        const options = {
-          defaultPath: path.join(dirPath, filenameWithExtension),
-          filters: [
-            {
-              name: format.toUpperCase(),
-              extensions: [format]
-            }
-          ]
-        }
+        const format = this.screenshotFormat
+        const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
+        const imageQuality = format === 'jpg' ? this.screenshotQuality / 100 : 1
 
-        const response = await showSaveDialog(options)
-        if (wasPlaying) {
-          video.play()
-        }
-        if (response.canceled || response.filePath === '') {
+        let filename
+        try {
+          filename = await this.parseScreenshotCustomFileName({
+            date: new Date(Date.now()),
+            playerTime: video.currentTime,
+            videoId: this.videoId
+          })
+        } catch (err) {
+          console.error(`Parse failed: ${err.message}`)
+          showToast(this.$t('Screenshot Error', { error: err.message }))
           canvas.remove()
           return
         }
 
-        filePath = response.filePath
-        if (!filePath.endsWith(`.${format}`)) {
-          filePath = `${filePath}.${format}`
+        let subDir = ''
+        if (filename.indexOf(path.sep) !== -1) {
+          const lastIndex = filename.lastIndexOf(path.sep)
+          subDir = filename.substring(0, lastIndex)
+          filename = filename.substring(lastIndex + 1)
         }
+        const filenameWithExtension = `${filename}.${format}`
 
-        dirPath = path.dirname(filePath)
-        this.updateScreenshotFolderPath(dirPath)
-      } else {
-        if (this.screenshotFolder === '') {
-          dirPath = path.join(await getPicturesPath(), 'Freetube', subDir)
-        } else {
-          dirPath = path.join(this.screenshotFolder, subDir)
-        }
+        let dirPath
+        let filePath
+        if (this.screenshotAskPath) {
+          const wasPlaying = !video.paused
+          if (wasPlaying) {
+            video.pause()
+          }
 
-        if (!(await pathExists(dirPath))) {
-          try {
-            await fs.mkdir(dirPath, { recursive: true })
-          } catch (err) {
-            console.error(err)
-            showToast(this.$t('Screenshot Error', { error: err }))
+          if (this.screenshotFolder === '' || !(await pathExists(this.screenshotFolder))) {
+            dirPath = await getPicturesPath()
+          } else {
+            dirPath = this.screenshotFolder
+          }
+
+          const options = {
+            defaultPath: path.join(dirPath, filenameWithExtension),
+            filters: [
+              {
+                name: format.toUpperCase(),
+                extensions: [format]
+              }
+            ]
+          }
+
+          const response = await showSaveDialog(options)
+          if (wasPlaying) {
+            video.play()
+          }
+          if (response.canceled || response.filePath === '') {
             canvas.remove()
             return
           }
-        }
-        filePath = path.join(dirPath, filenameWithExtension)
-      }
 
-      canvas.toBlob((result) => {
-        result.arrayBuffer().then(ab => {
-          const arr = new Uint8Array(ab)
+          filePath = response.filePath
+          if (!filePath.endsWith(`.${format}`)) {
+            filePath = `${filePath}.${format}`
+          }
 
-          fs.writeFile(filePath, arr)
-            .then(() => {
-              showToast(this.$t('Screenshot Success', { filePath }))
-            })
-            .catch((err) => {
+          dirPath = path.dirname(filePath)
+          this.updateScreenshotFolderPath(dirPath)
+        } else {
+          if (this.screenshotFolder === '') {
+            dirPath = path.join(await getPicturesPath(), 'Freetube', subDir)
+          } else {
+            dirPath = path.join(this.screenshotFolder, subDir)
+          }
+
+          if (!(await pathExists(dirPath))) {
+            try {
+              await fs.mkdir(dirPath, { recursive: true })
+            } catch (err) {
               console.error(err)
               showToast(this.$t('Screenshot Error', { error: err }))
-            })
-        })
-      }, mimeType, imageQuality)
-      canvas.remove()
-    },
+              canvas.remove()
+              return
+            }
+          }
+          filePath = path.join(dirPath, filenameWithExtension)
+        }
+
+        canvas.toBlob((result) => {
+          result.arrayBuffer().then(ab => {
+            const arr = new Uint8Array(ab)
+
+            fs.writeFile(filePath, arr)
+              .then(() => {
+                showToast(this.$t('Screenshot Success', { filePath }))
+              })
+              .catch((err) => {
+                console.error(err)
+                showToast(this.$t('Screenshot Error', { error: err }))
+              })
+          })
+        }, mimeType, imageQuality)
+        canvas.remove()
+      },
 
     /**
      * @param {number} currentTime
@@ -2019,25 +2023,27 @@ export default defineComponent({
       seekBarContainer.insertBefore(markerBar, seekBarContainer.childNodes[0])
     },
 
-    registerScreenshotButton: function () {
-      this.events.addEventListener('takeScreenshot', () => {
-        this.takeScreenshot()
-      })
+    registerScreenshotButton: !process.env.IS_ELECTRON
+      ? function () { }
+      : function () {
+        this.events.addEventListener('takeScreenshot', () => {
+          this.takeScreenshot()
+        })
 
-      const events = this.events
+        const events = this.events
 
-      /**
-       * @implements {shaka.extern.IUIElement.Factory}
-       */
-      class ScreenshotButtonFactory {
-        create(rootElement, controls) {
-          return new ScreenshotButton(events, rootElement, controls)
+        /**
+         * @implements {shaka.extern.IUIElement.Factory}
+         */
+        class ScreenshotButtonFactory {
+          create(rootElement, controls) {
+            return new ScreenshotButton(events, rootElement, controls)
+          }
         }
-      }
 
-      shaka.ui.Controls.registerElement('ft_screenshot', new ScreenshotButtonFactory())
-      shaka.ui.OverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
-    },
+        shaka.ui.Controls.registerElement('ft_screenshot', new ScreenshotButtonFactory())
+        shaka.ui.OverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
+      },
 
     registerTheatreModeButton: function () {
       this.events.addEventListener('toggleTheatreMode', () => {
@@ -2431,7 +2437,7 @@ export default defineComponent({
           break
         case 'U':
         case 'u':
-          if (this.enableScreenshot && this.format !== 'audio') {
+          if (process.env.IS_ELECTRON && this.enableScreenshot && this.format !== 'audio') {
             event.preventDefault()
             // Take screenshot
             this.takeScreenshot()
