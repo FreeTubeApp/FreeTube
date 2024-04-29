@@ -399,7 +399,7 @@ export function mapInvidiousLegacyFormat(format) {
     itag: format.itag,
     qualityLabel: format.qualityLabel,
     fps: format.fps,
-    bitrate: undefined, // Invidious doesn't provide it for legacy formats :(
+    bitrate: parseInt(format.bitrate),
     mimeType: format.type,
 
     // Invidious' size parameter can't be trusted as it is hardcoded based on itag,

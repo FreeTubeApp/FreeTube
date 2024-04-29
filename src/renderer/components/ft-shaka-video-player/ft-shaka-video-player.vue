@@ -32,12 +32,8 @@
       <br>
       <span>{{ $t('Video.Player.Stats.Media Formats', { formats: format }) }}</span>
       <br>
-      <template
-        v-if="typeof stats.bitrate !== 'undefined'"
-      >
-        <span>{{ $t('Video.Player.Stats.Bitrate', { bitrate: stats.bitrate }) }}</span>
-        <br>
-      </template>
+      <span>{{ $t('Video.Player.Stats.Bitrate', { bitrate: stats.bitrate }) }}</span>
+      <br>
       <span>{{ $t('Video.Player.Stats.Volume', { volumePercentage: stats.volume }) }}</span>
       <br>
       <template

@@ -1538,12 +1538,7 @@ export default defineComponent({
 
       this.stats.resolution.frameRate = fps
 
-      // unfortunately Invidious doesn't provide the bitrate information for legacy formats
-      if (typeof bitrate !== 'undefined') {
-        this.stats.bitrate = (bitrate / 1000).toFixed(2)
-      } else {
-        this.stats.bitrate = bitrate
-      }
+      this.stats.bitrate = (bitrate / 1000).toFixed(2)
 
       if (typeof width === 'undefined' || typeof height === 'undefined') {
         // Invidious doesn't provide any height or width information for their legacy formats, so lets read it from the video instead
