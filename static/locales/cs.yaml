@@ -625,6 +625,7 @@ Settings:
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
   Expand All Settings Sections: Rozbalit všechny sekce nastavení
+  Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
 About:
   #On About page
   About: 'O aplikaci'
@@ -1157,3 +1158,7 @@ Age Restricted:
   This video is age restricted: Toto video je omezeno věkem
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
+  Refresh Feed: Obnovit {subscriptionName}
+Moments Ago: chvílí

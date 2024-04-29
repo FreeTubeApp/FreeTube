@@ -621,6 +621,7 @@ Settings:
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
     Unlock: الغاء القفل
   Expand All Settings Sections: توسيع كافة أقسام الإعدادات
+  Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
 About:
   #On About page
   About: 'حول'
@@ -1151,3 +1152,7 @@ Age Restricted:
 Close Banner: إغلاق الشعار
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: منذ لحظات
+Feed:
+  Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
+  Refresh Feed: تحديث {subscriptionName}

@@ -49,6 +49,7 @@
             :select-names="sortBySelectNames"
             :select-values="sortBySelectValues"
             :placeholder="$t('User Playlists.Sort By.Sort By')"
+            :icon="getIconForSortPreference(sortBy)"
             @change="sortBy = $event"
           />
         </div>

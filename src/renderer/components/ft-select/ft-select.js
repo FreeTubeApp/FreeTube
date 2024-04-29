@@ -39,8 +39,17 @@ export default defineComponent({
     describeById: {
       type: String,
       default: null
+    },
+    icon: {
+      type: Array,
+      required: true
+    },
+    iconColor: {
+      type: String,
+      default: null
     }
   },
+  emits: ['change'],
   computed: {
     sanitizedPlaceholder: function() {
       return sanitizeForHtmlId(this.placeholder)
@@ -56,6 +65,11 @@ export default defineComponent({
       nextTick(() => {
         this.$refs.select.value = this.value
       })
+    }
+  },
+  methods: {
+    change: function(value) {
+      this.$emit('change', value)
     }
   }
 })

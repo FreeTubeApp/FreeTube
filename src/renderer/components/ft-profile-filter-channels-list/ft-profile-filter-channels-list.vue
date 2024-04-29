@@ -10,6 +10,7 @@
           :value="profileNameList[filteredProfileIndex]"
           :select-names="profileNameList"
           :select-values="profileNameList"
+          :icon="['fas', 'filter']"
           @change="handleProfileFilterChange"
         />
       </ft-flex-box>

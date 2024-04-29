@@ -648,6 +648,7 @@ Settings:
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Expand All Settings Sections: Beállítások kiterjesztése
+  Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
   About: 'Névjegy'
@@ -1194,3 +1195,7 @@ Age Restricted:
   This video is age restricted: Ez a videó korhatáros
 Display Label: '{label}: {value}'
 checkmark: ✓
+Feed:
+  Feed Last Updated: '{feedName} frissítve: {date}'
+  Refresh Feed: '{subscriptionName} frissítése'
+Moments Ago: épp most
