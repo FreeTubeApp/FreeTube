@@ -566,6 +566,7 @@ Settings:
     Password Incorrect: 密碼不正確
     Unlock: 解鎖
   Expand All Settings Sections: 展開所有設定
+  Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
 About:
   #On About page
   About: '關於'

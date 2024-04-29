@@ -5,6 +5,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import { showToast } from '../../helpers/utils'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { getFirstCharacter } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtProfileSelector',
@@ -19,6 +20,9 @@ export default defineComponent({
     }
   },
   computed: {
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     profileList: function () {
       return this.$store.getters.getProfileList
     },
@@ -26,12 +30,15 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile
     },
     activeProfileInitial: function () {
-      // use Array.from, so that emojis don't get split up into individual character codes
-      return this.activeProfile?.name?.length > 0 ? Array.from(this.translatedProfileName(this.activeProfile))[0].toUpperCase() : ''
+      return this.activeProfile?.name
+        ? getFirstCharacter(this.translatedProfileName(this.activeProfile), this.locale).toUpperCase()
+        : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        return profile?.name?.length > 0 ? Array.from(this.translatedProfileName(profile))[0].toUpperCase() : ''
+        return profile?.name
+          ? getFirstCharacter(this.translatedProfileName(profile), this.locale).toUpperCase()
+          : ''
       })
     }
   },
