@@ -1,5 +1,4 @@
 import shaka from 'shaka-player'
-import { qualityLabelToDimension } from '../../../helpers/player/utils'
 
 export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
   /**
@@ -23,11 +22,10 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
     const sortedLegacyFormats = [...legacyFormats]
 
-    // Invidious doesn't return the height, width or bitrate for the legacy formats, so we have to parse the qualityLabel instead
-    // while it doesn't reflect the actual width or height of the format, it is still usuable for sorting
+    // Invidious doesn't return the height or width for the legacy formats, so we have to use the bitrate instead
     if (typeof legacyFormats[0].width === 'undefined' || typeof legacyFormats[0].height === 'undefined') {
       sortedLegacyFormats.sort((a, b) => {
-        return qualityLabelToDimension(b.qualityLabel) - qualityLabelToDimension(a.qualityLabel)
+        return b.bitrate - a.bitrate
       })
     } else {
       const isPortrait = legacyFormats[0].height > legacyFormats[0].width

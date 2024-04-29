@@ -1430,9 +1430,9 @@ export default defineComponent({
         })
 
         if (matches.length > 0) {
-          matches.sort((a, b) => qualityLabelToDimension(b.qualityLabel) - qualityLabelToDimension(a.qualityLabel))
+          matches.sort((a, b) => b.bitrate - a.bitrate)
         } else {
-          matches = legacyFormats.sort((a, b) => qualityLabelToDimension(a.qualityLabel) - qualityLabelToDimension(b.qualityLabel))
+          matches = legacyFormats.sort((a, b) => a.bitrate - b.bitrate)
         }
       }
 
