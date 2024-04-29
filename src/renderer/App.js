@@ -159,10 +159,16 @@ export default defineComponent({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances()
+      await this.fetchInvidiousInstancesFromFile()
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
+
+      this.fetchInvidiousInstances().then(e => {
+        if (this.defaultInvidiousInstance === '') {
+          this.setRandomCurrentInvidiousInstance()
+        }
+      })
 
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
@@ -538,6 +544,7 @@ export default defineComponent({
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
+      'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
       'updateBaseTheme',
