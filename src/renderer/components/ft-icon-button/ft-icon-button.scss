@@ -3,8 +3,6 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   position: relative;
-
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -81,6 +79,12 @@
   }
 }
 
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
 .iconDropdown {
   background-color: var(--side-nav-color);
   box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
@@ -90,7 +94,6 @@
   list-style-type: none;
   position: absolute;
   text-align: center;
-  -webkit-user-select: none;
   user-select: none;
   z-index: 3;
 

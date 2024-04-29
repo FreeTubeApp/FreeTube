@@ -278,6 +278,9 @@ Settings:
       Ask Before Opening Link: Před otevřením odkazu se zeptat
       Open Link: Otevřít odkaz
       External Link Handling: Zpracování externích odkazů
+    Auto Load Next Page:
+      Label: Automaticky načíst další stránku
+      Tooltip: Automaticky načítat další stránky a komentáře.
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -623,6 +626,7 @@ Settings:
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
   Expand All Settings Sections: Rozbalit všechny sekce nastavení
+  Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
 About:
   #On About page
   About: 'O aplikaci'
@@ -945,6 +949,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
+  Sort By:
+    Sort By: Seřadit podle
+    DateAddedNewest: Naposledy přidáno
+    DateAddedOldest: Nejdříve přidáno
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleDescending: Název (Z-A)
+    VideoTitleAscending: Název (A-Z)
+    Custom: Vlastní
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
@@ -1168,3 +1181,7 @@ Age Restricted:
   This video is age restricted: Toto video je omezeno věkem
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
+  Refresh Feed: Obnovit {subscriptionName}
+Moments Ago: chvílí

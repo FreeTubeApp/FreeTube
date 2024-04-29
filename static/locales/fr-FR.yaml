@@ -287,6 +287,9 @@ Settings:
       Ask Before Opening Link: Demander avant d'ouvrir le lien
       Open Link: Ouvrir le lien
       External Link Handling: Gestion des liens externes
+    Auto Load Next Page:
+      Label: Chargement automatique de la page suivante
+      Tooltip: Chargement automatique des pages supplémentaires et des commentaires.
   Theme Settings:
     Theme Settings: 'Paramètres du thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -964,6 +967,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Liste de lecture
+  Sort By:
+    DateAddedNewest: Dernier ajouté en premier
+    AuthorDescending: Auteur (Z-A)
+    Sort By: Trier par
+    DateAddedOldest: Le plus ancien ajouté en premier
+    AuthorAscending: Auteur (A-Z)
+    VideoTitleAscending: Titre (A-Z)
+    VideoTitleDescending: Titre (Z-A)
+    Custom: Personnalisé
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
@@ -1263,3 +1275,7 @@ Close Banner: Fermer la bannière
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label} : {value}'
 checkmark: ✓
+Feed:
+  Feed Last Updated: '{feedName} dernière mise à jour du flux : {date}'
+  Refresh Feed: Rafraîchir {subscriptionName}
+Moments Ago: il y a quelques instants

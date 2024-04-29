@@ -20,16 +20,11 @@
 * https://codepen.io/pavelvaravko/pen/qjojOr
 */
 
-/* select starting stylings ------------------------------*/
+/* select starting stylings ------------------------------ */
 .select {
   position: relative;
   inline-size: 200px;
   margin-block-start: 30px;
-}
-
-.disabled, .disabled + svg.iconSelect {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 
 .select-text {
@@ -42,7 +37,7 @@
   padding-inline-start: 1rem;
   font-size: 16px;
   border-radius: 5px;
-  border: none;
+  border: 0;
 }
 
 .select option {
@@ -50,7 +45,7 @@
   background-color: var(--card-bg-color);
 }
 
-/* Remove focus */
+/* stylelint-disable-next-line a11y/no-outline-none */
 .select-text:focus {
   outline: none;
 }
@@ -58,7 +53,6 @@
   /* Use custom arrow */
 .select .select-text {
   appearance: none;
-  -webkit-appearance:none;
   text-overflow: ellipsis;
   padding-inline-end: 1.5rem;
 }
@@ -67,6 +61,7 @@
   position: absolute;
   inset-block-start: 10px;
   inset-inline-end: 10px;
+
   /* Styling the down arrow */
   padding: 0;
   content: '';
@@ -74,6 +69,11 @@
   border-inline-end: 6px solid transparent;
   pointer-events: none;
   color: var(--tertiary-text-color);
+}
+
+.disabled, .disabled + .iconSelect {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .selectTooltip {
@@ -88,10 +88,17 @@
   font-size: 18px;
   font-weight: normal;
   position: absolute;
+  display: flex;
+  column-gap: 6px;
   inset-inline-start: 0;
   inset-block-start: 10px;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
+}
+
+.select-icon {
+  inline-size: 14px;
+  block-size: 14px;
 }
 
 /* active state */
@@ -108,7 +115,7 @@
   display: block;
 }
 
-.select-bar:before, .select-bar:after {
+.select-bar::before, .select-bar::after {
   content: '';
   block-size: 2px;
   inline-size: 0;
@@ -118,16 +125,16 @@
   transition: 0.2s ease all;
 }
 
-.select-bar:before {
+.select-bar::before {
   inset-inline-start: 50%;
 }
 
-.select-bar:after {
+.select-bar::after {
   inset-inline-end: 50%;
 }
 
 /* active state */
-.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+.select-text:focus ~ .select-bar::before, .select-text:focus ~ .select-bar::after {
   inline-size: 50%;
 }
 
@@ -142,7 +149,7 @@
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .select {
     inline-size: 100%;
   }

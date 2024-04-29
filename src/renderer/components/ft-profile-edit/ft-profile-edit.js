@@ -8,6 +8,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { showToast } from '../../helpers/utils'
+import { getFirstCharacter } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtProfileEdit',
@@ -32,6 +33,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['new-profile-created', 'profile-deleted'],
   data: function () {
     return {
       showDeletePrompt: false,
@@ -46,11 +48,16 @@ export default defineComponent({
     }
   },
   computed: {
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     colorValues: function () {
       return colors.map(color => color.value)
     },
     profileInitial: function () {
-      return this?.profileName?.length > 0 ? Array.from(this.translatedProfileName)[0].toUpperCase() : ''
+      return this.profileName
+        ? getFirstCharacter(this.translatedProfileName, this.locale).toUpperCase()
+        : ''
     },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile

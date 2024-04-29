@@ -6,6 +6,8 @@
     :attempted-fetch="attemptedFetch"
     :is-community="true"
     :initial-data-limit="20"
+    :last-refresh-timestamp="lastCommunityRefreshTimestamp"
+    :title="$t('Global.Community')"
     @refresh="loadPostsForSubscriptionsFromRemote"
   />
 </template>

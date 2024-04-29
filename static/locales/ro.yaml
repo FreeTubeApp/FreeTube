@@ -104,8 +104,8 @@ Subscriptions:
     vitezei
   Error Channels: Canale cu erori
   Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
-  Disabled Automatic Fetching: Ai dezactivat obținerea automată de abonamente. Reîmprospătează
-    abonamentele pentru a le vedea aici.
+  Disabled Automatic Fetching: Ați dezactivat preluarea automată a abonamentelor.
+    Reîmprospătați abonamentele pentru a le vedea aici.
   Subscriptions Tabs: Filele Abonamente
   All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea
     conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din
@@ -131,7 +131,8 @@ User Playlists:
     Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
     aici vor fi migrate într-o listă de redare "Favorite".
   Search bar placeholder: Căutați liste de redare
-  Empty Search Message: Nu sunt videoclipuri pentru căutarea ta
+  Empty Search Message: Nu există videoclipuri în această listă de redare care să
+    corespundă căutării dvs.
   Move Video Down: Mutați video în jos
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
     de redare
@@ -172,13 +173,24 @@ User Playlists:
   Delete Playlist: Ștergeți lista de redare
   Are you sure you want to delete this playlist? This cannot be undone: Sunteți sigur
     că doriți să ștergeți această listă de redare? Acest lucru nu poate fi anulat.
+  CreatePlaylistPrompt:
+    Toast:
+      Playlist {playlistName} has been successfully created.: Lista de redare {playlistName}
+        a fost creată cu succes.
+      There was an issue with creating the playlist.: A existat o problemă la crearea
+        listei de redare.
+      There is already a playlist with this name. Please pick a different name.: Există
+        deja o listă de redare cu acest nume. Vă rugăm să alegeți un alt nume.
+    New Playlist Name: Numele noii liste de redare
+    Create: Creați
 History:
   # On History Page
   History: 'Istoric'
   Watch History: 'Istoricul vizionărilor'
   Your history list is currently empty.: 'Lista dvs. de istoric este momentan goală.'
   Search bar placeholder: Căutare în istoric
-  Empty Search Message: Nu sunt videoclipuri în istoricul tău pentru termenii căutați
+  Empty Search Message: Nu există videoclipuri în această listă de redare care să
+    corespundă căutării dvs.
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -210,8 +222,8 @@ Settings:
         #! List countries
     External Link Handling:
       No Action: Nicio acțiune
-      Ask Before Opening Link: Întrebați înainte de a deschide link-ul
-      Open Link: Deschideți link-ul
+      Ask Before Opening Link: Întrebați înainte de a deschide linkul
+      Open Link: Deschideți linkul
       External Link Handling: Gestionarea legăturilor externe
     View all Invidious instance information: Vizualizați toate informațiile despre
       instanța Invidious
@@ -325,11 +337,11 @@ Settings:
       Error:
         Forbidden Characters: Caractere interzise
         Empty File Name: Denumiri de fișiere goale
-      File Name Tooltip: Poți folosi variabile mai jos. %Y An patru numere. %M Lună
-        doua numere. %D Zi două numere. %H oră două numere. %N Minute două numere.
-        %S Secunde două numere. %T Milisecunde trei numere. %s Secunda din videoclip.
-        %t Milisecunda din videoclip trei numere. %i Numele videoclipului. Poți folosi
-        și "\" sau "/" pentru a creea subdosare.
+      File Name Tooltip: Puteți utiliza variabilele de mai jos. %Y Anul 4 cifre. %M
+        Luna 2 cifre. %D Ziua 2 cifre. %H Ora 2 cifre. %N Minute 2 cifre. %S Secunda
+        2 cifre. %T Milisecundă 3 cifre. %s Secunda video. %t Milisecundă video 3
+        cifre. %i Video ID. De asemenea, puteți utiliza "\" sau "/" pentru a crea
+        subfoldere.
       Enable: Activează captura de ecran
       Format Label: Formatul capturii de ecran
     Video Playback Rate Interval: Intervalul de redare video
@@ -602,6 +614,7 @@ Profile:
   Profile Filter: Filtru profil
   Profile Settings: Setări de profil
   Toggle Profile List: Lista profilului toggle
+  Create Profile Name: Creați numele profilului
 Channel:
   Subscriber: 'Abonat'
   Subscribers: 'Abonați'
@@ -674,11 +687,11 @@ Video:
   Video has been marked as watched: 'Video a fost marcat ca fiind vizionat'
   Video has been removed from your history: 'Video a fost eliminat din istoric'
   Open in YouTube: 'Deschideți în YouTube'
-  Copy YouTube Link: 'Copiați link-ul YouTube'
+  Copy YouTube Link: 'Copiați linkul YouTube'
   Open YouTube Embedded Player: 'Deschideți playerul încorporat YouTube'
-  Copy YouTube Embedded Player Link: 'Copiați link-ul playerului încorporat YouTube'
+  Copy YouTube Embedded Player Link: 'Copiați linkul playerului încorporat YouTube'
   Open in Invidious: 'Deschideți în Invidious'
-  Copy Invidious Link: 'Copiați link-ul Invidious'
+  Copy Invidious Link: 'Copiați linkul Invidious'
   Views: 'Vizionări'
   Loop Playlist: 'Lista de redare în buclă'
   Shuffle Playlist: 'Lista de redare aleatorie'
@@ -773,9 +786,9 @@ Video:
   audio only: numai audio
   video only: numai video
   Download Video: Descărcați video
-  Copy Invidious Channel Link: Copiați link-ul canalului Invidious
+  Copy Invidious Channel Link: Copiați linkul canalului Invidious
   Open Channel in Invidious: Canal deschis în Invidious
-  Copy YouTube Channel Link: Copiați link-ul canalului YouTube
+  Copy YouTube Channel Link: Copiați linkul canalului YouTube
   Open Channel in YouTube: Deschideți canalul în YouTube
   Video has been removed from your saved list: Videoclipul a fost eliminat din lista
     ta de salvări
@@ -846,8 +859,8 @@ Share:
   Share Video: 'Distribuiți video'
   Share Playlist: 'Distribuie lista de redare'
   Include Timestamp: 'Includeți timpul de începere'
-  Copy Link: 'Copiați link-ul'
-  Open Link: 'Deschideți link-ul'
+  Copy Link: 'Copiați linkul'
+  Open Link: 'Deschideți linkul'
   Copy Embed: 'Copiați încorporarea'
   Open Embed: 'Deschideți încorporarea'
   # On Click
@@ -960,8 +973,8 @@ Tooltips:
     Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri
       în loc să facă o conexiune directă la YouTube. Anulează preferințele API.
     Force Local Backend for Legacy Formats: Funcționează numai atunci când API-ul
-      Invidious este implicit. Atunci când este activată, API-ul local va rula și
-      va utiliza formatele vechi returnate de acesta în locul celor returnate de Invidious.
+      Invidious este implicit. Atunci când este activat, API-ul local va rula și va
+      utiliza formatele vechi returnate de acesta în locul celor returnate de Invidious.
       Ajută atunci când videoclipurile returnate de Invidious nu sunt redate din cauza
       restricțiilor de țară.
     Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului,
@@ -979,7 +992,7 @@ Tooltips:
   General Settings:
     External Link Handling: "Alegeți comportamentul implicit atunci când se face clic
       pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube
-      va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
+      va deschide linkul pe care s-a făcut clic în browserul dvs. implicit.\n"
     Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
       în tendințe din fiecare țară doriți să fie afișate.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
@@ -993,10 +1006,10 @@ Tooltips:
       a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită
       un server Invidious la care să vă conectați.
   Distraction Free Settings:
-    Hide Channels: Introduceți un nume de canal sau un ID de canal pentru a ascunde
-      toate videoclipurile, listele de redare și canalul în sine pentru a nu apărea
-      în căutare, în tendințe, în cele mai populare și recomandate. Numele canalului
-      introdus trebuie să se potrivească complet și să țină cont de majuscule și minuscule.
+    Hide Channels: Introduceți un ID de canal pentru a ascunde toate videoclipurile,
+      listele de redare și canalul însuși de la apariția în căutare, tendințe, cele
+      mai populare și recomandate. ID-ul canalului introdus trebuie să fie o potrivire
+      completă și este sensibil la majuscule și minuscule.
     Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}”
       la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
   Experimental Settings:
@@ -1045,3 +1058,11 @@ Playlist will not pause when current video is finished: Lista de redare nu se va
   când videoclipul curent este terminat
 Go to page: Mergeți la {page}
 Close Banner: Închideți bannerul
+Age Restricted:
+  This video is age restricted: Acest videoclip este restricționat în funcție de vârstă
+  This channel is age restricted: Acest canal este restricționat de vârstă
+Channel Hidden: '{channel} adăugat la filtrul de canal'
+Trimmed input must be at least N characters long: Intrarea tăiată trebuie să aibă
+  cel puțin 1 caracter | Intrarea tăiată trebuie să aibă cel puțin {length} caractere
+Tag already exists: Eticheta "{tagName}" există deja
+Channel Unhidden: '{channel} eliminat din filtrul de canale'

@@ -273,6 +273,9 @@ Settings:
       Ask Before Opening Link: Zapytaj przed otworzeniem linku
       Open Link: Otwórz link
       External Link Handling: Obsługa zewnętrznych linków
+    Auto Load Next Page:
+      Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
+      Label: Automatycznie wczytaj kolejną stronę
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -640,6 +643,7 @@ Settings:
     Set Password: Ustaw hasło
     Remove Password: Usuń hasło
   Expand All Settings Sections: Rozwiń wszystkie sekcje ustawień
+  Sort Settings Sections (A-Z): Sortuj sekcje ustawień (A-Z)
 About:
   #On About page
   About: 'O projekcie'
@@ -936,6 +940,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlista
+  Sort By:
+    VideoTitleDescending: Po tytule (Z-A)
+    VideoTitleAscending: Po tytule (A-Z)
+    Custom: Własny porządek
+    DateAddedOldest: Od najstarszych
+    DateAddedNewest: Od najnowszych
+    Sort By: Sortuj
+    AuthorAscending: Po autorze (A-Z)
+    AuthorDescending: Po autorze (Z-A)
 Toggle Theatre Mode: 'Włącz/wyłącz tryb kinowy'
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
@@ -1220,3 +1233,7 @@ Age Restricted:
 Close Banner: Zamknij Baner
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Refresh Feed: Odśwież „{subscriptionName}”
+  Feed Last Updated: 'Ostatnia aktualizacja „{feedName}”: {date}'
+Moments Ago: chwilę temu
