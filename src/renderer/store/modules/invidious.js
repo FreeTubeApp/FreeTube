@@ -46,7 +46,6 @@ const actions = {
 
       if (instances.length !== 0) {
         commit('setInvidiousInstancesList', instances)
-        return true
       } else {
         console.warn('using static file for invidious instances')
       }
@@ -57,7 +56,6 @@ const actions = {
         console.error(err)
       }
     }
-    return false
   },
 
   setRandomCurrentInvidiousInstance({ commit, state }) {
