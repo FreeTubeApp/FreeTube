@@ -10,6 +10,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
   showToast,
+  ctrlFHandler,
   getIconForSortPreference
 } from '../../helpers/utils'
 
@@ -199,12 +200,13 @@ export default defineComponent({
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
-
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
     // User might want to search first if they have many playlists
     this.$refs.searchBar.focus()
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
   },
   beforeDestroy() {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
     this.lastActiveElement?.focus()
   },
   methods: {
@@ -268,6 +270,10 @@ export default defineComponent({
 
     updateQuery: function(query) {
       this.query = query
+    },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchBar)
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
