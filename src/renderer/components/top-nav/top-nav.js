@@ -133,6 +133,12 @@ export default defineComponent({
 
       clearLocalSearchSuggestionsSession()
 
+      // Reset search filters if searching another query
+      if (this.$route.params.query && this.$route.params.query !== query) {
+        this.$store.commit('setSearchSettingsToDefault')
+        this.searchFilterValueChanged = false
+      }
+
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
           case 'video': {
@@ -217,9 +223,6 @@ export default defineComponent({
         }
       })
 
-      // Reset search filters
-      this.$store.commit('setSearchSettingsToDefault')
-      this.searchFilterValueChanged = false
       // Close the filter panel
       this.showFilters = false
     },
