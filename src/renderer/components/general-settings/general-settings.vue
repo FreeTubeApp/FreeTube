@@ -58,6 +58,7 @@
         :select-names="backendNames"
         :select-values="backendValues"
         :tooltip="$t('Tooltips.General Settings.Fallback API Backend')"
+        :icon="['fas', 'server']"
         @change="handleFallbackApiBackend"
       />
       <ft-select
