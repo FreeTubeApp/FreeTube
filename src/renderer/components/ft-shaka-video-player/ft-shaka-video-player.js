@@ -106,6 +106,27 @@ export default defineComponent({
     'toggle-theatre-mode'
   ],
   data: function () {
+    /**
+     * @type {{
+     *   url: string,
+     *   label: string,
+     *   language: string,
+     *   mimeType: string,
+     *   isAutotranslated?: boolean
+     * }[]}
+     */
+    let sortedCaptions
+
+    // we don't need to sort if we only have one caption or don't have any
+    if (this.captions.length > 1) {
+      // theoretically we would resort when the language changes, but we can't remove captions that we already added to the player
+      sortedCaptions = sortCaptions(this.captions)
+    } else if (this.captions.length === 1) {
+      sortedCaptions = this.captions
+    } else {
+      sortedCaptions = []
+    }
+
     return {
       /**
        * shaka-player doesn't like Vue's reactivity.
@@ -137,16 +158,7 @@ export default defineComponent({
 
       activeLegacyFormat: null,
 
-      /**
-       * @type {{
-       *   url: string,
-       *   label: string,
-       *   language: string,
-       *   mimeType: string,
-       *   isAutotranslated?: boolean
-       * }[]}
-       */
-      sortedCaptions: [],
+      sortedCaptions,
       /** @type {number|null} */
       restoreCaptionIndex: null,
 
@@ -649,14 +661,6 @@ export default defineComponent({
     locale: 'setLocale'
   },
   created: function () {
-    // we don't need to sort if we only have one caption or don't have any
-    if (this.captions.length > 1) {
-      // theoretically we would resort when the language changes, but we can't remove captions that we already added to the player
-      this.sortedCaptions = sortCaptions(this.captions)
-    } else if (this.captions.length === 1) {
-      this.sortedCaptions = this.captions
-    }
-
     if (this.enableSubtitlesByDefault && this.captions.length > 0) {
       this.restoreCaptionIndex = 0
     }
