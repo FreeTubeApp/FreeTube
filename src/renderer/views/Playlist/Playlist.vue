@@ -43,6 +43,16 @@
       <template
         v-if="playlistItems.length > 0"
       >
+        <ft-select
+          v-if="isUserPlaylistRequested && playlistItems.length > 1"
+          class="sortSelect"
+          :value="sortOrder"
+          :select-names="sortBySelectNames"
+          :select-values="sortBySelectValues"
+          :placeholder="$t('Playlist.Sort By.Sort By')"
+          :icon="getIconForSortPreference(sortOrder)"
+          @change="updateUserPlaylistSortOrder"
+        />
         <template
           v-if="visiblePlaylistItems.length > 0"
         >
@@ -62,8 +72,8 @@
               appearance="result"
               :always-show-add-to-playlist-button="true"
               :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
-              :can-move-video-up="index > 0 && !playlistInVideoSearchMode"
-              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode"
+              :can-move-video-up="index > 0 && !playlistInVideoSearchMode && isSortOrderCustom"
+              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode && isSortOrderCustom"
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"

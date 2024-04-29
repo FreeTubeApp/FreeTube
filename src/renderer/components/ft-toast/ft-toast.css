@@ -3,6 +3,7 @@
   inset-inline-start: 50vw;
   transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
   inset-block-end: 50px;
+
   /* Higher than any prompt */
   z-index: 300;
   display: flex;
@@ -16,8 +17,8 @@
   margin: 5px;
   text-align: center;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  background-color: rgb(0 0 0 / 70%);
+  color: #FFF;
   opacity: 0;
   border-radius: 20px;
   cursor: pointer;

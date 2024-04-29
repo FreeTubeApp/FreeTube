@@ -112,6 +112,8 @@ module.exports = {
         ignoreText: ['-', '•', '/', 'YouTube', 'Invidious', 'FreeTube']
       }
     ],
+    'vue/require-explicit-emits': 'error',
+    'vue/no-unused-emit-declarations': 'error',
   },
   settings: {
     'vue-i18n': {

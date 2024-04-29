@@ -45,14 +45,12 @@ h3 {
   margin: 2px;
   cursor: pointer;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .initial {
   font-size: 37.5px;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .colorOption:has(.initial) {
@@ -84,7 +82,7 @@ h3 {
   margin-inline: auto;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;
   }

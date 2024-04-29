@@ -12,7 +12,7 @@
 	"background_color" : "transparent",
 	"related_applications" : [],
 	"prefer_related_applications" : false,
-	"icons" : ["/_icons/logoColor.png"],
+	"icons" : ["/_icons/logoColor.svg"],
 	"url" : "https://app.freetubeapp.io",
 	"screenshots" : [],
 	"generated" : "true"

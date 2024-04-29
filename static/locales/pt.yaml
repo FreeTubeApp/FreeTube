@@ -276,6 +276,9 @@ Settings:
       Open Link: Abrir ligação
       Ask Before Opening Link: Perguntar antes de abrir a ligação
       No Action: Nenhuma ação
+    Auto Load Next Page:
+      Label: Carregar seguinte automaticamente
+      Tooltip: Carrega as páginas e comentários automaticamente.
   Theme Settings:
     Theme Settings: 'Configurações de tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
@@ -633,6 +636,7 @@ Settings:
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
   Expand All Settings Sections: Expandir todas as secções de configurações
+  Sort Settings Sections (A-Z): Ordenar definições (A-Z)
 About:
   #On About page
   About: 'Acerca'
@@ -972,6 +976,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reprodução
+  Sort By:
+    Sort By: Ordenar por
+    AuthorAscending: Autor (A-Z)
+    DateAddedNewest: Últimas adições primeiro
+    DateAddedOldest: Primeiras adições primeiro
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Título (A-Z)
+    VideoTitleDescending: Título (Z-A)
+    Custom: Personalizado
 Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
@@ -1187,3 +1200,9 @@ Close Banner: Fechar banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrições de idade
   This video is age restricted: Este vídeo tem restrições de idade
+Feed:
+  Feed Last Updated: 'Última atualização de {feedName}: {date}'
+  Refresh Feed: Recarregar {subscriptionName}
+Display Label: '{label}: {value}'
+Moments Ago: há momentos
+checkmark: ✓

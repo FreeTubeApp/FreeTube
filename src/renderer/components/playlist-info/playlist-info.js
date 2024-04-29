@@ -7,6 +7,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import {
+  ctrlFHandler,
   formatNumber,
   showToast,
 } from '../../helpers/utils'
@@ -96,6 +97,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['enter-edit-mode', 'exit-edit-mode', 'search-video-query-change'],
   data: function () {
     return {
       searchVideoMode: false,
@@ -410,19 +412,9 @@ export default defineComponent({
       this.$emit('search-video-query-change', query)
     },
 
-    keyboardShortcutHandler(event) {
-      switch (event.key) {
-        case 'F':
-        case 'f':
-          if (this.searchVideoModeAllowed && ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
-            nextTick(() => {
-              // Some elements only present after rendering update
-              this.$refs.searchInput.focus()
-            })
-          }
-      }
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchInput)
     },
-
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',
