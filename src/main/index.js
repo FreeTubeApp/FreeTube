@@ -11,8 +11,12 @@ import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
 import asyncFs from 'fs/promises'
+import { promisify } from 'util'
+import { brotliDecompress } from 'zlib'
 
 import packageDetails from '../../package.json'
+
+const brotliDecompressAsync = promisify(brotliDecompress)
 
 if (process.argv.includes('--version')) {
   app.exit()
@@ -21,6 +25,24 @@ if (process.argv.includes('--version')) {
 }
 
 function runApp() {
+  /** @type {Set<string>} */
+  let ALLOWED_RENDERER_FILES
+
+  if (process.env.NODE_ENV === 'production') {
+    // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
+    // eslint-disable-next-line no-undef
+    ALLOWED_RENDERER_FILES = new Set(__FREETUBE_ALLOWED_PATHS__)
+
+    protocol.registerSchemesAsPrivileged([{
+      scheme: 'app',
+      privileges: {
+        standard: true,
+        secure: true,
+        supportFetchAPI: true
+      }
+    }])
+  }
+
   require('electron-context-menu')({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
@@ -222,6 +244,74 @@ function runApp() {
   }
 
   app.on('ready', async (_, __) => {
+    if (process.env.NODE_ENV === 'production') {
+      protocol.handle('app', async (request) => {
+        if (request.method !== 'GET') {
+          return new Response(null, {
+            status: 405,
+            headers: {
+              Allow: 'GET'
+            }
+          })
+        }
+
+        const { host, pathname } = new URL(request.url)
+
+        if (host !== 'bundle' || !ALLOWED_RENDERER_FILES.has(pathname)) {
+          return new Response(null, {
+            status: 400
+          })
+        }
+
+        const contents = await asyncFs.readFile(path.join(__dirname, pathname))
+
+        if (pathname.endsWith('.json.br')) {
+          const decompressed = await brotliDecompressAsync(contents)
+
+          return new Response(decompressed.buffer, {
+            status: 200,
+            headers: {
+              'Content-Type': 'application/json',
+              'Content-Encoding': 'br'
+            }
+          })
+        } else {
+          return new Response(contents.buffer, {
+            status: 200,
+            headers: {
+              'Content-Type': contentTypeFromFileExtension(pathname.split('.').at(-1))
+            }
+          })
+        }
+      })
+    }
+
+    // Electron defaults to approving all permission checks and permission requests.
+    // FreeTube only needs a few permissions, so we reject requests for other permissions
+    // and reject all requests on non-FreeTube URLs.
+    //
+    // FreeTube needs the following permissions:
+    // - "fullscreen": So that the video player can enter full screen
+    // - "clipboard-sanitized-write": To allow the user to copy video URLs and error messages
+
+    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+      if (!isFreeTubeUrl(requestingOrigin)) {
+        return false
+      }
+
+      return permission === 'fullscreen' || permission === 'clipboard-sanitized-write'
+    })
+
+    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+      if (!isFreeTubeUrl(webContents.getURL())) {
+        // eslint-disable-next-line n/no-callback-literal
+        callback(false)
+        return
+      }
+
+      callback(permission === 'fullscreen' || permission === 'clipboard-sanitized-write')
+    })
+
     let docArray
     try {
       docArray = await baseHandlers.settings._findAppReadyRelatedSettings()
@@ -455,6 +545,47 @@ function runApp() {
     }
   })
 
+  /**
+   * @param {string} extension
+   */
+  function contentTypeFromFileExtension(extension) {
+    switch (extension) {
+      case 'html':
+        return 'text/html'
+      case 'css':
+        return 'text/css'
+      case 'js':
+        return 'text/javascript'
+      case 'ttf':
+        return 'font/ttf'
+      case 'woff':
+        return 'font/woff'
+      case 'svg':
+        return 'image/svg+xml'
+      case 'png':
+        return 'image/png'
+      case 'json':
+        return 'application/json'
+      case 'txt':
+        return 'text/plain'
+      default:
+        return 'application/octet-stream'
+    }
+  }
+
+  /**
+   * @param {string} urlString
+   */
+  function isFreeTubeUrl(urlString) {
+    const { protocol, host, pathname } = new URL(urlString)
+
+    if (process.env.NODE_ENV === 'development') {
+      return protocol === 'http:' && host === 'localhost:9080' && (pathname === '/' || pathname === '/index.html')
+    } else {
+      return protocol === 'app:' && host === 'bundle' && pathname === '/index.html'
+    }
+  }
+
   async function installDevTools() {
     try {
       /* eslint-disable */
@@ -605,8 +736,7 @@ function runApp() {
       if (windowStartupUrl != null) {
         newWindow.loadURL(windowStartupUrl)
       } else {
-        /* eslint-disable-next-line n/no-path-concat */
-        newWindow.loadFile(`${__dirname}/index.html`)
+        newWindow.loadURL('app://bundle/index.html')
       }
     }
 

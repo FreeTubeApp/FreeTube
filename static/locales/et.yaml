@@ -275,6 +275,9 @@ Settings:
       External Link Handling: Rakenduseväline lingikäsitlus
       Open Link: Ava link
       Ask Before Opening Link: Küsi enne lingi avamist
+    Auto Load Next Page:
+      Label: Laadi järgmine leht automaatselt
+      Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -903,6 +906,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Esitusloend
+  Sort By:
+    Custom: Kohandatud
+    Sort By: Järjestuse alus
+    DateAddedNewest: Esmalt viimatilisatud
+    DateAddedOldest: Esmalt ammu lisatud
+    AuthorAscending: Autori alusel (A-Z)
+    AuthorDescending: Autori alusel (Z-A)
+    VideoTitleAscending: Pealkirja alusel (A-Z)
+    VideoTitleDescending: Pealkirja alusel (Z-A)
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
@@ -1123,3 +1135,7 @@ Age Restricted:
 Close Banner: Sulge rekaampilt
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} tellimustevoo viimane uuendus: {date}'
+  Refresh Feed: Uuenda {subscriptionName} andmed
+Moments Ago: hetk tagasi
