@@ -770,9 +770,7 @@ export default defineComponent({
           ]
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
-
-          // not ideal but should work until Invidious has a suitable property in the API response (YouTube already offers a boolean value, so they just have to pass it through)
-          this.isPostLiveDvr = !this.isLive && result.adaptiveFormats.some(format => typeof format.targetDurationSec !== 'undefined')
+          this.isPostLiveDvr = !!result.isPostLiveDvr
 
           this.captions = result.captions.map(caption => {
             return {
