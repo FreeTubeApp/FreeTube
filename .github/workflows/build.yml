@@ -57,10 +57,8 @@ jobs:
     - run: yarn run ci
     - run: yarn run lint
     - name: Get Version Number
-      uses: jozsefsallai/node-package-version@v1.0.4
-      with:
-        path: 'package.json'
-        follow-symlinks: false
+      id: getPackageInfo
+      uses: jaywcjlove/github-action-package@main
 
     - name: Set Version Number Variable
       id: versionNumber
@@ -68,9 +66,9 @@ jobs:
       env:
         IS_DEV: ${{ contains(github.ref, 'development') }}
         IS_RC: ${{ contains(github.ref, 'RC') }}
-        VERSION_NUMBER_NIGHTLY: ${{ env.PACKAGE_VERSION }}-nightly-${{ github.run_number }}
-        VERSION_NUMBER_RC: ${{ env.PACKAGE_VERSION }}-RC-${{ github.run_number }}
-        VERSION_NUMBER: ${{ env.PACKAGE_VERSION }}
+        VERSION_NUMBER_NIGHTLY: ${{ steps.getPackageInfo.outputs.version }}-nightly-${{ github.run_number }}
+        VERSION_NUMBER_RC: ${{ steps.getPackageInfo.outputs.version }}-RC-${{ github.run_number }}
+        VERSION_NUMBER: ${{ steps.getPackageInfo.outputs.version }}
       with:
         result-encoding: string
         script: |
@@ -79,16 +77,14 @@ jobs:
           } else if (${{ env.IS_RC }}) {
             return "${{ env.VERSION_NUMBER_RC }}"
           } else {
-           return "${{env.VERSION_NUMBER }}"
+            return "${{env.VERSION_NUMBER }}"
           }
         # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
 
     - name: Update package.json version
-      uses: jossef/action-set-json-field@v2.1
+      uses: jaywcjlove/github-action-package@main
       with:
-        file: package.json
-        field: version
-        value: ${{ steps.versionNumber.outputs.result }}
+        version: ${{ steps.versionNumber.outputs.result }}
 
 
     - name: Install libarchive-tools

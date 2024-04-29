@@ -6,6 +6,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
+import { ctrlFHandler } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SubscribedChannels',
@@ -26,7 +27,7 @@ export default defineComponent({
       },
       thumbnailSize: 176,
       ytBaseURL: 'https://yt3.ggpht.com',
-      errorCount: 0
+      errorCount: 0,
     }
   },
   computed: {
@@ -82,7 +83,11 @@ export default defineComponent({
     }
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
     this.getSubscription()
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     getSubscription: function () {
@@ -157,6 +162,10 @@ export default defineComponent({
           })
         }, this.errorCount * 500)
       }
+    },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchBarChannels)
     },
 
     ...mapActions([

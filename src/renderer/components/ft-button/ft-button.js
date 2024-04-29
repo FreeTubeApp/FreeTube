@@ -19,5 +19,11 @@ export default defineComponent({
       type: String,
       default: ''
     }
+  },
+  emits: ['click'],
+  methods: {
+    click: function() {
+      this.$emit('click')
+    }
   }
 })

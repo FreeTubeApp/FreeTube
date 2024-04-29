@@ -18,7 +18,7 @@
       :title="$t('Feed.Refresh Feed', { subscriptionName: title })"
       :size="12"
       theme="primary"
-      @click="$emit('click')"
+      @click="click"
     />
   </div>
 </template>

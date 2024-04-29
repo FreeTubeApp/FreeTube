@@ -41,6 +41,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['pause-player'],
   data: function () {
     return {
       isLoading: true,
@@ -594,6 +595,10 @@ export default defineComponent({
         // Watch view can be ready sooner than this component
         container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
       }
+    },
+
+    pausePlayer: function () {
+      this.$emit('pause-player')
     },
 
     ...mapMutations([

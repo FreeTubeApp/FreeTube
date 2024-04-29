@@ -58,11 +58,12 @@
         />
       </ft-flex-box>
     </ft-auto-load-next-page-wrapper>
+
     <ft-refresh-widget
       :disable-refresh="isLoading || activeSubscriptionList.length === 0"
       :last-refresh-timestamp="lastRefreshTimestamp"
       :title="title"
-      @click="$emit('refresh')"
+      @click="refresh"
     />
   </div>
 </template>

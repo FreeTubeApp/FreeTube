@@ -206,6 +206,7 @@
 
           <ft-input
             v-if="showSearchBar"
+            ref="channelSearchBar"
             :placeholder="$t('Channel.Search Channel')"
             :show-clear-text-button="true"
             class="channelSearch"
@@ -237,6 +238,7 @@
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="getIconForSortPreference(videoSortBy)"
           @change="videoSortBy = $event"
         />
         <ft-select
@@ -246,6 +248,7 @@
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="getIconForSortPreference(shortSortBy)"
           @change="shortSortBy = $event"
         />
         <ft-select
@@ -255,6 +258,7 @@
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="getIconForSortPreference(liveSortBy)"
           @change="liveSortBy = $event"
         />
         <ft-select
@@ -264,6 +268,7 @@
           :select-names="playlistSelectNames"
           :select-values="playlistSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :icon="getIconForSortPreference(playlistSortBy)"
           @change="playlistSortBy = $event"
         />
       </div>

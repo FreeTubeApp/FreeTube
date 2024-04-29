@@ -16,9 +16,11 @@ import autolinker from 'autolinker'
 import {
   setPublishedTimestampsInvidious,
   copyToClipboard,
+  ctrlFHandler,
   extractNumberFromString,
   formatNumber,
-  showToast
+  showToast,
+  getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
@@ -438,6 +440,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.isLoading = true
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
 
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
@@ -463,6 +466,9 @@ export default defineComponent({
         this.autoRefreshOnSortByChangeEnabled = true
       })
     }
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     resolveChannelUrl: async function (url, tab = undefined) {
@@ -1953,6 +1959,12 @@ export default defineComponent({
         }
       })
     },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.channelSearchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showOutlines',
