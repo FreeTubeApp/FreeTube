@@ -113,7 +113,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 搜索播放列表
-  Empty Search Message: 这个与你的搜索匹配的播放列表中没有视频
+  Empty Search Message: 此播放列表中没有匹配你搜索的视频
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除所有已观看的视频吗？此操作无法撤销。
   AddVideoPrompt:
     Search in Playlists: 在播放列表中搜索
@@ -194,7 +194,7 @@ History:
   Watch History: '观看历史记录'
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
-  Empty Search Message: 匹配搜索的历史记录中没有视频
+  Empty Search Message: 历史记录中没有匹配你搜索的视频
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -238,6 +238,9 @@ Settings:
       No Action: 无操作
       External Link Handling: 外部链接处理
       Open Link: 打开链接
+    Auto Load Next Page:
+      Label: 自动加载下一页
+      Tooltip: 自动加载额外页面和评论。
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -351,8 +354,6 @@ Settings:
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
     Allow DASH AV1 formats: 允许 DASH AV1 格式
-    Comment Auto Load:
-      Comment Auto Load: 自动加载评论
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -564,6 +565,7 @@ Settings:
     Set Password: 设置密码
     Remove Password: 删除密码
   Expand All Settings Sections: 展开所有设置部分
+  Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
 About:
   #On About page
   About: '关于'
@@ -827,6 +829,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放列表
+  Sort By:
+    Sort By: 排序依据
+    DateAddedNewest: 最近添加的优先
+    DateAddedOldest: 最早添加的优先
+    AuthorAscending: 作者名（A-Z）
+    AuthorDescending: 作者名（Z-A）
+    VideoTitleDescending: 标题（Z-A)
+    Custom: 自定义
+    VideoTitleAscending: 标题（A-Z）
 Toggle Theatre Mode: '切换剧场模式'
 Change Format:
   Change Media Formats: '更换视频格式'
@@ -1042,3 +1053,7 @@ Age Restricted:
   This channel is age restricted: 此频道有年龄限制
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: 片刻前
+Feed:
+  Feed Last Updated: '{feedName} 上次更新: {date}'
+  Refresh Feed: 刷新 {subscriptionName}

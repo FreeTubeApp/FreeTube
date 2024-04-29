@@ -9,6 +9,7 @@
         :select-names="externalPlayerNames"
         :select-values="externalPlayerValues"
         :tooltip="$t('Tooltips.External Player Settings.External Player')"
+        :icon="['fas', 'external-link-alt']"
         @change="updateExternalPlayer"
       />
     </ft-flex-box>

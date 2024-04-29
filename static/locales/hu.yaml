@@ -285,6 +285,9 @@ Settings:
       Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
       Open Link: Hivatkozás megnyitása
       External Link Handling: Külső hivatkozás kezelése
+    Auto Load Next Page:
+      Label: Következő oldal automatikus betöltése
+      Tooltip: További oldalak és megjegyzések automatikus betöltése.
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -404,8 +407,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
     Allow DASH AV1 formats: DASH AV1 formátumok engedélyezése
-    Comment Auto Load:
-      Comment Auto Load: Megjegyzés automatikus betöltése
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -648,6 +649,7 @@ Settings:
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Expand All Settings Sections: Beállítások kiterjesztése
+  Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
   About: 'Névjegy'
@@ -974,6 +976,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lejátszási lista
+  Sort By:
+    DateAddedOldest: Legrégebbiek elől
+    DateAddedNewest: Legújabbak elől
+    Sort By: Rendezés
+    AuthorAscending: Szerző szerint (A-Z)
+    AuthorDescending: Szerző szerint (Z-A)
+    VideoTitleAscending: Cím szerint (A-Z)
+    VideoTitleDescending: Cím szerint (Z-A)
+    Custom: Egyéni rendezés
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
@@ -1208,3 +1219,7 @@ Age Restricted:
   This video is age restricted: Ez a videó korhatáros
 Display Label: '{label}: {value}'
 checkmark: ✓
+Feed:
+  Feed Last Updated: '{feedName} frissítve: {date}'
+  Refresh Feed: '{subscriptionName} frissítése'
+Moments Ago: épp most

@@ -122,7 +122,7 @@ User Playlists:
     a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
-    con tu búsqueda
+    con su búsqueda
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
     seguro de que quieres eliminar todos los vídeos vistos de esta lista de reproducción?
     Esto no se puede deshacer.
@@ -276,6 +276,9 @@ Settings:
       Ask Before Opening Link: Preguntar antes de abrir el enlace
       Open Link: Abrir el enlace
       External Link Handling: Gestión de enlaces externos
+    Auto Load Next Page:
+      Label: Carga automática de la página siguiente
+      Tooltip: Cargar automáticamente páginas adicionales y comentarios.
   Theme Settings:
     Theme Settings: 'Configuración del tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -395,8 +398,6 @@ Settings:
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Cargar los comentarios automáticamente
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar historial'
@@ -638,6 +639,7 @@ Settings:
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
   Expand All Settings Sections: Expandir todas las secciones de los ajustes
+  Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
 About:
   #On About page
   About: 'Acerca de'
@@ -975,6 +977,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reproducción
+  Sort By:
+    Custom: Personalizado
+    DateAddedNewest: Último añadido primero
+    DateAddedOldest: Primeros añadidos primero
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Título (A-Z)
+    Sort By: Ordenar por
+    VideoTitleDescending: Título (Z-A)
 Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
@@ -1214,3 +1225,7 @@ Age Restricted:
   This video is age restricted: Este vídeo está restringido por edad
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} feed actualizado por última vez: {date}'
+  Refresh Feed: Actualizar {subscriptionName}
+Moments Ago: hace unos instantes

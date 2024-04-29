@@ -111,14 +111,15 @@ const config = {
     ]
   },
   node: {
-    __dirname: isDevMode,
-    __filename: isDevMode
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     processLocalesPlugin,
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': true,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`
@@ -149,6 +150,8 @@ const config = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
+
+      'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$': path.resolve(__dirname, '../src/datastores/handlers/electron.js'),
 
       'youtubei.js$': 'youtubei.js/web',
 

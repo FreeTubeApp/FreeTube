@@ -22,7 +22,7 @@
       :view-count="viewCount"
       :info-source="infoSource"
       :more-video-data-available="moreVideoDataAvailable"
-      :search-video-mode-allowed="searchVideoModeAllowed"
+      :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
       :search-video-mode-enabled="playlistInVideoSearchMode"
       :search-query-text="searchQueryTextRequested"
       class="playlistInfo"
@@ -31,8 +31,6 @@
       }"
       @enter-edit-mode="playlistInEditMode = true"
       @exit-edit-mode="playlistInEditMode = false"
-      @search-video-mode-on="playlistInVideoSearchMode = true"
-      @search-video-mode-off="playlistInVideoSearchMode = false"
       @search-video-query-change="(v) => videoSearchQuery = v"
       @prompt-open="promptOpen = true"
       @prompt-close="promptOpen = false"
@@ -45,6 +43,16 @@
       <template
         v-if="playlistItems.length > 0"
       >
+        <ft-select
+          v-if="isUserPlaylistRequested && playlistItems.length > 1"
+          class="sortSelect"
+          :value="sortOrder"
+          :select-names="sortBySelectNames"
+          :select-values="sortBySelectValues"
+          :placeholder="$t('Playlist.Sort By.Sort By')"
+          :icon="getIconForSortPreference(sortOrder)"
+          @change="updateUserPlaylistSortOrder"
+        />
         <template
           v-if="visiblePlaylistItems.length > 0"
         >
@@ -64,8 +72,8 @@
               appearance="result"
               :always-show-add-to-playlist-button="true"
               :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
-              :can-move-video-up="index > 0 && !playlistInVideoSearchMode"
-              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode"
+              :can-move-video-up="index > 0 && !playlistInVideoSearchMode && isSortOrderCustom"
+              :can-move-video-down="index < playlistItems.length - 1 && !playlistInVideoSearchMode && isSortOrderCustom"
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
@@ -74,16 +82,19 @@
               @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
             />
           </transition-group>
-          <ft-flex-box
+          <ft-auto-load-next-page-wrapper
             v-if="moreVideoDataAvailable && !isLoadingMore"
+            @load-next-page="getNextPage"
           >
-            <ft-button
-              :label="$t('Subscriptions.Load More Videos')"
-              background-color="var(--primary-color)"
-              text-color="var(--text-with-main-color)"
-              @click="getNextPage"
-            />
-          </ft-flex-box>
+            <ft-flex-box>
+              <ft-button
+                :label="$t('Subscriptions.Load More Videos')"
+                background-color="var(--primary-color)"
+                text-color="var(--text-with-main-color)"
+                @click="getNextPage"
+              />
+            </ft-flex-box>
+          </ft-auto-load-next-page-wrapper>
           <div
             v-if="isLoadingMore"
             class="loadNextPageWrapper"

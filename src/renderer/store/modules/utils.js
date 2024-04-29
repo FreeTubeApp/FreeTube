@@ -48,7 +48,13 @@ const state = {
   },
   externalPlayerNames: [],
   externalPlayerValues: [],
-  externalPlayerCmdArguments: {}
+  externalPlayerCmdArguments: {},
+  lastVideoRefreshTimestampByProfile: {},
+  lastShortRefreshTimestampByProfile: {},
+  lastLiveRefreshTimestampByProfile: {},
+  lastCommunityRefreshTimestampByProfile: {},
+  lastPopularRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: '',
 }
 
 const getters = {
@@ -138,6 +144,30 @@ const getters = {
 
   getExternalPlayerCmdArguments () {
     return state.externalPlayerCmdArguments
+  },
+
+  getLastTrendingRefreshTimestamp() {
+    return state.lastTrendingRefreshTimestamp
+  },
+
+  getLastPopularRefreshTimestamp() {
+    return state.lastPopularRefreshTimestamp
+  },
+
+  getLastCommunityRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastCommunityRefreshTimestampByProfile[profileId]
+  },
+
+  getLastShortRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastShortRefreshTimestampByProfile[profileId]
+  },
+
+  getLastLiveRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastLiveRefreshTimestampByProfile[profileId]
+  },
+
+  getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastVideoRefreshTimestampByProfile[profileId]
   }
 }
 
@@ -354,11 +384,10 @@ const actions = {
 
   async getRegionData ({ commit }, { locale }) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
-    // Exclude __dirname from path if not in electron
-    const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
 
-    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}.json`
-    const countries = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
+    const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)
+
+    const countries = await (await fetch(url)).json()
 
     const regionNames = countries.map((entry) => { return entry.name })
     const regionValues = countries.map((entry) => { return entry.code })
@@ -590,16 +619,9 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
-  async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
-    const fileName = 'external-player-map.json'
-    /* eslint-disable-next-line n/no-path-concat */
-    const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
-
-    const fileData = await fs.readFile(`${fileLocation}${fileName}`)
-
-    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
-    })
+  async getExternalPlayerCmdArgumentsData ({ commit }) {
+    const url = createWebURL('/static/external-player-map.json')
+    const externalPlayerMap = await (await fetch(url)).json()
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
     const playerNone = externalPlayerMap.shift()
     externalPlayerMap.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
@@ -728,8 +750,26 @@ const actions = {
 
     showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+    }
+  },
+
+  updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastCommunityRefreshTimestampByProfile', payload)
+  },
+
+  updateLastShortRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastShortRefreshTimestampByProfile', payload)
+  },
+
+  updateLastLiveRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastLiveRefreshTimestampByProfile', payload)
+  },
+
+  updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastVideoRefreshTimestampByProfile', payload)
   }
 }
 
@@ -820,6 +860,30 @@ const mutations = {
 
   setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
+  },
+
+  setLastTrendingRefreshTimestamp (state, timestamp) {
+    state.lastTrendingRefreshTimestamp = timestamp
+  },
+
+  setLastPopularRefreshTimestamp (state, timestamp) {
+    state.lastPopularRefreshTimestamp = timestamp
+  },
+
+  updateLastCommunityRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastCommunityRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastShortRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastShortRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastLiveRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastLiveRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastVideoRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastVideoRefreshTimestampByProfile, profileId, timestamp)
   },
 
   clearTrendingCache(state) {

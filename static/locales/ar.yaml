@@ -265,6 +265,9 @@ Settings:
       Ask Before Opening Link: اسأل قبل فتح الرابط
       Open Link: افتح الرابط
       External Link Handling: معالجة الارتباط الخارجي
+    Auto Load Next Page:
+      Label: تحميل تلقائي للصفحة التالية
+      Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -380,8 +383,6 @@ Settings:
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
     Allow DASH AV1 formats: السماح بتنسيقات DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: تحميل التلقائي للتعليقات
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -621,6 +622,7 @@ Settings:
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
     Unlock: الغاء القفل
   Expand All Settings Sections: توسيع كافة أقسام الإعدادات
+  Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
 About:
   #On About page
   About: 'حول'
@@ -952,6 +954,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: قائمة التشغيل
+  Sort By:
+    Sort By: ترتيب حسب
+    DateAddedNewest: آخر مضاف أولا
+    DateAddedOldest: الأقدم إضافتا أولا
+    AuthorAscending: الكاتب (A-Z)
+    AuthorDescending: الكاتب (Z-A)
+    VideoTitleAscending: العنوان (A-Z)
+    VideoTitleDescending: العنوان (Z-A)
+    Custom: مُخصّص
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
@@ -1172,3 +1183,7 @@ Age Restricted:
 Close Banner: إغلاق الشعار
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: منذ لحظات
+Feed:
+  Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
+  Refresh Feed: تحديث {subscriptionName}

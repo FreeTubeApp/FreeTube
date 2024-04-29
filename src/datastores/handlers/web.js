@@ -1,4 +1,4 @@
-import baseHandlers from './base'
+import * as baseHandlers from './base'
 
 // TODO: Syncing
 // Syncing on the web would involve a different implementation
@@ -118,11 +118,9 @@ class Playlists {
   }
 }
 
-const handlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists
 }
-
-export default handlers

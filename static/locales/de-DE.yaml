@@ -283,6 +283,9 @@ Settings:
       Ask Before Opening Link: Vor dem Öffnen des Links nachfragen
       Open Link: Link öffnen
       External Link Handling: Handhabung externer Links
+    Auto Load Next Page:
+      Label: Nächste Seite automatisch laden
+      Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
   Theme Settings:
     Theme Settings: Farbschema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -399,8 +402,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
     Allow DASH AV1 formats: DASH AV1-Formate zulassen
-    Comment Auto Load:
-      Comment Auto Load: Kommentare automatisch laden
   Subscription Settings:
     Subscription Settings: Abo-Einstellungen
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -951,6 +952,15 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    VideoTitleDescending: Titel (Z-A)
+    Sort By: Sortieren nach
+    DateAddedNewest: Zuletzt hinzugefügt zuerst
+    DateAddedOldest: Am frühesten hinzugefügt zuerst
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Titel (A-Z)
+    Custom: Benutzerdefiniert
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
@@ -1245,3 +1255,6 @@ Age Restricted:
   This video is age restricted: Dieses Video ist altersbeschränkt
 Display Label: '{label}: {value}'
 checkmark: ✓
+Moments Ago: vor wenigen Augenblicken
+Feed:
+  Refresh Feed: '{subscriptionName} auffrischen'

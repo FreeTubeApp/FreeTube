@@ -6,6 +6,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { deepCopy, showToast } from '../../helpers/utils'
+import { getFirstCharacter } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtSubscribeButton',
@@ -45,9 +46,14 @@ export default defineComponent({
     }
   },
   computed: {
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     profileInitials: function () {
       return this.profileDisplayList.map((profile) => {
-        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
+        return profile.name
+          ? getFirstCharacter(profile.name, this.locale).toUpperCase()
+          : ''
       })
     },
 
