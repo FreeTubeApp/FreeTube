@@ -1307,17 +1307,6 @@ export default defineComponent({
       }
 
       if (this.isLive || this.isPostLiveDvr) {
-        if (error.code === Code.DASH_INVALID_XML) {
-          /** @type {string} */
-          const manifestUrl = error.data[0]
-
-          if (manifestUrl.startsWith(this.currentInvidiousInstance)) {
-            // Invidious returned Google's captcha page instead of the live/post live dvr DASH manifest
-            // https://github.com/iv-org/invidious/pull/4429
-            return
-          }
-        }
-
         // live streams don't have legacy formats, so only switch between dash and audio
 
         if (this.activeFormat === 'dash') {
