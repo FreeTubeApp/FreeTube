@@ -218,7 +218,7 @@ User Playlists:
     Search in Playlists: Search in Playlists
     Save: Save
 
-    Added {count} Times: 'Added {count} Time | Added {count} Times'
+    Added {count} Times: 'Already Added | Added {count} Times'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.

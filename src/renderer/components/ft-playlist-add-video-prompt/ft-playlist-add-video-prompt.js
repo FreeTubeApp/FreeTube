@@ -45,6 +45,7 @@ export default defineComponent({
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
+      addingDuplicateVideosEnabled: false,
     }
   },
   computed: {
@@ -111,6 +112,9 @@ export default defineComponent({
     toBeAddedToPlaylistVideoList: function () {
       return this.$store.getters.getToBeAddedToPlaylistVideoList
     },
+    toBeAddedToPlaylistVideoIdList: function () {
+      return this.toBeAddedToPlaylistVideoList.map((v) => v.videoId)
+    },
     newPlaylistDefaultProperties: function () {
       return this.$store.getters.getNewPlaylistDefaultProperties
     },
@@ -161,6 +165,23 @@ export default defineComponent({
     sortBySelectValues() {
       return Object.values(SORT_BY_VALUES)
     },
+
+    playlistIdsContainingVideosToBeAdded() {
+      const ids = []
+
+      this.allPlaylists.forEach((playlist) => {
+        const playlistVideoIds = playlist.videos.map((v) => v.videoId)
+
+        if (this.toBeAddedToPlaylistVideoIdList.every((vid) => playlistVideoIds.includes(vid))) {
+          ids.push(playlist._id)
+        }
+      })
+
+      return ids
+    },
+    anyPlaylistContainsVideosToBeAdded() {
+      return this.playlistIdsContainingVideosToBeAdded.length > 0
+    },
   },
   watch: {
     allPlaylistsLength(val, oldVal) {
@@ -202,6 +223,16 @@ export default defineComponent({
       // due to enter key press in CreatePlaylistPrompt
       nextTick(() => this.$refs.searchBar.focus())
     },
+
+    addingDuplicateVideosEnabled(val) {
+      if (val) { return }
+
+      // Only care when addingDuplicateVideosEnabled disabled
+      // Remove disabled playlists
+      this.selectedPlaylistIdList = this.selectedPlaylistIdList.filter(playlistId => {
+        return !this.playlistIdsContainingVideosToBeAdded.includes(playlistId)
+      })
+    },
   },
   mounted: function () {
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
@@ -238,10 +269,16 @@ export default defineComponent({
         const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
         if (playlist == null) { return }
 
+        // Use [].concat to avoid `do not mutate vuex store state outside mutation handlers`
+        let videosToBeAdded = [].concat(this.toBeAddedToPlaylistVideoList)
+        if (!this.addingDuplicateVideosEnabled) {
+          const playlistVideoIds = playlist.videos.map((v) => v.videoId)
+          videosToBeAdded = videosToBeAdded.filter((v) => !playlistVideoIds.includes(v.videoId))
+        }
+
         this.addVideos({
           _id: playlist._id,
-          // Use [].concat to avoid `do not mutate vuex store state outside mutation handlers`
-          videos: [].concat(this.toBeAddedToPlaylistVideoList),
+          videos: videosToBeAdded,
         })
         addedPlaylistIds.add(playlist._id)
         // Update playlist's `lastUpdatedAt`
@@ -280,6 +317,12 @@ export default defineComponent({
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
+
+    playlistDisabled(playlistId) {
+      if (this.addingDuplicateVideosEnabled) { return false }
+
+      return this.playlistIdsContainingVideosToBeAdded.includes(playlistId)
+    },
 
     ...mapActions([
       'addVideos',

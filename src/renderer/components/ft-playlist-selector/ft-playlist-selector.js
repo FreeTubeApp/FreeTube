@@ -24,6 +24,10 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: true,
+    },
   },
   emits: ['selected'],
   data: function () {
@@ -100,6 +104,8 @@ export default defineComponent({
     },
 
     toggleSelection: function () {
+      if (this.disabled) { return }
+
       this.$emit('selected', this.index)
     },
 
