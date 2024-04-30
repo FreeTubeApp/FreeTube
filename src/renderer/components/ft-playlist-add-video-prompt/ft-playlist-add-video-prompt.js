@@ -44,7 +44,6 @@ export default defineComponent({
       doSearchPlaylistsWithMatchingVideos: false,
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
-      lastActiveElement: null,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
@@ -205,7 +204,6 @@ export default defineComponent({
     },
   },
   mounted: function () {
-    this.lastActiveElement = document.activeElement
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
     document.addEventListener('keydown', this.keyboardShortcutHandler)
     // User might want to search first if they have many playlists
@@ -213,7 +211,6 @@ export default defineComponent({
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
-    nextTick(() => this.lastActiveElement?.focus())
   },
   methods: {
     hide: function () {

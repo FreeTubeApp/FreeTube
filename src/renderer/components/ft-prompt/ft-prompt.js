@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -54,10 +54,6 @@ export default defineComponent({
       return sanitizeForHtmlId(this.label)
     }
   },
-  beforeDestroy: function () {
-    document.removeEventListener('keydown', this.closeEventFunction, true)
-    this.lastActiveElement?.focus()
-  },
   mounted: function () {
     this.lastActiveElement = document.activeElement
     this.$nextTick(() => {
@@ -70,6 +66,10 @@ export default defineComponent({
       })
       this.focusItem(0)
     })
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.closeEventFunction, true)
+    nextTick(() => this.lastActiveElement?.focus())
   },
   methods: {
     click: function (value) {
