@@ -124,7 +124,7 @@ export default defineComponent({
 
     externalLinkOpeningPromptNames: function () {
       return [
-        this.$t('Yes'),
+        this.$t('Yes, Open Link'),
         this.$t('No')
       ]
     },
