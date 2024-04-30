@@ -24,10 +24,6 @@
     "cors": true
   },
   {
-    "url": "https://invidious.flokinet.to",
-    "cors": true
-  },
-  {
     "url": "https://invidious.privacydev.net",
     "cors": true
   },
@@ -40,11 +36,11 @@
     "cors": true
   },
   {
-    "url": "https://invidious.protokolla.fi",
+    "url": "https://iv.nboeck.de",
     "cors": true
   },
   {
-    "url": "https://iv.nboeck.de",
+    "url": "https://invidious.protokolla.fi",
     "cors": true
   },
   {
@@ -56,11 +52,7 @@
     "cors": true
   },
   {
-    "url": "https://inv.n8pjl.ca",
-    "cors": true
-  },
-  {
-    "url": "https://iv.datura.network",
+    "url": "https://inv.us.projectsegfau.lt",
     "cors": true
   },
   {
@@ -85,6 +77,10 @@
   },
   {
     "url": "https://vid.lilay.dev",
+    "cors": true
+  },
+  {
+    "url": "https://iv.datura.network",
     "cors": true
   },
   {
