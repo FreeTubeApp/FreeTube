@@ -25,20 +25,24 @@ export default defineComponent({
     'general-settings': GeneralSettings,
     'theme-settings': ThemeSettings,
     'player-settings': PlayerSettings,
-    'external-player-settings': ExternalPlayerSettings,
     'subscription-settings': SubscriptionSettings,
     'privacy-settings': PrivacySettings,
     'data-settings': DataSettings,
     'distraction-settings': DistractionSettings,
-    'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'download-settings': DownloadSettings,
     'parental-control-settings': ParentControlSettings,
-    'experimental-settings': ExperimentalSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-settings-menu': FtSettingsMenu,
+    ...(process.env.IS_ELECTRON
+      ? {
+          'proxy-settings': ProxySettings,
+          'download-settings': DownloadSettings,
+          'external-player-settings': ExternalPlayerSettings,
+          'experimental-settings': ExperimentalSettings
+        }
+      : {})
   },
   data: function () {
     return {
@@ -72,13 +76,14 @@ export default defineComponent({
           shortTitle: this.$te('Settings.Player Settings.Player Settings Short Label') ? this.$t('Settings.Player Settings.Player Settings Short Label') : '',
           icon: 'circle-play'
         },
-        {
-          type: 'external-player-settings',
-          title: this.$t('Settings.External Player Settings.External Player Settings'),
-          shortTitle: this.$te('Settings.External Player Settings.External Player') ? this.$t('Settings.External Player Settings.External Player') : '',
-          icon: 'clapperboard',
-          usingElectron: true
-        },
+        ...(process.env.IS_ELECTRON
+          ? [{
+              type: 'external-player-settings',
+              title: this.$t('Settings.External Player Settings.External Player Settings'),
+              shortTitle: this.$te('Settings.External Player Settings.External Player') ? this.$t('Settings.External Player Settings.External Player') : '',
+              icon: 'clapperboard'
+            }]
+          : []),
         {
           type: 'subscription-settings',
           title: this.$t('Settings.Subscription Settings.Subscription Settings'),
@@ -103,20 +108,22 @@ export default defineComponent({
           shortTitle: this.$te('Settings.Data Settings.Data Settings Short Label') ? this.$t('Settings.Data Settings.Data Settings Short Label') : '',
           icon: 'database'
         },
-        {
-          type: 'proxy-settings',
-          title: this.$t('Settings.Proxy Settings.Proxy Settings'),
-          shortTitle: this.$te('Settings.Proxy Settings.Proxy Settings Short Label') ? this.$t('Settings.Proxy Settings.Proxy Settings Short Label') : '',
-          icon: 'network-wired',
-          usingElectron: true
-        },
-        {
-          type: 'download-settings',
-          title: this.$t('Settings.Download Settings.Download Settings'),
-          shortTitle: this.$te('Settings.Download Settings.Download Settings Short Label') ? this.$t('Settings.Download Settings.Download Settings Short Label') : '',
-          icon: 'download',
-          usingElectron: true
-        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'proxy-settings',
+                title: this.$t('Settings.Proxy Settings.Proxy Settings'),
+                shortTitle: this.$te('Settings.Proxy Settings.Proxy Settings Short Label') ? this.$t('Settings.Proxy Settings.Proxy Settings Short Label') : '',
+                icon: 'network-wired',
+              },
+              {
+                type: 'download-settings',
+                title: this.$t('Settings.Download Settings.Download Settings'),
+                shortTitle: this.$te('Settings.Download Settings.Download Settings Short Label') ? this.$t('Settings.Download Settings.Download Settings Short Label') : '',
+                icon: 'download',
+              }
+            ]
+          : []),
         {
           type: 'parental-control-settings',
           title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
@@ -130,13 +137,14 @@ export default defineComponent({
           // TODO: replace with SponsorBlock icon
           icon: 'shield'
         },
-        {
-          type: 'experimental-settings',
-          title: this.$t('Settings.Experimental Settings.Experimental Settings'),
-          shortTitle: this.$te('Settings.Experimental Settings.Experimental Settings Short Label') ? this.$t('Settings.Experimental Settings.Experimental Settings Short Label') : '',
-          icon: 'flask',
-          usingElectron: true
-        },
+        ...(process.env.IS_ELECTRON
+          ? [{
+              type: 'experimental-settings',
+              title: this.$t('Settings.Experimental Settings.Experimental Settings'),
+              shortTitle: this.$te('Settings.Experimental Settings.Experimental Settings Short Label') ? this.$t('Settings.Experimental Settings.Experimental Settings Short Label') : '',
+              icon: 'flask'
+            }]
+          : []),
         {
           type: 'password-settings',
           title: this.$t('Settings.Password Settings.Password Settings'),
@@ -147,13 +155,7 @@ export default defineComponent({
     },
 
     settingsSectionComponents: function () {
-      let settingsSections
-      if (!process.env.IS_ELECTRON) {
-        settingsSections = this.settingsComponentsData.filter((settingsComponent) => !settingsComponent.usingElectron)
-      } else {
-        settingsSections = this.settingsComponentsData
-      }
-
+      let settingsSections = this.settingsComponentsData
       if (this.settingsSectionSortEnabled) {
         settingsSections = settingsSections.toSorted((a, b) => {
           const aTitle = a.shortTitle !== '' ? a.shortTitle : a.title

@@ -37,6 +37,9 @@
                 :src="tag.icon"
                 alt=""
                 class="tag-icon"
+                height="24"
+                width="24"
+                loading="lazy"
               >
             </router-link>
             <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
