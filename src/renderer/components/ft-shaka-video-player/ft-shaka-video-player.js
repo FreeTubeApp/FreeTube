@@ -859,7 +859,7 @@ export default defineComponent({
           // makes captions work for live streams and doesn't seem to have any negative affect on VOD videos
           segmentRelativeVttTiming: true,
           dash: {
-            manifestPreprocessor: this.manifestPreprocessor
+            manifestPreprocessorTXml: this.manifestPreprocessorTXml
           }
         },
         abr: {
@@ -873,36 +873,48 @@ export default defineComponent({
     },
 
     /**
-     * @param {Element} mpdElement
+     * @param {shaka.extern.xml.Node} mpdNode
      */
-    manifestPreprocessor: function (mpdElement) {
-      const periods = mpdElement.querySelectorAll('Period')
+    manifestPreprocessorTXml: function (mpdNode) {
+      /** @type {shaka.extern.xml.Node[]} */
+      const periods = mpdNode.children?.filter(child => typeof child !== 'string' && child.tagName === 'Period') ?? []
 
       this.sortAdapationSetsByCodec(periods)
 
-      if (mpdElement.getAttribute('type') === 'dynamic') {
+      if (mpdNode.attributes.type === 'dynamic') {
         // fix live stream loading issues
         // YouTube uses a 12 second delay on the official website for normal streams
         // and a shorter one for low latency streams
         // If we don't add a little bit of a delay, we get presented with a loading symbol every 5 seconds,
         // while shaka-player processes the new manifest and segments
-        const minimumUpdatePeriod = parseFloat(mpdElement.getAttribute('minimumUpdatePeriod').match(/^PT(\d+(?:\.\d+)?)S$/)[1])
-        mpdElement.setAttribute('suggestedPresentationDelay', `PT${(minimumUpdatePeriod * 2).toFixed(3)}S`)
+        const minimumUpdatePeriod = parseFloat(mpdNode.attributes.minimumUpdatePeriod.match(/^PT(\d+(?:\.\d+)?)S$/)[1])
+        mpdNode.attributes.suggestedPresentationDelay = `PT${(minimumUpdatePeriod * 2).toFixed(3)}S`
 
         // fix live streams with subtitles having duplicate Representation ids
         // shaka-player throws DASH_DUPLICATE_REPRESENTATION_ID if we don't fix it
 
         for (const period of periods) {
-          const representations = period.querySelectorAll('Representation')
+          /** @type {shaka.extern.xml.Node[]} */
+          const representations = period.children
+            ?.flatMap(periodChild => {
+              if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet') {
+                return periodChild.children
+                  ?.filter(adaptationSetChild => {
+                    return typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Representation'
+                  }) ?? []
+              }
+              return []
+            }) ?? []
+
           const knownIds = new Set()
           let counter = 0
           for (const representation of representations) {
-            const id = representation.getAttribute('id')
+            const id = representation.attributes.id
 
             if (knownIds.has(id)) {
               const newId = `${id}-ft-fix-${counter}`
 
-              representation.setAttribute('id', newId)
+              representation.attributes.id = newId
               knownIds.add(newId)
               counter++
             } else {
@@ -914,11 +926,15 @@ export default defineComponent({
     },
 
     /**
-     * @param {Element[]} periods
+     * @param {shaka.extern.xml.Node[]} periods
      */
     sortAdapationSetsByCodec: function (periods) {
+      /** @param {shaka.extern.xml.Node} adaptationSet */
       const getCodecsPrefix = (adaptationSet) => {
-        const codecs = adaptationSet.getAttribute('codecs') ?? adaptationSet.querySelector('Representation').getAttribute('codecs')
+        const codecs = adaptationSet.attributes.codecs ??
+          adaptationSet.children
+            .find(child => typeof child !== 'string' && child.tagName === 'Representation').attributes.codecs
+
         return codecs.split('.')[0]
       }
 
@@ -937,17 +953,25 @@ export default defineComponent({
       ]
 
       for (const period of periods) {
-        [...period.querySelectorAll('AdaptationSet')]
-          .sort((a, b) => {
-            const typeA = a.getAttribute('mimeType').split('/')[0]
-            const typeB = b.getAttribute('mimeType').split('/')[0]
+        period.children
+          ?.sort((
+            /** @type {shaka.extern.xml.Node | string} */ a,
+            /** @type {shaka.extern.xml.Node | string} */ b
+          ) => {
+            if (typeof a === 'string' || a.tagName !== 'AdaptationSet' ||
+              typeof b === 'string' || b.tagName !== 'AdaptationSet') {
+              return 0
+            }
+
+            const typeA = a.attributes.contentType || a.attributes.mimeType.split('/')[0]
+            const typeB = b.attributes.contentType || b.attributes.mimeType.split('/')[0]
 
             // always place image and text tracks AdaptionSets last in the manifest
 
-            if (typeA === 'image' || typeA === 'text') {
+            if (typeA !== 'video' && typeA !== 'audio') {
               return 1
             }
-            if (typeB === 'image' || typeB === 'text') {
+            if (typeB !== 'video' && typeB !== 'audio') {
               return -1
             }
 
@@ -956,7 +980,6 @@ export default defineComponent({
 
             return codecPriorities.indexOf(codecsPrefixA) - codecPriorities.indexOf(codecsPrefixB)
           })
-          .forEach(set => period.appendChild(set))
       }
     },
 
