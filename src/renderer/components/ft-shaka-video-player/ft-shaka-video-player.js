@@ -35,6 +35,7 @@ const HTTP_IN_HEX = 0x68747470
 const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 600
 
 const RequestType = shaka.net.NetworkingEngine.RequestType
+const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
 
 /** @type {Map<string, string>} */
 const LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
@@ -426,11 +427,10 @@ export default defineComponent({
         },
         // only set this to label when we actually have labels, so that the warning doesn't show up
         // about it being set to labels, but that the audio tracks don't have labels
-        // also means that for surround sound videos like https://youtu.be/njX2bu-_Vw4, where the language is unknown but there are stereo and surround sound audio streams
-        // shaka-player will show "Undetermined Surround" and "Undetermined" instead of "?" on both
+        trackLabelFormat: this.hasMultipleAudioTracks ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
         // Only set it to label if we added the captions ourselves,
         // some live streams come with subtitles in the DASH manifest, but without labels
-        trackLabelFormat: this.hasMultipleAudioTracks || this.captions.length ? shaka.ui.Overlay.TrackLabelFormat.LABEL : shaka.ui.Overlay.TrackLabelFormat.LANGUAGE,
+        textTrackLabelFormat: this.captions.length > 0 ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
         volumeBarColors: {
           level: 'var(--primary-color)'
         },
