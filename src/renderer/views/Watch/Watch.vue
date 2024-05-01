@@ -33,6 +33,7 @@
           :title="videoTitle"
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
+          :vr-projection="vrProjection"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"

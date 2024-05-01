@@ -96,6 +96,8 @@ export default defineComponent({
       manifestMimeType: MANIFEST_TYPE_DASH,
       legacyFormats: [],
       captions: [],
+      /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
+      vrProjection: null,
       recommendedVideos: [],
       downloadLinks: [],
       watchingPlaylist: false,
@@ -240,6 +242,7 @@ export default defineComponent({
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
       this.captions = []
+      this.vrProjection = null
       this.downloadLinks = []
       this.videoCurrentChapterIndex = 0
       this.startTimeSeconds = null
@@ -683,6 +686,14 @@ export default defineComponent({
           }
 
           if (result.streaming_data?.adaptive_formats.length > 0) {
+            this.vrProjection = result.streaming_data.adaptive_formats
+              .find(format => {
+                return format.has_video &&
+                  typeof format.projection_type === 'string' &&
+                  format.projection_type !== 'RECTANGULAR'
+              })
+              ?.projection_type ?? null
+
             // When `this.proxyVideos` is true
             // It's possible that the Invidious instance used, only supports a subset of the formats from Local API
             // i.e. the value passed into `adaptiveFormats`
@@ -859,6 +870,13 @@ export default defineComponent({
                 format.url = getProxyUrl(format.url)
               })
             }
+
+            this.vrProjection = result.adaptiveStreams
+              .find(stream => {
+                return typeof stream.projectionType === 'string' &&
+                  stream.projectionType !== 'RECTANGULAR'
+              })
+              ?.projectionType ?? null
 
             this.downloadLinks = result.adaptiveFormats.concat(result.formatStreams).map((format) => {
               const qualityLabel = format.qualityLabel || format.bitrate

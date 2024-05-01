@@ -98,6 +98,10 @@ export default defineComponent({
     useTheatreMode: {
       type: Boolean,
       default: false
+    },
+    vrProjection: {
+      type: String,
+      default: null
     }
   },
   emits: [
@@ -401,6 +405,10 @@ export default defineComponent({
       return { autoSkip, seekBar, promptSkip, categoryData }
     },
 
+    useVrMode: function () {
+      return this.format === 'dash' && this.vrProjection === 'EQUIRECTANGULAR'
+    },
+
     uiConfig: function () {
       /** @type {shaka.extern.UIConfiguration} */
       const uiConfig = {
@@ -434,6 +442,7 @@ export default defineComponent({
         volumeBarColors: {
           level: 'var(--primary-color)'
         },
+        displayInVrMode: this.useVrMode,
 
         // TODO: enable this when electron gets document PiP support
         // https://github.com/electron/electron/issues/39633
@@ -453,6 +462,8 @@ export default defineComponent({
           'picture_in_picture',
           'ft_full_window',
           this.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'recenter_vr',
+          'toggle_stereoscopic',
         ]
 
         elementList = uiConfig.overflowMenuButtons
@@ -460,6 +471,8 @@ export default defineComponent({
         uiConfig.controlPanelElements.push('overflow_menu')
       } else {
         uiConfig.controlPanelElements.push(
+          'recenter_vr',
+          'toggle_stereoscopic',
           'ft_screenshot',
           'playback_rate',
           'loop',
@@ -507,6 +520,14 @@ export default defineComponent({
       if (this.isLive) {
         const index = elementList.indexOf('loop')
         elementList.splice(index, 1)
+      }
+
+      if (!this.useVrMode) {
+        const indexRecenterVr = elementList.indexOf('recenter_vr')
+        elementList.splice(indexRecenterVr, 1)
+
+        const indexToggleStereoscopic = elementList.indexOf('toggle_stereoscopic')
+        elementList.splice(indexToggleStereoscopic, 1)
       }
 
       return uiConfig
@@ -685,7 +706,12 @@ export default defineComponent({
 
     const localPlayer = new shaka.Player()
 
-    this.nonReactive.ui = new shaka.ui.Overlay(localPlayer, this.$refs.container, videoElement)
+    this.nonReactive.ui = new shaka.ui.Overlay(
+      localPlayer,
+      this.$refs.container,
+      videoElement,
+      this.$refs.vrCanvas
+    )
 
     // This has to be called after creating the UI, so that the player uses the UI's UITextDisplayer
     // otherwise it uses the browsers native captions which get displayed underneath the UI controls
@@ -868,7 +894,12 @@ export default defineComponent({
           // This only affects the "auto" quality, users can still manually select whatever quality they want.
           restrictToElementSize: true
         },
-        autoShowText: shaka.config.AutoShowText.NEVER
+        autoShowText: shaka.config.AutoShowText.NEVER,
+
+        // Electron doesn't like YouTube's vp9 VR video streams and throws:
+        // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
+        // So use the h264 codec instead which it doesn't reject
+        preferredVideoCodecs: typeof this.vrProjection === 'string' ? ['avc1'] : []
       }
     },
 
@@ -1112,43 +1143,45 @@ export default defineComponent({
       /** @type {HTMLDivElement} */
       const controlsContainer = this.nonReactive.ui.getControls().getControlsContainer()
 
-      if (this.videoVolumeMouseScroll || this.videoSkipMouseScroll || this.videoPlaybackRateMouseScroll) {
-        controlsContainer.addEventListener('wheel', (event) => {
-          /** @type {DOMTokenList} */
-          const classList = event.target.classList
+      if (!this.useVrMode) {
+        if (this.videoVolumeMouseScroll || this.videoSkipMouseScroll || this.videoPlaybackRateMouseScroll) {
+          controlsContainer.addEventListener('wheel', (event) => {
+            /** @type {DOMTokenList} */
+            const classList = event.target.classList
 
-          if (classList.contains('shaka-scrim-container') ||
-            classList.contains('shaka-fast-foward-container') ||
-            classList.contains('shaka-rewind-container')) {
-            //
+            if (classList.contains('shaka-scrim-container') ||
+              classList.contains('shaka-fast-foward-container') ||
+              classList.contains('shaka-rewind-container')) {
+              //
 
-            if (event.ctrlKey || event.metaKey) {
-              if (this.videoPlaybackRateMouseScroll) {
-                this.mouseScrollPlaybackRate(event)
-              }
-            } else {
-              if (this.videoVolumeMouseScroll) {
-                this.mouseScrollVolume(event)
-              } else if (this.videoSkipMouseScroll) {
-                this.mouseScrollSkip(event)
+              if (event.ctrlKey || event.metaKey) {
+                if (this.videoPlaybackRateMouseScroll) {
+                  this.mouseScrollPlaybackRate(event)
+                }
+              } else {
+                if (this.videoVolumeMouseScroll) {
+                  this.mouseScrollVolume(event)
+                } else if (this.videoSkipMouseScroll) {
+                  this.mouseScrollSkip(event)
+                }
               }
             }
-          }
-        })
-      }
+          })
+        }
 
-      if (this.videoPlaybackRateMouseScroll) {
-        controlsContainer.addEventListener('click', (event) => {
-          if (event.ctrlKey || event.metaKey) {
-            // stop shaka-player's click handler firing
-            event.stopPropagation()
+        if (this.videoPlaybackRateMouseScroll) {
+          controlsContainer.addEventListener('click', (event) => {
+            if (event.ctrlKey || event.metaKey) {
+              // stop shaka-player's click handler firing
+              event.stopPropagation()
 
-            /** @type {HTMLVideoElement} */
-            const video = this.$refs.video
+              /** @type {HTMLVideoElement} */
+              const video = this.$refs.video
 
-            video.playbackRate = this.defaultPlayback
-          }
-        }, true)
+              video.playbackRate = this.defaultPlayback
+            }
+          }, true)
+        }
       }
 
       // make scrolling over volume slider change the volume
@@ -1670,6 +1703,7 @@ export default defineComponent({
     mouseScrollVolume: function (event) {
       if (!event.ctrlKey && !event.metaKey) {
         event.preventDefault()
+        event.stopPropagation()
 
         /** @type {HTMLVideoElement} */
         const video = this.$refs.video

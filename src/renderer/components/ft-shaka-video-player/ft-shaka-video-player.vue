@@ -24,6 +24,10 @@
       @ratechange="updateMediaSessionPositionState"
       @seeked="updateMediaSessionPositionState"
     />
+    <canvas
+      ref="vrCanvas"
+      class="vrCanvas"
+    />
     <div
       v-if="showStats"
       class="stats"
