@@ -601,6 +601,7 @@ Settings:
     Set Password: Määra salasõna
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Expand All Settings Sections: Laienda kõik seadistuste lõigud
+  Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
 About:
   #On About page
   About: 'Teave'
