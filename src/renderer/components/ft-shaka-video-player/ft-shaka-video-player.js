@@ -898,8 +898,8 @@ export default defineComponent({
 
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
-        // So use the h264 codec instead which it doesn't reject
-        preferredVideoCodecs: typeof this.vrProjection === 'string' ? ['avc1'] : []
+        // So use the AV1 and h264 codecs instead which it doesn't reject
+        preferredVideoCodecs: typeof this.vrProjection === 'string' ? ['av01', 'avc1'] : []
       }
     },
 
