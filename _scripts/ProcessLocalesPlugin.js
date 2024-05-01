@@ -5,6 +5,8 @@ const { load: loadYaml } = require('js-yaml')
 
 const brotliCompressAsync = promisify(brotliCompress)
 
+const PLUGIN_NAME = 'ProcessLocalesPlugin'
+
 class ProcessLocalesPlugin {
   constructor(options = {}) {
     this.compress = !!options.compress
@@ -31,13 +33,18 @@ class ProcessLocalesPlugin {
     this.loadLocales()
   }
 
+  /** @param {import('webpack').Compiler} compiler  */
   apply(compiler) {
-    compiler.hooks.thisCompilation.tap('ProcessLocalesPlugin', (compilation) => {
+    const { CachedSource, RawSource } = compiler.webpack.sources;
+    const { Compilation } = compiler.webpack
 
+    compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation) => {
       const IS_DEV_SERVER = !!compiler.watching
-      const { CachedSource, RawSource } = compiler.webpack.sources;
 
-      compilation.hooks.additionalAssets.tapPromise('process-locales-plugin', async (_assets) => {
+      compilation.hooks.processAssets.tapPromise({
+        name: PLUGIN_NAME,
+        stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
+      }, async (_assets) => {
 
         // While running in the webpack dev server, this hook gets called for every incremental build.
         // For incremental builds we can return the already processed versions, which saves time
