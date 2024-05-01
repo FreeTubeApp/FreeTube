@@ -25,11 +25,13 @@ class ProcessLocalesPlugin {
     }
     this.outputDir = options.outputDir
 
-    this.locales = {}
+    /** @type {Map<str, any>} */
+    this.locales = new Map()
     this.localeNames = []
     this.activeLocales = []
 
-    this.cache = {}
+    /** @type {Map<str, any>} */
+    this.cache = new Map()
 
     this.filePaths = []
 
@@ -60,12 +62,12 @@ class ProcessLocalesPlugin {
           this.isIncrementalBuild = true
         }
 
-        Object.values(this.locales).forEach((localeEntry) => {
-          const { locale, data, mtimeMs } = localeEntry
+        for (const [locale, localeEntry] of this.locales) {
+          const { data, mtimeMs } = localeEntry
 
           promises.push(new Promise(async (resolve) => {
             if (IS_DEV_SERVER) {
-              const cacheEntry = this.cache[locale]
+              const cacheEntry = this.cache.get(locale)
 
               if (cacheEntry != null) {
                 const { filename, source, mtimeMs: cachedMtimeMs } = cacheEntry
@@ -92,7 +94,7 @@ class ProcessLocalesPlugin {
 
             if (IS_DEV_SERVER) {
               source = new CachedSource(source)
-              this.cache[locale] = { filename, source, mtimeMs }
+              this.cache.set(locale, { filename, source, mtimeMs })
             }
 
             compilation.emitAsset(filename, source, { minimized: true })
@@ -105,7 +107,7 @@ class ProcessLocalesPlugin {
             // so we can clear this to free some memory
             delete localeEntry.data
           }
-        })
+        }
 
         await Promise.all(promises)
       })
@@ -131,14 +133,14 @@ class ProcessLocalesPlugin {
       if (loadModifiedFilesOnly) {
         // Skip reading files where mtime (modified time) same as last read
         // (stored in mtime)
-        const existingMtime = this.locales[locale]?.mtimeMs
+        const existingMtime = this.locales.get(locale)?.mtimeMs
         if (existingMtime != null && existingMtime === mtimeMsFromStats) {
           continue
         }
       }
       const contents = readFileSync(filePath, 'utf-8')
       const data = loadYaml(contents)
-      this.locales[locale] = { locale, data, mtimeMs: mtimeMsFromStats }
+      this.locales.set(locale, { data, mtimeMs: mtimeMsFromStats })
 
       const localeName = data['Locale Name'] ?? locale
       if (!loadModifiedFilesOnly) {
