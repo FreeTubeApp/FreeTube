@@ -149,19 +149,6 @@
   }
 }
 
-:deep(.player-icon) {
-  font-size: 18px;
-}
-
-:deep(.shaka-overflow-menu .player-icon) {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-:deep(.screenshot-button-icon) {
-  font-size: 20px;
-}
-
 .ftVideoPlayer:fullscreen :deep(.theatre-button),
 .ftVideoPlayer:fullscreen :deep(.full-window-button),
 .fullWindow :deep(.theatre-button) {

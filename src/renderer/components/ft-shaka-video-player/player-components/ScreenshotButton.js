@@ -1,5 +1,4 @@
 import shaka from 'shaka-player'
-import { icon as faIcon } from '@fortawesome/fontawesome-svg-core'
 
 import i18n from '../../../i18n'
 
@@ -17,9 +16,9 @@ export class ScreenshotButton extends shaka.ui.Element {
     this.button_.classList.add('screenshot-button')
     this.button_.classList.add('shaka-tooltip')
 
-    const icon = faIcon({ prefix: 'fas', iconName: 'camera' }).node[0]
-    icon.classList.add('player-icon')
-    icon.classList.add('screenshot-button-icon')
+    const icon = document.createElement('i')
+    icon.classList.add('material-icons-round')
+    icon.textContent = 'photo_camera'
 
     this.button_.appendChild(icon)
 

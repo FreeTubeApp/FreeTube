@@ -1,5 +1,4 @@
 import shaka from 'shaka-player'
-import { icon as faIcon } from '@fortawesome/fontawesome-svg-core'
 
 import i18n from '../../../i18n'
 
@@ -19,14 +18,11 @@ export class TheatreModeButton extends shaka.ui.Element {
     this.button_.classList.add('shaka-tooltip')
 
     /** @private */
-    this.enableIcon_ = faIcon({ prefix: 'fas', iconName: 'tv' }).node[0]
-    this.enableIcon_.classList.add('player-icon')
+    this.icon_ = document.createElement('i')
+    this.icon_.classList.add('material-icons-round')
+    this.icon_.textContent = 'tv'
 
-    /** @private */
-    this.disableIcon_ = faIcon({ prefix: 'fas', iconName: 'display' }).node[0]
-    this.disableIcon_.classList.add('player-icon')
-
-    this.button_.appendChild(this.enableIcon_)
+    this.button_.appendChild(this.icon_)
 
     const label = document.createElement('label')
     label.classList.add('shaka-overflow-button-label')
@@ -75,7 +71,7 @@ export class TheatreModeButton extends shaka.ui.Element {
   updateLocalisedStrings_() {
     this.nameSpan_.textContent = i18n.t('Video.Player.Theatre Mode')
 
-    this.button_.firstChild.replaceWith(this.theatreModeEnabled_ ? this.disableIcon_ : this.enableIcon_)
+    this.icon_.textContent = this.theatreModeEnabled_ ? 'monitor' : 'tv'
 
     this.currentState_.textContent = this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF')
 

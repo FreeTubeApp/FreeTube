@@ -1,5 +1,4 @@
 import shaka from 'shaka-player'
-import { icon as faIcon } from '@fortawesome/fontawesome-svg-core'
 
 import i18n from '../../../i18n'
 
@@ -18,14 +17,11 @@ export class StatsButton extends shaka.ui.Element {
     this.button_.classList.add('stats-button')
 
     /** @private */
-    this.enableIcon_ = faIcon({ prefix: 'fas', iconName: 'list' }).node[0]
-    this.enableIcon_.classList.add('player-icon')
+    this.icon_ = document.createElement('i')
+    this.icon_.classList.add('material-icons-round')
+    this.icon_.textContent = 'insert_chart_outlined'
 
-    /** @private */
-    this.disableIcon_ = faIcon({ prefix: 'fas', iconName: 'rectangle-list' }).node[0]
-    this.disableIcon_.classList.add('player-icon')
-
-    this.button_.appendChild(this.enableIcon_)
+    this.button_.appendChild(this.icon_)
 
     const label = document.createElement('label')
     label.classList.add('shaka-overflow-button-label')
@@ -71,7 +67,7 @@ export class StatsButton extends shaka.ui.Element {
   updateLocalisedStrings_() {
     this.nameSpan_.textContent = i18n.t('Video.Player.Stats.Stats')
 
-    this.button_.firstChild.replaceWith(this.showStats_ ? this.disableIcon_ : this.enableIcon_)
+    this.icon_.textContent = this.showStats_ ? 'insert_chart' : 'insert_chart_outlined'
 
     this.currentState_.textContent = this.localization.resolve(this.showStats_ ? 'ON' : 'OFF')
 
