@@ -55,44 +55,21 @@ function fixTypes() {
   }
 }
 
-async function fixRemoteFonts() {
+async function removeRobotoFont() {
   let cssFileHandle
   try {
     cssFileHandle = openSync(`${SHAKA_DIST_DIR}/controls.css`, 'r+')
 
     let cssContents = readFileSync(cssFileHandle, 'utf-8')
 
-    const beforeRobotoReplacement = cssContents.length
+    const beforeReplacement = cssContents.length
     cssContents = cssContents.replace(/@font-face\{font-family:Roboto;[^}]+\}/, '')
 
-    if (cssContents.length !== beforeRobotoReplacement) {
-      console.log('Removed shaka-player Roboto font, so it uses ours')
-    }
-
-    const remoteFontsRegex = /https:\/\/fonts\.gstatic\.com\/s\/(?<name>[^\/]+)\/(?<version>[^\/]+)\/[^.]+\.(?<extension>[a-z]+)/g
-    /** @type {RegExpMatchArray[]} */
-    const remoteFontMatches = [...cssContents.matchAll(remoteFontsRegex)]
-
-    if (remoteFontMatches.length > 0) {
-      console.log('Downloading shaka-player remote fonts...')
-
-      for (const match of remoteFontMatches) {
-        const url = match[0]
-        const { name, version, extension } = match.groups
-
-        const response = await fetch(url)
-        const fontContent = new Uint8Array(await response.arrayBuffer())
-
-        const filename = `shaka-${name}-${version}.${extension}`
-        writeFileSync(`${SHAKA_DIST_DIR}/${filename}`, fontContent)
-
-        cssContents = cssContents.replace(url, `./${filename}`)
-      }
-
+    if (cssContents.length !== beforeReplacement) {
       ftruncateSync(cssFileHandle)
       writeSync(cssFileHandle, cssContents, 0, 'utf-8')
 
-      console.log('Localised shaka-player fonts')
+      console.log('Removed shaka-player Roboto font, so it uses ours')
     }
   } finally {
     if (typeof cssFileHandle !== 'undefined') {
@@ -101,5 +78,58 @@ async function fixRemoteFonts() {
   }
 }
 
+async function replaceAndDownloadMaterialIconsFont() {
+  let cssFileHandle
+  try {
+    cssFileHandle = openSync(`${SHAKA_DIST_DIR}/controls.css`, 'r+')
+
+    let cssContents = readFileSync(cssFileHandle, 'utf-8')
+
+    const fontFaceRegex = /@font-face{font-family:'Material Icons Round'[^}]+format\('opentype'\)}/
+
+    if (fontFaceRegex.test(cssContents)) {
+      const cssResponse = await fetch('https://fonts.googleapis.com/icon?family=Material+Icons+Round', {
+        headers: {
+          // Without the user-agent it returns the otf file instead of the woff2 one
+          'user-agent': 'Firefox/125.0'
+        }
+      })
+
+      const text = await cssResponse.text()
+
+      let newFontCSS = text.match(/(@font-face\s*{[^}]+})/)[1].replaceAll('\n', '')
+
+
+      const urlMatch = newFontCSS.match(/https:\/\/fonts\.gstatic\.com\/s\/materialiconsround\/(?<version>[^\/]+)\/[^.]+\.(?<extension>[\w]+)/)
+
+      const url = urlMatch[0]
+      const { version, extension } = urlMatch.groups
+
+      const fontResponse = await fetch(url)
+      const fontContent = new Uint8Array(await fontResponse.arrayBuffer())
+
+      const filename = `shaka-materialiconsround-${version}.${extension}`
+      writeFileSync(`${SHAKA_DIST_DIR}/${filename}`, fontContent)
+
+      newFontCSS = newFontCSS.replace(url, `./${filename}`)
+
+      cssContents = cssContents.replace(fontFaceRegex, newFontCSS)
+
+      ftruncateSync(cssFileHandle)
+      writeSync(cssFileHandle, cssContents, 0, 'utf-8')
+
+      console.log('Changed shaka-player Material Icons Rounded font to use the smaller woff2 format instead of otf')
+      console.log('Downloaded shaka-player Material Icons Rounded font')
+    }
+  } catch (e) {
+    console.error(e)
+  } finally {
+    if (typeof cssFileHandle !== 'undefined') {
+      closeSync(cssFileHandle)
+    }
+  }
+}
+
 fixTypes()
-await fixRemoteFonts()
+await removeRobotoFont()
+await replaceAndDownloadMaterialIconsFont()

@@ -518,8 +518,8 @@ function runApp() {
         return 'text/javascript'
       case 'ttf':
         return 'font/ttf'
-      case 'woff':
-        return 'font/woff'
+      case 'woff2':
+        return 'font/woff2'
       case 'svg':
         return 'image/svg+xml'
       case 'png':
