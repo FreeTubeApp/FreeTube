@@ -1,4 +1,5 @@
 const { existsSync, readFileSync, statSync } = require('fs')
+const { join } = require('path')
 const { brotliCompress, constants } = require('zlib')
 const { promisify } = require('util')
 const { load: loadYaml } = require('js-yaml')
@@ -29,6 +30,8 @@ class ProcessLocalesPlugin {
     this.activeLocales = []
 
     this.cache = {}
+
+    this.filePaths = []
 
     this.loadLocales()
   }
@@ -107,6 +110,13 @@ class ProcessLocalesPlugin {
         await Promise.all(promises)
       })
     })
+
+    compiler.hooks.afterCompile.tap(PLUGIN_NAME, (compilation) => {
+      if (!!compiler.watching) {
+        // watch locale files for changes
+        compilation.fileDependencies.addAll(this.filePaths)
+      }
+    })
   }
 
   loadLocales(loadModifiedFilesOnly = false) {
@@ -115,7 +125,7 @@ class ProcessLocalesPlugin {
     }
 
     for (const locale of this.activeLocales) {
-      const filePath = `${this.inputDir}/${locale}.yaml`
+      const filePath = join(this.inputDir, `${locale}.yaml`)
       // Cannot use `mtime` since values never equal
       const mtimeMsFromStats = statSync(filePath).mtimeMs
       if (loadModifiedFilesOnly) {
@@ -132,6 +142,7 @@ class ProcessLocalesPlugin {
 
       const localeName = data['Locale Name'] ?? locale
       if (!loadModifiedFilesOnly) {
+        this.filePaths.push(filePath)
         this.localeNames.push(localeName)
       }
     }

@@ -129,7 +129,6 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
-    "webpack-watch-external-files-plugin": "^3.0.0",
     "yaml-eslint-parser": "^1.2.2"
   }
 }
