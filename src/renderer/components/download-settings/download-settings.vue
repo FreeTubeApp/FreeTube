@@ -8,6 +8,7 @@
         :value="downloadBehavior"
         :select-names="downloadBehaviorNames"
         :select-values="downloadBehaviorValues"
+        :icon="['fas', 'download']"
         @change="updateDownloadBehavior"
       />
     </ft-flex-box>

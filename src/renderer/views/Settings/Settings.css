@@ -12,9 +12,10 @@ hr {
   }
 }
 
-.switchColumnGrid {
+.switchRow {
   inline-size: 85%;
   margin-inline: auto;
+  display: flex;
 }
 
 .settingsToggle {

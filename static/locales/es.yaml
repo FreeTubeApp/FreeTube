@@ -639,6 +639,7 @@ Settings:
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
   Expand All Settings Sections: Expandir todas las secciones de los ajustes
+  Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
 About:
   #On About page
   About: 'Acerca de'

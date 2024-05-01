@@ -130,7 +130,7 @@ function startRenderer(callback) {
   })
 }
 
-function startWeb (callback) {
+function startWeb () {
   const compiler = webpack(webConfig)
   const { name } = compiler
 
@@ -140,6 +140,7 @@ function startWeb (callback) {
   })
 
   const server = new WebpackDevServer({
+    open: true,
     static: {
       directory: path.join(process.cwd(), 'dist/web/static'),
       watch: {
@@ -154,15 +155,10 @@ function startWeb (callback) {
 
   server.startCallback(err => {
     if (err) console.error(err)
-
-    callback({ port: server.options.port })
   })
 }
 if (!web) {
   startRenderer(startMain)
 } else {
-  startWeb(async ({ port }) => {
-    const open = (await import('open')).default
-    open(`http://localhost:${port}`)
-  })
+  startWeb()
 }

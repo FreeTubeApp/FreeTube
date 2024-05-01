@@ -46,6 +46,7 @@
               :value="translatedProfileName"
               :show-action-button="false"
               @input="e => profileName = e"
+              @keydown.enter.native="saveProfile"
             />
           </div>
           <div>
