@@ -29,11 +29,11 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
-    showClose: {
+    autosize: {
       type: Boolean,
       default: false
     },
-    autosize: {
+    isFirstOptionDestructive: {
       type: Boolean,
       default: false
     },
@@ -52,7 +52,7 @@ export default defineComponent({
   computed: {
     sanitizedLabel: function() {
       return sanitizeForHtmlId(this.label)
-    }
+    },
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
@@ -72,6 +72,24 @@ export default defineComponent({
     nextTick(() => this.lastActiveElement?.focus())
   },
   methods: {
+    optionButtonTextColor: function(index) {
+      if (index === 0 && this.isFirstOptionDestructive) {
+        return 'var(--destructive-text-color)'
+      } else if (index < this.optionNames.length - 1) {
+        return 'var(--text-with-accent-color)'
+      } else {
+        return null
+      }
+    },
+    optionButtonBackgroundColor: function(index) {
+      if (index === 0 && this.isFirstOptionDestructive) {
+        return 'var(--destructive-color)'
+      } else if (index < this.optionNames.length - 1) {
+        return 'var(--accent-color)'
+      } else {
+        return null
+      }
+    },
     click: function (value) {
       this.$emit('click', value)
     },
