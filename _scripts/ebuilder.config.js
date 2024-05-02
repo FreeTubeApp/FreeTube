@@ -47,6 +47,7 @@ const config = {
     category: 'Network',
     icon: '_icons/icon.svg',
     target: ['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'],
+    executableArgs: ['--ozone-platform-hint=auto']
   },
   // See the following issues for more information
   // https://github.com/jordansissel/fpm/issues/1503
