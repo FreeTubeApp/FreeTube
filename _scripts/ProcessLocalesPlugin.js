@@ -1,4 +1,5 @@
-const { existsSync, readFileSync, statSync } = require('fs')
+const { existsSync, readFileSync } = require('fs')
+const { readFile } = require('fs/promises')
 const { join } = require('path')
 const { brotliCompress, constants } = require('zlib')
 const { promisify } = require('util')
@@ -11,7 +12,6 @@ const PLUGIN_NAME = 'ProcessLocalesPlugin'
 class ProcessLocalesPlugin {
   constructor(options = {}) {
     this.compress = !!options.compress
-    this.isIncrementalBuild = false
 
     if (typeof options.inputDir !== 'string') {
       throw new Error('ProcessLocalesPlugin: no input directory `inputDir` specified.')
@@ -28,12 +28,13 @@ class ProcessLocalesPlugin {
     /** @type {Map<str, any>} */
     this.locales = new Map()
     this.localeNames = []
-    this.activeLocales = []
 
     /** @type {Map<str, any>} */
     this.cache = new Map()
 
     this.filePaths = []
+    this.previousTimestamps = new Map()
+    this.startTime = Date.now()
 
     this.loadLocales()
   }
@@ -55,28 +56,24 @@ class ProcessLocalesPlugin {
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
         const promises = []
-        // Prevents `loadLocales` called twice on first time (e.g. release build)
-        if (this.isIncrementalBuild) {
-          this.loadLocales(true)
-        } else {
-          this.isIncrementalBuild = true
-        }
 
-        for (const [locale, localeEntry] of this.locales) {
-          const { data, mtimeMs } = localeEntry
-
+        for (let [locale, data] of this.locales) {
           promises.push(new Promise(async (resolve) => {
-            if (IS_DEV_SERVER) {
-              const cacheEntry = this.cache.get(locale)
+            if (IS_DEV_SERVER && compiler.fileTimestamps) {
+              const filePath = join(this.inputDir, `${locale}.yaml`)
 
-              if (cacheEntry != null) {
-                const { filename, source, mtimeMs: cachedMtimeMs } = cacheEntry
+              const timestamp = compiler.fileTimestamps.get(filePath)?.safeTime
 
-                if (cachedMtimeMs === mtimeMs) {
-                  compilation.emitAsset(filename, source, { minimized: true })
-                  resolve()
-                  return
-                }
+              if (timestamp && timestamp > (this.previousTimestamps.get(locale) ?? this.startTime)) {
+                this.previousTimestamps.set(locale, timestamp)
+
+                const contents = await readFile(filePath, 'utf-8')
+                data = loadYaml(contents)
+              } else {
+                const { filename, source } = this.cache.get(locale)
+                compilation.emitAsset(filename, source, { minimized: true })
+                resolve()
+                return
               }
             }
 
@@ -94,19 +91,17 @@ class ProcessLocalesPlugin {
 
             if (IS_DEV_SERVER) {
               source = new CachedSource(source)
-              this.cache.set(locale, { filename, source, mtimeMs })
+              this.cache.set(locale, { filename, source })
+
+              // we don't need the unmodified sources anymore, as we use the cache `this.cache`
+              // so we can clear this to free some memory
+              this.locales.set(locale, null)
             }
 
             compilation.emitAsset(filename, source, { minimized: true })
 
             resolve()
           }))
-
-          if (IS_DEV_SERVER) {
-            // we don't need the unmodified sources anymore, as we use the cache `this.cache`
-            // so we can clear this to free some memory
-            delete localeEntry.data
-          }
         }
 
         await Promise.all(promises)
@@ -121,32 +116,19 @@ class ProcessLocalesPlugin {
     })
   }
 
-  loadLocales(loadModifiedFilesOnly = false) {
-    if (this.activeLocales.length === 0) {
-      this.activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
-    }
+  loadLocales() {
+    const activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
 
-    for (const locale of this.activeLocales) {
+    for (const locale of activeLocales) {
       const filePath = join(this.inputDir, `${locale}.yaml`)
-      // Cannot use `mtime` since values never equal
-      const mtimeMsFromStats = statSync(filePath).mtimeMs
-      if (loadModifiedFilesOnly) {
-        // Skip reading files where mtime (modified time) same as last read
-        // (stored in mtime)
-        const existingMtime = this.locales.get(locale)?.mtimeMs
-        if (existingMtime != null && existingMtime === mtimeMsFromStats) {
-          continue
-        }
-      }
+
+      this.filePaths.push(filePath)
+
       const contents = readFileSync(filePath, 'utf-8')
       const data = loadYaml(contents)
-      this.locales.set(locale, { data, mtimeMs: mtimeMsFromStats })
+      this.locales.set(locale, data)
 
-      const localeName = data['Locale Name'] ?? locale
-      if (!loadModifiedFilesOnly) {
-        this.filePaths.push(filePath)
-        this.localeNames.push(localeName)
-      }
+      this.localeNames.push(data['Locale Name'] ?? locale)
     }
   }
 
