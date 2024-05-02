@@ -14,6 +14,7 @@ const { version: swiperVersion } = JSON.parse(readFileSync(path.join(__dirname, 
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: !isDevMode,
+  hotReload: isDevMode,
   inputDir: path.join(__dirname, '../static/locales'),
   outputDir: 'static/locales',
 })

@@ -12,6 +12,7 @@ const PLUGIN_NAME = 'ProcessLocalesPlugin'
 class ProcessLocalesPlugin {
   constructor(options = {}) {
     this.compress = !!options.compress
+    this.hotReload = !!options.hotReload
 
     if (typeof options.inputDir !== 'string') {
       throw new Error('ProcessLocalesPlugin: no input directory `inputDir` specified.')
@@ -36,6 +37,9 @@ class ProcessLocalesPlugin {
     this.previousTimestamps = new Map()
     this.startTime = Date.now()
 
+    /** @type {(updatedLocales: [string, string][]) => void|null} */
+    this.notifyLocaleChange = null
+
     this.loadLocales()
   }
 
@@ -56,6 +60,12 @@ class ProcessLocalesPlugin {
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
         const promises = []
+
+        /** @type {[string, string][]} */
+        const updatedLocales = []
+        if (this.hotReload && !this.notifyLocaleChange) {
+          console.warn('ProcessLocalesPlugin: Unable to live reload locales as `notifyLocaleChange` is not set.')
+        }
 
         for (let [locale, data] of this.locales) {
           promises.push(new Promise(async (resolve) => {
@@ -82,6 +92,10 @@ class ProcessLocalesPlugin {
             let filename = `${this.outputDir}/${locale}.json`
             let output = JSON.stringify(data)
 
+            if (this.hotReload && compiler.fileTimestamps) {
+              updatedLocales.push([locale, output])
+            }
+
             if (this.compress) {
               filename += '.br'
               output = await this.compressLocale(output)
@@ -105,6 +119,10 @@ class ProcessLocalesPlugin {
         }
 
         await Promise.all(promises)
+
+        if (this.hotReload && this.notifyLocaleChange && updatedLocales.length > 0) {
+          this.notifyLocaleChange(updatedLocales)
+        }
       })
     })
 
