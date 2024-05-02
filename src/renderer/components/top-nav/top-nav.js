@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
-import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
@@ -15,15 +14,12 @@ export default defineComponent({
   name: 'TopNav',
   components: {
     FtInput,
-    FtSearchFilters,
     FtProfileSelector
   },
   data: () => {
     return {
       component: this,
       showSearchContainer: true,
-      showFilters: false,
-      searchFilterValueChanged: false,
       historyIndex: 1,
       isForwardOrBack: false,
       isArrowBackwardDisabled: true,
@@ -82,6 +78,10 @@ export default defineComponent({
 
     expandSideBar: function () {
       return this.$store.getters.getExpandSideBar
+    },
+
+    searchFilterValueChanged: function () {
+      return this.$store.getters.getSearchFilterValueChanged
     },
 
     forwardText: function () {
@@ -216,9 +216,6 @@ export default defineComponent({
           }
         }
       })
-
-      // Close the filter panel
-      this.showFilters = false
     },
 
     focusSearch: function () {
@@ -295,11 +292,6 @@ export default defineComponent({
 
     toggleSearchContainer: function () {
       this.showSearchContainer = !this.showSearchContainer
-      this.showFilters = false
-    },
-
-    handleSearchFilterValueChanged: function (filterValueChanged) {
-      this.searchFilterValueChanged = filterValueChanged
     },
 
     navigateHistory: function () {
@@ -354,14 +346,12 @@ export default defineComponent({
     navigate: function (route) {
       this.$router.push('/' + route)
     },
-    hideFilters: function () {
-      this.showFilters = false
-    },
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
       'getYoutubeUrlInfo',
+      'showSearchFilters'
     ])
   }
 })

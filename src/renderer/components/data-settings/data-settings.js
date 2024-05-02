@@ -39,7 +39,8 @@ export default defineComponent({
         'youtubenew',
         'youtube',
         'youtubeold',
-        'newpipe'
+        'newpipe',
+        'close'
       ],
 
       shouldExportPlaylistForOlderVersions: false,
@@ -70,7 +71,8 @@ export default defineComponent({
         `${exportYouTube} (.csv)`,
         `${exportYouTube} (.json)`,
         `${exportYouTube} (.opml)`,
-        `${exportNewPipe} (.json)`
+        `${exportNewPipe} (.json)`,
+        this.$t('Close')
       ]
     },
     primaryProfile: function () {

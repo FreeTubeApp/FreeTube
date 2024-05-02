@@ -641,6 +641,7 @@ Settings:
     Password: Senha
     Enter Password To Unlock: Digite a senha para desbloquear as configurações
   Expand All Settings Sections: Expandir todas as seções de configurações
+  Sort Settings Sections (A-Z): Classificar seções de configurações (A-Z)
 About:
   #On About page
   About: 'Sobre'
@@ -1222,6 +1223,10 @@ Age Restricted:
 checkmark: ✓
 Display Label: '{label}: {value}'
 Feed:
-  Feed Last Updated: '{feedName} última atualização do feed: {date}'
+  Feed Last Updated: '{feedName} última atualização: {date}'
   Refresh Feed: Atualizar {subscriptionName}
 Moments Ago: momentos atrás
+Yes, Delete: Sim, excluir
+Yes, Restart: Sim, reiniciar
+Yes, Open Link: Sim, abrir link
+Cancel: Cancelar

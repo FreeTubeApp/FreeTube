@@ -649,6 +649,7 @@ Settings:
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Expand All Settings Sections: Beállítások kiterjesztése
+  Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
   About: 'Névjegy'
@@ -1222,3 +1223,7 @@ Feed:
   Feed Last Updated: '{feedName} frissítve: {date}'
   Refresh Feed: '{subscriptionName} frissítése'
 Moments Ago: épp most
+Cancel: Mégse
+Yes, Delete: Igen, törlés
+Yes, Restart: Igen, újraindítás
+Yes, Open Link: Igen, hivatkozás megnyitása

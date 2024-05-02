@@ -565,6 +565,7 @@ Settings:
     Set Password: 设置密码
     Remove Password: 删除密码
   Expand All Settings Sections: 展开所有设置部分
+  Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
 About:
   #On About page
   About: '关于'
@@ -1056,3 +1057,7 @@ Moments Ago: 片刻前
 Feed:
   Feed Last Updated: '{feedName} 上次更新: {date}'
   Refresh Feed: 刷新 {subscriptionName}
+Yes, Open Link: 是，打开链接
+Cancel: 取消
+Yes, Delete: 是，删除
+Yes, Restart: 是，重启

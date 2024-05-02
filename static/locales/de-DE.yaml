@@ -653,6 +653,7 @@ Settings:
       zu verhindern
     Set Password: Passwort festlegen
   Expand All Settings Sections: Alle Einstellungsabschnitte aufklappen
+  Sort Settings Sections (A-Z): Einstellungsbereiche sortieren (A-Z)
 About:
   #On About page
   About: Über
@@ -1258,3 +1259,4 @@ checkmark: ✓
 Moments Ago: vor wenigen Augenblicken
 Feed:
   Refresh Feed: '{subscriptionName} auffrischen'
+  Feed Last Updated: '{feedName} Feed zuletzt aktualisiert: {date}'

@@ -95,6 +95,7 @@ import {
   faMonero
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import PortalVue from 'portal-vue'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
 Vue.config.performance = process.env.NODE_ENV === 'development'
@@ -201,6 +202,7 @@ new Vue({
   i18n,
   render: h => h(App)
 })
+Vue.use(PortalVue)
 
 // to avoid accessing electron api from web app build
 if (process.env.IS_ELECTRON) {
