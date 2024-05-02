@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -44,11 +44,16 @@ export default defineComponent({
       doSearchPlaylistsWithMatchingVideos: false,
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
-      lastActiveElement: null,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
   computed: {
+    title: function () {
+      return this.$tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', this.toBeAddedToPlaylistVideoCount, {
+        videoCount: this.toBeAddedToPlaylistVideoCount,
+      })
+    },
+
     showingCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
     },
@@ -185,7 +190,7 @@ export default defineComponent({
       if (val > oldVal) {
         // Focus back to search input only when playlist added
         // Allow search and easier deselecting new created playlist
-        this.$refs.searchBar.focus()
+        nextTick(() => this.$refs.searchBar.focus())
       }
     },
 
@@ -195,19 +200,17 @@ export default defineComponent({
       // Only care when CreatePlaylistPrompt hidden
       // Shift focus from button to prevent unwanted click event
       // due to enter key press in CreatePlaylistPrompt
-      this.$refs.searchBar.focus()
+      nextTick(() => this.$refs.searchBar.focus())
     },
   },
   mounted: function () {
-    this.lastActiveElement = document.activeElement
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
-    // User might want to search first if they have many playlists
-    this.$refs.searchBar.focus()
     document.addEventListener('keydown', this.keyboardShortcutHandler)
+    // User might want to search first if they have many playlists
+    nextTick(() => this.$refs.searchBar.focus())
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
-    this.lastActiveElement?.focus()
   },
   methods: {
     hide: function () {

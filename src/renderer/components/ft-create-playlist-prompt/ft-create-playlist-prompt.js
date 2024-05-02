@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
@@ -24,6 +24,9 @@ export default defineComponent({
     }
   },
   computed: {
+    title: function () {
+      return this.$t('User Playlists.CreatePlaylistPrompt.New Playlist Name')
+    },
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
@@ -34,7 +37,7 @@ export default defineComponent({
   mounted: function () {
     this.playlistName = this.newPlaylistVideoObject.title
     // Faster to input required playlist name
-    this.$refs.playlistNameInput.focus()
+    nextTick(() => this.$refs.playlistNameInput.focus())
   },
   methods: {
     createNewPlaylist: function () {
