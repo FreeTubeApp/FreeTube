@@ -1,6 +1,6 @@
 <template>
   <ft-prompt
-    :title="title"
+    :label="title"
     @click="hide"
   >
     <h2 class="heading">
@@ -24,13 +24,26 @@
     <div class="actions-container">
       <ft-flex-box>
         <ft-button
-          :label="cancelLabel"
-          @click="cancelAction"
-        />
-        <ft-button
           :label="$t('Save')"
           :disabled="name === ''"
+          text-color="var(--text-with-accent-color)"
+          background-color="var(--accent-color)"
           @click="save"
+        />
+        <ft-button
+          v-if="isBookmarkBeingCreated"
+          :label="$t('Cancel')"
+          :text-color="null"
+          :background-color="null"
+          @click="hide"
+        />
+        <ft-button
+          v-else
+          :label="$t('Page Bookmark.Remove Bookmark')"
+          :icon="['fas', 'trash']"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
+          @click="removeBookmark"
         />
       </ft-flex-box>
     </div>

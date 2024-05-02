@@ -42,8 +42,8 @@ export default defineComponent({
       profileBgColor: '',
       profileTextColor: '',
       deletePromptValues: [
-        'yes',
-        'no'
+        'delete',
+        'cancel'
       ]
     }
   },
@@ -70,8 +70,8 @@ export default defineComponent({
     },
     deletePromptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Delete'),
+        this.$t('Cancel')
       ]
     },
     editOrCreateProfileLabel: function () {
@@ -101,7 +101,7 @@ export default defineComponent({
     },
 
     handleDeletePrompt: function (response) {
-      if (response === 'yes') {
+      if (response === 'delete') {
         this.deleteProfile()
       } else {
         this.showDeletePrompt = false

@@ -25,8 +25,8 @@ export default defineComponent({
       showRemovePlaylistsPrompt: false,
       showRemovePageBookmarksPrompt: false,
       promptValues: [
-        'yes',
-        'no'
+        'delete',
+        'cancel'
       ]
     }
   },
@@ -52,8 +52,8 @@ export default defineComponent({
     },
     promptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Delete'),
+        this.$t('Cancel')
       ]
     }
   },
@@ -61,7 +61,7 @@ export default defineComponent({
     handleSearchCache: function (option) {
       this.showSearchCachePrompt = false
 
-      if (option === 'yes') {
+      if (option === 'delete') {
         this.clearSessionSearchHistory()
         showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
       }
@@ -78,7 +78,7 @@ export default defineComponent({
     handleRemoveHistory: function (option) {
       this.showRemoveHistoryPrompt = false
 
-      if (option === 'yes') {
+      if (option === 'delete') {
         this.removeAllHistory()
         showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
       }
@@ -89,7 +89,7 @@ export default defineComponent({
 
       this.updateActiveProfile(MAIN_PROFILE_ID)
 
-      if (option !== 'yes') { return }
+      if (option !== 'delete') { return }
 
       this.profileList.forEach((profile) => {
         if (profile._id === MAIN_PROFILE_ID) {
@@ -120,7 +120,7 @@ export default defineComponent({
 
     handleRemovePageBookmarks: function (option) {
       this.showRemovePageBookmarksPrompt = false
-      if (option !== 'yes') { return }
+      if (option !== 'delete') { return }
 
       this.removeAllPageBookmarks()
       showToast(this.$t('Settings.Privacy Settings.All page bookmarks have been removed'))

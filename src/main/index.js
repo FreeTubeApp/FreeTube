@@ -286,6 +286,32 @@ function runApp() {
       })
     }
 
+    // Electron defaults to approving all permission checks and permission requests.
+    // FreeTube only needs a few permissions, so we reject requests for other permissions
+    // and reject all requests on non-FreeTube URLs.
+    //
+    // FreeTube needs the following permissions:
+    // - "fullscreen": So that the video player can enter full screen
+    // - "clipboard-sanitized-write": To allow the user to copy video URLs and error messages
+
+    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+      if (!isFreeTubeUrl(requestingOrigin)) {
+        return false
+      }
+
+      return permission === 'fullscreen' || permission === 'clipboard-sanitized-write'
+    })
+
+    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+      if (!isFreeTubeUrl(webContents.getURL())) {
+        // eslint-disable-next-line n/no-callback-literal
+        callback(false)
+        return
+      }
+
+      callback(permission === 'fullscreen' || permission === 'clipboard-sanitized-write')
+    })
+
     let docArray
     try {
       docArray = await baseHandlers.settings._findAppReadyRelatedSettings()
@@ -544,6 +570,19 @@ function runApp() {
         return 'text/plain'
       default:
         return 'application/octet-stream'
+    }
+  }
+
+  /**
+   * @param {string} urlString
+   */
+  function isFreeTubeUrl(urlString) {
+    const { protocol, host, pathname } = new URL(urlString)
+
+    if (process.env.NODE_ENV === 'development') {
+      return protocol === 'http:' && host === 'localhost:9080' && (pathname === '/' || pathname === '/index.html')
+    } else {
+      return protocol === 'app:' && host === 'bundle' && pathname === '/index.html'
     }
   }
 

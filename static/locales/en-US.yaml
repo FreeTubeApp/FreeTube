@@ -35,7 +35,6 @@ Close Banner: Close Banner
 Bookmark this page: Bookmark this page
 Edit bookmark for this page: Edit bookmark for this page
 Save: Save
-Cancel: Cancel
 Name: Name
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
@@ -1087,6 +1086,10 @@ Moments Ago: moments ago
 Yes: Yes
 No: No
 Ok: Ok
+Yes, Delete: Yes, Delete
+Yes, Restart: Yes, Restart
+Yes, Open Link: Yes, Open Link
+Cancel: Cancel
 # symbol used to indicate that an item is correct
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)

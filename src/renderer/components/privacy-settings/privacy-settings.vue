@@ -34,32 +34,37 @@
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Privacy Settings.Clear Search Cache')"
-        text-color="var(--text-with-main-color)"
-        background-color="var(--primary-color)"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
+        :icon="['fas', 'trash']"
         @click="showSearchCachePrompt = true"
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove Watch History')"
-        text-color="var(--text-with-main-color)"
-        background-color="var(--primary-color)"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
+        :icon="['fas', 'trash']"
         @click="showRemoveHistoryPrompt = true"
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
-        text-color="var(--text-with-main-color)"
-        background-color="var(--primary-color)"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
+        :icon="['fas', 'trash']"
         @click="showRemoveSubscriptionsPrompt = true"
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove All Playlists')"
-        text-color="var(--text-with-main-color)"
-        background-color="var(--primary-color)"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
+        :icon="['fas', 'trash']"
         @click="showRemovePlaylistsPrompt = true"
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove All Page Bookmarks')"
-        text-color="var(--text-with-main-color)"
-        background-color="var(--primary-color)"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
+        :icon="['fas', 'trash']"
         @click="showRemovePageBookmarksPrompt = true"
       />
     </ft-flex-box>
@@ -68,6 +73,7 @@
       :label="$t('Settings.Privacy Settings.Are you sure you want to clear out your search cache?')"
       :option-names="promptNames"
       :option-values="promptValues"
+      :is-first-option-destructive="true"
       @click="handleSearchCache"
     />
     <ft-prompt
@@ -75,6 +81,7 @@
       :label="$t('Settings.Privacy Settings.Are you sure you want to remove your entire watch history?')"
       :option-names="promptNames"
       :option-values="promptValues"
+      :is-first-option-destructive="true"
       @click="handleRemoveHistory"
     />
     <ft-prompt
@@ -82,6 +89,7 @@
       :label="removeSubscriptionsPromptMessage"
       :option-names="promptNames"
       :option-values="promptValues"
+      :is-first-option-destructive="true"
       @click="handleRemoveSubscriptions"
     />
     <ft-prompt
@@ -89,6 +97,7 @@
       :label="$t('Settings.Privacy Settings.Are you sure you want to remove all your playlists?')"
       :option-names="promptNames"
       :option-values="promptValues"
+      :is-first-option-destructive="true"
       @click="handleRemovePlaylists"
     />
     <ft-prompt
@@ -96,6 +105,7 @@
       :label="removePageBookmarksPromptMessage"
       :option-names="promptNames"
       :option-values="promptValues"
+      :is-first-option-destructive="true"
       @click="handleRemovePageBookmarks"
     />
   </ft-settings-section>

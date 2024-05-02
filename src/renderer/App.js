@@ -12,6 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import PageBookmarkPrompt from './components/page-bookmark-prompt/page-bookmark-prompt.vue'
+import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
@@ -35,7 +36,8 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
-    PageBookmarkPrompt
+    PageBookmarkPrompt,
+    FtSearchFilters
   },
   data: function () {
     return {
@@ -50,6 +52,7 @@ export default defineComponent({
       updateChangelog: '',
       changeLogTitle: '',
       currentRouteFullPath: '',
+      isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -83,6 +86,9 @@ export default defineComponent({
     },
     showPageBookmarkPrompt: function () {
       return this.$store.getters.getShowPageBookmarkPrompt
+    },
+    showSearchFilters: function () {
+      return this.$store.getters.getShowSearchFilters
     },
     windowTitle: function () {
       const routePath = this.$route.path
@@ -131,7 +137,7 @@ export default defineComponent({
 
     externalLinkOpeningPromptNames: function () {
       return [
-        this.$t('Yes'),
+        this.$t('Yes, Open Link'),
         this.$t('No')
       ]
     },
@@ -150,12 +156,6 @@ export default defineComponent({
     secColor: 'checkThemeSettings',
 
     locale: 'setLocale',
-
-    $route () {
-      // react to route changes...
-      // Hide top nav filter panel on page change
-      this.$refs.topNav?.hideFilters()
-    }
   },
   created () {
     this.checkThemeSettings()
@@ -166,10 +166,16 @@ export default defineComponent({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances()
+      await this.fetchInvidiousInstancesFromFile()
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
+
+      this.fetchInvidiousInstances().then(e => {
+        if (this.defaultInvidiousInstance === '') {
+          this.setRandomCurrentInvidiousInstance()
+        }
+      })
 
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
@@ -306,6 +312,10 @@ export default defineComponent({
       }
 
       this.showBlogBanner = false
+    },
+
+    handlePromptPortalUpdate: function(newVal) {
+      this.isPromptOpen = newVal
     },
 
     openDownloadsPage: function () {
@@ -552,13 +562,14 @@ export default defineComponent({
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
+      'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
       'showOutlines',
-      'hideOutlines'
+      'hideOutlines',
     ])
   }
 })

@@ -13,7 +13,7 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-prompt': FtPrompt,
     'ft-button': FtButton,
-    'ft-input': FtInput,
+    'ft-input': FtInput
   },
   data: function () {
     return {
@@ -29,36 +29,23 @@ export default defineComponent({
     },
     title: function () {
       return this.isBookmarkBeingCreated ? this.$t('Page Bookmark.Create Bookmark') : this.$t('Page Bookmark.Edit Bookmark')
-    },
-    cancelLabel: function () {
-      return this.isBookmarkBeingCreated ? this.$t('Cancel') : this.$t('Page Bookmark.Remove Bookmark')
     }
   },
   mounted: function () {
     nextTick(() => {
       this.name = this.pageBookmark?.name ?? defaultBookmarkNameForRoute(this.$router.currentRoute)
-      this.lastActiveElement = document.activeElement
-      this.$refs.pageBookmarkNameInput.focus()
+      this.$refs.pageBookmarkNameInput?.focus()
     })
-  },
-  beforeDestroy() {
-    nextTick(() => this.lastActiveElement?.focus())
   },
   methods: {
     hide: function () {
       this.hidePageBookmarkPrompt()
     },
 
-    cancelAction: function () {
-      if (!this.isBookmarkBeingCreated) {
-        this.removeBookmark()
-      }
-      this.hide()
-    },
-
     removeBookmark: function () {
       this.removePageBookmark(this.pageBookmark)
       showToast(this.$t('Page Bookmark.Removed page bookmark', { name: this.name }))
+      this.hide()
     },
 
     save: function () {

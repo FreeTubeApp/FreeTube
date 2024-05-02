@@ -622,6 +622,7 @@ Settings:
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
     Unlock: الغاء القفل
   Expand All Settings Sections: توسيع كافة أقسام الإعدادات
+  Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
 About:
   #On About page
   About: 'حول'
@@ -1186,3 +1187,7 @@ Moments Ago: منذ لحظات
 Feed:
   Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
   Refresh Feed: تحديث {subscriptionName}
+Yes, Delete: نعم ، احذف
+Yes, Restart: نعم، إعادة تشغيل
+Yes, Open Link: نعم، افتح الرابط
+Cancel: إلغاء

@@ -94,18 +94,13 @@
           class="navFilterIcon navIcon"
           :class="{ filterChanged: searchFilterValueChanged }"
           :icon="['fas', 'filter']"
+          :title="$t('Search Filters.Search Filters')"
           role="button"
           tabindex="0"
-          @click="showFilters = !showFilters"
-          @keydown.enter.prevent="showFilters = !showFilters"
+          @click="showSearchFilters"
+          @keydown.enter.prevent="showSearchFilters"
         />
       </div>
-      <ft-search-filters
-        v-if="!hideSearchBar"
-        v-show="showFilters"
-        class="searchFilters"
-        @filterValueUpdated="handleSearchFilterValueChanged"
-      />
     </div>
     <font-awesome-icon
       class="pageBookmarkIcon navIcon"

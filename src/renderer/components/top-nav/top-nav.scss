@@ -89,15 +89,17 @@
 }
 
 .navFilterIcon {
-  $effect-distance: 10px;
+  $effect-distance: 20px;
 
   margin-inline-start: $effect-distance;
 
   &.filterChanged {
     box-shadow: 0 0 $effect-distance var(--primary-color);
+    color: var(--primary-color);
 
     @include top-nav-is-colored {
       box-shadow: 0 0 $effect-distance var(--text-with-main-color);
+      color: var(--text-with-main-color);
     }
   }
 }
@@ -217,20 +219,6 @@
 
     .searchInput {
       flex: 1;
-    }
-  }
-
-  .searchFilters {
-    inset-inline: 0;
-    margin-block: 10px 20px;
-    margin-inline: 220px 20px;
-    position: absolute;
-    transition: margin 150ms ease-in-out;
-
-    @media only screen and (width <= 680px) {
-      inset-inline: 0;
-      margin-block: 95px 0;
-      margin-inline: 10px;
     }
   }
 }

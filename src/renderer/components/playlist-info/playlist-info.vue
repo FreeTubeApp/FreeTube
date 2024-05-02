@@ -39,6 +39,7 @@
         :show-label="false"
         :value="newTitle"
         @input="(input) => (newTitle = input)"
+        @keydown.enter.native="savePlaylistInfo"
       />
       <h2
         v-else
@@ -67,6 +68,7 @@
       :show-label="false"
       :value="newDescription"
       @input="(input) => newDescription = input"
+      @keydown.enter.native="savePlaylistInfo"
     />
     <p
       v-else
@@ -154,14 +156,14 @@
           v-if="!editMode && isUserPlaylist && videoCount > 0"
           :title="$t('User Playlists.Remove Watched Videos')"
           :icon="['fas', 'eye-slash']"
-          theme="primary"
+          theme="destructive"
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
           :title="$t('User Playlists.Delete Playlist')"
           :icon="['fas', 'trash']"
-          theme="primary"
+          theme="destructive"
           @click="showDeletePlaylistPrompt = true"
         />
         <ft-share-button
@@ -178,6 +180,7 @@
         :label="$t('User Playlists.Are you sure you want to delete this playlist? This cannot be undone')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
         @click="handleDeletePlaylistPromptAnswer"
       />
       <ft-prompt
@@ -185,6 +188,7 @@
         :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
         @click="handleRemoveVideosOnWatchPromptAnswer"
       />
     </div>
