@@ -667,6 +667,7 @@ Settings:
     Set Password: Définir un mot de passe
     Password Settings: Paramètres de mot de passe
   Expand All Settings Sections: Développer toutes les sections des paramètres
+  Sort Settings Sections (A-Z): Trier les rubriques de paramètres (A-Z)
 About:
   #On About page
   About: 'À propos'
@@ -1279,3 +1280,7 @@ Feed:
   Feed Last Updated: '{feedName} dernière mise à jour du flux : {date}'
   Refresh Feed: Rafraîchir {subscriptionName}
 Moments Ago: il y a quelques instants
+Yes, Delete: Oui, Effacer
+Yes, Restart: Oui, Redémarrer
+Yes, Open Link: Oui, Ouvrir le lien
+Cancel: Annuler
