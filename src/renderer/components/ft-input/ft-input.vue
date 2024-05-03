@@ -84,12 +84,17 @@
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"
         >
-          {{ entry.name ?? entry }}
           <font-awesome-icon
             v-if="entry.isBookmark"
             :icon="['fas', 'star']"
-            class="bookmarkStarIcon"
+            class="searchResultIcon bookmarkStarIcon"
           />
+          <font-awesome-icon
+            v-else-if="isSearch"
+            :icon="['fas', 'magnifying-glass']"
+            class="searchResultIcon"
+          />
+          {{ entry.name ?? entry }}
         </li>
         <!-- skipped -->
       </ul>

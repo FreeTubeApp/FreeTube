@@ -201,19 +201,19 @@
 .list li {
   display: block;
   padding-block: 0;
-  padding-inline: 15px;
   line-height: 2rem;
-}
-
-.list .bookmarked {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-inline: 15px;
 }
 
 .bookmarkStarIcon {
   color: var(--favorite-icon-color);
+}
+
+.searchResultIcon {
   opacity: 0.6;
+  padding-inline-end: 10px;
+  inline-size: 16px;
+  block-size: 16px;
 }
 
 .hover {
