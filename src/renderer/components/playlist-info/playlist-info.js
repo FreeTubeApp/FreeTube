@@ -230,9 +230,6 @@ export default defineComponent({
     quickBookmarkPlaylist() {
       return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
     },
-    quickBookmarkEnabled() {
-      return this.quickBookmarkPlaylist != null
-    },
     markedAsQuickBookmarkTarget() {
       // Only user playlists can be target
       if (this.selectedUserPlaylist == null) { return false }
@@ -366,7 +363,7 @@ export default defineComponent({
       if (this.selectedUserPlaylist.protected) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
       } else {
-        this.removePlaylist(this.id)
+        this.removePlaylist(this.id, true)
         this.$router.push(
           {
             path: '/userPlaylists'

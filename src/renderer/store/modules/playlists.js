@@ -1,4 +1,6 @@
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
+import i18n from '../../i18n/index'
+import { showToast } from '../../helpers/utils'
 
 function generateRandomPlaylistId() {
   return `ft-playlist--${generateRandomUniqueId()}`
@@ -46,7 +48,7 @@ const getters = {
 }
 
 const actions = {
-  async addPlaylist({ commit }, payload) {
+  async addPlaylist({ state, commit, rootState, dispatch }, payload) {
     // In case internal id is forgotten, generate one (instead of relying on caller and have a chance to cause data corruption)
     if (payload._id == null) {
       // {Time now in unix time}-{0-9999}
@@ -79,15 +81,30 @@ const actions = {
 
     try {
       await DBPlaylistHandlers.create([payload])
+
+      const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.find((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
+      if (noQuickBookmarkSet) {
+        dispatch('updateQuickBookmarkTargetPlaylistId', payload._id, { root: true })
+      }
+
       commit('addPlaylist', payload)
     } catch (errMessage) {
       console.error(errMessage)
     }
   },
 
-  async addPlaylists({ commit }, payload) {
+  async addPlaylists({ state, commit, rootState, dispatch }, payload) {
     try {
       await DBPlaylistHandlers.create(payload)
+
+      const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.find((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
+      if (noQuickBookmarkSet) {
+        // TODO: use user's top sorting preference, or most recently used playlist.
+        // The sorting logic is currently not in an accessible utility class.
+        const chosenPlaylist = payload[0]
+        dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
+      }
+
       commit('addPlaylists', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -185,7 +202,7 @@ const actions = {
     }
   },
 
-  async grabAllPlaylists({ commit, dispatch, state }) {
+  async grabAllPlaylists({ rootState, commit, dispatch, state }) {
     try {
       const payload = (await DBPlaylistHandlers.find()).filter((e) => e != null)
       if (payload.length === 0) {
@@ -308,6 +325,15 @@ const actions = {
           }
         }
 
+        // if no quick bookmark is set, try to find another playlist
+        const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !payload.find((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
+        if (noQuickBookmarkSet && payload.length > 0) {
+          // TODO: use user's top sorting preference, or most recently used playlist.
+          // The sorting logic is currently not in an accessible utility class.
+          const chosenPlaylist = payload[0]
+          dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
+        }
+
         commit('setAllPlaylists', payload)
       }
       commit('setPlaylistsReady', true)
@@ -334,18 +360,46 @@ const actions = {
     }
   },
 
-  async removePlaylist({ commit }, playlistId) {
+  async removePlaylist({ state, commit, rootState, dispatch }, playlistId) {
     try {
       await DBPlaylistHandlers.delete(playlistId)
+
+      const quickBookmarkPlaylistWasDeleted = playlistId === rootState.settings.quickBookmarkTargetPlaylistId
+      if (quickBookmarkPlaylistWasDeleted) {
+        // TODO: use user's top sorting preference, or most recently used playlist.
+        // The sorting logic is currently not in an accessible utility class.
+        const chosenPlaylist = state.playlists.find((playlist) => playlist._id !== playlistId)
+        if (chosenPlaylist) {
+          dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
+          showToast(i18n.t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} is the new quick bookmark playlist."]', {
+            playlistName: chosenPlaylist.playlistName
+          }))
+        }
+      }
+
       commit('removePlaylist', playlistId)
     } catch (errMessage) {
       console.error(errMessage)
     }
   },
 
-  async removePlaylists({ commit }, playlistIds) {
+  async removePlaylists({ state, commit, rootState, dispatch }, playlistIds) {
     try {
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
+
+      const quickBookmarkPlaylistWasDeleted = playlistIds.indexOf(rootState.settings.quickBookmarkTargetPlaylistId) !== -1
+      if (quickBookmarkPlaylistWasDeleted) {
+        // TODO: use user's top sorting preference, or most recently used playlist.
+        // The sorting logic is currently not in an accessible utility class.
+        const chosenPlaylist = state.playlists.find((playlist) => playlistIds.indexOf(playlist._id) === -1)
+        if (chosenPlaylist) {
+          dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
+          showToast(i18n.t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} is the new quick bookmark playlist."]', {
+            playlistName: chosenPlaylist.playlistName
+          }))
+        }
+      }
+
       commit('removePlaylists', playlistIds)
     } catch (errMessage) {
       console.error(errMessage)
