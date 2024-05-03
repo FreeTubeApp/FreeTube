@@ -168,7 +168,7 @@ User Playlists:
   Copy Playlist: Copy Playlist
   Remove Watched Videos: Remove Watched Videos
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
-  Disable Quick Bookmark: Disable Quick Bookmark
+  Quick Bookmark Enabled: Quick Bookmark Enabled
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are you sure you want to remove all watched videos from this playlist? This cannot be undone.
   Delete Playlist: Delete Playlist
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
@@ -197,7 +197,6 @@ User Playlists:
       There was a problem with removing this video: There was a problem with removing this video
 
       This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
-      Quick bookmark disabled: Quick bookmark disabled
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
       Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
 
