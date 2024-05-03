@@ -402,10 +402,6 @@ export default defineComponent({
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
       }
     },
-    disableQuickBookmark() {
-      this.updateQuickBookmarkTargetPlaylistId(null)
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
-    },
 
     updateQuery(query) {
       this.query = query
