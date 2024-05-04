@@ -21,10 +21,6 @@
   inline-size: 100%;
   z-index: 4;
 
-  &:has(+ .sideNav + .routerView .floatingRefreshSection) {
-    box-shadow: none;
-  }
-
   @media only screen and (width >= 961px) {
     display: grid;
     grid-template-columns: 1fr 440px 1fr;
@@ -36,6 +32,10 @@
 
   @media only screen and (width <= 680px) {
     position: fixed;
+
+    &:has(+ .sideNav + .routerView .floatingRefreshSection) {
+      box-shadow: none;
+    }
   }
 }
 
