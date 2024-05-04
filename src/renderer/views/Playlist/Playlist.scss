@@ -26,7 +26,7 @@
 
   &.grid {
     flex-direction: column;
-    margin-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-has-description) + var(--top-bar-push-down-adjustment-empty));
+    margin-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-has-description) + var(--top-bar-push-down-adjustment-one-or-fewer));
 
     &.hasPlaylistDescription {
       --top-bar-push-down-adjustment-has-description: 19px;
@@ -37,8 +37,8 @@
       --top-bar-push-down-adjustment-has-description: 11px;
     }
 
-    &.empty {
-      --top-bar-push-down-adjustment-empty: -62px;
+    &.oneOrFewer {
+      --top-bar-push-down-adjustment-one-or-fewer: -62px;
     }
 
     .playlistInfoContainer {
