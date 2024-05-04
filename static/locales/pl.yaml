@@ -1237,3 +1237,5 @@ Feed:
   Refresh Feed: Odśwież „{subscriptionName}”
   Feed Last Updated: 'Ostatnia aktualizacja „{feedName}”: {date}'
 Moments Ago: chwilę temu
+Yes, Delete: Tak, usuń
+Search character limit: Zapytanie przekroczyło limit {searchCharacterLimit} znaków
