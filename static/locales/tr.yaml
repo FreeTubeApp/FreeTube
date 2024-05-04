@@ -1225,3 +1225,7 @@ Feed:
   Refresh Feed: '{subscriptionName} yenile'
   Feed Last Updated: '{feedName} akışı son güncelenme: {date}'
 Moments Ago: az önce
+Yes, Restart: Evet, yeniden başlat
+Yes, Open Link: Evet, bağlantıyı aç
+Yes, Delete: Evet, sil
+Cancel: İptal

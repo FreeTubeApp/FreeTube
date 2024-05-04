@@ -60,6 +60,7 @@ Global:
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
+Search character limit: Search query is over the {searchCharacterLimit} character limit
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters

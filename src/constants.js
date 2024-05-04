@@ -79,10 +79,14 @@ const ACTIVE_CLASS_NAME = 'active'
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
+// YouTube search character limit is 100 characters
+const SEARCH_CHAR_LIMIT = 100
+
 export {
   IpcChannels,
   DBActions,
   SyncEvents,
   ACTIVE_CLASS_NAME,
-  MAIN_PROFILE_ID
+  MAIN_PROFILE_ID,
+  SEARCH_CHAR_LIMIT
 }
