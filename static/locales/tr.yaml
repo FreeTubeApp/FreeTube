@@ -1229,3 +1229,5 @@ Yes, Restart: Evet, yeniden başlat
 Yes, Open Link: Evet, bağlantıyı aç
 Yes, Delete: Evet, sil
 Cancel: İptal
+Search character limit: Arama sorgusu karakter sınırının ({searchCharacterLimit})
+  üzerinde
