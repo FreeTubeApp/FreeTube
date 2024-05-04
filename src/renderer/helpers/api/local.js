@@ -301,7 +301,7 @@ export async function getLocalChannelVideos(id) {
     }))
 
     const videosTab = new YT.Channel(null, response)
-    const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(videosTab)
+    const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(videosTab, true)
 
     let videos
 
@@ -343,7 +343,7 @@ export async function getLocalChannelLiveStreams(id) {
     }))
 
     let liveStreamsTab = new YT.Channel(innertube.actions, response)
-    const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab)
+    const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab, true)
 
     let videos
 
@@ -411,8 +411,9 @@ export async function getLocalChannelCommunity(id) {
 
 /**
  * @param {YT.Channel} channel
+ * @param {boolean} onlyIdNameThumbnail
  */
-export function parseLocalChannelHeader(channel) {
+export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
   /** @type {string=} */
   let id
   /** @type {string} */
@@ -439,8 +440,11 @@ export function parseLocalChannelHeader(channel) {
       id = header.author.id
       name = header.author.name
       thumbnailUrl = header.author.best_thumbnail.url
-      bannerUrl = header.banner?.[0]?.url
-      subscriberText = header.subscribers?.text
+
+      if (!onlyIdNameThumbnail) {
+        bannerUrl = header.banner?.[0]?.url
+        subscriberText = header.subscribers?.text
+      }
       break
     }
     case 'CarouselHeader': {
@@ -458,13 +462,16 @@ export function parseLocalChannelHeader(channel) {
        */
       const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
       name = topicChannelDetails.title.text
-      subscriberText = topicChannelDetails.subtitle.text
       thumbnailUrl = topicChannelDetails.avatar[0].url
 
       if (channel.metadata.external_id) {
         id = channel.metadata.external_id
       } else {
         id = topicChannelDetails.subscribe_button.channel_id
+      }
+
+      if (!onlyIdNameThumbnail) {
+        subscriberText = topicChannelDetails.subtitle.text
       }
       break
     }
@@ -478,12 +485,14 @@ export function parseLocalChannelHeader(channel) {
       const header = channel.header
       name = header.title.text
       thumbnailUrl = header.box_art.at(-1).url
-      bannerUrl = header.banner[0]?.url
-
-      const badges = header.badges.map(badge => badge.label).filter(tag => tag)
-      tags.push(...badges)
-
       id = channel.current_tab?.endpoint.payload.browseId
+
+      if (!onlyIdNameThumbnail) {
+        bannerUrl = header.banner[0]?.url
+
+        const badges = header.badges.map(badge => badge.label).filter(tag => tag)
+        tags.push(...badges)
+      }
       break
     }
     case 'PageHeader': {
@@ -515,7 +524,7 @@ export function parseLocalChannelHeader(channel) {
         thumbnailUrl = channel.metadata.thumbnail[0].url
       }
 
-      if (header.content.banner) {
+      if (!onlyIdNameThumbnail && header.content.banner) {
         bannerUrl = header.content.banner.image[0]?.url
       }
 
@@ -532,7 +541,7 @@ export function parseLocalChannelHeader(channel) {
         id = channel.metadata.external_id
       }
 
-      if (header.content.metadata) {
+      if (!onlyIdNameThumbnail && header.content.metadata) {
         // YouTube has already changed the indexes for where the information is stored once,
         // so we should search for it instead of using hardcoded indexes, just to be safe for the future
 
@@ -543,6 +552,14 @@ export function parseLocalChannelHeader(channel) {
       }
 
       break
+    }
+  }
+
+  if (onlyIdNameThumbnail) {
+    return {
+      id,
+      name,
+      thumbnailUrl
     }
   }
 
