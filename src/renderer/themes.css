@@ -279,14 +279,14 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .solarizedDark {
   --primary-text-color: #FDF6E3;
-  --secondary-text-color: #839496;
-  --tertiary-text-color: #93A1A1;
+  --secondary-text-color: #DDD6C3;
+  --tertiary-text-color: #DDD6C3;
   --title-color: #FDF6E3;
   --bg-color: #002B36;
   --favorite-icon-color: #0f0;
   --card-bg-color: #204B56;
   --secondary-card-bg-color: #102b36;
-  --scrollbar-color: #204B56;
+  --scrollbar-color: #608B96;
   --scrollbar-color-hover: #406B76;
   --side-nav-color: #204B56;
   --side-nav-hover-color: #608B96;
@@ -298,19 +298,19 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .solarizedLight {
   --primary-text-color: #002b36;
-  --secondary-text-color: #657b83;
-  --tertiary-text-color: #586e75;
+  --secondary-text-color: #204b56;
+  --tertiary-text-color: #204b56;
   --title-color: #002b36;
   --bg-color: #fdf6e3;
   --favorite-icon-color: #0f0;
   --card-bg-color: #eee8d5;
   --secondary-card-bg-color: #fdf6e3;
-  --scrollbar-color: #eee8d5;
+  --scrollbar-color: #a9a895;
   --scrollbar-color-hover: #839496;
   --side-nav-color: #eee8d5;
   --side-nav-hover-color: #fdf6e3;
   --side-nav-active-color: #839496;
-  --search-bar-color: #eee8d5;
+  --search-bar-color: #c9c8b5;
   --logo-icon: url("../../_icons/iconSolarizedDarkSmall.svg");
   --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
 }
