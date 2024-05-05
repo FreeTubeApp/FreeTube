@@ -1137,3 +1137,5 @@ Cancel: Откажи
 Yes, Delete: Да, избриши
 Yes, Restart: Да, рестартуј
 Yes, Open Link: Да, отвори линк
+Search character limit: Упит за претрагу премашује ограничење броја знакова од {searchCharacterLimit}
+  знакова
