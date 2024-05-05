@@ -1233,3 +1233,5 @@ Yes, Open Link: Sí, abrir el enlace
 Cancel: Cancelar
 Yes, Restart: Sí, reiniciar
 Yes, Delete: Sí, eliminar
+Search character limit: La consulta de búsqueda supera el límite de {searchCharacterLimit}
+  caracteres
