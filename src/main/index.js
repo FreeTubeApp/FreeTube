@@ -14,6 +14,8 @@ import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
 
+import contextMenu from 'electron-context-menu'
+
 import packageDetails from '../../package.json'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
@@ -43,7 +45,7 @@ function runApp() {
     }])
   }
 
-  require('electron-context-menu')({
+  contextMenu({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,

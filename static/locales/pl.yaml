@@ -270,9 +270,9 @@ Settings:
     Current Invidious Instance: Obecna instancja Invidious
     External Link Handling:
       No Action: Brak akcji
-      Ask Before Opening Link: Zapytaj przed otworzeniem linku
-      Open Link: Otwórz link
-      External Link Handling: Obsługa zewnętrznych linków
+      Ask Before Opening Link: Zapytaj przed otworzeniem odnośnika
+      Open Link: Otwórz odnośnik
+      External Link Handling: Obsługa zewnętrznych odnośników
     Auto Load Next Page:
       Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
       Label: Automatycznie wczytaj kolejną stronę
@@ -529,7 +529,7 @@ Settings:
     Hide Playlists: Schowaj playlisty
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
-    Hide Sharing Actions: Schowaj linki do dzielenia się filmem
+    Hide Sharing Actions: Schowaj opcje udostępniania
     Hide Live Streams: Schowaj transmisje na żywo
     Hide Chapters: Schowaj rozdziały
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
@@ -780,11 +780,11 @@ Video:
   Video has been marked as watched: 'Film został oznaczony jako obejrzany'
   Video has been removed from your history: 'Film został usunięty z Twojej historii'
   Open in YouTube: 'Otwórz na stronie YouTube'
-  Copy YouTube Link: 'Skopiuj link do strony YouTube'
+  Copy YouTube Link: 'Skopiuj odnośnik do strony YouTube'
   Open YouTube Embedded Player: 'Otwórz odtwarzacz YouTube'
-  Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
+  Copy YouTube Embedded Player Link: 'Skopiuj odnośnik do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
-  Copy Invidious Link: 'Skopiuj link do strony Invidious'
+  Copy Invidious Link: 'Skopiuj odnośnik do strony Invidious'
   Views: 'wyświetleń'
   Watched: 'Obejrzany'
   # As in a Live Video
@@ -846,9 +846,9 @@ Video:
   audio only: tylko audio
   video only: tylko wideo
   Download Video: Pobierz film
-  Copy Invidious Channel Link: Skopiuj link do kanału na stronie Invidious
+  Copy Invidious Channel Link: Skopiuj odnośnik do kanału na stronie Invidious
   Open Channel in Invidious: Otwórz kanał na stronie Invidious
-  Copy YouTube Channel Link: Skopiuj link do kanału na stronie YouTube
+  Copy YouTube Channel Link: Skopiuj odnośnik do kanału na stronie YouTube
   Open Channel in YouTube: Otwórz kanał na stronie YouTube
   Started streaming on: Transmisję rozpoczęto
   Streamed on: Transmitowane dnia
@@ -934,10 +934,10 @@ Change Format:
 Share:
   Share Video: 'Podziel się filmem'
   Share Playlist: 'Podziel się playlistą'
-  Copy Link: 'Skopiuj link'
-  Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj link do osadzenia'
-  Open Embed: 'Otwórz link do osadzenia'
+  Copy Link: 'Skopiuj odnośnik'
+  Open Link: 'Otwórz odnośnik'
+  Copy Embed: 'Skopiuj odnośnik do osadzenia'
+  Open Embed: 'Otwórz odnośnik do osadzenia'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do
@@ -1078,9 +1078,9 @@ Tooltips:
       API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
       z filmu zamiast miniaturki domyślnej.
-    External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może
-      zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy kliknięty
-      link w domyślnej przeglądarce.\n"
+    External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie
+      może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
+      kliknięty odnośnik w domyślnej przeglądarce.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
@@ -1149,7 +1149,7 @@ Default Invidious instance has been set to {instance}: Domyślna instancja Invid
 Search Bar:
   Clear Input: Wyczyść pole
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
-  linków zostało wyłączone w ustawieniach ogólnych
+  odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
 Downloading has completed: '„{videoTitle}” został pobrany'
 Starting download: Rozpoczęto pobieranie „{videoTitle}”
@@ -1205,3 +1205,8 @@ Feed:
   Refresh Feed: Odśwież „{subscriptionName}”
   Feed Last Updated: 'Ostatnia aktualizacja „{feedName}”: {date}'
 Moments Ago: chwilę temu
+Yes, Delete: Tak, usuń
+Search character limit: Zapytanie przekroczyło limit {searchCharacterLimit} znaków
+Yes, Restart: Tak, uruchom ponownie
+Yes, Open Link: Tak, otwórz odnośnik
+Cancel: Anuluj

@@ -27,8 +27,8 @@ export default defineComponent({
       disableSmoothScrollingToggleValue: false,
       showRestartPrompt: false,
       restartPromptValues: [
-        'yes',
-        'no'
+        'restart',
+        'cancel'
       ],
       baseThemeValues: [
         'system',
@@ -90,8 +90,8 @@ export default defineComponent({
 
     restartPromptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Restart'),
+        this.$t('Cancel')
       ]
     },
 
@@ -141,7 +141,7 @@ export default defineComponent({
     handleSmoothScrolling: function (value) {
       this.showRestartPrompt = false
 
-      if (value === null || value === 'no') {
+      if (value === null || value === 'cancel') {
         this.disableSmoothScrollingToggleValue = !this.disableSmoothScrollingToggleValue
         return
       }

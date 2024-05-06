@@ -28,6 +28,8 @@
         />
         <ft-button
           :label="$t('Close')"
+          :text-color="null"
+          :background-color="null"
           @click="showReleaseNotes = !showReleaseNotes"
         />
       </ft-flex-box>

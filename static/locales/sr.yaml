@@ -1109,3 +1109,9 @@ Feed:
   Feed Last Updated: 'Фид {feedName} је последњи пут ажуриран: {date}'
   Refresh Feed: Освежи {subscriptionName}
 Moments Ago: пре неколико тренутака
+Cancel: Откажи
+Yes, Delete: Да, избриши
+Yes, Restart: Да, рестартуј
+Yes, Open Link: Да, отвори линк
+Search character limit: Упит за претрагу премашује ограничење броја знакова од {searchCharacterLimit}
+  знакова

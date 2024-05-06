@@ -24,8 +24,8 @@ export default defineComponent({
       showRemoveSubscriptionsPrompt: false,
       showRemovePlaylistsPrompt: false,
       promptValues: [
-        'yes',
-        'no'
+        'delete',
+        'cancel'
       ]
     }
   },
@@ -48,8 +48,8 @@ export default defineComponent({
     },
     promptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Delete'),
+        this.$t('Cancel')
       ]
     }
   },
@@ -57,10 +57,10 @@ export default defineComponent({
     handleSearchCache: function (option) {
       this.showSearchCachePrompt = false
 
-      if (option === 'yes') {
-        this.clearSessionSearchHistory()
-        showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
-      }
+      if (option !== 'delete') { return }
+
+      this.clearSessionSearchHistory()
+      showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
     },
 
     handleRememberHistory: function (value) {
@@ -74,10 +74,10 @@ export default defineComponent({
     handleRemoveHistory: function (option) {
       this.showRemoveHistoryPrompt = false
 
-      if (option === 'yes') {
-        this.removeAllHistory()
-        showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
-      }
+      if (option !== 'delete') { return }
+
+      this.removeAllHistory()
+      showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
     },
 
     handleRemoveSubscriptions: function (option) {
@@ -85,7 +85,7 @@ export default defineComponent({
 
       this.updateActiveProfile(MAIN_PROFILE_ID)
 
-      if (option !== 'yes') { return }
+      if (option !== 'delete') { return }
 
       this.profileList.forEach((profile) => {
         if (profile._id === MAIN_PROFILE_ID) {
@@ -107,7 +107,8 @@ export default defineComponent({
 
     handleRemovePlaylists: function (option) {
       this.showRemovePlaylistsPrompt = false
-      if (option !== 'yes') { return }
+
+      if (option !== 'delete') { return }
 
       this.removeAllPlaylists()
       this.updateQuickBookmarkTargetPlaylistId('favorites')
