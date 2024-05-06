@@ -1247,7 +1247,12 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
   /* region destructive color for red color themes
   using :has(.app) to increase specificity */
-  .mainRed:has(.app), .secRed:has(.app), .mainDraculaRed:has(.app), .secDraculaRed:has(.app) {
+.mainRed:has(.app),
+.secRed:has(.app),
+.mainDraculaRed:has(.app),
+.secDraculaRed:has(.app),
+.mainSolarizedRed:has(.app),
+.secSolarizedRed:has(.app) {
     --destructive-color: #9C27B0;
     --destructive-text-color: #FFF;
     --destructive-hover-color: #8E24AA;
@@ -1261,13 +1266,15 @@ it can be safely elided. This looks quite pleasant on this theme. */
   .mainDraculaRed.secPurple,
   .mainDraculaRed.secDeepPurple,
   .mainDraculaRed.secDraculaPurple,
+  .mainSolarizedRed.secPurple,
+  .mainSolarizedRed.secDeepPurple,
+  .mainSolarizedRed.secDraculaPurple,
   .mainPurple.secRed,
   .mainPurple.secDraculaRed,
   .mainDeepPurple.secRed,
   .mainDeepPurple.secDraculaRed,
   .mainDraculaPurple.secRed,
-  .mainDraculaPurple.secDraculaRed,
-  .mainSolarized.secSolarizedGreen {
+  .mainDraculaPurple.secDraculaRed {
     --destructive-color: #FF9800;
     --destructive-text-color: #FFF;
     --destructive-hover-color: #FB8C00;
