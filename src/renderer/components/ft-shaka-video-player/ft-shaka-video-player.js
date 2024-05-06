@@ -1332,10 +1332,12 @@ export default defineComponent({
       /** @type {HTMLVideoElement} */
       const video = this.$refs.video
 
-      const textDisplayer = new shaka.text.UITextDisplayer(video, this.$refs.container)
-      this.nonReactive.legacyTextDisplayer = textDisplayer
-
       const player = this.nonReactive.player
+
+      const textDisplayerConfig = player.getConfiguration().textDisplayer
+
+      const textDisplayer = new shaka.text.UITextDisplayer(video, this.$refs.container, textDisplayerConfig)
+      this.nonReactive.legacyTextDisplayer = textDisplayer
 
       // using an event manager lets us easily release the event handlers in one go, when we tear down the legacy text display
       const eventManager = new shaka.util.EventManager()
