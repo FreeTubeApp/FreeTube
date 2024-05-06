@@ -39,25 +39,6 @@
   .youtubeLogo {
     block-size: 18px;
     inline-size: auto;
-
-    @at-root {
-      .dark &,
-      .system[data-system-theme*='dark'] & {
-        filter: brightness(0.868);
-      }
-
-      .black & {
-        filter: brightness(0.933);
-      }
-
-      /* no changes for the dracula theme */
-
-      .pastelPink &,
-      .light &,
-      .system[data-system-theme*='light'] & {
-        filter: invert(0.87);
-      }
-    }
   }
 
   .invidious {
@@ -69,23 +50,6 @@
       block-size: 20px;
       margin-inline-end: 2px;
       inline-size: 20px;
-
-      @at-root {
-        .dark &,
-        .black &,
-        .dracula &,
-        .CatppuccinMocha &,
-        .hotPink &,
-        .system[data-system-theme*='dark'] & {
-          background-image: url('../../assets/img/invidious-logo-dark.svg');
-        }
-
-        .pastelPink &,
-        .light &,
-        .system[data-system-theme*='light'] & {
-          background-image: url('../../assets/img/invidious-logo-light.svg');
-        }
-      }
     }
   }
 }

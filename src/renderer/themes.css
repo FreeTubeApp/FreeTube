@@ -1,56 +1,33 @@
-.system[data-system-theme*='light'], .light,
-.system[data-system-theme*='dark'], .dark,
-.black,
-.gray,
-.dracula,
-.catppuccinMocha,
-.pastelPink,
-.hotPink,
-.nordic {
+.app {
   --primary-input-color: rgb(0 0 0 / 50%);
   --destructive-color: #f44336;
   --destructive-text-color: #000;
   --destructive-hover-color: #e53935;
   --destructive-active-color: #c62828;
-}
-
-.system[data-system-theme*='light'], .light,
-.system[data-system-theme*='dark'], .dark,
-.black,
-.dracula,
-.catppuccinMocha,
-.pastelPink,
-.hotPink,
-.nordic {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
+
+  color: var(--primary-text-color);
+  background-color: var(--bg-color);
 }
 
-.system[data-system-theme*='light'], .light,
-.system[data-system-theme*='dark'], .dark,
-.black,
-.gray,
-.dracula,
-.catppuccinMocha,
-.pastelPink,
-.nordic {
+/*************** RULE TWEAKS ***************/
+
+/* Default sidenav hover text color and primary input color not needed to be changed for most themes */
+.app:not(.hotPink) {
   --primary-input-color: rgb(0 0 0 / 50%);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
 
-.system[data-system-theme*='light'], .light,
-.system[data-system-theme*='dark'], .dark,
-.black,
-.gray,
-.dracula,
-.catppuccinMocha,
-.nordic {
+/* Default side nav active text color and scrollbar text color hover not needed to be changed for most themes */
+.app:not(.hotPink, .pastelPink) {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
 }
 
+/* Main logo themes */
 .system[data-system-theme*='light'], .light,
 .system[data-system-theme*='dark'], .dark,
 .black,
@@ -59,6 +36,11 @@
   --logo-text: url("../../_icons/textColorSmall.svg");
 }
 
+/* stylelint-disable no-descending-specificity */
+
+/*************** DARK THEME ADJUSTMENTS ***************/
+
+/* Non- light theme styling */
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray,
@@ -68,6 +50,50 @@
 .nordic {
   --primary-shadow-color: rgb(0 0 0 / 75%);
 }
+
+/* Especially, but not fully, dark theme Youtube logo styling */
+.dark .youtubeLogo,
+.nordic .youtubeLogo,
+.system[data-system-theme*='dark'] .youtubeLogo {
+  filter: brightness(0.868);
+}
+
+/* Just black theme Youtubef logo styling */
+.black .youTubeLogo {
+  filter: brightness(0.933);
+}
+
+/* Dark theme Invidious logo image choice */
+.dark .invidiousLogo,
+.black .invidiousLogo,
+.dracula .invidiousLogo,
+.CatppuccinMocha .invidiousLogo,
+.hotPink .invidiousLogo,
+.system[data-system-theme*='dark'] .invidiousLogo {
+  background-image: url('./assets/img/invidious-logo-dark.svg');
+}
+
+
+/*************** LIGHT THEME ADJUSTMENTS ***************/
+
+/* Light theme Youtube logo styling */
+.pastelPink .youtubeLogo,
+.light .youtubeLogo,
+.system[data-system-theme*='light'] .youtubeLogo {
+  filter: invert(0.87);
+}
+
+/* Light theme Invidious logo image choice */
+.pastelPink .invidiousLogo,
+.light .invidiousLogo,
+.system[data-system-theme*='light'] .invidiousLogo {
+  background-image: url('./assets/img/invidious-logo-light.svg');
+}
+/* stylelint-enable no-descending-specificity */
+
+/*************** MAIN THEME DEFINITIONS ***************/
+
+/* When adding a new base theme, add that --bg-color to src/main/index.js */
 
 .system[data-system-theme*='light'], .light {
   --primary-text-color: #212121;
@@ -266,6 +292,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   text-decoration: underline;
 }
 
+/*************** PRIMARY THEME COLOR DEFINTIONS ***************/
+
+/* dark primary theme colors */
 .mainRed,
 .mainPink,
 .mainPurple,
@@ -281,6 +310,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url("../../_icons/textWhiteSmall.svg");
 }
 
+/* light primary theme colors */
 .mainLightGreen,
 .mainLime,
 .mainYellow,
@@ -550,6 +580,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
+/*************** SECONDARY THEME COLOR DEFINTIONS ***************/
+
+/* dark secondary theme colors */
 .secRed,
 .secPink,
 .secPurple,
@@ -563,6 +596,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #FFF;
 }
 
+/* light secondary theme colors */
 .secLightGreen,
 .secLime,
 .secYellow,
@@ -1032,33 +1066,28 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(180 190 254 / 24%);
 }
 
-  /* region destructive color for red color themes
-  using :has(.app) to increase specificity */
-  .mainRed:has(.app), .secRed:has(.app), .mainDraculaRed:has(.app), .secDraculaRed:has(.app) {
-    --destructive-color: #9C27B0;
-    --destructive-text-color: #FFF;
-    --destructive-hover-color: #8E24AA;
-    --destructive-active-color: #6A1B9A;
-  }
+/*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
+/* stylelint-disable no-descending-specificity */
 
-  /* Deal with theme conflict on destructive colors */
-  .mainRed.secPurple,
-  .mainRed.secDeepPurple,
-  .mainRed.secDraculaPurple,
-  .mainDraculaRed.secPurple,
-  .mainDraculaRed.secDeepPurple,
-  .mainDraculaRed.secDraculaPurple,
-  .mainPurple.secRed,
-  .mainPurple.secDraculaRed,
-  .mainDeepPurple.secRed,
-  .mainDeepPurple.secDraculaRed,
-  .mainDraculaPurple.secRed,
-  .mainDraculaPurple.secDraculaRed {
-    --destructive-color: #FF9800;
-    --destructive-text-color: #FFF;
-    --destructive-hover-color: #FB8C00;
-    --destructive-active-color: #EF6C00;
-  }
+/* destructive color in case of conflict with red color themes (sets new destructive color to purple) */
+body[class*="Red"] *{
+  --destructive-color: #9C27B0;
+  --destructive-text-color: #FFF;
+  --destructive-hover-color: #8E24AA;
+  --destructive-active-color: #6A1B9A;
+}
+
+/* destructive color in case of conflict with red and purple color themes (sets new destructive color to yellow) */
+body[class*="Red"][class*="Purple"] * {
+  --destructive-color: #FF9800;
+  --destructive-text-color: #FFF;
+  --destructive-hover-color: #FB8C00;
+  --destructive-active-color: #EF6C00;
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/*************** LEFT-TO-RIGHT AND RIGHT-TO-LEFT RULES ***************/
 
 body[dir='ltr'] {
   --ltr-or-rtl: ltr;
@@ -1086,6 +1115,8 @@ html[lang='ur'] [data-prefix="fas"][data-icon="circle-question"] {
   transform: scale(-1, 1)
 }
 
+/*************** MAIN APP STYLING RULES ***************/
+
 body {
   margin: 0;
   min-block-size: 100vh;
@@ -1095,25 +1126,20 @@ body {
   --red-500: #f44336;
 }
 
-.app {
-  color: var(--primary-text-color);
-  background-color: var(--bg-color);
-}
-
+/* stylelint-disable no-descending-specificity */
 /* stylelint-disable-next-line a11y/no-outline-none */
 .hideOutlines *:focus {
   outline: none;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 a:link {
     color: var(--link-color);
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 a:visited {
     color: var(--link-visited-color);
 }
+/* stylelint-enable no-descending-specificity */
 
 @media (prefers-reduced-motion) {
   * {
