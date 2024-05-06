@@ -15,13 +15,13 @@
 /*************** RULE TWEAKS ***************/
 
 /* Default sidenav hover text color and primary input color not needed to be changed for most themes */
-.app:not(.hotPink) {
+body:not(.hotPink) {
   --primary-input-color: rgb(0 0 0 / 50%);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
 
 /* Default side nav active text color and scrollbar text color hover not needed to be changed for most themes */
-.app:not(.hotPink, .pastelPink) {
+body:not(.hotPink, .pastelPink) {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -36,11 +36,11 @@
   --logo-text: url("../../_icons/textColorSmall.svg");
 }
 
-/* stylelint-disable no-descending-specificity */
 
 /*************** DARK THEME ADJUSTMENTS ***************/
+/* stylelint-disable no-descending-specificity */
 
-/* Non- light theme styling */
+/* Dark theme styling */
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray,
@@ -58,7 +58,7 @@
   filter: brightness(0.868);
 }
 
-/* Just black theme Youtubef logo styling */
+/* Just black theme Youtube logo styling */
 .black .youTubeLogo {
   filter: brightness(0.933);
 }
@@ -69,6 +69,7 @@
 .dracula .invidiousLogo,
 .CatppuccinMocha .invidiousLogo,
 .hotPink .invidiousLogo,
+.nordic .invidiousLogo,
 .system[data-system-theme*='dark'] .invidiousLogo {
   background-image: url('./assets/img/invidious-logo-dark.svg');
 }
@@ -1069,7 +1070,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
 /*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
 /* stylelint-disable no-descending-specificity */
 
-/* destructive color in case of conflict with red color themes (sets new destructive color to purple) */
+/* destructive color in case of conflict with red color themes (sets new destructive color to purple)
+  NOTE: RED COLORS MUST CONTAIN 'Red' IN CLASSNAME.
+*/
 body[class*="Red"] *{
   --destructive-color: #9C27B0;
   --destructive-text-color: #FFF;
@@ -1077,7 +1080,9 @@ body[class*="Red"] *{
   --destructive-active-color: #6A1B9A;
 }
 
-/* destructive color in case of conflict with red and purple color themes (sets new destructive color to yellow) */
+/* destructive color in case of conflict with red and purple color themes (sets new destructive color to yellow)
+  NOTE: PURPLE COLORS MUST CONTAIN 'Purple' IN CLASSNAME.
+*/
 body[class*="Red"][class*="Purple"] * {
   --destructive-color: #FF9800;
   --destructive-text-color: #FFF;
@@ -1117,6 +1122,7 @@ html[lang='ur'] [data-prefix="fas"][data-icon="circle-question"] {
 
 /*************** MAIN APP STYLING RULES ***************/
 
+/* stylelint-disable no-descending-specificity */
 body {
   margin: 0;
   min-block-size: 100vh;
@@ -1126,7 +1132,6 @@ body {
   --red-500: #f44336;
 }
 
-/* stylelint-disable no-descending-specificity */
 /* stylelint-disable-next-line a11y/no-outline-none */
 .hideOutlines *:focus {
   outline: none;
