@@ -598,76 +598,65 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
-.mainSolarizedYellow {
-  --primary-color: #b58900;
+.mainSolarizedYellow,
+.mainSolarizedOrange,
+.mainSolarizedRed,
+.mainSolarizedMagenta,
+.mainSolarizedViolet,
+.mainSolarizedBlue,
+.mainSolarizedCyan,
+.mainSolarizedGreen {
   --text-with-main-color: #000;
-  --primary-color-hover: #d5a920;
-  --primary-color-active: #f5c940;
   --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
   --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
+}
+
+.mainSolarizedYellow {
+  --primary-color: #b58900;
+  --primary-color-hover: #d5a920;
+  --primary-color-active: #f5c940;
 }
 
 .mainSolarizedOrange {
   --primary-color: #cb4b16;
-  --text-with-main-color: #000;
   --primary-color-hover: #eb6b36;
   --primary-color-active: #fc8b56;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedRed {
   --primary-color: #dc322f;
-  --text-with-main-color: #000;
   --primary-color-hover: #fc524f;
   --primary-color-active: #fe726f;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedMagenta {
   --primary-color: #d33682;
-  --text-with-main-color: #000;
   --primary-color-hover: #f356a2;
   --primary-color-active: #f558c2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedViolet {
   --primary-color: #6c71c4;
-  --text-with-main-color: #000;
   --primary-color-hover: #8c91e4;
   --primary-color-active: #acb1f4;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedBlue {
   --primary-color: #268bd2;
-  --text-with-main-color: #000;
   --primary-color-hover: #46abf2;
   --primary-color-active: #66cbf4;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedCyan {
   --primary-color: #2aa198;
-  --text-with-main-color: #000;
   --primary-color-hover: #4ac1b8;
   --primary-color-active: #6ae1d8;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedGreen {
   --primary-color: #859900;
-  --text-with-main-color: #000;
   --primary-color-hover: #a5b920;
   --primary-color-active: #c5d940;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .secRed,
@@ -1152,9 +1141,22 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(180 190 254 / 24%);
 }
 
+.secSolarizedYellow,
+.secSolarizedOrange,
+.secSolarizedRed,
+.secSolarizedMagenta,
+.secSolarizedViolet,
+.secSolarizedGreen {
+  --text-with-accent-color: #fdf6e3;
+}
+
+.secSolarizedBlue,
+.secSolarizedCyan {
+  --text-with-accent-color: #000;
+}
+
 .secSolarizedYellow {
   --accent-color: #7b5b00;
-  --text-with-accent-color: #fdf6e3;
   --primary-color-hover: #a9a130;
   --accent-color-hover: #bb9f40;
   --accent-color-active: #897710;
@@ -1168,7 +1170,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedOrange {
   --accent-color: #8b3700;
-  --text-with-accent-color: #fdf6e3;
   --primary-color-hover: #c94d34;
   --accent-color-hover: #db8140;
   --accent-color-active: #b35936;
@@ -1182,7 +1183,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedRed {
   --accent-color: #9a101d;
-  --text-with-accent-color: #fdf6e3;
   --primary-color-hover: #d8302d;
   --accent-color-hover: #da504d;
   --accent-color-active: #b8282b;
@@ -1196,7 +1196,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedMagenta {
   --accent-color: #8e1060;
-  --text-with-accent-color: #fdf6e3;
   --primary-color-hover: #d23480;
   --accent-color-hover: #dc5280;
   --accent-color-active: #b814a0;
@@ -1210,7 +1209,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedViolet {
   --accent-color: #2e43a4;
-  --text-with-accent-color: #fdf6e3;
   --primary-color-hover: #6e83c4;
   --accent-color-hover: #8e77c4;
   --accent-color-active: #5e63e4;
@@ -1224,7 +1222,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedBlue {
   --accent-color: #0283b2;
-  --text-with-accent-color: #000;
   --primary-color-hover: #4899d2;
   --accent-color-hover: #469fd2;
   --accent-color-active: #2483d4;
@@ -1238,7 +1235,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedCyan {
   --accent-color: #008776;
-  --text-with-accent-color: #000;
   --primary-color-hover: #2ca998;
   --accent-color-hover: #4cb9b8;
   --accent-color-active: #1c9788;
@@ -1252,7 +1248,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secSolarizedGreen {
   --accent-color: #657700;
-  --text-with-accent-color: #fdf6e3;
   --primary-color-hover: #857720;
   --accent-color-hover: #a59640;
   --accent-color-active: #837720;
