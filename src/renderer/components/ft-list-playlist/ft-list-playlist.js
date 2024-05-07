@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtListPlaylist',
@@ -76,6 +77,20 @@ export default defineComponent({
 
     isUserPlaylist() {
       return this.data._id != null
+    },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    markedAsQuickBookmarkTarget() {
+      // Only user playlists can be target
+      if (this.playlistId == null) { return false }
+      if (this.quickBookmarkPlaylistId == null) { return false }
+
+      return this.quickBookmarkPlaylistId === this.playlistId
     },
 
     playlistPageLinkTo() {
@@ -154,8 +169,44 @@ export default defineComponent({
       this.videoCount = this.data.videos.length
     },
 
+    enableQuickBookmarkForThisPlaylist() {
+      const currentQuickBookmarkTargetPlaylist = this.quickBookmarkPlaylist
+
+      this.updateQuickBookmarkTargetPlaylistId(this.playlistId)
+      if (currentQuickBookmarkTargetPlaylist != null) {
+        showToast(
+          this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo"]', {
+            oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+          }),
+          5000,
+          () => {
+            this.updateQuickBookmarkTargetPlaylistId(currentQuickBookmarkTargetPlaylist._id)
+            showToast(
+              this.$t('User Playlists.SinglePlaylistView.Toast["Reverted to use {oldPlaylistName} for quick bookmark"]', {
+                oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
+              }),
+              5000,
+            )
+          },
+        )
+      } else {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      }
+    },
+    disableQuickBookmark() {
+      showToast(
+        this.$t('User Playlists.SinglePlaylistView.Toast["This will disable quick bookmark feature. Click here to confirm this action"]'),
+        5000,
+        () => {
+          this.updateQuickBookmarkTargetPlaylistId(null)
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
+        },
+      )
+    },
+
     ...mapActions([
-      'openInExternalPlayer'
+      'openInExternalPlayer',
+      'updateQuickBookmarkTargetPlaylistId',
     ])
   }
 })

@@ -67,6 +67,27 @@
         :use-shadow="false"
         @click="handleExternalPlayer"
       />
+      <span
+        v-if="isUserPlaylist"
+        class="playlistIcons"
+      >
+        <ft-icon-button
+          v-if="!markedAsQuickBookmarkTarget"
+          :title="$t('User Playlists.Enable Quick Bookmark With This Playlist')"
+          :icon="['far', 'bookmark']"
+          theme="base-no-default"
+          :size="16"
+          @click="enableQuickBookmarkForThisPlaylist"
+        />
+        <ft-icon-button
+          v-if="markedAsQuickBookmarkTarget"
+          :title="$t('User Playlists.Disable Quick Bookmark')"
+          :icon="['fas', 'bookmark']"
+          theme="secondary"
+          :size="16"
+          @click="disableQuickBookmark"
+        />
+      </span>
     </div>
   </div>
 </template>
