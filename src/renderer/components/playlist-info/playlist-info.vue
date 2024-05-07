@@ -163,7 +163,7 @@
           :title="$t('User Playlists.Delete Playlist')"
           :icon="['fas', 'trash']"
           theme="destructive"
-          @click="showDeletePlaylistPrompt = true"
+          @click="handleDeletePlaylistButtonClick"
         />
         <ft-share-button
           v-if="sharePlaylistButtonVisible"

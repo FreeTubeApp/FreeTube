@@ -210,6 +210,7 @@ User Playlists:
       "{videoCount} video(s) have been removed": "1 video has been removed | {videoCount} videos have been removed"
       There were no videos to remove.: There were no videos to remove.
       This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
+      This playlist used for quick bookmark and cannot be removed.: This playlist used for quick bookmark and cannot be removed.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
 
       This playlist does not exist: This playlist does not exist

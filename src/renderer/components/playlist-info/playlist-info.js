@@ -359,23 +359,32 @@ export default defineComponent({
       }
     },
 
+    handleDeletePlaylistButtonClick() {
+      if (this.markedAsQuickBookmarkTarget) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist used for quick bookmark and cannot be removed."]'))
+        return
+      }
+
+      this.showDeletePlaylistPrompt = true
+    },
     handleDeletePlaylistPromptAnswer: function (option) {
       this.showDeletePlaylistPrompt = false
       if (option !== 'delete') { return }
 
       if (this.selectedUserPlaylist.protected) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
-      } else {
-        this.removePlaylist(this.id)
-        this.$router.push(
-          {
-            path: '/userPlaylists'
-          }
-        )
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} has been deleted."]', {
-          playlistName: this.title,
-        }))
+        return
       }
+
+      this.removePlaylist(this.id)
+      this.$router.push(
+        {
+          path: '/userPlaylists'
+        }
+      )
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} has been deleted."]', {
+        playlistName: this.title,
+      }))
     },
 
     enableQuickBookmarkForThisPlaylist() {
