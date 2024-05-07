@@ -600,47 +600,47 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .mainSolarizedYellow {
   --primary-color: #b58900;
-  --text-with-main-color: #fdf6e3;
+  --text-with-main-color: #000;
   --primary-color-hover: #d5a920;
   --primary-color-active: #f5c940;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedOrange {
   --primary-color: #cb4b16;
-  --text-with-main-color: #fdf6e3;
+  --text-with-main-color: #000;
   --primary-color-hover: #eb6b36;
   --primary-color-active: #fc8b56;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedRed {
   --primary-color: #dc322f;
-  --text-with-main-color: #fdf6e3;
+  --text-with-main-color: #000;
   --primary-color-hover: #fc524f;
   --primary-color-active: #fe726f;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedMagenta {
   --primary-color: #d33682;
-  --text-with-main-color: #fdf6e3;
+  --text-with-main-color: #000;
   --primary-color-hover: #f356a2;
   --primary-color-active: #f558c2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedViolet {
   --primary-color: #6c71c4;
-  --text-with-main-color: #fdf6e3;
+  --text-with-main-color: #000;
   --primary-color-hover: #8c91e4;
   --primary-color-active: #acb1f4;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .mainSolarizedBlue {
@@ -663,11 +663,11 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .mainSolarizedGreen {
   --primary-color: #859900;
-  --text-with-main-color: #fdf6e3;
+  --text-with-main-color: #000;
   --primary-color-hover: #a5b920;
   --primary-color-active: #c5d940;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
 }
 
 .secRed,
