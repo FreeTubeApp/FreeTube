@@ -598,14 +598,18 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
-.mainSolarizedYellow,
 .mainSolarizedOrange,
 .mainSolarizedRed,
 .mainSolarizedMagenta,
 .mainSolarizedViolet,
-.mainSolarizedBlue,
-.mainSolarizedCyan,
 .mainSolarizedGreen {
+  --text-with-main-color: #fdf6e3;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+}
+
+.mainSolarizedBlue,
+.mainSolarizedCyan {
   --text-with-main-color: #000;
   --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
   --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
