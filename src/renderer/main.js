@@ -89,6 +89,9 @@ import {
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 import {
+  faBookmark as farBookmark,
+} from '@fortawesome/free-regular-svg-icons'
+import {
   faBitcoin,
   faGithub,
   faMastodon,
@@ -182,6 +185,9 @@ library.add(
   faTimesCircle,
   faTrash,
   faUsers,
+
+  // regular icons
+  farBookmark,
 
   // brand icons
   faGithub,

@@ -140,14 +140,14 @@
         <ft-icon-button
           v-if="!editMode && isUserPlaylist && !markedAsQuickBookmarkTarget"
           :title="$t('User Playlists.Enable Quick Bookmark With This Playlist')"
-          :icon="['fas', 'link']"
+          :icon="['far', 'bookmark']"
           theme="secondary"
           @click="enableQuickBookmarkForThisPlaylist"
         />
         <ft-icon-button
           v-if="!editMode && isUserPlaylist && markedAsQuickBookmarkTarget"
           :title="$t('User Playlists.Disable Quick Bookmark')"
-          :icon="['fas', 'link-slash']"
+          :icon="['fas', 'bookmark']"
           theme="secondary"
           @click="disableQuickBookmark"
         />
