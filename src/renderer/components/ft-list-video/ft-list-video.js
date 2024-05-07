@@ -3,13 +3,14 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
+  deepCopy,
   formatDurationAsTimestamp,
   formatNumber,
   getRelativeTimeFromDate,
+  openInternalPath,
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
-  deepCopy
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import debounce from 'lodash.debounce'
@@ -762,7 +763,13 @@ export default defineComponent({
 
     toggleQuickBookmarked() {
       if (!this.isQuickBookmarkEnabled) {
-        // This should be prevented by UI
+        showToast(
+          this.$t('Video["Quick Bookmark Disabled. Click Here To Open User Playlists Page To Enable Quick Bookmark"]'),
+          5000,
+          () => {
+            this.createNewWindowInUserPlaylistsView()
+          },
+        )
         return
       }
 
@@ -771,6 +778,13 @@ export default defineComponent({
       } else {
         this.addToQuickBookmarkPlaylist()
       }
+    },
+    createNewWindowInUserPlaylistsView: function () {
+      openInternalPath({
+        path: '/userPlaylists',
+        query: {},
+        doCreateNewWindow: true,
+      })
     },
     addToQuickBookmarkPlaylist() {
       const videoData = {
