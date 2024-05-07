@@ -60,6 +60,7 @@ Global:
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
+Search character limit: Search query is over the {searchCharacterLimit} character limit
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -1068,6 +1069,10 @@ Moments Ago: moments ago
 Yes: Yes
 No: No
 Ok: Ok
+Yes, Delete: Yes, Delete
+Yes, Restart: Yes, Restart
+Yes, Open Link: Yes, Open Link
+Cancel: Cancel
 # symbol used to indicate that an item is correct
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)

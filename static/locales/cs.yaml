@@ -1185,3 +1185,9 @@ Feed:
   Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
   Refresh Feed: Obnovit {subscriptionName}
 Moments Ago: chvílí
+Yes, Delete: Ano, odstranit
+Yes, Restart: Ano, restartovat
+Yes, Open Link: Ano, otevřít odkaz
+Cancel: Zrušit
+Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
+  ({searchCharacterLimit})

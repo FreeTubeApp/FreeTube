@@ -1226,3 +1226,9 @@ Feed:
   Feed Last Updated: '{feedName} última atualização: {date}'
   Refresh Feed: Atualizar {subscriptionName}
 Moments Ago: momentos atrás
+Yes, Delete: Sim, excluir
+Yes, Restart: Sim, reiniciar
+Yes, Open Link: Sim, abrir link
+Cancel: Cancelar
+Search character limit: Sua pesquisa ultrapassou o limite de {searchCharacterLimit}
+  caracteres

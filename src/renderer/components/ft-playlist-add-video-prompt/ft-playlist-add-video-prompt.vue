@@ -1,11 +1,11 @@
 <template>
   <ft-prompt
+    theme="flex-column"
+    :label="title"
     @click="hide"
   >
     <h2 class="heading">
-      {{ $tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', toBeAddedToPlaylistVideoCount, {
-        videoCount: toBeAddedToPlaylistVideoCount,
-      }) }}
+      {{ title }}
     </h2>
     <p class="selected-count">
       {{ $tc('User Playlists.AddVideoPrompt.N playlists selected', selectedPlaylistCount, {
@@ -73,6 +73,8 @@
         />
         <ft-button
           :label="$t('User Playlists.Cancel')"
+          :text-color="null"
+          :background-color="null"
           @click="hide"
         />
       </ft-flex-box>

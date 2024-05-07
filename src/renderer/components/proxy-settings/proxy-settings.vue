@@ -30,6 +30,7 @@
           :show-label="true"
           :value="proxyHostname"
           @input="handleUpdateProxyHostname"
+          @keydown.enter.native="testProxy"
         />
         <ft-input
           :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
@@ -37,6 +38,7 @@
           :show-label="true"
           :value="proxyPort"
           @input="handleUpdateProxyPort"
+          @keydown.enter.native="testProxy"
         />
       </ft-flex-box>
       <p

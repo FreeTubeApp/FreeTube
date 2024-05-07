@@ -1187,3 +1187,8 @@ Moments Ago: منذ لحظات
 Feed:
   Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
   Refresh Feed: تحديث {subscriptionName}
+Yes, Delete: نعم ، احذف
+Yes, Restart: نعم، إعادة تشغيل
+Yes, Open Link: نعم، افتح الرابط
+Cancel: إلغاء
+Search character limit: تجاوز استعلام البحث حد الأحرف {searchCharacterLimit}

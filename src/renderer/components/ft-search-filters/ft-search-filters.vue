@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <div class="searchFilterInner">
-      <h2 class="center">
-        {{ $t("Search Filters.Search Filters") }}
+  <ft-prompt
+    theme="slim"
+    :label="title"
+    @click="hideSearchFilters"
+  >
+    <div>
+      <h2
+        class="center"
+        name="title"
+      >
+        {{ title }}
       </h2>
       <ft-flex-box class="radioFlexBox">
         <ft-radio-button
@@ -11,6 +18,7 @@
           :labels="sortByLabels"
           :values="sortByValues"
           :selected="searchSettings.sortBy"
+          :initial-value-index="searchSortByStartIndex"
           class="searchRadio"
           @change="updateSortBy"
         />
@@ -20,6 +28,7 @@
           :labels="timeLabels"
           :values="timeValues"
           :selected="searchSettings.time"
+          :initial-value-index="searchTimeStartIndex"
           class="searchRadio"
           @change="updateTime"
         />
@@ -29,6 +38,7 @@
           :labels="typeLabels"
           :values="typeValues"
           :selected="searchSettings.type"
+          :initial-value-index="searchTypeStartIndex"
           class="searchRadio"
           @change="updateType"
         />
@@ -38,12 +48,21 @@
           :labels="durationLabels"
           :values="durationValues"
           :selected="searchSettings.duration"
+          :initial-value-index="searchDurationStartIndex"
           class="searchRadio"
           @change="updateDuration"
         />
       </ft-flex-box>
+      <div class="searchFilterCloseButtonContainer">
+        <ft-button
+          :label="$t('Close')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="hideSearchFilters"
+        />
+      </div>
     </div>
-  </div>
+  </ft-prompt>
 </template>
 
 <script src="./ft-search-filters.js" />

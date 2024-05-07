@@ -33,6 +33,8 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  showSearchFilters: false,
+  searchFilterValueChanged: false,
   progressBarPercentage: 0,
   toBeAddedToPlaylistVideoList: [],
   newPlaylistDefaultProperties: {},
@@ -94,12 +96,20 @@ const getters = {
     return state.searchSettings
   },
 
+  getSearchFilterValueChanged () {
+    return state.searchFilterValueChanged
+  },
+
   getShowAddToPlaylistPrompt () {
     return state.showAddToPlaylistPrompt
   },
 
   getShowCreatePlaylistPrompt () {
     return state.showCreatePlaylistPrompt
+  },
+
+  getShowSearchFilters () {
+    return state.showSearchFilters
   },
 
   getToBeAddedToPlaylistVideoList () {
@@ -168,7 +178,7 @@ const getters = {
 
   getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastVideoRefreshTimestampByProfile[profileId]
-  }
+  },
 }
 
 const actions = {
@@ -376,6 +386,14 @@ const actions = {
 
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
+  },
+
+  showSearchFilters ({ commit }) {
+    commit('setShowSearchFilters', true)
+  },
+
+  hideSearchFilters ({ commit }) {
+    commit('setShowSearchFilters', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -839,6 +857,10 @@ const mutations = {
     state.showCreatePlaylistPrompt = payload
   },
 
+  setShowSearchFilters (state, payload) {
+    state.showSearchFilters = payload
+  },
+
   setToBeAddedToPlaylistVideoList (state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
@@ -897,6 +919,10 @@ const mutations = {
 
   setCachedPlaylist(state, value) {
     state.cachedPlaylist = value
+  },
+
+  setSearchFilterValueChanged (state, value) {
+    state.searchFilterValueChanged = value
   },
 
   setSearchSortBy (state, value) {

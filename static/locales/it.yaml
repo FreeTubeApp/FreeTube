@@ -1232,3 +1232,8 @@ Moments Ago: pochi istanti fa
 Feed:
   Feed Last Updated: 'Ultimo aggiornamento del feed {feedName}: {date}'
   Refresh Feed: Aggiorna {subscriptionName}
+Yes, Delete: Sì, elimina
+Yes, Restart: Sì, riavvia
+Yes, Open Link: Sì, apri link
+Cancel: Annulla
+Search character limit: La query di ricerca supera il limite di caratteri {searchCharacterLimit}

@@ -23,19 +23,24 @@ export default defineComponent({
     'general-settings': GeneralSettings,
     'theme-settings': ThemeSettings,
     'player-settings': PlayerSettings,
-    'external-player-settings': ExternalPlayerSettings,
     'subscription-settings': SubscriptionSettings,
     'privacy-settings': PrivacySettings,
     'data-settings': DataSettings,
     'distraction-settings': DistractionSettings,
-    'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'download-settings': DownloadSettings,
     'parental-control-settings': ParentControlSettings,
-    'experimental-settings': ExperimentalSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
-    'ft-toggle-switch': FtToggleSwitch
+    'ft-toggle-switch': FtToggleSwitch,
+
+    ...(process.env.IS_ELECTRON
+      ? {
+          'proxy-settings': ProxySettings,
+          'download-settings': DownloadSettings,
+          'external-player-settings': ExternalPlayerSettings,
+          'experimental-settings': ExperimentalSettings
+        }
+      : {})
   },
   data: function () {
     return {
@@ -53,11 +58,14 @@ export default defineComponent({
           type: 'player-settings',
           title: this.$t('Settings.Player Settings.Player Settings')
         },
-        {
-          type: 'external-player-settings',
-          title: this.$t('Settings.External Player Settings.External Player Settings'),
-          usingElectron: true
-        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'external-player-settings',
+                title: this.$t('Settings.External Player Settings.External Player Settings')
+              }
+            ]
+          : []),
         {
           type: 'subscription-settings',
           title: this.$t('Settings.Subscription Settings.Subscription Settings')
@@ -74,16 +82,18 @@ export default defineComponent({
           type: 'data-settings',
           title: this.$t('Settings.Data Settings.Data Settings')
         },
-        {
-          type: 'proxy-settings',
-          title: this.$t('Settings.Proxy Settings.Proxy Settings'),
-          usingElectron: true
-        },
-        {
-          type: 'download-settings',
-          title: this.$t('Settings.Download Settings.Download Settings'),
-          usingElectron: true
-        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'proxy-settings',
+                title: this.$t('Settings.Proxy Settings.Proxy Settings')
+              },
+              {
+                type: 'download-settings',
+                title: this.$t('Settings.Download Settings.Download Settings')
+              }
+            ]
+          : []),
         {
           type: 'parental-control-settings',
           title: this.$t('Settings.Parental Control Settings.Parental Control Settings')
@@ -92,11 +102,14 @@ export default defineComponent({
           type: 'sponsor-block-settings',
           title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
         },
-        {
-          type: 'experimental-settings',
-          title: this.$t('Settings.Experimental Settings.Experimental Settings'),
-          usingElectron: true
-        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'experimental-settings',
+                title: this.$t('Settings.Experimental Settings.Experimental Settings')
+              },
+            ]
+          : []),
         {
           type: 'password-settings',
           title: this.$t('Settings.Password Settings.Password Settings')
@@ -122,20 +135,13 @@ export default defineComponent({
     },
 
     settingsSectionComponents: function () {
-      let settingsSections
-      if (!process.env.IS_ELECTRON) {
-        settingsSections = this.settingsComponentsData.filter((settingsComponent) => !settingsComponent.usingElectron)
-      } else {
-        settingsSections = this.settingsComponentsData
-      }
-
       if (this.settingsSectionSortEnabled) {
-        return settingsSections.toSorted((a, b) =>
+        return this.settingsComponentsData.toSorted((a, b) =>
           a.title.toLowerCase().localeCompare(b.title.toLowerCase(), this.locale)
         )
       }
 
-      return settingsSections
+      return this.settingsComponentsData
     },
   },
   created: function () {
