@@ -37,7 +37,7 @@
         :data="data"
       />
       <ft-list-hashtag
-        v-else-if="data.type === 'hashtag'"
+        v-else-if="finalDataType === 'hashtag'"
         :appearance="appearance"
         :data="data"
       />
