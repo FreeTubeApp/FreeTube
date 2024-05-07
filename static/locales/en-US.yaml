@@ -199,6 +199,7 @@ User Playlists:
 
       This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
       Quick bookmark disabled: Quick bookmark disabled
+      This will disable quick bookmark feature. Click here to confirm this action: This will disable quick bookmark feature. Click here to confirm this action
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
       Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
 
