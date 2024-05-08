@@ -208,7 +208,7 @@ User Playlists:
       There were no videos to remove.: There were no videos to remove.
       This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new Quick Bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
   AddVideoPrompt:
