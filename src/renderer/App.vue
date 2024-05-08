@@ -51,6 +51,9 @@
     <ft-create-playlist-prompt
       v-if="showCreatePlaylistPrompt"
     />
+    <ft-playlist-select-quick-bookmark-target-prompt
+      v-if="showSelectQuickBookmarkTargetPrompt"
+    />
     <ft-toast />
     <ft-progress-bar
       v-if="showProgressBar"

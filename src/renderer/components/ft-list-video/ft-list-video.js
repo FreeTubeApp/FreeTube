@@ -7,7 +7,6 @@ import {
   formatDurationAsTimestamp,
   formatNumber,
   getRelativeTimeFromDate,
-  openInternalPath,
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
@@ -106,6 +105,7 @@ export default defineComponent({
       isPremium: false,
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
+      selectQuickBookmarkTargetPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
     }
   },
@@ -452,6 +452,9 @@ export default defineComponent({
     quickBookmarkIconTheme: function () {
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },
+    selectQuickBookmarkTargetPromptShown() {
+      return this.$store.getters.getShowSelectQuickBookmarkTargetPrompt
+    },
 
     watchPageLinkTo() {
       // For `router-link` attribute `to`
@@ -490,6 +493,13 @@ export default defineComponent({
 
       if (this.addToPlaylistPromptCloseCallback == null) { return }
       this.addToPlaylistPromptCloseCallback()
+    },
+    selectQuickBookmarkTargetPromptShown(value) {
+      if (value) { return }
+      // Execute on prompt close
+
+      if (this.selectQuickBookmarkTargetPromptCloseCallback == null) { return }
+      this.selectQuickBookmarkTargetPromptCloseCallback()
     },
   },
   created: function () {
@@ -763,13 +773,22 @@ export default defineComponent({
 
     toggleQuickBookmarked() {
       if (!this.isQuickBookmarkEnabled) {
-        showToast(
-          this.$t('Video["Quick Bookmark Disabled. Click Here To Open User Playlists Page To Enable Quick Bookmark"]'),
-          5000,
-          () => {
-            this.createNewWindowInUserPlaylistsView()
-          },
-        )
+        showToast(this.$t('User Playlists["Quick Bookmark Disabled. Pick a Playlist as Quick Bookmark Target"]'))
+        this.selectQuickBookmarkTargetPromptCloseCallback = () => {
+          // Run once only
+          this.selectQuickBookmarkTargetPromptCloseCallback = null
+
+          // Auto add this video to quick bookmark target if target set in prompt
+          if (!this.isQuickBookmarkEnabled) { return }
+
+          // Users don't know the video is in target playlist or not
+          // Assuming they want to add the video
+          // Add it only if not already present in target playlist
+          if (!this.isInQuickBookmarkPlaylist) {
+            this.addToQuickBookmarkPlaylist()
+          }
+        }
+        this.showSelectQuickBookmarkTargetPrompt()
         return
       }
 
@@ -778,13 +797,6 @@ export default defineComponent({
       } else {
         this.addToQuickBookmarkPlaylist()
       }
-    },
-    createNewWindowInUserPlaylistsView: function () {
-      openInternalPath({
-        path: '/userPlaylists',
-        query: {},
-        doCreateNewWindow: true,
-      })
     },
     addToQuickBookmarkPlaylist() {
       const videoData = {
@@ -837,6 +849,7 @@ export default defineComponent({
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
+      'showSelectQuickBookmarkTargetPrompt',
       'addVideos',
       'updatePlaylist',
       'removeVideo',

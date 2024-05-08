@@ -33,6 +33,7 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  showSelectQuickBookmarkTargetPrompt: false,
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -106,6 +107,10 @@ const getters = {
 
   getShowCreatePlaylistPrompt () {
     return state.showCreatePlaylistPrompt
+  },
+
+  getShowSelectQuickBookmarkTargetPrompt () {
+    return state.showSelectQuickBookmarkTargetPrompt
   },
 
   getShowSearchFilters () {
@@ -383,9 +388,15 @@ const actions = {
     commit('setShowCreatePlaylistPrompt', true)
     commit('setNewPlaylistVideoObject', data)
   },
-
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
+  },
+
+  showSelectQuickBookmarkTargetPrompt ({ commit }) {
+    commit('setShowSelectQuickBookmarkTargetPrompt', true)
+  },
+  hideSelectQuickBookmarkTargetPrompt ({ commit }) {
+    commit('setShowSelectQuickBookmarkTargetPrompt', false)
   },
 
   showSearchFilters ({ commit }) {
@@ -855,6 +866,10 @@ const mutations = {
 
   setShowCreatePlaylistPrompt (state, payload) {
     state.showCreatePlaylistPrompt = payload
+  },
+
+  setShowSelectQuickBookmarkTargetPrompt (state, payload) {
+    state.showSelectQuickBookmarkTargetPrompt = payload
   },
 
   setShowSearchFilters (state, payload) {

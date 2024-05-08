@@ -155,6 +155,7 @@ User Playlists:
   Add to Playlist: Add to Playlist
   Add to Favorites: Add to {playlistName}
   Remove from Favorites: Remove from {playlistName}
+  "Quick Bookmark Disabled. Pick a Playlist as Quick Bookmark Target": "Quick Bookmark Disabled. Pick a Playlist as Quick Bookmark Target"
 
   Move Video Up: Move Video Up
   Move Video Down: Move Video Down
@@ -234,6 +235,9 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: There is already a playlist with this name. Please pick a different name.
       Playlist {playlistName} has been successfully created.: Playlist {playlistName} has been successfully created.
       There was an issue with creating the playlist.: There was an issue with creating the playlist.
+  SelectQuickBookmarkTargetPrompt:
+    Select a playlist as quick bookmark target: Select a playlist as quick bookmark target
+    Later: Later
 History:
   # On History Page
   History: History
@@ -740,7 +744,6 @@ Video:
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
-  "Quick Bookmark Disabled. Click Here To Open User Playlists Page To Enable Quick Bookmark": "Quick Bookmark Disabled. Click Here To Open User Playlists Page To Enable Quick Bookmark"
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player

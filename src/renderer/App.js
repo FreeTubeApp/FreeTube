@@ -11,6 +11,7 @@ import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
+import FtPlaylistSelectQuickBookmarkTargetPrompt from './components/ft-playlist-select-quick-bookmark-target-prompt/ft-playlist-select-quick-bookmark-target-prompt.vue'
 import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
@@ -35,7 +36,8 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
-    FtSearchFilters
+    FtPlaylistSelectQuickBookmarkTargetPrompt,
+    FtSearchFilters,
   },
   data: function () {
     return {
@@ -79,6 +81,9 @@ export default defineComponent({
     },
     showCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+    showSelectQuickBookmarkTargetPrompt: function () {
+      return this.$store.getters.getShowSelectQuickBookmarkTargetPrompt
     },
     showSearchFilters: function () {
       return this.$store.getters.getShowSearchFilters
