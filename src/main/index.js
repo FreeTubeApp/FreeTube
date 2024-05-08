@@ -14,6 +14,8 @@ import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
 
+import contextMenu from 'electron-context-menu'
+
 import packageDetails from '../../package.json'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
@@ -43,7 +45,7 @@ function runApp() {
     }])
   }
 
-  require('electron-context-menu')({
+  contextMenu({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
@@ -626,6 +628,10 @@ function runApp() {
           return '#de1c85'
         case 'nordic':
           return '#2b2f3a'
+        case 'solarized-dark':
+          return '#002B36'
+        case 'solarized-light':
+          return '#fdf6e3'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

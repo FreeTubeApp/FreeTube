@@ -1061,3 +1061,4 @@ Yes, Open Link: 是，打开链接
 Cancel: 取消
 Yes, Delete: 是，删除
 Yes, Restart: 是，重启
+Search character limit: 搜索词超过了 {searchCharacterLimit} 字符的上限

@@ -61,10 +61,10 @@ export default defineComponent({
     handleSearchCache: function (option) {
       this.showSearchCachePrompt = false
 
-      if (option === 'delete') {
-        this.clearSessionSearchHistory()
-        showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
-      }
+      if (option !== 'delete') { return }
+
+      this.clearSessionSearchHistory()
+      showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
     },
 
     handleRememberHistory: function (value) {
@@ -78,10 +78,10 @@ export default defineComponent({
     handleRemoveHistory: function (option) {
       this.showRemoveHistoryPrompt = false
 
-      if (option === 'delete') {
-        this.removeAllHistory()
-        showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
-      }
+      if (option !== 'delete') { return }
+
+      this.removeAllHistory()
+      showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
     },
 
     handleRemoveSubscriptions: function (option) {
@@ -111,7 +111,8 @@ export default defineComponent({
 
     handleRemovePlaylists: function (option) {
       this.showRemovePlaylistsPrompt = false
-      if (option !== 'yes') { return }
+
+      if (option !== 'delete') { return }
 
       this.removeAllPlaylists()
       this.updateQuickBookmarkTargetPlaylistId('favorites')

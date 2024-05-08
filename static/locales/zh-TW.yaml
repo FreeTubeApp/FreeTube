@@ -1071,3 +1071,4 @@ Yes, Delete: 是的，刪除
 Yes, Restart: 是的，重新啟動
 Yes, Open Link: 是的，開啟連結
 Cancel: 取消
+Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制
