@@ -598,6 +598,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
+.mainSolarizedYellow,
 .mainSolarizedOrange,
 .mainSolarizedRed,
 .mainSolarizedMagenta,
