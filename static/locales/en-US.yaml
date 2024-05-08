@@ -308,6 +308,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -347,6 +349,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Yellow: Solarized Yellow
+      Solarized Orange: Solarized Orange
+      Solarized Red: Solarized Red
+      Solarized Magenta: Solarized Magenta
+      Solarized Violet: Solarized Violet
+      Solarized Blue: Solarized Blue
+      Solarized Cyan: Solarized Cyan
+      Solarized Green: Solarized Green
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -596,8 +606,8 @@ About:
   About: About
   Beta: Beta
   Source code: Source code
-  Licensed under the AGPLv3: Licensed under the AGPLv3
-  View License: View License
+  Licensed under the: Licensed under the
+  AGPLv3: AGPLv3
   Downloads / Changelog: Downloads / Changelog
   GitHub releases: GitHub releases
   Help: Help
