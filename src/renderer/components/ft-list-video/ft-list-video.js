@@ -440,7 +440,7 @@ export default defineComponent({
       })
     },
     quickBookmarkIconText: function () {
-      if (!this.isQuickBookmarkEnabled) { return false }
+      if (!this.isQuickBookmarkEnabled) { return this.$t('User Playlists.Add to Playlist') }
 
       const translationProperties = {
         playlistName: this.quickBookmarkPlaylist.playlistName,
