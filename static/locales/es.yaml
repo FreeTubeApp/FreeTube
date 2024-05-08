@@ -293,6 +293,8 @@ Settings:
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
       Nordic: Nórdico
+      Solarized Light: Solarized claro
+      Solarized Dark: Solarized oscuro
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -332,6 +334,12 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
       Catppuccin Mocha Blue: Catpuccin Moka Azul
       Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
+      Solarized Yellow: Solarized amarillo
+      Solarized Orange: Solarized naranja
+      Solarized Red: Rojo Solarized
+      Solarized Magenta: Magenta Solarized
+      Solarized Violet: Violeta Solarized
+      Solarized Blue: Azul Solarized
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
