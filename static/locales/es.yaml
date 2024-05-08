@@ -334,12 +334,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
       Catppuccin Mocha Blue: Catpuccin Moka Azul
       Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
-      Solarized Yellow: Solarized amarillo
-      Solarized Orange: Solarized naranja
+      Solarized Yellow: Amarillo Solarized
+      Solarized Orange: Naranja Solarized
       Solarized Red: Rojo Solarized
       Solarized Magenta: Magenta Solarized
       Solarized Violet: Violeta Solarized
       Solarized Blue: Azul Solarized
+      Solarized Cyan: Cian Solarized
+      Solarized Green: Verde Solarized
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -705,6 +707,8 @@ About:
   Source code: Código fuente
   Beta: Beta
   Discussions: Debates
+  Licensed under the: Bajo la licencia
+  AGPLv3: AGPLv3
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
