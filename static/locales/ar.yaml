@@ -282,6 +282,8 @@ Settings:
       Pastel Pink: الباستيل الوردي
       Hot Pink: وردي فاقع
       Nordic: بلدان الشمال الأوروبي
+      Solarized Dark: مظلم مشمس
+      Solarized Light: مشمس داكن
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -321,6 +323,14 @@ Settings:
       Catppuccin Mocha Red: كاتبوتشين موكا أحمر
       Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
       Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
+      Solarized Yellow: مشمس فاتح
+      Solarized Orange: مشمس برتقالي
+      Solarized Red: مشمس أحمر
+      Solarized Magenta: مشمس أرجواني
+      Solarized Violet: مشمس بنفسجي
+      Solarized Blue: مشمس أزرق
+      Solarized Cyan: مشمس سماوي
+      Solarized Green: مشمس أخضر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -679,6 +689,8 @@ About:
   Downloads / Changelog: التحميلات\التغييرات
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
   Discussions: المناقشات
+  Licensed under the: مرخص تحت
+  AGPLv3: AGPLv3
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
