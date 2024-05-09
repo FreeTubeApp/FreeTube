@@ -37,7 +37,15 @@ export const colors = [
   { name: 'CatppuccinMochaSky', value: '#89DCEB' },
   { name: 'CatppuccinMochaSapphire', value: '#74C7EC' },
   { name: 'CatppuccinMochaBlue', value: '#89B4FA' },
-  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' }
+  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' },
+  { name: 'SolarizedYellow', value: '#b58900' },
+  { name: 'SolarizedOrange', value: '#cb4b16' },
+  { name: 'SolarizedRed', value: '#dc322f' },
+  { name: 'SolarizedMagenta', value: '#d33682' },
+  { name: 'SolarizedViolet', value: '#6c71c4' },
+  { name: 'SolarizedBlue', value: '#268bd2' },
+  { name: 'SolarizedCyan', value: '#2aa198' },
+  { name: 'SolarizedGreen', value: '#859900' },
 ]
 
 export function getColorTranslations() {
@@ -78,7 +86,15 @@ export function getColorTranslations() {
     i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Sky'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Sapphire'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Blue'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Lavender')
+    i18n.t('Settings.Theme Settings.Main Color Theme.Catppuccin Mocha Lavender'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Orange'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Magenta'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Violet'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Cyan'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Green'),
   ]
 }
 

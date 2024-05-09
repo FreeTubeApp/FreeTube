@@ -302,6 +302,8 @@ Settings:
       Pastel Pink: Pasztell rózsaszín
       Hot Pink: Forró rózsaszín
       Nordic: Skandináv
+      Solarized Light: Szolarizált világos
+      Solarized Dark: Szolarizált sötét
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -341,6 +343,14 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
       Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
       Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
+      Solarized Yellow: Szolarizált sárga
+      Solarized Orange: Szolarizált narancssárga
+      Solarized Red: Szolarizált vörös
+      Solarized Blue: Szolarizált kék
+      Solarized Cyan: Szolarizált ciánkék
+      Solarized Green: Szolarizált zöld
+      Solarized Magenta: Szolarizált magenta
+      Solarized Violet: Szolarizált ibolya
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -709,6 +719,8 @@ About:
   FAQ: GyIK
   Report a problem: Probléma jelentése
   Discussions: Megbeszélések
+  AGPLv3: licenc alapján
+  Licensed under the: Az AGPLv3
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -1223,3 +1235,8 @@ Feed:
   Feed Last Updated: '{feedName} frissítve: {date}'
   Refresh Feed: '{subscriptionName} frissítése'
 Moments Ago: épp most
+Cancel: Mégse
+Yes, Delete: Igen, törlés
+Yes, Restart: Igen, újraindítás
+Yes, Open Link: Igen, hivatkozás megnyitása
+Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt

@@ -1260,3 +1260,8 @@ Moments Ago: vor wenigen Augenblicken
 Feed:
   Refresh Feed: '{subscriptionName} auffrischen'
   Feed Last Updated: '{feedName} Feed zuletzt aktualisiert: {date}'
+Yes, Delete: Ja, löschen
+Cancel: Abbrechen
+Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
+Yes, Restart: Ja, neustarten
+Yes, Open Link: Ja, Link öffnen

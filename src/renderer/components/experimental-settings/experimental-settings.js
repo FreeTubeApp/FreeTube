@@ -37,7 +37,7 @@ export default defineComponent({
     handleReplaceHttpCache: function (value) {
       this.showRestartPrompt = false
 
-      if (value === null || value === 'no') {
+      if (value === null || value === 'cancel') {
         this.replaceHttpCache = !this.replaceHttpCache
         return
       }
