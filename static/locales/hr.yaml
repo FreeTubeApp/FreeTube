@@ -624,6 +624,7 @@ Settings:
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
   Expand All Settings Sections: Rasklopi sve odjeljke postavki
+  Sort Settings Sections (A-Z): Razvrstaj odjeljke postavki (A-Z)
 About:
   #On About page
   About: 'Informacije'
@@ -1200,3 +1201,7 @@ Feed:
   Feed Last Updated: 'Zadnje aktualiziranje feeda {feedName}: {date}'
   Refresh Feed: Aktualiziraj {subscriptionName}
 Moments Ago: nedavno
+Yes, Delete: Da, izbriši
+Yes, Open Link: Da, otvori poveznicu
+Cancel: Odustani
+Yes, Restart: Da, pokreni ponovo

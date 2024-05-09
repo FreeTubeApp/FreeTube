@@ -602,6 +602,7 @@ Settings:
     Set Password: Määra salasõna
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Expand All Settings Sections: Laienda kõik seadistuste lõigud
+  Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
 About:
   #On About page
   About: 'Teave'
@@ -1139,3 +1140,9 @@ Feed:
   Feed Last Updated: '{feedName} tellimustevoo viimane uuendus: {date}'
   Refresh Feed: Uuenda {subscriptionName} andmed
 Moments Ago: hetk tagasi
+Yes, Restart: Jah, käivita uuesti
+Cancel: Katkesta
+Search character limit: Otsingupäring on lubatud {searchCharacterLimit}-tähemärgisest
+  piirist pikem
+Yes, Delete: Jah, kustuta
+Yes, Open Link: Jah, ava link

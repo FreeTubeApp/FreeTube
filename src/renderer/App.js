@@ -1,6 +1,5 @@
-import Vue, { defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -11,6 +10,7 @@ import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
+import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
@@ -18,8 +18,6 @@ import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
 
 let ipcRenderer = null
-
-Vue.directive('observe-visibility', ObserveVisibility)
 
 export default defineComponent({
   name: 'App',
@@ -34,6 +32,7 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
+    FtSearchFilters
   },
   data: function () {
     return {
@@ -46,6 +45,7 @@ export default defineComponent({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
+      isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -76,6 +76,9 @@ export default defineComponent({
     },
     showCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+    showSearchFilters: function () {
+      return this.$store.getters.getShowSearchFilters
     },
     windowTitle: function () {
       const routePath = this.$route.path
@@ -127,7 +130,7 @@ export default defineComponent({
 
     externalLinkOpeningPromptNames: function () {
       return [
-        this.$t('Yes'),
+        this.$t('Yes, Open Link'),
         this.$t('No')
       ]
     },
@@ -146,12 +149,6 @@ export default defineComponent({
     secColor: 'checkThemeSettings',
 
     locale: 'setLocale',
-
-    $route () {
-      // react to route changes...
-      // Hide top nav filter panel on page change
-      this.$refs.topNav?.hideFilters()
-    }
   },
   created () {
     this.checkThemeSettings()
@@ -314,6 +311,10 @@ export default defineComponent({
       }
 
       this.showBlogBanner = false
+    },
+
+    handlePromptPortalUpdate: function(newVal) {
+      this.isPromptOpen = newVal
     },
 
     openDownloadsPage: function () {
@@ -569,7 +570,7 @@ export default defineComponent({
       'updateMainColor',
       'updateSecColor',
       'showOutlines',
-      'hideOutlines'
+      'hideOutlines',
     ])
   }
 })

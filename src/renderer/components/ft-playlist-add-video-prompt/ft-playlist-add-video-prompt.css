@@ -6,16 +6,6 @@
   text-align: center;
 }
 
-/* Style for `ft-prompt` */
-:deep(.promptCard) {
-  /* Currently only this prompt has enough content to make prompt too high */
-  max-block-size: 95%;
-
-  /* Some child(s) will grow vertically */
-  display: flex;
-  flex-direction: column;
-}
-
 .searchInputsRow {
   display: grid;
 
