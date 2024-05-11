@@ -1,6 +1,5 @@
 import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
-import { join } from 'path'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 import { PlayerCache } from './PlayerCache'
@@ -9,7 +8,6 @@ import {
   calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
-  getUserDataPath,
   toLocalePublicationString
 } from '../utils'
 
@@ -41,8 +39,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
-      const userData = await getUserDataPath()
-      cache = new PlayerCache(join(userData, 'player_cache'))
+      cache = new PlayerCache()
     } else {
       cache = new UniversalCache(false)
     }

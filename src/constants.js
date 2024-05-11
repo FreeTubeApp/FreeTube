@@ -4,8 +4,6 @@ const IpcChannels = {
   DISABLE_PROXY: 'disable-proxy',
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
-  GET_USER_DATA_PATH: 'get-user-data-path',
-  GET_USER_DATA_PATH_SYNC: 'get-user-data-path-sync',
   GET_PICTURES_PATH: 'get-pictures-path',
   SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
@@ -26,7 +24,10 @@ const IpcChannels = {
   SYNC_PLAYLISTS: 'sync-playlists',
 
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
-  TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache'
+  TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
+
+  PLAYER_CACHE_GET: 'player-cache-get',
+  PLAYER_CACHE_SET: 'player-cache-set'
 }
 
 const DBActions = {
