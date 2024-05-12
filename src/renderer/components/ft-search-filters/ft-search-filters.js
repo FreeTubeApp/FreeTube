@@ -1,16 +1,24 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../ft-radio-button/ft-radio-button.vue'
+import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtButton from '../ft-button/ft-button.vue'
 
 export default defineComponent({
   name: 'FtSearchFilters',
   components: {
     'ft-flex-box': FtFlexBox,
-    'ft-radio-button': FtRadioButton
+    'ft-radio-button': FtRadioButton,
+    'ft-prompt': FtPrompt,
+    'ft-button': FtButton
   },
-  emits: ['filterValueUpdated'],
   data: function () {
     return {
+      searchSortByStartIndex: 0,
+      searchTimeStartIndex: 0,
+      searchTypeStartIndex: 0,
+      searchDurationStartIndex: 0,
       sortByValues: [
         'relevance',
         'rating',
@@ -41,11 +49,15 @@ export default defineComponent({
     }
   },
   computed: {
+    title: function () {
+      return this.$t('Search Filters.Search Filters')
+    },
+
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
     },
 
-    filterValueChanged: function() {
+    searchFilterValueChanged: function() {
       return [
         this.$refs.sortByRadio.selectedValue !== this.sortByValues[0],
         this.$refs.timeRadio.selectedValue !== this.timeValues[0],
@@ -93,6 +105,12 @@ export default defineComponent({
       ]
     }
   },
+  created: function () {
+    this.searchSortByStartIndex = this.sortByValues.indexOf(this.searchSettings.sortBy)
+    this.searchTimeStartIndex = this.timeValues.indexOf(this.searchSettings.time)
+    this.searchTypeStartIndex = this.typeValues.indexOf(this.searchSettings.type)
+    this.searchDurationStartIndex = this.durationValues.indexOf(this.searchSettings.duration)
+  },
   methods: {
     isVideoOrMovieOrAll(type) {
       return type === 'video' || type === 'movie' || type === 'all'
@@ -100,7 +118,7 @@ export default defineComponent({
 
     updateSortBy: function (value) {
       this.$store.commit('setSearchSortBy', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$store.commit('setSearchFilterValueChanged', this.searchFilterValueChanged)
     },
 
     updateTime: function (value) {
@@ -110,7 +128,7 @@ export default defineComponent({
         this.$store.commit('setSearchType', 'all')
       }
       this.$store.commit('setSearchTime', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$store.commit('setSearchFilterValueChanged', this.searchFilterValueChanged)
     },
 
     updateType: function (value) {
@@ -126,7 +144,7 @@ export default defineComponent({
         this.$store.commit('setSearchSortBy', this.sortByValues[0])
       }
       this.$store.commit('setSearchType', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
+      this.$store.commit('setSearchFilterValueChanged', this.searchFilterValueChanged)
     },
 
     updateDuration: function (value) {
@@ -136,7 +154,11 @@ export default defineComponent({
         this.updateType('all')
       }
       this.$store.commit('setSearchDuration', value)
-      this.$emit('filterValueUpdated', this.filterValueChanged)
-    }
+      this.$store.commit('setSearchFilterValueChanged', this.searchFilterValueChanged)
+    },
+
+    ...mapActions([
+      'hideSearchFilters'
+    ])
   }
 })

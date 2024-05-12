@@ -1206,3 +1206,8 @@ Feed:
 Display Label: '{label}: {value}'
 Moments Ago: há momentos
 checkmark: ✓
+Yes, Delete: Sim, eliminar
+Yes, Open Link: Sim, abrir ligação
+Cancel: Cancelar
+Search character limit: 'A pesquisa excede o limite de caracteres permitidos: {searchCharacterLimit}'
+Yes, Restart: Sim, reiniciar

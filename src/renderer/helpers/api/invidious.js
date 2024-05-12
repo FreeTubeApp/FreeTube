@@ -146,7 +146,7 @@ function parseInvidiousCommentData(response) {
   return response.comments.map((comment) => {
     comment.showReplies = false
     comment.authorLink = comment.authorId
-    comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails[1].url)
+    comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url)
     comment.likes = comment.likeCount
     comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstance())))
     comment.dataType = 'invidious'

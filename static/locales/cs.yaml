@@ -298,6 +298,8 @@ Settings:
       Hot Pink: Horká růžová
       Pastel Pink: Pastelově růžová
       Nordic: Nordic
+      Solarized Dark: Solarizovaná tmavá
+      Solarized Light: Solarizovaná světlá
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -337,6 +339,14 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Yellow: Solarizovaná žlutá
+      Solarized Orange: Solarizovaná oranžová
+      Solarized Red: Solarizovaná červená
+      Solarized Magenta: Solarizovaná purpurová
+      Solarized Violet: Solarizovaná fialová
+      Solarized Blue: Solarizovaná modrá
+      Solarized Cyan: Solarizovaná azurová
+      Solarized Green: Solarizovaná zelená
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt štítky na bočním panelu
@@ -683,6 +693,8 @@ About:
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
   Discussions: Diskuze
+  Licensed under the: Licencováno pod
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -1185,3 +1197,9 @@ Feed:
   Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
   Refresh Feed: Obnovit {subscriptionName}
 Moments Ago: chvílí
+Yes, Delete: Ano, odstranit
+Yes, Restart: Ano, restartovat
+Yes, Open Link: Ano, otevřít odkaz
+Cancel: Zrušit
+Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
+  ({searchCharacterLimit})

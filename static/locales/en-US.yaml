@@ -60,6 +60,7 @@ Global:
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
+Search character limit: Search query is over the {searchCharacterLimit} character limit
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -309,6 +310,8 @@ Settings:
       Nordic: Nordic
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -355,6 +358,14 @@ Settings:
       Gruvbox Purple: Gruvbox Purple
       Gruvbox Aqua: Gruvbox Aqua
       Gruvbox Orange: Gruvbox Orange
+      Solarized Yellow: Solarized Yellow
+      Solarized Orange: Solarized Orange
+      Solarized Red: Solarized Red
+      Solarized Magenta: Solarized Magenta
+      Solarized Violet: Solarized Violet
+      Solarized Blue: Solarized Blue
+      Solarized Cyan: Solarized Cyan
+      Solarized Green: Solarized Green
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -605,8 +616,8 @@ About:
   About: About
   Beta: Beta
   Source code: Source code
-  Licensed under the AGPLv3: Licensed under the AGPLv3
-  View License: View License
+  Licensed under the: Licensed under the
+  AGPLv3: AGPLv3
   Downloads / Changelog: Downloads / Changelog
   GitHub releases: GitHub releases
   Help: Help
@@ -1077,6 +1088,10 @@ Moments Ago: moments ago
 Yes: Yes
 No: No
 Ok: Ok
+Yes, Delete: Yes, Delete
+Yes, Restart: Yes, Restart
+Yes, Open Link: Yes, Open Link
+Cancel: Cancel
 # symbol used to indicate that an item is correct
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)

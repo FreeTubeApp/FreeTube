@@ -47,7 +47,9 @@
         filter: brightness(0.868);
       }
 
-      .black & {
+      .black &,
+      .solarizedDark &
+      {
         filter: brightness(0.933);
       }
 
@@ -56,6 +58,7 @@
       .pastelPink &,
       .light &,
       .gruvboxLight &,
+      .solarizedLight &,
       .system[data-system-theme*='light'] & {
         filter: invert(0.87);
       }
@@ -79,6 +82,7 @@
         .CatppuccinMocha &,
         .hotPink &,
 	.gruvboxDark &,
+        .solarizedDark &,
         .system[data-system-theme*='dark'] & {
           background-image: url('../../assets/img/invidious-logo-dark.svg');
         }
@@ -86,6 +90,7 @@
         .pastelPink &,
         .light &,
 	.gruvboxLight &,
+        .solarizedLight &,
         .system[data-system-theme*='light'] & {
           background-image: url('../../assets/img/invidious-logo-light.svg');
         }

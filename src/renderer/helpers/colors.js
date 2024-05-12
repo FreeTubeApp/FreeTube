@@ -45,6 +45,14 @@ export const colors = [
   { name: 'GruvboxPurple', value: '#d3869b' },
   { name: 'GruvboxAqua', value: '#8ec07c' },
   { name: 'GruvboxOrange', value: '#fe8019' },
+  { name: 'SolarizedYellow', value: '#b58900' },
+  { name: 'SolarizedOrange', value: '#cb4b16' },
+  { name: 'SolarizedRed', value: '#dc322f' },
+  { name: 'SolarizedMagenta', value: '#d33682' },
+  { name: 'SolarizedViolet', value: '#6c71c4' },
+  { name: 'SolarizedBlue', value: '#268bd2' },
+  { name: 'SolarizedCyan', value: '#2aa198' },
+  { name: 'SolarizedGreen', value: '#859900' },
 ]
 
 export function getColorTranslations() {
@@ -92,7 +100,15 @@ export function getColorTranslations() {
     i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Blue'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Purple'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Aqua'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Orange')
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Orange'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Orange'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Magenta'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Violet'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Cyan'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Green'),
   ]
 }
 

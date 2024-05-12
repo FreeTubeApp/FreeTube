@@ -14,6 +14,8 @@ import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
 
+import contextMenu from 'electron-context-menu'
+
 import packageDetails from '../../package.json'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
@@ -43,7 +45,7 @@ function runApp() {
     }])
   }
 
-  require('electron-context-menu')({
+  contextMenu({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
@@ -197,10 +199,12 @@ function runApp() {
     app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
   }
 
+  const userDataPath = app.getPath('userData')
+
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
-  const REPLACE_HTTP_CACHE_PATH = `${app.getPath('userData')}/experiment-replace-http-cache`
+  const REPLACE_HTTP_CACHE_PATH = `${userDataPath}/experiment-replace-http-cache`
   const replaceHttpCache = existsSync(REPLACE_HTTP_CACHE_PATH)
   if (replaceHttpCache) {
     // the http cache causes excessive disk usage during video playback
@@ -208,6 +212,8 @@ function runApp() {
     // experimental as it increases RAM use in favour of reduced disk use
     app.commandLine.appendSwitch('disable-http-cache')
   }
+
+  const PLAYER_CACHE_PATH = `${userDataPath}/player_cache`
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -630,6 +636,10 @@ function runApp() {
           return '282828'
         case 'gruvbox-light':
           return 'fbf1c7'
+        case 'solarized-dark':
+          return '#002B36'
+        case 'solarized-light':
+          return '#fdf6e3'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -864,14 +874,6 @@ function runApp() {
     return app.getSystemLocale()
   })
 
-  ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {
-    return app.getPath('userData')
-  })
-
-  ipcMain.on(IpcChannels.GET_USER_DATA_PATH_SYNC, (event) => {
-    event.returnValue = app.getPath('userData')
-  })
-
   ipcMain.handle(IpcChannels.GET_PICTURES_PATH, () => {
     return app.getPath('pictures')
   })
@@ -934,6 +936,35 @@ function runApp() {
     }
 
     relaunch()
+  })
+
+  function playerCachePathForKey(key) {
+    // Remove path separators and period characters,
+    // to prevent any files outside of the player_cache directory,
+    // from being read or written
+    const sanitizedKey = `${key}`.replaceAll(/[./\\]/g, '__')
+
+    return path.join(PLAYER_CACHE_PATH, sanitizedKey)
+  }
+
+  ipcMain.handle(IpcChannels.PLAYER_CACHE_GET, async (_, key) => {
+    const filePath = playerCachePathForKey(key)
+
+    try {
+      const contents = await asyncFs.readFile(filePath)
+      return contents.buffer
+    } catch (e) {
+      console.error(e)
+      return undefined
+    }
+  })
+
+  ipcMain.handle(IpcChannels.PLAYER_CACHE_SET, async (_, key, value) => {
+    const filePath = playerCachePathForKey(key)
+
+    await asyncFs.mkdir(PLAYER_CACHE_PATH, { recursive: true })
+
+    await asyncFs.writeFile(filePath, new Uint8Array(value))
   })
 
   // ************************************************* //

@@ -1,7 +1,5 @@
 <template>
-  <div
-    ref="search"
-  >
+  <div>
     <ft-loader
       v-if="isLoading && !errorMessage"
       :fullscreen="true"
@@ -206,6 +204,7 @@
 
           <ft-input
             v-if="showSearchBar"
+            ref="channelSearchBar"
             :placeholder="$t('Channel.Search Channel')"
             :show-clear-text-button="true"
             class="channelSearch"

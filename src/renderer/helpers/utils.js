@@ -4,6 +4,7 @@ import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
+import { nextTick } from 'vue'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -610,16 +611,6 @@ export async function getSystemLocale() {
   return locale || 'en-US'
 }
 
-export async function getUserDataPath() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
-  } else {
-    // TODO: implement getUserDataPath web compatible callback
-    return null
-  }
-}
-
 export async function getPicturesPath() {
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
@@ -860,5 +851,15 @@ export async function fetchWithTimeout(timeoutMs, input, init) {
     } else {
       throw err
     }
+  }
+}
+
+export function ctrlFHandler(event, inputElement) {
+  switch (event.key) {
+    case 'F':
+    case 'f':
+      if (((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
+        nextTick(() => inputElement?.focus())
+      }
   }
 }
