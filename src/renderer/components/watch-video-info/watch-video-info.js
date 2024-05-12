@@ -105,6 +105,11 @@ export default defineComponent({
     }
   },
   emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
+  data() {
+    return {
+      selectQuickBookmarkTargetPromptCloseCallback: null,
+    }
+  },
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
@@ -234,7 +239,7 @@ export default defineComponent({
       })
     },
     quickBookmarkIconText: function () {
-      if (!this.isQuickBookmarkEnabled) { return false }
+      if (!this.isQuickBookmarkEnabled) { return this.$t('User Playlists.Add to Playlist') }
 
       const translationProperties = {
         playlistName: this.quickBookmarkPlaylist.playlistName,
@@ -245,6 +250,18 @@ export default defineComponent({
     },
     quickBookmarkIconTheme: function () {
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
+    },
+    selectQuickBookmarkTargetPromptShown() {
+      return this.$store.getters.getShowSelectQuickBookmarkTargetPrompt
+    },
+  },
+  watch: {
+    selectQuickBookmarkTargetPromptShown(value) {
+      if (value) { return }
+      // Execute on prompt close
+
+      if (this.selectQuickBookmarkTargetPromptCloseCallback == null) { return }
+      this.selectQuickBookmarkTargetPromptCloseCallback()
     },
   },
   mounted: function () {
@@ -344,7 +361,22 @@ export default defineComponent({
 
     toggleQuickBookmarked() {
       if (!this.isQuickBookmarkEnabled) {
-        // This should be prevented by UI
+        showToast(this.$t('User Playlists["Quick Bookmark Disabled. Pick a Playlist as Quick Bookmark Target"]'))
+        this.selectQuickBookmarkTargetPromptCloseCallback = () => {
+          // Run once only
+          this.selectQuickBookmarkTargetPromptCloseCallback = null
+
+          // Auto add this video to quick bookmark target if target set in prompt
+          if (!this.isQuickBookmarkEnabled) { return }
+
+          // Users don't know the video is in target playlist or not
+          // Assuming they want to add the video
+          // Add it only if not already present in target playlist
+          if (!this.isInQuickBookmarkPlaylist) {
+            this.addToQuickBookmarkPlaylist()
+          }
+        }
+        this.showSelectQuickBookmarkTargetPrompt()
         return
       }
 
@@ -396,6 +428,7 @@ export default defineComponent({
       'openInExternalPlayer',
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',
+      'showSelectQuickBookmarkTargetPrompt',
       'addVideos',
       'updatePlaylist',
       'removeVideo',
