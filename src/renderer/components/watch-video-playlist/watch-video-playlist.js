@@ -66,7 +66,9 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     isUserPlaylist: function () {
       return this.playlistType === 'user'
     },

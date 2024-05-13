@@ -13,27 +13,38 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
     return reversed ? playlistItems.toReversed() : playlistItems
   }
 
+  let collator
+
+  if (
+    sortOrder === SORT_BY_VALUES.VideoTitleAscending ||
+    sortOrder === SORT_BY_VALUES.VideoTitleDescending ||
+    sortOrder === SORT_BY_VALUES.AuthorAscending ||
+    sortOrder === SORT_BY_VALUES.AuthorDescending
+  ) {
+    collator = new Intl.Collator([locale, 'en'])
+  }
+
   return playlistItems.toSorted((a, b) => {
     const first = !reversed ? a : b
     const second = !reversed ? b : a
-    return compareTwoPlaylistItems(first, second, sortOrder, locale)
+    return compareTwoPlaylistItems(first, second, sortOrder, collator)
   })
 }
 
-function compareTwoPlaylistItems(a, b, sortOrder, locale) {
+function compareTwoPlaylistItems(a, b, sortOrder, collator) {
   switch (sortOrder) {
     case SORT_BY_VALUES.DateAddedNewest:
       return b.timeAdded - a.timeAdded
     case SORT_BY_VALUES.DateAddedOldest:
       return a.timeAdded - b.timeAdded
     case SORT_BY_VALUES.VideoTitleAscending:
-      return a.title.localeCompare(b.title, locale)
+      return collator.compare(a.title, b.title)
     case SORT_BY_VALUES.VideoTitleDescending:
-      return b.title.localeCompare(a.title, locale)
+      return collator.compare(b.title, a.title)
     case SORT_BY_VALUES.AuthorAscending:
-      return a.author.localeCompare(b.author, locale)
+      return collator.compare(a.author, b.author)
     case SORT_BY_VALUES.AuthorDescending:
-      return b.author.localeCompare(a.author, locale)
+      return collator.compare(b.author, a.author)
     default:
       console.error(`Unknown sortOrder: ${sortOrder}`)
       return 0
