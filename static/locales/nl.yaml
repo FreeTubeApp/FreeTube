@@ -291,6 +291,8 @@ Settings:
       Pastel Pink: Pastel­roze
       Hot Pink: Heet-roze
       Nordic: Noords
+      Solarized Dark: Gesolariseerd donker
+      Solarized Light: Gesolariseerd licht
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -330,6 +332,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mokka Saffier
       Catppuccin Mocha Teal: Catppuccin Mokka Wintertaling
       Catppuccin Mocha Sky: Catppuccin Mokka Hemel
+      Solarized Yellow: Gesolariseerd geel
+      Solarized Orange: Gesolariseerd oranje
+      Solarized Red: Gesolariseerd rood
+      Solarized Magenta: Gesolariseerd magenta
+      Solarized Violet: Gesolariseerd violet
+      Solarized Blue: Gesolariseerd blauw
+      Solarized Cyan: Gesolariseerd cyaan
+      Solarized Green: Gesolariseerd groen
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Interface­schaal
@@ -694,6 +704,8 @@ About:
   Source code: Broncode
   Beta: Bèta
   Discussions: Discussies
+  AGPLv3: AGPLv3
+  Licensed under the: Gelicentieerd onder de
 Channel:
   Subscriber: 'Abonnee'
   Subscribers: 'Abonnees'

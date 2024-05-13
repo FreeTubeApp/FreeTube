@@ -576,16 +576,6 @@ export async function getSystemLocale() {
   return locale || 'en-US'
 }
 
-export async function getUserDataPath() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
-  } else {
-    // TODO: implement getUserDataPath web compatible callback
-    return null
-  }
-}
-
 export async function getPicturesPath() {
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')

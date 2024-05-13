@@ -1,6 +1,5 @@
-import Vue, { defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -19,8 +18,6 @@ import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
 
 let ipcRenderer = null
-
-Vue.directive('observe-visibility', ObserveVisibility)
 
 export default defineComponent({
   name: 'App',

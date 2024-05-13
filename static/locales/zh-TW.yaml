@@ -256,6 +256,8 @@ Settings:
       Pastel Pink: 淡粉紅色
       Hot Pink: 亮粉紅色
       Nordic: 北歐
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -295,6 +297,14 @@ Settings:
       Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
       Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
       Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
+      Solarized Yellow: Solarized 黃色
+      Solarized Orange: Solarized 橘色
+      Solarized Red: Solarized 紅色
+      Solarized Magenta: Solarized 洋紅色
+      Solarized Violet: Solarized 紫色
+      Solarized Blue: Solarized 藍色
+      Solarized Cyan: Solarized 青色
+      Solarized Green: Solarized 綠色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -625,6 +635,8 @@ About:
   Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
   Discussions: 討論
+  Licensed under the: 授權以
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'

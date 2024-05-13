@@ -287,6 +287,8 @@ Settings:
       Pastel Pink: Rosa Pastel
       Hot Pink: Rosa Choque
       Nordic: Nordico
+      Solarized Light: Claro Solarizado
+      Solarized Dark: Escuro Solarizado
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -326,6 +328,14 @@ Settings:
       Catppuccin Mocha Sky: Catppuccin Mocha Céu
       Catppuccin Mocha Teal: Catppuccin Mocha Verde-azulado
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Solarized Yellow: Amarelo Solarizado
+      Solarized Red: Vermelho Solarizado
+      Solarized Magenta: Magenta Solarizado
+      Solarized Violet: Violeta Solarizada
+      Solarized Blue: Azul Solarizado
+      Solarized Cyan: Ciano Solarizado
+      Solarized Green: Verde Solarizado
+      Solarized Orange: Laranja Solarizada
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -698,6 +708,8 @@ About:
   Please check for duplicates before posting: Verifique se há duplicações antes de
     postar
   Discussions: Discussões
+  Licensed under the: Licenciado sob o
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
