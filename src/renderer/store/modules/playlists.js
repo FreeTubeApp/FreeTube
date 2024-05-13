@@ -82,7 +82,7 @@ const actions = {
     try {
       await DBPlaylistHandlers.create([payload])
 
-      const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.find((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
+      const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.some((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
       if (noQuickBookmarkSet) {
         dispatch('updateQuickBookmarkTargetPlaylistId', payload._id, { root: true })
       }
@@ -97,7 +97,7 @@ const actions = {
     try {
       await DBPlaylistHandlers.create(payload)
 
-      const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.find((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
+      const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.some((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
       if (noQuickBookmarkSet) {
         // TODO: use user's top sorting preference, or most recently used playlist.
         // The sorting logic is currently not in an accessible utility class.
@@ -326,7 +326,7 @@ const actions = {
         }
 
         // if no quick bookmark is set, try to find another playlist
-        const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !payload.find((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
+        const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !payload.some((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
         if (noQuickBookmarkSet && payload.length > 0) {
           // TODO: use user's top sorting preference, or most recently used playlist.
           // The sorting logic is currently not in an accessible utility class.
@@ -387,11 +387,11 @@ const actions = {
     try {
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
 
-      const quickBookmarkPlaylistWasDeleted = playlistIds.indexOf(rootState.settings.quickBookmarkTargetPlaylistId) !== -1
+      const quickBookmarkPlaylistWasDeleted = playlistIds.includes(rootState.settings.quickBookmarkTargetPlaylistId)
       if (quickBookmarkPlaylistWasDeleted) {
         // TODO: use user's top sorting preference, or most recently used playlist.
         // The sorting logic is currently not in an accessible utility class.
-        const chosenPlaylist = state.playlists.find((playlist) => playlistIds.indexOf(playlist._id) === -1)
+        const chosenPlaylist = state.playlists.find((playlist) => !playlistIds.includes(playlist._id))
         if (chosenPlaylist) {
           dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
           showToast(i18n.t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} is the new quick bookmark playlist."]', {
