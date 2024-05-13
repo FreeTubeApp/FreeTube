@@ -40,6 +40,7 @@
   overflow-y: scroll;
   block-size: 40vh;
   display: block;
+  padding-inline: 15px;
 }
 
 .fade-enter-active, .fade-leave-active {

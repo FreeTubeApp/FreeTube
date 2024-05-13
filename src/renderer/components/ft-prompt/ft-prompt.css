@@ -47,6 +47,13 @@
   padding-block: 10px;
 }
 
+.promptCard.readable-width {
+  max-inline-size: 40em;
+  margin-inline: auto;
+  inset-inline: 0;
+  padding-inline: 0;
+}
+
 .center {
   text-align: center;
 }
