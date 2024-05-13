@@ -926,16 +926,17 @@ export default defineComponent({
 
         for (const period of periods) {
           /** @type {shaka.extern.xml.Node[]} */
-          const representations = period.children
-            ?.flatMap(periodChild => {
-              if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet') {
-                return periodChild.children
-                  ?.filter(adaptationSetChild => {
-                    return typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Representation'
-                  }) ?? []
+          const representations = []
+
+          for (const periodChild of period.children) {
+            if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet') {
+              for (const adaptationSetChild of periodChild.children) {
+                if (typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Representation') {
+                  representations.push(adaptationSetChild)
+                }
               }
-              return []
-            }) ?? []
+            }
+          }
 
           const knownIds = new Set()
           let counter = 0
