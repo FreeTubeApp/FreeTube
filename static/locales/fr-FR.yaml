@@ -1292,8 +1292,8 @@ Feed:
   Feed Last Updated: '{feedName} dernière mise à jour du flux : {date}'
   Refresh Feed: Rafraîchir {subscriptionName}
 Moments Ago: il y a quelques instants
-Yes, Delete: Oui, Effacer
-Yes, Restart: Oui, Redémarrer
-Yes, Open Link: Oui, Ouvrir le lien
+Yes, Delete: Oui, effacer
+Yes, Restart: Oui, redémarrer
+Yes, Open Link: Oui, ouvrir le lien
 Cancel: Annuler
 Search character limit: La recherche dépasse le nombre de caractères impartis
