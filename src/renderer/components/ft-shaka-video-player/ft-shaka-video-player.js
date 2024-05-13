@@ -2290,10 +2290,12 @@ export default defineComponent({
 
         const duration = seekRange.end - seekRange.start
 
+        const playbackRate = this.$refs.video.playbackRate
+
         navigator.mediaSession.setPositionState({
           duration,
           position: Math.min(Math.max(0, currentTime - seekRange.start), duration),
-          playbackRate: this.$refs.video.playbackRate
+          playbackRate: playbackRate > 0 ? playbackRate : undefined
         })
       }
     },
