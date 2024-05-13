@@ -142,7 +142,9 @@ export function sortCaptions(captions) {
   const currentLocale = i18n.locale.replace('_', '-')
   const userLocale = currentLocale.split('-') // ex. [en,US]
 
-  return captions.sort((captionA, captionB) => {
+  const collator = new Intl.Collator([currentLocale, 'en'])
+
+  return captions.slice().sort((captionA, captionB) => {
     const aCode = captionA.language.split('-') // ex. [en,US] or [en]
     const bCode = captionB.language.split('-')
     const aName = captionA.label // ex: english (auto-generated)
@@ -185,6 +187,6 @@ export function sortCaptions(captions) {
       return 1
     }
     // sort alphabetically
-    return aName.localeCompare(bName, currentLocale)
+    return collator.compare(aName, bName)
   })
 }
