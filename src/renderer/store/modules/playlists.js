@@ -1,6 +1,4 @@
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
-import i18n from '../../i18n/index'
-import { showToast } from '../../helpers/utils'
 
 function generateRandomPlaylistId() {
   return `ft-playlist--${generateRandomUniqueId()}`
@@ -13,6 +11,26 @@ function generateRandomPlaylistName() {
 function generateRandomUniqueId() {
   // To avoid importing `crypto` from NodeJS
   return crypto.randomUUID ? crypto.randomUUID() : `id-${Date.now()}-${Math.floor(Math.random() * 10000)}`
+}
+
+/*
+*  Function to find the first playlist with 0 videos, or otherwise the most recently accessed.
+*  This is a good default quick bookmark target if one needs to be set.
+*/
+function findEmptyOrLatestPlayedPlaylist(playlists) {
+  const emptyPlaylist = playlists.find((playlist) => playlist.videos.length === 0)
+  if (emptyPlaylist) return emptyPlaylist
+
+  let max = -1
+  let maxIndex = 0
+  for (let i = 0; i < playlists.length; i++) {
+    if (playlists[i].lastPlayedAt != null && playlists[i].lastPlayedAt > max) {
+      maxIndex = i
+      max = playlists[i].lastPlayedAt
+    }
+  }
+
+  return playlists[maxIndex]
 }
 
 const state = {
@@ -99,9 +117,7 @@ const actions = {
 
       const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !state.playlists.some((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
       if (noQuickBookmarkSet) {
-        // TODO: use user's top sorting preference, or most recently used playlist.
-        // The sorting logic is currently not in an accessible utility class.
-        const chosenPlaylist = payload[0]
+        const chosenPlaylist = findEmptyOrLatestPlayedPlaylist(payload)
         dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
       }
 
@@ -328,9 +344,7 @@ const actions = {
         // if no quick bookmark is set, try to find another playlist
         const noQuickBookmarkSet = !rootState.settings.quickBookmarkTargetPlaylistId || !payload.some((playlist) => playlist._id === rootState.settings.quickBookmarkTargetPlaylistId)
         if (noQuickBookmarkSet && payload.length > 0) {
-          // TODO: use user's top sorting preference, or most recently used playlist.
-          // The sorting logic is currently not in an accessible utility class.
-          const chosenPlaylist = payload[0]
+          const chosenPlaylist = findEmptyOrLatestPlayedPlaylist(payload)
           dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
         }
 
@@ -360,46 +374,18 @@ const actions = {
     }
   },
 
-  async removePlaylist({ state, commit, rootState, dispatch }, playlistId) {
+  async removePlaylist({ commit }, playlistId) {
     try {
       await DBPlaylistHandlers.delete(playlistId)
-
-      const quickBookmarkPlaylistWasDeleted = playlistId === rootState.settings.quickBookmarkTargetPlaylistId
-      if (quickBookmarkPlaylistWasDeleted) {
-        // TODO: use user's top sorting preference, or most recently used playlist.
-        // The sorting logic is currently not in an accessible utility class.
-        const chosenPlaylist = state.playlists.find((playlist) => playlist._id !== playlistId)
-        if (chosenPlaylist) {
-          dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
-          showToast(i18n.t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} is the new quick bookmark playlist."]', {
-            playlistName: chosenPlaylist.playlistName
-          }))
-        }
-      }
-
       commit('removePlaylist', playlistId)
     } catch (errMessage) {
       console.error(errMessage)
     }
   },
 
-  async removePlaylists({ state, commit, rootState, dispatch }, playlistIds) {
+  async removePlaylists({ commit }, playlistIds) {
     try {
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
-
-      const quickBookmarkPlaylistWasDeleted = playlistIds.includes(rootState.settings.quickBookmarkTargetPlaylistId)
-      if (quickBookmarkPlaylistWasDeleted) {
-        // TODO: use user's top sorting preference, or most recently used playlist.
-        // The sorting logic is currently not in an accessible utility class.
-        const chosenPlaylist = state.playlists.find((playlist) => !playlistIds.includes(playlist._id))
-        if (chosenPlaylist) {
-          dispatch('updateQuickBookmarkTargetPlaylistId', chosenPlaylist._id, { root: true })
-          showToast(i18n.t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} is the new quick bookmark playlist."]', {
-            playlistName: chosenPlaylist.playlistName
-          }))
-        }
-      }
-
       commit('removePlaylists', playlistIds)
     } catch (errMessage) {
       console.error(errMessage)
