@@ -194,6 +194,10 @@ export default defineComponent({
     document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
   },
   methods: {
+    scrollToSection: function(sectionType) {
+      this.$refs[sectionType][0].$el.scrollIntoView()
+    },
+
     /* Set the current section to be shown as active in the Settings Menu
     * if it is the lowest section within the top quarter of the viewport (25vh) */
     markScrolledToSectionAsActive: function() {

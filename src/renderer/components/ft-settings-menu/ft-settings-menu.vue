@@ -9,8 +9,10 @@
       v-for="(settingsSection) in settingsSections"
       :id="settingsSection.type + '-link'"
       :key="settingsSection.type + '-link'"
-      :href="'#' + settingsSection.type"
       class="title"
+      href="javascript:;"
+      @click.stop="goToSettingsSection(settingsSection.type)"
+      @keydown.enter.stop="goToSettingsSection(settingsSection.type)"
     >
       <div class="titleContent">
         <div class="iconAndTitleText">

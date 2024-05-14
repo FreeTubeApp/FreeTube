@@ -3,6 +3,7 @@
     <template v-if="unlocked">
       <ft-settings-menu
         :settings-sections="settingsSectionComponents"
+        @scroll-to-section="scrollToSection"
       />
       <div class="settingsContent">
         <div class="switchRow">

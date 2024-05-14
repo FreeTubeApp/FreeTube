@@ -7,5 +7,11 @@ export default defineComponent({
       type: Array,
       required: true
     },
+  },
+  emits: ['scroll-to-section'],
+  methods: {
+    goToSettingsSection: function (sectionType) {
+      this.$emit('scroll-to-section', sectionType)
+    }
   }
 })
