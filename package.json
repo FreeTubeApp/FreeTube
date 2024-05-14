@@ -109,7 +109,7 @@
     "postcss": "^8.4.38",
     "postcss-scss": "^4.0.9",
     "prettier": "^2.8.8",
-    "rimraf": "^5.0.5",
+    "rimraf": "^5.0.7",
     "sass": "^1.77.1",
     "sass-loader": "^14.2.1",
     "stylelint": "^16.5.0",
@@ -124,7 +124,6 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
-    "webpack-watch-external-files-plugin": "^3.0.0",
     "yaml-eslint-parser": "^1.2.2"
   }
 }

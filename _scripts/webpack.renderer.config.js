@@ -6,7 +6,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
-const WatchExternalFilesPlugin = require('webpack-watch-external-files-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const {
   SHAKA_LOCALE_MAPPINGS,
@@ -20,6 +19,7 @@ const { version: swiperVersion } = JSON.parse(readFileSync(path.join(__dirname, 
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: !isDevMode,
+  hotReload: isDevMode,
   inputDir: path.join(__dirname, '../static/locales'),
   outputDir: 'static/locales',
 })
@@ -185,16 +185,6 @@ const config = {
 }
 
 if (isDevMode) {
-  const activeLocales = JSON.parse(readFileSync(path.join(__dirname, '../static/locales/activeLocales.json')))
-
-  config.plugins.push(
-    new WatchExternalFilesPlugin({
-      files: [
-        `./static/locales/{${activeLocales.join(',')}}.yaml`,
-      ],
-    }),
-  )
-
   // hack to pass it through to the dev-runner.js script
   // gets removed there before the config object is passed to webpack
   config.SHAKA_LOCALES_TO_BE_BUNDLED = SHAKA_LOCALES_TO_BE_BUNDLED

@@ -169,6 +169,7 @@ const config = {
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: false,
+  hotReload: isDevMode,
   inputDir: path.join(__dirname, '../static/locales'),
   outputDir: 'static/locales',
 })
