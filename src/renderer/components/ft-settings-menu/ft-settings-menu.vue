@@ -18,7 +18,7 @@
             :icon="['fas', settingsSection.icon]"
             class="titleIcon"
           />
-          {{ getTitleForSection(settingsSection) }}
+          {{ settingsSection.shortTitle }}
         </div>
         <div class="titleUnderline" />
       </div>

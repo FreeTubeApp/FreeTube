@@ -7,10 +7,5 @@ export default defineComponent({
       type: Array,
       required: true
     },
-  },
-  methods: {
-    getTitleForSection: function(settingsSection) {
-      return settingsSection.shortTitle !== '' ? settingsSection.shortTitle : settingsSection.title
-    }
   }
 })

@@ -63,7 +63,7 @@ export default defineComponent({
     },
 
     settingsComponentsData: function () {
-      return [
+      const settingsComponentsData = [
         {
           type: 'theme-settings',
           title: this.$t('Settings.Theme Settings.Theme Settings'),
@@ -152,6 +152,7 @@ export default defineComponent({
           icon: 'key'
         },
       ]
+      return settingsComponentsData.map((entry) => { return { ...entry, shortTitle: entry.shortTitle || entry.title } })
     },
 
     settingsSectionComponents: function () {
@@ -168,7 +169,7 @@ export default defineComponent({
       const generalSettingsEntry = {
         type: 'general-settings',
         title: this.$t('Settings.General Settings.General Settings'),
-        shortTitle: this.$te('Settings.General Settings.General Settings Short Label') ? this.$t('Settings.General Settings.General Settings Short Label') : '',
+        shortTitle: this.$te('Settings.General Settings.General Settings Short Label') ? this.$t('Settings.General Settings.General Settings Short Label') : this.$t('Settings.General Settings.General Settings'),
         icon: 'border-all'
       }
 

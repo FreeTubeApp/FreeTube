@@ -17,11 +17,11 @@
         <div class="settingsSections">
           <template
             v-for="(settingsComponent) in settingsSectionComponents"
-            ref=""
           >
             <component
               :is="settingsComponent.type"
               :id="settingsComponent.type"
+              :ref="settingsComponent.type"
               :key="settingsComponent.type + '-component'"
               class="section"
             />
