@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtPlaylistQuickBookmarkButton from '../ft-playlist-quick-bookmark-button/ft-playlist-quick-bookmark-button.vue'
 import {
   copyToClipboard,
   deepCopy,
@@ -17,7 +18,8 @@ import debounce from 'lodash.debounce'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-playlist-quick-bookmark-button': FtPlaylistQuickBookmarkButton,
   },
   props: {
     data: {
@@ -105,7 +107,6 @@ export default defineComponent({
       isPremium: false,
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
-      selectQuickBookmarkTargetPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
     }
   },
@@ -432,29 +433,6 @@ export default defineComponent({
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
     },
-    isInQuickBookmarkPlaylist: function () {
-      if (!this.isQuickBookmarkEnabled) { return false }
-
-      return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === this.id
-      })
-    },
-    quickBookmarkIconText: function () {
-      if (!this.isQuickBookmarkEnabled) { return this.$t('User Playlists.Add to Playlist') }
-
-      const translationProperties = {
-        playlistName: this.quickBookmarkPlaylist.playlistName,
-      }
-      return this.isInQuickBookmarkPlaylist
-        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
-        : this.$t('User Playlists.Add to Favorites', translationProperties)
-    },
-    quickBookmarkIconTheme: function () {
-      return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
-    },
-    selectQuickBookmarkTargetPromptShown() {
-      return this.$store.getters.getShowSelectQuickBookmarkTargetPrompt
-    },
 
     watchPageLinkTo() {
       // For `router-link` attribute `to`
@@ -493,13 +471,6 @@ export default defineComponent({
 
       if (this.addToPlaylistPromptCloseCallback == null) { return }
       this.addToPlaylistPromptCloseCallback()
-    },
-    selectQuickBookmarkTargetPromptShown(value) {
-      if (value) { return }
-      // Execute on prompt close
-
-      if (this.selectQuickBookmarkTargetPromptCloseCallback == null) { return }
-      this.selectQuickBookmarkTargetPromptCloseCallback()
     },
   },
   created: function () {
@@ -771,33 +742,6 @@ export default defineComponent({
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
 
-    toggleQuickBookmarked() {
-      if (!this.isQuickBookmarkEnabled) {
-        showToast(this.$t('User Playlists["Quick Bookmark Disabled. Pick a Playlist as Quick Bookmark Target"]'))
-        this.selectQuickBookmarkTargetPromptCloseCallback = () => {
-          // Run once only
-          this.selectQuickBookmarkTargetPromptCloseCallback = null
-
-          // Auto add this video to quick bookmark target if target set in prompt
-          if (!this.isQuickBookmarkEnabled) { return }
-
-          // Users don't know the video is in target playlist or not
-          // Assuming they want to add the video
-          // Add it only if not already present in target playlist
-          if (!this.isInQuickBookmarkPlaylist) {
-            this.addToQuickBookmarkPlaylist()
-          }
-        }
-        this.showSelectQuickBookmarkTargetPrompt()
-        return
-      }
-
-      if (this.isInQuickBookmarkPlaylist) {
-        this.removeFromQuickBookmarkPlaylist()
-      } else {
-        this.addToQuickBookmarkPlaylist()
-      }
-    },
     addToQuickBookmarkPlaylist() {
       const videoData = {
         videoId: this.id,

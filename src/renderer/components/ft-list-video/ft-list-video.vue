@@ -55,19 +55,17 @@
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
         />
-        <ft-icon-button
+        <ft-playlist-quick-bookmark-button
           v-if="quickBookmarkButtonEnabled"
-          :title="quickBookmarkIconText"
-          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
-          class="quickBookmarkVideoIcon"
-          :class="{
-            bookmarked: isInQuickBookmarkPlaylist,
-            alwaysVisible: alwaysShowAddToPlaylistButton,
-          }"
-          :theme="quickBookmarkIconTheme"
+          :id="id"
+          :title="title"
+          :channel-id="channelId"
+          :channel-name="channelName"
+          :view-count="viewCount"
+          :length-seconds="lengthSeconds"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="toggleQuickBookmarked"
+          :always-visible="alwaysShowAddToPlaylistButton"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"

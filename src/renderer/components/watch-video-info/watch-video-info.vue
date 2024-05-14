@@ -87,15 +87,13 @@
           theme="base"
           @click="togglePlaylistPrompt"
         />
-        <ft-icon-button
-          :title="quickBookmarkIconText"
-          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
-          class="quickBookmarkVideoIcon"
-          :class="{
-            bookmarked: isInQuickBookmarkPlaylist,
-          }"
-          :theme="quickBookmarkIconTheme"
-          @click="toggleQuickBookmarked"
+        <ft-playlist-quick-bookmark-button
+          :id="id"
+          :title="title"
+          :channel-id="channelId"
+          :channel-name="channelName"
+          :view-count="viewCount"
+          :length-seconds="lengthSeconds"
         />
         <ft-icon-button
           v-if="externalPlayer !== ''"
