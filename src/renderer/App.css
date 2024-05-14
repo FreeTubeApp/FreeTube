@@ -42,6 +42,7 @@
   display: block;
   padding-inline: 16px;
   margin-block: 16px;
+  overflow-wrap: break-word;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -65,5 +66,9 @@
 
   .flexBox {
     margin-block: 60px -75px;
+  }
+
+  .changeLogText {
+    block-size: 65vh;
   }
 }
