@@ -48,7 +48,7 @@
 }
 
 .promptCard.readable-width {
-  max-inline-size: 40em;
+  max-inline-size: 50em;
   margin-inline: auto;
   inset-inline: 0;
   padding-inline: 0;
