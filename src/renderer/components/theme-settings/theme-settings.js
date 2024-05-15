@@ -97,15 +97,19 @@ export default defineComponent({
       ]
     },
 
+    /* Themes are devided into 3 groups. The first group contains the default themes. The second group are themes that don't have specific primary and secondary colors. The third group are themes that do have specific primary and secondary colors available. */ 
     baseThemeNames: function () {
       return [
+        // First group
         this.$t('Settings.Theme Settings.Base Theme.System Default'),
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Black'),
+        // Second group
         this.$t('Settings.Theme Settings.Base Theme.Nordic'),
         this.$t('Settings.Theme Settings.Base Theme.Hot Pink'),
         this.$t('Settings.Theme Settings.Base Theme.Pastel Pink'),
+        // Third group
         this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
         this.$t('Settings.Theme Settings.Base Theme.Dracula'),
         this.$t('Settings.Theme Settings.Base Theme.Solarized Dark'),
