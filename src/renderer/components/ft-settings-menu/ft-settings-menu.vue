@@ -7,7 +7,7 @@
     </h2>
     <a
       v-for="(settingsSection) in settingsSections"
-      :id="settingsSection.type + '-link'"
+      :id="settingsSection.type"
       :key="settingsSection.type + '-link'"
       class="title"
       href="javascript:;"

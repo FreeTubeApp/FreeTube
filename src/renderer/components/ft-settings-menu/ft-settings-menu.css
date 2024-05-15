@@ -1,6 +1,7 @@
 .settingsMenu {
+  /* top nav + margin */
+  inset-block-start: 96px;
   position: sticky;
-  inset-block-start: 120px;
   display: flex;
   flex-direction: column;
   font-size: 22px;
@@ -10,6 +11,8 @@
 
 .header {
   font-size: 26px;
+  inline-size: fit-content;
+  margin-block: 0 10px;
 }
 
 .title {
@@ -49,23 +52,51 @@
   border-block-end: 4px solid transparent;
 }
 
-.title.active {
-  color: var(--primary-text-color);
-  font-weight: 600;
-}
-
-.title.active .titleUnderline {
-  border-block-end: 4px solid var(--primary-color);
-}
-
 .titleIcon {
   inline-size: 22px;
   block-size: 22px;
 }
 
-@media only screen and (width <= 950px) {
+@media only screen and (width >= 1015px) {
   .settingsMenu {
-    display: none;
+    margin-block: 0;
+  }
+
+  .header {
+    margin-block-start: 10px;
+  }
+
+  .title.active {
+    color: var(--primary-text-color);
+    font-weight: 600;
+  }
+
+  .title.active .titleUnderline {
+    border-block-end: 4px solid var(--primary-color);
+  }
+}
+
+@media only screen and (width <= 1015px) {
+  .settingsMenu {
+    inline-size: fit-content;
+    margin-inline: auto;
+    position: relative;
+    inset-block-start: 0;
+    font-size: 30px;
+  }
+
+  .titleIcon {
+    inline-size: 30px;
+    block-size: 30px;
+    margin-inline-end: 10px;
+  }
+
+  .title {
+    inline-size: auto;
+  }
+
+  .header {
+    font-size: 32px;
   }
 
   /*
@@ -84,4 +115,36 @@
   .title {
     inline-size: 100%;
   } */
+}
+
+@media only screen and (width <= 1015px) and (height <= 830px) {
+  .settingsMenu {
+    font-size: 25px;
+  }
+
+  .titleIcon {
+    inline-size: 25px;
+    block-size: 25px;
+  }
+
+  .header {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (width <= 1015px) and (height <= 735px),
+screen and (width >= 1015px) and (height <= 600px) {
+  .settingsMenu {
+    font-size: 18px;
+  }
+
+  .titleIcon {
+    inline-size: 18px;
+    block-size: 18px;
+    margin-inline-end: 5px;
+  }
+
+  .header {
+    font-size: 22px;
+  }
 }

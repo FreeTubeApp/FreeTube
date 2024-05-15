@@ -1,11 +1,26 @@
 <template>
-  <div class="settingsPage">
+  <div class="settings settingsPage">
     <template v-if="unlocked">
+      <div v-show="settingsSectionTypeOpenInMobile != null">
+        <font-awesome-icon
+          :icon="['fas', 'angle-left']"
+          class="returnToMenuMobileIcon"
+          role="button"
+          :title="$t('Settings.Return to Settings Menu')"
+          tabindex="0"
+          @click="settingsSectionTypeOpenInMobile = null"
+          @keydown.space.enter="settingsSectionTypeOpenInMobile = null"
+        />
+      </div>
       <ft-settings-menu
+        v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"
         :settings-sections="settingsSectionComponents"
-        @scroll-to-section="scrollToSection"
+        @navigate-to-section="navigateToSection"
       />
-      <div class="settingsContent">
+      <div
+        v-show="isInDesktopView || settingsSectionTypeOpenInMobile != null"
+        class="settingsContent"
+      >
         <div class="switchRow">
           <ft-toggle-switch
             class="settingsToggle"
@@ -21,9 +36,9 @@
           >
             <component
               :is="settingsComponent.type"
-              :id="settingsComponent.type"
               :ref="settingsComponent.type"
               :key="settingsComponent.type + '-component'"
+              :class="{ hideOnMobile: settingsSectionTypeOpenInMobile !== settingsComponent.type }"
               class="section"
             />
           </template>

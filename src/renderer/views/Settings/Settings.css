@@ -8,11 +8,6 @@
   max-inline-size: 90%;
 }
 
-.settingsSections:last-child {
-  /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to */
-  margin-block-end: calc(76vh - 150px)
-}
-
 .switchRow {
   display: flex;
   margin-inline-end: auto;
@@ -28,20 +23,50 @@
   scroll-margin-top: 24vh;
 }
 
-.section + .section {
-  padding-block-start: 20px;
+@media only screen and (width >= 1015px) {
+  .section + .section {
+    padding-block-start: 20px;
+  }
+
+  .settingsSections:last-child {
+    /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to */
+    margin-block-end: calc(76vh - 150px)
+  }
 }
 
-@media only screen and (width <= 950px) {
-  .settingsPage {
+@media only screen and (width <= 1200px) {
+  .settingsSections {
+    max-inline-size: 100%;
+  }
+}
+
+@media only screen and (width <= 1015px) {
+  .settingsPage.settings {
     flex-direction: column;
+    margin-block: 0;
+    gap: 10px;
   }
 
   .switchRow, .settingsSections {
     margin-inline: auto;
   }
 
-  .settingsSections:last-child {
-    margin-block-end: 0;
+  .switchRow {
+    display: none;
+  }
+
+  .settingsSections {
+    overflow-y: hidden;
+    margin-block-end: 80px;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  .returnToMenuMobileIcon {
+    margin-block-start: 20px;
+    block-size: 30px;
+    font-size: 30px;
   }
 }

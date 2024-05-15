@@ -8,10 +8,10 @@ export default defineComponent({
       required: true
     },
   },
-  emits: ['scroll-to-section'],
+  emits: ['navigate-to-section'],
   methods: {
     goToSettingsSection: function (sectionType) {
-      this.$emit('scroll-to-section', sectionType)
+      this.$emit('navigate-to-section', sectionType)
     }
   }
 })

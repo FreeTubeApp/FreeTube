@@ -96,7 +96,8 @@ import {
   faTimesCircle,
   faTrash,
   faUserLock,
-  faUsers
+  faUsers,
+  faAngleLeft
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBitcoin,
@@ -116,6 +117,7 @@ Vue.config.productionTip = process.env.NODE_ENV === 'development'
 library.add(
   // solid icons
   faAngleDown,
+  faAngleLeft,
   faAngleUp,
   faArrowDown,
   faArrowDownShortWide,

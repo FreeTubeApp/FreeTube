@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
 import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
@@ -17,7 +17,7 @@ import PasswordSettings from '../../components/password-settings/password-settin
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtSettingsMenu from '../../components/ft-settings-menu/ft-settings-menu.vue'
-import { ACTIVE_CLASS_NAME } from '../../../constants'
+import { ACTIVE_CLASS_NAME, SETTINGS_MOBILE_WIDTH_THRESHOLD } from '../../../constants'
 
 export default defineComponent({
   name: 'Settings',
@@ -46,6 +46,8 @@ export default defineComponent({
   },
   data: function () {
     return {
+      isInDesktopView: true,
+      settingsSectionTypeOpenInMobile: null,
       unlocked: false
     }
   },
@@ -182,20 +184,27 @@ export default defineComponent({
     }
   },
   mounted: function () {
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize)
     document.addEventListener('scroll', this.markScrolledToSectionAsActive)
 
     // mark first section as active before any scrolling has taken place
     if (this.settingsSectionComponents.length > 0) {
-      const firstSection = document.getElementById(`${this.settingsSectionComponents[0].type}-link`)
+      const firstSection = document.getElementById(this.settingsSectionComponents[0].type)
       firstSection.classList.add(ACTIVE_CLASS_NAME)
     }
   },
   beforeDestroy: function () {
     document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
-    scrollToSection: function(sectionType) {
-      this.$refs[sectionType][0].$el.scrollIntoView()
+    navigateToSection: function(sectionType) {
+      if (this.isInDesktopView) {
+        nextTick(() => { this.$refs[sectionType][0].$el.scrollIntoView() })
+      } else {
+        this.settingsSectionTypeOpenInMobile = sectionType
+      }
     },
 
     /* Set the current section to be shown as active in the Settings Menu
@@ -203,17 +212,36 @@ export default defineComponent({
     markScrolledToSectionAsActive: function() {
       const scrollY = window.scrollY + innerHeight / 4
       this.settingsSectionComponents.forEach((section) => {
-        const sectionElement = document.getElementById(section.type)
+        const sectionElement = this.$refs[section.type][0].$el
         const sectionHeight = sectionElement.offsetHeight
         const sectionTop = sectionElement.offsetTop
-        const correspondingMenuLink = document.getElementById(`${section.type}-link`)
+        const correspondingMenuLink = document.getElementById(section.type)
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        if (this.isInDesktopView && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
           correspondingMenuLink.classList.add(ACTIVE_CLASS_NAME)
         } else {
           correspondingMenuLink.classList.remove(ACTIVE_CLASS_NAME)
         }
       })
+    },
+
+    handleResize: function () {
+      const wasNotInDesktopView = !this.isInDesktopView
+      this.isInDesktopView = window.innerWidth > SETTINGS_MOBILE_WIDTH_THRESHOLD
+
+      // navigate to section that was open in mobile or desktop view, if any
+      if (this.isInDesktopView && wasNotInDesktopView && this.settingsSectionTypeOpenInMobile != null) {
+        this.navigateToSection(this.settingsSectionTypeOpenInMobile)
+        this.settingsSectionTypeOpenInMobile = null
+      } else if (!this.isInDesktopView && !wasNotInDesktopView) {
+        const activeMenuLink = document.querySelector(`.settingsMenu .title.${ACTIVE_CLASS_NAME}`)
+        if (!activeMenuLink) {
+          return
+        }
+
+        const sectionType = activeMenuLink.id
+        this.navigateToSection(sectionType)
+      }
     },
 
     ...mapActions([
