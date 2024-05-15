@@ -305,6 +305,8 @@ Settings:
       Pastel Pink: Rose pastel
       Hot Pink: Rose vif
       Nordic: Nordic
+      Solarized Light: Clair polarisé
+      Solarized Dark: Noir polarisé
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -344,6 +346,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin moka saphir
       Catppuccin Mocha Lavender: Catppuccin moka lavande
       Catppuccin Mocha Teal: Catppuccin moka bleu sarcelle
+      Solarized Magenta: Magenta polarisé
+      Solarized Violet: Violet polarisé
+      Solarized Blue: Bleu polarisé
+      Solarized Cyan: Cyan polarisé
+      Solarized Green: Vert polarisé
+      Solarized Yellow: Jaune polarisé
+      Solarized Orange: Orange polarisé
+      Solarized Red: Rouge polarisé
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -667,6 +677,7 @@ Settings:
     Set Password: Définir un mot de passe
     Password Settings: Paramètres de mot de passe
   Expand All Settings Sections: Développer toutes les sections des paramètres
+  Sort Settings Sections (A-Z): Trier les rubriques de paramètres (A-Z)
 About:
   #On About page
   About: 'À propos'
@@ -736,6 +747,8 @@ About:
   GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
   Downloads / Changelog: Téléchargements / Journal des modifications
   Discussions: Discussions
+  AGPLv3: AGPLv3
+  Licensed under the: Sous licence
 Channel:
   Subscribe: 'S''abonner'
   Unsubscribe: 'Se désabonner'
@@ -1279,3 +1292,8 @@ Feed:
   Feed Last Updated: '{feedName} dernière mise à jour du flux : {date}'
   Refresh Feed: Rafraîchir {subscriptionName}
 Moments Ago: il y a quelques instants
+Yes, Delete: Oui, effacer
+Yes, Restart: Oui, redémarrer
+Yes, Open Link: Oui, ouvrir le lien
+Cancel: Annuler
+Search character limit: La recherche dépasse le nombre de caractères impartis

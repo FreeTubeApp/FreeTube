@@ -255,6 +255,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Solarized Light: 日照白
+      Solarized Dark: 日照黑
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -294,6 +296,14 @@ Settings:
       Catppuccin Mocha Red: Catppuccin Mocha Red
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Orange: 日照橙
+      Solarized Magenta: 日照品红
+      Solarized Cyan: 日照青
+      Solarized Green: 日照绿
+      Solarized Yellow: 日照黄
+      Solarized Red: 日照红
+      Solarized Blue: 日照蓝
+      Solarized Violet: 日照紫
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -616,6 +626,8 @@ About:
   these people and projects: 这些人和项目
   FreeTube is made possible by: FreeTube 的存在依赖
   Discussions: 讨论
+  Licensed under the: 许可依据
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -1061,3 +1073,4 @@ Yes, Open Link: 是，打开链接
 Cancel: 取消
 Yes, Delete: 是，删除
 Yes, Restart: 是，重启
+Search character limit: 搜索词超过了 {searchCharacterLimit} 字符的上限
