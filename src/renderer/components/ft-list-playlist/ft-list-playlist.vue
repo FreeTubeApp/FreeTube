@@ -76,7 +76,7 @@
           :icon="markedAsQuickBookmarkTarget ? ['fas', 'bookmark'] : ['far', 'bookmark']"
           :disabled="markedAsQuickBookmarkTarget"
           :disabled-toast="$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark')"
-          theme="secondary"
+          :theme="markedAsQuickBookmarkTarget ? 'secondary' : 'base-no-default'"
           :size="16"
           @click="enableQuickBookmarkForThisPlaylist"
         />
