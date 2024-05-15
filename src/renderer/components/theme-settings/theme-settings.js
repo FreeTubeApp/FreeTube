@@ -97,7 +97,12 @@ export default defineComponent({
       ]
     },
 
-/* Themes are devided into 3 groups. The first group contains the default themes. The second group are themes that don't have specific primary and secondary colors. The third group are themes that do have specific primary and secondary colors available. */ 
+    /* 
+    Themes are devided into 3 groups. 
+    The first group contains the default themes. 
+    The second group are themes that don't have specific primary and secondary colors. 
+    The third group are themes that do have specific primary and secondary colors available. 
+    */ 
     baseThemeNames: function () {
       return [
         // First group
