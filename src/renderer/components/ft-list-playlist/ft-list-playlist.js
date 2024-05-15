@@ -127,6 +127,10 @@ export default defineComponent({
       })
     },
 
+    handleQuickBookmarkEnabledDisabledClick: function () {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+    },
+
     parseInvidiousData: function () {
       this.title = this.data.title
       if (this.thumbnailCanBeShown) {

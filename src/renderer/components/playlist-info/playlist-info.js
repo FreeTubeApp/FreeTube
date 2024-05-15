@@ -316,6 +316,14 @@ export default defineComponent({
       })
     },
 
+    handleQuickBookmarkEnabledDisabledClick: function () {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+    },
+
+    handlePlaylistDeleteDisabledClick: function () {
+      showToast(this.$t('User Playlists.Cannot delete the quick bookmark target playlist'))
+    },
+
     exitEditMode: function () {
       this.editMode = false
 

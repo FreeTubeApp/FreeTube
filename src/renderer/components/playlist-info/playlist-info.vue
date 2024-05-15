@@ -127,8 +127,8 @@
           :title="markedAsQuickBookmarkTarget ? $t('User Playlists.Quick Bookmark Enabled') : $t('User Playlists.Enable Quick Bookmark With This Playlist')"
           :icon="markedAsQuickBookmarkTarget ? ['fas', 'bookmark'] : ['far', 'bookmark']"
           :disabled="markedAsQuickBookmarkTarget"
-          :disabled-toast="$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark')"
           :theme="markedAsQuickBookmarkTarget ? 'secondary' : 'base-no-default'"
+          @disabled-click="handleQuickBookmarkEnabledDisabledClick"
           @click="enableQuickBookmarkForThisPlaylist"
         />
         <ft-icon-button
@@ -155,10 +155,10 @@
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
           :disabled="markedAsQuickBookmarkTarget"
-          :disabled-toast="$t('User Playlists.Cannot delete the quick bookmark target playlist')"
           :title="!markedAsQuickBookmarkTarget ? $t('User Playlists.Delete Playlist') : $t('User Playlists.Cannot delete the quick bookmark target playlist')"
           :icon="['fas', 'trash']"
           theme="destructive"
+          @disabled-click="handlePlaylistDeleteDisabledClick"
           @click="showDeletePlaylistPrompt = true"
         />
         <ft-share-button
