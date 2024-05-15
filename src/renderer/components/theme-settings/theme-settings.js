@@ -35,11 +35,11 @@ export default defineComponent({
         'light',
         'dark',
         'black',
-        'dracula',
-        'catppuccinMocha',
-        'pastelPink',
-        'hotPink',
         'nordic',
+        'hotPink',
+        'pastelPink',
+        'catppuccinMocha',
+        'dracula',
         'solarizedDark',
         'solarizedLight'
       ]
