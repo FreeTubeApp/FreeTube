@@ -237,6 +237,9 @@ export default defineComponent({
 
       return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
     },
+    playlistDeletionDisabledLabel: function () {
+      return this.$t('User Playlists["Cannot delete the quick bookmark target playlist."]')
+    },
   },
   watch: {
     showDeletePlaylistPrompt(shown) {
@@ -317,11 +320,11 @@ export default defineComponent({
     },
 
     handleQuickBookmarkEnabledDisabledClick: function () {
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is already being used for quick bookmark."]'))
     },
 
     handlePlaylistDeleteDisabledClick: function () {
-      showToast(this.$t('User Playlists.Cannot delete the quick bookmark target playlist'))
+      showToast(this.playlistDeletionDisabledLabel)
     },
 
     exitEditMode: function () {

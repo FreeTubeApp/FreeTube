@@ -155,7 +155,7 @@
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
           :disabled="markedAsQuickBookmarkTarget"
-          :title="!markedAsQuickBookmarkTarget ? $t('User Playlists.Delete Playlist') : $t('User Playlists.Cannot delete the quick bookmark target playlist')"
+          :title="!markedAsQuickBookmarkTarget ? $t('User Playlists.Delete Playlist') : playlistDeletionDisabledLabel"
           :icon="['fas', 'trash']"
           theme="destructive"
           @disabled-click="handlePlaylistDeleteDisabledClick"

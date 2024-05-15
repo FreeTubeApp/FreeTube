@@ -128,7 +128,7 @@ export default defineComponent({
     },
 
     handleQuickBookmarkEnabledDisabledClick: function () {
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is already being used for quick bookmark."]'))
     },
 
     parseInvidiousData: function () {
