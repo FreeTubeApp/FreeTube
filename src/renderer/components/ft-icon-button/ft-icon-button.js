@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
+import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtIconButton',
@@ -19,6 +20,10 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false
+    },
+    disabledToast: {
+      type: String,
+      default: ''
     },
     theme: {
       type: String,
@@ -92,7 +97,13 @@ export default defineComponent({
     },
 
     handleIconClick: function () {
-      if (this.disabled) { return }
+      if (this.disabled) {
+        if (this.disabledToast) {
+          showToast(this.disabledToast)
+        }
+
+        return
+      }
       if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.dropdownShown = !this.dropdownShown
 
