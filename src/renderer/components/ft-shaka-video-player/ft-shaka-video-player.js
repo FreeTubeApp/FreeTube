@@ -703,6 +703,7 @@ export default defineComponent({
     }
 
     videoElement.playbackRate = this.defaultPlayback
+    videoElement.defaultPlaybackRate = this.defaultPlayback
 
     const localPlayer = new shaka.Player()
 
@@ -1180,6 +1181,7 @@ export default defineComponent({
               const video = this.$refs.video
 
               video.playbackRate = this.defaultPlayback
+              video.defaultPlaybackRate = this.defaultPlayback
             }
           }, true)
         }
@@ -1846,6 +1848,7 @@ export default defineComponent({
       // The provided playback rate (0.05) is not in the supported playback range.
       if (newPlaybackRate > 0.07 && newPlaybackRate <= this.maxVideoPlaybackRate) {
         video.playbackRate = newPlaybackRate
+        video.defaultPlaybackRate = newPlaybackRate
       }
     },
 
