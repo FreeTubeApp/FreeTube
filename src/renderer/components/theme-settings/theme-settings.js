@@ -30,14 +30,18 @@ export default defineComponent({
         'restart',
         'cancel'
       ],
+      /* Themes are devided into 3 groups. The first group contains the default themes. The second group are themes that don't have specific primary and secondary colors. The third group are themes that do have specific primary and secondary colors available. */
       baseThemeValues: [
+        // First group
         'system',
         'light',
         'dark',
         'black',
+        // Second group
         'nordic',
         'hotPink',
         'pastelPink',
+        // Third group
         'catppuccinMocha',
         'dracula',
         'solarizedDark',
