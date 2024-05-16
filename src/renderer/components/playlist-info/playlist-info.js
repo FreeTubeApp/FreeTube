@@ -374,7 +374,7 @@ export default defineComponent({
       if (this.selectedUserPlaylist.protected) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
       } else {
-        this.removePlaylist(this.id, true)
+        this.removePlaylist(this.id)
         this.$router.push(
           {
             path: '/userPlaylists'
