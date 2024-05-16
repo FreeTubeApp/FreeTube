@@ -37,7 +37,7 @@
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
-          @timeupdate="!hideChapters && videoChapters.length > 0 ? updateCurrentChapter : null"
+          @timeupdate="updateCurrentChapter"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
         />
         <div

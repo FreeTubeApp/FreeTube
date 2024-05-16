@@ -980,6 +980,11 @@ export default defineComponent({
      */
     updateCurrentChapter: function (currentSeconds) {
       const chapters = this.videoChapters
+
+      if (this.hideChapters || chapters.length === 0) {
+        return
+      }
+
       const currentChapterStart = chapters[this.videoCurrentChapterIndex].startSeconds
 
       if (currentSeconds !== currentChapterStart) {
