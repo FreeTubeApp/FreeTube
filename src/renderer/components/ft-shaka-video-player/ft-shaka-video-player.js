@@ -107,6 +107,7 @@ export default defineComponent({
   emits: [
     'error',
     'loaded',
+    'ended',
     'timeupdate',
     'toggle-theatre-mode'
   ],
@@ -1252,6 +1253,8 @@ export default defineComponent({
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'none'
       }
+
+      this.$emit('ended')
     },
 
     handleTimeupdate: function () {
