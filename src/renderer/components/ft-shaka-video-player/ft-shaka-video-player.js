@@ -1732,18 +1732,20 @@ export default defineComponent({
     },
 
     changeVolume: function (step) {
-      /** @type {HTMLVideoElement} */
-      const video = this.$refs.video
+      /** @type {HTMLInputElement} */
+      const volumeBar = this.$refs.container.querySelector('.shaka-volume-bar')
 
-      const newVolume = video.volume + step
+      const newValue = parseFloat(volumeBar.value) + (step * 100)
 
-      if (newVolume < 0) {
-        video.volume = 0
-      } else if (newVolume > 1) {
-        video.volume = 1
+      if (newValue < 0) {
+        volumeBar.value = 0
+      } else if (newValue > 100) {
+        volumeBar.value = 100
       } else {
-        video.volume = newVolume
+        volumeBar.value = newValue
       }
+
+      volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
     },
 
     updateVolume: function () {
