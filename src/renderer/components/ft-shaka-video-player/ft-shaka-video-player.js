@@ -413,8 +413,6 @@ export default defineComponent({
     uiConfig: function () {
       /** @type {shaka.extern.UIConfiguration} */
       const uiConfig = {
-        addBigPlayButton: this.displayVideoPlayButton,
-        addSeekBar: true,
         controlPanelElements: [
           'play_pause',
           'mute',
@@ -423,31 +421,14 @@ export default defineComponent({
           'spacer'
         ],
         overflowMenuButtons: [],
-        customContextMenu: true,
-        contextMenuElements: ['ft_stats'],
-        enableFullscreenOnRotation: this.enterFullscreenOnDisplayRotate,
 
-        // we have our own ones (shaka-player's ones are quite limited)
-        enableKeyboardPlaybackControls: false,
-        enableTooltips: true,
-        playbackRates: this.playbackRates,
-        seekBarColors: {
-          played: 'var(--primary-color)'
-        },
         // only set this to label when we actually have labels, so that the warning doesn't show up
         // about it being set to labels, but that the audio tracks don't have labels
         trackLabelFormat: this.hasMultipleAudioTracks ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
         // Only set it to label if we added the captions ourselves,
         // some live streams come with subtitles in the DASH manifest, but without labels
         textTrackLabelFormat: this.captions.length > 0 ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
-        volumeBarColors: {
-          level: 'var(--primary-color)'
-        },
-        displayInVrMode: this.useVrMode,
-
-        // TODO: enable this when electron gets document PiP support
-        // https://github.com/electron/electron/issues/39633
-        preferDocumentPictureInPicture: false
+        displayInVrMode: this.useVrMode
       }
 
       /** @type {string[]} */
@@ -535,6 +516,24 @@ export default defineComponent({
     }
   },
   watch: {
+    displayVideoPlayButton: function (newValue) {
+      this.nonReactive.ui.configure({
+        addBigPlayButton: newValue
+      })
+    },
+
+    enterFullscreenOnDisplayRotate: function (newValue) {
+      this.nonReactive.ui.configure({
+        enableFullscreenOnRotation: newValue
+      })
+    },
+
+    playbackRates: function (newValue) {
+      this.nonReactive.ui.configure({
+        playbackRates: newValue
+      })
+    },
+
     uiConfig: function (newValue, oldValue) {
       if (newValue !== oldValue && this.nonReactive.ui) {
         this.configureUI()
@@ -572,7 +571,7 @@ export default defineComponent({
     format: async function (newFormat, oldFormat) {
       const player = this.nonReactive.player
 
-      // format switch happened before the player loaded, probably because of error
+      // format switch happened before the player loaded, probably because of an error
       // as there are no previous player settings to restore, we should treat it like this was the original format
       if (!this.hasLoaded) {
         player.configure(this.getPlayerConfig(newFormat, this.defaultQuality === 'auto'))
@@ -751,7 +750,7 @@ export default defineComponent({
       this.resizeObserver.observe(this.$refs.container)
     }
 
-    this.configureUI()
+    this.configureUI(true)
 
     if (this.format === 'legacy' && this.sortedCaptions.length > 0) {
       await this.setUpLegacyTextDisplay()
@@ -1140,8 +1139,49 @@ export default defineComponent({
       }
     },
 
-    configureUI: function () {
-      this.nonReactive.ui.configure(this.uiConfig)
+    /**
+     * For the first call we want to set initial values for options that may change later,
+     * as well as setting the options that we won't change again.
+     *
+     * For all subsequent calls we only want to reconfigure the options that have changed.
+     * e.g. due to the active format changing or the user changing settings
+     * @param {boolean} firstTime
+     */
+    configureUI: function (firstTime = false) {
+      if (firstTime) {
+        const firstTimeConfig = {
+          addSeekBar: true,
+          customContextMenu: true,
+          contextMenuElements: ['ft_stats'],
+          enableTooltips: true,
+          seekBarColors: {
+            played: 'var(--primary-color)'
+          },
+          volumeBarColors: {
+            level: 'var(--primary-color)'
+          },
+
+          // these have their own watchers
+          addBigPlayButton: this.displayVideoPlayButton,
+          enableFullscreenOnRotation: this.enterFullscreenOnDisplayRotate,
+          playbackRates: this.playbackRates,
+
+          // we have our own ones (shaka-player's ones are quite limited)
+          enableKeyboardPlaybackControls: false,
+
+          // TODO: enable this when electron gets document PiP support
+          // https://github.com/electron/electron/issues/39633
+          preferDocumentPictureInPicture: false
+        }
+
+        // Combine the config objects so we only need to do one configure call
+        // as shaka-player recreates the UI when you call configure
+        Object.assign(firstTimeConfig, this.uiConfig)
+
+        this.nonReactive.ui.configure(firstTimeConfig)
+      } else {
+        this.nonReactive.ui.configure(this.uiConfig)
+      }
 
       /** @type {HTMLDivElement} */
       const controlsContainer = this.nonReactive.ui.getControls().getControlsContainer()
