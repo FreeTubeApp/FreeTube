@@ -750,6 +750,7 @@ export default defineComponent({
       this.resizeObserver.observe(this.$refs.container)
     }
 
+    controls.addEventListener('uiupdated', this.addUICustomizations)
     this.configureUI(true)
 
     if (this.format === 'legacy' && this.sortedCaptions.length > 0) {
@@ -1182,7 +1183,9 @@ export default defineComponent({
       } else {
         this.nonReactive.ui.configure(this.uiConfig)
       }
+    },
 
+    addUICustomizations: function () {
       /** @type {HTMLDivElement} */
       const controlsContainer = this.nonReactive.ui.getControls().getControlsContainer()
 
