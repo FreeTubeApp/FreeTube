@@ -24,6 +24,10 @@
   inline-size: calc(100% - 200px);
 }
 
+.floatingRefreshSection.hideLabelsSideBar {
+  inline-size: calc(100% - 60px);
+}
+
 .lastRefreshTimestamp {
   margin-block: 0;
   text-align: center;
@@ -31,7 +35,9 @@
 }
 
 @media only screen and (width <= 680px) {
-  .floatingRefreshSection, .floatingRefreshSection.sideNavOpen {
+  .floatingRefreshSection,
+  .floatingRefreshSection.sideNavOpen,
+  .floatingRefreshSection.hideLabelsSideBar {
     inline-size: 100%;
     border-inline-start: none;
   }
