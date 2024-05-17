@@ -145,6 +145,28 @@
           class="viewCount"
         > • {{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
       </div>
+      <div
+        v-if="is4k || hasCaptions"
+        class="videoTagLine"
+      >
+        <div
+          v-if="is4k"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.4K')"
+          role="img"
+        >
+          {{ $tc('Search Listing.Label.4K') }}
+        </div>
+        <div
+          v-if="hasCaptions"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.Closed Captions')"
+          role="img"
+          :style="{marginLeft: is4k ? '4px' : '0px' }"
+        >
+          {{ $tc('Search Listing.Label.Subtitles') }}
+        </div>
+      </div>
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"

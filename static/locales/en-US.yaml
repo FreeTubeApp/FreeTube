@@ -61,6 +61,12 @@ Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
 Search character limit: Search query is over the {searchCharacterLimit} character limit
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitles
+    # Aria labels
+    Closed Captions: Closed Captions
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
