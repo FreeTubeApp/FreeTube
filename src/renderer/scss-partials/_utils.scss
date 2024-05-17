@@ -1,0 +1,29 @@
+@mixin is-side-nav-open {
+  @at-root {
+    .isSideNavOpen &,
+    .isSideNavOpen#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin fixed-top-bar {
+  position: fixed;
+  inset-block-start: 60px;
+  inset-inline-end: 0;
+  inline-size: calc(100% - 80px);
+  margin-inline: 0;
+  z-index: 3;
+
+  @include is-side-nav-open {
+    inline-size: calc(100% - 200px);
+  }
+
+  @media only screen and (width <= 680px) {
+    inline-size: 100%;
+
+    @include is-side-nav-open {
+      inline-size: 100%;
+    }
+  }
+}

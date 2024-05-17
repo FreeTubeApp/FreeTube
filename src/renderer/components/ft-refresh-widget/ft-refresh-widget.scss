@@ -1,7 +1,7 @@
-@use '../../scss-partials/ft-list-item';
+@use '../../scss-partials/utils';
 
 .floatingRefreshSection {
-  @include ft-list-item.fixed-top-bar;
+  @include utils.fixed-top-bar;
 
   box-sizing: border-box;
   padding-block: 5px;

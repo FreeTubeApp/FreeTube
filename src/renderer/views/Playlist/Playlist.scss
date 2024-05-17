@@ -1,4 +1,4 @@
-@use '../../scss-partials/ft-list-item';
+@use '../../scss-partials/utils';
 
 .playlistItemsCard {
   display: flex;
@@ -18,8 +18,6 @@
     // Otherwise sidebar would be above the prompt
   }
 }
-
-
 
 .routerView {
   display: flex;
@@ -42,7 +40,7 @@
     }
 
     .playlistInfoContainer {
-      @include ft-list-item.fixed-top-bar;
+      @include utils.fixed-top-bar;
 
       padding-block: 0;
 
