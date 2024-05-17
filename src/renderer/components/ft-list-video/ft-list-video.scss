@@ -15,7 +15,7 @@
 
 .videoTag {
   padding: 3px;
-  background-color: rgb(255 255 255 / 10%);
+  background-color: var(--search-list-tag-bg-color);
   font-size: 10px;
   border-radius: 2px;
   display: inline-block;
