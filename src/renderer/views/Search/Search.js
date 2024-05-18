@@ -59,7 +59,8 @@ export default defineComponent({
         sortBy: this.$route.query.sortBy,
         time: this.$route.query.time,
         type: this.$route.query.type,
-        duration: this.$route.query.duration
+        duration: this.$route.query.duration,
+        features: this.$route.query.features,
       }
 
       const payload = {
@@ -80,7 +81,8 @@ export default defineComponent({
       sortBy: this.$route.query.sortBy,
       time: this.$route.query.time,
       type: this.$route.query.type,
-      duration: this.$route.query.duration
+      duration: this.$route.query.duration,
+      features: this.$route.query.features,
     }
 
     const payload = {
@@ -213,7 +215,8 @@ export default defineComponent({
           sort_by: payload.searchSettings.sortBy,
           date: payload.searchSettings.time,
           duration: payload.searchSettings.duration,
-          type: payload.searchSettings.type
+          type: payload.searchSettings.type,
+          features: payload.searchSettings.features.join(',')
         }
       }
 

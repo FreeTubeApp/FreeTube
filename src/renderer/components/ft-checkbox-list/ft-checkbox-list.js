@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'FtRadioButton',
+  name: 'FtCheckboxList',
   props: {
     title: {
       type: String,
@@ -19,16 +19,16 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    initialValueIndex: {
-      type: Number,
-      default: 0
+    initialValues: {
+      type: Array,
+      required: true
     }
   },
   emits: ['change'],
   data: function () {
     return {
       id: '',
-      selectedValue: ''
+      selectedValues: []
     }
   },
   computed: {
@@ -39,14 +39,23 @@ export default defineComponent({
   },
   mounted: function () {
     this.id = this._uid
-    this.selectedValue = this.values[this.initialValueIndex]
+    this.selectedValues = this.initialValues
   },
   methods: {
-    updateSelectedValue: function (value) {
-      this.selectedValue = value
+    removeSelectedValues: function() {
+      this.selectedValues = []
     },
-    change: function(value) {
-      this.$emit('change', value)
+    change: function(event) {
+      const targ = event.target
+      if (targ.checked) {
+        if (this.selectedValues.length === 0 || this.selectedValues.some(e => e !== targ.value)) {
+          this.selectedValues.push(targ.value)
+        }
+      } else {
+        this.selectedValues = this.selectedValues.filter(e => e !== targ.value)
+      }
+
+      this.$emit('change', [...this.selectedValues])
     },
   }
 })

@@ -48,6 +48,16 @@
           class="searchRadio"
           @change="updateDuration"
         />
+        <ft-checkbox-list
+          ref="featuresCheck"
+          :title="$t('Search Filters.Features.Features')"
+          :labels="featureLabels"
+          :values="featureValues"
+          :initial-values="searchDefaultFeatures"
+          class="searchRadio"
+          :is-checkbox="true"
+          @change="updateFeatures"
+        />
       </ft-flex-box>
       <div class="searchFilterCloseButtonContainer">
         <ft-button
