@@ -15,6 +15,7 @@
     <ft-prompt
       v-if="showReleaseNotes"
       :label="changeLogTitle"
+      theme="readable-width"
       @click="showReleaseNotes = !showReleaseNotes"
     >
       <span

@@ -289,26 +289,30 @@ export default defineComponent({
             {
               label: this.$t('Video.Open Channel in Invidious'),
               value: 'openInvidiousChannel'
-            },
-            {
-              type: 'divider'
             }
           )
-
-          const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-          const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
-          if (channelShouldBeHidden) {
-            options.push({
-              label: this.$t('Video.Unhide Channel'),
-              value: 'unhideChannel'
-            })
-          } else {
-            options.push({
-              label: this.$t('Video.Hide Channel'),
-              value: 'hideChannel'
-            })
-          }
         }
+      }
+
+      if (this.channelId !== null) {
+        const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+        const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
+
+        options.push(
+          {
+            type: 'divider'
+          },
+
+          channelShouldBeHidden
+            ? {
+                label: this.$t('Video.Unhide Channel'),
+                value: 'unhideChannel'
+              }
+            : {
+                label: this.$t('Video.Hide Channel'),
+                value: 'hideChannel'
+              }
+        )
       }
 
       return options

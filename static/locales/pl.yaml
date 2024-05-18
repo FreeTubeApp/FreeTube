@@ -290,6 +290,8 @@ Settings:
       Hot Pink: Gorący róż
       Pastel Pink: Pastelowy róż
       Nordic: Nordycki
+      Solarized Light: Nasłoneczniony jasny
+      Solarized Dark: Nasłoneczniony ciemny
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -329,6 +331,14 @@ Settings:
       Catppuccin Mocha Peach: Catppuccin Mocha Brzoskwiniowy
       Catppuccin Mocha Sky: Catppuccin Mocha Kolor Nieba
       Catppuccin Mocha Maroon: Catppuccin Mocha Kasztanowy
+      Solarized Orange: Nasłoneczniony pomarańczowy
+      Solarized Red: Nasłoneczniony czerwony
+      Solarized Magenta: Nasłoneczniony magenta
+      Solarized Violet: Nasłoneczniony fioletowy
+      Solarized Blue: Nasłoneczniony niebieski
+      Solarized Cyan: Nasłoneczniony cyjan
+      Solarized Green: Nasłoneczniony zielony
+      Solarized Yellow: Nasłoneczniony żółty
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -710,6 +720,8 @@ About:
   Source code: Kod źródłowy
   FreeTube is made possible by: FreeTube powstał dzięki
   Discussions: Dyskusje
+  Licensed under the: Licencjonowany na
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'
