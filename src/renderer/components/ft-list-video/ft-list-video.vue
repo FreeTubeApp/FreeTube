@@ -155,7 +155,7 @@
           :aria-label="$t('Search Listing.Label.4K')"
           role="img"
         >
-          {{ $tc('Search Listing.Label.4K') }}
+          {{ $t('Search Listing.Label.4K') }}
         </div>
         <div
           v-if="hasCaptions"
@@ -164,7 +164,7 @@
           role="img"
           :style="{marginLeft: is4k ? '4px' : '0px' }"
         >
-          {{ $tc('Search Listing.Label.Subtitles') }}
+          {{ $t('Search Listing.Label.Subtitles') }}
         </div>
       </div>
       <ft-icon-button
