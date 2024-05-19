@@ -48,7 +48,7 @@ export default defineComponent({
     change: function(event) {
       const targ = event.target
       if (targ.checked) {
-        if (this.selectedValues.length === 0 || this.selectedValues.some(e => e !== targ.value)) {
+        if (this.selectedValues.length === 0 || this.selectedValues.includes(targ.value)) {
           this.selectedValues.push(targ.value)
         }
       } else {

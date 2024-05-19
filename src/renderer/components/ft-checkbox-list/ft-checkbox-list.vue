@@ -16,7 +16,7 @@
         :disabled="disabled"
         class="radio"
         type="checkbox"
-        :checked="initialValues.some(e => e == values[index]) ?? null"
+        :checked="initialValues.includes(values[index]) ?? null"
         @change="change"
       >
       <label

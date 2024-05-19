@@ -80,9 +80,17 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   transition: transform 200ms ease-out;
 }
 
+.pure-checkbox input[type="radio"]:checked + label::before, .pure-radiobutton input[type="radio"]:checked + label::before {
+  animation: borderscale 300ms ease-in;
+}
+
 .pure-radiobutton input[type="radio"]:focus + label::after{
   background-color: var(--primary-color);
 }
+
+.pure-checkbox input[type="radio"]:checked + label::after, .pure-radiobutton input[type="radio"]:checked + label::after { transform: scale(1); }
+
+.pure-checkbox input[type="radio"] + label::before, .pure-radiobutton input[type="radio"] + label::before, .pure-checkbox input[type="radio"] + label::after, .pure-radiobutton input[type="radio"] + label::after { border-radius: 50%; }
 
 .pure-checkbox input[type="checkbox"]:checked + label::before, .pure-radiobutton input[type="checkbox"]:checked + label::before {
   animation: borderscale 200ms ease-in;

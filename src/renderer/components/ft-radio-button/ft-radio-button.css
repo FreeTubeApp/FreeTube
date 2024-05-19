@@ -94,7 +94,6 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 
 .pure-checkbox input[type="checkbox"]:checked + label::before, .pure-radiobutton input[type="checkbox"]:checked + label::before {
   animation: borderscale 200ms ease-in;
-  background: var(--primary-text-color);
 }
 
 .pure-radiobutton input[type="checkbox"]:checked + label::after { transform: rotate(-45deg) scale(1); }
