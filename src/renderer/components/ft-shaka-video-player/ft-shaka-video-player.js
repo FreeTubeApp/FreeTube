@@ -111,6 +111,124 @@ export default defineComponent({
     'timeupdate',
     'toggle-theatre-mode'
   ],
+  setup: function () {
+    /**
+     * Vue's reactivity breaks shaka-player.
+     * https://github.com/shaka-project/shaka-player/blob/main/docs/tutorials/faq.md?plain=1#L226-L234
+     *
+     * As we need to be able to set these variables from outside this function, we need to wrap them in an object,
+     * once we switch to Vue 3 and everything in this component can be moved into the setup function, we can remove the wrapper
+     */
+    const nonReactive = {
+      /** @type {shaka.Player|null} */
+      player: null,
+      /** @type {shaka.ui.Overlay|null} */
+      ui: null
+    }
+
+    // region legacy text displayer
+
+    /** @type {shaka.text.UITextDisplayer|null} */
+    let legacyTextDisplayer = null
+
+    /** @type {shaka.util.EventManager|null} */
+    let legacyTextEventManager = null
+
+    /**
+     * For the legacy formats the captions are handled by the browser instead of shaka.
+     * As we want to maintain the same appearance and functionality across all 3 formats (audio, dash and legacy),
+     * this function sets up and configures a custom `shaka.text.UITextDisplayer` instance,
+     * it also sets up event handlers to add and remove cues, when the browser reports that the active ones changed.
+     * The browser's own caption display is hidden through CSS.
+     *
+     * @param {HTMLVideoElement} video
+     * @param {HTMLElement} container
+     */
+    async function setUpLegacyTextDisplay(video, container) {
+      await cleanUpLegacyTextDisplay()
+
+      const player = nonReactive.player
+
+      const textDisplayerConfig = player.getConfiguration().textDisplayer
+
+      legacyTextDisplayer = new shaka.text.UITextDisplayer(video, container, textDisplayerConfig)
+
+      // using an event manager lets us easily release the event handlers in one go, when we tear down the legacy text display
+      legacyTextEventManager = new shaka.util.EventManager()
+
+      legacyTextEventManager.listen(player, 'texttrackvisibility', () => {
+        legacyTextDisplayer.setTextVisibility(player.isTextTrackVisible())
+      })
+
+      /** @type {TextTrack} */
+      let currentTrack
+
+      legacyTextEventManager.listen(player, 'textchanged', () => {
+        const { start, end } = player.seekRange()
+        legacyTextDisplayer.remove(start, end)
+
+        legacyTextEventManager.unlisten(currentTrack, 'cuechange')
+
+        // TextTracksList doesn't support forEach or for-of
+        for (let i = 0; i < video.textTracks.length; i++) {
+          const textTrack = video.textTracks[i]
+
+          if (textTrack.mode === 'showing') {
+            currentTrack = textTrack
+            break
+          }
+        }
+
+        // TODO: performance improvement, don't listen to cue changes while the captions are hidden
+        legacyTextEventManager.listen(currentTrack, 'cuechange', () => {
+          // As live streams don't support legacy formats and the duration of VOD videos doesn't changes,
+          // we can assume that the seek range will always be the same, so we don't have to read it out here again
+          legacyTextDisplayer.remove(start, end)
+          if (currentTrack.activeCues) {
+            const activeCues = Array.from(currentTrack.activeCues).map(shakaCueFromVTTCue)
+            legacyTextDisplayer.append(activeCues)
+          }
+        })
+
+        // add current ones now, so that they show straight away, not just when the next event fires
+        // e.g. when the video is paused
+        if (currentTrack.activeCues) {
+          const activeCues = Array.from(currentTrack.activeCues).map(shakaCueFromVTTCue)
+          legacyTextDisplayer.append(activeCues)
+        }
+      })
+    }
+
+    /**
+     * Tears down the legacy captions text displayer and removes the event listeners
+     */
+    async function cleanUpLegacyTextDisplay() {
+      if (legacyTextEventManager) {
+        // store in a temporary variable, so we can clear the variable immediately, even if the release takes longer
+        const eventManager = legacyTextEventManager
+        legacyTextEventManager = null
+
+        eventManager.release()
+      }
+
+      if (legacyTextDisplayer) {
+        // store in a temporary variable, so we can clear the variable immediately, even if the destroy takes longer
+        const textDisplayer = legacyTextDisplayer
+        legacyTextDisplayer = null
+
+        await textDisplayer.destroy()
+      }
+    }
+
+    // endregion legacy text displayer
+
+    return {
+      nonReactive,
+
+      setUpLegacyTextDisplay,
+      cleanUpLegacyTextDisplay
+    }
+  },
   data: function () {
     /**
      * @type {{
@@ -134,23 +252,6 @@ export default defineComponent({
     }
 
     return {
-      /**
-       * shaka-player doesn't like Vue's reactivity.
-       * Vue doesn't add reactivity to objects that are sealed, a sealed object does still allow us to change the values the existing properties (unlike a frozen one), we just can't add or remove properties.
-       * To avoid Vue making the shaka classes reactive, we place them in this sealed object.
-       * https://github.com/shaka-project/shaka-player/blob/main/docs/tutorials/faq.md?plain=1#L226-L234
-       */
-      nonReactive: Object.seal({
-        /** @type {shaka.Player} */
-        player: null,
-        /** @type {shaka.ui.Overlay} */
-        ui: null,
-        /** @type {shaka.text.UITextDisplayer|null} */
-        legacyTextDisplayer: null,
-        /** @type {shaka.util.EventManager|null} */
-        legacyTextEventManager: null
-      }),
-
       // shaka-player ships with some locales prebundled and already loaded
       loadedLocales: new Set(process.env.SHAKA_LOCALES_PREBUNDLED),
 
@@ -610,7 +711,7 @@ export default defineComponent({
       }
 
       if (newFormat === 'legacy' && this.sortedCaptions.length > 0) {
-        await this.setUpLegacyTextDisplay()
+        await this.setUpLegacyTextDisplay(video, this.$refs.container)
       }
 
       if (newFormat === 'audio' || newFormat === 'dash') {
@@ -754,7 +855,7 @@ export default defineComponent({
     this.configureUI(true)
 
     if (this.format === 'legacy' && this.sortedCaptions.length > 0) {
-      await this.setUpLegacyTextDisplay()
+      await this.setUpLegacyTextDisplay(videoElement, this.$refs.container)
     }
 
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
@@ -1365,93 +1466,6 @@ export default defineComponent({
           response.headers = redirectResponse.headers
           response.uri = redirectResponse.uri
         }
-      }
-    },
-
-    /**
-     * For the legacy formats the captions are handled by the browser instead of shaka.
-     * As we want to maintain the same appearance and functionality across all 3 formats (audio, dash and legacy),
-     * this function sets up and configures a custom `shaka.text.UITextDisplayer` instance,
-     * it also sets up event handlers to add and remove cues, when the browser reports that the active ones changed.
-     * The browser's own caption display is hidden through CSS.
-     */
-    setUpLegacyTextDisplay: async function () {
-      await this.cleanUpLegacyTextDisplay()
-
-      /** @type {HTMLVideoElement} */
-      const video = this.$refs.video
-
-      const player = this.nonReactive.player
-
-      const textDisplayerConfig = player.getConfiguration().textDisplayer
-
-      const textDisplayer = new shaka.text.UITextDisplayer(video, this.$refs.container, textDisplayerConfig)
-      this.nonReactive.legacyTextDisplayer = textDisplayer
-
-      // using an event manager lets us easily release the event handlers in one go, when we tear down the legacy text display
-      const eventManager = new shaka.util.EventManager()
-      this.nonReactive.legacyTextEventManager = eventManager
-
-      eventManager.listen(player, 'texttrackvisibility', () => {
-        textDisplayer.setTextVisibility(player.isTextTrackVisible())
-      })
-
-      /** @type {TextTrack} */
-      let currentTrack
-      eventManager.listen(player, 'textchanged', () => {
-        const { start, end } = player.seekRange()
-        textDisplayer.remove(start, end)
-
-        eventManager.unlisten(currentTrack, 'cuechange')
-
-        // TextTracksList doesn't support forEach or for-of
-        for (let i = 0; i < video.textTracks.length; i++) {
-          const textTrack = video.textTracks[i]
-
-          if (textTrack.mode === 'showing') {
-            currentTrack = textTrack
-            break
-          }
-        }
-
-        // TODO: performance improvement, don't listen to cue changes while the captions are hidden
-        eventManager.listen(currentTrack, 'cuechange', () => {
-          // As live streams don't support legacy formats and the duration of VOD videos doesn't changes,
-          // we can assume that the seek range will always be the same, so we don't have to read it out here again
-          textDisplayer.remove(start, end)
-          if (currentTrack.activeCues) {
-            const activeCues = Array.from(currentTrack.activeCues).map(shakaCueFromVTTCue)
-            textDisplayer.append(activeCues)
-          }
-        })
-
-        // add current ones now, so that they show straight away, not just when the next event fires
-        // e.g. when the video is paused
-        if (currentTrack.activeCues) {
-          const activeCues = Array.from(currentTrack.activeCues).map(shakaCueFromVTTCue)
-          textDisplayer.append(activeCues)
-        }
-      })
-    },
-
-    /**
-     * Tears down the legacy captions text displayer and removes the event listeners
-     */
-    cleanUpLegacyTextDisplay: async function () {
-      if (this.nonReactive.legacyTextEventManager) {
-        // store in a temporary variable, so we can clear it immediately, even if the release takes longer
-        const legacyTextEventManager = this.nonReactive.legacyTextEventManager
-        this.nonReactive.legacyTextEventManager = null
-
-        legacyTextEventManager.release()
-      }
-
-      if (this.nonReactive.legacyTextDisplayer) {
-        // store in a temporary variable, so we can clear it immediately, even if the destroy takes longer
-        const legacyTextDisplayer = this.nonReactive.legacyTextDisplayer
-        this.nonReactive.legacyTextDisplayer = null
-
-        await legacyTextDisplayer.destroy()
       }
     },
 
