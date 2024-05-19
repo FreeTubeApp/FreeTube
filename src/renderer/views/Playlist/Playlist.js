@@ -22,7 +22,7 @@ import {
   showToast,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
 const SORT_BY_VALUES = {
   DateAddedNewest: 'date_added_descending',
@@ -292,7 +292,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()
-    this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD
+    this.handleResize()
     window.addEventListener('resize', this.handleResize)
   },
   beforeDestroy: function () {
@@ -575,7 +575,7 @@ export default defineComponent({
     },
 
     handleResize: function () {
-      this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD
+      this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
