@@ -8219,10 +8219,10 @@ svgo@^3.2.0:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
-swiper@^11.1.1:
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.1.1.tgz#5efaa222d4a47a3ac75090cfc2fda6e53e564982"
-  integrity sha512-jGmEA/fNz1lACIcY4/40ggm1Gcyv+EUivmgV/Jd2WFPsEJhbWXnRAwzZR8OPjkBLtDxmzcoYG/iiAMWfRs0YKQ==
+swiper@^11.1.3:
+  version "11.1.3"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.1.3.tgz#ff5cbeea349d207a2423c4106b1905cb12804a19"
+  integrity sha512-80MSxonyTxrGcaWj9YgvvhD8OG0B9/9IVZP33vhIEvyWvmKjnQDBieO+29wKvMx285sAtvZyrWBdkxaw6+D3aw==
 
 synckit@^0.6.0:
   version "0.6.2"
