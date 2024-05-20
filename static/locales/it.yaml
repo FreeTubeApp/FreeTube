@@ -293,6 +293,8 @@ Settings:
       Pastel Pink: Rosa pastello
       Hot Pink: Rosa caldo
       Nordic: Nordico
+      Solarized Dark: Solarizzato scuro
+      Solarized Light: Solarizzato chiaro
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -332,6 +334,14 @@ Settings:
       Catppuccin Mocha Peach: Cappuccino moka pesca
       Catppuccin Mocha Teal: Cappuccino moka alzavola
       Catppuccin Mocha Sky: Cappuccino moka cielo
+      Solarized Yellow: Solarizzato giallo
+      Solarized Orange: Solarizzato arancione
+      Solarized Red: Solarizzato rosso
+      Solarized Magenta: Solarizzato magenta
+      Solarized Violet: Solarizzato viola
+      Solarized Cyan: Solarizzato ciano
+      Solarized Green: Solarizzato verde
+      Solarized Blue: Solarizzato blu
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni dell'interfaccia utente
@@ -705,6 +715,8 @@ About:
   Source code: Codice sorgente
   Beta: Beta
   Discussions: Discussioni
+  AGPLv3: AGPLv3
+  Licensed under the: Concesso con licenza
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'

@@ -1,7 +1,5 @@
 <template>
-  <div
-    ref="search"
-  >
+  <div>
     <ft-loader
       v-if="isLoading && !errorMessage"
       :fullscreen="true"

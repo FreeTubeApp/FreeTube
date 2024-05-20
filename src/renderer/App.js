@@ -1,6 +1,5 @@
-import Vue, { defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -20,8 +19,6 @@ import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
 
 let ipcRenderer = null
-
-Vue.directive('observe-visibility', ObserveVisibility)
 
 export default defineComponent({
   name: 'App',
@@ -243,7 +240,17 @@ export default defineComponent({
           .then((json) => {
             const tagName = json[0].tag_name
             const versionNumber = tagName.replace('v', '').replace('-beta', '')
-            this.updateChangelog = marked.parse(json[0].body)
+
+            let changelog = json[0].body
+              // Link usernames to their GitHub profiles
+              .replaceAll(/@(\S+)\b/g, '[@$1](https://github.com/$1)')
+              // Shorten pull request links to #1234
+              .replaceAll(/https:\/\/github\.com\/FreeTubeApp\/FreeTube\/pull\/(\d+)/g, '[#$1]($&)')
+
+            // Add the title
+            changelog = `# ${json[0].name}\n${changelog}`
+
+            this.updateChangelog = marked.parse(changelog)
             this.changeLogTitle = json[0].name
 
             this.updateBannerMessage = this.$t('Version {versionNumber} is now available!  Click for more details', { versionNumber })

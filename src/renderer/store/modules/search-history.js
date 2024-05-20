@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-  getPageBookmarks: () => {
+  getPageBookmarks: (state) => () => {
     return state.pageBookmarks
   },
 
