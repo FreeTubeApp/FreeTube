@@ -183,6 +183,10 @@ User Playlists:
         Kattintson ide a visszavonáshoz
       Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName}
         használatára a gyors könyvjelzőhöz
+      Playlist {playlistName} is the new quick bookmark playlist.: A(z) {playlistName}
+        lejátszási lista az új gyors könyvjelző lejátszási lista.
+      This playlist is already being used for quick bookmark.: Ez a lejátszási lista
+        már használatban van mint gyors könyvjelző.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztos, hogy
     törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
@@ -230,6 +234,9 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Gyors Könyvjelző Engedélyezése Ezzel A
     Lejátszási Listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
+  Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
+    cél lejátszási listát.
+  Quick Bookmark Enabled: Gyors könyvjelző engedélyezve
 History:
   # On History Page
   History: 'Előzmények'
@@ -302,6 +309,8 @@ Settings:
       Pastel Pink: Pasztell rózsaszín
       Hot Pink: Forró rózsaszín
       Nordic: Skandináv
+      Solarized Light: Szolarizált világos
+      Solarized Dark: Szolarizált sötét
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -341,6 +350,14 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
       Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
       Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
+      Solarized Yellow: Szolarizált sárga
+      Solarized Orange: Szolarizált narancssárga
+      Solarized Red: Szolarizált vörös
+      Solarized Blue: Szolarizált kék
+      Solarized Cyan: Szolarizált ciánkék
+      Solarized Green: Szolarizált zöld
+      Solarized Magenta: Szolarizált magenta
+      Solarized Violet: Szolarizált ibolya
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -709,6 +726,8 @@ About:
   FAQ: GyIK
   Report a problem: Probléma jelentése
   Discussions: Megbeszélések
+  AGPLv3: licenc alapján
+  Licensed under the: Az AGPLv3
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'

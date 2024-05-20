@@ -177,6 +177,10 @@ User Playlists:
         kullanımına geri dönüldü
       This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
         yer imi için kullanılıyor
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        oynatma listesi yeni hızlı yer imi oynatma listesi.'
+      This playlist is already being used for quick bookmark.: Bu oynatma listesi
+        zaten hızlı yer imi için kullanılıyor.
     Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
@@ -219,10 +223,13 @@ User Playlists:
   Remove Watched Videos: İzlenen Videoları Kaldır
   Add to Favorites: '{playlistName} oynatma listesine ekle'
   Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
-  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
+  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini
     Etkinleştir
   Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
   Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
+  Quick Bookmark Enabled: Hızlı Yer İmi Etkin
+  Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
+    silinemiyor.
 History:
   # On History Page
   History: 'Geçmiş'
@@ -294,6 +301,8 @@ Settings:
       Pastel Pink: Pastel Pembe
       Hot Pink: Sıcak Pembe
       Nordic: Nord
+      Solarized Light: Solarized Açık
+      Solarized Dark: Solarized Koyu
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -333,6 +342,14 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Sarı
       Catppuccin Mocha Green: Catppuccin Mocha Yeşil
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanta
+      Solarized Yellow: Solarized Sarı
+      Solarized Orange: Solarized Turuncu
+      Solarized Magenta: Solarized Eflatun
+      Solarized Violet: Solarized Menekşe
+      Solarized Red: Solarized Kırmızı
+      Solarized Blue: Solarized Mavi
+      Solarized Cyan: Solarized Camgöbeği
+      Solarized Green: Solarized Yeşil
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -704,6 +721,8 @@ About:
   Licensed under the AGPLv3: AGPLv3 altında lisanslanmıştır
   Source code: Kaynak kodları
   Discussions: Tartışmalar
+  Licensed under the: 'Lisans:'
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Profil Seçimi'
   All Channels: 'Tüm Kanallar'

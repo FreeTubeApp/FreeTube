@@ -300,6 +300,8 @@ Settings:
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
       Nordic: Nordic
+      Solarized Dark: Solarisiert Dunkel
+      Solarized Light: Solarisiert Hell
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -339,6 +341,14 @@ Settings:
       Catppuccin Mocha Red: Catppuccin Mocha Rot
       Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
       Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
+      Solarized Red: Solarisiertes Rot
+      Solarized Yellow: Solarisiertes Gelb
+      Solarized Orange: Solarisiertes Orange
+      Solarized Magenta: Solarisiertes Magenta
+      Solarized Blue: Solarisiertes Blau
+      Solarized Cyan: Solarisiertes Cyan
+      Solarized Violet: Solarisiertes Violett
+      Solarized Green: Solarisiertes Grün
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -724,6 +734,8 @@ About:
   Licensed under the AGPLv3: Lizenziert unter der AGPLv3
   Source code: Quellcode
   Discussions: Diskussionen
+  Licensed under the: Lizenziert unter der
+  AGPLv3: AGPLv3
 Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
@@ -1260,3 +1272,8 @@ Moments Ago: vor wenigen Augenblicken
 Feed:
   Refresh Feed: '{subscriptionName} auffrischen'
   Feed Last Updated: '{feedName} Feed zuletzt aktualisiert: {date}'
+Yes, Delete: Ja, löschen
+Cancel: Abbrechen
+Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
+Yes, Restart: Ja, neustarten
+Yes, Open Link: Ja, Link öffnen
