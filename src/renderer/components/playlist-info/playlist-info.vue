@@ -122,7 +122,15 @@
           theme="secondary"
           @click="exitEditMode"
         />
-
+        <ft-icon-button
+          v-if="!editMode && isUserPlaylist"
+          :title="markedAsQuickBookmarkTarget ? $t('User Playlists.Quick Bookmark Enabled') : $t('User Playlists.Enable Quick Bookmark With This Playlist')"
+          :icon="markedAsQuickBookmarkTarget ? ['fas', 'bookmark'] : ['far', 'bookmark']"
+          :disabled="markedAsQuickBookmarkTarget"
+          :theme="markedAsQuickBookmarkTarget ? 'secondary' : 'base-no-default'"
+          @disabled-click="handleQuickBookmarkEnabledDisabledClick"
+          @click="enableQuickBookmarkForThisPlaylist"
+        />
         <ft-icon-button
           v-if="!editMode && isUserPlaylist"
           :title="$t('User Playlists.Edit Playlist Info')"
@@ -138,20 +146,6 @@
           @click="toggleCopyVideosPrompt"
         />
         <ft-icon-button
-          v-if="!editMode && isUserPlaylist && !markedAsQuickBookmarkTarget"
-          :title="$t('User Playlists.Enable Quick Bookmark With This Playlist')"
-          :icon="['fas', 'link']"
-          theme="secondary"
-          @click="enableQuickBookmarkForThisPlaylist"
-        />
-        <ft-icon-button
-          v-if="!editMode && isUserPlaylist && markedAsQuickBookmarkTarget"
-          :title="$t('User Playlists.Disable Quick Bookmark')"
-          :icon="['fas', 'link-slash']"
-          theme="secondary"
-          @click="disableQuickBookmark"
-        />
-        <ft-icon-button
           v-if="!editMode && isUserPlaylist && videoCount > 0"
           :title="$t('User Playlists.Remove Watched Videos')"
           :icon="['fas', 'eye-slash']"
@@ -160,9 +154,11 @@
         />
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
-          :title="$t('User Playlists.Delete Playlist')"
+          :disabled="markedAsQuickBookmarkTarget"
+          :title="!markedAsQuickBookmarkTarget ? $t('User Playlists.Delete Playlist') : playlistDeletionDisabledLabel"
           :icon="['fas', 'trash']"
           theme="destructive"
+          @disabled-click="handlePlaylistDeleteDisabledClick"
           @click="showDeletePlaylistPrompt = true"
         />
         <ft-share-button
