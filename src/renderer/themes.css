@@ -95,7 +95,6 @@
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
   --search-bar-color: #f5f5f5;
-  --search-list-tag-bg-color: rgb(242 242 242 / 100%);
 }
 
 .system[data-system-theme*='dark'], .dark {
@@ -113,7 +112,6 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
 }
 
 .black {
@@ -131,7 +129,6 @@
     --side-nav-hover-color: #212121;
     --side-nav-active-color: #303030;
     --search-bar-color: #262626;
-    --search-list-tag-bg-color: rgb(255 255 255 / 10%);
 }
 
 .gray {
@@ -146,7 +143,6 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #212121;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
 }
 
 .dracula {
@@ -164,7 +160,6 @@
   --side-nav-hover-color: #57596B;
   --side-nav-active-color: #3D4051;
   --search-bar-color: #3E3F4A;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
   --logo-icon: url("../../_icons/iconDraculaLightSmall.svg");
   --logo-text: url("../../_icons/textDraculaLightSmall.svg");
 }
@@ -184,7 +179,6 @@
   --side-nav-hover-color: #11111b;
   --side-nav-active-color: #11111b;
   --search-bar-color: #313244;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
   --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.svg");
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.svg");
 }
@@ -207,7 +201,6 @@
   --side-nav-active-color: #3124E7;
   --side-nav-active-text-color: #FFFF;
   --search-bar-color: #FFF0DD;
-  --search-list-tag-bg-color: rgb(242 242 242 / 70%);
   --logo-icon: url("../../_icons/iconBlackSmall.svg");
   --logo-text: url("../../_icons/textBlackSmall.svg");
 }
@@ -227,7 +220,6 @@
   --side-nav-hover-color: #3b4252;
   --side-nav-active-color: #3b4252;
   --search-bar-color: #4b566a;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
   --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
   --logo-text: url("../../_icons/textNordicLightSmall.svg");
 }
@@ -250,7 +242,6 @@
   --side-nav-active-color: #959595;
   --side-nav-active-text-color: #000;
   --search-bar-color: #9C2D5D;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
   --logo-icon: url("../../_icons/iconWhiteSmall.svg");
   --logo-text: url("../../_icons/textWhiteSmall.svg");
 
@@ -300,7 +291,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #608B96;
   --side-nav-active-color: #406B76;
   --search-bar-color: #073642;
-  --search-list-tag-bg-color: rgb(255 255 255 / 10%);
   --logo-icon: url("../../_icons/iconSolarizedLightSmall.svg");
   --logo-text: url("../../_icons/textSolarizedLightSmall.svg");
 }
@@ -320,7 +310,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #fdf6e3;
   --side-nav-active-color: #839496;
   --search-bar-color: #c9c8b5;
-  --search-list-tag-bg-color: rgb(242 242 242 / 80%);
   --logo-icon: url("../../_icons/iconSolarizedDarkSmall.svg");
   --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
 }
