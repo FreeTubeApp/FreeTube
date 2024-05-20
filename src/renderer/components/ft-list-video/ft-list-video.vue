@@ -146,9 +146,17 @@
         > • {{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
       </div>
       <div
-        v-if="is4k || hasCaptions"
+        v-if="is4k || hasCaptions || isLive"
         class="videoTagLine"
       >
+        <div
+          v-if="isLive"
+          class="liveVideoTag videoTag"
+          :aria-label="$t('Search Listing.Label.Live Aria Label')"
+          role="img"
+        >
+          &bull; {{ $t('Search Listing.Label.Live') }}
+        </div>
         <div
           v-if="is4k"
           class="videoTag"

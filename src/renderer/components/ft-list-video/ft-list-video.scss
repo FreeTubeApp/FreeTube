@@ -27,3 +27,7 @@
 .videoTagLine .videoTag:first-child {
   margin-inline-start: 0;
 }
+
+.liveVideoTag {
+  background-color: var(--primary-color) !important;
+}
