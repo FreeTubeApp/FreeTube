@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ [listType]: true, playlistInEditMode, hasPlaylistDescription: !!playlistDescription, oneOrFewer: videoCount < 2 }"
+    :class="{ [listType]: true, playlistInEditMode, hasNoPlaylistDescription: !playlistDescription, oneOrFewer: videoCount < 2 }"
     class="playlistPage"
   >
     <ft-loader

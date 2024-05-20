@@ -34,6 +34,7 @@
   max-block-size: 20vh;
   overflow-y: auto;
   white-space: break-spaces;
+  margin-inline: auto;
 
   @media only screen and (width <= 500px) {
     max-block-size: 10vh;

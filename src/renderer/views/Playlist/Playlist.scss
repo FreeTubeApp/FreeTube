@@ -24,15 +24,14 @@
 
   &.grid {
     flex-direction: column;
-    margin-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-has-description) + var(--top-bar-push-down-adjustment-one-or-fewer));
 
-    &.hasPlaylistDescription {
-      --top-bar-push-down-adjustment-has-description: 19px;
+    &.hasNoPlaylistDescription {
+      --top-bar-push-down-adjustment-no-description: 19px;
     }
 
     &.playlistInEditMode {
-      --top-bar-push-down-adjustment-edit-mode: 50px;
-      --top-bar-push-down-adjustment-has-description: 11px;
+      --top-bar-push-down-adjustment-edit-mode: 85px;
+      --top-bar-push-down-adjustment-no-description: 11px;
     }
 
     &.oneOrFewer {
@@ -40,21 +39,20 @@
     }
 
     .playlistInfoContainer {
-      @include utils.fixed-top-bar;
-
+      position: sticky;
+      margin-block: -35px 16px;
+      inset-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-no-description) + var(--top-bar-push-down-adjustment-one-or-fewer));
       padding-block: 0;
+      margin-inline: auto;
+      padding-inline: 16px;
+      box-sizing: content-box;
+      inline-size: 85%;
+      background-color: var(--card-bg-color);
+      box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
 
       .playlistInfo {
-        background-color: var(--card-bg-color);
-        inline-size: 85%;
-        margin-inline: auto;
         padding-block: 10px;
         padding-inline: 16px;
-        box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
     }
 
