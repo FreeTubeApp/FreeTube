@@ -543,7 +543,11 @@ function runApp() {
     await createWindow()
 
     if (process.env.NODE_ENV === 'development') {
-      installDevTools()
+      try {
+        require('vue-devtools').install()
+      } catch (err) {
+        console.error(err)
+      }
     }
 
     if (isDebug) {
@@ -589,16 +593,6 @@ function runApp() {
       return protocol === 'http:' && host === 'localhost:9080' && (pathname === '/' || pathname === '/index.html')
     } else {
       return protocol === 'app:' && host === 'bundle' && pathname === '/index.html'
-    }
-  }
-
-  async function installDevTools() {
-    try {
-      /* eslint-disable */
-      require('vue-devtools').install()
-      /* eslint-enable */
-    } catch (err) {
-      console.error(err)
     }
   }
 
