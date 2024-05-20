@@ -4,13 +4,11 @@
   position: sticky;
   display: flex;
   flex-direction: column;
-  font-size: 22px;
   padding-inline-start: 0;
   block-size: fit-content;
 }
 
 .header {
-  font-size: 26px;
   inline-size: fit-content;
   margin-block: 0 10px;
 }
@@ -52,18 +50,20 @@
   border-block-end: 4px solid transparent;
 }
 
-.titleIcon {
-  inline-size: 22px;
-  block-size: 22px;
-}
-
 @media only screen and (width >= 1015px) {
   .settingsMenu {
     margin-block: 0;
+    font-size: 16px;
   }
 
   .header {
     margin-block-start: 10px;
+    font-size: 26px;
+  }
+
+  .titleIcon {
+    inline-size: 16px;
+    block-size: 16px;
   }
 
   .title.active {
@@ -76,6 +76,7 @@
   }
 }
 
+/* overall mobile breakpoint; large text */
 @media only screen and (width <= 1015px) {
   .settingsMenu {
     inline-size: fit-content;
@@ -92,48 +93,18 @@
   }
 
   .title {
-    inline-size: auto;
+    inline-size: fit-content;
+    max-inline-size: 90vw;
   }
 
   .header {
     font-size: 32px;
   }
-
-  /*
-  TODO: integrate settings menu into mobile view
-
-  .header {
-    display: none;
-  }
-  .settingsMenu {
-    position: fixed;
-    flex-direction: row;
-    gap: 5px;
-    overflow-x: scroll;
-  }
-
-  .title {
-    inline-size: 100%;
-  } */
 }
 
-@media only screen and (width <= 1015px) and (height <= 830px) {
-  .settingsMenu {
-    font-size: 25px;
-  }
-
-  .titleIcon {
-    inline-size: 25px;
-    block-size: 25px;
-  }
-
-  .header {
-    font-size: 28px;
-  }
-}
-
-@media only screen and (width <= 1015px) and (height <= 735px),
-screen and (width >= 1015px) and (height <= 600px) {
+/* small height or width mobile breakpoint; intermediary text */
+@media only screen and (width <= 1015px) and (height <= 830px),
+only screen and (width <= 500px) {
   .settingsMenu {
     font-size: 18px;
   }
