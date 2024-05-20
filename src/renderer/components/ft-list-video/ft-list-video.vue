@@ -162,7 +162,6 @@
           class="videoTag"
           :aria-label="$t('Search Listing.Label.Closed Captions')"
           role="img"
-          :style="{marginLeft: is4k ? '4px' : '0px' }"
         >
           {{ $t('Search Listing.Label.Subtitles') }}
         </div>
