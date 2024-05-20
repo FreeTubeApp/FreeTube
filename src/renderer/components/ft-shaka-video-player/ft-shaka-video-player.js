@@ -937,7 +937,15 @@ export default defineComponent({
     }
 
     if (this.useSponsorBlock && this.sponsorSkips.seekBar.length > 0) {
-      const { segments, averageDuration } = await getSponsorBlockSegments(this.videoId, this.sponsorSkips.seekBar)
+      let segments, averageDuration
+
+      try {
+        ({ segments, averageDuration } = await getSponsorBlockSegments(this.videoId, this.sponsorSkips.seekBar))
+      } catch (e) {
+        console.error(e)
+        segments = []
+      }
+
       // check if the component is already getting destroyed
       // which is possible because this function runs asynchronously
       if (!this.nonReactive.ui || !this.nonReactive.player) {
