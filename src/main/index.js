@@ -867,6 +867,8 @@ function runApp() {
     }
   }
 
+  const htmlFullscreenWindowIds = new Set()
+
   async function createWindow(
     {
       replaceMainWindow = true,
@@ -1144,7 +1146,18 @@ function runApp() {
       newWindow.once('ready-to-show', showWindow)
     }
 
+    newWindow.on('enter-html-full-screen', () => {
+      htmlFullscreenWindowIds.add(newWindow.id)
+    })
+
+    newWindow.on('leave-html-full-screen', () => {
+      htmlFullscreenWindowIds.delete(newWindow.id)
+    })
+
     newWindow.once('close', async () => {
+      // returns true if the element existed in the set
+      const htmlFullscreen = htmlFullscreenWindowIds.delete(newWindow.id)
+
       if (BrowserWindow.getAllWindows().length !== 1) {
         return
       }
@@ -1152,7 +1165,9 @@ function runApp() {
       const value = {
         ...newWindow.getNormalBounds(),
         maximized: newWindow.isMaximized(),
-        fullScreen: newWindow.isFullScreen()
+
+        // Don't save the full screen state if it was triggered by an HTML API e.g. the video player
+        fullScreen: newWindow.isFullScreen() && !htmlFullscreen
       }
 
       await baseHandlers.settings._updateBounds(value)
