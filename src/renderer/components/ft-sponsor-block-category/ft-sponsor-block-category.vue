@@ -14,7 +14,8 @@
       :select-names="colorNames"
       :select-values="colorValues"
       :icon="['fas', 'palette']"
-      :icon-color="sponsorBlockValues.color"
+      :class="'sec' + sponsorBlockValues.color"
+      icon-color="var(--accent-color)"
       @change="updateColor"
     />
     <ft-select
