@@ -819,6 +819,12 @@ export default defineComponent({
     // otherwise it uses the browsers native captions which get displayed underneath the UI controls
     await localPlayer.attach(videoElement)
 
+    // check if the component is already getting destroyed
+    // which is possible because this function runs asynchronously
+    if (!this.nonReactive.ui) {
+      return
+    }
+
     const controls = this.nonReactive.ui.getControls()
     const player = controls.getPlayer()
     this.nonReactive.player = player
@@ -833,6 +839,12 @@ export default defineComponent({
     }
 
     await this.setLocale(this.locale)
+
+    // check if the component is already getting destroyed
+    // which is possible because this function runs asynchronously
+    if (!this.nonReactive.ui || !this.nonReactive.player) {
+      return
+    }
 
     if (process.env.IS_ELECTRON) {
       this.registerScreenshotButton()
@@ -856,6 +868,12 @@ export default defineComponent({
 
     if (this.format === 'legacy' && this.sortedCaptions.length > 0) {
       await this.setUpLegacyTextDisplay(videoElement, this.$refs.container)
+
+      // check if the component is already getting destroyed
+      // which is possible because this function runs asynchronously
+      if (!this.nonReactive.ui || !this.nonReactive.player) {
+        return
+      }
     }
 
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
@@ -920,6 +938,11 @@ export default defineComponent({
 
     if (this.useSponsorBlock && this.sponsorSkips.seekBar.length > 0) {
       const { segments, averageDuration } = await getSponsorBlockSegments(this.videoId, this.sponsorSkips.seekBar)
+      // check if the component is already getting destroyed
+      // which is possible because this function runs asynchronously
+      if (!this.nonReactive.ui || !this.nonReactive.player) {
+        return
+      }
 
       if (segments.length > 0) {
         this.sponsorBlockSegments = segments
