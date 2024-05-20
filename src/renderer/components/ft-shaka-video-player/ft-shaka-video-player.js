@@ -918,7 +918,7 @@ export default defineComponent({
       }
     }
 
-    if (this.useSponsorBlock) {
+    if (this.useSponsorBlock && this.sponsorSkips.seekBar.length > 0) {
       const { segments, averageDuration } = await getSponsorBlockSegments(this.videoId, this.sponsorSkips.seekBar)
 
       if (segments.length > 0) {
