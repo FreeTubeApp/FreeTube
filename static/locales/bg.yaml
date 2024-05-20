@@ -277,6 +277,9 @@ Settings:
       Ask Before Opening Link: Питане, преди отворяне на връзка
       Open Link: Отваряне на връзка
       External Link Handling: Работа с външни връзки
+    Auto Load Next Page:
+      Label: Автоматично зареждане на следващата страница
+      Tooltip: Автоматично зареждане на допълнителни страници и коментари.
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -292,6 +295,8 @@ Settings:
       Pastel Pink: Пастелно розово
       Hot Pink: Горещо розово
       Nordic: Nordic
+      Solarized Dark: Solarized тъмна
+      Solarized Light: Solarized светла
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -331,6 +336,14 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha Лавандула
       Catppuccin Mocha Blue: Catppuccin Mocha Синьо
       Catppuccin Mocha Green: Catppuccin Mocha Зелено
+      Solarized Yellow: Solarized жълта
+      Solarized Orange: Solarized оранжева
+      Solarized Red: Solarized червена
+      Solarized Magenta: Solarized пурпурна
+      Solarized Violet: Solarized виолетова
+      Solarized Blue: Solarized синя
+      Solarized Cyan: Solarized синьо-зелена
+      Solarized Green: Solarized зелена
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -636,6 +649,7 @@ Settings:
     Unlock: Отключване
     Password: Парола
   Expand All Settings Sections: Разширяване на всички раздели с настройки
+  Sort Settings Sections (A-Z): Сортиране на секциите на настройките (A-Z)
 About:
   #On About page
   About: 'Относно'
@@ -692,6 +706,8 @@ About:
   Beta: Бета
   Credits: Заслуги
   Discussions: Дискусии
+  Licensed under the: Лицензирано под
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -943,6 +959,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Плейлист
+  Sort By:
+    DateAddedNewest: Първо последно добавени
+    DateAddedOldest: Първо най-рано добавени
+    Sort By: Подреждане по
+    AuthorAscending: Автор (A-Z)
+    AuthorDescending: Автор (Z-A)
+    VideoTitleAscending: Заглавие (A-Z)
+    Custom: Потребителски
+    VideoTitleDescending: Заглавие (Z-A)
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Media Formats: 'Смяна видео формати'
@@ -1162,3 +1187,15 @@ Age Restricted:
   This channel is age restricted: Този канал е с възрастово ограничение
   This video is age restricted: Това видео е с възрастово ограничение
 Close Banner: Затваряне на банер
+Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit}
+  символа
+Feed:
+  Feed Last Updated: '{feedName} последната актуализация на емисията: {date}'
+  Refresh Feed: Обновяване на {subscriptionName}
+Yes, Delete: Да, изтрий
+Yes, Restart: Да, рестартирай
+Yes, Open Link: Да, отваряне на връзката
+Cancel: Отказ
+Moments Ago: преди няколко минути
+checkmark: ✓
+Display Label: '{label}: {value}'
