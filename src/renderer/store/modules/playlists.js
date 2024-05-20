@@ -58,8 +58,8 @@ const state = {
 }
 
 const getters = {
-  getPlaylistsReady: () => state.playlistsReady,
-  getAllPlaylists: () => state.playlists,
+  getPlaylistsReady: (state) => state.playlistsReady,
+  getAllPlaylists: (state) => state.playlists,
   getPlaylist: (state) => (playlistId) => {
     return state.playlists.find(playlist => playlist._id === playlistId)
   },
