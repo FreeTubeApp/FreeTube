@@ -4,7 +4,13 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
-import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
+import FtPlaylistAddVideoButton from '../ft-playlist-add-video-button/ft-playlist-add-video-button.vue'
+import {
+  formatNumber,
+  openExternalLink,
+  openInternalPath,
+  showToast,
+} from '../../helpers/utils'
 
 export default defineComponent({
   name: 'WatchVideoInfo',
@@ -12,7 +18,8 @@ export default defineComponent({
     'ft-card': FtCard,
     'ft-icon-button': FtIconButton,
     'ft-share-button': FtShareButton,
-    'ft-subscribe-button': FtSubscribeButton
+    'ft-subscribe-button': FtSubscribeButton,
+    'ft-playlist-add-video-button': FtPlaylistAddVideoButton,
   },
   props: {
     id: {
@@ -328,20 +335,6 @@ export default defineComponent({
       return group[1]
     },
 
-    togglePlaylistPrompt: function () {
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.lengthSeconds,
-      }
-
-      this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
-    },
-
     toggleQuickBookmarked() {
       if (!this.isQuickBookmarkEnabled) {
         // This should be prevented by UI
@@ -395,7 +388,6 @@ export default defineComponent({
     ...mapActions([
       'openInExternalPlayer',
       'downloadMedia',
-      'showAddToPlaylistPromptForManyVideos',
       'addVideos',
       'updatePlaylist',
       'removeVideo',

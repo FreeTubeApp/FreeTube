@@ -79,13 +79,14 @@
         </div>
       </div>
       <div class="videoOptions">
-        <ft-icon-button
+        <ft-playlist-add-video-button
           v-if="showPlaylists && !isUpcoming"
-          :title="$t('User Playlists.Add to Playlist')"
-          :icon="['fas', 'plus']"
-          class="option"
-          theme="base"
-          @click="togglePlaylistPrompt"
+          :video-id="id"
+          :video-title="title"
+          :channel-id="channelId"
+          :channel-name="channelName"
+          :view-count="viewCount"
+          :length-seconds="lengthSeconds"
         />
         <ft-icon-button
           v-if="isQuickBookmarkEnabled"

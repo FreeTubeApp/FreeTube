@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtPlaylistAddVideoButton from '../ft-playlist-add-video-button/ft-playlist-add-video-button.vue'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -17,7 +18,8 @@ import debounce from 'lodash.debounce'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-playlist-add-video-button': FtPlaylistAddVideoButton,
   },
   props: {
     data: {
@@ -725,30 +727,6 @@ export default defineComponent({
       this.watchProgress = 0
     },
 
-    togglePlaylistPrompt: function () {
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.data.lengthSeconds,
-      }
-
-      this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
-
-      // Focus when prompt closed
-      this.addToPlaylistPromptCloseCallback = () => {
-        // Run once only
-        this.addToPlaylistPromptCloseCallback = null
-
-        // `thumbnailLink` is a `router-link`
-        // `focus()` can only be called on the actual element
-        this.$refs.addToPlaylistIcon?.$el?.focus()
-      }
-    },
-
     hideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
       hiddenChannels.push(channelId)
@@ -826,7 +804,6 @@ export default defineComponent({
       'updateHistory',
       'removeFromHistory',
       'updateChannelsHidden',
-      'showAddToPlaylistPromptForManyVideos',
       'addVideos',
       'updatePlaylist',
       'removeVideo',

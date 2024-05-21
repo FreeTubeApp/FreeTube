@@ -44,16 +44,18 @@
         @click="handleExternalPlayer"
       />
       <span class="playlistIcons">
-        <ft-icon-button
+        <ft-playlist-add-video-button
           v-if="showPlaylists"
-          ref="addToPlaylistIcon"
-          :title="$t('User Playlists.Add to Playlist')"
-          :icon="['fas', 'plus']"
           class="addToPlaylistIcon"
           :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
+          :video-id="id"
+          :video-title="title"
+          :channel-id="channelId"
+          :channel-name="channelName"
+          :view-count="viewCount"
+          :length-seconds="lengthSeconds"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="togglePlaylistPrompt"
         />
         <ft-icon-button
           v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"
