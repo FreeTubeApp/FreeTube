@@ -1,5 +1,5 @@
 /**
- * electron-context-menu only needs mime-db for it's save as feature.
+ * electron-context-menu only needs mime-db for its save as feature.
  * As we only activate save image and save as image features, we can remove all other mimetypes,
  * as they will never get used.
  * Which results in quite a significant reduction in file size.
