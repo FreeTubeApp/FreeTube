@@ -292,7 +292,7 @@ export default defineComponent({
 
       if (this.channelId !== null) {
         const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-        const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
+        const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
 
         options.push(
           {
@@ -751,7 +751,7 @@ export default defineComponent({
 
     hideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      hiddenChannels.push(channelId)
+      hiddenChannels.push({ name: channelId, preferredName: channelName })
       this.updateChannelsHidden(JSON.stringify(hiddenChannels))
 
       showToast(this.$t('Channel Hidden', { channel: channelName }))
@@ -759,7 +759,7 @@ export default defineComponent({
 
     unhideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c.name !== channelId)))
 
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
