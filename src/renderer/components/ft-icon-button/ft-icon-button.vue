@@ -1,28 +1,48 @@
 <template>
   <div class="ftIconButton">
-    <font-awesome-icon
-      ref="iconButton"
-      class="iconButton"
-      :title="title"
-      :icon="icon"
-      :class="{
-        [theme]: true,
-        shadow: useShadow,
-        disabled
-      }"
+    <font-awesome-layers
       :style="{
-        padding: padding + 'px',
-        fontSize: size + 'px'
+        width: `${size + padding * 2}px`,
+        height: `${size + padding * 2}px`,
       }"
-      tabindex="0"
-      role="button"
-      :aria-disabled="disabled"
-      :aria-expanded="dropdownShown"
-      @click="handleIconClick"
-      @mousedown="handleIconMouseDown"
-      @keydown.enter.prevent="handleIconClick"
-      @keydown.space.prevent="handleIconClick"
-    />
+    >
+      <font-awesome-icon
+        ref="iconButton"
+        class="iconButton"
+        :title="title"
+        :icon="icon"
+        :class="{
+          [theme]: true,
+          shadow: useShadow,
+          disabled
+        }"
+        :style="{
+          padding: padding + 'px',
+          fontSize: size + 'px'
+        }"
+        tabindex="0"
+        role="button"
+        :aria-disabled="disabled"
+        :aria-expanded="dropdownShown"
+        @click="handleIconClick"
+        @mousedown="handleIconMouseDown"
+        @keydown.enter.prevent="handleIconClick"
+        @keydown.space.prevent="handleIconClick"
+      />
+      <font-awesome-layers-text
+        v-if="counterValue > 0"
+        class="iconCounter"
+        :class="{
+          [theme]: true,
+        }"
+        :style="{
+          fontSize: `${size + padding * 2}px`,
+        }"
+        counter
+        :value="counterValue"
+        position="top-right"
+      />
+    </font-awesome-layers>
     <template
       v-if="dropdownShown"
     >

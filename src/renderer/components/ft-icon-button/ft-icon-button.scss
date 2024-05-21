@@ -102,6 +102,15 @@
   }
 }
 
+.iconCounter {
+  box-shadow: -1px 1px 5px 0 rgb(0 0 0 / 50%);
+
+  &.base {
+    background-color: var(--card-bg-color);
+    color: var(--primary-text-color);
+  }
+}
+
 .disabled {
   opacity: 0.5;
   pointer-events: auto;

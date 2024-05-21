@@ -99,7 +99,11 @@ import {
   faMastodon,
   faMonero
 } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {
+  FontAwesomeIcon,
+  FontAwesomeLayers,
+  FontAwesomeLayersText,
+} from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
@@ -201,6 +205,8 @@ library.add(
 registerSwiper()
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+Vue.component('FontAwesomeLayers', FontAwesomeLayers)
+Vue.component('FontAwesomeLayersText', FontAwesomeLayersText)
 Vue.directive('observe-visibility', ObserveVisibility)
 
 /* eslint-disable-next-line no-new */

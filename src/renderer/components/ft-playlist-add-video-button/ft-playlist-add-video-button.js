@@ -42,6 +42,24 @@ export default defineComponent({
       default: 20
     },
   },
+  computed: {
+    allPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
+    videoAddedToPlaylistCount() {
+      let count = 0
+
+      this.allPlaylists.forEach((playlist) => {
+        const videoAlreadyAdded = playlist.videos.some((v) => {
+          return v.videoId === this.videoId
+        })
+        if (videoAlreadyAdded) { count += 1 }
+      })
+
+      return count
+    },
+  },
   methods: {
     togglePlaylistPrompt: function () {
       const videoData = {
