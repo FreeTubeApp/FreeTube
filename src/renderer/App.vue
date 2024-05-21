@@ -6,7 +6,8 @@
     :class="{
       hideOutlines: outlinesHidden,
       isLocaleRightToLeft: isLocaleRightToLeft,
-      isSideNavOpen: isSideNavOpen
+      isSideNavOpen: isSideNavOpen,
+      hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
     }"
   >
     <portal-target
