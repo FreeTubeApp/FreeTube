@@ -2,7 +2,8 @@
   <div
     class="floatingRefreshSection"
     :class="{
-      sideNavOpen: isSideNavOpen
+      sideNavOpen: isSideNavOpen,
+      hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
     }"
   >
     <p
