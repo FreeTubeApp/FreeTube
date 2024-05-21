@@ -19,6 +19,10 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        resource: path.resolve(__dirname, '../node_modules/mime-db/db.json'),
+        use: path.join(__dirname, 'mime-db-shrinking-loader.js')
+      }
     ],
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
