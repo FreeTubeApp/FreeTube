@@ -283,6 +283,8 @@ Settings:
       Pastel Pink: Pastelno ružičasta
       Hot Pink: Vruća ružičasta
       Nordic: Nordic
+      Solarized Dark: Solarna tamna
+      Solarized Light: Solarna svijetla
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -322,6 +324,14 @@ Settings:
       Catppuccin Mocha Blue: Catppuccin Mocha Plava
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
       Catppuccin Mocha Green: Catppuccin Mocha Zelena
+      Solarized Blue: Solarna plava
+      Solarized Green: Solarna zelena
+      Solarized Yellow: Solarna žuta
+      Solarized Orange: Solarna narančasta
+      Solarized Red: Solarna crvena
+      Solarized Magenta: Solarna magenta
+      Solarized Violet: Solarna ljubičasta
+      Solarized Cyan: Solarna cijan
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -691,6 +701,8 @@ About:
   Licensed under the AGPLv3: AGPLv3 licenca
   Source code: Izvorni kod
   Discussions: Diskusije
+  Licensed under the: Licencirano pod
+  AGPLv3: AGPLv3
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
@@ -1205,3 +1217,5 @@ Yes, Delete: Da, izbriši
 Yes, Open Link: Da, otvori poveznicu
 Cancel: Odustani
 Yes, Restart: Da, pokreni ponovo
+Search character limit: Upit za pretraživanje premašuje ograničenje od {searchCharacterLimit}
+  znakova

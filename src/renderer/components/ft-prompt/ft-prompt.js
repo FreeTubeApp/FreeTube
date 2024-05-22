@@ -97,7 +97,7 @@ export default defineComponent({
       this.$emit('click', null)
     },
     handleHide: function (event) {
-      if (event.target.getAttribute('role') === 'button' || event.target.className === 'prompt') {
+      if (event.target.className === 'prompt') {
         this.hide()
       }
     },

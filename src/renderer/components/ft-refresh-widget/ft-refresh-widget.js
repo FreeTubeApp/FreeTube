@@ -22,11 +22,6 @@ export default defineComponent({
     }
   },
   emits: ['click'],
-  computed: {
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
-    }
-  },
   methods: {
     click: function() {
       this.$emit('click')

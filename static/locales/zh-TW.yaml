@@ -157,6 +157,9 @@ User Playlists:
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
         進行快速書籤
+      This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
+      Playlist {playlistName} is the new quick bookmark playlist.: 播放清單 {playlistName}
+        是新的快速書籤播放清單。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
@@ -188,6 +191,8 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
   Disable Quick Bookmark: 停用快速書籤
   Playlists with Matching Videos: 包含相符影片的播放清單
+  Quick Bookmark Enabled: 已啟用快速書籤
+  Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
 History:
   # On History Page
   History: '觀看紀錄'
@@ -256,6 +261,8 @@ Settings:
       Pastel Pink: 淡粉紅色
       Hot Pink: 亮粉紅色
       Nordic: 北歐
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -295,6 +302,14 @@ Settings:
       Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
       Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
       Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
+      Solarized Yellow: Solarized 黃色
+      Solarized Orange: Solarized 橘色
+      Solarized Red: Solarized 紅色
+      Solarized Magenta: Solarized 洋紅色
+      Solarized Violet: Solarized 紫色
+      Solarized Blue: Solarized 藍色
+      Solarized Cyan: Solarized 青色
+      Solarized Green: Solarized 綠色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -626,6 +641,8 @@ About:
   Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
   Discussions: 討論
+  Licensed under the: 授權以
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'
@@ -1071,3 +1088,4 @@ Yes, Delete: 是的，刪除
 Yes, Restart: 是的，重新啟動
 Yes, Open Link: 是的，開啟連結
 Cancel: 取消
+Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制
