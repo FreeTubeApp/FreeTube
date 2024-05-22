@@ -22,6 +22,7 @@ import {
   showToast,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
 const SORT_BY_VALUES = {
@@ -335,7 +336,7 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
-        this.playlistTitle = result.info.title
+        this.setPlaylistTitle(result.info.title)
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
         this.playlistThumbnail = result.info.thumbnails[0].url
@@ -378,7 +379,7 @@ export default defineComponent({
 
     getPlaylistInvidious: function () {
       invidiousGetPlaylistInfo(this.playlistId).then((result) => {
-        this.playlistTitle = result.title
+        this.setPlaylistTitle(result.title)
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
         this.viewCount = result.viewCount
@@ -415,7 +416,7 @@ export default defineComponent({
     },
 
     parseUserPlaylist: function (playlist) {
-      this.playlistTitle = playlist.playlistName
+      this.setPlaylistTitle(playlist.playlistName)
       this.playlistDescription = playlist.description ?? ''
 
       if (playlist.videos.length > 0) {
@@ -572,6 +573,11 @@ export default defineComponent({
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
       }
+    },
+
+    setPlaylistTitle: function (value) {
+      this.playlistTitle = value
+      document.title = `${value} - ${packageDetails.productName}`
     },
 
     handleResize: function () {
