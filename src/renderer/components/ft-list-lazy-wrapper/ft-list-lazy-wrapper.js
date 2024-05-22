@@ -52,7 +52,40 @@ export default defineComponent({
       required: false,
       default: '',
     },
+    playlistId: {
+      type: String,
+      default: null
+    },
+    playlistType: {
+      type: String,
+      default: null
+    },
+    playlistItemId: {
+      type: String,
+      default: null
+    },
+    alwaysShowAddToPlaylistButton: {
+      type: Boolean,
+      default: false,
+    },
+    quickBookmarkButtonEnabled: {
+      type: Boolean,
+      default: true,
+    },
+    canMoveVideoUp: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoDown: {
+      type: Boolean,
+      default: false,
+    },
+    canRemoveFromPlaylist: {
+      type: Boolean,
+      default: false,
+    },
   },
+  emits: ['move-video-down', 'move-video-up', 'remove-from-playlist'],
   data: function () {
     return {
       visible: this.firstScreen
@@ -160,7 +193,17 @@ export default defineComponent({
   methods: {
     onVisibilityChanged: function (visible) {
       this.visible = visible
-    }
+    },
+    moveVideoUp: function() {
+      this.$emit('move-video-up')
+    },
 
+    moveVideoDown: function() {
+      this.$emit('move-video-down')
+    },
+
+    removeFromPlaylist: function() {
+      this.$emit('remove-from-playlist')
+    },
   }
 })
