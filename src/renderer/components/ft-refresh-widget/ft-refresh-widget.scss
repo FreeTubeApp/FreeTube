@@ -1,9 +1,9 @@
+@use '../../scss-partials/utils';
+
 .floatingRefreshSection {
-  position: fixed;
-  inset-block-start: 60px;
-  inset-inline-end: 0;
+  @include utils.fixed-top-bar;
+
   box-sizing: border-box;
-  inline-size: calc(100% - 80px);
   padding-block: 5px;
   padding-inline: 10px;
   box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
@@ -13,19 +13,10 @@
   align-items: center;
   gap: 5px;
   justify-content: flex-end;
-  z-index: 3;
 }
 
 .floatingRefreshSection:has(.lastRefreshTimestamp + .refreshButton) {
   justify-content: space-between;
-}
-
-.floatingRefreshSection.sideNavOpen {
-  inline-size: calc(100% - 200px);
-}
-
-.floatingRefreshSection.hideLabelsSideBar {
-  inline-size: calc(100% - 60px);
 }
 
 .lastRefreshTimestamp {

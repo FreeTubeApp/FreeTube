@@ -7,6 +7,7 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
@@ -22,6 +23,7 @@ import {
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import packageDetails from '../../../../package.json'
+import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
 const SORT_BY_VALUES = {
   DateAddedNewest: 'date_added_descending',
@@ -42,6 +44,7 @@ export default defineComponent({
     'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
+    'ft-element-list': FtElementList,
     'ft-select': FtSelect,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
@@ -79,6 +82,7 @@ export default defineComponent({
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
+      forceListView: false,
 
       videoSearchQuery: '',
 
@@ -106,6 +110,9 @@ export default defineComponent({
     },
     playlistId: function() {
       return this.$route.params.id
+    },
+    listType: function () {
+      return this.isUserPlaylistRequested && !this.forceListView ? this.$store.getters.getListType : 'list'
     },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady
@@ -286,6 +293,11 @@ export default defineComponent({
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     getPlaylistInfo: function () {
@@ -566,6 +578,10 @@ export default defineComponent({
     setPlaylistTitle: function (value) {
       this.playlistTitle = value
       document.title = `${value} - ${packageDetails.productName}`
+    },
+
+    handleResize: function () {
+      this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
