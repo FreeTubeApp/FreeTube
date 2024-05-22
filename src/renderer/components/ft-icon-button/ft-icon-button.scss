@@ -97,7 +97,7 @@
     }
   }
 
-  &.favorite, &.favorite:hover, &.favorite:focus-visible, &.favorite:not(.disabled) {
+  &.favorite, &.favorite:hover, &.favorite:focus-visible {
     &:not(.disabled) {
       color: var(--favorite-icon-color);
     }
