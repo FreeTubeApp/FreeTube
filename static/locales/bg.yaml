@@ -32,7 +32,7 @@ Forward: 'Напред'
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: 'видеа'
+  Videos: 'Видеа'
   Shorts: Кратки видеа
   Live: На живо
   Community: Общност
@@ -167,6 +167,10 @@ User Playlists:
       This playlist is protected and cannot be removed.: Този плейлист е защитен и
         не може да бъде премахнат.
       This playlist does not exist: Този плейлист не съществува
+      This playlist is already being used for quick bookmark.: Този плейлист вече
+        се използва за бързи отметки.
+      Playlist {playlistName} is the new quick bookmark playlist.: Плейлиста {playlistName}
+        е новият списък за бързи отметки.
     Search for Videos: Търсене за видеа
   CreatePlaylistPrompt:
     Toast:
@@ -222,6 +226,9 @@ User Playlists:
   Remove from Favorites: Премахване от {playlistName}
   Move Video Down: Преместване надолу
   Playlists with Matching Videos: Плейлисти със съвпадащи видеа
+  Quick Bookmark Enabled: Бързите отметки са активирани
+  Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия
+    списък за плейлисти с бързи отметки.
 History:
   # On History Page
   History: 'История'
@@ -336,14 +343,14 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha Лавандула
       Catppuccin Mocha Blue: Catppuccin Mocha Синьо
       Catppuccin Mocha Green: Catppuccin Mocha Зелено
-      Solarized Yellow: Solarized жълта
-      Solarized Orange: Solarized оранжева
-      Solarized Red: Solarized червена
-      Solarized Magenta: Solarized пурпурна
-      Solarized Violet: Solarized виолетова
-      Solarized Blue: Solarized синя
-      Solarized Cyan: Solarized синьо-зелена
-      Solarized Green: Solarized зелена
+      Solarized Yellow: Solarized Жълто
+      Solarized Orange: Solarized Оранжево
+      Solarized Red: Solarized Червено
+      Solarized Magenta: Solarized Пурпурно
+      Solarized Violet: Solarized Виолетово
+      Solarized Blue: Solarized Синьо
+      Solarized Cyan: Solarized Синьозелено
+      Solarized Green: Solarized Зелено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -988,8 +995,8 @@ Playlist:
 #& Views
   Playlist: Плейлист
   Sort By:
-    DateAddedNewest: Първо последно добавени
-    DateAddedOldest: Първо най-рано добавени
+    DateAddedNewest: Първо най-новите
+    DateAddedOldest: Първо най-старите
     Sort By: Подреждане по
     AuthorAscending: Автор (A-Z)
     AuthorDescending: Автор (Z-A)
@@ -1032,10 +1039,10 @@ Comments:
   Show Comments: 'Показване на коментари'
   Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Изглед'
+  View: 'Показване на'
   Hide: 'Скриване'
-  Replies: 'Отговори'
-  Reply: 'Отговаряне'
+  Replies: 'Отговора'
+  Reply: 'Отговор'
   There are no comments available for this video: 'Към това видео няма коментари'
   Load More Comments: 'Зареждане на още коментари'
   No more comments available: Не са налични повече коментари
@@ -1222,7 +1229,7 @@ Close Banner: Затваряне на банер
 Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit}
   символа
 Feed:
-  Feed Last Updated: '{feedName} последната актуализация на емисията: {date}'
+  Feed Last Updated: 'Последна актуализация на емисията {feedName}: {date}'
   Refresh Feed: Обновяване на {subscriptionName}
 Yes, Delete: Да, изтрий
 Yes, Restart: Да, рестартирай

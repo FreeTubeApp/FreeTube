@@ -25,6 +25,10 @@ export default defineComponent({
   computed: {
     isSideNavOpen: function () {
       return this.$store.getters.getIsSideNavOpen
+    },
+
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
     }
   },
   methods: {
