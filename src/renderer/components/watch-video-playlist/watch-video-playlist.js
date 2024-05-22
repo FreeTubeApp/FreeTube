@@ -160,12 +160,12 @@ export default defineComponent({
     },
     selectedUserPlaylistVideoCount () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+      this.parseUserPlaylist(this.selectedUserPlaylist)
       this.shufflePlaylistItems()
     },
     selectedUserPlaylistLastUpdatedAt () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+      this.parseUserPlaylist(this.selectedUserPlaylist)
     },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
@@ -466,22 +466,12 @@ export default defineComponent({
       })
     },
 
-    parseUserPlaylist: function (playlist, { allowPlayingVideoRemoval = true } = {}) {
+    parseUserPlaylist: function (playlist) {
       this.playlistTitle = playlist.playlistName
       this.channelName = ''
       this.channelId = ''
 
-      if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
-        this.playlistItems = playlist.videos
-      } else {
-        // `this.currentVideo` relies on `playlistItems`
-        const latestPlaylistContainsCurrentVideo = playlist.videos.some(v => v.playlistItemId === this.playlistItemId)
-        // Only update list of videos if latest video list still contains currently playing video
-        if (latestPlaylistContainsCurrentVideo) {
-          this.playlistItems = playlist.videos
-        }
-      }
-
+      this.playlistItems = playlist.videos
       if (this.reversePlaylist) {
         this.playlistItems = this.playlistItems.toReversed()
       }
