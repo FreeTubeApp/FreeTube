@@ -47,6 +47,13 @@ export default defineComponent({
       return this.$store.getters.getAllPlaylists
     },
 
+    title() {
+      const initialText = this.$t('User Playlists.Add to Playlist')
+      if (this.videoAddedToPlaylistCountText == null) { return initialText }
+
+      return `${this.$t('User Playlists.Add to Playlist')} (${this.videoAddedToPlaylistCountText})`
+    },
+
     videoAddedToPlaylistCount() {
       let count = 0
 
@@ -58,6 +65,13 @@ export default defineComponent({
       })
 
       return count
+    },
+    videoAddedToPlaylistCountText() {
+      if (this.videoAddedToPlaylistCount === 0) { return null }
+
+      return this.$tc('User Playlists.Already Added to {playlistCount} Playlist(s)', this.videoAddedToPlaylistCount, {
+        playlistCount: this.videoAddedToPlaylistCount,
+      })
     },
   },
   methods: {

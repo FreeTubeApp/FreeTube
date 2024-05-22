@@ -1,6 +1,6 @@
 <template>
   <ft-icon-button
-    :title="$t('User Playlists.Add to Playlist')"
+    :title="title"
     :icon="['fas', 'plus']"
     :counter-value="videoAddedToPlaylistCount"
     :padding="padding"

@@ -35,9 +35,6 @@
         :class="{
           [theme]: true,
         }"
-        :style="{
-          fontSize: `${size + padding * 2}px`,
-        }"
         counter
         :value="counterValue"
         position="top-right"
