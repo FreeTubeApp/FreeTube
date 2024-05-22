@@ -1322,7 +1322,7 @@ body[dir='rtl'] {
   --horizontal-directionality-coefficient: -1;
 }
 
-body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"]) {
+body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"], [data-icon="check"]) {
   transform: scale(-1,1);
 }
 
