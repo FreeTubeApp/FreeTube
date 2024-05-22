@@ -8,6 +8,7 @@
       ref="password"
       :placeholder="$t('Settings.Password Dialog.Password')"
       :show-action-button="false"
+      :maxlength="null"
       input-type="password"
       class="passwordInput"
       @input="handlePasswordInput"

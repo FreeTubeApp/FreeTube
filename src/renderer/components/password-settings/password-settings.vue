@@ -20,6 +20,7 @@
         :show-action-button="false"
         :show-label="true"
         input-type="password"
+        :maxlength="null"
         :value="password"
         @input="e => password = e"
         @keydown.enter.native="handleSetPassword"
