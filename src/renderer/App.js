@@ -112,6 +112,14 @@ export default defineComponent({
       return this.$store.getters.getBaseTheme
     },
 
+    isSideNavOpen: function () {
+      return this.$store.getters.getIsSideNavOpen
+    },
+
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
+    },
+
     mainColor: function () {
       return this.$store.getters.getMainColor
     },

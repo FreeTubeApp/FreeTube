@@ -61,9 +61,6 @@ export function translateWindowTitle(title, i18n) {
  */
 export function defaultBookmarkNameForRoute(route) {
   switch (route.meta.title) {
-    case 'Playlist':
-      // Use the playlist name over 'Playlist - FreeTube'
-      return document.getElementById('playlistTitle')?.innerHTML.trim() ?? document.title
     case 'Search Results':
       // Use the inputted search query over 'Search Results - FreeTube'
       return route.params.query

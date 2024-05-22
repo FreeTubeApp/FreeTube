@@ -121,6 +121,10 @@ export default defineComponent({
       return this.$store.getters.getListType
     },
 
+    effectiveListTypeIsList: function () {
+      return (this.listType === 'list' || this.forceListType === 'list') && this.forceListType !== 'grid'
+    },
+
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
