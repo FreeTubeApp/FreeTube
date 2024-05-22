@@ -7,7 +7,6 @@
   block-size: fit-content;
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -17,6 +16,8 @@
   white-space: nowrap;
   font-weight: 500;
   vertical-align: middle;
+  display: flex;
+  gap: 10px;
   margin: 5px;
   box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
 }

@@ -125,8 +125,8 @@ User Playlists:
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
   Search bar placeholder: Zoeken naar afspeel­lĳsten
-  Empty Search Message: Deze afspeellijst bevat geen video's die overeenkomen met
-    de zoekopdracht
+  Empty Search Message: Deze afspeel­lĳst bevat geen video's die overeen­komen met
+    de zoek­opdracht
   Cancel: Annuleren
   Playlist Name: Afspeel­lijst­naam
   Playlist Description: Afspeel­lijst­omschrijving
@@ -226,7 +226,7 @@ History:
   Watch History: 'Kijkgeschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
   Search bar placeholder: In geschiedenis zoeken
-  Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
+  Empty Search Message: Geschiedenis bevat geen video's die overeen­komen met de zoek­opdracht
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -274,6 +274,9 @@ Settings:
       No Action: Geen actie
       External Link Handling: Externe links openen
       Open Link: Koppeling openen
+    Auto Load Next Page:
+      Tooltip: Laad automatisch extra pagina's en opmerkingen.
+      Label: Automatich volgende pagina laden
   Theme Settings:
     Theme Settings: 'Thema-instellingen'
     Match Top Bar with Main Color: 'Primaire themakleur gebruiken voor bovenste balk'
@@ -288,6 +291,8 @@ Settings:
       Pastel Pink: Pastel­roze
       Hot Pink: Heet-roze
       Nordic: Noords
+      Solarized Dark: Gesolariseerd donker
+      Solarized Light: Gesolariseerd licht
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -327,6 +332,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mokka Saffier
       Catppuccin Mocha Teal: Catppuccin Mokka Wintertaling
       Catppuccin Mocha Sky: Catppuccin Mokka Hemel
+      Solarized Yellow: Gesolariseerd geel
+      Solarized Orange: Gesolariseerd oranje
+      Solarized Red: Gesolariseerd rood
+      Solarized Magenta: Gesolariseerd magenta
+      Solarized Violet: Gesolariseerd violet
+      Solarized Blue: Gesolariseerd blauw
+      Solarized Cyan: Gesolariseerd cyaan
+      Solarized Green: Gesolariseerd groen
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Interface­schaal
@@ -633,6 +646,7 @@ Settings:
     Unlock: Ontgrendelen
     Enter Password To Unlock: Voer wachtwoord in om instellingen te ontgrendelen
   Expand All Settings Sections: Alle instellingen­secties uitvouwen
+  Sort Settings Sections (A-Z): Instellingen­secties sorteren (A-Z)
 About:
   #On About page
   About: 'Over'
@@ -691,6 +705,8 @@ About:
   Source code: Broncode
   Beta: Bèta
   Discussions: Discussies
+  AGPLv3: AGPLv3
+  Licensed under the: Gelicentieerd onder de
 Channel:
   Subscriber: 'Abonnee'
   Subscribers: 'Abonnees'
@@ -919,6 +935,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Afspeellijst
+  Sort By:
+    DateAddedNewest: Laatst toegevoegd bovenaan
+    Sort By: Sorteren op
+    AuthorAscending: Auteur (A-Z)
+    AuthorDescending: Auteur (Z-A)
+    VideoTitleAscending: Titel (A-Z)
+    VideoTitleDescending: Titel (Z-A)
+    DateAddedOldest: Eerst toegevoegd bovenaan
+    Custom: Aangepast
 Toggle Theatre Mode: 'Theatermodus omschakelen'
 Change Format:
   Change Media Formats: 'Videoformaten veranderen'
@@ -1204,3 +1229,12 @@ Trimmed input must be at least N characters long: Bij­gesneden invoer moet mini
   1 teken lang zijn | Bij­gesneden invoer moet minimaal {length} tekens lang zijn
 checkmark: ✓
 Display Label: '{label}: {value}'
+Yes, Delete: Ja, verwĳderen
+Yes, Restart: Ja, herstarten
+Feed:
+  Feed Last Updated: Feed {feedName} laatst bĳgewerkt op {date}
+  Refresh Feed: '{subscriptionName} verversen'
+Yes, Open Link: Ja, link openen
+Cancel: Annuleren
+Moments Ago: momenten geleden
+Search character limit: Zoek­opdracht overschrĳdt de teken­limiet van {searchCharacterLimit}

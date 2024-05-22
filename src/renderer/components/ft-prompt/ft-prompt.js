@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -15,7 +15,7 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: ''
+      required: true
     },
     extraLabels: {
       type: Array,
@@ -29,13 +29,17 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
-    showClose: {
-      type: Boolean,
-      default: false
-    },
     autosize: {
       type: Boolean,
       default: false
+    },
+    isFirstOptionDestructive: {
+      type: Boolean,
+      default: false
+    },
+    theme: {
+      type: String,
+      default: 'base'
     }
   },
   emits: ['click'],
@@ -48,25 +52,44 @@ export default defineComponent({
   computed: {
     sanitizedLabel: function() {
       return sanitizeForHtmlId(this.label)
-    }
-  },
-  beforeDestroy: function () {
-    document.removeEventListener('keydown', this.closeEventFunction, true)
-    this.lastActiveElement?.focus()
+    },
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
-
-    document.addEventListener('keydown', this.closeEventFunction, true)
-    document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
-    this.promptButtons = Array.from(
-      document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
-    ).filter((e) => {
-      return e.id && e.id.startsWith('prompt')
+    this.$nextTick(() => {
+      document.addEventListener('keydown', this.closeEventFunction, true)
+      document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
+      this.promptButtons = Array.from(
+        document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
+      ).filter((e) => {
+        return e.id && e.id.startsWith('prompt')
+      })
+      this.focusItem(0)
     })
-    this.focusItem(0)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.closeEventFunction, true)
+    nextTick(() => this.lastActiveElement?.focus())
   },
   methods: {
+    optionButtonTextColor: function(index) {
+      if (index === 0 && this.isFirstOptionDestructive) {
+        return 'var(--destructive-text-color)'
+      } else if (index < this.optionNames.length - 1) {
+        return 'var(--text-with-accent-color)'
+      } else {
+        return null
+      }
+    },
+    optionButtonBackgroundColor: function(index) {
+      if (index === 0 && this.isFirstOptionDestructive) {
+        return 'var(--destructive-color)'
+      } else if (index < this.optionNames.length - 1) {
+        return 'var(--accent-color)'
+      } else {
+        return null
+      }
+    },
     click: function (value) {
       this.$emit('click', value)
     },
@@ -74,7 +97,7 @@ export default defineComponent({
       this.$emit('click', null)
     },
     handleHide: function (event) {
-      if (event.target.getAttribute('role') === 'button' || event.target.className === 'prompt') {
+      if (event.target.className === 'prompt') {
         this.hide()
       }
     },

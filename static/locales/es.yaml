@@ -173,6 +173,10 @@ User Playlists:
         Haga clic aquí para deshacer
       Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
         para un marcador rápido
+      This playlist is already being used for quick bookmark.: Esta lista de reproducción
+        ya se utiliza como marcador rápido.
+      Playlist {playlistName} is the new quick bookmark playlist.: L lista de reproducción
+        {playlistName} es la nueva lista de reproducción de marcadores rápidos.
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
@@ -220,6 +224,9 @@ User Playlists:
     de reproducción
   Disable Quick Bookmark: Desactivar el marcador rápido
   Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
+  Quick Bookmark Enabled: Marcador rápido habilitado
+  Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
+    de reproducción de destino de marcadores rápidos.
 History:
   # On History Page
   History: 'Historial'
@@ -293,6 +300,8 @@ Settings:
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
       Nordic: Nórdico
+      Solarized Light: Solarized claro
+      Solarized Dark: Solarized oscuro
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -332,6 +341,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
       Catppuccin Mocha Blue: Catpuccin Moka Azul
       Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
+      Solarized Yellow: Amarillo Solarized
+      Solarized Orange: Naranja Solarized
+      Solarized Red: Rojo Solarized
+      Solarized Magenta: Magenta Solarized
+      Solarized Violet: Violeta Solarized
+      Solarized Blue: Azul Solarized
+      Solarized Cyan: Cian Solarized
+      Solarized Green: Verde Solarized
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -639,6 +656,7 @@ Settings:
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
   Expand All Settings Sections: Expandir todas las secciones de los ajustes
+  Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
 About:
   #On About page
   About: 'Acerca de'
@@ -696,6 +714,8 @@ About:
   Source code: Código fuente
   Beta: Beta
   Discussions: Debates
+  Licensed under the: Bajo la licencia
+  AGPLv3: AGPLv3
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
@@ -1228,3 +1248,9 @@ Feed:
   Feed Last Updated: '{feedName} feed actualizado por última vez: {date}'
   Refresh Feed: Actualizar {subscriptionName}
 Moments Ago: hace unos instantes
+Yes, Open Link: Sí, abrir el enlace
+Cancel: Cancelar
+Yes, Restart: Sí, reiniciar
+Yes, Delete: Sí, eliminar
+Search character limit: La consulta de búsqueda supera el límite de {searchCharacterLimit}
+  caracteres

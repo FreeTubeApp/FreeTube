@@ -33,6 +33,8 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  showSearchFilters: false,
+  searchFilterValueChanged: false,
   progressBarPercentage: 0,
   toBeAddedToPlaylistVideoList: [],
   newPlaylistDefaultProperties: {},
@@ -58,19 +60,19 @@ const state = {
 }
 
 const getters = {
-  getIsSideNavOpen () {
+  getIsSideNavOpen(state) {
     return state.isSideNavOpen
   },
 
-  getOutlinesHidden() {
+  getOutlinesHidden(state) {
     return state.outlinesHidden
   },
 
-  getCurrentVolume () {
+  getCurrentVolume(state) {
     return state.currentVolume
   },
 
-  getSessionSearchHistory () {
+  getSessionSearchHistory(state) {
     return state.sessionSearchHistory
   },
 
@@ -78,79 +80,87 @@ const getters = {
     return state.deArrowCache
   },
 
-  getPopularCache () {
+  getPopularCache(state) {
     return state.popularCache
   },
 
-  getTrendingCache () {
+  getTrendingCache(state) {
     return state.trendingCache
   },
 
-  getCachedPlaylist() {
+  getCachedPlaylist(state) {
     return state.cachedPlaylist
   },
 
-  getSearchSettings () {
+  getSearchSettings(state) {
     return state.searchSettings
   },
 
-  getShowAddToPlaylistPrompt () {
+  getSearchFilterValueChanged(state) {
+    return state.searchFilterValueChanged
+  },
+
+  getShowAddToPlaylistPrompt(state) {
     return state.showAddToPlaylistPrompt
   },
 
-  getShowCreatePlaylistPrompt () {
+  getShowCreatePlaylistPrompt(state) {
     return state.showCreatePlaylistPrompt
   },
 
-  getToBeAddedToPlaylistVideoList () {
+  getShowSearchFilters(state) {
+    return state.showSearchFilters
+  },
+
+  getToBeAddedToPlaylistVideoList(state) {
     return state.toBeAddedToPlaylistVideoList
   },
 
-  getNewPlaylistDefaultProperties () {
+  getNewPlaylistDefaultProperties(state) {
     return state.newPlaylistDefaultProperties
   },
 
-  getNewPlaylistVideoObject () {
+  getNewPlaylistVideoObject(state) {
     return state.newPlaylistVideoObject
   },
 
-  getShowProgressBar () {
+  getShowProgressBar(state) {
     return state.showProgressBar
   },
 
-  getProgressBarPercentage () {
+  getProgressBarPercentage(state) {
     return state.progressBarPercentage
   },
 
-  getRegionNames () {
+  getRegionNames(state) {
     return state.regionNames
   },
 
-  getRegionValues () {
+  getRegionValues(state) {
     return state.regionValues
   },
 
-  getRecentBlogPosts () {
+  getRecentBlogPosts(state) {
     return state.recentBlogPosts
   },
 
-  getExternalPlayerNames () {
+  getExternalPlayerNames(state) {
     return state.externalPlayerNames
   },
 
-  getExternalPlayerValues () {
+  getExternalPlayerValues(state) {
     return state.externalPlayerValues
   },
 
-  getExternalPlayerCmdArguments () {
+  getExternalPlayerCmdArguments (state) {
     return state.externalPlayerCmdArguments
   },
 
-  getLastTrendingRefreshTimestamp() {
+  getLastTrendingRefreshTimestamp(state) {
     return state.lastTrendingRefreshTimestamp
   },
 
-  getLastPopularRefreshTimestamp() {
+  getLastPopularRefreshTimestamp(state) {
     return state.lastPopularRefreshTimestamp
   },
 
@@ -168,7 +178,7 @@ const getters = {
 
   getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastVideoRefreshTimestampByProfile[profileId]
-  }
+  },
 }
 
 const actions = {
@@ -376,6 +386,14 @@ const actions = {
 
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
+  },
+
+  showSearchFilters ({ commit }) {
+    commit('setShowSearchFilters', true)
+  },
+
+  hideSearchFilters ({ commit }) {
+    commit('setShowSearchFilters', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -839,6 +857,10 @@ const mutations = {
     state.showCreatePlaylistPrompt = payload
   },
 
+  setShowSearchFilters (state, payload) {
+    state.showSearchFilters = payload
+  },
+
   setToBeAddedToPlaylistVideoList (state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
@@ -897,6 +919,10 @@ const mutations = {
 
   setCachedPlaylist(state, value) {
     state.cachedPlaylist = value
+  },
+
+  setSearchFilterValueChanged (state, value) {
+    state.searchFilterValueChanged = value
   },
 
   setSearchSortBy (state, value) {

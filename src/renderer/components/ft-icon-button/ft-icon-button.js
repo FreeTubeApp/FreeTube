@@ -65,7 +65,7 @@ export default defineComponent({
       default: false
     }
   },
-  emits: ['click'],
+  emits: ['click', 'disabled-click'],
   data: function () {
     return {
       dropdownShown: false,
@@ -92,7 +92,10 @@ export default defineComponent({
     },
 
     handleIconClick: function () {
-      if (this.disabled) { return }
+      if (this.disabled) {
+        this.$emit('disabled-click')
+        return
+      }
       if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.dropdownShown = !this.dropdownShown
 

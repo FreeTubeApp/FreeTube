@@ -13,6 +13,9 @@
       :value="sponsorBlockValues.color"
       :select-names="colorNames"
       :select-values="colorValues"
+      :icon="['fas', 'palette']"
+      :class="'sec' + sponsorBlockValues.color"
+      icon-color="var(--accent-color)"
       @change="updateColor"
     />
     <ft-select
@@ -22,6 +25,7 @@
       :value="sponsorBlockValues.skip"
       :select-names="skipNames"
       :select-values="skipValues"
+      :icon="['fas', 'forward']"
       @change="updateSkipOption"
     />
   </div>

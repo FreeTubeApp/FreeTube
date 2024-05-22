@@ -1,44 +1,51 @@
 <template>
-  <div>
+  <div
+    :class="{ [listType]: true, playlistInEditMode, hasNoPlaylistDescription: !playlistDescription, oneOrFewer: videoCount < 2 }"
+    class="playlistPage"
+  >
     <ft-loader
       v-if="isLoading"
       :fullscreen="true"
     />
-
-    <playlist-info
+    <div
       v-if="!isLoading"
-      :id="playlistId"
-      :first-video-id="firstVideoId"
-      :first-video-playlist-item-id="firstVideoPlaylistItemId"
-      :playlist-thumbnail="playlistThumbnail"
-      :title="playlistTitle"
-      :channel-name="channelName"
-      :channel-thumbnail="channelThumbnail"
-      :channel-id="channelId"
-      :last-updated="lastUpdated"
-      :description="playlistDescription"
-      :video-count="videoCount"
-      :videos="playlistItems"
-      :view-count="viewCount"
-      :info-source="infoSource"
-      :more-video-data-available="moreVideoDataAvailable"
-      :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
-      :search-video-mode-enabled="playlistInVideoSearchMode"
-      :search-query-text="searchQueryTextRequested"
-      class="playlistInfo"
+      class="playlistInfoContainer"
       :class="{
         promptOpen,
       }"
-      @enter-edit-mode="playlistInEditMode = true"
-      @exit-edit-mode="playlistInEditMode = false"
-      @search-video-query-change="(v) => videoSearchQuery = v"
-      @prompt-open="promptOpen = true"
-      @prompt-close="promptOpen = false"
-    />
+    >
+      <playlist-info
+        :id="playlistId"
+        :first-video-id="firstVideoId"
+        :first-video-playlist-item-id="firstVideoPlaylistItemId"
+        :playlist-thumbnail="playlistThumbnail"
+        :title="playlistTitle"
+        :channel-name="channelName"
+        :channel-thumbnail="channelThumbnail"
+        :channel-id="channelId"
+        :last-updated="lastUpdated"
+        :description="playlistDescription"
+        :video-count="videoCount"
+        :videos="playlistItems"
+        :view-count="viewCount"
+        :info-source="infoSource"
+        :more-video-data-available="moreVideoDataAvailable"
+        :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
+        :search-video-mode-enabled="playlistInVideoSearchMode"
+        :search-query-text="searchQueryTextRequested"
+        :theme="listType === 'list' ? 'base' : 'top-bar'"
+        class="playlistInfo"
+        @enter-edit-mode="playlistInEditMode = true"
+        @exit-edit-mode="playlistInEditMode = false"
+        @search-video-query-change="(v) => videoSearchQuery = v"
+        @prompt-open="promptOpen = true"
+        @prompt-close="promptOpen = false"
+      />
+    </div>
 
     <ft-card
       v-if="!isLoading"
-      class="playlistItems"
+      class="playlistItemsCard"
     >
       <template
         v-if="playlistItems.length > 0"
@@ -50,14 +57,36 @@
           :select-names="sortBySelectNames"
           :select-values="sortBySelectValues"
           :placeholder="$t('Playlist.Sort By.Sort By')"
+          :icon="getIconForSortPreference(sortOrder)"
           @change="updateUserPlaylistSortOrder"
         />
         <template
           v-if="visiblePlaylistItems.length > 0"
         >
+          <ft-element-list
+            v-if="listType === 'grid'"
+            :data="visiblePlaylistItems"
+            display="grid"
+            :playlist-id="playlistId"
+            :playlist-type="infoSource"
+            :show-video-with-last-viewed-playlist="true"
+            :use-channels-hidden-preference="false"
+            :hide-forbidden-titles="false"
+            :always-show-add-to-playlist-button="true"
+            :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
+            :can-move-video-up="!playlistInVideoSearchMode && isSortOrderCustom"
+            :can-move-video-down="!playlistInVideoSearchMode && isSortOrderCustom"
+            :playlist-items-length="playlistItems.length"
+            :can-remove-from-playlist="true"
+            @move-video-up="moveVideoUp"
+            @move-video-down="moveVideoDown"
+            @remove-from-playlist="removeVideoFromPlaylist"
+          />
           <transition-group
+            v-else
             name="playlistItem"
             tag="span"
+            class="playlistItems"
           >
             <ft-list-video-numbered
               v-for="(item, index) in visiblePlaylistItems"

@@ -15,7 +15,7 @@ const state = {
 }
 
 const getters = {
-  getProfileList: () => {
+  getProfileList: (state) => {
     return state.profileList
   },
 

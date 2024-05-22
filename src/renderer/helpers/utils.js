@@ -4,6 +4,7 @@ import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
+import { nextTick } from 'vue'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -13,6 +14,39 @@ const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
 function currentLocale () {
   return i18n.locale.replace('_', '-')
+}
+
+export function getIconForSortPreference(sortPreference) {
+  switch (sortPreference) {
+    case 'name_descending':
+    case 'author_descending':
+    case 'video_title_descending':
+      // text descending
+      return ['fas', 'sort-alpha-down-alt']
+    case 'name_ascending':
+    case 'author_ascending':
+    case 'video_title_ascending':
+      // text ascending
+      return ['fas', 'sort-alpha-down']
+    case 'latest_updated_first':
+    case 'latest_created_first':
+    case 'latest_played_first':
+    case 'date_added_descending':
+    case 'last':
+    case 'newest':
+    case 'popular':
+    case 'custom':
+      // quantity descending
+      return ['fas', 'arrow-down-wide-short']
+    case 'earliest_updated_first':
+    case 'earliest_created_first':
+    case 'earliest_played_first':
+    case 'date_added_ascending':
+    case 'oldest':
+    default:
+      // quantity ascending
+      return ['fas', 'arrow-down-short-wide']
+  }
 }
 
 /**
@@ -577,16 +611,6 @@ export async function getSystemLocale() {
   return locale || 'en-US'
 }
 
-export async function getUserDataPath() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
-  } else {
-    // TODO: implement getUserDataPath web compatible callback
-    return null
-  }
-}
-
 export async function getPicturesPath() {
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
@@ -827,5 +851,15 @@ export async function fetchWithTimeout(timeoutMs, input, init) {
     } else {
       throw err
     }
+  }
+}
+
+export function ctrlFHandler(event, inputElement) {
+  switch (event.key) {
+    case 'F':
+    case 'f':
+      if (((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
+        nextTick(() => inputElement?.focus())
+      }
   }
 }
