@@ -87,6 +87,7 @@
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
+          :maxlength="null"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />

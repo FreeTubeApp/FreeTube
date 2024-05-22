@@ -247,6 +247,7 @@
           :spellcheck="false"
           :show-action-button="false"
           :show-label="false"
+          :maxlength="null"
           @input="handleScreenshotFilenamePatternChanged"
         />
         <ft-input

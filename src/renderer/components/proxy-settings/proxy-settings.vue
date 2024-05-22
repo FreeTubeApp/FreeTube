@@ -29,6 +29,7 @@
           :show-action-button="false"
           :show-label="true"
           :value="proxyHostname"
+          :maxlength="null"
           @input="handleUpdateProxyHostname"
           @keydown.enter.native="testProxy"
         />

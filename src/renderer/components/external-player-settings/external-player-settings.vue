@@ -41,6 +41,7 @@
         :show-label="true"
         :value="externalPlayerExecutable"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
+        :maxlength="null"
         @input="updateExternalPlayerExecutable"
       />
       <ft-input
@@ -49,6 +50,7 @@
         :show-label="true"
         :value="externalPlayerCustomArgs"
         :tooltip="externalPlayerCustomArgsTooltip"
+        :maxlength="null"
         @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>

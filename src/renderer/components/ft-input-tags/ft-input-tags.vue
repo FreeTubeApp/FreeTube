@@ -18,6 +18,7 @@
       :tooltip="tooltip"
       :show-action-button="showActionButton"
       :select-on-focus="true"
+      :maxlength="null"
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
