@@ -97,7 +97,11 @@
     }
   }
 
-  &.favorite, &.favorite:hover, &.favorite:focus-visible {
+  &.favorite, &.favorite:hover, &.favorite:focus-visible, &.favorite:not(.disabled) {
+    &:not(.disabled) {
+      color: var(--favorite-icon-color);
+    }
+
     color: var(--favorite-icon-color);
   }
 }
