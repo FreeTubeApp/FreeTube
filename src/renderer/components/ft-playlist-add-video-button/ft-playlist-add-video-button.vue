@@ -10,4 +10,3 @@
 </template>
 
 <script src="./ft-playlist-add-video-button.js" />
-<style scoped lang="scss" src="./ft-playlist-add-video-button.scss" />
