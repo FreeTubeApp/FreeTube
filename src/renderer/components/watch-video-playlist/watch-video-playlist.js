@@ -48,6 +48,7 @@ export default defineComponent({
       loopEnabled: false,
       reversePlaylist: false,
       pauseOnCurrentVideo: false,
+      prevVideoBeforeDeletion: null,
       channelName: '',
       channelId: '',
       playlistTitle: '',
@@ -85,15 +86,7 @@ export default defineComponent({
     },
 
     currentVideoIndexZeroBased: function () {
-      return this.playlistItems.findIndex((item) => {
-        if (item.playlistItemId != null && this.playlistItemId != null) {
-          return item.playlistItemId === this.playlistItemId
-        } else if (item.videoId != null) {
-          return item.videoId === this.videoId
-        } else {
-          return item.id === this.videoId
-        }
-      })
+      return this.findIndexOfCurrentVideoInPlaylist(this.playlistItems)
     },
     currentVideoIndexOneBased: function () {
       return this.currentVideoIndexZeroBased + 1
@@ -123,16 +116,7 @@ export default defineComponent({
 
     videoIndexInPlaylistItems: function () {
       const playlistItems = this.shuffleEnabled ? this.randomizedPlaylistItems : this.playlistItems
-
-      return playlistItems.findIndex((item) => {
-        if (item.playlistItemId != null && this.playlistItemId != null) {
-          return item.playlistItemId === this.playlistItemId
-        } else if (item.videoId != null) {
-          return item.videoId === this.videoId
-        } else {
-          return item.id === this.videoId
-        }
-      })
+      return this.findIndexOfCurrentVideoInPlaylist(playlistItems)
     },
     videoIsFirstPlaylistItem: function () {
       return this.videoIndexInPlaylistItems === 0
@@ -186,6 +170,7 @@ export default defineComponent({
     },
     watchViewLoading: function (newVal, oldVal) {
       // This component is loaded/rendered before watch view loaded
+      this.prevVideoBeforeDeletion = null
       if (oldVal && !newVal) {
         // Scroll after watch view loaded, otherwise doesn't work
         // Mainly for Local API
@@ -232,6 +217,18 @@ export default defineComponent({
     }
   },
   methods: {
+    findIndexOfCurrentVideoInPlaylist: function (playlist) {
+      return playlist.findIndex((item) => {
+        if (item.playlistItemId != null && (this.playlistItemId != null || this.prevVideoBeforeDeletion?.playlistItemId != null)) {
+          return item.playlistItemId === this.playlistItemId || item.playlistItemId === this.prevVideoBeforeDeletion?.playlistItemId
+        } else if (item.videoId != null) {
+          return item.videoId === this.videoId || item.videoId === this.prevVideoBeforeDeletion?.videoId
+        } else {
+          return item.id === this.videoId || item.id === this.prevVideoBeforeDeletion?.videoId
+        }
+      })
+    },
+
     getPlaylistInfoWithDelay: function () {
       if (this.getPlaylistInfoRun) { return }
 
@@ -348,8 +345,20 @@ export default defineComponent({
         playlistType: this.playlistType,
       }
 
-      const videoIndex = this.videoIndexInPlaylistItems
+      let videoIndex = this.videoIndexInPlaylistItems
+
+      /*
+      * When the current video being watched in the playlist is deleted,
+      * the previous video is shown as the "current" one.
+      * So if we want to play the previous video, in this case,
+      * we actually want to actually play the "current" video.
+      */
+      if (this.prevVideoBeforeDeletion) {
+        videoIndex++
+      }
+
       const targetVideoIndex = (this.videoIsFirstPlaylistItem || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
+
       if (this.shuffleEnabled) {
         const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
 
@@ -470,6 +479,10 @@ export default defineComponent({
       this.playlistTitle = playlist.playlistName
       this.channelName = ''
       this.channelId = ''
+
+      if (this.findIndexOfCurrentVideoInPlaylist(playlist.videos) === -1) {
+        this.prevVideoBeforeDeletion = this.playlistItems[this.currentVideoIndexZeroBased - 1]
+      }
 
       this.playlistItems = playlist.videos
       if (this.reversePlaylist) {
