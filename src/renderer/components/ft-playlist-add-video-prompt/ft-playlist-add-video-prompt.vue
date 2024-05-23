@@ -37,7 +37,7 @@
       <ft-toggle-switch
         v-if="anyPlaylistContainsVideosToBeAdded"
         class="allowDuplicateToggle"
-        :label="'Allow Adding Duplicate Video(s)'"
+        :label="$t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
         :compact="true"
         :default-value="addingDuplicateVideosEnabled"
         @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
