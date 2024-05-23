@@ -1,10 +1,6 @@
 <template>
   <div
     class="floatingRefreshSection"
-    :class="{
-      sideNavOpen: isSideNavOpen,
-      hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
-    }"
   >
     <p
       v-if="lastRefreshTimestamp"
@@ -25,4 +21,4 @@
 </template>
 
 <script src="./ft-refresh-widget.js" />
-<style scoped src="./ft-refresh-widget.css" />
+<style scoped lang="scss" src="./ft-refresh-widget.scss" />

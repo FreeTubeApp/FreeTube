@@ -22,15 +22,6 @@ export default defineComponent({
     }
   },
   emits: ['click'],
-  computed: {
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
-    },
-
-    hideLabelsSideBar: function () {
-      return this.$store.getters.getHideLabelsSideBar
-    }
-  },
   methods: {
     click: function() {
       this.$emit('click')
