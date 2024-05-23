@@ -70,6 +70,7 @@
       :placeholder="$t('User Playlists.Playlist Description')"
       :show-action-button="false"
       :show-label="false"
+      :maxlength="null"
       :value="newDescription"
       @input="(input) => newDescription = input"
       @keydown.enter.native="savePlaylistInfo"
