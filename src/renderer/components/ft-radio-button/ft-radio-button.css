@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], .pure-checkbox input[type="radio"], .pure-radiobutton input[type="radio"] {
+.pure-radiobutton input[type="radio"] {
   border: 0;
   clip: rect(0 0 0 0);
   block-size: 1px;
@@ -10,13 +10,13 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   inline-size: 1px;
 }
 
-.pure-checkbox input[type="checkbox"]:focus + label::before, .pure-radiobutton input[type="checkbox"]:focus + label::before, .pure-checkbox input[type="radio"]:focus + label::before, .pure-radiobutton input[type="radio"]:focus + label::before, .pure-checkbox input[type="checkbox"]:hover + label::before, .pure-radiobutton input[type="checkbox"]:hover + label::before, .pure-checkbox input[type="radio"]:hover + label::before, .pure-radiobutton input[type="radio"]:hover + label::before {
+.pure-radiobutton input[type="radio"]:focus + label::before, .pure-radiobutton input[type="radio"]:hover + label::before {
   border: 2px solid var(--primary-color);
 }
 
-.pure-checkbox input[type="checkbox"]:active + label::before, .pure-radiobutton input[type="checkbox"]:active + label::before, .pure-checkbox input[type="radio"]:active + label::before, .pure-radiobutton input[type="radio"]:active + label::before { transition-duration: 0s; }
+.pure-radiobutton input[type="radio"]:active + label::before { transition-duration: 0s; }
 
-.pure-checkbox input[type="checkbox"] + label, .pure-radiobutton input[type="checkbox"] + label, .pure-checkbox input[type="radio"] + label, .pure-radiobutton input[type="radio"] + label {
+.pure-radiobutton input[type="radio"] + label {
   position: relative;
   padding-inline-start: 2em;
   user-select: none;
@@ -25,7 +25,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   margin-block-start: 10px;
 }
 
-.pure-checkbox input[type="checkbox"] + label::before, .pure-radiobutton input[type="checkbox"] + label::before, .pure-checkbox input[type="radio"] + label::before, .pure-radiobutton input[type="radio"] + label::before {
+.pure-radiobutton input[type="radio"] + label::before {
   box-sizing: content-box;
   content: '';
   color: var(--primary-text-color);
@@ -40,7 +40,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   transition: all 0.4s ease;
 }
 
-.pure-checkbox input[type="checkbox"] + label::after, .pure-radiobutton input[type="checkbox"] + label::after, .pure-checkbox input[type="radio"] + label::after, .pure-radiobutton input[type="radio"] + label::after {
+.pure-radiobutton input[type="radio"] + label::after {
   box-sizing: content-box;
   content: '';
   background-color: var(--primary-text-color);
@@ -55,30 +55,12 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   transition: transform 200ms ease-out;
 }
 
-.pure-checkbox input[type="checkbox"]:disabled + label::before, .pure-radiobutton input[type="checkbox"]:disabled + label::before, .pure-checkbox input[type="radio"]:disabled + label::before, .pure-radiobutton input[type="radio"]:disabled + label::before { border-color: #ccc; }
+.pure-radiobutton input[type="radio"]:disabled + label::before { border-color: #ccc; }
 
-.pure-checkbox input[type="checkbox"]:disabled:focus + label::before, .pure-radiobutton input[type="checkbox"]:disabled:focus + label::before, .pure-checkbox input[type="radio"]:disabled:focus + label::before, .pure-radiobutton input[type="radio"]:disabled:focus + label::before, .pure-checkbox input[type="checkbox"]:disabled:hover + label::before, .pure-radiobutton input[type="checkbox"]:disabled:hover + label::before, .pure-checkbox input[type="radio"]:disabled:hover + label::before, .pure-radiobutton input[type="radio"]:disabled:hover + label::before { background-color: inherit; }
+.pure-radiobutton input[type="radio"]:disabled:focus + label::before, .pure-radiobutton input[type="radio"]:disabled:hover + label::before { background-color: inherit; }
 
-.pure-checkbox input[type="checkbox"]:disabled:checked + label::before, .pure-radiobutton input[type="checkbox"]:disabled:checked + label::before, .pure-checkbox input[type="radio"]:disabled:checked + label::before, .pure-radiobutton input[type="radio"]:disabled:checked + label::before { background-color: #ccc; }
+.pure-radiobutton input[type="radio"]:disabled:checked + label::before { background-color: #ccc; }
 
-.pure-checkbox input[type="checkbox"] + label::after, .pure-radiobutton input[type="checkbox"] + label::after {
-  background-color: transparent;
-  inset-block-start: 50%;
-  inset-inline-start: 4px;
-  inline-size: 8px;
-  block-size: 3px;
-  margin-block-start: -4px;
-  border-style: solid;
-  border-width: 0 0 3px 3px;
-  border-image: none;
-  transform: rotate(-45deg) scale(0);
-}
-
-.pure-checkbox input[type="checkbox"]:checked + label::after, .pure-radiobutton input[type="checkbox"]:checked + label::after {
-  content: '';
-  transform: rotate(-45deg) scale(1);
-  transition: transform 200ms ease-out;
-}
 
 .pure-checkbox input[type="radio"]:checked + label::before, .pure-radiobutton input[type="radio"]:checked + label::before {
   animation: borderscale 300ms ease-in;
@@ -88,15 +70,9 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   background-color: var(--primary-color);
 }
 
-.pure-checkbox input[type="radio"]:checked + label::after, .pure-radiobutton input[type="radio"]:checked + label::after { transform: scale(1); }
+.pure-radiobutton input[type="radio"]:checked + label::after { transform: scale(1); }
 
-.pure-checkbox input[type="radio"] + label::before, .pure-radiobutton input[type="radio"] + label::before, .pure-checkbox input[type="radio"] + label::after, .pure-radiobutton input[type="radio"] + label::after { border-radius: 50%; }
-
-.pure-checkbox input[type="checkbox"]:checked + label::before, .pure-radiobutton input[type="checkbox"]:checked + label::before {
-  animation: borderscale 200ms ease-in;
-}
-
-.pure-radiobutton input[type="checkbox"]:checked + label::after { transform: rotate(-45deg) scale(1); }
+.pure-radiobutton input[type="radio"] + label::before, .pure-radiobutton input[type="radio"] + label::after { border-radius: 50%; }
 
 @keyframes
 borderscale {  50% {
@@ -109,7 +85,7 @@ borderscale {  50% {
 }
 
 @media only screen and (width <= 680px) {
-  .pure-checkbox input[type="checkbox"] + label, .pure-radiobutton input[type="checkbox"] + label, .pure-checkbox input[type="radio"] + label, .pure-radiobutton input[type="radio"] + label {
+  .pure-radiobutton input[type="radio"] + label {
     margin-block-start: 3px;
   }
 }

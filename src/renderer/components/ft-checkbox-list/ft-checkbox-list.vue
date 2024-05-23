@@ -1,12 +1,12 @@
 <template>
-  <div class="pure-radiobutton filter">
-    <h3 class="radioTitle">
+  <div class="pure-checkbox filter">
+    <h3 class="checkboxTitle">
       {{ title }}
     </h3>
     <!--  eslint-disable vue/no-template-key -->
     <template
       v-for="(label, index) in labels"
-      class="radioButtonContainer"
+      class="checkboxContainer"
     >
       <input
         :id="values[index] + id"
@@ -14,7 +14,7 @@
         :name="inputName"
         :value="values[index]"
         :disabled="disabled"
-        class="radio"
+        class="checkbox"
         type="checkbox"
         :checked="initialValues.includes(values[index]) ?? null"
         @change="change"
