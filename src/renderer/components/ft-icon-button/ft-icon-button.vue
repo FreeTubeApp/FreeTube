@@ -37,7 +37,6 @@
         }"
         counter
         :value="counterValue"
-        position="top-right"
       />
     </font-awesome-layers>
     <template
