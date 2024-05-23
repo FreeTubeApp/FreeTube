@@ -42,6 +42,7 @@
         :show-action-button="false"
         :show-label="false"
         :value="newTitle"
+        :maxlength="255"
         @input="(input) => (newTitle = input)"
         @keydown.enter.native="savePlaylistInfo"
       />
