@@ -71,6 +71,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    showVideoAddedToPlaylistCount: {
+      type: Boolean,
+      default: true,
+    },
     useChannelsHiddenPreference: {
       type: Boolean,
       default: false,

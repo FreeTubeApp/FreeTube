@@ -18,6 +18,7 @@
       :can-move-video-up="canMoveVideoUp && index > 0"
       :can-move-video-down="canMoveVideoDown && index < playlistItemsLength - 1"
       :can-remove-from-playlist="canRemoveFromPlaylist"
+      :show-video-added-to-playlist-count="showVideoAddedToPlaylistCount"
       :search-query-text="searchQueryText"
       :playlist-id="playlistId"
       :playlist-type="playlistType"

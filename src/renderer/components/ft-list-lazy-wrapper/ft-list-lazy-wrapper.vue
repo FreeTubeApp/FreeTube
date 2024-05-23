@@ -26,6 +26,7 @@
         :can-move-video-up="canMoveVideoUp"
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
+        :show-video-added-to-playlist-count="showVideoAddedToPlaylistCount"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
         @remove-from-playlist="removeFromPlaylist"

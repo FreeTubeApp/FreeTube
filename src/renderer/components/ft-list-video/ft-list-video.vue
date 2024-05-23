@@ -56,6 +56,7 @@
           :length-seconds="lengthSeconds"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          :show-video-added-to-playlist-count="showVideoAddedToPlaylistCount"
         />
         <ft-icon-button
           v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"

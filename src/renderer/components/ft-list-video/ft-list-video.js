@@ -86,6 +86,11 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+
+    showVideoAddedToPlaylistCount: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {

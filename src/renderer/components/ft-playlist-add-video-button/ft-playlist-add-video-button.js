@@ -42,6 +42,11 @@ export default defineComponent({
       type: Number,
       default: 20
     },
+
+    showVideoAddedToPlaylistCount: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     allPlaylists: function () {
@@ -56,6 +61,8 @@ export default defineComponent({
     },
 
     videoAddedToPlaylistCount() {
+      if (!this.showVideoAddedToPlaylistCount) { return 0 }
+
       let count = 0
 
       this.allPlaylists.forEach((playlist) => {
@@ -65,6 +72,11 @@ export default defineComponent({
         if (videoAlreadyAdded) { count += 1 }
       })
 
+      // If only saved in quick bookmark target, don't show the count which is confusing
+      if (count === 1 && this.isInQuickBookmarkPlaylist) {
+        return 0
+      }
+
       return count
     },
     videoAddedToPlaylistCountText() {
@@ -72,6 +84,23 @@ export default defineComponent({
 
       return this.$tc('User Playlists.Already Added to {playlistCount} Playlist(s)', this.videoAddedToPlaylistCount, {
         playlistCount: this.videoAddedToPlaylistCount,
+      })
+    },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    isQuickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    isInQuickBookmarkPlaylist: function () {
+      if (!this.isQuickBookmarkEnabled) { return false }
+
+      return this.quickBookmarkPlaylist.videos.some((video) => {
+        return video.videoId === this.videoId
       })
     },
   },

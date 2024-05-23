@@ -67,6 +67,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    showVideoAddedToPlaylistCount: {
+      type: Boolean,
+      default: true,
+    },
     videoIndex: {
       type: Number,
       default: -1
