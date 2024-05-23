@@ -26,7 +26,8 @@ export default defineComponent({
     },
     viewCount: {
       type: Number,
-      required: true
+      required: false,
+      default: null,
     },
     lengthSeconds: {
       type: Number,

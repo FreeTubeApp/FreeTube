@@ -52,7 +52,7 @@
           :video-title="title"
           :channel-id="channelId"
           :channel-name="channelName"
-          :view-count="viewCount"
+          :view-count="viewCount ?? null"
           :length-seconds="lengthSeconds"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
