@@ -8,7 +8,6 @@ import FtPlaylistAddVideoButton from '../ft-playlist-add-video-button/ft-playlis
 import {
   formatNumber,
   openExternalLink,
-  openInternalPath,
   showToast,
 } from '../../helpers/utils'
 
