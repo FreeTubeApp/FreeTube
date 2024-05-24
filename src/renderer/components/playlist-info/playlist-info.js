@@ -228,11 +228,8 @@ export default defineComponent({
       return !this.hideSharingActions
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     markedAsQuickBookmarkTarget() {
       // Only user playlists can be target
