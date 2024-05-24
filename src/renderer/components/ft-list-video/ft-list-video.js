@@ -442,8 +442,10 @@ export default defineComponent({
     isInQuickBookmarkPlaylist: function () {
       if (!this.isQuickBookmarkEnabled) { return false }
 
+      const id = this.id
+
       return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === this.id
+        return video.videoId === id
       })
     },
     quickBookmarkIconText: function () {
