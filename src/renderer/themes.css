@@ -1371,8 +1371,8 @@ a:visited {
 }
 
 ::-webkit-scrollbar {
-	inline-size: 6px;
-  block-size: 6px;
+	inline-size: auto;
+  block-size: auto;
 }
 
 ::-webkit-scrollbar-thumb {
