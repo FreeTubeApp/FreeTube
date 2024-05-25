@@ -1,5 +1,5 @@
 <template>
-  <div class="settings settingsPage">
+  <div class="settingsPage">
     <template v-if="unlocked">
       <div v-show="settingsSectionTypeOpenInMobile != null">
         <font-awesome-icon
@@ -37,7 +37,7 @@
             <component
               :is="settingsComponent.type"
               :ref="settingsComponent.type"
-              :key="settingsComponent.type + '-component'"
+              :key="settingsComponent.type"
               :class="{ hideOnMobile: settingsSectionTypeOpenInMobile !== settingsComponent.type }"
               class="section"
             />

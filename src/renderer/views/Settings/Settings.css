@@ -41,9 +41,10 @@
 }
 
 @media only screen and (width <= 1015px) {
-  .settingsPage.settings {
-    flex-direction: column;
+  /* Needed to overcome routerView styling for margin-block */
+  .settingsPage.settingsPage{
     margin-block: 0;
+    flex-direction: column;
     gap: 10px;
   }
 
