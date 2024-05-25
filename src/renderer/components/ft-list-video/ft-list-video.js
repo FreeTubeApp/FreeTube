@@ -783,14 +783,12 @@ export default defineComponent({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
       }
 
-      this.addVideos({
+      this.addVideo({
         _id: this.quickBookmarkPlaylist._id,
-        videos: [videoData],
+        videoData,
       })
       // Update playlist's `lastUpdatedAt`
       this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
@@ -828,7 +826,7 @@ export default defineComponent({
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
-      'addVideos',
+      'addVideo',
       'updatePlaylist',
       'removeVideo',
     ])
