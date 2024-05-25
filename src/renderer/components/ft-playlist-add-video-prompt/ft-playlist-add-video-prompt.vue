@@ -62,6 +62,7 @@
           :class="{
             disabled: playlistDisabled(playlist._id),
           }"
+          :aria-disabled="playlistDisabled(playlist._id)"
         >
           <ft-playlist-selector
             :tabindex="playlistDisabled(playlist._id) ? -1 : 0"
