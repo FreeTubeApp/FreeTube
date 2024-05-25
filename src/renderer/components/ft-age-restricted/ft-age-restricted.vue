@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="messsage">
+    <h2 class="message">
       {{ restrictedMessage }}
     </h2>
     <div class="frown">
