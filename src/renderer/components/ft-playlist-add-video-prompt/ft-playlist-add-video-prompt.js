@@ -170,9 +170,9 @@ export default defineComponent({
       const ids = []
 
       this.allPlaylists.forEach((playlist) => {
-        const playlistVideoIds = playlist.videos.map((v) => v.videoId)
+        const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
 
-        if (this.toBeAddedToPlaylistVideoIdList.every((vid) => playlistVideoIds.includes(vid))) {
+        if (this.toBeAddedToPlaylistVideoIdList.every((vid) => playlistVideoIdSet.has(vid))) {
           ids.push(playlist._id)
         }
       })
