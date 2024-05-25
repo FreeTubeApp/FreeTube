@@ -74,9 +74,6 @@ const SyncEvents = {
   }
 }
 
-// Settings
-const ACTIVE_CLASS_NAME = 'active'
-
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -89,17 +86,12 @@ const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
 // YouTube search character limit is 100 characters
 const SEARCH_CHAR_LIMIT = 100
 
-// Width threshold in px at which we switch to using a more heavily altered settings view for mobile users
-const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
-
 export {
   IpcChannels,
   DBActions,
   SyncEvents,
-  ACTIVE_CLASS_NAME,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
-  SEARCH_CHAR_LIMIT,
-  SETTINGS_MOBILE_WIDTH_THRESHOLD
+  SEARCH_CHAR_LIMIT
 }

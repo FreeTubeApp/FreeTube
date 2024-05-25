@@ -17,7 +17,9 @@ import PasswordSettings from '../../components/password-settings/password-settin
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtSettingsMenu from '../../components/ft-settings-menu/ft-settings-menu.vue'
-import { ACTIVE_CLASS_NAME, SETTINGS_MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+
+const ACTIVE_CLASS_NAME = 'active'
+const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
 
 export default defineComponent({
   name: 'Settings',
