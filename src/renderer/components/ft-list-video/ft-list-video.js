@@ -430,11 +430,8 @@ export default defineComponent({
       return this.playlistIdTypePairFinal?.playlistItemId
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
