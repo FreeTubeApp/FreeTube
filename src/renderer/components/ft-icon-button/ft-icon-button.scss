@@ -98,6 +98,10 @@
   }
 
   &.favorite, &.favorite:hover, &.favorite:focus-visible {
+    &:not(.disabled) {
+      color: var(--favorite-icon-color);
+    }
+
     color: var(--favorite-icon-color);
   }
 }
