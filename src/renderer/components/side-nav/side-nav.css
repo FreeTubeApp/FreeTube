@@ -162,9 +162,9 @@
 }
 
 @media only screen and (width > 680px) {
-  .sideNav ::-webkit-scrollbar {
-    inline-size: 6px;
-    block-size: 6px;
+  ::-webkit-scrollbar {
+    inline-size: 10px;
+    block-size: 10px;
   }
 }
 

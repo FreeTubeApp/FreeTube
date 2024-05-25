@@ -1378,6 +1378,12 @@ a:visited {
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
   border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:focus {
