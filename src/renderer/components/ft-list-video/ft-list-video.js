@@ -111,7 +111,6 @@ export default defineComponent({
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
-      addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
     }
   },
@@ -494,13 +493,6 @@ export default defineComponent({
   watch: {
     historyEntry() {
       this.checkIfWatched()
-    },
-    showAddToPlaylistPrompt(value) {
-      if (value) { return }
-      // Execute on prompt close
-
-      if (this.addToPlaylistPromptCloseCallback == null) { return }
-      this.addToPlaylistPromptCloseCallback()
     },
   },
   created: function () {
