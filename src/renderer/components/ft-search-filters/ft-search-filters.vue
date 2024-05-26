@@ -55,7 +55,6 @@
           :values="featureValues"
           :initial-values="searchDefaultFeatures"
           class="searchRadio"
-          :is-checkbox="true"
           @change="updateFeatures"
         />
       </ft-flex-box>
