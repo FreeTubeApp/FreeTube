@@ -49,6 +49,7 @@
       inline-size: 85%;
       background-color: var(--card-bg-color);
       box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+      z-index: 3;
 
       .playlistInfo {
         padding-block: 10px;
