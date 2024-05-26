@@ -223,11 +223,8 @@ export default defineComponent({
       return this.$store.getters.getDefaultPlayback
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
@@ -352,14 +349,12 @@ export default defineComponent({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
       }
 
-      this.addVideos({
+      this.addVideo({
         _id: this.quickBookmarkPlaylist._id,
-        videos: [videoData],
+        videoData,
       })
       // Update playlist's `lastUpdatedAt`
       this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
@@ -387,7 +382,7 @@ export default defineComponent({
     ...mapActions([
       'openInExternalPlayer',
       'downloadMedia',
-      'addVideos',
+      'addVideo',
       'updatePlaylist',
       'removeVideo',
     ])
