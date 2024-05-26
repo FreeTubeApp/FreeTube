@@ -1,6 +1,5 @@
 <template>
   <div
-    class="ft-auto-grid"
     :class="{
       grid: grid,
       list: !grid
@@ -11,4 +10,4 @@
 </template>
 
 <script src="./ft-auto-grid.js" />
-<style scoped lang="scss" src="./ft-auto-grid.scss" />
+<style scoped src="./ft-auto-grid.css" />

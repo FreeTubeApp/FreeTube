@@ -1,0 +1,17 @@
+.message {
+  padding-block: 10px;
+}
+
+.frown {
+  font-size: 10em;
+  block-size: 100%;
+  padding-block: 20px;
+}
+
+.message, .frown {
+  color: var(--primary-text-color);
+  background-color: var(--card-bg-color);
+  padding-inline: 0;
+  text-align: center;
+  inline-size: 100%;
+}
