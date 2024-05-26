@@ -153,7 +153,7 @@ User Playlists:
   Create New Playlist: Create New Playlist
 
   Add to Playlist: Add to Playlist
-  Already Added to {playlistCount} Playlist(s): Already Added to {playlistCount} Playlist | Already Added to {playlistCount} Playlists
+  Already Added to {playlistCount} Playlist(s): Already Added to {playlistCount}
   Add to Favorites: Add to {playlistName}
   Remove from Favorites: Remove from {playlistName}
 
