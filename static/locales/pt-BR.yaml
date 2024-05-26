@@ -195,6 +195,10 @@ User Playlists:
         vídeo
       Playlist has been updated.: Playlist atualizada.
       Video has been removed: Vídeo removido
+      This playlist is already being used for quick bookmark.: Esta playlist já está
+        sendo usada em "Favoritos Rápidos".
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
+        é a nova playlist de "Favoritos Rápidos".
     Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Toast:
@@ -215,6 +219,9 @@ User Playlists:
     não pode ser desfeito.
   Remove Watched Videos: Remove vídeos assistidos
   Playlists with Matching Videos: Playlists com vídeos correspondentes
+  Quick Bookmark Enabled: Favoritos Rápidos ativado
+  Cannot delete the quick bookmark target playlist.: Não é possível excluir a playlist
+    de destino em "Favoritos Rápidos".
 History:
   # On History Page
   History: 'Histórico'

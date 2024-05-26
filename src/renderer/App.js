@@ -82,7 +82,7 @@ export default defineComponent({
     },
     windowTitle: function () {
       const routePath = this.$route.path
-      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/')) {
+      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/')) {
         let title = translateWindowTitle(this.$route.meta.title, this.$i18n)
         if (!title) {
           title = packageDetails.productName
@@ -103,6 +103,14 @@ export default defineComponent({
 
     baseTheme: function () {
       return this.$store.getters.getBaseTheme
+    },
+
+    isSideNavOpen: function () {
+      return this.$store.getters.getIsSideNavOpen
+    },
+
+    hideLabelsSideBar: function () {
+      return this.$store.getters.getHideLabelsSideBar
     },
 
     mainColor: function () {

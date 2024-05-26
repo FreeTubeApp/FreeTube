@@ -15,7 +15,7 @@ Cut: 'Potong'
 Copy: 'Salin'
 Paste: 'Tempel'
 Delete: 'Hapus'
-Select all: 'PIlih semua'
+Select all: 'Pilih semua'
 Reload: 'Muat ulang'
 Force Reload: 'Paksa Muat Ulang'
 Toggle Developer Tools: 'Alat Pengembang'
@@ -37,12 +37,16 @@ Global:
   Counts:
     Video Count: 1 video | {count} video
     Subscriber Count: 1 subscriber | {count} subscriber
+    Channel Count: 1 kanal | {count} kanal
+    View Count: 1 ditonton | {count} ditonton
+    Watching Count: 1 sedang menonton | {count} sedang menonton
   Community: Komunitas
+  Live: Siaran Langsung
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
-A new blog is now available, {blogTitle}. Click to view more: 'Blog baru sekarang
-  tersedia, {blogTitle}. Klik untuk lihat lebih lanjut'
+A new blog is now available, {blogTitle}. Click to view more: 'Pos blog baru tersedia,
+  {blogTitle}. Klik untuk lihat lebih lanjut'
 
 # Search Bar
 Search / Go to URL: 'Cari / Pergi ke URL'
@@ -50,7 +54,7 @@ Search / Go to URL: 'Cari / Pergi ke URL'
 Search Filters:
   Search Filters: 'Filter Pencarian'
   Sort By:
-    Sort By: 'Urut Berdasarkan'
+    Sort By: 'Urut Menurut'
     Most Relevant: 'Paling Relevan'
     Rating: 'Peringkat'
     Upload Date: 'Tanggal Diunggah'
@@ -74,9 +78,9 @@ Search Filters:
     Duration: 'Durasi'
     All Durations: 'Semua Durasi'
     Short (< 4 minutes): 'Pendek (< 4 menit)'
-    Long (> 20 minutes): 'Panjang (>20 menit)'
+    Long (> 20 minutes): 'Panjang (> 20 menit)'
   # On Search Page
-    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
+    Medium (4 - 20 minutes): Sedang (4 - 20 menit)
   Search Results: 'Hasil Pencarian'
   Fetching results. Please wait: 'Mengambil hasil. Silakan tunggu'
   Fetch more results: 'Ambil lebih banyak hasil'
@@ -97,6 +101,11 @@ Subscriptions:
     akses
   Load More Posts: Muat Lebih Banyak Pos
   Subscriptions Tabs: Tab Langganan
+  Empty Channels: Kanal langganan Anda belum mempunyai video apa pun.
+  Empty Posts: Kanal langganan Anda belum mempunyai pos apa pun.
+  Disabled Automatic Fetching: Anda telah mematikan pengambilan langganan otomatis.
+    Muat ulang langganan untuk melihat mereka.
+  Error Channels: Kanal dengan Galat
 Trending:
   Trending: 'Sedang Tren'
   Movies: Film
@@ -113,9 +122,63 @@ User Playlists:
   Playlist Message: Halaman ini tidak mencerminkan playlist yang berfungsi sepenuhnya.
     Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
     semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
-  Search bar placeholder: Cari di Daftar Putar
+  Search bar placeholder: Cari Daftar Putar
   Empty Search Message: Tidak ada video di dalam daftar putar ini yang cocok dengan
     pencarian Anda
+  Remove from Favorites: Hapus dari {playlistName}
+  Move Video Up: Pindah Video Ke Atas
+  Remove from Playlist: Hapus dari Daftar Putar
+  Are you sure you want to delete this playlist? This cannot be undone: Apakah Anda
+    yakin ingin menghapus daftar putar ini? Ini tidak dapat dikembalikan kembali.
+  Sort By:
+    Sort By: Urut Menurut
+    NameDescending: Z-A
+    NameAscending: A-Z
+  CreatePlaylistPrompt:
+    Create: Buat
+    New Playlist Name: Nama Daftar Putar yang Baru
+    Toast:
+      Playlist {playlistName} has been successfully created.: Daftar putar {playlistName}
+        berhasil dibuat.
+  Create New Playlist: Buat Daftar Putar yang Baru
+  Add to Playlist: Tambahkan ke Daftar Putar
+  Move Video Down: Pindah Video Ke Bawah
+  Playlist Name: Nama Daftar Putar
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: Video telah dihapus
+      There was a problem with removing this video: Ada masalah ketika menghapus video
+        ini
+      There was an issue with updating this playlist.: Ada masalah ketika memperbarui
+        daftar putar ini.
+      "{videoCount} video(s) have been removed": 1 video telah dihapus | {videoCount}
+        video telah dihapus
+      Playlist has been updated.: Daftar putar telah diperbarui.
+      There were no videos to remove.: Tidak ada video untuk dihapus.
+      Playlist {playlistName} has been deleted.: Daftar putar {playlistName} telah
+        dihapus.
+      Playlist name cannot be empty. Please input a name.: Nama daftar putar tidak
+        dapat kosong. Silakan masukkan sebuah nama.
+      This playlist does not exist: Daftar putar ini tidak ada
+    Search for Videos: Cari Video
+  AddVideoPrompt:
+    Toast:
+      You haven't selected any playlist yet.: Anda belum memilih daftar putar apa
+        pun.
+    N playlists selected: '{playlistCount} Dipilih'
+    Search in Playlists: Cari di Daftar Putar
+    Save: Simpan
+  Playlists with Matching Videos: Daftar Putar dengan Video yang Sama
+  Add to Favorites: Tambahkan ke {playlistName}
+  Cancel: Batal
+  Save Changes: Simpan Perubahan
+  Edit Playlist Info: Sunting Informasi Daftar Putar
+  Copy Playlist: Salin Daftar Putar
+  Remove Watched Videos: Hapus Video yang Sudah Ditonton
+  Delete Playlist: Hapus Daftar Putar
+  Playlist Description: Deskripsi Daftar Putar
+  This playlist currently has no videos.: Daftar putar ini belum mempunyai video apa
+    pun.
 History:
   # On History Page
   History: 'Riwayat'
@@ -151,25 +214,29 @@ Settings:
       Middle: 'Tengah'
       End: 'Akhir'
       Hidden: Tersembunyi
+      Blur: Buramkan
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Situs Invidious
       (Bawaan: https://invidious.snopyta.org)'
     Region for Trending: 'Wilayah untuk Sedang Tren'
         #! List countries
-    View all Invidious instance information: Lihat semua informasi situs Invidious
+    View all Invidious instance information: Tampilkan informasi semua peladen Invidious
     System Default: Sistem standar
     Current instance will be randomized on startup: Situs akan diacak saat aplikasi
       dijalankan
     Current Invidious Instance: Situs Invidious Saat Ini
     External Link Handling:
-      External Link Handling: Handling link eksternal
-      Open Link: Buka link
-      Ask Before Opening Link: Tanya sebelum membuka link
+      External Link Handling: Penanganan Tautan Eksternal
+      Open Link: Buka Tautan
+      Ask Before Opening Link: Tanya Sebelum Membuka Tautan
       No Action: Tidak ada
     The currently set default instance is {instance}: Instans default yang saat ini
       disetel adalah {instance}
     No default instance has been set: Tidak ada instans default yang disetel
     Set Current Instance as Default: Tetapkan Instans Saat Ini sebagai Default
-    Clear Default Instance: Hapus Instans Default
+    Clear Default Instance: Hapus Peladen Baku
+    Auto Load Next Page:
+      Label: Otomatis Memuat Halaman Selanjutnya
+      Tooltip: Muat halaman dan komentar tambahan secara otomatis.
   Theme Settings:
     Theme Settings: 'Pengaturan Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -260,6 +327,8 @@ Settings:
       Ask Path: Tanya Lokasi Penyimpanan
       Quality Label: Kualitas Tangkapan Layar
       File Name Label: Pola Nama Berkas
+    Enter Fullscreen on Display Rotate: Masuk ke Layar Penuh ketika Perangkat Diputar
+    Skip by Scrolling Over Video Player: Lewati dengan Menggulir Di Atas Pemutar Video
   Privacy Settings:
     Privacy Settings: 'Pengaturan Privasi'
     Remember History: 'Ingat Riwayat'
@@ -276,11 +345,18 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Apakah
       Anda yakin ingin menghapus semua langganan dan profil? Tindakan ini tidak bisa
       diurungkan.'
+    All playlists have been removed: Semua daftar putar telah dihapus
+    Remove All Playlists: Hapus Semua Daftar Putar
+    Are you sure you want to remove all your playlists?: Apakah Anda yakin ingin menghapus
+      semua daftar putar Anda?
   Subscription Settings:
     Subscription Settings: 'Pengaturan Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
     Fetch Feeds from RSS: 'Ambil Umpan dari RSS'
     Manage Subscriptions: 'Kelola Langganan'
+    Fetch Automatically: Ambil Umpan Secara Otomatis
+    Only Show Latest Video for Each Channel: Hanya Tampilkan Video Terbaru untuk Setiap
+      Kanal
   Data Settings:
     Data Settings: 'Pengaturan Data'
     Select Import Type: 'Pilih Tipe Impor'
@@ -324,8 +400,13 @@ Settings:
     Export Playlists: Ekspor Playlist
     Playlist insufficient data: Data tidak mencukupi untuk "{playlist}" playlist,
       melewatkan item
-    All playlists has been successfully imported: Semua playlist berhasil diimpor
-    All playlists has been successfully exported: Semua playlist berhasil diekspor
+    All playlists has been successfully imported: Semua daftar putar berhasil diimpor
+    All playlists has been successfully exported: Semua daftar putar berhasil diekspor
+    Subscription File: Berkas Langganan
+    History File: Berkas Riwayat
+    Playlist File: Berkas Daftar Putar
+    Export Playlists For Older FreeTube Versions:
+      Label: Ekspor Daftar Putar untuk Versi FreeTube yang Lebih Tua
   Advanced Settings:
     Advanced Settings: 'Pengaturan Lanjutan'
     Enable Debug Mode (Prints data to the console): 'Aktifkan Mode Debug (Menampilkan
@@ -367,6 +448,37 @@ Settings:
     Hide Playlists: Sembunyikan Daftar Putar
     Sections:
       Side Bar: Bilah Samping
+      Subscriptions Page: Halaman Langganan
+      Channel Page: Halaman Kanal
+      Watch Page: Halaman Tontonan
+      General: Umum
+    Hide Channels Already Exists: ID Kanal sudah ada
+    Hide Channel Podcasts: Sembunyikan Sinaran dalam Kanal
+    Display Titles Without Excessive Capitalisation: Tampilkan Judul Tanpa Huruf Kapital
+      dan Tanda Baca yang Berlebihan
+    Hide Upcoming Premieres: Sembunyikan Siaran Langsung yang Akan Datang
+    Hide Live Streams: Sembunyikan Siaran Langsung
+    Hide Channel Playlists: Sembunyikan Daftar Putar dalam Kanal
+    Hide Channel Community: Sembunyikan Komunitas dalam Kanal
+    Hide Sharing Actions: Sembunyikan Tindakan Bagikan Video
+    Hide Featured Channels: Sembunyikan Kanal Unggulan
+    Hide Subscriptions Community: Sembunyikan Komunitas dalam Langganan
+    Hide Channels: Sembunyikan Video dari Kanal
+    Hide Channels Placeholder: ID Kanal
+    Hide Channels API Error: Galat menemukan pengguna dengan ID yang diberikan. Mohon
+      periksa kembali apakah ID-nya benar.
+    Hide Channel Releases: Sembunyikan Rilis dalam Kanal
+    Hide Videos and Playlists Containing Text: Sembunyikan Video dan Daftar yang Mengandung
+      Teks
+    Hide Videos and Playlists Containing Text Placeholder: Kata, Kata-Kata, atau Frasa
+    Hide Subscriptions Videos: Sembunyikan Video dalam Langganan
+    Hide Subscriptions Live: Sembunyikan Siaran Langsung dalam Langganan
+    Hide Video Description: Sembunyikan Deskripsi Video
+    Hide Comments: Sembunyikan Komentar
+    Hide Profile Pictures in Comments: Sembunyikan Gambar Profil di Komentar
+    Hide Channels Disabled Message: Beberapa kanal diblokir menggunakan ID dan belum
+      diproses. Fitur kanal tersebut diblokir selagi ID tersebut diperbarui
+    Hide Channels Invalid: ID Kanal yang diberikan tidak valid
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi
     butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
@@ -391,6 +503,16 @@ Settings:
       API (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Aktifkan SponsorBlock
     SponsorBlock Settings: Pengaturan SponsorBlock
+    UseDeArrowTitles: Gunakan Judul Video dari DeArrow
+    Skip Options:
+      Skip Option: Pilihan Melewati
+      Auto Skip: Otomatis Lewati
+      Show In Seek Bar: Tampilkan di Bilah Pemutaran
+      Do Nothing: Jangan Lakukan Apa Pun
+    UseDeArrowThumbnails: Gunakan Keluku dari DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
+      API DeArrow Thumbnail Generator
+    Category Color: Warna Kategori
   External Player Settings:
     Custom External Player Arguments: Argumen Pemutar Eksternal
     Custom External Player Executable: Aplikasi Pemutar Eksternal
@@ -404,18 +526,31 @@ Settings:
     Ask Download Path: Minta jalur unduhan
     Download Settings: Pengaturan Unduh
     Choose Path: Pilih Tempat
+    Open in web browser: Buka di peramban web
+    Download Behavior: Tindakan Unduhan
+    Download in app: Unduh di aplikasi
   Experimental Settings:
     Experimental Settings: Pengaturan Eksperimental
+    Replace HTTP Cache: Ganti Tembolok HTTP
   Password Settings:
     Set Password To Prevent Access: Tetapkan sandi untuk mencegah akses ke pengaturan
     Password Settings: Pengaturan Sandi
+    Remove Password: Hapus Kata Sandi
+    Set Password: Atur Kata Sandi
   Password Dialog:
     Enter Password To Unlock: Masukkan sandi untuk membuka kunci pengaturan
+    Password Incorrect: Kata Sandi Salah
+    Password: Kata Sandi
+    Unlock: Buka
   Parental Control Settings:
     Parental Control Settings: Pengaturan Kontrol Orang Tua
+    Hide Unsubscribe Button: Sembunyikan Tombol Berhenti Berlangganan
+    Show Family Friendly Only: Tampilkan Hanya yang Ramah Keluarga
+    Hide Search Bar: Sembunyikan Kotak Pencarian
+  Expand All Settings Sections: Buka Semua Bagian Pengaturan
 About:
   #On About page
-  About: 'Ihwal'
+  About: 'Tentang'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Perangkat
     lunak copyleft ini berlisensi bebas AGPL-3.0.'
@@ -467,6 +602,9 @@ About:
   Licensed under the AGPLv3: Lisensi AGPLv3
   Source code: Kode sumber
   Beta: Beta
+  Discussions: Diskusi
+  Licensed under the: Dilisensikan dengan lisensi
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Pilih Profil'
   All Channels: 'Semua Kanal'
@@ -478,28 +616,28 @@ Profile:
   Profile Preview: 'Pratinjau Profil'
   Create Profile: 'Buat Profil'
   Update Profile: 'Perbarui Profil'
-  Make Default Profile: 'Jadikan Profil Asali'
+  Make Default Profile: 'Jadikan Profil Baku'
   Delete Profile: 'Hapus Profil'
   Are you sure you want to delete this profile?: 'Apakah Anda yakin ingin menghapus
     profil ini?'
-  All subscriptions will also be deleted.: 'Semua langganan juga akan terhapus.'
+  All subscriptions will also be deleted.: 'Semua langganan juga akan dihapus.'
   Profile could not be found: 'Profil tidak dapat ditemukan'
   Your profile name cannot be empty: 'Nama profil Anda tidak boleh kosong'
   Profile has been created: 'Profil telah dibuat'
   Profile has been updated: 'Profil telah diperbarui'
-  Your default profile has been set to {profile}: 'Profil bawaan Anda telah diatur
-    ke {profile}'
+  Your default profile has been set to {profile}: 'Profil baku Anda telah diatur ke
+    {profile}'
   Removed {profile} from your profiles: '{profile} dihapus dari profil Anda'
-  Your default profile has been changed to your primary profile: 'Profil bawaan Anda
+  Your default profile has been changed to your primary profile: 'Profil baku Anda
     telah diubah ke profil utama Anda'
-  '{profile} is now the active profile': '{profile} sekarang adalah profil aktif'
+  '{profile} is now the active profile': '{profile} adalah profil aktif sekarang'
   Subscription List: 'Daftar Langganan'
   Other Channels: 'Kanal Lain'
   '{number} selected': '{number} terpilih'
   Select All: 'Pilih Semua'
-  Select None: 'Tidak Pilih'
-  Delete Selected: 'Hapus Terpilih'
-  Add Selected To Profile: 'Tambahkan Terpilih ke Profil'
+  Select None: 'Tidak Pilih Apa Pun'
+  Delete Selected: 'Hapus yang Terpilih'
+  Add Selected To Profile: 'Tambahkan Kanal yang Terpilih ke Profil'
   No channel(s) have been selected: 'Tidak ada kanal yang terpilih'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -507,13 +645,16 @@ Profile:
     Kanal yang sama juga akan dihapus dari semua profil.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Apakah
     Anda yakin ingin menghapus kanal yang terpilih? Tindakan ini tidak akan menghapus
-    kanalnya dari profil lain.'
+    kanal tersebut dari profil yang lain.'
 #On Channel Page
   Profile Filter: Filter Profil
   Profile Settings: Pengaturan Profil
+  Profile Name: Nama Profil
+  Edit Profile Name: Sunting Nama Profil
+  Create Profile Name: Buat Nama Profil
 Channel:
   Subscribe: 'Langganan'
-  Unsubscribe: 'Berhenti Langganan'
+  Unsubscribe: 'Berhenti Berlangganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
     Anda'
   Removed subscription from {count} other channel(s): 'Langganan terhapus dari {count}
@@ -522,7 +663,7 @@ Channel:
   Search Channel: 'Cari Kanal'
   Your search results have returned 0 results: 'Hasil pencarian Anda memberikan 0
     hasil'
-  Sort By: 'Urutkan'
+  Sort By: 'Urut Menurut'
   Videos:
     Videos: 'Video'
     This channel does not currently have any videos: 'Kanal ini belum memiliki video
@@ -540,9 +681,30 @@ Channel:
       Newest: 'Terbaru'
       Oldest: 'Terlawas'
   About:
-    About: 'Ihwal'
+    About: 'Tentang'
     Channel Description: 'Deskripsi Kanal'
     Featured Channels: 'Kanal Unggulan'
+    Details: Detail
+    Location: Lokasi
+  Live:
+    Live: Siaran Langsung
+    This channel does not currently have any live streams: Kanal ini belum memiliki
+      siaran langsung apa pun
+  Community:
+    Hide Answers: Sembunyikan jawaban
+    Reveal Answers: Tampilkan jawaban
+    Video hidden by FreeTube: Video disembunyikan oleh FreeTube
+    This channel currently does not have any posts: Kanal ini belum memiliki pos apa
+      pun
+  Releases:
+    Releases: Rilis
+    This channel does not currently have any releases: Kanal ini belum memiliki rilis
+      apa pun
+  Podcasts:
+    Podcasts: Sinaran
+    This channel does not currently have any podcasts: Kanal ini belum memiliki sinaran
+      apa pun
+  This channel does not exist: Kanal ini tidak ada
 Video:
   Mark As Watched: 'Tandai Sudah Ditonton'
   Remove From History: 'Hapus dari Riwayat'
@@ -611,8 +773,8 @@ Video:
   audio only: hanya audio
   video only: hanya video
   Download Video: Unduh Video
-  Starting soon, please refresh the page to check again: Segera dimulai, silakan segarkan
-    halaman untuk mengeceknya lagi
+  Starting soon, please refresh the page to check again: Segera dimulai, silakan muat
+    ulang halaman untuk mengeceknya kembali
   Copy Invidious Channel Link: Salin Tautan Kanal Invidious
   Open Channel in Invidious: Buka Kanal di Invidious
   Copy YouTube Channel Link: Salin Tautan Kanal YouTube
@@ -647,6 +809,8 @@ Video:
     video: video
     OpenInTemplate: Buka di {externalPlayer}
   Premieres on: Pemutaran Perdana pada
+  Hide Channel: Sembunyikan Kanal
+  Upcoming: Akan Datang
 Videos:
   #& Sort By
   Sort By:
@@ -660,17 +824,19 @@ Playlist:
   Videos: 'Video'
   View: 'Tampilan'
   Views: 'Tampilan'
-  Last Updated On: 'Terakhir Diperbarui pada'
+  Last Updated On: 'Terakhir Diperbarui Pada'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Daftar Putar
+  Sort By:
+    Sort By: Urut Menurut
 Toggle Theatre Mode: 'Mode Teater'
 Change Format:
   Change Media Formats: 'Ubah Format Video'
   Use Dash Formats: 'Gunakan Format DASH'
-  Use Legacy Formats: 'Gunakan Format Legasi'
+  Use Legacy Formats: 'Gunakan Format Lawas'
   Use Audio Formats: 'Gunakan Format Audio'
   Dash formats are not available for this video: 'Format DASH tidak tersedia untuk
     video ini'
@@ -693,6 +859,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL Kanal YouTube disalin ke papan klip
   Invidious Channel URL copied to clipboard: URL Kanal Invidious disalin ke papan
     klip
+  Share Channel: Bagikan Kanal
 Mini Player: 'Pemutar Kecil'
 Comments:
   Comments: 'Komentar'
@@ -701,7 +868,7 @@ Comments:
   Show Comments: 'Tampilkan Komentar'
   Hide Comments: 'Sembunyikan Komentar'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Tampilkan'
+  View: 'Lihat'
   Hide: 'Sembunyikan'
   Replies: 'Balasan'
   Reply: 'Balas'
@@ -711,12 +878,16 @@ Comments:
   No more comments available: Tidak ada komentar lagi yang tersedia
   Newest first: Terbaru
   Top comments: Komentar teratas
-  Sort by: Urut berdasarkan
+  Sort by: Urut menurut
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
   Show More Replies: Tampilkan Lebih Banyak Balasan
   From {channelName}: dari {channelName}
   And others: dan lain-lain
-  Pinned by: Dipin oleh
+  Pinned by: Disematkan oleh
+  Member: Anggota
+  View {replyCount} replies: Lihat {replyCount} balasan
+  Subscribed: Berlangganan
+  Hearted: Disukai
 Up Next: 'Akan Datang'
 
 # Toast Messages
@@ -747,13 +918,15 @@ Tooltips:
       feed langganan Anda. RSS lebih cepat dan terhindar dari pemblokiran berbasis
       IP, tetapi tidak menyediakan informasi tertentu seperti durasi video atau status
       siaran langsung
+    Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis
+      umpan langganan Anda ketika jendala baru dibuka atau ketika profil Anda berubah.
   Player Settings:
     Default Video Format: Atur format video. Format DASH bisa memutar kualitas yang
       lebih tinggi. Format lama terbatas ke maks 720p tetapi dengan bandwidth yang
       lebih rendah. Format audio hanya berisi stream audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
       Menimpa preferensi API.
-    Force Local Backend for Legacy Formats: Hanya bekerja jika APi Invidious diatur
+    Force Local Backend for Legacy Formats: Hanya bekerja jika API Invidious diatur
       sebagai default. Ketika diaktifkan, API lokal akan berjalan dan menggunakan
       format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
       Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
@@ -763,6 +936,12 @@ Tooltips:
       atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control
       (tombol Command di Mac) dan klik kiri mouse untuk dengan cepat kembali ke laju
       pemutaran default (1x kecuali telah diubah dalam pengaturan).
+    Allow DASH AV1 formats: Format DASH AV1 mungkin terlihat lebih baik daripada format
+      DASH H.264. Format DASH AV1 memerlukan lebih banyak energi untuk pemutaran!
+      Format itu juga tidak tersedia di semua video, yang mana pemutar akan menggunakan
+      format DASH H.264.
+    Skip by Scrolling Over Video Player: Gunakan guliran tetikus untuk melewati lewat
+      video, seperti MPV.
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang
       ngetren dari negara tersebut untuk ditampilkan.
@@ -791,9 +970,17 @@ Tooltips:
       membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
       thumbnail. Peringatan, pengaturan Invidious tidak berdampak pada pemutar eksternal.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
-Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
-  Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
-  video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Gunakan judul video dari judul yang disarankan oleh pengguna
+      dari DeArrow.
+    UseDeArrowThumbnails: Gunakan keluku video dari yang disediakan oleh DeArrow.
+  Distraction Free Settings:
+    Hide Channels: Masukkan ID Kanal untuk menyembunyikan semua video, daftar putar,
+      dan kanal itu sendiri dari pencarian, halaman tren, halaman video popular, dan
+      bagian rekomendasi. ID Kanal yang dimasukkan harus sesuai.
+Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk membatalkan.
+  | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
+  | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
 More: Lebih banyak
 Hashtags have not yet been implemented, try again later: Hashtag belum diimplementasikan,
   silakan coba lagi nanti
@@ -801,24 +988,42 @@ Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikena
   tidak bisa dibuka di aplikasi
 Open New Window: Buka Jendela Baru
 Search Bar:
-  Clear Input: Hapus input
-External link opening has been disabled in the general settings: Pembukaan link eksternal
-  telah dimatikan pada pengaturan umum
-Are you sure you want to open this link?: Yakin ingin membuka link ini?
+  Clear Input: Hapus Masukan
+External link opening has been disabled in the general settings: Pembukaan tautan
+  eksternal telah dimatikan pada pengaturan umum
+Are you sure you want to open this link?: Yakin ingin membuka tautan ini?
 Default Invidious instance has been set to {instance}: 'Situs Invidious baku telah
   di atur ke {instance}'
-Default Invidious instance has been cleared: Situs Invidious baku telah dikosongkan
+Default Invidious instance has been cleared: Peladen Invidious yang baku telah disetel
+  ulang
 Downloading has completed: '"{videoTitle}" telah selesai diunduh'
 Starting download: Mulai mengunduh "{videoTitle}"
-Downloading failed: Ada masalah mengunduh "{videoTitle}"
+Downloading failed: Ada masalah saat mengunduh "{videoTitle}"
 New Window: Jendela Baru
 Channels:
-  Channels: Channel
-  Title: Daftar Channel
-  Search bar placeholder: Cari Channel
-  Count: '{number} channel ditemukan.'
+  Channels: Kanal
+  Title: Daftar Kanal
+  Search bar placeholder: Cari Kanal
+  Count: '{number} kanal ditemukan.'
   Unsubscribe Prompt: Apakah Anda yakin ingin berhenti berlangganan "{channelName}"?
-  Empty: Daftar channel Anda kosong.
+  Empty: Daftar kanal Anda kosong.
   Unsubscribe: Berhenti langganan
   Unsubscribed: '{channelName} telah dihapus dari daftar langganan Anda'
-Preferences: Preferensi
+Preferences: Pengaturan
+Clipboard:
+  Copy failed: Gagal menyalin ke papan klip
+  Cannot access clipboard without a secure connection: Tidak dapat mengakses papan
+    klip tanpa koneksi yang aman
+Screenshot Error: Tangkap layar gagal. {error}
+Feed:
+  Refresh Feed: Muat Ulang {subscriptionName}
+Screenshot Success: Tangkapan layar disimpan sebagai "{filePath}"
+Moments Ago: saat yang lalu
+Yes, Delete: Ya, Hapus
+Yes, Restart: Ya, Mulai Ulang
+Cancel: Batal
+Go to page: Pergi ke {page}
+Ok: Oke
+Yes, Open Link: Ya, Buka Tautan
+checkmark: ✓
+Close Banner: Tutup

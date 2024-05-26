@@ -173,6 +173,10 @@ User Playlists:
         Haga clic aquí para deshacer
       Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
         para un marcador rápido
+      This playlist is already being used for quick bookmark.: Esta lista de reproducción
+        ya se utiliza como marcador rápido.
+      Playlist {playlistName} is the new quick bookmark playlist.: L lista de reproducción
+        {playlistName} es la nueva lista de reproducción de marcadores rápidos.
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
@@ -220,6 +224,9 @@ User Playlists:
     de reproducción
   Disable Quick Bookmark: Desactivar el marcador rápido
   Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
+  Quick Bookmark Enabled: Marcador rápido habilitado
+  Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
+    de reproducción de destino de marcadores rápidos.
 History:
   # On History Page
   History: 'Historial'

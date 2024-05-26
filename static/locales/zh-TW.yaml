@@ -157,6 +157,9 @@ User Playlists:
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
         進行快速書籤
+      This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
+      Playlist {playlistName} is the new quick bookmark playlist.: 播放清單 {playlistName}
+        是新的快速書籤播放清單。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
@@ -188,6 +191,8 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
   Disable Quick Bookmark: 停用快速書籤
   Playlists with Matching Videos: 包含相符影片的播放清單
+  Quick Bookmark Enabled: 已啟用快速書籤
+  Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
 History:
   # On History Page
   History: '觀看紀錄'

@@ -255,4 +255,4 @@
 </template>
 
 <script src="./player-settings.js" />
-<style scoped lang="scss" src="./player-settings.scss" />
+<style scoped src="./player-settings.css" />
