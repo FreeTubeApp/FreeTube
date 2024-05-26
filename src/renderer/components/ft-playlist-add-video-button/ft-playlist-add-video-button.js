@@ -63,11 +63,17 @@ export default defineComponent({
     videoAddedToPlaylistCount() {
       if (!this.showVideoAddedToPlaylistCount) { return 0 }
 
+      // Accessing a reactive property has a negligible amount of overhead,
+      // however as we know that some users have playlists that have more than 10k items in them
+      // it adds up quickly, especially as there are usually lots of ft-list-video instances active at the same time.
+      // So create a temporary variable outside of the array, so we only have to do it once.
+      // Also the search is re-triggered every time any playlist is modified.
+      const videoId = this.videoId
       let count = 0
 
       this.allPlaylists.forEach((playlist) => {
         const videoAlreadyAdded = playlist.videos.some((v) => {
-          return v.videoId === this.videoId
+          return v.videoId === videoId
         })
         if (videoAlreadyAdded) { count += 1 }
       })
@@ -87,11 +93,8 @@ export default defineComponent({
       })
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
@@ -99,8 +102,15 @@ export default defineComponent({
     isInQuickBookmarkPlaylist: function () {
       if (!this.isQuickBookmarkEnabled) { return false }
 
+      // Accessing a reactive property has a negligible amount of overhead,
+      // however as we know that some users have playlists that have more than 10k items in them
+      // it adds up quickly, especially as there are usually lots of ft-list-video instances active at the same time.
+      // So create a temporary variable outside of the array, so we only have to do it once.
+      // Also the search is re-triggered every time any playlist is modified.
+      const videoId = this.videoId
+
       return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === this.videoId
+        return video.videoId === videoId
       })
     },
   },
