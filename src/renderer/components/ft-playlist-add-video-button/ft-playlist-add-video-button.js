@@ -57,7 +57,7 @@ export default defineComponent({
       const initialText = this.$t('User Playlists.Add to Playlist')
       if (this.videoAddedToPlaylistCountText == null) { return initialText }
 
-      return `${this.$t('User Playlists.Add to Playlist')} (${this.videoAddedToPlaylistCountText})`
+      return `${initialText} (${this.videoAddedToPlaylistCountText})`
     },
 
     videoAddedToPlaylistCount() {
