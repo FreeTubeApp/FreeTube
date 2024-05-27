@@ -1,0 +1,15 @@
+.sponsorBlockCategory {
+  margin-block-start: 30px;
+  padding-block: 0;
+  padding-inline: 10px;
+}
+
+.sponsorTitle {
+  font-size: x-large;
+}
+
+@media only screen and (width <= 680px) {
+  .sponsorBlockCategory {
+    inline-size: 100%;
+  }
+}

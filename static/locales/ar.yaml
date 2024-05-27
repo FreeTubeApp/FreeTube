@@ -172,6 +172,10 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
         للإشارة المرجعية السريعة
       Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+      This playlist is already being used for quick bookmark.: يتم استخدام قائمة التشغيل
+        هذه بالفعل لوضع إشارة مرجعية سريعة.
+      Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
+        هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
     Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
@@ -211,6 +215,9 @@ User Playlists:
     التشغيل هذه
   Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
   Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
+  Quick Bookmark Enabled: تم تمكين الإشارة المرجعية السريعة
+  Cannot delete the quick bookmark target playlist.: لا يمكن حذف قائمة التشغيل المستهدفة
+    للإشارات المرجعية السريعة.
 History:
   # On History Page
   History: 'السجلّ'

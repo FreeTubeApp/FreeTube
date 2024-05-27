@@ -63,6 +63,15 @@ const getters = {
   getPlaylist: (state) => (playlistId) => {
     return state.playlists.find(playlist => playlist._id === playlistId)
   },
+  getQuickBookmarkPlaylist(state, getters) {
+    const playlistId = getters.getQuickBookmarkTargetPlaylistId
+
+    if (!playlistId) {
+      return undefined
+    }
+
+    return state.playlists.find((playlist) => playlist._id === playlistId)
+  }
 }
 
 const actions = {
