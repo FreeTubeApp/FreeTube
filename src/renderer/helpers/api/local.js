@@ -941,6 +941,10 @@ function convertSearchFilters(filters) {
     if (filters.duration) {
       convertedFilters.duration = filters.duration
     }
+
+    if (filters.features) {
+      convertedFilters.features = filters.features
+    }
   }
 
   return convertedFilters

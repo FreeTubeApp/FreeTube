@@ -89,6 +89,18 @@ Search Filters:
   Fetch more results: 'További eredmények lekérése'
 # Sidebar
   There are no more results for this search: Nincs több találat erre a keresésre
+  Features:
+    HD: HD
+    Subtitles: Feliratok
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    Location: Helyszín
+    HDR: HDR
+    VR180: VR180
+    Features: Szolgáltatások
+    Live: Élő
+    360 Video: 360 videó
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
