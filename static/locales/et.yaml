@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Laadi veel andmeid'
 # Sidebar
   There are no more results for this search: Sellel otsingul pole rohkem vastuseid
+  Features:
+    Creative Commons: Litsentseeritud Creative Commonsi alusel
+    3D: 3D-sisu
+    HD: 'Kõrgresolutsiooniga video: HD'
+    4K: 'Kõrgresolutsiooniga video: 4K'
+    360 Video: 360 Video
+    HDR: HDR-video
+    Features: Videote omadused
+    Subtitles: Subtiitrid
+    Live: Otseeeter
+    Location: Asukoht
+    VR180: VR180-video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tellimused'
