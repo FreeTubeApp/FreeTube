@@ -208,7 +208,8 @@ export default defineComponent({
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
-                duration: this.searchSettings.duration
+                duration: this.searchSettings.duration,
+                features: this.searchSettings.features,
               },
               doCreateNewWindow,
               searchQueryText: query
