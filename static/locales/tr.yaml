@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Daha fazla sonuç yükle'
 # Sidebar
   There are no more results for this search: Bu arama için başka sonuç yok
+  Features:
+    HD: HD
+    Subtitles: Alt Yazılar
+    Live: Canlı
+    4K: 4K
+    HDR: HDR
+    Features: Özellikler
+    Creative Commons: Creative Commons
+    3D: 3B
+    360 Video: 360 Video
+    Location: Konum
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
