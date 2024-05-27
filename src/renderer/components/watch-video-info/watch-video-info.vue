@@ -87,6 +87,7 @@
           :channel-name="channelName"
           :view-count="viewCount"
           :length-seconds="lengthSeconds"
+          :is-in-quick-bookmark-playlist="isInQuickBookmarkPlaylist"
         />
         <ft-icon-button
           v-if="isQuickBookmarkEnabled"

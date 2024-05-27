@@ -57,6 +57,7 @@
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           :show-video-added-to-playlist-count="showVideoAddedToPlaylistCount"
+          :is-in-quick-bookmark-playlist="isInQuickBookmarkPlaylist"
         />
         <ft-icon-button
           v-if="isQuickBookmarkEnabled && quickBookmarkButtonEnabled"

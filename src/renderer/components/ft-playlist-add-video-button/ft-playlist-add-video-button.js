@@ -47,6 +47,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    isInQuickBookmarkPlaylist: {
+      type: Boolean,
+      required: true,
+    },
   },
   computed: {
     allPlaylists: function () {
@@ -71,16 +75,25 @@ export default defineComponent({
       const videoId = this.videoId
       let count = 0
 
+      const isQuickBookmarkEnabled = this.isQuickBookmarkEnabled
+      let quickBookmarkPlaylistId
+      if (isQuickBookmarkEnabled) {
+        quickBookmarkPlaylistId = this.quickBookmarkPlaylist._id
+      }
       this.allPlaylists.forEach((playlist) => {
+        // We don't need to check the quick bookmark playlist
+        // as we already know it from isInQuickBookmarkPlaylist
+        if (isQuickBookmarkEnabled && quickBookmarkPlaylistId === playlist._id) {
+          return
+        }
         const videoAlreadyAdded = playlist.videos.some((v) => {
           return v.videoId === videoId
         })
-        if (videoAlreadyAdded) { count += 1 }
+        if (videoAlreadyAdded) { count++ }
       })
-
       // If only saved in quick bookmark target, don't show the count which is confusing
-      if (count === 1 && this.isInQuickBookmarkPlaylist) {
-        return 0
+      if (count > 0 && this.isInQuickBookmarkPlaylist) {
+        count++
       }
 
       return count
@@ -98,20 +111,6 @@ export default defineComponent({
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
-    },
-    isInQuickBookmarkPlaylist: function () {
-      if (!this.isQuickBookmarkEnabled) { return false }
-
-      // Accessing a reactive property has a negligible amount of overhead,
-      // however as we know that some users have playlists that have more than 10k items in them
-      // it adds up quickly, especially as there are usually lots of ft-list-video instances active at the same time.
-      // So create a temporary variable outside of the array, so we only have to do it once.
-      // Also the search is re-triggered every time any playlist is modified.
-      const videoId = this.videoId
-
-      return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === videoId
-      })
     },
   },
   methods: {
