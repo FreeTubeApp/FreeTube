@@ -34,7 +34,6 @@
             :show-action-button="false"
             :show-label="false"
             :disabled="true"
-            :maxlength="100"
           />
         </ft-flex-box>
         <ft-flex-box>
