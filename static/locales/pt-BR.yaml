@@ -77,10 +77,22 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Médio (4 - 20 minutos)
   Search Results: 'Resultados da busca'
-  Fetching results. Please wait: 'Buscando resultados. Por favor, espere'
+  Fetching results. Please wait: 'Buscando resultados. Por favor, aguarde'
   Fetch more results: 'Buscar mais resultados'
 # Sidebar
   There are no more results for this search: Não há mais resultados para esta busca
+  Features:
+    HD: HD
+    Subtitles: Legendas
+    Live: Ao vivo
+    4K: 4K
+    360 Video: Vídeo em 360º
+    Location: Localização
+    HDR: HDR
+    VR180: VR180
+    Creative Commons: Creative Commons (Licença)
+    Features: Características
+    3D: 3D
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Inscrições'
@@ -89,7 +101,7 @@ Subscriptions:
     lista de inscrições está vazia no momento. Adicione algumas para vê-las aqui.'
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
   Refresh Subscriptions: Atualizar inscrições
-  'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, espere.
+  'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, aguarde.
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
