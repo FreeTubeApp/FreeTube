@@ -49,6 +49,8 @@
       inline-size: 85%;
       background-color: var(--card-bg-color);
       box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+
+      /* video progress bar has z-index 2 and this must be above it */
       z-index: 3;
 
       .playlistInfo {
