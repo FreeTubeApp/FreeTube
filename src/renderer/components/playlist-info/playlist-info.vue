@@ -71,7 +71,6 @@
       :placeholder="$t('User Playlists.Playlist Description')"
       :show-action-button="false"
       :show-label="false"
-      :maxlength="null"
       :value="newDescription"
       @input="(input) => newDescription = input"
       @keydown.enter.native="savePlaylistInfo"
@@ -188,6 +187,7 @@
             :show-clear-text-button="true"
             :show-action-button="false"
             :value="query"
+            :maxlength="255"
             @input="(input) => updateQueryDebounce(input)"
             @clear="updateQueryDebounce('')"
           />

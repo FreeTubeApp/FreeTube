@@ -40,7 +40,7 @@
           :show-action-button="false"
           :show-label="true"
           :value="sponsorBlockUrl"
-          :maxlength="null"
+
           @input="handleUpdateSponsorBlockUrl"
         />
       </ft-flex-box>
@@ -53,7 +53,7 @@
           :show-action-button="false"
           :show-label="true"
           :value="deArrowThumbnailGeneratorUrl"
-          :maxlength="null"
+
           @input="handleUpdateDeArrowThumbnailGeneratorUrl"
         />
       </ft-flex-box>

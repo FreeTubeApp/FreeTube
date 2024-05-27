@@ -208,6 +208,7 @@
             :placeholder="$t('Channel.Search Channel')"
             :show-clear-text-button="true"
             class="channelSearch"
+            :maxlength="255"
             @click="newSearch"
           />
         </ft-flex-box>

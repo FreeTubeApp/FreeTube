@@ -113,7 +113,6 @@
           :value="currentInvidiousInstance"
           :data-list="invidiousInstancesList"
           :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
-          :maxlength="null"
           @input="handleInvidiousInstanceInput"
         />
       </ft-flex-box>
