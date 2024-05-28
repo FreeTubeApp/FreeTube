@@ -82,6 +82,18 @@ Search Filters:
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
   There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
+  Features:
+    Features: المميزات
+    HD: عالِ الدقة
+    Subtitles: التسميات التوضيحية
+    4K: 4K
+    HDR: المستوى الديناميكي العالي
+    Creative Commons: المشاع الإبداعي
+    3D: ثلاثي الابعاد
+    Live: مباشر
+    360 Video: فيديو ٣٦٠
+    Location: الموقع
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -697,7 +709,7 @@ About:
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
   Discussions: المناقشات
   Licensed under the: مرخص تحت
-  AGPLv3: AGPLv3
+  AGPLv3: رخصة أفيرو العمومية الإصدار ٣
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
