@@ -561,7 +561,8 @@ export function searchFiltersMatch(filtersA, filtersB) {
   return filtersA?.sortBy === filtersB?.sortBy &&
     filtersA?.time === filtersB?.time &&
     filtersA?.type === filtersB?.type &&
-    filtersA?.duration === filtersB?.duration
+    filtersA?.duration === filtersB?.duration &&
+    filtersA?.features?.length === filtersB?.features?.length && filtersA?.features?.every((val, index) => val === filtersB?.features[index])
 }
 
 export function replaceFilenameForbiddenChars(filenameOriginal) {
