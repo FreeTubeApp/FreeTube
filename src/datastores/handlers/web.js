@@ -118,9 +118,56 @@ class Playlists {
   }
 }
 
+class Subscriptions {
+  static find() {
+    return baseHandlers.subscriptions.find()
+  }
+
+  static updateVideosByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptions.updateVideosByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptions.updateLiveStreamsByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static updateShortsByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptions.updateShortsByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptions.updateCommunityPostsByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static deleteMultipleChannels(channelIds) {
+    return baseHandlers.subscriptions.deleteMultipleChannels(channelIds)
+  }
+
+  static deleteAll() {
+    return baseHandlers.subscriptions.deleteAll()
+  }
+}
+
 export {
   Settings as settings,
   History as history,
   Profiles as profiles,
-  Playlists as playlists
+  Playlists as playlists,
+  Subscriptions as subscriptions,
 }

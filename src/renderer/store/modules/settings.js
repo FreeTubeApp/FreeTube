@@ -568,6 +568,40 @@ const customActions = {
             console.error('playlists: invalid sync event received')
         }
       })
+
+      ipcRenderer.on(IpcChannels.SYNC_SUBSCRIPTIONS, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.SUBSCRIPTIONS.UPDATE_VIDEOS_BY_CHANNEL:
+            commit('updateVideoCacheByChannel', data)
+            break
+
+          case SyncEvents.SUBSCRIPTIONS.UPDATE_LIVE_STREAMS_BY_CHANNEL:
+            commit('updateLiveCacheByChannel', data)
+            break
+
+          case SyncEvents.SUBSCRIPTIONS.UPDATE_SHORTS_BY_CHANNEL:
+            commit('updateShortsCacheByChannel', data)
+            break
+
+          case SyncEvents.SUBSCRIPTIONS.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
+            commit('updatePostsCacheByChannel', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_MULTIPLE:
+            commit('clearCachesForManyChannels', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_ALL:
+            commit('clearVideoCache', data)
+            commit('clearShortsCache', data)
+            commit('clearLiveCache', data)
+            commit('clearPostsCache', data)
+            break
+
+          default:
+            console.error('subscriptions: invalid sync event received')
+        }
+      })
     }
   }
 }

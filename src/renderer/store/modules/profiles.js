@@ -29,7 +29,14 @@ const getters = {
   profileById: (state) => (id) => {
     const profile = state.profileList.find(p => p._id === id)
     return profile
-  }
+  },
+
+  getSubscribedChannelIdSet: (state) => {
+    const mainProfile = state.profileList.find((profile) => {
+      return profile._id === MAIN_PROFILE_ID
+    })
+    return mainProfile.subscriptions.reduce((set, channel) => set.add(channel.id), new Set())
+  },
 }
 
 function profileSort(a, b) {

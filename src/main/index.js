@@ -1223,6 +1223,84 @@ function runApp() {
 
   // *********** //
 
+  // *********** //
+  // Profiles
+  ipcMain.handle(IpcChannels.DB_SUBSCRIPTIONS, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.subscriptions.find()
+
+        case DBActions.SUBSCRIPTIONS.UPDATE_VIDEOS_BY_CHANNEL:
+          await baseHandlers.subscriptions.updateVideosByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.SUBSCRIPTIONS.UPDATE_VIDEOS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTIONS.UPDATE_LIVE_STREAMS_BY_CHANNEL:
+          await baseHandlers.subscriptions.updateLiveStreamsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.SUBSCRIPTIONS.UPDATE_LIVE_STREAMS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTIONS.UPDATE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptions.updateShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.SUBSCRIPTIONS.UPDATE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTIONS.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
+          await baseHandlers.subscriptions.updateCommunityPostsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.SUBSCRIPTIONS.UPDATE_COMMUNITY_POSTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.subscriptions.deleteMultipleChannels(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.subscriptions.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.PERSIST:
+          await baseHandlers.subscriptions.persist()
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid subscriptions db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+
   function syncOtherWindows(channel, event, payload) {
     const otherWindows = BrowserWindow.getAllWindows().filter((window) => {
       return window.webContents.id !== event.sender.id

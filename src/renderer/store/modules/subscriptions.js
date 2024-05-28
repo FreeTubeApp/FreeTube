@@ -1,11 +1,19 @@
+import {
+  DBSubscriptionsHandlers,
+} from '../../../datastores/handlers/index'
+
 const state = {
   videoCache: {},
   liveCache: {},
   shortsCache: {},
-  postsCache: {}
+  postsCache: {},
+
+  subscriptionCacheReady: false,
 }
 
 const getters = {
+  getSubscriptionCacheReady: (state) => state.subscriptionCacheReady,
+
   getVideoCache: (state) => {
     return state.videoCache
   },
@@ -40,49 +48,158 @@ const getters = {
 }
 
 const actions = {
-  updateSubscriptionVideosCacheByChannel: ({ commit }, payload) => {
-    commit('updateVideoCacheByChannel', payload)
+  async grabAllSubscriptions({ commit, dispatch, rootGetters }) {
+    try {
+      const payload = await DBSubscriptionsHandlers.find()
+
+      const videos = {}
+      const liveStreams = {}
+      const shorts = {}
+      const communityPosts = {}
+
+      const toBeRemovedChannelIds = []
+      const subscribedChannelIdSet = rootGetters.getSubscribedChannelIdSet
+
+      for (const dataEntry of payload) {
+        const channelId = dataEntry._id
+        if (!subscribedChannelIdSet.has(channelId)) {
+          // Clean up cache data for unsubscribed channels
+          toBeRemovedChannelIds.push(channelId)
+          // No need to load data for unsubscribed channels
+          continue
+        }
+
+        let hasData = false
+
+        if (Array.isArray(dataEntry.videos)) {
+          videos[channelId] = { videos: dataEntry.videos, timestamp: dataEntry.videosTimestamp }
+          hasData = true
+        }
+        if (Array.isArray(dataEntry.liveStreams)) {
+          liveStreams[channelId] = dataEntry.liveStreams
+          liveStreams[channelId] = { videos: dataEntry.liveStreams, timestamp: dataEntry.liveStreamsTimestamp }
+          hasData = true
+        }
+        if (Array.isArray(dataEntry.shorts)) {
+          shorts[channelId] = { videos: dataEntry.shorts, timestamp: dataEntry.shortsTimestamp }
+          hasData = true
+        }
+        if (Array.isArray(dataEntry.communityPosts)) {
+          communityPosts[channelId] = { posts: dataEntry.communityPosts, timestamp: dataEntry.communityPostsTimestamp }
+          hasData = true
+        }
+
+        if (!hasData) { toBeRemovedChannelIds.push(channelId) }
+      }
+
+      if (toBeRemovedChannelIds.length > 0) {
+        // Delete channels with no data
+        dispatch('clearSubscriptionsCacheForManyChannels', toBeRemovedChannelIds)
+      }
+      commit('setAllSubscriptions', { videos, liveStreams, shorts, communityPosts })
+      commit('setSubscriptionCacheReady', true)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  updateSubscriptionShortsCacheByChannel: ({ commit }, payload) => {
-    commit('updateShortsCacheByChannel', payload)
+  async updateSubscriptionVideosCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
+    try {
+      await DBSubscriptionsHandlers.updateVideosByChannelId({
+        channelId,
+        entries: videos,
+        timestamp,
+      })
+      commit('updateVideoCacheByChannel', { channelId, entries: videos, timestamp })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  updateSubscriptionShortsCacheWithChannelPageShorts: ({ commit }, payload) => {
-    commit('updateShortsCacheWithChannelPageShorts', payload)
+  async updateSubscriptionShortsCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
+    try {
+      await DBSubscriptionsHandlers.updateShortsByChannelId({
+        channelId,
+        entries: videos,
+        timestamp,
+      })
+      commit('updateShortsCacheByChannel', { channelId, entries: videos, timestamp })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  updateSubscriptionLiveCacheByChannel: ({ commit }, payload) => {
-    commit('updateLiveCacheByChannel', payload)
+  async updateSubscriptionShortsCacheWithChannelPageShorts({ commit }, { channelId, videos, timestamp = new Date() }) {
+    try {
+      commit('updateShortsCacheWithChannelPageShorts', { channelId, videos, timestamp })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  updateSubscriptionPostsCacheByChannel: ({ commit }, payload) => {
-    commit('updatePostsCacheByChannel', payload)
+  async updateSubscriptionLiveCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
+    try {
+      await DBSubscriptionsHandlers.updateLiveStreamsByChannelId({
+        channelId,
+        entries: videos,
+        timestamp,
+      })
+      commit('updateLiveCacheByChannel', { channelId, entries: videos, timestamp })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 
-  clearSubscriptionsCache: ({ commit }, payload) => {
-    commit('clearVideoCache', payload)
-    commit('clearShortsCache', payload)
-    commit('clearLiveCache', payload)
-    commit('clearPostsCache', payload)
+  async updateSubscriptionPostsCacheByChannel({ commit }, { channelId, posts, timestamp = new Date() }) {
+    try {
+      await DBSubscriptionsHandlers.updateCommunityPostsByChannelId({
+        channelId,
+        entries: posts,
+        timestamp,
+      })
+      commit('updatePostsCacheByChannel', { channelId, entries: posts, timestamp })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  async clearSubscriptionsCacheForManyChannels({ commit }, channelIds) {
+    try {
+      await DBSubscriptionsHandlers.deleteMultipleChannels(channelIds)
+      commit('clearCachesForManyChannels', channelIds)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  async clearSubscriptionsCache({ commit }, payload) {
+    try {
+      await DBSubscriptionsHandlers.deleteAll()
+      commit('clearVideoCache', payload)
+      commit('clearShortsCache', payload)
+      commit('clearLiveCache', payload)
+      commit('clearPostsCache', payload)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
   },
 }
 
 const mutations = {
-  updateVideoCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
+  updateVideoCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.videoCache[channelId]
     const newObject = existingObject ?? { videos: null }
-    if (videos != null) { newObject.videos = videos }
+    if (entries != null) { newObject.videos = entries }
     newObject.timestamp = timestamp
     state.videoCache[channelId] = newObject
   },
   clearVideoCache(state) {
     state.videoCache = {}
   },
-  updateShortsCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
+  updateShortsCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.shortsCache[channelId]
     const newObject = existingObject ?? { videos: null }
-    if (videos != null) { newObject.videos = videos }
+    if (entries != null) { newObject.videos = entries }
     newObject.timestamp = timestamp
     state.shortsCache[channelId] = newObject
   },
@@ -114,25 +231,45 @@ const mutations = {
   clearShortsCache(state) {
     state.shortsCache = {}
   },
-  updateLiveCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
+  updateLiveCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.liveCache[channelId]
     const newObject = existingObject ?? { videos: null }
-    if (videos != null) { newObject.videos = videos }
+    if (entries != null) { newObject.videos = entries }
     newObject.timestamp = timestamp
     state.liveCache[channelId] = newObject
   },
   clearLiveCache(state) {
     state.liveCache = {}
   },
-  updatePostsCacheByChannel(state, { channelId, posts, timestamp = new Date() }) {
+  updatePostsCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.postsCache[channelId]
     const newObject = existingObject ?? { posts: null }
-    if (posts != null) { newObject.posts = posts }
+    if (entries != null) { newObject.posts = entries }
     newObject.timestamp = timestamp
     state.postsCache[channelId] = newObject
   },
   clearPostsCache(state) {
     state.postsCache = {}
+  },
+
+  clearCachesForManyChannels(state, channelIds) {
+    channelIds.forEach((channelId) => {
+      state.videoCache[channelId] = null
+      state.liveCache[channelId] = null
+      state.shortsCache[channelId] = null
+      state.postsCache[channelId] = null
+    })
+  },
+
+  setAllSubscriptions(state, { videos, liveStreams, shorts, communityPosts }) {
+    state.videoCache = videos
+    state.liveCache = liveStreams
+    state.shortsCache = shorts
+    state.postsCache = communityPosts
+  },
+
+  setSubscriptionCacheReady(state, payload) {
+    state.subscriptionCacheReady = payload
   },
 }
 

@@ -39,6 +39,10 @@ export default defineComponent({
       return this.activeProfile._id
     },
 
+    subscriptionCacheReady: function () {
+      return this.$store.getters.getSubscriptionCacheReady
+    },
+
     cacheEntriesForAllActiveProfileChannels() {
       const entries = []
       this.activeSubscriptionList.forEach((channel) => {
@@ -51,7 +55,16 @@ export default defineComponent({
     },
 
     lastCommunityRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastCommunityRefreshTimestampByProfile(this.activeProfileId), true)
+      if (!this.postCacheForAllActiveProfileChannelsPresent) { return '' }
+      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return '' }
+
+      let minTimestamp = null
+      this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+        if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+          minTimestamp = cacheEntry.timestamp
+        }
+      })
+      return getRelativeTimeFromDate(minTimestamp, true)
     },
 
     postCacheForAllActiveProfileChannelsPresent() {
@@ -76,6 +89,10 @@ export default defineComponent({
       this.isLoading = true
       this.loadPostsFromCacheSometimes()
     },
+
+    subscriptionCacheReady() {
+      this.loadVideosFromCacheSometimes()
+    },
   },
   mounted: async function () {
     this.isLoading = true
@@ -84,23 +101,15 @@ export default defineComponent({
   },
   methods: {
     loadPostsFromCacheSometimes() {
+      // Can only load reliably when cache ready
+      if (!this.subscriptionCacheReady) { return }
+
       // This method is called on view visible
       if (this.postCacheForAllActiveProfileChannelsPresent) {
         this.loadPostsFromCacheForAllActiveProfileChannels()
-        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
-          let minTimestamp = null
-          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
-            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
-              minTimestamp = cacheEntry.timestamp
-            }
-          })
-          this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
-        }
         return
       }
 
-      // clear timestamp if not all entries are present in the cache
-      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadPostsForSubscriptionsFromRemote()
     },
 
@@ -184,7 +193,6 @@ export default defineComponent({
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
-      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
       postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
@@ -260,7 +268,6 @@ export default defineComponent({
       'updateShowProgressBar',
       'batchUpdateSubscriptionDetails',
       'updateSubscriptionPostsCacheByChannel',
-      'updateLastCommunityRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

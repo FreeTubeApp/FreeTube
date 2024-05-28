@@ -183,12 +183,63 @@ class Playlists {
   }
 }
 
+class Subscriptions {
+  static find() {
+    return db.subscriptions.findAsync({})
+  }
+
+  static updateVideosByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptions.updateAsync(
+      { _id: channelId },
+      { $set: { videos: entries, videosTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptions.updateAsync(
+      { _id: channelId },
+      { $set: { liveStreams: entries, liveStreamsTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static updateShortsByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptions.updateAsync(
+      { _id: channelId },
+      { $set: { shorts: entries, shortsTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptions.updateAsync(
+      { _id: channelId },
+      { $set: { communityPosts: entries, communityPostsTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static deleteMultipleChannels(channelIds) {
+    return db.subscriptions.removeAsync({ _id: { $in: channelIds } }, { multi: true })
+  }
+
+  static deleteAll() {
+    return db.subscriptions.removeAsync({}, { multi: true })
+  }
+
+  static persist() {
+    return db.subscriptions.compactDatafileAsync()
+  }
+}
+
 function compactAllDatastores() {
   return Promise.allSettled([
     Settings.persist(),
     History.persist(),
     Profiles.persist(),
     Playlists.persist(),
+    Subscriptions.persist(),
   ])
 }
 
@@ -197,6 +248,7 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
+  Subscriptions as subscriptions,
 
   compactAllDatastores,
 }
