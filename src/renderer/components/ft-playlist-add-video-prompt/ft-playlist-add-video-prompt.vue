@@ -20,6 +20,7 @@
         :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
         :show-clear-text-button="true"
         :show-action-button="false"
+        :maxlength="255"
         @input="(input) => updateQueryDebounce(input)"
         @clear="updateQueryDebounce('')"
       />

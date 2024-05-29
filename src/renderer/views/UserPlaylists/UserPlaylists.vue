@@ -28,6 +28,7 @@
             :placeholder="$t('User Playlists.Search bar placeholder')"
             :show-clear-text-button="true"
             :show-action-button="false"
+            :maxlength="255"
             @input="(input) => query = input"
             @clear="query = ''"
           />

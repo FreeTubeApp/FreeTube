@@ -13,6 +13,7 @@
         :show-action-button="false"
         :show-label="false"
         :value="playlistName"
+        :maxlength="255"
         class="playlistNameInput"
         @input="(input) => playlistName = input"
         @click="createNewPlaylist"
