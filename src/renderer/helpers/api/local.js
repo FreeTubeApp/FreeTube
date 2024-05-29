@@ -1250,7 +1250,7 @@ function parseLocalCommunityPost(post) {
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
     publishedText: post.published.text,
-    voteCount: post.vote_count,
+    voteCount: post.vote_count.text,
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,
     author: post.author.name,
