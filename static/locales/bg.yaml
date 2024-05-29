@@ -55,11 +55,11 @@ A new blog is now available, {blogTitle}. Click to view more: 'Нова публ
 Search / Go to URL: 'Търсене / Отиване на адрес'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Филтри на търсенето'
+  Search Filters: 'Филтри за търсене'
   Sort By:
     Sort By: 'Сортиране по'
     Most Relevant: 'Най-уместно'
-    Rating: 'Оценки'
+    Rating: 'Оценка'
     Upload Date: 'Дата на качване'
     View Count: 'Брой показвания'
   Time:
@@ -89,6 +89,18 @@ Search Filters:
   Fetch more results: 'Намиране на още резултати'
 # Sidebar
   There are no more results for this search: Няма повече резултати за това търсене
+  Features:
+    Features: Функции
+    Subtitles: Субтитри
+    Live: На живо
+    Creative Commons: '"Криейтив комънс"'
+    360 Video: 360°
+    Location: Местоположение
+    HDR: HDR
+    VR180: VR180
+    HD: HD
+    3D: 3D
+    4K: 4K
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
@@ -1203,6 +1215,6 @@ Yes, Delete: Да, изтрий
 Yes, Restart: Да, рестартирай
 Yes, Open Link: Да, отваряне на връзката
 Cancel: Отказ
-Moments Ago: преди няколко минути
+Moments Ago: току що
 checkmark: ✓
 Display Label: '{label}: {value}'
