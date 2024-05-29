@@ -91,7 +91,7 @@ export default defineComponent({
     },
 
     subscriptionCacheReady() {
-      this.loadVideosFromCacheSometimes()
+      this.loadPostsFromCacheSometimes()
     },
   },
   mounted: async function () {
