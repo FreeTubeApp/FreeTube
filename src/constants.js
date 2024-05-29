@@ -60,6 +60,7 @@ const DBActions = {
     UPDATE_VIDEOS_BY_CHANNEL: 'db-action-subscriptions-update-videos-by-channel',
     UPDATE_LIVE_STREAMS_BY_CHANNEL: 'db-action-subscriptions-update-live-streams-by-channel',
     UPDATE_SHORTS_BY_CHANNEL: 'db-action-subscriptions-update-shorts-by-channel',
+    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'db-action-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
     UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'db-action-subscriptions-update-community-posts-by-channel',
   },
 }
@@ -86,6 +87,7 @@ const SyncEvents = {
     UPDATE_VIDEOS_BY_CHANNEL: 'sync-subscriptions-update-videos-by-channel',
     UPDATE_LIVE_STREAMS_BY_CHANNEL: 'sync-subscriptions-update-live-streams-by-channel',
     UPDATE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-by-channel',
+    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
     UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'sync-subscriptions-update-community-posts-by-channel',
   },
 }

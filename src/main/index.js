@@ -1258,6 +1258,15 @@ function runApp() {
           )
           return null
 
+        case DBActions.SUBSCRIPTIONS.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptions.updateShortsWithChannelPageShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTIONS,
+            event,
+            { event: SyncEvents.SUBSCRIPTIONS.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
         case DBActions.SUBSCRIPTIONS.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
           await baseHandlers.subscriptions.updateCommunityPostsByChannelId(data)
           syncOtherWindows(

@@ -243,6 +243,16 @@ class Subscriptions {
     )
   }
 
+  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SUBSCRIPTIONS,
+      {
+        action: DBActions.SUBSCRIPTIONS.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL,
+        data: { channelId, entries },
+      }
+    )
+  }
+
   static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SUBSCRIPTIONS,

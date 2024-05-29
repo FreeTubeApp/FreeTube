@@ -583,6 +583,10 @@ const customActions = {
             commit('updateShortsCacheByChannel', data)
             break
 
+          case SyncEvents.SUBSCRIPTIONS.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
+            commit('updateShortsCacheWithChannelPageShorts', data)
+            break
+
           case SyncEvents.SUBSCRIPTIONS.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
             commit('updatePostsCacheByChannel', data)
             break

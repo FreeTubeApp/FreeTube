@@ -212,6 +212,39 @@ class Subscriptions {
     )
   }
 
+  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+    return db.subscriptions.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
+      if (doc == null) { return }
+
+      const shorts = doc.shorts
+      const cacheShorts = Array.isArray(shorts) ? shorts : []
+
+      cacheShorts.forEach(cachedVideo => {
+        const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
+        if (!channelVideo) { return }
+
+        // authorId probably never changes, so we don't need to update that
+        cachedVideo.title = channelVideo.title
+        cachedVideo.author = channelVideo.author
+
+        // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
+        // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
+        // 12345 vs 12000 => 12345
+        // 12345 vs 15000 => 15000
+
+        if (channelVideo.viewCount > cachedVideo.viewCount) {
+          cachedVideo.viewCount = channelVideo.viewCount
+        }
+      })
+
+      return db.subscriptions.updateAsync(
+        { _id: channelId },
+        { $set: { shorts: cacheShorts } },
+        { upsert: true }
+      )
+    })
+  }
+
   static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
     return db.subscriptions.updateAsync(
       { _id: channelId },

@@ -129,9 +129,13 @@ const actions = {
     }
   },
 
-  async updateSubscriptionShortsCacheWithChannelPageShorts({ commit }, { channelId, videos, timestamp = new Date() }) {
+  async updateSubscriptionShortsCacheWithChannelPageShorts({ commit }, { channelId, videos }) {
     try {
-      commit('updateShortsCacheWithChannelPageShorts', { channelId, videos, timestamp })
+      await DBSubscriptionsHandlers.updateShortsWithChannelPageShortsByChannelId({
+        channelId,
+        entries: videos,
+      })
+      commit('updateShortsCacheWithChannelPageShorts', { channelId, entries: videos })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -203,12 +207,12 @@ const mutations = {
     newObject.timestamp = timestamp
     state.shortsCache[channelId] = newObject
   },
-  updateShortsCacheWithChannelPageShorts(state, { channelId, videos }) {
+  updateShortsCacheWithChannelPageShorts(state, { channelId, entries }) {
     const cachedObject = state.shortsCache[channelId]
 
     if (cachedObject && cachedObject.videos.length > 0) {
       cachedObject.videos.forEach(cachedVideo => {
-        const channelVideo = videos.find(short => cachedVideo.videoId === short.videoId)
+        const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
 
         if (channelVideo) {
           // authorId probably never changes, so we don't need to update that

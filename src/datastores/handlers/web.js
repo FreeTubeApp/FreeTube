@@ -147,6 +147,13 @@ class Subscriptions {
     })
   }
 
+  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+    return baseHandlers.subscriptions.updateShortsWithChannelPageShortsByChannelId({
+      channelId,
+      entries,
+    })
+  }
+
   static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
     return baseHandlers.subscriptions.updateCommunityPostsByChannelId({
       channelId,
