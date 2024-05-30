@@ -1102,13 +1102,16 @@ export function mapLocalFormat(format) {
 export function parseLocalComment(comment, commentThread = undefined) {
   let hasOwnerReplied = false
   let replyToken = null
+  let hasReplyToken = false
 
   if (commentThread?.has_replies) {
     hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
     replyToken = commentThread
+    hasReplyToken = true
   }
 
   const parsed = {
+    id: comment.comment_id,
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
@@ -1120,6 +1123,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
     isHearted: !!comment.is_hearted,
     hasOwnerReplied,
+    hasReplyToken,
     replyToken,
     showReplies: false,
     replies: [],
