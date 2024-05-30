@@ -24,11 +24,15 @@
 
 .optionsRow {
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  column-gap: 32px;
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   align-items: center;
-  justify-content: end;
+}
+
+.tightOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+  column-gap: 16px;
+  align-items: center;
 }
 
 @media only screen and (width <= 800px) {
@@ -37,7 +41,13 @@
     grid-template-columns: auto;
     grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
-    justify-content: initial;
+  }
+
+  .tightOptions {
+    /* Switch to rows from columns */
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto-fit, auto);
+    align-items: stretch;
   }
 }
 

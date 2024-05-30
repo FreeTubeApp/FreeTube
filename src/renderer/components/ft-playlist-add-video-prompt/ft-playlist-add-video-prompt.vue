@@ -27,21 +27,25 @@
     <div
       class="optionsRow"
     >
-      <ft-toggle-switch
-        class="matchingVideoToggle"
-        :label="$t('User Playlists.Playlists with Matching Videos')"
-        :compact="true"
-        :default-value="doSearchPlaylistsWithMatchingVideos"
-        @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
-      />
-      <ft-toggle-switch
-        v-if="anyPlaylistContainsVideosToBeAdded"
-        class="allowDuplicateToggle"
-        :label="$t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
-        :compact="true"
-        :default-value="addingDuplicateVideosEnabled"
-        @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
-      />
+      <div
+        class="tightOptions"
+      >
+        <ft-toggle-switch
+          class="matchingVideoToggle"
+          :label="$t('User Playlists.Playlists with Matching Videos')"
+          :compact="true"
+          :default-value="doSearchPlaylistsWithMatchingVideos"
+          @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+        />
+        <ft-toggle-switch
+          v-if="anyPlaylistContainsVideosToBeAdded"
+          class="allowDuplicateToggle"
+          :label="$t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
+          :compact="true"
+          :default-value="addingDuplicateVideosEnabled"
+          @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+        />
+      </div>
       <ft-select
         v-if="allPlaylists.length > 1"
         class="sortSelect"
