@@ -1296,3 +1296,8 @@ Cancel: Abbrechen
 Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
 Yes, Restart: Ja, neustarten
 Yes, Open Link: Ja, Link öffnen
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: Geschlossene Untertitel
+    Subtitles: Untertitel
