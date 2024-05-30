@@ -42,10 +42,10 @@
         :can-remove-from-playlist="canRemoveFromPlaylist"
         :origin="origin"
         :is-invidious-playlist="isInvidiousPlaylist"
-        @pause-player="$emit('pause-player')"
-        @move-video-up="$emit('move-video-up')"
-        @move-video-down="$emit('move-video-down')"
-        @remove-from-playlist="$emit('remove-from-playlist')"
+        @pause-player="pausePlayer"
+        @move-video-up="moveVideoUp"
+        @move-video-down="moveVideoDown"
+        @remove-from-playlist="removeFromPlaylist"
       />
     </template>
   </div>

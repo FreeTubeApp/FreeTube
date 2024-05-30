@@ -16,6 +16,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['timestamp-event'],
   data: function () {
     return {
       showChapters: false,

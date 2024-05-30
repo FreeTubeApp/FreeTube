@@ -89,6 +89,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Pro toto hledání nejsou k dispozici žádné
     další výsledky
+  Features:
+    HD: HD
+    360 Video: 360°
+    Subtitles: Titulky
+    Features: Vlastnosti
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Živě
+    4K: 4K
+    Location: Místo
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
@@ -175,6 +187,10 @@ User Playlists:
       This playlist is now used for quick bookmark: Tento playlist bude nyní použit
         pro rychlé uložení
       Quick bookmark disabled: Rychlé uložení vypnuto
+      This playlist is already being used for quick bookmark.: Tento playlist je již
+        používán pro rychlou záložku.
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
+        je nový playlist rychlé záložky.
     Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
@@ -220,6 +236,9 @@ User Playlists:
   Disable Quick Bookmark: Vypnout rychlé uložení
   Enable Quick Bookmark With This Playlist: Zapnout u tohoto playlistu rychlé uložení
   Playlists with Matching Videos: Playlisty s odpovídajícími videi
+  Quick Bookmark Enabled: Rychlá záložka zapnuta
+  Cannot delete the quick bookmark target playlist.: Nemůžete odstranit cílový playlist
+    rychlé záložky.
 History:
   # On History Page
   History: 'Historie'
@@ -278,6 +297,9 @@ Settings:
       Ask Before Opening Link: Před otevřením odkazu se zeptat
       Open Link: Otevřít odkaz
       External Link Handling: Zpracování externích odkazů
+    Auto Load Next Page:
+      Label: Automaticky načíst další stránku
+      Tooltip: Automaticky načítat další stránky a komentáře.
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -295,6 +317,8 @@ Settings:
       Hot Pink: Horká růžová
       Pastel Pink: Pastelově růžová
       Nordic: Nordic
+      Solarized Dark: Solarizovaná tmavá
+      Solarized Light: Solarizovaná světlá
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -334,6 +358,14 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Yellow: Solarizovaná žlutá
+      Solarized Orange: Solarizovaná oranžová
+      Solarized Red: Solarizovaná červená
+      Solarized Magenta: Solarizovaná purpurová
+      Solarized Violet: Solarizovaná fialová
+      Solarized Blue: Solarizovaná modrá
+      Solarized Cyan: Solarizovaná azurová
+      Solarized Green: Solarizovaná zelená
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt štítky na bočním panelu
@@ -393,8 +425,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
     Allow DASH AV1 formats: Povolit formáty DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Automaticky načítat komentáře
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -625,6 +655,7 @@ Settings:
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
   Expand All Settings Sections: Rozbalit všechny sekce nastavení
+  Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
 About:
   #On About page
   About: 'O aplikaci'
@@ -681,6 +712,8 @@ About:
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
   Discussions: Diskuze
+  Licensed under the: Licencováno pod
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -947,6 +980,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
+  Sort By:
+    Sort By: Seřadit podle
+    DateAddedNewest: Naposledy přidáno
+    DateAddedOldest: Nejdříve přidáno
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleDescending: Název (Z-A)
+    VideoTitleAscending: Název (A-Z)
+    Custom: Vlastní
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
@@ -1170,3 +1212,18 @@ Age Restricted:
   This video is age restricted: Toto video je omezeno věkem
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
+  Refresh Feed: Obnovit {subscriptionName}
+Moments Ago: chvílí
+Yes, Delete: Ano, odstranit
+Yes, Restart: Ano, restartovat
+Yes, Open Link: Ano, otevřít odkaz
+Cancel: Zrušit
+Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
+  ({searchCharacterLimit})
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Titulky
+    Closed Captions: Skryté titulky

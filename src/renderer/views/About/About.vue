@@ -6,7 +6,7 @@
       </h1>
       <section class="brand">
         <img
-          src="../../../../_icons/logoColor.png"
+          src="../../../../_icons/logoColor.svg"
           class="logo"
           alt=""
         >
@@ -38,4 +38,4 @@
 </template>
 
 <script src="./About.js" />
-<style scoped src="./About.scss" lang="scss" />
+<style scoped src="./About.css" />

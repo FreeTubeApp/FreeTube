@@ -141,6 +141,9 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    generalAutoLoadMorePaginatedItemsEnabled() {
+      return this.$store.getters.getGeneralAutoLoadMorePaginatedItemsEnabled
+    },
 
     localeOptions: function () {
       return [
@@ -270,7 +273,8 @@ export default defineComponent({
       'updateThumbnailPreference',
       'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
-      'updateExternalLinkHandling'
+      'updateExternalLinkHandling',
+      'updateGeneralAutoLoadMorePaginatedItemsEnabled',
     ])
   }
 })

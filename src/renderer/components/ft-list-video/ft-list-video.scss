@@ -1,4 +1,4 @@
-@use '../../scss-partials/_ft-list-item';
+@use '../../scss-partials/ft-list-item';
 
 .thumbnailLink:hover {
   outline: 3px solid var(--side-nav-hover-color);
@@ -7,4 +7,23 @@
 .thumbnailImage {
   // Makes img element sized correctly before image loading starts
   aspect-ratio: 16/9 auto;
+}
+
+.videoTagLine {
+  margin-block-start: 3px;
+}
+
+.videoTag {
+  padding: 3px;
+  margin-inline: 2px;
+  background-color: var(--secondary-card-bg-color);
+  font-size: 10px;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 500;
+  white-space-collapse: collapse;
+}
+
+.videoTagLine .videoTag:first-child {
+  margin-inline-start: 0;
 }

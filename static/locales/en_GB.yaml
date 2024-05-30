@@ -388,8 +388,6 @@ Settings:
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
     Allow DASH AV1 formats: Allow DASH AV1 formats
-    Comment Auto Load:
-      Comment Auto Load: Comment auto load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -1160,3 +1158,6 @@ Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1
   character long | Trimmed input must be at least {length} characters long
+Yes, Delete: Yes, delete
+Yes, Restart: Yes, restart
+Yes, Open Link: Yes, open link

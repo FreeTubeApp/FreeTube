@@ -1,34 +1,92 @@
-.routerView {
-  display: flex;
-}
+@use '../../scss-partials/utils';
 
-.playlistInfo {
-  background-color: var(--card-bg-color);
-  box-sizing: border-box;
-  block-size: calc(100vh - 132px);
-  margin-inline-end: 1em;
-  padding: 10px;
-  position: sticky;
-  inset-block-start: 96px;
-  /* This is needed to make prompt always above video entries */
-  /* Value being too high would block search suggestions */
-  z-index: 1;
-  inline-size: 30%;
-
-  &.promptOpen {
-    // Otherwise sidebar would be above the prompt
-    z-index: 200;
-  }
-}
-
-.playlistItems {
+.playlistItemsCard {
   display: flex;
   flex-direction: column;
   grid-gap: 10px;
   margin: 0;
-  padding: 10px;
-  inline-size: 60%;
 }
+
+.playlistInfoContainer {
+  box-sizing: border-box;
+
+  /* This is needed to make prompt always above video entries. Value being too high would block search suggestions */
+  z-index: 1;
+
+  &.promptOpen {
+    z-index: 200;
+    // Otherwise sidebar would be above the prompt
+  }
+}
+
+.routerView {
+  display: flex;
+
+  &.grid {
+    flex-direction: column;
+
+    &.hasNoPlaylistDescription {
+      --top-bar-push-down-adjustment-no-description: 19px;
+    }
+
+    &.playlistInEditMode {
+      --top-bar-push-down-adjustment-edit-mode: 85px;
+      --top-bar-push-down-adjustment-no-description: 11px;
+    }
+
+    &.oneOrFewer {
+      --top-bar-push-down-adjustment-one-or-fewer: -62px;
+    }
+
+    .playlistInfoContainer {
+      position: sticky;
+      margin-block: -35px 16px;
+      inset-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-no-description) + var(--top-bar-push-down-adjustment-one-or-fewer));
+      padding-block: 0;
+      margin-inline: auto;
+      padding-inline: 16px;
+      box-sizing: content-box;
+      inline-size: 85%;
+      background-color: var(--card-bg-color);
+      box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+
+      /* video progress bar has z-index 2 and this must be above it */
+      z-index: 3;
+
+      .playlistInfo {
+        padding-block: 10px;
+        padding-inline: 16px;
+      }
+    }
+
+    .playlistItemsCard {
+      inline-size: 85%;
+      margin-block: 0 60px;
+      margin-inline: auto;
+    }
+  }
+
+  &.list {
+    .playlistInfoContainer {
+      background-color: var(--card-bg-color);
+      block-size: calc(100vh - 132px);
+      inline-size: 30%;
+      inset-block-start: 96px;
+      margin-inline-end: 1em;
+      position: sticky;
+
+      .playlistInfo {
+        padding: 10px;
+      }
+    }
+
+    .playlistItemsCard {
+      inline-size: 60%;
+      padding: 10px;
+    }
+  }
+}
+
 
 .playlistItem {
   display: grid;
@@ -37,14 +95,13 @@
   align-items: center;
 }
 
-.playlistItem-move ,
+.playlistItem-move,
 .playlistItem-enter-active,
 .playlistItem-leave-active {
   transition: all 0.2s ease;
 
   // Hide action buttons during transitions
-  //
-  // The class for icon container is mainly styled in `_ft-list-item.scss`
+  // The class for icon container is mainly styled in `ft-list-item.scss`
   // But the transition related classes are all on container elements
   // So `:deep` is used
   :deep(.ft-list-item .videoThumbnail .playlistIcons) {
@@ -56,6 +113,7 @@
     pointer-events: none;
   }
 }
+
 .playlistItem-enter, .playlistItem-leave-to {
   opacity: 0;
   transform: translate(calc(10% * var(--horizontal-directionality-coefficient)));
@@ -66,28 +124,33 @@
   max-block-size: 7vh;
 }
 
-:deep(.videoThumbnail) {
-  margin-block-start: auto;
-  margin-block-end: auto;
+.sortSelect {
+  /* Put it on the right and align with 'More Options' dropdown button */
+  margin-inline: auto 20px;
 }
 
-@media only screen and (max-width: 850px) {
+:deep(.videoThumbnail) {
+  margin-block: auto;
+}
+
+@media only screen and (width <= 850px) {
   .routerView {
     flex-direction: column;
-  }
 
-  .playlistInfo {
-    box-sizing: border-box;
-    position: relative;
-    inset-block-start: 0;
-    z-index: 1;
-    block-size: auto;
-    inline-size: 100%;
-  }
+    &.list {
+      .playlistInfoContainer {
+        box-sizing: border-box;
+        position: relative;
+        inset-block-start: 0;
+        block-size: auto;
+        inline-size: 100%;
+      }
 
-  .playlistItems {
-    box-sizing: border-box;
-    inline-size: 100%;
+      .playlistItemsCard {
+        box-sizing: border-box;
+        inline-size: 100%;
+      }
+    }
   }
 }
 
@@ -103,7 +166,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  flex-direction: column;
   row-gap: 16px;
 }
 

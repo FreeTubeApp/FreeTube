@@ -10,14 +10,17 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import {
   setPublishedTimestampsInvidious,
   copyToClipboard,
+  ctrlFHandler,
   extractNumberFromString,
   formatNumber,
-  showToast
+  showToast,
+  getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
@@ -52,7 +55,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
-    'channel-about': ChannelAbout
+    'channel-about': ChannelAbout,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -292,7 +296,7 @@ export default defineComponent({
       })
 
       return values
-    }
+    },
   },
   watch: {
     $route() {
@@ -432,6 +436,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.isLoading = true
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
 
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
@@ -457,6 +462,9 @@ export default defineComponent({
         this.autoRefreshOnSortByChangeEnabled = true
       })
     }
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     resolveChannelUrl: async function (url, tab = undefined) {
@@ -1947,6 +1955,12 @@ export default defineComponent({
         }
       })
     },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.channelSearchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showOutlines',

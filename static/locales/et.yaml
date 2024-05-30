@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Laadi veel andmeid'
 # Sidebar
   There are no more results for this search: Sellel otsingul pole rohkem vastuseid
+  Features:
+    Creative Commons: Litsentseeritud Creative Commonsi alusel
+    3D: 3D-sisu
+    HD: 'Kõrgresolutsiooniga video: HD'
+    4K: 'Kõrgresolutsiooniga video: 4K'
+    360 Video: 360 Video
+    HDR: HDR-video
+    Features: Videote omadused
+    Subtitles: Subtiitrid
+    Live: Otseeeter
+    Location: Asukoht
+    VR180: VR180-video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tellimused'
@@ -190,6 +202,10 @@ User Playlists:
       Quick bookmark disabled: Kiirjärjehoidjad ei ole kasutusel
       Reverted to use {oldPlaylistName} for quick bookmark: Võtsime {oldPlaylistName}
         uuesti kasutusele kiirjärjehoidjate jaoks
+      Playlist {playlistName} is the new quick bookmark playlist.: Esitusloend {playlistName}
+        on uus kiirjärjehoidjate esitusloend.
+      This playlist is already being used for quick bookmark.: See esitusloend juba
+        on kasutusel kiirjärjehoidjate jaoks.
     Search for Videos: Otsi videoid
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
     kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
@@ -219,6 +235,9 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Võimalda kiirjärjehoidjate kasutamist
     selle esitusloendiga
   Playlists with Matching Videos: Sobivate videotega esitusloendid
+  Quick Bookmark Enabled: Kasuta kiirjärjehoidjaid
+  Cannot delete the quick bookmark target playlist.: Ei saa kustutada esitusloendit,
+    mis on kasutusel kiirjärjehoidjate jaoks.
 History:
   # On History Page
   History: 'Ajalugu'
@@ -275,6 +294,9 @@ Settings:
       External Link Handling: Rakenduseväline lingikäsitlus
       Open Link: Ava link
       Ask Before Opening Link: Küsi enne lingi avamist
+    Auto Load Next Page:
+      Label: Laadi järgmine leht automaatselt
+      Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -289,6 +311,8 @@ Settings:
       Pastel Pink: Pastelne roosa
       Hot Pink: Säravroosa
       Nordic: Põhjala
+      Solarized Dark: Tume päikesekuma
+      Solarized Light: Hele päikesekuma
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -328,6 +352,14 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin Mocha Rohekassinine
       Catppuccin Mocha Sky: Catppuccin Mocha Helesinine
       Catppuccin Mocha Sapphire: Catppuccin Mocha Safiir
+      Solarized Orange: Oranž päikesekuma
+      Solarized Red: Punane päikesekuma
+      Solarized Magenta: Fuksiapunane päikesekuma
+      Solarized Violet: Punakassinine päikesekuma
+      Solarized Blue: Sinine päikesekuma
+      Solarized Cyan: Rohekassinine päikesekuma
+      Solarized Green: Roheline päikesekuma
+      Solarized Yellow: Kollane päikesekuma
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -390,8 +422,6 @@ Settings:
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Allow DASH AV1 formats: Luba DASH AV1 vormingud
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
-    Comment Auto Load:
-      Comment Auto Load: Laadi kommentaarid automaatselt
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -601,6 +631,7 @@ Settings:
     Set Password: Määra salasõna
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Expand All Settings Sections: Laienda kõik seadistuste lõigud
+  Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
 About:
   #On About page
   About: 'Teave'
@@ -631,6 +662,8 @@ About:
   Source code: Lähtekood
   Beta: beetaversioon
   Discussions: Arutelud
+  Licensed under the: Avaldatud ja litsentseeritud
+  AGPLv3: AGPLv3 alusel
 Profile:
   Profile Select: 'Vali profiil'
   All Channels: 'Kõik kanalid'
@@ -905,6 +938,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Esitusloend
+  Sort By:
+    Custom: Kohandatud
+    Sort By: Järjestuse alus
+    DateAddedNewest: Esmalt viimatilisatud
+    DateAddedOldest: Esmalt ammu lisatud
+    AuthorAscending: Autori alusel (A-Z)
+    AuthorDescending: Autori alusel (Z-A)
+    VideoTitleAscending: Pealkirja alusel (A-Z)
+    VideoTitleDescending: Pealkirja alusel (Z-A)
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
@@ -1125,3 +1167,13 @@ Age Restricted:
 Close Banner: Sulge rekaampilt
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} tellimustevoo viimane uuendus: {date}'
+  Refresh Feed: Uuenda {subscriptionName} andmed
+Moments Ago: hetk tagasi
+Yes, Restart: Jah, käivita uuesti
+Cancel: Katkesta
+Search character limit: Otsingupäring on lubatud {searchCharacterLimit}-tähemärgisest
+  piirist pikem
+Yes, Delete: Jah, kustuta
+Yes, Open Link: Jah, ava link

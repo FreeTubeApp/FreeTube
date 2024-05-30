@@ -8,7 +8,7 @@
 }
 
 .disabledMsg {
-  color: rgb(233, 255, 108);
+  color: rgb(233 255 108);
   padding-block-end: 10px;
 }
 
@@ -40,7 +40,6 @@
 
 .tag-icon {
   border-radius: 50%;
-  block-size: 24px;
   vertical-align: middle;
 }
 
@@ -53,7 +52,7 @@
   color: var(--primary-text-color);
   opacity: 0.5;
   padding: 10px;
-  padding-inline-start: 0px;
+  padding-inline-start: 0;
 }
 
 .removeTagButton:hover {
@@ -64,7 +63,7 @@
   margin-block-start: 10px;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (width <= 576px) {
   .ft-input-tags-component {
     inline-size: 100%;
   }

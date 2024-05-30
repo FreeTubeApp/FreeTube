@@ -45,7 +45,9 @@
               :disabled="isMainProfile"
               :value="translatedProfileName"
               :show-action-button="false"
+              :maxlength="100"
               @input="e => profileName = e"
+              @keydown.enter.native="saveProfile"
             />
           </div>
           <div>
@@ -82,8 +84,9 @@
                   <ft-button
                     v-if="!isMainProfile"
                     :label="$t('Profile.Delete Profile')"
-                    text-color="var(--text-with-main-color)"
-                    background-color="var(--primary-color)"
+                    text-color="var(--destructive-text-color)"
+                    background-color="var(--destructive-color)"
+                    :icon="['fas', 'trash']"
                     @click="openDeletePrompt"
                   />
                 </template>
@@ -98,6 +101,7 @@
       :label="deletePromptLabel"
       :option-names="deletePromptNames"
       :option-values="deletePromptValues"
+      :is-first-option-destructive="true"
       @click="handleDeletePrompt"
     />
   </div>

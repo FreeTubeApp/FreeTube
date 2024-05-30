@@ -7,7 +7,8 @@
       :icon="icon"
       :class="{
         [theme]: true,
-        shadow: useShadow
+        shadow: useShadow,
+        disabled
       }"
       :style="{
         padding: padding + 'px',
@@ -15,6 +16,7 @@
       }"
       tabindex="0"
       role="button"
+      :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @click="handleIconClick"
       @mousedown="handleIconMouseDown"

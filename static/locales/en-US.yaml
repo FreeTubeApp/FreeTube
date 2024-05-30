@@ -60,6 +60,13 @@ Global:
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
+Search character limit: Search query is over the {searchCharacterLimit} character limit
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitles
+    # Aria labels
+    Closed Captions: Closed Captions
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -90,6 +97,18 @@ Search Filters:
     Short (< 4 minutes): Short (< 4 minutes)
     Medium (4 - 20 minutes): Medium (4 - 20 minutes)
     Long (> 20 minutes): Long (> 20 minutes)
+  Features:
+    Features: Features
+    HD: HD
+    Subtitles: Subtitles
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Live
+    4K: 4K
+    360 Video: 360 Video
+    Location: Location
+    HDR: HDR
+    VR180: VR180
   # On Search Page
   Search Results: Search Results
   Fetching results. Please wait: Fetching results. Please wait
@@ -109,7 +128,6 @@ Subscriptions:
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Empty Posts: Your subscribed channels currently do not have any posts.
-  Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
   Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
@@ -132,6 +150,9 @@ Trending:
   Movies: Movies
   Trending Tabs: Trending Tabs
 Most Popular: Most Popular
+Feed:
+  Feed Last Updated: '{feedName} feed last updated: {date}'
+  Refresh Feed: Refresh {subscriptionName}
 Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
@@ -141,7 +162,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
   You have no playlists. Click on the create new playlist button to create a new one.: You have no playlists. Click on the create new playlist button to create a new one.
-  Empty Search Message: There are no videos in this playlist that matches your search
+  Empty Search Message: There are no videos in this playlist that match your search
   Search bar placeholder: Search for Playlists
   Playlists with Matching Videos: Playlists with Matching Videos
 
@@ -166,9 +187,10 @@ User Playlists:
   Copy Playlist: Copy Playlist
   Remove Watched Videos: Remove Watched Videos
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
-  Disable Quick Bookmark: Disable Quick Bookmark
+  Quick Bookmark Enabled: Quick Bookmark Enabled
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are you sure you want to remove all watched videos from this playlist? This cannot be undone.
   Delete Playlist: Delete Playlist
+  Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark target playlist.
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
 
   Sort By:
@@ -185,7 +207,6 @@ User Playlists:
 
     LatestPlayedFirst: 'Recently Played'
     EarliestPlayedFirst: 'Earliest Played'
-
   SinglePlaylistView:
     Search for Videos: Search for Videos
 
@@ -195,8 +216,8 @@ User Playlists:
       Video has been removed: Video has been removed
       There was a problem with removing this video: There was a problem with removing this video
 
+      This playlist is already being used for quick bookmark.: This playlist is already being used for quick bookmark.
       This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
-      Quick bookmark disabled: Quick bookmark disabled
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
       Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
 
@@ -208,6 +229,7 @@ User Playlists:
       There were no videos to remove.: There were no videos to remove.
       This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
   AddVideoPrompt:
@@ -235,12 +257,13 @@ History:
   History: History
   Watch History: Watch History
   Your history list is currently empty.: Your history list is currently empty.
-  Empty Search Message: There are no videos in your history that matches your search
+  Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
 Settings:
   # On Settings Page
   Settings: Settings
   Expand All Settings Sections: Expand All Settings Sections
+  Sort Settings Sections (A-Z): Sort Settings Sections (A-Z)
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
@@ -250,6 +273,9 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Auto Load Next Page:
+      Label: Auto Load Next Page
+      Tooltip: Load additional pages and comments automatically.
     Default Landing Page: Default Landing Page
     Locale Preference: Locale Preference
     System Default: System Default
@@ -302,6 +328,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -341,6 +369,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Yellow: Solarized Yellow
+      Solarized Orange: Solarized Orange
+      Solarized Red: Solarized Red
+      Solarized Magenta: Solarized Magenta
+      Solarized Violet: Solarized Violet
+      Solarized Blue: Solarized Blue
+      Solarized Cyan: Solarized Cyan
+      Solarized Green: Solarized Green
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -395,8 +431,6 @@ Settings:
       Error:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
-    Comment Auto Load:
-      Comment Auto Load: Comment Auto Load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -593,8 +627,8 @@ About:
   About: About
   Beta: Beta
   Source code: Source code
-  Licensed under the AGPLv3: Licensed under the AGPLv3
-  View License: View License
+  Licensed under the: Licensed under the
+  AGPLv3: AGPLv3
   Downloads / Changelog: Downloads / Changelog
   GitHub releases: GitHub releases
   Help: Help
@@ -874,6 +908,15 @@ Playlist:
   Invidious Playlist Cannot Be Viewed Local: Invidious playlists cannot be viewed through the Local API, as the playlist is stored on "{invidiousInstance}"
   Invidious Playlist Cannot Be Viewed IV: This Invidious playlist cannot be viewed through {currentInstance}, as the playlist is stored on "{invidiousInstance}"
   View Playlist: View Playlist
+  Sort By:
+    Sort By: Sort By
+    DateAddedNewest: Latest added first
+    DateAddedOldest: Earliest added first
+    AuthorAscending: Author (A-Z)
+    AuthorDescending: Author (Z-A)
+    VideoTitleAscending: Title (A-Z)
+    VideoTitleDescending: Title (Z-A)
+    Custom: Custom
 
 # On Video Watch Page
 #* Published
@@ -1055,9 +1098,14 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
+Moments Ago: moments ago
 Yes: Yes
 No: No
 Ok: Ok
+Yes, Delete: Yes, Delete
+Yes, Restart: Yes, Restart
+Yes, Open Link: Yes, Open Link
+Cancel: Cancel
 # symbol used to indicate that an item is correct
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)

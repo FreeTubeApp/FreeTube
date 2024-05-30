@@ -75,6 +75,7 @@
           :title="$t('Video.Loop Playlist')"
           role="button"
           tabindex="0"
+          :aria-pressed="loopEnabled"
           @click="toggleLoop"
           @keydown.enter.prevent="toggleLoop"
           @keydown.space.prevent="toggleLoop"
@@ -86,6 +87,7 @@
           :title="$t('Video.Shuffle Playlist')"
           role="button"
           tabindex="0"
+          :aria-pressed="shuffleEnabled"
           @click="toggleShuffle"
           @keydown.enter.prevent="toggleShuffle"
           @keydown.space.prevent="toggleShuffle"
@@ -97,6 +99,7 @@
           :title="$t('Video.Reverse Playlist')"
           role="button"
           tabindex="0"
+          :aria-pressed="reversePlaylist"
           @click="toggleReversePlaylist"
           @keydown.enter.prevent="toggleReversePlaylist"
           @keydown.space.prevent="toggleReversePlaylist"
@@ -128,6 +131,7 @@
           :title="$t('Video.Pause on Current Video')"
           role="button"
           tabindex="0"
+          :aria-pressed="pauseOnCurrentVideo"
           @click="togglePauseOnCurrentVideo"
           @keydown.enter.prevent="togglePauseOnCurrentVideo"
           @keydown.space.prevent="togglePauseOnCurrentVideo"
@@ -157,7 +161,7 @@
           :is-invidious-playlist="isInvidiousPlaylist"
           appearance="watchPlaylistItem"
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
-          @pause-player="$emit('pause-player')"
+          @pause-player="pausePlayer"
         />
       </div>
     </div>

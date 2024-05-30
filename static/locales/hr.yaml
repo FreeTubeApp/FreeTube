@@ -251,7 +251,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Traži najnovije objave na blogu
     Check for Updates: Traži nove verzije
-    View all Invidious instance information: Prikaži podatke svih Invidious primjeraka
+    View all Invidious instance information: Pogledaj podatke svih Invidious instanci
     System Default: Standard sustava
     Clear Default Instance: Izbriši standardnu instancu
     Set Current Instance as Default: Postavi trenutačnu instancu kao standardnu
@@ -266,6 +266,9 @@ Settings:
       Ask Before Opening Link: Pitaj prije otvaranja poveznice
       Open Link: Otvori poveznicu
       External Link Handling: Rukovanje vanjskim poveznicama
+    Auto Load Next Page:
+      Label: Automatski učitaj sljedeću stranicu
+      Tooltip: Automatski učitaj dodatne stranice i komentare.
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
@@ -280,6 +283,8 @@ Settings:
       Pastel Pink: Pastelno ružičasta
       Hot Pink: Vruća ružičasta
       Nordic: Nordic
+      Solarized Dark: Solarna tamna
+      Solarized Light: Solarna svijetla
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -319,6 +324,14 @@ Settings:
       Catppuccin Mocha Blue: Catppuccin Mocha Plava
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
       Catppuccin Mocha Green: Catppuccin Mocha Zelena
+      Solarized Blue: Solarna plava
+      Solarized Green: Solarna zelena
+      Solarized Yellow: Solarna žuta
+      Solarized Orange: Solarna narančasta
+      Solarized Red: Solarna crvena
+      Solarized Magenta: Solarna magenta
+      Solarized Violet: Solarna ljubičasta
+      Solarized Cyan: Solarna cijan
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -383,8 +396,6 @@ Settings:
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
     Allow DASH AV1 formats: Dozvoli DASH AV1 formate
-    Comment Auto Load:
-      Comment Auto Load: Automatski učitaj komentare
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -400,7 +411,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Stvarno
       želiš ukloniti sve pretplate i profile? Ovo je nepovratna radnja.
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
-    Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
+    Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjom
       gledanom zbirkom
     Remove All Playlists: Ukloni sve zbirke
     All playlists have been removed: Sve zbirke su uklonjene
@@ -623,6 +634,7 @@ Settings:
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
   Expand All Settings Sections: Rasklopi sve odjeljke postavki
+  Sort Settings Sections (A-Z): Razvrstaj odjeljke postavki (A-Z)
 About:
   #On About page
   About: 'Informacije'
@@ -689,6 +701,8 @@ About:
   Licensed under the AGPLv3: AGPLv3 licenca
   Source code: Izvorni kod
   Discussions: Diskusije
+  Licensed under the: Licencirano pod
+  AGPLv3: AGPLv3
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
@@ -777,7 +791,7 @@ Channel:
   This channel does not exist: Ovaj kanal ne postoji
   This channel does not allow searching: Ovaj kanal ne dozvoljava pretraživanje
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Ovaj
-    kanal je dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
+    je kanal dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
   Live:
     Live: Uživo
     This channel does not currently have any live streams: Ovaj kanal trenutačno nema
@@ -810,7 +824,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
   Open in Invidious: 'Otvori na Invidious stranici'
   Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-  Views: 'gledanja'
+  Views: 'Gledanja'
   Watched: 'Pogledano'
   # As in a Live Video
   Live: 'Uživo'
@@ -955,14 +969,23 @@ Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
   Videos: 'Videa'
-  View: 'Pogled'
-  Views: 'Pogledi'
+  View: 'Prikaz'
+  Views: 'Prikazi'
   Last Updated On: 'Zadnje aktualiziranje'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Zbirka
+  Sort By:
+    Sort By: Redoslijed
+    DateAddedNewest: Najprije najnovije dodane
+    DateAddedOldest: Najprije najstarije dodane
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Naslov (A-Z)
+    VideoTitleDescending: Naslov (Z-A)
+    Custom: Prilagođeno
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
@@ -1184,3 +1207,15 @@ Age Restricted:
   This channel is age restricted: Ovaj je dobno ograničeni kanal
   This video is age restricted: Ovaj je dobno ograničeni video
 Close Banner: Zatvori natpis
+Display Label: '{label}: {value}'
+checkmark: ✓
+Feed:
+  Feed Last Updated: 'Zadnje aktualiziranje feeda {feedName}: {date}'
+  Refresh Feed: Aktualiziraj {subscriptionName}
+Moments Ago: nedavno
+Yes, Delete: Da, izbriši
+Yes, Open Link: Da, otvori poveznicu
+Cancel: Odustani
+Yes, Restart: Da, pokreni ponovo
+Search character limit: Upit za pretraživanje premašuje ograničenje od {searchCharacterLimit}
+  znakova

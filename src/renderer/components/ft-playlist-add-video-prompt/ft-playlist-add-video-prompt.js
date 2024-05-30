@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -10,6 +10,8 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
   showToast,
+  ctrlFHandler,
+  getIconForSortPreference
 } from '../../helpers/utils'
 
 const SORT_BY_VALUES = {
@@ -42,11 +44,16 @@ export default defineComponent({
       doSearchPlaylistsWithMatchingVideos: false,
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
-      lastActiveElement: null,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
   computed: {
+    title: function () {
+      return this.$tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', this.toBeAddedToPlaylistVideoCount, {
+        videoCount: this.toBeAddedToPlaylistVideoCount,
+      })
+    },
+
     showingCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
     },
@@ -107,7 +114,9 @@ export default defineComponent({
     newPlaylistDefaultProperties: function () {
       return this.$store.getters.getNewPlaylistDefaultProperties
     },
-
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     processedQuery: function() {
       return this.query.trim().toLowerCase()
     },
@@ -181,7 +190,7 @@ export default defineComponent({
       if (val > oldVal) {
         // Focus back to search input only when playlist added
         // Allow search and easier deselecting new created playlist
-        this.$refs.searchBar.focus()
+        nextTick(() => this.$refs.searchBar.focus())
       }
     },
 
@@ -191,18 +200,17 @@ export default defineComponent({
       // Only care when CreatePlaylistPrompt hidden
       // Shift focus from button to prevent unwanted click event
       // due to enter key press in CreatePlaylistPrompt
-      this.$refs.searchBar.focus()
+      nextTick(() => this.$refs.searchBar.focus())
     },
   },
   mounted: function () {
-    this.lastActiveElement = document.activeElement
-
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
     // User might want to search first if they have many playlists
-    this.$refs.searchBar.focus()
+    nextTick(() => this.$refs.searchBar.focus())
   },
   beforeDestroy() {
-    this.lastActiveElement?.focus()
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     hide: function () {
@@ -266,6 +274,12 @@ export default defineComponent({
     updateQuery: function(query) {
       this.query = query
     },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'addVideos',

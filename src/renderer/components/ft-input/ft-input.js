@@ -23,6 +23,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    maxlength: {
+      type: Number,
+      default: null
+    },
     value: {
       type: String,
       default: ''
@@ -64,6 +68,7 @@ export default defineComponent({
       default: ''
     }
   },
+  emits: ['clear', 'click', 'input'],
   data: function () {
     let actionIcon = ['fas', 'search']
     if (this.forceActionButtonIconName !== null) {

@@ -82,6 +82,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Für diese Suche gibt es keine weiteren
     Ergebnisse
+  Features:
+    3D: 3D
+    Live: Live
+    4K: 4K
+    360 Video: 360 Video
+    HDR: HDR
+    VR180: VR180
+    Features: Eigenschaften
+    HD: HD
+    Subtitles: Untertitel
+    Creative Commons: Creative-Commons
+    Location: Standort
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
@@ -189,6 +201,10 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
+      Playlist {playlistName} is the new quick bookmark playlist.: Wiedergabeliste
+        {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
+      This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
+        wird bereits für schnelle Lesezeichen verwendet.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -227,6 +243,9 @@ User Playlists:
     aktivieren
   Disable Quick Bookmark: Schnelles Merken deaktivieren
   Playlists with Matching Videos: Wiedergabelisten mit passenden Videos
+  Quick Bookmark Enabled: Schnelles Lesezeichen aktiviert
+  Cannot delete the quick bookmark target playlist.: Die Wiedergabeliste für das schnelle
+    Lesezeichen kann nicht gelöscht werden.
 History:
   # On History Page
   History: Verlauf
@@ -283,6 +302,9 @@ Settings:
       Ask Before Opening Link: Vor dem Öffnen des Links nachfragen
       Open Link: Link öffnen
       External Link Handling: Handhabung externer Links
+    Auto Load Next Page:
+      Label: Nächste Seite automatisch laden
+      Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
   Theme Settings:
     Theme Settings: Farbschema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -297,6 +319,8 @@ Settings:
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
       Nordic: Nordic
+      Solarized Dark: Solarisiert Dunkel
+      Solarized Light: Solarisiert Hell
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -336,6 +360,14 @@ Settings:
       Catppuccin Mocha Red: Catppuccin Mocha Rot
       Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
       Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
+      Solarized Red: Solarisiertes Rot
+      Solarized Yellow: Solarisiertes Gelb
+      Solarized Orange: Solarisiertes Orange
+      Solarized Magenta: Solarisiertes Magenta
+      Solarized Blue: Solarisiertes Blau
+      Solarized Cyan: Solarisiertes Cyan
+      Solarized Violet: Solarisiertes Violett
+      Solarized Green: Solarisiertes Grün
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -399,8 +431,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
     Allow DASH AV1 formats: DASH AV1-Formate zulassen
-    Comment Auto Load:
-      Comment Auto Load: Kommentare automatisch laden
   Subscription Settings:
     Subscription Settings: Abo-Einstellungen
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -652,6 +682,7 @@ Settings:
       zu verhindern
     Set Password: Passwort festlegen
   Expand All Settings Sections: Alle Einstellungsabschnitte aufklappen
+  Sort Settings Sections (A-Z): Einstellungsbereiche sortieren (A-Z)
 About:
   #On About page
   About: Über
@@ -722,6 +753,8 @@ About:
   Licensed under the AGPLv3: Lizenziert unter der AGPLv3
   Source code: Quellcode
   Discussions: Diskussionen
+  Licensed under the: Lizenziert unter der
+  AGPLv3: AGPLv3
 Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
@@ -796,7 +829,7 @@ Video:
   Views: Aufrufe
   Watched: Angesehen
   # As in a Live Video
-  Live: Live
+  Live: Livestream
   Live Now: Jetzt live
   Live Chat: Live-Chat
   Enable Live Chat: Live-Chat aktivieren
@@ -951,6 +984,15 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    VideoTitleDescending: Titel (Z-A)
+    Sort By: Sortieren nach
+    DateAddedNewest: Zuletzt hinzugefügt zuerst
+    DateAddedOldest: Am frühesten hinzugefügt zuerst
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Titel (A-Z)
+    Custom: Benutzerdefiniert
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
@@ -1245,3 +1287,17 @@ Age Restricted:
   This video is age restricted: Dieses Video ist altersbeschränkt
 Display Label: '{label}: {value}'
 checkmark: ✓
+Moments Ago: vor wenigen Augenblicken
+Feed:
+  Refresh Feed: '{subscriptionName} auffrischen'
+  Feed Last Updated: '{feedName} Feed zuletzt aktualisiert: {date}'
+Yes, Delete: Ja, löschen
+Cancel: Abbrechen
+Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
+Yes, Restart: Ja, neustarten
+Yes, Open Link: Ja, Link öffnen
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: Geschlossene Untertitel
+    Subtitles: Untertitel

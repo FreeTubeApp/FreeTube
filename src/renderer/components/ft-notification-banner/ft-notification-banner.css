@@ -1,6 +1,7 @@
 .ftNotificationBanner {
   background-color: var(--primary-color);
   color: var(--text-with-main-color);
+
   /*
   background-color: var(--accent-color);
   color: var(--text-with-accent-color);
@@ -9,13 +10,13 @@
 	padding: 16px;
   padding-block: 3px 5px;
   padding-inline: 16px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   position: relative;
   cursor: pointer;
 }
 
 .ftNotificationBanner:focus {
-  box-shadow: 20px 20px 20px rgba(0,0,0,.1);
+  box-shadow: 20px 20px 20px rgb(0 0 0 / 10%);
 }
 
 .message {
@@ -28,4 +29,12 @@
   inset-block-start: 35%;
   inset-inline-end: 10px;
   cursor: pointer;
+}
+
+@media only screen and (width <= 680px) {
+  .bannerIcon {
+    inset-block-start: 27%;
+    block-size: 25px;
+    inline-size: 25px;
+  }
 }

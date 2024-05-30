@@ -11,6 +11,8 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import { ctrlFHandler, getIconForSortPreference } from '../../helpers/utils'
 
 const SORT_BY_VALUES = {
   NameAscending: 'name_ascending',
@@ -39,6 +41,7 @@ export default defineComponent({
     'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -181,6 +184,7 @@ export default defineComponent({
     },
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
     const limit = sessionStorage.getItem('favoritesLimit')
     if (limit !== null) {
       this.dataLimit = limit
@@ -196,6 +200,9 @@ export default defineComponent({
     this.showLoadMoreButton = this.activeData.length < this.allPlaylists.length
 
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     increaseLimit: function () {
@@ -239,6 +246,12 @@ export default defineComponent({
         title: '',
       })
     },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showCreatePlaylistPrompt'

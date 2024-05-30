@@ -19,6 +19,7 @@
           :select-names="protocolNames"
           :select-values="protocolValues"
           class="protocol-dropdown"
+          :icon="['fas', 'microchip']"
           @change="handleUpdateProxyProtocol"
         />
       </ft-flex-box>
@@ -29,13 +30,16 @@
           :show-label="true"
           :value="proxyHostname"
           @input="handleUpdateProxyHostname"
+          @keydown.enter.native="testProxy"
         />
         <ft-input
           :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
           :show-action-button="false"
           :show-label="true"
           :value="proxyPort"
+          :maxlength="5"
           @input="handleUpdateProxyPort"
+          @keydown.enter.native="testProxy"
         />
       </ft-flex-box>
       <p

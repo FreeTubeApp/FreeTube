@@ -1,10 +1,11 @@
 /* stylelint-disable property-no-vendor-prefix */
-@use '../../scss-partials/_ft-list-item';
+@use '../../scss-partials/ft-list-item';
 
 .outside {
   margin: auto;
   inline-size: 40%;
-  @media screen and (max-width: 768px) {
+
+  @media screen and (width <= 768px) {
     inline-size: 100%;
   }
 }
@@ -25,7 +26,6 @@
 }
 
 .communityThumbnail {
-  -webkit-border-radius: 50%;
   border-radius: 50%;
   block-size: 55px;
   margin-inline-end: 5px;
@@ -40,6 +40,7 @@
     font-weight: bold;
     margin-block: 5px 0;
     margin-inline: 5px 6px;
+
     .authorNameLink {
       color: inherit;
       text-decoration: none;
@@ -67,7 +68,7 @@
   max-inline-size: 210px;
   text-align: start;
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     margin-inline-start: 0;
     text-align: start;
   }
@@ -79,8 +80,7 @@
   }
 
   .likeCount {
-    margin-inline-start: 5px;
-    margin-inline-end: 6px;
+    margin-inline: 5px 6px;
   }
 }
 
@@ -89,8 +89,7 @@
 
   .videoThumbnail {
     display: flex;
-    margin-block-end: auto;
-    margin-block-start: auto;
+    margin-block: auto;
     position: relative;
     inline-size: fit-content;
 

@@ -22,10 +22,7 @@ if (process.env.IS_ELECTRON_MAIN) {
   dbPath = (dbName) => `${dbName}.db`
 }
 
-const db = {}
-db.settings = new Datastore({ filename: dbPath('settings'), autoload: true })
-db.profiles = new Datastore({ filename: dbPath('profiles'), autoload: true })
-db.playlists = new Datastore({ filename: dbPath('playlists'), autoload: true })
-db.history = new Datastore({ filename: dbPath('history'), autoload: true })
-
-export default db
+export const settings = new Datastore({ filename: dbPath('settings'), autoload: true })
+export const profiles = new Datastore({ filename: dbPath('profiles'), autoload: true })
+export const playlists = new Datastore({ filename: dbPath('playlists'), autoload: true })
+export const history = new Datastore({ filename: dbPath('history'), autoload: true })

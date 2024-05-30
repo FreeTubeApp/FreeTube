@@ -7,6 +7,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import {
+  ctrlFHandler,
   formatNumber,
   showToast,
 } from '../../helpers/utils'
@@ -38,6 +39,10 @@ export default defineComponent({
     playlistThumbnail: {
       type: String,
       required: true,
+    },
+    theme: {
+      type: String,
+      default: 'base'
     },
     title: {
       type: String,
@@ -104,6 +109,7 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ['enter-edit-mode', 'exit-edit-mode', 'search-video-query-change'],
   data: function () {
     return {
       searchVideoMode: false,
@@ -115,8 +121,8 @@ export default defineComponent({
       newTitle: '',
       newDescription: '',
       deletePlaylistPromptValues: [
-        'yes',
-        'no'
+        'delete',
+        'cancel'
       ],
     }
   },
@@ -163,8 +169,8 @@ export default defineComponent({
 
     deletePlaylistPromptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Delete'),
+        this.$t('Cancel')
       ]
     },
 
@@ -230,14 +236,8 @@ export default defineComponent({
       return !this.hideSharingActions
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
-    },
-    quickBookmarkEnabled() {
-      return this.quickBookmarkPlaylist != null
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     markedAsQuickBookmarkTarget() {
       // Only user playlists can be target
@@ -245,6 +245,9 @@ export default defineComponent({
       if (this.quickBookmarkPlaylist == null) { return false }
 
       return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
+    },
+    playlistDeletionDisabledLabel: function () {
+      return this.$t('User Playlists["Cannot delete the quick bookmark target playlist."]')
     },
   },
 
@@ -267,6 +270,12 @@ export default defineComponent({
     }
 
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
+  },
+  mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     toggleCopyVideosPrompt: function (force = false) {
@@ -320,6 +329,14 @@ export default defineComponent({
       })
     },
 
+    handleQuickBookmarkEnabledDisabledClick: function () {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is already being used for quick bookmark."]'))
+    },
+
+    handlePlaylistDeleteDisabledClick: function () {
+      showToast(this.playlistDeletionDisabledLabel)
+    },
+
     exitEditMode: function () {
       this.editMode = false
 
@@ -327,56 +344,56 @@ export default defineComponent({
     },
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {
-      if (option === 'yes') {
-        const videosToWatch = this.selectedUserPlaylist.videos.filter((video) => {
-          return this.historyCacheById[video.videoId] == null
-        })
-
-        const removedVideosCount = this.selectedUserPlaylist.videos.length - videosToWatch.length
-
-        if (removedVideosCount === 0) {
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
-          this.showRemoveVideosOnWatchPrompt = false
-          return
-        }
-
-        const playlist = {
-          playlistName: this.title,
-          protected: this.selectedUserPlaylist.protected,
-          description: this.description,
-          videos: videosToWatch,
-          _id: this.id
-        }
-        try {
-          this.updatePlaylist(playlist)
-          showToast(this.$tc('User Playlists.SinglePlaylistView.Toast.{videoCount} video(s) have been removed', removedVideosCount, {
-            videoCount: removedVideosCount,
-          }))
-        } catch (e) {
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
-          console.error(e)
-        }
-      }
       this.showRemoveVideosOnWatchPrompt = false
+      if (option !== 'delete') { return }
+
+      const videosToWatch = this.selectedUserPlaylist.videos.filter((video) => {
+        return this.historyCacheById[video.videoId] == null
+      })
+
+      const removedVideosCount = this.selectedUserPlaylist.videos.length - videosToWatch.length
+
+      if (removedVideosCount === 0) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
+        this.showRemoveVideosOnWatchPrompt = false
+        return
+      }
+
+      const playlist = {
+        playlistName: this.title,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.description,
+        videos: videosToWatch,
+        _id: this.id
+      }
+      try {
+        this.updatePlaylist(playlist)
+        showToast(this.$tc('User Playlists.SinglePlaylistView.Toast.{videoCount} video(s) have been removed', removedVideosCount, {
+          videoCount: removedVideosCount,
+        }))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
     },
 
     handleDeletePlaylistPromptAnswer: function (option) {
-      if (option === 'yes') {
-        if (this.selectedUserPlaylist.protected) {
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
-        } else {
-          this.removePlaylist(this.id)
-          this.$router.push(
-            {
-              path: '/userPlaylists'
-            }
-          )
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} has been deleted."]', {
-            playlistName: this.title,
-          }))
-        }
-      }
       this.showDeletePlaylistPrompt = false
+      if (option !== 'delete') { return }
+
+      if (this.selectedUserPlaylist.protected) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
+      } else {
+        this.removePlaylist(this.id)
+        this.$router.push(
+          {
+            path: '/userPlaylists'
+          }
+        )
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} has been deleted."]', {
+          playlistName: this.title,
+        }))
+      }
     },
 
     enableQuickBookmarkForThisPlaylist() {
@@ -403,35 +420,15 @@ export default defineComponent({
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
       }
     },
-    disableQuickBookmark() {
-      this.updateQuickBookmarkTargetPlaylistId(null)
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
-    },
 
     updateQuery(query) {
       this.query = query
       this.$emit('search-video-query-change', query)
     },
-    enableVideoSearchMode() {
-      this.searchVideoMode = true
-      this.$emit('search-video-mode-on')
 
-      nextTick(() => {
-        // Some elements only present after rendering update
-        this.$refs.searchInput.focus()
-      })
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchInput)
     },
-    disableVideoSearchMode() {
-      this.searchVideoMode = false
-      this.updateQuery('')
-      this.$emit('search-video-mode-off')
-
-      nextTick(() => {
-        // Some elements only present after rendering update
-        this.$refs.enableSearchModeButton?.focus()
-      })
-    },
-
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',
