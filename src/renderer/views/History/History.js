@@ -74,9 +74,9 @@ export default defineComponent({
       this.filterHistory()
     },
   },
-  mounted: function () {
+  created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
-    const limit = sessionStorage.getItem('historyLimit')
+    const limit = sessionStorage.getItem('History/dataLimit')
 
     if (limit !== null) {
       this.dataLimit = limit
@@ -98,7 +98,7 @@ export default defineComponent({
         this.filterHistory()
       } else {
         this.dataLimit += 100
-        sessionStorage.setItem('historyLimit', this.dataLimit)
+        sessionStorage.setItem('History/dataLimit', this.dataLimit)
       }
     },
     filterHistoryAsync: function() {
