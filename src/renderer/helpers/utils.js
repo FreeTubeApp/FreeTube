@@ -561,7 +561,8 @@ export function searchFiltersMatch(filtersA, filtersB) {
   return filtersA?.sortBy === filtersB?.sortBy &&
     filtersA?.time === filtersB?.time &&
     filtersA?.type === filtersB?.type &&
-    filtersA?.duration === filtersB?.duration
+    filtersA?.duration === filtersB?.duration &&
+    filtersA?.features?.length === filtersB?.features?.length && filtersA?.features?.every((val, index) => val === filtersB?.features[index])
 }
 
 export function replaceFilenameForbiddenChars(filenameOriginal) {
@@ -609,16 +610,6 @@ export async function getSystemLocale() {
   }
 
   return locale || 'en-US'
-}
-
-export async function getUserDataPath() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
-  } else {
-    // TODO: implement getUserDataPath web compatible callback
-    return null
-  }
 }
 
 export async function getPicturesPath() {

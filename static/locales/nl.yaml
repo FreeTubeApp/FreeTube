@@ -84,6 +84,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Er zijn geen verdere resultaten voor
     deze zoek­opdracht
+  Features:
+    Features: Functies
+    4K: 4K
+    HD: HD
+    3D: 3D
+    Subtitles: Onder­titels
+    Live: Live
+    Creative Commons: Creative Commons
+    HDR: HDR
+    360 Video: 360°
+    Location: Locatie
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
@@ -208,6 +220,10 @@ User Playlists:
         mag niet leeg zijn. Voer een naam in.
       There was an issue with updating this playlist.: Er is een probleem opgetreden
         bij het bij­werken van deze afspeel­lijst.
+      This playlist is already being used for quick bookmark.: Deze afspeel­lĳst wordt
+        al gebruikt voor snel opslaan.
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        is de nieuwe afspeel­lĳst voor snel opslaan.'
     Search for Videos: Zoeken naar video's
   You have no playlists. Click on the create new playlist button to create a new one.: U
     heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
@@ -220,6 +236,9 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
     dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
   Playlists with Matching Videos: Afspeel­lĳsten met overeen­komende video's
+  Quick Bookmark Enabled: Snel opslaan ingeschakeld
+  Cannot delete the quick bookmark target playlist.: Kan afspeel­lĳst voor snel opslaan
+    niet verwĳderen.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -291,6 +310,8 @@ Settings:
       Pastel Pink: Pastel­roze
       Hot Pink: Heet-roze
       Nordic: Noords
+      Solarized Dark: Gesolariseerd donker
+      Solarized Light: Gesolariseerd licht
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -330,6 +351,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mokka Saffier
       Catppuccin Mocha Teal: Catppuccin Mokka Wintertaling
       Catppuccin Mocha Sky: Catppuccin Mokka Hemel
+      Solarized Yellow: Gesolariseerd geel
+      Solarized Orange: Gesolariseerd oranje
+      Solarized Red: Gesolariseerd rood
+      Solarized Magenta: Gesolariseerd magenta
+      Solarized Violet: Gesolariseerd violet
+      Solarized Blue: Gesolariseerd blauw
+      Solarized Cyan: Gesolariseerd cyaan
+      Solarized Green: Gesolariseerd groen
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Interface­schaal
@@ -695,6 +724,8 @@ About:
   Source code: Broncode
   Beta: Bèta
   Discussions: Discussies
+  AGPLv3: AGPLv3
+  Licensed under the: Gelicentieerd onder de
 Channel:
   Subscriber: 'Abonnee'
   Subscribers: 'Abonnees'
@@ -1226,3 +1257,8 @@ Yes, Open Link: Ja, link openen
 Cancel: Annuleren
 Moments Ago: momenten geleden
 Search character limit: Zoek­opdracht overschrĳdt de teken­limiet van {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Ondertitels
+    Closed Captions: Gesloten ondertitels

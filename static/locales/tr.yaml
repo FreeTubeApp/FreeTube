@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Daha fazla sonuç yükle'
 # Sidebar
   There are no more results for this search: Bu arama için başka sonuç yok
+  Features:
+    HD: HD
+    Subtitles: Alt Yazılar
+    Live: Canlı
+    4K: 4K
+    HDR: HDR
+    Features: Özellikler
+    Creative Commons: Creative Commons
+    3D: 3B
+    360 Video: 360 Video
+    Location: Konum
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
@@ -177,6 +189,10 @@ User Playlists:
         kullanımına geri dönüldü
       This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
         yer imi için kullanılıyor
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        oynatma listesi yeni hızlı yer imi oynatma listesi.'
+      This playlist is already being used for quick bookmark.: Bu oynatma listesi
+        zaten hızlı yer imi için kullanılıyor.
     Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
@@ -219,10 +235,13 @@ User Playlists:
   Remove Watched Videos: İzlenen Videoları Kaldır
   Add to Favorites: '{playlistName} oynatma listesine ekle'
   Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
-  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İşaretini
+  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini
     Etkinleştir
   Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
   Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
+  Quick Bookmark Enabled: Hızlı Yer İmi Etkin
+  Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
+    silinemiyor.
 History:
   # On History Page
   History: 'Geçmiş'

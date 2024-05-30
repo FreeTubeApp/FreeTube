@@ -2,8 +2,8 @@
   <div
     class="ft-list-video ft-list-item"
     :class="{
-      list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
-      grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
+      list: effectiveListTypeIsList,
+      grid: !effectiveListTypeIsList,
       [appearance]: true,
       watched: addWatchedStyle
     }"
@@ -72,7 +72,7 @@
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
           :title="$t('User Playlists.Move Video Up')"
-          :icon="['fas', 'arrow-up']"
+          :icon="effectiveListTypeIsList ? ['fas', 'arrow-up'] : ['fas', 'arrow-left']"
           class="upArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -81,7 +81,7 @@
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoDown"
           :title="$t('User Playlists.Move Video Down')"
-          :icon="['fas', 'arrow-down']"
+          :icon="effectiveListTypeIsList ? ['fas', 'arrow-down'] : ['fas', 'arrow-right']"
           class="downArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -145,6 +145,27 @@
           class="viewCount"
         > • {{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
       </div>
+      <div
+        v-if="is4k || hasCaptions"
+        class="videoTagLine"
+      >
+        <div
+          v-if="is4k"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.4K')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.4K') }}
+        </div>
+        <div
+          v-if="hasCaptions"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.Closed Captions')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.Subtitles') }}
+        </div>
+      </div>
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
@@ -157,8 +178,7 @@
         @click="handleOptionsClick"
       />
       <p
-        v-if="description && ((listType === 'list' || forceListType === 'list') && forceListType !== 'grid') &&
-          appearance === 'result'"
+        v-if="description && effectiveListTypeIsList && appearance === 'result'"
         class="description"
         v-html="description"
       />

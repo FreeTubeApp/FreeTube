@@ -1,5 +1,5 @@
 import { invidiousGetChannelInfo } from './api/invidious'
-import { getLocalChannel } from './api/local'
+import { getLocalChannel, parseLocalChannelHeader } from './api/local'
 
 /**
  * @param {string} id
@@ -54,9 +54,12 @@ export async function findChannelTagInfo(id, backendOptions) {
       }
     } else {
       if (channel.alert) return { invalidId: true }
+
+      const { name, thumbnailUrl } = parseLocalChannelHeader(channel)
+
       return {
-        preferredName: channel.header.author.name,
-        icon: channel.header.author.thumbnails.pop().url,
+        preferredName: name,
+        icon: thumbnailUrl,
         iconHref: `/channel/${id}`
       }
     }
