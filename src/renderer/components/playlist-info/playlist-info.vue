@@ -42,6 +42,7 @@
         :show-action-button="false"
         :show-label="false"
         :value="newTitle"
+        :maxlength="255"
         @input="(input) => (newTitle = input)"
         @keydown.enter.native="savePlaylistInfo"
       />
@@ -186,6 +187,7 @@
             :show-clear-text-button="true"
             :show-action-button="false"
             :value="query"
+            :maxlength="255"
             @input="(input) => updateQueryDebounce(input)"
             @clear="updateQueryDebounce('')"
           />
