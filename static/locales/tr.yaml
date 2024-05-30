@@ -1262,3 +1262,8 @@ Yes, Delete: Evet, sil
 Cancel: İptal
 Search character limit: Arama sorgusu karakter sınırının ({searchCharacterLimit})
   üzerinde
+Search Listing:
+  Label:
+    Closed Captions: Kapalı Alt Yazılar
+    4K: 4K
+    Subtitles: Alt Yazılar
