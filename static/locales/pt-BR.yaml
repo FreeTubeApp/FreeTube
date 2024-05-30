@@ -15,7 +15,7 @@ Paste: 'Colar'
 Delete: 'Excluir'
 Select all: 'Selecionar todos'
 Reload: 'Recarregar'
-Force Reload: 'Forçar recarga'
+Force Reload: 'Forçar recarregamento'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
 Actual size: 'Tamanho atual'
 Zoom in: 'Aumentar zoom'
@@ -72,10 +72,10 @@ Search Filters:
   Duration:
     Duration: 'Duração'
     All Durations: 'Todas as durações'
-    Short (< 4 minutes): 'Curto (< 4 minutos)'
-    Long (> 20 minutes): 'Longo (> 20 minutos)'
+    Short (< 4 minutes): 'Curto (menos de 4 minutos)'
+    Long (> 20 minutes): 'Longo (mais de 20 minutos)'
   # On Search Page
-    Medium (4 - 20 minutes): Médio (4 - 20 minutos)
+    Medium (4 - 20 minutes): Médio (4 a 20 minutos)
   Search Results: 'Resultados da busca'
   Fetching results. Please wait: 'Buscando resultados. Por favor, aguarde'
   Fetch more results: 'Buscar mais resultados'
@@ -111,8 +111,8 @@ Subscriptions:
     as inscrições para vê-las aqui.
   Empty Channels: Atualmente, os canais em que você está inscrito não possuem vídeos.
   Subscriptions Tabs: Guias de inscrições
-  All Subscription Tabs Hidden: Todos as guias de inscrição estão ocultas. Para ver
-    o conteúdo aqui, exiba algumas guias na seção "{subsection}" em "{settingsSection}".
+  All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver
+    o conteúdo aqui, desoculte algumas guias na seção "{subsection}" em "{settingsSection}".
   Load More Posts: Carregar mais posts
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
 Trending:
@@ -136,7 +136,7 @@ User Playlists:
   Search bar placeholder: Pesquisar playlists
   Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
   You have no playlists. Click on the create new playlist button to create a new one.: Você
-    não tem playlists. Clique no botão "Criar playlist" para criar uma.
+    não tem playlists. Clique no botão "Criar nova playlist" para criar uma.
   This playlist currently has no videos.: Esta playlist não tem vídeos atualmente.
   Create New Playlist: Criar nova playlist
   Add to Playlist: Adicionar à playlist
@@ -148,12 +148,12 @@ User Playlists:
     Toast:
       There is already a playlist with this name. Please pick a different name.: Já
         existe uma playlist com este nome. Escolha um nome diferente.
-      Playlist {playlistName} has been successfully created.: A playlist {playlistName}
+      Playlist {playlistName} has been successfully created.: A playlist "{playlistName}"
         foi criada com sucesso.
       There was an issue with creating the playlist.: Ocorreu um problema ao criar
         a playlist.
-  Add to Favorites: Adicionar a {NomeDaPlaylist}
-  Remove from Favorites: Remover de {playlistName}
+  Add to Favorites: Adicionar a "{playlistName}"
+  Remove from Favorites: Remover de "{playlistName}"
   Move Video Down: Mover vídeo para baixo
   Playlist Name: Nome da Playlist
   Playlist Description: Descrição da Playlist
@@ -209,8 +209,8 @@ User Playlists:
       Video has been removed: Vídeo removido
       This playlist is already being used for quick bookmark.: Esta playlist já está
         sendo usada em "Favoritos Rápidos".
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
-        é a nova playlist de "Favoritos Rápidos".
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist "{playlistName}"
+        é a nova playlist em "Favoritos Rápidos".
     Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Toast:
@@ -372,7 +372,7 @@ Settings:
     Autoplay Videos: 'Reprodução automática de vídeos'
     Proxy Videos Through Invidious: 'Usar o Invidious como proxy'
     Autoplay Playlists: 'Reprodução automática das playlists'
-    Enable Theatre Mode by Default: 'Habilitar modo teatro por padrão'
+    Enable Theatre Mode by Default: 'Habilitar "Modo Teatro" por padrão'
     Default Volume: 'Volume padrão'
     Default Playback Rate: 'Velocidade de reprodução'
     Default Video Format:
@@ -393,32 +393,32 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
-    Next Video Interval: Próximo intervalo de vídeo
+    Next Video Interval: Intervalo para o próximo vídeo
     Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
     Scroll Volume Over Video Player: Alterar volume ao rolar sobre o player
-    Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
+    Fast-Forward / Rewind Interval: Intervalo para avançar/retroceder rápido
     Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao rolar sobre
       o player
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
-      File Name Label: Padrão de nome do arquivo
+      File Name Label: Padrão do nome de arquivo
       Enable: Ativar captura de tela
       Ask Path: Perguntar onde salvar os arquivos
-      Folder Label: Pasta de captura de tela
+      Folder Label: Pasta de capturas de tela
       Folder Button: Selecionar pasta
       Error:
         Empty File Name: Nome do arquivo vazio
         Forbidden Characters: Caracteres proibidos
       Format Label: Formato da captura de tela
       Quality Label: Qualidade da captura de tela
-      File Name Tooltip: Você pode usar as variáveis abaixo. %Y Ano 4 dígitos. %M
-        Mês 2 dígitos. %D Dia 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S
-        Segundo 2 dígitos. %T Milissegundo 3 dígitos. %s Segundo do vídeo. %t Milissegundo
-        do vídeo 3 dígitos. %i ID do vídeo. Você também pode usar "\" ou "/" para
-        criar subpastas.
-    Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela para
-      o modo paisagem
+      File Name Tooltip: Você pode usar as variáveis abaixo. %Y (o ano com 4 dígitos).
+        %M (o mês com 2 dígitos). %D (o dia com 2 dígitos). %H (a hora com 2 dígitos).
+        %N (o minuto com 2 dígitos). %S (o segundo com 2 dígitos). %T (o milissegundo
+        com 3 dígitos). %s (segundo do vídeo. %t (milissegundo do vídeo com 3 dígitos).
+        %i (id do vídeo). Você também pode usar "\" ou "/" para criar subpastas.
+    Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar o dispositivo
+      para o modo paisagem
     Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
     Allow DASH AV1 formats: Permitir formatos DASH AV1
   Subscription Settings:
@@ -469,11 +469,11 @@ Settings:
     Are you sure you want to remove your entire watch history?: Tem certeza de que
       deseja remover todo o seu histórico de exibição?
     Remove Watch History: Remover histórico de exibição
-    Search cache has been cleared: Cache de pesquisas foi apagado
+    Search cache has been cleared: Cache de buscas foi apagado
     Are you sure you want to clear out your search cache?: Tem certeza de que deseja
-      limpar o cache de pesquisa?
+      limpar o cache de buscas?
     Clear Search Cache: Limpar cache de buscas
-    Save Watched Progress: Habilitar o histórico de exibição
+    Save Watched Progress: Habilitar histórico de exibição
     Remember History: Lembrar histórico
     Privacy Settings: Configurações de privacidade
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
@@ -562,7 +562,7 @@ Settings:
     Hide Live Streams: Ocultar transmissões ao vivo
     Hide Chapters: Ocultar capítulos
     Hide Upcoming Premieres: Ocultar próximas estréias
-    Hide Channels Placeholder: ID do Canal
+    Hide Channels Placeholder: ID do canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem capitalização
       excessiva nem pontuação
     Hide Channels: Ocultar vídeos de canais
@@ -635,7 +635,7 @@ Settings:
     Custom External Player Arguments: Argumentos do player externo personalizados
     External Player: Player externo
     Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
-    External Player Settings: Configurações para player externo
+    External Player Settings: Configurações para players externos
     Custom External Player Executable: Executável do player externo personalizado
     Players:
       None:
@@ -1218,7 +1218,7 @@ Channels:
   Unsubscribe: Cancelar inscrição
   Unsubscribed: '{channelName} foi removido de suas inscrições'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
-  Count: '{number} canal(is) encontrado(s).'
+  Count: '{number} canais encontrados.'
 Screenshot Success: Captura de tela salva em "{filePath}"
 Screenshot Error: Falha na captura de tela. {error}
 Preferences: Preferências
@@ -1254,7 +1254,7 @@ Age Restricted:
 checkmark: ✓
 Display Label: '{label}: {value}'
 Feed:
-  Feed Last Updated: '{feedName} última atualização: {date}'
+  Feed Last Updated: '{feedName}, última atualização: {date}'
   Refresh Feed: Atualizar {subscriptionName}
 Moments Ago: momentos atrás
 Yes, Delete: Sim, excluir
@@ -1263,3 +1263,8 @@ Yes, Open Link: Sim, abrir link
 Cancel: Cancelar
 Search character limit: Sua pesquisa ultrapassou o limite de {searchCharacterLimit}
   caracteres
+Search Listing:
+  Label:
+    Subtitles: Legendas
+    Closed Captions: Legendas ocultas (CC)
+    4K: 4K
