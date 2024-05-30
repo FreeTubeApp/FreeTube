@@ -110,6 +110,7 @@ export default defineComponent({
       editMode: false,
       showDeletePlaylistPrompt: false,
       showRemoveVideosOnWatchPrompt: false,
+      showRemoveDuplicateVideosPrompt: false,
       newTitle: '',
       newDescription: '',
       deletePlaylistPromptValues: [
@@ -209,6 +210,20 @@ export default defineComponent({
 
     videoPlaylistType() {
       return this.isUserPlaylist ? 'user' : ''
+    },
+
+    userPlaylistUniqueVideoIds() {
+      if (!this.isUserPlaylist) { return new Set() }
+
+      return this.selectedUserPlaylist.videos.reduce((set, video) => {
+        set.add(video.videoId)
+        return set
+      }, new Set())
+    },
+    userPlaylistDuplicateItemCount() {
+      if (this.userPlaylistUniqueVideoIds.size === 0) { return 0 }
+
+      return this.selectedUserPlaylist.videos.length - this.userPlaylistUniqueVideoIds.size
     },
 
     deletePlaylistButtonVisible: function() {
@@ -332,6 +347,43 @@ export default defineComponent({
       this.editMode = false
 
       this.$emit('exit-edit-mode')
+    },
+
+    handleRemoveDuplicateVideosPromptAnswer(option) {
+      this.showRemoveDuplicateVideosPrompt = false
+      if (option !== 'delete') { return }
+
+      const videoIdsAdded = new Set()
+      const newVideoItems = this.selectedUserPlaylist.videos.reduce((ary, video) => {
+        if (videoIdsAdded.has(video.videoId)) { return ary }
+
+        ary.push(video)
+        videoIdsAdded.add(video.videoId)
+        return ary
+      }, [])
+
+      const removedVideosCount = this.userPlaylistDuplicateItemCount
+      if (removedVideosCount === 0) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
+        return
+      }
+
+      const playlist = {
+        playlistName: this.title,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.description,
+        videos: newVideoItems,
+        _id: this.id,
+      }
+      try {
+        this.updatePlaylist(playlist)
+        showToast(this.$tc('User Playlists.SinglePlaylistView.Toast.{videoCount} video(s) have been removed', removedVideosCount, {
+          videoCount: removedVideosCount,
+        }))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
     },
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {

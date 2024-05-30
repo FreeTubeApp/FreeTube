@@ -153,6 +153,13 @@
             @click="toggleCopyVideosPrompt"
           />
           <ft-icon-button
+            v-if="!editMode && isUserPlaylist && userPlaylistDuplicateItemCount > 0"
+            :title="$t('User Playlists.Remove Duplicate Videos')"
+            :icon="['fas', 'video-slash']"
+            theme="destructive"
+            @click="showRemoveDuplicateVideosPrompt = true"
+          />
+          <ft-icon-button
             v-if="!editMode && isUserPlaylist && videoCount > 0"
             :title="$t('User Playlists.Remove Watched Videos')"
             :icon="['fas', 'eye-slash']"
@@ -208,6 +215,14 @@
         :option-values="deletePlaylistPromptValues"
         :is-first-option-destructive="true"
         @click="handleRemoveVideosOnWatchPromptAnswer"
+      />
+      <ft-prompt
+        v-if="showRemoveDuplicateVideosPrompt"
+        :label="$t('User Playlists.Are you sure you want to remove duplicate videos from this playlist? This cannot be undone')"
+        :option-names="deletePlaylistPromptNames"
+        :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
+        @click="handleRemoveDuplicateVideosPromptAnswer"
       />
     </div>
   </div>
