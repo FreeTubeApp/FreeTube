@@ -346,7 +346,6 @@ export default defineComponent({
 
       if (removedVideosCount === 0) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
-        this.showRemoveVideosOnWatchPrompt = false
         return
       }
 
