@@ -118,9 +118,6 @@ export default defineComponent({
       const playlistItems = this.shuffleEnabled ? this.randomizedPlaylistItems : this.playlistItems
       return this.findIndexOfCurrentVideoInPlaylist(playlistItems)
     },
-    videoIsFirstPlaylistItem: function () {
-      return this.videoIndexInPlaylistItems === 0
-    },
     videoIsLastPlaylistItem: function () {
       return this.videoIndexInPlaylistItems === (this.playlistItems.length - 1)
     },
@@ -357,7 +354,8 @@ export default defineComponent({
         videoIndex++
       }
 
-      const targetVideoIndex = (this.videoIsFirstPlaylistItem || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
+      // Wrap around to the end of the playlist only if there are no remaining earlier videos
+      const targetVideoIndex = (videoIndex === 0 || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
 
       if (this.shuffleEnabled) {
         const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
