@@ -5,7 +5,8 @@
   display: flex;
   flex-direction: column;
   padding-inline-start: 0;
-  block-size: fit-content;
+  block-size: calc(85vh - 96px);
+  max-block-size: 600px;
 }
 
 .header {
@@ -17,7 +18,9 @@
   text-decoration: none;
   color: var(--tertiary-text-color);
   inline-size: 220px;
-  padding-block: 3px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
 }
 
 /* prevent hover styling from showing on title click for mobile */
@@ -84,6 +87,7 @@
     position: relative;
     inset-block-start: 0;
     font-size: 30px;
+    max-block-size: 1100px;
   }
 
   .titleIcon {
