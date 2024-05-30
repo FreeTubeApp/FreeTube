@@ -1223,3 +1223,8 @@ Yes, Restart: نعم، إعادة تشغيل
 Yes, Open Link: نعم، افتح الرابط
 Cancel: إلغاء
 Search character limit: تجاوز استعلام البحث حد الأحرف {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: التعاليق مغلقة
+    Subtitles: التسميات التوضيحية
