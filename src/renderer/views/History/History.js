@@ -55,20 +55,14 @@ export default defineComponent({
   },
   mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
-    const limit = sessionStorage.getItem('historyLimit')
+    const limit = sessionStorage.getItem('History/dataLimit')
 
     if (limit !== null) {
       this.dataLimit = limit
     }
 
     this.activeData = this.fullData
-
-    if (this.activeData.length < this.historyCacheSorted.length) {
-      this.showLoadMoreButton = true
-    } else {
-      this.showLoadMoreButton = false
-    }
-
+    this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
     this.filterHistoryDebounce = debounce(this.filterHistory, 500)
   },
   beforeDestroy: function () {
@@ -81,7 +75,7 @@ export default defineComponent({
         this.filterHistory()
       } else {
         this.dataLimit += 100
-        sessionStorage.setItem('historyLimit', this.dataLimit)
+        sessionStorage.setItem('History/dataLimit', this.dataLimit)
       }
     },
     filterHistoryAsync: function() {
@@ -92,11 +86,7 @@ export default defineComponent({
     filterHistory: function() {
       if (this.query === '') {
         this.activeData = this.fullData
-        if (this.activeData.length < this.historyCacheSorted.length) {
-          this.showLoadMoreButton = true
-        } else {
-          this.showLoadMoreButton = false
-        }
+        this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
       } else {
         const lowerCaseQuery = this.query.toLowerCase()
         const filteredQuery = this.historyCacheSorted.filter((video) => {
@@ -110,11 +100,7 @@ export default defineComponent({
         }).sort((a, b) => {
           return b.timeWatched - a.timeWatched
         })
-        if (filteredQuery.length <= this.searchDataLimit) {
-          this.showLoadMoreButton = false
-        } else {
-          this.showLoadMoreButton = true
-        }
+        this.showLoadMoreButton = filteredQuery.length > this.searchDataLimit
         this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       }
     },
