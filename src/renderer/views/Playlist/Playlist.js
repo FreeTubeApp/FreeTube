@@ -40,13 +40,13 @@ export default defineComponent({
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
         title: this.playlistTitle,
         channelName: this.channelName,
         channelId: this.channelId,
-        items: this.playlistItems,
+        items: this.sortedPlaylistItems,
         continuationData: this.continuationData,
       })
     }
