@@ -45,6 +45,7 @@
               :disabled="isMainProfile"
               :value="translatedProfileName"
               :show-action-button="false"
+              :maxlength="100"
               @input="e => profileName = e"
               @keydown.enter.native="saveProfile"
             />

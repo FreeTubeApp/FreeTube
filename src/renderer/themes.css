@@ -10,6 +10,14 @@
 .solarizedDark,
 .solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
+  --top-bar-push-down-adjustment-default: -35px;
+
+  /* Value of 0 without 'px' does not work inside calc() */
+  /* stylelint-disable length-zero-no-unit */
+  --top-bar-push-down-adjustment-no-description: 0px;
+  --top-bar-push-down-adjustment-edit-mode: 0px;
+  --top-bar-push-down-adjustment-one-or-fewer: 0px;
+  /* stylelint-enable length-zero-no-unit */
   --destructive-color: #f44336;
   --destructive-text-color: #000;
   --destructive-hover-color: #e53935;
@@ -1314,7 +1322,7 @@ body[dir='rtl'] {
   --horizontal-directionality-coefficient: -1;
 }
 
-body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"]) {
+body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"], [data-icon="check"]) {
   transform: scale(-1,1);
 }
 

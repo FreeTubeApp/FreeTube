@@ -32,7 +32,7 @@ Forward: 'Напред'
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: 'видеа'
+  Videos: 'Видеа'
   Shorts: Кратки видеа
   Live: На живо
   Community: Общност
@@ -55,11 +55,11 @@ A new blog is now available, {blogTitle}. Click to view more: 'Нова публ
 Search / Go to URL: 'Търсене / Отиване на адрес'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Филтри на търсенето'
+  Search Filters: 'Филтри за търсене'
   Sort By:
     Sort By: 'Сортиране по'
     Most Relevant: 'Най-уместно'
-    Rating: 'Оценки'
+    Rating: 'Оценка'
     Upload Date: 'Дата на качване'
     View Count: 'Брой показвания'
   Time:
@@ -89,6 +89,18 @@ Search Filters:
   Fetch more results: 'Намиране на още резултати'
 # Sidebar
   There are no more results for this search: Няма повече резултати за това търсене
+  Features:
+    Features: Функции
+    Subtitles: Субтитри
+    Live: На живо
+    Creative Commons: '"Криейтив комънс"'
+    360 Video: 360°
+    Location: Местоположение
+    HDR: HDR
+    VR180: VR180
+    HD: HD
+    3D: 3D
+    4K: 4K
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
@@ -167,6 +179,10 @@ User Playlists:
       This playlist is protected and cannot be removed.: Този плейлист е защитен и
         не може да бъде премахнат.
       This playlist does not exist: Този плейлист не съществува
+      This playlist is already being used for quick bookmark.: Този плейлист вече
+        се използва за бързи отметки.
+      Playlist {playlistName} is the new quick bookmark playlist.: Плейлиста {playlistName}
+        е новият списък за бързи отметки.
     Search for Videos: Търсене за видеа
   CreatePlaylistPrompt:
     Toast:
@@ -222,6 +238,9 @@ User Playlists:
   Remove from Favorites: Премахване от {playlistName}
   Move Video Down: Преместване надолу
   Playlists with Matching Videos: Плейлисти със съвпадащи видеа
+  Quick Bookmark Enabled: Бързите отметки са активирани
+  Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия
+    списък за плейлисти с бързи отметки.
 History:
   # On History Page
   History: 'История'
@@ -277,6 +296,9 @@ Settings:
       Ask Before Opening Link: Питане, преди отворяне на връзка
       Open Link: Отваряне на връзка
       External Link Handling: Работа с външни връзки
+    Auto Load Next Page:
+      Label: Автоматично зареждане на следващата страница
+      Tooltip: Автоматично зареждане на допълнителни страници и коментари.
   Theme Settings:
     Theme Settings: 'Настройки на изгледа на приложението'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -292,6 +314,8 @@ Settings:
       Pastel Pink: Пастелно розово
       Hot Pink: Горещо розово
       Nordic: Nordic
+      Solarized Dark: Solarized тъмна
+      Solarized Light: Solarized светла
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -331,6 +355,14 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha Лавандула
       Catppuccin Mocha Blue: Catppuccin Mocha Синьо
       Catppuccin Mocha Green: Catppuccin Mocha Зелено
+      Solarized Yellow: Solarized Жълто
+      Solarized Orange: Solarized Оранжево
+      Solarized Red: Solarized Червено
+      Solarized Magenta: Solarized Пурпурно
+      Solarized Violet: Solarized Виолетово
+      Solarized Blue: Solarized Синьо
+      Solarized Cyan: Solarized Синьозелено
+      Solarized Green: Solarized Зелено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -637,6 +669,7 @@ Settings:
     Unlock: Отключване
     Password: Парола
   Expand All Settings Sections: Разширяване на всички раздели с настройки
+  Sort Settings Sections (A-Z): Сортиране на секциите на настройките (A-Z)
 About:
   #On About page
   About: 'Относно'
@@ -693,6 +726,8 @@ About:
   Beta: Бета
   Credits: Заслуги
   Discussions: Дискусии
+  Licensed under the: Лицензирано под
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -971,6 +1006,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Плейлист
+  Sort By:
+    DateAddedNewest: Първо най-новите
+    DateAddedOldest: Първо най-старите
+    Sort By: Подреждане по
+    AuthorAscending: Автор (A-Z)
+    AuthorDescending: Автор (Z-A)
+    VideoTitleAscending: Заглавие (A-Z)
+    Custom: Потребителски
+    VideoTitleDescending: Заглавие (Z-A)
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Media Formats: 'Смяна видео формати'
@@ -1007,10 +1051,10 @@ Comments:
   Show Comments: 'Показване на коментари'
   Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Изглед'
+  View: 'Показване на'
   Hide: 'Скриване'
-  Replies: 'Отговори'
-  Reply: 'Отговаряне'
+  Replies: 'Отговора'
+  Reply: 'Отговор'
   There are no comments available for this video: 'Към това видео няма коментари'
   Load More Comments: 'Зареждане на още коментари'
   No more comments available: Не са налични повече коментари
@@ -1194,3 +1238,15 @@ Age Restricted:
   This channel is age restricted: Този канал е с възрастово ограничение
   This video is age restricted: Това видео е с възрастово ограничение
 Close Banner: Затваряне на банер
+Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit}
+  символа
+Feed:
+  Feed Last Updated: 'Последна актуализация на емисията {feedName}: {date}'
+  Refresh Feed: Обновяване на {subscriptionName}
+Yes, Delete: Да, изтрий
+Yes, Restart: Да, рестартирай
+Yes, Open Link: Да, отваряне на връзката
+Cancel: Отказ
+Moments Ago: току що
+checkmark: ✓
+Display Label: '{label}: {value}'

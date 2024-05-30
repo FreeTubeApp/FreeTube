@@ -796,6 +796,8 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       liveNow: false,
       isUpcoming: false,
+      is4k: movie.is_4k,
+      hasCaptions: movie.has_captions
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
@@ -826,7 +828,9 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      is4k: video.is_4k,
+      hasCaptions: video.has_captions
     }
   }
 }
@@ -940,6 +944,10 @@ function convertSearchFilters(filters) {
 
     if (filters.duration) {
       convertedFilters.duration = filters.duration
+    }
+
+    if (filters.features) {
+      convertedFilters.features = filters.features
     }
   }
 

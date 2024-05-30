@@ -41,6 +41,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    theme: {
+      type: String,
+      default: 'base'
+    },
     title: {
       type: String,
       required: true,
@@ -249,14 +253,8 @@ export default defineComponent({
       return !this.hideSharingActions
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
-    },
-    quickBookmarkEnabled() {
-      return this.quickBookmarkPlaylist != null
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     markedAsQuickBookmarkTarget() {
       // Only user playlists can be target
@@ -264,6 +262,9 @@ export default defineComponent({
       if (this.quickBookmarkPlaylist == null) { return false }
 
       return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
+    },
+    playlistDeletionDisabledLabel: function () {
+      return this.$t('User Playlists["Cannot delete the quick bookmark target playlist."]')
     },
   },
   watch: {
@@ -342,6 +343,14 @@ export default defineComponent({
         // Some elements only present after rendering update
         this.$refs.playlistTitleInput.focus()
       })
+    },
+
+    handleQuickBookmarkEnabledDisabledClick: function () {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is already being used for quick bookmark."]'))
+    },
+
+    handlePlaylistDeleteDisabledClick: function () {
+      showToast(this.playlistDeletionDisabledLabel)
     },
 
     exitEditMode: function () {
@@ -426,10 +435,6 @@ export default defineComponent({
       } else {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
       }
-    },
-    disableQuickBookmark() {
-      this.updateQuickBookmarkTargetPlaylistId(null)
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
     },
 
     updateQuery(query) {

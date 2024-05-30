@@ -101,6 +101,8 @@ export default defineComponent({
       watchProgress: 0,
       published: undefined,
       isLive: false,
+      is4k: false,
+      hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
@@ -119,6 +121,10 @@ export default defineComponent({
 
     listType: function () {
       return this.$store.getters.getListType
+    },
+
+    effectiveListTypeIsList: function () {
+      return (this.listType === 'list' || this.forceListType === 'list') && this.forceListType !== 'grid'
     },
 
     thumbnailPreference: function () {
@@ -296,7 +302,7 @@ export default defineComponent({
 
       if (this.channelId !== null) {
         const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-        const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
+        const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
 
         options.push(
           {
@@ -447,11 +453,8 @@ export default defineComponent({
       return this.playlistIdTypePairFinal?.playlistItemId
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
@@ -459,8 +462,15 @@ export default defineComponent({
     isInQuickBookmarkPlaylist: function () {
       if (!this.isQuickBookmarkEnabled) { return false }
 
+      // Accessing a reactive property has a negligible amount of overhead,
+      // however as we know that some users have playlists that have more than 10k items in them
+      // it adds up quickly, especially as there are usually lots of ft-list-video instances active at the same time.
+      // So create a temporary variable outside of the array, so we only have to do it once.
+      // Also the search is retriggered every time any playlist is modified.
+      const id = this.id
+
       return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === this.id
+        return video.videoId === id
       })
     },
     quickBookmarkIconText: function () {
@@ -669,6 +679,8 @@ export default defineComponent({
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
+      this.is4k = this.data.is4k
+      this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 
@@ -691,7 +703,7 @@ export default defineComponent({
           this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
         } else {
           // Use 30 days per month, just like calculatePublishedDate
-          this.uploadedTime = getRelativeTimeFromDate(new Date(this.data.published), false)
+          this.uploadedTime = getRelativeTimeFromDate(this.data.published, false)
         }
       }
 
@@ -772,7 +784,7 @@ export default defineComponent({
 
     hideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      hiddenChannels.push(channelId)
+      hiddenChannels.push({ name: channelId, preferredName: channelName })
       this.updateChannelsHidden(JSON.stringify(hiddenChannels))
 
       showToast(this.$t('Channel Hidden', { channel: channelName }))
@@ -780,7 +792,7 @@ export default defineComponent({
 
     unhideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c.name !== channelId)))
 
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
@@ -803,14 +815,12 @@ export default defineComponent({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
       }
 
-      this.addVideos({
+      this.addVideo({
         _id: this.quickBookmarkPlaylist._id,
-        videos: [videoData],
+        videoData,
       })
       // Update playlist's `lastUpdatedAt`
       this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
@@ -848,7 +858,7 @@ export default defineComponent({
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
-      'addVideos',
+      'addVideo',
       'updatePlaylist',
       'removeVideo',
     ])

@@ -208,6 +208,7 @@
             :placeholder="$t('Channel.Search Channel')"
             :show-clear-text-button="true"
             class="channelSearch"
+            :maxlength="255"
             @click="newSearch"
           />
         </ft-flex-box>
@@ -232,7 +233,7 @@
         <ft-select
           v-if="showVideoSortBy"
           v-show="currentTab === 'videos' && latestVideos.length > 0"
-          :value="videoLiveShortSelectValues[0]"
+          :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
@@ -242,7 +243,7 @@
         <ft-select
           v-if="!hideChannelShorts && showShortSortBy"
           v-show="currentTab === 'shorts' && latestShorts.length > 0"
-          :value="videoLiveShortSelectValues[0]"
+          :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
@@ -252,7 +253,7 @@
         <ft-select
           v-if="!hideLiveStreams && showLiveSortBy"
           v-show="currentTab === 'live' && latestLive.length > 0"
-          :value="videoLiveShortSelectValues[0]"
+          :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
@@ -262,7 +263,7 @@
         <ft-select
           v-if="!hideChannelPlaylists && showPlaylistSortBy"
           v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
-          :value="playlistSelectValues[0]"
+          :value="playlistSortBy"
           :select-names="playlistSelectNames"
           :select-values="playlistSelectValues"
           :placeholder="$t('Search Filters.Sort By.Sort By')"
