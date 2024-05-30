@@ -645,7 +645,7 @@ Settings:
     Download Settings: Configurações de download
     Ask Download Path: Perguntar onde salvar o download
     Choose Path: Escolha o caminho
-    Open in web browser: Abrir no navegador web
+    Open in web browser: Abrir no navegador
     Download in app: Baixar no aplicativo
     Download Behavior: Comportamento de download
   Parental Control Settings:
@@ -702,8 +702,8 @@ About:
   Latest FreeTube News: 'Ultimas notícias sobre o FreeTube'
 
 #On Channel Page
-  GitHub issues: GitHub issues
-  Report a problem: Relatar um problema
+  GitHub issues: Relatórios no GitHub
+  Report a problem: Informar um problema
   FAQ: Perguntas frequentes
   FreeTube Wiki: Wiki do FreeTube
   Help: Ajuda
@@ -720,13 +720,13 @@ About:
   Translate: Traduzir
   room rules: regras da sala
   Please read the: Por favor leia as
-  Chat on Matrix: Bate-papo na Matrix
+  Chat on Matrix: Chat no Matrix
   Mastodon: Mastodon
   Email: E-mail
   Blog: Blog
   Website: Site
-  Please check for duplicates before posting: Verifique se há duplicações antes de
-    postar
+  Please check for duplicates before posting: Por favor verifique se este problema
+    já foi informado
   Discussions: Discussões
   Licensed under the: Licenciado sob o
   AGPLv3: AGPLv3
@@ -757,7 +757,7 @@ Channel:
   About:
     About: 'Sobre'
     Channel Description: 'Descrição do canal'
-    Featured Channels: 'Canais destacados'
+    Featured Channels: 'Canais em destaque'
     Tags:
       Search for: Procurar por “{tag}”
       Tags: Tags
@@ -775,7 +775,7 @@ Channel:
   Community:
     This channel currently does not have any posts: Este canal atualmente não tem
       nenhuma postagem
-    votes: '{votes} votos'
+    votes: '{votes} voto(s)'
     Reveal Answers: Mostrar respostas
     Hide Answers: Ocultar respostas
     Video hidden by FreeTube: Vídeo escondido pelo FreeTube
@@ -802,7 +802,7 @@ Video:
   Video has been removed from your history: 'Vídeo removido do seu histórico'
   Open in YouTube: 'Abrir no YouTube'
   Copy YouTube Link: 'Copiar link do YouTube'
-  Open YouTube Embedded Player: 'Abrir vídeo incorporado do YouTube'
+  Open YouTube Embedded Player: 'Abrir player incorporado do YouTube'
   Copy YouTube Embedded Player Link: 'Copiar link incorporado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar link do Invidious'
@@ -892,7 +892,7 @@ Video:
     sponsor: Patrocinador
     filler: Preenchimento
     recap: Recapitulação
-  Skipped segment: Segmentos pulados
+  Skipped segment: Segmento ignorado
   External Player:
     Unsupported Actions:
       shuffling playlists: Playlists aleatórias
@@ -969,7 +969,7 @@ Playlist:
     DateAddedOldest: Mais antigos
     AuthorDescending: Autor (Z-A)
     VideoTitleDescending: Título (Z-A)
-Toggle Theatre Mode: 'Alternar Modo Teatro'
+Toggle Theatre Mode: 'Alternar "Modo Teatro"'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'
@@ -1075,9 +1075,9 @@ Profile:
   No channel(s) have been selected: Nenhum canal foi selecionado
   Add Selected To Profile: Adicionar selecionado ao perfil
   Delete Selected: Excluir selecionados
-  Select None: Selecionar nenhum
+  Select None: Cancelar seleção
   Select All: Selecionar todos
-  '{number} selected': '{number} selecionado'
+  '{number} selected': '{number} selecionado(s)'
   Other Channels: Outros canais
   Subscription List: Lista de inscrições
   '{profile} is now the active profile': '{profile} é agora o perfil ativo'
@@ -1089,14 +1089,14 @@ Profile:
   Profile has been updated: Perfil atualizado
   Profile has been created: Perfil criado
   Your profile name cannot be empty: O nome do seu perfil não pode ficar vazio
-  Profile Filter: Filtro de perfil
-  Profile Settings: Configurações de perfil
+  Profile Filter: Filtrar perfil
+  Profile Settings: Configurações do perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
   Create Profile Name: Criar nome de perfil
-  Open Profile Dropdown: Abrir menu do perfil
-  Close Profile Dropdown: Fechar menu do perfil
+  Open Profile Dropdown: Abrir menu de perfis
+  Close Profile Dropdown: Fechar menu de perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
@@ -1232,7 +1232,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos,
     capítulo atual: {chapterName}'
   Chapters: Capítulos
-Ok: Ok
+Ok: OK
 Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     nenhum vídeo
