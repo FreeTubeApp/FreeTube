@@ -209,6 +209,14 @@ export default defineComponent({
       }
     },
 
+    returnToSettingsMenu: function () {
+      const openSection = this.settingsSectionTypeOpenInMobile
+      this.settingsSectionTypeOpenInMobile = null
+
+      // focus the corresponding Settings Menu title
+      nextTick(() => document.getElementById(openSection)?.focus())
+    },
+
     /* Set the current section to be shown as active in the Settings Menu
     * if it is the lowest section within the top quarter of the viewport (25vh) */
     markScrolledToSectionAsActive: function() {

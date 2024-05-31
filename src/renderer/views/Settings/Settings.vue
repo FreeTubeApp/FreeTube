@@ -8,8 +8,8 @@
           role="button"
           :title="$t('Settings.Return to Settings Menu')"
           tabindex="0"
-          @click="settingsSectionTypeOpenInMobile = null"
-          @keydown.space.enter="settingsSectionTypeOpenInMobile = null"
+          @click="returnToSettingsMenu"
+          @keydown.space.enter="returnToSettingsMenu"
         />
       </div>
       <ft-settings-menu
