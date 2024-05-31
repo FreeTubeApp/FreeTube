@@ -1246,10 +1246,10 @@ Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
   Channels: Kanäle
-  Title: Kanalliste
+  Title: Kanal-Liste
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
-  Empty: Deine Kanalliste ist derzeit leer.
+  Empty: Deine Kanal-Liste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
   Unsubscribe Prompt: Bist du sicher, dass du dein Abo für „{channelName}“ entfernen
