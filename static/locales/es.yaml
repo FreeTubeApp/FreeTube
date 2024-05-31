@@ -1266,3 +1266,8 @@ Yes, Restart: Sí, reiniciar
 Yes, Delete: Sí, eliminar
 Search character limit: La consulta de búsqueda supera el límite de {searchCharacterLimit}
   caracteres
+Search Listing:
+  Label:
+    Subtitles: Subtítulos
+    Closed Captions: Subtítulos descriptivos
+    4K: 4K
