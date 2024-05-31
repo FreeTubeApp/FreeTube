@@ -200,7 +200,7 @@ export default defineComponent({
 
     getCommentReplies: function (index) {
       if (this.commentData[index].dataType === 'piped') {
-        this.getCommentDataPipedMore(this.commentData[index].replyToken, index)
+        this.getCommentDataPipedMore(this.replyTokens.get(this.commentData[index].id), index)
       } else if (process.env.SUPPORTS_LOCAL_API) {
         switch (this.commentData[index].dataType) {
           case 'local':
@@ -317,6 +317,16 @@ export default defineComponent({
     getCommentDataPiped: async function () {
       try {
         const { comments, continuation } = await getPipedComments(this.id)
+        comments.map((fullComment) => {
+          // Use destructuring to create a new object without the replyToken
+          const { replyToken, ...comment } = fullComment
+          if (comment.hasReplyToken) {
+            this.replyTokens.set(comment.id, replyToken)
+          } else {
+            this.replyTokens.delete(comment.id)
+          }
+          return comment
+        })
         this.commentData = comments
         this.nextPageToken = continuation
         this.isLoading = false
@@ -349,9 +359,16 @@ export default defineComponent({
           continuation: token
         })
         if (index !== null) {
-          this.commentData[index].replies = this.commentData[index].replies.concat(comments)
-          this.commentData[index].showReplies = true
-          this.commentData[index].replyToken = continuation
+          const comment = this.commentData[index]
+          comment.replies = comment.replies.concat(comments)
+          comment.showReplies = true
+          if (comment.hasReplyToken) {
+            this.replyTokens.set(comment.id, continuation)
+            comment.hasReplyToken = true
+          } else {
+            this.replyTokens.delete(comment.id)
+            comment.hasReplyToken = false
+          }
         } else {
           this.commentData = this.commentData.concat(comments)
           this.nextPageToken = continuation
