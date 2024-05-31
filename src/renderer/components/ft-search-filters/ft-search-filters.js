@@ -165,8 +165,8 @@ export default defineComponent({
 
     updateFeatures: function(value) {
       if (!this.isVideoOrMovieOrAll(this.searchSettings.type)) {
-        const featuresCheck = this.$refs.featuresCheck
-        featuresCheck.removeSelectedValues()
+        const typeRadio = this.$refs.typeRadio
+        typeRadio.updateSelectedValue('all')
         this.$store.commit('setSearchType', 'all')
       }
 
