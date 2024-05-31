@@ -351,8 +351,10 @@ export default defineComponent({
       * the previous video is shown as the "current" one.
       * So if we want to play the previous video, in this case,
       * we actually want to actually play the "current" video.
+      * The only exception is when shuffle is enabled, as we don't actually
+      * want to play the last sequential video with shuffle.
       */
-      if (this.prevVideoBeforeDeletion) {
+      if (this.prevVideoBeforeDeletion && !this.shuffleEnabled) {
         videoIndex++
       }
 
