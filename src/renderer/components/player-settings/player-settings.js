@@ -65,16 +65,16 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
-    autoplayVideos: function () {
-      return this.$store.getters.getAutoplayVideos
+    startVideosAutomatically: function () {
+      return this.$store.getters.getStartVideosAutomatically
     },
 
-    autoplayPlaylists: function () {
-      return this.$store.getters.getAutoplayPlaylists
+    enablePlaylistAutoplay: function () {
+      return this.$store.getters.getEnablePlaylistAutoplay
     },
 
-    playNextVideo: function () {
-      return this.$store.getters.getPlayNextVideo
+    enableAutoplay: function () {
+      return this.$store.getters.getEnableAutoplay
     },
 
     enableSubtitlesByDefault: function () {
@@ -117,8 +117,8 @@ export default defineComponent({
       return this.$store.getters.getAllowDashAv1Formats
     },
 
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultTheaterMode: function () {
+      return this.$store.getters.getDefaultTheaterMode
     },
 
     hideRecommendedVideos: function () {
@@ -280,13 +280,13 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateAutoplayVideos',
-      'updateAutoplayPlaylists',
-      'updatePlayNextVideo',
+      'updateStartVideosAutomatically',
+      'updateEnablePlaylistAutoplay',
+      'updateEnableAutoplay',
       'updateEnableSubtitlesByDefault',
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
-      'updateDefaultTheatreMode',
+      'updateDefaultTheaterMode',
       'updateDefaultSkipInterval',
       'updateDefaultInterval',
       'updateDefaultVolume',

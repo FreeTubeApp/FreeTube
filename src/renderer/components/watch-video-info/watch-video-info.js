@@ -110,8 +110,8 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
+    hideSubscribeButton: function() {
+      return this.$store.getters.getHideSubscribeButton
     },
 
     currentLocale: function () {

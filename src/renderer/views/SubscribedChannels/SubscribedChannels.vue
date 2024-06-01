@@ -50,7 +50,7 @@
               {{ channel.name }}
             </router-link>
             <div
-              v-if="!hideUnsubscribeButton"
+              v-if="!hideSubscribeButton"
               class="unsubscribeContainer"
             >
               <ft-subscribe-button

@@ -51,8 +51,8 @@ export default defineComponent({
       }
     },
 
-    hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
+    hideSubscribeButton: function() {
+      return this.$store.getters.getHideSubscribeButton
     },
 
     locale: function () {

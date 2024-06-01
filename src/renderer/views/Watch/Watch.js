@@ -74,7 +74,7 @@ export default defineComponent({
     return {
       isLoading: true,
       firstLoad: true,
-      useTheatreMode: false,
+      useTheaterMode: false,
       videoPlayerReady: false,
       hidePlayer: false,
       isFamilyFriendly: false,
@@ -159,8 +159,8 @@ export default defineComponent({
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
     },
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultTheaterMode: function () {
+      return this.$store.getters.getDefaultTheaterMode
     },
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
@@ -171,11 +171,11 @@ export default defineComponent({
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
-    playNextVideo: function () {
-      return this.$store.getters.getPlayNextVideo
+    enableAutoplay: function () {
+      return this.$store.getters.getEnableAutoplay
     },
-    autoplayPlaylists: function () {
-      return this.$store.getters.getAutoplayPlaylists
+    enablePlaylistAutoplay: function () {
+      return this.$store.getters.getEnablePlaylistAutoplay
     },
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
@@ -198,7 +198,7 @@ export default defineComponent({
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
-    theatrePossible: function () {
+    theaterPossible: function () {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
@@ -273,7 +273,7 @@ export default defineComponent({
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
-    this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
+    this.useTheaterMode = this.defaultTheaterMode && this.theaterPossible
 
     this.onMountedDependOnLocalStateLoading()
   },
@@ -1330,7 +1330,7 @@ export default defineComponent({
     },
 
     handleVideoEnded: function () {
-      if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+      if ((!this.watchingPlaylist || !this.enablePlaylistAutoplay) && !this.enableAutoplay) {
         return
       }
 
@@ -1341,7 +1341,7 @@ export default defineComponent({
 
       if (this.watchingPlaylist && this.$refs.watchVideoPlaylist.shouldStopDueToPlaylistEnd) {
         // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
-        this.$refs.watchVideoPlaylist.playNextVideo()
+        this.$refs.watchVideoPlaylist.enableAutoplay()
         return
       }
 
@@ -1362,7 +1362,7 @@ export default defineComponent({
         const player = this.$refs.videoPlayer.player
         if (player !== null && player.paused()) {
           if (this.watchingPlaylist) {
-            this.$refs.watchVideoPlaylist.playNextVideo()
+            this.$refs.watchVideoPlaylist.enableAutoplay()
           } else {
             this.$router.push({
               path: `/watch/${nextVideoId}`

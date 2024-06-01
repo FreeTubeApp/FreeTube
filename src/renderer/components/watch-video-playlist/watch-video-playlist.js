@@ -222,7 +222,7 @@ export default defineComponent({
 
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('previoustrack', this.playPreviousVideo)
-      navigator.mediaSession.setActionHandler('nexttrack', this.playNextVideo)
+      navigator.mediaSession.setActionHandler('nexttrack', this.enableAutoplay)
     }
   },
   beforeDestroy: function () {
@@ -294,7 +294,7 @@ export default defineComponent({
       }
     },
 
-    playNextVideo: function () {
+    enableAutoplay: function () {
       const playlistInfo = {
         playlistId: this.playlistId,
         playlistType: this.playlistType,

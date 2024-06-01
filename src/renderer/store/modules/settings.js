@@ -163,8 +163,8 @@ const defaultSideEffectsTriggerId = settingId =>
 
 const state = {
   allSettingsSectionsExpandedByDefault: false,
-  autoplayPlaylists: true,
-  autoplayVideos: true,
+  enablePlaylistAutoplay: true,
+  startVideosAutomatically: true,
   backendFallback: process.env.SUPPORTS_LOCAL_API,
   backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
@@ -179,7 +179,7 @@ const state = {
   defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
-  defaultTheatreMode: false,
+  defaultTheaterMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
@@ -221,7 +221,7 @@ const state = {
   hideSubscriptionsLive: false,
   hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
-  hideUnsubscribeButton: false,
+  hideSubscribeButton: false,
   hideUpcomingPremieres: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
@@ -232,8 +232,8 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
+  enableAutoplay: false,
   onlyShowLatestFromChannel: false,
-  playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
@@ -456,8 +456,7 @@ const customActions = {
         Object.fromEntries((await DBSettingHandlers.find()).map(({ _id, value }) => { return [_id, value] })))
       )
 
-      for (const setting of userSettings) {
-        const [_id, value] = setting
+      const loadSetting = (_id, value) => {
         if (getters.settingHasSideEffects(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
@@ -465,6 +464,11 @@ const customActions = {
         if (Object.keys(mutations).includes(defaultMutationId(_id))) {
           commit(defaultMutationId(_id), value)
         }
+      }
+
+      for (const setting of userSettings) {
+        const [_id, value] = setting
+        loadSetting(_id, value)
       }
     } catch (errMessage) {
       console.error(errMessage)
@@ -597,6 +601,10 @@ Object.assign(
 
 // Build default getters, mutations and actions for every setting id
 for (const settingId of Object.keys(state)) {
+  buildSettingsStoreMethods(settingId)
+}
+
+function buildSettingsStoreMethods(settingId) {
   const getterId = defaultGetterId(settingId)
   const mutationId = defaultMutationId(settingId)
   const updaterId = defaultUpdaterId(settingId)
