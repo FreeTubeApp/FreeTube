@@ -8,47 +8,64 @@
       :fullscreen="true"
     />
     <div
-      v-if="!isLoading"
-      class="playlistInfoContainer"
-      :class="{
-        promptOpen,
-      }"
+      v-else-if="isInvidiousPlaylist && !fetchIVPlaylist"
+      class="messageContainer"
     >
-      <playlist-info
-        :id="playlistId"
-        :first-video-id="firstVideoId"
-        :first-video-playlist-item-id="firstVideoPlaylistItemId"
-        :playlist-thumbnail="playlistThumbnail"
-        :title="playlistTitle"
-        :channel-name="channelName"
-        :channel-thumbnail="channelThumbnail"
-        :channel-id="channelId"
-        :last-updated="lastUpdated"
-        :description="playlistDescription"
-        :video-count="videoCount"
-        :videos="playlistItems"
-        :view-count="viewCount"
-        :info-source="infoSource"
-        :more-video-data-available="moreVideoDataAvailable"
-        :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
-        :search-video-mode-enabled="playlistInVideoSearchMode"
-        :search-query-text="searchQueryTextRequested"
-        :theme="listType === 'list' ? 'base' : 'top-bar'"
-        class="playlistInfo"
-        @enter-edit-mode="playlistInEditMode = true"
-        @exit-edit-mode="playlistInEditMode = false"
-        @search-video-query-change="(v) => videoSearchQuery = v"
-        @prompt-open="promptOpen = true"
-        @prompt-close="promptOpen = false"
+      <p
+        class="message"
+      >
+        {{ backendPreference === 'invidious' ? $t('Playlist.Invidious Playlist Cannot Be Viewed IV', {currentInstance: currentInvidiousInstance, invidiousInstance: origin}) : $t('Playlist.Invidious Playlist Cannot Be Viewed Local', { invidiousInstance: origin }) }}
+      </p>
+      <font-awesome-icon
+        :icon="['fas', 'exclamation-circle']"
+        class="errorIcon"
+      />
+      <ft-button
+        :label="$t('Playlist.View Playlist')"
+        class="viewPlaylist"
+        @click="enableViewPlaylist"
       />
     </div>
+    <template v-else>
+      <div
+        class="playlistInfoContainer"
+        :class="{
+          promptOpen,
+        }"
+      >
+        <playlist-info
+          :id="playlistId"
+          :first-video-id="firstVideoId"
+          :first-video-playlist-item-id="firstVideoPlaylistItemId"
+          :playlist-thumbnail="playlistThumbnail"
+          :title="playlistTitle"
+          :channel-name="channelName"
+          :channel-thumbnail="channelThumbnail"
+          :channel-id="channelId"
+          :last-updated="lastUpdated"
+          :description="playlistDescription"
+          :video-count="videoCount"
+          :videos="playlistItems"
+          :view-count="viewCount"
+          :info-source="infoSource"
+          :is-invidious-playlist="isInvidiousPlaylist"
+          :origin="origin"
+          :more-video-data-available="moreVideoDataAvailable"
+          :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
+          :search-video-mode-enabled="playlistInVideoSearchMode"
+          :search-query-text="searchQueryTextRequested"
+          :theme="listType === 'list' ? 'base' : 'top-bar'"
+          class="playlistInfo"
+          @enter-edit-mode="playlistInEditMode = true"
+          @exit-edit-mode="playlistInEditMode = false"
+          @search-video-query-change="(v) => videoSearchQuery = v"
+          @prompt-open="promptOpen = true"
+          @prompt-close="promptOpen = false"
+        />
+      </div>
 
-    <ft-card
-      v-if="!isLoading"
-      class="playlistItemsCard"
-    >
-      <template
-        v-if="playlistItems.length > 0"
+      <ft-card
+        class="playlistItems"
       >
         <ft-select
           v-if="isUserPlaylistRequested && playlistItems.length > 1"
@@ -61,7 +78,7 @@
           @change="updateUserPlaylistSortOrder"
         />
         <template
-          v-if="visiblePlaylistItems.length > 0"
+          v-if="playlistItems.length > 0"
         >
           <ft-element-list
             v-if="listType === 'grid'"
@@ -78,6 +95,8 @@
             :can-move-video-down="!playlistInVideoSearchMode && isSortOrderCustom"
             :playlist-items-length="playlistItems.length"
             :can-remove-from-playlist="true"
+            :is-invidious-playlist="isInvidiousPlaylist"
+            :origin="origin"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
             @remove-from-playlist="removeVideoFromPlaylist"
@@ -105,6 +124,8 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
+              :origin="origin"
+              :is-invidious-playlist="isInvidiousPlaylist"
               @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
               @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
               @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
@@ -134,18 +155,11 @@
           v-else
         >
           <p class="message">
-            {{ $t("User Playlists['Empty Search Message']") }}
+            {{ $t("User Playlists['This playlist currently has no videos.']") }}
           </p>
         </ft-flex-box>
-      </template>
-      <ft-flex-box
-        v-else
-      >
-        <p class="message">
-          {{ $t("User Playlists['This playlist currently has no videos.']") }}
-        </p>
-      </ft-flex-box>
-    </ft-card>
+      </ft-card>
+    </template>
   </div>
 </template>
 

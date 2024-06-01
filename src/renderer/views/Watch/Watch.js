@@ -119,6 +119,8 @@ export default defineComponent({
       playlistId: '',
       playlistType: '',
       playlistItemId: null,
+      isInvidiousPlaylist: false,
+      origin: null,
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
@@ -1184,11 +1186,15 @@ export default defineComponent({
 
       this.playlistId = this.$route.query.playlistId
       this.playlistItemId = this.$route.query.playlistItemId
+      this.isInvidiousPlaylist = this.$route.query.playlistType === 'invidious'
+      this.origin = this.$route.query.origin
 
       if (this.playlistId == null || this.playlistId.length === 0) {
         this.playlistType = ''
         this.playlistItemId = null
         this.watchingPlaylist = false
+        this.playlistId = this.$route.query.playlistId
+        this.playlistItemId = this.$route.query.playlistItemId
         return
       }
 

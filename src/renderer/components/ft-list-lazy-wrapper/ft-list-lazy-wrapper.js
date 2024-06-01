@@ -84,6 +84,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    origin: {
+      type: String,
+      default: null
+    }
   },
   emits: ['move-video-down', 'move-video-up', 'remove-from-playlist'],
   data: function () {

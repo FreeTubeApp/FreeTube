@@ -54,7 +54,7 @@
       </h2>
       <p>
         {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
-        <span v-if="!hideViews && !isUserPlaylist">
+        <span v-if="!hideViews && viewCount != null && !isUserPlaylist">
           - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
         <span>- </span>
@@ -112,7 +112,6 @@
           {{ channelName }}
         </h3>
       </div>
-
       <div class="playlistOptionsAndSearch">
         <div class="playlistOptions">
           <ft-icon-button
@@ -173,7 +172,8 @@
             :id="id"
             class="sharePlaylistIcon"
             :dropdown-position-y="description ? 'top' : 'bottom'"
-            share-target-type="Playlist"
+            :share-target-type="isInvidiousPlaylist ? 'IVPlaylist' : 'Playlist'"
+            :invidious-instance="origin"
           />
         </div>
         <div

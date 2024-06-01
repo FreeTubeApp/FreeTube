@@ -50,7 +50,7 @@ export default defineComponent({
     },
     channelThumbnail: {
       type: String,
-      required: true,
+      default: null
     },
     channelName: {
       type: String,
@@ -70,7 +70,7 @@ export default defineComponent({
     },
     viewCount: {
       type: Number,
-      required: true,
+      default: null,
     },
     lastUpdated: {
       type: String,
@@ -83,6 +83,14 @@ export default defineComponent({
     infoSource: {
       type: String,
       required: true,
+    },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false
+    },
+    origin: {
+      type: String,
+      default: null
     },
     moreVideoDataAvailable: {
       type: Boolean,
@@ -171,7 +179,7 @@ export default defineComponent({
     },
 
     parsedViewCount() {
-      return formatNumber(this.viewCount)
+      return this.viewCount ? formatNumber(this.viewCount) : null
     },
 
     parsedVideoCount() {
@@ -186,7 +194,7 @@ export default defineComponent({
       let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
-      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
+      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0 && !this.isInvidiousPlaylist) {
         // Use playlist thumbnail provided by YT when available
         return this.playlistThumbnail
       }
@@ -242,6 +250,7 @@ export default defineComponent({
       return this.$t('User Playlists["Cannot delete the quick bookmark target playlist."]')
     },
   },
+
   watch: {
     showDeletePlaylistPrompt(shown) {
       this.$emit(shown ? 'prompt-open' : 'prompt-close')
