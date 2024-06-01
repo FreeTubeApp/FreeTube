@@ -89,6 +89,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Pro toto hledání nejsou k dispozici žádné
     další výsledky
+  Features:
+    HD: HD
+    360 Video: 360°
+    Subtitles: Titulky
+    Features: Vlastnosti
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Živě
+    4K: 4K
+    Location: Místo
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
@@ -175,6 +187,10 @@ User Playlists:
       This playlist is now used for quick bookmark: Tento playlist bude nyní použit
         pro rychlé uložení
       Quick bookmark disabled: Rychlé uložení vypnuto
+      This playlist is already being used for quick bookmark.: Tento playlist je již
+        používán pro rychlou záložku.
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
+        je nový playlist rychlé záložky.
     Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
@@ -220,6 +236,9 @@ User Playlists:
   Disable Quick Bookmark: Vypnout rychlé uložení
   Enable Quick Bookmark With This Playlist: Zapnout u tohoto playlistu rychlé uložení
   Playlists with Matching Videos: Playlisty s odpovídajícími videi
+  Quick Bookmark Enabled: Rychlá záložka zapnuta
+  Cannot delete the quick bookmark target playlist.: Nemůžete odstranit cílový playlist
+    rychlé záložky.
 History:
   # On History Page
   History: 'Historie'
@@ -1203,3 +1222,8 @@ Yes, Open Link: Ano, otevřít odkaz
 Cancel: Zrušit
 Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
   ({searchCharacterLimit})
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Titulky
+    Closed Captions: Skryté titulky

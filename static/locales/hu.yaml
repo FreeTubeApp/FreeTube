@@ -89,6 +89,18 @@ Search Filters:
   Fetch more results: 'További eredmények lekérése'
 # Sidebar
   There are no more results for this search: Nincs több találat erre a keresésre
+  Features:
+    HD: HD
+    Subtitles: Feliratok
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    Location: Helyszín
+    HDR: HDR
+    VR180: VR180
+    Features: Szolgáltatások
+    Live: Élő
+    360 Video: 360 videó
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
@@ -183,6 +195,10 @@ User Playlists:
         Kattintson ide a visszavonáshoz
       Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName}
         használatára a gyors könyvjelzőhöz
+      Playlist {playlistName} is the new quick bookmark playlist.: A(z) {playlistName}
+        lejátszási lista az új gyors könyvjelző lejátszási lista.
+      This playlist is already being used for quick bookmark.: Ez a lejátszási lista
+        már használatban van mint gyors könyvjelző.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztos, hogy
     törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
@@ -230,6 +246,9 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Gyors Könyvjelző Engedélyezése Ezzel A
     Lejátszási Listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
+  Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
+    cél lejátszási listát.
+  Quick Bookmark Enabled: Gyors könyvjelző engedélyezve
 History:
   # On History Page
   History: 'Előzmények'
@@ -1240,3 +1259,8 @@ Yes, Delete: Igen, törlés
 Yes, Restart: Igen, újraindítás
 Yes, Open Link: Igen, hivatkozás megnyitása
 Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Feliratok
+    Closed Captions: Zárt feliratok

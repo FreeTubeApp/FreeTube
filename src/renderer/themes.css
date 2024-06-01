@@ -8,10 +8,17 @@
 .hotPink,
 .nordic,
 .gruvboxDark,
-.gruvboxLight,
 .solarizedDark,
 .solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
+  --top-bar-push-down-adjustment-default: -35px;
+
+  /* Value of 0 without 'px' does not work inside calc() */
+  /* stylelint-disable length-zero-no-unit */
+  --top-bar-push-down-adjustment-no-description: 0px;
+  --top-bar-push-down-adjustment-edit-mode: 0px;
+  --top-bar-push-down-adjustment-one-or-fewer: 0px;
+  /* stylelint-enable length-zero-no-unit */
   --destructive-color: #f44336;
   --destructive-text-color: #000;
   --destructive-hover-color: #e53935;
@@ -27,7 +34,6 @@
 .hotPink,
 .nordic,
 .gruvboxDark,
-.gruvboxLight,
 .solarizedDark,
 .solarizedLight {
   --link-color: var(--accent-color);
@@ -44,7 +50,6 @@
 .pastelPink,
 .nordic,
 .gruvboxDark,
-.gruvboxLight,
 .solarizedDark,
 .solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
@@ -59,7 +64,6 @@
 .catppuccinMocha,
 .nordic,
 .gruvboxDark,
-.gruvboxLight,
 .solarizedDark,
 .solarizedLight {
   --side-nav-active-text-color: var(--primary-text-color);
@@ -83,7 +87,6 @@
 .hotPink,
 .nordic,
 .gruvboxDark,
-.gruvboxLight,
 .solarizedDark,
 .solarizedLight {
   --primary-shadow-color: rgb(0 0 0 / 75%);
@@ -341,26 +344,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #504945;
   --logo-icon: url("../../_icons/iconGruvboxLightSmall.svg");
   --logo-text: url("../../_icons/textGruvboxLightSmall.svg");
-}
-
-
-.gruvboxLight {
-  --primary-text-color: #282828;
-  --secondary-text-color: #1d2021;
-  --tertiary-text-color: #3c3836;
-  --title-color: #282828;
-  --bg-color: #fbf1c7;
-  --favorite-icon-color: #d79921;
-  --card-bg-color: #fbf1c7;
-  --secondary-card-bg-color: #ebdbb2;
-  --scrollbar-color: #d5c4a1;
-  --scrollbar-color-hover: #f2e5bc;
-  --side-nav-color: #ebdbb2;
-  --side-nav-hover-color: #f9f5d7;
-  --side-nav-active-color: #f9f5d7;
-  --search-bar-color: #f2e5bc;
-  --logo-icon: url("../../_icons/iconGruvboxDarkSmall.svg");
-  --logo-text: url("../../_icons/textGruvboxDarkSmall.svg");
 }
 
 .mainRed,
@@ -1491,7 +1474,7 @@ body[dir='rtl'] {
   --horizontal-directionality-coefficient: -1;
 }
 
-body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"]) {
+body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"], [data-icon="check"]) {
   transform: scale(-1,1);
 }
 

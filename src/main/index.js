@@ -543,7 +543,11 @@ function runApp() {
     await createWindow()
 
     if (process.env.NODE_ENV === 'development') {
-      installDevTools()
+      try {
+        require('vue-devtools').install()
+      } catch (err) {
+        console.error(err)
+      }
     }
 
     if (isDebug) {
@@ -592,16 +596,6 @@ function runApp() {
     }
   }
 
-  async function installDevTools() {
-    try {
-      /* eslint-disable */
-      require('vue-devtools').install()
-      /* eslint-enable */
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
   async function createWindow(
     {
       replaceMainWindow = true,
@@ -634,8 +628,6 @@ function runApp() {
           return '#2b2f3a'
         case 'gruvbox-dark':
           return '282828'
-        case 'gruvbox-light':
-          return 'fbf1c7'
         case 'solarized-dark':
           return '#002B36'
         case 'solarized-light':
