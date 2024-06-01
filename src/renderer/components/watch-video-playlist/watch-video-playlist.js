@@ -492,7 +492,7 @@ export default defineComponent({
 
       let playlistItems = playlist.videos
       if (this.reversePlaylist) {
-        playlistItems = this.playlistItems.toReversed()
+        playlistItems = playlistItems.toReversed()
       }
       this.playlistItems = playlistItems
 
