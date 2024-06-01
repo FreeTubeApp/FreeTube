@@ -39,12 +39,12 @@ export default defineComponent({
         'black',
         // Second group
         'nordic',
-        'gruvboxDark',
         'hotPink',
         'pastelPink',
         // Third group
         'catppuccinMocha',
         'dracula',
+        'gruvboxDark',
         'solarizedDark',
         'solarizedLight'
       ]
@@ -112,12 +112,12 @@ export default defineComponent({
         this.$t('Settings.Theme Settings.Base Theme.Black'),
         // Second group
         this.$t('Settings.Theme Settings.Base Theme.Nordic'),
-        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Hot Pink'),
         this.$t('Settings.Theme Settings.Base Theme.Pastel Pink'),
         // Third group
         this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
         this.$t('Settings.Theme Settings.Base Theme.Dracula'),
+        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Solarized Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Solarized Light')
       ]
