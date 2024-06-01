@@ -82,6 +82,18 @@ Search Filters:
   Fetch more results: 'Dohvati još rezultata'
 # Sidebar
   There are no more results for this search: Nema daljnjih rezultata za ovu pretragu
+  Features:
+    Subtitles: Titlovi
+    HD: HD
+    Location: Lokacija
+    HDR: HDR
+    VR180: VR180
+    4K: 4K
+    Features: Značajke
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Uživo
+    360 Video: 360 video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
@@ -119,8 +131,8 @@ User Playlists:
     spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
     ovdje prikazao
   Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
-    samo spremljena ili označena videa. Kad posao završi, sva trenutačno ovdje prisutna
-    videa premjestit će se u zbirku „Favoriti”.
+    samo spremljena ili kao favoriti označena videa. Kad posao završi, sva trenutačno
+    ovdje prisutna videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Traži zbirke
   Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
   This playlist currently has no videos.: Ova zbirka trenutačno nema nijedan video.
@@ -144,18 +156,18 @@ User Playlists:
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: Nedavno stvoreno
-    EarliestCreatedFirst: Najnovije stvoreno
+    EarliestCreatedFirst: Najranije stvoreno
     LatestUpdatedFirst: Nedavno aktualizirano
-    EarliestUpdatedFirst: Najnovije aktualizirano
+    EarliestUpdatedFirst: Najranije aktualizirano
     LatestPlayedFirst: Nedavno reproducirano
-    EarliestPlayedFirst: Najnovije reproducirano
+    EarliestPlayedFirst: Najranije reproducirano
   Remove Watched Videos: Ukloni gledana videa
   Save Changes: Spremi promjene
   You have no playlists. Click on the create new playlist button to create a new one.: Nemaš
     zbirke. Za stvaranje nove zbirke pritisni gumb za stvaranje nove zbirke.
   SinglePlaylistView:
     Toast:
-      Playlist {playlistName} has been deleted.: Zbirka {playlistName} je uklonjena.
+      Playlist {playlistName} has been deleted.: Zbirka „{playlistName}” je uklonjena.
       This playlist is protected and cannot be removed.: Ova je zbirka zaštićena i
         ne može se ukloniti.
       This playlist does not exist: Ova zbirka ne postoji
@@ -178,10 +190,14 @@ User Playlists:
         brze zabilješke
       Quick bookmark disabled: Brze zabilješke su deaktivirane
       Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje
-        zbirke {oldPlaylistName} za brze zabilješke
+        zbirke „{oldPlaylistName}” za brze zabilješke
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
-        se zbirka sada koristi za brze zabilješke umjesto zbirke {oldPlaylistName}.
+        se zbirka sada koristi za brze zabilješke umjesto zbirke „{oldPlaylistName}”.
         Pritisni ovdje za poništavanje
+      Playlist {playlistName} is the new quick bookmark playlist.: Zbirka „{playlistName}”
+        je nova zbirka za brze zabilješke.
+      This playlist is already being used for quick bookmark.: Ova se zbirka već koristi
+        za brze zabilješke.
     Search for Videos: Traži videa
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
@@ -203,14 +219,17 @@ User Playlists:
         zbirke.
       There is already a playlist with this name. Please pick a different name.: Zbirka
         s ovim imenom već postoji. Odaberi jedno drugo ime.
-      Playlist {playlistName} has been successfully created.: Zbirka {playlistName}
+      Playlist {playlistName} has been successfully created.: Zbirka „{playlistName}”
         je uspješno stvorena.
     New Playlist Name: Ime nove zbirke
-  Add to Favorites: Dodaj u zbirku {playlistName}
-  Remove from Favorites: Ukloni iz zbirke {playlistName}
+  Add to Favorites: Dodaj u zbirku „{playlistName}”
+  Remove from Favorites: Ukloni iz zbirke „{playlistName}”
   Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
   Disable Quick Bookmark: Deaktiviraj brze zabilješke
   Playlists with Matching Videos: Zbirke s poklapajućim videima
+  Quick Bookmark Enabled: Brze zabilješke aktivirano
+  Cannot delete the quick bookmark target playlist.: Nije moguće izbrisati zbirku
+    cilja za brze zabilješke.
 History:
   # On History Page
   History: 'Povijest'
@@ -366,7 +385,7 @@ Settings:
       720p: '720 p'
       1080p: '1080 p'
       1440p: '1440 p'
-      4k: '4 k'
+      4k: '4k'
       8k: '8 k'
     Playlist Next Video Interval: Interval sljedećeg videa zbirke
     Next Video Interval: Interval za sljedeći video
@@ -506,7 +525,7 @@ Settings:
     Playlist File: Datoteka zbirke
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Ova opcija izvozi videa iz svih zbirki u jednu zbirku pod nazivom
-        „Favoriti”.\nKako izvesti i uvesti videa zbirki za stariju FreeTube verziju:\n
+        „Favoriti”.\nKako izvesti i uvesti videa u zbirkama za stariju FreeTube verziju:\n
         1. Izvezi svoje zbirke s ovom opcijom aktiviranom.\n2. Izbriši sve svoje postojeće
         zbirke pomoću opcije „Ukloni sve zbirke” u postavkama privatnosti.\n3. Pokreni
         stariju FreeTube verziju i uvezi izvezene zbirke.\""
@@ -952,7 +971,7 @@ Playlist:
   Sort By:
     Sort By: Redoslijed
     DateAddedNewest: Najprije najnovije dodane
-    DateAddedOldest: Najprije najstarije dodane
+    DateAddedOldest: Najprije najranije dodane
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Naslov (A-Z)
@@ -1187,3 +1206,8 @@ Cancel: Odustani
 Yes, Restart: Da, pokreni ponovo
 Search character limit: Upit za pretraživanje premašuje ograničenje od {searchCharacterLimit}
   znakova
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Titlovi
+    Closed Captions: Titlovi za gluhe

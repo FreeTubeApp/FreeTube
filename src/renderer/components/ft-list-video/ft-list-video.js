@@ -101,6 +101,8 @@ export default defineComponent({
       watchProgress: 0,
       published: undefined,
       isLive: false,
+      is4k: false,
+      hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
@@ -656,6 +658,8 @@ export default defineComponent({
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
+      this.is4k = this.data.is4k
+      this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 

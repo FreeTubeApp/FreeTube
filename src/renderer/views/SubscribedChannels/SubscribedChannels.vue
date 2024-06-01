@@ -9,6 +9,7 @@
         :show-clear-text-button="true"
         :show-action-button="false"
         :spellcheck="false"
+        :maxlength="255"
         @input="handleInput"
         @clear="query = ''"
       />

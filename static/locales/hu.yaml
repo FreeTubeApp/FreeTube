@@ -1235,3 +1235,8 @@ Yes, Delete: Igen, törlés
 Yes, Restart: Igen, újraindítás
 Yes, Open Link: Igen, hivatkozás megnyitása
 Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Feliratok
+    Closed Captions: Zárt feliratok

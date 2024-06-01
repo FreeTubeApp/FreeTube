@@ -1214,10 +1214,10 @@ Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
   Channels: Kanäle
-  Title: Kanalliste
+  Title: Kanal-Liste
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
-  Empty: Deine Kanalliste ist derzeit leer.
+  Empty: Deine Kanal-Liste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
   Unsubscribe Prompt: Bist du sicher, dass du dein Abo für „{channelName}“ entfernen
@@ -1264,3 +1264,8 @@ Cancel: Abbrechen
 Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
 Yes, Restart: Ja, neustarten
 Yes, Open Link: Ja, Link öffnen
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: Geschlossene Untertitel
+    Subtitles: Untertitel

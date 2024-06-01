@@ -1062,3 +1062,8 @@ Cancel: 取消
 Yes, Delete: 是，删除
 Yes, Restart: 是，重启
 Search character limit: 搜索词超过了 {searchCharacterLimit} 字符的上限
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隐藏式字幕
