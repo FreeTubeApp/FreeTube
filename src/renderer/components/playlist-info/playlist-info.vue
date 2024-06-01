@@ -153,14 +153,14 @@
             @click="toggleCopyVideosPrompt"
           />
           <ft-icon-button
-            v-if="!editMode && isUserPlaylist && userPlaylistDuplicateItemCount > 0"
+            v-if="!editMode && userPlaylistDuplicateItemCount > 0"
             :title="$t('User Playlists.Remove Duplicate Videos')"
             :icon="['fas', 'video-slash']"
             theme="destructive"
             @click="showRemoveDuplicateVideosPrompt = true"
           />
           <ft-icon-button
-            v-if="!editMode && isUserPlaylist && videoCount > 0"
+            v-if="!editMode && userPlaylistAnyVideoWatched"
             :title="$t('User Playlists.Remove Watched Videos')"
             :icon="['fas', 'eye-slash']"
             theme="destructive"

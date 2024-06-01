@@ -212,6 +212,15 @@ export default defineComponent({
       return this.isUserPlaylist ? 'user' : ''
     },
 
+    userPlaylistAnyVideoWatched() {
+      if (!this.isUserPlaylist) { return false }
+
+      const historyCacheById = this.$store.getters.getHistoryCacheById
+      return this.selectedUserPlaylist.videos.some((video) => {
+        return typeof historyCacheById[video.videoId] !== 'undefined'
+      })
+    },
+
     userPlaylistUniqueVideoIds() {
       if (!this.isUserPlaylist) { return new Set() }
 
