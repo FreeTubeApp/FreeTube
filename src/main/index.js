@@ -6,7 +6,13 @@ import {
 import path from 'path'
 import cp from 'child_process'
 
-import { IpcChannels, DBActions, SyncEvents } from '../constants'
+import {
+  IpcChannels,
+  DBActions,
+  SyncEvents,
+  ABOUT_BITCOIN_ADDRESS,
+  ABOUT_MONERO_ADDRESS
+} from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
@@ -856,7 +862,32 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
-    if (typeof url === 'string') shell.openExternal(url)
+    if (typeof url === 'string') {
+      let parsedURL
+
+      try {
+        parsedURL = new URL(url)
+      } catch {
+        // If it's not a valid URL don't open it
+        return
+      }
+
+      if (
+        parsedURL.protocol === 'http:' || parsedURL.protocol === 'https:' ||
+
+        // Email address on the about page and Autolinker detects and links email addresses
+        parsedURL.protocol === 'mailto:' ||
+
+        // Autolinker detects and links phone numbers
+        parsedURL.protocol === 'tel:' ||
+
+        // Donation links on the about page
+        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS) ||
+        (parsedURL.protocol === 'monero:' && parsedURL.pathname === ABOUT_MONERO_ADDRESS)
+      ) {
+        shell.openExternal(url)
+      }
+    }
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
