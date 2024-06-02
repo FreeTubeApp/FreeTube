@@ -6,8 +6,18 @@
 .catppuccinMocha,
 .pastelPink,
 .hotPink,
-.nordic {
+.nordic,
+.solarizedDark,
+.solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
+  --top-bar-push-down-adjustment-default: -35px;
+
+  /* Value of 0 without 'px' does not work inside calc() */
+  /* stylelint-disable length-zero-no-unit */
+  --top-bar-push-down-adjustment-no-description: 0px;
+  --top-bar-push-down-adjustment-edit-mode: 0px;
+  --top-bar-push-down-adjustment-one-or-fewer: 0px;
+  /* stylelint-enable length-zero-no-unit */
   --destructive-color: #f44336;
   --destructive-text-color: #000;
   --destructive-hover-color: #e53935;
@@ -21,7 +31,9 @@
 .catppuccinMocha,
 .pastelPink,
 .hotPink,
-.nordic {
+.nordic,
+.solarizedDark,
+.solarizedLight {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -34,7 +46,9 @@
 .dracula,
 .catppuccinMocha,
 .pastelPink,
-.nordic {
+.nordic,
+.solarizedDark,
+.solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
@@ -45,7 +59,9 @@
 .gray,
 .dracula,
 .catppuccinMocha,
-.nordic {
+.nordic,
+.solarizedDark,
+.solarizedLight {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
 
@@ -65,7 +81,9 @@
 .dracula,
 .catppuccinMocha,
 .hotPink,
-.nordic {
+.nordic,
+.solarizedDark,
+.solarizedLight {
   --primary-shadow-color: rgb(0 0 0 / 75%);
 }
 
@@ -264,6 +282,44 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .hotPink a:hover, .hotPink a:focus {
   text-decoration: underline;
+}
+
+.solarizedDark {
+  --primary-text-color: #FDF6E3;
+  --secondary-text-color: #DDD6C3;
+  --tertiary-text-color: #DDD6C3;
+  --title-color: #FDF6E3;
+  --bg-color: #002B36;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #204B56;
+  --secondary-card-bg-color: #102b36;
+  --scrollbar-color: #608B96;
+  --scrollbar-color-hover: #406B76;
+  --side-nav-color: #204B56;
+  --side-nav-hover-color: #608B96;
+  --side-nav-active-color: #406B76;
+  --search-bar-color: #073642;
+  --logo-icon: url("../../_icons/iconSolarizedLightSmall.svg");
+  --logo-text: url("../../_icons/textSolarizedLightSmall.svg");
+}
+
+.solarizedLight {
+  --primary-text-color: #002b36;
+  --secondary-text-color: #204b56;
+  --tertiary-text-color: #204b56;
+  --title-color: #002b36;
+  --bg-color: #fdf6e3;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #eee8d5;
+  --secondary-card-bg-color: #fdf6e3;
+  --scrollbar-color: #a9a895;
+  --scrollbar-color-hover: #839496;
+  --side-nav-color: #eee8d5;
+  --side-nav-hover-color: #fdf6e3;
+  --side-nav-active-color: #839496;
+  --search-bar-color: #c9c8b5;
+  --logo-icon: url("../../_icons/iconSolarizedDarkSmall.svg");
+  --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
 }
 
 .mainRed,
@@ -548,6 +604,72 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #b4befe;
   --primary-color-hover: #c9d0ff;
   --primary-color-active: #8d98e4;
+}
+
+.mainSolarizedYellow,
+.mainSolarizedOrange,
+.mainSolarizedRed,
+.mainSolarizedMagenta,
+.mainSolarizedViolet,
+.mainSolarizedGreen {
+  --text-with-main-color: #fdf6e3;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+}
+
+.mainSolarizedBlue,
+.mainSolarizedCyan {
+  --text-with-main-color: #000;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
+}
+
+.mainSolarizedYellow {
+  --primary-color: #b58900;
+  --primary-color-hover: #d5a920;
+  --primary-color-active: #f5c940;
+}
+
+.mainSolarizedOrange {
+  --primary-color: #cb4b16;
+  --primary-color-hover: #eb6b36;
+  --primary-color-active: #fc8b56;
+}
+
+.mainSolarizedRed {
+  --primary-color: #dc322f;
+  --primary-color-hover: #fc524f;
+  --primary-color-active: #fe726f;
+}
+
+.mainSolarizedMagenta {
+  --primary-color: #d33682;
+  --primary-color-hover: #f356a2;
+  --primary-color-active: #f558c2;
+}
+
+.mainSolarizedViolet {
+  --primary-color: #6c71c4;
+  --primary-color-hover: #8c91e4;
+  --primary-color-active: #acb1f4;
+}
+
+.mainSolarizedBlue {
+  --primary-color: #268bd2;
+  --primary-color-hover: #46abf2;
+  --primary-color-active: #66cbf4;
+}
+
+.mainSolarizedCyan {
+  --primary-color: #2aa198;
+  --primary-color-hover: #4ac1b8;
+  --primary-color-active: #6ae1d8;
+}
+
+.mainSolarizedGreen {
+  --primary-color: #859900;
+  --primary-color-hover: #a5b920;
+  --primary-color-active: #c5d940;
 }
 
 .secRed,
@@ -1032,9 +1154,132 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(180 190 254 / 24%);
 }
 
+.secSolarizedYellow,
+.secSolarizedOrange,
+.secSolarizedRed,
+.secSolarizedMagenta,
+.secSolarizedViolet,
+.secSolarizedGreen {
+  --text-with-accent-color: #fdf6e3;
+}
+
+.secSolarizedBlue,
+.secSolarizedCyan {
+  --text-with-accent-color: #000;
+}
+
+.secSolarizedYellow {
+  --accent-color: #7b5b00;
+  --primary-color-hover: #a9a130;
+  --accent-color-hover: #bb9f40;
+  --accent-color-active: #897710;
+  --accent-color-light: #dbc050;
+  --accent-color-visited: #a9a130;
+  --accent-color-opacity1: rgb(165 165 0 / 4%);
+  --accent-color-opacity2: rgb(165 165 0 / 12%);
+  --accent-color-opacity3: rgb(165 165 0 / 16%);
+  --accent-color-opacity4: rgb(165 165 0 / 24%);
+}
+
+.secSolarizedOrange {
+  --accent-color: #8b3700;
+  --primary-color-hover: #c94d34;
+  --accent-color-hover: #db8140;
+  --accent-color-active: #b35936;
+  --accent-color-light: #eb8156;
+  --accent-color-visited: #c94d34;
+  --accent-color-opacity1: rgb(169 47 20 / 4%);
+  --accent-color-opacity2: rgb(169 47 20 / 12%);
+  --accent-color-opacity3: rgb(169 47 20 / 16%);
+  --accent-color-opacity4: rgb(169 47 20 / 24%);
+}
+
+.secSolarizedRed {
+  --accent-color: #9a101d;
+  --primary-color-hover: #d8302d;
+  --accent-color-hover: #da504d;
+  --accent-color-active: #b8282b;
+  --accent-color-light: #fa726f;
+  --accent-color-visited: #d8302d;
+  --accent-color-opacity1: rgb(186 16 29 / 4%);
+  --accent-color-opacity2: rgb(186 16 29 / 12%);
+  --accent-color-opacity3: rgb(186 16 29 / 16%);
+  --accent-color-opacity4: rgb(186 16 29 / 24%);
+}
+
+.secSolarizedMagenta {
+  --accent-color: #8e1060;
+  --primary-color-hover: #d23480;
+  --accent-color-hover: #dc5280;
+  --accent-color-active: #b814a0;
+  --accent-color-light: #fc5280;
+  --accent-color-visited: #d23480;
+  --accent-color-opacity1: rgb(176 20 96 / 4%);
+  --accent-color-opacity2: rgb(176 20 96 / 12%);
+  --accent-color-opacity3: rgb(176 20 96 / 16%);
+  --accent-color-opacity4: rgb(176 20 96 / 24%);
+}
+
+.secSolarizedViolet {
+  --accent-color: #2e43a4;
+  --primary-color-hover: #6e83c4;
+  --accent-color-hover: #8e77c4;
+  --accent-color-active: #5e63e4;
+  --accent-color-light: #ae95f4;
+  --accent-color-visited: #6e83c4;
+  --accent-color-opacity1: rgb(78 83 164 / 4%);
+  --accent-color-opacity2: rgb(78 83 164 / 12%);
+  --accent-color-opacity3: rgb(78 83 164 / 16%);
+  --accent-color-opacity4: rgb(78 83 164 / 24%);
+}
+
+.secSolarizedBlue {
+  --accent-color: #0283b2;
+  --primary-color-hover: #4899d2;
+  --accent-color-hover: #469fd2;
+  --accent-color-active: #2483d4;
+  --accent-color-light: #66b1f4;
+  --accent-color-visited: #4899d2;
+  --accent-color-opacity1: rgb(4 131 178 / 4%);
+  --accent-color-opacity2: rgb(4 131 178 / 12%);
+  --accent-color-opacity3: rgb(4 131 178 / 16%);
+  --accent-color-opacity4: rgb(4 131 178 / 24%);
+}
+
+.secSolarizedCyan {
+  --accent-color: #008776;
+  --primary-color-hover: #2ca998;
+  --accent-color-hover: #4cb9b8;
+  --accent-color-active: #1c9788;
+  --accent-color-light: #6ce1d8;
+  --accent-color-visited: #2ca998;
+  --accent-color-opacity1: rgb(8 135 118 / 4%);
+  --accent-color-opacity2: rgb(8 135 118 / 12%);
+  --accent-color-opacity3: rgb(8 135 118 / 16%);
+  --accent-color-opacity4: rgb(8 135 118 / 24%);
+}
+
+.secSolarizedGreen {
+  --accent-color: #657700;
+  --primary-color-hover: #857720;
+  --accent-color-hover: #a59640;
+  --accent-color-active: #837720;
+  --accent-color-light: #c5d940;
+  --accent-color-visited: #857720;
+  --accent-color-opacity1: rgb(101 119 0 / 4%);
+  --accent-color-opacity2: rgb(101 119 0 / 12%);
+  --accent-color-opacity3: rgb(101 119 0 / 16%);
+  --accent-color-opacity4: rgb(101 119 0 / 24%);
+}
+
   /* region destructive color for red color themes
   using :has(.app) to increase specificity */
-  .mainRed:has(.app), .secRed:has(.app), .mainDraculaRed:has(.app), .secDraculaRed:has(.app) {
+.mainRed:has(.app),
+.secRed:has(.app),
+.mainDraculaRed:has(.app),
+.secDraculaRed:has(.app),
+.mainSolarizedRed:has(.app),
+.secSolarizedRed:has(.app) {
     --destructive-color: #9C27B0;
     --destructive-text-color: #FFF;
     --destructive-hover-color: #8E24AA;
@@ -1048,6 +1293,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   .mainDraculaRed.secPurple,
   .mainDraculaRed.secDeepPurple,
   .mainDraculaRed.secDraculaPurple,
+  .mainSolarizedRed.secPurple,
+  .mainSolarizedRed.secDeepPurple,
+  .mainSolarizedRed.secDraculaPurple,
   .mainPurple.secRed,
   .mainPurple.secDraculaRed,
   .mainDeepPurple.secRed,
@@ -1074,7 +1322,7 @@ body[dir='rtl'] {
   --horizontal-directionality-coefficient: -1;
 }
 
-body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"]) {
+body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"], [data-icon="check"]) {
   transform: scale(-1,1);
 }
 

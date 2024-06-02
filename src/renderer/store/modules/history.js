@@ -10,11 +10,11 @@ const state = {
 }
 
 const getters = {
-  getHistoryCacheSorted: () => {
+  getHistoryCacheSorted(state) {
     return state.historyCacheSorted
   },
 
-  getHistoryCacheById: () => {
+  getHistoryCacheById(state) {
     return state.historyCacheById
   }
 }

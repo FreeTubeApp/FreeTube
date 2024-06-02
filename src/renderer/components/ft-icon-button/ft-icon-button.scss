@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .ftIconButton {
   display: flex;
   flex-flow: row wrap;
@@ -21,19 +22,21 @@
     background-color: var(--card-bg-color);
     color: var(--primary-text-color);
 
-    &:hover,
-    &:focus-visible {
-      background-color: var(--side-nav-hover-color);
-      color: var(--side-nav-hover-text-color);
-    }
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible {
+        background-color: var(--side-nav-hover-color);
+        color: var(--side-nav-hover-text-color);
+      }
 
-    &:active {
-      background-color: var(--side-nav-active-color);
-      color: var(--side-nav-active-text-color);
+      &:active {
+        background-color: var(--side-nav-active-color);
+        color: var(--side-nav-active-text-color);
+      }
     }
   }
 
-  &.base-no-default {
+  &.base-no-default:not(.disabled) {
     &:hover,
     &:focus-visible {
       background-color: var(--side-nav-hover-color);
@@ -50,27 +53,32 @@
     background-color: var(--primary-color);
     color: var(--text-with-main-color);
 
-    &:hover,
-    &:focus-visible {
-      background-color: var(--primary-color-hover);
-    }
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible {
+        background-color: var(--primary-color-hover);
+      }
 
-    &:active {
-      background-color: var(--primary-color-active);
+      &:active {
+        background-color: var(--primary-color-active);
+      }
     }
   }
+
 
   &.secondary {
     background-color: var(--accent-color);
     color: var(--text-with-accent-color);
 
-    &:hover,
-    &:focus-visible {
-      background-color: var(--accent-color-hover);
-    }
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible {
+        background-color: var(--accent-color-hover);
+      }
 
-    &:active {
-      background-color: var(--accent-color-active);
+      &:active {
+        background-color: var(--accent-color-active);
+      }
     }
   }
 
@@ -78,24 +86,31 @@
     background-color: var(--destructive-color);
     color: var(--destructive-text-color);
 
-    &:hover,
-    &:focus-visible {
-      background-color: var(--destructive-hover-color);
-    }
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible {
+        background-color: var(--destructive-hover-color);
+      }
 
-    &:active {
-      background-color: var(--destructive-active-color);
+      &:active {
+        background-color: var(--destructive-active-color);
+      }
     }
   }
 
   &.favorite, &.favorite:hover, &.favorite:focus-visible {
+    &:not(.disabled) {
+      color: var(--favorite-icon-color);
+    }
+
     color: var(--favorite-icon-color);
   }
 }
 
 .disabled {
   opacity: 0.5;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: default;
   user-select: none;
 }
 

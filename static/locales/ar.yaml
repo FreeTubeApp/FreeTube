@@ -82,6 +82,18 @@ Search Filters:
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
   There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
+  Features:
+    Features: المميزات
+    HD: عالِ الدقة
+    Subtitles: التسميات التوضيحية
+    4K: 4K
+    HDR: المستوى الديناميكي العالي
+    Creative Commons: المشاع الإبداعي
+    3D: ثلاثي الابعاد
+    Live: مباشر
+    360 Video: فيديو ٣٦٠
+    Location: الموقع
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -172,6 +184,10 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
         للإشارة المرجعية السريعة
       Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+      This playlist is already being used for quick bookmark.: يتم استخدام قائمة التشغيل
+        هذه بالفعل لوضع إشارة مرجعية سريعة.
+      Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
+        هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
     Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
@@ -211,6 +227,9 @@ User Playlists:
     التشغيل هذه
   Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
   Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
+  Quick Bookmark Enabled: تم تمكين الإشارة المرجعية السريعة
+  Cannot delete the quick bookmark target playlist.: لا يمكن حذف قائمة التشغيل المستهدفة
+    للإشارات المرجعية السريعة.
 History:
   # On History Page
   History: 'السجلّ'
@@ -282,6 +301,8 @@ Settings:
       Pastel Pink: الباستيل الوردي
       Hot Pink: وردي فاقع
       Nordic: بلدان الشمال الأوروبي
+      Solarized Dark: مظلم مشمس
+      Solarized Light: مشمس داكن
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -321,6 +342,14 @@ Settings:
       Catppuccin Mocha Red: كاتبوتشين موكا أحمر
       Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
       Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
+      Solarized Yellow: مشمس فاتح
+      Solarized Orange: مشمس برتقالي
+      Solarized Red: مشمس أحمر
+      Solarized Magenta: مشمس أرجواني
+      Solarized Violet: مشمس بنفسجي
+      Solarized Blue: مشمس أزرق
+      Solarized Cyan: مشمس سماوي
+      Solarized Green: مشمس أخضر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -679,6 +708,8 @@ About:
   Downloads / Changelog: التحميلات\التغييرات
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
   Discussions: المناقشات
+  Licensed under the: مرخص تحت
+  AGPLv3: رخصة أفيرو العمومية الإصدار ٣
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -1192,3 +1223,8 @@ Yes, Restart: نعم، إعادة تشغيل
 Yes, Open Link: نعم، افتح الرابط
 Cancel: إلغاء
 Search character limit: تجاوز استعلام البحث حد الأحرف {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: التعاليق مغلقة
+    Subtitles: التسميات التوضيحية

@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'FtElementList',
+  name: 'FtRadioButton',
   props: {
     title: {
       type: String,
@@ -48,7 +48,7 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  created: function () {
     this.id = this._uid
     this.selectedValue = this.values[this.initialValueIndex]
   },

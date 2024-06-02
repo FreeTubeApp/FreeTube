@@ -1,6 +1,5 @@
 import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
-import { join } from 'path'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 import { PlayerCache } from './PlayerCache'
@@ -9,7 +8,6 @@ import {
   calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
-  getUserDataPath,
   toLocalePublicationString
 } from '../utils'
 
@@ -41,8 +39,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
-      const userData = await getUserDataPath()
-      cache = new PlayerCache(join(userData, 'player_cache'))
+      cache = new PlayerCache()
     } else {
       cache = new UniversalCache(false)
     }
@@ -799,6 +796,8 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       liveNow: false,
       isUpcoming: false,
+      is4k: movie.is_4k,
+      hasCaptions: movie.has_captions
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
@@ -829,7 +828,9 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      is4k: video.is_4k,
+      hasCaptions: video.has_captions
     }
   }
 }
@@ -943,6 +944,10 @@ function convertSearchFilters(filters) {
 
     if (filters.duration) {
       convertedFilters.duration = filters.duration
+    }
+
+    if (filters.features) {
+      convertedFilters.features = filters.features
     }
   }
 
@@ -1097,13 +1102,16 @@ export function mapLocalFormat(format) {
 export function parseLocalComment(comment, commentThread = undefined) {
   let hasOwnerReplied = false
   let replyToken = null
+  let hasReplyToken = false
 
   if (commentThread?.has_replies) {
     hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
     replyToken = commentThread
+    hasReplyToken = true
   }
 
   const parsed = {
+    id: comment.comment_id,
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
@@ -1115,6 +1123,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
     isHearted: !!comment.is_hearted,
     hasOwnerReplied,
+    hasReplyToken,
     replyToken,
     showReplies: false,
     replies: [],

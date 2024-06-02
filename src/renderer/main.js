@@ -8,6 +8,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { register as registerSwiper } from 'swiper/element'
 
+import { ObserveVisibility } from 'vue-observe-visibility'
+
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
 import {
@@ -88,6 +90,9 @@ import {
   faTrash,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
+import {
+  faBookmark as farBookmark
+} from '@fortawesome/free-regular-svg-icons'
 import {
   faBitcoin,
   faGithub,
@@ -183,6 +188,9 @@ library.add(
   faTrash,
   faUsers,
 
+  // solid icons
+  farBookmark,
+
   // brand icons
   faGithub,
   faBitcoin,
@@ -193,6 +201,7 @@ library.add(
 registerSwiper()
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+Vue.directive('observe-visibility', ObserveVisibility)
 
 /* eslint-disable-next-line no-new */
 new Vue({

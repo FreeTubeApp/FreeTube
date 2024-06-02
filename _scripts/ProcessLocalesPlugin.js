@@ -1,14 +1,18 @@
-const { existsSync, readFileSync, statSync } = require('fs')
+const { existsSync, readFileSync } = require('fs')
+const { readFile } = require('fs/promises')
+const { join } = require('path')
 const { brotliCompress, constants } = require('zlib')
 const { promisify } = require('util')
 const { load: loadYaml } = require('js-yaml')
 
 const brotliCompressAsync = promisify(brotliCompress)
 
+const PLUGIN_NAME = 'ProcessLocalesPlugin'
+
 class ProcessLocalesPlugin {
   constructor(options = {}) {
     this.compress = !!options.compress
-    this.isIncrementalBuild = false
+    this.hotReload = !!options.hotReload
 
     if (typeof options.inputDir !== 'string') {
       throw new Error('ProcessLocalesPlugin: no input directory `inputDir` specified.')
@@ -22,49 +26,68 @@ class ProcessLocalesPlugin {
     }
     this.outputDir = options.outputDir
 
-    this.locales = {}
+    /** @type {Map<str, any>} */
+    this.locales = new Map()
     this.localeNames = []
-    this.activeLocales = []
 
-    this.cache = {}
+    /** @type {Map<str, any>} */
+    this.cache = new Map()
+
+    this.filePaths = []
+    this.previousTimestamps = new Map()
+    this.startTime = Date.now()
+
+    /** @type {(updatedLocales: [string, string][]) => void|null} */
+    this.notifyLocaleChange = null
+
+    if (this.hotReload) {
+      this.hotReloadScript = readFileSync(`${__dirname}/_hotReloadLocalesScript.js`, 'utf-8')
+    }
 
     this.loadLocales()
   }
 
+  /** @param {import('webpack').Compiler} compiler  */
   apply(compiler) {
-    compiler.hooks.thisCompilation.tap('ProcessLocalesPlugin', (compilation) => {
+    const { CachedSource, RawSource } = compiler.webpack.sources;
+    const { Compilation } = compiler.webpack
 
+    compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation) => {
       const IS_DEV_SERVER = !!compiler.watching
-      const { CachedSource, RawSource } = compiler.webpack.sources;
 
-      compilation.hooks.additionalAssets.tapPromise('process-locales-plugin', async (_assets) => {
+      compilation.hooks.processAssets.tapPromise({
+        name: PLUGIN_NAME,
+        stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
+      }, async (_assets) => {
 
         // While running in the webpack dev server, this hook gets called for every incremental build.
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
         const promises = []
-        // Prevents `loadLocales` called twice on first time (e.g. release build)
-        if (this.isIncrementalBuild) {
-          this.loadLocales(true)
-        } else {
-          this.isIncrementalBuild = true
+
+        /** @type {[string, string][]} */
+        const updatedLocales = []
+        if (this.hotReload && !this.notifyLocaleChange) {
+          console.warn('ProcessLocalesPlugin: Unable to live reload locales as `notifyLocaleChange` is not set.')
         }
 
-        Object.values(this.locales).forEach((localeEntry) => {
-          const { locale, data, mtimeMs } = localeEntry
-
+        for (let [locale, data] of this.locales) {
           promises.push(new Promise(async (resolve) => {
-            if (IS_DEV_SERVER) {
-              const cacheEntry = this.cache[locale]
+            if (IS_DEV_SERVER && compiler.fileTimestamps) {
+              const filePath = join(this.inputDir, `${locale}.yaml`)
 
-              if (cacheEntry != null) {
-                const { filename, source, mtimeMs: cachedMtimeMs } = cacheEntry
+              const timestamp = compiler.fileTimestamps.get(filePath)?.safeTime
 
-                if (cachedMtimeMs === mtimeMs) {
-                  compilation.emitAsset(filename, source, { minimized: true })
-                  resolve()
-                  return
-                }
+              if (timestamp && timestamp > (this.previousTimestamps.get(locale) ?? this.startTime)) {
+                this.previousTimestamps.set(locale, timestamp)
+
+                const contents = await readFile(filePath, 'utf-8')
+                data = loadYaml(contents)
+              } else {
+                const { filename, source } = this.cache.get(locale)
+                compilation.emitAsset(filename, source, { minimized: true })
+                resolve()
+                return
               }
             }
 
@@ -72,6 +95,10 @@ class ProcessLocalesPlugin {
 
             let filename = `${this.outputDir}/${locale}.json`
             let output = JSON.stringify(data)
+
+            if (this.hotReload && compiler.fileTimestamps) {
+              updatedLocales.push([locale, output])
+            }
 
             if (this.compress) {
               filename += '.br'
@@ -82,51 +109,61 @@ class ProcessLocalesPlugin {
 
             if (IS_DEV_SERVER) {
               source = new CachedSource(source)
-              this.cache[locale] = { filename, source, mtimeMs }
+              this.cache.set(locale, { filename, source })
+
+              // we don't need the unmodified sources anymore, as we use the cache `this.cache`
+              // so we can clear this to free some memory
+              this.locales.set(locale, null)
             }
 
             compilation.emitAsset(filename, source, { minimized: true })
 
             resolve()
           }))
-
-          if (IS_DEV_SERVER) {
-            // we don't need the unmodified sources anymore, as we use the cache `this.cache`
-            // so we can clear this to free some memory
-            delete localeEntry.data
-          }
-        })
+        }
 
         await Promise.all(promises)
+
+        if (this.hotReload && this.notifyLocaleChange && updatedLocales.length > 0) {
+          this.notifyLocaleChange(updatedLocales)
+        }
       })
+    })
+
+    compiler.hooks.afterCompile.tap(PLUGIN_NAME, (compilation) => {
+      if (!!compiler.watching) {
+        // watch locale files for changes
+        compilation.fileDependencies.addAll(this.filePaths)
+      }
+    })
+
+    compiler.hooks.emit.tap(PLUGIN_NAME, (compilation) => {
+      if (this.hotReload) {
+        // Find generated JavaScript output file (e.g. renderer.js or web.js)
+        // and inject the code snippet that listens for locale updates and replaces vue-i18n's locales
+
+        /** @type {string} */
+        const filename = [...[...compilation.chunks][0].files]
+          .find(file => file.endsWith('.js'))
+
+        compilation.assets[filename]._source._children.push(`\n${this.hotReloadScript}`)
+      }
     })
   }
 
-  loadLocales(loadModifiedFilesOnly = false) {
-    if (this.activeLocales.length === 0) {
-      this.activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
-    }
+  loadLocales() {
+    const activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
 
-    for (const locale of this.activeLocales) {
-      const filePath = `${this.inputDir}/${locale}.yaml`
-      // Cannot use `mtime` since values never equal
-      const mtimeMsFromStats = statSync(filePath).mtimeMs
-      if (loadModifiedFilesOnly) {
-        // Skip reading files where mtime (modified time) same as last read
-        // (stored in mtime)
-        const existingMtime = this.locales[locale]?.mtimeMs
-        if (existingMtime != null && existingMtime === mtimeMsFromStats) {
-          continue
-        }
-      }
+    for (const locale of activeLocales) {
+      const filePath = join(this.inputDir, `${locale}.yaml`)
+
+      this.filePaths.push(filePath)
+
       const contents = readFileSync(filePath, 'utf-8')
       const data = loadYaml(contents)
-      this.locales[locale] = { locale, data, mtimeMs: mtimeMsFromStats }
+      this.locales.set(locale, data)
 
-      const localeName = data['Locale Name'] ?? locale
-      if (!loadModifiedFilesOnly) {
-        this.localeNames.push(localeName)
-      }
+      this.localeNames.push(data['Locale Name'] ?? locale)
     }
   }
 
