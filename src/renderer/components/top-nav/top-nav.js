@@ -136,7 +136,7 @@ export default defineComponent({
       // Reset search filters if searching another query
       if (this.$route.params.query && this.$route.params.query !== query) {
         this.$store.commit('setSearchSettingsToDefault')
-        this.searchFilterValueChanged = false
+        this.$store.commit('setSearchFilterValueChanged', false)
       }
 
       this.getYoutubeUrlInfo(query).then((result) => {

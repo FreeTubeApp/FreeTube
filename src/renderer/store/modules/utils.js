@@ -976,7 +976,8 @@ const mutations = {
       sortBy: 'relevance',
       time: '',
       type: 'all',
-      duration: ''
+      duration: '',
+      features: []
     }
   }
 }
