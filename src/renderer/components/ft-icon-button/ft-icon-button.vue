@@ -23,6 +23,7 @@
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @pointerdown="handleIconPointerDown"
+      @contextmenu.prevent=""
       @click="handleIconClick"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
