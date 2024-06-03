@@ -236,7 +236,7 @@ function runApp() {
 
         const url = getLinkUrl(commandLine)
         if (url) {
-          mainWindow.webContents.send('openUrl', url)
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
         }
       }
     })
@@ -705,8 +705,8 @@ function runApp() {
     }
 
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
-      ipcMain.once('searchInputHandlingReady', () => {
-        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
+        newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
       })
     }
 
@@ -752,9 +752,9 @@ function runApp() {
     })
   }
 
-  ipcMain.once('appReady', () => {
+  ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send('openUrl', startupUrl)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
     }
   })
 
@@ -791,7 +791,7 @@ function runApp() {
     app.quit()
   }
 
-  ipcMain.once('relaunchRequest', () => {
+  ipcMain.once(IpcChannels.RELAUNCH_REQUEST, () => {
     relaunch()
   })
 
@@ -1013,10 +1013,6 @@ function runApp() {
           )
           return null
 
-        case DBActions.GENERAL.PERSIST:
-          baseHandlers.history.persist()
-          return null
-
         default:
           // eslint-disable-next-line no-throw-literal
           throw 'invalid history db action'
@@ -1061,10 +1057,6 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.DELETE, data }
           )
-          return null
-
-        case DBActions.GENERAL.PERSIST:
-          baseHandlers.profiles.persist()
           return null
 
         default:
@@ -1266,7 +1258,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send('openUrl', baseUrl(url))
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
     }
@@ -1327,7 +1319,7 @@ function runApp() {
     }
 
     browserWindow.webContents.send(
-      'change-view',
+      IpcChannels.CHANGE_VIEW,
       { route: path }
     )
   }
@@ -1429,7 +1421,7 @@ function runApp() {
               if (browserWindow == null) { return }
 
               browserWindow.webContents.send(
-                'history-back',
+                IpcChannels.HISTORY_BACK
               )
             },
             type: 'normal',
@@ -1441,7 +1433,7 @@ function runApp() {
               if (browserWindow == null) { return }
 
               browserWindow.webContents.send(
-                'history-forward',
+                IpcChannels.HISTORY_FORWARD
               )
             },
             type: 'normal',
