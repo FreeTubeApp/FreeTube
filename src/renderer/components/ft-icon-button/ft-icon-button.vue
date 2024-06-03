@@ -11,6 +11,7 @@
       :class="{
         [theme]: true,
         shadow: useShadow,
+        pressed: openOnRightOrLongClick && dropdownShown,
         disabled
       }"
       :style="{
@@ -21,11 +22,10 @@
       role="button"
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
-      @click="handleIconClick"
       @pointerdown="handleIconPointerDown"
       @pointerup="handleIconPointerUp"
-      @keydown.enter.prevent="handleIconClick"
-      @keydown.space.prevent="handleIconClick"
+      @keydown.enter.prevent="handleIconPointerUp"
+      @keydown.space.prevent="handleIconPointerUp"
     />
     <template
       v-if="dropdownShown"

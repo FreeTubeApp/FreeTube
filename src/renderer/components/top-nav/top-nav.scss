@@ -46,20 +46,20 @@
 }
 
 .navIcon {
-  &:not(.navIconButton) {
-    border-radius: 50%;
-    color: var(--primary-text-color);
-    cursor: pointer;
-    font-size: 20px;
-    block-size: 1em;
-    padding: 10px;
-    transition: background 0.2s ease-out;
-    inline-size: 1em;
-  }
-
   @include top-nav-is-colored {
     color: var(--text-with-main-color);
   }
+}
+
+.navIcon, :deep(.iconButton) {
+  border-radius: 50%;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 20px;
+  block-size: 1em;
+  padding: 10px;
+  transition: background 0.2s ease-out;
+  inline-size: 1em;
 
   &.arrowBackwardDisabled,
   &.arrowForwardDisabled {

@@ -95,10 +95,15 @@ export default defineComponent({
       this.dropdownShown = false
     },
 
-    handleIconClick: function (event, isRightOrLongClick) {
+    handleIconPointerUp: function (event, isRightOrLongClick) {
       if (this.disabled) {
         this.$emit('disabled-click')
         return
+      }
+
+      if (this.longPressTimer != null) {
+        clearTimeout(this.longPressTimer)
+        this.longPressTimer = null
       }
 
       if ((!this.openOnRightOrLongClick || (this.openOnRightOrLongClick && isRightOrLongClick)) &&
@@ -119,7 +124,9 @@ export default defineComponent({
     triggerRightOrLongClick: function (event) {
       event.preventDefault()
       event.stopPropagation()
-      this.handleIconClick(event, true)
+      clearTimeout(this.longPressTimer)
+      this.longPressTimer = null
+      this.handleIconPointerUp(event, true)
     },
 
     handleIconPointerDown: function (event) {
@@ -131,11 +138,6 @@ export default defineComponent({
           this.triggerRightOrLongClick(event)
         }, 500)
       }
-    },
-
-    handleIconPointerUp: function (event) {
-      if (!this.longPressTimer) { return }
-      clearTimeout(this.longPressTimer)
     },
 
     handleDropdownFocusOut: function () {

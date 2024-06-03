@@ -29,7 +29,7 @@
         color: var(--side-nav-hover-text-color);
       }
 
-      &:active {
+      &:active, &.pressed {
         background-color: var(--side-nav-active-color);
         color: var(--side-nav-active-text-color);
       }
@@ -43,7 +43,7 @@
       color: var(--side-nav-hover-text-color);
     }
 
-    &:active {
+    &:active, &.pressed {
       background-color: var(--side-nav-active-color);
       color: var(--side-nav-active-text-color);
     }
@@ -59,7 +59,7 @@
         background-color: var(--primary-color-hover);
       }
 
-      &:active {
+      &:active, &.pressed {
         background-color: var(--primary-color-active);
       }
     }
@@ -76,7 +76,7 @@
         background-color: var(--accent-color-hover);
       }
 
-      &:active {
+      &:active, &.pressed {
         background-color: var(--accent-color-active);
       }
     }
@@ -92,7 +92,7 @@
         background-color: var(--destructive-hover-color);
       }
 
-      &:active {
+      &:active, &.pressed {
         background-color: var(--destructive-active-color);
       }
     }
@@ -163,7 +163,7 @@
       transition: background 0.2s ease-in;
     }
 
-    &:active {
+    &:active, &.pressed {
       background-color: var(--side-nav-active-color);
       color: var(--side-nav-active-text-color);
       transition: background 0.1s ease-in;

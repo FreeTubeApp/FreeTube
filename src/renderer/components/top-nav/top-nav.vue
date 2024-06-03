@@ -15,11 +15,11 @@
       />
       <ft-icon-button
         :aria-disabled="isArrowBackwardDisabled"
-        class="navIcon navIconButton"
+        class="navIconButton"
         :disabled="isArrowBackwardDisabled"
         :icon="['fas', 'arrow-left']"
         theme="base-no-default"
-        :size="16"
+        :size="20"
         :use-shadow="false"
         dropdown-position-x="right"
         :dropdown-options="sessionNavigationHistoryPastRouteNames"
@@ -30,11 +30,11 @@
       />
       <ft-icon-button
         :aria-disabled="isArrowForwardDisabled"
-        class="navIcon navIconButton"
+        class="navIconButton"
         :disabled="isArrowForwardDisabled"
         :icon="['fas', 'arrow-right']"
         theme="base-no-default"
-        :size="16"
+        :size="20"
         :use-shadow="false"
         dropdown-position-x="right"
         :dropdown-options="sessionNavigationHistoryFutureRouteNames"
