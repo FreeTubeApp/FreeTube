@@ -1053,10 +1053,6 @@ function runApp() {
           )
           return null
 
-        case DBActions.GENERAL.PERSIST:
-          baseHandlers.history.persist()
-          return null
-
         default:
           // eslint-disable-next-line no-throw-literal
           throw 'invalid history db action'
@@ -1101,10 +1097,6 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.DELETE, data }
           )
-          return null
-
-        case DBActions.GENERAL.PERSIST:
-          baseHandlers.profiles.persist()
           return null
 
         default:

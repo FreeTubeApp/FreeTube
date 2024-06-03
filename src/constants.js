@@ -37,8 +37,7 @@ const DBActions = {
     UPSERT: 'db-action-upsert',
     DELETE: 'db-action-delete',
     DELETE_MULTIPLE: 'db-action-delete-multiple',
-    DELETE_ALL: 'db-action-delete-all',
-    PERSIST: 'db-action-persist'
+    DELETE_ALL: 'db-action-delete-all'
   },
 
   HISTORY: {
