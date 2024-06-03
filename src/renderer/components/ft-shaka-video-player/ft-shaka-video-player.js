@@ -323,10 +323,6 @@ export default defineComponent({
     }
   },
   computed: {
-    cachedPlayerLocales: function () {
-      return this.$store.getters.getCachedPlayerLocales
-    },
-
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -808,12 +804,13 @@ export default defineComponent({
 
     const localPlayer = new shaka.Player()
 
-    this.nonReactive.ui = new shaka.ui.Overlay(
+    const ui = new shaka.ui.Overlay(
       localPlayer,
       this.$refs.container,
       videoElement,
       this.$refs.vrCanvas
     )
+    this.nonReactive.ui = ui
 
     // This has to be called after creating the UI, so that the player uses the UI's UITextDisplayer
     // otherwise it uses the browsers native captions which get displayed underneath the UI controls
@@ -825,7 +822,7 @@ export default defineComponent({
       return
     }
 
-    const controls = this.nonReactive.ui.getControls()
+    const controls = ui.getControls()
     const player = controls.getPlayer()
     this.nonReactive.player = player
 
@@ -854,7 +851,7 @@ export default defineComponent({
     this.registerLegacyQualitySelection()
     this.registerStatsButton()
 
-    if (this.nonReactive.ui.isMobile()) {
+    if (ui.isMobile()) {
       this.useOverFlowMenu = true
     } else {
       this.useOverFlowMenu = this.$refs.container.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
@@ -1391,12 +1388,14 @@ export default defineComponent({
 
       const localization = this.nonReactive.ui.getControls().getLocalization()
 
+      const cachedLocales = this.$store.getters.getCachedPlayerLocales
+
       if (!this.loadedLocales.has(shakaLocale)) {
-        if (!Object.hasOwn(this.cachedPlayerLocales, shakaLocale)) {
+        if (!Object.hasOwn(cachedLocales, shakaLocale)) {
           await this.cachePlayerLocale(shakaLocale)
         }
 
-        localization.insert(shakaLocale, new Map(Object.entries(this.cachedPlayerLocales[shakaLocale])))
+        localization.insert(shakaLocale, new Map(Object.entries(cachedLocales[shakaLocale])))
 
         this.loadedLocales.add(shakaLocale)
       }
