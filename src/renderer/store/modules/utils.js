@@ -79,11 +79,11 @@ const getters = {
     return state.sessionSearchHistory
   },
 
-  getSessionNavigationHistory () {
+  getSessionNavigationHistory (state) {
     return state.sessionNavigationHistory
   },
 
-  getSessionNavigationHistoryCurrentIndex () {
+  getSessionNavigationHistoryCurrentIndex (state) {
     return state.sessionNavigationHistoryCurrentIndex
   },
 
@@ -877,7 +877,7 @@ const mutations = {
     // remove "forward" history if that history is diverged from
     // !route.name !== state.sessionNavigationHistory[state.sessionNavigationHistoryCurrentIndex]
     if (route) {
-      state.sessionSearchHistory.length = state.sessionNavigationHistoryCurrentIndex + 1
+      state.sessionNavigationHistory.length = state.sessionNavigationHistoryCurrentIndex + 1
       state.sessionNavigationHistory.push(route.meta.title)
     }
 

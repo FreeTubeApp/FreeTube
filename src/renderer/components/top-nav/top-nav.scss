@@ -51,6 +51,13 @@
   }
 }
 
+.arrowDisabled :deep(.iconButton) {
+  color: #808080;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
 .navIcon, :deep(.iconButton) {
   border-radius: 50%;
   color: var(--primary-text-color);
@@ -61,34 +68,30 @@
   transition: background 0.2s ease-out;
   inline-size: 1em;
 
-  &.arrowBackwardDisabled,
-  &.arrowForwardDisabled {
-    color: #808080;
-    opacity: 0.5;
-    pointer-events: none;
-    user-select: none;
-  }
-
   &:hover {
     background-color: var(--side-nav-hover-color);
     color: var(--side-nav-hover-text-color);
     transition: background 0.2s ease-in;
 
-    @include top-nav-is-colored {
-      background-color: var(--primary-color-hover);
-    }
   }
 
   &:active {
     background-color: var(--tertiary-text-color);
     color: var(--side-nav-active-text-color);
     transition: background 0.2s ease-in;
-
-    @include top-nav-is-colored {
-      background-color: var(--primary-color-active);
-    }
   }
 }
+
+.topNavBarColor .navIcon, .topNavBarColor :deep(.iconButton)  {
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+
+  &:active {
+    background-color: var(--primary-color-active);
+  }
+}
+
 
 .navFilterIcon {
   $effect-distance: 20px;

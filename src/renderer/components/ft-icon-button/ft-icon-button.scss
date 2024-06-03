@@ -163,7 +163,7 @@
       transition: background 0.2s ease-in;
     }
 
-    &:active, &.pressed {
+    &:active, &.active {
       background-color: var(--side-nav-active-color);
       color: var(--side-nav-active-text-color);
       transition: background 0.1s ease-in;

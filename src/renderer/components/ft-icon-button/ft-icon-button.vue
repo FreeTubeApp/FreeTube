@@ -23,9 +23,9 @@
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @pointerdown="handleIconPointerDown"
-      @pointerup="handleIconPointerUp"
-      @keydown.enter.prevent="handleIconPointerUp"
-      @keydown.space.prevent="handleIconPointerUp"
+      @click="handleIconClick"
+      @keydown.enter.prevent="handleIconClick"
+      @keydown.space.prevent="handleIconClick"
     />
     <template
       v-if="dropdownShown"
@@ -47,9 +47,13 @@
               :id="sanitizeForHtmlId(title + '-' + index)"
               :key="index"
               role="option"
-              aria-selected="false"
+              :aria-selected="option.active"
               tabindex="-1"
-              :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
+              :class="{
+                listItemDivider: option.type === 'divider',
+                listItem: option.type !== 'divider',
+                active: option.active
+              }"
               @click="handleDropdownClick({url: option.value, index: index})"
               @keydown.enter="handleDropdownClick({url: option.value, index: index})"
               @keydown.space="handleDropdownClick({url: option.value, index: index})"

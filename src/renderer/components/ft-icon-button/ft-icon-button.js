@@ -55,8 +55,9 @@ export default defineComponent({
     dropdownOptions: {
       // Array of objects with these properties
       // - type: ('labelValue'|'divider', default to 'labelValue' for less typing)
-      // - label: String (if type == 'labelValue')
-      // - value: String (if type == 'labelValue')
+      // - label: String (if type === 'labelValue')
+      // - value: String (if type === 'labelValue')
+      // - (OPTIONAL) active: Number (if type === 'labelValue')
       type: Array,
       default: () => { return [] }
     },
@@ -73,6 +74,7 @@ export default defineComponent({
   data: function () {
     return {
       dropdownShown: false,
+      blockClick: false,
       longPressTimer: null,
       useModal: false
     }
@@ -95,9 +97,13 @@ export default defineComponent({
       this.dropdownShown = false
     },
 
-    handleIconPointerUp: function (event, isRightOrLongClick) {
+    handleIconClick: function (event, isRightOrLongClick = false) {
       if (this.disabled) {
         this.$emit('disabled-click')
+        return
+      }
+
+      if (this.blockClick) {
         return
       }
 
@@ -121,23 +127,27 @@ export default defineComponent({
       }
     },
 
-    triggerRightOrLongClick: function (event) {
-      event.preventDefault()
-      event.stopPropagation()
-      clearTimeout(this.longPressTimer)
-      this.longPressTimer = null
-      this.handleIconPointerUp(event, true)
-    },
-
     handleIconPointerDown: function (event) {
       if (!this.openOnRightOrLongClick) { return }
       if (event.button === 2) { // right button click
-        this.triggerRightOrLongClick(event)
+        this.handleIconClick(null, true)
       } else if (event.button === 0) { // left button click
         this.longPressTimer = setTimeout(() => {
-          this.triggerRightOrLongClick(event)
+          this.handleIconClick(null, true)
+
+          // prevent a long click that ends on the icon button from firing the handleIconClick handler
+          window.addEventListener('pointerup', this.preventButtonClickAfterLongPress, { once: true })
+          window.addEventListener('pointercancel', () => {
+            window.removeEventListener('pointerup', this.preventButtonClickAfterLongPress)
+          }, { once: true })
         }, 500)
       }
+    },
+
+    // prevent the handleIconClick handler from firing for an instant
+    preventButtonClickAfterLongPress: function () {
+      this.blockClick = true
+      setTimeout(() => { this.blockClick = false }, 0)
     },
 
     handleDropdownFocusOut: function () {

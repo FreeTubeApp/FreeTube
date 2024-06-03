@@ -22,15 +22,20 @@ export default defineComponent({
     return {
       component: this,
       showSearchContainer: true,
-      historyIndex: 1,
       isForwardOrBack: false,
-      isArrowBackwardDisabled: true,
-      isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
   },
   computed: {
+    arrowBackwardDisabled: function() {
+      return this.sessionNavigationHistoryCurrentIndex === -1
+    },
+
+    arrowForwardDisabled: function() {
+      return this.sessionNavigationHistoryCurrentIndex >= this.sessionNavigationHistory.length - 1
+    },
+
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
@@ -99,26 +104,34 @@ export default defineComponent({
     },
 
     sessionNavigationHistory: function () {
+      // console.log(this.$store.getters.getSessionNavigationHistory)
       return this.$store.getters.getSessionNavigationHistory
     },
 
     sessionNavigationHistoryCurrentIndex: function () {
+      // console.log(this.$store.getters.getSessionNavigationHistoryCurrentIndex)
       return this.$store.getters.getSessionNavigationHistoryCurrentIndex
     },
 
-    sessionNavigationHistoryPastRouteNames: function () {
-      return this.sessionNavigationHistory.slice(0, this.sessionNavigationHistoryCurrentIndex)
+    sessionNavigationHistoryDropdownOptions: function () {
+      const sessionNavigationHistory = this.sessionNavigationHistory
+      return sessionNavigationHistory.map((routeLabel, index) => {
+        return {
+          label: translateWindowTitle(routeLabel, this.$i18n),
+          value: index - this.sessionNavigationHistoryCurrentIndex,
+          active: index === this.sessionNavigationHistoryCurrentIndex
+        }
+      }).toReversed()
     },
 
-    sessionNavigationHistoryFutureRouteNames: function () {
-      return this.sessionNavigationHistory.slice(this.sessionNavigationHistoryCurrentIndex + 1)
-    }
   },
   mounted: function () {
     let previousWidth = window.innerWidth
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
+
+    this.$store.commit('setSessionNavigationHistoryCurrentIndex', this.sessionNavigationHistory.length - 1)
 
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
@@ -316,51 +329,24 @@ export default defineComponent({
     navigateHistory: function (toRoute) {
       if (!this.isForwardOrBack) {
         this.$store.commit('navigateSessionNavigationHistoryForward', toRoute)
-        this.isArrowBackwardDisabled = false
-        this.isArrowForwardDisabled = true
       } else {
         this.isForwardOrBack = false
       }
     },
 
-    historyBack: function (option) {
-      if (option != null) {
-        this.goToSessionNavigationHistoryIndex(this.sessionNavigationHistoryFutureRouteNames.length - option)
-      }
+    historyBack: function (option = 1) {
+      this.updateSessionNavigationIndexBy(-option)
       this.isForwardOrBack = true
-      window.history.back()
-      this.$store.commit('navigateSessionNavigationHistoryForward')
-
-      if (this.sessionNavigationHistoryCurrentIndex > 1) {
-        this.sessionNavigationHistoryCurrentIndex--
-        this.isArrowForwardDisabled = false
-        if (this.sessionNavigationHistoryCurrentIndex === 1) {
-          this.isArrowBackwardDisabled = true
-        }
-      }
     },
 
-    historyForward: function (option) {
-      if (option != null) {
-        this.goToSessionNavigationHistoryIndex(this.sessionNavigationHistoryFutureRouteNames.length + option)
-      }
+    historyForward: function (option = 1) {
+      this.updateSessionNavigationIndexBy(option)
       this.isForwardOrBack = true
-      window.history.forward()
-      this.$store.commit('navigateSessionNavigationHistoryForward')
-
-      if (this.sessionNavigationHistoryCurrentIndex < window.history.length) {
-        this.sessionNavigationHistoryCurrentIndex++
-        this.isArrowBackwardDisabled = false
-
-        if (this.sessionNavigationHistoryCurrentIndex === window.history.length) {
-          this.isArrowForwardDisabled = true
-        }
-      }
     },
 
-    goToSessionNavigationHistoryIndex: function (n) {
-      window.history.go(this.sessionNavigationHistoryCurrentIndex + n)
-      this.$store.commit('setSessionNavigationHistoryCurrentIndex', n)
+    updateSessionNavigationIndexBy: function (n) {
+      window.history.go(n)
+      this.$store.commit('setSessionNavigationHistoryCurrentIndex', n + this.sessionNavigationHistoryCurrentIndex)
     },
 
     toggleSideNav: function () {
