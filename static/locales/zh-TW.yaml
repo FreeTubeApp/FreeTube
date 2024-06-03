@@ -1101,3 +1101,8 @@ Yes, Restart: 是的，重新啟動
 Yes, Open Link: 是的，開啟連結
 Cancel: 取消
 Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隱藏式字幕

@@ -179,10 +179,7 @@ const actions = {
   async clearSubscriptionsCache({ commit }, payload) {
     try {
       await DBSubscriptionsHandlers.deleteAll()
-      commit('clearVideoCache', payload)
-      commit('clearShortsCache', payload)
-      commit('clearLiveCache', payload)
-      commit('clearPostsCache', payload)
+      commit('clearCaches')
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -196,9 +193,6 @@ const mutations = {
     if (entries != null) { newObject.videos = entries }
     newObject.timestamp = timestamp
     state.videoCache[channelId] = newObject
-  },
-  clearVideoCache(state) {
-    state.videoCache = {}
   },
   updateShortsCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.shortsCache[channelId]
@@ -232,18 +226,12 @@ const mutations = {
       })
     }
   },
-  clearShortsCache(state) {
-    state.shortsCache = {}
-  },
   updateLiveCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.liveCache[channelId]
     const newObject = existingObject ?? { videos: null }
     if (entries != null) { newObject.videos = entries }
     newObject.timestamp = timestamp
     state.liveCache[channelId] = newObject
-  },
-  clearLiveCache(state) {
-    state.liveCache = {}
   },
   updatePostsCacheByChannel(state, { channelId, entries, timestamp = new Date() }) {
     const existingObject = state.postsCache[channelId]
@@ -252,7 +240,11 @@ const mutations = {
     newObject.timestamp = timestamp
     state.postsCache[channelId] = newObject
   },
-  clearPostsCache(state) {
+
+  clearCaches(state) {
+    state.videoCache = {}
+    state.shortsCache = {}
+    state.liveCache = {}
     state.postsCache = {}
   },
 

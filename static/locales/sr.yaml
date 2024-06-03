@@ -1170,3 +1170,8 @@ Yes, Restart: Да, рестартуј
 Yes, Open Link: Да, отвори линк
 Search character limit: Упит за претрагу премашује ограничење броја знакова од {searchCharacterLimit}
   знакова
+Search Listing:
+  Label:
+    Closed Captions: Скривени титлови
+    4K: 4K
+    Subtitles: Титлови

@@ -1273,3 +1273,8 @@ Search character limit: Zapytanie przekroczyło limit {searchCharacterLimit} zna
 Yes, Restart: Tak, uruchom ponownie
 Yes, Open Link: Tak, otwórz odnośnik
 Cancel: Anuluj
+Search Listing:
+  Label:
+    Subtitles: Napisy
+    Closed Captions: Napisy z opisami
+    4K: 4K

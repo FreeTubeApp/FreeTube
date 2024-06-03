@@ -9,10 +9,6 @@ class Settings {
     return db.settings.updateAsync({ _id }, { _id, value }, { upsert: true })
   }
 
-  static persist() {
-    return db.settings.compactDatafileAsync()
-  }
-
   // ******************** //
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {
@@ -75,10 +71,6 @@ class History {
   static deleteAll() {
     return db.history.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.history.compactDatafileAsync()
-  }
 }
 
 class Profiles {
@@ -96,10 +88,6 @@ class Profiles {
 
   static delete(id) {
     return db.profiles.removeAsync({ _id: id })
-  }
-
-  static persist() {
-    return db.profiles.compactDatafileAsync()
   }
 }
 
@@ -176,10 +164,6 @@ class Playlists {
 
   static deleteAll() {
     return db.playlists.removeAsync({}, { multi: true })
-  }
-
-  static persist() {
-    return db.playlists.compactDatafileAsync()
   }
 }
 
@@ -260,19 +244,15 @@ class Subscriptions {
   static deleteAll() {
     return db.subscriptions.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.subscriptions.compactDatafileAsync()
-  }
 }
 
 function compactAllDatastores() {
   return Promise.allSettled([
-    Settings.persist(),
-    History.persist(),
-    Profiles.persist(),
-    Playlists.persist(),
-    Subscriptions.persist(),
+    db.settings.compactDatafileAsync(),
+    db.history.compactDatafileAsync(),
+    db.profiles.compactDatafileAsync(),
+    db.playlists.compactDatafileAsync(),
+    db.subscriptions.compactDatafileAsync(),
   ])
 }
 

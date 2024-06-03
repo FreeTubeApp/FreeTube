@@ -1222,3 +1222,8 @@ Yes, Open Link: Ano, otevřít odkaz
 Cancel: Zrušit
 Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
   ({searchCharacterLimit})
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Titulky
+    Closed Captions: Skryté titulky

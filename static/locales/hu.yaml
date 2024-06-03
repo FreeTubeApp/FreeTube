@@ -243,8 +243,8 @@ User Playlists:
   Add to Favorites: Hozzáadás a(z) {playlistName} lejátszási listához
   Disable Quick Bookmark: Gyors Könyvjelző Letiltása
   Remove from Favorites: Törlés a(z) {playlistName} lejátszási listából
-  Enable Quick Bookmark With This Playlist: Gyors Könyvjelző Engedélyezése Ezzel A
-    Lejátszási Listával
+  Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a
+    lejátszási listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
   Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
     cél lejátszási listát.
@@ -1259,3 +1259,8 @@ Yes, Delete: Igen, törlés
 Yes, Restart: Igen, újraindítás
 Yes, Open Link: Igen, hivatkozás megnyitása
 Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Feliratok
+    Closed Captions: Zárt feliratok
