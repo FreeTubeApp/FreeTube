@@ -1,7 +1,10 @@
 <template>
-  <div class="ftIconButton">
+  <div
+    ref="ftIconButton"
+    class="ftIconButton"
+    @focusout="handleDropdownFocusOut"
+  >
     <font-awesome-icon
-      ref="iconButton"
       class="iconButton"
       :title="title"
       :icon="icon"
@@ -19,7 +22,6 @@
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @click="handleIconClick"
-      @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
     />
@@ -67,7 +69,6 @@
           bottom: dropdownPositionY === 'bottom',
           top: dropdownPositionY === 'top'
         }"
-        @focusout="handleDropdownFocusOut"
         @keydown.esc.stop="handleDropdownEscape"
       >
         <slot>

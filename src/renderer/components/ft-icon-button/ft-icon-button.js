@@ -69,7 +69,6 @@ export default defineComponent({
   data: function () {
     return {
       dropdownShown: false,
-      mouseDownOnIcon: false,
       useModal: false
     }
   },
@@ -111,24 +110,15 @@ export default defineComponent({
       }
     },
 
-    handleIconMouseDown: function () {
-      if (this.disabled) { return }
-      if (this.dropdownShown) {
-        this.mouseDownOnIcon = true
-      }
-    },
-
     handleDropdownFocusOut: function () {
-      if (this.mouseDownOnIcon) {
-        this.mouseDownOnIcon = false
-      } else if (!this.$refs.dropdown.matches(':focus-within')) {
+      if (this.dropdownShown && !this.$refs.ftIconButton.matches(':focus-within')) {
         this.dropdownShown = false
       }
     },
 
     handleDropdownEscape: function () {
-      this.$refs.iconButton.focus()
-      // handleDropdownFocusOut will hide the dropdown for us
+      this.dropdownShown = false
+      this.$refs.ftIconButton.firstElementChild.focus()
     },
 
     handleDropdownClick: function ({ url, index }) {
