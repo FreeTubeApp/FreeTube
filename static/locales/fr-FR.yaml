@@ -635,7 +635,7 @@ Settings:
     Proxy Port Number: Numéro de port du proxy
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
-    Enable Tor / Proxy: Activer Tor / Proxy
+    Enable Tor / Proxy: Activer Tor / proxy
     Proxy Settings: Paramètres du proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
