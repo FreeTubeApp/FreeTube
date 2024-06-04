@@ -19,6 +19,11 @@
         @click="createNewPlaylist"
       />
     </ft-flex-box>
+    <ft-flex-box v-if="playlistNameEmpty">
+      <p>
+        {{ $t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]') }}
+      </p>
+    </ft-flex-box>
     <ft-flex-box v-if="playlistWithNameExists">
       <p>
         {{ $t('User Playlists.CreatePlaylistPrompt.Toast["There is already a playlist with this name. Please pick a different name."]') }}
@@ -27,7 +32,7 @@
     <ft-flex-box>
       <ft-button
         :label="$t('User Playlists.CreatePlaylistPrompt.Create')"
-        :disabled="playlistWithNameExists"
+        :disabled="playlistNameEmpty || playlistWithNameExists"
         @click="createNewPlaylist"
       />
       <ft-button

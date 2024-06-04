@@ -34,6 +34,9 @@ export default defineComponent({
       return this.$store.getters.getNewPlaylistVideoObject
     },
 
+    playlistNameEmpty() {
+      return this.playlistName === ''
+    },
     playlistWithNameExists() {
       // Don't show the message with no name input
       const playlistName = this.playlistName
@@ -55,11 +58,7 @@ export default defineComponent({
     },
 
     createNewPlaylist: function () {
-      if (this.playlistName === '') {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
-        return
-      }
-
+      // Empty playlist name check moved to template
       // Duplicate playlist check moved to template
 
       const playlistObject = {
