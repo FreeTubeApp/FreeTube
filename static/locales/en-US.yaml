@@ -236,9 +236,12 @@ User Playlists:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
+    Allow Adding Duplicate Video(s): Allow Adding Duplicate Video(s)
     Save: Save
 
-    Added {count} Times: 'Added {count} Time | Added {count} Times'
+    Added {count} Times: 'Already Added | Added {count} Times'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videos Will Be Added'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videos Already Added'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
