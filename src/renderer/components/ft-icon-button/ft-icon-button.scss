@@ -164,7 +164,7 @@
 
     &:hover,
     &:focus-visible,
-      &.pressed,
+    &.pressed,
     &.active {
       background-color: var(--side-nav-hover-color);
       color: var(--side-nav-hover-text-color);
@@ -173,6 +173,8 @@
 
     &.active {
       font-weight: 600;
+      display: flex;
+      gap: 6px;
     }
 
     &:active {
