@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -200,13 +200,15 @@ export default defineComponent({
       })
 
       this.$router.afterEach((to, from) => {
-        this.$refs.topNav?.navigateHistory()
+        this.$refs.topNav?.trackHistoryNavigation(to)
       })
 
       this.$router.onReady(() => {
         if (this.$router.currentRoute.path === '/') {
           this.$router.replace({ path: this.landingPage })
         }
+
+        nextTick(() => this.$store.commit('pushSessionNavigationHistoryState', this.$router.currentRoute))
       })
     })
   },

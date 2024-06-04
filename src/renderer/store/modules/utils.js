@@ -873,13 +873,11 @@ const mutations = {
     state.sessionNavigationHistoryCurrentIndex = value
   },
 
-  navigateSessionNavigationHistoryForward (state) {
-    // remove "forward" history if that history is diverged from
+  pushSessionNavigationHistoryState (state, route) {
+    // remove "future" history if that timeline is diverged from
     state.sessionNavigationHistory.length = state.sessionNavigationHistoryCurrentIndex + 1
 
-    const title = document.title.replace(' - FreeTube', '')
-    state.sessionNavigationHistory.push(title)
-
+    state.sessionNavigationHistory.push(route.meta.title)
     state.sessionNavigationHistoryCurrentIndex++
   },
 

@@ -12,6 +12,7 @@ import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '.
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
 const NAV_HISTORY_DISPLAY_LIMIT = 15
+const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = Math.floor(NAV_HISTORY_DISPLAY_LIMIT / 2)
 
 export default defineComponent({
   name: 'TopNav',
@@ -31,7 +32,7 @@ export default defineComponent({
   },
   computed: {
     arrowBackwardDisabled: function() {
-      return this.sessionNavigationHistoryCurrentIndex === -1
+      return this.sessionNavigationHistoryCurrentIndex === 0
     },
 
     arrowForwardDisabled: function() {
@@ -106,51 +107,37 @@ export default defineComponent({
     },
 
     sessionNavigationHistory: function () {
-      // console.log(this.$store.getters.getSessionNavigationHistory)
       return this.$store.getters.getSessionNavigationHistory
     },
 
     sessionNavigationHistoryCurrentIndex: function () {
-      // console.log(this.$store.getters.getSessionNavigationHistoryCurrentIndex)
       return this.$store.getters.getSessionNavigationHistoryCurrentIndex
     },
 
     sessionNavigationHistoryResultEndIndex: function () {
-      if (this.sessionNavigationHistoryCurrentIndex < NAV_HISTORY_DISPLAY_LIMIT / 2) {
-        return NAV_HISTORY_DISPLAY_LIMIT
-      } else if (this.sessionNavigationHistory.length - this.sessionNavigationHistoryCurrentIndex - 1 < NAV_HISTORY_DISPLAY_LIMIT / 2) {
-        return this.sessionNavigationHistory.length
+      if (this.sessionNavigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return Math.min(this.sessionNavigationHistory.length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+      } else if (this.sessionNavigationHistory.length - this.sessionNavigationHistoryCurrentIndex - 1 < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return this.sessionNavigationHistory.length - 1
       } else {
-        return this.sessionNavigationHistoryCurrentIndex + NAV_HISTORY_DISPLAY_LIMIT / 2
+        return this.sessionNavigationHistoryCurrentIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
       }
     },
 
     sessionNavigationHistoryDropdownOptions: function () {
-      const sessionNavigationHistory = []
+      const dropdownOptions = []
       const end = this.sessionNavigationHistoryResultEndIndex
-      for (let index = end; index > Math.max(0, end - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+      for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
         const routeLabel = this.sessionNavigationHistory[index]
-        sessionNavigationHistory.push({
+        dropdownOptions.push({
+          // TODO: pass & show the more useful document.title instead
+          // Difficult to do now because we update it asynchronously on some pages after an indeterminately long load
           label: translateWindowTitle(routeLabel, this.$i18n) ?? routeLabel,
-          value: index - this.sessionNavigationHistoryCurrentIndex - 1,
-          active: index === this.sessionNavigationHistoryCurrentIndex + 1
+          value: index - this.sessionNavigationHistoryCurrentIndex,
+          active: index === this.sessionNavigationHistoryCurrentIndex
         })
       }
-
-      /* Add transient entry for the current route if it's at the top of the stack.
-      * This is transient because the proper <title> that we use for the other title entries in the nav history dropdown
-      * cannot be consistently waited for with our current implementation, so we show a temporary route.meta.title instead. */
-      if (this.sessionNavigationHistoryCurrentIndex === sessionNavigationHistory.length - 1) {
-        sessionNavigationHistory.push({
-          label: translateWindowTitle(this.$router.currentRoute.meta.title, this.$i18n),
-          value: 0,
-          active: true
-        })
-      }
-
-      // console.log(sessionNavigationHistory)
-
-      return sessionNavigationHistory
+      return dropdownOptions
     },
 
   },
@@ -353,9 +340,9 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function () {
+    trackHistoryNavigation: function (toRoute) {
       if (!this.isForwardOrBack) {
-        this.$store.commit('navigateSessionNavigationHistoryForward')
+        this.$store.commit('pushSessionNavigationHistoryState', toRoute)
       } else {
         this.isForwardOrBack = false
       }
@@ -372,7 +359,6 @@ export default defineComponent({
     },
 
     updateSessionNavigationIndexBy: function (n) {
-      // console.log('navigate to: ' + n)
       // avoid reloading the page
       if (n === 0) {
         return

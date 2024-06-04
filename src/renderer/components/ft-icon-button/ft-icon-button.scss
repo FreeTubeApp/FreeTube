@@ -165,6 +165,10 @@
       transition: background 0.2s ease-in;
     }
 
+    &.active {
+      font-weight: 600;
+    }
+
     &:active {
       background-color: var(--side-nav-active-color);
       color: var(--side-nav-active-text-color);
