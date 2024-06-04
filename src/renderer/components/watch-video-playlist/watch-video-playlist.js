@@ -217,14 +217,19 @@ export default defineComponent({
   },
   methods: {
     findIndexOfCurrentVideoInPlaylist: function (playlist) {
+      const playlistItemId = this.playlistItemId
+      const prevVideoBeforeDeletion = this.prevVideoBeforeDeletion
+      const videoId = this.videoId
       return playlist.findIndex((item) => {
-        if (item.playlistItemId != null && (this.playlistItemId != null || this.prevVideoBeforeDeletion?.playlistItemId != null)) {
-          return item.playlistItemId === this.playlistItemId || item.playlistItemId === this.prevVideoBeforeDeletion?.playlistItemId
-        } else if (item.videoId != null) {
-          return item.videoId === this.videoId || item.videoId === this.prevVideoBeforeDeletion?.videoId
-        } else {
-          return item.id === this.videoId || item.id === this.prevVideoBeforeDeletion?.videoId
+        if (item.playlistItemId && (playlistItemId || prevVideoBeforeDeletion?.playlistItemId)) {
+          return item.playlistItemId === playlistItemId || item.playlistItemId === prevVideoBeforeDeletion?.playlistItemId
+        } else if (item.videoId) {
+          return item.videoId === videoId || item.videoId === prevVideoBeforeDeletion?.videoId
+        } else if (item.id) {
+          return item.id === videoId || item.id === prevVideoBeforeDeletion?.videoId
         }
+
+        return false
       })
     },
 
