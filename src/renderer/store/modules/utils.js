@@ -873,13 +873,12 @@ const mutations = {
     state.sessionNavigationHistoryCurrentIndex = value
   },
 
-  navigateSessionNavigationHistoryForward (state, route) {
+  navigateSessionNavigationHistoryForward (state) {
     // remove "forward" history if that history is diverged from
-    // !route.name !== state.sessionNavigationHistory[state.sessionNavigationHistoryCurrentIndex]
-    if (route) {
-      state.sessionNavigationHistory.length = state.sessionNavigationHistoryCurrentIndex + 1
-      state.sessionNavigationHistory.push(route.meta.title)
-    }
+    state.sessionNavigationHistory.length = state.sessionNavigationHistoryCurrentIndex + 1
+
+    const title = document.title.replace(' - FreeTube', '')
+    state.sessionNavigationHistory.push(title)
 
     state.sessionNavigationHistoryCurrentIndex++
   },

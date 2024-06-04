@@ -89,9 +89,13 @@
               :id="sanitizeForHtmlId(title + '-' + index)"
               :key="index"
               :role="option.type === 'divider' ? 'separator' : 'option'"
-              aria-selected="false"
+              :aria-selected="option.active"
               :tabindex="option.type === 'divider' ? '-1' : '0'"
-              :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
+              :class="{
+                listItemDivider: option.type === 'divider',
+                listItem: option.type !== 'divider',
+                active: option.active
+              }"
               @click="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.space="handleDropdownClick({url: option.value, index: index}, $event)"

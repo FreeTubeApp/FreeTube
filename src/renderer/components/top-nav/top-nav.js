@@ -11,6 +11,8 @@ import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
+const NAV_HISTORY_DISPLAY_LIMIT = 15
+
 export default defineComponent({
   name: 'TopNav',
   components: {
@@ -113,15 +115,42 @@ export default defineComponent({
       return this.$store.getters.getSessionNavigationHistoryCurrentIndex
     },
 
+    sessionNavigationHistoryResultEndIndex: function () {
+      if (this.sessionNavigationHistoryCurrentIndex < NAV_HISTORY_DISPLAY_LIMIT / 2) {
+        return NAV_HISTORY_DISPLAY_LIMIT
+      } else if (this.sessionNavigationHistory.length - this.sessionNavigationHistoryCurrentIndex - 1 < NAV_HISTORY_DISPLAY_LIMIT / 2) {
+        return this.sessionNavigationHistory.length
+      } else {
+        return this.sessionNavigationHistoryCurrentIndex + NAV_HISTORY_DISPLAY_LIMIT / 2
+      }
+    },
+
     sessionNavigationHistoryDropdownOptions: function () {
-      const sessionNavigationHistory = this.sessionNavigationHistory
-      return sessionNavigationHistory.map((routeLabel, index) => {
-        return {
-          label: translateWindowTitle(routeLabel, this.$i18n),
-          value: index - this.sessionNavigationHistoryCurrentIndex,
-          active: index === this.sessionNavigationHistoryCurrentIndex
-        }
-      }).toReversed()
+      const sessionNavigationHistory = []
+      const end = this.sessionNavigationHistoryResultEndIndex
+      for (let index = end; index > Math.max(0, end - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+        const routeLabel = this.sessionNavigationHistory[index]
+        sessionNavigationHistory.push({
+          label: translateWindowTitle(routeLabel, this.$i18n) ?? routeLabel,
+          value: index - this.sessionNavigationHistoryCurrentIndex - 1,
+          active: index === this.sessionNavigationHistoryCurrentIndex + 1
+        })
+      }
+
+      /* Add transient entry for the current route if it's at the top of the stack.
+      * This is transient because the proper <title> that we use for the other title entries in the nav history dropdown
+      * cannot be consistently waited for with our current implementation, so we show a temporary route.meta.title instead. */
+      if (this.sessionNavigationHistoryCurrentIndex === sessionNavigationHistory.length - 1) {
+        sessionNavigationHistory.push({
+          label: translateWindowTitle(this.$router.currentRoute.meta.title, this.$i18n),
+          value: 0,
+          active: true
+        })
+      }
+
+      // console.log(sessionNavigationHistory)
+
+      return sessionNavigationHistory
     },
 
   },
@@ -130,8 +159,6 @@ export default defineComponent({
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
-
-    this.$store.commit('setSessionNavigationHistoryCurrentIndex', this.sessionNavigationHistory.length - 1)
 
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
@@ -326,16 +353,16 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function (toRoute) {
+    navigateHistory: function () {
       if (!this.isForwardOrBack) {
-        this.$store.commit('navigateSessionNavigationHistoryForward', toRoute)
+        this.$store.commit('navigateSessionNavigationHistoryForward')
       } else {
         this.isForwardOrBack = false
       }
     },
 
-    historyBack: function (option = 1) {
-      this.updateSessionNavigationIndexBy(-option)
+    historyBack: function (option = -1) {
+      this.updateSessionNavigationIndexBy(option)
       this.isForwardOrBack = true
     },
 
@@ -345,6 +372,12 @@ export default defineComponent({
     },
 
     updateSessionNavigationIndexBy: function (n) {
+      // console.log('navigate to: ' + n)
+      // avoid reloading the page
+      if (n === 0) {
+        return
+      }
+
       window.history.go(n)
       this.$store.commit('setSessionNavigationHistoryCurrentIndex', n + this.sessionNavigationHistoryCurrentIndex)
     },
