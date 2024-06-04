@@ -15,13 +15,19 @@
         :value="playlistName"
         :maxlength="255"
         class="playlistNameInput"
-        @input="(input) => playlistName = input"
+        @input="(input) => handlePlaylistNameInput(input)"
         @click="createNewPlaylist"
       />
+    </ft-flex-box>
+    <ft-flex-box v-if="playlistWithNameExists">
+      <p>
+        {{ $t('User Playlists.CreatePlaylistPrompt.Toast["There is already a playlist with this name. Please pick a different name."]') }}
+      </p>
     </ft-flex-box>
     <ft-flex-box>
       <ft-button
         :label="$t('User Playlists.CreatePlaylistPrompt.Create')"
+        :disabled="playlistWithNameExists"
         @click="createNewPlaylist"
       />
       <ft-button
