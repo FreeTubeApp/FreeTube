@@ -861,7 +861,7 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
-  ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
+  ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') {
       let parsedURL
 
@@ -869,7 +869,7 @@ function runApp() {
         parsedURL = new URL(url)
       } catch {
         // If it's not a valid URL don't open it
-        return
+        return false
       }
 
       if (
@@ -886,8 +886,11 @@ function runApp() {
         (parsedURL.protocol === 'monero:' && parsedURL.pathname === ABOUT_MONERO_ADDRESS)
       ) {
         shell.openExternal(url)
+        return true
       }
     }
+
+    return false
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
