@@ -45,6 +45,7 @@
         :value="inputDataDisplayed"
         :list="idDataList"
         class="ft-input"
+        :maxlength="maxlength"
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"

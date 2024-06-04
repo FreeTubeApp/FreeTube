@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="ft-age-restricted"
-  >
-    <h2>
+  <div>
+    <h2 class="message">
       {{ restrictedMessage }}
     </h2>
     <div class="frown">
@@ -12,4 +10,4 @@
 </template>
 
 <script src="./ft-age-restricted.js" />
-<style scoped lang="scss" src="./ft-age-restricted.scss" />
+<style scoped src="./ft-age-restricted.css" />

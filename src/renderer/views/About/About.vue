@@ -38,4 +38,4 @@
 </template>
 
 <script src="./About.js" />
-<style scoped src="./About.scss" lang="scss" />
+<style scoped src="./About.css" />

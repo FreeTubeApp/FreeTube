@@ -23,6 +23,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    maxlength: {
+      type: Number,
+      default: null
+    },
     value: {
       type: String,
       default: ''

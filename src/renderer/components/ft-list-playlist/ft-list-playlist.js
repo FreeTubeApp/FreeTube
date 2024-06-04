@@ -44,9 +44,6 @@ export default defineComponent({
     quickBookmarkPlaylistId() {
       return this.$store.getters.getQuickBookmarkTargetPlaylistId
     },
-    quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
-    },
     markedAsQuickBookmarkTarget() {
       // Only user playlists can be target
       if (this.playlistId == null) { return false }
@@ -174,7 +171,7 @@ export default defineComponent({
     },
 
     enableQuickBookmarkForThisPlaylist: function () {
-      const currentQuickBookmarkTargetPlaylist = this.quickBookmarkPlaylist
+      const currentQuickBookmarkTargetPlaylist = this.$store.getters.getQuickBookmarkPlaylist
 
       this.updateQuickBookmarkTargetPlaylistId(this.playlistId)
       if (currentQuickBookmarkTargetPlaylist != null) {

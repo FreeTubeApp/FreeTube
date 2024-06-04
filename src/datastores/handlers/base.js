@@ -9,10 +9,6 @@ class Settings {
     return db.settings.updateAsync({ _id }, { _id, value }, { upsert: true })
   }
 
-  static persist() {
-    return db.settings.compactDatafileAsync()
-  }
-
   // ******************** //
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {
@@ -75,10 +71,6 @@ class History {
   static deleteAll() {
     return db.history.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.history.compactDatafileAsync()
-  }
 }
 
 class Profiles {
@@ -96,10 +88,6 @@ class Profiles {
 
   static delete(id) {
     return db.profiles.removeAsync({ _id: id })
-  }
-
-  static persist() {
-    return db.profiles.compactDatafileAsync()
   }
 }
 
@@ -177,10 +165,6 @@ class Playlists {
   static deleteAll() {
     return db.playlists.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.playlists.compactDatafileAsync()
-  }
 }
 
 class SearchHistory {
@@ -203,19 +187,15 @@ class SearchHistory {
   static deleteAll() {
     return db.searchHistory.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.searchHistory.compactDatafileAsync()
-  }
 }
 
 function compactAllDatastores() {
   return Promise.allSettled([
-    Settings.persist(),
-    History.persist(),
-    Profiles.persist(),
-    Playlists.persist(),
-    SearchHistory.persist()
+    db.settings.compactDatafileAsync(),
+    db.history.compactDatafileAsync(),
+    db.profiles.compactDatafileAsync(),
+    db.playlists.compactDatafileAsync(),
+    db.searchHistory.compactDatafileAsync()
   ])
 }
 

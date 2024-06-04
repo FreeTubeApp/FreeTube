@@ -84,6 +84,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Non ci sono altri risultati per questa
     ricerca
+  Features:
+    Features: Caratteristiche
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Dal vivo
+    4K: 4K
+    Location: Posizione
+    HDR: HDR
+    HD: HD
+    Subtitles: Sottotitoli
+    360 Video: Video 360
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Iscrizioni'
@@ -1256,3 +1268,8 @@ Yes, Restart: Sì, riavvia
 Yes, Open Link: Sì, apri link
 Cancel: Annulla
 Search character limit: La query di ricerca supera il limite di caratteri {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: Sottotitoli per non udenti
+    Subtitles: Sottotitoli

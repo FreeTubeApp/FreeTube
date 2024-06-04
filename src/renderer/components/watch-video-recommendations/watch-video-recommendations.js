@@ -24,9 +24,6 @@ export default defineComponent({
   computed: {
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
-    },
-    hideRecommendedVideos: function () {
-      return this.$store.getters.getHideRecommendedVideos
     }
   },
   methods: {

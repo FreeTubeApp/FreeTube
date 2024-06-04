@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Прикупити више резултата'
   There are no more results for this search: 'Нема више резултата за ову претрагу'
 # Sidebar
+  Features:
+    Creative Commons: Creative Commons
+    3D: 3D
+    HDR: HDR
+    VR180: VR180
+    Features: Функције
+    HD: HD
+    Subtitles: Титлови
+    Location: Локација
+    Live: Уживо
+    4K: 4K
+    360 Video: 360 видео
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
@@ -1158,3 +1170,8 @@ Yes, Restart: Да, рестартуј
 Yes, Open Link: Да, отвори линк
 Search character limit: Упит за претрагу премашује ограничење броја знакова од {searchCharacterLimit}
   знакова
+Search Listing:
+  Label:
+    Closed Captions: Скривени титлови
+    4K: 4K
+    Subtitles: Титлови

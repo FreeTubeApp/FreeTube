@@ -54,9 +54,9 @@ Search Filters:
     Upload Date: '上传日期'
     View Count: '观看数量'
   Time:
-    Time: '时间'
+    Time: '发布时间'
     Any Time: '任何时间'
-    Last Hour: '上一小时'
+    Last Hour: '一小时内'
     Today: '今天'
     This Week: '本周'
     This Month: '本月'
@@ -80,6 +80,18 @@ Search Filters:
   Fetch more results: '摘取更多结果'
 # Sidebar
   There are no more results for this search: 对于本搜索没有更多结果
+  Features:
+    Subtitles: 字幕
+    Creative Commons: Creative Commons 授权
+    360 Video: 全景视频
+    Features: 功能
+    HD: 高清
+    3D: 三维立体
+    Live: 直播
+    4K: 4K
+    Location: 位置
+    HDR: HDR（高动态范围）
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
@@ -364,7 +376,7 @@ Settings:
       Folder Button: 选择文件夹
       File Name Tooltip: 你可以使用下面的变量。 %Y 年份 4 位数。 %M 月份 2 位数。 %D 天 2 位数。 %H 小时 2 位数。
         %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。 你也可以使用“\”或“/”创建子文件夹。
-      Enable: 允许截屏
+      Enable: 启用截屏图标
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
@@ -1018,7 +1030,7 @@ Tooltips:
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
-  Clear Input: 清除输入
+  Clear Input: 清空输入
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
@@ -1079,3 +1091,8 @@ Cancel: 取消
 Yes, Delete: 是，删除
 Yes, Restart: 是，重启
 Search character limit: 搜索词超过了 {searchCharacterLimit} 字符的上限
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隐藏式字幕

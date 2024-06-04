@@ -80,6 +80,18 @@ Search Filters:
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
+  Features:
+    Live: 直播
+    4K: 4K
+    360 Video: 360 影片
+    Location: 位置
+    HDR: HDR
+    VR180: VR180
+    Features: 功能
+    HD: HD
+    Subtitles: 字幕
+    Creative Commons: 創用CC
+    3D: 3D
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
@@ -1089,3 +1101,8 @@ Yes, Restart: 是的，重新啟動
 Yes, Open Link: 是的，開啟連結
 Cancel: 取消
 Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隱藏式字幕

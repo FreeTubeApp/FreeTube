@@ -47,7 +47,8 @@ const state = {
     sortBy: 'relevance',
     time: '',
     type: 'all',
-    duration: ''
+    duration: '',
+    features: [],
   },
   externalPlayerNames: [],
   externalPlayerValues: [],
@@ -541,7 +542,8 @@ const actions = {
           sortBy: searchSettings.sortBy,
           time: searchSettings.time,
           type: searchSettings.type,
-          duration: searchSettings.duration
+          duration: searchSettings.duration,
+          features: searchSettings.features
         }
 
         for (const [param, value] of url.searchParams) {
@@ -956,6 +958,10 @@ const mutations = {
 
   setSearchDuration (state, value) {
     state.searchSettings.duration = value
+  },
+
+  setSearchFeatures (state, value) {
+    state.searchSettings.features = value
   },
 
   setRegionNames (state, value) {
