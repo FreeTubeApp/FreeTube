@@ -279,7 +279,9 @@ export default defineComponent({
 
       this.showAddToPlaylistPromptForManyVideos({
         videos: this.videos,
-        newPlaylistDefaultProperties: { title: this.title },
+        newPlaylistDefaultProperties: {
+          title: this.channelName === '' ? this.title : `${this.title} | ${this.channelName}`,
+        },
       })
     },
 
