@@ -154,6 +154,17 @@
     padding: 0;
   }
 
+  :has(.active) {
+    .checkmarkColumn {
+      min-inline-size: 12px;
+    }
+
+    .listItem {
+      display: flex;
+      gap: 6px;
+    }
+  }
+
   .listItem {
     cursor: pointer;
     margin: 0;

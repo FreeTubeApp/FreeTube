@@ -100,10 +100,12 @@
               @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.space="handleDropdownClick({url: option.value, index: index}, $event)"
             >
-              <font-awesome-icon
-                v-if="option.active"
-                :icon="['fas', 'check']"
-              />
+              <div class="checkmarkColumn">
+                <font-awesome-icon
+                  v-if="option.active"
+                  :icon="['fas', 'check']"
+                />
+              </div>
               {{ option.type === 'divider' ? '' : option.label }}
             </li>
           </ul>
