@@ -43,7 +43,7 @@ export default defineComponent({
     },
 
     removeBookmark: function () {
-      this.removePageBookmark(this.pageBookmark)
+      this.removePageBookmark(this.pageBookmark.route)
       showToast(this.$t('Page Bookmark.Removed page bookmark', { name: this.name }))
       this.hide()
     },
