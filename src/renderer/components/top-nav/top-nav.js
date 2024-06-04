@@ -95,11 +95,11 @@ export default defineComponent({
     },
 
     forwardText: function () {
-      return this.$t('Forward')
+      return this.$t('Click to go forward, right-click or hold to see history')
     },
 
     backwardText: function () {
-      return this.$t('Back')
+      return this.$t('Click to go back, right-click or hold to see history')
     },
 
     newWindowText: function () {

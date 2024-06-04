@@ -53,12 +53,14 @@
 
 .arrowDisabled :deep(.iconButton) {
   color: #808080;
+  background-color: inherit;
   opacity: 0.5;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: default;
   user-select: none;
 }
 
-.navIcon, :deep(.iconButton) {
+.navIcon, :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   border-radius: 50%;
   color: var(--primary-text-color);
   cursor: pointer;
@@ -82,7 +84,7 @@
   }
 }
 
-.topNavBarColor .navIcon, .topNavBarColor :deep(.iconButton)  {
+.topNavBarColor .navIcon, .topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton)  {
   &:hover {
     background-color: var(--primary-color-hover);
   }

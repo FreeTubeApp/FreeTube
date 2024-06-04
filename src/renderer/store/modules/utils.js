@@ -869,6 +869,10 @@ const mutations = {
     }
   },
 
+  setShowAddToPlaylistPrompt (state, payload) {
+    state.showAddToPlaylistPrompt = payload
+  },
+
   setSessionNavigationHistoryCurrentIndex (state, value) {
     state.sessionNavigationHistoryCurrentIndex = value
   },
