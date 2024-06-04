@@ -2,6 +2,8 @@ import { defineComponent } from 'vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
+const LONG_CLICK_BOUNDARY_MS = 500
+
 export default defineComponent({
   name: 'FtIconButton',
   components: {
@@ -74,7 +76,7 @@ export default defineComponent({
   data: function () {
     return {
       dropdownShown: false,
-      blockClick: false,
+      blockLeftClick: false,
       longPressTimer: null,
       useModal: false
     }
@@ -103,7 +105,7 @@ export default defineComponent({
         return
       }
 
-      if (this.blockClick) {
+      if (this.blockLeftClick) {
         return
       }
 
@@ -135,19 +137,19 @@ export default defineComponent({
         this.longPressTimer = setTimeout(() => {
           this.handleIconClick(null, true)
 
-          // prevent a long click that ends on the icon button from firing the handleIconClick handler
+          // prevent a long press that ends on the icon button from firing the handleIconClick handler
           window.addEventListener('pointerup', this.preventButtonClickAfterLongPress, { once: true })
           window.addEventListener('pointercancel', () => {
             window.removeEventListener('pointerup', this.preventButtonClickAfterLongPress)
           }, { once: true })
-        }, 500)
+        }, LONG_CLICK_BOUNDARY_MS)
       }
     },
 
     // prevent the handleIconClick handler from firing for an instant
     preventButtonClickAfterLongPress: function () {
-      this.blockClick = true
-      setTimeout(() => { this.blockClick = false }, 0)
+      this.blockLeftClick = true
+      setTimeout(() => { this.blockLeftClick = false }, 0)
     },
 
     handleDropdownFocusOut: function () {

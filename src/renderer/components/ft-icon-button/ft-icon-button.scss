@@ -25,12 +25,13 @@
 
     &:not(.disabled) {
       &:hover,
-      &:focus-visible {
+      &:focus-visible,
+      &.pressed {
         background-color: var(--side-nav-hover-color);
         color: var(--side-nav-hover-text-color);
       }
 
-      &:active, &.pressed {
+      &.active {
         background-color: var(--side-nav-active-color);
         color: var(--side-nav-active-text-color);
       }
@@ -39,12 +40,13 @@
 
   &.base-no-default:not(.disabled) {
     &:hover,
-    &:focus-visible {
+    &:focus-visible,
+    &.pressed {
       background-color: var(--side-nav-hover-color);
       color: var(--side-nav-hover-text-color);
     }
 
-    &:active, &.pressed {
+    &.active {
       background-color: var(--side-nav-active-color);
       color: var(--side-nav-active-text-color);
     }
@@ -56,11 +58,12 @@
 
     &:not(.disabled) {
       &:hover,
-      &:focus-visible {
+      &:focus-visible,
+      &.pressed {
         background-color: var(--primary-color-hover);
       }
 
-      &:active, &.pressed {
+      &.active {
         background-color: var(--primary-color-active);
       }
     }
@@ -73,11 +76,12 @@
 
     &:not(.disabled) {
       &:hover,
-      &:focus-visible {
+      &:focus-visible,
+      &.pressed {
         background-color: var(--accent-color-hover);
       }
 
-      &:active, &.pressed {
+      &.active {
         background-color: var(--accent-color-active);
       }
     }
@@ -89,11 +93,12 @@
 
     &:not(.disabled) {
       &:hover,
-      &:focus-visible {
+      &:focus-visible,
+      &.pressed {
         background-color: var(--destructive-hover-color);
       }
 
-      &:active, &.pressed {
+      &.active {
         background-color: var(--destructive-active-color);
       }
     }
@@ -159,6 +164,7 @@
 
     &:hover,
     &:focus-visible,
+      &.pressed,
     &.active {
       background-color: var(--side-nav-hover-color);
       color: var(--side-nav-hover-text-color);

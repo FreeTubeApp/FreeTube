@@ -208,6 +208,7 @@ export default defineComponent({
           this.$router.replace({ path: this.landingPage })
         }
 
+        // initialize navigation history with starting route
         nextTick(() => this.$store.commit('pushSessionNavigationHistoryState', this.$router.currentRoute))
       })
     })
