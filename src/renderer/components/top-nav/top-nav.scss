@@ -45,12 +45,6 @@
   }
 }
 
-.navIcon {
-  @include top-nav-is-colored {
-    color: var(--text-with-main-color);
-  }
-}
-
 .arrowDisabled :deep(.iconButton) {
   color: #808080;
   background-color: inherit;
@@ -85,6 +79,8 @@
 }
 
 .topNavBarColor .navIcon, .topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton)  {
+  color: var(--text-with-main-color);
+
   &:hover {
     background-color: var(--primary-color-hover);
   }
