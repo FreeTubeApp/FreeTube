@@ -71,45 +71,38 @@ export default defineComponent({
         {
           type: 'theme-settings',
           title: this.$t('Settings.Theme Settings.Theme Settings'),
-          shortTitle: this.$te('Settings.Theme Settings.Theme Settings Short Label') ? this.$t('Settings.Theme Settings.Theme Settings Short Label') : '',
           icon: 'display'
         },
         {
           type: 'player-settings',
           title: this.$t('Settings.Player Settings.Player Settings'),
-          shortTitle: this.$te('Settings.Player Settings.Player Settings Short Label') ? this.$t('Settings.Player Settings.Player Settings Short Label') : '',
           icon: 'circle-play'
         },
         ...(process.env.IS_ELECTRON
           ? [{
               type: 'external-player-settings',
               title: this.$t('Settings.External Player Settings.External Player Settings'),
-              shortTitle: this.$te('Settings.External Player Settings.External Player') ? this.$t('Settings.External Player Settings.External Player') : '',
               icon: 'clapperboard'
             }]
           : []),
         {
           type: 'subscription-settings',
           title: this.$t('Settings.Subscription Settings.Subscription Settings'),
-          shortTitle: this.$te('Settings.Subscription Settings.Subscription Settings Short Label') ? this.$t('Settings.Subscription Settings.Subscription Settings Short Label') : '',
           icon: 'play'
         },
         {
           type: 'distraction-settings',
           title: this.$t('Settings.Distraction Free Settings.Distraction Free Settings'),
-          shortTitle: this.$te('Settings.Distraction Free Settings.Distraction Free Settings Short Label') ? this.$t('Settings.Distraction Free Settings.Distraction Free Settings Short Label') : '',
           icon: 'eye-slash'
         },
         {
           type: 'privacy-settings',
           title: this.$t('Settings.Privacy Settings.Privacy Settings'),
-          shortTitle: this.$te('Settings.Privacy Settings.Privacy Settings Short Label') ? this.$t('Settings.Privacy Settings.Privacy Settings Short Label') : '',
           icon: 'lock'
         },
         {
           type: 'data-settings',
           title: this.$t('Settings.Data Settings.Data Settings'),
-          shortTitle: this.$te('Settings.Data Settings.Data Settings Short Label') ? this.$t('Settings.Data Settings.Data Settings Short Label') : '',
           icon: 'database'
         },
         ...(process.env.IS_ELECTRON
@@ -117,13 +110,11 @@ export default defineComponent({
               {
                 type: 'proxy-settings',
                 title: this.$t('Settings.Proxy Settings.Proxy Settings'),
-                shortTitle: this.$te('Settings.Proxy Settings.Proxy Settings Short Label') ? this.$t('Settings.Proxy Settings.Proxy Settings Short Label') : '',
                 icon: 'network-wired',
               },
               {
                 type: 'download-settings',
                 title: this.$t('Settings.Download Settings.Download Settings'),
-                shortTitle: this.$te('Settings.Download Settings.Download Settings Short Label') ? this.$t('Settings.Download Settings.Download Settings Short Label') : '',
                 icon: 'download',
               }
             ]
@@ -131,13 +122,11 @@ export default defineComponent({
         {
           type: 'parental-control-settings',
           title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
-          shortTitle: this.$te('Settings.Parental Control Settings.Parental Control Settings Short Label') ? this.$t('Settings.Parental Control Settings.Parental Control Settings Short Label') : '',
           icon: 'user-lock'
         },
         {
           type: 'sponsor-block-settings',
           title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
-          shortTitle: this.$te('Settings.SponsorBlock Settings.SponsorBlock Settings Short Label') ? this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings Short Label') : '',
           // TODO: replace with SponsorBlock icon
           icon: 'shield'
         },
@@ -145,27 +134,23 @@ export default defineComponent({
           ? [{
               type: 'experimental-settings',
               title: this.$t('Settings.Experimental Settings.Experimental Settings'),
-              shortTitle: this.$te('Settings.Experimental Settings.Experimental Settings Short Label') ? this.$t('Settings.Experimental Settings.Experimental Settings Short Label') : '',
               icon: 'flask'
             }]
           : []),
         {
           type: 'password-settings',
           title: this.$t('Settings.Password Settings.Password Settings'),
-          shortTitle: this.$te('Settings.Password Settings.Password Settings Short Label') ? this.$t('Settings.Password Settings.Password Settings Short Label') : '',
           icon: 'key'
         },
       ]
-      return settingsComponentsData.map((entry) => { return { ...entry, shortTitle: entry.shortTitle || entry.title } })
+      return settingsComponentsData
     },
 
     settingsSectionComponents: function () {
       let settingsSections = this.settingsComponentsData
       if (this.settingsSectionSortEnabled) {
         settingsSections = settingsSections.toSorted((a, b) => {
-          const aTitle = a.shortTitle !== '' ? a.shortTitle : a.title
-          const bTitle = b.shortTitle !== '' ? b.shortTitle : b.title
-          return aTitle.toLowerCase().localeCompare(bTitle.toLowerCase(), this.locale)
+          return a.title.toLowerCase().localeCompare(b.title.toLowerCase(), this.locale)
         })
       }
 
@@ -173,7 +158,6 @@ export default defineComponent({
       const generalSettingsEntry = {
         type: 'general-settings',
         title: this.$t('Settings.General Settings.General Settings'),
-        shortTitle: this.$te('Settings.General Settings.General Settings Short Label') ? this.$t('Settings.General Settings.General Settings Short Label') : this.$t('Settings.General Settings.General Settings'),
         icon: 'border-all'
       }
 

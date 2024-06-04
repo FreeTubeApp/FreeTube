@@ -20,7 +20,7 @@
             :icon="['fas', settingsSection.icon]"
             class="titleIcon"
           />
-          {{ settingsSection.shortTitle }}
+          {{ settingsSection.title }}
         </div>
         <div class="titleUnderline" />
       </div>

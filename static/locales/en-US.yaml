@@ -250,8 +250,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
-    General Settings: General Settings
-    General Settings Short Label: General
+    General Settings: General
     Check for Updates: Check for Updates
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
@@ -294,8 +293,7 @@ Settings:
       Ask Before Opening Link: Ask Before Opening Link
       No Action: No Action
   Theme Settings:
-    Theme Settings: Theme Settings
-    Theme Settings Short Label: Theme
+    Theme Settings: Theme
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
     Disable Smooth Scrolling: Disable Smooth Scrolling
@@ -365,8 +363,7 @@ Settings:
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
-    Player Settings: Player Settings
-    Player Settings Short Label: Player
+    Player Settings: Player
     Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
     Play Next Video: Play Next Video
     Turn on Subtitles by Default: Turn on Subtitles by Default
@@ -418,7 +415,7 @@ Settings:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
   External Player Settings:
-    External Player Settings: External Player Settings
+    External Player Settings: External Player
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Ignore Default Arguments: Ignore Default Arguments
@@ -428,8 +425,7 @@ Settings:
       None:
         Name: None
   Privacy Settings:
-    Privacy Settings: Privacy Settings
-    Privacy Settings Short Label: Privacy
+    Privacy Settings: Privacy
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
@@ -449,16 +445,14 @@ Settings:
     All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
   Subscription Settings:
-    Subscription Settings: Subscription Settings
-    Subscription Settings Short Label: Subscription
+    Subscription Settings: Subscription
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
     Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
   Distraction Free Settings:
-    Distraction Free Settings: Distraction Free Settings
-    Distraction Free Settings Short Label: Distraction Free
+    Distraction Free Settings: Distraction Free
     Sections:
       Side Bar: Side Bar
       Subscriptions Page: Subscriptions Page
@@ -502,8 +496,7 @@ Settings:
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Community: Hide Subscriptions Community
   Data Settings:
-    Data Settings: Data Settings
-    Data Settings Short Label: Data
+    Data Settings: Data
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
@@ -558,8 +551,7 @@ Settings:
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
-    Proxy Settings: Proxy Settings
-    Proxy Settings Short Label: Proxy
+    Proxy Settings: Proxy
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -573,8 +565,7 @@ Settings:
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
   SponsorBlock Settings:
-    SponsorBlock Settings: SponsorBlock Settings
-    SponsorBlock Settings Short Label: SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
@@ -589,22 +580,19 @@ Settings:
       Do Nothing: Do Nothing
     Category Color: Category Color
   Parental Control Settings:
-    Parental Control Settings: Parental Control Settings
-    Parental Control Settings Short Label: Parental Control
+    Parental Control Settings: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
   Download Settings:
-    Download Settings: Download Settings
-    Download Settings Short Label: Download
+    Download Settings: Download
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
     Download Behavior: Download Behavior
     Download in app: Download in app
     Open in web browser: Open in web browser
   Experimental Settings:
-    Experimental Settings: Experimental Settings
-    Experimental Settings Short Label: Experimental
+    Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
   Password Dialog:
@@ -613,8 +601,7 @@ Settings:
     Password Incorrect: Password Incorrect
     Unlock: Unlock
   Password Settings:
-    Password Settings: Password Settings
-    Password Settings Short Label: Password
+    Password Settings: Password
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
@@ -648,8 +635,7 @@ About:
   Donate: Donate
 
 Profile:
-  Profile Settings: Profile Settings
-  Profile Settings Short Label: Profile
+  Profile Settings: Profile
   Toggle Profile List: Toggle Profile List
   Profile Select: Profile Select
   Profile Filter: Profile Filter
