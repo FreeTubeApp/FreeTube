@@ -12,6 +12,17 @@ const IpcChannels = {
   CREATE_NEW_WINDOW: 'create-new-window',
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
   NATIVE_THEME_UPDATE: 'native-theme-update',
+  APP_READY: 'app-ready',
+  RELAUNCH_REQUEST: 'relaunch-request',
+
+  SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
+  UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
+
+  OPEN_URL: 'open-url',
+  CHANGE_VIEW: 'change-view',
+
+  HISTORY_BACK: 'history-back',
+  HISTORY_FORWARD: 'history-forward',
 
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
@@ -27,6 +38,8 @@ const IpcChannels = {
 
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
   TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
+
+  SHOW_VIDEO_STATISTICS: 'show-video-statistics',
 
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set'

@@ -24,6 +24,14 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: true,
+    },
+    addingDuplicateVideosEnabled: {
+      type: Boolean,
+      required: true,
+    },
   },
   emits: ['selected'],
   data: function () {
@@ -76,10 +84,40 @@ export default defineComponent({
         count: this.loneVideoPresenceCountInPlaylist,
       })
     },
+    multiVideoPresenceCountInPlaylist() {
+      if (this.toBeAddedToPlaylistVideoList.length < 2) { return null }
+
+      // Count of to be added videos already present in this playlist
+      const v = this.toBeAddedToPlaylistVideoList.reduce((accumulator, toBeAddedToVideo) => {
+        return this.playlist.videos.some((pv) => pv.videoId === toBeAddedToVideo.videoId)
+          ? accumulator + 1
+          : accumulator
+      }, 0)
+      // Don't display zero value
+      return v === 0 ? null : v
+    },
+    multiVideoPresenceCountInPlaylistText() {
+      if (this.multiVideoPresenceCountInPlaylist == null) { return null }
+
+      if (this.addingDuplicateVideosEnabled || this.toBeAddedToPlaylistVideoList.length === this.multiVideoPresenceCountInPlaylist) {
+        return this.$t('User Playlists.AddVideoPrompt.{videoCount}/{totalVideoCount} Videos Already Added', {
+          videoCount: this.multiVideoPresenceCountInPlaylist,
+          totalVideoCount: this.toBeAddedToPlaylistVideoList.length,
+        })
+      }
+
+      return this.$t('User Playlists.AddVideoPrompt.{videoCount}/{totalVideoCount} Videos Will Be Added', {
+        videoCount: this.toBeAddedToPlaylistVideoList.length - this.multiVideoPresenceCountInPlaylist,
+        totalVideoCount: this.toBeAddedToPlaylistVideoList.length,
+      })
+    },
+    videoPresenceCountInPlaylistText() {
+      return this.loneVideoPresenceCountInPlaylistText ?? this.multiVideoPresenceCountInPlaylistText
+    },
     videoPresenceCountInPlaylistTextVisible() {
       if (!this.videoPresenceCountInPlaylistTextShouldBeVisible) { return false }
 
-      return this.loneVideoPresenceCountInPlaylistText != null
+      return this.videoPresenceCountInPlaylistText != null
     },
   },
   created: function () {
@@ -100,6 +138,8 @@ export default defineComponent({
     },
 
     toggleSelection: function () {
+      if (this.disabled) { return }
+
       this.$emit('selected', this.index)
     },
 

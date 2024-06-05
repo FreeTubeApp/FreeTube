@@ -24,16 +24,29 @@
 
 .optionsRow {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  align-items: center;
+}
+
+.tightOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+  column-gap: 16px;
   align-items: center;
 }
 
 @media only screen and (width <= 800px) {
   .optionsRow {
-    /* Switch to 2 rows from 2 columns */
+    /* Switch to rows from columns */
     grid-template-columns: auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(auto-fit, auto);
+    align-items: stretch;
+  }
+
+  .tightOptions {
+    /* Switch to rows from columns */
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
   }
 }
@@ -51,7 +64,11 @@
   overflow-y: scroll;
 }
 
-.playlist-selector-container {
+.playlist-selector-container:not(.disabled) {
   /* Make them look selectable */
   cursor: pointer;
+}
+
+.playlist-selector-container.disabled {
+  opacity: 0.5;
 }
