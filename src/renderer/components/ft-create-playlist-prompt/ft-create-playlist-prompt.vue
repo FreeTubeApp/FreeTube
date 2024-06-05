@@ -15,7 +15,7 @@
         :value="playlistName"
         :maxlength="255"
         class="playlistNameInput"
-        @input="(input) => handlePlaylistNameInput(input)"
+        @input="handlePlaylistNameInput"
         @click="createNewPlaylist"
       />
     </ft-flex-box>
