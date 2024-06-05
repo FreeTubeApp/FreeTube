@@ -1221,7 +1221,7 @@ Channels:
   Search bar placeholder: Buscar canais
   Empty: Sua lista de canais está vazia no momento.
   Unsubscribe: Cancelar inscrição
-  Unsubscribed: '{channelName} foi removido de suas inscrições'
+  Unsubscribed: '"{channelName}" foi removido de suas inscrições'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canais encontrados.'
 Screenshot Success: Captura de tela salva em "{filePath}"
