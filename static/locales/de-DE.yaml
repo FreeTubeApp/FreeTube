@@ -220,7 +220,12 @@ User Playlists:
     Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
       dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
       Videos hinzufügen möchtest
-    Added {count} Times: '{count} Mal hinzugefügt | {count} Mal hinzugefügt'
+    Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
+    Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videos werden hinzugefügt'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      bereits hinzugefügte Videos'
   CreatePlaylistPrompt:
     New Playlist Name: Neuer Name der Wiedergabeliste
     Create: Erstellen
