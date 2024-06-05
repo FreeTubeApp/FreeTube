@@ -155,7 +155,7 @@
           <ft-icon-button
             v-if="!editMode && userPlaylistDuplicateItemCount > 0"
             :title="$t('User Playlists.Remove Duplicate Videos')"
-            :icon="['fas', 'video-slash']"
+            :icon="['fas', 'users-slash']"
             theme="destructive"
             @click="showRemoveDuplicateVideosPrompt = true"
           />
