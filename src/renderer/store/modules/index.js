@@ -8,7 +8,7 @@ import invidious from './invidious'
 import playlists from './playlists'
 import profiles from './profiles'
 import settings from './settings'
-import subscriptions from './subscriptions'
+import subscriptionCache from './subscription-cache'
 import utils from './utils'
 
 export default {
@@ -17,6 +17,6 @@ export default {
   playlists,
   profiles,
   settings,
-  subscriptions,
+  subscriptionCache,
   utils
 }

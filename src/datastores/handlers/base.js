@@ -167,13 +167,13 @@ class Playlists {
   }
 }
 
-class Subscriptions {
+class SubscriptionCache {
   static find() {
-    return db.subscriptions.findAsync({})
+    return db.subscriptionCache.findAsync({})
   }
 
   static updateVideosByChannelId({ channelId, entries, timestamp }) {
-    return db.subscriptions.updateAsync(
+    return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { videos: entries, videosTimestamp: timestamp } },
       { upsert: true }
@@ -181,7 +181,7 @@ class Subscriptions {
   }
 
   static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
-    return db.subscriptions.updateAsync(
+    return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { liveStreams: entries, liveStreamsTimestamp: timestamp } },
       { upsert: true }
@@ -189,7 +189,7 @@ class Subscriptions {
   }
 
   static updateShortsByChannelId({ channelId, entries, timestamp }) {
-    return db.subscriptions.updateAsync(
+    return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { shorts: entries, shortsTimestamp: timestamp } },
       { upsert: true }
@@ -197,7 +197,7 @@ class Subscriptions {
   }
 
   static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
-    return db.subscriptions.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
+    return db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
       if (doc == null) { return }
 
       const shorts = doc.shorts
@@ -221,7 +221,7 @@ class Subscriptions {
         }
       })
 
-      return db.subscriptions.updateAsync(
+      return db.subscriptionCache.updateAsync(
         { _id: channelId },
         { $set: { shorts: cacheShorts } },
         { upsert: true }
@@ -230,7 +230,7 @@ class Subscriptions {
   }
 
   static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
-    return db.subscriptions.updateAsync(
+    return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { communityPosts: entries, communityPostsTimestamp: timestamp } },
       { upsert: true }
@@ -238,11 +238,11 @@ class Subscriptions {
   }
 
   static deleteMultipleChannels(channelIds) {
-    return db.subscriptions.removeAsync({ _id: { $in: channelIds } }, { multi: true })
+    return db.subscriptionCache.removeAsync({ _id: { $in: channelIds } }, { multi: true })
   }
 
   static deleteAll() {
-    return db.subscriptions.removeAsync({}, { multi: true })
+    return db.subscriptionCache.removeAsync({}, { multi: true })
   }
 }
 
@@ -252,7 +252,7 @@ function compactAllDatastores() {
     db.history.compactDatafileAsync(),
     db.profiles.compactDatafileAsync(),
     db.playlists.compactDatafileAsync(),
-    db.subscriptions.compactDatafileAsync(),
+    db.subscriptionCache.compactDatafileAsync(),
   ])
 }
 
@@ -261,7 +261,7 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
-  Subscriptions as subscriptions,
+  SubscriptionCache as subscriptionCache,
 
   compactAllDatastores,
 }

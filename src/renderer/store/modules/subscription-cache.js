@@ -1,5 +1,5 @@
 import {
-  DBSubscriptionsHandlers,
+  DBSubscriptionCacheHandlers,
 } from '../../../datastores/handlers/index'
 
 const state = {
@@ -50,7 +50,7 @@ const getters = {
 const actions = {
   async grabAllSubscriptions({ commit, dispatch, rootGetters }) {
     try {
-      const payload = await DBSubscriptionsHandlers.find()
+      const payload = await DBSubscriptionCacheHandlers.find()
 
       const videos = {}
       const liveStreams = {}
@@ -96,7 +96,7 @@ const actions = {
         // Delete channels with no data
         dispatch('clearSubscriptionsCacheForManyChannels', toBeRemovedChannelIds)
       }
-      commit('setAllSubscriptions', { videos, liveStreams, shorts, communityPosts })
+      commit('setCaches', { videos, liveStreams, shorts, communityPosts })
       commit('setSubscriptionCacheReady', true)
     } catch (errMessage) {
       console.error(errMessage)
@@ -105,7 +105,7 @@ const actions = {
 
   async updateSubscriptionVideosCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
     try {
-      await DBSubscriptionsHandlers.updateVideosByChannelId({
+      await DBSubscriptionCacheHandlers.updateVideosByChannelId({
         channelId,
         entries: videos,
         timestamp,
@@ -118,7 +118,7 @@ const actions = {
 
   async updateSubscriptionShortsCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
     try {
-      await DBSubscriptionsHandlers.updateShortsByChannelId({
+      await DBSubscriptionCacheHandlers.updateShortsByChannelId({
         channelId,
         entries: videos,
         timestamp,
@@ -131,7 +131,7 @@ const actions = {
 
   async updateSubscriptionShortsCacheWithChannelPageShorts({ commit }, { channelId, videos }) {
     try {
-      await DBSubscriptionsHandlers.updateShortsWithChannelPageShortsByChannelId({
+      await DBSubscriptionCacheHandlers.updateShortsWithChannelPageShortsByChannelId({
         channelId,
         entries: videos,
       })
@@ -143,7 +143,7 @@ const actions = {
 
   async updateSubscriptionLiveCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
     try {
-      await DBSubscriptionsHandlers.updateLiveStreamsByChannelId({
+      await DBSubscriptionCacheHandlers.updateLiveStreamsByChannelId({
         channelId,
         entries: videos,
         timestamp,
@@ -156,7 +156,7 @@ const actions = {
 
   async updateSubscriptionPostsCacheByChannel({ commit }, { channelId, posts, timestamp = new Date() }) {
     try {
-      await DBSubscriptionsHandlers.updateCommunityPostsByChannelId({
+      await DBSubscriptionCacheHandlers.updateCommunityPostsByChannelId({
         channelId,
         entries: posts,
         timestamp,
@@ -169,7 +169,7 @@ const actions = {
 
   async clearSubscriptionsCacheForManyChannels({ commit }, channelIds) {
     try {
-      await DBSubscriptionsHandlers.deleteMultipleChannels(channelIds)
+      await DBSubscriptionCacheHandlers.deleteMultipleChannels(channelIds)
       commit('clearCachesForManyChannels', channelIds)
     } catch (errMessage) {
       console.error(errMessage)
@@ -178,7 +178,7 @@ const actions = {
 
   async clearSubscriptionsCache({ commit }, payload) {
     try {
-      await DBSubscriptionsHandlers.deleteAll()
+      await DBSubscriptionCacheHandlers.deleteAll()
       commit('clearCaches')
     } catch (errMessage) {
       console.error(errMessage)
@@ -257,7 +257,7 @@ const mutations = {
     })
   },
 
-  setAllSubscriptions(state, { videos, liveStreams, shorts, communityPosts }) {
+  setCaches(state, { videos, liveStreams, shorts, communityPosts }) {
     state.videoCache = videos
     state.liveCache = liveStreams
     state.shortsCache = shorts

@@ -191,19 +191,19 @@ class Playlists {
   }
 }
 
-class Subscriptions {
+class SubscriptionCache {
   static find() {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       { action: DBActions.GENERAL.FIND }
     )
   }
 
   static updateVideosByChannelId({ channelId, entries, timestamp }) {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
-        action: DBActions.SUBSCRIPTIONS.UPDATE_VIDEOS_BY_CHANNEL,
+        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL,
         data: { channelId, entries, timestamp },
       }
     )
@@ -211,9 +211,9 @@ class Subscriptions {
 
   static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
-        action: DBActions.SUBSCRIPTIONS.UPDATE_LIVE_STREAMS_BY_CHANNEL,
+        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL,
         data: { channelId, entries, timestamp },
       }
     )
@@ -221,9 +221,9 @@ class Subscriptions {
 
   static updateShortsByChannelId({ channelId, entries, timestamp }) {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
-        action: DBActions.SUBSCRIPTIONS.UPDATE_SHORTS_BY_CHANNEL,
+        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL,
         data: { channelId, entries, timestamp },
       }
     )
@@ -231,9 +231,9 @@ class Subscriptions {
 
   static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
-        action: DBActions.SUBSCRIPTIONS.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL,
+        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL,
         data: { channelId, entries },
       }
     )
@@ -241,9 +241,9 @@ class Subscriptions {
 
   static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
-        action: DBActions.SUBSCRIPTIONS.UPDATE_COMMUNITY_POSTS_BY_CHANNEL,
+        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL,
         data: { channelId, entries, timestamp },
       }
     )
@@ -251,14 +251,14 @@ class Subscriptions {
 
   static deleteMultipleChannels(channelIds) {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       { action: DBActions.GENERAL.DELETE_MULTIPLE, data: channelIds }
     )
   }
 
   static deleteAll() {
     return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTIONS,
+      IpcChannels.DB_SUBSCRIPTION_CACHE,
       { action: DBActions.GENERAL.DELETE_ALL }
     )
   }
@@ -269,5 +269,5 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
-  Subscriptions as subscriptions,
+  SubscriptionCache as subscriptionCache,
 }

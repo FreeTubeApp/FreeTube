@@ -110,13 +110,13 @@ class Playlists {
   }
 }
 
-class Subscriptions {
+class SubscriptionCache {
   static find() {
-    return baseHandlers.subscriptions.find()
+    return baseHandlers.subscriptionCache.find()
   }
 
   static updateVideosByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptions.updateVideosByChannelId({
+    return baseHandlers.subscriptionCache.updateVideosByChannelId({
       channelId,
       entries,
       timestamp,
@@ -124,7 +124,7 @@ class Subscriptions {
   }
 
   static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptions.updateLiveStreamsByChannelId({
+    return baseHandlers.subscriptionCache.updateLiveStreamsByChannelId({
       channelId,
       entries,
       timestamp,
@@ -132,7 +132,7 @@ class Subscriptions {
   }
 
   static updateShortsByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptions.updateShortsByChannelId({
+    return baseHandlers.subscriptionCache.updateShortsByChannelId({
       channelId,
       entries,
       timestamp,
@@ -140,14 +140,14 @@ class Subscriptions {
   }
 
   static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
-    return baseHandlers.subscriptions.updateShortsWithChannelPageShortsByChannelId({
+    return baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId({
       channelId,
       entries,
     })
   }
 
   static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptions.updateCommunityPostsByChannelId({
+    return baseHandlers.subscriptionCache.updateCommunityPostsByChannelId({
       channelId,
       entries,
       timestamp,
@@ -155,11 +155,11 @@ class Subscriptions {
   }
 
   static deleteMultipleChannels(channelIds) {
-    return baseHandlers.subscriptions.deleteMultipleChannels(channelIds)
+    return baseHandlers.subscriptionCache.deleteMultipleChannels(channelIds)
   }
 
   static deleteAll() {
-    return baseHandlers.subscriptions.deleteAll()
+    return baseHandlers.subscriptionCache.deleteAll()
   }
 }
 
@@ -168,5 +168,5 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
-  Subscriptions as subscriptions,
+  SubscriptionCache as subscriptionCache,
 }
