@@ -202,7 +202,12 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
-    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
+    Added {count} Times: تمت إضافتها بالفعل | تمت إضافة {count} مرة
+    Allow Adding Duplicate Video(s): السماح بإضافة مقاطع فيديو مكررة
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": ستتم إضافة مقاطع فيديو
+      {videoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": تمت إضافة {videoCount}/{totalVideoCount}
+      من مقاطع الفيديو بالفعل
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
