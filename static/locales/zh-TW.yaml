@@ -80,6 +80,18 @@ Search Filters:
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
+  Features:
+    Live: 直播
+    4K: 4K
+    360 Video: 360 影片
+    Location: 位置
+    HDR: HDR
+    VR180: VR180
+    Features: 功能
+    HD: HD
+    Subtitles: 字幕
+    Creative Commons: 創用CC
+    3D: 3D
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
@@ -173,7 +185,12 @@ User Playlists:
         部影片新增至 1 個播放清單
       "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount}
         個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
-    Added {count} Times: 新增了 {count} 次 | 新增了 {count} 次
+    Added {count} Times: 已新增 | 新增了 {count} 次
+    Allow Adding Duplicate Video(s): 允許新增重複影片
+    "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount}
+      部影片
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 將會新增 {videoCount}/{totalVideoCount}
+      部影片
   CreatePlaylistPrompt:
     New Playlist Name: 新播放清單名稱
     Toast:
@@ -1089,3 +1106,8 @@ Yes, Restart: 是的，重新啟動
 Yes, Open Link: 是的，開啟連結
 Cancel: 取消
 Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隱藏式字幕

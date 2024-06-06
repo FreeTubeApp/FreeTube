@@ -61,6 +61,12 @@ Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
 Search character limit: Search query is over the {searchCharacterLimit} character limit
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitles
+    # Aria labels
+    Closed Captions: Closed Captions
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
@@ -91,6 +97,18 @@ Search Filters:
     Short (< 4 minutes): Short (< 4 minutes)
     Medium (4 - 20 minutes): Medium (4 - 20 minutes)
     Long (> 20 minutes): Long (> 20 minutes)
+  Features:
+    Features: Features
+    HD: HD
+    Subtitles: Subtitles
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Live
+    4K: 4K
+    360 Video: 360 Video
+    Location: Location
+    HDR: HDR
+    VR180: VR180
   # On Search Page
   Search Results: Search Results
   Fetching results. Please wait: Fetching results. Please wait
@@ -218,9 +236,12 @@ User Playlists:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
+    Allow Adding Duplicate Video(s): Allow Adding Duplicate Video(s)
     Save: Save
 
-    Added {count} Times: 'Added {count} Time | Added {count} Times'
+    Added {count} Times: 'Already Added | Added {count} Times'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videos Will Be Added'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videos Already Added'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
@@ -1063,6 +1084,7 @@ Age Restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL: "{url}".'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'

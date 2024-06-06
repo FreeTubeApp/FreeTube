@@ -82,6 +82,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Für diese Suche gibt es keine weiteren
     Ergebnisse
+  Features:
+    3D: 3D
+    Live: Live
+    4K: 4K
+    360 Video: 360 Video
+    HDR: HDR
+    VR180: VR180
+    Features: Eigenschaften
+    HD: HD
+    Subtitles: Untertitel
+    Creative Commons: Creative-Commons
+    Location: Standort
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
@@ -189,6 +201,10 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
+      Playlist {playlistName} is the new quick bookmark playlist.: Wiedergabeliste
+        {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
+      This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
+        wird bereits für schnelle Lesezeichen verwendet.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -204,7 +220,12 @@ User Playlists:
     Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
       dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
       Videos hinzufügen möchtest
-    Added {count} Times: '{count} Mal hinzugefügt | {count} Mal hinzugefügt'
+    Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
+    Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videos werden hinzugefügt'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      bereits hinzugefügte Videos'
   CreatePlaylistPrompt:
     New Playlist Name: Neuer Name der Wiedergabeliste
     Create: Erstellen
@@ -227,6 +248,9 @@ User Playlists:
     aktivieren
   Disable Quick Bookmark: Schnelles Merken deaktivieren
   Playlists with Matching Videos: Wiedergabelisten mit passenden Videos
+  Quick Bookmark Enabled: Schnelles Lesezeichen aktiviert
+  Cannot delete the quick bookmark target playlist.: Die Wiedergabeliste für das schnelle
+    Lesezeichen kann nicht gelöscht werden.
 History:
   # On History Page
   History: Verlauf
@@ -810,7 +834,7 @@ Video:
   Views: Aufrufe
   Watched: Angesehen
   # As in a Live Video
-  Live: Live
+  Live: Livestream
   Live Now: Jetzt live
   Live Chat: Live-Chat
   Enable Live Chat: Live-Chat aktivieren
@@ -1227,10 +1251,10 @@ Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
   Channels: Kanäle
-  Title: Kanalliste
+  Title: Kanal-Liste
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
-  Empty: Deine Kanalliste ist derzeit leer.
+  Empty: Deine Kanal-Liste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
   Unsubscribe Prompt: Bist du sicher, dass du dein Abo für „{channelName}“ entfernen
@@ -1277,3 +1301,10 @@ Cancel: Abbrechen
 Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
 Yes, Restart: Ja, neustarten
 Yes, Open Link: Ja, Link öffnen
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: Geschlossene Untertitel
+    Subtitles: Untertitel
+'Blocked opening potentially unsafe URL': Das Öffnen einer potenziell unsicheren URL
+  wurde blockiert:"{url}".

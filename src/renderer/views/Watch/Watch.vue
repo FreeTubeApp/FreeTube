@@ -180,7 +180,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-recommendations
-        v-if="!isLoading"
+        v-if="!isLoading && !hideRecommendedVideos"
         :show-autoplay="!watchingPlaylist"
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"

@@ -89,6 +89,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Pro toto hledání nejsou k dispozici žádné
     další výsledky
+  Features:
+    HD: HD
+    360 Video: 360°
+    Subtitles: Titulky
+    Features: Vlastnosti
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Živě
+    4K: 4K
+    Location: Místo
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
@@ -145,7 +157,12 @@ User Playlists:
     Select a playlist to add your N videos to: Vyberte playlist, do kterého přidat
       vaše video | Vyberte playlist, do kterého přidat vašich {videoCount} videí
     N playlists selected: Vybráno {playlistCount}
-    Added {count} Times: Přidáno {count}krát | Přidáno {count}krát
+    Added {count} Times: Již přidáno | Přidáno {count}krát
+    Allow Adding Duplicate Video(s): Povolit duplicitní přidávání videí
+    "{videoCount}/{totalVideoCount} Videos Already Added": Již přidáno {videoCount}/{totalVideoCount}
+      videí
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Bude přidáno {videoCount}/{totalVideoCount}
+      videí
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nejsou zde žádná videa k odstranění.
@@ -1210,3 +1227,8 @@ Yes, Open Link: Ano, otevřít odkaz
 Cancel: Zrušit
 Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
   ({searchCharacterLimit})
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Titulky
+    Closed Captions: Skryté titulky

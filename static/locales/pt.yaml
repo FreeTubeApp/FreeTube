@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Obter mais resultados'
 # Sidebar
   There are no more results for this search: Não existem mais resultados
+  Features:
+    Creative Commons: Creative Commons
+    Features: Funcionalidades
+    HD: HD
+    Subtitles: Legendas
+    3D: 3D
+    Location: Localização
+    Live: Direto
+    4K: 4K
+    360 Video: Vídeo 360
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscrições'
@@ -222,6 +234,7 @@ User Playlists:
     de reprodução
   Disable Quick Bookmark: Desativar marcador rápido
   Playlists with Matching Videos: Listas de reprodução coincidentes
+  Quick Bookmark Enabled: Marcador rápido ativado
 History:
   # On History Page
   History: 'Histórico'
@@ -1223,3 +1236,7 @@ Yes, Open Link: Sim, abrir ligação
 Cancel: Cancelar
 Search character limit: 'A pesquisa excede o limite de caracteres permitidos: {searchCharacterLimit}'
 Yes, Restart: Sim, reiniciar
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Legendas

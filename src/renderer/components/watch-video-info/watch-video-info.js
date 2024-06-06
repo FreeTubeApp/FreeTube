@@ -217,11 +217,8 @@ export default defineComponent({
       return this.$store.getters.getDefaultPlayback
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
@@ -229,8 +226,14 @@ export default defineComponent({
     isInQuickBookmarkPlaylist: function () {
       if (!this.isQuickBookmarkEnabled) { return false }
 
+      // Accessing a reactive property has a negligible amount of overhead,
+      // however as we know that some users have playlists that have more than 10k items in them
+      // it adds up quickly. So create a temporary variable outside of the array, so we only have to do it once.
+      // Also the search is retriggered every time any playlist is modified.
+      const id = this.id
+
       return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === this.id
+        return video.videoId === id
       })
     },
     quickBookmarkIconText: function () {
@@ -360,14 +363,12 @@ export default defineComponent({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
       }
 
-      this.addVideos({
+      this.addVideo({
         _id: this.quickBookmarkPlaylist._id,
-        videos: [videoData],
+        videoData,
       })
       // Update playlist's `lastUpdatedAt`
       this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
@@ -396,7 +397,7 @@ export default defineComponent({
       'openInExternalPlayer',
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',
-      'addVideos',
+      'addVideo',
       'updatePlaylist',
       'removeVideo',
     ])
