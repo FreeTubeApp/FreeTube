@@ -1233,3 +1233,5 @@ Search Listing:
     4K: 4K
     Closed Captions: التعاليق مغلقة
     Subtitles: التسميات التوضيحية
+'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
+  آمن: "{url}".'
