@@ -627,7 +627,7 @@ function runApp() {
         case 'nordic':
           return '#2b2f3a'
         case 'gruvbox-dark':
-          return '282828'
+          return '32302f'
         case 'solarized-dark':
           return '#002B36'
         case 'solarized-light':
