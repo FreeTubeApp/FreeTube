@@ -1272,3 +1272,5 @@ Search Listing:
     Closed Captions: Kapalı Alt Yazılar
     4K: 4K
     Subtitles: Alt Yazılar
+'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
+  \"{url}\"."
