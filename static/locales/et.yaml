@@ -172,7 +172,12 @@ User Playlists:
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video
       lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'
-    Added {count} Times: Lisatud {count} kord | Lisatud {count} korda
+    Added {count} Times: Juba lisatud {count} kord(a)
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Lisame {videoCount}/{totalVideoCount}
+      videot
+    Allow Adding Duplicate Video(s): Luba topeltvideo(te) lisamist
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      videot on juba lisatud'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Ei leidnud ühtegi videot, mida saaks eemaldada.
@@ -1182,3 +1187,5 @@ Search Listing:
     Subtitles: Subtiitrid
     Closed Captions: Subtiitrid
     4K: 4K
+'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
+  avamise: „{url}“.'
