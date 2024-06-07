@@ -110,16 +110,16 @@
 @media only screen and (width <= 1015px) and (height <= 830px),
 only screen and (width <= 500px) {
   .settingsMenu {
-    font-size: 18px;
+    font-size: 25px;
   }
 
   .titleIcon {
-    inline-size: 18px;
-    block-size: 18px;
+    inline-size: 25px;
+    block-size: 25px;
     margin-inline-end: 5px;
   }
 
   .header {
-    font-size: 22px;
+    font-size: 25px;
   }
 }
