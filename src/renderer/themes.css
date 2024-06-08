@@ -73,6 +73,9 @@
 .gray {
   --logo-icon: url("../../_icons/iconColorSmall.svg");
   --logo-text: url("../../_icons/textColorSmall.svg");
+  --logo-primary-color: #f33;
+  --logo-secondary-color: #29abe1;
+  --logo-tertiary-color: #000;
 }
 
 .system[data-system-theme*='dark'], .dark,
@@ -170,6 +173,9 @@
   --search-bar-color: #3E3F4A;
   --logo-icon: url("../../_icons/iconDraculaLightSmall.svg");
   --logo-text: url("../../_icons/textDraculaLightSmall.svg");
+  --logo-primary-color: #f8f8f8;
+  --logo-secondary-color: #f8f8f8;
+  --logo-tertiary-color: #f8f8f8;
 }
 
 .catppuccinMocha {
@@ -189,6 +195,9 @@
   --search-bar-color: #313244;
   --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.svg");
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.svg");
+  --logo-primary-color: #cdd6f4;
+  --logo-secondary-color: #cdd6f4;
+  --logo-tertiary-color: #cdd6f4;
 }
 
 .pastelPink {
@@ -230,6 +239,9 @@
   --search-bar-color: #4b566a;
   --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
   --logo-text: url("../../_icons/textNordicLightSmall.svg");
+  --logo-primary-color: #eee;
+  --logo-secondary-color: #eee;
+  --logo-tertiary-color: #eee;
 }
 
 .hotPink {
@@ -252,6 +264,9 @@
   --search-bar-color: #9C2D5D;
   --logo-icon: url("../../_icons/iconWhiteSmall.svg");
   --logo-text: url("../../_icons/textWhiteSmall.svg");
+  --logo-primary-color: #fff;
+  --logo-secondary-color: #fff;
+  --logo-tertiary-color: #fff;
 
   /* The hot pink theme does not have a great color contrast with
   many other colors than black and white. This means that the primary and
@@ -301,6 +316,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #073642;
   --logo-icon: url("../../_icons/iconSolarizedLightSmall.svg");
   --logo-text: url("../../_icons/textSolarizedLightSmall.svg");
+  --logo-primary-color: #fdf6e3;
+  --logo-secondary-color: #fdf6e3;
+  --logo-tertiary-color: #fdf6e3;
 }
 
 .solarizedLight {
@@ -320,6 +338,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #c9c8b5;
   --logo-icon: url("../../_icons/iconSolarizedDarkSmall.svg");
   --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
+  --logo-primary-color: #002b36;
+  --logo-secondary-color: #002b36;
+  --logo-tertiary-color: #002b36;
 }
 
 .mainRed,

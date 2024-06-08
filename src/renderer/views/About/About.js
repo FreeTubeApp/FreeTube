@@ -2,11 +2,13 @@ import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import packageDetails from '../../../../package.json'
 import { ABOUT_BITCOIN_ADDRESS, ABOUT_MONERO_ADDRESS } from '../../../constants'
+import FtLogoFull from '../../components/ft-logo-full/ft-logo-full.vue'
 
 export default defineComponent({
   name: 'About',
   components: {
-    'ft-card': FtCard
+    'ft-card': FtCard,
+    'ft-logo-full': FtLogoFull,
   },
   data: function () {
     return {
@@ -82,7 +84,7 @@ export default defineComponent({
           title: `${this.$t('About.Donate')} - XMR`,
           content: `<a href="monero:${ABOUT_MONERO_ADDRESS}">${ABOUT_MONERO_ADDRESS}</a>`
         }
-      ]
+      ],
     }
   }
 })
