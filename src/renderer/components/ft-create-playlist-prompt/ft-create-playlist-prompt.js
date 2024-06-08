@@ -37,6 +37,9 @@ export default defineComponent({
     playlistNameEmpty() {
       return this.playlistName === ''
     },
+    playlistNameBlank() {
+      return !this.playlistNameEmpty && this.playlistName.trim() === ''
+    },
     playlistWithNameExists() {
       // Don't show the message with no name input
       const playlistName = this.playlistName
@@ -54,6 +57,12 @@ export default defineComponent({
   },
   methods: {
     handlePlaylistNameInput(input) {
+      if (input.trim() === '') {
+        // Need to show message for blank input
+        this.playlistName = input
+        return
+      }
+
       this.playlistName = input.trim()
     },
 

@@ -19,7 +19,7 @@
         @click="createNewPlaylist"
       />
     </ft-flex-box>
-    <ft-flex-box v-if="playlistNameEmpty">
+    <ft-flex-box v-if="playlistNameBlank">
       <p>
         {{ $t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]') }}
       </p>
