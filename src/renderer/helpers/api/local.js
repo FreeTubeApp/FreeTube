@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
+import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -403,6 +403,55 @@ export async function getLocalChannelCommunity(id) {
     } else {
       throw error
     }
+  }
+}
+
+/**
+ * @param {YT.Channel} channel
+ */
+export async function getLocalArtistTopicChannelReleases(channel) {
+  const rawEngagementPanel = channel.shelves[0]?.menu?.top_level_buttons?.[0]?.endpoint.payload?.engagementPanel
+
+  if (!rawEngagementPanel) {
+    return {
+      releases: channel.playlists.map(playlist => parseLocalListPlaylist(playlist)),
+      continuationData: null
+    }
+  }
+
+  /** @type {import('youtubei.js').YTNodes.EngagementPanelSectionList} */
+  const engagementPanelSectionList = Parser.parseItem(rawEngagementPanel)
+
+  /** @type {import('youtubei.js').YTNodes.ContinuationItem|undefined} */
+  const continuationItem = engagementPanelSectionList?.content?.contents?.[0]?.contents?.[0]
+
+  if (!continuationItem) {
+    return {
+      releases: channel.playlists.map(playlist => parseLocalListPlaylist(playlist)),
+      continuationData: null
+    }
+  }
+
+  return await getLocalArtistTopicChannelReleasesContinuation(channel, continuationItem)
+}
+
+/**
+ * @param {YT.Channel} channel
+ * @param {import('youtubei.js').YTNodes.ContinuationItem} continuationData
+ */
+export async function getLocalArtistTopicChannelReleasesContinuation(channel, continuationData) {
+  const response = await continuationData.endpoint.call(channel.actions, { parse: true })
+
+  const memo = response.on_response_received_endpoints_memo
+
+  const playlists = memo.get('GridPlaylist') ?? memo.get('LockupView') ?? memo.get('Playlist')
+
+  /** @type {import('youtubei.js').YTNodes.ContinuationItem | null} */
+  const continuationItem = memo.get('ContinuationItem')?.[0] ?? null
+
+  return {
+    releases: playlists ? playlists.map(playlist => parseLocalListPlaylist(playlist)) : [],
+    continuationData: continuationItem
   }
 }
 
