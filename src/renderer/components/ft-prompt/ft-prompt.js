@@ -56,14 +56,9 @@ export default defineComponent({
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
-    this.$nextTick(() => {
+    nextTick(() => {
       document.addEventListener('keydown', this.closeEventFunction, true)
-      document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
-      this.promptButtons = Array.from(
-        document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
-      ).filter((e) => {
-        return e.id && e.id.startsWith('prompt')
-      })
+      this.promptButtons = Array.from(this.$refs.promptCard.$el.querySelectorAll('.btn.ripple'))
       this.focusItem(0)
     })
   },
@@ -121,14 +116,19 @@ export default defineComponent({
       }
     },
     arrowKeys: function(e) {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        e.preventDefault()
-        const currentIndex = this.promptButtons.findIndex((cur) => {
-          return cur === e.target
-        })
-        const direction = (e.key === 'ArrowLeft') ? -1 : 1
-        this.focusItem(parseInt(currentIndex) + direction)
+      const currentIndex = this.promptButtons.findIndex((cur) => {
+        return cur === e.target
+      })
+
+      // Only react if a button was focused when the arrow key was pressed
+      if (currentIndex === -1) {
+        return
       }
+
+      e.preventDefault()
+
+      const direction = (e.key === 'ArrowLeft') ? -1 : 1
+      this.focusItem(parseInt(currentIndex) + direction)
     },
 
     ...mapActions([

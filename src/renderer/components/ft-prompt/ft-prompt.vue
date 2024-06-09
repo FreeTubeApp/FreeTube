@@ -6,8 +6,10 @@
       tabindex="-1"
       @click="handleHide"
       @keydown.enter="handleHide"
+      @keydown.left.right.capture="arrowKeys"
     >
       <ft-card
+        ref="promptCard"
         class="promptCard"
         :class="{ autosize, [theme]: true }"
         role="dialog"
@@ -33,7 +35,6 @@
           <ft-flex-box>
             <ft-button
               v-for="(option, index) in optionNames"
-              :id="'prompt-' + sanitizedLabel + '-' + index"
               :key="index"
               :label="option"
               :text-color="optionButtonTextColor(index)"
