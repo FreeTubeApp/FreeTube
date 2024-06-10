@@ -340,7 +340,7 @@ export default defineComponent({
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
         this.playlistThumbnail = result.info.thumbnails[0].url
-        this.viewCount = extractNumberFromString(result.info.views)
+        this.viewCount = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
         this.lastUpdated = result.info.last_updated ?? ''
         this.channelName = channelName ?? ''

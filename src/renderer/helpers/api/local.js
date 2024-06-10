@@ -675,6 +675,24 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
 }
 
 /**
+ * @param {import('youtubei.js').YTNodes.CompactStation} compactStation
+ * @param {string} channelId
+ * @param {string} channelName
+ */
+export function parseLocalCompactStation(compactStation, channelId, channelName) {
+  return {
+    type: 'playlist',
+    dataSource: 'local',
+    title: compactStation.title.text,
+    thumbnail: compactStation.thumbnail[1].url,
+    channelName,
+    channelId,
+    playlistId: compactStation.endpoint.payload.playlistId,
+    videoCount: extractNumberFromString(compactStation.video_count.text)
+  }
+}
+
+/**
  * @param {YT.Search} response
  */
 function handleSearchResponse(response) {
