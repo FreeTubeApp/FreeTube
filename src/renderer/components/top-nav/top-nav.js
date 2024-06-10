@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
@@ -10,9 +11,13 @@ import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
+const NAV_HISTORY_DISPLAY_LIMIT = 15
+const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = Math.floor(NAV_HISTORY_DISPLAY_LIMIT / 2)
+
 export default defineComponent({
   name: 'TopNav',
   components: {
+    FtIconButton,
     FtInput,
     FtProfileSelector
   },
@@ -20,15 +25,20 @@ export default defineComponent({
     return {
       component: this,
       showSearchContainer: true,
-      historyIndex: 1,
       isForwardOrBack: false,
-      isArrowBackwardDisabled: true,
-      isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
   },
   computed: {
+    arrowBackwardDisabled: function() {
+      return this.sessionNavigationHistoryCurrentIndex === 0
+    },
+
+    arrowForwardDisabled: function() {
+      return this.sessionNavigationHistoryCurrentIndex >= this.sessionNavigationHistory.length - 1
+    },
+
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
@@ -85,16 +95,51 @@ export default defineComponent({
     },
 
     forwardText: function () {
-      return this.$t('Forward')
+      return this.$t('Click to go forward, right-click or hold to see history')
     },
 
     backwardText: function () {
-      return this.$t('Back')
+      return this.$t('Click to go back, right-click or hold to see history')
     },
 
     newWindowText: function () {
       return this.$t('Open New Window')
-    }
+    },
+
+    sessionNavigationHistory: function () {
+      return this.$store.getters.getSessionNavigationHistory
+    },
+
+    sessionNavigationHistoryCurrentIndex: function () {
+      return this.$store.getters.getSessionNavigationHistoryCurrentIndex
+    },
+
+    sessionNavigationHistoryResultEndIndex: function () {
+      if (this.sessionNavigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return Math.min(this.sessionNavigationHistory.length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+      } else if (this.sessionNavigationHistory.length - this.sessionNavigationHistoryCurrentIndex - 1 < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return this.sessionNavigationHistory.length - 1
+      } else {
+        return this.sessionNavigationHistoryCurrentIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
+      }
+    },
+
+    sessionNavigationHistoryDropdownOptions: function () {
+      const dropdownOptions = []
+      const end = this.sessionNavigationHistoryResultEndIndex
+      for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+        const routeLabel = this.sessionNavigationHistory[index]
+        dropdownOptions.push({
+          // TODO: pass & show the more useful document.title instead
+          // Difficult to do now because we update it asynchronously on some pages after an indeterminately long load
+          label: translateWindowTitle(routeLabel, this.$i18n) ?? routeLabel,
+          value: index - this.sessionNavigationHistoryCurrentIndex,
+          active: index === this.sessionNavigationHistoryCurrentIndex
+        })
+      }
+      return dropdownOptions
+    },
+
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -295,41 +340,32 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function () {
+    trackHistoryNavigation: function (toRoute) {
       if (!this.isForwardOrBack) {
-        this.historyIndex = window.history.length
-        this.isArrowBackwardDisabled = false
-        this.isArrowForwardDisabled = true
+        this.$store.commit('pushSessionNavigationHistoryState', toRoute)
       } else {
         this.isForwardOrBack = false
       }
     },
 
-    historyBack: function () {
+    historyBack: function (option = -1) {
+      this.updateSessionNavigationIndexBy(option)
       this.isForwardOrBack = true
-      window.history.back()
-
-      if (this.historyIndex > 1) {
-        this.historyIndex--
-        this.isArrowForwardDisabled = false
-        if (this.historyIndex === 1) {
-          this.isArrowBackwardDisabled = true
-        }
-      }
     },
 
-    historyForward: function () {
+    historyForward: function (option = 1) {
+      this.updateSessionNavigationIndexBy(option)
       this.isForwardOrBack = true
-      window.history.forward()
+    },
 
-      if (this.historyIndex < window.history.length) {
-        this.historyIndex++
-        this.isArrowBackwardDisabled = false
-
-        if (this.historyIndex === window.history.length) {
-          this.isArrowForwardDisabled = true
-        }
+    updateSessionNavigationIndexBy: function (n) {
+      // avoid reloading the page
+      if (n === 0) {
+        return
       }
+
+      window.history.go(n)
+      this.$store.commit('setSessionNavigationHistoryCurrentIndex', n + this.sessionNavigationHistoryCurrentIndex)
     },
 
     toggleSideNav: function () {
