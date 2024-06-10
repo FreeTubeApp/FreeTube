@@ -63,4 +63,4 @@
   </svg>
 </template>
 
-<style scoped src="./ft-logo-full.scss" lang="scss" />
+<style scoped src="./ft-logo-full.css" />
