@@ -53,10 +53,10 @@ const actions = {
     }
   },
 
-  async removePageBookmark({ commit }, route) {
+  async removePageBookmark({ commit }, _id) {
     try {
-      await DBSearchHistoryHandlers.delete(route._id)
-      commit('removePageBookmarkFromList', route)
+      await DBSearchHistoryHandlers.delete(_id)
+      commit('removePageBookmarkFromList', _id)
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -93,9 +93,9 @@ const mutations = {
     }
   },
 
-  removePageBookmarkFromList(state, route) {
+  removePageBookmarkFromList(state, _id) {
     const i = state.pageBookmarks.findIndex((pageBookmark) => {
-      return pageBookmark.route === route
+      return pageBookmark._id === _id
     })
 
     state.pageBookmarks.splice(i, 1)
