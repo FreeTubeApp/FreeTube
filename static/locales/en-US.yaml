@@ -1116,6 +1116,7 @@ Page Bookmark:
   Created page bookmark: Created page bookmark "{name}"
   Updated page bookmark: Updated page bookmark "{name}"
   Removed page bookmark: Removed page bookmark "{name}"
+  There is {count} other bookmark with the same name.: There is {count} other page bookmark with the same name. | There are {count} other page bookmarks with the same name.
 Role Descriptions:
   bookmark: bookmark
 Moments Ago: moments ago

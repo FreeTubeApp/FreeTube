@@ -20,6 +20,9 @@
         @clear="e => name = ''"
         @keydown.enter.native="save"
       />
+      <ft-flex-box v-if="duplicateNameCount > 0">
+        <p>{{ duplicateNameMessage }}</p>
+      </ft-flex-box>
     </div>
     <div class="actions-container">
       <ft-flex-box>

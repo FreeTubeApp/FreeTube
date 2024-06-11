@@ -24,6 +24,16 @@ export default defineComponent({
     isBookmarkBeingCreated: function () {
       return this.pageBookmark == null
     },
+    pageBookmarks: function () {
+      return this.$store.getters.getPageBookmarks
+    },
+    duplicateNameCount: function () {
+      const currentBookmarkAdjustment = this.name === this.pageBookmark?.name ? -1 : 0
+      return currentBookmarkAdjustment + this.pageBookmarks.filter((pageBookmark) => pageBookmark.name === this.name).length
+    },
+    duplicateNameMessage: function () {
+      return this.$tc('Page Bookmark["There is {count} other bookmark with the same name."]', this.duplicateNameCount, { count: this.duplicateNameCount })
+    },
     pageBookmark: function () {
       return this.$store.getters.getPageBookmarkWithRoute(this.$router.currentRoute.fullPath)
     },
