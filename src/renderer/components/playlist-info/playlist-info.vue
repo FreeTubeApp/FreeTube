@@ -70,12 +70,12 @@
         <p>
           {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
           <span v-if="!hideViews && !isUserPlaylist">
-          - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-        </span>
+            - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+          </span>
           <span>- </span>
           <span v-if="infoSource !== 'local'">
-          {{ $t("Playlist.Last Updated On") }}
-        </span>
+            {{ $t("Playlist.Last Updated On") }}
+          </span>
           {{ lastUpdated }}
         </p>
       </template>
