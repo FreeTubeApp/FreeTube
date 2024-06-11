@@ -203,6 +203,9 @@
   padding-block: 0;
   line-height: 2rem;
   padding-inline: 15px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
 .bookmarkStarIcon {
