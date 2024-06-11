@@ -1,4 +1,4 @@
-import { DBPlaylistHandlers, DBSearchHistoryHandlers } from '../../../datastores/handlers/index'
+import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
 function generateRandomPlaylistId() {
   return `ft-playlist--${generateRandomUniqueId()}`
