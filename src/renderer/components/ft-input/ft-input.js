@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
+import { getIconForRoute, isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtInput',
@@ -328,6 +328,17 @@ export default defineComponent({
 
     updateInputData: function(text) {
       this.inputData = text
+    },
+
+    iconForBookmarkedPage: (pageBookmark) => {
+      const routeSlashIndex = pageBookmark.route.indexOf('/', 2)
+      let route
+      if (routeSlashIndex === -1) {
+        route = pageBookmark.route
+      } else {
+        route = pageBookmark.route.substring(0, routeSlashIndex)
+      }
+      return getIconForRoute(route) ?? ['fas', 'magnifying-glass']
     },
 
     focus() {

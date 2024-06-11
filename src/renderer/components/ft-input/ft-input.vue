@@ -87,7 +87,7 @@
         >
           <font-awesome-icon
             v-if="entry.isBookmark"
-            :icon="['fas', 'star']"
+            :icon="iconForBookmarkedPage(entry)"
             class="searchResultIcon bookmarkStarIcon"
           />
           <font-awesome-icon

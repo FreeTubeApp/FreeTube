@@ -53,6 +53,37 @@ export function translateWindowTitle(title, i18n) {
   }
 }
 
+export function getIconForRoute(path) {
+  switch (path) {
+    case '/subscriptions':
+      return ['fas', 'rss']
+    case '/subscribedchannels':
+    case '/channel':
+      return ['fas', 'list']
+    case '/trending':
+      return ['fas', 'fire']
+    case '/popular':
+      return ['fas', 'users']
+    case '/userplaylists':
+      return ['fas', 'bookmark']
+    case '/history':
+      return ['fas', 'history']
+    case '/settings':
+      return ['fas', 'sliders-h']
+    case '/about':
+      return ['fas', 'info-circle']
+    case '/search':
+    case '/hashtag':
+      return ['fas', 'magnifying-glass']
+    case '/playlist':
+      return ['fas', 'bars']
+    case '/watch':
+      return ['fas', 'play']
+    default:
+      return null
+  }
+}
+
 /**
  * Returns an appropriate default bookmark name
  * for a given route.
