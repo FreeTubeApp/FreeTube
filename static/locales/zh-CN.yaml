@@ -139,7 +139,12 @@ User Playlists:
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
       个视频
     N playlists selected: 选中了 {playlistCount} 个播放列表
-    Added {count} Times: 添加了 {count} 次
+    Added {count} Times: 已添加了 {count} 次
+    Allow Adding Duplicate Video(s): 允许添加重复视频
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 将添加 {videoCount} 个视频，共
+      {totalVideoCount} 个视频
+    "{videoCount}/{totalVideoCount} Videos Already Added": 已添加 {videoCount} 个视频，共
+      {totalVideoCount} 个视频
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: 没有可删除的视频。
@@ -827,7 +832,7 @@ Video:
     sponsor: 赞助者
     recap: 回顾
     filler: 过滤器
-  translated from English: 从英语翻译而来
+  translated from English: 从英语翻译
   Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
@@ -1096,3 +1101,4 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: 隐藏式字幕
+'Blocked opening potentially unsafe URL': 阻止了打开潜在不安全的 URL： "{url}".

@@ -153,7 +153,12 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
-    Added {count} Times: Añadido {count} vez | Añadido {count} veces
+    Added {count} Times: Ya añadido | Añadido {count} veces
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+      Vídeos ya añadidos'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+      Se añadirán vídeos'
+    Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.
@@ -1271,3 +1276,5 @@ Search Listing:
     Subtitles: Subtítulos
     Closed Captions: Subtítulos descriptivos
     4K: 4K
+'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
+  insegura: «{url}».'

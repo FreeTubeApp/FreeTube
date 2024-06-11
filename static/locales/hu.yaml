@@ -164,7 +164,12 @@ User Playlists:
       a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó
       hozzáadásához
     N playlists selected: '{playlistCount} Kiválasztott'
-    Added {count} Times: Hozzáadva {count} Alkalommal | Hozzáadva {count} Alkalommal
+    Added {count} Times: Hozzáadva {count} Alkalommal
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      A videók hozzáadásra fognak kerülni'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videó már hozzá lett adva'
+    Allow Adding Duplicate Video(s): Duplikált videó(k) hozzáadásának engedélyezése
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
@@ -1264,3 +1269,5 @@ Search Listing:
     4K: 4K
     Subtitles: Feliratok
     Closed Captions: Zárt feliratok
+'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos URL megnyitása
+  blokkolva: "{url}".'

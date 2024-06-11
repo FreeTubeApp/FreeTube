@@ -17,23 +17,27 @@ export default defineComponent({
     FtProfileSelector
   },
   props: {
-    currentRouteFullPath: {
-      type: String,
-      default: ''
-    },
     pageBookmarksAvailable: {
       type: Boolean,
       default: false
     }
   },
   data: () => {
+    let isArrowBackwardDisabled = true
+    let isArrowForwardDisabled = true
+
+    // If the Navigation API isn't supported (Firefox and Safari)
+    // keep the back and forwards buttons always enabled
+    if (!('navigation' in window)) {
+      isArrowBackwardDisabled = false
+      isArrowForwardDisabled = false
+    }
+
     return {
-      component: this,
       showSearchContainer: true,
-      historyIndex: 1,
-      isForwardOrBack: false,
-      isArrowBackwardDisabled: true,
-      isArrowForwardDisabled: true,
+      isArrowBackwardDisabled,
+      isArrowForwardDisabled,
+      currentRouteFullPath: '',
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -122,11 +126,22 @@ export default defineComponent({
       return this.isPageBookmarked ? 'base favorite' : 'base'
     }
   },
+  watch: {
+    $route: function (to, from) {
+      if ('navigation' in window) {
+        this.isArrowForwardDisabled = !window.navigation.canGoForward
+        this.isArrowBackwardDisabled = !window.navigation.canGoBack
+      }
+
+      this.currentRouteFullPath = to.fullPath
+    }
+  },
   mounted: function () {
     let previousWidth = window.innerWidth
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
+    this.currentRouteFullPath = this.$router.currentRoute.fullPath
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
       if (this.expandSideBar) {
@@ -334,41 +349,12 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function () {
-      if (!this.isForwardOrBack) {
-        this.historyIndex = window.history.length
-        this.isArrowBackwardDisabled = false
-        this.isArrowForwardDisabled = true
-      } else {
-        this.isForwardOrBack = false
-      }
-    },
-
     historyBack: function () {
-      this.isForwardOrBack = true
-      window.history.back()
-
-      if (this.historyIndex > 1) {
-        this.historyIndex--
-        this.isArrowForwardDisabled = false
-        if (this.historyIndex === 1) {
-          this.isArrowBackwardDisabled = true
-        }
-      }
+      this.$router.back()
     },
 
     historyForward: function () {
-      this.isForwardOrBack = true
-      window.history.forward()
-
-      if (this.historyIndex < window.history.length) {
-        this.historyIndex++
-        this.isArrowBackwardDisabled = false
-
-        if (this.historyIndex === window.history.length) {
-          this.isArrowForwardDisabled = true
-        }
-      }
+      this.$router.forward()
     },
 
     toggleSideNav: function () {

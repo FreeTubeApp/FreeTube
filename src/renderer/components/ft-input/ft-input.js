@@ -140,7 +140,7 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  created: function () {
     this.id = this._uid
     this.inputData = this.value
     this.updateVisibleDataList()

@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { deepCopy, showToast } from '../../helpers/utils'
@@ -11,7 +12,8 @@ import { getFirstCharacter } from '../../helpers/strings'
 export default defineComponent({
   name: 'FtSubscribeButton',
   components: {
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-prompt': FtPrompt
   },
   props: {
     channelId: {
@@ -42,7 +44,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isProfileDropdownOpen: false
+      isProfileDropdownOpen: false,
+      showUnsubscribePopupForProfile: null
     }
   },
   computed: {
@@ -108,34 +111,14 @@ export default defineComponent({
         return
       }
 
-      const currentProfile = deepCopy(profile)
-
       if (this.isProfileSubscribed(profile)) {
-        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-          return channel.id !== this.channelId
-        })
-
-        this.updateProfile(currentProfile)
-        showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
-
-        if (profile._id === MAIN_PROFILE_ID) {
-          // Check if a subscription exists in a different profile.
-          // Remove from there as well.
-          let duplicateSubscriptions = 0
-
-          this.profileList.forEach((profileInList) => {
-            if (profileInList._id === MAIN_PROFILE_ID) {
-              return
-            }
-            duplicateSubscriptions += this.unsubscribe(profileInList, this.channelId)
-          })
-
-          if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
-            showToast(message)
-          }
+        if (this.$store.getters.getUnsubscriptionPopupStatus) {
+          this.showUnsubscribePopupForProfile = profile
+        } else {
+          this.handleUnsubscription(profile)
         }
       } else {
+        const currentProfile = deepCopy(profile)
         const subscription = {
           id: this.channelId,
           name: this.channelName,
@@ -173,8 +156,44 @@ export default defineComponent({
       }
     },
 
-    toggleProfileDropdown: function() {
+    toggleProfileDropdown: function () {
       this.isProfileDropdownOpen = !this.isProfileDropdownOpen
+    },
+
+    handleUnsubscribeConfirmation: async function (value) {
+      const profile = this.showUnsubscribePopupForProfile
+      this.showUnsubscribePopupForProfile = null
+      if (value === 'yes') {
+        this.handleUnsubscription(profile)
+      }
+    },
+
+    handleUnsubscription: function (profile) {
+      const currentProfile = deepCopy(profile)
+      currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
+        return channel.id !== this.channelId
+      })
+
+      this.updateProfile(currentProfile)
+      showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
+
+      if (profile._id === MAIN_PROFILE_ID) {
+        // Check if a subscription exists in a different profile.
+        // Remove from there as well.
+        let duplicateSubscriptions = 0
+
+        this.profileList.forEach((profileInList) => {
+          if (profileInList._id === MAIN_PROFILE_ID) {
+            return
+          }
+          duplicateSubscriptions += this.unsubscribe(profileInList, this.channelId)
+        })
+
+        if (duplicateSubscriptions > 0) {
+          const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
+          showToast(message)
+        }
+      }
     },
 
     isActiveProfile: function (profile) {

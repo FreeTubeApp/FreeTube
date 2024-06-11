@@ -177,7 +177,12 @@ User Playlists:
     Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
       aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
       toe te voegen
-    Added {count} Times: '{count} keer toe­gevoegd | {count} keer toe­gevoegd'
+    Added {count} Times: 'Video is al toe­gevoegd | {count} keer toe­gevoegd'
+    Allow Adding Duplicate Video(s): Toevoegen van dubbele video's toestaan
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount}
+      video's zullen worden toegevoegd"
+    "{videoCount}/{totalVideoCount} Videos Already Added": "{videoCount}/{totalVideoCount}
+      video's zijn al toegevoegd"
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
   Create New Playlist: Nieuwe afspeel­lijst aanmaken
@@ -1262,3 +1267,5 @@ Search Listing:
     4K: 4K
     Subtitles: Ondertitels
     Closed Captions: Gesloten ondertitels
+'Blocked opening potentially unsafe URL': 'Openen van mogelijk onveilige URL geblokkeerd:
+  ‘{url}’.'

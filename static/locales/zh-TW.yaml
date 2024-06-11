@@ -185,7 +185,12 @@ User Playlists:
         部影片新增至 1 個播放清單
       "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount}
         個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
-    Added {count} Times: 新增了 {count} 次 | 新增了 {count} 次
+    Added {count} Times: 已新增 | 新增了 {count} 次
+    Allow Adding Duplicate Video(s): 允許新增重複影片
+    "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount}
+      部影片
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 將會新增 {videoCount}/{totalVideoCount}
+      部影片
   CreatePlaylistPrompt:
     New Playlist Name: 新播放清單名稱
     Toast:
@@ -1106,3 +1111,4 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: 隱藏式字幕
+'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。

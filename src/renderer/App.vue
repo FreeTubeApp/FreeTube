@@ -64,7 +64,6 @@
     <top-nav
       ref="topNav"
       :inert="isPromptOpen"
-      :current-route-full-path="currentRouteFullPath"
       :page-bookmarks-available="pageBookmarksAvailable"
     />
     <side-nav

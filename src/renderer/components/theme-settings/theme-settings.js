@@ -134,7 +134,7 @@ export default defineComponent({
       return this.baseTheme !== 'hotPink'
     }
   },
-  mounted: function () {
+  created: function () {
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {

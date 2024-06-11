@@ -240,9 +240,12 @@ User Playlists:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
+    Allow Adding Duplicate Video(s): Allow Adding Duplicate Video(s)
     Save: Save
 
-    Added {count} Times: 'Added {count} Time | Added {count} Times'
+    Added {count} Times: 'Already Added | Added {count} Times'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videos Will Be Added'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videos Already Added'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
@@ -476,6 +479,7 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
     Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
+    Avoid Accidental Unsubscription: Avoid Accidental Unsubscription
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Sections:
@@ -1089,6 +1093,7 @@ Age Restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL: "{url}".'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
