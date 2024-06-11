@@ -1282,6 +1282,15 @@ function runApp() {
           )
           return null
 
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.searchHistory.deleteMultiple(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
         case DBActions.GENERAL.DELETE_ALL:
           await baseHandlers.searchHistory.deleteAll()
           return null

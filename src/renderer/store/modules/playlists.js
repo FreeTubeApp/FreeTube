@@ -1,4 +1,4 @@
-import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
+import { DBPlaylistHandlers, DBSearchHistoryHandlers } from '../../../datastores/handlers/index'
 
 function generateRandomPlaylistId() {
   return `ft-playlist--${generateRandomUniqueId()}`
@@ -365,8 +365,10 @@ const actions = {
     }
   },
 
-  async removeAllPlaylists({ commit }) {
+  async removeAllPlaylists({ commit, dispatch, state }) {
     try {
+      const playlistIds = state.playlists.map((playlist) => playlist._id)
+      dispatch('removeUserPlaylistPageBookmarks', playlistIds, { root: true })
       await DBPlaylistHandlers.deleteAll()
       commit('removeAllPlaylists')
     } catch (errMessage) {
@@ -383,8 +385,9 @@ const actions = {
     }
   },
 
-  async removePlaylist({ commit }, playlistId) {
+  async removePlaylist({ commit, dispatch }, playlistId) {
     try {
+      dispatch('removeUserPlaylistPageBookmarks', [playlistId], { root: true })
       await DBPlaylistHandlers.delete(playlistId)
       commit('removePlaylist', playlistId)
     } catch (errMessage) {
@@ -392,8 +395,9 @@ const actions = {
     }
   },
 
-  async removePlaylists({ commit }, playlistIds) {
+  async removePlaylists({ commit, dispatch }, playlistIds) {
     try {
+      dispatch('removeUserPlaylistPageBookmarks', playlistIds, { root: true })
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
       commit('removePlaylists', playlistIds)
     } catch (errMessage) {

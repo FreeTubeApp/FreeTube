@@ -220,6 +220,13 @@ class SearchHistory {
     )
   }
 
+  static deleteMultiple(ids) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.DELETE_MULTIPLE, data: ids }
+    )
+  }
+
   static deleteAll() {
     return ipcRenderer.invoke(
       IpcChannels.DB_SEARCH_HISTORY,

@@ -184,6 +184,10 @@ class SearchHistory {
     return db.searchHistory.removeAsync({ _id: _id })
   }
 
+  static deleteMultiple(ids) {
+    return db.searchHistory.removeAsync({ _id: { $in: ids } })
+  }
+
   static deleteAll() {
     return db.searchHistory.removeAsync({}, { multi: true })
   }

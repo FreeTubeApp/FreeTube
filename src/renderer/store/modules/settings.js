@@ -534,6 +534,10 @@ const customActions = {
             commit('removePageBookmarkFromList', data)
             break
 
+          case SyncEvents.GENERAL.DELETE_MULTIPLE:
+            commit('removePageBookmarksFromList', data)
+            break
+
           default:
             console.error('search history: invalid sync event received')
         }

@@ -127,6 +127,10 @@ class SearchHistory {
     return baseHandlers.searchHistory.delete(_id)
   }
 
+  static deleteMultiple(ids) {
+    return baseHandlers.searchHistory.deleteMultiple(ids)
+  }
+
   static deleteAll() {
     return baseHandlers.searchHistory.deleteAll()
   }

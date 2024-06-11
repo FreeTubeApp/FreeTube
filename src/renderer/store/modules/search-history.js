@@ -19,10 +19,29 @@ const getters = {
       return []
     }
     const queryToLower = query.toLowerCase()
-    const pageBookmarks = state.pageBookmarks.filter((pageBookmark) =>
-      pageBookmark && pageBookmark.name.toLowerCase().includes(queryToLower) && pageBookmark.route !== routeToExclude
+    return state.pageBookmarks.filter((pageBookmark) =>
+      pageBookmark.name.toLowerCase().includes(queryToLower) && pageBookmark.route !== routeToExclude
     )
-    return pageBookmarks
+  },
+
+  getPageBookmarkIdsForMatchingUserPlaylistIds: (state) => (playlistIds) => {
+    const pageBookmarkIds = []
+    const allPageBookmarks = state.pageBookmarks
+    const pageBookmarkLimitedRoutesMap = new Map()
+    allPageBookmarks.forEach((pageBookmark) => {
+      pageBookmarkLimitedRoutesMap.set(pageBookmark.route, pageBookmark._id)
+    })
+
+    playlistIds.forEach((playlistId) => {
+      const route = `/playlist/${playlistId}?playlistType=user&searchQueryText=`
+      if (!pageBookmarkLimitedRoutesMap.has(route)) {
+        return
+      }
+
+      pageBookmarkIds.push(pageBookmarkLimitedRoutesMap.get(route))
+    })
+
+    return pageBookmarkIds
   }
 }
 const actions = {
@@ -62,6 +81,24 @@ const actions = {
     }
   },
 
+  async removePageBookmarks({ commit }, ids) {
+    try {
+      await DBSearchHistoryHandlers.deleteMultiple(ids)
+      commit('removePageBookmarksFromList', ids)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  async removeUserPlaylistPageBookmarks({ dispatch, getters }, userPlaylistIds) {
+    const pageBookmarkIds = getters.getPageBookmarkIdsForMatchingUserPlaylistIds(userPlaylistIds)
+    if (pageBookmarkIds.length === 0) {
+      return
+    }
+
+    dispatch('removePageBookmarks', pageBookmarkIds)
+  },
+
   async removeAllPageBookmarks({ commit }) {
     try {
       await DBSearchHistoryHandlers.deleteAll()
@@ -99,6 +136,10 @@ const mutations = {
     })
 
     state.pageBookmarks.splice(i, 1)
+  },
+
+  removePageBookmarksFromList(state, ids) {
+    state.pageBookmarks = state.pageBookmarks.filter((pageBookmark) => !ids.includes(pageBookmark._id))
   }
 }
 
