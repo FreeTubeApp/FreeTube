@@ -460,6 +460,7 @@ Settings:
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
       Göster
+    Avoid Accidental Unsubscription: Yanlışlıkla Abonelikten Çıkmayı Önle
   Data Settings:
     Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
