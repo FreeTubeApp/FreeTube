@@ -166,6 +166,20 @@ export default defineComponent({
         this.$t('Cancel')
       ]
     },
+    removeVideosOnWatchPromptLabelText() {
+      return this.$tc(
+        'User Playlists.Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone',
+        this.userPlaylistWatchedVideoCount,
+        { playlistItemCount: this.userPlaylistWatchedVideoCount },
+      )
+    },
+    removeDuplicateVideosPromptLabelText() {
+      return this.$tc(
+        'User Playlists.Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone',
+        this.userPlaylistDuplicateItemCount,
+        { playlistItemCount: this.userPlaylistDuplicateItemCount },
+      )
+    },
 
     firstVideoIdExists() {
       return this.firstVideoId !== ''
@@ -219,6 +233,15 @@ export default defineComponent({
       return this.selectedUserPlaylist.videos.some((video) => {
         return typeof historyCacheById[video.videoId] !== 'undefined'
       })
+    },
+    // `userPlaylistAnyVideoWatched` is faster than this & this is only needed when prompt shown
+    userPlaylistWatchedVideoCount() {
+      if (!this.isUserPlaylist) { return false }
+
+      const historyCacheById = this.$store.getters.getHistoryCacheById
+      return this.selectedUserPlaylist.videos.reduce((count, video) => {
+        return typeof historyCacheById[video.videoId] !== 'undefined' ? count + 1 : count
+      }, 0)
     },
 
     userPlaylistUniqueVideoIds() {

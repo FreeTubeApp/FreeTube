@@ -210,7 +210,7 @@
       />
       <ft-prompt
         v-if="showRemoveVideosOnWatchPrompt"
-        :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone')"
+        :label="removeVideosOnWatchPromptLabelText"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         :is-first-option-destructive="true"
@@ -218,7 +218,7 @@
       />
       <ft-prompt
         v-if="showRemoveDuplicateVideosPrompt"
-        :label="$t('User Playlists.Are you sure you want to remove duplicate videos from this playlist? This cannot be undone')"
+        :label="removeDuplicateVideosPromptLabelText"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         :is-first-option-destructive="true"
