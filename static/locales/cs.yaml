@@ -459,6 +459,7 @@ Settings:
     Fetch Automatically: Automaticky načítat odběry
     Only Show Latest Video for Each Channel: U každého kanálu zobrazit pouze nejnovější
       video
+    Avoid Accidental Unsubscription: Zamezit nechtěným odběrům
   Distraction Free Settings:
     Distraction Free Settings: 'Nastavení rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
