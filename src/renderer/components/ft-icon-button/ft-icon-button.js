@@ -16,6 +16,10 @@ export default defineComponent({
       type: Array,
       default: () => ['fas', 'ellipsis-v']
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     theme: {
       type: String,
       default: 'base'
@@ -61,6 +65,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ['click', 'disabled-click'],
   data: function () {
     return {
       dropdownShown: false,
@@ -87,6 +92,10 @@ export default defineComponent({
     },
 
     handleIconClick: function () {
+      if (this.disabled) {
+        this.$emit('disabled-click')
+        return
+      }
       if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.dropdownShown = !this.dropdownShown
 
@@ -103,6 +112,7 @@ export default defineComponent({
     },
 
     handleIconMouseDown: function () {
+      if (this.disabled) { return }
       if (this.dropdownShown) {
         this.mouseDownOnIcon = true
       }

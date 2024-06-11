@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import packageDetails from '../../../../package.json'
+import { ABOUT_BITCOIN_ADDRESS, ABOUT_MONERO_ADDRESS } from '../../../constants'
 
 export default defineComponent({
   name: 'About',
@@ -14,7 +15,7 @@ export default defineComponent({
         {
           icon: ['fab', 'github'],
           title: this.$t('About.Source code'),
-          content: `<a href="https://github.com/FreeTubeApp/FreeTube">GitHub: FreeTubeApp/FreeTube</a><br>${this.$t('About.Licensed under the AGPLv3')} <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${this.$t('About.View License')}</a>`
+          content: `<a href="https://github.com/FreeTubeApp/FreeTube">GitHub: FreeTubeApp/FreeTube</a><br>${this.$t('About.Licensed under the')} <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${this.$t('About.AGPLv3')}</a>`
         },
         {
           icon: ['fas', 'file-download'],
@@ -74,12 +75,12 @@ export default defineComponent({
         {
           icon: ['fab', 'bitcoin'],
           title: `${this.$t('About.Donate')} - BTC`,
-          content: '<a href="bitcoin:1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS">1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS</a>'
+          content: `<a href="bitcoin:${ABOUT_BITCOIN_ADDRESS}">${ABOUT_BITCOIN_ADDRESS}</a>`
         },
         {
           icon: ['fab', 'monero'],
           title: `${this.$t('About.Donate')} - XMR`,
-          content: '<a href="monero:48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB">48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB</a>'
+          content: `<a href="monero:${ABOUT_MONERO_ADDRESS}">${ABOUT_MONERO_ADDRESS}</a>`
         }
       ]
     }

@@ -65,13 +65,6 @@ class History {
       { action: DBActions.GENERAL.DELETE_ALL }
     )
   }
-
-  static persist() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.GENERAL.PERSIST }
-    )
-  }
 }
 
 class Profiles {
@@ -100,13 +93,6 @@ class Profiles {
     return ipcRenderer.invoke(
       IpcChannels.DB_PROFILES,
       { action: DBActions.GENERAL.DELETE, data: id }
-    )
-  }
-
-  static persist() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      { action: DBActions.GENERAL.PERSIST }
     )
   }
 }
@@ -205,11 +191,9 @@ class Playlists {
   }
 }
 
-const handlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists
 }
-
-export default handlers

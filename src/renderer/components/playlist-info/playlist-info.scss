@@ -6,12 +6,13 @@
   cursor: pointer;
 }
 
+
 .playlistThumbnail img {
   inline-size: 100%;
   // Ensure placeholder image displayed at same aspect ratio as most other images
   aspect-ratio: 16/9;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (width <= 800px) {
     display: none;
   }
 }
@@ -33,8 +34,9 @@
   max-block-size: 20vh;
   overflow-y: auto;
   white-space: break-spaces;
+  margin-inline: auto;
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (width <= 500px) {
     max-block-size: 10vh;
   }
 }
@@ -75,17 +77,57 @@
 
 .searchInputsRow {
   margin-block-start: 8px;
-
-  display: grid;
-
-  /* 2 columns */
-  grid-template-columns: 1fr auto;
-  column-gap: 8px;
 }
 
-@media only screen and (max-width: 1250px) {
+.top-bar {
+  .playlistThumbnail, .playlistInfoSeparator {
+    display: none;
+  }
+
+  .playlistStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .playlistTitle {
+    margin-block-start: 0.2em;
+  }
+
+  .playlistTitle, .playlistDescription {
+    overflow-x: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-inline-size: 750px;
+    inline-size: 100%;
+    margin-block: 8px;
+  }
+
+  .descriptionInput {
+    margin-block-start: 8px;
+  }
+
+  .playlistOptionsAndSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .channelShareWrapper, .searchInputsRow, .playlistStats {
+    column-gap: 0;
+    inline-size: 100%;
+  }
+
+  .inputElement {
+    inline-size: 100%;
+  }
+}
+
+@media only screen and (width <= 1250px) {
   :deep(.sharePlaylistIcon .iconDropdown) {
-    inset-inline-start: auto;
-    inset-inline-end: auto;
+    inset-inline: auto auto;
   }
 }

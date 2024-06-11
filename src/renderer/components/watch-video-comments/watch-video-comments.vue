@@ -47,6 +47,7 @@
       :value="currentSortValue"
       :select-names="sortNames"
       :select-values="sortValues"
+      :icon="['fas', 'arrow-down-short-wide']"
       @change="handleSortChange"
     />
     <div
@@ -251,13 +252,13 @@
             </p>
           </div>
           <div
-            v-if="comment.replyToken !== null"
+            v-if="comment.hasReplyToken"
             class="showMoreReplies"
             role="button"
             tabindex="0"
-            @click="getCommentReplies(index, comment.replies.length)"
-            @keydown.space.prevent="getCommentReplies(index, comment.replies.length)"
-            @keydown.enter.prevent="getCommentReplies(index, comment.replies.length)"
+            @click="getCommentReplies(index)"
+            @keydown.space.prevent="getCommentReplies(index)"
+            @keydown.enter.prevent="getCommentReplies(index)"
           >
             <span>{{ $t("Comments.Show More Replies") }}</span>
           </div>

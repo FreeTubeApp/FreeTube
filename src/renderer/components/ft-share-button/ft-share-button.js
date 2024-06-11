@@ -58,6 +58,16 @@ export default defineComponent({
       return this.shareTargetType === 'Video'
     },
 
+    shareTitle: function() {
+      if (this.isChannel) {
+        return this.$t('Share.Share Channel')
+      }
+      if (this.isPlaylist) {
+        return this.$t('Share.Share Playlist')
+      }
+      return this.$t('Share.Share Video')
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },

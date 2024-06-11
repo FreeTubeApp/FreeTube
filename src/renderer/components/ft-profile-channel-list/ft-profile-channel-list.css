@@ -8,7 +8,7 @@ h2, .selectedCount {
   margin-inline: auto;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;
   }

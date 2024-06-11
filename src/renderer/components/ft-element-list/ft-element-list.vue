@@ -13,7 +13,18 @@
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
       :hide-forbidden-titles="hideForbiddenTitles"
+      :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
+      :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
+      :can-move-video-up="canMoveVideoUp && index > 0"
+      :can-move-video-down="canMoveVideoDown && index < playlistItemsLength - 1"
+      :can-remove-from-playlist="canRemoveFromPlaylist"
       :search-query-text="searchQueryText"
+      :playlist-id="playlistId"
+      :playlist-type="playlistType"
+      :playlist-item-id="result.playlistItemId"
+      @move-video-up="moveVideoUp(result.videoId, result.playlistItemId)"
+      @move-video-down="moveVideoDown(result.videoId, result.playlistItemId)"
+      @remove-from-playlist="removeFromPlaylist(result.videoId, result.playlistItemId)"
     />
   </ft-auto-grid>
 </template>

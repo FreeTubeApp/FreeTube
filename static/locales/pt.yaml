@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Português'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
@@ -89,6 +88,18 @@ Search Filters:
   Fetch more results: 'Obter mais resultados'
 # Sidebar
   There are no more results for this search: Não existem mais resultados
+  Features:
+    Creative Commons: Creative Commons
+    Features: Funcionalidades
+    HD: HD
+    Subtitles: Legendas
+    3D: 3D
+    Location: Localização
+    Live: Direto
+    4K: 4K
+    360 Video: Vídeo 360
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscrições'
@@ -223,6 +234,7 @@ User Playlists:
     de reprodução
   Disable Quick Bookmark: Desativar marcador rápido
   Playlists with Matching Videos: Listas de reprodução coincidentes
+  Quick Bookmark Enabled: Marcador rápido ativado
 History:
   # On History Page
   History: 'Histórico'
@@ -277,6 +289,9 @@ Settings:
       Open Link: Abrir ligação
       Ask Before Opening Link: Perguntar antes de abrir a ligação
       No Action: Nenhuma ação
+    Auto Load Next Page:
+      Label: Carregar seguinte automaticamente
+      Tooltip: Carrega as páginas e comentários automaticamente.
   Theme Settings:
     Theme Settings: 'Configurações de tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
@@ -291,6 +306,8 @@ Settings:
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa choque
       Nordic: Nórdico
+      Solarized Dark: Escuro solar
+      Solarized Light: Claro solar
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -330,6 +347,14 @@ Settings:
       Catppuccin Mocha Sapphire: Cappuccino mocha safira
       Catppuccin Mocha Blue: Cappuccino mocha azul
       Catppuccin Mocha Lavender: Cappuccino mocha lavanda
+      Solarized Yellow: Amarelo solar
+      Solarized Orange: Laranja solar
+      Solarized Red: Vermelho solar
+      Solarized Magenta: Magenta solar
+      Solarized Violet: Violeta solar
+      Solarized Blue: Azul solar
+      Solarized Cyan: Ciano solar
+      Solarized Green: Verde solar
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da interface gráfica
@@ -393,8 +418,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
     Allow DASH AV1 formats: Permitir formatos DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Carregamento automático de comentários
   Privacy Settings:
     Privacy Settings: 'Configurações de privacidade'
     Remember History: 'Memorizar histórico'
@@ -411,8 +434,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tem
       a certeza de que pretende remover todas as suas subscrições e perfis? Esta ação
       não pode ser revertida.'
-    Automatically Remove Video Meta Files: Remover automaticamente os meta-ficheiros
-      dos vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
       última lista de reprodução vista
     Remove All Playlists: Remover todas as listas de reprodução
@@ -638,6 +659,7 @@ Settings:
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
   Expand All Settings Sections: Expandir todas as secções de configurações
+  Sort Settings Sections (A-Z): Ordenar definições (A-Z)
 About:
   #On About page
   About: 'Acerca'
@@ -694,6 +716,8 @@ About:
   Source code: Código-fonte
   Beta: Beta
   Discussions: Discussões
+  Licensed under the: Licenciado nos termos da
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Seleção de perfil'
   All Channels: 'Todos os canais'
@@ -977,6 +1001,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reprodução
+  Sort By:
+    Sort By: Ordenar por
+    AuthorAscending: Autor (A-Z)
+    DateAddedNewest: Últimas adições primeiro
+    DateAddedOldest: Primeiras adições primeiro
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Título (A-Z)
+    VideoTitleDescending: Título (Z-A)
+    Custom: Personalizado
 Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
@@ -1073,9 +1106,6 @@ This video is unavailable because of missing formats. This can happen due to cou
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
   no seu país.
 Tooltips:
-  Privacy Settings:
-    Remove Video Meta Files: Se ativa, ao fechar uma página, FreeTube apagará automaticamente
-      os meta-ficheiros criados durante a reprodução de um vídeo.
   Subscription Settings:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
@@ -1195,3 +1225,18 @@ Close Banner: Fechar banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrições de idade
   This video is age restricted: Este vídeo tem restrições de idade
+Feed:
+  Feed Last Updated: 'Última atualização de {feedName}: {date}'
+  Refresh Feed: Recarregar {subscriptionName}
+Display Label: '{label}: {value}'
+Moments Ago: há momentos
+checkmark: ✓
+Yes, Delete: Sim, eliminar
+Yes, Open Link: Sim, abrir ligação
+Cancel: Cancelar
+Search character limit: 'A pesquisa excede o limite de caracteres permitidos: {searchCharacterLimit}'
+Yes, Restart: Sim, reiniciar
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Legendas

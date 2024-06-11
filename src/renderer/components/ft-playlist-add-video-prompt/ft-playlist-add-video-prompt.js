@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -10,6 +10,8 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
   showToast,
+  ctrlFHandler,
+  getIconForSortPreference
 } from '../../helpers/utils'
 
 const SORT_BY_VALUES = {
@@ -42,11 +44,17 @@ export default defineComponent({
       doSearchPlaylistsWithMatchingVideos: false,
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
-      lastActiveElement: null,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
+      addingDuplicateVideosEnabled: false,
     }
   },
   computed: {
+    title: function () {
+      return this.$tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', this.toBeAddedToPlaylistVideoCount, {
+        videoCount: this.toBeAddedToPlaylistVideoCount,
+      })
+    },
+
     showingCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
     },
@@ -104,10 +112,15 @@ export default defineComponent({
     toBeAddedToPlaylistVideoList: function () {
       return this.$store.getters.getToBeAddedToPlaylistVideoList
     },
+    toBeAddedToPlaylistVideoIdList: function () {
+      return this.toBeAddedToPlaylistVideoList.map((v) => v.videoId)
+    },
     newPlaylistDefaultProperties: function () {
       return this.$store.getters.getNewPlaylistDefaultProperties
     },
-
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     processedQuery: function() {
       return this.query.trim().toLowerCase()
     },
@@ -119,7 +132,7 @@ export default defineComponent({
         if (typeof (playlist.playlistName) !== 'string') { return false }
 
         if (this.doSearchPlaylistsWithMatchingVideos) {
-          if (playlist.videos.some((v) => v.title.toLowerCase().includes(this.processedQuery))) {
+          if (playlist.videos.some((v) => v.author.toLowerCase().includes(this.processedQuery) || v.title.toLowerCase().includes(this.processedQuery))) {
             return true
           }
         }
@@ -152,6 +165,23 @@ export default defineComponent({
     sortBySelectValues() {
       return Object.values(SORT_BY_VALUES)
     },
+
+    playlistIdsContainingVideosToBeAdded() {
+      const ids = []
+
+      this.allPlaylists.forEach((playlist) => {
+        const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
+
+        if (this.toBeAddedToPlaylistVideoIdList.every((vid) => playlistVideoIdSet.has(vid))) {
+          ids.push(playlist._id)
+        }
+      })
+
+      return ids
+    },
+    anyPlaylistContainsVideosToBeAdded() {
+      return this.playlistIdsContainingVideosToBeAdded.length > 0
+    },
   },
   watch: {
     allPlaylistsLength(val, oldVal) {
@@ -181,7 +211,7 @@ export default defineComponent({
       if (val > oldVal) {
         // Focus back to search input only when playlist added
         // Allow search and easier deselecting new created playlist
-        this.$refs.searchBar.focus()
+        nextTick(() => this.$refs.searchBar.focus())
       }
     },
 
@@ -191,18 +221,27 @@ export default defineComponent({
       // Only care when CreatePlaylistPrompt hidden
       // Shift focus from button to prevent unwanted click event
       // due to enter key press in CreatePlaylistPrompt
-      this.$refs.searchBar.focus()
+      nextTick(() => this.$refs.searchBar.focus())
+    },
+
+    addingDuplicateVideosEnabled(val) {
+      if (val) { return }
+
+      // Only care when addingDuplicateVideosEnabled disabled
+      // Remove disabled playlists
+      this.selectedPlaylistIdList = this.selectedPlaylistIdList.filter(playlistId => {
+        return !this.playlistIdsContainingVideosToBeAdded.includes(playlistId)
+      })
     },
   },
   mounted: function () {
-    this.lastActiveElement = document.activeElement
-
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
     // User might want to search first if they have many playlists
-    this.$refs.searchBar.focus()
+    nextTick(() => this.$refs.searchBar.focus())
   },
   beforeDestroy() {
-    this.lastActiveElement?.focus()
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     hide: function () {
@@ -230,23 +269,36 @@ export default defineComponent({
         const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
         if (playlist == null) { return }
 
+        // Use [].concat to avoid `do not mutate vuex store state outside mutation handlers`
+        let videosToBeAdded = [].concat(this.toBeAddedToPlaylistVideoList)
+        if (!this.addingDuplicateVideosEnabled) {
+          const playlistVideoIds = playlist.videos.map((v) => v.videoId)
+          videosToBeAdded = videosToBeAdded.filter((v) => !playlistVideoIds.includes(v.videoId))
+        }
+
         this.addVideos({
           _id: playlist._id,
-          // Use [].concat to avoid `do not mutate vuex store state outside mutation handlers`
-          videos: [].concat(this.toBeAddedToPlaylistVideoList),
+          videos: videosToBeAdded,
         })
         addedPlaylistIds.add(playlist._id)
         // Update playlist's `lastUpdatedAt`
         this.updatePlaylist({ _id: playlist._id })
       })
 
-      const translationEntryKey = addedPlaylistIds.size === 1
-        ? 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist'
-        : 'User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists'
-      showToast(this.$tc(translationEntryKey, this.toBeAddedToPlaylistVideoCount, {
-        videoCount: this.toBeAddedToPlaylistVideoCount,
-        playlistCount: addedPlaylistIds.size,
-      }))
+      let message
+      if (addedPlaylistIds.size === 1) {
+        message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', this.toBeAddedToPlaylistVideoCount, {
+          videoCount: this.toBeAddedToPlaylistVideoCount,
+          playlistCount: addedPlaylistIds.size,
+        })
+      } else {
+        message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', this.toBeAddedToPlaylistVideoCount, {
+          videoCount: this.toBeAddedToPlaylistVideoCount,
+          playlistCount: addedPlaylistIds.size,
+        })
+      }
+
+      showToast(message)
       this.hide()
     },
 
@@ -258,6 +310,18 @@ export default defineComponent({
 
     updateQuery: function(query) {
       this.query = query
+    },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.searchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
+
+    playlistDisabled(playlistId) {
+      if (this.addingDuplicateVideosEnabled) { return false }
+
+      return this.playlistIdsContainingVideosToBeAdded.includes(playlistId)
     },
 
     ...mapActions([

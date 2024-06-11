@@ -1,5 +1,5 @@
 <p align="center">
- <img alt="" src="https://docs.freetubeapp.io/images/logoColor.png" width=500 align="center">
+ <img alt="" src="/_icons/logoColor.svg" width=500 align="center">
 </p>
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
@@ -107,7 +107,7 @@ The first build with a green check mark is the latest build.
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-* FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
+* FreeTubeAndroid (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeAndroid/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeAndroid)
 
 * Homebrew Formulae (Mac only): [Download](https://formulae.brew.sh/cask/freetube)
 

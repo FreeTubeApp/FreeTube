@@ -1,4 +1,4 @@
-import baseHandlers from './base'
+import * as baseHandlers from './base'
 
 // TODO: Syncing
 // Syncing on the web would involve a different implementation
@@ -44,10 +44,6 @@ class History {
   static deleteAll() {
     return baseHandlers.history.deleteAll()
   }
-
-  static persist() {
-    baseHandlers.history.persist()
-  }
 }
 
 class Profiles {
@@ -65,10 +61,6 @@ class Profiles {
 
   static delete(id) {
     return baseHandlers.profiles.delete(id)
-  }
-
-  static persist() {
-    baseHandlers.profiles.persist()
   }
 }
 
@@ -118,11 +110,9 @@ class Playlists {
   }
 }
 
-const handlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists
 }
-
-export default handlers

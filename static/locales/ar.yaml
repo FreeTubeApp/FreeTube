@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
@@ -83,6 +82,18 @@ Search Filters:
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
   There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
+  Features:
+    Features: المميزات
+    HD: عالِ الدقة
+    Subtitles: التسميات التوضيحية
+    4K: 4K
+    HDR: المستوى الديناميكي العالي
+    Creative Commons: المشاع الإبداعي
+    3D: ثلاثي الابعاد
+    Live: مباشر
+    360 Video: فيديو ٣٦٠
+    Location: الموقع
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -173,6 +184,10 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
         للإشارة المرجعية السريعة
       Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+      This playlist is already being used for quick bookmark.: يتم استخدام قائمة التشغيل
+        هذه بالفعل لوضع إشارة مرجعية سريعة.
+      Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
+        هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
     Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
@@ -187,7 +202,12 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
-    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
+    Added {count} Times: تمت إضافتها بالفعل | تمت إضافة {count} مرة
+    Allow Adding Duplicate Video(s): السماح بإضافة مقاطع فيديو مكررة
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": ستتم إضافة مقاطع فيديو
+      {videoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": تمت إضافة {videoCount}/{totalVideoCount}
+      من مقاطع الفيديو بالفعل
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
@@ -212,6 +232,9 @@ User Playlists:
     التشغيل هذه
   Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
   Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
+  Quick Bookmark Enabled: تم تمكين الإشارة المرجعية السريعة
+  Cannot delete the quick bookmark target playlist.: لا يمكن حذف قائمة التشغيل المستهدفة
+    للإشارات المرجعية السريعة.
 History:
   # On History Page
   History: 'السجلّ'
@@ -266,6 +289,9 @@ Settings:
       Ask Before Opening Link: اسأل قبل فتح الرابط
       Open Link: افتح الرابط
       External Link Handling: معالجة الارتباط الخارجي
+    Auto Load Next Page:
+      Label: تحميل تلقائي للصفحة التالية
+      Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
   Theme Settings:
     Theme Settings: 'إعدادات السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -280,6 +306,8 @@ Settings:
       Pastel Pink: الباستيل الوردي
       Hot Pink: وردي فاقع
       Nordic: بلدان الشمال الأوروبي
+      Solarized Dark: مظلم مشمس
+      Solarized Light: مشمس داكن
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -319,6 +347,14 @@ Settings:
       Catppuccin Mocha Red: كاتبوتشين موكا أحمر
       Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
       Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
+      Solarized Yellow: مشمس فاتح
+      Solarized Orange: مشمس برتقالي
+      Solarized Red: مشمس أحمر
+      Solarized Magenta: مشمس أرجواني
+      Solarized Violet: مشمس بنفسجي
+      Solarized Blue: مشمس أزرق
+      Solarized Cyan: مشمس سماوي
+      Solarized Green: مشمس أخضر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -381,8 +417,6 @@ Settings:
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
     Allow DASH AV1 formats: السماح بتنسيقات DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: تحميل التلقائي للتعليقات
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -399,7 +433,6 @@ Settings:
       أنت متأكد أنك تريد إزالة جميع الاشتراكات والملفات الشخصية؟ لا يمكن التراجع عن
       هذا.
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
-    Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
     Save Watched Videos With Last Viewed Playlist: حفظ مقاطع الفيديو التي تمت مشاهدتها
       مع آخر قائمة تشغيل تم عرضها
     All playlists have been removed: تمت إزالة جميع قوائم التشغيل
@@ -623,6 +656,7 @@ Settings:
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
     Unlock: الغاء القفل
   Expand All Settings Sections: توسيع كافة أقسام الإعدادات
+  Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
 About:
   #On About page
   About: 'حول'
@@ -679,6 +713,8 @@ About:
   Downloads / Changelog: التحميلات\التغييرات
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
   Discussions: المناقشات
+  Licensed under the: مرخص تحت
+  AGPLv3: رخصة أفيرو العمومية الإصدار ٣
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -954,6 +990,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: قائمة التشغيل
+  Sort By:
+    Sort By: ترتيب حسب
+    DateAddedNewest: آخر مضاف أولا
+    DateAddedOldest: الأقدم إضافتا أولا
+    AuthorAscending: الكاتب (A-Z)
+    AuthorDescending: الكاتب (Z-A)
+    VideoTitleAscending: العنوان (A-Z)
+    VideoTitleDescending: العنوان (Z-A)
+    Custom: مُخصّص
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
@@ -1068,9 +1113,6 @@ Tooltips:
     Allow DASH AV1 formats: قد تبدو تنسيقات DASH AV1 أفضل من تنسيقات DASH H.264. تتطلب
       تنسيقات DASH AV1 مزيدا من الطاقة للتشغيل! وهي غير متوفرة في جميع مقاطع الفيديو
       ، وفي هذه الحالات سيستخدم المشغل تنسيقات DASH H.264 بدلا من ذلك.
-  Privacy Settings:
-    Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
-      تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
   Subscription Settings:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
@@ -1175,3 +1217,21 @@ Age Restricted:
   This channel is age restricted: هذه القناة مقيدة بالعمر
   This video is age restricted: هذا الفيديو مقيد بالفئة العمرية
 Close Banner: إغلاق الشعار
+checkmark: ✓
+Display Label: '{label}: {value}'
+Moments Ago: منذ لحظات
+Feed:
+  Feed Last Updated: 'آخر تحديث لخلاصة {feedName}: {date}'
+  Refresh Feed: تحديث {subscriptionName}
+Yes, Delete: نعم ، احذف
+Yes, Restart: نعم، إعادة تشغيل
+Yes, Open Link: نعم، افتح الرابط
+Cancel: إلغاء
+Search character limit: تجاوز استعلام البحث حد الأحرف {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: التعاليق مغلقة
+    Subtitles: التسميات التوضيحية
+'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
+  آمن: "{url}".'

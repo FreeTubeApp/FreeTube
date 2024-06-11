@@ -23,3 +23,60 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
 
   return false
 }
+
+export function translateWindowTitle(title, i18n) {
+  switch (title) {
+    case 'Subscriptions':
+      return i18n.t('Subscriptions.Subscriptions')
+    case 'Channels':
+      return i18n.t('Channels.Title')
+    case 'Trending':
+      return i18n.t('Trending.Trending')
+    case 'Most Popular':
+      return i18n.t('Most Popular')
+    case 'Your Playlists':
+      return i18n.t('User Playlists.Your Playlists')
+    case 'History':
+      return i18n.t('History.History')
+    case 'Settings':
+      return i18n.t('Settings.Settings')
+    case 'About':
+      return i18n.t('About.About')
+    case 'Profile Settings':
+      return i18n.t('Profile.Profile Settings')
+    case 'Search Results':
+      return i18n.t('Search Filters.Search Results')
+    case 'Playlist':
+      return i18n.t('Playlist.Playlist')
+    default:
+      return null
+  }
+}
+
+/**
+ * Returns the first user-perceived character,
+ * respecting language specific rules and
+ * emojis made up of multiple codepoints
+ * like flags, families and skin tone modifiers.
+ * @param {string} text
+ * @param {string} locale
+ * @returns {string}
+ */
+export function getFirstCharacter(text, locale) {
+  if (text.length === 0) {
+    return ''
+  }
+
+  // Firefox only received support for Intl.Segmenter support in version 125 (2024-04-16)
+  // so fallback to Array.from just in case.
+  // TODO: Remove fallback in the future
+  if (Intl.Segmenter) {
+    const segmenter = new Intl.Segmenter([locale, 'en'], { granularity: 'grapheme' })
+
+    // Use iterator directly as we only need the first segment
+    const firstSegment = segmenter.segment(text)[Symbol.iterator]().next().value
+    return firstSegment.segment
+  } else {
+    return Array.from(text)[0]
+  }
+}

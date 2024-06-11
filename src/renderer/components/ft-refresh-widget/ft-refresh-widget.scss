@@ -1,0 +1,35 @@
+@use '../../scss-partials/utils';
+
+.floatingRefreshSection {
+  @include utils.fixed-top-bar;
+
+  box-sizing: border-box;
+  padding-block: 5px;
+  padding-inline: 10px;
+  box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+  background-color: var(--card-bg-color);
+  border-inline-start: 2px solid var(--primary-shadow-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.floatingRefreshSection:has(.lastRefreshTimestamp + .refreshButton) {
+  justify-content: space-between;
+}
+
+.lastRefreshTimestamp {
+  margin-block: 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+@media only screen and (width <= 680px) {
+  .floatingRefreshSection,
+  .floatingRefreshSection.sideNavOpen,
+  .floatingRefreshSection.hideLabelsSideBar {
+    inline-size: 100%;
+    border-inline-start: none;
+  }
+}

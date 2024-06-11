@@ -23,33 +23,125 @@ export default defineComponent({
     'general-settings': GeneralSettings,
     'theme-settings': ThemeSettings,
     'player-settings': PlayerSettings,
-    'external-player-settings': ExternalPlayerSettings,
     'subscription-settings': SubscriptionSettings,
     'privacy-settings': PrivacySettings,
     'data-settings': DataSettings,
     'distraction-settings': DistractionSettings,
-    'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'download-settings': DownloadSettings,
     'parental-control-settings': ParentControlSettings,
-    'experimental-settings': ExperimentalSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
-    'ft-toggle-switch': FtToggleSwitch
+    'ft-toggle-switch': FtToggleSwitch,
+
+    ...(process.env.IS_ELECTRON
+      ? {
+          'proxy-settings': ProxySettings,
+          'download-settings': DownloadSettings,
+          'external-player-settings': ExternalPlayerSettings,
+          'experimental-settings': ExperimentalSettings
+        }
+      : {})
   },
   data: function () {
     return {
-      usingElectron: process.env.IS_ELECTRON,
-      unlocked: false
+      unlocked: false,
+      settingsComponentsData: [
+        {
+          type: 'general-settings',
+          title: this.$t('Settings.General Settings.General Settings')
+        },
+        {
+          type: 'theme-settings',
+          title: this.$t('Settings.Theme Settings.Theme Settings')
+        },
+        {
+          type: 'player-settings',
+          title: this.$t('Settings.Player Settings.Player Settings')
+        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'external-player-settings',
+                title: this.$t('Settings.External Player Settings.External Player Settings')
+              }
+            ]
+          : []),
+        {
+          type: 'subscription-settings',
+          title: this.$t('Settings.Subscription Settings.Subscription Settings')
+        },
+        {
+          type: 'distraction-settings',
+          title: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
+        },
+        {
+          type: 'privacy-settings',
+          title: this.$t('Settings.Privacy Settings.Privacy Settings')
+        },
+        {
+          type: 'data-settings',
+          title: this.$t('Settings.Data Settings.Data Settings')
+        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'proxy-settings',
+                title: this.$t('Settings.Proxy Settings.Proxy Settings')
+              },
+              {
+                type: 'download-settings',
+                title: this.$t('Settings.Download Settings.Download Settings')
+              }
+            ]
+          : []),
+        {
+          type: 'parental-control-settings',
+          title: this.$t('Settings.Parental Control Settings.Parental Control Settings')
+        },
+        {
+          type: 'sponsor-block-settings',
+          title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
+        },
+        ...(process.env.IS_ELECTRON
+          ? [
+              {
+                type: 'experimental-settings',
+                title: this.$t('Settings.Experimental Settings.Experimental Settings')
+              },
+            ]
+          : []),
+        {
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings')
+        },
+      ]
     }
   },
   computed: {
+    locale: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
     },
 
     allSettingsSectionsExpandedByDefault: function () {
       return this.$store.getters.getAllSettingsSectionsExpandedByDefault
+    },
+
+    settingsSectionSortEnabled: function () {
+      return this.$store.getters.getSettingsSectionSortEnabled
+    },
+
+    settingsSectionComponents: function () {
+      if (this.settingsSectionSortEnabled) {
+        return this.settingsComponentsData.toSorted((a, b) =>
+          a.title.toLowerCase().localeCompare(b.title.toLowerCase(), this.locale)
+        )
+      }
+
+      return this.settingsComponentsData
     },
   },
   created: function () {
@@ -60,6 +152,7 @@ export default defineComponent({
   methods: {
     ...mapActions([
       'updateAllSettingsSectionsExpandedByDefault',
+      'updateSettingsSectionSortEnabled'
     ])
   }
 })

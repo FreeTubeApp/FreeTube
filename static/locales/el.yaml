@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Ελληνικά (EL)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Αυτό το μέρος της εφαρμογής δεν είναι ακόμη έτοιμο. Επιστρέψτε αργότερα όταν έχει
@@ -305,8 +304,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
     Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Αυτόματη Φόρτωση Σχολίων
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -323,7 +320,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
-    Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
     Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
       Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
   Subscription Settings:
@@ -1019,10 +1015,6 @@ Tooltips:
       σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,
       το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα
       περιήγησης.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
-      τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
-      παρακολούθησης είναι κλειστή.
   External Player Settings:
     Custom External Player Executable: Από προεπιλογή, το FreeTube θα υποθέσει ότι
       το επιλεγμένο εξωτερικό πρόγραμμα αναπαραγωγής μπορεί να βρεθεί μέσω της μεταβλητής

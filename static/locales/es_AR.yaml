@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'español (Argentina)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte de la aplicación no esta lista por el momento. Vuelve después cuando
@@ -111,6 +110,11 @@ User Playlists:
   Search bar placeholder: Buscar en la Lista de Reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan
     con tu búsqueda
+  This playlist currently has no videos.: Esta lista de reproducción no tiene videos.
+  Playlists with Matching Videos: Listas de reproducción con videos repetidos
+  Create New Playlist: Crear nueva lista de reproducción
+  Add to Favorites: Añadir a {playlistName}
+  Add to Playlist: Añadir a la lista de reproducción
 History:
   # On History Page
   History: 'Historial'
@@ -273,8 +277,6 @@ Settings:
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Scroll Playback Rate Over Video Player: Acelerar video con la rueda del mouse
     Fast-Forward / Rewind Interval: Período de Avance Rápido / Retroceso
-    Comment Auto Load:
-      Comment Auto Load: Cargar los comentarios automáticamente
     Video Playback Rate Interval: Intervalo entre velocidades del video
     Max Video Playback Rate: Velocidad máxima de reproducción de video
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
@@ -296,7 +298,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Remover todas las suscripciones / perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Realmente
       querés remover todas las suscripciones y perfiles? Esta acción no puede deshacerse.'
-    Automatically Remove Video Meta Files: Borrar automáticamente metadatos del video
     Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última
       lista de reproducción vista
   Subscription Settings:
@@ -489,3 +490,5 @@ Tooltips:
   Distraction Free Settings:
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
+Go to page: Ir a {page}
+Close Banner: Cerrar banner

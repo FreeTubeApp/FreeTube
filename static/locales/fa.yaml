@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'فارسی (ایرانی)'
-FreeTube: 'یوتیوب آزاد'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   این بخش از نرم افزار هنوز آماده نیست.زمانی که پیشرفتی صورت گرفت به اینجا باز گردید.
@@ -257,8 +256,6 @@ Settings:
       پخش کننده ویدیو
     Video Playback Rate Interval: فاصله سرعت پخش ویدیو
     Max Video Playback Rate: حداکثر سرعت پخش ویدیو
-    Comment Auto Load:
-      Comment Auto Load: نظرات اتوماتیک بارگذاری شود
     Enter Fullscreen on Display Rotate: در چرخه نمایشگر وارد صفحه تمام صفحه شوید
     Screenshot:
       Format Label: فرمت اسکرین شات
@@ -290,8 +287,6 @@ Settings:
     Privacy Settings: 'تنظیمات امنیتی'
     Remember History: 'حفظ تاریخچه'
     Save Watched Progress: 'ذخیره ویدیو های دیده شده'
-    Automatically Remove Video Meta Files: 'به صورت خودکار متا فایل های ویدیو را حذف
-      کردن'
     Clear Search Cache: 'پاک کردن کش جستجو'
     Are you sure you want to clear out your search cache?: 'آیا مطمئن هستید که میخواهید
       کش جستجویتان را پاک کنید؟'
@@ -702,9 +697,6 @@ Tooltips:
       نمی دهد
     Fetch Automatically: هنگامی که فعال باشد، FreeTube به طور خودکار فید اشتراک شما
       را هنگام باز شدن یک پنجره جدید و هنگام تغییر نمایه دریافت می کند.
-  Privacy Settings:
-    Remove Video Meta Files: هنگامی که FreeTube فعال باشد، به طور خودکار فایل های
-      متا ایجاد شده در حین پخش ویدیو را حذف می کند، زمانی که صفحه تماشا بسته می شود.
   External Player Settings:
     Custom External Player Executable: به طور پیش فرض، FreeTube فرض می کند که پخش
       کننده خارجی انتخاب شده را می توان از طریق متغیر محیطی PATH پیدا کرد. در صورت

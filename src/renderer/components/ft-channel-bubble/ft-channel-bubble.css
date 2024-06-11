@@ -24,18 +24,17 @@
   inline-size: 50px;
   block-size: 50px;
   border-radius: 100%;
-  -webkit-border-radius: 100%;
   object-fit: cover;
 }
 
 .selected {
   position: absolute;
   inset-block-start: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 50%);
 }
 
 .icon {
-  color: #EEEEEE;
+  color: #EEE;
   font-size: 25px;
   position: absolute;
   inset-block-start: 12px;

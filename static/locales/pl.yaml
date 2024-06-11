@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Ta część aplikacji nie jest jeszcze gotowa. Wróć później, gdy zostaną poczynione
@@ -82,6 +81,18 @@ Search Filters:
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
   There are no more results for this search: Nie ma więcej wyników dla tego wyszukiwania
+  Features:
+    Features: Cechy
+    Subtitles: Napisy
+    4K: 4K
+    HD: HD
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Transmisja
+    360 Video: Film 360°
+    HDR: HDR
+    VR180: VR180
+    Location: Miejsce
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subskrypcje'
@@ -143,7 +154,12 @@ User Playlists:
       dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
       film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
-    Added {count} Times: Dodano {count} raz | Dodano {count} razy
+    Added {count} Times: Dodano już wcześniej | Dodano {count} razy
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      filmów zostanie dodanych'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      film(y/ów) już dodano'
+    Allow Adding Duplicate Video(s): Zezwól na dodawanie duplikatów
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nie było żadnych filmów do usunięcia.
@@ -175,6 +191,10 @@ User Playlists:
         ta playlista, zamiast „{oldPlaylistName}”, będzie używana dla funkcji Szybkiej
         Zakładki . Kliknij tutaj, by cofnąć zmianę
       Quick bookmark disabled: Wyłączono Szybką Zakładkę
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlista „{playlistName}”
+        jest od teraz playlistą używaną dla funkcji Szybkiej Zakładki.
+      This playlist is already being used for quick bookmark.: Ta playlista jest już
+        używana dla funkcji Szybkiej Zakładki.
     Search for Videos: Szukaj filmów
   Are you sure you want to delete this playlist? This cannot be undone: Czy na pewno
     chcesz usunąć tę playlistę? Nie można cofnąć tej czynności.
@@ -219,6 +239,9 @@ User Playlists:
   Disable Quick Bookmark: Wyłącz Szybką Zakładkę
   Enable Quick Bookmark With This Playlist: Włącz Szybką Zakładkę z tą playlistą
   Playlists with Matching Videos: Playlisty z pasującymi filmami
+  Quick Bookmark Enabled: Włączono Szybką Zakładkę
+  Cannot delete the quick bookmark target playlist.: Nie można usunąć playlisty wskazanej
+    dla Szybkiej Zakładki.
 History:
   # On History Page
   History: 'Historia'
@@ -271,9 +294,12 @@ Settings:
     Current Invidious Instance: Obecna instancja Invidious
     External Link Handling:
       No Action: Brak akcji
-      Ask Before Opening Link: Zapytaj przed otworzeniem linku
-      Open Link: Otwórz link
-      External Link Handling: Obsługa zewnętrznych linków
+      Ask Before Opening Link: Zapytaj przed otworzeniem odnośnika
+      Open Link: Otwórz odnośnik
+      External Link Handling: Obsługa zewnętrznych odnośników
+    Auto Load Next Page:
+      Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
+      Label: Automatycznie wczytaj kolejną stronę
   Theme Settings:
     Theme Settings: 'Ustawienia wyglądu'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -288,6 +314,8 @@ Settings:
       Hot Pink: Gorący róż
       Pastel Pink: Pastelowy róż
       Nordic: Nordycki
+      Solarized Light: Nasłoneczniony jasny
+      Solarized Dark: Nasłoneczniony ciemny
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -327,6 +355,14 @@ Settings:
       Catppuccin Mocha Peach: Catppuccin Mocha Brzoskwiniowy
       Catppuccin Mocha Sky: Catppuccin Mocha Kolor Nieba
       Catppuccin Mocha Maroon: Catppuccin Mocha Kasztanowy
+      Solarized Orange: Nasłoneczniony pomarańczowy
+      Solarized Red: Nasłoneczniony czerwony
+      Solarized Magenta: Nasłoneczniony magenta
+      Solarized Violet: Nasłoneczniony fioletowy
+      Solarized Blue: Nasłoneczniony niebieski
+      Solarized Cyan: Nasłoneczniony cyjan
+      Solarized Green: Nasłoneczniony zielony
+      Solarized Yellow: Nasłoneczniony żółty
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -393,8 +429,6 @@ Settings:
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
     Allow DASH AV1 formats: Zezwól na format AV1 DASH
-    Comment Auto Load:
-      Comment Auto Load: Ładuj komentarze automatycznie
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -454,7 +488,6 @@ Settings:
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
-    Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
     Save Watched Videos With Last Viewed Playlist: Zapisuj do historii film wraz z
       ostatnią odtwarzaną playlistą, która go zawierała
     All playlists have been removed: Wszystkie playlisty zostały usunięte
@@ -531,7 +564,7 @@ Settings:
     Hide Playlists: Schowaj playlisty
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
-    Hide Sharing Actions: Schowaj linki do dzielenia się filmem
+    Hide Sharing Actions: Schowaj opcje udostępniania
     Hide Live Streams: Schowaj transmisje na żywo
     Hide Chapters: Schowaj rozdziały
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
@@ -644,6 +677,7 @@ Settings:
     Set Password: Ustaw hasło
     Remove Password: Usuń hasło
   Expand All Settings Sections: Rozwiń wszystkie sekcje ustawień
+  Sort Settings Sections (A-Z): Sortuj sekcje ustawień (A-Z)
 About:
   #On About page
   About: 'O projekcie'
@@ -710,6 +744,8 @@ About:
   Source code: Kod źródłowy
   FreeTube is made possible by: FreeTube powstał dzięki
   Discussions: Dyskusje
+  Licensed under the: Licencjonowany na
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'
@@ -781,11 +817,11 @@ Video:
   Video has been marked as watched: 'Film został oznaczony jako obejrzany'
   Video has been removed from your history: 'Film został usunięty z Twojej historii'
   Open in YouTube: 'Otwórz na stronie YouTube'
-  Copy YouTube Link: 'Skopiuj link do strony YouTube'
+  Copy YouTube Link: 'Skopiuj odnośnik do strony YouTube'
   Open YouTube Embedded Player: 'Otwórz odtwarzacz YouTube'
-  Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
+  Copy YouTube Embedded Player Link: 'Skopiuj odnośnik do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
-  Copy Invidious Link: 'Skopiuj link do strony Invidious'
+  Copy Invidious Link: 'Skopiuj odnośnik do strony Invidious'
   Views: 'wyświetleń'
   Watched: 'Obejrzany'
   # As in a Live Video
@@ -852,9 +888,9 @@ Video:
   audio only: tylko audio
   video only: tylko wideo
   Download Video: Pobierz film
-  Copy Invidious Channel Link: Skopiuj link do kanału na stronie Invidious
+  Copy Invidious Channel Link: Skopiuj odnośnik do kanału na stronie Invidious
   Open Channel in Invidious: Otwórz kanał na stronie Invidious
-  Copy YouTube Channel Link: Skopiuj link do kanału na stronie YouTube
+  Copy YouTube Channel Link: Skopiuj odnośnik do kanału na stronie YouTube
   Open Channel in YouTube: Otwórz kanał na stronie YouTube
   Started streaming on: Transmisję rozpoczęto
   Streamed on: Transmitowane dnia
@@ -940,6 +976,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlista
+  Sort By:
+    VideoTitleDescending: Po tytule (Z-A)
+    VideoTitleAscending: Po tytule (A-Z)
+    Custom: Własny porządek
+    DateAddedOldest: Od najstarszych
+    DateAddedNewest: Od najnowszych
+    Sort By: Sortuj
+    AuthorAscending: Po autorze (A-Z)
+    AuthorDescending: Po autorze (Z-A)
 Toggle Theatre Mode: 'Włącz/wyłącz tryb kinowy'
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
@@ -953,10 +998,10 @@ Change Format:
 Share:
   Share Video: 'Podziel się filmem'
   Share Playlist: 'Podziel się playlistą'
-  Copy Link: 'Skopiuj link'
-  Open Link: 'Otwórz link'
-  Copy Embed: 'Skopiuj link do osadzenia'
-  Open Embed: 'Otwórz link do osadzenia'
+  Copy Link: 'Skopiuj odnośnik'
+  Open Link: 'Otwórz odnośnik'
+  Copy Embed: 'Skopiuj odnośnik do osadzenia'
+  Open Embed: 'Otwórz odnośnik do osadzenia'
   # On Click
   Invidious URL copied to clipboard: 'Skopiowano URL Invidious do schowka'
   Invidious Embed URL copied to clipboard: 'Skopiowano URL odtwarzacza Invidious do
@@ -1097,9 +1142,9 @@ Tooltips:
       API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
       z filmu zamiast miniaturki domyślnej.
-    External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może
-      zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy kliknięty
-      link w domyślnej przeglądarce.\n"
+    External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie
+      może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
+      kliknięty odnośnik w domyślnej przeglądarce.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
@@ -1121,9 +1166,6 @@ Tooltips:
       H.264 DASH. Dekodowanie formatu AV1 DASH wymaga większej mocy obliczeniowej.
       W filmach, dla których ten format nie jest dostępny, zostanie użyty format H.264
       DASH.
-  Privacy Settings:
-    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
-      utworzone podczas odtwarzania filmu, gdy strona odtwarzacza zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
@@ -1175,7 +1217,7 @@ Default Invidious instance has been set to {instance}: Domyślna instancja Invid
 Search Bar:
   Clear Input: Wyczyść pole
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
-  linków zostało wyłączone w ustawieniach ogólnych
+  odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
 Downloading has completed: '„{videoTitle}” został pobrany'
 Starting download: Rozpoczęto pobieranie „{videoTitle}”
@@ -1225,3 +1267,21 @@ Age Restricted:
   This video is age restricted: Ten film ma ograniczenie wiekowe
   This channel is age restricted: Ten kanał ma ograniczenie wiekowe
 Close Banner: Zamknij Baner
+checkmark: ✓
+Display Label: '{label}: {value}'
+Feed:
+  Refresh Feed: Odśwież „{subscriptionName}”
+  Feed Last Updated: 'Ostatnia aktualizacja „{feedName}”: {date}'
+Moments Ago: chwilę temu
+Yes, Delete: Tak, usuń
+Search character limit: Zapytanie przekroczyło limit {searchCharacterLimit} znaków
+Yes, Restart: Tak, uruchom ponownie
+Yes, Open Link: Tak, otwórz odnośnik
+Cancel: Anuluj
+Search Listing:
+  Label:
+    Subtitles: Napisy
+    Closed Captions: Napisy z opisami
+    4K: 4K
+'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
+  URL: "{url}".'

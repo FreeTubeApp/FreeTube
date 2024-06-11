@@ -1,11 +1,11 @@
 <template>
   <ft-prompt
+    theme="flex-column"
+    :label="title"
     @click="hide"
   >
     <h2 class="heading">
-      {{ $tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', toBeAddedToPlaylistVideoCount, {
-        videoCount: toBeAddedToPlaylistVideoCount,
-      }) }}
+      {{ title }}
     </h2>
     <p class="selected-count">
       {{ $tc('User Playlists.AddVideoPrompt.N playlists selected', selectedPlaylistCount, {
@@ -20,6 +20,7 @@
         :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
         :show-clear-text-button="true"
         :show-action-button="false"
+        :maxlength="255"
         @input="(input) => updateQueryDebounce(input)"
         @clear="updateQueryDebounce('')"
       />
@@ -27,12 +28,25 @@
     <div
       class="optionsRow"
     >
-      <ft-toggle-switch
-        :label="$t('User Playlists.Playlists with Matching Videos')"
-        :compact="true"
-        :default-value="doSearchPlaylistsWithMatchingVideos"
-        @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
-      />
+      <div
+        class="tightOptions"
+      >
+        <ft-toggle-switch
+          class="matchingVideoToggle"
+          :label="$t('User Playlists.Playlists with Matching Videos')"
+          :compact="true"
+          :default-value="doSearchPlaylistsWithMatchingVideos"
+          @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+        />
+        <ft-toggle-switch
+          v-if="anyPlaylistContainsVideosToBeAdded"
+          class="allowDuplicateToggle"
+          :label="$t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
+          :compact="true"
+          :default-value="addingDuplicateVideosEnabled"
+          @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+        />
+      </div>
       <ft-select
         v-if="allPlaylists.length > 1"
         class="sortSelect"
@@ -40,6 +54,7 @@
         :select-names="sortBySelectNames"
         :select-values="sortBySelectValues"
         :placeholder="$t('User Playlists.Sort By.Sort By')"
+        :icon="getIconForSortPreference(sortBy)"
         @change="sortBy = $event"
       />
     </div>
@@ -47,14 +62,20 @@
       <ft-flex-box>
         <div
           v-for="(playlist, index) in activePlaylists"
-          :key="playlist._id"
+          :key="`${playlist._id}-${playlistDisabled(playlist._id)}`"
           class="playlist-selector-container"
+          :class="{
+            disabled: playlistDisabled(playlist._id),
+          }"
+          :aria-disabled="playlistDisabled(playlist._id)"
         >
           <ft-playlist-selector
-            tabindex="0"
+            :tabindex="playlistDisabled(playlist._id) ? -1 : 0"
             :playlist="playlist"
             :index="index"
             :selected="selectedPlaylistIdList.includes(playlist._id)"
+            :disabled="playlistDisabled(playlist._id)"
+            :adding-duplicate-videos-enabled="addingDuplicateVideosEnabled"
             @selected="countSelected(playlist._id)"
           />
         </div>
@@ -72,6 +93,8 @@
         />
         <ft-button
           :label="$t('User Playlists.Cancel')"
+          :text-color="null"
+          :background-color="null"
           @click="hide"
         />
       </ft-flex-box>

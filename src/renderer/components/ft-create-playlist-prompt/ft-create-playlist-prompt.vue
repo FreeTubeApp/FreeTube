@@ -1,9 +1,10 @@
 <template>
   <ft-prompt
+    :label="title"
     @click="hideCreatePlaylistPrompt"
   >
     <h2 class="center">
-      {{ $t('User Playlists.CreatePlaylistPrompt.New Playlist Name') }}
+      {{ title }}
     </h2>
     <ft-flex-box>
       <ft-input
@@ -12,6 +13,7 @@
         :show-action-button="false"
         :show-label="false"
         :value="playlistName"
+        :maxlength="255"
         class="playlistNameInput"
         @input="(input) => playlistName = input"
         @click="createNewPlaylist"
@@ -24,6 +26,8 @@
       />
       <ft-button
         :label="$t('User Playlists.Cancel')"
+        :text-color="null"
+        :background-color="null"
         @click="hideCreatePlaylistPrompt"
       />
     </ft-flex-box>

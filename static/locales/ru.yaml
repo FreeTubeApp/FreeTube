@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Эта часть приложения ещё не готова. Вернитесь позже, когда появится новая версия.
@@ -42,6 +41,8 @@ Global:
     View Count: 1 просмотр | {count} просмотра(ов)
     Watching Count: 1 смотрящий | {count} смотрящих
     Channel Count: 1 канал | {count} канала(ов)
+  Input Tags:
+    Length Requirement: Длина тега должна составлять не менее {числа} символов
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -121,7 +122,7 @@ User Playlists:
     этой страницы все видео, которые сейчас находятся здесь, переместятся в подборку
     «Избранное».
   Search bar placeholder: Поиск подборок
-  Empty Search Message: В этой подборке нет видео, соответствующих вашему запросу
+  Empty Search Message: В этом плейлисте нет видео, соответствующих вашему запросу
   This playlist currently has no videos.: Пока в этой подборке нет видео.
   Add to Playlist: Добавить в подборку
   Move Video Up: Передвинуть видео вверх
@@ -162,6 +163,17 @@ User Playlists:
       This video cannot be moved up.: Это видео нельзя передвинуть вверх.
       This video cannot be moved down.: Это видео нельзя передвинуть вниз.
       Video has been removed: Видео было удалено
+      Reverted to use {oldPlaylistName} for quick bookmark: Переход на использование
+        {старого имени плейлиста} для быстрого создания закладок
+      This playlist is now used for quick bookmark: Этот список воспроизведения теперь
+        используется для быстрого создания закладок
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот
+        плейлист теперь используется для быстрой закладки вместо {старого имени плейлиста}.
+        Нажмите здесь, чтобы отменить
+      This playlist is already being used for quick bookmark.: Этот плейлист уже используется
+        для быстрого создания закладок.
+      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {плейлистНазвание}
+        - это новый плейлист быстрых закладок.
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
@@ -171,8 +183,12 @@ User Playlists:
       You haven't selected any playlist yet.: Ещё не выбрана ни одна подборка.
       "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку
         | {videoCount} видео добавлено в 1 подборку
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено
+        в {плейлистКоличество} плейлистов | {видеоКоличество} видео добавлено в {плейлистКоличество}
+        плейлистов
     Select a playlist to add your N videos to: Выбери подборку на добавление видео
       | Выбери подборку на добавление {videoCount} видео в неё
+    Added {count} Times: Добавлено {количество} Время | Добавлено {количество} Времени
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Подборка {playlistName}
@@ -196,13 +212,19 @@ User Playlists:
   Create New Playlist: Создать новую подборку
   Add to Favorites: Добавить в {playlistName}
   Remove from Favorites: Убрать из {playlistName}
+  Playlists with Matching Videos: Плейлисты с соответствующими видеороликами
+  Enable Quick Bookmark With This Playlist: Включите быструю закладку с помощью этого
+    плейлиста
+  Quick Bookmark Enabled: Быстрая закладка включена
+  Cannot delete the quick bookmark target playlist.: Невозможно удалить целевой список
+    воспроизведения быстрых закладок.
 History:
   # On History Page
   History: 'История'
   Watch History: 'Посмотреть историю'
   Your history list is currently empty.: 'История просмотров в настоящее время пуста.'
   Search bar placeholder: Поиск в Истории
-  Empty Search Message: В вашей истории нет видео, соответствующих вашему запросу
+  Empty Search Message: В вашей истории нет видеороликов, соответствующих вашему поиску
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -250,6 +272,9 @@ Settings:
       Ask Before Opening Link: Спросить перед открытием ссылки
       Open Link: Открыть ссылку
       External Link Handling: Обработка внешних ссылок
+    Auto Load Next Page:
+      Label: Автоматическая загрузка следующей страницы
+      Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
   Theme Settings:
     Theme Settings: 'Внешний вид'
     Match Top Bar with Main Color: 'Использовать основной цвет к верхней панели'
@@ -263,6 +288,9 @@ Settings:
       Catppuccin Mocha: Мокко с капучино
       Pastel Pink: Пастельно-розовый
       Hot Pink: Ярко-розовый
+      Nordic: Северный
+      Solarized Dark: Соляризованная темнота
+      Solarized Light: Солнечное освещение
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -302,6 +330,14 @@ Settings:
       Catppuccin Mocha Sapphire: Сапфировый - Catppuccin Mocha
       Catppuccin Mocha Blue: Синий - Catppuccin Mocha
       Catppuccin Mocha Lavender: Лавандовый - Catppuccin Mocha
+      Solarized Yellow: Соляризованный желтый
+      Solarized Orange: Соляризованный оранжевый
+      Solarized Red: Соляризованный красный
+      Solarized Magenta: Соляризованный пурпурный
+      Solarized Blue: Соляризованный синий
+      Solarized Cyan: Соляризованный голубой
+      Solarized Violet: Соляризованный фиолетовый
+      Solarized Green: Соляризованный зеленый
     Secondary Color Theme: 'Вторичный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
@@ -368,8 +404,6 @@ Settings:
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Allow DASH AV1 formats: Разрешить форматы DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Самозагрузка комментариев
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -428,7 +462,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Выполнить
       удаление всех подписок и учётных записей?  Невозможно отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
-    Automatically Remove Video Meta Files: Автоудаление метафайлов видео
     Save Watched Videos With Last Viewed Playlist: Сохранить просмотренные видео с
       последней просмотренной подборкой
     Are you sure you want to remove all your playlists?: Ты действительно хочешь удалить
@@ -614,6 +647,7 @@ Settings:
     Set Password: Установить пароль
     Remove Password: Удалить пароль
   Expand All Settings Sections: Расширить все разделы настроек
+  Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
 About:
   #On About page
   About: 'О приложении'
@@ -672,6 +706,8 @@ About:
     нет ли дубликатов
   GitHub issues: Проблемы на GitHub
   Discussions: Обсуждения
+  Licensed under the: Лицензия выдана под
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: 'Подписчик'
   Subscribers: 'Подписчиков'
@@ -901,6 +937,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Подборка
+  Sort By:
+    Sort By: Сортировать по
+    AuthorAscending: Автор (от А до Я)
+    AuthorDescending: Автор (Z-A)
+    DateAddedNewest: Последние добавленные первыми
+    DateAddedOldest: Самый ранний, добавленный первым
+    VideoTitleAscending: Название (от А до Я)
+    VideoTitleDescending: Название (Z-A)
+    Custom: Пользовательский
 Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
@@ -1028,6 +1073,8 @@ Profile:
   Create Profile Name: Создать название учётки
   Profile Name: Название учётки
   Edit Profile Name: Изменить название учётки
+  Close Profile Dropdown: Закрыть выпадающий список профиля
+  Open Profile Dropdown: Открыть выпадающий профиль
 The playlist has been reversed: Подборка была перевёрнута
 A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
   {blogTitle}. Нажмите здесь, чтобы посмотреть подробности
@@ -1085,10 +1132,6 @@ Tooltips:
       H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
       Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
       будет использовать форматы DASH H.264.
-  Privacy Settings:
-    Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
-      метаданные, созданные во время воспроизведения видео, когда страница просмотра
-      закрывается.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
@@ -1180,3 +1223,19 @@ Age Restricted:
   This channel is age restricted: Канал с возрастным ограничением
   This video is age restricted: Видео с возрастным ограничением
 Tag already exists: «{tagName}» метка уже существует
+Search character limit: Поисковый запрос превышает лимит символов {поискОграничение
+  символов}
+Moments Ago: несколько минут назад
+Yes, Delete: Да, удалить
+Yes, Restart: Да, перезагрузка
+Yes, Open Link: Да, открытая ссылка
+Cancel: Отмена
+checkmark: ✓
+Display Label: '{метка}: {значение}'
+Go to page: Перейти на {страницу}
+Close Banner: Закрыть баннер
+Feed:
+  Feed Last Updated: '{фидНазвание} фид последний раз обновлялся: {дата}'
+  Refresh Feed: Обновить {имя подписки}
+Trimmed input must be at least N characters long: Обрезанный ввод должен быть длиной
+  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {длина} символов

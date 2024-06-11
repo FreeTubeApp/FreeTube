@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Euskera'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Zati hau ez dago prest oraindik. Itzuli aurrerago aurrerapenak egin direnean.
@@ -127,7 +126,7 @@ User Playlists:
     batera migratuko dira.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Gordetako
     bideoak hutsik daude. Egin klik bideoaren izkinan den "gorde" botoian hemen zerrendatzeko'
-  Search bar placeholder: Bilatu Erreprodukzio-zerrendan
+  Search bar placeholder: Bilatu erreprodukzio-zerrendak
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
     bat datorren bideorik
   Remove Watched Videos: Kendu ikusitako bideoak
@@ -224,6 +223,7 @@ User Playlists:
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ziur
     ikusitako bideo guztiak erreprodukzio-zerrenda honetatik kendu nahi dituzula?
     Hau ezin da desegin.
+  Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio-zerrendak
 History:
   # On History Page
   History: 'Historikoa'
@@ -280,6 +280,9 @@ Settings:
     Current instance will be randomized on startup: Uneko instantzia ausaz banatuko
       da abiaraztean
     Clear Default Instance: Garbitu lehenetsitako instantzia
+    Auto Load Next Page:
+      Tooltip: Kargatu orrialde eta iruzkin gehigarriak automatikoki.
+      Label: Kargatu automatikoki hurrengo orria
   Theme Settings:
     Theme Settings: 'Gaien ezarpenak'
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
@@ -297,6 +300,8 @@ Settings:
       Nordic: nordikoa
       Pastel Pink: Pastel arrosa
       Hot Pink: Arrosa beroa
+      Solarized Dark: Solarizatu iluna
+      Solarized Light: Solarizatu argia
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -336,6 +341,14 @@ Settings:
       Catppuccin Mocha Green: Catppuccin Motxa Berdea
       Catppuccin Mocha Teal: Catppuccin Motxa Zertzeta
       Catppuccin Mocha Sky: Catppuccin Motxa Zerua
+      Solarized Yellow: Hori solarizatua
+      Solarized Orange: Laranja solarizatua
+      Solarized Red: Gorri solarizatua
+      Solarized Magenta: Magenta solarizatua
+      Solarized Blue: Urdin solarizatua
+      Solarized Cyan: Zian solarizatua
+      Solarized Violet: Violeta solarizatua
+      Solarized Green: Berde solarizatua
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
@@ -391,8 +404,6 @@ Settings:
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
-    Comment Auto Load:
-      Comment Auto Load: Iruzkin karga automatikoa
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
     Allow DASH AV1 formats: Baimendu DASH AV1 formatuak
@@ -400,7 +411,6 @@ Settings:
     Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
     Remember History: 'Historikoa oroitu'
     Save Watched Progress: 'Ikusitakoaren progresioa gorde'
-    Automatically Remove Video Meta Files: 'Bideo metafitxategiak ezabatu automatikoki'
     Clear Search Cache: 'Bilaketen cachea ezabatu'
     Are you sure you want to clear out your search cache?: 'Ziur al zaude bilaketa-cachea
       garbitu nahi duzula?'
@@ -608,6 +618,7 @@ Settings:
     Remove Password: Pasahitza ezabatu
     Set Password: Ezarri pasahitza
   Expand All Settings Sections: Zabaldu ezarpen guztien atalak
+  Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
 About:
   #On About page
   About: 'Honi buruz'
@@ -638,6 +649,8 @@ About:
   Donate: 'Donazioa egin'
 
   Discussions: Eztabaidak
+  Licensed under the: Lizentziapean
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Hautatu profila'
   Profile Filter: 'Profilaren iragazkiak'
@@ -907,6 +920,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Erreprodukzio-zerrenda
+  Sort By:
+    Sort By: Honen arabera ordenatu
+    DateAddedNewest: Azken gehitua lehenengo
+    Custom: Pertsonalizatua
+    DateAddedOldest: Lehenago gehitutakoak lehenengo
+    VideoTitleAscending: Izenburua (A-Z)
+    VideoTitleDescending: Izenburua (Z-A)
+    AuthorAscending: Egilea (A-Z)
+    AuthorDescending: Egilea (Z-A)
 Toggle Theatre Mode: 'Aldatu Antzerki modura'
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
@@ -1019,10 +1041,6 @@ Tooltips:
       bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
     Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure
       harpidetza-jarioa leiho berri bat irekitzen denean eta profila aldatzean.
-  Privacy Settings:
-    Remove Video Meta Files: 'Gaituta dagoenean, FreeTube-k automatikoki ezabatzen
-      ditu bideoen erreprodukzioan sortutako metafitxategiak, bistaratze orria ixten
-      denean.'
 
 # Toast Messages
   External Player Settings:
@@ -1146,3 +1164,15 @@ Hashtag:
     honetan
 Ok: Ados
 Channel Hidden: '{channel} gehitu da kanalaren iragazkian'
+Display Label: '{label}: {value}'
+checkmark: ✓
+Search character limit: Bilaketa-kontsultak {searchCharacterLimit} karaktereen muga
+  gainditzen du
+Feed:
+  Feed Last Updated: '{feedName} jarioaren azken eguneraketa: {date}'
+  Refresh Feed: Eguneratu {subscriptionName}
+Moments Ago: duela momentu batzuk
+Yes, Delete: Bai, ezabatu
+Cancel: Utzi
+Yes, Open Link: Bai, ireki esteka
+Yes, Restart: Bai, berrabiarazi

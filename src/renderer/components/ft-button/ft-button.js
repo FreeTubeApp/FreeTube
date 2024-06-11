@@ -18,6 +18,16 @@ export default defineComponent({
     id: {
       type: String,
       default: ''
+    },
+    icon: {
+      type: Array,
+      default: null
+    }
+  },
+  emits: ['click'],
+  methods: {
+    click: function() {
+      this.$emit('click')
     }
   }
 })

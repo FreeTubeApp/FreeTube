@@ -2,16 +2,74 @@
   <div
     v-if="dataReady"
     id="app"
+    class="app"
     :class="{
       hideOutlines: outlinesHidden,
-      isLocaleRightToLeft: isLocaleRightToLeft
+      isLocaleRightToLeft: isLocaleRightToLeft,
+      isSideNavOpen: isSideNavOpen,
+      hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
     }"
   >
-    <top-nav ref="topNav" />
-    <side-nav ref="sideNav" />
+    <portal-target
+      name="promptPortal"
+      @change="handlePromptPortalUpdate"
+    />
+    <ft-prompt
+      v-if="showReleaseNotes"
+      :label="changeLogTitle"
+      theme="readable-width"
+      @click="showReleaseNotes = !showReleaseNotes"
+    >
+      <span
+        class="changeLogText"
+        v-html="updateChangelog"
+      />
+      <ft-flex-box>
+        <ft-button
+          :label="$t('Download From Site')"
+          @click="openDownloadsPage"
+        />
+        <ft-button
+          :label="$t('Close')"
+          :text-color="null"
+          :background-color="null"
+          @click="showReleaseNotes = !showReleaseNotes"
+        />
+      </ft-flex-box>
+    </ft-prompt>
+    <ft-prompt
+      v-if="showExternalLinkOpeningPrompt"
+      :label="$t('Are you sure you want to open this link?')"
+      :extra-labels="[lastExternalLinkToBeOpened]"
+      :option-names="externalLinkOpeningPromptNames"
+      :option-values="externalLinkOpeningPromptValues"
+      @click="handleExternalLinkOpeningPromptAnswer"
+    />
+    <ft-search-filters
+      v-if="showSearchFilters"
+    />
+    <ft-playlist-add-video-prompt
+      v-if="showAddToPlaylistPrompt"
+    />
+    <ft-create-playlist-prompt
+      v-if="showCreatePlaylistPrompt"
+    />
+    <ft-toast />
+    <ft-progress-bar
+      v-if="showProgressBar"
+    />
+    <top-nav
+      ref="topNav"
+      :inert="isPromptOpen"
+    />
+    <side-nav
+      ref="sideNav"
+      :inert="isPromptOpen"
+    />
     <ft-flex-box
       class="flexBox routerView"
       role="main"
+      :inert="isPromptOpen"
     >
       <div
         v-if="showUpdatesBanner || showBlogBanner"
@@ -42,48 +100,9 @@
           ref="router"
           class="routerView"
         />
-      <!-- </keep-alive> -->
+        <!-- </keep-alive> -->
       </transition>
     </ft-flex-box>
-
-    <ft-prompt
-      v-if="showReleaseNotes"
-      :label="changeLogTitle"
-      @click="showReleaseNotes = !showReleaseNotes"
-    >
-      <span
-        id="changeLogText"
-        v-html="updateChangelog"
-      />
-      <ft-flex-box>
-        <ft-button
-          :label="$t('Download From Site')"
-          @click="openDownloadsPage"
-        />
-        <ft-button
-          :label="$t('Close')"
-          @click="showReleaseNotes = !showReleaseNotes"
-        />
-      </ft-flex-box>
-    </ft-prompt>
-    <ft-prompt
-      v-if="showExternalLinkOpeningPrompt"
-      :label="$t('Are you sure you want to open this link?')"
-      :extra-labels="[lastExternalLinkToBeOpened]"
-      :option-names="externalLinkOpeningPromptNames"
-      :option-values="externalLinkOpeningPromptValues"
-      @click="handleExternalLinkOpeningPromptAnswer"
-    />
-    <ft-playlist-add-video-prompt
-      v-if="showAddToPlaylistPrompt"
-    />
-    <ft-create-playlist-prompt
-      v-if="showCreatePlaylistPrompt"
-    />
-    <ft-toast />
-    <ft-progress-bar
-      v-if="showProgressBar"
-    />
   </div>
 </template>
 

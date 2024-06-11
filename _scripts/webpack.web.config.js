@@ -25,7 +25,6 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    electron: '{}',
     'youtubei.js': '{}'
   },
   module: {
@@ -109,13 +108,14 @@ const config = {
     ]
   },
   node: {
-    __dirname: true,
-    __filename: isDevMode,
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': false,
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
 
       // video.js' vhs-utils supports both atob() in web browsers and Buffer in node
@@ -160,6 +160,8 @@ const config = {
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
 
+      'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$': path.resolve(__dirname, '../src/datastores/handlers/web.js'),
+
       // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
       // As FreeTube only runs in electron and web browsers, we can use the native DOMParser class, instead of the "polyfill"
       // https://caniuse.com/mdn-api_domparser
@@ -176,6 +178,7 @@ const config = {
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: false,
+  hotReload: isDevMode,
   inputDir: path.join(__dirname, '../static/locales'),
   outputDir: 'static/locales',
 })

@@ -19,6 +19,7 @@
           :select-names="protocolNames"
           :select-values="protocolValues"
           class="protocol-dropdown"
+          :icon="['fas', 'microchip']"
           @change="handleUpdateProxyProtocol"
         />
       </ft-flex-box>
@@ -29,13 +30,16 @@
           :show-label="true"
           :value="proxyHostname"
           @input="handleUpdateProxyHostname"
+          @keydown.enter.native="testProxy"
         />
         <ft-input
           :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
           :show-action-button="false"
           :show-label="true"
           :value="proxyPort"
+          :maxlength="5"
           @input="handleUpdateProxyPort"
+          @keydown.enter.native="testProxy"
         />
       </ft-flex-box>
       <p
@@ -61,16 +65,16 @@
           {{ $t('Settings.Proxy Settings.Your Info') }}
         </h3>
         <p>
-          {{ $t('Settings.Proxy Settings.Ip') }}: {{ proxyIp }}
+          {{ $t('Display Label', { label: $t('Settings.Proxy Settings.Ip'), value: proxyIp }) }}
         </p>
         <p>
-          {{ $t('Settings.Proxy Settings.Country') }}: {{ proxyCountry }}
+          {{ $t('Display Label', { label: $t('Settings.Proxy Settings.Country'), value: proxyCountry }) }}
         </p>
         <p>
-          {{ $t('Settings.Proxy Settings.Region') }}: {{ proxyRegion }}
+          {{ $t('Display Label', { label: $t('Settings.Proxy Settings.Region'), value: proxyRegion }) }}
         </p>
         <p>
-          {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
+          {{ $t('Display Label', { label: $t('Settings.Proxy Settings.City'), value: proxyCity }) }}
         </p>
       </div>
     </template>

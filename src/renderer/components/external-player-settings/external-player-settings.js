@@ -15,15 +15,18 @@ export default defineComponent({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox
   },
-  data: function () {
-    return {}
-  },
   computed: {
     externalPlayerNames: function () {
       const fallbackNames = this.$store.getters.getExternalPlayerNames
-      const nameTranslationKeys = this.$store.getters.getExternalPlayerNameTranslationKeys
+      const translations = [{
+        name: 'None',
+        translatedValue: this.$t('Settings.External Player Settings.Players.None.Name')
+      }]
 
-      return nameTranslationKeys.map((translationKey, idx) => this.$te(translationKey) ? this.$t(translationKey) : fallbackNames[idx])
+      return fallbackNames.map((name) => {
+        const translation = translations.find(e => e.name === name)
+        return translation ? translation.translatedValue : name
+      })
     },
     externalPlayerValues: function () {
       return this.$store.getters.getExternalPlayerValues

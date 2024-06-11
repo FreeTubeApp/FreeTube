@@ -90,7 +90,7 @@
         <ft-icon-button
           v-if="isQuickBookmarkEnabled"
           :title="quickBookmarkIconText"
-          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'clock']"
+          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
           class="quickBookmarkVideoIcon"
           :class="{
             bookmarked: isInQuickBookmarkPlaylist,
@@ -124,7 +124,7 @@
           theme="secondary"
           :icon="['fas', 'file-video']"
           :dropdown-options="formatTypeOptions"
-          @click="$emit('change-format', $event)"
+          @click="changeFormat($event)"
         />
         <ft-share-button
           v-if="!hideSharingActions"

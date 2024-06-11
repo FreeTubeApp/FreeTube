@@ -6,16 +6,6 @@
   text-align: center;
 }
 
-/* Style for `ft-prompt` */
-:deep(.promptCard) {
-  /* Currently only this prompt has enough content to make prompt too high */
-  max-block-size: 95%;
-
-  /* Some child(s) will grow vertically */
-  display: flex;
-  flex-direction: column;
-}
-
 .searchInputsRow {
   display: grid;
 
@@ -23,7 +13,8 @@
   grid-template-columns: 1fr auto;
   column-gap: 16px;
 }
-@media only screen and (max-width: 800px) {
+
+@media only screen and (width <= 800px) {
   .searchInputsRow {
     /* Switch to 2 rows from 2 columns */
     grid-template-columns: auto;
@@ -33,15 +24,29 @@
 
 .optionsRow {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   align-items: center;
 }
-@media only screen and (max-width: 800px) {
+
+.tightOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+  column-gap: 16px;
+  align-items: center;
+}
+
+@media only screen and (width <= 800px) {
   .optionsRow {
-    /* Switch to 2 rows from 2 columns */
+    /* Switch to rows from columns */
     grid-template-columns: auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(auto-fit, auto);
+    align-items: stretch;
+  }
+
+  .tightOptions {
+    /* Switch to rows from columns */
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
   }
 }
@@ -52,15 +57,18 @@
 }
 
 .playlists-container {
-  box-shadow: inset 0 0 5px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 5px rgb(0 0 0 / 50%);
 
   /* Use remaining height */
   flex-grow: 1;
-
   overflow-y: scroll;
 }
 
-.playlist-selector-container {
+.playlist-selector-container:not(.disabled) {
   /* Make them look selectable */
   cursor: pointer;
+}
+
+.playlist-selector-container.disabled {
+  opacity: 0.5;
 }

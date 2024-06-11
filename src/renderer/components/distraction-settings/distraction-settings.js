@@ -173,7 +173,7 @@ export default defineComponent({
         if (tag.invalid) continue
 
         // process if no preferred name and is possibly a YouTube ID
-        if (tag.preferredName === '' && checkYoutubeChannelId(tag.name)) {
+        if ((tag.preferredName === '' || !tag.icon) && checkYoutubeChannelId(tag.name)) {
           this.channelHiderDisabled = true
 
           const { preferredName, icon, iconHref, invalidId } = await this.findChannelTagInfo(tag.name)
