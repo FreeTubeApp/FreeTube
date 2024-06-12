@@ -333,14 +333,7 @@ export default defineComponent({
     },
 
     iconForBookmarkedPage: (pageBookmark) => {
-      const routeSlashIndex = pageBookmark.route.indexOf('/', 2)
-      let route
-      if (routeSlashIndex === -1) {
-        route = pageBookmark.route
-      } else {
-        route = pageBookmark.route.substring(0, routeSlashIndex)
-      }
-      return getIconForRoute(route) ?? ['fas', 'magnifying-glass']
+      return getIconForRoute(pageBookmark.route) ?? ['fas', 'magnifying-glass']
     },
 
     focus() {

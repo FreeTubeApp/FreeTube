@@ -53,8 +53,10 @@ export function translateWindowTitle(title, i18n) {
   }
 }
 
-export function getIconForRoute(path) {
-  switch (path) {
+export function getIconForRoute(route) {
+  const routeSlashIndex = route.indexOf('/', 2)
+  const truncatedRoute = (routeSlashIndex === -1) ? route : route.substring(0, routeSlashIndex)
+  switch (truncatedRoute) {
     case '/subscriptions':
       return ['fas', 'rss']
     case '/subscribedchannels':
@@ -75,9 +77,10 @@ export function getIconForRoute(path) {
     case '/search':
     case '/hashtag':
       return ['fas', 'magnifying-glass']
-    case '/playlist':
-      return ['fas', 'bars']
-    case '/watch':
+    case '/playlist': {
+      const solidOrRegular = route.includes('?playlistType=user') ? 'fas' : 'far'
+      return [solidOrRegular, 'bookmark']
+    } case '/watch':
       return ['fas', 'play']
     default:
       return null
