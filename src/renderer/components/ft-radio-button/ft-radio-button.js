@@ -22,7 +22,7 @@ export default defineComponent({
     initialValueIndex: {
       type: Number,
       default: 0
-    },
+    }
   },
   emits: ['change'],
   data: function () {

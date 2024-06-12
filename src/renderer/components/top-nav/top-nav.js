@@ -96,6 +96,13 @@ export default defineComponent({
       return this.$t('Open New Window')
     }
   },
+  watch: {
+    $route () {
+      // Reset filters if route changes
+      this.$store.commit('setSearchSettingsToDefault')
+      this.$store.commit('setSearchFilterValueChanged', false)
+    }
+  },
   mounted: function () {
     let previousWidth = window.innerWidth
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
