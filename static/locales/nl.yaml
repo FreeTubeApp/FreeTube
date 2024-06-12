@@ -84,6 +84,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Er zijn geen verdere resultaten voor
     deze zoek­opdracht
+  Features:
+    Features: Functies
+    4K: 4K
+    HD: HD
+    3D: 3D
+    Subtitles: Onder­titels
+    Live: Live
+    Creative Commons: Creative Commons
+    HDR: HDR
+    360 Video: 360°
+    Location: Locatie
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
@@ -165,7 +177,12 @@ User Playlists:
     Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
       aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
       toe te voegen
-    Added {count} Times: '{count} keer toe­gevoegd | {count} keer toe­gevoegd'
+    Added {count} Times: 'Video is al toe­gevoegd | {count} keer toe­gevoegd'
+    Allow Adding Duplicate Video(s): Toevoegen van dubbele video's toestaan
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount}
+      video's zullen worden toegevoegd"
+    "{videoCount}/{totalVideoCount} Videos Already Added": "{videoCount}/{totalVideoCount}
+      video's zijn al toegevoegd"
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeel­lijst kopiëren
   Create New Playlist: Nieuwe afspeel­lijst aanmaken
@@ -208,6 +225,10 @@ User Playlists:
         mag niet leeg zijn. Voer een naam in.
       There was an issue with updating this playlist.: Er is een probleem opgetreden
         bij het bij­werken van deze afspeel­lijst.
+      This playlist is already being used for quick bookmark.: Deze afspeel­lĳst wordt
+        al gebruikt voor snel opslaan.
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        is de nieuwe afspeel­lĳst voor snel opslaan.'
     Search for Videos: Zoeken naar video's
   You have no playlists. Click on the create new playlist button to create a new one.: U
     heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
@@ -220,6 +241,9 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
     dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
   Playlists with Matching Videos: Afspeel­lĳsten met overeen­komende video's
+  Quick Bookmark Enabled: Snel opslaan ingeschakeld
+  Cannot delete the quick bookmark target playlist.: Kan afspeel­lĳst voor snel opslaan
+    niet verwĳderen.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -433,6 +457,7 @@ Settings:
     Fetch Automatically: Feed automatisch ophalen
     Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
       tonen
+    Avoid Accidental Unsubscription: Onbedoeld deabonneren voor­komen
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -1238,3 +1263,10 @@ Yes, Open Link: Ja, link openen
 Cancel: Annuleren
 Moments Ago: momenten geleden
 Search character limit: Zoek­opdracht overschrĳdt de teken­limiet van {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Ondertitels
+    Closed Captions: Gesloten ondertitels
+'Blocked opening potentially unsafe URL': 'Openen van mogelijk onveilige URL geblokkeerd:
+  ‘{url}’.'

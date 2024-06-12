@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import i18n from './i18n/index'
+import { IpcChannels } from '../constants'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { register as registerSwiper } from 'swiper/element'
@@ -14,6 +15,7 @@ import { ObserveVisibility } from 'vue-observe-visibility'
 // to avoid code conflict and duplicate entries
 import {
   faAngleDown,
+  faAngleLeft,
   faAngleUp,
   faArrowDown,
   faArrowDownShortWide,
@@ -99,7 +101,7 @@ import {
   faTrash,
   faUserLock,
   faUsers,
-  faAngleLeft
+  faUsersSlash
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -209,6 +211,7 @@ library.add(
   faTrash,
   faUserLock,
   faUsers,
+  faUsersSlash,
 
   // solid icons
   farBookmark,
@@ -240,7 +243,7 @@ if (process.env.IS_ELECTRON) {
   const { ipcRenderer } = require('electron')
 
   // handle menu event updates from main script
-  ipcRenderer.on('change-view', (event, data) => {
+  ipcRenderer.on(IpcChannels.CHANGE_VIEW, (event, data) => {
     if (data.route) {
       router.push(data.route)
     }

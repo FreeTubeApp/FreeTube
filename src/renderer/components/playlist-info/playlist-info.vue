@@ -42,6 +42,7 @@
         :show-action-button="false"
         :show-label="false"
         :value="newTitle"
+        :maxlength="255"
         @input="(input) => (newTitle = input)"
         @keydown.enter.native="savePlaylistInfo"
       />
@@ -152,7 +153,14 @@
             @click="toggleCopyVideosPrompt"
           />
           <ft-icon-button
-            v-if="!editMode && isUserPlaylist && videoCount > 0"
+            v-if="!editMode && userPlaylistDuplicateItemCount > 0"
+            :title="$t('User Playlists.Remove Duplicate Videos')"
+            :icon="['fas', 'users-slash']"
+            theme="destructive"
+            @click="showRemoveDuplicateVideosPrompt = true"
+          />
+          <ft-icon-button
+            v-if="!editMode && userPlaylistAnyVideoWatched"
             :title="$t('User Playlists.Remove Watched Videos')"
             :icon="['fas', 'eye-slash']"
             theme="destructive"
@@ -186,6 +194,7 @@
             :show-clear-text-button="true"
             :show-action-button="false"
             :value="query"
+            :maxlength="255"
             @input="(input) => updateQueryDebounce(input)"
             @clear="updateQueryDebounce('')"
           />
@@ -201,11 +210,19 @@
       />
       <ft-prompt
         v-if="showRemoveVideosOnWatchPrompt"
-        :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone')"
+        :label="removeVideosOnWatchPromptLabelText"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         :is-first-option-destructive="true"
         @click="handleRemoveVideosOnWatchPromptAnswer"
+      />
+      <ft-prompt
+        v-if="showRemoveDuplicateVideosPrompt"
+        :label="removeDuplicateVideosPromptLabelText"
+        :option-names="deletePlaylistPromptNames"
+        :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
+        @click="handleRemoveDuplicateVideosPromptAnswer"
       />
     </div>
   </div>

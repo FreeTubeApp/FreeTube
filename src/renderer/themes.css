@@ -1311,7 +1311,7 @@ body[dir='rtl'] {
   --horizontal-directionality-coefficient: -1;
 }
 
-body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"]) {
+body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"], [data-icon="circle-question"], [data-icon="check"]) {
   transform: scale(-1,1);
 }
 
@@ -1360,13 +1360,19 @@ a:visited {
 }
 
 ::-webkit-scrollbar {
-	inline-size: 6px;
-  block-size: 6px;
+	inline-size: auto;
+  block-size: auto;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
   border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:focus {

@@ -37,6 +37,7 @@
           :show-action-button="false"
           :show-label="true"
           :value="proxyPort"
+          :maxlength="5"
           @input="handleUpdateProxyPort"
           @keydown.enter.native="testProxy"
         />

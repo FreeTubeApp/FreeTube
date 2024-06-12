@@ -23,6 +23,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    maxlength: {
+      type: Number,
+      default: null
+    },
     value: {
       type: String,
       default: ''
@@ -137,7 +141,7 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  created: function () {
     this.id = this._uid
     this.inputData = this.value
     this.updateVisibleDataList()

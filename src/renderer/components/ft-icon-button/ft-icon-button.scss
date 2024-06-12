@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .ftIconButton {
   display: flex;
   flex-flow: row wrap;
@@ -98,6 +99,10 @@
   }
 
   &.favorite, &.favorite:hover, &.favorite:focus-visible {
+    &:not(.disabled) {
+      color: var(--favorite-icon-color);
+    }
+
     color: var(--favorite-icon-color);
   }
 }

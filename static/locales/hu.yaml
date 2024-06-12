@@ -89,6 +89,18 @@ Search Filters:
   Fetch more results: 'További eredmények lekérése'
 # Sidebar
   There are no more results for this search: Nincs több találat erre a keresésre
+  Features:
+    HD: HD
+    Subtitles: Feliratok
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    Location: Helyszín
+    HDR: HDR
+    VR180: VR180
+    Features: Szolgáltatások
+    Live: Élő
+    360 Video: 360 videó
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
@@ -152,7 +164,12 @@ User Playlists:
       a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó
       hozzáadásához
     N playlists selected: '{playlistCount} Kiválasztott'
-    Added {count} Times: Hozzáadva {count} Alkalommal | Hozzáadva {count} Alkalommal
+    Added {count} Times: Hozzáadva {count} Alkalommal
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      A videók hozzáadásra fognak kerülni'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videó már hozzá lett adva'
+    Allow Adding Duplicate Video(s): Duplikált videó(k) hozzáadásának engedélyezése
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
@@ -231,8 +248,8 @@ User Playlists:
   Add to Favorites: Hozzáadás a(z) {playlistName} lejátszási listához
   Disable Quick Bookmark: Gyors Könyvjelző Letiltása
   Remove from Favorites: Törlés a(z) {playlistName} lejátszási listából
-  Enable Quick Bookmark With This Playlist: Gyors Könyvjelző Engedélyezése Ezzel A
-    Lejátszási Listával
+  Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a
+    lejátszási listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
   Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
     cél lejátszási listát.
@@ -453,6 +470,7 @@ Settings:
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
       a csatornáktól
+    Avoid Accidental Unsubscription: Kerülje el a véletlen leiratkozást
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -1247,3 +1265,10 @@ Yes, Delete: Igen, törlés
 Yes, Restart: Igen, újraindítás
 Yes, Open Link: Igen, hivatkozás megnyitása
 Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Feliratok
+    Closed Captions: Zárt feliratok
+'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos URL megnyitása
+  blokkolva: "{url}".'

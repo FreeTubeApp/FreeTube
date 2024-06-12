@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Прикупити више резултата'
   There are no more results for this search: 'Нема више резултата за ову претрагу'
 # Sidebar
+  Features:
+    Creative Commons: Creative Commons
+    3D: 3D
+    HDR: HDR
+    VR180: VR180
+    Features: Функције
+    HD: HD
+    Subtitles: Титлови
+    Location: Локација
+    Live: Уживо
+    4K: 4K
+    360 Video: 360 видео
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
@@ -148,7 +160,12 @@ User Playlists:
       да додате видео снимак | Изаберите плејлисту на коју желите да додате {videoCount}
       видео снимака
     N playlists selected: 'Изабрано: {playlistCount}'
-    Added {count} Times: Додато {count} пут | Додато {count} пута
+    Added {count} Times: Већ додато | Додато {count} пута
+    Allow Adding Duplicate Video(s): Дозволи додавање дупликата видео снимака
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      видео снимака ће бити додато'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      видео снимака је већ додато'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Није било видео снимака за уклањање.
@@ -450,6 +467,7 @@ Settings:
     Fetch Automatically: Аутоматски прикупи фид
     Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
       сваки канал
+    Avoid Accidental Unsubscription: Избегни случајно отпраћивање
   Distraction Free Settings:
     Distraction Free Settings: 'Подешавања „Без ометања“'
     Hide Video Views: 'Сакриј прегледе видео снимка'
@@ -1158,3 +1176,10 @@ Yes, Restart: Да, рестартуј
 Yes, Open Link: Да, отвори линк
 Search character limit: Упит за претрагу премашује ограничење броја знакова од {searchCharacterLimit}
   знакова
+Search Listing:
+  Label:
+    Closed Captions: Скривени титлови
+    4K: 4K
+    Subtitles: Титлови
+'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
+  URL адресе: „{url}“.'

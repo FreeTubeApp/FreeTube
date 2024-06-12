@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Laadi veel andmeid'
 # Sidebar
   There are no more results for this search: Sellel otsingul pole rohkem vastuseid
+  Features:
+    Creative Commons: Litsentseeritud Creative Commonsi alusel
+    3D: 3D-sisu
+    HD: 'Kõrgresolutsiooniga video: HD'
+    4K: 'Kõrgresolutsiooniga video: 4K'
+    360 Video: 360 Video
+    HDR: HDR-video
+    Features: Videote omadused
+    Subtitles: Subtiitrid
+    Live: Otseeeter
+    Location: Asukoht
+    VR180: VR180-video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tellimused'
@@ -160,7 +172,12 @@ User Playlists:
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video
       lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'
-    Added {count} Times: Lisatud {count} kord | Lisatud {count} korda
+    Added {count} Times: Juba lisatud {count} kord(a)
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Lisame {videoCount}/{totalVideoCount}
+      videot
+    Allow Adding Duplicate Video(s): Luba topeltvideo(te) lisamist
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      videot on juba lisatud'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Ei leidnud ühtegi videot, mida saaks eemaldada.
@@ -439,6 +456,7 @@ Settings:
     Manage Subscriptions: 'Halda tellimusi'
     Fetch Automatically: Laadi tellimuste voog automaatselt
     Only Show Latest Video for Each Channel: Iga kanali puhul näita vaid viimast videot
+    Avoid Accidental Unsubscription: Väldi ekslikku ja juhuslikku tellimusest loobumist
   Data Settings:
     Data Settings: 'Andmehaldus'
     Select Import Type: 'Vali imporditava faili vorming'
@@ -1165,3 +1183,10 @@ Search character limit: Otsingupäring on lubatud {searchCharacterLimit}-tähem�
   piirist pikem
 Yes, Delete: Jah, kustuta
 Yes, Open Link: Jah, ava link
+Search Listing:
+  Label:
+    Subtitles: Subtiitrid
+    Closed Captions: Subtiitrid
+    4K: 4K
+'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
+  avamise: „{url}“.'

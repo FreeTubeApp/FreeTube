@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, UniversalCache, Utils, YT } from 'youtubei.js'
+import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -46,6 +46,10 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
   }
 
   return await Innertube.create({
+    // This setting is enabled by default and results in YouTube.js reusing the same session across different Innertube instances.
+    // That behavior is highly undesirable for FreeTube, as we want to create a new session every time to limit tracking.
+    enable_session_cache: false,
+
     retrieve_player: !!withPlayer,
     location: location,
     enable_safety_mode: !!safetyMode,
@@ -408,6 +412,55 @@ export async function getLocalChannelCommunity(id) {
 
 /**
  * @param {YT.Channel} channel
+ */
+export async function getLocalArtistTopicChannelReleases(channel) {
+  const rawEngagementPanel = channel.shelves[0]?.menu?.top_level_buttons?.[0]?.endpoint.payload?.engagementPanel
+
+  if (!rawEngagementPanel) {
+    return {
+      releases: channel.playlists.map(playlist => parseLocalListPlaylist(playlist)),
+      continuationData: null
+    }
+  }
+
+  /** @type {import('youtubei.js').YTNodes.EngagementPanelSectionList} */
+  const engagementPanelSectionList = Parser.parseItem(rawEngagementPanel)
+
+  /** @type {import('youtubei.js').YTNodes.ContinuationItem|undefined} */
+  const continuationItem = engagementPanelSectionList?.content?.contents?.[0]?.contents?.[0]
+
+  if (!continuationItem) {
+    return {
+      releases: channel.playlists.map(playlist => parseLocalListPlaylist(playlist)),
+      continuationData: null
+    }
+  }
+
+  return await getLocalArtistTopicChannelReleasesContinuation(channel, continuationItem)
+}
+
+/**
+ * @param {YT.Channel} channel
+ * @param {import('youtubei.js').YTNodes.ContinuationItem} continuationData
+ */
+export async function getLocalArtistTopicChannelReleasesContinuation(channel, continuationData) {
+  const response = await continuationData.endpoint.call(channel.actions, { parse: true })
+
+  const memo = response.on_response_received_endpoints_memo
+
+  const playlists = memo.get('GridPlaylist') ?? memo.get('LockupView') ?? memo.get('Playlist')
+
+  /** @type {import('youtubei.js').YTNodes.ContinuationItem | null} */
+  const continuationItem = memo.get('ContinuationItem')?.[0] ?? null
+
+  return {
+    releases: playlists ? playlists.map(playlist => parseLocalListPlaylist(playlist)) : [],
+    continuationData: continuationItem
+  }
+}
+
+/**
+ * @param {YT.Channel} channel
  * @param {boolean} onlyIdNameThumbnail
  */
 export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
@@ -671,6 +724,24 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
 }
 
 /**
+ * @param {import('youtubei.js').YTNodes.CompactStation} compactStation
+ * @param {string} channelId
+ * @param {string} channelName
+ */
+export function parseLocalCompactStation(compactStation, channelId, channelName) {
+  return {
+    type: 'playlist',
+    dataSource: 'local',
+    title: compactStation.title.text,
+    thumbnail: compactStation.thumbnail[1].url,
+    channelName,
+    channelId,
+    playlistId: compactStation.endpoint.payload.playlistId,
+    videoCount: extractNumberFromString(compactStation.video_count.text)
+  }
+}
+
+/**
  * @param {YT.Search} response
  */
 function handleSearchResponse(response) {
@@ -796,6 +867,8 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       liveNow: false,
       isUpcoming: false,
+      is4k: movie.is_4k,
+      hasCaptions: movie.has_captions
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
@@ -826,7 +899,9 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      is4k: video.is_4k,
+      hasCaptions: video.has_captions
     }
   }
 }
@@ -940,6 +1015,10 @@ function convertSearchFilters(filters) {
 
     if (filters.duration) {
       convertedFilters.duration = filters.duration
+    }
+
+    if (filters.features) {
+      convertedFilters.features = filters.features
     }
   }
 
@@ -1094,13 +1173,16 @@ export function mapLocalFormat(format) {
 export function parseLocalComment(comment, commentThread = undefined) {
   let hasOwnerReplied = false
   let replyToken = null
+  let hasReplyToken = false
 
   if (commentThread?.has_replies) {
     hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
     replyToken = commentThread
+    hasReplyToken = true
   }
 
   const parsed = {
+    id: comment.comment_id,
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
@@ -1112,6 +1194,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
     isHearted: !!comment.is_hearted,
     hasOwnerReplied,
+    hasReplyToken,
     replyToken,
     showReplies: false,
     replies: [],

@@ -83,6 +83,18 @@ Search Filters:
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
+  Features:
+    Subtitles: Subtítulos
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    Features: Características
+    HD: HD
+    Live: Directo
+    360 Video: Vídeo 360
+    Location: Ubicación
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -141,7 +153,12 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
-    Added {count} Times: Añadido {count} vez | Añadido {count} veces
+    Added {count} Times: Ya añadido | Añadido {count} veces
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+      Vídeos ya añadidos'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+      Se añadirán vídeos'
+    Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.
@@ -444,6 +461,7 @@ Settings:
     Fetch Automatically: Obtener los feed automáticamente
     Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
       canal
+    Avoid Accidental Unsubscription: Evitar bajas accidentales
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -1254,3 +1272,10 @@ Yes, Restart: Sí, reiniciar
 Yes, Delete: Sí, eliminar
 Search character limit: La consulta de búsqueda supera el límite de {searchCharacterLimit}
   caracteres
+Search Listing:
+  Label:
+    Subtitles: Subtítulos
+    Closed Captions: Subtítulos descriptivos
+    4K: 4K
+'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
+  insegura: «{url}».'

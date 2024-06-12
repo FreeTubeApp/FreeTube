@@ -81,6 +81,18 @@ Search Filters:
   Fetch more results: 'Pokaż więcej wyników'
 # Sidebar
   There are no more results for this search: Nie ma więcej wyników dla tego wyszukiwania
+  Features:
+    Features: Cechy
+    Subtitles: Napisy
+    4K: 4K
+    HD: HD
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Transmisja
+    360 Video: Film 360°
+    HDR: HDR
+    VR180: VR180
+    Location: Miejsce
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subskrypcje'
@@ -142,7 +154,12 @@ User Playlists:
       dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount}
       film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
-    Added {count} Times: Dodano {count} raz | Dodano {count} razy
+    Added {count} Times: Dodano już wcześniej | Dodano {count} razy
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      filmów zostanie dodanych'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      film(y/ów) już dodano'
+    Allow Adding Duplicate Video(s): Zezwól na dodawanie duplikatów
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nie było żadnych filmów do usunięcia.
@@ -428,6 +445,7 @@ Settings:
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
     Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
       kanału
+    Avoid Accidental Unsubscription: Uniknij przypadkowego usunięcia subskrypcji
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -1261,3 +1279,10 @@ Search character limit: Zapytanie przekroczyło limit {searchCharacterLimit} zna
 Yes, Restart: Tak, uruchom ponownie
 Yes, Open Link: Tak, otwórz odnośnik
 Cancel: Anuluj
+Search Listing:
+  Label:
+    Subtitles: Napisy
+    Closed Captions: Napisy z opisami
+    4K: 4K
+'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
+  URL: "{url}".'
