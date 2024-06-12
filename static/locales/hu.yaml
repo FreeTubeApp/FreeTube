@@ -254,6 +254,15 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
     cél lejátszási listát.
   Quick Bookmark Enabled: Gyors könyvjelző engedélyezve
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Biztosan
+    eltávolít 1 duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható
+    vissza. | Biztosan eltávolít {playlistItemCount} duplikált videót ebből a lejátszási
+    listából? Ez a művelet nem vonható vissza.
+  Remove Duplicate Videos: Duplikált videók törlése
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Biztosan
+    eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
+    vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
+    a lejátszási listából? Ez a művelet nem vonható vissza.
 History:
   # On History Page
   History: 'Előzmények'
