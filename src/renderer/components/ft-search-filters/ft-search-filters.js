@@ -60,6 +60,12 @@ export default defineComponent({
         'location',
         'hdr',
         'vr180'
+      ],
+      notAllowedForMoviesFeatures: [
+        'live',
+        'subtitles',
+        '3d',
+        'creative_commons'
       ]
     }
   },
@@ -164,7 +170,7 @@ export default defineComponent({
     },
 
     updateFeatures: function(value) {
-      if (!this.isVideoOrMovieOrAll(this.searchSettings.type)) {
+      if (!this.isVideoOrMovieOrAll(this.searchSettings.type) || this.notAllowedForMoviesFeatures.some(item => value.includes(item))) {
         const typeRadio = this.$refs.typeRadio
         typeRadio.updateSelectedValue('all')
         this.$store.commit('setSearchType', 'all')
@@ -183,11 +189,16 @@ export default defineComponent({
         timeRadio.updateSelectedValue('')
         durationRadio.updateSelectedValue('')
         sortByRadio.updateSelectedValue(this.sortByValues[0])
-        featuresCheck.removeSelectedValues()
+        featuresCheck.setSelectedValues([])
         this.$store.commit('setSearchTime', '')
         this.$store.commit('setSearchDuration', '')
         this.$store.commit('setSearchFeatures', [])
         this.$store.commit('setSearchSortBy', this.sortByValues[0])
+      } else if (value === 'movie') {
+        const featuresCheck = this.$refs.featuresCheck
+        const filteredFeatures = this.searchSettings.features.filter(e => !this.notAllowedForMoviesFeatures.includes(e))
+        featuresCheck.setSelectedValues([...filteredFeatures])
+        this.$store.commit('setSearchFeatures', filteredFeatures)
       }
       this.$store.commit('setSearchType', value)
       this.$store.commit('setSearchFilterValueChanged', this.searchFilterValueChanged)
