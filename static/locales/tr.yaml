@@ -247,6 +247,15 @@ User Playlists:
   Quick Bookmark Enabled: Hızlı Yer İmi Etkin
   Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
     silinemiyor.
+  Remove Duplicate Videos: Yinelenen Videoları Kaldır
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bu
+    oynatma listesinden izlenen 1 videoyu kaldırmak istediğinizden emin misiniz? Bu
+    geri alınamaz. | Bu oynatma listesinden izlenen {playlistItemCount} videoyu kaldırmak
+    istediğinizden emin misiniz? Bu geri alınamaz.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu
+    oynatma listesinden 1 yinelenen videoyu kaldırmak istediğinizden emin misiniz?
+    Bu geri alınamaz. | Bu oynatma listesinden {playlistItemCount} yinelenen videoyu
+    kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.
 History:
   # On History Page
   History: 'Geçmiş'
