@@ -16,7 +16,7 @@
 .version {
   text-align: center;
   font-size: 2em;
-  margin-bottom: 10%;
+  margin-block-end: 1em;
 }
 
 .about-chunks {
