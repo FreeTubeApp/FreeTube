@@ -10,6 +10,7 @@ import {
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 export default defineComponent({
   name: 'WatchVideoPlaylist',
@@ -66,7 +67,9 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     isUserPlaylist: function () {
       return this.playlistType === 'user'
     },
@@ -133,6 +136,12 @@ export default defineComponent({
           playlistType: this.isUserPlaylist ? 'user' : '',
         },
       }
+    },
+    userPlaylistSortOrder: function () {
+      return this.$store.getters.getUserPlaylistSortOrder
+    },
+    sortOrder: function () {
+      return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
   },
   watch: {
@@ -495,11 +504,7 @@ export default defineComponent({
         this.prevVideoBeforeDeletion = this.playlistItems[targetVideoIndex]
       }
 
-      let playlistItems = playlist.videos
-      if (this.reversePlaylist) {
-        playlistItems = playlistItems.toReversed()
-      }
-      this.playlistItems = playlistItems
+      this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale, this.reversePlaylist)
 
       // grab the first video of the parsed playlit if the current video is not in either the current or parsed data
       // (e.g., reloading the page after the current video has already been removed from the playlist)
