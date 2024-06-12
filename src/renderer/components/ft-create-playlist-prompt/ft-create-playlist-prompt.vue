@@ -32,7 +32,7 @@
     <ft-flex-box>
       <ft-button
         :label="$t('User Playlists.CreatePlaylistPrompt.Create')"
-        :disabled="playlistNameEmpty || playlistNameBlank || playlistWithNameExists"
+        :disabled="playlistPersistenceDisabled"
         @click="createNewPlaylist"
       />
       <ft-button

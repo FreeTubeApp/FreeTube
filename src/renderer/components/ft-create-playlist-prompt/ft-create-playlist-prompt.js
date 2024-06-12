@@ -49,6 +49,9 @@ export default defineComponent({
         return playlist.playlistName === playlistName
       })
     },
+    playlistPersistenceDisabled() {
+      return this.playlistNameEmpty || this.playlistNameBlank || this.playlistWithNameExists
+    },
   },
   mounted: function () {
     this.playlistName = this.newPlaylistVideoObject.title
@@ -67,8 +70,8 @@ export default defineComponent({
     },
 
     createNewPlaylist: function () {
-      // Empty playlist name check moved to template
-      // Duplicate playlist check moved to template
+      // Still possible to attempt to create via pressing enter
+      if (this.playlistPersistenceDisabled) { return }
 
       const playlistObject = {
         playlistName: this.playlistName,

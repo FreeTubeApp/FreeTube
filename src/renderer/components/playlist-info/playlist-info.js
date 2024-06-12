@@ -265,6 +265,9 @@ export default defineComponent({
         return playlist.playlistName === playlistName
       })
     },
+    playlistPersistenceDisabled() {
+      return this.inputPlaylistNameEmpty || this.inputPlaylistNameBlank || this.inputPlaylistWithNameExists
+    },
   },
   watch: {
     showDeletePlaylistPrompt(shown) {
@@ -320,10 +323,8 @@ export default defineComponent({
     },
 
     savePlaylistInfo: function () {
-      if (this.newTitle === '') {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
-        return
-      }
+      // Still possible to attempt to create via pressing enter
+      if (this.playlistPersistenceDisabled) { return }
 
       const playlist = {
         playlistName: this.newTitle,

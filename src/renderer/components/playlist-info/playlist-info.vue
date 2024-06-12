@@ -134,7 +134,7 @@
           <ft-icon-button
             v-if="editMode"
             :title="$t('User Playlists.Save Changes')"
-            :disabled="inputPlaylistNameEmpty || inputPlaylistNameBlank || inputPlaylistWithNameExists"
+            :disabled="playlistPersistenceDisabled"
             :icon="['fas', 'save']"
             theme="secondary"
             @click="savePlaylistInfo"
