@@ -44,10 +44,6 @@ class History {
   static deleteAll() {
     return baseHandlers.history.deleteAll()
   }
-
-  static persist() {
-    baseHandlers.history.persist()
-  }
 }
 
 class Profiles {
@@ -65,10 +61,6 @@ class Profiles {
 
   static delete(id) {
     return baseHandlers.profiles.delete(id)
-  }
-
-  static persist() {
-    baseHandlers.profiles.persist()
   }
 }
 

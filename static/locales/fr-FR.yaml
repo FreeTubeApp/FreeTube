@@ -159,7 +159,12 @@ User Playlists:
         à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount}
         listes de lecture
     N playlists selected: '{playlistCount} Sélectionnée(s)'
-    Added {count} Times: Ajouté {count} Fois | Ajouté {count} Fois
+    Added {count} Times: Déjà ajouté | Ajouté {count} fois
+    Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Les vidéos seront ajoutées'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Vidéos déjà ajoutées'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Il n'y avait aucune vidéo à supprimer.
@@ -635,7 +640,7 @@ Settings:
     Proxy Port Number: Numéro de port du proxy
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
-    Enable Tor / Proxy: Activer Tor / Proxy
+    Enable Tor / Proxy: Activer Tor / proxy
     Proxy Settings: Paramètres du proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé

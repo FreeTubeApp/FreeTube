@@ -202,7 +202,12 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
-    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
+    Added {count} Times: تمت إضافتها بالفعل | تمت إضافة {count} مرة
+    Allow Adding Duplicate Video(s): السماح بإضافة مقاطع فيديو مكررة
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": ستتم إضافة مقاطع فيديو
+      {videoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": تمت إضافة {videoCount}/{totalVideoCount}
+      من مقاطع الفيديو بالفعل
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
@@ -449,6 +454,7 @@ Settings:
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
     Fetch Automatically: جلب الخلاصة تلقائيا
     Only Show Latest Video for Each Channel: عرض أحدث فيديو فقط لكل قناة
+    Avoid Accidental Unsubscription: تجنب إلغاء الاشتراك عن طريق الخطأ
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -1228,3 +1234,5 @@ Search Listing:
     4K: 4K
     Closed Captions: التعاليق مغلقة
     Subtitles: التسميات التوضيحية
+'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
+  آمن: "{url}".'

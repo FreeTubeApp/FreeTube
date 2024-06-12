@@ -225,7 +225,12 @@ User Playlists:
     N playlists selected: '{playlistCount} selecionada(s)'
     Search in Playlists: Buscar nas playlists
     Save: Salvar
-    Added {count} Times: Adicionado {count} vez | Adicionado {count} vezes
+    Added {count} Times: Já adicionado | Adicionado {count} vezes
+    Allow Adding Duplicate Video(s): Permitir adição de vídeos duplicados
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      vídeos serão adicionados'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      vídeos já adicionados'
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
     certeza de que deseja remover todos os vídeos assistidos desta playlist? Isto
     não pode ser desfeito.
@@ -1216,7 +1221,7 @@ Channels:
   Search bar placeholder: Buscar canais
   Empty: Sua lista de canais está vazia no momento.
   Unsubscribe: Cancelar inscrição
-  Unsubscribed: '{channelName} foi removido de suas inscrições'
+  Unsubscribed: '"{channelName}" foi removido de suas inscrições'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canais encontrados.'
 Screenshot Success: Captura de tela salva em "{filePath}"
@@ -1268,3 +1273,5 @@ Search Listing:
     Subtitles: Legendas
     Closed Captions: Legendas ocultas (CC)
     4K: 4K
+'Blocked opening potentially unsafe URL': 'Abertura bloqueada de URL potencialmente
+  inseguro: "{url}".'

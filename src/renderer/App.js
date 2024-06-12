@@ -183,7 +183,6 @@ export default defineComponent({
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
-          this.activateIPCListeners()
           this.openAllLinksExternally()
           this.enableSetSearchQueryText()
           this.enableOpenUrl()
@@ -197,10 +196,6 @@ export default defineComponent({
           this.checkForNewUpdates()
           this.checkForNewBlogPosts()
         }, 500)
-      })
-
-      this.$router.afterEach((to, from) => {
-        this.$refs.topNav?.navigateHistory()
       })
 
       this.$router.onReady(() => {
@@ -331,16 +326,6 @@ export default defineComponent({
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
         this.hideOutlines()
-      })
-    },
-
-    activateIPCListeners: function () {
-      // handle menu event updates from main script
-      ipcRenderer.on('history-back', (_event) => {
-        this.$refs.topNav.historyBack()
-      })
-      ipcRenderer.on('history-forward', (_event) => {
-        this.$refs.topNav.historyForward()
       })
     },
 
@@ -505,23 +490,23 @@ export default defineComponent({
     },
 
     enableSetSearchQueryText: function () {
-      ipcRenderer.on('updateSearchInputText', (event, searchQueryText) => {
+      ipcRenderer.on(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, (event, searchQueryText) => {
         if (searchQueryText) {
           this.$refs.topNav.updateSearchInputText(searchQueryText)
         }
       })
 
-      ipcRenderer.send('searchInputHandlingReady')
+      ipcRenderer.send(IpcChannels.SEARCH_INPUT_HANDLING_READY)
     },
 
     enableOpenUrl: function () {
-      ipcRenderer.on('openUrl', (event, url) => {
+      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url) => {
         if (url) {
           this.handleYoutubeLink(url)
         }
       })
 
-      ipcRenderer.send('appReady')
+      ipcRenderer.send(IpcChannels.APP_READY)
     },
 
     handleExternalLinkOpeningPromptAnswer: function (option) {
