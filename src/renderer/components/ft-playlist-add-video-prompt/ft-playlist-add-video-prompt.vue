@@ -28,12 +28,25 @@
     <div
       class="optionsRow"
     >
-      <ft-toggle-switch
-        :label="$t('User Playlists.Playlists with Matching Videos')"
-        :compact="true"
-        :default-value="doSearchPlaylistsWithMatchingVideos"
-        @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
-      />
+      <div
+        class="tightOptions"
+      >
+        <ft-toggle-switch
+          class="matchingVideoToggle"
+          :label="$t('User Playlists.Playlists with Matching Videos')"
+          :compact="true"
+          :default-value="doSearchPlaylistsWithMatchingVideos"
+          @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+        />
+        <ft-toggle-switch
+          v-if="anyPlaylistContainsVideosToBeAdded"
+          class="allowDuplicateToggle"
+          :label="$t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
+          :compact="true"
+          :default-value="addingDuplicateVideosEnabled"
+          @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+        />
+      </div>
       <ft-select
         v-if="allPlaylists.length > 1"
         class="sortSelect"
@@ -49,14 +62,20 @@
       <ft-flex-box>
         <div
           v-for="(playlist, index) in activePlaylists"
-          :key="playlist._id"
+          :key="`${playlist._id}-${playlistDisabled(playlist._id)}`"
           class="playlist-selector-container"
+          :class="{
+            disabled: playlistDisabled(playlist._id),
+          }"
+          :aria-disabled="playlistDisabled(playlist._id)"
         >
           <ft-playlist-selector
-            tabindex="0"
+            :tabindex="playlistDisabled(playlist._id) ? -1 : 0"
             :playlist="playlist"
             :index="index"
             :selected="selectedPlaylistIdList.includes(playlist._id)"
+            :disabled="playlistDisabled(playlist._id)"
+            :adding-duplicate-videos-enabled="addingDuplicateVideosEnabled"
             @selected="countSelected(playlist._id)"
           />
         </div>

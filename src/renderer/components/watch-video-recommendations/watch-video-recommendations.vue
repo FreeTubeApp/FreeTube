@@ -1,6 +1,5 @@
 <template>
   <ft-card
-    v-if="!hideRecommendedVideos"
     class="relative watchVideoRecommendations"
   >
     <div class="VideoRecommendationsTopBar">

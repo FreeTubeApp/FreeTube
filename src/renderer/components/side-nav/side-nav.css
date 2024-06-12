@@ -161,6 +161,13 @@
   margin-block: 0.3em;
 }
 
+@media only screen and (width > 680px) {
+  ::-webkit-scrollbar {
+    inline-size: 10px;
+    block-size: 10px;
+  }
+}
+
 @media only screen and (width <= 680px) {
   .inner {
     display: contents; /* sunglasses emoji */

@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="show"
     v-observe-visibility="initialVisibleState || visible ? false : {
       callback: onVisibilityChanged,
       once: true,

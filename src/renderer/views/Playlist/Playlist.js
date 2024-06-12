@@ -23,18 +23,9 @@ import {
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getPipedPlaylist, getPipedPlaylistMore, pipedImageToYouTube } from '../../helpers/api/piped'
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
-
-const SORT_BY_VALUES = {
-  DateAddedNewest: 'date_added_descending',
-  DateAddedOldest: 'date_added_ascending',
-  AuthorAscending: 'author_ascending',
-  AuthorDescending: 'author_descending',
-  VideoTitleAscending: 'video_title_ascending',
-  VideoTitleDescending: 'video_title_descending',
-  Custom: 'custom',
-}
 
 export default defineComponent({
   name: 'Playlist',
@@ -50,13 +41,13 @@ export default defineComponent({
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
         title: this.playlistTitle,
         channelName: this.channelName,
         channelId: this.channelId,
-        items: this.playlistItems,
+        items: this.sortedPlaylistItems,
         continuationData: this.continuationData,
       })
     }
@@ -193,29 +184,7 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
-      if (this.sortOrder === SORT_BY_VALUES.Custom) {
-        return this.playlistItems
-      }
-
-      return this.playlistItems.toSorted((a, b) => {
-        switch (this.sortOrder) {
-          case SORT_BY_VALUES.DateAddedNewest:
-            return b.timeAdded - a.timeAdded
-          case SORT_BY_VALUES.DateAddedOldest:
-            return a.timeAdded - b.timeAdded
-          case SORT_BY_VALUES.VideoTitleAscending:
-            return a.title.localeCompare(b.title, this.currentLocale)
-          case SORT_BY_VALUES.VideoTitleDescending:
-            return b.title.localeCompare(a.title, this.currentLocale)
-          case SORT_BY_VALUES.AuthorAscending:
-            return a.author.localeCompare(b.author, this.currentLocale)
-          case SORT_BY_VALUES.AuthorDescending:
-            return b.author.localeCompare(a.author, this.currentLocale)
-          default:
-            console.error(`Unknown sortOrder: ${this.sortOrder}`)
-            return 0
-        }
-      })
+      return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
       if (!this.isUserPlaylistRequested) {
@@ -347,7 +316,7 @@ export default defineComponent({
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
         this.playlistThumbnail = result.info.thumbnails[0].url
-        this.viewCount = extractNumberFromString(result.info.views)
+        this.viewCount = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
         this.lastUpdated = result.info.last_updated ?? ''
         this.channelName = channelName ?? ''
