@@ -244,6 +244,15 @@ User Playlists:
   Quick Bookmark Enabled: Rychlá záložka zapnuta
   Cannot delete the quick bookmark target playlist.: Nemůžete odstranit cílový playlist
     rychlé záložky.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Opravdu
+    chcete odstranit 1 duplicitní video z tohoto playlistu? Tato akce je nevratná.
+    | Opravdu chcete odstranit {playlistItemCount} duplicitních videí z tohoto playlistu?
+    Tato akce je nevratná.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Opravdu
+    chcete odstranit 1 zhlédnuté video z tohoto playlistu? Tato akce je nevratná.
+    | Opravdu chcete odstranit {playlistItemCount} zhlédnutých videí z tohoto playlistu?
+    Tato akce je nevratná.
+  Remove Duplicate Videos: Odstranit duplicitní videa
 History:
   # On History Page
   History: 'Historie'
