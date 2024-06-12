@@ -243,6 +243,15 @@ User Playlists:
   Quick Bookmark Enabled: Kasuta kiirjärjehoidjaid
   Cannot delete the quick bookmark target playlist.: Ei saa kustutada esitusloendit,
     mis on kasutusel kiirjärjehoidjate jaoks.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Kas
+    sa oled kindel, et soovid sellest esitusloendist eemaldada 1 topeltvideo? Seda
+    tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
+    eemaldada {playlistItemCount} topeltvideot? Seda tegevust ei saa tagasi pöörata.
+  Remove Duplicate Videos: Eemalda topeltvideod
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Kas
+    sa oled kindel, et soovid sellest esitusloendist eemaldada 1 vaadatud video? Seda
+    tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
+    eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
 History:
   # On History Page
   History: 'Ajalugu'
