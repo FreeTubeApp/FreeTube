@@ -210,6 +210,9 @@ User Playlists:
   Playlists with Matching Videos: 有匹配视频的播放列表
   Quick Bookmark Enabled: 启用了快速书签
   Cannot delete the quick bookmark target playlist.: 无法删除快速书签目标播放列表。
+  Remove Duplicate Videos: 删除重复视频
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除
+    1 个已观看视频吗？此操作无法撤销。 | 你确定要从此播放列表删除 {playlistItemCount} 个已观看视频吗？此操作无法撤销。
 History:
   # On History Page
   History: '历史记录'
