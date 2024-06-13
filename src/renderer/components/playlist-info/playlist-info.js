@@ -160,6 +160,10 @@ export default defineComponent({
       return this.$store.getters.getPlaylist(this.id)
     },
 
+    allPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
     deletePlaylistPromptNames: function () {
       return [
         this.$t('Yes, Delete'),
@@ -288,6 +292,29 @@ export default defineComponent({
     playlistDeletionDisabledLabel: function () {
       return this.$t('User Playlists["Cannot delete the quick bookmark target playlist."]')
     },
+
+    inputPlaylistNameEmpty() {
+      return this.newTitle === ''
+    },
+    inputPlaylistNameBlank() {
+      return !this.inputPlaylistNameEmpty && this.newTitle.trim() === ''
+    },
+    inputPlaylistWithNameExists() {
+      // Don't show the message with no name input
+      const playlistName = this.newTitle
+      const selectedUserPlaylist = this.selectedUserPlaylist
+      if (this.newTitle === '') { return false }
+
+      return this.allPlaylists.some((playlist) => {
+        // Only compare with other playlists
+        if (selectedUserPlaylist._id === playlist._id) { return false }
+
+        return playlist.playlistName === playlistName
+      })
+    },
+    playlistPersistenceDisabled() {
+      return this.inputPlaylistNameEmpty || this.inputPlaylistNameBlank || this.inputPlaylistWithNameExists
+    },
   },
   watch: {
     showDeletePlaylistPrompt(shown) {
@@ -316,6 +343,16 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    handlePlaylistNameInput(input) {
+      if (input.trim() === '') {
+        // Need to show message for blank input
+        this.newTitle = input
+        return
+      }
+
+      this.newTitle = input.trim()
+    },
+
     toggleCopyVideosPrompt: function (force = false) {
       if (this.moreVideoDataAvailable && !this.isUserPlaylist && !force) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Some videos in the playlist are not loaded yet. Click here to copy anyway."]'), 5000, () => {
@@ -326,15 +363,15 @@ export default defineComponent({
 
       this.showAddToPlaylistPromptForManyVideos({
         videos: this.videos,
-        newPlaylistDefaultProperties: { title: this.title },
+        newPlaylistDefaultProperties: {
+          title: this.channelName === '' ? this.title : `${this.title} | ${this.channelName}`,
+        },
       })
     },
 
     savePlaylistInfo: function () {
-      if (this.newTitle === '') {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
-        return
-      }
+      // Still possible to attempt to create via pressing enter
+      if (this.playlistPersistenceDisabled) { return }
 
       const playlist = {
         playlistName: this.newTitle,
