@@ -102,6 +102,10 @@ export default defineComponent({
     videoThumbnail: {
       type: String,
       required: true
+    },
+    inUserPlaylist: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
