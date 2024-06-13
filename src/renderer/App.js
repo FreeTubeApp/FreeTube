@@ -100,6 +100,9 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    defaultPipedInstance: function () {
+      return this.$store.getters.getDefaultPipedInstance
+    },
 
     baseTheme: function () {
       return this.$store.getters.getBaseTheme
@@ -165,11 +168,23 @@ export default defineComponent({
       this.checkThemeSettings()
 
       await this.fetchInvidiousInstancesFromFile()
+      await this.fetchPipedInstancesFromFile()
+
       if (this.defaultInvidiousInstance === '') {
-        await this.setRandomCurrentInvidiousInstance()
+        this.setRandomCurrentInvidiousInstance()
+      }
+
+      if (this.defaultPipedInstance === '') {
+        this.setRandomCurrentPipedInstance()
       }
 
       this.fetchInvidiousInstances().then(e => {
+        if (this.defaultInvidiousInstance === '') {
+          this.setRandomCurrentInvidiousInstance()
+        }
+      })
+
+      this.fetchPipedInstances().then(e => {
         if (this.defaultInvidiousInstance === '') {
           this.setRandomCurrentInvidiousInstance()
         }
@@ -550,6 +565,9 @@ export default defineComponent({
       'fetchInvidiousInstances',
       'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
+      'fetchPipedInstances',
+      'fetchPipedInstancesFromFile',
+      'setRandomCurrentPipedInstance',
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',

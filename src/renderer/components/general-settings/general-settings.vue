@@ -13,6 +13,7 @@
         <ft-toggle-switch
           :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
           :default-value="backendFallback"
+          :disabled="backendPreference === 'piped'"
           :compact="true"
           :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
@@ -49,6 +50,16 @@
         :tooltip="$t('Tooltips.General Settings.Preferred API Backend')"
         :icon="['fas', 'server']"
         @change="handlePreferredApiBackend"
+      />
+      <ft-select
+        v-if="backendFallback"
+        :placeholder="$t('Settings.General Settings.Preferred API Backend.Fallback API Backend')"
+        :value="fallbackPreference"
+        :select-names="backendNames"
+        :select-values="backendValues"
+        :tooltip="$t('Tooltips.General Settings.Fallback API Backend')"
+        :icon="['fas', 'server']"
+        @change="handleFallbackApiBackend"
       />
       <ft-select
         :placeholder="$t('Settings.General Settings.Default Landing Page')"
@@ -102,54 +113,57 @@
         @change="updateExternalLinkHandling"
       />
     </div>
-    <div
-      v-if="backendPreference === 'invidious' || backendFallback"
+    <template
+      v-if="backendPreference === 'piped'"
     >
-      <ft-flex-box class="settingsFlexStart460px">
-        <ft-input
-          :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
-          :show-action-button="false"
-          :show-label="true"
-          :value="currentInvidiousInstance"
-          :data-list="invidiousInstancesList"
-          :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
-          @input="handleInvidiousInstanceInput"
-        />
-      </ft-flex-box>
-      <ft-flex-box>
-        <div>
-          <a
-            href="https://api.invidious.io"
-          >
-            {{ $t('Settings.General Settings.View all Invidious instance information') }}
-          </a>
-        </div>
-      </ft-flex-box>
-      <p
-        v-if="defaultInvidiousInstance !== ''"
-        class="center"
+      <ft-instance-selector
+        :backend-type="'piped'"
+        :placeholder="$t('Settings.General Settings.Current Piped Instance')"
+        :tooltip="$t('Tooltips.General Settings.Piped Instance')"
+        :instance-list="pipedInstancesList"
+        :current-instance="currentPipedInstance"
+        :default-instance="defaultPipedInstance"
+        @input="handlePipedInstanceInput"
+        @setDefaultInstance="handleSetDefaultPipedInstanceClick"
+        @clearDefaultInstance="handleClearDefaultPipedInstanceClick"
+      />
+      <br
+        v-if="(backendFallback && fallbackPreference === 'invidious')"
       >
-        {{ $t('Settings.General Settings.The currently set default instance is {instance}', { instance: defaultInvidiousInstance }) }}
-      </p>
-      <template v-else>
-        <p class="center">
-          {{ $t('Settings.General Settings.No default instance has been set') }}
-        </p>
-        <p class="center">
-          {{ $t('Settings.General Settings.Current instance will be randomized on startup') }}
-        </p>
-      </template>
-      <ft-flex-box>
-        <ft-button
-          :label="$t('Settings.General Settings.Set Current Instance as Default')"
-          @click="handleSetDefaultInstanceClick"
-        />
-        <ft-button
-          :label="$t('Settings.General Settings.Clear Default Instance')"
-          @click="handleClearDefaultInstanceClick"
-        />
-      </ft-flex-box>
-    </div>
+    </template>
+    <template
+      v-if="(backendFallback && fallbackPreference === 'invidious') || backendPreference == 'invidious'"
+    >
+      <ft-instance-selector
+        :backend-type="'invidious'"
+        :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
+        :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
+        :instance-list="invidiousInstancesList"
+        :current-instance="currentInvidiousInstance"
+        :default-instance="defaultInvidiousInstance"
+        @input="handleInvidiousInstanceInput"
+        @setDefaultInstance="handleSetDefaultInvidiousInstanceClick"
+        @clearDefaultInstance="handleClearDefaultInvidiousInstanceClick"
+      />
+      <br
+        v-if="(backendFallback && fallbackPreference === 'piped')"
+      >
+    </template>
+    <template
+      v-if="backendFallback && fallbackPreference === 'piped'"
+    >
+      <ft-instance-selector
+        :backend-type="'piped'"
+        :placeholder="$t('Settings.General Settings.Current Piped Instance')"
+        :tooltip="$t('Tooltips.General Settings.Piped Instance')"
+        :instance-list="pipedInstancesList"
+        :current-instance="currentPipedInstance"
+        :default-instance="defaultPipedInstance"
+        @input="handlePipedInstanceInput"
+        @setDefaultInstance="handleSetDefaultPipedInstanceClick"
+        @clearDefaultInstance="handleClearDefaultPipedInstanceClick"
+      />
+    </template>
   </ft-settings-section>
 </template>
 
