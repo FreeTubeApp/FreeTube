@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtPlaylistAddVideoButton from '../ft-playlist-add-video-button/ft-playlist-add-video-button.vue'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -17,7 +18,8 @@ import debounce from 'lodash.debounce'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-playlist-add-video-button': FtPlaylistAddVideoButton,
   },
   props: {
     data: {
@@ -84,6 +86,11 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+
+    showVideoAddedToPlaylistCount: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {
@@ -106,7 +113,6 @@ export default defineComponent({
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
-      addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
     }
   },
@@ -497,13 +503,6 @@ export default defineComponent({
     historyEntry() {
       this.checkIfWatched()
     },
-    showAddToPlaylistPrompt(value) {
-      if (value) { return }
-      // Execute on prompt close
-
-      if (this.addToPlaylistPromptCloseCallback == null) { return }
-      this.addToPlaylistPromptCloseCallback()
-    },
   },
   created: function () {
     this.parseVideoData()
@@ -737,30 +736,6 @@ export default defineComponent({
       this.watchProgress = 0
     },
 
-    togglePlaylistPrompt: function () {
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.data.lengthSeconds,
-      }
-
-      this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
-
-      // Focus when prompt closed
-      this.addToPlaylistPromptCloseCallback = () => {
-        // Run once only
-        this.addToPlaylistPromptCloseCallback = null
-
-        // `thumbnailLink` is a `router-link`
-        // `focus()` can only be called on the actual element
-        this.$refs.addToPlaylistIcon?.$el?.focus()
-      }
-    },
-
     hideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
       hiddenChannels.push({ name: channelId, preferredName: channelName })
@@ -836,7 +811,6 @@ export default defineComponent({
       'updateHistory',
       'removeFromHistory',
       'updateChannelsHidden',
-      'showAddToPlaylistPromptForManyVideos',
       'addVideo',
       'updatePlaylist',
       'removeVideo',

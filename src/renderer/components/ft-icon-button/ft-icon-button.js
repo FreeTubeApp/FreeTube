@@ -16,6 +16,10 @@ export default defineComponent({
       type: Array,
       default: () => ['fas', 'ellipsis-v']
     },
+    counterValue: {
+      type: Number,
+      default: 0,
+    },
     disabled: {
       type: Boolean,
       default: false
