@@ -4,8 +4,6 @@ const IpcChannels = {
   DISABLE_PROXY: 'disable-proxy',
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
-  GET_USER_DATA_PATH: 'get-user-data-path',
-  GET_USER_DATA_PATH_SYNC: 'get-user-data-path-sync',
   GET_PICTURES_PATH: 'get-pictures-path',
   SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
@@ -14,6 +12,14 @@ const IpcChannels = {
   CREATE_NEW_WINDOW: 'create-new-window',
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
   NATIVE_THEME_UPDATE: 'native-theme-update',
+  APP_READY: 'app-ready',
+  RELAUNCH_REQUEST: 'relaunch-request',
+
+  SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
+  UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
+
+  OPEN_URL: 'open-url',
+  CHANGE_VIEW: 'change-view',
 
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
@@ -26,7 +32,12 @@ const IpcChannels = {
   SYNC_PLAYLISTS: 'sync-playlists',
 
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
-  TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache'
+  TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
+
+  SHOW_VIDEO_STATISTICS: 'show-video-statistics',
+
+  PLAYER_CACHE_GET: 'player-cache-get',
+  PLAYER_CACHE_SET: 'player-cache-set'
 }
 
 const DBActions = {
@@ -36,8 +47,7 @@ const DBActions = {
     UPSERT: 'db-action-upsert',
     DELETE: 'db-action-delete',
     DELETE_MULTIPLE: 'db-action-delete-multiple',
-    DELETE_ALL: 'db-action-delete-all',
-    PERSIST: 'db-action-persist'
+    DELETE_ALL: 'db-action-delete-all'
   },
 
   HISTORY: {
@@ -76,13 +86,29 @@ const SyncEvents = {
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
+// Width threshold in px at which we switch to using a more heavily altered view for mobile users
+const MOBILE_WIDTH_THRESHOLD = 680
+
+// Height threshold in px at which we switch to using a more heavily altered playlist view for mobile users
+const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
+
 // YouTube search character limit is 100 characters
 const SEARCH_CHAR_LIMIT = 100
+
+// Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
+const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
+// Displayed on the about page and used in the main.js file to only allow monero URLs with this wallet address to be opened
+const ABOUT_MONERO_ADDRESS = '48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB'
 
 export {
   IpcChannels,
   DBActions,
   SyncEvents,
   MAIN_PROFILE_ID,
-  SEARCH_CHAR_LIMIT
+  MOBILE_WIDTH_THRESHOLD,
+  PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
+  SEARCH_CHAR_LIMIT,
+  ABOUT_BITCOIN_ADDRESS,
+  ABOUT_MONERO_ADDRESS
 }

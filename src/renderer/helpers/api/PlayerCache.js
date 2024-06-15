@@ -1,43 +1,21 @@
-import fs from 'fs/promises'
-import path from 'path'
+import { IpcChannels } from '../../../constants'
 
-import { pathExists } from '../filesystem'
-
-// based off https://github.com/LuanRT/YouTube.js/blob/6caa679df6ddc77d25be02dcb7355b722ab268aa/src/utils/Cache.ts
-// avoids errors caused by the fully dynamic `fs` and `path` module imports that youtubei.js's UniversalCache does
 export class PlayerCache {
-  constructor(cacheDirectory) {
-    this.cacheDirectory = cacheDirectory
-  }
-
   async get(key) {
-    const filePath = path.resolve(this.cacheDirectory, key)
-
-    try {
-      const contents = await fs.readFile(filePath)
-      return contents.buffer
-    } catch (e) {
-      if (e?.code === 'ENOENT') {
-        return undefined
-      }
-      throw e
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+      return await ipcRenderer.invoke(IpcChannels.PLAYER_CACHE_GET, key)
     }
   }
 
   async set(key, value) {
-    await fs.mkdir(this.cacheDirectory, { recursive: true })
-
-    const filePath = path.resolve(this.cacheDirectory, key)
-    await fs.writeFile(filePath, new Uint8Array(value))
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+      await ipcRenderer.invoke(IpcChannels.PLAYER_CACHE_SET, key, value)
+    }
   }
 
-  async remove(key) {
-    const filePath = path.resolve(this.cacheDirectory, key)
-
-    if (await pathExists(filePath)) {
-      try {
-        await fs.unlink(filePath)
-      } catch { }
-    }
+  async remove(_key) {
+    // no-op; YouTube.js only uses remove for the OAuth credentials, but we don't use that in FreeTube
   }
 }

@@ -82,6 +82,18 @@ Search Filters:
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
   There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
+  Features:
+    Features: المميزات
+    HD: عالِ الدقة
+    Subtitles: التسميات التوضيحية
+    4K: 4K
+    HDR: المستوى الديناميكي العالي
+    Creative Commons: المشاع الإبداعي
+    3D: ثلاثي الابعاد
+    Live: مباشر
+    360 Video: فيديو ٣٦٠
+    Location: الموقع
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -172,6 +184,10 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: تمت العودة لاستخدام {oldPlaylistName}
         للإشارة المرجعية السريعة
       Quick bookmark disabled: تم تعطيل الإشارة المرجعية السريعة
+      This playlist is already being used for quick bookmark.: يتم استخدام قائمة التشغيل
+        هذه بالفعل لوضع إشارة مرجعية سريعة.
+      Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
+        هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
     Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
@@ -186,7 +202,12 @@ User Playlists:
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
-    Added {count} Times: تمت إضافة {count} الوقت | تمت إضافة {count} مرة
+    Added {count} Times: تمت إضافتها بالفعل | تمت إضافة {count} مرة
+    Allow Adding Duplicate Video(s): السماح بإضافة مقاطع فيديو مكررة
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": ستتم إضافة مقاطع فيديو
+      {videoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": تمت إضافة {videoCount}/{totalVideoCount}
+      من مقاطع الفيديو بالفعل
   CreatePlaylistPrompt:
     Toast:
       There is already a playlist with this name. Please pick a different name.: توجد
@@ -211,6 +232,18 @@ User Playlists:
     التشغيل هذه
   Disable Quick Bookmark: تعطيل الإشارة المرجعية السريعة
   Playlists with Matching Videos: قوائم التشغيل مع مقاطع الفيديو المطابقة
+  Quick Bookmark Enabled: تم تمكين الإشارة المرجعية السريعة
+  Cannot delete the quick bookmark target playlist.: لا يمكن حذف قائمة التشغيل المستهدفة
+    للإشارات المرجعية السريعة.
+  Remove Duplicate Videos: إزالة مقاطع الفيديو المكررة
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: هل
+    أنت متأكد أنك تريد إزالة مقطع فيديو واحد تمت مشاهدته من قائمة التشغيل هذه؟ هذا
+    لا يمكن التراجع عنها. | هل أنت متأكد أنك تريد إزالة {playlistItemCount} من مقاطع
+    الفيديو التي تمت مشاهدتها من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: هل
+    أنت متأكد أنك تريد إزالة مقطع فيديو مكرر واحد من قائمة التشغيل هذه؟ هذا لا يمكن
+    التراجع عنها. | هل أنت متأكد أنك تريد إزالة {playlistItemCount} من مقاطع الفيديو
+    المكررة من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
 History:
   # On History Page
   History: 'السجلّ'
@@ -282,6 +315,8 @@ Settings:
       Pastel Pink: الباستيل الوردي
       Hot Pink: وردي فاقع
       Nordic: بلدان الشمال الأوروبي
+      Solarized Dark: مظلم مشمس
+      Solarized Light: مشمس داكن
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -321,6 +356,14 @@ Settings:
       Catppuccin Mocha Red: كاتبوتشين موكا أحمر
       Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
       Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
+      Solarized Yellow: مشمس فاتح
+      Solarized Orange: مشمس برتقالي
+      Solarized Red: مشمس أحمر
+      Solarized Magenta: مشمس أرجواني
+      Solarized Violet: مشمس بنفسجي
+      Solarized Blue: مشمس أزرق
+      Solarized Cyan: مشمس سماوي
+      Solarized Green: مشمس أخضر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -420,6 +463,7 @@ Settings:
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
     Fetch Automatically: جلب الخلاصة تلقائيا
     Only Show Latest Video for Each Channel: عرض أحدث فيديو فقط لكل قناة
+    Avoid Accidental Unsubscription: تجنب إلغاء الاشتراك عن طريق الخطأ
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -679,6 +723,8 @@ About:
   Downloads / Changelog: التحميلات\التغييرات
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
   Discussions: المناقشات
+  Licensed under the: مرخص تحت
+  AGPLv3: رخصة أفيرو العمومية الإصدار ٣
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -1192,3 +1238,10 @@ Yes, Restart: نعم، إعادة تشغيل
 Yes, Open Link: نعم، افتح الرابط
 Cancel: إلغاء
 Search character limit: تجاوز استعلام البحث حد الأحرف {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: التعاليق مغلقة
+    Subtitles: التسميات التوضيحية
+'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
+  آمن: "{url}".'

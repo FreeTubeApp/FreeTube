@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Прикупити више резултата'
   There are no more results for this search: 'Нема више резултата за ову претрагу'
 # Sidebar
+  Features:
+    Creative Commons: Creative Commons
+    3D: 3D
+    HDR: HDR
+    VR180: VR180
+    Features: Функције
+    HD: HD
+    Subtitles: Титлови
+    Location: Локација
+    Live: Уживо
+    4K: 4K
+    360 Video: 360 видео
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
@@ -148,7 +160,12 @@ User Playlists:
       да додате видео снимак | Изаберите плејлисту на коју желите да додате {videoCount}
       видео снимака
     N playlists selected: 'Изабрано: {playlistCount}'
-    Added {count} Times: Додато {count} пут | Додато {count} пута
+    Added {count} Times: Већ додато | Додато {count} пута
+    Allow Adding Duplicate Video(s): Дозволи додавање дупликата видео снимака
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      видео снимака ће бити додато'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      видео снимака је већ додато'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Није било видео снимака за уклањање.
@@ -179,6 +196,10 @@ User Playlists:
         Кликните овде да поништите
       Reverted to use {oldPlaylistName} for quick bookmark: Враћено на коришћење „{oldPlaylistName}“
         за брзо обележавање
+      This playlist is already being used for quick bookmark.: Ова плејлиста се већ
+        користи за брзо обележавање.
+      Playlist {playlistName} is the new quick bookmark playlist.: Плејлиста {playlistName}
+        је нова плејлиста за брзо обележавање.
     Search for Videos: Претрага видео снимака
   Are you sure you want to delete this playlist? This cannot be undone: Желите ли
     заиста да избришете ову плејлисту? Ово се не може поништити.
@@ -224,6 +245,18 @@ User Playlists:
   Add to Favorites: Додај на плејлисту „{playlistName}“
   Remove from Favorites: Уклони са плејлисте „{playlistName}“
   Playlists with Matching Videos: Плејлисте с подударајућим видео снимцима
+  Cannot delete the quick bookmark target playlist.: Није могуће избрисати циљну плејлисту
+    за брзо обележавање.
+  Quick Bookmark Enabled: Брзо обележавање омогућено
+  Remove Duplicate Videos: Уклони дуплиране видео снимке
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Желите
+    ли заиста да уклоните 1 дуплирани видео снимак с ове плејлисте? Ово не може бити
+    опозвано. | Желите ли заиста да уклоните {playlistItemCount} дуплираних видео
+    снимака с ове плејлисте? Ово не може бити опозвано.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Желите
+    ли заиста да уклоните 1 одгледани видео с ове плејлисте? Ово не може бити опозвано.
+    | Желите ли заиста да уклоните {playlistItemCount} одледаних видео снимака с ове
+    плејлисте? Ово не може бити опозвано.
 History:
   # On History Page
   History: 'Историја'
@@ -302,6 +335,8 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       System Default: Системски подразумевано
       Nordic: Нордичка
+      Solarized Dark: Соларизована тамна
+      Solarized Light: Соларизована светла
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -341,6 +376,14 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha лаванда
       Catppuccin Mocha Blue: Catppuccin Mocha плава
       Catppuccin Mocha Green: Catppuccin Mocha зелена
+      Solarized Yellow: Соларизована жута
+      Solarized Orange: Соларизована наранџаста
+      Solarized Red: Соларизована црвена
+      Solarized Cyan: Соларизована цијан
+      Solarized Green: Соларизована зелена
+      Solarized Magenta: Соларизована магента
+      Solarized Blue: Соларизована плава
+      Solarized Violet: Соларизована љубичаста
     Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
@@ -433,6 +476,7 @@ Settings:
     Fetch Automatically: Аутоматски прикупи фид
     Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
       сваки канал
+    Avoid Accidental Unsubscription: Избегни случајно отпраћивање
   Distraction Free Settings:
     Distraction Free Settings: 'Подешавања „Без ометања“'
     Hide Video Views: 'Сакриј прегледе видео снимка'
@@ -638,6 +682,8 @@ About:
   Donate: 'Донација'
 
   Discussions: Дискусије
+  Licensed under the: Лиценцирано под
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Избор профила'
   Profile Filter: 'Филтер профила'
@@ -1139,3 +1185,10 @@ Yes, Restart: Да, рестартуј
 Yes, Open Link: Да, отвори линк
 Search character limit: Упит за претрагу премашује ограничење броја знакова од {searchCharacterLimit}
   знакова
+Search Listing:
+  Label:
+    Closed Captions: Скривени титлови
+    4K: 4K
+    Subtitles: Титлови
+'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
+  URL адресе: „{url}“.'

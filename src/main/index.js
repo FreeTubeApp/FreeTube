@@ -6,7 +6,13 @@ import {
 import path from 'path'
 import cp from 'child_process'
 
-import { IpcChannels, DBActions, SyncEvents } from '../constants'
+import {
+  IpcChannels,
+  DBActions,
+  SyncEvents,
+  ABOUT_BITCOIN_ADDRESS,
+  ABOUT_MONERO_ADDRESS
+} from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
@@ -56,7 +62,7 @@ function runApp() {
         label: 'Show / Hide Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
-          browserWindow.webContents.send('showVideoStatistics')
+          browserWindow.webContents.send(IpcChannels.SHOW_VIDEO_STATISTICS)
         }
       },
       {
@@ -199,10 +205,12 @@ function runApp() {
     app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
   }
 
+  const userDataPath = app.getPath('userData')
+
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
-  const REPLACE_HTTP_CACHE_PATH = `${app.getPath('userData')}/experiment-replace-http-cache`
+  const REPLACE_HTTP_CACHE_PATH = `${userDataPath}/experiment-replace-http-cache`
   const replaceHttpCache = existsSync(REPLACE_HTTP_CACHE_PATH)
   if (replaceHttpCache) {
     // the http cache causes excessive disk usage during video playback
@@ -210,6 +218,8 @@ function runApp() {
     // experimental as it increases RAM use in favour of reduced disk use
     app.commandLine.appendSwitch('disable-http-cache')
   }
+
+  const PLAYER_CACHE_PATH = `${userDataPath}/player_cache`
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -239,7 +249,7 @@ function runApp() {
 
         const url = getLinkUrl(commandLine)
         if (url) {
-          mainWindow.webContents.send('openUrl', url)
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
         }
       }
     })
@@ -539,7 +549,11 @@ function runApp() {
     await createWindow()
 
     if (process.env.NODE_ENV === 'development') {
-      installDevTools()
+      try {
+        require('vue-devtools').install()
+      } catch (err) {
+        console.error(err)
+      }
     }
 
     if (isDebug) {
@@ -588,16 +602,6 @@ function runApp() {
     }
   }
 
-  async function installDevTools() {
-    try {
-      /* eslint-disable */
-      require('vue-devtools').install()
-      /* eslint-enable */
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
   async function createWindow(
     {
       replaceMainWindow = true,
@@ -630,6 +634,10 @@ function runApp() {
           return '#de1c85'
         case 'nordic':
           return '#2b2f3a'
+        case 'solarized-dark':
+          return '#002B36'
+        case 'solarized-light':
+          return '#fdf6e3'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -745,8 +753,8 @@ function runApp() {
     }
 
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
-      ipcMain.once('searchInputHandlingReady', () => {
-        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
+        newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
       })
     }
 
@@ -792,9 +800,9 @@ function runApp() {
     })
   }
 
-  ipcMain.once('appReady', () => {
+  ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send('openUrl', startupUrl)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
     }
   })
 
@@ -831,7 +839,7 @@ function runApp() {
     app.quit()
   }
 
-  ipcMain.once('relaunchRequest', () => {
+  ipcMain.once(IpcChannels.RELAUNCH_REQUEST, () => {
     relaunch()
   })
 
@@ -855,21 +863,41 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
-  ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
-    if (typeof url === 'string') shell.openExternal(url)
+  ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
+    if (typeof url === 'string') {
+      let parsedURL
+
+      try {
+        parsedURL = new URL(url)
+      } catch {
+        // If it's not a valid URL don't open it
+        return false
+      }
+
+      if (
+        parsedURL.protocol === 'http:' || parsedURL.protocol === 'https:' ||
+
+        // Email address on the about page and Autolinker detects and links email addresses
+        parsedURL.protocol === 'mailto:' ||
+
+        // Autolinker detects and links phone numbers
+        parsedURL.protocol === 'tel:' ||
+
+        // Donation links on the about page
+        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS) ||
+        (parsedURL.protocol === 'monero:' && parsedURL.pathname === ABOUT_MONERO_ADDRESS)
+      ) {
+        shell.openExternal(url)
+        return true
+      }
+    }
+
+    return false
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
     // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
     return app.getSystemLocale()
-  })
-
-  ipcMain.handle(IpcChannels.GET_USER_DATA_PATH, () => {
-    return app.getPath('userData')
-  })
-
-  ipcMain.on(IpcChannels.GET_USER_DATA_PATH_SYNC, (event) => {
-    event.returnValue = app.getPath('userData')
   })
 
   ipcMain.handle(IpcChannels.GET_PICTURES_PATH, () => {
@@ -934,6 +962,35 @@ function runApp() {
     }
 
     relaunch()
+  })
+
+  function playerCachePathForKey(key) {
+    // Remove path separators and period characters,
+    // to prevent any files outside of the player_cache directory,
+    // from being read or written
+    const sanitizedKey = `${key}`.replaceAll(/[./\\]/g, '__')
+
+    return path.join(PLAYER_CACHE_PATH, sanitizedKey)
+  }
+
+  ipcMain.handle(IpcChannels.PLAYER_CACHE_GET, async (_, key) => {
+    const filePath = playerCachePathForKey(key)
+
+    try {
+      const contents = await asyncFs.readFile(filePath)
+      return contents.buffer
+    } catch (e) {
+      console.error(e)
+      return undefined
+    }
+  })
+
+  ipcMain.handle(IpcChannels.PLAYER_CACHE_SET, async (_, key, value) => {
+    const filePath = playerCachePathForKey(key)
+
+    await asyncFs.mkdir(PLAYER_CACHE_PATH, { recursive: true })
+
+    await asyncFs.writeFile(filePath, new Uint8Array(value))
   })
 
   // ************************************************* //
@@ -1032,10 +1089,6 @@ function runApp() {
           )
           return null
 
-        case DBActions.GENERAL.PERSIST:
-          baseHandlers.history.persist()
-          return null
-
         default:
           // eslint-disable-next-line no-throw-literal
           throw 'invalid history db action'
@@ -1080,10 +1133,6 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.DELETE, data }
           )
-          return null
-
-        case DBActions.GENERAL.PERSIST:
-          baseHandlers.profiles.persist()
           return null
 
         default:
@@ -1285,7 +1334,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send('openUrl', baseUrl(url))
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
     }
@@ -1346,7 +1395,7 @@ function runApp() {
     }
 
     browserWindow.webContents.send(
-      'change-view',
+      IpcChannels.CHANGE_VIEW,
       { route: path }
     )
   }
@@ -1447,9 +1496,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.send(
-                'history-back',
-              )
+              browserWindow.webContents.goBack()
             },
             type: 'normal',
           },
@@ -1459,9 +1506,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.send(
-                'history-forward',
-              )
+              browserWindow.webContents.goForward()
             },
             type: 'normal',
           },

@@ -7,6 +7,7 @@ import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { colors, getColorTranslations } from '../../helpers/colors'
+import { IpcChannels } from '../../../constants'
 
 export default defineComponent({
   name: 'ThemeSettings',
@@ -30,16 +31,22 @@ export default defineComponent({
         'restart',
         'cancel'
       ],
+      /* Themes are devided into 3 groups. The first group contains the default themes. The second group are themes that don't have specific primary and secondary colors. The third group are themes that do have specific primary and secondary colors available. */
       baseThemeValues: [
+        // First group
         'system',
         'light',
         'dark',
         'black',
-        'dracula',
-        'catppuccinMocha',
-        'pastelPink',
+        // Second group
+        'nordic',
         'hotPink',
-        'nordic'
+        'pastelPink',
+        // Third group
+        'catppuccinMocha',
+        'dracula',
+        'solarizedDark',
+        'solarizedLight'
       ]
     }
   },
@@ -95,17 +102,23 @@ export default defineComponent({
       ]
     },
 
+    /* Themes are devided into 3 groups. The first group contains the default themes. The second group are themes that don't have specific primary and secondary colors. The third group are themes that do have specific primary and secondary colors available. */
     baseThemeNames: function () {
       return [
+        // First group
         this.$t('Settings.Theme Settings.Base Theme.System Default'),
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Black'),
-        this.$t('Settings.Theme Settings.Base Theme.Dracula'),
-        this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
-        this.$t('Settings.Theme Settings.Base Theme.Pastel Pink'),
+        // Second group
+        this.$t('Settings.Theme Settings.Base Theme.Nordic'),
         this.$t('Settings.Theme Settings.Base Theme.Hot Pink'),
-        this.$t('Settings.Theme Settings.Base Theme.Nordic')
+        this.$t('Settings.Theme Settings.Base Theme.Pastel Pink'),
+        // Third group
+        this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
+        this.$t('Settings.Theme Settings.Base Theme.Dracula'),
+        this.$t('Settings.Theme Settings.Base Theme.Solarized Dark'),
+        this.$t('Settings.Theme Settings.Base Theme.Solarized Light')
       ]
     },
 
@@ -121,7 +134,7 @@ export default defineComponent({
       return this.baseTheme !== 'hotPink'
     }
   },
-  mounted: function () {
+  created: function () {
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
@@ -151,7 +164,7 @@ export default defineComponent({
           this.disableSmoothScrollingToggleValue
         ).then(() => {
           const { ipcRenderer } = require('electron')
-          ipcRenderer.send('relaunchRequest')
+          ipcRenderer.send(IpcChannels.RELAUNCH_REQUEST)
         })
       }
     },

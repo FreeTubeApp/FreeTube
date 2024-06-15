@@ -55,11 +55,17 @@ export default defineComponent({
       // react to route changes...
 
       const query = this.$route.params.query
+      let features = this.$route.query.features
+      // if page gets refreshed and there's only one feature then it will be a string
+      if (typeof features === 'string') {
+        features = [features]
+      }
       const searchSettings = {
         sortBy: this.$route.query.sortBy,
         time: this.$route.query.time,
         type: this.$route.query.type,
-        duration: this.$route.query.duration
+        duration: this.$route.query.duration,
+        features: features,
       }
 
       const payload = {
@@ -76,11 +82,18 @@ export default defineComponent({
   mounted: function () {
     this.query = this.$route.params.query
 
+    let features = this.$route.query.features
+    // if page gets refreshed and there's only one feature then it will be a string
+    if (typeof features === 'string') {
+      features = [features]
+    }
+
     this.searchSettings = {
       sortBy: this.$route.query.sortBy,
       time: this.$route.query.time,
       type: this.$route.query.type,
-      duration: this.$route.query.duration
+      duration: this.$route.query.duration,
+      features: features,
     }
 
     const payload = {
@@ -213,7 +226,8 @@ export default defineComponent({
           sort_by: payload.searchSettings.sortBy,
           date: payload.searchSettings.time,
           duration: payload.searchSettings.duration,
-          type: payload.searchSettings.type
+          type: payload.searchSettings.type,
+          features: payload.searchSettings.features.join(',')
         }
       }
 

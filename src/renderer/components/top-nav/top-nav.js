@@ -4,7 +4,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels } from '../../../constants'
+import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
@@ -17,13 +17,20 @@ export default defineComponent({
     FtProfileSelector
   },
   data: () => {
+    let isArrowBackwardDisabled = true
+    let isArrowForwardDisabled = true
+
+    // If the Navigation API isn't supported (Firefox and Safari)
+    // keep the back and forwards buttons always enabled
+    if (!('navigation' in window)) {
+      isArrowBackwardDisabled = false
+      isArrowForwardDisabled = false
+    }
+
     return {
-      component: this,
       showSearchContainer: true,
-      historyIndex: 1,
-      isForwardOrBack: false,
-      isArrowBackwardDisabled: true,
-      isArrowForwardDisabled: true,
+      isArrowBackwardDisabled,
+      isArrowForwardDisabled,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -96,9 +103,17 @@ export default defineComponent({
       return this.$t('Open New Window')
     }
   },
+  watch: {
+    $route: function () {
+      if ('navigation' in window) {
+        this.isArrowForwardDisabled = !window.navigation.canGoForward
+        this.isArrowBackwardDisabled = !window.navigation.canGoBack
+      }
+    }
+  },
   mounted: function () {
     let previousWidth = window.innerWidth
-    if (window.innerWidth <= 680) {
+    if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
 
@@ -113,7 +128,7 @@ export default defineComponent({
       // Don't change the status of showSearchContainer if only the height of the window changes
       // Opening the virtual keyboard can trigger this resize event, but it won't change the width
       if (previousWidth !== window.innerWidth) {
-        this.showSearchContainer = window.innerWidth > 680
+        this.showSearchContainer = window.innerWidth > MOBILE_WIDTH_THRESHOLD
         previousWidth = window.innerWidth
       }
     })
@@ -124,7 +139,7 @@ export default defineComponent({
     goToSearch: async function (query, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
-      if (window.innerWidth <= 680) {
+      if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
         this.$refs.searchContainer.blur()
         this.showSearchContainer = false
       } else {
@@ -208,7 +223,8 @@ export default defineComponent({
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
-                duration: this.searchSettings.duration
+                duration: this.searchSettings.duration,
+                features: this.searchSettings.features,
               },
               doCreateNewWindow,
               searchQueryText: query
@@ -294,41 +310,12 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function () {
-      if (!this.isForwardOrBack) {
-        this.historyIndex = window.history.length
-        this.isArrowBackwardDisabled = false
-        this.isArrowForwardDisabled = true
-      } else {
-        this.isForwardOrBack = false
-      }
-    },
-
     historyBack: function () {
-      this.isForwardOrBack = true
-      window.history.back()
-
-      if (this.historyIndex > 1) {
-        this.historyIndex--
-        this.isArrowForwardDisabled = false
-        if (this.historyIndex === 1) {
-          this.isArrowBackwardDisabled = true
-        }
-      }
+      this.$router.back()
     },
 
     historyForward: function () {
-      this.isForwardOrBack = true
-      window.history.forward()
-
-      if (this.historyIndex < window.history.length) {
-        this.historyIndex++
-        this.isArrowBackwardDisabled = false
-
-        if (this.historyIndex === window.history.length) {
-          this.isArrowForwardDisabled = true
-        }
-      }
+      this.$router.forward()
     },
 
     toggleSideNav: function () {

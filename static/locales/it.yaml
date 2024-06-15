@@ -84,6 +84,18 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Non ci sono altri risultati per questa
     ricerca
+  Features:
+    Features: Caratteristiche
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Dal vivo
+    4K: 4K
+    Location: Posizione
+    HDR: HDR
+    HD: HD
+    Subtitles: Sottotitoli
+    360 Video: Video 360
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Iscrizioni'
@@ -142,7 +154,12 @@ User Playlists:
     Select a playlist to add your N videos to: Seleziona una playlist a cui aggiungere
       il tuo video | Seleziona una playlist a cui aggiungere i tuoi {videoCount} video
     N playlists selected: '{playlistCount} selezionate'
-    Added {count} Times: Aggiunto {count} volta | Aggiunti {count} volte
+    Added {count} Times: Già aggiunto | Aggiunti {count} volte
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Verranno aggiunti {videoCount}/{totalVideoCount}
+      video
+    "{videoCount}/{totalVideoCount} Videos Already Added": Sono già stati aggiunti
+      {videoCount}/{totalVideoCount} video
+    Allow Adding Duplicate Video(s): Consenti l'aggiunta di video duplicati
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Non c'erano video da rimuovere.
@@ -175,6 +192,10 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Questa
         playlist è ora usata per i segnalibri rapidi al posto di {oldPlaylistName}.
         Fai clic qui per annullare
+      This playlist is already being used for quick bookmark.: Questa playlist è già
+        utilizzata per i segnalibri rapidi.
+      Playlist {playlistName} is the new quick bookmark playlist.: La playlist {playlistName}
+        è la nuova playlist con segnalibri rapidi.
     Search for Videos: Cerca video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
@@ -219,7 +240,19 @@ User Playlists:
   Remove from Favorites: Rimuovi da {playlistName}
   Enable Quick Bookmark With This Playlist: Abilita segnalibro rapido con questa playlist
   Disable Quick Bookmark: Disabilita segnalibro rapido
-  Playlists with Matching Videos: Playlist con video corrispondenti
+  Playlists with Matching Videos: Playlist con video correlati
+  Cannot delete the quick bookmark target playlist.: Impossibile eliminare la playlist
+    di destinazione dei segnalibri rapidi.
+  Quick Bookmark Enabled: Segnalibro rapido abilitato
+  Remove Duplicate Videos: Rimuovi i video duplicati
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sei
+    sicuro di voler rimuovere 1 video duplicato da questa playlist? Questa operazione
+    non può essere annullata. | Vuoi rimuovere {playlistItemCount} video duplicati
+    da questa playlist? Questa operazione non può essere annullata.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sei
+    sicuro di voler rimuovere 1 video guardato da questa playlist? Questa operazione
+    non può essere annullata. | Vuoi rimuovere {playlistItemCount} video guardati
+    da questa playlist? Questa operazione non può essere annullata.
 History:
   # On History Page
   History: 'Cronologia'
@@ -293,6 +326,8 @@ Settings:
       Pastel Pink: Rosa pastello
       Hot Pink: Rosa caldo
       Nordic: Nordico
+      Solarized Dark: Solarizzato scuro
+      Solarized Light: Solarizzato chiaro
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -332,6 +367,14 @@ Settings:
       Catppuccin Mocha Peach: Cappuccino moka pesca
       Catppuccin Mocha Teal: Cappuccino moka alzavola
       Catppuccin Mocha Sky: Cappuccino moka cielo
+      Solarized Yellow: Solarizzato giallo
+      Solarized Orange: Solarizzato arancione
+      Solarized Red: Solarizzato rosso
+      Solarized Magenta: Solarizzato magenta
+      Solarized Violet: Solarizzato viola
+      Solarized Cyan: Solarizzato ciano
+      Solarized Green: Solarizzato verde
+      Solarized Blue: Solarizzato blu
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni dell'interfaccia utente
@@ -432,6 +475,7 @@ Settings:
     Fetch Automatically: Recupera i feed automaticamente
     Only Show Latest Video for Each Channel: Mostra solo il video più recente per
       ciascun canale
+    Avoid Accidental Unsubscription: Evita la cancellazione accidentale dell'iscrizione
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -705,6 +749,8 @@ About:
   Source code: Codice sorgente
   Beta: Beta
   Discussions: Discussioni
+  AGPLv3: AGPLv3
+  Licensed under the: Concesso con licenza
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
@@ -1237,3 +1283,10 @@ Yes, Restart: Sì, riavvia
 Yes, Open Link: Sì, apri link
 Cancel: Annulla
 Search character limit: La query di ricerca supera il limite di caratteri {searchCharacterLimit}
+Search Listing:
+  Label:
+    4K: 4K
+    Closed Captions: Sottotitoli per non udenti
+    Subtitles: Sottotitoli
+'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
+  bloccata: "{url}".'

@@ -16,6 +16,7 @@
       }"
       tabindex="0"
       role="button"
+      :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @click="handleIconClick"
       @mousedown="handleIconMouseDown"

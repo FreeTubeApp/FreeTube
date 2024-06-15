@@ -40,6 +40,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    theme: {
+      type: String,
+      default: 'base'
+    },
     title: {
       type: String,
       required: true,
@@ -106,6 +110,7 @@ export default defineComponent({
       editMode: false,
       showDeletePlaylistPrompt: false,
       showRemoveVideosOnWatchPrompt: false,
+      showRemoveDuplicateVideosPrompt: false,
       newTitle: '',
       newDescription: '',
       deletePlaylistPromptValues: [
@@ -155,11 +160,29 @@ export default defineComponent({
       return this.$store.getters.getPlaylist(this.id)
     },
 
+    allPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
     deletePlaylistPromptNames: function () {
       return [
         this.$t('Yes, Delete'),
         this.$t('Cancel')
       ]
+    },
+    removeVideosOnWatchPromptLabelText() {
+      return this.$tc(
+        'User Playlists.Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone',
+        this.userPlaylistWatchedVideoCount,
+        { playlistItemCount: this.userPlaylistWatchedVideoCount },
+      )
+    },
+    removeDuplicateVideosPromptLabelText() {
+      return this.$tc(
+        'User Playlists.Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone',
+        this.userPlaylistDuplicateItemCount,
+        { playlistItemCount: this.userPlaylistDuplicateItemCount },
+      )
     },
 
     firstVideoIdExists() {
@@ -207,6 +230,38 @@ export default defineComponent({
       return this.isUserPlaylist ? 'user' : ''
     },
 
+    userPlaylistAnyVideoWatched() {
+      if (!this.isUserPlaylist) { return false }
+
+      const historyCacheById = this.$store.getters.getHistoryCacheById
+      return this.selectedUserPlaylist.videos.some((video) => {
+        return typeof historyCacheById[video.videoId] !== 'undefined'
+      })
+    },
+    // `userPlaylistAnyVideoWatched` is faster than this & this is only needed when prompt shown
+    userPlaylistWatchedVideoCount() {
+      if (!this.isUserPlaylist) { return false }
+
+      const historyCacheById = this.$store.getters.getHistoryCacheById
+      return this.selectedUserPlaylist.videos.reduce((count, video) => {
+        return typeof historyCacheById[video.videoId] !== 'undefined' ? count + 1 : count
+      }, 0)
+    },
+
+    userPlaylistUniqueVideoIds() {
+      if (!this.isUserPlaylist) { return new Set() }
+
+      return this.selectedUserPlaylist.videos.reduce((set, video) => {
+        set.add(video.videoId)
+        return set
+      }, new Set())
+    },
+    userPlaylistDuplicateItemCount() {
+      if (this.userPlaylistUniqueVideoIds.size === 0) { return 0 }
+
+      return this.selectedUserPlaylist.videos.length - this.userPlaylistUniqueVideoIds.size
+    },
+
     deletePlaylistButtonVisible: function() {
       if (!this.isUserPlaylist) { return false }
       // Cannot delete during edit
@@ -224,14 +279,8 @@ export default defineComponent({
       return !this.hideSharingActions
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
-    },
-    quickBookmarkEnabled() {
-      return this.quickBookmarkPlaylist != null
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     markedAsQuickBookmarkTarget() {
       // Only user playlists can be target
@@ -239,6 +288,32 @@ export default defineComponent({
       if (this.quickBookmarkPlaylist == null) { return false }
 
       return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
+    },
+    playlistDeletionDisabledLabel: function () {
+      return this.$t('User Playlists["Cannot delete the quick bookmark target playlist."]')
+    },
+
+    inputPlaylistNameEmpty() {
+      return this.newTitle === ''
+    },
+    inputPlaylistNameBlank() {
+      return !this.inputPlaylistNameEmpty && this.newTitle.trim() === ''
+    },
+    inputPlaylistWithNameExists() {
+      // Don't show the message with no name input
+      const playlistName = this.newTitle
+      const selectedUserPlaylist = this.selectedUserPlaylist
+      if (this.newTitle === '') { return false }
+
+      return this.allPlaylists.some((playlist) => {
+        // Only compare with other playlists
+        if (selectedUserPlaylist._id === playlist._id) { return false }
+
+        return playlist.playlistName === playlistName
+      })
+    },
+    playlistPersistenceDisabled() {
+      return this.inputPlaylistNameEmpty || this.inputPlaylistNameBlank || this.inputPlaylistWithNameExists
     },
   },
   watch: {
@@ -268,6 +343,16 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    handlePlaylistNameInput(input) {
+      if (input.trim() === '') {
+        // Need to show message for blank input
+        this.newTitle = input
+        return
+      }
+
+      this.newTitle = input.trim()
+    },
+
     toggleCopyVideosPrompt: function (force = false) {
       if (this.moreVideoDataAvailable && !this.isUserPlaylist && !force) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Some videos in the playlist are not loaded yet. Click here to copy anyway."]'), 5000, () => {
@@ -278,15 +363,15 @@ export default defineComponent({
 
       this.showAddToPlaylistPromptForManyVideos({
         videos: this.videos,
-        newPlaylistDefaultProperties: { title: this.title },
+        newPlaylistDefaultProperties: {
+          title: this.channelName === '' ? this.title : `${this.title} | ${this.channelName}`,
+        },
       })
     },
 
     savePlaylistInfo: function () {
-      if (this.newTitle === '') {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
-        return
-      }
+      // Still possible to attempt to create via pressing enter
+      if (this.playlistPersistenceDisabled) { return }
 
       const playlist = {
         playlistName: this.newTitle,
@@ -319,10 +404,55 @@ export default defineComponent({
       })
     },
 
+    handleQuickBookmarkEnabledDisabledClick: function () {
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is already being used for quick bookmark."]'))
+    },
+
+    handlePlaylistDeleteDisabledClick: function () {
+      showToast(this.playlistDeletionDisabledLabel)
+    },
+
     exitEditMode: function () {
       this.editMode = false
 
       this.$emit('exit-edit-mode')
+    },
+
+    handleRemoveDuplicateVideosPromptAnswer(option) {
+      this.showRemoveDuplicateVideosPrompt = false
+      if (option !== 'delete') { return }
+
+      const videoIdsAdded = new Set()
+      const newVideoItems = this.selectedUserPlaylist.videos.reduce((ary, video) => {
+        if (videoIdsAdded.has(video.videoId)) { return ary }
+
+        ary.push(video)
+        videoIdsAdded.add(video.videoId)
+        return ary
+      }, [])
+
+      const removedVideosCount = this.userPlaylistDuplicateItemCount
+      if (removedVideosCount === 0) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
+        return
+      }
+
+      const playlist = {
+        playlistName: this.title,
+        protected: this.selectedUserPlaylist.protected,
+        description: this.description,
+        videos: newVideoItems,
+        _id: this.id,
+      }
+      try {
+        this.updatePlaylist(playlist)
+        showToast(this.$tc('User Playlists.SinglePlaylistView.Toast.{videoCount} video(s) have been removed', removedVideosCount, {
+          videoCount: removedVideosCount,
+        }))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+        console.error(e)
+      }
     },
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {
@@ -337,7 +467,6 @@ export default defineComponent({
 
       if (removedVideosCount === 0) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
-        this.showRemoveVideosOnWatchPrompt = false
         return
       }
 
@@ -401,10 +530,6 @@ export default defineComponent({
       } else {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
       }
-    },
-    disableQuickBookmark() {
-      this.updateQuickBookmarkTargetPlaylistId(null)
-      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
     },
 
     updateQuery(query) {

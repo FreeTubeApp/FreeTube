@@ -10,11 +10,11 @@ const state = {
 }
 
 const getters = {
-  getHistoryCacheSorted: () => {
+  getHistoryCacheSorted(state) {
     return state.historyCacheSorted
   },
 
-  getHistoryCacheById: () => {
+  getHistoryCacheById(state) {
     return state.historyCacheById
   }
 }
@@ -108,27 +108,29 @@ const mutations = {
   },
 
   updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
-    const i = state.historyCacheSorted.findIndex((currentRecord) => {
-      return currentRecord.videoId === videoId
-    })
+    // historyCacheById and historyCacheSorted reference the same object instances,
+    // so modifying an existing object in one of them will update both.
 
-    const targetRecord = Object.assign({}, state.historyCacheSorted[i])
-    targetRecord.watchProgress = watchProgress
-    state.historyCacheSorted.splice(i, 1, targetRecord)
-    vueSet(state.historyCacheById, videoId, targetRecord)
+    const record = state.historyCacheById[videoId]
+
+    // Don't set, if the item was removed from the watch history, as we don't have any video details
+    if (record) {
+      vueSet(record, 'watchProgress', watchProgress)
+    }
   },
 
   updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }) {
-    const i = state.historyCacheSorted.findIndex((currentRecord) => {
-      return currentRecord.videoId === videoId
-    })
+    // historyCacheById and historyCacheSorted reference the same object instances,
+    // so modifying an existing object in one of them will update both.
 
-    const targetRecord = Object.assign({}, state.historyCacheSorted[i])
-    targetRecord.lastViewedPlaylistId = lastViewedPlaylistId
-    targetRecord.lastViewedPlaylistType = lastViewedPlaylistType
-    targetRecord.lastViewedPlaylistItemId = lastViewedPlaylistItemId
-    state.historyCacheSorted.splice(i, 1, targetRecord)
-    vueSet(state.historyCacheById, videoId, targetRecord)
+    const record = state.historyCacheById[videoId]
+
+    // Don't set, if the item was removed from the watch history, as we don't have any video details
+    if (record) {
+      vueSet(record, 'lastViewedPlaylistId', lastViewedPlaylistId)
+      vueSet(record, 'lastViewedPlaylistType', lastViewedPlaylistType)
+      vueSet(record, 'lastViewedPlaylistItemId', lastViewedPlaylistItemId)
+    }
   },
 
   removeFromHistoryCacheById(state, videoId) {

@@ -330,10 +330,14 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  * Opens a link in the default web browser or a new tab in the web builds
  * @param {string} url the URL to open
  */
-export function openExternalLink(url) {
+export async function openExternalLink(url) {
   if (process.env.IS_ELECTRON) {
     const ipcRenderer = require('electron').ipcRenderer
-    ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
+    const success = await ipcRenderer.invoke(IpcChannels.OPEN_EXTERNAL_LINK, url)
+
+    if (!success) {
+      showToast(i18n.t('Blocked opening potentially unsafe URL', { url }))
+    }
   } else {
     window.open(url, '_blank')
   }
@@ -561,7 +565,8 @@ export function searchFiltersMatch(filtersA, filtersB) {
   return filtersA?.sortBy === filtersB?.sortBy &&
     filtersA?.time === filtersB?.time &&
     filtersA?.type === filtersB?.type &&
-    filtersA?.duration === filtersB?.duration
+    filtersA?.duration === filtersB?.duration &&
+    filtersA?.features?.length === filtersB?.features?.length && filtersA?.features?.every((val, index) => val === filtersB?.features[index])
 }
 
 export function replaceFilenameForbiddenChars(filenameOriginal) {
@@ -609,16 +614,6 @@ export async function getSystemLocale() {
   }
 
   return locale || 'en-US'
-}
-
-export async function getUserDataPath() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
-  } else {
-    // TODO: implement getUserDataPath web compatible callback
-    return null
-  }
 }
 
 export async function getPicturesPath() {

@@ -133,7 +133,7 @@ User Playlists:
   Search bar placeholder: Căutați liste de redare
   Empty Search Message: Nu există videoclipuri în această listă de redare care să
     corespundă căutării dvs.
-  Move Video Down: Mutați video în jos
+  Move Video Down: Mutați videoclipul în jos
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
     de redare
   Sort By:
@@ -143,6 +143,9 @@ User Playlists:
     NameAscending: A-Z
     LatestUpdatedFirst: Actualizat recent
     EarliestCreatedFirst: Cel mai devreme creat
+    LatestPlayedFirst: Redate recent
+    EarliestUpdatedFirst: Cea mai recentă actualizare
+    EarliestPlayedFirst: Cele mai recent redate
   This playlist currently has no videos.: Această listă de redare nu are în prezent
     niciun videoclip.
   You have no playlists. Click on the create new playlist button to create a new one.: Nu
@@ -164,7 +167,7 @@ User Playlists:
   Add to Playlist: Adăugați la lista de redare
   Add to Favorites: Adaugă la {playlistName}
   Remove from Favorites: Eliminați din {playlistName}
-  Move Video Up: Mutați video în sus
+  Move Video Up: Mutați videoclipul în sus
   Remove from Playlist: Eliminați din lista de redare
   Playlist Name: Numele listei de redare
   Playlist Description: Descrierea listei de redare
@@ -183,6 +186,20 @@ User Playlists:
         deja o listă de redare cu acest nume. Vă rugăm să alegeți un alt nume.
     New Playlist Name: Numele noii liste de redare
     Create: Creați
+  SinglePlaylistView:
+    Toast:
+      There was a problem with removing this video: A existat o problemă cu eliminarea
+        acestui videoclip
+      This playlist is now used for quick bookmark: Această listă de redare este acum
+        utilizată pentru marcaje rapide
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Această
+        listă de redare este acum utilizată pentru marcajul rapid în loc de {oldPlaylistName}.
+        Faceți clic aici pentru a anula
+      This video cannot be moved down.: Acest videoclip nu poate fi mutat în jos.
+      This video cannot be moved up.: Acest videoclip nu poate fi mutat în sus.
+      Video has been removed: Videoclipul a fost eliminat
+      Quick bookmark disabled: Marcaj rapid dezactivat
+    Search for Videos: Căutați videoclipuri
 History:
   # On History Page
   History: 'Istoric'
@@ -478,6 +495,7 @@ Settings:
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Blur Thumbnails: Estomparea miniaturilor
     Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
+    Hide Channels Already Exists: ID-ul Canalului există deja
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -615,6 +633,8 @@ Profile:
   Profile Settings: Setări de profil
   Toggle Profile List: Lista profilului toggle
   Create Profile Name: Creați numele profilului
+  Profile Name: Numele Profilului
+  Edit Profile Name: Editează Numele Profilului
 Channel:
   Subscriber: 'Abonat'
   Subscribers: 'Abonați'
@@ -1066,3 +1086,8 @@ Trimmed input must be at least N characters long: Intrarea tăiată trebuie să 
   cel puțin 1 caracter | Intrarea tăiată trebuie să aibă cel puțin {length} caractere
 Tag already exists: Eticheta "{tagName}" există deja
 Channel Unhidden: '{channel} eliminat din filtrul de canale'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitrări
+    Closed Captions: Subtitrări Complexe

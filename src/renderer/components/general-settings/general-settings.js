@@ -202,7 +202,7 @@ export default defineComponent({
       ]
     }
   },
-  mounted: function () {
+  created: function () {
     this.setCurrentInvidiousInstanceBounce =
       debounce(this.setCurrentInvidiousInstance, 500)
   },
