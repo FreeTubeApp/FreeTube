@@ -408,7 +408,7 @@ Settings:
       Format Label: Formato das capturas de ecrã
       Quality Label: Qualidade da captura de ecrã
       Folder Button: Selecionar pasta
-      File Name Label: Padrão do nome de ficheiro
+      File Name Label: Padrão para nome de ficheiro
       Error:
         Forbidden Characters: Caracteres proibidos
         Empty File Name: Nome de ficheiro vazio
@@ -417,7 +417,7 @@ Settings:
         com 2 dígitos, %S segundos com 2 dígitos, %T milissegundos com 3 dígitos,
         %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.
         Também pode usar "\" ou "/" para criar subpastas.'
-      Folder Label: Pasta das capturas de ecrã
+      Folder Label: Pasta para as capturas de ecrã
       Ask Path: Perguntar onde guardar
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
@@ -428,18 +428,18 @@ Settings:
     Save Watched Progress: 'Guardar progresso de reprodução'
     Clear Search Cache: 'Limpar cache de pesquisas'
     Are you sure you want to clear out your search cache?: 'Tem a certeza de que pretende
-      apagar a sua cache de pesquisas?'
-    Search cache has been cleared: 'Cache de pesquisas foi apagada'
-    Remove Watch History: 'Limpar histórico'
+      limpar a sua cache de pesquisas?'
+    Search cache has been cleared: 'Cache de pesquisas limpa'
+    Remove Watch History: 'Limpar histórico de visualizações'
     Are you sure you want to remove your entire watch history?: 'Tem a certeza de
-      que pretende apagar o seu histórico?'
-    Watch history has been cleared: 'Histórico apagado'
+      que pretende limpar o histórico de visualizações?'
+    Watch history has been cleared: 'Histórico de visualizações limpo'
     Remove All Subscriptions / Profiles: 'Remover todas as subscrições/perfis'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tem
       a certeza de que pretende remover todas as suas subscrições e perfis? Esta ação
       não pode ser revertida.'
-    Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
-      última lista de reprodução vista
+    Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos com a última
+      lista de reprodução vista
     Remove All Playlists: Remover todas as listas de reprodução
     All playlists have been removed: Todas as listas de reprodução foram removidas
     Are you sure you want to remove all your playlists?: Tem a certeza de que pretende
@@ -452,6 +452,7 @@ Settings:
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
+    Avoid Accidental Unsubscription: Impedir cancelamento acidental de subscrições
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Selecione o tipo de importação'
@@ -485,10 +486,10 @@ Settings:
       com sucesso'
     All watched history has been successfully exported: 'O histórico foi exportado
       com sucesso'
-    Unable to read file: 'Ficheiro não lido'
-    Unable to write file: 'Ficheiro não escrito'
+    Unable to read file: 'Não foi possível ler o ficheiro'
+    Unable to write file: 'Não foi possível escrever o ficheiro'
     Unknown data key: 'Chave de dados desconhecida'
-    How do I import my subscriptions?: 'Como posso importar as minhas subscrições?'
+    How do I import my subscriptions?: 'Como importar as minhas subscrições?'
     Manage Subscriptions: Gerir subscrições
     Check for Legacy Subscriptions: Verificar se há subscrições no formato antigo
     Import Playlists: Importar listas de reprodução
@@ -510,7 +511,7 @@ Settings:
         as suas listas de reprodução com esta opção ativada.\n2. Elimine todas as
         listas de reprodução existentes usando a opção \"Remover todas as listas de
         reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga
-        do FreeTube e importe as listas de reprodução exportadas."
+        do FreeTube e importe as listas de reprodução."
   Advanced Settings:
     Advanced Settings: 'Definições Avançadas'
     Enable Debug Mode (Prints data to the console): 'Ligar Modo de Depuração (Escreve
@@ -575,7 +576,7 @@ Settings:
     Hide Active Subscriptions: Ocultar subscrições ativas
     Hide Live Chat: Ocultar conversas em direto
     Hide Playlists: Ocultar listas de reprodução
-    Hide Popular Videos: Ocultar mais populares
+    Hide Popular Videos: Ocultar vídeos populares
     Hide Trending Videos: Ocultar tendências
     Hide Recommended Videos: Ocultar vídeos recomendados
     Hide Comment Likes: Ocultar "gostos" em comentários
@@ -636,13 +637,13 @@ Settings:
     que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar alterações?
   Download Settings:
     Download Settings: Definições para descargas
-    Ask Download Path: Perguntar local onde guardar
+    Ask Download Path: Perguntar local para guardar
     Choose Path: Escolher local
     Download in app: Descarregar na aplicação
     Open in web browser: Abrir no navegador da Internet
     Download Behavior: Comportamento de descargas
   Parental Control Settings:
-    Hide Unsubscribe Button: Ocultar botão "Anular subscrição"
+    Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Definições de controlo parental
@@ -754,7 +755,7 @@ Profile:
   Other Channels: 'Outros canais'
   '{number} selected': '{number} selecionado'
   Select All: 'Selecionar tudo'
-  Select None: 'Não selecionar nada'
+  Select None: 'Cancelar seleção'
   Delete Selected: 'Eliminar seleção'
   Add Selected To Profile: 'Adicionar seleção ao perfil'
   No channel(s) have been selected: 'Nenhum canal foi selecionado'
@@ -778,7 +779,7 @@ Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'
   Subscribe: 'Subscrever'
-  Unsubscribe: 'Anular subscrição'
+  Unsubscribe: 'Cancelar subscrição'
   Channel has been removed from your subscriptions: 'O canal foi removido das suas
     subscrições'
   Removed subscription from {count} other channel(s): 'Subscrição removida de mais
@@ -797,8 +798,8 @@ Channel:
       Most Popular: 'Mais populares'
   Playlists:
     Playlists: 'Listas de reprodução'
-    This channel does not currently have any playlists: 'Atualmente, este canal não
-      tem listas de reprodução'
+    This channel does not currently have any playlists: 'Este canal não tem, atualmente,
+      quaisquer listas de reprodução'
     Sort Types:
       Last Video Added: 'Último vídeo adicionado'
       Newest: 'Recentes'
@@ -823,7 +824,7 @@ Channel:
       quaisquer publicações
     Community: Comunidade
     Hide Answers: Ocultar respostas
-    Reveal Answers: Revelar respostas
+    Reveal Answers: Mostrar respostas
     votes: '{votes} votos'
     Video hidden by FreeTube: Freetube ocultou este vídeo
   Live:
@@ -851,7 +852,7 @@ Video:
   Open YouTube Embedded Player: 'Abrir reprodutor YouTube nativo'
   Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
-  Copy Invidious Link: 'Copiar ligação do Invidious'
+  Copy Invidious Link: 'Copiar ligação Invidious'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
@@ -908,8 +909,8 @@ Video:
   Published on: 'Publicado a'
   Publicationtemplate: 'Há {number} {unit}'
 #& Videos
-  Starting soon, please refresh the page to check again: A começar em breve, recarregue
-    a página para voltar a verificar
+  Starting soon, please refresh the page to check again: Irá começar brevemente. Recarregue
+    a página para reanalisar
   External Player:
     Unsupported Actions:
       opening playlists: abrir listas de reprodução
@@ -932,12 +933,12 @@ Video:
     outro: Outro
     intro: Introdução
     sponsor: Patrocinador
-    recap: Recapitular
+    recap: Recapitulação
     filler: Preenchimento
   Skipped segment: Secção ignorada
   translated from English: traduzido do inglês
-  Started streaming on: Emissão iniciada em
-  Streamed on: Emitida a
+  Started streaming on: Transmissão iniciada em
+  Streamed on: Transmitido a
   Audio:
     Best: Melhor
     High: Alta
@@ -950,7 +951,7 @@ Video:
   Open Channel in Invidious: Abrir canal no Invidious
   Copy YouTube Channel Link: Copiar ligação do canal do YouTube
   Open Channel in YouTube: Abrir canal no YouTube
-  Video has been removed from your saved list: O vídeo foi removido da lista de gravações
+  Video has been removed from your saved list: O vídeo foi removido da lista de guardados
   Video has been saved: O vídeo foi guardado
   Save Video: Guardar vídeo
   Premieres on: Estreia a
@@ -976,7 +977,7 @@ Video:
     Dropped / Total Frames: Fotogramas perdidos/total de fotogramas
   Premieres in: Estreia em
   Premieres: Estreias
-  Scroll to Bottom: Deslocamento para baixo
+  Scroll to Bottom: Deslocar para baixo
   Show Super Chat Comment: Mostrar comentário do Super Chat
   Upcoming: Em breve
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': A
@@ -1030,25 +1031,25 @@ Share:
   Include Timestamp: 'Incluir posição temporal'
   Copy Link: 'Copiar ligação'
   Open Link: 'Abrir ligação'
-  Copy Embed: 'Copiar embutido'
-  Open Embed: 'Abrir embutido'
+  Copy Embed: 'Copiar incorporado'
+  Open Embed: 'Abrir incorporado'
   # On Click
-  Invidious URL copied to clipboard: 'URL Invidious copiado para área de transferência'
-  Invidious Embed URL copied to clipboard: 'URL Invidious embutido copiado para área
-    de tranferência'
-  YouTube URL copied to clipboard: 'URL do YouTube copiado para a área de transferência'
-  YouTube Embed URL copied to clipboard: 'URL do YouTube embutido copiado para área
-    de transferência'
+  Invidious URL copied to clipboard: 'URL Invidious copiado a para área de transferência'
+  Invidious Embed URL copied to clipboard: 'URL Invidious incorporado copiado para
+    a área de transferência'
+  YouTube URL copied to clipboard: 'URL do YouTube copiado a para a área de transferência'
+  YouTube Embed URL copied to clipboard: 'URL do YouTube incorporado copiado para
+    a área de transferência'
   YouTube Channel URL copied to clipboard: URL do canal do YouTube copiado para a
     área de transferência
-  Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para área
-    de transferência
+  Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a
+    área de transferência
   Share Channel: Partilhar canal
-Mini Player: 'Mini-leitor'
+Mini Player: 'Mini-reprodutor'
 Comments:
   Comments: 'Comentários'
-  Click to View Comments: 'Ver comentários'
-  Getting comment replies, please wait: 'A receber respostas ao comentário, por favor
+  Click to View Comments: 'Clique para ver comentários'
+  Getting comment replies, please wait: 'A obter respostas ao comentário, por favor
     aguarde'
   Show Comments: 'Mostrar comentários'
   Hide Comments: 'Ocultar comentários'
@@ -1072,13 +1073,13 @@ Comments:
   Hearted: Favorito
   View {replyCount} replies: Ver {replyCount} respostas
   Subscribed: Subscrito
-Up Next: 'A seguir'
+Up Next: 'Próximo'
 
 # Toast Messages
 Local API Error (Click to copy): 'Erro na API local (clique para copiar)'
 Invidious API Error (Click to copy): 'Erro na API Invidious (clique para copiar)'
-Falling back to Invidious API: 'Ocorreu um erro e vamos usar a API Invidious'
-Falling back to Local API: 'Ocorreu um erro e vamos usar a API local'
+Falling back to Invidious API: 'Ocorreu um erro e a API Invidious será utilizada'
+Falling back to Local API: 'Ocorreu um erro e a API local será utilizada'
 Subscriptions have not yet been implemented: 'As subscrições ainda não foram implementadas'
 Loop is now disabled: 'Repetição desativada'
 Loop is now enabled: 'Repetição ativada'
@@ -1095,7 +1096,7 @@ Yes: 'Sim'
 No: 'Não'
 More: Mais
 Open New Window: Abrir nova janela
-Default Invidious instance has been cleared: A instância padrão Invidious foi removida
+Default Invidious instance has been cleared: A instância Invidious padrão foi removida
 Default Invidious instance has been set to {instance}: A instância Invidious padrão
   foi definida para {instance}
 Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para
@@ -1104,7 +1105,7 @@ Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Cliqu
   Clique para cancelar.
 Hashtags have not yet been implemented, try again later: As 'hashtags' ainda não foram
   implementadas, tente mais tarde
-Unknown YouTube url type, cannot be opened in app: O tipo de URL YouTube e desconhecido
+Unknown YouTube url type, cannot be opened in app: O tipo de URL YouTube é desconhecido
   e não pode ser aberto na aplicação
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
@@ -1126,8 +1127,8 @@ Tooltips:
       externo pode ser encontrado através da variável PATH. Se for preciso, pode escolher
       um caminho personalizado aqui.
     External Player: Escolher um reprodutor externo mostra um ícone para abrir o vídeo
-      (lista de reprodução, se suportado) nessa aplicação. Mas tenha em conta que
-      as configurações do Invidious não afetam os reprodutores externos.
+      (lista de reprodução, se suportado) nessa aplicação. Mas tenha em conta de que
+      as definições Invidious não afetam os reprodutores externos.
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
@@ -1145,21 +1146,22 @@ Tooltips:
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)
       e clique com o botão esquerdo do rato para voltar rapidamente à taxa de reprodução
-      padrão (1 a não ser que tenha sido alterada nas configurações).
+      padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
     Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
       formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Eles não estão disponíveis em todos os vídeos e, nesses casos, o reprodutor
-      usará os formatos DASH H.264.
+      Não estão disponíveis para todos os vídeos e, nesses casos, o reprodutor usará
+      os formatos DASH H.264.
   General Settings:
     Region for Trending: A região permite-lhe escolher de que país virão os vídeos
       na secção de tendências.
-    Invidious Instance: A instância Invidious à qual o FreeTube se irá ligar à API.
+    Invidious Instance: A instância Invidious à qual o FreeTube se irá ligar para
+      invocar a API.
     Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas
       por um fotograma do vídeo em vez da miniatura original.
-    Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, FreeTube tentará usar automaticamente a API secundária, caso esta
+    Fallback to Non-Preferred Backend on Failure: Se a sua API preferida tiver um
+      problema, FreeTube tentará usar automaticamente a API secundária, caso esta
       opção esteja ativada.
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube.
       A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
@@ -1202,15 +1204,15 @@ Channels:
   Title: Lista de canais
   Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos ocultos,
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
     capítulo atual: {capítuloNoto}'
   Chapters: Capítulos
   'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
     capítulo atual: {chapterName}'
 Clipboard:
-  Copy failed: A cópia para a área de transferência falhou
-  Cannot access clipboard without a secure connection: Não é possível aceder à área
-    de transferência sem uma ligação segura
+  Copy failed: Falha ao copiar para a área de transferência
+  Cannot access clipboard without a secure connection: Não pode aceder à área de transferência
+    sem uma ligação segura
 Preferences: Preferências
 Ok: OK
 Hashtag:
