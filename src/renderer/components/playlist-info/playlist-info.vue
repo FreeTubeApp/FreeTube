@@ -34,36 +34,51 @@
     </div>
 
     <div class="playlistStats">
-      <ft-input
+      <template
         v-if="editMode"
-        ref="playlistTitleInput"
-        class="inputElement"
-        :placeholder="$t('User Playlists.Playlist Name')"
-        :show-action-button="false"
-        :show-label="false"
-        :value="newTitle"
-        :maxlength="255"
-        @input="(input) => (newTitle = input)"
-        @keydown.enter.native="savePlaylistInfo"
-      />
-      <h2
-        v-else
-        id="playlistTitle"
-        class="playlistTitle"
       >
-        {{ title }}
-      </h2>
-      <p>
-        {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
-        <span v-if="!hideViews && !isUserPlaylist">
-          - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-        </span>
-        <span>- </span>
-        <span v-if="infoSource !== 'local'">
-          {{ $t("Playlist.Last Updated On") }}
-        </span>
-        {{ lastUpdated }}
-      </p>
+        <ft-input
+          ref="playlistTitleInput"
+          class="inputElement"
+          :placeholder="$t('User Playlists.Playlist Name')"
+          :show-action-button="false"
+          :show-label="false"
+          :value="newTitle"
+          :maxlength="255"
+          @input="handlePlaylistNameInput"
+          @keydown.enter.native="savePlaylistInfo"
+        />
+        <ft-flex-box v-if="inputPlaylistNameEmpty || inputPlaylistNameBlank">
+          <p>
+            {{ $t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]') }}
+          </p>
+        </ft-flex-box>
+        <ft-flex-box v-if="inputPlaylistWithNameExists">
+          <p>
+            {{ $t('User Playlists.CreatePlaylistPrompt.Toast["There is already a playlist with this name. Please pick a different name."]') }}
+          </p>
+        </ft-flex-box>
+      </template>
+      <template
+        v-else
+      >
+        <h2
+          class="playlistTitle"
+        >
+          {{ title }}
+        </h2>
+        <p>
+          {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
+          <span v-if="!hideViews && !isUserPlaylist">
+            - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+          </span>
+          <span>- </span>
+          <span v-if="infoSource !== 'local'">
+            {{ $t("Playlist.Last Updated On") }}
+          </span>
+          {{ lastUpdated }}
+        </p>
+      </template>
     </div>
 
     <ft-input
@@ -119,6 +134,7 @@
           <ft-icon-button
             v-if="editMode"
             :title="$t('User Playlists.Save Changes')"
+            :disabled="playlistPersistenceDisabled"
             :icon="['fas', 'save']"
             theme="secondary"
             @click="savePlaylistInfo"
@@ -154,7 +170,14 @@
             @click="toggleCopyVideosPrompt"
           />
           <ft-icon-button
-            v-if="!editMode && isUserPlaylist && videoCount > 0"
+            v-if="!editMode && userPlaylistDuplicateItemCount > 0"
+            :title="$t('User Playlists.Remove Duplicate Videos')"
+            :icon="['fas', 'users-slash']"
+            theme="destructive"
+            @click="showRemoveDuplicateVideosPrompt = true"
+          />
+          <ft-icon-button
+            v-if="!editMode && userPlaylistAnyVideoWatched"
             :title="$t('User Playlists.Remove Watched Videos')"
             :icon="['fas', 'eye-slash']"
             theme="destructive"
@@ -204,11 +227,19 @@
       />
       <ft-prompt
         v-if="showRemoveVideosOnWatchPrompt"
-        :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone')"
+        :label="removeVideosOnWatchPromptLabelText"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         :is-first-option-destructive="true"
         @click="handleRemoveVideosOnWatchPromptAnswer"
+      />
+      <ft-prompt
+        v-if="showRemoveDuplicateVideosPrompt"
+        :label="removeDuplicateVideosPromptLabelText"
+        :option-names="deletePlaylistPromptNames"
+        :option-values="deletePlaylistPromptValues"
+        :is-first-option-destructive="true"
+        @click="handleRemoveDuplicateVideosPromptAnswer"
       />
     </div>
   </div>
