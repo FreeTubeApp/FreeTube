@@ -17,11 +17,11 @@ Delete: 'Eliminar'
 Select all: 'Selecionar tudo'
 Reload: 'Recarregar'
 Force Reload: 'Forçar recarregamento'
-Toggle Developer Tools: 'Alternar ferramentas de desenvolvimento'
+Toggle Developer Tools: 'Comutar ferramentas de desenvolvimento'
 Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
 Zoom out: 'Reduzir'
-Toggle fullscreen: 'Alternar ecrã completo'
+Toggle fullscreen: 'Comutar ecrã completo'
 Window: 'Janela'
 Minimize: 'Minimizar'
 Close: 'Fechar'
@@ -39,7 +39,7 @@ Global:
   Counts:
     Channel Count: 1 canal | {count} canais
     Video Count: 1 vídeo | {count} vídeos
-    Subscriber Count: 1 assinante | {count} assinantes
+    Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {contagem} visualizações
     Watching Count: 1 a assistir | {count} a assistir
   Input Tags:
@@ -48,13 +48,13 @@ Version {versionNumber} is now available!  Click for more details: 'A versão {v
   está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
 A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um
-  novo blogue, {blogTitle}. Clique aqui para ver mais.'
+  novo blogue, {blogTitle}. Clique para ver mais.'
 
 # Search Bar
 Search / Go to URL: 'Pesquisar/Ir para o URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtros'
+  Search Filters: 'Filtros de pesquisa'
   Sort By:
     Sort By: 'Ordenar por'
     Most Relevant: 'Mais relevantes'
@@ -63,7 +63,7 @@ Search Filters:
     View Count: 'Visualizações'
   Time:
     Time: 'Intervalo de tempo'
-    Any Time: 'Qualquer altura'
+    Any Time: 'Sempre'
     Last Hour: 'Última hora'
     Today: 'Hoje'
     This Week: 'Esta semana'
@@ -79,10 +79,10 @@ Search Filters:
   Duration:
     Duration: 'Duração'
     All Durations: 'Todas as durações'
-    Short (< 4 minutes): 'Curtos (< 4 minutos)'
-    Long (> 20 minutes): 'Longos (> 20 minutos)'
+    Short (< 4 minutes): 'Curta (< 4 minutos)'
+    Long (> 20 minutes): 'Longa (> 20 minutos)'
   # On Search Page
-    Medium (4 - 20 minutes): Médio (4 - 20 minutos)
+    Medium (4 - 20 minutes): Média (4 - 20 minutos)
   Search Results: 'Resultados'
   Fetching results. Please wait: 'A procurar. Por favor aguarde.'
   Fetch more results: 'Obter mais resultados'
@@ -115,7 +115,7 @@ Subscriptions:
   Error Channels: Canais com erros
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
-    Atualize as subscrições para as ver aqui.
+    Recarregue as subscrições para as ver aqui.
   Subscriptions Tabs: Separadores de subscrições
   All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
     Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsection}"
@@ -151,10 +151,10 @@ User Playlists:
   Save Changes: Guardar alterações
   Cancel: Cancelar
   Copy Playlist: Copiar lista de reprodução
-  Remove Watched Videos: Remover vídeos vistos
+  Remove Watched Videos: Remover vistos
   Delete Playlist: Eliminar lista de reprodução
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
-    que quer eliminar esta lista de reprodução? Isto não pode ser revertido.
+    de que pretende eliminar esta lista de reprodução? Isto não pode ser revertido.
   Sort By:
     Sort By: Ordenar por
     LatestCreatedFirst: Criado recentemente
@@ -169,20 +169,19 @@ User Playlists:
     Toast:
       This video cannot be moved up.: Este vídeo não pode ser movido para cima.
       This video cannot be moved down.: Este vídeo não pode ser movido para baixo.
-      There was a problem with removing this video: Houve um problema ao remover este
+      There was a problem with removing this video: Ocorreu um erro ao remover este
         vídeo
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alguns
-        vídeos da lista de reprodução ainda não foram carregados. Clique aqui para
-        copiar mesmo assim.
+        vídeos da lista de reprodução ainda não foram carregados. Clique aqui continuar.
       Playlist has been updated.: A lista de reprodução foi atualizada.
       "{videoCount} video(s) have been removed": 1 vídeo foi removido | {videoCount}
         vídeos foram removidos
-      There were no videos to remove.: Não havia vídeos para remover.
+      There were no videos to remove.: Não existiam vídeos para remover.
       Video has been removed: O vídeo foi removido
       Playlist name cannot be empty. Please input a name.: O nome da lista de reprodução
         não pode estar vazio. Introduza um nome.
-      There was an issue with updating this playlist.: Houve um problema com a atualização
-        desta lista de reprodução.
+      There was an issue with updating this playlist.: Ocorreu um erro ao atualizar
+        esta lista de reprodução.
       This playlist is protected and cannot be removed.: Esta lista de reprodução
         está protegida e não pode ser removida.
       Playlist {playlistName} has been deleted.: A lista de reprodução {playlistName}
@@ -191,33 +190,37 @@ User Playlists:
       This playlist is now used for quick bookmark: Esta lista de reprodução é agora
         usada como marcador rápido
       Quick bookmark disabled: Marcador rápido desativado
-    Search for Videos: Pesquisar vídeos
+    Search for Videos: Procurar vídeos
   AddVideoPrompt:
-    Search in Playlists: Pesquisar nas listas de reprodução
+    Search in Playlists: Procurar nas listas de reprodução
     Save: Guardar
     Toast:
       "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado
         a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a
         {playlistCount} listas de reprodução
-      You haven't selected any playlist yet.: Ainda não selecionou nenhuma lista de
-        reprodução.
+      You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
       "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de
         reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à
       qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar
-      os seus {videoCount} vídeos
-    N playlists selected: '{playlistCount} selecionadas'
-    Added {count} Times: Adicionada {count} vez | Adicionada {count} vezes
+      os {videoCount} vídeos
+    N playlists selected: '{playlistCount} selecionados'
+    Added {count} Times: Já adicionado | Adicionado {count} vezes
+    Allow Adding Duplicate Video(s): Permitir duplicação de vídeos
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      vídeos serão adicionados'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      vídeos já foram adicionados'
   CreatePlaylistPrompt:
-    New Playlist Name: Novo nome da lista de reprodução
+    New Playlist Name: Nome da lista de reprodução
     Create: Criar
     Toast:
       There is already a playlist with this name. Please pick a different name.: Já
         existe uma lista de reprodução com este nome. Por favor, escolha um nome diferente.
       Playlist {playlistName} has been successfully created.: A lista de reprodução
-        {playlistName} foi criada com êxito.
-      There was an issue with creating the playlist.: Houve um problema com a criação
-        da lista de reprodução.
+        {playlistName} foi criada com sucesso.
+      There was an issue with creating the playlist.: Ocorreu um erro ao criar a lista
+        de reprodução.
   Move Video Up: Mover vídeo para cima
   You have no playlists. Click on the create new playlist button to create a new one.: Não
     tem listas de reprodução. Clique no botão de criar uma nova lista de reprodução
@@ -235,6 +238,7 @@ User Playlists:
   Disable Quick Bookmark: Desativar marcador rápido
   Playlists with Matching Videos: Listas de reprodução coincidentes
   Quick Bookmark Enabled: Marcador rápido ativado
+  Remove Duplicate Videos: Remover duplicados
 History:
   # On History Page
   History: 'Histórico'
@@ -244,10 +248,10 @@ History:
   Empty Search Message: Não há vídeos no histórico que coincidam com a sua pesquisa
 Settings:
   # On Settings Page
-  Settings: 'Configurações'
+  Settings: 'Definições'
   General Settings:
-    General Settings: 'Configurações gerais'
-    Check for Updates: 'Verificar se há atualizações'
+    General Settings: 'Definições gerais'
+    Check for Updates: 'Procurar atualizações'
     Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
     Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário,
       em caso de falha'
@@ -255,11 +259,11 @@ Settings:
     Default Landing Page: 'Página inicial'
     Locale Preference: 'Idioma'
     Preferred API Backend:
-      Preferred API Backend: 'Sistema API preferencial'
+      Preferred API Backend: 'API preferencial'
       Local API: 'API local'
       Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: 'Tipo de exibição dos vídeos'
+      Video View Type: 'Exibição dos vídeos'
       Grid: 'Grelha'
       List: 'Lista'
     Thumbnail Preference:
@@ -268,8 +272,8 @@ Settings:
       Beginning: 'Início'
       Middle: 'Centro'
       End: 'Final'
-      Hidden: Oculto
-      Blur: Desfoque
+      Hidden: Oculta
+      Blur: Desfocar
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância Invidious
       (Por omissão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para as tendências'
@@ -283,7 +287,7 @@ Settings:
     No default instance has been set: Não foi definida uma instância
     The currently set default instance is {instance}: A instância padrão é {instance}
     Current Invidious Instance: Instância Invidious atual
-    System Default: Predefinido no sistema
+    System Default: Definido no sistema
     External Link Handling:
       External Link Handling: Gestão de ligações externas
       Open Link: Abrir ligação
@@ -293,7 +297,7 @@ Settings:
       Label: Carregar seguinte automaticamente
       Tooltip: Carrega as páginas e comentários automaticamente.
   Theme Settings:
-    Theme Settings: 'Configurações de tema'
+    Theme Settings: 'Definições de tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -357,13 +361,13 @@ Settings:
       Solarized Green: Verde solar
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
-    UI Scale: Escala da interface gráfica
+    UI Scale: Escala da interface
     Disable Smooth Scrolling: Desativar deslocação suave
     Expand Side Bar by Default: Expandir barra lateral por definição
     Hide Side Bar Labels: Ocultar texto na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
-    Player Settings: 'Configurações do reprodutor'
+    Player Settings: 'Definições do reprodutor'
     Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
       formatos antigos'
     Play Next Video: 'Reproduzir vídeo seguinte'
@@ -419,7 +423,7 @@ Settings:
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
     Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
-    Privacy Settings: 'Configurações de privacidade'
+    Privacy Settings: 'Definições de privacidade'
     Remember History: 'Memorizar histórico'
     Save Watched Progress: 'Guardar progresso de reprodução'
     Clear Search Cache: 'Limpar cache de pesquisas'
@@ -441,7 +445,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Tem a certeza de que pretende
       remover todas as suas listas de reprodução?
   Subscription Settings:
-    Subscription Settings: 'Configurações de subscrições'
+    Subscription Settings: 'Definições de subscrições'
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Manage Subscriptions: 'Gerir subscrições'
@@ -449,7 +453,7 @@ Settings:
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
   Data Settings:
-    Data Settings: 'Configurações de dados'
+    Data Settings: 'Definições de dados'
     Select Import Type: 'Selecione o tipo de importação'
     Select Export Type: 'Selecione o tipo de exportação'
     Import Subscriptions: 'Importar subscrições'
@@ -500,12 +504,12 @@ Settings:
     Playlist File: Ficheiro de lista de reprodução
     Export Playlists For Older FreeTube Versions:
       Label: Exportar listas de reprodução para versões mais antigas do FreeTube
-      Tooltip: "Esta opção exporta vídeos de todas as listas de reprodução para uma
-        lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos
+      Tooltip: "Esta opção exporta os vídeos de todas as listas de reprodução para
+        uma lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos
         em listas de reprodução para uma versão mais antiga do FreeTube:\n1. Exporte
-        as suas listas de reprodução com esta opção ativada.\n2. Exclua todas as suas
+        as suas listas de reprodução com esta opção ativada.\n2. Elimine todas as
         listas de reprodução existentes usando a opção \"Remover todas as listas de
-        reprodução\" em \"Configurações de privacidade\".\n3. Abra a versão mais antiga
+        reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga
         do FreeTube e importe as listas de reprodução exportadas."
   Advanced Settings:
     Advanced Settings: 'Definições Avançadas'
@@ -539,7 +543,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (padrão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ativar bloqueio da publicidade SponsorBlock
-    SponsorBlock Settings: Configurações SponsorBlock
+    SponsorBlock Settings: Definições SponsorBlock
     Skip Options:
       Skip Option: Opção para ignorar
       Auto Skip: Ignorar automaticamente
@@ -566,7 +570,7 @@ Settings:
     Proxy Host: Servidor do proxy
     Proxy Protocol: Protocolo do proxy
     Enable Tor / Proxy: Ativar Tor/Proxy
-    Proxy Settings: Configurações de proxy
+    Proxy Settings: Definições de proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar subscrições ativas
     Hide Live Chat: Ocultar conversas em direto
@@ -578,7 +582,7 @@ Settings:
     Hide Channel Subscribers: Ocultar número de subscritores
     Hide Video Likes And Dislikes: Ocultar "gostos" em vídeos
     Hide Video Views: Ocultar visualizações
-    Distraction Free Settings: Configurações de distrações
+    Distraction Free Settings: Definições de distrações
     Hide Video Description: Ocultar descrição dos vídeos
     Hide Sharing Actions: Ocultar ações de partilha
     Hide Live Streams: Ocultar transmissões em direto
@@ -623,15 +627,15 @@ Settings:
     Custom External Player Executable: Executável do reprodutor externo
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Reprodutor externo
-    External Player Settings: Configurações para reprodutores externos
+    External Player Settings: Definições para reprodutores externos
     Players:
       None:
         Name: Nenhum
     Ignore Default Arguments: Ignorar argumentos padrão
   The app needs to restart for changes to take effect. Restart and apply change?: Tem
-    que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar as alterações?
+    que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar alterações?
   Download Settings:
-    Download Settings: Configurações para descargas
+    Download Settings: Definições para descargas
     Ask Download Path: Perguntar local onde guardar
     Choose Path: Escolher local
     Download in app: Descarregar na aplicação
@@ -641,24 +645,24 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Anular subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Search Bar: Ocultar barra de pesquisa
-    Parental Control Settings: Configurações de controlo parental
+    Parental Control Settings: Definições de controlo parental
   Experimental Settings:
     Replace HTTP Cache: Substituir cache HTTP
-    Experimental Settings: Configurações experimentais
-    Warning: Estas configurações são experimentais e podem provocar falhas se ativadas.
+    Experimental Settings: Definições experimentais
+    Warning: Estas definições são experimentais e podem provocar falhas se ativadas.
       É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
   Password Dialog:
-    Enter Password To Unlock: Digite a palavra-passe para desbloquear as configurações
+    Enter Password To Unlock: Indique a palavra-passe para desbloquear as definições
     Password Incorrect: Palavra-passe incorreta
     Password: Palavra-passe
     Unlock: Desbloquear
   Password Settings:
-    Password Settings: Configurações para palavra-passe
+    Password Settings: Definições de palavra-passe
     Set Password To Prevent Access: Defina uma palavra-passe para impedir o acesso
-      às configurações
+      às definições
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
-  Expand All Settings Sections: Expandir todas as secções de configurações
+  Expand All Settings Sections: Expandir todas as secções de definições
   Sort Settings Sections (A-Z): Ordenar definições (A-Z)
 About:
   #On About page
@@ -763,7 +767,7 @@ Profile:
     os canais dos outros perfis.'
 #On Channel Page
   Profile Filter: Filtro de perfil
-  Profile Settings: Configurações de perfil
+  Profile Settings: Definições do perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
@@ -1171,17 +1175,17 @@ Tooltips:
       reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares
       e recomendados. O nome do canal introduzido tem que ser uma correspondência
       exata e diferencia maiúsculas de minúsculas.
-    Hide Subscriptions Live: Esta configuração é substituída pela configuração global
-      "{appWideSetting}", existente na secção "{subsection}" de "{settingsSection}"
+    Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}",
+      existente na secção "{subsection}" de "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.
     UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
 Search Bar:
   Clear Input: Limpar entrada
-Are you sure you want to open this link?: Tem a certeza de que deseja abrir a ligação?
-External link opening has been disabled in the general settings: A abertura da ligação
-  externa foi desativada nas configurações
+Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta ligação?
+External link opening has been disabled in the general settings: A abertura de ligaçoes
+  externas foi desativada nas definições
 Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Downloading has completed: '"{videoTitle}" foi descarregado'
@@ -1196,7 +1200,7 @@ Channels:
   Search bar placeholder: Procurar canais
   Channels: Canais
   Title: Lista de canais
-  Unsubscribe Prompt: Tem a certeza de que pretende anular a subscrição de "{channelName}"?
+  Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos ocultos,
     capítulo atual: {capítuloNoto}'
@@ -1240,3 +1244,4 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Legendas
+    Closed Captions: Legendas fechadas
