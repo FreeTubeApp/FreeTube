@@ -375,7 +375,7 @@ Settings:
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
     Proxy Videos Through Invidious: 'Utilizar Invidious com proxy'
     Autoplay Playlists: 'Reproduzir listas de reprodução automaticamente'
-    Enable Theatre Mode by Default: 'Ativar modo cinema por definição'
+    Enable Theatre Mode by Default: 'Ativar modo cinema por omissão'
     Default Volume: 'Volume padrão'
     Default Playback Rate: 'Velocidade de reprodução padrão'
     Default Video Format:
@@ -395,10 +395,10 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Tempo para avançar/recuar
+    Fast-Forward / Rewind Interval: Tempo a avançar/recuar
     Next Video Interval: Intervalo entre vídeos
-    Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do vídeo
-    Scroll Volume Over Video Player: Utilizar roda do rato para alterar o volume
+    Display Play Button In Video Player: Mostrar botão "Reproduzir" no reprodutor
+    Scroll Volume Over Video Player: Alterar volume ao deslocar por cima do reprodutor
     Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao deslocar
       por cima do reprodutor
     Max Video Playback Rate: Velocidade máxima de reprodução
