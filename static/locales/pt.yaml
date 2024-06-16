@@ -190,6 +190,8 @@ User Playlists:
       This playlist is now used for quick bookmark: Esta lista de reprodução é agora
         usada como marcador rápido
       Quick bookmark disabled: Marcador rápido desativado
+      This playlist is already being used for quick bookmark.: Esta lista de reprodução
+        já está a ser usada como marcador rápido.
     Search for Videos: Procurar vídeos
   AddVideoPrompt:
     Search in Playlists: Procurar nas listas de reprodução
@@ -1130,6 +1132,9 @@ Tooltips:
       (lista de reprodução, se suportado) nessa aplicação. Mas tenha em conta de que
       as definições Invidious não afetam os reprodutores externos.
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
+    Ignore Default Arguments: 'Não enviar quaisquer argumentos padrão ao reprodutor
+      externo a não ser o URL (ex: velocidade de reprodução, URL da lista de reprodução...).
+      Os argumentos personalizados serão enviados.'
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos
