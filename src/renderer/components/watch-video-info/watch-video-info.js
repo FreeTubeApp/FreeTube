@@ -105,7 +105,7 @@ export default defineComponent({
     },
     inUserPlaylist: {
       type: Boolean,
-      default: false
+      required: true
     }
   },
   emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
