@@ -102,20 +102,20 @@ jobs:
       run: |
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip
-    - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
+    #- name: Commit Files
+      # uses: stefanzweifel/git-auto-commit-action@v5
+      # with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"
-        commit_message: Update files for v${{ steps.sub.outputs.result }}
-        token: ${{ secrets.FLATHUB_TOKEN }}
+        # commit_message: Update files for v${{ steps.sub.outputs.result }}
+        # token: ${{ secrets.FLATHUB_TOKEN }}
 
         # Optional options appended to `git-commit`
         # See https://git-scm.com/docs/git-commit for a list of available options
-        commit_options: '--no-verify --signoff'
+        # commit_options: '--no-verify --signoff'
 
         # Optional: Disable dirty check and always try to create a commit and push
-        skip_dirty_check: true
+        # skip_dirty_check: true
     - name: Upload Manifest Artifact
       uses: actions/upload-artifact@v4
       with:
