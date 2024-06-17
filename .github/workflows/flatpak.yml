@@ -42,10 +42,10 @@ jobs:
         _input-text: ${{ fromJson(steps.api_results.outputs.result).tag_name }}
         -beta: ''
         v: ''
-    # - name: Create Release Branch
-      # run: |
-        # git checkout -b release-v${{ steps.sub.outputs.result }}
-        # git push --set-upstream origin release-v${{ steps.sub.outputs.result }}
+    - name: Create Release Branch
+      run: |
+        git checkout -b release-v${{ steps.sub.outputs.result }}
+        git push --set-upstream origin release-v${{ steps.sub.outputs.result }}
     - name: Download x64 Release
       uses: fabriciobastian/download-release-asset-action@v1.0.6
       with:
@@ -97,25 +97,25 @@ jobs:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[1].sha256 = "${{ env.HASH_ARM64 }}"' io.freetubeapp.FreeTube.yml
     - name: Add Patch Notes to XML File
-      run: xmlstarlet ed -L -i /application/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${{ steps.sub.outputs.result }} Beta" -i //releaseTMP -t attr -n date -v "${{ env.CURRENT_DATE }}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${{ steps.sub.outputs.result }}-test" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
+      run: xmlstarlet ed -L -i /application/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${{ steps.sub.outputs.result }} Beta" -i //releaseTMP -t attr -n date -v "${{ env.CURRENT_DATE }}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${{ steps.sub.outputs.result }}-beta" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
     - name: Remove Release Files
       run: |
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip
         rm freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip
-    #- name: Commit Files
-      # uses: stefanzweifel/git-auto-commit-action@v5
-      # with:
+    - name: Commit Files
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"
-        # commit_message: Update files for v${{ steps.sub.outputs.result }}
-        # token: ${{ secrets.FLATHUB_TOKEN }}
+        commit_message: Update files for v${{ steps.sub.outputs.result }}
+        token: ${{ secrets.FLATHUB_TOKEN }}
 
         # Optional options appended to `git-commit`
         # See https://git-scm.com/docs/git-commit for a list of available options
-        # commit_options: '--no-verify --signoff'
+        commit_options: '--no-verify --signoff'
 
         # Optional: Disable dirty check and always try to create a commit and push
-        # skip_dirty_check: true
+        skip_dirty_check: true
     - name: Upload Manifest Artifact
       uses: actions/upload-artifact@v4
       with:
@@ -126,9 +126,9 @@ jobs:
       with:
         name: io.freetubeapp.FreeTube.yml
         path: io.freetubeapp.FreeTube.yml
-    # - name: Create PR
-      # run: |
-        # echo ${{ secrets.FLATHUB_TOKEN }} >> auth.txt
-        # gh auth login --with-token < auth.txt
-        # rm auth.txt
-        # gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merged once testing is complete."
+    - name: Create PR
+      run: |
+        echo ${{ secrets.FLATHUB_TOKEN }} >> auth.txt
+        gh auth login --with-token < auth.txt
+        rm auth.txt
+        gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merged once testing is complete."
