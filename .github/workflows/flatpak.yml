@@ -80,22 +80,22 @@ jobs:
       uses: mikefarah/yq@v4.44.1
       with:
         # The Command which should be run
-        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip'
+        cmd: yq -i modules[0].sources[0].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip' io.freetubeapp.FreeTube.yml
     - name: Update x64 Hash in yml File
       uses: mikefarah/yq@v4.44.1
       with:
         # The Command which should be run
-        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].sha256 ${{ env.HASH_X64 }}
+        cmd: yq -i modules[0].sources[0].sha256 ${{ env.HASH_X64 }} io.freetubeapp.FreeTube.yml
     - name: Update ARM File Location in yml File
       uses: mikefarah/yq@v4.44.1
       with:
         # The Command which should be run
-        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip'
+        cmd: yq -i modules[0].sources[1].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip' io.freetubeapp.FreeTube.yml
     - name: Update ARM Hash in yml File
       uses: mikefarah/yq@v4.44.1
       with:
         # The Command which should be run
-        cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].sha256 ${{ env.HASH_ARM64 }}
+        cmd: yq -i modules[0].sources[1].sha256 ${{ env.HASH_ARM64 }} io.freetubeapp.FreeTube.yml
     - name: Add Patch Notes to XML File
       run: xmlstarlet ed -L -i /application/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${{ steps.sub.outputs.result }} Beta" -i //releaseTMP -t attr -n date -v "${{ env.CURRENT_DATE }}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${{ steps.sub.outputs.result }}-beta" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
     - name: Remove Release Files
@@ -121,6 +121,11 @@ jobs:
       with:
         name: io.freetubeapp.FreeTube.metainfo
         path: io.freetubeapp.FreeTube.metainfo.xml
+    - name: Upload YAML Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: io.freetubeapp.FreeTube.yml
+        path: io.freetubeapp.FreeTube.yml
     # - name: Create PR
       # run: |
         # echo ${{ secrets.FLATHUB_TOKEN }} >> auth.txt
