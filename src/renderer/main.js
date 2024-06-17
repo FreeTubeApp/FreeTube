@@ -89,6 +89,7 @@ import {
   faTimes,
   faTimesCircle,
   faTrash,
+  faUserCheck,
   faUsers,
   faUsersSlash,
 } from '@fortawesome/free-solid-svg-icons'
@@ -188,6 +189,7 @@ library.add(
   faTimes,
   faTimesCircle,
   faTrash,
+  faUserCheck,
   faUsers,
   faUsersSlash,
 
