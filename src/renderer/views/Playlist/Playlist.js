@@ -305,7 +305,7 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
-        this.setPlaylistTitle(result.info.title)
+        this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
         this.playlistThumbnail = result.info.thumbnails[0].url
@@ -334,6 +334,8 @@ export default defineComponent({
         // auto load next page again when no. of parsed items < page size
         if (shouldGetNextPage) { this.getNextPageLocal() }
 
+        this.updatePageTitle()
+
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
@@ -348,7 +350,7 @@ export default defineComponent({
 
     getPlaylistInvidious: function () {
       invidiousGetPlaylistInfo(this.playlistId).then((result) => {
-        this.setPlaylistTitle(result.title)
+        this.playlistTitle = result.title
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
         this.viewCount = result.viewCount
@@ -371,6 +373,8 @@ export default defineComponent({
 
         this.playlistItems = result.videos
 
+        this.updatePageTitle()
+
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
@@ -385,7 +389,7 @@ export default defineComponent({
     },
 
     parseUserPlaylist: function (playlist) {
-      this.setPlaylistTitle(playlist.playlistName)
+      this.playlistTitle = playlist.playlistName
       this.playlistDescription = playlist.description ?? ''
 
       if (playlist.videos.length > 0) {
@@ -405,6 +409,8 @@ export default defineComponent({
       this.infoSource = 'user'
 
       this.playlistItems = playlist.videos
+
+      this.updatePageTitle()
 
       this.isLoading = false
     },
@@ -544,9 +550,14 @@ export default defineComponent({
       }
     },
 
-    setPlaylistTitle: function (value) {
-      this.playlistTitle = value
-      document.title = `${value} - ${packageDetails.productName}`
+    updatePageTitle() {
+      const playlistTitle = this.playlistTitle
+      const channelName = this.channelName
+      const titleText = [
+        playlistTitle,
+        channelName,
+      ].filter(v => v).join(' | ')
+      document.title = `${titleText} - ${packageDetails.productName}`
     },
 
     handleResize: function () {
