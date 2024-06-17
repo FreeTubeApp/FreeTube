@@ -42,10 +42,10 @@ jobs:
         _input-text: ${{ fromJson(steps.api_results.outputs.result).tag_name }}
         -beta: ''
         v: ''
-    - name: Create Release Branch
-      run: |
-        git checkout -b release-v${{ steps.sub.outputs.result }}
-        git push --set-upstream origin release-v${{ steps.sub.outputs.result }}
+    # - name: Create Release Branch
+      # run: |
+        # git checkout -b release-v${{ steps.sub.outputs.result }}
+        # git push --set-upstream origin release-v${{ steps.sub.outputs.result }}
     - name: Download x64 Release
       uses: fabriciobastian/download-release-asset-action@v1.0.6
       with:
