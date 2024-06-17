@@ -116,16 +116,6 @@ jobs:
 
         # Optional: Disable dirty check and always try to create a commit and push
         skip_dirty_check: true
-    - name: Upload Manifest Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: io.freetubeapp.FreeTube.metainfo
-        path: io.freetubeapp.FreeTube.metainfo.xml
-    - name: Upload YAML Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: io.freetubeapp.FreeTube.yml
-        path: io.freetubeapp.FreeTube.yml
     - name: Create PR
       run: |
         echo ${{ secrets.FLATHUB_TOKEN }} >> auth.txt
