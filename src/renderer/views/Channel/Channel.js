@@ -34,13 +34,16 @@ import {
 import {
   getLocalChannel,
   getLocalChannelId,
+  getLocalArtistTopicChannelReleases,
   parseLocalChannelHeader,
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
+  parseLocalCompactStation,
   parseLocalListPlaylist,
   parseLocalListVideo,
-  parseLocalSubscriberCount
+  parseLocalSubscriberCount,
+  getLocalArtistTopicChannelReleasesContinuation
 } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -71,6 +74,7 @@ export default defineComponent({
       thumbnailUrl: '',
       subCount: 0,
       searchPage: 2,
+      isArtistTopicChannel: false,
       videoContinuationData: null,
       shortContinuationData: null,
       liveContinuationData: null,
@@ -329,6 +333,7 @@ export default defineComponent({
       this.shownElementList = []
       this.apiUsed = ''
       this.channelInstance = ''
+      this.isArtistTopicChannel = false
       this.videoContinuationData = null
       this.shortContinuationData = null
       this.liveContinuationData = null
@@ -560,6 +565,7 @@ export default defineComponent({
         this.thumbnailUrl = channelThumbnailUrl
         this.bannerUrl = parsedHeader.bannerUrl ?? null
         this.isFamilyFriendly = !!channel.metadata.is_family_safe
+        this.isArtistTopicChannel = channelName.endsWith('- Topic') && !!channel.metadata.music_artist_name
 
         if (channel.metadata.tags) {
           tags.push(...channel.metadata.tags)
@@ -661,14 +667,30 @@ export default defineComponent({
           this.getChannelPodcastsLocal()
         }
 
-        if (!this.hideChannelReleases && channel.has_releases) {
+        if (!this.hideChannelReleases && (channel.has_releases || this.isArtistTopicChannel)) {
           tabs.push('releases')
           this.getChannelReleasesLocal()
         }
 
-        if (!this.hideChannelPlaylists && channel.has_playlists) {
-          tabs.push('playlists')
-          this.getChannelPlaylistsLocal()
+        if (!this.hideChannelPlaylists) {
+          if (channel.has_playlists) {
+            tabs.push('playlists')
+            this.getChannelPlaylistsLocal()
+          } else if (channelId === 'UC-9-kyTW8ZkZNDHQJ6FgpwQ') {
+            // Special handling for "The Music Channel" (https://youtube.com/music)
+            tabs.push('playlists')
+            const playlists = channel.playlists.map(playlist => parseLocalListPlaylist(playlist))
+
+            const compactStations = channel.memo.get('CompactStation')
+            if (compactStations) {
+              for (const compactStation of compactStations) {
+                playlists.push(parseLocalCompactStation(compactStation, channelId, channelName))
+              }
+            }
+
+            this.showPlaylistSortBy = false
+            this.latestPlaylists = playlists
+          }
         }
 
         if (!this.hideChannelCommunity && channel.has_community) {
@@ -699,7 +721,7 @@ export default defineComponent({
       }
     },
 
-    getChannelAboutLocal: async function () {
+    getChannelAboutLocal: async function (channel) {
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
@@ -1247,20 +1269,13 @@ export default defineComponent({
         // for the moment we just want the "Created Playlists" category that has all playlists in it
 
         if (playlistsTab.content_type_filters.length > 1) {
-          let viewId = '1'
-
-          // Artist topic channels don't have any created playlists, so we went to select the "Albums & Singles" category instead
-          if (this.channelName.endsWith('- Topic') && channel.metadata.music_artist_name) {
-            viewId = '50'
-          }
-
           /**
            * @type {import('youtubei.js').YTNodes.ChannelSubMenu}
            */
           const menu = playlistsTab.current_tab.content.sub_menu
           const createdPlaylistsFilter = menu.content_type_sub_menu_items.find(contentType => {
             const url = `https://youtube.com/${contentType.endpoint.metadata.url}`
-            return new URL(url).searchParams.get('view') === viewId
+            return new URL(url).searchParams.get('view') === '1'
           }).title
 
           playlistsTab = await playlistsTab.applyContentTypeFilter(createdPlaylistsFilter)
@@ -1396,14 +1411,27 @@ export default defineComponent({
          * @type {import('youtubei.js').YT.Channel}
         */
         const channel = this.channelInstance
-        const releaseTab = await channel.getReleases()
 
-        if (expectedId !== this.id) {
-          return
+        if (this.isArtistTopicChannel) {
+          const { releases, continuationData } = await getLocalArtistTopicChannelReleases(channel)
+
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestReleases = releases
+          this.releaseContinuationData = continuationData
+        } else {
+          const releaseTab = await channel.getReleases()
+
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
+          this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
         }
 
-        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
-        this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
         this.isElementListLoading = false
       } catch (err) {
         console.error(err)
@@ -1422,14 +1450,23 @@ export default defineComponent({
 
     getChannelReleasesLocalMore: async function () {
       try {
-        /**
-         * @type {import('youtubei.js').YT.ChannelListContinuation}
-         */
-        const continuation = await this.releaseContinuationData.getContinuation()
+        if (this.isArtistTopicChannel) {
+          const { releases, continuationData } = await getLocalArtistTopicChannelReleasesContinuation(
+            this.channelInstance, this.releaseContinuationData
+          )
 
-        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
-        this.latestReleases = this.latestReleases.concat(parsedReleases)
-        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+          this.latestReleases.push(...releases)
+          this.releaseContinuationData = continuationData
+        } else {
+          /**
+           * @type {import('youtubei.js').YT.ChannelListContinuation}
+           */
+          const continuation = await this.releaseContinuationData.getContinuation()
+
+          const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
+          this.latestReleases = this.latestReleases.concat(parsedReleases)
+          this.releaseContinuationData = continuation.has_continuation ? continuation : null
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')

@@ -153,7 +153,12 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
-    Added {count} Times: Añadido {count} vez | Añadido {count} veces
+    Added {count} Times: Ya añadido | Añadido {count} veces
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+      Vídeos ya añadidos'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+      Se añadirán vídeos'
+    Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.
@@ -239,6 +244,15 @@ User Playlists:
   Quick Bookmark Enabled: Marcador rápido habilitado
   Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
     de reproducción de destino de marcadores rápidos.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto
+    no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos vistos de esta lista de reproducción? Esto no se puede deshacer.
+  Remove Duplicate Videos: Eliminar vídeos duplicados
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción?
+    Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
 History:
   # On History Page
   History: 'Historial'
@@ -455,6 +469,7 @@ Settings:
     Fetch Automatically: Obtener los feed automáticamente
     Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
       canal
+    Avoid Accidental Unsubscription: Evitar bajas accidentales
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -1239,3 +1254,5 @@ Search Listing:
     Subtitles: Subtítulos
     Closed Captions: Subtítulos descriptivos
     4K: 4K
+'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
+  insegura: «{url}».'

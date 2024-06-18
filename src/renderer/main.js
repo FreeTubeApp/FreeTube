@@ -90,6 +90,7 @@ import {
   faTimesCircle,
   faTrash,
   faUsers,
+  faUsersSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -188,6 +189,7 @@ library.add(
   faTimesCircle,
   faTrash,
   faUsers,
+  faUsersSlash,
 
   // solid icons
   farBookmark,

@@ -21,6 +21,9 @@ export default defineComponent({
     },
     fetchSubscriptionsAutomatically: function () {
       return this.$store.getters.getFetchSubscriptionsAutomatically
+    },
+    unsubscriptionPopupStatus: function () {
+      return this.$store.getters.getUnsubscriptionPopupStatus
     }
   },
   methods: {
@@ -28,7 +31,8 @@ export default defineComponent({
       'updateHideWatchedSubs',
       'updateUseRssFeeds',
       'updateFetchSubscriptionsAutomatically',
-      'updateOnlyShowLatestFromChannel'
+      'updateOnlyShowLatestFromChannel',
+      'updateUnsubscriptionPopupStatus'
     ])
   }
 })

@@ -138,6 +138,7 @@
         :get-playlist-loop="getPlaylistLoop"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
+        :in-user-playlist="!!selectedUserPlaylist"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @change-format="handleFormatChange"

@@ -21,9 +21,6 @@ const IpcChannels = {
   OPEN_URL: 'open-url',
   CHANGE_VIEW: 'change-view',
 
-  HISTORY_BACK: 'history-back',
-  HISTORY_FORWARD: 'history-forward',
-
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
   DB_PROFILES: 'db-profiles',
@@ -96,6 +93,12 @@ const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
 // YouTube search character limit is 100 characters
 const SEARCH_CHAR_LIMIT = 100
 
+// Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
+const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
+// Displayed on the about page and used in the main.js file to only allow monero URLs with this wallet address to be opened
+const ABOUT_MONERO_ADDRESS = '48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB'
+
 export {
   IpcChannels,
   DBActions,
@@ -103,5 +106,7 @@ export {
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
-  SEARCH_CHAR_LIMIT
+  SEARCH_CHAR_LIMIT,
+  ABOUT_BITCOIN_ADDRESS,
+  ABOUT_MONERO_ADDRESS
 }

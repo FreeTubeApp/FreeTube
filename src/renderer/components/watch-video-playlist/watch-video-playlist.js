@@ -10,6 +10,7 @@ import {
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 export default defineComponent({
   name: 'WatchVideoPlaylist',
@@ -48,6 +49,7 @@ export default defineComponent({
       loopEnabled: false,
       reversePlaylist: false,
       pauseOnCurrentVideo: false,
+      prevVideoBeforeDeletion: null,
       channelName: '',
       channelId: '',
       playlistTitle: '',
@@ -65,7 +67,9 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     isUserPlaylist: function () {
       return this.playlistType === 'user'
     },
@@ -85,15 +89,7 @@ export default defineComponent({
     },
 
     currentVideoIndexZeroBased: function () {
-      return this.playlistItems.findIndex((item) => {
-        if (item.playlistItemId != null && this.playlistItemId != null) {
-          return item.playlistItemId === this.playlistItemId
-        } else if (item.videoId != null) {
-          return item.videoId === this.videoId
-        } else {
-          return item.id === this.videoId
-        }
-      })
+      return this.findIndexOfCurrentVideoInPlaylist(this.playlistItems)
     },
     currentVideoIndexOneBased: function () {
       return this.currentVideoIndexZeroBased + 1
@@ -123,19 +119,7 @@ export default defineComponent({
 
     videoIndexInPlaylistItems: function () {
       const playlistItems = this.shuffleEnabled ? this.randomizedPlaylistItems : this.playlistItems
-
-      return playlistItems.findIndex((item) => {
-        if (item.playlistItemId != null && this.playlistItemId != null) {
-          return item.playlistItemId === this.playlistItemId
-        } else if (item.videoId != null) {
-          return item.videoId === this.videoId
-        } else {
-          return item.id === this.videoId
-        }
-      })
-    },
-    videoIsFirstPlaylistItem: function () {
-      return this.videoIndexInPlaylistItems === 0
+      return this.findIndexOfCurrentVideoInPlaylist(playlistItems)
     },
     videoIsLastPlaylistItem: function () {
       return this.videoIndexInPlaylistItems === (this.playlistItems.length - 1)
@@ -153,6 +137,12 @@ export default defineComponent({
         },
       }
     },
+    userPlaylistSortOrder: function () {
+      return this.$store.getters.getUserPlaylistSortOrder
+    },
+    sortOrder: function () {
+      return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
+    },
   },
   watch: {
     userPlaylistsReady: function() {
@@ -160,12 +150,12 @@ export default defineComponent({
     },
     selectedUserPlaylistVideoCount () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+      this.parseUserPlaylist(this.selectedUserPlaylist)
       this.shufflePlaylistItems()
     },
     selectedUserPlaylistLastUpdatedAt () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+      this.parseUserPlaylist(this.selectedUserPlaylist)
     },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
@@ -183,6 +173,9 @@ export default defineComponent({
           this.shufflePlaylistItems()
         }
       }
+    },
+    playlistItemId: function () {
+      this.prevVideoBeforeDeletion = null
     },
     watchViewLoading: function (newVal, oldVal) {
       // This component is loaded/rendered before watch view loaded
@@ -232,6 +225,23 @@ export default defineComponent({
     }
   },
   methods: {
+    findIndexOfCurrentVideoInPlaylist: function (playlist) {
+      const playlistItemId = this.playlistItemId
+      const prevVideoBeforeDeletion = this.prevVideoBeforeDeletion
+      const videoId = this.videoId
+      return playlist.findIndex((item) => {
+        if (item.playlistItemId && (playlistItemId || prevVideoBeforeDeletion?.playlistItemId)) {
+          return item.playlistItemId === playlistItemId || item.playlistItemId === prevVideoBeforeDeletion?.playlistItemId
+        } else if (item.videoId) {
+          return item.videoId === videoId || item.videoId === prevVideoBeforeDeletion?.videoId
+        } else if (item.id) {
+          return item.id === videoId || item.id === prevVideoBeforeDeletion?.videoId
+        }
+
+        return false
+      })
+    },
+
     getPlaylistInfoWithDelay: function () {
       if (this.getPlaylistInfoRun) { return }
 
@@ -348,8 +358,23 @@ export default defineComponent({
         playlistType: this.playlistType,
       }
 
-      const videoIndex = this.videoIndexInPlaylistItems
-      const targetVideoIndex = (this.videoIsFirstPlaylistItem || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
+      let videoIndex = this.videoIndexInPlaylistItems
+
+      /*
+      * When the current video being watched in the playlist is deleted,
+      * the previous video is shown as the "current" one.
+      * So if we want to play the previous video, in this case,
+      * we actually want to actually play the "current" video.
+      * The only exception is when shuffle is enabled, as we don't actually
+      * want to play the last sequential video with shuffle.
+      */
+      if (this.prevVideoBeforeDeletion && !this.shuffleEnabled) {
+        videoIndex++
+      }
+
+      // Wrap around to the end of the playlist only if there are no remaining earlier videos
+      const targetVideoIndex = (videoIndex === 0 || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
+
       if (this.shuffleEnabled) {
         const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
 
@@ -466,24 +491,25 @@ export default defineComponent({
       })
     },
 
-    parseUserPlaylist: function (playlist, { allowPlayingVideoRemoval = true } = {}) {
+    parseUserPlaylist: function (playlist) {
       this.playlistTitle = playlist.playlistName
       this.channelName = ''
       this.channelId = ''
 
-      if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
-        this.playlistItems = playlist.videos
-      } else {
-        // `this.currentVideo` relies on `playlistItems`
-        const latestPlaylistContainsCurrentVideo = playlist.videos.some(v => v.playlistItemId === this.playlistItemId)
-        // Only update list of videos if latest video list still contains currently playing video
-        if (latestPlaylistContainsCurrentVideo) {
-          this.playlistItems = playlist.videos
-        }
+      const isCurrentVideoInParsedPlaylist = this.findIndexOfCurrentVideoInPlaylist(playlist.videos) !== -1
+      if (!isCurrentVideoInParsedPlaylist) {
+        // grab 2nd video if the 1st one is current & deleted
+        // or the prior video in the list before the current video's deletion
+        const targetVideoIndex = (this.currentVideoIndexZeroBased === 0 ? 1 : this.currentVideoIndexZeroBased - 1)
+        this.prevVideoBeforeDeletion = this.playlistItems[targetVideoIndex]
       }
 
-      if (this.reversePlaylist) {
-        this.playlistItems = this.playlistItems.toReversed()
+      this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale, this.reversePlaylist)
+
+      // grab the first video of the parsed playlit if the current video is not in either the current or parsed data
+      // (e.g., reloading the page after the current video has already been removed from the playlist)
+      if (!isCurrentVideoInParsedPlaylist && this.prevVideoBeforeDeletion == null) {
+        this.prevVideoBeforeDeletion = this.playlistItems[0]
       }
 
       this.isLoading = false

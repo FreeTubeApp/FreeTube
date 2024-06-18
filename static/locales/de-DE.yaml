@@ -220,7 +220,12 @@ User Playlists:
     Select a playlist to add your N videos to: Wähle eine Wiedergabeliste, der du
       dein Video hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
       Videos hinzufügen möchtest
-    Added {count} Times: '{count} Mal hinzugefügt | {count} Mal hinzugefügt'
+    Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
+    Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videos werden hinzugefügt'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      bereits hinzugefügte Videos'
   CreatePlaylistPrompt:
     New Playlist Name: Neuer Name der Wiedergabeliste
     Create: Erstellen
@@ -246,6 +251,17 @@ User Playlists:
   Quick Bookmark Enabled: Schnelles Lesezeichen aktiviert
   Cannot delete the quick bookmark target playlist.: Die Wiedergabeliste für das schnelle
     Lesezeichen kann nicht gelöscht werden.
+  Remove Duplicate Videos: Doppelte Videos entfernen
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sind
+    Sie sicher, dass Sie 1 doppeltes Video aus dieser Wiedergabeliste entfernen möchten?
+    Dies kann nicht rückgängig gemacht werden. | Sind Sie sicher, dass Sie {playlistItemCount}
+    doppelte Videos aus dieser Wiedergabeliste entfernen möchten? Dies kann nicht
+    rückgängig gemacht werden.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sind
+    Sie sicher, dass Sie 1 angesehenes Video aus dieser Wiedergabeliste entfernen
+    möchten? Dies kann nicht rückgängig gemacht werden. | Sind Sie sicher, dass Sie
+    {playlistItemCount} angesehene Videos aus dieser Wiedergabeliste entfernen möchten?
+    Dies kann nicht rückgängig gemacht werden.
 History:
   # On History Page
   History: Verlauf
@@ -446,6 +462,7 @@ Settings:
     Fetch Automatically: Feed automatisch abrufen
     Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
       anzeigen
+    Avoid Accidental Unsubscription: Unbeabsichtigtes Deabonnieren vermeiden
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -1269,3 +1286,5 @@ Search Listing:
     4K: 4K
     Closed Captions: Geschlossene Untertitel
     Subtitles: Untertitel
+'Blocked opening potentially unsafe URL': Das Öffnen einer potenziell unsicheren URL
+  wurde blockiert:"{url}".

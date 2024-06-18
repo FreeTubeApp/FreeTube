@@ -295,10 +295,14 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  * Opens a link in the default web browser or a new tab in the web builds
  * @param {string} url the URL to open
  */
-export function openExternalLink(url) {
+export async function openExternalLink(url) {
   if (process.env.IS_ELECTRON) {
     const ipcRenderer = require('electron').ipcRenderer
-    ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
+    const success = await ipcRenderer.invoke(IpcChannels.OPEN_EXTERNAL_LINK, url)
+
+    if (!success) {
+      showToast(i18n.t('Blocked opening potentially unsafe URL', { url }))
+    }
   } else {
     window.open(url, '_blank')
   }

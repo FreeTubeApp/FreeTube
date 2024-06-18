@@ -207,7 +207,12 @@ User Playlists:
         | {videoCount} video 1 oynatma listesine eklendi
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
-    Added {count} Times: '{count} Defa Eklendi | {count} Defa Eklendi'
+    Added {count} Times: 'Zaten Eklendi | {count} Defa Eklendi'
+    Allow Adding Duplicate Video(s): Yinelenen Video(lar) Eklemeye İzin Ver
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Video Zaten Eklendi'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Video Eklenecek'
   CreatePlaylistPrompt:
     New Playlist Name: Yeni Oynatma Listesi Adı
     Create: Oluştur
@@ -242,6 +247,15 @@ User Playlists:
   Quick Bookmark Enabled: Hızlı Yer İmi Etkin
   Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
     silinemiyor.
+  Remove Duplicate Videos: Yinelenen Videoları Kaldır
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bu
+    oynatma listesinden izlenen 1 videoyu kaldırmak istediğinizden emin misiniz? Bu
+    geri alınamaz. | Bu oynatma listesinden izlenen {playlistItemCount} videoyu kaldırmak
+    istediğinizden emin misiniz? Bu geri alınamaz.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu
+    oynatma listesinden 1 yinelenen videoyu kaldırmak istediğinizden emin misiniz?
+    Bu geri alınamaz. | Bu oynatma listesinden {playlistItemCount} yinelenen videoyu
+    kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.
 History:
   # On History Page
   History: 'Geçmiş'
@@ -454,6 +468,7 @@ Settings:
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
       Göster
+    Avoid Accidental Unsubscription: Yanlışlıkla Abonelikten Çıkmayı Önle
   Data Settings:
     Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
@@ -1236,3 +1251,5 @@ Search Listing:
     Closed Captions: Kapalı Alt Yazılar
     4K: 4K
     Subtitles: Alt Yazılar
+'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
+  \"{url}\"."

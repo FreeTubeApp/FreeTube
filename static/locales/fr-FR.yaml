@@ -159,7 +159,12 @@ User Playlists:
         à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount}
         listes de lecture
     N playlists selected: '{playlistCount} Sélectionnée(s)'
-    Added {count} Times: Ajouté {count} Fois | Ajouté {count} Fois
+    Added {count} Times: Déjà ajouté | Ajouté {count} fois
+    Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Les vidéos seront ajoutées'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Vidéos déjà ajoutées'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Il n'y avait aucune vidéo à supprimer.
@@ -249,6 +254,15 @@ User Playlists:
   Quick Bookmark Enabled: Signet rapide activé
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la liste
     de lecture cible des signets rapides.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous
+    sûr de vouloir supprimer 1 vidéo en double de cette liste de lecture ? Cette opération
+    est irréversible. | Êtes-vous sûr de vouloir supprimer {playlistItemCount} vidéos
+    en double de cette liste de lecture ? Cette opération est irréversible.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Êtes-vous
+    sûr de vouloir supprimer 1 vidéo regardée de cette liste de lecture ? Cette opération
+    est irréversible. | Êtes-vous sûr de vouloir supprimer {playlistItemCount} vidéos
+    regardées de cette liste de lecture ? Cette opération est irréversible.
+  Remove Duplicate Videos: Supprimer les vidéos en double
 History:
   # On History Page
   History: 'Historique'
@@ -456,6 +470,7 @@ Settings:
     Fetch Automatically: Récupération automatique des flux
     Only Show Latest Video for Each Channel: Afficher uniquement la dernière vidéo
       pour chaque chaîne
+    Avoid Accidental Unsubscription: Évitez les désabonnements accidentels
   Advanced Settings:
     Advanced Settings: 'Paramètres Avancés'
     Enable Debug Mode (Prints data to the console): 'Activer le mode débug (afficher
@@ -634,7 +649,7 @@ Settings:
     Proxy Port Number: Numéro de port du proxy
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
-    Enable Tor / Proxy: Activer Tor / Proxy
+    Enable Tor / Proxy: Activer Tor / proxy
     Proxy Settings: Paramètres du proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
@@ -1289,3 +1304,5 @@ Search Listing:
     4K: 4K
     Subtitles: Sous-titres
     Closed Captions: Sous-titrage codé
+'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
+  dangereuse : \"{url}\"."
