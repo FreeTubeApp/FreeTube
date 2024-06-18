@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -535,10 +535,6 @@ export default defineComponent({
         document.body.dir = 'ltr'
       }
     },
-
-    ...mapMutations([
-      'setInvidiousInstancesList'
-    ]),
 
     ...mapActions([
       'grabUserSettings',
