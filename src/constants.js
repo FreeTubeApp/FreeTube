@@ -55,6 +55,11 @@ const DBActions = {
     UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
 
+  PROFILES: {
+    ADD_CHANNEL: 'db-action-profiles-add-channel',
+    REMOVE_CHANNEL: 'db-action-profiles-remove-channel'
+  },
+
   PLAYLISTS: {
     UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
     UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
@@ -75,6 +80,11 @@ const SyncEvents = {
   HISTORY: {
     UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
     UPDATE_PLAYLIST: 'sync-history-update-playlist',
+  },
+
+  PROFILES: {
+    ADD_CHANNEL: 'sync-profiles-add-channel',
+    REMOVE_CHANNEL: 'sync-profiles-remove-channel'
   },
 
   PLAYLISTS: {
