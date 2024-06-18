@@ -11,7 +11,6 @@ import {
   DBActions,
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
-  ABOUT_MONERO_ADDRESS
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -882,8 +881,7 @@ function runApp() {
         parsedURL.protocol === 'tel:' ||
 
         // Donation links on the about page
-        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS) ||
-        (parsedURL.protocol === 'monero:' && parsedURL.pathname === ABOUT_MONERO_ADDRESS)
+        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS)
       ) {
         shell.openExternal(url)
         return true

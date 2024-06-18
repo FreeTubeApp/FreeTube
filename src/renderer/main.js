@@ -99,7 +99,6 @@ import {
   faBitcoin,
   faGithub,
   faMastodon,
-  faMonero
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
@@ -198,7 +197,6 @@ library.add(
   faGithub,
   faBitcoin,
   faMastodon,
-  faMonero
 )
 
 registerSwiper()
