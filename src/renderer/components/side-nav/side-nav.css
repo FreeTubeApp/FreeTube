@@ -74,7 +74,14 @@
 }
 
 .navIcon {
+  block-size: 1em;
+  inline-size: 1.25em;
   margin-inline-start: 10px;
+}
+
+.navIcon.fa-user-check {
+  /* This icon is too big by default */
+  inline-size: 1em;
 }
 
 .navChannel .navLabel {
@@ -90,6 +97,7 @@
   position: absolute;
   inset-block-start: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
 
 .channelThumbnail {
@@ -131,8 +139,13 @@
   margin-block-end: 0;
 }
 
-.closed .navIconExpand{
-  block-size:1.3em;
+.closed .navIconExpand {
+  block-size: 1.3em;
+}
+
+.closed .navIconExpand.fa-user-check {
+  /* This icon is too big by default */
+  block-size: 1.15em;
 }
 
 .closed .navLabel {
