@@ -1494,9 +1494,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.send(
-                IpcChannels.HISTORY_BACK
-              )
+              browserWindow.webContents.goBack()
             },
             type: 'normal',
           },
@@ -1506,9 +1504,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.send(
-                IpcChannels.HISTORY_FORWARD
-              )
+              browserWindow.webContents.goForward()
             },
             type: 'normal',
           },

@@ -183,7 +183,6 @@ export default defineComponent({
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
-          this.activateIPCListeners()
           this.openAllLinksExternally()
           this.enableSetSearchQueryText()
           this.enableOpenUrl()
@@ -197,10 +196,6 @@ export default defineComponent({
           this.checkForNewUpdates()
           this.checkForNewBlogPosts()
         }, 500)
-      })
-
-      this.$router.afterEach((to, from) => {
-        this.$refs.topNav?.navigateHistory()
       })
 
       this.$router.onReady(() => {
@@ -331,16 +326,6 @@ export default defineComponent({
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
         this.hideOutlines()
-      })
-    },
-
-    activateIPCListeners: function () {
-      // handle menu event updates from main script
-      ipcRenderer.on(IpcChannels.HISTORY_BACK, (_event) => {
-        this.$refs.topNav.historyBack()
-      })
-      ipcRenderer.on(IpcChannels.HISTORY_FORWARD, (_event) => {
-        this.$refs.topNav.historyForward()
       })
     },
 

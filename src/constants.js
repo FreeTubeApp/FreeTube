@@ -21,9 +21,6 @@ const IpcChannels = {
   OPEN_URL: 'open-url',
   CHANGE_VIEW: 'change-view',
 
-  HISTORY_BACK: 'history-back',
-  HISTORY_FORWARD: 'history-forward',
-
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
   DB_PROFILES: 'db-profiles',
