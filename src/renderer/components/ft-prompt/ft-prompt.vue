@@ -4,6 +4,7 @@
       ref="openPrompt"
       class="prompt"
       tabindex="-1"
+      :inert="inert"
       @click="handleHide"
       @keydown.enter="handleHide"
       @keydown.left.right.capture="arrowKeys"

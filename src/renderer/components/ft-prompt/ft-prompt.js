@@ -40,6 +40,10 @@ export default defineComponent({
     theme: {
       type: String,
       default: 'base'
+    },
+    inert: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['click'],
@@ -110,7 +114,7 @@ export default defineComponent({
     },
     // close on escape key and unfocus
     closeEventFunction: function(event) {
-      if (event.type === 'keydown' && event.key === 'Escape') {
+      if (event.type === 'keydown' && event.key === 'Escape' && !this.inert) {
         event.preventDefault()
         this.hide()
       }
