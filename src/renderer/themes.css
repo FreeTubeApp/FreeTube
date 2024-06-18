@@ -1,5 +1,14 @@
-.app {
+body {
+  margin: 0;
+  min-block-size: 100vh;
+  color: var(--primary-text-color);
+  background-color: var(--bg-color);
+
   --primary-input-color: rgb(0 0 0 / 50%);
+  --link-color: var(--accent-color);
+  --link-visited-color: var(--accent-color-visited);
+  --instance-menu-color: var(--search-bar-color);
+  --red-500: #f44336;
   --top-bar-push-down-adjustment-default: -35px;
 
   /* Value of 0 without 'px' does not work inside calc() */
@@ -8,16 +17,16 @@
   --top-bar-push-down-adjustment-edit-mode: 0px;
   --top-bar-push-down-adjustment-one-or-fewer: 0px;
   /* stylelint-enable length-zero-no-unit */
+
   --destructive-color: #f44336;
   --destructive-text-color: #000;
   --destructive-hover-color: #e53935;
   --destructive-active-color: #c62828;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
-  --instance-menu-color: var(--search-bar-color);
 
-  color: var(--primary-text-color);
-  background-color: var(--bg-color);
+  /* For the 'About' page, show the logo with the primary text color by default */
+  --logo-primary-color: var(--primary-text-color);
+  --logo-secondary-color: var(--primary-text-color);
+  --logo-tertiary-color: var(--primary-text-color);
 }
 
 /*************** RULE TWEAKS ***************/
@@ -41,6 +50,9 @@ body:not(.hotPink, .pastelPink) {
 .gray {
   --logo-icon: url("../../_icons/iconColorSmall.svg");
   --logo-text: url("../../_icons/textColorSmall.svg");
+  --logo-primary-color: #f33;
+  --logo-secondary-color: #29abe1;
+  --logo-tertiary-color: #000;
 }
 
 /* Given that the Hot Pink theme does not need link underlining due to meeting
@@ -1342,15 +1354,13 @@ html[lang='ur'] [data-prefix="fas"][data-icon="circle-question"] {
 
 /*************** MAIN APP STYLING RULES ***************/
 
-/* stylelint-disable no-descending-specificity */
-body {
-  margin: 0;
-  min-block-size: 100vh;
+.app {
   color: var(--primary-text-color);
   background-color: var(--bg-color);
-
-  --red-500: #f44336;
 }
+
+
+/* stylelint-disable no-descending-specificity */
 
 /* stylelint-disable-next-line a11y/no-outline-none */
 .hideOutlines *:focus {
@@ -1364,6 +1374,7 @@ a:link {
 a:visited {
     color: var(--link-visited-color);
 }
+
 /* stylelint-enable no-descending-specificity */
 
 @media (prefers-reduced-motion) {
