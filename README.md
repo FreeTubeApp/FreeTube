@@ -150,7 +150,7 @@ If you ever have any questions, feel free to ask it on our [Discussions](https:/
 > Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.
 
 ## Donate
-If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  
+If you enjoy using FreeTube, you're welcome to leave a donation using the following method.  
 
 * Bitcoin Address: `1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS`
 
