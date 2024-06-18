@@ -67,12 +67,27 @@
 
 }
 
+.catppuccinMocha,
+.dracula,
+.hotPink,
+.nordic,
+.pastelPink,
+.solarizedDark,
+.solarizedLight {
+  --logo-primary-color: var(--primary-text-color);
+  --logo-secondary-color: var(--primary-text-color);
+  --logo-tertiary-color: var(--primary-text-color);
+}
+
 .system[data-system-theme*='light'], .light,
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray {
   --logo-icon: url("../../_icons/iconColorSmall.svg");
   --logo-text: url("../../_icons/textColorSmall.svg");
+  --logo-primary-color: #f33;
+  --logo-secondary-color: #29abe1;
+  --logo-tertiary-color: #000;
 }
 
 .system[data-system-theme*='dark'], .dark,
