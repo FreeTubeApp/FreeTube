@@ -82,6 +82,9 @@
 .navIcon.fa-user-check {
   /* This icon is too big by default */
   inline-size: 1em;
+
+  /* Align icon according to torso */
+  transform: translateX(0.20em);
 }
 
 .navChannel .navLabel {
