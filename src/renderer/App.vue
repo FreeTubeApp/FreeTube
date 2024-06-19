@@ -12,6 +12,7 @@
   >
     <portal-target
       name="promptPortal"
+      multiple
       @change="handlePromptPortalUpdate"
     />
     <ft-prompt
