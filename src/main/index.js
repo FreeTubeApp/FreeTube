@@ -1124,6 +1124,24 @@ function runApp() {
           )
           return null
 
+        case DBActions.PROFILES.ADD_CHANNEL:
+          await baseHandlers.profiles.addChannelToProfiles(data.channel, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.ADD_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.PROFILES.REMOVE_CHANNEL:
+          await baseHandlers.profiles.removeChannelFromProfiles(data.channelId, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.REMOVE_CHANNEL, data }
+          )
+          return null
+
         case DBActions.GENERAL.DELETE:
           await baseHandlers.profiles.delete(data)
           syncOtherWindows(
