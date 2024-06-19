@@ -29,6 +29,7 @@ body {
   --logo-tertiary-color: var(--primary-text-color);
 }
 
+
 /*************** RULE TWEAKS ***************/
 
 /* Default sidenav hover text color and primary input color not needed to be changed for most themes */
@@ -66,7 +67,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   text-decoration: underline;
 }
 
+
 /*************** DARK THEME ADJUSTMENTS ***************/
+
 /* stylelint-disable no-descending-specificity */
 
 /* Dark theme Youtube and Invidious logo styling (in ft-share-button) */
@@ -96,6 +99,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   background-image: url('./assets/img/invidious-logo-dark.svg');
 }
 
+
 /*************** LIGHT THEME ADJUSTMENTS ***************/
 
 /* Light theme Youtube and Invidious logo styling (in ft-share-button) */
@@ -108,6 +112,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 /* stylelint-enable no-descending-specificity */
+
 
 /*************** MAIN THEME DEFINITIONS ***************/
 
@@ -182,66 +187,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #212121;
 }
 
-.dracula {
-  --primary-text-color: #F8F8F2;
-  --secondary-text-color: #c6cee6;
-  --tertiary-text-color: #e5e8f3;
-  --title-color: #BD93F9;
-  --bg-color: #282A36;
-  --favorite-icon-color: #0F0;
-  --card-bg-color: #33353F;
-  --secondary-card-bg-color: #282A36;
-  --scrollbar-color: #44475A;
-  --scrollbar-color-hover: #3D4051;
-  --side-nav-color: #44475A;
-  --side-nav-hover-color: #57596B;
-  --side-nav-active-color: #3D4051;
-  --search-bar-color: #3E3F4A;
-  --logo-icon: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text: url("../../_icons/textDraculaLightSmall.svg");
-}
-
-.catppuccinMocha {
-  --primary-text-color: #cdd6f4;
-  --secondary-text-color: #bac2de;
-  --tertiary-text-color: #a6adc8;
-  --title-color: var(--accent-color);
-  --bg-color: #1e1e2e;
-  --favorite-icon-color: #0F0;
-  --card-bg-color: #181825;
-  --secondary-card-bg-color: #1e1e2e;
-  --scrollbar-color: #313244;
-  --scrollbar-color-hover: #3D4051;
-  --side-nav-color: #181825;
-  --side-nav-hover-color: #11111b;
-  --side-nav-active-color: #11111b;
-  --search-bar-color: #313244;
-  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.svg");
-  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.svg");
-}
-
-.pastelPink {
-  --primary-text-color: #1F002B;
-  --secondary-text-color: #361836;
-  --tertiary-text-color: #5A285A;
-  --primary-shadow-color: rgb(255 240 240 / 50%);
-  --title-color: #185EB4;
-  --bg-color: #ffeadd;
-  --favorite-icon-color: #760278;
-  --card-bg-color: #ffd1dc;
-  --secondary-card-bg-color: #FFF;
-  --scrollbar-color: #f5c8d3;
-  --scrollbar-color-hover: #760278;
-  --scrollbar-text-color-hover: var(--scrollbar-color);
-  --side-nav-color: #ffd1dc;
-  --side-nav-hover-color: #cef4f1;
-  --side-nav-active-color: #3124E7;
-  --side-nav-active-text-color: #FFFF;
-  --search-bar-color: #FFF0DD;
-  --logo-icon: url("../../_icons/iconBlackSmall.svg");
-  --logo-text: url("../../_icons/textBlackSmall.svg");
-}
-
 .nordic {
   --primary-text-color: #EEE;
   --secondary-text-color: #ddd;
@@ -259,45 +204,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #4b566a;
   --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
   --logo-text: url("../../_icons/textNordicLightSmall.svg");
-}
-
-/* dark primary theme colors */
-.solarizedDark {
-  --primary-text-color: #FDF6E3;
-  --secondary-text-color: #DDD6C3;
-  --tertiary-text-color: #DDD6C3;
-  --title-color: #FDF6E3;
-  --bg-color: #002B36;
-  --favorite-icon-color: #0f0;
-  --card-bg-color: #204B56;
-  --secondary-card-bg-color: #102b36;
-  --scrollbar-color: #608B96;
-  --scrollbar-color-hover: #406B76;
-  --side-nav-color: #204B56;
-  --side-nav-hover-color: #608B96;
-  --side-nav-active-color: #406B76;
-  --search-bar-color: #073642;
-  --logo-icon: url("../../_icons/iconSolarizedLightSmall.svg");
-  --logo-text: url("../../_icons/textSolarizedLightSmall.svg");
-}
-
-.solarizedLight {
-  --primary-text-color: #002b36;
-  --secondary-text-color: #204b56;
-  --tertiary-text-color: #204b56;
-  --title-color: #002b36;
-  --bg-color: #fdf6e3;
-  --favorite-icon-color: #0f0;
-  --card-bg-color: #eee8d5;
-  --secondary-card-bg-color: #fdf6e3;
-  --scrollbar-color: #a9a895;
-  --scrollbar-color-hover: #839496;
-  --side-nav-color: #eee8d5;
-  --side-nav-hover-color: #fdf6e3;
-  --side-nav-active-color: #839496;
-  --search-bar-color: #c9c8b5;
-  --logo-icon: url("../../_icons/iconSolarizedDarkSmall.svg");
-  --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
 }
 
 .hotPink {
@@ -340,6 +246,105 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity3: rgb(255 255 255 / 16%) !important;
   --accent-color-opacity4: rgb(255 255 255 / 24%) !important;
 }
+
+.pastelPink {
+  --primary-text-color: #1F002B;
+  --secondary-text-color: #361836;
+  --tertiary-text-color: #5A285A;
+  --primary-shadow-color: rgb(255 240 240 / 50%);
+  --title-color: #185EB4;
+  --bg-color: #ffeadd;
+  --favorite-icon-color: #760278;
+  --card-bg-color: #ffd1dc;
+  --secondary-card-bg-color: #FFF;
+  --scrollbar-color: #f5c8d3;
+  --scrollbar-color-hover: #760278;
+  --scrollbar-text-color-hover: var(--scrollbar-color);
+  --side-nav-color: #ffd1dc;
+  --side-nav-hover-color: #cef4f1;
+  --side-nav-active-color: #3124E7;
+  --side-nav-active-text-color: #FFFF;
+  --search-bar-color: #FFF0DD;
+  --logo-icon: url("../../_icons/iconBlackSmall.svg");
+  --logo-text: url("../../_icons/textBlackSmall.svg");
+}
+
+.catppuccinMocha {
+  --primary-text-color: #cdd6f4;
+  --secondary-text-color: #bac2de;
+  --tertiary-text-color: #a6adc8;
+  --title-color: var(--accent-color);
+  --bg-color: #1e1e2e;
+  --favorite-icon-color: #0F0;
+  --card-bg-color: #181825;
+  --secondary-card-bg-color: #1e1e2e;
+  --scrollbar-color: #313244;
+  --scrollbar-color-hover: #3D4051;
+  --side-nav-color: #181825;
+  --side-nav-hover-color: #11111b;
+  --side-nav-active-color: #11111b;
+  --search-bar-color: #313244;
+  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.svg");
+  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.svg");
+}
+
+.dracula {
+  --primary-text-color: #F8F8F2;
+  --secondary-text-color: #c6cee6;
+  --tertiary-text-color: #e5e8f3;
+  --title-color: #BD93F9;
+  --bg-color: #282A36;
+  --favorite-icon-color: #0F0;
+  --card-bg-color: #33353F;
+  --secondary-card-bg-color: #282A36;
+  --scrollbar-color: #44475A;
+  --scrollbar-color-hover: #3D4051;
+  --side-nav-color: #44475A;
+  --side-nav-hover-color: #57596B;
+  --side-nav-active-color: #3D4051;
+  --search-bar-color: #3E3F4A;
+  --logo-icon: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text: url("../../_icons/textDraculaLightSmall.svg");
+}
+
+.solarizedDark {
+  --primary-text-color: #FDF6E3;
+  --secondary-text-color: #DDD6C3;
+  --tertiary-text-color: #DDD6C3;
+  --title-color: #FDF6E3;
+  --bg-color: #002B36;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #204B56;
+  --secondary-card-bg-color: #102b36;
+  --scrollbar-color: #608B96;
+  --scrollbar-color-hover: #406B76;
+  --side-nav-color: #204B56;
+  --side-nav-hover-color: #608B96;
+  --side-nav-active-color: #406B76;
+  --search-bar-color: #073642;
+  --logo-icon: url("../../_icons/iconSolarizedLightSmall.svg");
+  --logo-text: url("../../_icons/textSolarizedLightSmall.svg");
+}
+
+.solarizedLight {
+  --primary-text-color: #002b36;
+  --secondary-text-color: #204b56;
+  --tertiary-text-color: #204b56;
+  --title-color: #002b36;
+  --bg-color: #fdf6e3;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #eee8d5;
+  --secondary-card-bg-color: #fdf6e3;
+  --scrollbar-color: #a9a895;
+  --scrollbar-color-hover: #839496;
+  --side-nav-color: #eee8d5;
+  --side-nav-hover-color: #fdf6e3;
+  --side-nav-active-color: #839496;
+  --search-bar-color: #c9c8b5;
+  --logo-icon: url("../../_icons/iconSolarizedDarkSmall.svg");
+  --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
+}
+
 
 /*************** PRIMARY THEME COLOR DEFINTIONS ***************/
 
@@ -466,64 +471,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #D84315;
 }
 
-.mainDraculaCyan,
-.mainDraculaGreen,
-.mainDraculaOrange,
-.mainDraculaRed,
-.mainDraculaYellow {
-  --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
-}
 
-.mainDraculaPink,
-.mainDraculaPurple {
-  --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
-}
-
-.mainDraculaCyan {
-  --primary-color: #8BE9FD;
-  --primary-color-hover: #97EBFD;
-  --primary-color-active: #7DD2E4;
-}
-
-.mainDraculaGreen {
-  --primary-color: #50FA7B;
-  --primary-color-hover: #62FB88;
-  --primary-color-active: #48E16F;
-}
-
-.mainDraculaOrange {
-  --primary-color: #FFB86C;
-  --primary-color-hover: #FFBF7B;
-  --primary-color-active: #E6A661;
-}
-
-.mainDraculaPink {
-  --primary-color: #FF79C6;
-  --primary-color-hover: #FF86CC;
-  --primary-color-active: #E66DB2;
-}
-
-.mainDraculaPurple {
-  --primary-color: #BD93F9;
-  --primary-color-hover: #C49EFA;
-  --primary-color-active: #AA84E0;
-}
-
-.mainDraculaRed {
-  --primary-color: #F55;
-  --primary-color-hover: #F66;
-  --primary-color-active: #E64D4D;
-}
-
-.mainDraculaYellow {
-  --primary-color: #F1FA8C;
-  --primary-color-hover: #F2FB98;
-  --primary-color-active: #D9E17E;
-}
+/* PRIMARY THEME COLORS CORRESPONDING TO BASE THEMES */
 
 .mainCatppuccinMochaRosewater,
 .mainCatppuccinMochaFlamingo,
@@ -628,6 +577,65 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
+.mainDraculaCyan,
+.mainDraculaGreen,
+.mainDraculaOrange,
+.mainDraculaRed,
+.mainDraculaYellow {
+  --text-with-main-color: #282A36;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.svg");
+}
+
+.mainDraculaPink,
+.mainDraculaPurple {
+  --text-with-main-color: #F8F8F2;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
+}
+
+.mainDraculaCyan {
+  --primary-color: #8BE9FD;
+  --primary-color-hover: #97EBFD;
+  --primary-color-active: #7DD2E4;
+}
+
+.mainDraculaGreen {
+  --primary-color: #50FA7B;
+  --primary-color-hover: #62FB88;
+  --primary-color-active: #48E16F;
+}
+
+.mainDraculaOrange {
+  --primary-color: #FFB86C;
+  --primary-color-hover: #FFBF7B;
+  --primary-color-active: #E6A661;
+}
+
+.mainDraculaPink {
+  --primary-color: #FF79C6;
+  --primary-color-hover: #FF86CC;
+  --primary-color-active: #E66DB2;
+}
+
+.mainDraculaPurple {
+  --primary-color: #BD93F9;
+  --primary-color-hover: #C49EFA;
+  --primary-color-active: #AA84E0;
+}
+
+.mainDraculaRed {
+  --primary-color: #F55;
+  --primary-color-hover: #F66;
+  --primary-color-active: #E64D4D;
+}
+
+.mainDraculaYellow {
+  --primary-color: #F1FA8C;
+  --primary-color-hover: #F2FB98;
+  --primary-color-active: #D9E17E;
+}
+
 .mainSolarizedYellow,
 .mainSolarizedOrange,
 .mainSolarizedRed,
@@ -693,6 +701,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-hover: #a5b920;
   --primary-color-active: #c5d940;
 }
+
 
 /*************** SECONDARY THEME COLOR DEFINTIONS ***************/
 
@@ -912,88 +921,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(255 87 34 / 24%);
 }
 
-.secDraculaCyan,
-.secDraculaGreen,
-.secDraculaOrange,
-.secDraculaRed,
-.secDraculaYellow {
-  --text-with-accent-color: #212121;
-}
 
-.secDraculaPink,
-.secDraculaPurple {
-  --text-with-accent-color: #F8F8F2;
-}
-
-.secDraculaCyan,
-.secDraculaGreen,
-.secDraculaOrange,
-.secDraculaPink,
-.secDraculaPurple,
-.secDraculaRed,
-.secDraculaYellow {
-  --accent-color-opacity1: rgb(98 114 164 / 4%);
-  --accent-color-opacity2: rgb(98 114 164 / 12%);
-  --accent-color-opacity3: rgb(98 114 164 / 16%);
-  --accent-color-opacity4: rgb(98 114 164 / 24%);
-}
-
-.secDraculaCyan {
-  --accent-color: #8BE9FD;
-  --accent-color-hover: #97EBFD;
-  --accent-color-active: #7DD2E4;
-  --accent-color-light: #A2EDFD;
-  --accent-color-visited: #6FBACA;
-
-}
-
-.secDraculaGreen {
-  --accent-color: #50FA7B;
-  --accent-color-hover: #62FB88;
-  --accent-color-active: #48E16F;
-  --accent-color-light: #73FB95;
-  --accent-color-visited: #40C862;
-}
-
-.secDraculaOrange {
-  --accent-color: #FFB86C;
-  --accent-color-hover: #FFBF7B;
-  --accent-color-active: #E6A661;
-  --accent-color-light: #FFC689;
-  --accent-color-visited: #CC9356;
-}
-
-.secDraculaPink {
-  --accent-color: #FF79C6;
-  --accent-color-hover: #FF86CC;
-  --accent-color-active: #E66DB2;
-  --accent-color-light: #FF94D1;
-  --accent-color-visited: #CC619E;
-}
-
-.secDraculaPurple {
-  --accent-color: #BD93F9;
-  --accent-color-hover: #C49EFA;
-  --accent-color-active: #AA84E0;
-  --accent-color-light: #CAA9FA;
-  --accent-color-visited: #9776C7;
-}
-
-.secDraculaRed {
-  --accent-color: #F55;
-  --accent-color-hover: #F66;
-  --accent-color-active: #E64D4D;
-  --accent-color-light: #F77;
-  --accent-color-visited: #C44;
-}
-
-.secDraculaYellow {
-  --accent-color: #F1FA8C;
-  --accent-color-hover: #F2FB98;
-  --accent-color-active: #D9E17E;
-  --accent-color-light: #F4FBA3;
-  --accent-color-visited: #C1C870;
-}
+/* PRIMARY THEME COLORS CORRESPONDING TO BASE THEMES */
 
 .secCatppuccinMochaRosewater,
 .secCatppuccinMochaFlamingo,
@@ -1180,6 +1109,89 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(180 190 254 / 24%);
 }
 
+.secDraculaCyan,
+.secDraculaGreen,
+.secDraculaOrange,
+.secDraculaRed,
+.secDraculaYellow {
+  --text-with-accent-color: #212121;
+}
+
+.secDraculaPink,
+.secDraculaPurple {
+  --text-with-accent-color: #F8F8F2;
+}
+
+.secDraculaCyan,
+.secDraculaGreen,
+.secDraculaOrange,
+.secDraculaPink,
+.secDraculaPurple,
+.secDraculaRed,
+.secDraculaYellow {
+  --accent-color-opacity1: rgb(98 114 164 / 4%);
+  --accent-color-opacity2: rgb(98 114 164 / 12%);
+  --accent-color-opacity3: rgb(98 114 164 / 16%);
+  --accent-color-opacity4: rgb(98 114 164 / 24%);
+}
+
+.secDraculaCyan {
+  --accent-color: #8BE9FD;
+  --accent-color-hover: #97EBFD;
+  --accent-color-active: #7DD2E4;
+  --accent-color-light: #A2EDFD;
+  --accent-color-visited: #6FBACA;
+
+}
+
+.secDraculaGreen {
+  --accent-color: #50FA7B;
+  --accent-color-hover: #62FB88;
+  --accent-color-active: #48E16F;
+  --accent-color-light: #73FB95;
+  --accent-color-visited: #40C862;
+}
+
+.secDraculaOrange {
+  --accent-color: #FFB86C;
+  --accent-color-hover: #FFBF7B;
+  --accent-color-active: #E6A661;
+  --accent-color-light: #FFC689;
+  --accent-color-visited: #CC9356;
+}
+
+.secDraculaPink {
+  --accent-color: #FF79C6;
+  --accent-color-hover: #FF86CC;
+  --accent-color-active: #E66DB2;
+  --accent-color-light: #FF94D1;
+  --accent-color-visited: #CC619E;
+}
+
+.secDraculaPurple {
+  --accent-color: #BD93F9;
+  --accent-color-hover: #C49EFA;
+  --accent-color-active: #AA84E0;
+  --accent-color-light: #CAA9FA;
+  --accent-color-visited: #9776C7;
+}
+
+.secDraculaRed {
+  --accent-color: #F55;
+  --accent-color-hover: #F66;
+  --accent-color-active: #E64D4D;
+  --accent-color-light: #F77;
+  --accent-color-visited: #C44;
+}
+
+.secDraculaYellow {
+  --accent-color: #F1FA8C;
+  --accent-color-hover: #F2FB98;
+  --accent-color-active: #D9E17E;
+  --accent-color-light: #F4FBA3;
+  --accent-color-visited: #C1C870;
+}
+
 .secSolarizedYellow,
 .secSolarizedOrange,
 .secSolarizedRed,
@@ -1298,6 +1310,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(101 119 0 / 24%);
 }
 
+
 /*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
 
 /* stylelint-disable no-descending-specificity */
@@ -1323,6 +1336,7 @@ body[class*="Red"][class*="Purple"] * {
 }
 
 /* stylelint-enable no-descending-specificity */
+
 
 /*************** LEFT-TO-RIGHT AND RIGHT-TO-LEFT RULES ***************/
 
@@ -1351,6 +1365,7 @@ html[lang='ku'] [data-prefix="fas"][data-icon="circle-question"],
 html[lang='ur'] [data-prefix="fas"][data-icon="circle-question"] {
   transform: scale(-1, 1)
 }
+
 
 /*************** MAIN APP STYLING RULES ***************/
 
