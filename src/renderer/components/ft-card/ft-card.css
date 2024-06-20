@@ -4,5 +4,21 @@
   padding-block: 3px 16px;
   padding-inline: 16px;
   box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-  max-inline-size: 2800px;
+  max-inline-size: min(calc(100vw + -132px), 2800px);
 }
+
+@media only screen and (width > 680px) {
+  .isSideNavOpen .ft-card {
+    max-inline-size: min(calc(100vw + -262px), 2800px);
+  }
+
+  .hideLabelsSideBar .ft-card {
+    max-inline-size: min(calc(100vw + -122px), 2800px);
+  }
+}
+
+ @media only screen and (width <= 680px) {
+  .ft-card {
+    max-inline-size: calc(100vw - 64px);
+  }
+ }
