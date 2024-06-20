@@ -15,9 +15,6 @@ export default defineComponent({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox
   },
-  data: function () {
-    return {}
-  },
   computed: {
     externalPlayerNames: function () {
       const fallbackNames = this.$store.getters.getExternalPlayerNames

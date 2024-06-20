@@ -67,12 +67,27 @@
 
 }
 
+.catppuccinMocha,
+.dracula,
+.hotPink,
+.nordic,
+.pastelPink,
+.solarizedDark,
+.solarizedLight {
+  --logo-primary-color: var(--primary-text-color);
+  --logo-secondary-color: var(--primary-text-color);
+  --logo-tertiary-color: var(--primary-text-color);
+}
+
 .system[data-system-theme*='light'], .light,
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray {
   --logo-icon: url("../../_icons/iconColorSmall.svg");
   --logo-text: url("../../_icons/textColorSmall.svg");
+  --logo-primary-color: #f33;
+  --logo-secondary-color: #29abe1;
+  --logo-tertiary-color: #000;
 }
 
 .system[data-system-theme*='dark'], .dark,
@@ -1371,13 +1386,19 @@ a:visited {
 }
 
 ::-webkit-scrollbar {
-	inline-size: 6px;
-  block-size: 6px;
+	inline-size: auto;
+  block-size: auto;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
   border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:focus {

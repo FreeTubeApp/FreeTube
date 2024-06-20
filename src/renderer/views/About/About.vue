@@ -5,11 +5,7 @@
         {{ $t("About.About") }}
       </h1>
       <section class="brand">
-        <img
-          src="../../../../_icons/logoColor.svg"
-          class="logo"
-          alt=""
-        >
+        <ft-logo-full />
         <div class="version">
           {{ versionNumber }} {{ $t("About.Beta") }}
         </div>

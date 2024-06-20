@@ -190,7 +190,7 @@ User Playlists:
         playlists
     Select a playlist to add your N videos to: Select a playlist to add your video
       to | Select a playlist to add your {videoCount} videos to
-    Added {count} Times: Added {count} time | Added {count} times
+    Added {count} Times: Already Added | Added {count} times
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist name
     Create: Create

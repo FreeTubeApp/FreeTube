@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import i18n from './i18n/index'
+import { IpcChannels } from '../constants'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { register as registerSwiper } from 'swiper/element'
@@ -89,6 +90,7 @@ import {
   faTimesCircle,
   faTrash,
   faUsers,
+  faUsersSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -97,7 +99,6 @@ import {
   faBitcoin,
   faGithub,
   faMastodon,
-  faMonero
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
@@ -187,6 +188,7 @@ library.add(
   faTimesCircle,
   faTrash,
   faUsers,
+  faUsersSlash,
 
   // solid icons
   farBookmark,
@@ -195,7 +197,6 @@ library.add(
   faGithub,
   faBitcoin,
   faMastodon,
-  faMonero
 )
 
 registerSwiper()
@@ -218,7 +219,7 @@ if (process.env.IS_ELECTRON) {
   const { ipcRenderer } = require('electron')
 
   // handle menu event updates from main script
-  ipcRenderer.on('change-view', (event, data) => {
+  ipcRenderer.on(IpcChannels.CHANGE_VIEW, (event, data) => {
     if (data.route) {
       router.push(data.route)
     }

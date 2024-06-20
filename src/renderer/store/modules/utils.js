@@ -191,7 +191,7 @@ const actions = {
     commit('setOutlinesHidden', true)
   },
 
-  async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
+  async downloadMedia({ rootState }, { url, title, extension }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
       return
@@ -415,7 +415,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
+  async getYoutubeUrlInfo({ state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //

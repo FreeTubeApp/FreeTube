@@ -59,6 +59,14 @@ class Profiles {
     return baseHandlers.profiles.upsert(profile)
   }
 
+  static addChannelToProfiles(channel, profileIds) {
+    return baseHandlers.profiles.addChannelToProfiles(channel, profileIds)
+  }
+
+  static removeChannelFromProfiles(channelId, profileIds) {
+    return baseHandlers.profiles.removeChannelFromProfiles(channelId, profileIds)
+  }
+
   static delete(id) {
     return baseHandlers.profiles.delete(id)
   }

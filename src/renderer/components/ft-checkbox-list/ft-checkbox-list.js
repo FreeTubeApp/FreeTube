@@ -42,8 +42,8 @@ export default defineComponent({
     this.selectedValues = this.initialValues
   },
   methods: {
-    removeSelectedValues: function() {
-      this.selectedValues = []
+    setSelectedValues: function(arr) {
+      this.selectedValues = arr
     },
     change: function(event) {
       const targ = event.target

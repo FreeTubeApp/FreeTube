@@ -89,6 +89,26 @@ class Profiles {
     )
   }
 
+  static addChannelToProfiles(channel, profileIds) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_PROFILES,
+      {
+        action: DBActions.PROFILES.ADD_CHANNEL,
+        data: { channel, profileIds }
+      }
+    )
+  }
+
+  static removeChannelFromProfiles(channelId, profileIds) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_PROFILES,
+      {
+        action: DBActions.PROFILES.REMOVE_CHANNEL,
+        data: { channelId, profileIds }
+      }
+    )
+  }
+
   static delete(id) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PROFILES,

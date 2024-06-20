@@ -6,7 +6,12 @@ import {
 import path from 'path'
 import cp from 'child_process'
 
-import { IpcChannels, DBActions, SyncEvents } from '../constants'
+import {
+  IpcChannels,
+  DBActions,
+  SyncEvents,
+  ABOUT_BITCOIN_ADDRESS,
+} from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
@@ -56,7 +61,7 @@ function runApp() {
         label: 'Show / Hide Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
-          browserWindow.webContents.send('showVideoStatistics')
+          browserWindow.webContents.send(IpcChannels.SHOW_VIDEO_STATISTICS)
         }
       },
       {
@@ -243,7 +248,7 @@ function runApp() {
 
         const url = getLinkUrl(commandLine)
         if (url) {
-          mainWindow.webContents.send('openUrl', url)
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
         }
       }
     })
@@ -745,8 +750,8 @@ function runApp() {
     }
 
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
-      ipcMain.once('searchInputHandlingReady', () => {
-        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
+        newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
       })
     }
 
@@ -792,9 +797,9 @@ function runApp() {
     })
   }
 
-  ipcMain.once('appReady', () => {
+  ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send('openUrl', startupUrl)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
     }
   })
 
@@ -831,7 +836,7 @@ function runApp() {
     app.quit()
   }
 
-  ipcMain.once('relaunchRequest', () => {
+  ipcMain.once(IpcChannels.RELAUNCH_REQUEST, () => {
     relaunch()
   })
 
@@ -855,8 +860,35 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
-  ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
-    if (typeof url === 'string') shell.openExternal(url)
+  ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
+    if (typeof url === 'string') {
+      let parsedURL
+
+      try {
+        parsedURL = new URL(url)
+      } catch {
+        // If it's not a valid URL don't open it
+        return false
+      }
+
+      if (
+        parsedURL.protocol === 'http:' || parsedURL.protocol === 'https:' ||
+
+        // Email address on the about page and Autolinker detects and links email addresses
+        parsedURL.protocol === 'mailto:' ||
+
+        // Autolinker detects and links phone numbers
+        parsedURL.protocol === 'tel:' ||
+
+        // Donation links on the about page
+        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS)
+      ) {
+        shell.openExternal(url)
+        return true
+      }
+    }
+
+    return false
   })
 
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
@@ -1090,6 +1122,24 @@ function runApp() {
           )
           return null
 
+        case DBActions.PROFILES.ADD_CHANNEL:
+          await baseHandlers.profiles.addChannelToProfiles(data.channel, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.ADD_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.PROFILES.REMOVE_CHANNEL:
+          await baseHandlers.profiles.removeChannelFromProfiles(data.channelId, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.REMOVE_CHANNEL, data }
+          )
+          return null
+
         case DBActions.GENERAL.DELETE:
           await baseHandlers.profiles.delete(data)
           syncOtherWindows(
@@ -1298,7 +1348,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send('openUrl', baseUrl(url))
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
     }
@@ -1359,7 +1409,7 @@ function runApp() {
     }
 
     browserWindow.webContents.send(
-      'change-view',
+      IpcChannels.CHANGE_VIEW,
       { route: path }
     )
   }
@@ -1460,9 +1510,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.send(
-                'history-back',
-              )
+              browserWindow.webContents.goBack()
             },
             type: 'normal',
           },
@@ -1472,9 +1520,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.send(
-                'history-forward',
-              )
+              browserWindow.webContents.goForward()
             },
             type: 'normal',
           },

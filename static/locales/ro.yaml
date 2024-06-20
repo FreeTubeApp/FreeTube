@@ -495,6 +495,7 @@ Settings:
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Blur Thumbnails: Estomparea miniaturilor
     Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
+    Hide Channels Already Exists: ID-ul Canalului există deja
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -632,6 +633,8 @@ Profile:
   Profile Settings: Setări de profil
   Toggle Profile List: Lista profilului toggle
   Create Profile Name: Creați numele profilului
+  Profile Name: Numele Profilului
+  Edit Profile Name: Editează Numele Profilului
 Channel:
   Subscriber: 'Abonat'
   Subscribers: 'Abonați'
@@ -1083,3 +1086,8 @@ Trimmed input must be at least N characters long: Intrarea tăiată trebuie să 
   cel puțin 1 caracter | Intrarea tăiată trebuie să aibă cel puțin {length} caractere
 Tag already exists: Eticheta "{tagName}" există deja
 Channel Unhidden: '{channel} eliminat din filtrul de canale'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitrări
+    Closed Captions: Subtitrări Complexe

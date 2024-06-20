@@ -164,7 +164,12 @@ User Playlists:
       a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó
       hozzáadásához
     N playlists selected: '{playlistCount} Kiválasztott'
-    Added {count} Times: Hozzáadva {count} Alkalommal | Hozzáadva {count} Alkalommal
+    Added {count} Times: Hozzáadva {count} Alkalommal
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      A videók hozzáadásra fognak kerülni'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videó már hozzá lett adva'
+    Allow Adding Duplicate Video(s): Duplikált videó(k) hozzáadásának engedélyezése
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
@@ -249,6 +254,15 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
     cél lejátszási listát.
   Quick Bookmark Enabled: Gyors könyvjelző engedélyezve
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Biztosan
+    eltávolít 1 duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható
+    vissza. | Biztosan eltávolít {playlistItemCount} duplikált videót ebből a lejátszási
+    listából? Ez a művelet nem vonható vissza.
+  Remove Duplicate Videos: Duplikált videók törlése
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Biztosan
+    eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
+    vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
+    a lejátszási listából? Ez a művelet nem vonható vissza.
 History:
   # On History Page
   History: 'Előzmények'
@@ -465,6 +479,7 @@ Settings:
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
       a csatornáktól
+    Avoid Accidental Unsubscription: Kerülje el a véletlen leiratkozást
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -1264,3 +1279,5 @@ Search Listing:
     4K: 4K
     Subtitles: Feliratok
     Closed Captions: Zárt feliratok
+'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos URL megnyitása
+  blokkolva: "{url}".'

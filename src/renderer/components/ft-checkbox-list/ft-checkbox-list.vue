@@ -16,7 +16,7 @@
         :disabled="disabled"
         class="checkbox"
         type="checkbox"
-        :checked="initialValues.includes(values[index]) ?? null"
+        :checked="selectedValues.includes(values[index]) ?? null"
         @change="change"
       >
       <label

@@ -86,6 +86,36 @@ class Profiles {
     return db.profiles.updateAsync({ _id: profile._id }, profile, { upsert: true })
   }
 
+  static addChannelToProfiles(channel, profileIds) {
+    if (profileIds.length === 1) {
+      return db.profiles.updateAsync(
+        { _id: profileIds[0] },
+        { $push: { subscriptions: channel } }
+      )
+    } else {
+      return db.profiles.updateAsync(
+        { _id: { $in: profileIds } },
+        { $push: { subscriptions: channel } },
+        { multi: true }
+      )
+    }
+  }
+
+  static removeChannelFromProfiles(channelId, profileIds) {
+    if (profileIds.length === 1) {
+      return db.profiles.updateAsync(
+        { _id: profileIds[0] },
+        { $pull: { subscriptions: { id: channelId } } }
+      )
+    } else {
+      return db.profiles.updateAsync(
+        { _id: { $in: profileIds } },
+        { $pull: { subscriptions: { id: channelId } } },
+        { multi: true }
+      )
+    }
+  }
+
   static delete(id) {
     return db.profiles.removeAsync({ _id: id })
   }

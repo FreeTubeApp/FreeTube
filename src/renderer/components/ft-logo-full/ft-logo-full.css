@@ -1,0 +1,11 @@
+.primary-color {
+  fill: var(--logo-primary-color);
+}
+
+.secondary-color {
+  fill: var(--logo-secondary-color);
+}
+
+.tertiary-color {
+  fill: var(--logo-tertiary-color);
+}
