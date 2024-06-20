@@ -172,7 +172,12 @@ User Playlists:
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video
       lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'
-    Added {count} Times: Lisatud {count} kord | Lisatud {count} korda
+    Added {count} Times: Juba lisatud {count} kord(a)
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Lisame {videoCount}/{totalVideoCount}
+      videot
+    Allow Adding Duplicate Video(s): Luba topeltvideo(te) lisamist
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      videot on juba lisatud'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Ei leidnud ühtegi videot, mida saaks eemaldada.
@@ -238,6 +243,15 @@ User Playlists:
   Quick Bookmark Enabled: Kasuta kiirjärjehoidjaid
   Cannot delete the quick bookmark target playlist.: Ei saa kustutada esitusloendit,
     mis on kasutusel kiirjärjehoidjate jaoks.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Kas
+    sa oled kindel, et soovid sellest esitusloendist eemaldada 1 topeltvideo? Seda
+    tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
+    eemaldada {playlistItemCount} topeltvideot? Seda tegevust ei saa tagasi pöörata.
+  Remove Duplicate Videos: Eemalda topeltvideod
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Kas
+    sa oled kindel, et soovid sellest esitusloendist eemaldada 1 vaadatud video? Seda
+    tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
+    eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
 History:
   # On History Page
   History: 'Ajalugu'
@@ -451,6 +465,7 @@ Settings:
     Manage Subscriptions: 'Halda tellimusi'
     Fetch Automatically: Laadi tellimuste voog automaatselt
     Only Show Latest Video for Each Channel: Iga kanali puhul näita vaid viimast videot
+    Avoid Accidental Unsubscription: Väldi ekslikku ja juhuslikku tellimusest loobumist
   Data Settings:
     Data Settings: 'Andmehaldus'
     Select Import Type: 'Vali imporditava faili vorming'
@@ -1182,3 +1197,5 @@ Search Listing:
     Subtitles: Subtiitrid
     Closed Captions: Subtiitrid
     4K: 4K
+'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
+  avamise: „{url}“.'

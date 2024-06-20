@@ -244,6 +244,15 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Impossibile eliminare la playlist
     di destinazione dei segnalibri rapidi.
   Quick Bookmark Enabled: Segnalibro rapido abilitato
+  Remove Duplicate Videos: Rimuovi i video duplicati
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sei
+    sicuro di voler rimuovere 1 video duplicato da questa playlist? Questa operazione
+    non può essere annullata. | Vuoi rimuovere {playlistItemCount} video duplicati
+    da questa playlist? Questa operazione non può essere annullata.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sei
+    sicuro di voler rimuovere 1 video guardato da questa playlist? Questa operazione
+    non può essere annullata. | Vuoi rimuovere {playlistItemCount} video guardati
+    da questa playlist? Questa operazione non può essere annullata.
 History:
   # On History Page
   History: 'Cronologia'
@@ -466,6 +475,7 @@ Settings:
     Fetch Automatically: Recupera i feed automaticamente
     Only Show Latest Video for Each Channel: Mostra solo il video più recente per
       ciascun canale
+    Avoid Accidental Unsubscription: Evita la cancellazione accidentale dell'iscrizione
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -1278,3 +1288,5 @@ Search Listing:
     4K: 4K
     Closed Captions: Sottotitoli per non udenti
     Subtitles: Sottotitoli
+'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
+  bloccata: "{url}".'

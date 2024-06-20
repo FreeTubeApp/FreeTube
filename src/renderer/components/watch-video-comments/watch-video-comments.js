@@ -260,6 +260,12 @@ export default defineComponent({
         /** @type {import('youtubei.js').YTNodes.CommentThread} */
         const commentThread = this.replyTokens.get(comment.id)
 
+        if (commentThread == null) {
+          this.replyTokens.delete(comment.id)
+          comment.hasReplyToken = false
+          return
+        }
+
         if (comment.replies.length > 0) {
           await commentThread.getContinuation()
           comment.replies = comment.replies.concat(commentThread.replies.map(reply => parseLocalComment(reply)))

@@ -90,6 +90,7 @@ import {
   faTimesCircle,
   faTrash,
   faUsers,
+  faUsersSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -98,7 +99,6 @@ import {
   faBitcoin,
   faGithub,
   faMastodon,
-  faMonero
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
@@ -188,6 +188,7 @@ library.add(
   faTimesCircle,
   faTrash,
   faUsers,
+  faUsersSlash,
 
   // solid icons
   farBookmark,
@@ -196,7 +197,6 @@ library.add(
   faGithub,
   faBitcoin,
   faMastodon,
-  faMonero
 )
 
 registerSwiper()
