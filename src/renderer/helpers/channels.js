@@ -1,5 +1,5 @@
 import { invidiousGetChannelInfo } from './api/invidious'
-import { getLocalChannel } from './api/local'
+import { getLocalChannel, parseLocalChannelHeader } from './api/local'
 
 /**
  * @param {string} id
@@ -11,7 +11,7 @@ import { getLocalChannel } from './api/local'
 */
 async function findChannelById(id, backendOptions) {
   try {
-    if (!process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === 'invidious') {
       return await invidiousGetChannelInfo(id)
     } else {
       return await getLocalChannel(id)
@@ -21,7 +21,7 @@ async function findChannelById(id, backendOptions) {
     if (err.message && err.message === 'This channel does not exist.') {
       return { invalid: true }
     }
-    if (process.env.IS_ELECTRON && backendOptions.fallback) {
+    if (process.env.SUPPORTS_LOCAL_API && backendOptions.fallback) {
       if (backendOptions.preference === 'invidious') {
         return await getLocalChannel(id)
       }
@@ -46,7 +46,7 @@ export async function findChannelTagInfo(id, backendOptions) {
   if (!checkYoutubeChannelId(id)) return { invalidId: true }
   try {
     const channel = await findChannelById(id, backendOptions)
-    if (!process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === 'invidious') {
       if (channel.invalid) return { invalidId: true }
       return {
         preferredName: channel.author,
@@ -54,9 +54,12 @@ export async function findChannelTagInfo(id, backendOptions) {
       }
     } else {
       if (channel.alert) return { invalidId: true }
+
+      const { name, thumbnailUrl } = parseLocalChannelHeader(channel)
+
       return {
-        preferredName: channel.header.author.name,
-        icon: channel.header.author.thumbnails.pop().url,
+        preferredName: name,
+        icon: thumbnailUrl,
         iconHref: `/channel/${id}`
       }
     }

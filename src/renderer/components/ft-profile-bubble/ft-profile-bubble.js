@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { getFirstCharacter } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtProfileBubble',
@@ -22,7 +23,11 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['click'],
   computed: {
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     isMainProfile: function () {
       return this.profileId === MAIN_PROFILE_ID
     },
@@ -30,10 +35,17 @@ export default defineComponent({
       return 'profileBubble' + sanitizeForHtmlId(this.profileId)
     },
     profileInitial: function () {
-      return this?.profileName?.length > 0 ? Array.from(this.translatedProfileName)[0].toUpperCase() : ''
+      return this.profileName
+        ? getFirstCharacter(this.translatedProfileName, this.locale).toUpperCase()
+        : ''
     },
     translatedProfileName: function () {
       return this.isMainProfile ? this.$t('Profile.All Channels') : this.profileName
     }
+  },
+  methods: {
+    click: function() {
+      this.$emit('click')
+    },
   }
 })

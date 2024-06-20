@@ -1,4 +1,4 @@
-import db from '../index'
+import * as db from '../index'
 
 class Settings {
   static find() {
@@ -7,10 +7,6 @@ class Settings {
 
   static upsert(_id, value) {
     return db.settings.updateAsync({ _id }, { _id, value }, { upsert: true })
-  }
-
-  static persist() {
-    return db.settings.compactDatafileAsync()
   }
 
   // ******************** //
@@ -75,10 +71,6 @@ class History {
   static deleteAll() {
     return db.history.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.history.compactDatafileAsync()
-  }
 }
 
 class Profiles {
@@ -94,12 +86,38 @@ class Profiles {
     return db.profiles.updateAsync({ _id: profile._id }, profile, { upsert: true })
   }
 
-  static delete(id) {
-    return db.profiles.removeAsync({ _id: id })
+  static addChannelToProfiles(channel, profileIds) {
+    if (profileIds.length === 1) {
+      return db.profiles.updateAsync(
+        { _id: profileIds[0] },
+        { $push: { subscriptions: channel } }
+      )
+    } else {
+      return db.profiles.updateAsync(
+        { _id: { $in: profileIds } },
+        { $push: { subscriptions: channel } },
+        { multi: true }
+      )
+    }
   }
 
-  static persist() {
-    return db.profiles.compactDatafileAsync()
+  static removeChannelFromProfiles(channelId, profileIds) {
+    if (profileIds.length === 1) {
+      return db.profiles.updateAsync(
+        { _id: profileIds[0] },
+        { $pull: { subscriptions: { id: channelId } } }
+      )
+    } else {
+      return db.profiles.updateAsync(
+        { _id: { $in: profileIds } },
+        { $pull: { subscriptions: { id: channelId } } },
+        { multi: true }
+      )
+    }
+  }
+
+  static delete(id) {
+    return db.profiles.removeAsync({ _id: id })
   }
 }
 
@@ -177,28 +195,22 @@ class Playlists {
   static deleteAll() {
     return db.playlists.removeAsync({}, { multi: true })
   }
-
-  static persist() {
-    return db.playlists.compactDatafileAsync()
-  }
 }
 
 function compactAllDatastores() {
   return Promise.allSettled([
-    Settings.persist(),
-    History.persist(),
-    Profiles.persist(),
-    Playlists.persist(),
+    db.settings.compactDatafileAsync(),
+    db.history.compactDatafileAsync(),
+    db.profiles.compactDatafileAsync(),
+    db.playlists.compactDatafileAsync(),
   ])
 }
 
-const baseHandlers = {
-  settings: Settings,
-  history: History,
-  profiles: Profiles,
-  playlists: Playlists,
+export {
+  Settings as settings,
+  History as history,
+  Profiles as profiles,
+  Playlists as playlists,
 
   compactAllDatastores,
 }
-
-export default baseHandlers

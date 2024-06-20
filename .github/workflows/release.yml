@@ -12,7 +12,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
         runtime:
           - linux-x64
           - linux-armv7l
@@ -58,10 +58,8 @@ jobs:
     - run: yarn run lint
 
     - name: Get Version Number
-      uses: jozsefsallai/node-package-version@v1.0.4
-      with:
-        path: 'package.json'
-        follow-symlinks: false
+      id: getPackageInfo
+      uses: jaywcjlove/github-action-package@main
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
@@ -82,8 +80,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.AppImage
-        asset_path: build/FreeTube-${{ env.PACKAGE_VERSION }}.AppImage
+        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_amd64.AppImage
+        asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage
         asset_content_type: application/vnd.appimage
 
     - name: Upload Linux .zip x64 Release
@@ -93,8 +91,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-x64.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-linux-portable-x64.zip
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.zip
         asset_content_type: application/zip
 
     - name: Upload Linux .7z x64 Release
@@ -104,8 +102,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-x64.7z
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-linux-portable-x64.7z
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.7z
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Linux .zip ARMv7l Release
@@ -115,8 +113,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-armv7l.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-armv7l.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-linux-portable-armv7l.zip
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-armv7l.zip
         asset_content_type: application/zip
 
     - name: Upload Linux .7z ARMv7l Release
@@ -126,8 +124,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-armv7l.7z
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-armv7l.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-linux-portable-armv7l.7z
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-armv7l.7z
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Linux .zip ARM64 Release
@@ -137,8 +135,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-arm64.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-linux-portable-arm64.zip
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64.zip
         asset_content_type: application/zip
 
     - name: Upload Linux .7z ARM64 Release
@@ -148,8 +146,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-linux-portable-arm64.7z
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-linux-portable-arm64.7z
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64.7z
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Linux .deb x64 Release
@@ -159,8 +157,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.deb
-        asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_amd64.deb
+        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_amd64.deb
+        asset_path: build/freetube_${{ steps.getPackageInfo.outputs.version }}_amd64.deb
         asset_content_type: application/vnd.debian.binary-package
 
     - name: Upload Linux .deb ARMv7l Release
@@ -170,8 +168,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
-        asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
+        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_armv7l.deb
+        asset_path: build/freetube_${{ steps.getPackageInfo.outputs.version }}_armv7l.deb
         asset_content_type: application/vnd.debian.binary-package
 
     - name: Upload Linux .deb ARM64 Release
@@ -181,8 +179,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_arm64.deb
-        asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_arm64.deb
+        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_arm64.deb
+        asset_path: build/freetube_${{ steps.getPackageInfo.outputs.version }}_arm64.deb
         asset_content_type: application/vnd.debian.binary-package
 
     - name: Upload Linux .rpm x64 Release
@@ -192,8 +190,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.rpm
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.x86_64.rpm
+        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_amd64.rpm
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.x86_64.rpm
         asset_content_type: application/x-rpm
 
      # rpm are not built for armv7l
@@ -205,8 +203,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube_${{ env.PACKAGE_VERSION }}_arm64.rpm
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.aarch64.rpm
+        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_arm64.rpm
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.aarch64.rpm
         asset_content_type: application/x-rpm
 
     - name: Upload Windows x64 .exe Release
@@ -216,8 +214,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-setup-x64.exe
-        asset_path: build/freetube Setup ${{ env.PACKAGE_VERSION }}.exe
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-setup-x64.exe
+        asset_path: build/freetube Setup ${{ steps.getPackageInfo.outputs.version }}.exe
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows arm64 .exe Release
@@ -227,8 +225,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-setup-arm64.exe
-        asset_path: build/freetube Setup ${{ env.PACKAGE_VERSION }}.exe
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-setup-arm64.exe
+        asset_path: build/freetube Setup ${{ steps.getPackageInfo.outputs.version }}.exe
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows x64 .zip Release
@@ -238,8 +236,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-win-x64-portable.zip
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-win.zip
         asset_content_type: application/zip
 
     - name: Upload Windows x64 .7z Release
@@ -249,8 +247,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable.7z
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-win-x64-portable.7z
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-win.7z
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Windows arm64 .zip Release
@@ -260,8 +258,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-win.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-win-arm64-portable.zip
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64-win.zip
         asset_content_type: application/zip
 
     - name: Upload Windows arm64 .7z Release
@@ -271,8 +269,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.7z
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-win.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-win-arm64-portable.7z
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64-win.7z
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Windows x64 portable Release
@@ -282,8 +280,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-x64-portable.exe
-        asset_path: build/FreeTube ${{ env.PACKAGE_VERSION }}.exe
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-win-x64-portable.exe
+        asset_path: build/FreeTube ${{ steps.getPackageInfo.outputs.version }}.exe
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows arm64 portable Release
@@ -293,8 +291,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.exe
-        asset_path: build/FreeTube ${{ env.PACKAGE_VERSION }}.exe
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-win-arm64-portable.exe
+        asset_path: build/FreeTube ${{ steps.getPackageInfo.outputs.version }}.exe
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Mac x64 .dmg Release
@@ -304,8 +302,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-x64.dmg
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.dmg
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64.dmg
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.dmg
         asset_content_type: application/x-apple-diskimage
 
 #    - name: Upload Mac arm64 .dmg Release
@@ -315,8 +313,8 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      with:
 #        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-#        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.dmg
-#        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.dmg
+#        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64.dmg
+#        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64.dmg
 #        asset_content_type: application/x-apple-diskimage
 
     - name: Upload Mac x64 .zip Release
@@ -326,8 +324,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-x64.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-mac.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64.zip
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-mac.zip
         asset_content_type: application/zip
 
     - name: Upload Mac x64 .7z Release
@@ -337,8 +335,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-x64.7z
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-mac.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64.7z
+        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-mac.7z
         asset_content_type: application/x-7z-compressed
 
 #    - name: Upload Mac arm64 .zip Release
@@ -348,7 +346,7 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      with:
 #        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-#        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.zip
-#        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-mac.zip
+#        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64.zip
+#        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64-mac.zip
 #        asset_content_type: application/x-apple-diskimage
 

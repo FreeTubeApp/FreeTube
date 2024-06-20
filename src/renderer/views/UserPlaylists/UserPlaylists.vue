@@ -28,6 +28,7 @@
             :placeholder="$t('User Playlists.Search bar placeholder')"
             :show-clear-text-button="true"
             :show-action-button="false"
+            :maxlength="255"
             @input="(input) => query = input"
             @clear="query = ''"
           />
@@ -49,6 +50,7 @@
             :select-names="sortBySelectNames"
             :select-values="sortBySelectValues"
             :placeholder="$t('User Playlists.Sort By.Sort By')"
+            :icon="getIconForSortPreference(sortBy)"
             @change="sortBy = $event"
           />
         </div>
@@ -75,16 +77,19 @@
         :use-channels-hidden-preference="false"
         :hide-forbidden-titles="false"
       />
-      <ft-flex-box
+      <ft-auto-load-next-page-wrapper
         v-if="showLoadMoreButton"
+        @load-next-page="increaseLimit"
       >
-        <ft-button
-          label="Load More"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="increaseLimit"
-        />
-      </ft-flex-box>
+        <ft-flex-box>
+          <ft-button
+            label="Load More"
+            background-color="var(--primary-color)"
+            text-color="var(--text-with-main-color)"
+            @click="increaseLimit"
+          />
+        </ft-flex-box>
+      </ft-auto-load-next-page-wrapper>
     </ft-card>
   </div>
 </template>

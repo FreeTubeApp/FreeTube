@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
@@ -24,32 +24,54 @@ export default defineComponent({
     }
   },
   computed: {
+    title: function () {
+      return this.$t('User Playlists.CreatePlaylistPrompt.New Playlist Name')
+    },
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
     newPlaylistVideoObject: function () {
       return this.$store.getters.getNewPlaylistVideoObject
     },
+
+    playlistNameEmpty() {
+      return this.playlistName === ''
+    },
+    playlistNameBlank() {
+      return !this.playlistNameEmpty && this.playlistName.trim() === ''
+    },
+    playlistWithNameExists() {
+      // Don't show the message with no name input
+      const playlistName = this.playlistName
+      if (this.playlistName === '') { return false }
+
+      return this.allPlaylists.some((playlist) => {
+        return playlist.playlistName === playlistName
+      })
+    },
+    playlistPersistenceDisabled() {
+      return this.playlistNameEmpty || this.playlistNameBlank || this.playlistWithNameExists
+    },
   },
   mounted: function () {
     this.playlistName = this.newPlaylistVideoObject.title
     // Faster to input required playlist name
-    this.$refs.playlistNameInput.focus()
+    nextTick(() => this.$refs.playlistNameInput.focus())
   },
   methods: {
-    createNewPlaylist: function () {
-      if (this.playlistName === '') {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
+    handlePlaylistNameInput(input) {
+      if (input.trim() === '') {
+        // Need to show message for blank input
+        this.playlistName = input
         return
       }
 
-      const nameExists = this.allPlaylists.findIndex((playlist) => {
-        return playlist.playlistName === this.playlistName
-      })
-      if (nameExists !== -1) {
-        showToast(this.$t('User Playlists.CreatePlaylistPrompt.Toast["There is already a playlist with this name. Please pick a different name."]'))
-        return
-      }
+      this.playlistName = input.trim()
+    },
+
+    createNewPlaylist: function () {
+      // Still possible to attempt to create via pressing enter
+      if (this.playlistPersistenceDisabled) { return }
 
       const playlistObject = {
         playlistName: this.playlistName,

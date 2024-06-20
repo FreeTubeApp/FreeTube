@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Magyar'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Az alkalmazás ezen része még nem áll készen. Térjen vissza később amikor előrelépés
@@ -90,6 +89,18 @@ Search Filters:
   Fetch more results: 'További eredmények lekérése'
 # Sidebar
   There are no more results for this search: Nincs több találat erre a keresésre
+  Features:
+    HD: HD
+    Subtitles: Feliratok
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    Location: Helyszín
+    HDR: HDR
+    VR180: VR180
+    Features: Szolgáltatások
+    Live: Élő
+    360 Video: 360 videó
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
@@ -153,7 +164,12 @@ User Playlists:
       a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó
       hozzáadásához
     N playlists selected: '{playlistCount} Kiválasztott'
-    Added {count} Times: Hozzáadva {count} Alkalommal | Hozzáadva {count} Alkalommal
+    Added {count} Times: Hozzáadva {count} Alkalommal
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      A videók hozzáadásra fognak kerülni'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videó már hozzá lett adva'
+    Allow Adding Duplicate Video(s): Duplikált videó(k) hozzáadásának engedélyezése
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
@@ -184,6 +200,10 @@ User Playlists:
         Kattintson ide a visszavonáshoz
       Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName}
         használatára a gyors könyvjelzőhöz
+      Playlist {playlistName} is the new quick bookmark playlist.: A(z) {playlistName}
+        lejátszási lista az új gyors könyvjelző lejátszási lista.
+      This playlist is already being used for quick bookmark.: Ez a lejátszási lista
+        már használatban van mint gyors könyvjelző.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztos, hogy
     törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
@@ -228,9 +248,21 @@ User Playlists:
   Add to Favorites: Hozzáadás a(z) {playlistName} lejátszási listához
   Disable Quick Bookmark: Gyors Könyvjelző Letiltása
   Remove from Favorites: Törlés a(z) {playlistName} lejátszási listából
-  Enable Quick Bookmark With This Playlist: Gyors Könyvjelző Engedélyezése Ezzel A
-    Lejátszási Listával
+  Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a
+    lejátszási listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
+  Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
+    cél lejátszási listát.
+  Quick Bookmark Enabled: Gyors könyvjelző engedélyezve
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Biztosan
+    eltávolít 1 duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható
+    vissza. | Biztosan eltávolít {playlistItemCount} duplikált videót ebből a lejátszási
+    listából? Ez a művelet nem vonható vissza.
+  Remove Duplicate Videos: Duplikált videók törlése
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Biztosan
+    eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
+    vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
+    a lejátszási listából? Ez a művelet nem vonható vissza.
 History:
   # On History Page
   History: 'Előzmények'
@@ -286,6 +318,9 @@ Settings:
       Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
       Open Link: Hivatkozás megnyitása
       External Link Handling: Külső hivatkozás kezelése
+    Auto Load Next Page:
+      Label: Következő oldal automatikus betöltése
+      Tooltip: További oldalak és megjegyzések automatikus betöltése.
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -300,6 +335,8 @@ Settings:
       Pastel Pink: Pasztell rózsaszín
       Hot Pink: Forró rózsaszín
       Nordic: Skandináv
+      Solarized Light: Szolarizált világos
+      Solarized Dark: Szolarizált sötét
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -339,6 +376,14 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
       Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
       Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
+      Solarized Yellow: Szolarizált sárga
+      Solarized Orange: Szolarizált narancssárga
+      Solarized Red: Szolarizált vörös
+      Solarized Blue: Szolarizált kék
+      Solarized Cyan: Szolarizált ciánkék
+      Solarized Green: Szolarizált zöld
+      Solarized Magenta: Szolarizált magenta
+      Solarized Violet: Szolarizált ibolya
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -405,8 +450,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
     Allow DASH AV1 formats: DASH AV1 formátumok engedélyezése
-    Comment Auto Load:
-      Comment Auto Load: Megjegyzés automatikus betöltése
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -422,7 +465,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
-    Automatically Remove Video Meta Files: Videó-metafájlok automatikus eltávolítása
     Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
       utoljára megtekintett lejátszási listával
     All playlists have been removed: Minden lejátszási lista eltávolításra került
@@ -437,6 +479,7 @@ Settings:
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
       a csatornáktól
+    Avoid Accidental Unsubscription: Kerülje el a véletlen leiratkozást
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -650,6 +693,7 @@ Settings:
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Expand All Settings Sections: Beállítások kiterjesztése
+  Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
   About: 'Névjegy'
@@ -709,6 +753,8 @@ About:
   FAQ: GyIK
   Report a problem: Probléma jelentése
   Discussions: Megbeszélések
+  AGPLv3: licenc alapján
+  Licensed under the: Az AGPLv3
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -976,6 +1022,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lejátszási lista
+  Sort By:
+    DateAddedOldest: Legrégebbiek elől
+    DateAddedNewest: Legújabbak elől
+    Sort By: Rendezés
+    AuthorAscending: Szerző szerint (A-Z)
+    AuthorDescending: Szerző szerint (Z-A)
+    VideoTitleAscending: Cím szerint (A-Z)
+    VideoTitleDescending: Cím szerint (Z-A)
+    Custom: Egyéni rendezés
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
@@ -1109,9 +1164,6 @@ Tooltips:
       H.264 formátumok. A DASH AV1 formátumok több energiát igényelnek a lejátszáshoz!
       Nem minden videónál érhetők el, ilyenkor a lejátszó a DASH H.264 formátumot
       használja helyette.
-  Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a FreeTube automatikusan törli a
-      videolejátszás során létrehozott metafájlokat, amikor a nézőlapot bezárják.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
@@ -1211,3 +1263,21 @@ Close Banner: Banner bezárása
 Age Restricted:
   This channel is age restricted: Ez a csatorna korhatáros
   This video is age restricted: Ez a videó korhatáros
+Display Label: '{label}: {value}'
+checkmark: ✓
+Feed:
+  Feed Last Updated: '{feedName} frissítve: {date}'
+  Refresh Feed: '{subscriptionName} frissítése'
+Moments Ago: épp most
+Cancel: Mégse
+Yes, Delete: Igen, törlés
+Yes, Restart: Igen, újraindítás
+Yes, Open Link: Igen, hivatkozás megnyitása
+Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Feliratok
+    Closed Captions: Zárt feliratok
+'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos URL megnyitása
+  blokkolva: "{url}".'

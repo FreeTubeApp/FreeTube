@@ -8,6 +8,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { showToast } from '../../helpers/utils'
+import { getFirstCharacter } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtProfileEdit',
@@ -32,6 +33,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['new-profile-created', 'profile-deleted'],
   data: function () {
     return {
       showDeletePrompt: false,
@@ -40,17 +42,22 @@ export default defineComponent({
       profileBgColor: '',
       profileTextColor: '',
       deletePromptValues: [
-        'yes',
-        'no'
+        'delete',
+        'cancel'
       ]
     }
   },
   computed: {
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     colorValues: function () {
       return colors.map(color => color.value)
     },
     profileInitial: function () {
-      return this?.profileName?.length > 0 ? Array.from(this.translatedProfileName)[0].toUpperCase() : ''
+      return this.profileName
+        ? getFirstCharacter(this.translatedProfileName, this.locale).toUpperCase()
+        : ''
     },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
@@ -63,8 +70,8 @@ export default defineComponent({
     },
     deletePromptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Delete'),
+        this.$t('Cancel')
       ]
     },
     editOrCreateProfileLabel: function () {
@@ -94,7 +101,7 @@ export default defineComponent({
     },
 
     handleDeletePrompt: function (response) {
-      if (response === 'yes') {
+      if (response === 'delete') {
         this.deleteProfile()
       } else {
         this.showDeletePrompt = false

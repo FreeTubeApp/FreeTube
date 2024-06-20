@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 $thumbnail-overlay-opacity: 0.85;
 $watched-transition-duration: 0.5s;
 
@@ -86,7 +87,6 @@ $watched-transition-duration: 0.5s;
       grid-column: 1;
       grid-row: 1;
       user-select: none;
-      -webkit-user-select: none;
     }
 
     .thumbnailLink {
@@ -106,22 +106,20 @@ $watched-transition-duration: 0.5s;
     }
 
     .videoWatched {
-      align-self: flex-start;
+      place-self: flex-start start;
       background-color: var(--bg-color);
       color: var(--primary-text-color);
-      justify-self: start;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
     }
 
     .videoDuration {
-      align-self: flex-end;
+      place-self: flex-end end;
       background-color: var(--card-bg-color);
       border-radius: 5px;
       color: var(--primary-text-color);
       font-size: 15px;
-      justify-self: end;
       line-height: 1.2;
       margin-block: 0 4px;
       margin-inline: 0 4px;
@@ -141,9 +139,8 @@ $watched-transition-duration: 0.5s;
     }
 
     .externalPlayerIcon {
-      align-self: flex-end;
+      place-self: flex-end start;
       font-size: 17px;
-      justify-self: start;
       margin-block-end: 4px;
       margin-inline-start: 4px;
     }
@@ -152,12 +149,12 @@ $watched-transition-duration: 0.5s;
       justify-self: end;
       margin-inline-end: 3px;
       margin-block-start: 3px;
-
       display: grid;
       grid-auto-flow: column;
       justify-content: flex-end;
       block-size: fit-content;
     }
+
     .quickBookmarkVideoIcon,
     .addToPlaylistIcon,
     .trashIcon,
@@ -167,18 +164,16 @@ $watched-transition-duration: 0.5s;
     }
 
     .watchedProgressBar {
-      align-self: flex-end;
+      place-self: flex-end stretch;
       background-color: var(--primary-color);
       block-size: 2px;
-      justify-self: stretch;
       z-index: 2;
     }
 
     .videoCountContainer {
-      align-self: stretch;
+      place-self: stretch end;
       display: grid;
       font-size: 20px;
-      justify-self: end;
       inline-size: 60px;
       pointer-events: none;
 
@@ -256,9 +251,7 @@ $watched-transition-duration: 0.5s;
         font-size: 12px;
       }
 
-      & {
-        @include low-contrast-when-watched(var(--secondary-text-color));
-      }
+      @include low-contrast-when-watched(var(--secondary-text-color));
 
       .channelName {
         @include low-contrast-when-watched(var(--secondary-text-color));
@@ -293,7 +286,7 @@ $watched-transition-duration: 0.5s;
         inline-size: 336px;
         max-inline-size: 25vw;
 
-        @media only screen and (max-width: 680px) {
+        @media only screen and (width <= 680px) {
           max-inline-size: 30vw;
         }
       }
@@ -302,7 +295,7 @@ $watched-transition-duration: 0.5s;
         max-inline-size: 25vw;
         max-block-size: 25vw;
 
-        @media only screen and (max-width: 680px) {
+        @media only screen and (width <= 680px) {
           max-inline-size: 30vw;
           max-block-size: 30vw;
         }
@@ -366,7 +359,7 @@ $watched-transition-duration: 0.5s;
     &:has(:focus-visible) .addToPlaylistIcon:not(.alwaysVisible),
     &:has(:focus-visible) .quickBookmarkVideoIcon:not(.alwaysVisible),
     &:has(:focus-visible) .externalPlayerIcon {
-      opacity: $thumbnail-overlay-opacity;
+      opacity: 1;
     }
 
     &:hover .optionsButton,
@@ -386,51 +379,11 @@ $watched-transition-duration: 0.5s;
   }
 }
 
-.ft-list-channel {
-  .infoAndSubscribe {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    inline-size: 100%;
-  }
-
-  &.grid {
-    align-items: center;
-    text-align: center;
-
-    .infoAndSubscribe {
-      flex-flow: column wrap;
-      align-items: center;
-
-      .info {
-        margin-block-end: 12px;
-
-        .infoLine {
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  &.list {
-    .infoAndSubscribe {
-      flex-flow: row wrap;
-      justify-content: center;
-
-      .channelSubscribeButton {
-        margin-block: auto;
-        margin-inline: 7px;
-      }
-    }
-  }
-}
-
 .videoWatched,
 .live,
 .upcoming {
   text-transform: uppercase;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 // we use h3 for semantic reasons but don't want to keep the h3 style

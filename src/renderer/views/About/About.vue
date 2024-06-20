@@ -5,11 +5,7 @@
         {{ $t("About.About") }}
       </h1>
       <section class="brand">
-        <img
-          src="../../../../_icons/logoColor.png"
-          class="logo"
-          alt=""
-        >
+        <ft-logo-full />
         <div class="version">
           {{ versionNumber }} {{ $t("About.Beta") }}
         </div>
@@ -38,4 +34,4 @@
 </template>
 
 <script src="./About.js" />
-<style scoped src="./About.scss" lang="scss" />
+<style scoped src="./About.css" />

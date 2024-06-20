@@ -6,7 +6,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
-const WatchExternalFilesPlugin = require('webpack-watch-external-files-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
@@ -15,6 +14,7 @@ const { version: swiperVersion } = JSON.parse(readFileSync(path.join(__dirname, 
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: !isDevMode,
+  hotReload: isDevMode,
   inputDir: path.join(__dirname, '../static/locales'),
   outputDir: 'static/locales',
 })
@@ -111,14 +111,15 @@ const config = {
     ]
   },
   node: {
-    __dirname: isDevMode,
-    __filename: isDevMode
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     processLocalesPlugin,
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.SUPPORTS_LOCAL_API': true,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`
@@ -150,6 +151,8 @@ const config = {
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
 
+      'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$': path.resolve(__dirname, '../src/datastores/handlers/electron.js'),
+
       'youtubei.js$': 'youtubei.js/web',
 
       // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
@@ -160,18 +163,6 @@ const config = {
     extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
-}
-
-if (isDevMode) {
-  const activeLocales = JSON.parse(readFileSync(path.join(__dirname, '../static/locales/activeLocales.json')))
-
-  config.plugins.push(
-    new WatchExternalFilesPlugin({
-      files: [
-        `./static/locales/{${activeLocales.join(',')}}.yaml`,
-      ],
-    }),
-  )
 }
 
 module.exports = config

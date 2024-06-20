@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Íslenska'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Þessi hluti forritsins er ekki tilbúinn. Skoðaðu þetta seinna þegar meira hefur
@@ -398,8 +397,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
     Allow DASH AV1 formats: Leyfa DASH AV1 snið
-    Comment Auto Load:
-      Comment Auto Load: Hlaða sjálfkrafa inn athugasemdum
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna áhorfsferil'
@@ -416,7 +413,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ertu
       viss um að þú viljir fjarlægja allar áskriftir og notkunarsnið? Ekki er hægt
       að afturkalla þetta.'
-    Automatically Remove Video Meta Files: Sjálfvirkt fjarlægja lýsigögn úr myndskeiðaskrám
     Save Watched Videos With Last Viewed Playlist: Vista myndskeið sem horft var á
       með síðast notaða spilunarlista
     Remove All Playlists: Fjarlægja alla spilunarlista
@@ -1027,9 +1023,6 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
       þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
-  Privacy Settings:
-    Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
-      sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
   External Player Settings:
     Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, aðskilin
       með semíkommum (';'), sem beina á til utanaðkomandi spilarans.

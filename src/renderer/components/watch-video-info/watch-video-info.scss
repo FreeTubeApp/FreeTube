@@ -58,22 +58,22 @@
     justify-content: flex-end;
     gap: 4px;
 
-    @media screen and (max-width: 680px) {
+    @media screen and (width <= 680px) {
       :deep(.iconDropdown) {
-        inset-inline-start: auto;
-        inset-inline-end: calc(50% - 20px);
+        inset-inline: auto calc(50% - 20px);
       }
     }
 
-    @media screen and (max-width: 460px) {
+    @media screen and (width <= 460px) {
       flex-wrap: nowrap;
+
       :deep(.iconDropdown) {
-        inset-inline-start: auto;
-        inset-inline-end: auto;
+        inset-inline: auto auto;
       }
     }
   }
-  @media screen and (max-width: 460px) {
+
+  @media screen and (width <= 460px) {
     flex-direction: column;
     align-items: flex-start;
     margin-block-start: 10px;
@@ -93,7 +93,7 @@
     max-inline-size: 210px;
     text-align: end;
 
-    @media screen and (max-width: 680px) {
+    @media screen and (width <= 680px) {
       margin-inline-start: 0;
       text-align: start;
     }
@@ -110,8 +110,9 @@
       gap: 3px;
     }
   }
+
   .datePublishedAndViewCount {
-    @media only screen and (max-width: 460px) {
+    @media only screen and (width <= 460px) {
       display: flex;
       justify-content: left;
       flex-direction: column;
@@ -121,6 +122,7 @@
       }
     }
   }
+
   .videoViews {
     white-space: nowrap;
   }

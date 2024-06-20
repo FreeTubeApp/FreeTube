@@ -8,6 +8,8 @@ const kill = require('tree-kill')
 const path = require('path')
 const { spawn } = require('child_process')
 
+const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
+
 let electronProcess = null
 let manualRestart = null
 
@@ -76,6 +78,22 @@ async function restartElectron() {
   })
 }
 
+/**
+ * @param {import('webpack').Compiler} compiler
+ * @param {WebpackDevServer} devServer
+ */
+function setupNotifyLocaleUpdate(compiler, devServer) {
+  const notifyLocaleChange = (updatedLocales) => {
+    devServer.sendMessage(devServer.webSocketServer.clients, "freetube-locale-update", updatedLocales)
+  }
+
+  compiler.options.plugins
+    .filter(plugin => plugin instanceof ProcessLocalesPlugin)
+    .forEach((/** @type {ProcessLocalesPlugin} */plugin) => {
+      plugin.notifyLocaleChange = notifyLocaleChange
+    })
+}
+
 function startMain() {
   const compiler = webpack(mainConfig)
   const { name } = compiler
@@ -111,13 +129,15 @@ function startRenderer(callback) {
 
   const server = new WebpackDevServer({
     static: {
-      directory: path.join(process.cwd(), 'static'),
+      directory: path.resolve(__dirname, '..', 'static'),
       watch: {
         ignored: [
           /(dashFiles|storyboards)\/*/,
           '/**/.DS_Store',
+          '**/static/locales/*'
         ]
-      }
+      },
+      publicPath: '/static'
     },
     port
   }, compiler)
@@ -125,11 +145,13 @@ function startRenderer(callback) {
   server.startCallback(err => {
     if (err) console.error(err)
 
+    setupNotifyLocaleUpdate(compiler, server)
+
     callback()
   })
 }
 
-function startWeb (callback) {
+function startWeb () {
   const compiler = webpack(webConfig)
   const { name } = compiler
 
@@ -139,12 +161,14 @@ function startWeb (callback) {
   })
 
   const server = new WebpackDevServer({
+    open: true,
     static: {
-      directory: path.join(process.cwd(), 'dist/web/static'),
+      directory: path.resolve(__dirname, '..', 'static'),
       watch: {
         ignored: [
           /(dashFiles|storyboards)\/*/,
           '/**/.DS_Store',
+          '**/static/locales/*'
         ]
       }
     },
@@ -154,14 +178,11 @@ function startWeb (callback) {
   server.startCallback(err => {
     if (err) console.error(err)
 
-    callback({ port: server.options.port })
+    setupNotifyLocaleUpdate(compiler, server)
   })
 }
 if (!web) {
   startRenderer(startMain)
 } else {
-  startWeb(async ({ port }) => {
-    const open = (await import('open')).default
-    open(`http://localhost:${port}`)
-  })
+  startWeb()
 }

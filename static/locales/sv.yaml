@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Svenska'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
@@ -128,7 +127,7 @@ User Playlists:
     Den listar bara videor som du har sparat eller satt som favorit. När arbetet är
     färdigt kommer alla videor som för närvarande här här att flyttas till en spellista
     för 'Favoriter'.
-  Search bar placeholder: Sök i Spellistor
+  Search bar placeholder: Sök efter Spellistor
   Empty Search Message: Det finns inga videor i denna spellista som matchar din sökning
   Playlist Name: Spellistenamn
   Playlist Description: Spellistebeskrivning
@@ -148,6 +147,70 @@ User Playlists:
   This playlist currently has no videos.: Denna spellista har för närvarande inga
     videor.
   Add to Playlist: Lägg till Spellista
+  Sort By:
+    EarliestPlayedFirst: Tidigast spelade
+    EarliestUpdatedFirst: Tidigast uppdaterad
+    NameAscending: A-Z
+    NameDescending: Z-A
+    Sort By: Sortera efter
+    LatestCreatedFirst: Nyligen skapad
+    EarliestCreatedFirst: Tidigast skapad
+    LatestUpdatedFirst: Nyligen uppdaterad
+    LatestPlayedFirst: Nyligen spelad
+  Are you sure you want to delete this playlist? This cannot be undone: Är du säker
+    på att du vill ta bort den här spellistan? Detta kan inte ångras.
+  AddVideoPrompt:
+    Added {count} Times: Tillagd {count} gång | Tillagd {count} gånger
+    Save: Spara
+    Search in Playlists: Sök i spellistor
+    Select a playlist to add your N videos to: Välj en spellista att lägga till din
+      video i | Välj en spellista att lägga till dina {videoCount} videor i
+    N playlists selected: '{playlistCount} valda'
+    Toast:
+      You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
+      "{videoCount} video(s) added to 1 playlist": 1 video tillagd i 1 spellista |
+        {videoCount} videor tillagda i 1 spellista
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video tillagd
+        i {playlistCount} spellistor | {videoCount} videor tillagda i {playlistCount}
+        spellistor
+  SinglePlaylistView:
+    Toast:
+      Quick bookmark disabled: Snabb bokmärke inaktiverat
+      Video has been removed: Videon har tagits bort
+      "{videoCount} video(s) have been removed": 1 video har tagits bort | {videoCount}
+        videor har tagits bort
+      There were no videos to remove.: Det fanns inga videor att ta bort.
+      This video cannot be moved up.: Den här videon kan inte flyttas upp.
+      There was a problem with removing this video: Det uppstod ett problem med att
+        ta bort den här videon
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Den
+        här spellistan används nu för snabb bokmärke istället för {oldPlaylistName}.
+        Klicka här för att ångra
+      This playlist is now used for quick bookmark: Den här spellistan används nu
+        för snabb bokmärke
+      Reverted to use {oldPlaylistName} for quick bookmark: Återgått till att använda
+        {oldPlaylistName} för snabbt bokmärke
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Vissa
+        videor i spellistan är inte inlästa ännu. Klicka här för att kopiera ändå.
+      Playlist name cannot be empty. Please input a name.: Spellistans namn kan inte
+        vara tomt. Vänligen ange ett namn.
+      Playlist has been updated.: Spellistan har uppdaterats.
+      There was an issue with updating this playlist.: Det uppstod ett problem med
+        uppdateringen av den här spellistan.
+      This playlist is protected and cannot be removed.: Den här spellistan är skyddad
+        och kan inte tas bort.
+      Playlist {playlistName} has been deleted.: Spellistan {playlistName} har tagits
+        bort.
+      This playlist does not exist: Den här spellistan finns inte
+      This video cannot be moved down.: Den här videon kan inte flyttas nedåt.
+    Search for Videos: Sök efter videor
+  Playlists with Matching Videos: Spellistor med passande videor
+  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Är
+    du säker på att du vill ta bort alla tittade videor från den här spellistan? Detta
+    kan inte ångras.
+  Enable Quick Bookmark With This Playlist: Aktivera snabb bokmärke på den här spellistan
+  Remove Watched Videos: Ta bort sedda videor
+  Disable Quick Bookmark: Avaktivera snabb bokmärke
 History:
   # On History Page
   History: 'Historik'
@@ -314,8 +377,6 @@ Settings:
     Allow DASH AV1 formats: Tillåt DASH AV1-format
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
     Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
-    Comment Auto Load:
-      Comment Auto Load: Autoladda kommenterer
   Privacy Settings:
     Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
@@ -331,7 +392,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
-    Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
     Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast
       tittade spellista
   Subscription Settings:
@@ -435,6 +495,7 @@ Settings:
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj permiärer
     Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering
+      och skiljetecken
     Hide Channels Placeholder: Kanal ID
     Hide Featured Channels: Dölj Utvalda kanaler
     Hide Channel Shorts: Dölj Kanal Shorts
@@ -978,9 +1039,6 @@ Tooltips:
     External Link Handling: "Välj standardförfarande när en länk klickas, som inte
       kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din
       standardwebbläsare.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
-      filer som skapades under uppspelning, när sidan stängs.
   External Player Settings:
     Custom External Player Arguments: Alla anpassade kommandoradsargument, åtskilda
       av semikolon (';'), ska skickas till den externa spelaren.
@@ -1061,3 +1119,9 @@ Playlist will not pause when current video is finished: Spellistan kommer inte a
 Channel Hidden: '{channel} har lagts till i kanalfiltret'
 Go to page: Gå till {page}
 Channel Unhidden: '{channel} har tagits bort från kanalfiltret'
+Close Banner: Stäng bannern
+Feed:
+  Feed Last Updated: '{feedName} feed senast uppdaterad: {date}'
+  Refresh Feed: Uppdatera {subscriptionName}
+checkmark: ✓
+Display Label: '{label}: {value}'

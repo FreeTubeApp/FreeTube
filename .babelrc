@@ -4,8 +4,8 @@
       "@babel/env",
       {
         "targets": {
-          "chrome": "106",
-          "node": "16.16.0"
+          "chrome": "122",
+          "node": "20.9.0"
         }
       }
     ]

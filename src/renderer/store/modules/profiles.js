@@ -15,7 +15,7 @@ const state = {
 }
 
 const getters = {
-  getProfileList: () => {
+  getProfileList: (state) => {
     return state.profileList
   },
 
@@ -54,7 +54,7 @@ const actions = {
 
     if (profiles.length === 0) {
       // Create a default profile and persist it
-      const randomColor = getRandomColor()
+      const randomColor = getRandomColor().value
       const textColor = calculateColorLuminance(randomColor)
       const defaultProfile = {
         _id: MAIN_PROFILE_ID,
@@ -172,6 +172,24 @@ const actions = {
     }
   },
 
+  async addChannelToProfiles({ commit }, { channel, profileIds }) {
+    try {
+      await DBProfileHandlers.addChannelToProfiles(channel, profileIds)
+      commit('addChannelToProfiles', { channel, profileIds })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  async removeChannelFromProfiles({ commit }, { channelId, profileIds }) {
+    try {
+      await DBProfileHandlers.removeChannelFromProfiles(channelId, profileIds)
+      commit('removeChannelFromProfiles', { channelId, profileIds })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async removeProfile({ commit }, profileId) {
     try {
       await DBProfileHandlers.delete(profileId)
@@ -212,6 +230,22 @@ const mutations = {
     }
 
     state.profileList.sort(profileSort)
+  },
+
+  addChannelToProfiles(state, { channel, profileIds }) {
+    for (const id of profileIds) {
+      state.profileList.find(profile => profile._id === id).subscriptions.push(channel)
+    }
+  },
+
+  removeChannelFromProfiles(state, { channelId, profileIds }) {
+    for (const id of profileIds) {
+      const profile = state.profileList.find(profile => profile._id === id)
+
+      // use filter instead of splice in case the subscription appears multiple times
+      // https://github.com/FreeTubeApp/FreeTube/pull/3468#discussion_r1179290877
+      profile.subscriptions = profile.subscriptions.filter(channel => channel.id !== channelId)
+    }
   },
 
   removeProfileFromList(state, profileId) {

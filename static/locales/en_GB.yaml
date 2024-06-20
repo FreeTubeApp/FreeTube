@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'English (UK)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   This part of the app is not ready yet. Come back later when progress has been made.
@@ -191,7 +190,7 @@ User Playlists:
         playlists
     Select a playlist to add your N videos to: Select a playlist to add your video
       to | Select a playlist to add your {videoCount} videos to
-    Added {count} Times: Added {count} time | Added {count} times
+    Added {count} Times: Already Added | Added {count} times
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist name
     Create: Create
@@ -389,8 +388,6 @@ Settings:
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
     Allow DASH AV1 formats: Allow DASH AV1 formats
-    Comment Auto Load:
-      Comment Auto Load: Comment auto load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -417,7 +414,6 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Are
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
-    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
       Playlist
     Remove All Playlists: Remove all playlists
@@ -1084,9 +1080,6 @@ Tooltips:
     Custom External Player Arguments: Any custom command line arguments, separated
       by semicolons (';'), you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: '(Default: ‘{defaultCustomArguments}’)'
-  Privacy Settings:
-    Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
-      created during video playback, when the watch page is closed.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
       in-memory image cache. Will lead to increased RAM usage.
@@ -1165,3 +1158,6 @@ Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1
   character long | Trimmed input must be at least {length} characters long
+Yes, Delete: Yes, delete
+Yes, Restart: Yes, restart
+Yes, Open Link: Yes, open link

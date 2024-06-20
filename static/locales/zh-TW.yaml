@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   此功能尚未製作完成。有更新再來喔。
@@ -81,6 +80,18 @@ Search Filters:
   Fetch more results: '擷取更多結果'
 # Sidebar
   There are no more results for this search: 此搜尋無更多結果
+  Features:
+    Live: 直播
+    4K: 4K
+    360 Video: 360 影片
+    Location: 位置
+    HDR: HDR
+    VR180: VR180
+    Features: 功能
+    HD: HD
+    Subtitles: 字幕
+    Creative Commons: 創用CC
+    3D: 3D
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
@@ -158,6 +169,9 @@ User Playlists:
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
         進行快速書籤
+      This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
+      Playlist {playlistName} is the new quick bookmark playlist.: 播放清單 {playlistName}
+        是新的快速書籤播放清單。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
@@ -171,7 +185,12 @@ User Playlists:
         部影片新增至 1 個播放清單
       "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount}
         個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
-    Added {count} Times: 新增了 {count} 次 | 新增了 {count} 次
+    Added {count} Times: 已新增 | 新增了 {count} 次
+    Allow Adding Duplicate Video(s): 允許新增重複影片
+    "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount}
+      部影片
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 將會新增 {videoCount}/{totalVideoCount}
+      部影片
   CreatePlaylistPrompt:
     New Playlist Name: 新播放清單名稱
     Toast:
@@ -189,6 +208,13 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
   Disable Quick Bookmark: 停用快速書籤
   Playlists with Matching Videos: 包含相符影片的播放清單
+  Quick Bookmark Enabled: 已啟用快速書籤
+  Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
+  Remove Duplicate Videos: 移除重複的影片
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
+    1 個重複的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除 {playlistItemCount} 個重複影片嗎？這無法還原。
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
+    1 個觀看過的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除已觀看的 {playlistItemCount} 個影片嗎？這無法還原。
 History:
   # On History Page
   History: '觀看紀錄'
@@ -240,6 +266,9 @@ Settings:
       Ask Before Opening Link: 開啟連結前詢問
       Open Link: 開啟連結
       External Link Handling: 外部連結處理
+    Auto Load Next Page:
+      Tooltip: 自動載入額外頁面與留言。
+      Label: 自動載入下一頁
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -254,6 +283,8 @@ Settings:
       Pastel Pink: 淡粉紅色
       Hot Pink: 亮粉紅色
       Nordic: 北歐
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -293,6 +324,14 @@ Settings:
       Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
       Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
       Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
+      Solarized Yellow: Solarized 黃色
+      Solarized Orange: Solarized 橘色
+      Solarized Red: Solarized 紅色
+      Solarized Magenta: Solarized 洋紅色
+      Solarized Violet: Solarized 紫色
+      Solarized Blue: Solarized 藍色
+      Solarized Cyan: Solarized 青色
+      Solarized Green: Solarized 綠色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -354,8 +393,6 @@ Settings:
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
     Allow DASH AV1 formats: 允許 DASH AV1 格式
-    Comment Auto Load:
-      Comment Auto Load: 留言自動載入
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -371,6 +408,7 @@ Settings:
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Only Show Latest Video for Each Channel: 只顯示每個頻道的最新影片
+    Avoid Accidental Unsubscription: 避免意外取消訂閱
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -405,7 +443,6 @@ Settings:
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
-    Automatically Remove Video Meta Files: 自動刪除影片元檔案
     Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
     Remove All Playlists: 移除所有播放清單
     All playlists have been removed: 所有播放清單已被移除
@@ -567,6 +604,7 @@ Settings:
     Password Incorrect: 密碼不正確
     Unlock: 解鎖
   Expand All Settings Sections: 展開所有設定
+  Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
 About:
   #On About page
   About: '關於'
@@ -626,6 +664,8 @@ About:
   Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
   Discussions: 討論
+  Licensed under the: 授權以
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'
@@ -838,6 +878,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放清單
+  Sort By:
+    Sort By: 排序方式
+    DateAddedNewest: 最後新增優先
+    DateAddedOldest: 最早新增優先
+    AuthorAscending: 作者 (A-Z)
+    AuthorDescending: 作者 (Z-A)
+    VideoTitleAscending: 標題 (A-Z)
+    VideoTitleDescending: 標題 (Z-A)
+    Custom: 自訂
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Media Formats: '變更影片格式'
@@ -983,8 +1032,6 @@ Tooltips:
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
-  Privacy Settings:
-    Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
   External Player Settings:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
@@ -1054,3 +1101,20 @@ Close Banner: 關閉橫幅
 Age Restricted:
   This channel is age restricted: 此頻道有年齡限制
   This video is age restricted: 此影片有年齡限制
+checkmark: ✓
+Display Label: '{label}：{value}'
+Moments Ago: 不久前
+Feed:
+  Feed Last Updated: '{feedName} feed 上次更新時間：{date}'
+  Refresh Feed: 重新整理 {subscriptionName}
+Yes, Delete: 是的，刪除
+Yes, Restart: 是的，重新啟動
+Yes, Open Link: 是的，開啟連結
+Cancel: 取消
+Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隱藏式字幕
+'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。

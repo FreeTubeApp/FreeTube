@@ -1,6 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'español (España)'
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
@@ -84,6 +83,18 @@ Search Filters:
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
+  Features:
+    Subtitles: Subtítulos
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    Features: Características
+    HD: HD
+    Live: Directo
+    360 Video: Vídeo 360
+    Location: Ubicación
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -123,7 +134,7 @@ User Playlists:
     a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
-    con tu búsqueda
+    con su búsqueda
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
     seguro de que quieres eliminar todos los vídeos vistos de esta lista de reproducción?
     Esto no se puede deshacer.
@@ -142,7 +153,12 @@ User Playlists:
       a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
-    Added {count} Times: Añadido {count} vez | Añadido {count} veces
+    Added {count} Times: Ya añadido | Añadido {count} veces
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+      Vídeos ya añadidos'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+      Se añadirán vídeos'
+    Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: No había vídeos que eliminar.
@@ -174,6 +190,10 @@ User Playlists:
         Haga clic aquí para deshacer
       Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
         para un marcador rápido
+      This playlist is already being used for quick bookmark.: Esta lista de reproducción
+        ya se utiliza como marcador rápido.
+      Playlist {playlistName} is the new quick bookmark playlist.: L lista de reproducción
+        {playlistName} es la nueva lista de reproducción de marcadores rápidos.
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
@@ -221,6 +241,18 @@ User Playlists:
     de reproducción
   Disable Quick Bookmark: Desactivar el marcador rápido
   Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
+  Quick Bookmark Enabled: Marcador rápido habilitado
+  Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
+    de reproducción de destino de marcadores rápidos.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto
+    no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos vistos de esta lista de reproducción? Esto no se puede deshacer.
+  Remove Duplicate Videos: Eliminar vídeos duplicados
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción?
+    Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
 History:
   # On History Page
   History: 'Historial'
@@ -277,6 +309,9 @@ Settings:
       Ask Before Opening Link: Preguntar antes de abrir el enlace
       Open Link: Abrir el enlace
       External Link Handling: Gestión de enlaces externos
+    Auto Load Next Page:
+      Label: Carga automática de la página siguiente
+      Tooltip: Cargar automáticamente páginas adicionales y comentarios.
   Theme Settings:
     Theme Settings: 'Configuración del tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -291,6 +326,8 @@ Settings:
       Pastel Pink: Rosa pastel
       Hot Pink: Rosa fuerte
       Nordic: Nórdico
+      Solarized Light: Solarized claro
+      Solarized Dark: Solarized oscuro
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -330,6 +367,14 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
       Catppuccin Mocha Blue: Catpuccin Moka Azul
       Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
+      Solarized Yellow: Amarillo Solarized
+      Solarized Orange: Naranja Solarized
+      Solarized Red: Rojo Solarized
+      Solarized Magenta: Magenta Solarized
+      Solarized Violet: Violeta Solarized
+      Solarized Blue: Azul Solarized
+      Solarized Cyan: Cian Solarized
+      Solarized Green: Verde Solarized
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -396,8 +441,6 @@ Settings:
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
-    Comment Auto Load:
-      Comment Auto Load: Cargar los comentarios automáticamente
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar historial'
@@ -413,8 +456,6 @@ Settings:
     Remove All Subscriptions / Profiles: 'Borrar todas las suscripciones/perfiles'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Confirma
       que quieres borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
-    Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
-      de vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última
       lista de reproducción vista
     All playlists have been removed: Se han eliminado todas las listas de reproducción
@@ -429,6 +470,7 @@ Settings:
     Fetch Automatically: Obtener los feed automáticamente
     Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
       canal
+    Avoid Accidental Unsubscription: Evitar bajas accidentales
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -641,6 +683,7 @@ Settings:
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
   Expand All Settings Sections: Expandir todas las secciones de los ajustes
+  Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
 About:
   #On About page
   About: 'Acerca de'
@@ -698,6 +741,8 @@ About:
   Source code: Código fuente
   Beta: Beta
   Discussions: Debates
+  Licensed under the: Bajo la licencia
+  AGPLv3: AGPLv3
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
@@ -978,6 +1023,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reproducción
+  Sort By:
+    Custom: Personalizado
+    DateAddedNewest: Último añadido primero
+    DateAddedOldest: Primeros añadidos primero
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleAscending: Título (A-Z)
+    Sort By: Ordenar por
+    VideoTitleDescending: Título (Z-A)
 Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
@@ -1113,10 +1167,6 @@ Tooltips:
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic
       en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá
       el enlace en el que se hizo clic en su navegador predeterminado.\n"
-  Privacy Settings:
-    Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
-      meta-archivos creados durante la reproducción del vídeo una vez se cierre la
-      página de visualizado.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
       externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
@@ -1219,3 +1269,22 @@ Close Banner: Cerrar el banner
 Age Restricted:
   This channel is age restricted: Este canal está restringido por edad
   This video is age restricted: Este vídeo está restringido por edad
+checkmark: ✓
+Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} feed actualizado por última vez: {date}'
+  Refresh Feed: Actualizar {subscriptionName}
+Moments Ago: hace unos instantes
+Yes, Open Link: Sí, abrir el enlace
+Cancel: Cancelar
+Yes, Restart: Sí, reiniciar
+Yes, Delete: Sí, eliminar
+Search character limit: La consulta de búsqueda supera el límite de {searchCharacterLimit}
+  caracteres
+Search Listing:
+  Label:
+    Subtitles: Subtítulos
+    Closed Captions: Subtítulos descriptivos
+    4K: 4K
+'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
+  insegura: «{url}».'

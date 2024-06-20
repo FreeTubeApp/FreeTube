@@ -35,6 +35,12 @@ export default defineComponent({
     activeSubscriptions: function () {
       const subscriptions = deepCopy(this.activeProfile.subscriptions)
 
+      subscriptions.forEach(channel => {
+        // Change thumbnail size to 35x35, as that's the size we display it
+        // so we don't need to download a bigger image (the default is 176x176)
+        channel.thumbnail = channel.thumbnail?.replace(/=s\d+/, '=s35')
+      })
+
       subscriptions.sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })

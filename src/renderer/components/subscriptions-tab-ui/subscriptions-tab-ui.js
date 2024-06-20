@@ -1,23 +1,23 @@
 import { defineComponent } from 'vue'
 
 import FtLoader from '../ft-loader/ft-loader.vue'
-import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtRefreshWidget from '../ft-refresh-widget/ft-refresh-widget.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
+import FtAutoLoadNextPageWrapper from '../ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 export default defineComponent({
   name: 'SubscriptionsTabUI',
   components: {
     'ft-loader': FtLoader,
-    'ft-card': FtCard,
     'ft-button': FtButton,
-    'ft-icon-button': FtIconButton,
+    'ft-refresh-widget': FtRefreshWidget,
     'ft-flex-box': FtFlexBox,
     'ft-element-list': FtElementList,
-    'ft-channel-bubble': FtChannelBubble
+    'ft-channel-bubble': FtChannelBubble,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   props: {
     isLoading: {
@@ -43,8 +43,17 @@ export default defineComponent({
     initialDataLimit: {
       type: Number,
       default: 100
+    },
+    lastRefreshTimestamp: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
     }
   },
+  emits: ['refresh'],
   data: function () {
     return {
       dataLimit: 100,
@@ -69,7 +78,7 @@ export default defineComponent({
 
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
-    },
+    }
   },
   created: function () {
     const dataLimit = sessionStorage.getItem('subscriptionLimit')
@@ -80,7 +89,7 @@ export default defineComponent({
       this.dataLimit = this.initialDataLimit
     }
   },
-  mounted: async function () {
+  mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
   },
   beforeDestroy: function () {
@@ -113,6 +122,10 @@ export default defineComponent({
           }
           break
       }
+    },
+
+    refresh: function() {
+      this.$emit('refresh')
     }
   }
 })

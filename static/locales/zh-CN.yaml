@@ -1,4 +1,3 @@
-FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   应用此部分尚未完成。有了进展再来。
@@ -55,9 +54,9 @@ Search Filters:
     Upload Date: '上传日期'
     View Count: '观看数量'
   Time:
-    Time: '时间'
+    Time: '发布时间'
     Any Time: '任何时间'
-    Last Hour: '上一小时'
+    Last Hour: '一小时内'
     Today: '今天'
     This Week: '本周'
     This Month: '本月'
@@ -81,6 +80,18 @@ Search Filters:
   Fetch more results: '摘取更多结果'
 # Sidebar
   There are no more results for this search: 对于本搜索没有更多结果
+  Features:
+    Subtitles: 字幕
+    Creative Commons: Creative Commons 授权
+    360 Video: 全景视频
+    Features: 功能
+    HD: 高清
+    3D: 三维立体
+    Live: 直播
+    4K: 4K
+    Location: 位置
+    HDR: HDR（高动态范围）
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
@@ -114,7 +125,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
   Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 搜索播放列表
-  Empty Search Message: 这个与你的搜索匹配的播放列表中没有视频
+  Empty Search Message: 此播放列表中没有匹配你搜索的视频
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除所有已观看的视频吗？此操作无法撤销。
   AddVideoPrompt:
     Search in Playlists: 在播放列表中搜索
@@ -128,7 +139,12 @@ User Playlists:
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
       个视频
     N playlists selected: 选中了 {playlistCount} 个播放列表
-    Added {count} Times: 添加了 {count} 次
+    Added {count} Times: 已添加了 {count} 次
+    Allow Adding Duplicate Video(s): 允许添加重复视频
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 将添加 {videoCount} 个视频，共
+      {totalVideoCount} 个视频
+    "{videoCount}/{totalVideoCount} Videos Already Added": 已添加 {videoCount} 个视频，共
+      {totalVideoCount} 个视频
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: 没有可删除的视频。
@@ -150,6 +166,9 @@ User Playlists:
         进行快速添加书签操作
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放列表现用于快速添加书签，而非
         {oldPlaylistName}。单击此处撤销
+      This playlist is already being used for quick bookmark.: 此播放列表已被用于快速书签。
+      Playlist {playlistName} is the new quick bookmark playlist.: 播放列表 {playlistName}
+        是新的快速书签播放列表。
     Search for Videos: 搜索视频
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
@@ -189,13 +208,20 @@ User Playlists:
   Remove from Favorites: 从播放列表 {playlistName} 删除
   Disable Quick Bookmark: 停用快速添加书签
   Playlists with Matching Videos: 有匹配视频的播放列表
+  Quick Bookmark Enabled: 启用了快速书签
+  Cannot delete the quick bookmark target playlist.: 无法删除快速书签目标播放列表。
+  Remove Duplicate Videos: 删除重复视频
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除
+    1 个已观看视频吗？此操作无法撤销。 | 你确定要从此播放列表删除 {playlistItemCount} 个已观看视频吗？此操作无法撤销。
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 你确定要从此播放列表中删除
+    1 个重复视频吗？无法撤销删除。| 你确定要从此播放列表中删除 {playlistItemCount} 个重复视频吗？无法撤销删除。
 History:
   # On History Page
   History: '历史记录'
   Watch History: '观看历史记录'
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
-  Empty Search Message: 匹配搜索的历史记录中没有视频
+  Empty Search Message: 历史记录中没有匹配你搜索的视频
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -239,6 +265,9 @@ Settings:
       No Action: 无操作
       External Link Handling: 外部链接处理
       Open Link: 打开链接
+    Auto Load Next Page:
+      Label: 自动加载下一页
+      Tooltip: 自动加载额外页面和评论。
   Theme Settings:
     Theme Settings: '主题设置'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -253,6 +282,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Solarized Light: 日照白
+      Solarized Dark: 日照黑
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -292,6 +323,14 @@ Settings:
       Catppuccin Mocha Red: Catppuccin Mocha Red
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Orange: 日照橙
+      Solarized Magenta: 日照品红
+      Solarized Cyan: 日照青
+      Solarized Green: 日照绿
+      Solarized Yellow: 日照黄
+      Solarized Red: 日照红
+      Solarized Blue: 日照蓝
+      Solarized Violet: 日照紫
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -347,13 +386,11 @@ Settings:
       Folder Button: 选择文件夹
       File Name Tooltip: 你可以使用下面的变量。 %Y 年份 4 位数。 %M 月份 2 位数。 %D 天 2 位数。 %H 小时 2 位数。
         %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。 你也可以使用“\”或“/”创建子文件夹。
-      Enable: 允许截屏
+      Enable: 启用截屏图标
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
     Allow DASH AV1 formats: 允许 DASH AV1 格式
-    Comment Auto Load:
-      Comment Auto Load: 自动加载评论
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -369,6 +406,7 @@ Settings:
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
     Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
+    Avoid Accidental Unsubscription: 避免意外取消订阅
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -403,7 +441,6 @@ Settings:
     Clear Search Cache: 清除搜索缓存
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
-    Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
     Save Watched Videos With Last Viewed Playlist: 记住上次看过的播放列表中看过的视频 ID
     All playlists have been removed: 已删除所有播放列表
     Remove All Playlists: 删除所有播放列表
@@ -566,6 +603,7 @@ Settings:
     Set Password: 设置密码
     Remove Password: 删除密码
   Expand All Settings Sections: 展开所有设置部分
+  Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
 About:
   #On About page
   About: '关于'
@@ -616,6 +654,8 @@ About:
   these people and projects: 这些人和项目
   FreeTube is made possible by: FreeTube 的存在依赖
   Discussions: 讨论
+  Licensed under the: 许可依据
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -798,7 +838,7 @@ Video:
     sponsor: 赞助者
     recap: 回顾
     filler: 过滤器
-  translated from English: 从英语翻译而来
+  translated from English: 从英语翻译
   Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
@@ -829,6 +869,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放列表
+  Sort By:
+    Sort By: 排序依据
+    DateAddedNewest: 最近添加的优先
+    DateAddedOldest: 最早添加的优先
+    AuthorAscending: 作者名（A-Z）
+    AuthorDescending: 作者名（Z-A）
+    VideoTitleDescending: 标题（Z-A)
+    Custom: 自定义
+    VideoTitleAscending: 标题（A-Z）
 Toggle Theatre Mode: '切换剧场模式'
 Change Format:
   Change Media Formats: '更换视频格式'
@@ -979,8 +1028,6 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
     Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
     Ignore Default Arguments: 不要向外部播放器发送除视频 URL 外的任何默认变量（如播放速度、播放列表 URL 等）。自定义变量仍将被传递。
-  Privacy Settings:
-    Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
   Distraction Free Settings:
@@ -994,7 +1041,7 @@ Tooltips:
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
-  Clear Input: 清除输入
+  Clear Input: 清空输入
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
@@ -1044,3 +1091,20 @@ Close Banner: 关闭横幅
 Age Restricted:
   This video is age restricted: 此视频有年龄限制
   This channel is age restricted: 此频道有年龄限制
+checkmark: ✓
+Display Label: '{label}: {value}'
+Moments Ago: 片刻前
+Feed:
+  Feed Last Updated: '{feedName} 上次更新: {date}'
+  Refresh Feed: 刷新 {subscriptionName}
+Yes, Open Link: 是，打开链接
+Cancel: 取消
+Yes, Delete: 是，删除
+Yes, Restart: 是，重启
+Search character limit: 搜索词超过了 {searchCharacterLimit} 字符的上限
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+    Closed Captions: 隐藏式字幕
+'Blocked opening potentially unsafe URL': 阻止了打开潜在不安全的 URL： "{url}".

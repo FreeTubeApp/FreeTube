@@ -10,14 +10,17 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import {
   setPublishedTimestampsInvidious,
   copyToClipboard,
+  ctrlFHandler,
   extractNumberFromString,
   formatNumber,
-  showToast
+  showToast,
+  getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
@@ -31,13 +34,16 @@ import {
 import {
   getLocalChannel,
   getLocalChannelId,
+  getLocalArtistTopicChannelReleases,
   parseLocalChannelHeader,
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
+  parseLocalCompactStation,
   parseLocalListPlaylist,
   parseLocalListVideo,
-  parseLocalSubscriberCount
+  parseLocalSubscriberCount,
+  getLocalArtistTopicChannelReleasesContinuation
 } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -52,7 +58,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
-    'channel-about': ChannelAbout
+    'channel-about': ChannelAbout,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   data: function () {
     return {
@@ -67,6 +74,7 @@ export default defineComponent({
       thumbnailUrl: '',
       subCount: 0,
       searchPage: 2,
+      isArtistTopicChannel: false,
       videoContinuationData: null,
       shortContinuationData: null,
       liveContinuationData: null,
@@ -292,7 +300,7 @@ export default defineComponent({
       })
 
       return values
-    }
+    },
   },
   watch: {
     $route() {
@@ -325,6 +333,7 @@ export default defineComponent({
       this.shownElementList = []
       this.apiUsed = ''
       this.channelInstance = ''
+      this.isArtistTopicChannel = false
       this.videoContinuationData = null
       this.shortContinuationData = null
       this.liveContinuationData = null
@@ -351,7 +360,7 @@ export default defineComponent({
       this.errorMessage = ''
 
       // Re-enable auto refresh on sort value change AFTER update done
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
         this.autoRefreshOnSortByChangeEnabled = true
       } else {
@@ -432,6 +441,7 @@ export default defineComponent({
   },
   mounted: function () {
     this.isLoading = true
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
 
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
@@ -449,7 +459,7 @@ export default defineComponent({
     }
 
     // Enable auto refresh on sort value change AFTER initial update done
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
       this.autoRefreshOnSortByChangeEnabled = true
     } else {
@@ -458,11 +468,14 @@ export default defineComponent({
       })
     }
   },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
+  },
   methods: {
     resolveChannelUrl: async function (url, tab = undefined) {
       let id
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         id = await invidiousGetChannelId(url)
       } else {
         id = await getLocalChannelId(url)
@@ -552,6 +565,7 @@ export default defineComponent({
         this.thumbnailUrl = channelThumbnailUrl
         this.bannerUrl = parsedHeader.bannerUrl ?? null
         this.isFamilyFriendly = !!channel.metadata.is_family_safe
+        this.isArtistTopicChannel = channelName.endsWith('- Topic') && !!channel.metadata.music_artist_name
 
         if (channel.metadata.tags) {
           tags.push(...channel.metadata.tags)
@@ -653,14 +667,30 @@ export default defineComponent({
           this.getChannelPodcastsLocal()
         }
 
-        if (!this.hideChannelReleases && channel.has_releases) {
+        if (!this.hideChannelReleases && (channel.has_releases || this.isArtistTopicChannel)) {
           tabs.push('releases')
           this.getChannelReleasesLocal()
         }
 
-        if (!this.hideChannelPlaylists && channel.has_playlists) {
-          tabs.push('playlists')
-          this.getChannelPlaylistsLocal()
+        if (!this.hideChannelPlaylists) {
+          if (channel.has_playlists) {
+            tabs.push('playlists')
+            this.getChannelPlaylistsLocal()
+          } else if (channelId === 'UC-9-kyTW8ZkZNDHQJ6FgpwQ') {
+            // Special handling for "The Music Channel" (https://youtube.com/music)
+            tabs.push('playlists')
+            const playlists = channel.playlists.map(playlist => parseLocalListPlaylist(playlist))
+
+            const compactStations = channel.memo.get('CompactStation')
+            if (compactStations) {
+              for (const compactStation of compactStations) {
+                playlists.push(parseLocalCompactStation(compactStation, channelId, channelName))
+              }
+            }
+
+            this.showPlaylistSortBy = false
+            this.latestPlaylists = playlists
+          }
         }
 
         if (!this.hideChannelCommunity && channel.has_community) {
@@ -691,7 +721,7 @@ export default defineComponent({
       }
     },
 
-    getChannelAboutLocal: async function () {
+    getChannelAboutLocal: async function (channel) {
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
@@ -902,7 +932,16 @@ export default defineComponent({
           return
         }
 
-        this.latestLive = parseLocalChannelVideos(liveTab.videos, this.id, this.channelName)
+        // work around YouTube bug where it will return a bunch of responses with only continuations in them
+        // e.g. https://www.youtube.com/@TWLIVES/streams
+
+        let videos = liveTab.videos
+        while (videos.length === 0 && liveTab.has_continuation) {
+          liveTab = await liveTab.getContinuation()
+          videos = liveTab.videos
+        }
+
+        this.latestLive = parseLocalChannelVideos(videos, this.id, this.channelName)
         this.liveContinuationData = liveTab.has_continuation ? liveTab : null
         this.isElementListLoading = false
 
@@ -1042,7 +1081,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1230,20 +1269,13 @@ export default defineComponent({
         // for the moment we just want the "Created Playlists" category that has all playlists in it
 
         if (playlistsTab.content_type_filters.length > 1) {
-          let viewId = '1'
-
-          // Artist topic channels don't have any created playlists, so we went to select the "Albums & Singles" category instead
-          if (this.channelName.endsWith('- Topic') && channel.metadata.music_artist_name) {
-            viewId = '50'
-          }
-
           /**
            * @type {import('youtubei.js').YTNodes.ChannelSubMenu}
            */
           const menu = playlistsTab.current_tab.content.sub_menu
           const createdPlaylistsFilter = menu.content_type_sub_menu_items.find(contentType => {
             const url = `https://youtube.com/${contentType.endpoint.metadata.url}`
-            return new URL(url).searchParams.get('view') === viewId
+            return new URL(url).searchParams.get('view') === '1'
           }).title
 
           playlistsTab = await playlistsTab.applyContentTypeFilter(createdPlaylistsFilter)
@@ -1320,7 +1352,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1361,7 +1393,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1379,14 +1411,27 @@ export default defineComponent({
          * @type {import('youtubei.js').YT.Channel}
         */
         const channel = this.channelInstance
-        const releaseTab = await channel.getReleases()
 
-        if (expectedId !== this.id) {
-          return
+        if (this.isArtistTopicChannel) {
+          const { releases, continuationData } = await getLocalArtistTopicChannelReleases(channel)
+
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestReleases = releases
+          this.releaseContinuationData = continuationData
+        } else {
+          const releaseTab = await channel.getReleases()
+
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
+          this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
         }
 
-        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
-        this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
         this.isElementListLoading = false
       } catch (err) {
         console.error(err)
@@ -1405,14 +1450,23 @@ export default defineComponent({
 
     getChannelReleasesLocalMore: async function () {
       try {
-        /**
-         * @type {import('youtubei.js').YT.ChannelListContinuation}
-         */
-        const continuation = await this.releaseContinuationData.getContinuation()
+        if (this.isArtistTopicChannel) {
+          const { releases, continuationData } = await getLocalArtistTopicChannelReleasesContinuation(
+            this.channelInstance, this.releaseContinuationData
+          )
 
-        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
-        this.latestReleases = this.latestReleases.concat(parsedReleases)
-        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+          this.latestReleases.push(...releases)
+          this.releaseContinuationData = continuationData
+        } else {
+          /**
+           * @type {import('youtubei.js').YT.ChannelListContinuation}
+           */
+          const continuation = await this.releaseContinuationData.getContinuation()
+
+          const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
+          this.latestReleases = this.latestReleases.concat(parsedReleases)
+          this.releaseContinuationData = continuation.has_continuation ? continuation : null
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1440,7 +1494,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1474,7 +1528,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1553,7 +1607,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1587,7 +1641,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1707,7 +1761,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1916,6 +1970,7 @@ export default defineComponent({
       }
 
       invidiousAPICall(payload).then((response) => {
+        setPublishedTimestampsInvidious(response.filter(item => item.type === 'video'))
         if (this.hideChannelPlaylists) {
           this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {
@@ -1929,7 +1984,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.searchChannelLocal()
         } else {
@@ -1937,6 +1992,12 @@ export default defineComponent({
         }
       })
     },
+
+    keyboardShortcutHandler: function (event) {
+      ctrlFHandler(event, this.$refs.channelSearchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
       'showOutlines',

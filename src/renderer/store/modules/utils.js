@@ -33,6 +33,8 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  showSearchFilters: false,
+  searchFilterValueChanged: false,
   progressBarPercentage: 0,
   toBeAddedToPlaylistVideoList: [],
   newPlaylistDefaultProperties: {},
@@ -44,28 +46,34 @@ const state = {
     sortBy: 'relevance',
     time: '',
     type: 'all',
-    duration: ''
+    duration: '',
+    features: [],
   },
   externalPlayerNames: [],
-  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
-  externalPlayerCmdArguments: {}
+  externalPlayerCmdArguments: {},
+  lastVideoRefreshTimestampByProfile: {},
+  lastShortRefreshTimestampByProfile: {},
+  lastLiveRefreshTimestampByProfile: {},
+  lastCommunityRefreshTimestampByProfile: {},
+  lastPopularRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: '',
 }
 
 const getters = {
-  getIsSideNavOpen () {
+  getIsSideNavOpen(state) {
     return state.isSideNavOpen
   },
 
-  getOutlinesHidden() {
+  getOutlinesHidden(state) {
     return state.outlinesHidden
   },
 
-  getCurrentVolume () {
+  getCurrentVolume(state) {
     return state.currentVolume
   },
 
-  getSessionSearchHistory () {
+  getSessionSearchHistory(state) {
     return state.sessionSearchHistory
   },
 
@@ -73,77 +81,105 @@ const getters = {
     return state.deArrowCache
   },
 
-  getPopularCache () {
+  getPopularCache(state) {
     return state.popularCache
   },
 
-  getTrendingCache () {
+  getTrendingCache(state) {
     return state.trendingCache
   },
 
-  getCachedPlaylist() {
+  getCachedPlaylist(state) {
     return state.cachedPlaylist
   },
 
-  getSearchSettings () {
+  getSearchSettings(state) {
     return state.searchSettings
   },
 
-  getShowAddToPlaylistPrompt () {
+  getSearchFilterValueChanged(state) {
+    return state.searchFilterValueChanged
+  },
+
+  getShowAddToPlaylistPrompt(state) {
     return state.showAddToPlaylistPrompt
   },
 
-  getShowCreatePlaylistPrompt () {
+  getShowCreatePlaylistPrompt(state) {
     return state.showCreatePlaylistPrompt
   },
 
-  getToBeAddedToPlaylistVideoList () {
+  getShowSearchFilters(state) {
+    return state.showSearchFilters
+  },
+
+  getToBeAddedToPlaylistVideoList(state) {
     return state.toBeAddedToPlaylistVideoList
   },
 
-  getNewPlaylistDefaultProperties () {
+  getNewPlaylistDefaultProperties(state) {
     return state.newPlaylistDefaultProperties
   },
 
-  getNewPlaylistVideoObject () {
+  getNewPlaylistVideoObject(state) {
     return state.newPlaylistVideoObject
   },
 
-  getShowProgressBar () {
+  getShowProgressBar(state) {
     return state.showProgressBar
   },
 
-  getProgressBarPercentage () {
+  getProgressBarPercentage(state) {
     return state.progressBarPercentage
   },
 
-  getRegionNames () {
+  getRegionNames(state) {
     return state.regionNames
   },
 
-  getRegionValues () {
+  getRegionValues(state) {
     return state.regionValues
   },
 
-  getRecentBlogPosts () {
+  getRecentBlogPosts(state) {
     return state.recentBlogPosts
   },
 
-  getExternalPlayerNames () {
+  getExternalPlayerNames(state) {
     return state.externalPlayerNames
   },
 
-  getExternalPlayerNameTranslationKeys () {
-    return state.externalPlayerNameTranslationKeys
-  },
-
-  getExternalPlayerValues () {
+  getExternalPlayerValues(state) {
     return state.externalPlayerValues
   },
 
-  getExternalPlayerCmdArguments () {
+  getExternalPlayerCmdArguments (state) {
     return state.externalPlayerCmdArguments
-  }
+  },
+
+  getLastTrendingRefreshTimestamp(state) {
+    return state.lastTrendingRefreshTimestamp
+  },
+
+  getLastPopularRefreshTimestamp(state) {
+    return state.lastPopularRefreshTimestamp
+  },
+
+  getLastCommunityRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastCommunityRefreshTimestampByProfile[profileId]
+  },
+
+  getLastShortRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastShortRefreshTimestampByProfile[profileId]
+  },
+
+  getLastLiveRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastLiveRefreshTimestampByProfile[profileId]
+  },
+
+  getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastVideoRefreshTimestampByProfile[profileId]
+  },
 }
 
 const actions = {
@@ -155,7 +191,7 @@ const actions = {
     commit('setOutlinesHidden', true)
   },
 
-  async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
+  async downloadMedia({ rootState }, { url, title, extension }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
       return
@@ -262,7 +298,7 @@ const actions = {
       }
 
       if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-        reject(new Error('Forbidden Characters')) // use message as translation key
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters')))
       }
 
       let filename
@@ -274,7 +310,7 @@ const actions = {
       }
 
       if (!filename) {
-        reject(new Error('Empty File Name'))
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name')))
       }
 
       resolve(parsedString)
@@ -353,17 +389,24 @@ const actions = {
     commit('setShowCreatePlaylistPrompt', false)
   },
 
+  showSearchFilters ({ commit }) {
+    commit('setShowSearchFilters', true)
+  },
+
+  hideSearchFilters ({ commit }) {
+    commit('setShowSearchFilters', false)
+  },
+
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },
 
   async getRegionData ({ commit }, { locale }) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
-    // Exclude __dirname from path if not in electron
-    const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
 
-    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}.json`
-    const countries = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
+    const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)
+
+    const countries = await (await fetch(url)).json()
 
     const regionNames = countries.map((entry) => { return entry.name })
     const regionValues = countries.map((entry) => { return entry.code })
@@ -372,7 +415,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
+  async getYoutubeUrlInfo({ state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -486,7 +529,8 @@ const actions = {
           sortBy: searchSettings.sortBy,
           time: searchSettings.time,
           type: searchSettings.type,
-          duration: searchSettings.duration
+          duration: searchSettings.duration,
+          features: searchSettings.features
         }
 
         for (const [param, value] of url.searchParams) {
@@ -595,23 +639,15 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
-  async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
-    const fileName = 'external-player-map.json'
-    /* eslint-disable-next-line n/no-path-concat */
-    const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
-
-    const fileData = await fs.readFile(`${fileLocation}${fileName}`)
-
-    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
-    })
+  async getExternalPlayerCmdArgumentsData ({ commit }) {
+    const url = createWebURL('/static/external-player-map.json')
+    const externalPlayerMap = await (await fetch(url)).json()
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
     const playerNone = externalPlayerMap.shift()
     externalPlayerMap.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
     externalPlayerMap.unshift(playerNone)
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
-    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -619,7 +655,6 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
-    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -667,7 +702,7 @@ const actions = {
             args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
           }
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.starting video at offset'))
         }
       }
 
@@ -675,7 +710,7 @@ const actions = {
         if (typeof cmdArgs.playbackRate === 'string') {
           args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.setting a playback rate'))
         }
       }
 
@@ -685,7 +720,7 @@ const actions = {
           if (typeof cmdArgs.playlistIndex === 'string') {
             args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
           }
         }
 
@@ -693,7 +728,7 @@ const actions = {
           if (typeof cmdArgs.playlistReverse === 'string') {
             args.push(cmdArgs.playlistReverse)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.reversing playlists'))
           }
         }
 
@@ -701,7 +736,7 @@ const actions = {
           if (typeof cmdArgs.playlistShuffle === 'string') {
             args.push(cmdArgs.playlistShuffle)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.shuffling playlists'))
           }
         }
 
@@ -709,7 +744,7 @@ const actions = {
           if (typeof cmdArgs.playlistLoop === 'string') {
             args.push(cmdArgs.playlistLoop)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.looping playlists'))
           }
         }
 
@@ -721,7 +756,7 @@ const actions = {
         }
       } else {
         if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening playlists'))
         }
         if (payload.videoId != null) {
           args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
@@ -735,8 +770,26 @@ const actions = {
 
     showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+    }
+  },
+
+  updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastCommunityRefreshTimestampByProfile', payload)
+  },
+
+  updateLastShortRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastShortRefreshTimestampByProfile', payload)
+  },
+
+  updateLastLiveRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastLiveRefreshTimestampByProfile', payload)
+  },
+
+  updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastVideoRefreshTimestampByProfile', payload)
   }
 }
 
@@ -806,6 +859,10 @@ const mutations = {
     state.showCreatePlaylistPrompt = payload
   },
 
+  setShowSearchFilters (state, payload) {
+    state.showSearchFilters = payload
+  },
+
   setToBeAddedToPlaylistVideoList (state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
@@ -829,6 +886,30 @@ const mutations = {
     state.trendingCache[page] = value
   },
 
+  setLastTrendingRefreshTimestamp (state, timestamp) {
+    state.lastTrendingRefreshTimestamp = timestamp
+  },
+
+  setLastPopularRefreshTimestamp (state, timestamp) {
+    state.lastPopularRefreshTimestamp = timestamp
+  },
+
+  updateLastCommunityRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastCommunityRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastShortRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastShortRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastLiveRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastLiveRefreshTimestampByProfile, profileId, timestamp)
+  },
+
+  updateLastVideoRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastVideoRefreshTimestampByProfile, profileId, timestamp)
+  },
+
   clearTrendingCache(state) {
     state.trendingCache = {
       default: null,
@@ -840,6 +921,10 @@ const mutations = {
 
   setCachedPlaylist(state, value) {
     state.cachedPlaylist = value
+  },
+
+  setSearchFilterValueChanged (state, value) {
+    state.searchFilterValueChanged = value
   },
 
   setSearchSortBy (state, value) {
@@ -858,6 +943,10 @@ const mutations = {
     state.searchSettings.duration = value
   },
 
+  setSearchFeatures (state, value) {
+    state.searchSettings.features = value
+  },
+
   setRegionNames (state, value) {
     state.regionNames = value
   },
@@ -872,10 +961,6 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
-  },
-
-  setExternalPlayerNameTranslationKeys (state, value) {
-    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

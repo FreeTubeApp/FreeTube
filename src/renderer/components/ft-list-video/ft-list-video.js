@@ -5,6 +5,7 @@ import {
   copyToClipboard,
   formatDurationAsTimestamp,
   formatNumber,
+  getRelativeTimeFromDate,
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
@@ -84,6 +85,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {
     return {
       id: '',
@@ -96,9 +98,10 @@ export default defineComponent({
       lengthSeconds: 0,
       duration: '',
       description: '',
-      watchProgress: 0,
       published: undefined,
       isLive: false,
+      is4k: false,
+      hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
@@ -115,8 +118,20 @@ export default defineComponent({
       return typeof this.historyEntry !== 'undefined'
     },
 
+    watchProgress: function () {
+      if (!this.historyEntryExists || !this.saveWatchedProgress) {
+        return 0
+      }
+
+      return this.historyEntry.watchProgress
+    },
+
     listType: function () {
       return this.$store.getters.getListType
+    },
+
+    effectiveListTypeIsList: function () {
+      return (this.listType === 'list' || this.forceListType === 'list') && this.forceListType !== 'grid'
     },
 
     thumbnailPreference: function () {
@@ -283,26 +298,30 @@ export default defineComponent({
             {
               label: this.$t('Video.Open Channel in Invidious'),
               value: 'openInvidiousChannel'
-            },
-            {
-              type: 'divider'
             }
           )
-
-          const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-          const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
-          if (channelShouldBeHidden) {
-            options.push({
-              label: this.$t('Video.Unhide Channel'),
-              value: 'unhideChannel'
-            })
-          } else {
-            options.push({
-              label: this.$t('Video.Hide Channel'),
-              value: 'hideChannel'
-            })
-          }
         }
+      }
+
+      if (this.channelId !== null) {
+        const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+        const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
+
+        options.push(
+          {
+            type: 'divider'
+          },
+
+          channelShouldBeHidden
+            ? {
+                label: this.$t('Video.Unhide Channel'),
+                value: 'unhideChannel'
+              }
+            : {
+                label: this.$t('Video.Hide Channel'),
+                value: 'hideChannel'
+              }
+        )
       }
 
       return options
@@ -342,6 +361,10 @@ export default defineComponent({
 
     addWatchedStyle: function () {
       return this.historyEntryExists && !this.inHistory
+    },
+
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
     },
 
     externalPlayer: function () {
@@ -416,11 +439,8 @@ export default defineComponent({
       return this.playlistIdTypePairFinal?.playlistItemId
     },
 
-    quickBookmarkPlaylistId() {
-      return this.$store.getters.getQuickBookmarkTargetPlaylistId
-    },
     quickBookmarkPlaylist() {
-      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+      return this.$store.getters.getQuickBookmarkPlaylist
     },
     isQuickBookmarkEnabled() {
       return this.quickBookmarkPlaylist != null
@@ -428,8 +448,15 @@ export default defineComponent({
     isInQuickBookmarkPlaylist: function () {
       if (!this.isQuickBookmarkEnabled) { return false }
 
+      // Accessing a reactive property has a negligible amount of overhead,
+      // however as we know that some users have playlists that have more than 10k items in them
+      // it adds up quickly, especially as there are usually lots of ft-list-video instances active at the same time.
+      // So create a temporary variable outside of the array, so we only have to do it once.
+      // Also the search is retriggered every time any playlist is modified.
+      const id = this.id
+
       return this.quickBookmarkPlaylist.videos.some((video) => {
-        return video.videoId === this.id
+        return video.videoId === id
       })
     },
     quickBookmarkIconText: function () {
@@ -461,14 +488,6 @@ export default defineComponent({
       return query
     },
 
-    currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
-    },
-
-    showAddToPlaylistPrompt: function () {
-      return this.$store.getters.getShowAddToPlaylistPrompt
-    },
-
     useDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
@@ -482,9 +501,6 @@ export default defineComponent({
     },
   },
   watch: {
-    historyEntry() {
-      this.checkIfWatched()
-    },
     showAddToPlaylistPrompt(value) {
       if (value) { return }
       // Execute on prompt close
@@ -495,7 +511,6 @@ export default defineComponent({
   },
   created: function () {
     this.parseVideoData()
-    this.checkIfWatched()
 
     if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
       this.fetchDeArrowData()
@@ -646,6 +661,8 @@ export default defineComponent({
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
+      this.is4k = this.data.is4k
+      this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 
@@ -667,48 +684,8 @@ export default defineComponent({
         if (this.inHistory) {
           this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
         } else {
-          const now = new Date().getTime()
-          // Convert from ms to second
-          // For easier code interpretation the value is made to be positive
-          let timeDiffFromNow = ((now - this.data.published) / 1000)
-          let timeUnit = 'second'
-
-          if (timeDiffFromNow >= 60) {
-            timeDiffFromNow /= 60
-            timeUnit = 'minute'
-          }
-
-          if (timeUnit === 'minute' && timeDiffFromNow >= 60) {
-            timeDiffFromNow /= 60
-            timeUnit = 'hour'
-          }
-
-          if (timeUnit === 'hour' && timeDiffFromNow >= 24) {
-            timeDiffFromNow /= 24
-            timeUnit = 'day'
-          }
-
-          const timeDiffFromNowDays = timeDiffFromNow
-
-          if (timeUnit === 'day' && timeDiffFromNow >= 7) {
-            timeDiffFromNow /= 7
-            timeUnit = 'week'
-          }
-
           // Use 30 days per month, just like calculatePublishedDate
-          if (timeUnit === 'week' && timeDiffFromNowDays >= 30) {
-            timeDiffFromNow = timeDiffFromNowDays / 30
-            timeUnit = 'month'
-          }
-
-          if (timeUnit === 'month' && timeDiffFromNow >= 12) {
-            timeDiffFromNow /= 12
-            timeUnit = 'year'
-          }
-
-          // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
-          // Notice that the value is turned to negative to be displayed as "ago"
-          this.uploadedTime = new Intl.RelativeTimeFormat([this.currentLocale, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+          this.uploadedTime = getRelativeTimeFromDate(this.data.published, false)
         }
       }
 
@@ -720,19 +697,6 @@ export default defineComponent({
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
         this.hideViews = true
-      }
-    },
-
-    checkIfWatched: function () {
-      if (this.historyEntryExists) {
-        const historyEntry = this.historyEntry
-
-        if (this.saveWatchedProgress) {
-          // For UX consistency, no progress reading if writing disabled
-          this.watchProgress = historyEntry.watchProgress
-        }
-      } else {
-        this.watchProgress = 0
       }
     },
 
@@ -759,8 +723,6 @@ export default defineComponent({
       this.removeFromHistory(this.id)
 
       showToast(this.$t('Video.Video has been removed from your history'))
-
-      this.watchProgress = 0
     },
 
     togglePlaylistPrompt: function () {
@@ -789,7 +751,7 @@ export default defineComponent({
 
     hideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      hiddenChannels.push(channelId)
+      hiddenChannels.push({ name: channelId, preferredName: channelName })
       this.updateChannelsHidden(JSON.stringify(hiddenChannels))
 
       showToast(this.$t('Channel Hidden', { channel: channelName }))
@@ -797,7 +759,7 @@ export default defineComponent({
 
     unhideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c.name !== channelId)))
 
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
@@ -820,14 +782,12 @@ export default defineComponent({
         title: this.title,
         author: this.channelName,
         authorId: this.channelId,
-        description: this.description,
-        viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
       }
 
-      this.addVideos({
+      this.addVideo({
         _id: this.quickBookmarkPlaylist._id,
-        videos: [videoData],
+        videoData,
       })
       // Update playlist's `lastUpdatedAt`
       this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
@@ -847,6 +807,17 @@ export default defineComponent({
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
+    moveVideoUp: function() {
+      this.$emit('move-video-up')
+    },
+
+    moveVideoDown: function() {
+      this.$emit('move-video-down')
+    },
+
+    removeFromPlaylist: function() {
+      this.$emit('remove-from-playlist')
+    },
 
     ...mapActions([
       'openInExternalPlayer',
@@ -854,7 +825,7 @@ export default defineComponent({
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
-      'addVideos',
+      'addVideo',
       'updatePlaylist',
       'removeVideo',
     ])

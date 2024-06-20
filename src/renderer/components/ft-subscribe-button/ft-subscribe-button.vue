@@ -17,6 +17,14 @@
         text-color="var(--text-with-main-color)"
         @click="handleSubscription"
       />
+      <ft-prompt
+        v-if="showUnsubscribePopupForProfile !== null"
+        :label="$t('Channels.Unsubscribe Prompt', { channelName: channelName })"
+        :option-names="[$t('Yes'), $t('No')]"
+        :option-values="['yes', 'no']"
+        :autosize="true"
+        @click="handleUnsubscribeConfirmation"
+      />
       <ft-button
         v-if="isProfileDropdownEnabled"
         :no-border="true"
@@ -63,7 +71,7 @@
               <div
                 class="initial"
               >
-                {{ isProfileSubscribed(profile) ? '✓' : profileInitials[index] }}
+                {{ isProfileSubscribed(profile) ? $t('checkmark') : profileInitials[index] }}
               </div>
             </div>
             <p

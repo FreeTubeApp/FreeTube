@@ -7,13 +7,24 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
   getLocalPlaylist,
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
-import { extractNumberFromString, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import {
+  extractNumberFromString,
+  getIconForSortPreference,
+  setPublishedTimestampsInvidious,
+  showToast,
+} from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
+import packageDetails from '../../../../package.json'
+import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
 export default defineComponent({
   name: 'Playlist',
@@ -23,16 +34,19 @@ export default defineComponent({
     'playlist-info': PlaylistInfo,
     'ft-list-video-numbered': FtListVideoNumbered,
     'ft-flex-box': FtFlexBox,
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-element-list': FtElementList,
+    'ft-select': FtSelect,
+    'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
   },
   beforeRouteLeave(to, from, next) {
-    if (!this.isLoading && !this.isUserPlaylistRequested && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
         title: this.playlistTitle,
         channelName: this.channelName,
         channelId: this.channelId,
-        items: this.playlistItems,
+        items: this.sortedPlaylistItems,
         continuationData: this.continuationData,
       })
     }
@@ -59,8 +73,8 @@ export default defineComponent({
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
+      forceListView: false,
 
-      playlistInVideoSearchMode: false,
       videoSearchQuery: '',
 
       promptOpen: false,
@@ -76,11 +90,20 @@ export default defineComponent({
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
+    userPlaylistSortOrder: function () {
+      return this.$store.getters.getUserPlaylistSortOrder
+    },
+    sortOrder: function () {
+      return this.isUserPlaylistRequested ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
+    },
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
     playlistId: function() {
       return this.$route.params.id
+    },
+    listType: function () {
+      return this.isUserPlaylistRequested && !this.forceListView ? this.$store.getters.getListType : 'list'
     },
     userPlaylistsReady: function () {
       return this.$store.getters.getPlaylistsReady
@@ -112,12 +135,11 @@ export default defineComponent({
         return this.continuationData !== null
       }
     },
-
-    searchVideoModeAllowed() {
-      return this.isUserPlaylistRequested
+    playlistInVideoSearchMode() {
+      return this.processedVideoSearchQuery !== ''
     },
     searchQueryTextRequested() {
-      return this.$route.query.searchQueryText
+      return this.$route.query.searchQueryText ?? ''
     },
     searchQueryTextPresent() {
       const searchQueryText = this.searchQueryTextRequested
@@ -138,17 +160,32 @@ export default defineComponent({
     },
 
     sometimesFilteredUserPlaylistItems() {
-      if (!this.isUserPlaylistRequested) { return this.playlistItems }
-      if (this.processedVideoSearchQuery === '') { return this.playlistItems }
+      if (!this.isUserPlaylistRequested) { return this.sortedPlaylistItems }
+      if (this.processedVideoSearchQuery === '') { return this.sortedPlaylistItems }
 
-      return this.playlistItems.filter((v) => {
-        return v.title.toLowerCase().includes(this.processedVideoSearchQuery)
+      return this.sortedPlaylistItems.filter((v) => {
+        if (typeof (v.title) === 'string' && v.title.toLowerCase().includes(this.processedVideoSearchQuery)) {
+          return true
+        } else if (typeof (v.author) === 'string' && v.author.toLowerCase().includes(this.processedVideoSearchQuery)) {
+          return true
+        }
+
+        return false
       })
+    },
+    sortByValues() {
+      return Object.values(SORT_BY_VALUES)
+    },
+    isSortOrderCustom() {
+      return this.sortOrder === SORT_BY_VALUES.Custom
+    },
+    sortedPlaylistItems: function () {
+      return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
       if (!this.isUserPlaylistRequested) {
         // No filtering for non user playlists yet
-        return this.playlistItems
+        return this.sortedPlaylistItems
       }
 
       if (this.userPlaylistVisibleLimit < this.sometimesFilteredUserPlaylistItems.length) {
@@ -159,6 +196,32 @@ export default defineComponent({
     },
     processedVideoSearchQuery() {
       return this.videoSearchQuery.trim().toLowerCase()
+    },
+    sortBySelectNames() {
+      return this.sortByValues.map((k) => {
+        switch (k) {
+          case SORT_BY_VALUES.Custom:
+            return this.$t('Playlist.Sort By.Custom')
+          case SORT_BY_VALUES.DateAddedNewest:
+            return this.$t('Playlist.Sort By.DateAddedNewest')
+          case SORT_BY_VALUES.DateAddedOldest:
+            return this.$t('Playlist.Sort By.DateAddedOldest')
+          case SORT_BY_VALUES.VideoTitleAscending:
+            return this.$t('Playlist.Sort By.VideoTitleAscending')
+          case SORT_BY_VALUES.VideoTitleDescending:
+            return this.$t('Playlist.Sort By.VideoTitleDescending')
+          case SORT_BY_VALUES.AuthorAscending:
+            return this.$t('Playlist.Sort By.AuthorAscending')
+          case SORT_BY_VALUES.AuthorDescending:
+            return this.$t('Playlist.Sort By.AuthorDescending')
+          default:
+            console.error(`Unknown sort: ${k}`)
+            return k
+        }
+      })
+    },
+    sortBySelectValues() {
+      return this.sortByValues
     },
   },
   watch: {
@@ -193,13 +256,17 @@ export default defineComponent({
   created: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
 
-    if (this.searchVideoModeAllowed && this.searchQueryTextPresent) {
-      this.playlistInVideoSearchMode = true
+    if (this.isUserPlaylistRequested && this.searchQueryTextPresent) {
       this.videoSearchQuery = this.searchQueryTextRequested
     }
   },
   mounted: function () {
     this.getPlaylistInfoDebounce()
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     getPlaylistInfo: function () {
@@ -242,7 +309,7 @@ export default defineComponent({
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
         this.playlistThumbnail = result.info.thumbnails[0].url
-        this.viewCount = extractNumberFromString(result.info.views)
+        this.viewCount = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
         this.lastUpdated = result.info.last_updated ?? ''
         this.channelName = channelName ?? ''
@@ -266,6 +333,8 @@ export default defineComponent({
         // To workaround the effect of useless continuation data
         // auto load next page again when no. of parsed items < page size
         if (shouldGetNextPage) { this.getNextPageLocal() }
+
+        this.updatePageTitle()
 
         this.isLoading = false
       }).catch((err) => {
@@ -304,10 +373,12 @@ export default defineComponent({
 
         this.playlistItems = result.videos
 
+        this.updatePageTitle()
+
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
           console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {
@@ -338,6 +409,8 @@ export default defineComponent({
       this.infoSource = 'user'
 
       this.playlistItems = playlist.videos
+
+      this.updatePageTitle()
 
       this.isLoading = false
     },
@@ -477,9 +550,26 @@ export default defineComponent({
       }
     },
 
+    updatePageTitle() {
+      const playlistTitle = this.playlistTitle
+      const channelName = this.channelName
+      const titleText = [
+        playlistTitle,
+        channelName,
+      ].filter(v => v).join(' | ')
+      document.title = `${titleText} - ${packageDetails.productName}`
+    },
+
+    handleResize: function () {
+      this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
+
     ...mapActions([
       'updateSubscriptionDetails',
       'updatePlaylist',
+      'updateUserPlaylistSortOrder',
       'removeVideo',
     ]),
 
