@@ -16,3 +16,9 @@
     grid-template-columns: repeat(5, minmax(262px, 1fr));
   }
 }
+
+@media (width >= 2000px) {
+  .autoGrid {
+    grid-template-columns: repeat(6, minmax(262px, 1fr));
+  }
+}
