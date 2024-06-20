@@ -24,13 +24,6 @@ h2 {
 }
 
 .card {
-  inline-size: 85%;
   margin-block: 0 15px;
   margin-inline: auto;
-}
-
-@media only screen and (width <= 680px) {
-  .card {
-    inline-size: 90%;
-  }
 }
