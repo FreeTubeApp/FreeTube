@@ -11,7 +11,7 @@
 }
 
 /* Cap grid column width at 5 for larger viewports */
-@media (width >= 1280px) {
+@media (width >= 1475px) {
   .autoGrid {
     grid-template-columns: repeat(5, minmax(262px, 1fr));
   }
