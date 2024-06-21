@@ -10,6 +10,12 @@
   grid-gap: 4px;
 }
 
+@media (width >= 1514px) {
+  .autoList {
+    justify-content: center;
+  }
+}
+
 /* Cap grid column width at 5 for larger viewports */
 @media (width >= 1605px) {
   .autoGrid {
