@@ -52,6 +52,18 @@
   opacity: 0;
 }
 
+/* align banner with ft-card width using identical styling rules */
+@media only screen and (width > 680px) {
+  .isSideNavOpen .banner {
+    max-inline-size: min(calc(100vw + -262px), 2800px);
+  }
+
+  .hideLabelsSideBar .banner {
+    max-inline-size: min(calc(100vw + -122px), 2800px);
+  }
+}
+
+
 @media only screen and (width <= 680px) {
   .routerView {
     margin-block: 68px;
@@ -59,7 +71,7 @@
   }
 
   .banner {
-    inline-size: 90%;
+    max-inline-size: calc(100vw - 64px);
     margin-block: 60px 0;
   }
 
