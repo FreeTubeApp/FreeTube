@@ -41,7 +41,16 @@
   }
 }
 
-.playlistTitle, .playlistDescription {
+.isSideNavOpen {
+  .playlistTitle, .playlistDescription {
+    @media only screen and (width >= 1162px) {
+      /* Approximate max size before untruncated title starts breaking list view desktop interface with side nav open */
+      max-inline-size: 28vw;
+    }
+  }
+}
+
+.app:not(.isSideNavOpen) .playlistTitle, .app:not(.isSideNavOpen) .playlistDescription {
   inline-size: 100%;
   margin-block: 8px;
   max-inline-size: 70vw;
@@ -102,10 +111,14 @@
     text-align: center;
   }
 
+
+
+  /* stylelint-disable-next-line no-descending-specificity */
   .playlistTitle {
     margin-block-start: 0.2em;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .playlistTitle, .playlistDescription {
     text-align: center;
 

@@ -1,5 +1,27 @@
 @use '../../scss-partials/utils';
 
+@mixin single-column-list-view {
+  .routerView {
+    flex-direction: column;
+
+    &.list {
+      .playlistInfoContainer {
+        box-sizing: border-box;
+        position: relative;
+        inset-block-start: 0;
+        block-size: auto;
+        inline-size: 100%;
+        margin-inline: 0;
+      }
+
+      .playlistItemsCard {
+        box-sizing: border-box;
+        inline-size: 100%;
+      }
+    }
+  }
+}
+
 .playlistItemsCard {
   display: flex;
   flex-direction: column;
@@ -73,6 +95,7 @@
       block-size: calc(100vh - 132px);
       min-inline-size: 30%;
       inset-block-start: 96px;
+      margin-block: 0;
       margin-inline-end: 1em;
       position: sticky;
 
@@ -134,25 +157,14 @@
   margin-block: auto;
 }
 
-@media only screen and (width <= 910px) {
-  .routerView {
-    flex-direction: column;
-
-    &.list {
-      .playlistInfoContainer {
-        box-sizing: border-box;
-        position: relative;
-        inset-block-start: 0;
-        block-size: auto;
-        inline-size: 100%;
-      }
-
-      .playlistItemsCard {
-        box-sizing: border-box;
-        inline-size: 100%;
-      }
-    }
+.isSideNavOpen {
+  @media only screen and (width <= 1162px) {
+    @include single-column-list-view;
   }
+}
+
+@media only screen and (width <= 910px) {
+  @include single-column-list-view;
 }
 
 .message {
