@@ -1183,7 +1183,7 @@ Close Banner: Sulge rekaampilt
 checkmark: ✓
 Display Label: '{label}: {value}'
 Feed:
-  Feed Last Updated: '{feedName} tellimustevoo viimane uuendus: {date}'
+  Feed Last Updated: 'Tellimustevoo „{feedName}“ viimane uuendus: {date}'
   Refresh Feed: Uuenda {subscriptionName} andmed
 Moments Ago: hetk tagasi
 Yes, Restart: Jah, käivita uuesti
