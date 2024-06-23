@@ -382,7 +382,7 @@ Settings:
       Solarized Green: Solarizovaná zelená
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
-    Hide Side Bar Labels: Skrýt štítky na bočním panelu
+    Hide Side Bar Labels: Skrýt popisky na bočním panelu
     Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
@@ -1230,7 +1230,7 @@ Display Label: '{label}: {value}'
 Feed:
   Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
   Refresh Feed: Obnovit {subscriptionName}
-Moments Ago: chvílí
+Moments Ago: před chvílí
 Yes, Delete: Ano, odstranit
 Yes, Restart: Ano, restartovat
 Yes, Open Link: Ano, otevřít odkaz
