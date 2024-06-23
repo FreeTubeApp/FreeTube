@@ -53,6 +53,11 @@ const DBActions = {
     UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
 
+  PROFILES: {
+    ADD_CHANNEL: 'db-action-profiles-add-channel',
+    REMOVE_CHANNEL: 'db-action-profiles-remove-channel'
+  },
+
   PLAYLISTS: {
     UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
     UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
@@ -73,6 +78,11 @@ const SyncEvents = {
   HISTORY: {
     UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
     UPDATE_PLAYLIST: 'sync-history-update-playlist',
+  },
+
+  PROFILES: {
+    ADD_CHANNEL: 'sync-profiles-add-channel',
+    REMOVE_CHANNEL: 'sync-profiles-remove-channel'
   },
 
   PLAYLISTS: {
@@ -96,9 +106,6 @@ const SEARCH_CHAR_LIMIT = 100
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-// Displayed on the about page and used in the main.js file to only allow monero URLs with this wallet address to be opened
-const ABOUT_MONERO_ADDRESS = '48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB'
-
 export {
   IpcChannels,
   DBActions,
@@ -108,5 +115,4 @@ export {
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
   SEARCH_CHAR_LIMIT,
   ABOUT_BITCOIN_ADDRESS,
-  ABOUT_MONERO_ADDRESS
 }

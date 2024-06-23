@@ -11,7 +11,6 @@ import {
   DBActions,
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
-  ABOUT_MONERO_ADDRESS
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -842,8 +841,7 @@ function runApp() {
         parsedURL.protocol === 'tel:' ||
 
         // Donation links on the about page
-        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS) ||
-        (parsedURL.protocol === 'monero:' && parsedURL.pathname === ABOUT_MONERO_ADDRESS)
+        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS)
       ) {
         shell.openExternal(url)
         return true
@@ -1081,6 +1079,24 @@ function runApp() {
             IpcChannels.SYNC_PROFILES,
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.PROFILES.ADD_CHANNEL:
+          await baseHandlers.profiles.addChannelToProfiles(data.channel, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.ADD_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.PROFILES.REMOVE_CHANNEL:
+          await baseHandlers.profiles.removeChannelFromProfiles(data.channelId, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.REMOVE_CHANNEL, data }
           )
           return null
 
