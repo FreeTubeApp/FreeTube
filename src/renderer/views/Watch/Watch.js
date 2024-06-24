@@ -1318,10 +1318,13 @@ export default defineComponent({
               this.customErrorIcon = ['fas', 'clock']
               return
             }
+
+            this.handleWatchProgress()
+
             if (this.videoGenreIsMusic) {
-              // IP block or music video with different IP
+              this.errorMessage = '[BAD_HTTP_STATUS: 403] Potential causes: IP block, streaming URL deciphering failed or music video geo-block'
             } else {
-              // IP block
+              this.errorMessage = '[BAD_HTTP_STATUS: 403] Potential causes: IP block or streaming URL deciphering failed'
             }
             return
         }
