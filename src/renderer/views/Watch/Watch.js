@@ -1293,13 +1293,7 @@ export default defineComponent({
      * @param {import('shaka-player/dist/shaka-player.ui').default.util.Error} error
      */
     handlePlayerError: function (error) {
-      // the error is logged to the console inside the player
-      // it's passed up here in case we want to do specific things based on the error
-
-      // Add error messages for:
-      // - ratelimit (429)
-      // - music video on different IP (this.videoGenreIsMusic + 403)
-      // - IP block (403)
+      // the error is logged to the console inside the player so we don't have to do it here
 
       const { Code } = shaka.util.Error
 
