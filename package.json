@@ -120,7 +120,7 @@
     "sass-loader": "^14.2.1",
     "stylelint": "^16.6.1",
     "stylelint-config-sass-guidelines": "^11.1.0",
-    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard": "^36.0.1",
     "stylelint-high-performance-animation": "^1.10.0",
     "stylelint-use-logical-spec": "^5.0.1",
     "tree-kill": "1.2.2",
