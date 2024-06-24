@@ -286,6 +286,7 @@ export default defineComponent({
        *   endTime: number
        * }[]} */
       sponsorBlockSegments: [],
+      sponsorBlockAverageVideoDuration: 0,
 
       /**
        * Yes a map would be much more suitable for this (unlike objects they retain the order that items were inserted),
@@ -951,6 +952,7 @@ export default defineComponent({
 
       if (segments.length > 0) {
         this.sponsorBlockSegments = segments
+        this.sponsorBlockAverageVideoDuration = averageDuration
 
         this.createSponsorBlockMarkers(segments, averageDuration)
       }
@@ -1370,10 +1372,17 @@ export default defineComponent({
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       controlsContainer.appendChild(fullscreenTitleOverlay)
 
-      if (this.useSponsorBlock && this.sponsorBlockSegments.length > 0 && this.hasLoaded) {
-        const seekRange = this.nonReactive.player.seekRange()
+      if (this.useSponsorBlock && this.sponsorBlockSegments.length > 0) {
+        let duration
+        if (this.hasLoaded) {
+          const seekRange = this.nonReactive.player.seekRange()
 
-        this.createSponsorBlockMarkers(this.sponsorBlockSegments, seekRange.end - seekRange.start)
+          duration = seekRange.end - seekRange.start
+        } else {
+          duration = this.sponsorBlockAverageVideoDuration
+        }
+
+        this.createSponsorBlockMarkers(this.sponsorBlockSegments, duration)
       }
     },
 
@@ -2178,7 +2187,7 @@ export default defineComponent({
         markerBar.appendChild(markerDiv)
       })
 
-      const seekBarContainer = document.querySelector('.shaka-seek-bar-container')
+      const seekBarContainer = this.$refs.container.querySelector('.shaka-seek-bar-container')
       seekBarContainer.insertBefore(markerBar, seekBarContainer.childNodes[0])
     },
 
