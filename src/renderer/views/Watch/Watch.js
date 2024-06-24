@@ -1297,24 +1297,27 @@ export default defineComponent({
       // it's passed up here in case we want to do specific things based on the error
 
       // Add error messages for:
-      // - URLs expired ['fas', 'clock']
       // - ratelimit (429)
       // - music video on different IP (this.videoGenreIsMusic + 403)
       // - IP block (403)
-
-      // customise based on:
-      // - API used
-      // - Proxy Videos Through Invidious
-      // - is a proxy/tor configued (useProxy)
 
       const { Code } = shaka.util.Error
 
       if (error.code === Code.BAD_HTTP_STATUS) {
         switch (error.data[1]) {
           case 429:
-            // ratelimit
+            this.handleWatchProgress()
+
+            this.errorMessage = '[BAD_HTTP_STATUS: 429] Ratelimited'
             return
           case 403:
+            if (new Date() > this.streamingDataExpiryDate) {
+              this.handleWatchProgress()
+
+              this.errorMessage = '[BAD_HTTP_STATUS: 403] YouTube watch session expired. Please reopen this video.'
+              this.customErrorIcon = ['fas', 'clock']
+              return
+            }
             if (this.videoGenreIsMusic) {
               // IP block or music video with different IP
             } else {
@@ -1324,8 +1327,13 @@ export default defineComponent({
         }
       } else if (error.code === Code.VIDEO_ERROR) {
         if (this.activeFormat === 'legacy') {
-          // IP block or music video with different IP for API request vs media requests
-          return
+          if (new Date() > this.streamingDataExpiryDate) {
+            this.handleWatchProgress()
+
+            this.errorMessage = '[VIDEO_ERROR] YouTube watch session expired. Please reopen this video.'
+            this.customErrorIcon = ['fas', 'clock']
+            return
+          }
         }
       }
 
