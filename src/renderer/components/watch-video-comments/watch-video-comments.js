@@ -133,7 +133,7 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile.subscriptions
     }
   },
-  mounted: function () {
+  created: function () {
     // region No comment detection
     // For videos without any comment (comment disabled?)
     // e.g. https://youtu.be/8NBSwDEf8a8
