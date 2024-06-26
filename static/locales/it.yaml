@@ -475,7 +475,7 @@ Settings:
     Fetch Automatically: Recupera i feed automaticamente
     Only Show Latest Video for Each Channel: Mostra solo il video più recente per
       ciascun canale
-    Confirm before unsubscribing: Evita la cancellazione accidentale dell'iscrizione
+    Confirm Before Unsubscribing: Evita la cancellazione accidentale dell'iscrizione
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore

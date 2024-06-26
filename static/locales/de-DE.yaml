@@ -463,7 +463,7 @@ Settings:
     Fetch Automatically: Feed automatisch abrufen
     Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
       anzeigen
-    Confirm before unsubscribing: Unbeabsichtigtes Deabonnieren vermeiden
+    Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren vermeiden
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
