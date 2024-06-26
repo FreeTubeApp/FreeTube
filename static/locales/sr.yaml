@@ -476,7 +476,7 @@ Settings:
     Fetch Automatically: Аутоматски прикупи фид
     Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
       сваки канал
-    Avoid Accidental Unsubscription: Избегни случајно отпраћивање
+    Confirm before unsubscribing: Избегни случајно отпраћивање
   Distraction Free Settings:
     Distraction Free Settings: 'Подешавања „Без ометања“'
     Hide Video Views: 'Сакриј прегледе видео снимка'

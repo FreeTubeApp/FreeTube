@@ -479,7 +479,7 @@ Settings:
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
       a csatornáktól
-    Avoid Accidental Unsubscription: Kerülje el a véletlen leiratkozást
+    Confirm before unsubscribing: Kerülje el a véletlen leiratkozást
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálási típus kiválasztása'

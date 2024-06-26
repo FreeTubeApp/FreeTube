@@ -35,7 +35,7 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Avoid Accidental Unsubscription')"
+          :label="$t('Settings.Subscription Settings.Confirm before unsubscribing')"
           :default-value="unsubscriptionPopupStatus"
           :compact="true"
           @change="updateUnsubscriptionPopupStatus"

@@ -465,7 +465,7 @@ Settings:
     Manage Subscriptions: 'Halda tellimusi'
     Fetch Automatically: Laadi tellimuste voog automaatselt
     Only Show Latest Video for Each Channel: Iga kanali puhul näita vaid viimast videot
-    Avoid Accidental Unsubscription: Väldi ekslikku ja juhuslikku tellimusest loobumist
+    Confirm before unsubscribing: Väldi ekslikku ja juhuslikku tellimusest loobumist
   Data Settings:
     Data Settings: 'Andmehaldus'
     Select Import Type: 'Vali imporditava faili vorming'

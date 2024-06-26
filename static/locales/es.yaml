@@ -470,7 +470,7 @@ Settings:
     Fetch Automatically: Obtener los feed automáticamente
     Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
       canal
-    Avoid Accidental Unsubscription: Evitar bajas accidentales
+    Confirm before unsubscribing: Evitar bajas accidentales
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
