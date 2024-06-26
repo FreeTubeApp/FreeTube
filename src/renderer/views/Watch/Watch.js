@@ -1408,9 +1408,9 @@ export default defineComponent({
       this.handleWatchProgress()
 
       if (!this.isUpcoming && !this.isLoading) {
-        const player = this.$refs.videoPlayer.player
+        const player = this.$refs.videoPlayer?.player
 
-        if (player !== null && !player.paused() && player.isInPictureInPicture()) {
+        if (player && !player.paused() && player.isInPictureInPicture()) {
           setTimeout(() => {
             player.play()
             player.on('leavepictureinpicture', (event) => {
