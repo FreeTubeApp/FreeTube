@@ -470,7 +470,7 @@ Settings:
     Fetch Automatically: Eskuratu jarioa automatikoki
     Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
       bideoa
-    Avoid Accidental Unsubscription: Saihestu ustekabeko harpidetza kentzea
+    Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
