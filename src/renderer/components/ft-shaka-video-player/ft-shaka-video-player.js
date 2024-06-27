@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { computed, defineComponent, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
 import 'shaka-player/dist/controls.css'
 
@@ -172,7 +172,7 @@ export default defineComponent({
     }
 
     const showStats = ref(false)
-    const stats = ref({
+    const stats = reactive({
       resolution: {
         width: 0,
         height: 0,
@@ -1151,7 +1151,7 @@ export default defineComponent({
       }
 
       if (showStats.value) {
-        stats.value.volume = (video_.volume * 100).toFixed(1)
+        stats.volume = (video_.volume * 100).toFixed(1)
       }
     }
 
@@ -1373,14 +1373,14 @@ export default defineComponent({
       /** @type {HTMLVideoElement} */
       const video_ = video.value
 
-      stats.value.volume = (video_.volume * 100).toFixed(1)
+      stats.volume = (video_.volume * 100).toFixed(1)
 
       if (props.format === 'legacy') {
         updateLegacyQualityStats(activeLegacyFormat.value)
       }
 
       const playerDimensions = video_.getBoundingClientRect()
-      stats.value.playerDimensions = {
+      stats.playerDimensions = {
         width: playerDimensions.width.toFixed(0),
         height: playerDimensions.height.toFixed(0)
       }
@@ -1424,20 +1424,20 @@ export default defineComponent({
         return
       }
 
-      stats.value.bitrate = (newTrack.bandwidth / 1000).toFixed(2)
+      stats.bitrate = (newTrack.bandwidth / 1000).toFixed(2)
 
       // for videos with multiple audio tracks, youtube.js appends the track id to the itag, to make it unique
-      stats.value.codecs.audioItag = newTrack.originalAudioId.split('-')[0]
-      stats.value.codecs.audioCodec = newTrack.audioCodec
+      stats.codecs.audioItag = newTrack.originalAudioId.split('-')[0]
+      stats.codecs.audioCodec = newTrack.audioCodec
 
       if (props.format === 'dash') {
-        stats.value.resolution.frameRate = newTrack.frameRate
+        stats.resolution.frameRate = newTrack.frameRate
 
-        stats.value.codecs.videoItag = newTrack.originalVideoId
-        stats.value.codecs.videoCodec = newTrack.videoCodec
+        stats.codecs.videoItag = newTrack.originalVideoId
+        stats.codecs.videoCodec = newTrack.videoCodec
 
-        stats.value.resolution.width = newTrack.width
-        stats.value.resolution.height = newTrack.height
+        stats.resolution.width = newTrack.width
+        stats.resolution.height = newTrack.height
       }
     }
 
@@ -1450,15 +1450,15 @@ export default defineComponent({
 
       const codecsMatch = mimeType.match(/codecs="(?<videoCodec>.+), ?(?<audioCodec>.+)"/)
 
-      stats.value.codecs.audioItag = itag
-      stats.value.codecs.audioCodec = codecsMatch.groups.audioCodec
+      stats.codecs.audioItag = itag
+      stats.codecs.audioCodec = codecsMatch.groups.audioCodec
 
-      stats.value.codecs.videoItag = itag
-      stats.value.codecs.videoCodec = codecsMatch.groups.videoCodec
+      stats.codecs.videoItag = itag
+      stats.codecs.videoCodec = codecsMatch.groups.videoCodec
 
-      stats.value.resolution.frameRate = fps
+      stats.resolution.frameRate = fps
 
-      stats.value.bitrate = (bitrate / 1000).toFixed(2)
+      stats.bitrate = (bitrate / 1000).toFixed(2)
 
       if (typeof width === 'undefined' || typeof height === 'undefined') {
         // Invidious doesn't provide any height or width information for their legacy formats, so lets read it from the video instead
@@ -1466,25 +1466,25 @@ export default defineComponent({
         const video_ = video.value
 
         if (hasLoaded.value) {
-          stats.value.resolution.width = video_.videoWidth
-          stats.value.resolution.height = video_.videoHeight
+          stats.resolution.width = video_.videoWidth
+          stats.resolution.height = video_.videoHeight
         } else {
           video_.addEventListener('loadeddata', () => {
-            stats.value.resolution.width = video_.videoWidth
-            stats.value.resolution.height = video_.videoHeight
+            stats.resolution.width = video_.videoWidth
+            stats.resolution.height = video_.videoHeight
           }, {
             once: true
           })
         }
       } else {
-        stats.value.resolution.width = width
-        stats.value.resolution.height = height
+        stats.resolution.width = width
+        stats.resolution.height = height
       }
     }
 
     function updateStats() {
       const playerDimensions = video.value.getBoundingClientRect()
-      stats.value.playerDimensions = {
+      stats.playerDimensions = {
         width: playerDimensions.width.toFixed(0),
         height: playerDimensions.height.toFixed(0)
       }
@@ -1492,7 +1492,7 @@ export default defineComponent({
       const playerStats = player.getStats()
 
       if (props.format !== 'audio') {
-        stats.value.frames = {
+        stats.frames = {
           droppedFrames: playerStats.droppedFrames,
           totalFrames: playerStats.decodedFrames
         }
@@ -1501,7 +1501,7 @@ export default defineComponent({
       if (props.format !== 'legacy') {
         // estimated bandwidth is NaN for legacy, as none of the requests go through shaka,
         // so it has no way to estimate the bandwidth
-        stats.value.bandwidth = (playerStats.estimatedBandwidth / 1000).toFixed(2)
+        stats.bandwidth = (playerStats.estimatedBandwidth / 1000).toFixed(2)
       }
 
       let bufferedSeconds = 0
@@ -1515,7 +1515,7 @@ export default defineComponent({
       const seekRange = player.seekRange()
       const duration = seekRange.end - seekRange.start
 
-      stats.value.buffered = ((bufferedSeconds / duration) * 100).toFixed(2)
+      stats.buffered = ((bufferedSeconds / duration) * 100).toFixed(2)
     }
 
     watch(showStats, (newValue) => {
