@@ -191,6 +191,11 @@ User Playlists:
     Select a playlist to add your N videos to: Select a playlist to add your video
       to | Select a playlist to add your {videoCount} videos to
     Added {count} Times: Already Added | Added {count} times
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      videos will be added'
+    Allow Adding Duplicate Video(s): Allow adding duplicate video(s)
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      videos already added'
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist name
     Create: Create
@@ -218,6 +223,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Enable quick bookmark with this playlist
   Disable Quick Bookmark: Disable quick bookmark
   Playlists with Matching Videos: Playlists with matching videos
+  Quick Bookmark Enabled: Quick bookmark enabled
 History:
   # On History Page
   History: 'History'
@@ -274,6 +280,8 @@ Settings:
       Ask Before Opening Link: Ask before opening link
       Open Link: Open link
       External Link Handling: External link handling
+    Auto Load Next Page:
+      Label: Auto load next page
   Theme Settings:
     Theme Settings: 'Theme settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -427,6 +435,7 @@ Settings:
     Manage Subscriptions: 'Manage subscriptions'
     Fetch Automatically: Fetch feed automatically
     Only Show Latest Video for Each Channel: Only show latest video for each channel
+    Confirm Before Unsubscribing: Confirm before unsubscribing
   Data Settings:
     Data Settings: 'Data settings'
     Select Import Type: 'Select import type'
@@ -625,6 +634,7 @@ Settings:
     Password Settings: Password settings
     Set Password: Set password
   Expand All Settings Sections: Expand all settings sections
+  Sort Settings Sections (A-Z): Sort settings sections (A-Z)
 About:
   #On About page
   About: About
@@ -663,6 +673,8 @@ About:
   Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
   Discussions: Discussions
+  Licensed under the: Licensed under the
+  AGPLv3: AGPLv3
 Profile:
   Profile Settings: Profile Settings
   Profile Select: 'Profile Select'
@@ -943,6 +955,8 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    Sort By: Sort by
 Toggle Theatre Mode: 'Toggle Theatre Mode'
 Change Format:
   Change Media Formats: 'Change Media Formats'
@@ -1161,3 +1175,5 @@ Trimmed input must be at least N characters long: Trimmed input must be at least
 Yes, Delete: Yes, delete
 Yes, Restart: Yes, restart
 Yes, Open Link: Yes, open link
+'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL:
+  ‘{url}’.'
