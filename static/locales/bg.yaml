@@ -471,7 +471,7 @@ Settings:
     Fetch Automatically: Автоматично извличане на съдържание
     Only Show Latest Video for Each Channel: Показване само най-новите видеа за всеки
       канал
-    Avoid Accidental Unsubscription: Избягване на случайно отписване
+    Confirm Before Unsubscribing: Избягване на случайно отписване
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'

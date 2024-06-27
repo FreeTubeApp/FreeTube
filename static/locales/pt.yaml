@@ -461,7 +461,7 @@ Settings:
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
-    Avoid Accidental Unsubscription: Impedir cancelamento acidental de subscrições
+    Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Selecione o tipo de importação'
