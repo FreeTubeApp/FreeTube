@@ -1318,5 +1318,5 @@ Search Listing:
     4K: 4K
     Closed Captions: Geschlossene Untertitel
     Subtitles: Untertitel
-'Blocked opening potentially unsafe URL': Das Öffnen einer potenziell unsicheren URL
-  wurde blockiert:"{url}".
+'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
+  URL wurde blockiert: „{url}“.'
