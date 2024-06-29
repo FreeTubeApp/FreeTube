@@ -599,7 +599,7 @@ Settings:
       Subscriptions Page: Feliratkozások oldal
     Hide Channel Podcasts: Csatornapodcastok elrejtése
     Hide Channel Releases: Csatornakiadások elrejtése
-    Hide Subscriptions Shorts: Feliratkozások rövidfilmek elrejtése
+    Hide Subscriptions Shorts: Feliratkozásos rövidfilmek elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Blur Thumbnails: Indexkép elhomályosítása
@@ -631,7 +631,7 @@ Settings:
     Proxy Host: Proxy gazdaszámítógép
     Proxy Protocol: Proxy protokoll
     Enable Tor / Proxy: Tor/Proxy engedélyezése
-    Proxy Settings: Meghatalmazás beállításai
+    Proxy Settings: Proxy beállítások
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
   SponsorBlock Settings:
@@ -691,7 +691,7 @@ Settings:
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
-  Expand All Settings Sections: Beállítások kiterjesztése
+  Expand All Settings Sections: Beállítások kibontása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
