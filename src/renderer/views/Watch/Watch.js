@@ -1100,9 +1100,9 @@ export default defineComponent({
 
     handleWatchProgress: function () {
       if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
-        const player = this.$refs.videoPlayer.player
+        const player = this.$refs.videoPlayer?.player
 
-        if (player !== null && this.saveWatchedProgress) {
+        if (player && this.saveWatchedProgress) {
           const currentTime = this.getWatchedProgress()
           const payload = {
             videoId: this.videoId,
@@ -1339,7 +1339,7 @@ export default defineComponent({
         return
       }
 
-      if (this.watchingPlaylist && this.$refs.watchVideoPlaylist.shouldStopDueToPlaylistEnd) {
+      if (this.watchingPlaylist && this.$refs.watchVideoPlaylist && this.$refs.watchVideoPlaylist.shouldStopDueToPlaylistEnd) {
         // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
         this.$refs.watchVideoPlaylist.playNextVideo()
         return
@@ -1359,8 +1359,8 @@ export default defineComponent({
 
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(() => {
-        const player = this.$refs.videoPlayer.player
-        if (player !== null && player.paused()) {
+        const player = this.$refs.videoPlayer?.player
+        if (player && player.paused()) {
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           } else {
