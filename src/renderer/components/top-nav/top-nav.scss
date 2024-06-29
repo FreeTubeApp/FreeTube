@@ -23,7 +23,7 @@
 
   @media only screen and (width >= 961px) {
     display: grid;
-    grid-template-columns: 1.2fr 1.5fr .8fr;
+    grid-template-columns: 1fr 720px 1fr;
   }
 
   @include top-nav-is-colored {
