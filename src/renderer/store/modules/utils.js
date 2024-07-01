@@ -969,6 +969,16 @@ const mutations = {
 
   setExternalPlayerCmdArguments (state, value) {
     state.externalPlayerCmdArguments = value
+  },
+
+  setSearchSettingsToDefault (state) {
+    state.searchSettings = {
+      sortBy: 'relevance',
+      time: '',
+      type: 'all',
+      duration: '',
+      features: []
+    }
   }
 }
 

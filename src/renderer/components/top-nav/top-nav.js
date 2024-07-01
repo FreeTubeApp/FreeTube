@@ -104,11 +104,14 @@ export default defineComponent({
     }
   },
   watch: {
-    $route: function () {
+    $route () {
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
+      // Reset filters if route changes
+      this.$store.commit('setSearchSettingsToDefault')
+      this.$store.commit('setSearchFilterValueChanged', false)
     }
   },
   mounted: function () {

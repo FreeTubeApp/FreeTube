@@ -133,6 +133,9 @@ export default defineComponent({
             break
         }
       }
+      // Reset filters after search
+      this.$store.commit('setSearchSettingsToDefault')
+      this.$store.commit('setSearchFilterValueChanged', false)
     },
 
     performSearchLocal: async function (payload) {
