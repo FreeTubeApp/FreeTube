@@ -77,13 +77,6 @@ h3 {
 }
 
 .card {
-  inline-size: 85%;
   margin-block: 0 60px;
   margin-inline: auto;
-}
-
-@media only screen and (width <= 680px) {
-  .card {
-    inline-size: 90%;
-  }
 }
