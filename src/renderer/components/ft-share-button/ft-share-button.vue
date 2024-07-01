@@ -121,4 +121,4 @@
 </template>
 
 <script src="./ft-share-button.js" />
-<style scoped lang="scss" src="./ft-share-button.scss" />
+<style scoped src="./ft-share-button.css" />
