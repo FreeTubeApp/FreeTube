@@ -53,6 +53,56 @@ export function translateWindowTitle(title, i18n) {
   }
 }
 
+export function getIconForRoute(route) {
+  const routeSlashIndex = route.indexOf('/', 2)
+  const truncatedRoute = (routeSlashIndex === -1) ? route : route.substring(0, routeSlashIndex)
+  switch (truncatedRoute) {
+    case '/subscriptions':
+      return ['fas', 'rss']
+    case '/subscribedchannels':
+    case '/channel':
+      return ['fas', 'list']
+    case '/trending':
+      return ['fas', 'fire']
+    case '/popular':
+      return ['fas', 'users']
+    case '/userplaylists':
+      return ['fas', 'bookmark']
+    case '/history':
+      return ['fas', 'history']
+    case '/settings':
+      return ['fas', 'sliders-h']
+    case '/about':
+      return ['fas', 'info-circle']
+    case '/search':
+    case '/hashtag':
+      return ['fas', 'magnifying-glass']
+    case '/playlist': {
+      const solidOrRegular = route.includes('?playlistType=user') ? 'fas' : 'far'
+      return [solidOrRegular, 'bookmark']
+    } case '/watch':
+      return ['fas', 'play']
+    default:
+      return null
+  }
+}
+
+/**
+ * Returns an appropriate default bookmark name
+ * for a given route.
+ * @param {import('vue-router').Route} route
+ * @returns {string}
+ */
+export function defaultBookmarkNameForRoute(route) {
+  switch (route.meta.title) {
+    case 'Search Results':
+      // Use the inputted search query over 'Search Results - FreeTube'
+      return route.params.query
+    default:
+      return document.title
+  }
+}
+
 /**
  * Returns the first user-perceived character,
  * respecting language specific rules and

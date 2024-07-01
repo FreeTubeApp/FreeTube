@@ -77,14 +77,25 @@
       >
         <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
-          v-for="(list, index) in visibleDataList"
+          v-for="(entry, index) in visibleDataList"
           :key="index"
-          :class="searchState.selectedOption === index ? 'hover': ''"
+          :class="{ hover: searchState.selectedOption === index }"
+          :aria-roledescription="entry.isBookmark ? $t('Role Descriptions.bookmark') : null"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"
         >
-          {{ list }}
+          <font-awesome-icon
+            v-if="entry.isBookmark"
+            :icon="iconForBookmarkedPage(entry)"
+            class="searchResultIcon bookmarkStarIcon"
+          />
+          <font-awesome-icon
+            v-else-if="isSearch"
+            :icon="['fas', 'magnifying-glass']"
+            class="searchResultIcon"
+          />
+          {{ entry.name ?? entry }}
         </li>
         <!-- skipped -->
       </ul>
