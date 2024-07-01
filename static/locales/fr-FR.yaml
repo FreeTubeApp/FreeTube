@@ -255,12 +255,12 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la liste
     de lecture cible des signets rapides.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous
-    sûr·e de vouloir supprimer 1 vidéo en double de cette liste de lecture ? Cette
-    opération est irréversible. | Êtes-vous sûr·e de vouloir supprimer {playlistItemCount}
+    sûr(e) de vouloir supprimer 1 vidéo en double de cette liste de lecture ? Cette
+    opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
     vidéos en double de cette liste de lecture ? Cette opération est irréversible.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Êtes-vous
-    sûr·e de vouloir supprimer 1 vidéo regardée de cette liste de lecture ? Cette
-    opération est irréversible. | Êtes-vous sûr·e de vouloir supprimer {playlistItemCount}
+    sûr(e) de vouloir supprimer 1 vidéo regardée de cette liste de lecture ? Cette
+    opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
     vidéos regardées de cette liste de lecture ? Cette opération est irréversible.
   Remove Duplicate Videos: Supprimer les vidéos en double
 History:
