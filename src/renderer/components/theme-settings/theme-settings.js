@@ -45,6 +45,7 @@ export default defineComponent({
         // Third group
         'catppuccinMocha',
         'dracula',
+        'gruvboxDark',
         'solarizedDark',
         'solarizedLight'
       ]
@@ -117,6 +118,7 @@ export default defineComponent({
         // Third group
         this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
         this.$t('Settings.Theme Settings.Base Theme.Dracula'),
+        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Solarized Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Solarized Light')
       ]

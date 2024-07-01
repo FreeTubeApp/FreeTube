@@ -42,6 +42,7 @@
 
     @at-root {
       .dark &,
+      .gruvboxDark &,
       .system[data-system-theme*='dark'] & {
         filter: brightness(0.868);
       }
@@ -79,6 +80,7 @@
         .dracula &,
         .CatppuccinMocha &,
         .hotPink &,
+	.gruvboxDark &,
         .solarizedDark &,
         .system[data-system-theme*='dark'] & {
           background-image: url('../../assets/img/invidious-logo-dark.svg');

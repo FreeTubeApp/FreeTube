@@ -7,6 +7,7 @@
 .pastelPink,
 .hotPink,
 .nordic,
+.gruvboxDark,
 .solarizedDark,
 .solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
@@ -32,6 +33,7 @@
 .pastelPink,
 .hotPink,
 .nordic,
+.gruvboxDark,
 .solarizedDark,
 .solarizedLight {
   --link-color: var(--accent-color);
@@ -47,6 +49,7 @@
 .catppuccinMocha,
 .pastelPink,
 .nordic,
+.gruvboxDark,
 .solarizedDark,
 .solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
@@ -60,6 +63,7 @@
 .dracula,
 .catppuccinMocha,
 .nordic,
+.gruvboxDark,
 .solarizedDark,
 .solarizedLight {
   --side-nav-active-text-color: var(--primary-text-color);
@@ -97,6 +101,7 @@
 .catppuccinMocha,
 .hotPink,
 .nordic,
+.gruvboxDark,
 .solarizedDark,
 .solarizedLight {
   --primary-shadow-color: rgb(0 0 0 / 75%);
@@ -337,6 +342,25 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url("../../_icons/textSolarizedDarkSmall.svg");
 }
 
+.gruvboxDark {
+  --primary-text-color: #ebdbb2;
+  --secondary-text-color: #fbf1c7;
+  --tertiary-text-color: #ebdbb2;
+  --title-color: #ebdbb2;
+  --bg-color: #32302f;
+  --favorite-icon-color: #fabd2f;
+  --card-bg-color: #1d2021;
+  --secondary-card-bg-color: #458588;
+  --scrollbar-color: #ebdbb2;
+  --scrollbar-color-hover: #504945;
+  --side-nav-color: #282828;
+  --side-nav-hover-color: #3c3836;
+  --side-nav-active-color: #3c3836;
+  --search-bar-color: #504945;
+  --logo-icon: url("../../_icons/iconGruvboxLightSmall.svg");
+  --logo-text: url("../../_icons/textGruvboxLightSmall.svg");
+}
+
 .mainRed,
 .mainPink,
 .mainPurple,
@@ -459,6 +483,61 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #D84315;
 }
 
+.mainGruvboxGreen,
+.mainGruvboxRed,
+.mainGruvboxYellow,
+.mainGruvboxBlue,
+.mainGruvboxPurple,
+.mainGruvboxAqua,
+.mainGruvboxOrange {
+    --text-with-main-color: #1d2021;    
+    --logo-icon-bar-color: url("../../_icons/iconGruvboxLightSmall.svg");                          
+    --logo-text-bar-color: url("../../_icons/textGruvboxLightSmall.svg");
+    
+}
+
+.mainGruvboxGreen {
+    --primary-color: #b8bb26;
+    --primary-color-hover: #98971a;
+    --primary-color-active: #79740e;
+}
+
+.mainGruvboxRed {
+    --primary-color: #fb4934;
+    --primary-color-hover: #cc241d;
+    --primary-color-active: #9d0006;
+}
+
+.mainGruvboxYellow {
+    --primary-color: #fabd2f;
+    --primary-color-hover: #d79921;
+    --primary-color-active: #b57614;
+}
+
+.mainGruvboxBlue {
+    --primary-color: #83a598;
+    --primary-color-hover: #458588;
+    --primary-color-active: #076678;
+}
+
+.mainGruvboxPurple {
+    --primary-color: #d3869b;
+    --primary-color-hover: #b16286;
+    --primary-color-active: #8f3f71;
+}
+
+.mainGruvboxAqua {
+    --primary-color: #8ec07c;
+    --primary-color-hover: #689d6a;
+    --primary-color-active: #427b58;
+}
+
+.mainGruvboxOrange {
+    --primary-color: #fe8019;
+    --primary-color-hover: #d65d0e;
+    --primary-color-active: #af3a03;
+}
+
 .mainDraculaCyan,
 .mainDraculaGreen,
 .mainDraculaOrange,
@@ -475,6 +554,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.svg");
   --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.svg");
 }
+
+
 
 .mainDraculaCyan {
   --primary-color: #8BE9FD;
@@ -1167,6 +1248,76 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity2: rgb(180 190 254 / 12%);
   --accent-color-opacity3: rgb(180 190 254 / 16%);
   --accent-color-opacity4: rgb(180 190 254 / 24%);
+}
+
+.secGruvboxGreen,
+.secGruvboxRed,
+.secGruvboxYellow,
+.secGruvboxBlue,
+.secGruvboxPurple,
+.secGruvboxAqua,
+.secGruvboxOrange {
+  --text-with-accent-color: #1d2021;
+  --accent-color-opacity1: rgb(102 92 84 / 4%);
+  --accent-color-opacity2: rgb(102 92 84 / 12%);
+  --accent-color-opacity3: rgb(102 92 84 / 16%);
+  --accent-color-opacity4: rgb(102 92 84 / 24%);
+}
+
+.secGruvboxGreen {
+  --accent-color: #b8bb26;
+  --accent-color-hover: #98971a;
+  --accent-color-active: #79740e;
+  --accent-color-light: #c9cd35;
+  --accent-color-visited: #d4d767;
+}
+
+.secGruvboxRed {
+  --accent-color: #fb4934;
+  --accent-color-hover: #cc241d;
+  --accent-color-active: #9d0006;
+  --accent-color-light: #f55441;
+  --accent-color-visited: #fe7d6e;
+}
+
+.secGruvboxYellow {
+  --accent-color: #fabd2f;
+  --accent-color-hover: #d79921;
+  --accent-color-active: #b57614;
+  --accent-color-light: #fec44e;
+  --accent-color-visited: #ffe179;
+}
+
+.secGruvboxBlue {
+  --accent-color: #83a598;
+  --accent-color-hover: #458588;
+  --accent-color-active: #076678;
+  --accent-color-light: #91bfad;
+  --accent-color-visited: #abead2;
+}
+
+.secGruvboxPurple {
+  --accent-color: #d3869b;
+  --accent-color-hover: #b16286;
+  --accent-color-active: #8f3f71;
+  --accent-color-light: #ebabbc;
+  --accent-color-visited: #f3c4d1;
+}
+
+.secGruvboxAqua {
+  --accent-color: #8ec07c;
+  --accent-color-hover: #689d6a;
+  --accent-color-active: #427b58;
+  --accent-color-light: #9dd389;
+  --accent-color-visited: #b7e8a4;
+}
+
+.secGruvboxOrange {
+  --accent-color: #fe8019;
+  --accent-color-hover: #d65d0e;
+  --accent-color-active: #af3a03;
+  --accent-color-light: #f49140;
+  --accent-color-visited: #ffad69;
 }
 
 .secSolarizedYellow,
