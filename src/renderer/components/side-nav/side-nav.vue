@@ -42,7 +42,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            :icon="['fas', 'list']"
+            :icon="['fas', 'user-check']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
