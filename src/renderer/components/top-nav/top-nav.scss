@@ -21,9 +21,9 @@
   inline-size: 100%;
   z-index: 4;
 
-  @media only screen and (width >= 961px) {
+  @media only screen and (width >= 1162px) {
     display: grid;
-    grid-template-columns: 1fr 440px 0.5fr 0.5fr;
+    grid-template-columns: 1fr 720px 0.5fr 0.5fr;
   }
 
   @include top-nav-is-colored {
@@ -200,7 +200,7 @@
 
 .middle {
   flex: 1;
-  max-inline-size: 440px;
+  max-inline-size: 720px;
 
   .searchContainer {
     align-items: center;
