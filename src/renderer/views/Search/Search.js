@@ -11,6 +11,7 @@ import {
 } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import TopNavEvents from '../../components/top-nav/top-nav-events'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 export default defineComponent({
@@ -55,11 +56,14 @@ export default defineComponent({
       // react to route changes...
 
       const query = this.$route.params.query
+      TopNavEvents.dispatchEvent(new CustomEvent('updateSearchInput', { detail: { query } }))
+
       let features = this.$route.query.features
       // if page gets refreshed and there's only one feature then it will be a string
       if (typeof features === 'string') {
         features = [features]
       }
+
       const searchSettings = {
         sortBy: this.$route.query.sortBy,
         time: this.$route.query.time,
@@ -80,7 +84,10 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.query = this.$route.params.query
+    const query = this.$route.params.query
+
+    this.query = query
+    TopNavEvents.dispatchEvent(new CustomEvent('updateSearchInput', { detail: { query } }))
 
     let features = this.$route.query.features
     // if page gets refreshed and there's only one feature then it will be a string
@@ -97,7 +104,7 @@ export default defineComponent({
     }
 
     const payload = {
-      query: this.query,
+      query,
       options: {},
       searchSettings: this.searchSettings
     }
