@@ -1,6 +1,6 @@
 import shaka from 'shaka-player'
 
-import i18n from '../../../i18n'
+import i18n from '../../../i18n/index'
 
 export class FullWindowButton extends shaka.ui.Element {
   /**
