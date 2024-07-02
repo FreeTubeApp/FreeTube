@@ -3,7 +3,6 @@ import path from 'path'
 
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
-import 'shaka-player/dist/controls.css'
 
 import store from '../../store/index'
 import i18n from '../../i18n/index'

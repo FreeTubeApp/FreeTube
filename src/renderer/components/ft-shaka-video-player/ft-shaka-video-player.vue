@@ -81,4 +81,6 @@
 </template>
 
 <script src="./ft-shaka-video-player.js" />
+
+<style src="shaka-player/dist/controls.css" />
 <style scoped src="./ft-shaka-video-player.css" />
