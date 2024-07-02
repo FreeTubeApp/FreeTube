@@ -382,7 +382,6 @@ Settings:
     Video Playback Rate Interval: Khoảng cách tốc độ phát
     Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay
     Skip by Scrolling Over Video Player: Tua video bằng con lăn chuột
-    Allow DASH AV1 formats: Cho phép định dạng DASH AV1
   Subscription Settings:
     Subscription Settings: 'Cài đặt đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -806,11 +805,6 @@ Video:
   Video has been marked as watched: Video đánh dấu đã xem
   Remove From History: Xóa khỏi lịch sử
   Mark As Watched: Đánh dấu đã xem
-  Audio:
-    Best: Tốt nhất
-    High: Cao
-    Medium: Trung bình
-    Low: Thấp
   audio only: Chỉ âm thanh
   video only: Chỉ video
   Download Video: Tải video
@@ -824,7 +818,6 @@ Video:
   Loop Playlist: Lặp lại Playlist
   Open Channel in YouTube: Mở kênh này trên YouTube
   Copy YouTube Channel Link: Sao chép liên kết của kênh
-  Skipped segment: Phân đoạn đã bỏ qua
   Sponsor Block category:
     sponsor: Nhà tài trợ
     intro: Giới thiệu
@@ -834,22 +827,9 @@ Video:
     outro: Kết thúc
     recap: Tóm tắt
     filler: Bộ lọc
-  Stats:
-    Resolution: Độ phân giải
-    Player Dimensions: Khối lượng phát
-    Bandwidth: Băng thông
-    Buffered: Đệm
-    Video ID: Video
-    Video statistics are not available for legacy videos: Số liệu thống kê video không
-      có sẵn cho các video tiếp nôi
-    Mimetype: Mimetype
-    Dropped / Total Frames: Bị drop / tống số khung hình
-    Bitrate: Tốc độ Bitrate
-    Volume: Volume
   Premieres on: Công chiếu vào lúc
   Streamed on: Phát trực tiếp vào lúc
   Started streaming on: Bắt đầu.phát trực tiếp vào lúc
-  translated from English: Được dịch từ tiếng Anh
   External Player:
     playlist: danh sách phát
     Unsupported Actions:
@@ -1083,10 +1063,6 @@ Tooltips:
       được thay đổi trong cài đặt).
     Skip by Scrolling Over Video Player: Sử dụng con lăn chuột để bỏ qua video, kiểu
       MPV.
-    Allow DASH AV1 formats: Định dạng DASH AV1 có thể trông đẹp hơn định dạng DASH
-      H.264. Định dạng DASH AV1 yêu cầu nhiều năng lượng hơn để phát lại! Chúng không
-      có sẵn trên tất cả các video, trong những trường hợp đó trình phát sẽ sử dụng
-      định dạng DASH H.264 thay thế.
   External Player Settings:
     Custom External Player Arguments: Bất kỳ tham số dòng lệnh tùy chỉnh nào, được
       phân tách bằng dấu chấm phẩy (';'), bạn muốn được chuyển đến trình phát bên
