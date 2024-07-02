@@ -1195,7 +1195,7 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei link
   esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
-Downloading has completed: 'Il download di "{videoTitle}" è terminato'
+Downloading has completed: 'Il download di {videoTitle} è terminato'
 Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
 Screenshot Success: Screenshot salvato come "{filePath}"

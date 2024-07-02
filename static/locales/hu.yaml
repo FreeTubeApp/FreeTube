@@ -52,7 +52,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Egy új blog érh
   el: {blogTitle}. Kattintson további információk megtekintéséhez'
 
 # Search Bar
-Search / Go to URL: 'Keresés / Ugrás az URL-címre'
+Search / Go to URL: 'Keresés / Ugrás URL-címre'
   # In Filter Button
 Search Filters:
   Search Filters: 'Keresési szűrők'
@@ -106,7 +106,7 @@ Subscriptions:
   Subscriptions: 'Feliratkozások'
   Latest Subscriptions: 'Legfrissebb feliratkozások'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
-    feliratkozások listája jelenleg üres. Kezdje hozzáadni a feliratkozásokat, hogy
+    feliratkozások listája jelenleg üres. Kezdjen hozzáadni a feliratkozásokat, hogy
     itt láthassa őket.'
   'Getting Subscriptions. Please wait.': 'Feliratkozások megszerzése. Kis türelmet
     kérünk.'
@@ -292,9 +292,9 @@ Settings:
       Grid: 'Rács'
       List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatűr beállítás'
+      Thumbnail Preference: 'Miniatűr beállítása'
       Default: 'Alapértelmezett'
-      Beginning: 'Kezdet'
+      Beginning: 'Eleje'
       Middle: 'Középső'
       End: 'Vég'
       Hidden: Rejtett
@@ -303,8 +303,7 @@ Settings:
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerűek innen'
         #! List countries
-    View all Invidious instance information: Az Invidious-példány összes tájékoztatásának
-      megtekintése
+    View all Invidious instance information: Az Invidious-példányok listájának megtekintése
     System Default: Rendszer alapértelmezett
     Current Invidious Instance: Jelenlegi Invidious-példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
@@ -599,7 +598,7 @@ Settings:
       Subscriptions Page: Feliratkozások oldal
     Hide Channel Podcasts: Csatornapodcastok elrejtése
     Hide Channel Releases: Csatornakiadások elrejtése
-    Hide Subscriptions Shorts: Feliratkozások rövidfilmek elrejtése
+    Hide Subscriptions Shorts: Feliratkozásos rövidfilmek elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Blur Thumbnails: Indexkép elhomályosítása
@@ -631,7 +630,7 @@ Settings:
     Proxy Host: Proxy gazdaszámítógép
     Proxy Protocol: Proxy protokoll
     Enable Tor / Proxy: Tor/Proxy engedélyezése
-    Proxy Settings: Meghatalmazás beállításai
+    Proxy Settings: Proxy beállítások
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
   SponsorBlock Settings:
@@ -691,7 +690,7 @@ Settings:
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
-  Expand All Settings Sections: Beállítások kiterjesztése
+  Expand All Settings Sections: Beállítások kibontása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
@@ -1033,10 +1032,10 @@ Share:
   Open Embed: 'Beágyazás megnyitása'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL-címe vágólapra másolva'
-  Invidious Embed URL copied to clipboard: 'Invidious beágyazott URL-címe vágólapra
+  Invidious Embed URL copied to clipboard: 'Invidious beágyazott URL-cím vágólapra
     másolva'
   YouTube URL copied to clipboard: 'YouTube URL-címe vágólapra másolva'
-  YouTube Embed URL copied to clipboard: 'YouTube beágyazott URL-címe vágólapra másolva'
+  YouTube Embed URL copied to clipboard: 'YouTube beágyazott URL-cím vágólapra másolva'
   YouTube Channel URL copied to clipboard: YouTube csatorna URL-címe vágólapra másolva
   Invidious Channel URL copied to clipboard: Invidious csatorna URL-címe vágólapra
     másolva
@@ -1181,8 +1180,8 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
 More: Több
 Hashtags have not yet been implemented, try again later: A kettőskereszt címkék kezelése
   még nincs implementálva, próbálkozzon újra később
-Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típusa,
-  nem nyitható meg az alkalmazásban
+Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típus, nem
+  nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
 Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt
   eltávolítva
