@@ -89,7 +89,7 @@
   color: #fff;
 }
 
-:deep(.sponsorBlockMarkerContainer) {
+:deep(.markerContainer) {
   position: absolute;
   inset: 0;
   margin: 0;
@@ -99,10 +99,18 @@
 }
 
 :deep(.sponsorBlockMarker) {
+  background-color: var(--primary-color);
+}
+
+:deep(.chapterMarker) {
+  width: 2px;
+  background-color: #000;
+}
+
+:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
   position: absolute;
   opacity: 0.6;
   height: 100%;
-  background-color: var(--primary-color);
 }
 
 :deep(.playerFullscreenTitleOverlay) {

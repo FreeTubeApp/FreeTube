@@ -450,28 +450,6 @@ export default defineComponent({
     }
 
     /**
-     * @param {number} duration As the sponsorblock segments can sometimes load before the video does, we need to pass in the duration here
-     */
-    function createSponsorBlockMarkers(duration) {
-      const markerBar = document.createElement('div')
-      markerBar.className = 'sponsorBlockMarkerContainer'
-
-      sponsorBlockSegments.forEach(segment => {
-        const markerDiv = document.createElement('div')
-
-        markerDiv.title = translateSponsorBlockCategory(segment.category)
-        markerDiv.className = `sponsorBlockMarker main${sponsorSkips.value.categoryData[segment.category].color}`
-        markerDiv.style.width = `${((segment.endTime - segment.startTime) / duration) * 100}%`
-        markerDiv.style.left = `${(segment.startTime / duration) * 100}%`
-
-        markerBar.appendChild(markerDiv)
-      })
-
-      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
-      seekBarContainer.insertBefore(markerBar, seekBarContainer.childNodes[0])
-    }
-
-    /**
      * @param {number} currentTime
      */
     function skipSponsorBlockSegments(currentTime) {
@@ -903,6 +881,10 @@ export default defineComponent({
       fullscreenTitleOverlay.textContent = props.title
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       controlsContainer.appendChild(fullscreenTitleOverlay)
+
+      if (hasLoaded.value && props.chapters.length > 0) {
+        createChapterMarkers()
+      }
 
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration
@@ -2201,6 +2183,77 @@ export default defineComponent({
       }
     }
 
+    // #region seek bar markers
+
+    /**
+     * @param {number} duration As the sponsorblock segments can sometimes load before the video does, we need to pass in the duration here
+     */
+    function createSponsorBlockMarkers(duration) {
+      addMarkers(
+        sponsorBlockSegments.map(segment => {
+          const markerDiv = document.createElement('div')
+
+          markerDiv.title = translateSponsorBlockCategory(segment.category)
+          markerDiv.className = `sponsorBlockMarker main${sponsorSkips.value.categoryData[segment.category].color}`
+          markerDiv.style.width = `${((segment.endTime - segment.startTime) / duration) * 100}%`
+          markerDiv.style.left = `${(segment.startTime / duration) * 100}%`
+
+          return markerDiv
+        })
+      )
+    }
+
+    function createChapterMarkers() {
+      const { start, end } = player.seekRange()
+      const duration = end - start
+
+      /**
+       * @type {{
+       *   title: string,
+       *   timestamp: string,
+       *   startSeconds: number,
+       *   endSeconds: number,
+       *   thumbnail?: string
+       * }[]}
+       */
+      const chapters = props.chapters
+
+      addMarkers(
+        chapters.map(chapter => {
+          const markerDiv = document.createElement('div')
+
+          markerDiv.title = chapter.title
+          markerDiv.className = 'chapterMarker'
+          markerDiv.style.left = `calc(${(chapter.startSeconds / duration) * 100}% - 1px)`
+
+          return markerDiv
+        })
+      )
+    }
+
+    /**
+     * @param {HTMLDivElement[]} markers
+     */
+    function addMarkers(markers) {
+      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
+
+      if (seekBarContainer.firstElementChild?.classList.contains('markerContainer')) {
+        /** @type {HTMLDivElement} */
+        const markerBar = seekBarContainer.firstElementChild
+
+        markers.forEach(marker => markerBar.appendChild(marker))
+      } else {
+        const markerBar = document.createElement('div')
+        markerBar.className = 'markerContainer'
+
+        markers.forEach(marker => markerBar.appendChild(marker))
+
+        seekBarContainer.insertBefore(markerBar, seekBarContainer.firstElementChild)
+      }
+    }
+
+    // #endregion seek bar markers
+
     // #region setup
 
     onMounted(async () => {
@@ -2459,6 +2512,10 @@ export default defineComponent({
 
           await player.setTextTrackVisibility(true)
         }
+      }
+
+      if (props.chapters.length > 0) {
+        createChapterMarkers()
       }
 
       if ('mediaSession' in navigator) {
