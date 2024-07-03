@@ -513,9 +513,9 @@ export default defineComponent({
               let src = result.streaming_data.dash_manifest_url
 
               if (src.includes('?')) {
-                src += '&mpd_version=5'
+                src += '&mpd_version=7'
               } else {
-                src += `${src.endsWith('/') ? '' : '/'}mpd_version/5`
+                src += `${src.endsWith('/') ? '' : '/'}mpd_version/7`
               }
 
               this.manifestSrc = src
