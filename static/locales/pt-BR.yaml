@@ -1221,9 +1221,9 @@ Search Bar:
 External link opening has been disabled in the general settings: A abertura de link
   externo foi desativada nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
-Downloading has completed: '"{videoTitle}" terminou de baixar'
-Starting download: Fazendo o download de "{videoTitle}"
-Downloading failed: Ocorreu um problema ao fazer o download de "{videoTitle}"
+Downloading has completed: '"{videoTitle}" download concluído'
+Starting download: Iniciando download de "{videoTitle}"
+Downloading failed: Falha no download "{videoTitle}"
 New Window: Nova janela
 Channels:
   Channels: Canais
@@ -1283,5 +1283,5 @@ Search Listing:
     Subtitles: Legendas
     Closed Captions: Legendas ocultas (CC)
     4K: 4K
-'Blocked opening potentially unsafe URL': 'Abertura bloqueada de URL potencialmente
-  inseguro: "{url}".'
+'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
+  "{url}".'
