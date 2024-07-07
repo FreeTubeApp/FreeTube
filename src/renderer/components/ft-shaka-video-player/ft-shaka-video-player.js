@@ -1824,10 +1824,10 @@ export default defineComponent({
 
     /**
      * @param {number} seconds The number of seconds to seek by, positive values seek forwards, negative ones seek backwards
-     * @param {boolean} canSeek Allow functions that have already checked whether seeking is possible, to skip the extra check (e.g. frameByFrame)
+     * @param {boolean} canSeekResult Allow functions that have already checked whether seeking is possible, to skip the extra check (e.g. frameByFrame)
      */
-    function seekBySeconds(seconds, canSeek = false) {
-      if (!(canSeek || canSeek())) {
+    function seekBySeconds(seconds, canSeekResult = false) {
+      if (!(canSeekResult || canSeek())) {
         return
       }
 
