@@ -394,7 +394,7 @@ export default defineComponent({
         }
 
         if (sponsorVal.skip === 'promptToSkip') {
-          autoSkip.add(x)
+          promptSkip.add(x)
         }
 
         categoryData[x] = sponsorVal

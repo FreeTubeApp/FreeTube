@@ -878,8 +878,8 @@ Video:
       looping playlists: looping playlists
   Player:
     TranslatedCaptionTemplate: '{language} (translated from "{originalLanguage}")'
-    Theatre Mode: Theatre Mode
-    Exit Theatre Mode: Exit Theatre Mode
+    Theatre Mode: Theater Mode
+    Exit Theatre Mode: Exit Theater Mode
     Full Window: Full Window
     Exit Full Window: Exit Full Window
     Take Screenshot: Take Screenshot

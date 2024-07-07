@@ -69,7 +69,7 @@ function getMappings(shakaLocales, freeTubeLocales) {
     ],
 
     // according to https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-    // "iw" is the old/original code for Hewbrew, these days it's "he"
+    // "iw" is the old/original code for Hebrew, these days it's "he"
     [
       'he',
       'iw'
