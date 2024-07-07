@@ -129,13 +129,13 @@ Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
     Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
-    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend per defecte en
-      cas d''error'
+    Fallback to Non-Preferred Backend on Failure: 'Torna al motor per defecte en cas
+      d''error'
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
     Locale Preference: 'Preferència de configuració regional'
     Preferred API Backend:
-      Preferred API Backend: 'Motor API principal'
+      Preferred API Backend: 'Motor de l''API preferit'
       Local API: 'API local'
       Invidious API: 'API d''Invidious'
     Video View Type:
@@ -211,7 +211,7 @@ Settings:
     Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
-    Force Local Backend for Legacy Formats: 'Força el backend local per als formats
+    Force Local Backend for Legacy Formats: 'Força el motor local per als formats
       heretats'
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
@@ -512,7 +512,7 @@ Video:
     May: 'Maig'
     Jun: 'Juny'
     Jul: 'Jul'
-    Aug: 'Ago'
+    Aug: 'Ag.'
     Sep: 'Set'
     Oct: 'Oct'
     Nov: 'Nov'
@@ -552,7 +552,7 @@ Video:
     OpeningTemplate: Obrint {videoOrPlaylist} a {externalPlayer}…
     video: vídeo
     playlist: llista de reproducció
-    UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
+    UnsupportedActionTemplate: '{externalPlayer} no suporta: {action}'
   Save Video: Desa el Vídeo
   Premieres on: S'estrena el
   audio only: només àudio
@@ -629,3 +629,4 @@ Channels:
 Falling back to Invidious API: Recorrent a l'API d'Invidious
 Invidious API Error (Click to copy): S'ha produït un error en l'API d'Invidious (feu
   clic per copiar-lo)
+Moments Ago: fa un moment

@@ -1221,7 +1221,7 @@ export default defineComponent({
         return
       }
 
-      if (this.watchingPlaylist && this.$refs.watchVideoPlaylist.shouldStopDueToPlaylistEnd) {
+      if (this.watchingPlaylist && this.$refs.watchVideoPlaylist?.shouldStopDueToPlaylistEnd) {
         // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
         this.$refs.watchVideoPlaylist.playNextVideo()
         return
