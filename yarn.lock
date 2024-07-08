@@ -6198,10 +6198,10 @@ npm-normalize-package-bin@^3.0.0:
   resolved "https://registry.yarnpkg.com/npm-normalize-package-bin/-/npm-normalize-package-bin-3.0.1.tgz#25447e32a9a7de1f51362c61a559233b89947832"
   integrity sha512-dMxCf+zZ+3zeQZXKxmyuCKlIDPGuv8EF940xbkC4kQVDTtqoh6rJFO+JTKSA6/Rwi0getWmtuy4Itup0AMcaDQ==
 
-npm-run-all2@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/npm-run-all2/-/npm-run-all2-6.2.0.tgz#ac0a893a593e1ab3ef85c5ac3526321d2e3137bd"
-  integrity sha512-wA7yVIkthe6qJBfiJ2g6aweaaRlw72itsFGF6HuwCHKwtwAx/4BY1vVpk6bw6lS8RLMsexoasOkd0aYOmsFG7Q==
+npm-run-all2@^6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/npm-run-all2/-/npm-run-all2-6.2.2.tgz#cd98d7c94dfa92e36724a1064609cca7a8991f5f"
+  integrity sha512-Q+alQAGIW7ZhKcxLt8GcSi3h3ryheD6xnmXahkMRVM5LYmajcUrSITm8h+OPC9RYWMV2GR0Q1ntTUCfxaNoOJw==
   dependencies:
     ansi-styles "^6.2.1"
     cross-spawn "^7.0.3"
