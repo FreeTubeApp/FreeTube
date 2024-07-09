@@ -244,6 +244,15 @@ User Playlists:
   Quick Bookmark Enabled: Snel opslaan ingeschakeld
   Cannot delete the quick bookmark target playlist.: Kan afspeel­lĳst voor snel opslaan
     niet verwĳderen.
+  Remove Duplicate Videos: Dubbele video's verwĳderen
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Weet
+    u zeker dat u één dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan
+    niet ongedaan gemaakt worden. | Weet u zeker dat u {playlistItemCount} dubbele
+    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Weet
+    u zeker dat u één bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan
+    niet ongedaan gemaakt worden. | Weet u zeker dat u {playlistItemCount} bekeken
+    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -457,7 +466,7 @@ Settings:
     Fetch Automatically: Feed automatisch ophalen
     Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
       tonen
-    Avoid Accidental Unsubscription: Onbedoeld deabonneren voor­komen
+    Confirm Before Unsubscribing: Onbedoeld deabonneren voor­komen
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print

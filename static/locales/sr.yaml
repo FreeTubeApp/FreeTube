@@ -248,6 +248,15 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Није могуће избрисати циљну плејлисту
     за брзо обележавање.
   Quick Bookmark Enabled: Брзо обележавање омогућено
+  Remove Duplicate Videos: Уклони дуплиране видео снимке
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Желите
+    ли заиста да уклоните 1 дуплирани видео снимак с ове плејлисте? Ово не може бити
+    опозвано. | Желите ли заиста да уклоните {playlistItemCount} дуплираних видео
+    снимака с ове плејлисте? Ово не може бити опозвано.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Желите
+    ли заиста да уклоните 1 одгледани видео с ове плејлисте? Ово не може бити опозвано.
+    | Желите ли заиста да уклоните {playlistItemCount} одледаних видео снимака с ове
+    плејлисте? Ово не може бити опозвано.
 History:
   # On History Page
   History: 'Историја'
@@ -467,7 +476,7 @@ Settings:
     Fetch Automatically: Аутоматски прикупи фид
     Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
       сваки канал
-    Avoid Accidental Unsubscription: Избегни случајно отпраћивање
+    Confirm Before Unsubscribing: Избегни случајно отпраћивање
   Distraction Free Settings:
     Distraction Free Settings: 'Подешавања „Без ометања“'
     Hide Video Views: 'Сакриј прегледе видео снимка'

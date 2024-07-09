@@ -540,6 +540,14 @@ const customActions = {
             commit('upsertProfileToList', data)
             break
 
+          case SyncEvents.PROFILES.ADD_CHANNEL:
+            commit('addChannelToProfiles', data)
+            break
+
+          case SyncEvents.PROFILES.REMOVE_CHANNEL:
+            commit('removeChannelFromProfiles', data)
+            break
+
           case SyncEvents.GENERAL.DELETE:
             commit('removeProfileFromList', data)
             break

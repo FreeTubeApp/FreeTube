@@ -98,7 +98,6 @@ export default defineComponent({
       lengthSeconds: 0,
       duration: '',
       description: '',
-      watchProgress: 0,
       published: undefined,
       isLive: false,
       is4k: false,
@@ -117,6 +116,14 @@ export default defineComponent({
 
     historyEntryExists: function () {
       return typeof this.historyEntry !== 'undefined'
+    },
+
+    watchProgress: function () {
+      if (!this.historyEntryExists || !this.saveWatchedProgress) {
+        return 0
+      }
+
+      return this.historyEntry.watchProgress
     },
 
     listType: function () {
@@ -515,9 +522,6 @@ export default defineComponent({
     },
   },
   watch: {
-    historyEntry() {
-      this.checkIfWatched()
-    },
     showAddToPlaylistPrompt(value) {
       if (value) { return }
       // Execute on prompt close
@@ -528,7 +532,6 @@ export default defineComponent({
   },
   created: function () {
     this.parseVideoData()
-    this.checkIfWatched()
 
     if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
       this.fetchDeArrowData()
@@ -718,19 +721,6 @@ export default defineComponent({
       }
     },
 
-    checkIfWatched: function () {
-      if (this.historyEntryExists) {
-        const historyEntry = this.historyEntry
-
-        if (this.saveWatchedProgress) {
-          // For UX consistency, no progress reading if writing disabled
-          this.watchProgress = historyEntry.watchProgress
-        }
-      } else {
-        this.watchProgress = 0
-      }
-    },
-
     markAsWatched: function () {
       const videoData = {
         videoId: this.id,
@@ -754,8 +744,6 @@ export default defineComponent({
       this.removeFromHistory(this.id)
 
       showToast(this.$t('Video.Video has been removed from your history'))
-
-      this.watchProgress = 0
     },
 
     togglePlaylistPrompt: function () {

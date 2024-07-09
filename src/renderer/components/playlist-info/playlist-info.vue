@@ -34,38 +34,51 @@
     </div>
 
     <div class="playlistStats">
-      <ft-input
+      <template
         v-if="editMode"
-        ref="playlistTitleInput"
-        class="inputElement"
-        :placeholder="$t('User Playlists.Playlist Name')"
-        :show-action-button="false"
-        :show-label="false"
-        :value="newTitle"
-        :maxlength="255"
-        @input="(input) => (newTitle = input)"
-        @keydown.enter.native="savePlaylistInfo"
-      />
-      <h2
-        v-else
-        class="playlistTitle"
       >
-        {{ title }}
-      </h2>
-      <p>
-        {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
-        <span v-if="infoSource !== 'piped'">
-          -
-        </span>
-        <span v-if="!hideViews && !isUserPlaylist && infoSource !== 'piped'">
-          - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
-        </span>
-        <span v-if="infoSource !== 'piped'">- </span>
-        <span v-if="infoSource !== 'local' && infoSource !== 'piped'">
-          {{ $t("Playlist.Last Updated On") }}
-        </span>
-        {{ lastUpdated }}
-      </p>
+        <ft-input
+          ref="playlistTitleInput"
+          class="inputElement"
+          :placeholder="$t('User Playlists.Playlist Name')"
+          :show-action-button="false"
+          :show-label="false"
+          :value="newTitle"
+          :maxlength="255"
+          @input="handlePlaylistNameInput"
+          @keydown.enter.native="savePlaylistInfo"
+        />
+        <ft-flex-box v-if="inputPlaylistNameEmpty || inputPlaylistNameBlank">
+          <p>
+            {{ $t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]') }}
+          </p>
+        </ft-flex-box>
+        <ft-flex-box v-if="inputPlaylistWithNameExists">
+          <p>
+            {{ $t('User Playlists.CreatePlaylistPrompt.Toast["There is already a playlist with this name. Please pick a different name."]') }}
+          </p>
+        </ft-flex-box>
+      </template>
+      <template
+        v-else
+      >
+        <h2
+          class="playlistTitle"
+        >
+          {{ title }}
+        </h2>
+        <p>
+          {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
+          <span v-if="!hideViews && !isUserPlaylist && infoSource !== 'piped'">
+            - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+          </span>
+          <span v-if="infoSource !== 'piped'">- </span>
+          <span v-if="infoSource !== 'local' && infoSource !== 'piped'">
+            {{ $t("Playlist.Last Updated On") }}
+          </span>
+          {{ lastUpdated }}
+        </p>
+      </template>
     </div>
 
     <ft-input
@@ -127,6 +140,7 @@
           <ft-icon-button
             v-if="editMode"
             :title="$t('User Playlists.Save Changes')"
+            :disabled="playlistPersistenceDisabled"
             :icon="['fas', 'save']"
             theme="secondary"
             @click="savePlaylistInfo"

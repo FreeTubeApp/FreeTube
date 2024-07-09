@@ -244,6 +244,15 @@ User Playlists:
   Quick Bookmark Enabled: Marcador rápido habilitado
   Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
     de reproducción de destino de marcadores rápidos.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto
+    no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos vistos de esta lista de reproducción? Esto no se puede deshacer.
+  Remove Duplicate Videos: Eliminar vídeos duplicados
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción?
+    Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
 History:
   # On History Page
   History: 'Historial'
@@ -461,7 +470,7 @@ Settings:
     Fetch Automatically: Obtener los feed automáticamente
     Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
       canal
-    Avoid Accidental Unsubscription: Evitar bajas accidentales
+    Confirm Before Unsubscribing: Evitar bajas accidentales
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
