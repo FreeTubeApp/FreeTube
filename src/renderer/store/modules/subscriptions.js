@@ -60,11 +60,8 @@ const actions = {
     commit('updatePostsCacheByChannel', payload)
   },
 
-  clearSubscriptionsCache: ({ commit }, payload) => {
-    commit('clearVideoCache', payload)
-    commit('clearShortsCache', payload)
-    commit('clearLiveCache', payload)
-    commit('clearPostsCache', payload)
+  clearSubscriptionsCache: ({ commit }) => {
+    commit('clearCaches')
   },
 }
 
@@ -75,9 +72,6 @@ const mutations = {
     if (videos != null) { newObject.videos = videos }
     newObject.timestamp = timestamp
     state.videoCache[channelId] = newObject
-  },
-  clearVideoCache(state) {
-    state.videoCache = {}
   },
   updateShortsCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.shortsCache[channelId]
@@ -111,18 +105,12 @@ const mutations = {
       })
     }
   },
-  clearShortsCache(state) {
-    state.shortsCache = {}
-  },
   updateLiveCacheByChannel(state, { channelId, videos, timestamp = new Date() }) {
     const existingObject = state.liveCache[channelId]
     const newObject = existingObject ?? { videos: null }
     if (videos != null) { newObject.videos = videos }
     newObject.timestamp = timestamp
     state.liveCache[channelId] = newObject
-  },
-  clearLiveCache(state) {
-    state.liveCache = {}
   },
   updatePostsCacheByChannel(state, { channelId, posts, timestamp = new Date() }) {
     const existingObject = state.postsCache[channelId]
@@ -131,9 +119,13 @@ const mutations = {
     newObject.timestamp = timestamp
     state.postsCache[channelId] = newObject
   },
-  clearPostsCache(state) {
+
+  clearCaches(state) {
+    state.videoCache = {}
+    state.shortsCache = {}
+    state.liveCache = {}
     state.postsCache = {}
-  },
+  }
 }
 
 export default {

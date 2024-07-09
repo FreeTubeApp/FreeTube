@@ -119,6 +119,7 @@
         :get-playlist-loop="getPlaylistLoop"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
+        :in-user-playlist="!!selectedUserPlaylist"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         :origin="origin"
@@ -184,7 +185,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-recommendations
-        v-if="!isLoading"
+        v-if="!isLoading && !hideRecommendedVideos"
         :show-autoplay="!watchingPlaylist"
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"

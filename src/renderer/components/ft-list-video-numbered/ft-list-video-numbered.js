@@ -91,37 +91,11 @@ export default defineComponent({
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {
     return {
-      visible: false,
-      show: true,
+      visible: this.initialVisibleState,
       stopWatchingInitialVisibleState: null
     }
   },
-  computed: {
-    channelsHidden() {
-      // Some component users like channel view will have this disabled
-      if (!this.useChannelsHiddenPreference) { return [] }
-
-      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
-        // Legacy support
-        if (typeof ch === 'string') {
-          return { name: ch, preferredName: '', icon: '' }
-        }
-        return ch
-      })
-    },
-
-    // As we only use this component in Playlist and watch-video-playlist,
-    // where title filtering is never desired, we don't have any title filtering logic here,
-    // like we do in ft-list-video-lazy
-
-    shouldBeVisible() {
-      return !(this.channelsHidden.some(ch => ch.name === this.data.authorId) ||
-        this.channelsHidden.some(ch => ch.name === this.data.author))
-    }
-  },
   created() {
-    this.visible = this.initialVisibleState
-
     if (!this.initialVisibleState) {
       this.stopWatchingInitialVisibleState = this.$watch('initialVisibleState', (newValue) => {
         this.visible = newValue
@@ -132,14 +106,8 @@ export default defineComponent({
   },
   methods: {
     onVisibilityChanged: function (visible) {
-      if (visible && this.shouldBeVisible) {
+      if (visible) {
         this.visible = visible
-        if (this.stopWatchingInitialVisibleState) {
-          this.stopWatchingInitialVisibleState()
-          this.stopWatchingInitialVisibleState = null
-        }
-      } else if (visible) {
-        this.show = false
         if (this.stopWatchingInitialVisibleState) {
           this.stopWatchingInitialVisibleState()
           this.stopWatchingInitialVisibleState = null

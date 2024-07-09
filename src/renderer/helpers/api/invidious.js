@@ -146,6 +146,7 @@ export function invidiousImageUrlToInvidious(url, currentInstance = null) {
 
 function parseInvidiousCommentData(response) {
   return response.comments.map((comment) => {
+    comment.id = comment.commentId
     comment.showReplies = false
     comment.authorLink = comment.authorId
     comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url)
@@ -154,6 +155,7 @@ function parseInvidiousCommentData(response) {
     comment.dataType = 'invidious'
     comment.isOwner = comment.authorIsChannelOwner
     comment.numReplies = comment.replies?.replyCount ?? 0
+    comment.hasReplyToken = !!comment.replies?.continuation
     comment.replyToken = comment.replies?.continuation ?? ''
     comment.isHearted = comment.creatorHeart !== undefined
     comment.isMember = comment.isSponsor

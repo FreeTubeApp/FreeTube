@@ -112,6 +112,9 @@ module.exports = {
         ignoreText: ['-', '•', '/', 'YouTube', 'Invidious', 'FreeTube']
       }
     ],
+    // Only applicable when we upgrade to Vue 3 and vue-i18n 9+
+    '@intlify/vue-i18n/no-deprecated-tc': 'off',
+
     'vue/require-explicit-emits': 'error',
     'vue/no-unused-emit-declarations': 'error',
   },
