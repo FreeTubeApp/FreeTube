@@ -908,8 +908,8 @@ export default defineComponent({
         .catch(err => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
-            copyToClipboard(err.responseText)
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
           console.error(err)
           if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
