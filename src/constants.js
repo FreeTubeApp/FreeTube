@@ -12,6 +12,14 @@ const IpcChannels = {
   CREATE_NEW_WINDOW: 'create-new-window',
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
   NATIVE_THEME_UPDATE: 'native-theme-update',
+  APP_READY: 'app-ready',
+  RELAUNCH_REQUEST: 'relaunch-request',
+
+  SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
+  UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
+
+  OPEN_URL: 'open-url',
+  CHANGE_VIEW: 'change-view',
 
   DB_SETTINGS: 'db-settings',
   DB_HISTORY: 'db-history',
@@ -26,6 +34,8 @@ const IpcChannels = {
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
   TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
 
+  SHOW_VIDEO_STATISTICS: 'show-video-statistics',
+
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set'
 }
@@ -37,13 +47,17 @@ const DBActions = {
     UPSERT: 'db-action-upsert',
     DELETE: 'db-action-delete',
     DELETE_MULTIPLE: 'db-action-delete-multiple',
-    DELETE_ALL: 'db-action-delete-all',
-    PERSIST: 'db-action-persist'
+    DELETE_ALL: 'db-action-delete-all'
   },
 
   HISTORY: {
     UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
     UPDATE_PLAYLIST: 'db-action-history-update-playlist',
+  },
+
+  PROFILES: {
+    ADD_CHANNEL: 'db-action-profiles-add-channel',
+    REMOVE_CHANNEL: 'db-action-profiles-remove-channel'
   },
 
   PLAYLISTS: {
@@ -68,6 +82,11 @@ const SyncEvents = {
     UPDATE_PLAYLIST: 'sync-history-update-playlist',
   },
 
+  PROFILES: {
+    ADD_CHANNEL: 'sync-profiles-add-channel',
+    REMOVE_CHANNEL: 'sync-profiles-remove-channel'
+  },
+
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     DELETE_VIDEO: 'sync-playlists-delete-video',
@@ -86,6 +105,9 @@ const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
 // YouTube search character limit is 100 characters
 const SEARCH_CHAR_LIMIT = 100
 
+// Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
+const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+
 export {
   IpcChannels,
   DBActions,
@@ -93,5 +115,6 @@ export {
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
-  SEARCH_CHAR_LIMIT
+  SEARCH_CHAR_LIMIT,
+  ABOUT_BITCOIN_ADDRESS,
 }

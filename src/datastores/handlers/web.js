@@ -44,10 +44,6 @@ class History {
   static deleteAll() {
     return baseHandlers.history.deleteAll()
   }
-
-  static persist() {
-    baseHandlers.history.persist()
-  }
 }
 
 class Profiles {
@@ -63,12 +59,16 @@ class Profiles {
     return baseHandlers.profiles.upsert(profile)
   }
 
-  static delete(id) {
-    return baseHandlers.profiles.delete(id)
+  static addChannelToProfiles(channel, profileIds) {
+    return baseHandlers.profiles.addChannelToProfiles(channel, profileIds)
   }
 
-  static persist() {
-    baseHandlers.profiles.persist()
+  static removeChannelFromProfiles(channelId, profileIds) {
+    return baseHandlers.profiles.removeChannelFromProfiles(channelId, profileIds)
+  }
+
+  static delete(id) {
+    return baseHandlers.profiles.delete(id)
   }
 }
 

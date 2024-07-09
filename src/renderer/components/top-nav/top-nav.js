@@ -18,13 +18,20 @@ export default defineComponent({
     FtProfileSelector
   },
   data: () => {
+    let isArrowBackwardDisabled = true
+    let isArrowForwardDisabled = true
+
+    // If the Navigation API isn't supported (Firefox and Safari)
+    // keep the back and forwards buttons always enabled
+    if (!('navigation' in window)) {
+      isArrowBackwardDisabled = false
+      isArrowForwardDisabled = false
+    }
+
     return {
-      component: this,
       showSearchContainer: true,
-      historyIndex: 1,
-      isForwardOrBack: false,
-      isArrowBackwardDisabled: true,
-      isArrowForwardDisabled: true,
+      isArrowBackwardDisabled,
+      isArrowForwardDisabled,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -95,6 +102,14 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    }
+  },
+  watch: {
+    $route: function () {
+      if ('navigation' in window) {
+        this.isArrowForwardDisabled = !window.navigation.canGoForward
+        this.isArrowBackwardDisabled = !window.navigation.canGoBack
+      }
     }
   },
   mounted: function () {
@@ -301,41 +316,12 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    navigateHistory: function () {
-      if (!this.isForwardOrBack) {
-        this.historyIndex = window.history.length
-        this.isArrowBackwardDisabled = false
-        this.isArrowForwardDisabled = true
-      } else {
-        this.isForwardOrBack = false
-      }
-    },
-
     historyBack: function () {
-      this.isForwardOrBack = true
-      window.history.back()
-
-      if (this.historyIndex > 1) {
-        this.historyIndex--
-        this.isArrowForwardDisabled = false
-        if (this.historyIndex === 1) {
-          this.isArrowBackwardDisabled = true
-        }
-      }
+      this.$router.back()
     },
 
     historyForward: function () {
-      this.isForwardOrBack = true
-      window.history.forward()
-
-      if (this.historyIndex < window.history.length) {
-        this.historyIndex++
-        this.isArrowBackwardDisabled = false
-
-        if (this.historyIndex === window.history.length) {
-          this.isArrowForwardDisabled = true
-        }
-      }
+      this.$router.forward()
     },
 
     toggleSideNav: function () {

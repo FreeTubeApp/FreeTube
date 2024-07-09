@@ -225,7 +225,12 @@ User Playlists:
         към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount}
         плейлиста
     Save: Запазване
-    Added {count} Times: Добавено {count} път | Добавено {count} пъти
+    Added {count} Times: Вече е добавено | Добавено {count} пъти
+    "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount}
+      видеа
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Ще бъдат добавени {videoCount}/{totalVideoCount}
+      видеа
+    Allow Adding Duplicate Video(s): Разрешаване на добавянето на дублиращи се видеа
   Remove from Playlist: Премахване от плейлиста за изпълнение
   Playlist Name: Име на плейлиста
   Save Changes: Запазване на промените
@@ -241,6 +246,15 @@ User Playlists:
   Quick Bookmark Enabled: Бързите отметки са активирани
   Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия
     списък за плейлисти с бързи отметки.
+  Remove Duplicate Videos: Премахване на дублирани видеа
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сигурни
+    ли сте, че искате да премахнете 1 дублиращо се видео от този плейлист? Това не
+    може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount}
+    дублиращи се видеа от този плейлист? Това не може да бъде отменено.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сигурни
+    ли сте, че искате да премахнете 1 гледано видео от този плейлист? Това не може
+    да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount}
+    гледани видеа от този плейлист? Това не може да бъде отменено.
 History:
   # On History Page
   History: 'История'
@@ -458,6 +472,7 @@ Settings:
     Fetch Automatically: Автоматично извличане на съдържание
     Only Show Latest Video for Each Channel: Показване само най-новите видеа за всеки
       канал
+    Confirm Before Unsubscribing: Избягване на случайно отписване
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -1250,3 +1265,10 @@ Cancel: Отказ
 Moments Ago: току що
 checkmark: ✓
 Display Label: '{label}: {value}'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Субтитри
+    Closed Captions: Затворени субтитри
+'Blocked opening potentially unsafe URL': 'Блокирано отваряне на потенциално опасен
+  URL адрес: "{url}".'

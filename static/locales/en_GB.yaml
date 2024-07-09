@@ -88,6 +88,18 @@ Search Filters:
   Fetch more results: 'Fetch more results'
 # Sidebar
   There are no more results for this search: There are no more results for this search
+  Features:
+    Features: Features
+    HD: HD
+    Subtitles: Subtitles
+    VR180: VR180
+    Creative Commons: Creative Commons
+    HDR: HDR
+    360 Video: 360 Video
+    Live: Live
+    4K: 4K
+    3D: 3D
+    Location: Location
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptions'
@@ -176,6 +188,10 @@ User Playlists:
         playlist is now used for quick bookmark instead of {oldPlaylistName}. Click
         here to undo
       Quick bookmark disabled: Quick bookmark disabled
+      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
+        is the new quick bookmark playlist.
+      This playlist is already being used for quick bookmark.: This playlist is already
+        being used for quick bookmark.
     Search for Videos: Search for videos
   AddVideoPrompt:
     N playlists selected: '{playlistCount} selected'
@@ -190,7 +206,12 @@ User Playlists:
         playlists
     Select a playlist to add your N videos to: Select a playlist to add your video
       to | Select a playlist to add your {videoCount} videos to
-    Added {count} Times: Added {count} time | Added {count} times
+    Added {count} Times: Already Added | Added {count} times
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      videos will be added'
+    Allow Adding Duplicate Video(s): Allow adding duplicate video(s)
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      videos already added'
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist name
     Create: Create
@@ -218,6 +239,18 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Enable quick bookmark with this playlist
   Disable Quick Bookmark: Disable quick bookmark
   Playlists with Matching Videos: Playlists with matching videos
+  Quick Bookmark Enabled: Quick bookmark enabled
+  Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark
+    target playlist.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are
+    you sure you want to remove 1 duplicate video from this playlist? This cannot
+    be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos
+    from this playlist? This cannot be undone.
+  Remove Duplicate Videos: Remove Duplicate Videos
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are
+    you sure you want to remove 1 watched video from this playlist? This cannot be
+    undone. | Are you sure you want to remove {playlistItemCount} watched videos from
+    this playlist? This cannot be undone.
 History:
   # On History Page
   History: 'History'
@@ -274,6 +307,9 @@ Settings:
       Ask Before Opening Link: Ask before opening link
       Open Link: Open link
       External Link Handling: External link handling
+    Auto Load Next Page:
+      Label: Auto load next page
+      Tooltip: Load additional pages and comments automatically.
   Theme Settings:
     Theme Settings: 'Theme settings'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -288,6 +324,8 @@ Settings:
       Pastel Pink: Pastel pink
       Hot Pink: Hot pink
       Nordic: Nordic
+      Solarized Dark: Solarised Dark
+      Solarized Light: Solarised Light
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -327,6 +365,14 @@ Settings:
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Green: Catppuccin Mocha Green
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Solarized Yellow: Solarised Yellow
+      Solarized Magenta: Solarised Magenta
+      Solarized Cyan: Solarised Cyan
+      Solarized Violet: Solarised Violet
+      Solarized Red: Solarised Red
+      Solarized Orange: Solarised Orange
+      Solarized Blue: Solarised Blue
+      Solarized Green: Solarised Green
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -427,6 +473,7 @@ Settings:
     Manage Subscriptions: 'Manage subscriptions'
     Fetch Automatically: Fetch feed automatically
     Only Show Latest Video for Each Channel: Only show latest video for each channel
+    Confirm Before Unsubscribing: Confirm before unsubscribing
   Data Settings:
     Data Settings: 'Data settings'
     Select Import Type: 'Select import type'
@@ -625,6 +672,7 @@ Settings:
     Password Settings: Password settings
     Set Password: Set password
   Expand All Settings Sections: Expand all settings sections
+  Sort Settings Sections (A-Z): Sort settings sections (A-Z)
 About:
   #On About page
   About: About
@@ -663,6 +711,8 @@ About:
   Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
   Discussions: Discussions
+  Licensed under the: Licensed under the
+  AGPLv3: AGPLv3
 Profile:
   Profile Settings: Profile Settings
   Profile Select: 'Profile Select'
@@ -943,6 +993,15 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    Sort By: Sort by
+    DateAddedNewest: Latest added first
+    VideoTitleDescending: Title (Z-A)
+    Custom: Custom
+    DateAddedOldest: Earliest added first
+    AuthorAscending: Author (A-Z)
+    AuthorDescending: Author (Z-A)
+    VideoTitleAscending: Title (A-Z)
 Toggle Theatre Mode: 'Toggle Theatre Mode'
 Change Format:
   Change Media Formats: 'Change Media Formats'
@@ -1161,3 +1220,19 @@ Trimmed input must be at least N characters long: Trimmed input must be at least
 Yes, Delete: Yes, delete
 Yes, Restart: Yes, restart
 Yes, Open Link: Yes, open link
+'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL:
+  ‘{url}’.'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitles
+    Closed Captions: Closed Captions
+Search character limit: Search query is over the {searchCharacterLimit} character
+  limit
+Feed:
+  Feed Last Updated: '{feedName} feed last updated: {date}'
+  Refresh Feed: Refresh {subscriptionName}
+Cancel: Cancel
+checkmark: ✓
+Display Label: '{label}: {value}'
+Moments Ago: moments ago
