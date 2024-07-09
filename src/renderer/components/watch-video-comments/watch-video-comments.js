@@ -366,11 +366,11 @@ export default defineComponent({
           }
 
           this.isLoading = false
-        }).catch((xhr) => {
-          console.error(xhr)
+        }).catch((error) => {
+          console.error(error)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-            copyToClipboard(xhr.responseText)
+          showToast(`${errorMessage}: ${error}`, 10000, () => {
+            copyToClipboard(error)
           })
           this.isLoading = false
         })
