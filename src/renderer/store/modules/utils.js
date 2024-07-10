@@ -21,11 +21,16 @@ const state = {
   isSideNavOpen: false,
   outlinesHidden: true,
   sessionSearchHistory: [],
+  /** @type {any[] | null} */
   popularCache: null,
   trendingCache: {
+    /** @type {any[] | null} */
     default: null,
+    /** @type {any[] | null} */
     music: null,
+    /** @type {any[] | null} */
     gaming: null,
+    /** @type {any[] | null} */
     movies: null
   },
   cachedPlaylist: null,
@@ -39,7 +44,9 @@ const state = {
   toBeAddedToPlaylistVideoList: [],
   newPlaylistDefaultProperties: {},
   newPlaylistVideoObject: [],
+  /** @type {string[]} */
   regionNames: [],
+  /** @type {string[]} */
   regionValues: [],
   recentBlogPosts: [],
   searchSettings: {
@@ -49,7 +56,9 @@ const state = {
     duration: '',
     features: [],
   },
+  /** @type {string[]} */
   externalPlayerNames: [],
+  /** @type {string[]} */
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
   lastVideoRefreshTimestampByProfile: {},
@@ -61,136 +70,175 @@ const state = {
 }
 
 const getters = {
+  /** @param {typeof state} state */
   getIsSideNavOpen(state) {
     return state.isSideNavOpen
   },
 
+  /** @param {typeof state} state */
   getOutlinesHidden(state) {
     return state.outlinesHidden
   },
 
+  /** @param {typeof state} state */
   getCurrentVolume(state) {
     return state.currentVolume
   },
 
+  /** @param {typeof state} state */
   getSessionSearchHistory(state) {
     return state.sessionSearchHistory
   },
 
+  /** @param {typeof state} state */
   getDeArrowCache: (state) => {
     return state.deArrowCache
   },
 
+  /** @param {typeof state} state */
   getPopularCache(state) {
     return state.popularCache
   },
 
+  /** @param {typeof state} state */
   getTrendingCache(state) {
     return state.trendingCache
   },
 
+  /** @param {typeof state} state */
   getCachedPlaylist(state) {
     return state.cachedPlaylist
   },
 
+  /** @param {typeof state} state */
   getSearchSettings(state) {
     return state.searchSettings
   },
 
+  /** @param {typeof state} state */
   getSearchFilterValueChanged(state) {
     return state.searchFilterValueChanged
   },
 
+  /** @param {typeof state} state */
   getShowAddToPlaylistPrompt(state) {
     return state.showAddToPlaylistPrompt
   },
 
+  /** @param {typeof state} state */
   getShowCreatePlaylistPrompt(state) {
     return state.showCreatePlaylistPrompt
   },
 
+  /** @param {typeof state} state */
   getShowSearchFilters(state) {
     return state.showSearchFilters
   },
 
+  /** @param {typeof state} state */
   getToBeAddedToPlaylistVideoList(state) {
     return state.toBeAddedToPlaylistVideoList
   },
 
+  /** @param {typeof state} state */
   getNewPlaylistDefaultProperties(state) {
     return state.newPlaylistDefaultProperties
   },
 
+  /** @param {typeof state} state */
   getNewPlaylistVideoObject(state) {
     return state.newPlaylistVideoObject
   },
 
+  /** @param {typeof state} state */
   getShowProgressBar(state) {
     return state.showProgressBar
   },
 
+  /** @param {typeof state} state */
   getProgressBarPercentage(state) {
     return state.progressBarPercentage
   },
 
+  /** @param {typeof state} state */
   getRegionNames(state) {
     return state.regionNames
   },
 
+  /** @param {typeof state} state */
   getRegionValues(state) {
     return state.regionValues
   },
 
+  /** @param {typeof state} state */
   getRecentBlogPosts(state) {
     return state.recentBlogPosts
   },
 
+  /** @param {typeof state} state */
   getExternalPlayerNames(state) {
     return state.externalPlayerNames
   },
 
+  /** @param {typeof state} state */
   getExternalPlayerValues(state) {
     return state.externalPlayerValues
   },
 
+  /** @param {typeof state} state */
   getExternalPlayerCmdArguments (state) {
     return state.externalPlayerCmdArguments
   },
 
+  /** @param {typeof state} state */
   getLastTrendingRefreshTimestamp(state) {
     return state.lastTrendingRefreshTimestamp
   },
 
+  /** @param {typeof state} state */
   getLastPopularRefreshTimestamp(state) {
     return state.lastPopularRefreshTimestamp
   },
 
+  /** @param {typeof state} state */
   getLastCommunityRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastCommunityRefreshTimestampByProfile[profileId]
   },
 
+  /** @param {typeof state} state */
   getLastShortRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastShortRefreshTimestampByProfile[profileId]
   },
 
+  /** @param {typeof state} state */
   getLastLiveRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastLiveRefreshTimestampByProfile[profileId]
   },
 
+  /** @param {typeof state} state */
   getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
     return state.lastVideoRefreshTimestampByProfile[profileId]
   },
 }
 
 const actions = {
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   showOutlines({ commit }) {
     commit('setOutlinesHidden', false)
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   hideOutlines({ commit }) {
     commit('setOutlinesHidden', true)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.url
+   * @param {string} payload.title
+   * @param {string} payload.extension
+   */
   async downloadMedia({ rootState }, { url, title, extension }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
@@ -276,6 +324,14 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string=} payload.pattern
+   * @param {Date} payload.date
+   * @param {number} payload.playerTime
+   * @param {string} payload.videoId
+   */
   parseScreenshotCustomFileName: function({ rootState }, payload) {
     return new Promise((resolve, reject) => {
       const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
@@ -317,6 +373,12 @@ const actions = {
     })
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} param1
+   * @param {any[]} param1.videos
+   * @param {any} param1.newPlaylistDefaultProperties
+   */
   showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
     let videoDataValid = true
     if (!Array.isArray(videoObjectArray)) {
@@ -374,33 +436,50 @@ const actions = {
     }
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   hideAddToPlaylistPrompt ({ commit }) {
     commit('setShowAddToPlaylistPrompt', false)
     // The default value properties are only valid until prompt is closed
     commit('resetNewPlaylistDefaultProperties')
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} data
+   */
   showCreatePlaylistPrompt ({ commit }, data) {
     commit('setShowCreatePlaylistPrompt', true)
     commit('setNewPlaylistVideoObject', data)
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   showSearchFilters ({ commit }) {
     commit('setShowSearchFilters', true)
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   hideSearchFilters ({ commit }) {
     commit('setShowSearchFilters', false)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {boolean} value
+   */
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.locale
+   */
   async getRegionData ({ commit }, { locale }) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
 
@@ -415,6 +494,10 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} urlStr
+   */
   async getYoutubeUrlInfo({ state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
@@ -635,10 +718,12 @@ const actions = {
     }
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   clearSessionSearchHistory ({ commit }) {
     commit('setSessionSearchHistory', [])
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   async getExternalPlayerCmdArgumentsData ({ commit }) {
     const url = createWebURL('/static/external-player-map.json')
     const externalPlayerMap = await (await fetch(url)).json()
@@ -659,6 +744,10 @@ const actions = {
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} payload
+   */
   openInExternalPlayer ({ state, rootState }, payload) {
     const args = []
     const externalPlayer = rootState.settings.externalPlayer
@@ -776,48 +865,97 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
     commit('updateLastCommunityRefreshTimestampByProfile', payload)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastShortRefreshTimestampByProfile ({ commit }, payload) {
     commit('updateLastShortRefreshTimestampByProfile', payload)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastLiveRefreshTimestampByProfile ({ commit }, payload) {
     commit('updateLastLiveRefreshTimestampByProfile', payload)
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
     commit('updateLastVideoRefreshTimestampByProfile', payload)
   }
 }
 
 const mutations = {
+  /** @param {typeof state} state */
   toggleSideNav (state) {
     state.isSideNavOpen = !state.isSideNavOpen
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} value
+   */
   setOutlinesHidden(state, value) {
     state.outlinesHidden = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} value
+   */
   setShowProgressBar (state, value) {
     state.showProgressBar = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {number} value
+   */
   setProgressBarPercentage (state, value) {
     state.progressBarPercentage = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any[]} history
+   */
   setSessionSearchHistory (state, history) {
     state.sessionSearchHistory = history
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} cache
+   */
   setDeArrowCache (state, cache) {
     state.deArrowCache = cache
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} payload
+   */
   addVideoToDeArrowCache (state, payload) {
     const sameVideo = state.deArrowCache[payload.videoId]
 
@@ -828,10 +966,18 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} payload
+   */
   addThumbnailToDeArrowCache (state, payload) {
     vueSet(state.deArrowCache, payload.videoId, payload)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} payload
+   */
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
@@ -851,65 +997,133 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} payload
+   */
   setShowAddToPlaylistPrompt (state, payload) {
     state.showAddToPlaylistPrompt = payload
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} payload
+   */
   setShowCreatePlaylistPrompt (state, payload) {
     state.showCreatePlaylistPrompt = payload
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} payload
+   */
   setShowSearchFilters (state, payload) {
     state.showSearchFilters = payload
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any[]} payload
+   */
   setToBeAddedToPlaylistVideoList (state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} payload
+   */
   setNewPlaylistDefaultProperties (state, payload) {
     state.newPlaylistDefaultProperties = payload
   },
+  /** @param {typeof state} state */
   resetNewPlaylistDefaultProperties (state) {
     state.newPlaylistDefaultProperties = {}
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} payload
+   */
   setNewPlaylistVideoObject (state, payload) {
     state.newPlaylistVideoObject = payload
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any[]} value
+   */
   setPopularCache (state, value) {
     state.popularCache = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {any[]} payload.value
+   * @param {'default' | 'music' | 'gaming' | 'movies'} payload.page
+   */
   setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} timestamp
+   */
   setLastTrendingRefreshTimestamp (state, timestamp) {
     state.lastTrendingRefreshTimestamp = timestamp
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} timestamp
+   */
   setLastPopularRefreshTimestamp (state, timestamp) {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastCommunityRefreshTimestampByProfile (state, { profileId, timestamp }) {
     vueSet(state.lastCommunityRefreshTimestampByProfile, profileId, timestamp)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastShortRefreshTimestampByProfile (state, { profileId, timestamp }) {
     vueSet(state.lastShortRefreshTimestampByProfile, profileId, timestamp)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastLiveRefreshTimestampByProfile (state, { profileId, timestamp }) {
     vueSet(state.lastLiveRefreshTimestampByProfile, profileId, timestamp)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.profileId
+   * @param {any} payload.timestamp
+   */
   updateLastVideoRefreshTimestampByProfile (state, { profileId, timestamp }) {
     vueSet(state.lastVideoRefreshTimestampByProfile, profileId, timestamp)
   },
 
+  /** @param {typeof state} state */
   clearTrendingCache(state) {
     state.trendingCache = {
       default: null,
@@ -919,54 +1133,106 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any | null} value
+   */
   setCachedPlaylist(state, value) {
     state.cachedPlaylist = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} value
+   */
   setSearchFilterValueChanged (state, value) {
     state.searchFilterValueChanged = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} value
+   */
   setSearchSortBy (state, value) {
     state.searchSettings.sortBy = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} value
+   */
   setSearchTime (state, value) {
     state.searchSettings.time = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} value
+   */
   setSearchType (state, value) {
     state.searchSettings.type = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} value
+   */
   setSearchDuration (state, value) {
     state.searchSettings.duration = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string[]} value
+   */
   setSearchFeatures (state, value) {
     state.searchSettings.features = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string[]} value
+   */
   setRegionNames (state, value) {
     state.regionNames = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string[]} value
+   */
   setRegionValues (state, value) {
     state.regionValues = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any[]} value
+   */
   setRecentBlogPosts (state, value) {
     state.recentBlogPosts = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string[]} value
+   */
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string[]} value
+   */
   setExternalPlayerValues (state, value) {
     state.externalPlayerValues = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} value
+   */
   setExternalPlayerCmdArguments (state, value) {
     state.externalPlayerCmdArguments = value
   }

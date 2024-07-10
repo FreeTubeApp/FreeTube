@@ -58,11 +58,15 @@ const state = {
 }
 
 const getters = {
+  /** @param {typeof state} state */
   getPlaylistsReady: (state) => state.playlistsReady,
+  /** @param {typeof state} state */
   getAllPlaylists: (state) => state.playlists,
-  getPlaylist: (state) => (playlistId) => {
+  /** @param {typeof state} state */
+  getPlaylist: (state) => (/** @type {string} */playlistId) => {
     return state.playlists.find(playlist => playlist._id === playlistId)
   },
+  /** @param {typeof state} state */
   getQuickBookmarkPlaylist(state, getters) {
     const playlistId = getters.getQuickBookmarkTargetPlaylistId
 
@@ -75,6 +79,10 @@ const getters = {
 }
 
 const actions = {
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} payload
+   */
   async addPlaylist({ state, commit, rootState, dispatch }, payload) {
     // In case internal id is forgotten, generate one (instead of relying on caller and have a chance to cause data corruption)
     if (payload._id == null) {
@@ -120,6 +128,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any[]} payload
+   */
   async addPlaylists({ state, commit, rootState, dispatch }, payload) {
     try {
       await DBPlaylistHandlers.create(payload)
@@ -136,6 +148,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} playlist
+   */
   async updatePlaylist({ commit }, playlist) {
     // Ensure playlist name trimmed
     if (typeof playlist.playlistName === 'string') {
@@ -156,6 +172,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} playlist
+   */
   async updatePlaylistLastPlayedAt({ commit }, playlist) {
     // This action does NOT update `lastUpdatedAt` on purpose
     // Only `lastPlayedAt` should be updated
@@ -169,6 +189,12 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {any} payload.videoData
+   */
   async addVideo({ commit }, payload) {
     try {
       const { _id, videoData } = payload
@@ -189,6 +215,12 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {any[]} payload.videos
+   */
   async addVideos({ commit }, payload) {
     // Assumes videos are added NOT from export
     // Since this action will ensure uniqueness of `playlistItemId` of added video entries
@@ -227,6 +259,9 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   */
   async grabAllPlaylists({ rootState, commit, dispatch, state }) {
     try {
       const payload = (await DBPlaylistHandlers.find()).filter((e) => e != null)
@@ -365,6 +400,7 @@ const actions = {
     }
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   async removeAllPlaylists({ commit }) {
     try {
       await DBPlaylistHandlers.deleteAll()
@@ -374,6 +410,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} _id
+   */
   async removeAllVideos({ commit }, _id) {
     try {
       await DBPlaylistHandlers.deleteAllVideosByPlaylistId(_id)
@@ -383,6 +423,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} playlistId
+   */
   async removePlaylist({ commit }, playlistId) {
     try {
       await DBPlaylistHandlers.delete(playlistId)
@@ -392,6 +436,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} playlistIds
+   */
   async removePlaylists({ commit }, playlistIds) {
     try {
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
@@ -401,6 +449,13 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {string} payload.videoId
+   * @param {string} payload.playlistItemId
+   */
   async removeVideo({ commit }, payload) {
     try {
       const { _id, videoId, playlistItemId } = payload
@@ -411,6 +466,12 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {any} payload.videoIds
+   */
   async removeVideos({ commit }, payload) {
     try {
       const { _id, videoIds } = payload
@@ -423,14 +484,26 @@ const actions = {
 }
 
 const mutations = {
+  /**
+   * @param {typeof state} state
+   * @param {any} payload
+   */
   addPlaylist(state, payload) {
     state.playlists.push(payload)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any[]} payload
+   */
   addPlaylists(state, payload) {
     state.playlists = state.playlists.concat(payload)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} updatedPlaylist
+   */
   upsertPlaylistToList(state, updatedPlaylist) {
     const i = state.playlists.findIndex((p) => {
       return p._id === updatedPlaylist._id
@@ -444,6 +517,12 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {any} payload.videoData
+   */
   addVideo(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
@@ -451,6 +530,12 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {any[]} payload.videos
+   */
   addVideos(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
@@ -458,10 +543,15 @@ const mutations = {
     }
   },
 
+  /** @param {typeof state} state */
   removeAllPlaylists(state) {
     state.playlists = []
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} playlistId
+   */
   removeAllVideos(state, playlistId) {
     const playlist = state.playlists.find(playlist => playlist._id === playlistId)
     if (playlist) {
@@ -469,6 +559,13 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {string} payload.videoId
+   * @param {string} payload.playlistItemId
+   */
   removeVideo(state, { _id, videoId, playlistItemId }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
@@ -480,6 +577,12 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload._id
+   * @param {any} payload.videoId
+   */
   removeVideos(state, { _id, videoId }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
@@ -487,14 +590,26 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} playlistId
+   */
   removePlaylist(state, playlistId) {
     state.playlists = state.playlists.filter(playlist => playlist._id !== playlistId || playlist.protected)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any[]} payload
+   */
   setAllPlaylists(state, payload) {
     state.playlists = payload
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {boolean} payload
+   */
   setPlaylistsReady(state, payload) {
     state.playlistsReady = payload
   },

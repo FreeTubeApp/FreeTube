@@ -165,7 +165,9 @@ const state = {
   allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
+  /** @type {boolean} */
   backendFallback: process.env.SUPPORTS_LOCAL_API,
+  /** @type {'local' | 'invidious'} */
   backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
   checkForBlogPosts: true,
@@ -420,36 +422,17 @@ const stateWithSideEffects = {
   }
 }
 
-const customState = {
-}
+const settingsWithSideEffects = Object.keys(stateWithSideEffects)
 
-const customGetters = {
-}
+const customState = {}
+
+const customGetters = {}
 
 const customMutations = {}
 
-/**********/
-/*
- * DO NOT TOUCH THIS SECTION
- * If you wanna add to custom data or logic to the module,
- * do so in the aproppriate `custom_` variable
- *
- * Some of the custom actions below use these properties, so I'll be
- * adding them here instead of further down for clarity's sake
- */
-Object.assign(customState, {
-  settingsWithSideEffects: Object.keys(stateWithSideEffects)
-})
-
-Object.assign(customGetters, {
-  settingHasSideEffects: (state) => {
-    return (id) => state.settingsWithSideEffects.includes(id)
-  }
-})
-/**********/
-
 const customActions = {
-  grabUserSettings: async ({ commit, dispatch, getters }) => {
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
+  grabUserSettings: async ({ commit, dispatch }) => {
     try {
       // Assigning default settings for settings that have side effects
       const userSettings = Object.entries(Object.assign({},
@@ -459,7 +442,7 @@ const customActions = {
 
       for (const setting of userSettings) {
         const [_id, value] = setting
-        if (getters.settingHasSideEffects(_id)) {
+        if (settingsWithSideEffects.includes(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
 
@@ -473,14 +456,15 @@ const customActions = {
   },
 
   // Should be a root action, but we'll tolerate
-  setupListenersToSyncWindows: ({ commit, dispatch, getters }) => {
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
+  setupListenersToSyncWindows: ({ commit, dispatch }) => {
     if (process.env.IS_ELECTRON) {
       const { ipcRenderer } = require('electron')
 
       ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
         switch (event) {
           case SyncEvents.GENERAL.UPSERT:
-            if (getters.settingHasSideEffects(data._id)) {
+            if (settingsWithSideEffects.includes(data._id)) {
               dispatch(defaultSideEffectsTriggerId(data._id), data.value)
             }
 
@@ -615,15 +599,15 @@ for (const settingId of Object.keys(state)) {
   mutations[mutationId] = (state, value) => { state[settingId] = value }
 
   // If setting has side effects, generate action to handle them
-  if (Object.keys(stateWithSideEffects).includes(settingId)) {
+  if (settingsWithSideEffects.includes(settingId)) {
     actions[triggerId] = stateWithSideEffects[settingId].sideEffectsHandler
   }
 
-  actions[updaterId] = async ({ commit, dispatch, getters }, value) => {
+  actions[updaterId] = async ({ commit, dispatch }, value) => {
     try {
       await DBSettingHandlers.upsert(settingId, value)
 
-      if (getters.settingHasSideEffects(settingId)) {
+      if (settingsWithSideEffects.includes(settingId)) {
         dispatch(triggerId, value)
       }
 
@@ -646,3 +630,11 @@ export default {
   actions,
   mutations
 }
+
+/**
+ * @typedef {{
+ *   [K in keyof typeof stateWithSideEffects]: typeof stateWithSideEffects[K]['defaultValue']
+ * }} SettingsStateWithSideEffects
+ *
+ * @typedef {typeof customActions} SettingsCustomActions
+ */

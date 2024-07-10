@@ -9,7 +9,8 @@
       "DB_HANDLERS_ELECTRON_RENDERER_OR_WEB": [
         "src/datastores/handlers/electron",
         "src/datastores/handlers/web"
-      ]
+      ],
+      "vuex": ["src/renderer/store/types/vuex"]
     }
   }
 }

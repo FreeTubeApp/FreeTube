@@ -820,8 +820,9 @@ export function escapeHTML(untrusted) {
 
 /**
  * Performs a deep copy of a javascript object
- * @param {Object} obj
- * @returns {Object}
+ * @template T
+ * @param {T} obj
+ * @returns {T}
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))

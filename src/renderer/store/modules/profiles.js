@@ -15,10 +15,12 @@ const state = {
 }
 
 const getters = {
+  /** @param {typeof state} state */
   getProfileList: (state) => {
     return state.profileList
   },
 
+  /** @param {typeof state} state */
   getActiveProfile: (state) => {
     const activeProfileId = state.activeProfile
     return state.profileList.find((profile) => {
@@ -26,7 +28,8 @@ const getters = {
     })
   },
 
-  profileById: (state) => (id) => {
+  /** @param {typeof state} state */
+  profileById: (state) => (/** @type {string} */ id) => {
     const profile = state.profileList.find(p => p._id === id)
     return profile
   }
@@ -41,6 +44,10 @@ function profileSort(a, b) {
 }
 
 const actions = {
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} defaultName
+   */
   async grabAllProfiles({ rootState, commit }, defaultName = null) {
     let profiles
     try {
@@ -91,10 +98,14 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
-  async batchUpdateSubscriptionDetails({ getters, dispatch }, channels) {
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any[]} channels
+   */
+  async batchUpdateSubscriptionDetails({ dispatch, state }, channels) {
     if (channels.length === 0) { return }
 
-    const profileList = getters.getProfileList
+    const profileList = state.profileList
 
     for (const profile of profileList) {
       const currentProfileCopy = deepCopy(profile)
@@ -128,9 +139,16 @@ const actions = {
     }
   },
 
-  async updateSubscriptionDetails({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string | undefined | null} payload.channelThumbnailUrl
+   * @param {string | undefined | null} payload.channelName
+   * @param {string} payload.channelId
+   */
+  async updateSubscriptionDetails({ dispatch, state }, { channelThumbnailUrl, channelName, channelId }) {
     const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
-    const profileList = getters.getProfileList
+    const profileList = state.profileList
     for (const profile of profileList) {
       const currentProfileCopy = deepCopy(profile)
       const channel = currentProfileCopy.subscriptions.find((channel) => {
@@ -154,6 +172,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} profile
+   */
   async createProfile({ commit }, profile) {
     try {
       const newProfile = await DBProfileHandlers.create(profile)
@@ -163,6 +185,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} profile
+   */
   async updateProfile({ commit }, profile) {
     try {
       await DBProfileHandlers.upsert(profile)
@@ -172,6 +198,15 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {Object} payload.channel
+   * @param {string} payload.channel.id
+   * @param {string} payload.channel.name
+   * @param {string} payload.channel.thumbnail
+   * @param {string[]} payload.profileIds
+   */
   async addChannelToProfiles({ commit }, { channel, profileIds }) {
     try {
       await DBProfileHandlers.addChannelToProfiles(channel, profileIds)
@@ -181,6 +216,12 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.channelId
+   * @param {string[]} payload.profileIds
+   */
   async removeChannelFromProfiles({ commit }, { channelId, profileIds }) {
     try {
       await DBProfileHandlers.removeChannelFromProfiles(channelId, profileIds)
@@ -190,6 +231,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} profileId
+   */
   async removeProfile({ commit }, profileId) {
     try {
       await DBProfileHandlers.delete(profileId)
@@ -199,25 +244,45 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} id
+   */
   updateActiveProfile({ commit }, id) {
     commit('setActiveProfile', id)
   }
 }
 
 const mutations = {
+  /**
+   * @param {typeof state} state
+   * @param {any[]} profileList
+   */
   setProfileList(state, profileList) {
     state.profileList = profileList
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} activeProfile
+   */
   setActiveProfile(state, activeProfile) {
     state.activeProfile = activeProfile
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} profile
+   */
   addProfileToList(state, profile) {
     state.profileList.push(profile)
     state.profileList.sort(profileSort)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} updatedProfile
+   */
   upsertProfileToList(state, updatedProfile) {
     const i = state.profileList.findIndex((p) => {
       return p._id === updatedProfile._id
@@ -232,12 +297,27 @@ const mutations = {
     state.profileList.sort(profileSort)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {Object} payload.channel
+   * @param {string} payload.channel.id
+   * @param {string} payload.channel.name
+   * @param {string} payload.channel.thumbnail
+   * @param {string[]} payload.profileIds
+   */
   addChannelToProfiles(state, { channel, profileIds }) {
     for (const id of profileIds) {
       state.profileList.find(profile => profile._id === id).subscriptions.push(channel)
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.channelId
+   * @param {string[]} payload.profileIds
+   */
   removeChannelFromProfiles(state, { channelId, profileIds }) {
     for (const id of profileIds) {
       const profile = state.profileList.find(profile => profile._id === id)
@@ -248,6 +328,10 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} profileId
+   */
   removeProfileFromList(state, profileId) {
     const i = state.profileList.findIndex((profile) => {
       return profile._id === profileId
