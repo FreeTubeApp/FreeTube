@@ -976,6 +976,13 @@ function runApp() {
 
     try {
       const contents = await asyncFs.readFile(filePath)
+
+      // Probably a corrupted/broken cache entry, pretend it's absent
+      // A valid entry should be a few KB large
+      if (contents.byteLength < 500) {
+        return undefined
+      }
+
       return contents.buffer
     } catch (e) {
       console.error(e)
