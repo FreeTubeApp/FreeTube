@@ -120,12 +120,16 @@
   margin: 0;
   top: 5px;
   left: 5px;
+  max-width: calc(100% - 10px);
   font-size: xx-large;
   color: #fff;
   font-weight: normal;
   background-color: rgb(0 0 0 / 50%);
   border-radius: 5px;
   user-select: none;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
 
   /* copied from .shaka-scrim-container */
   transition: opacity cubic-bezier(.4, 0, .6, 1) .6s;
