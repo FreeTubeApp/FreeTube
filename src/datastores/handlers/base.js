@@ -16,6 +16,8 @@ class Settings {
       $or: [
         { _id: 'disableSmoothScrolling' },
         { _id: 'useProxy' },
+        { _id: 'proxyLogin' },
+        { _id: 'proxyPassword' },
         { _id: 'proxyProtocol' },
         { _id: 'proxyHostname' },
         { _id: 'proxyPort' }

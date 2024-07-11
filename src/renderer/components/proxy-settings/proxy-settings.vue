@@ -25,6 +25,25 @@
       </ft-flex-box>
       <ft-flex-box>
         <ft-input
+          :placeholder="$t('Settings.Proxy Settings.Proxy Login')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="proxyLogin"
+          @input="handleUpdateProxyLogin"
+          @keydown.enter.native="testProxy"
+        />
+        <ft-input
+          :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="proxyPassword"
+          :maxlength="5"
+          @input="handleUpdateProxyPassword"
+          @keydown.enter.native="testProxy"
+        />
+      </ft-flex-box>
+      <ft-flex-box>
+        <ft-input
           :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
           :show-action-button="false"
           :show-label="true"
