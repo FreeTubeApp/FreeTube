@@ -133,7 +133,7 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile.subscriptions
     }
   },
-  mounted: function () {
+  created: function () {
     // region No comment detection
     // For videos without any comment (comment disabled?)
     // e.g. https://youtu.be/8NBSwDEf8a8
@@ -366,11 +366,11 @@ export default defineComponent({
           }
 
           this.isLoading = false
-        }).catch((xhr) => {
-          console.error(xhr)
+        }).catch((error) => {
+          console.error(error)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-            copyToClipboard(xhr.responseText)
+          showToast(`${errorMessage}: ${error}`, 10000, () => {
+            copyToClipboard(error)
           })
           this.isLoading = false
         })

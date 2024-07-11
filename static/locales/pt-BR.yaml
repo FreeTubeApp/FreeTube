@@ -91,7 +91,7 @@ Search Filters:
     HDR: HDR
     VR180: VR180
     Creative Commons: Creative Commons (Licença)
-    Features: Características
+    Features: Destaques
     3D: 3D
 Subscriptions:
     # On Subscriptions Page
@@ -451,7 +451,7 @@ Settings:
     Fetch Automatically: Buscar feed automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas vídeo mais recente para
       cada canal
-    Avoid Accidental Unsubscription: Evitar cancelamento acidental de inscrição
+    Confirm Before Unsubscribing: Evitar cancelamento acidental de inscrições
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -558,7 +558,7 @@ Settings:
         uma versão mais antiga do FreeTube:\n1. Exporte suas playlists com esta opção
         habilitada.\n2. Exclua todas as suas playlists existentes usando a opção \"\
         Remover todas as playlists\" em \"Configurações de privacidade\".\n3. Inicie
-        a versão mais antiga do FreeTube e importe as playlists exportadas."
+        a versão mais antiga do FreeTube e importe as playlists exportadas"
   Distraction Free Settings:
     Hide Live Chat: Ocultar chat ao vivo
     Hide Popular Videos: Ocultar vídeos populares
@@ -1221,9 +1221,9 @@ Search Bar:
 External link opening has been disabled in the general settings: A abertura de link
   externo foi desativada nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
-Downloading has completed: '"{videoTitle}" terminou de baixar'
-Starting download: Fazendo o download de "{videoTitle}"
-Downloading failed: Ocorreu um problema ao fazer o download de "{videoTitle}"
+Downloading has completed: '"{videoTitle}" download concluído'
+Starting download: Iniciando download de "{videoTitle}"
+Downloading failed: Falha no download "{videoTitle}"
 New Window: Nova janela
 Channels:
   Channels: Canais
@@ -1283,5 +1283,5 @@ Search Listing:
     Subtitles: Legendas
     Closed Captions: Legendas ocultas (CC)
     4K: 4K
-'Blocked opening potentially unsafe URL': 'Abertura bloqueada de URL potencialmente
-  inseguro: "{url}".'
+'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
+  "{url}".'

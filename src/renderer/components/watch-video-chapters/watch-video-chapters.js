@@ -63,7 +63,7 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  created: function () {
     this.currentIndex = this.currentChapterIndex
   },
   methods: {
