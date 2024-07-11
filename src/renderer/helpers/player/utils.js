@@ -82,8 +82,6 @@ export async function getSponsorBlockSegments(videoId, categories) {
     }
   })
 
-  mappedSegments.forEach(Object.freeze)
-
   mappedSegments.sort((a, b) => a.startTime - b.startTime)
 
   return {
