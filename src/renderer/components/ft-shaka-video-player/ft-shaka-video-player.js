@@ -828,46 +828,59 @@ export default defineComponent({
       }
     }
 
+    /**
+     * @param {WheelEvent} event
+     */
+    function handleControlsContainerWheel(event) {
+      /** @type {DOMTokenList} */
+      const classList = event.target.classList
+
+      if (classList.contains('shaka-scrim-container') ||
+        classList.contains('shaka-fast-foward-container') ||
+        classList.contains('shaka-rewind-container')) {
+        //
+
+        if (event.ctrlKey || event.metaKey) {
+          if (videoPlaybackRateMouseScroll.value) {
+            mouseScrollPlaybackRate(event)
+          }
+        } else {
+          if (videoVolumeMouseScroll.value) {
+            mouseScrollVolume(event)
+          } else if (videoSkipMouseScroll.value) {
+            mouseScrollSkip(event)
+          }
+        }
+      }
+    }
+
+    /**
+     * @param {MouseEvent} event
+     */
+    function handleControlsContainerClick(event) {
+      if (event.ctrlKey || event.metaKey) {
+        // stop shaka-player's click handler firing
+        event.stopPropagation()
+
+        video.value.playbackRate = defaultPlayback.value
+        video.value.defaultPlaybackRate = defaultPlayback.value
+      }
+    }
+
     function addUICustomizations() {
       /** @type {HTMLDivElement} */
       const controlsContainer = ui.getControls().getControlsContainer()
 
+      controlsContainer.removeEventListener('wheel', handleControlsContainerWheel)
+      controlsContainer.removeEventListener('click', handleControlsContainerClick, true)
+
       if (!useVrMode.value) {
         if (videoVolumeMouseScroll.value || videoSkipMouseScroll.value || videoPlaybackRateMouseScroll.value) {
-          controlsContainer.addEventListener('wheel', (event) => {
-            /** @type {DOMTokenList} */
-            const classList = event.target.classList
-
-            if (classList.contains('shaka-scrim-container') ||
-              classList.contains('shaka-fast-foward-container') ||
-              classList.contains('shaka-rewind-container')) {
-              //
-
-              if (event.ctrlKey || event.metaKey) {
-                if (videoPlaybackRateMouseScroll.value) {
-                  mouseScrollPlaybackRate(event)
-                }
-              } else {
-                if (videoVolumeMouseScroll.value) {
-                  mouseScrollVolume(event)
-                } else if (videoSkipMouseScroll.value) {
-                  mouseScrollSkip(event)
-                }
-              }
-            }
-          })
+          controlsContainer.addEventListener('wheel', handleControlsContainerWheel)
         }
 
         if (videoPlaybackRateMouseScroll.value) {
-          controlsContainer.addEventListener('click', (event) => {
-            if (event.ctrlKey || event.metaKey) {
-              // stop shaka-player's click handler firing
-              event.stopPropagation()
-
-              video.value.playbackRate = defaultPlayback.value
-              video.value.defaultPlaybackRate = defaultPlayback.value
-            }
-          }, true)
+          controlsContainer.addEventListener('click', handleControlsContainerClick, true)
         }
       }
 
