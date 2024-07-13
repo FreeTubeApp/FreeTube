@@ -3,7 +3,7 @@
 
 .outside {
   margin: auto;
-  inline-size: 40%;
+  inline-size: 640px;
 
   @media screen and (width <= 768px) {
     inline-size: 100%;
@@ -21,8 +21,14 @@
 }
 
 .communityImage {
-  block-size: 100%;
-  inline-size: 100%;
+    inline-size: 100%;
+    block-size: 640px;
+    object-fit: cover;
+}
+
+.swiperSlide {
+  max-block-size: 640px;
+  max-inline-size: 640px;
 }
 
 .communityThumbnail {
@@ -64,7 +70,7 @@
   display: block;
   flex-direction: column;
   font-size: 15px;
-  margin-block-start: 4px;
+  margin-block-start: 1rem;
   max-inline-size: 210px;
   text-align: start;
 
@@ -144,4 +150,5 @@
 
 .sliderContainer {
   display: grid;
+  max-inline-size: 640px;
 }
