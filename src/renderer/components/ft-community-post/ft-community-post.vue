@@ -65,6 +65,7 @@
         v-for="(img, index) in postContent.content"
         :key="index"
         lazy="true"
+        class="swiperSlide"
       >
         <img
           :src="getBestQualityImage(img)"

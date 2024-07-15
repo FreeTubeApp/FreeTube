@@ -27,3 +27,18 @@
 .videoTagLine .videoTag:first-child {
   margin-inline-start: 0;
 }
+
+.channelThumbnail {
+  border-radius: 999px;
+  display: inline-block;
+  max-inline-size: 24px;
+  max-block-size: 24px;
+  margin-block-end: 0 !important;
+  margin-inline-end: 0.5rem;
+}
+
+.channelNameAndThumbnail {
+  display: flex;
+  align-items: center;
+  margin-block-end: 8px;
+}
