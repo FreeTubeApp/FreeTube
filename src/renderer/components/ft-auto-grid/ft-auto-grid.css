@@ -1,11 +1,30 @@
-.grid {
+.autoGrid {
   display: grid;
   grid-gap: 8px;
   grid-template-columns: repeat(auto-fill, minmax(262px, 1fr));
   justify-content: space-evenly;
 }
 
-.list {
+.autoList {
   display: grid;
   grid-gap: 4px;
+}
+
+@media (width >= 1514px) {
+  .autoList {
+    justify-content: center;
+  }
+}
+
+/* Cap grid column width at 5 for larger viewports */
+@media (width >= 1605px) {
+  .autoGrid {
+    grid-template-columns: repeat(5, minmax(262px, 1fr));
+  }
+}
+
+@media (width >= 2000px) {
+  .autoGrid {
+    grid-template-columns: repeat(6, minmax(262px, 1fr));
+  }
 }

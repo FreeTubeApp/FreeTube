@@ -1,5 +1,27 @@
 @use '../../scss-partials/utils';
 
+@mixin single-column-list-view {
+  .routerView {
+    flex-direction: column;
+
+    &.list {
+      .playlistInfoContainer {
+        box-sizing: border-box;
+        position: relative;
+        inset-block-start: 0;
+        block-size: auto;
+        inline-size: 100%;
+        margin-inline: 0;
+      }
+
+      .playlistItemsCard {
+        box-sizing: border-box;
+        inline-size: 100%;
+      }
+    }
+  }
+}
+
 .playlistItemsCard {
   display: flex;
   flex-direction: column;
@@ -45,8 +67,8 @@
       padding-block: 0;
       margin-inline: auto;
       padding-inline: 16px;
-      box-sizing: content-box;
-      inline-size: 85%;
+      box-sizing: border-box;
+      inline-size: 100%;
       background-color: var(--card-bg-color);
       box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
 
@@ -60,9 +82,10 @@
     }
 
     .playlistItemsCard {
-      inline-size: 85%;
       margin-block: 0 60px;
       margin-inline: auto;
+      inline-size: 100%;
+      box-sizing: border-box;
     }
   }
 
@@ -70,8 +93,9 @@
     .playlistInfoContainer {
       background-color: var(--card-bg-color);
       block-size: calc(100vh - 132px);
-      inline-size: 30%;
+      min-inline-size: 30%;
       inset-block-start: 96px;
+      margin-block: 0;
       margin-inline-end: 1em;
       position: sticky;
 
@@ -133,25 +157,14 @@
   margin-block: auto;
 }
 
-@media only screen and (width <= 850px) {
-  .routerView {
-    flex-direction: column;
-
-    &.list {
-      .playlistInfoContainer {
-        box-sizing: border-box;
-        position: relative;
-        inset-block-start: 0;
-        block-size: auto;
-        inline-size: 100%;
-      }
-
-      .playlistItemsCard {
-        box-sizing: border-box;
-        inline-size: 100%;
-      }
-    }
+.isSideNavOpen {
+  @media only screen and (width <= 1162px) {
+    @include single-column-list-view;
   }
+}
+
+@media only screen and (width <= 910px) {
+  @include single-column-list-view;
 }
 
 .message {

@@ -41,6 +41,26 @@
   }
 }
 
+.isSideNavOpen {
+  .playlistTitle, .playlistDescription {
+    @media only screen and (width >= 1162px) {
+      /* Approximate max size before untruncated title starts breaking list view desktop interface with side nav open */
+      max-inline-size: 28vw;
+    }
+  }
+}
+
+.app:not(.isSideNavOpen) .playlistTitle, .app:not(.isSideNavOpen) .playlistDescription {
+  inline-size: 100%;
+  margin-block: 8px;
+  max-inline-size: 70vw;
+
+  @media only screen and (width >= 910px) {
+    /* Approximate max size before untruncated title starts breaking list view desktop interface */
+    max-inline-size: 28vw;
+  }
+}
+
 .playlistChannel {
   align-items: center;
   color: inherit;
@@ -91,18 +111,19 @@
     text-align: center;
   }
 
+
+
+  /* stylelint-disable-next-line no-descending-specificity */
   .playlistTitle {
     margin-block-start: 0.2em;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .playlistTitle, .playlistDescription {
-    overflow-x: hidden;
     text-align: center;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-inline-size: 750px;
-    inline-size: 100%;
-    margin-block: 8px;
+
+    /* Approximate max size before untruncated title could break grid view interface */
+    max-inline-size: 50vw;
   }
 
   .descriptionInput {
@@ -125,6 +146,23 @@
     inline-size: 100%;
   }
 }
+
+/* Only show full untruncated playlist description and title on smaller viewport sizes */
+@media only screen and (width > 680px) {
+  .playlistTitle, .top-bar .playlistDescription {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media only screen and (width <= 680px) {
+  .playlistTitle, .playlistDescription {
+    max-inline-size: 100%;
+  }
+}
+
+
 
 @media only screen and (width <= 1250px) {
   :deep(.sharePlaylistIcon .iconDropdown) {
