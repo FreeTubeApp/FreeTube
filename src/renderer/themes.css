@@ -228,25 +228,6 @@
   --logo-text: url("../../_icons/textBlackSmall.svg");
 }
 
-.nordic {
-  --primary-text-color: #EEE;
-  --secondary-text-color: #ddd;
-  --tertiary-text-color: #EEE;
-  --title-color: #EEE;
-  --bg-color: #2b2f3a;
-  --favorite-icon-color: #0F0;
-  --card-bg-color: #2e3440;
-  --secondary-card-bg-color: rgb(59 66 82 / 75%);
-  --scrollbar-color: #4b566a;
-  --scrollbar-color-hover: #4b566a;
-  --side-nav-color: #2e3440;
-  --side-nav-hover-color: #3b4252;
-  --side-nav-active-color: #3b4252;
-  --search-bar-color: #4b566a;
-  --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
-  --logo-text: url("../../_icons/textNordicLightSmall.svg");
-}
-
 .hotPink {
   --primary-text-color: #FFFF;
   --secondary-text-color: #FFFF;
@@ -288,15 +269,23 @@
   --accent-color-opacity4: rgb(255 255 255 / 24%) !important;
 }
 
-/* Given that the Hot Pink theme does not need link underlining due to meeting
-WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
-it can be safely elided. This looks quite pleasant on this theme. */
-.hotPink a:not(:hover, :focus), .hotPink .navOption:hover, .hotPink .navOption:focus, .hotPink *:not(:hover, :focus) {
-  text-decoration: none;
-}
-
-.hotPink a:hover, .hotPink a:focus {
-  text-decoration: underline;
+.nordic {
+  --primary-text-color: #EEE;
+  --secondary-text-color: #ddd;
+  --tertiary-text-color: #EEE;
+  --title-color: #EEE;
+  --bg-color: #2b2f3a;
+  --favorite-icon-color: #0F0;
+  --card-bg-color: #2e3440;
+  --secondary-card-bg-color: rgb(59 66 82 / 75%);
+  --scrollbar-color: #4b566a;
+  --scrollbar-color-hover: #4b566a;
+  --side-nav-color: #2e3440;
+  --side-nav-hover-color: #3b4252;
+  --side-nav-active-color: #3b4252;
+  --search-bar-color: #4b566a;
+  --logo-icon: url("../../_icons/iconNordicLightSmall.svg");
+  --logo-text: url("../../_icons/textNordicLightSmall.svg");
 }
 
 .solarizedDark {

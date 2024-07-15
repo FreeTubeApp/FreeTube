@@ -1,16 +1,14 @@
 <template>
-  <details
-    :open="allSettingsSectionsExpandedByDefault"
+  <div
     class="settingsSection"
   >
-    <summary class="sectionHeader">
+    <div class="sectionBody">
       <h3 class="sectionTitle">
         {{ title }}
       </h3>
-    </summary>
-    <hr class="sectionLine">
-    <slot />
-  </details>
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script src="./ft-settings-section.js" />
