@@ -49,9 +49,8 @@ export default defineComponent({
       this.filterHistoryAsync()
     },
     fullData() {
-      this.activeData = this.fullData
       this.filterHistory()
-    }
+    },
   },
   mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
@@ -63,11 +62,7 @@ export default defineComponent({
 
     this.activeData = this.fullData
 
-    if (this.activeData.length < this.historyCacheSorted.length) {
-      this.showLoadMoreButton = true
-    } else {
-      this.showLoadMoreButton = false
-    }
+    this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
 
     this.filterHistoryDebounce = debounce(this.filterHistory, 500)
   },
@@ -92,34 +87,27 @@ export default defineComponent({
     filterHistory: function() {
       if (this.query === '') {
         this.activeData = this.fullData
-        if (this.activeData.length < this.historyCacheSorted.length) {
-          this.showLoadMoreButton = true
-        } else {
-          this.showLoadMoreButton = false
-        }
-      } else {
-        const lowerCaseQuery = this.query.toLowerCase()
-        const filteredQuery = this.historyCacheSorted.filter((video) => {
-          if (typeof (video.title) === 'string' && video.title.toLowerCase().includes(lowerCaseQuery)) {
-            return true
-          } else if (typeof (video.author) === 'string' && video.author.toLowerCase().includes(lowerCaseQuery)) {
-            return true
-          }
-
-          return false
-        }).sort((a, b) => {
-          return b.timeWatched - a.timeWatched
-        })
-        if (filteredQuery.length <= this.searchDataLimit) {
-          this.showLoadMoreButton = false
-        } else {
-          this.showLoadMoreButton = true
-        }
-        this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
+        this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
+        return
       }
+
+      const lowerCaseQuery = this.query.toLowerCase()
+      const filteredQuery = this.historyCacheSorted.filter((video) => {
+        if (typeof (video.title) === 'string' && video.title.toLowerCase().includes(lowerCaseQuery)) {
+          return true
+        } else if (typeof (video.author) === 'string' && video.author.toLowerCase().includes(lowerCaseQuery)) {
+          return true
+        }
+
+        return false
+      }).sort((a, b) => {
+        return b.timeWatched - a.timeWatched
+      })
+      this.showLoadMoreButton = filteredQuery.length > this.searchDataLimit
+      this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
     },
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
-    }
+    },
   }
 })
