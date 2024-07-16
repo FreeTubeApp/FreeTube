@@ -7,7 +7,24 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import { ctrlFHandler } from '../../helpers/utils'
+
+const identity = (v) => v
+
+function filterVideosWithQuery(videos, query, attrProcessor = identity) {
+  return videos.filter((video) => {
+    if (typeof (video.title) === 'string' && attrProcessor(video.title).includes(query)) {
+      return true
+    } else if (typeof (video.author) === 'string' && attrProcessor(video.author).includes(query)) {
+      return true
+    }
+
+    return false
+  }).sort((a, b) => {
+    return b.timeWatched - a.timeWatched
+  })
+}
 
 export default defineComponent({
   name: 'History',
@@ -19,12 +36,14 @@ export default defineComponent({
     'ft-button': FtButton,
     'ft-input': FtInput,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
+    'ft-toggle-switch': FtToggleSwitch,
   },
   data: function () {
     return {
       isLoading: false,
       dataLimit: 100,
       searchDataLimit: 100,
+      doCaseSensitiveSearch: false,
       showLoadMoreButton: false,
       query: '',
       activeData: [],
@@ -49,6 +68,9 @@ export default defineComponent({
       this.filterHistoryAsync()
     },
     fullData() {
+      this.filterHistory()
+    },
+    doCaseSensitiveSearch() {
       this.filterHistory()
     },
   },
@@ -91,20 +113,14 @@ export default defineComponent({
         return
       }
 
-      const lowerCaseQuery = this.query.toLowerCase()
-      const filteredQuery = this.historyCacheSorted.filter((video) => {
-        if (typeof (video.title) === 'string' && video.title.toLowerCase().includes(lowerCaseQuery)) {
-          return true
-        } else if (typeof (video.author) === 'string' && video.author.toLowerCase().includes(lowerCaseQuery)) {
-          return true
-        }
-
-        return false
-      }).sort((a, b) => {
-        return b.timeWatched - a.timeWatched
-      })
-      this.showLoadMoreButton = filteredQuery.length > this.searchDataLimit
+      let filteredQuery = []
+      if (this.doCaseSensitiveSearch) {
+        filteredQuery = filterVideosWithQuery(this.historyCacheSorted, this.query)
+      } else {
+        filteredQuery = filterVideosWithQuery(this.historyCacheSorted, this.query.toLowerCase(), (s) => s.toLowerCase())
+      }
       this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
+      this.showLoadMoreButton = this.activeData.length > this.searchDataLimit
     },
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
