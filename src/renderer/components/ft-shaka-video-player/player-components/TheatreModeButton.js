@@ -48,14 +48,12 @@ export class TheatreModeButton extends shaka.ui.Element {
 
     this.eventManager.listen(this.button_, 'click', () => {
       events.dispatchEvent(new CustomEvent('toggleTheatreMode', {
-        detail: {
-          enabled: !this.theatreModeEnabled_
-        }
+        detail: !this.theatreModeEnabled_
       }))
     })
 
     this.eventManager.listen(events, 'toggleTheatreMode', (/** @type {CustomEvent} */event) => {
-      this.theatreModeEnabled_ = event.detail.enabled
+      this.theatreModeEnabled_ = event.detail
 
       this.updateLocalisedStrings_()
     })

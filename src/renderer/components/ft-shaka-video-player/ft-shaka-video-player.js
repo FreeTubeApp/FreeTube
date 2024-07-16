@@ -253,12 +253,13 @@ export default defineComponent({
     })
 
     const playbackRates = computed(() => {
+      const interval = videoPlaybackRateInterval.value
       const playbackRates = []
-      let i = videoPlaybackRateInterval.value
+      let i = interval
 
       while (i <= maxVideoPlaybackRate.value) {
         playbackRates.unshift(i)
-        i += videoPlaybackRateInterval.value
+        i += interval
         i = parseFloat(i.toFixed(2))
       }
 
@@ -1056,7 +1057,7 @@ export default defineComponent({
 
       const localization = ui.getControls().getLocalization()
 
-      const cachedLocales = store.getters.getCachedPlayerLocales
+      const cachedLocales = store.state.player.cachedPlayerLocales
 
       if (!loadedLocales.has(shakaLocale)) {
         if (!Object.hasOwn(cachedLocales, shakaLocale)) {
@@ -1073,7 +1074,7 @@ export default defineComponent({
       events.dispatchEvent(new CustomEvent('localeChanged'))
     }
 
-    watch(() => i18n.locale, (newValue) => setLocale(newValue))
+    watch(() => i18n.locale, setLocale)
 
     // #endregion player locales
 
@@ -1528,9 +1529,7 @@ export default defineComponent({
       }
     })
 
-    watch(activeLegacyFormat, (newValue) => {
-      updateLegacyQualityStats(newValue)
-    })
+    watch(activeLegacyFormat, updateLegacyQualityStats)
 
     // #endregion stats
 
@@ -1682,11 +1681,11 @@ export default defineComponent({
 
     function registerFullWindowButton() {
       events.addEventListener('setFullWindow', event => {
-        if (event.detail.enabled) {
+        if (event.detail) {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
         }
 
-        fullWindowEnabled.value = event.detail.enabled
+        fullWindowEnabled.value = event.detail
 
         if (fullWindowEnabled.value) {
           document.body.classList.add('playerFullWindow')
@@ -2132,9 +2131,7 @@ export default defineComponent({
             event.preventDefault()
 
             events.dispatchEvent(new CustomEvent('setFullWindow', {
-              detail: {
-                enabled: false
-              }
+              detail: false
             }))
           }
           break
@@ -2143,9 +2140,7 @@ export default defineComponent({
           // Toggle full window mode
           event.preventDefault()
           events.dispatchEvent(new CustomEvent('setFullWindow', {
-            detail: {
-              enabled: !fullWindowEnabled.value
-            }
+            detail: !fullWindowEnabled.value
           }))
           break
         case 'T':
@@ -2155,9 +2150,7 @@ export default defineComponent({
             event.preventDefault()
 
             events.dispatchEvent(new CustomEvent('toggleTheatreMode', {
-              detail: {
-                enabled: !props.useTheatreMode
-              }
+              detail: !props.useTheatreMode
             }))
           }
           break
@@ -2558,7 +2551,7 @@ export default defineComponent({
        * @param {'dash'|'audio'|'legacy'} newFormat
        * @param {'dash'|'audio'|'legacy'} oldFormat
        */
-      async function (newFormat, oldFormat) {
+      async (newFormat, oldFormat) => {
         // format switch happened before the player loaded, probably because of an error
         // as there are no previous player settings to restore, we should treat it like this was the original format
         if (!hasLoaded.value) {

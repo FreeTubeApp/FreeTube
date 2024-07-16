@@ -6,11 +6,7 @@ const state = {
   cachedPlayerLocales: {}
 }
 
-const getters = {
-  getCachedPlayerLocales(state) {
-    return state.cachedPlayerLocales
-  }
-}
+const getters = {}
 
 const actions = {
   async cachePlayerLocale({ commit }, locale) {
