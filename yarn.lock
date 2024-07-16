@@ -309,7 +309,7 @@
   dependencies:
     "@babel/types" "^7.24.7"
 
-"@babel/helper-string-parser@^7.24.8":
+"@babel/helper-string-parser@^7.24.7", "@babel/helper-string-parser@^7.24.8":
   version "7.24.8"
   resolved "https://registry.yarnpkg.com/@babel/helper-string-parser/-/helper-string-parser-7.24.8.tgz#5b3329c9a58803d5df425e5785865881a81ca48d"
   integrity sha512-pO9KhhRcuUyGnJWwyEgnRJTSIZHiT+vMD0kPeD+so0l7mxkMT19g3pjY9GTnHySck/hDzq+dtW/4VgnMkippsQ==
@@ -7375,10 +7375,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shaka-player@^4.10.3:
-  version "4.10.3"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.10.3.tgz#9c9a0eb64bb9482ec530dfd85ee2965e9654997f"
-  integrity sha512-h8PHSsIXHm5yIquSFWSiRw9cOh8W4viEilkxqYmU4KQKTsfvCK5VSnWHJnhWRdHsXXNXkrMFOn1mRO4ei2EeDg==
+shaka-player@^4.10.6:
+  version "4.10.6"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.10.6.tgz#90fff70b75f16900080fe5dc40e5e74d38991650"
+  integrity sha512-WQYetDIQvPH9Y4WuWP3Q6kyuN0IdLwdoaYvPJQzHyuQ7ahwc5AO/7z51aLhTwGplKhEZOaMVuisNnK0UfNntng==
   dependencies:
     eme-encryption-scheme-polyfill "^2.1.5"
 
