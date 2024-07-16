@@ -42,6 +42,7 @@ Global:
     Watching Count: 1 sedang menonton | {count} sedang menonton
   Community: Komunitas
   Live: Siaran Langsung
+  Shorts: Shorts
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
@@ -1026,4 +1027,4 @@ Go to page: Pergi ke {page}
 Ok: Oke
 Yes, Open Link: Ya, Buka Tautan
 checkmark: ✓
-Close Banner: Tutup
+Close Banner: Tutup Banner
