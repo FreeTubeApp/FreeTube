@@ -36,37 +36,37 @@
 */
 
 .spinner {
-    inline-size: 40px;
-    block-size: 40px;
-    position: relative;
-    margin-block: 100px;
-    margin-inline: auto;
+  inline-size: 40px;
+  block-size: 40px;
+  position: relative;
+  margin-block: 100px;
+  margin-inline: auto;
 }
 
 .double-bounce1,
 .double-bounce2 {
-    inline-size: 100%;
-    block-size: 100%;
-    border-radius: 50%;
-    opacity: 0.6;
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    background-color: var(--primary-color);
-    animation: sk-bounce 2.0s infinite ease-in-out;
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: 50%;
+  opacity: 0.6;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  background-color: var(--primary-color);
+  animation: sk-bounce 2s infinite ease-in-out;
 }
 
 .double-bounce2 {
-    animation-delay: -1.0s;
+  animation-delay: -1s;
 }
 
 @keyframes sk-bounce {
-    0%,
-    100% {
-        transform: scale(0.0);
-    }
+  0%,
+  100% {
+    transform: scale(0);
+  }
 
-    50% {
-        transform: scale(1.0);
-    }
+  50% {
+    transform: scale(1);
+  }
 }
