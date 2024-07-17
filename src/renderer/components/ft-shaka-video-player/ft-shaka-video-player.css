@@ -152,29 +152,10 @@
   opacity: 1;
 }
 
-@media only screen and (width <= 400px) {
-  :deep(.shaka-text-container) {
-    /* make subtitles take up slightly less space when a mobile phone is in portrait orientation */
-    font-size: 16px !important;
-  }
-}
-
-@media only screen and (width <= 1000px) {
-  :deep(.playerFullscreenTitleOverlay) {
-    font-size: large;
-  }
-}
-
 .ftVideoPlayer:fullscreen :deep(.theatre-button),
 .ftVideoPlayer:fullscreen :deep(.full-window-button),
 .fullWindow :deep(.theatre-button) {
   display: none;
-}
-
-@media only screen and (width <= 1350px) {
-  :deep(.theatre-button) {
-    display: none
-  }
 }
 
 .fullWindow {
@@ -194,6 +175,31 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
+}
+
+@media only screen and (width <=400px) {
+  :deep(.shaka-text-container) {
+    /* make subtitles take up slightly less space when a mobile phone is in portrait orientation */
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (width <=1000px) {
+  :deep(.playerFullscreenTitleOverlay) {
+    font-size: large;
+  }
+}
+
+@media only screen and (width <=1350px) {
+  :deep(.theatre-button) {
+    display: none
+  }
+}
+
+@media (prefers-reduced-transparency) {
+  :deep(.playerFullscreenTitleOverlay), .skippedSegment {
+    background-color: rgb(0 0 0 / 90%);
+  }
 }
 
 /* stylelint-enable liberty/use-logical-spec */
