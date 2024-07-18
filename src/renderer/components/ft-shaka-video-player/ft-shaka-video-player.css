@@ -111,7 +111,8 @@
   background-color: #000;
 }
 
-:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
+:deep(.sponsorBlockMarker),
+:deep(.chapterMarker) {
   position: absolute;
   opacity: 0.6;
   height: 100%;
@@ -136,7 +137,7 @@
   overflow: hidden;
 
   /* copied from .shaka-scrim-container */
-  transition: opacity cubic-bezier(.4, 0, .6, 1) .6s;
+  transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 0.6s;
 }
 
 :global(body[dir='rtl'] .playerFullscreenTitleOverlay) {
@@ -148,7 +149,7 @@
   display: block;
 }
 
-:deep(.shaka-controls-container[shown="true"] > .playerFullscreenTitleOverlay) {
+:deep(.shaka-controls-container[shown='true'] > .playerFullscreenTitleOverlay) {
   opacity: 1;
 }
 
@@ -192,12 +193,13 @@
 
 @media only screen and (width <=1350px) {
   :deep(.theatre-button) {
-    display: none
+    display: none;
   }
 }
 
 @media (prefers-reduced-transparency) {
-  :deep(.playerFullscreenTitleOverlay), .skippedSegment {
+  :deep(.playerFullscreenTitleOverlay),
+  .skippedSegment {
     background-color: rgb(0 0 0 / 90%);
   }
 }
