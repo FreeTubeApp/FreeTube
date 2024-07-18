@@ -14,7 +14,8 @@
   word-break: break-word;
 }
 
-.videoMetrics, .videoButtons {
+.videoMetrics,
+.videoButtons {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,7 +69,7 @@
       flex-wrap: nowrap;
 
       :deep(.iconDropdown) {
-        inset-inline: auto auto;
+        inset-inline: auto;
       }
     }
   }

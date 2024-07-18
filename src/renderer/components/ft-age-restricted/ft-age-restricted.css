@@ -8,7 +8,8 @@
   padding-block: 20px;
 }
 
-.message, .frown {
+.message,
+.frown {
   color: var(--primary-text-color);
   background-color: var(--card-bg-color);
   padding-inline: 0;

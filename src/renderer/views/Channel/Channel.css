@@ -21,7 +21,7 @@
 
 .channelBannerContainer.default {
   background-color: #000;
-  background-image: url("../../assets/img/defaultBanner.png");
+  background-image: url('../../assets/img/defaultBanner.png');
   background-repeat: repeat;
   background-size: contain;
 }
@@ -101,7 +101,7 @@
   block-size: auto;
   justify-content: unset;
   gap: 32px;
-  padding-block: .3em;
+  padding-block: 0.3em;
   padding-inline: 0;
   flex-wrap: nowrap;
 }
@@ -154,7 +154,7 @@
 }
 
 .thumbnailContainer {
-  display: flex
+  display: flex;
 }
 
 .channelLineContainer {
@@ -246,7 +246,8 @@
     flex-direction: column;
   }
 
-  .thumbnailContainer, .channelInfoActionsContainer {
+  .thumbnailContainer,
+  .channelInfoActionsContainer {
     flex-wrap: wrap;
     align-items: center;
     text-align: center;
@@ -255,7 +256,7 @@
 }
 
 @media only screen and (width <= 260px) {
-   .channelDetails {
+  .channelDetails {
     max-inline-size: none;
   }
 }
