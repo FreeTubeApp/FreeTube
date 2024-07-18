@@ -23,14 +23,16 @@
   white-space: initial;
 }
 
-.subscribeButton.btn, .profileDropdownToggle.btn {
+.subscribeButton.btn,
+.profileDropdownToggle.btn {
   align-self: center;
   margin-block: 0;
   margin-inline: 0;
 }
 
 .dropdownOpened {
-  .subscribeButton, .profileDropdownToggle {
+  .subscribeButton,
+  .profileDropdownToggle {
     border-end-start-radius: 0;
     border-end-end-radius: 0;
   }
@@ -57,7 +59,8 @@
   }
 }
 
-.hasProfileDropdownToggle > .subscribeButton.btn, .profileDropdownToggle.btn {
+.hasProfileDropdownToggle > .subscribeButton.btn,
+.profileDropdownToggle.btn {
   padding-block: 5px;
   padding-inline: 6px;
   box-shadow: none;

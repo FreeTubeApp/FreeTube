@@ -11,7 +11,8 @@ h3 {
   color: var(--tertiary-text-color);
 }
 
-.profileName, .colorSelection {
+.profileName,
+.colorSelection {
   margin: auto;
   inline-size: 350px;
 }

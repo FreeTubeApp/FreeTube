@@ -66,7 +66,7 @@
   display: inline-block;
   padding: 1px;
   padding-inline-end: 10px;
-  margin-inline: 2px 2px;
+  margin-inline: 2px;
   block-size: 30px;
   cursor: pointer;
   background-color: var(--primary-color);
@@ -115,7 +115,7 @@
 .superChatMessage {
   inline-size: 90%;
   grid-template-columns: auto;
-  margin-inline: 5% 5%;
+  margin-inline: 5%;
   margin-block: 25px 10px;
   background-color: var(--primary-color);
   border-radius: 5px;
@@ -189,11 +189,11 @@
 }
 
 .member {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .moderator {
-  color: #2196F3;
+  color: #2196f3;
 }
 
 .owner {

@@ -34,7 +34,7 @@
 }
 
 .ripple::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   inline-size: 100%;
@@ -47,11 +47,11 @@
   background-position: 50%;
   transform: scale(10, 10);
   opacity: 0;
-  transition: transform .5s, opacity 1s;
+  transition: transform 0.5s, opacity 1s;
 }
 
 .ripple:active::after {
   transform: scale(0, 0);
-  opacity: .3;
+  opacity: 0.3;
   transition: 0s;
 }
