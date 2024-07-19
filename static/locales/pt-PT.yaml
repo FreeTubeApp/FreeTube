@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: Português
+Locale Name: Português (pt_PT)
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
@@ -459,7 +459,7 @@ Settings:
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
-    Avoid Accidental Unsubscription: Impedir cancelamento acidental de subscrições
+    Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Distraction Free Settings:
     Distraction Free Settings: Definições de distrações
     Hide Video Views: Ocultar visualizações

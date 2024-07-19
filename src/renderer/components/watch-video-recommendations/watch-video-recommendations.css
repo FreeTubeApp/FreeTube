@@ -1,19 +1,19 @@
 .relative {
-	position: relative;
+  position: relative;
 }
 
 .watchVideoRecommendations {
-	display: grid;
-	grid-gap: 8px;
+  display: grid;
+  grid-gap: 8px;
 }
 
 .autoPlayToggle {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.VideoRecommendationsTopBar{
-	display:flex; 
-	justify-content:space-between;
+.VideoRecommendationsTopBar {
+  display: flex;
+  justify-content: space-between;
 }

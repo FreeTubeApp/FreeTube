@@ -241,6 +241,14 @@ User Playlists:
   Playlists with Matching Videos: Listas de reprodução coincidentes
   Quick Bookmark Enabled: Marcador rápido ativado
   Remove Duplicate Videos: Remover duplicados
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Tem
+    a certeza de que pretende remover 1 vídeo visualizado desta lista de reprodução?
+    Esta remoção não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount}
+    vídeos visualizados desta lista de reprodução? Esta remoção não pode ser revertida.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Tem
+    a certeza de que pretende remover 1 vídeo duplicado desta lista de reprodução?
+    Esta remoção não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount}
+    vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
 History:
   # On History Page
   History: 'Histórico'
@@ -454,7 +462,7 @@ Settings:
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
-    Avoid Accidental Unsubscription: Impedir cancelamento acidental de subscrições
+    Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Selecione o tipo de importação'

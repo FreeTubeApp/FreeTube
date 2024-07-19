@@ -11,7 +11,6 @@ import {
   DBActions,
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
-  ABOUT_MONERO_ADDRESS
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -410,6 +409,8 @@ function runApp() {
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
         requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+        requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
       } else {
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
@@ -882,8 +883,7 @@ function runApp() {
         parsedURL.protocol === 'tel:' ||
 
         // Donation links on the about page
-        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS) ||
-        (parsedURL.protocol === 'monero:' && parsedURL.pathname === ABOUT_MONERO_ADDRESS)
+        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS)
       ) {
         shell.openExternal(url)
         return true
@@ -976,6 +976,13 @@ function runApp() {
 
     try {
       const contents = await asyncFs.readFile(filePath)
+
+      // Probably a corrupted/broken cache entry, pretend it's absent
+      // A valid entry should be a few KB large
+      if (contents.byteLength < 500) {
+        return undefined
+      }
+
       return contents.buffer
     } catch (e) {
       console.error(e)
@@ -1121,6 +1128,24 @@ function runApp() {
             IpcChannels.SYNC_PROFILES,
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.PROFILES.ADD_CHANNEL:
+          await baseHandlers.profiles.addChannelToProfiles(data.channel, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.ADD_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.PROFILES.REMOVE_CHANNEL:
+          await baseHandlers.profiles.removeChannelFromProfiles(data.channelId, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.REMOVE_CHANNEL, data }
           )
           return null
 

@@ -242,6 +242,15 @@ User Playlists:
   Quick Bookmark Enabled: Włączono Szybką Zakładkę
   Cannot delete the quick bookmark target playlist.: Nie można usunąć playlisty wskazanej
     dla Szybkiej Zakładki.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Czy
+    na pewno chcesz usunąć 1 obejrzany film z tej listy odtwarzania? Nie można tego
+    cofnąć. | Czy na pewno chcesz usunąć {playlistItemCount} obejrzanych filmów z
+    tej listy odtwarzania? Nie można tego cofnąć.
+  Remove Duplicate Videos: Usuń zduplikowane filmy
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Czy
+    na pewno chcesz usunąć 1 zduplikowany film z tej listy odtwarzania? Nie można
+    tego cofnąć. | Czy na pewno chcesz usunąć {playlistItemCount} duplikatów wideo
+    z tej listy odtwarzania? Nie można tego cofnąć.
 History:
   # On History Page
   History: 'Historia'
@@ -445,7 +454,7 @@ Settings:
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
     Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
       kanału
-    Avoid Accidental Unsubscription: Uniknij przypadkowego usunięcia subskrypcji
+    Confirm Before Unsubscribing: Uniknij przypadkowego usunięcia subskrypcji
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje

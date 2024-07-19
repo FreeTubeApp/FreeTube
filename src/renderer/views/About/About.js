@@ -1,17 +1,23 @@
 import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import packageDetails from '../../../../package.json'
-import { ABOUT_BITCOIN_ADDRESS, ABOUT_MONERO_ADDRESS } from '../../../constants'
+import { ABOUT_BITCOIN_ADDRESS } from '../../../constants'
+import FtLogoFull from '../../components/ft-logo-full/ft-logo-full.vue'
 
 export default defineComponent({
   name: 'About',
   components: {
-    'ft-card': FtCard
+    'ft-card': FtCard,
+    'ft-logo-full': FtLogoFull,
   },
   data: function () {
     return {
-      versionNumber: `v${packageDetails.version}`,
-      chunks: [
+      versionNumber: `v${packageDetails.version}`
+    }
+  },
+  computed: {
+    chunks: function () {
+      return [
         {
           icon: ['fab', 'github'],
           title: this.$t('About.Source code'),
@@ -68,19 +74,9 @@ export default defineComponent({
           content: `${this.$t('About.FreeTube is made possible by')} <a href="https://docs.freetubeapp.io/credits/">${this.$t('About.these people and projects')}</a>`
         },
         {
-          icon: ['fas', 'heart'],
-          title: `${this.$t('About.Donate')} - Liberapay`,
-          content: '<a href="https://liberapay.com/FreeTube">https://liberapay.com/FreeTube</a>'
-        },
-        {
           icon: ['fab', 'bitcoin'],
           title: `${this.$t('About.Donate')} - BTC`,
           content: `<a href="bitcoin:${ABOUT_BITCOIN_ADDRESS}">${ABOUT_BITCOIN_ADDRESS}</a>`
-        },
-        {
-          icon: ['fab', 'monero'],
-          title: `${this.$t('About.Donate')} - XMR`,
-          content: `<a href="monero:${ABOUT_MONERO_ADDRESS}">${ABOUT_MONERO_ADDRESS}</a>`
         }
       ]
     }

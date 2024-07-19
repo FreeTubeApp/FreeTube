@@ -6,7 +6,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { deepCopy, showToast } from '../../helpers/utils'
+import { showToast } from '../../helpers/utils'
 import { getFirstCharacter } from '../../helpers/strings'
 
 export default defineComponent({
@@ -118,31 +118,27 @@ export default defineComponent({
           this.handleUnsubscription(profile)
         }
       } else {
-        const currentProfile = deepCopy(profile)
-        const subscription = {
+        const profileIds = [profile._id]
+
+        if (profile._id !== MAIN_PROFILE_ID) {
+          const primaryProfile = this.profileList.find(prof => {
+            return prof._id === MAIN_PROFILE_ID
+          })
+
+          if (!this.isProfileSubscribed(primaryProfile)) {
+            profileIds.push(MAIN_PROFILE_ID)
+          }
+        }
+
+        const channel = {
           id: this.channelId,
           name: this.channelName,
           thumbnail: this.channelThumbnail
         }
-        currentProfile.subscriptions.push(subscription)
 
-        this.updateProfile(currentProfile)
+        this.addChannelToProfiles({ channel, profileIds })
+
         showToast(this.$t('Channel.Added channel to your subscriptions'))
-
-        if (profile._id !== MAIN_PROFILE_ID) {
-          const primaryProfile = deepCopy(this.profileList.find(prof => {
-            return prof._id === MAIN_PROFILE_ID
-          }))
-
-          const index = primaryProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.channelId
-          })
-
-          if (index === -1) {
-            primaryProfile.subscriptions.push(subscription)
-            this.updateProfile(primaryProfile)
-          }
-        }
       }
 
       if (this.isProfileDropdownEnabled && this.openDropdownOnSubscribe && !this.isProfileDropdownOpen) {
@@ -169,30 +165,34 @@ export default defineComponent({
     },
 
     handleUnsubscription: function (profile) {
-      const currentProfile = deepCopy(profile)
-      currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-        return channel.id !== this.channelId
-      })
-
-      this.updateProfile(currentProfile)
-      showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
+      const profileIds = [profile._id]
 
       if (profile._id === MAIN_PROFILE_ID) {
         // Check if a subscription exists in a different profile.
         // Remove from there as well.
-        let duplicateSubscriptions = 0
 
         this.profileList.forEach((profileInList) => {
           if (profileInList._id === MAIN_PROFILE_ID) {
             return
           }
-          duplicateSubscriptions += this.unsubscribe(profileInList, this.channelId)
-        })
 
-        if (duplicateSubscriptions > 0) {
-          const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
-          showToast(message)
-        }
+          if (this.isProfileSubscribed(profileInList)) {
+            profileIds.push(profileInList._id)
+          }
+        })
+      }
+
+      this.removeChannelFromProfiles({
+        channelId: this.channelId,
+        profileIds
+      })
+
+      showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
+
+      if (profile._id === MAIN_PROFILE_ID && profileIds.length > 1) {
+        showToast(this.$t('Channel.Removed subscription from {count} other channel(s)', {
+          count: profileIds.length - 1
+        }))
       }
     },
 
@@ -207,30 +207,14 @@ export default defineComponent({
     },
 
     isProfileSubscribed: function (profile) {
-      return this.subscriptionInfoForProfile(profile) !== null
-    },
-
-    unsubscribe: function(profile, channelId) {
-      const parsedProfile = deepCopy(profile)
-      const index = parsedProfile.subscriptions.findIndex((channel) => {
-        return channel.id === channelId
+      return profile.subscriptions.some((channel) => {
+        return channel.id === this.channelId
       })
-
-      if (index !== -1) {
-        // use filter instead of splice in case the subscription appears multiple times
-        // https://github.com/FreeTubeApp/FreeTube/pull/3468#discussion_r1179290877
-        parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
-          return x.id !== channelId
-        })
-
-        this.updateProfile(parsedProfile)
-        return 1
-      }
-      return 0
     },
 
     ...mapActions([
-      'updateProfile'
+      'addChannelToProfiles',
+      'removeChannelFromProfiles'
     ])
   }
 })

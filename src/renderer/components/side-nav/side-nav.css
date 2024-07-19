@@ -37,7 +37,8 @@
   margin-block-start: 10px;
 }
 
-.navOption, .navChannel {
+.navOption,
+.navChannel {
   position: relative;
   padding: 5px;
   min-block-size: 35px;
@@ -48,7 +49,8 @@
   display: none;
 }
 
-.navOption, .channelLink {
+.navOption,
+.channelLink {
   display: block;
   color: inherit;
   text-decoration: inherit;
@@ -61,13 +63,15 @@
   word-break: break-word;
 }
 
-.navOption:hover, .navChannel:hover {
+.navOption:hover,
+.navChannel:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
-.navOption:active, .navChannel:active {
+.navOption:active,
+.navChannel:active {
   background-color: var(--side-nav-active-color);
   color: var(--side-nav-active-text-color);
   transition: background 0.2s ease-in;
@@ -84,7 +88,7 @@
   inline-size: 1em;
 
   /* Align icon according to torso */
-  transform: translateX(0.20em);
+  transform: translateX(0.2em);
 }
 
 .navChannel .navLabel {
@@ -189,7 +193,9 @@
     display: contents; /* sunglasses emoji */
   }
 
-  hr, .mobileHidden, .refreshIcon {
+  hr,
+  .mobileHidden,
+  .refreshIcon {
     display: none;
   }
 
@@ -205,7 +211,8 @@
     padding-inline: 10px;
   }
 
-  .sideNav, .closed {
+  .sideNav,
+  .closed {
     margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
@@ -213,11 +220,12 @@
     overflow-y: hidden;
   }
 
-  .navOption, .closed .navOption {
+  .navOption,
+  .closed .navOption {
     inline-size: 70px;
     block-size: 40px;
     padding: 0;
-    padding-block: 10px 10px;
+    padding-block: 10px;
   }
 
   .navLabel {
@@ -232,7 +240,7 @@
     display: block;
   }
 
-  .closed.hiddenLabels{
+  .closed.hiddenLabels {
     inline-size: 100%;
   }
 }
