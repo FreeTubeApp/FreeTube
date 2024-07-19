@@ -409,6 +409,8 @@ function runApp() {
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
         requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+        requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
       } else {
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
@@ -974,6 +976,13 @@ function runApp() {
 
     try {
       const contents = await asyncFs.readFile(filePath)
+
+      // Probably a corrupted/broken cache entry, pretend it's absent
+      // A valid entry should be a few KB large
+      if (contents.byteLength < 500) {
+        return undefined
+      }
+
       return contents.buffer
     } catch (e) {
       console.error(e)

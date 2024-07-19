@@ -12,8 +12,12 @@ export default defineComponent({
   },
   data: function () {
     return {
-      versionNumber: `v${packageDetails.version}`,
-      chunks: [
+      versionNumber: `v${packageDetails.version}`
+    }
+  },
+  computed: {
+    chunks: function () {
+      return [
         {
           icon: ['fab', 'github'],
           title: this.$t('About.Source code'),
@@ -74,7 +78,7 @@ export default defineComponent({
           title: `${this.$t('About.Donate')} - BTC`,
           content: `<a href="bitcoin:${ABOUT_BITCOIN_ADDRESS}">${ABOUT_BITCOIN_ADDRESS}</a>`
         }
-      ],
+      ]
     }
   }
 })
