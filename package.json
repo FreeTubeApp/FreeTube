@@ -67,7 +67,7 @@
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
-    "swiper": "^11.1.4",
+    "swiper": "^11.1.5",
     "video.js": "7.21.5",
     "videojs-contrib-quality-levels": "^3.0.0",
     "videojs-http-source-selector": "^1.1.6",
