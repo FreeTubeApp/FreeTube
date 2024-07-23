@@ -71,18 +71,13 @@
 
 .skippedSegmentsWrapper {
   position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 2;
+  right: 2%;
+  bottom: max(15%, calc(46px + 2.5% + 3%)); /* 46px + 2.5% is the height of the controls */
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
   pointer-events: none;
-}
-
-.ftVideoPlayer:fullscreen .skippedSegmentsWrapper {
-  top: 55px;
 }
 
 .skippedSegment {
