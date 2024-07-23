@@ -554,7 +554,7 @@ export default defineComponent({
 
         // Only use variants that are predicted to play smoothly
         // https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilities/decodingInfo
-        preferredDecodingAttributes: ['smooth'],
+        preferredDecodingAttributes: format === 'dash' ? ['smooth'] : [],
 
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
