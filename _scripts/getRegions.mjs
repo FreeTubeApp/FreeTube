@@ -87,10 +87,26 @@ for (const language of youTubeLanguages) {
       youTube: 'iw',
       freeTube: 'he'
     })
+  } else if (language === 'es-419') {
+    foundLanguageNames.push('es_AR', 'es-MX')
+    languagesToScrape.push({
+      youTube: 'es-419',
+      freeTube: 'es_AR'
+    })
+    languagesToScrape.push({
+      youTube: 'es-419',
+      freeTube: 'es-MX'
+    })
   } else if (language !== 'en') {
     unusedYouTubeLanguageNames.push(language)
   }
 }
+
+foundLanguageNames.push('pt-BR')
+languagesToScrape.push({
+  youTube: 'pt',
+  freeTube: 'pt-BR'
+})
 
 console.log("Active FreeTube languages that aren't available on YouTube:")
 console.log(activeLanguages.filter(lang => !foundLanguageNames.includes(lang)).sort())
