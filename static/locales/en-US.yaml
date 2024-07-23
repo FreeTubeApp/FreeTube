@@ -878,6 +878,7 @@ Video:
       looping playlists: looping playlists
   Player:
     TranslatedCaptionTemplate: '{language} (translated from "{originalLanguage}")'
+    Audio Tracks: Audio Tracks
     Theatre Mode: Theater Mode
     Exit Theatre Mode: Exit Theater Mode
     Full Window: Full Window

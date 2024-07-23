@@ -8,6 +8,7 @@ import store from '../../store/index'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
+import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
 import { ScreenshotButton } from './player-components/ScreenshotButton'
@@ -712,7 +713,7 @@ export default defineComponent({
           'ft_screenshot',
           'playback_rate',
           'loop',
-          'language',
+          'ft_audio_tracks',
           'captions',
           'picture_in_picture',
           'ft_full_window',
@@ -731,7 +732,7 @@ export default defineComponent({
           'ft_screenshot',
           'playback_rate',
           'loop',
-          'language',
+          'ft_audio_tracks',
           'captions',
           'picture_in_picture',
           'ft_theatre_mode',
@@ -763,8 +764,8 @@ export default defineComponent({
       // so lets hide the audio track selector in the web build
       // TODO: consider fixing it with manifest.dash.manifestPreprocessor in the player config
       if (!process.env.SUPPORTS_LOCAL_API) {
-        const index = elementList.indexOf('language')
-        elementList.splice(index, 1)
+        const indexAudioTrack = elementList.indexOf('ft_audio_tracks')
+        elementList.splice(indexAudioTrack, 1)
       }
 
       if (props.format === 'audio') {
@@ -1665,6 +1666,18 @@ export default defineComponent({
 
     // #region custom player controls
 
+    function registerAudioTrackSelection() {
+      /** @implements {shaka.extern.IUIElement.Factory} */
+      class AudioTrackSelectionFactory {
+        create(rootElement, controls) {
+          return new AudioTrackSelection(events, rootElement, controls)
+        }
+      }
+
+      shaka.ui.Controls.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
+      shaka.ui.OverflowMenu.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
+    }
+
     function registerTheatreModeButton() {
       events.addEventListener('toggleTheatreMode', () => {
         emit('toggle-theatre-mode')
@@ -2325,6 +2338,7 @@ export default defineComponent({
       if (process.env.IS_ELECTRON) {
         registerScreenshotButton()
       }
+      registerAudioTrackSelection()
       registerTheatreModeButton()
       registerFullWindowButton()
       registerLegacyQualitySelection()

@@ -948,6 +948,7 @@ Video:
   More Options: More options
   Player:
     TranslatedCaptionTemplate: '{language} (translated from ‘{originalLanguage}’)'
+    Audio Tracks: Audio Tracks
     Theatre Mode: Theatre Mode
     Exit Theatre Mode: Exit Theatre Mode
     Full Window: Full Window
