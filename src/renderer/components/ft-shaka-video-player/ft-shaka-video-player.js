@@ -552,6 +552,10 @@ export default defineComponent({
         },
         autoShowText: shaka.config.AutoShowText.NEVER,
 
+        // Only use variants that are predicted to play smoothly
+        // https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilities/decodingInfo
+        preferredDecodingAttributes: ['smooth'],
+
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
         // So use the AV1 and h264 codecs instead which it doesn't reject
