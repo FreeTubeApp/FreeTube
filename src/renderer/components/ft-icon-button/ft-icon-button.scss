@@ -101,11 +101,11 @@
   &.favorite,
   &.favorite:hover,
   &.favorite:focus-visible {
+    color: var(--favorite-icon-color);
+
     &:not(.disabled) {
       color: var(--favorite-icon-color);
     }
-
-    color: var(--favorite-icon-color);
   }
 }
 

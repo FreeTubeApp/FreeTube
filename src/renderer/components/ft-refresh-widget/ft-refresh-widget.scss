@@ -1,8 +1,6 @@
 @use '../../scss-partials/utils';
 
 .floatingRefreshSection {
-  @include utils.fixed-top-bar;
-
   box-sizing: border-box;
   padding-block: 5px;
   padding-inline: 10px;
@@ -13,6 +11,8 @@
   align-items: center;
   gap: 5px;
   justify-content: flex-end;
+
+  @include utils.fixed-top-bar;
 }
 
 .floatingRefreshSection:has(.lastRefreshTimestamp + .refreshButton) {
