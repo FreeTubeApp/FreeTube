@@ -57,7 +57,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
@@ -416,8 +416,6 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.isLoading = true
-
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
       return
