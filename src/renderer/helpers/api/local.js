@@ -294,6 +294,7 @@ export async function getLocalVideoInfo(id) {
       info.storyboards = iosInfo.storyboards
     } else if (iosInfo.streaming_data) {
       info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
+      // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
 
       for (const format of info.streaming_data.adaptive_formats) {
         format.freeTubeUrl = format.url
@@ -305,7 +306,9 @@ export async function getLocalVideoInfo(id) {
       }
     }
 
-    decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
+    if (info.streaming_data) {
+      decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
+    }
   }
 
   return info
