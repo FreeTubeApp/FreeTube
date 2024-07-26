@@ -1465,6 +1465,9 @@ export default defineComponent({
       } else if (format.is_original) {
         type = ' original'
         idNumber = 4
+      } else if (format.is_secondary) {
+        type = ' secondary'
+        idNumber = 6
       } else {
         type = ' alternative'
         idNumber = -1
