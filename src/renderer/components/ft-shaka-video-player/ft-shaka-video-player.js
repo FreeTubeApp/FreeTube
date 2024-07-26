@@ -843,7 +843,9 @@ export default defineComponent({
 
       if (classList.contains('shaka-scrim-container') ||
         classList.contains('shaka-fast-foward-container') ||
-        classList.contains('shaka-rewind-container')) {
+        classList.contains('shaka-rewind-container') ||
+        classList.contains('shaka-play-button-container') ||
+        classList.contains('shaka-play-button')) {
         //
 
         if (event.ctrlKey || event.metaKey) {
