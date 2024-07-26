@@ -832,7 +832,7 @@ export default defineComponent({
             const url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
             // Proxying doesn't work for live or post live DVR DASH, so use HLS instead
-            // TODO: report the bug in an Invidious issue (it doesn't respect the `sq` parameter and doesn't accept `.c.youtube.com` URLs)
+            // https://github.com/iv-org/invidious/pull/4589
             if (this.proxyVideos) {
               this.manifestSrc = result.hlsUrl
               this.manifestMimeType = MANIFEST_TYPE_HLS
