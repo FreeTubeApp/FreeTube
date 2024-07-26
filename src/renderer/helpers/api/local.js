@@ -8,6 +8,7 @@ import {
   calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
+  randomArrayItem,
   toLocalePublicationString
 } from '../utils'
 
@@ -19,32 +20,24 @@ const TRACKING_PARAM_NAMES = [
   'utm_content',
 ]
 
-function getRandomIosVersion() {
-  const iosVersions = [
-    '17.5.1',
-    '17.5',
-    '17.4.1',
-    '17.4',
-    '17.3.1',
-    '17.3',
-  ]
+const IOS_VERSIONS = [
+  '17.5.1',
+  '17.5',
+  '17.4.1',
+  '17.4',
+  '17.3.1',
+  '17.3',
+]
 
-  return iosVersions[Math.floor(Math.random() * iosVersions.length)]
-}
-
-function getRandomYouTubeIosClientVersion() {
-  const versions = [
-    '19.29.1',
-    '19.28.1',
-    '19.26.5',
-    '19.25.4',
-    '19.25.3',
-    '19.24.3',
-    '19.24.2',
-  ]
-
-  return versions[Math.floor(Math.random() * versions.length)]
-}
+const YOUTUBE_IOS_CLIENT_VERSIONS = [
+  '19.29.1',
+  '19.28.1',
+  '19.26.5',
+  '19.25.4',
+  '19.25.3',
+  '19.24.3',
+  '19.24.2',
+]
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -87,8 +80,8 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
       // Make iOS requests work and look more realistic
       if (init?.headers instanceof Headers && init.headers.get('x-youtube-client-name') === '5') {
         // Use a random iOS version and YouTube iOS client version to make the requests look less suspicious
-        const clientVersion = getRandomYouTubeIosClientVersion()
-        const iosVersion = getRandomIosVersion()
+        const clientVersion = randomArrayItem(YOUTUBE_IOS_CLIENT_VERSIONS)
+        const iosVersion = randomArrayItem(IOS_VERSIONS)
 
         init.headers.set('x-youtube-client-version', clientVersion)
 
