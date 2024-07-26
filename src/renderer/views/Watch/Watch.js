@@ -91,6 +91,7 @@ export default defineComponent({
       channelSubscriptionCountText: '',
       videoPublished: 0,
       videoStoryboardSrc: '',
+      /** @type {string|null} */
       manifestSrc: null,
       /** @type {(MANIFEST_TYPE_DASH|MANIFEST_TYPE_HLS)} */
       manifestMimeType: MANIFEST_TYPE_DASH,
@@ -118,7 +119,7 @@ export default defineComponent({
       // error handling/messages
       /** @type {string|null} */
       errorMessage: null,
-      /** @type {['fas', string]|null} */
+      /** @type {string[]|null} */
       customErrorIcon: null,
       videoGenreIsMusic: false,
       /** @type {Date|null} */

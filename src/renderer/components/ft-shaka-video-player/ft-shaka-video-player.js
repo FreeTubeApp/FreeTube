@@ -182,10 +182,10 @@ export default defineComponent({
         width: 0,
         height: 0
       },
-      bitrate: 0,
-      volume: 100,
-      bandwidth: 0,
-      buffered: 0,
+      bitrate: '0',
+      volume: '100',
+      bandwidth: '0',
+      buffered: '0',
       frames: {
         totalFrames: 0,
         droppedFrames: 0
@@ -944,7 +944,7 @@ export default defineComponent({
       }
     })
 
-    /** @type {ResizeObserver} */
+    /** @type {ResizeObserver|null} */
     let resizeObserver = null
 
     /** @type {ResizeObserverCallback} */
@@ -1171,7 +1171,7 @@ export default defineComponent({
       }
 
       if ('mediaSession' in navigator) {
-        updateMediaSessionPositionState()
+        updateMediaSessionPositionState(currentTime)
       }
     }
 
@@ -1383,8 +1383,8 @@ export default defineComponent({
 
       const playerDimensions = video_.getBoundingClientRect()
       stats.playerDimensions = {
-        width: playerDimensions.width.toFixed(0),
-        height: playerDimensions.height.toFixed(0)
+        width: Math.floor(playerDimensions.width),
+        height: Math.floor(playerDimensions.height)
       }
 
       if (!hasLoaded.value) {
@@ -1487,8 +1487,8 @@ export default defineComponent({
     function updateStats() {
       const playerDimensions = video.value.getBoundingClientRect()
       stats.playerDimensions = {
-        width: playerDimensions.width.toFixed(0),
-        height: playerDimensions.height.toFixed(0)
+        width: Math.floor(playerDimensions.width),
+        height: Math.floor(playerDimensions.height)
       }
 
       const playerStats = player.getStats()
@@ -1699,7 +1699,7 @@ export default defineComponent({
     }
 
     function registerFullWindowButton() {
-      events.addEventListener('setFullWindow', event => {
+      events.addEventListener('setFullWindow', (/** @type {CustomEvent} */ event) => {
         if (event.detail) {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
         }
@@ -1727,7 +1727,7 @@ export default defineComponent({
     }
 
     function registerLegacyQualitySelection() {
-      events.addEventListener('setLegacyFormat', async (event) => {
+      events.addEventListener('setLegacyFormat', async (/** @type {CustomEvent} */ event) => {
         const { format, playbackPosition, restoreCaptionIndex: restoreCaptionIndex_ = null } = event.detail
 
         if (restoreCaptionIndex_ !== null) {
@@ -1762,7 +1762,7 @@ export default defineComponent({
     }
 
     function registerStatsButton() {
-      events.addEventListener('setStatsVisibility', event => {
+      events.addEventListener('setStatsVisibility', (/** @type {CustomEvent} */ event) => {
         showStats.value = event.detail
 
         if (showStats.value) {
@@ -2189,7 +2189,7 @@ export default defineComponent({
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
-     * @param {object} details
+     * @param {object=} details
      */
     function handleError(error, context, details) {
       logShakaError(error, context, details)

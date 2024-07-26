@@ -8,7 +8,7 @@ import { sponsorBlockSkipSegments } from '../sponsorblock'
 /**
  * @param {shaka.util.Error} error
  * @param {string} context
- * @param {object} details
+ * @param {object=} details
  */
 export function logShakaError(error, context, details) {
   const { Severity, Category, Code } = shaka.util.Error
