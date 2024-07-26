@@ -872,7 +872,7 @@ export default defineComponent({
               })
             }
 
-            this.vrProjection = result.adaptiveStreams
+            this.vrProjection = result.adaptiveFormats
               .find(stream => {
                 return typeof stream.projectionType === 'string' &&
                   stream.projectionType !== 'RECTANGULAR'
