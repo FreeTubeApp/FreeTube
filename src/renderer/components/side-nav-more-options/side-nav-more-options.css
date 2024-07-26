@@ -69,6 +69,11 @@
     margin-block-start: 0.5em;
   }
 
+  .navIcon.fa-user-check {
+    /* Align icon according to torso */
+    transform: translateX(0.2em);
+  }
+
   .moreOption {
     display: block;
   }
