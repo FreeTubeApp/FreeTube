@@ -3,49 +3,49 @@ Locale Name: 'Azərbaycanca'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tətbiqin bu hissəsi hələ hazır deyil.İnkişaf bitdikdən sonra geri qayıdın.
+  Tətbiqin bu hissəsi hələ hazır deyil. İnkişaf bitdikdən sonra qayıdın.
 
 # Webkit Menu Bar
 File: 'Fayl'
 Quit: 'Çıxış'
-Edit: 'Redaktə Edin'
+Edit: 'Düzəliş et'
 Undo: 'Geri al'
 Redo: 'Təkrarla'
-Cut: 'Kəsin'
+Cut: 'Kəs'
 Copy: 'Köçür'
 Paste: 'Yapışdır'
-Delete: 'Silin'
-Select all: 'Hamısını seçin'
-Reload: 'Yenidən Yükləyin'
-Force Reload: 'Zorla Yenidən Yükləmə'
+Delete: 'Sil'
+Select all: 'Hamısını seç'
+Reload: 'Yenidən Yüklə'
+Force Reload: 'Zorla Yenidən Yüklə'
 Toggle Developer Tools: 'Tərtibatçı Seçimlərini Aç/Bağla'
 Actual size: 'Həqiqi Ölçü'
-Zoom in: 'Yaxınlaşdırın'
-Zoom out: 'Uzaqlaşdırın'
-Toggle fullscreen: 'Tam ekranda göstər'
+Zoom in: 'Yaxınlaşdır'
+Zoom out: 'Uzaqlaşdır'
+Toggle fullscreen: 'Tam ekran göstər'
 Window: 'Pəncərə'
-Minimize: 'Kiçildin'
-Close: 'Bağlayın'
+Minimize: 'Kiçilt'
+Close: 'Bağla'
 Back: 'Geri'
 Forward: 'İrəli'
-Open New Window: 'Yeni Pəncərə Açın'
+Open New Window: 'Yeni Pəncərə Aç'
 
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
-  versiyası artıq mövcuddur! Ətraflı məlumat üçün klikləyin'
-Download From Site: 'Saytdan Endirin'
-A new blog is now available, {blogTitle}. Click to view more: 'İndi yeni blog mövcuddur,
-  {blogTitle}. Daha çoxuna baxmaq üçün klikləyin'
+  versiyası indi mövcuddur!  Daha çox məlumat üçün kliklə'
+Download From Site: 'Saytdan Yüklə'
+A new blog is now available, {blogTitle}. Click to view more: 'İndi yeni elan mövcuddur,
+  {blogTitle}. Daha çoxun görmək üçün kliklə'
 Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
 
 # Search Bar
 Search / Go to URL: 'Axtarış / URL-ə Keçin'
 Search Bar:
-  Clear Input: 'Girişi Təmizləyin'
+  Clear Input: 'Girişi Təmizlə'
   # In Filter Button
 Search Filters:
   Search Filters: 'Axtarış Filtrləri'
   Sort By:
-    Sort By: 'Sırala'
+    Sort By: 'Çeşidləmə'
     Most Relevant: 'Ən Münasib'
     Rating: 'Qiymətləndirmə'
     Upload Date: 'Yükləmə Tarixi'
@@ -80,33 +80,33 @@ Subscriptions:
   Subscriptions: 'Abunəliklər'
   Latest Subscriptions: 'Ən Son Abunəliklər'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Bu
-    profilin çoxlu sayda abunəsi var.Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
+    profilin çoxlu sayda abunəsi var. Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
     zorlanır'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik
     siyahınız hazırda boşdur. Abunəlikləri burada görmək üçün əlavə etməyə başlayın.'
   'Getting Subscriptions. Please wait.': 'Abunəliklərin əldə edilməsi. Zəhmət olmasa,
     gözləyin.'
   Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
-  Load More Videos: 'Daha çox Video Yükləyin'
+  Load More Videos: 'Daha çox Video Yüklə'
   Error Channels: Xətalı Kanallar
 More: 'Daha Çox'
 Trending:
   Trending: 'Trenddədir'
-  Default: 'Defolt'
+  Default: 'İlkin'
   Music: 'Musiqi'
   Gaming: 'Oyun'
   Movies: 'Filmlər'
-  Trending Tabs: 'Trend Tablar'
-Most Popular: 'Ən Populyar'
+  Trending Tabs: 'Trend Səhifələr'
+Most Popular: 'Ən Tanınmış'
 Playlists: 'Pleylistlər'
 User Playlists:
   Your Playlists: 'Pleylistləriniz'
   Playlist Message: 'Bu səhifə tam işləyən pleylistləri əks etdirmir. O, yalnız saxladığınız
-    və ya sevimli seçdiyiniz videoları sadalayır. İş başa çatdıqda, hazırda buradakı
-    bütün videolar "Sevimlilər" pleylistinə köçürüləcək.'
+    və ya sevimli seçdiyiniz videoları sadalayır. İş bitəndə, hazırda buradakı bütün
+    videolar "Sevimlilər" pleylistinə köçürüləcək.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Saxladığınız
-    videolarınız boşdur. Videonun burada qeyd edilməsi üçün onun küncündəki saxlayın
-    düyməsini klikləyin'
+    videolar yoxdur. Videonun burada qeyd edilməsi üçün video küncündəki "saxla" düyməsin
+    klikləyin'
   Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
   Search bar placeholder: 'Pleylistdə Axtarın'
 History:
@@ -125,38 +125,38 @@ Settings:
   General Settings:
     General Settings: 'Ümumi Tənzimləmələr'
     Check for Updates: 'Yeniləmələri Yoxlayın'
-    Check for Latest Blog Posts: 'Ən Son Bloq Yazılarını Yoxlayın'
+    Check for Latest Blog Posts: 'Ən Son Elanları Yoxlayın'
     Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən
       Arxa Uca Qayıdış'
     Enable Search Suggestions: 'Axtarış Təkliflərini Aktivləşdirin'
-    Default Landing Page: 'Defolt Açılış Səhifəsi'
-    Locale Preference: 'Yerli Seçim'
-    System Default: 'Sistem Defoltu'
+    Default Landing Page: 'İlkin Açılış Səhifəsi'
+    Locale Preference: 'Yerləşdirilən Seçim'
+    System Default: 'Sistem Standartı'
     Preferred API Backend:
-      Preferred API Backend: 'Tərcih edilən API Arxa Ucu'
+      Preferred API Backend: 'Tərcih Edilən API Arxa Ucu'
       Local API: 'Yerli API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Video Baxış Növü'
-      Grid: 'Izgara'
+      Video View Type: 'Video Görünüş Növü'
+      Grid: 'Şəbəkə'
       List: 'Siyahı'
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatürə Üstünlük Verilir'
-      Default: 'Defolt'
+      Thumbnail Preference: 'Miniatür Üstünlüyü'
+      Default: 'İlkin'
       Beginning: 'Başlanğıc'
       Middle: 'Orta'
       End: 'Son'
-    Current Invidious Instance: 'Cari Invidious Nümunəsi'
-    The currently set default instance is {instance}: 'Hazırda təyin edilmiş standart
-      nümunə {instance}-dır'
-    No default instance has been set: 'Defolt nümunə təyin edilməyib'
-    Current instance will be randomized on startup: 'Cari nümunə başlanğıcda təsadüfi
+    Current Invidious Instance: 'Cari Invidious Serveri'
+    The currently set default instance is {instance}: 'Hazırda təyin edilmiş ilkin
+      server {instance}-dır'
+    No default instance has been set: 'İlkin server təyin edilməyib'
+    Current instance will be randomized on startup: 'Cari server başlanğıcda təsadüfi
       olacaq'
-    Set Current Instance as Default: 'Cari Nümunəni Defolt Olaraq Təyin edin'
-    Clear Default Instance: 'Defolt Nümunəni Sil'
-    View all Invidious instance information: 'Bütün Invidious instansiya məlumatlarına
-      baxın'
-    Region for Trending: 'Trendlər Üçün Region'
+    Set Current Instance as Default: 'Cari serveri ilkin olaraq təyin et'
+    Clear Default Instance: 'İlkin serveri sil'
+    View all Invidious instance information: 'Bütün Invidious instansiya məlumatına
+      bax'
+    Region for Trending: 'Trendlər Üçün Bölgə'
     #! List countries
     External Link Handling:
       External Link Handling: 'Xarici Keçid Hazırlama'
@@ -171,3 +171,5 @@ Channel:
 Video:
   External Player: {}
 Tooltips: {}
+New Window: Yeni Pəncərə
+Preferences: Seçimlər
