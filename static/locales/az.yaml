@@ -64,17 +64,31 @@ Search Filters:
     Videos: 'Videolar'
     Channels: 'Kanallar'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Müddət'
     All Durations: 'Bütün Müddətlər'
     Short (< 4 minutes): 'Qısa (<4 dəqiqədən az)'
     Long (> 20 minutes): 'Uzun (> 20 dəqiqədən çox)'
   # On Search Page
+    Medium (4 - 20 minutes): Orta (4-20 dəqiqə)
   Search Results: 'Axtarış Nəticələri'
   Fetching results. Please wait: 'Nəticələr alınır. Zəhmət olmasa, gözləyin'
   Fetch more results: 'Daha çox nəticə əldə edin'
   There are no more results for this search: 'Bu axtarış üçün başqa nəticə yoxdur'
 # Sidebar
+  Features:
+    Features: Xüsusiyyətlər
+    HD: HD
+    Creative Commons: Yaradıcı İnsanlar
+    3D: 3D
+    Subtitles: Titrlər
+    Live: Canlı
+    360 Video: 360° Video
+    HDR: HDR
+    VR180: VR180
+    4K: 4K
+    Location: Məkan
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abunəliklər'
@@ -89,6 +103,14 @@ Subscriptions:
   Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
   Load More Videos: 'Daha çox Video Yüklə'
   Error Channels: Xətalı Kanallar
+  Load More Posts: Daha çox elan yüklə
+  Subscriptions Tabs: Abunəliklər Səhifələri
+  All Subscription Tabs Hidden: Bütün abunəlik səhifələri gizlidir. Məzmunu burada
+    görmək üçün "{settingsSection}" bölməsində "{subsection}"-da bəzi səhifələri gizlətməyin.
+  Empty Channels: Abunə olduğunuz kanallarda hazırda heç bir video yoxdur.
+  Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir elan yoxdur.
+  Disabled Automatic Fetching: Siz avtomatik abunəlik əldə etməyi bağlamısız. Abunəlikləri
+    burada görmək üçün yeniləyin.
 More: 'Daha Çox'
 Trending:
   Trending: 'Trenddədir'
@@ -108,7 +130,13 @@ User Playlists:
     videolar yoxdur. Videonun burada qeyd edilməsi üçün video küncündəki "saxla" düyməsin
     klikləyin'
   Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
-  Search bar placeholder: 'Pleylistdə Axtarın'
+  Search bar placeholder: 'Pleylist Axtar'
+  Playlists with Matching Videos: Uyğun videolar olan pleylistlər
+  Add to Playlist: Pleylistə əlavə et
+  You have no playlists. Click on the create new playlist button to create a new one.: Pleylistiniz
+    yoxdur. Yenisini yaratmaq üçün yeni pleylist yarat düyməsini kliklə.
+  Create New Playlist: Yeni Pleylist Yarat
+  This playlist currently has no videos.: Bu pleylistdə hazırda video yoxdur.
 History:
   # On History Page
   History: 'Tarixçə'
@@ -173,3 +201,36 @@ Video:
 Tooltips: {}
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
+Global:
+  Counts:
+    Subscriber Count: 1 abunəçi | {count} abunəçi
+    View Count: 1 baxış | {count} baxış
+    Video Count: 1 video | {count} video
+    Watching Count: 1 baxır | {count} baxır
+    Channel Count: 1 kanal | {count} kanal
+  Videos: Videolar
+  Live: Canlı
+  Input Tags:
+    Length Requirement: Etiket ən azı {number} simvol uzunluğunda olmalıdır
+  Community: İcma
+  Shorts: Shorts
+Search Listing:
+  Label:
+    Closed Captions: Titrlər Bağlandı
+    4K: 4K
+    Subtitles: Titrlər
+Channels:
+  Empty: Kanal siyahınız hazırda boşdur.
+  Unsubscribe: Abunə olma
+  Unsubscribed: '{channelName} abunəliyinizdən silindi'
+  Unsubscribe Prompt: '"{channelName}" / abunəliyi ləğv etmək istədiyinizə əminsiniz?'
+  Channels: Kanallar
+  Count: '{number} kanal tapıldı.'
+  Title: Kanal Siyahısı
+  Search bar placeholder: Kanalları Axtar
+Feed:
+  Feed Last Updated: '{feedName} axının son yeniləmə: {date}'
+  Refresh Feed: '{subscriptionName} / yenilə'
+Search character limit: Axtarış sorğusu {searchCharacterLimit} simvol həddindən çoxdur
+Go to page: '{Page} səhifəyə keç'
+Close Banner: Banneri Bağla
