@@ -203,6 +203,20 @@ User Playlists:
     Search in Playlists: Pleylistlərdə Axtar
     Select a playlist to add your N videos to: Videonuzu |-ə əlavə etmək üçün pleylist
       seçin {videoCount} videonuzu əlavə etmək üçün pleylist seçin
+    Allow Adding Duplicate Video(s): Eyni Video(lar) Əlavə Etməyə İcazə Ver
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videolar Əlavə Olunacaq'
+    Save: Saxla
+    Added {count} Times: Artıq Əlavə Edilib | {count} dəfə əlavə edildi
+    Toast:
+      You haven't selected any playlist yet.: Siz hələ heç bir pleylist seçməmisiniz.
+      "{videoCount} video(s) added to 1 playlist": 1 video 1 pleylistə əlavə edildi
+        | {videoCount} video 1 pleylistə əlavə edildi
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video {playlistCount}
+        pleylistə əlavə edildi | {videoCount} video {playlistCount} pleylistə əlavə
+        edildi
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Video Artıq Əlavə Edilib'
   Remove Duplicate Videos: Eyni Videoları Sil
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu
     pleylistdən 1 eyni videonu silmək istədiyinizə əminsiniz? Bu geri alına bilməz
@@ -212,6 +226,16 @@ User Playlists:
     silinmir.
   Are you sure you want to delete this playlist? This cannot be undone: Bu pleylisti
     silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
+  CreatePlaylistPrompt:
+    New Playlist Name: Yeni Pleylist Adı
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Artıq
+        bu adda pleylist var. Lütfən, fərqli ad seçin.
+      Playlist {playlistName} has been successfully created.: '{playlistName} pleylist
+        uğurla yaradıldı.'
+      There was an issue with creating the playlist.: Pleylist yaradarkən problem
+        oldu.
+    Create: Yarat
 History:
   # On History Page
   History: 'Tarixçə'
@@ -249,6 +273,8 @@ Settings:
       Beginning: 'Başlanğıc'
       Middle: 'Orta'
       End: 'Son'
+      Hidden: Gizli
+      Blur: Bulanıqlıq
     Current Invidious Instance: 'Cari Invidious Serveri'
     The currently set default instance is {instance}: 'Hazırda təyin edilmiş ilkin
       server {instance}-dır'
@@ -264,10 +290,53 @@ Settings:
     External Link Handling:
       External Link Handling: 'Xarici Keçid Hazırlama'
       Open Link: 'Linki Açın'
-  Theme Settings: {}
+      No Action: Fəaliyyət Olmadan
+      Ask Before Opening Link: Keçidi Açmazdan Əvvəl Soruş
+    Auto Load Next Page:
+      Label: Növbəti Səhifəni Avtomatik Yüklə
+      Tooltip: Əlavə səhifələri və şərhləri avtomatik yüklə.
+  Theme Settings:
+    Main Color Theme:
+      Pink: Çəhrayı
+      Indigo: Göy rəng
+      Amber: Sarı-qonur
+      Orange: Narıncı
+      Light Blue: Açıq Mavi
+      Main Color Theme: Əsas Rəng Teması
+      Deep Purple: Tünd Bənövşəyi
+      Teal: Dəniz Mavisi
+      Green: Yaşıl
+      Deep Orange: Tünd Narıncı
+      Red: Qırmızı
+      Purple: Bənövşəyi
+      Blue: Mavi
+      Light Green: Açıq Yaşıl
+      Yellow: Sarı
+    UI Scale: UI (Ekran) Ölçüsü
+    Base Theme:
+      Pastel Pink: Pastel Çəhrayı
+      Black: Qara
+      Dark: Qaranlıq
+      Hot Pink: Coşqun Çəhrayı
+      Solarized Dark: Günəşli Qaranlıq
+      Solarized Light: Günəşli İşıq
+      System Default: Sistem Standartı
+      Nordic: Nordic
+      Base Theme: Əsas Tema
+      Light: İşıqlı
+      Dracula: Dracula
+      Catppuccin Mocha: Catppuccin Mocha
+    Match Top Bar with Main Color: Üst Hissəni Əsas Rənglə Uyğunlaşdır
+    Disable Smooth Scrolling: Hamar Sürüşdürməni Bağla
+    Hide Side Bar Labels: Kənar Hissə Etiketlərini Gizlət
+    Theme Settings: Tema Tənzimləmələri
+    Expand Side Bar by Default: Kənar Hissəni İlkin Olaraq Genişləndir
+    Hide FreeTube Header Logo: FreeTube Başlıq Simvolunu Gizlət
   Player Settings:
     Screenshot: {}
   SponsorBlock Settings: {}
+  Expand All Settings Sections: Bütün Tənzimlər Bölmələrin Genişlət
+  Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
 Channel:
   Videos: {}
   Playlists: {}
