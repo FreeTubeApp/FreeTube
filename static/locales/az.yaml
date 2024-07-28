@@ -137,6 +137,81 @@ User Playlists:
     yoxdur. Yenisini yaratmaq üçün yeni pleylist yarat düyməsini kliklə.
   Create New Playlist: Yeni Pleylist Yarat
   This playlist currently has no videos.: Bu pleylistdə hazırda video yoxdur.
+  Add to Favorites: '{playlistName} pleylistinə əlavə et'
+  Move Video Up: Videonu Yuxarı Köçür
+  Move Video Down: Videonu Aşağı Köçür
+  Remove from Favorites: '{playlistName} pleylistindən sil'
+  Remove from Playlist: Pleylistdən Silin
+  Playlist Name: Pleylist Adı
+  Playlist Description: Pleylist Açıqlaması
+  Cancel: Ləğv et
+  Edit Playlist Info: Pleylist məlumatına düzəliş et
+  Enable Quick Bookmark With This Playlist: Bu Pleylistlə Tez Əlfəcini Aktivləşdir
+  Copy Playlist: Pleylisti Köçür
+  Remove Watched Videos: Baxılan Videoları Sil
+  Delete Playlist: Pleylisti Sil
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: Bu video yuxarı köçürülə bilməz.
+      This video cannot be moved down.: Bu video aşağı köçürülə bilməz.
+      Video has been removed: Video silindi
+      There was a problem with removing this video: Bu videonu silərkən problem yarandı
+      Playlist name cannot be empty. Please input a name.: Pleylist adı boş ola bilməz.
+        Xahiş olunur, ad daxil edin.
+      Playlist {playlistName} has been deleted.: '{playlistName} pleylist silindi.'
+      This playlist does not exist: Bu pleylist yoxdur
+      This playlist is protected and cannot be removed.: Bu pleylist qorunur və silinə
+        bilməz.
+      There were no videos to remove.: Silinəcək video yox idi.
+      This playlist is already being used for quick bookmark.: Bu pleylist artıq sürətli
+        əlfəcin üçün istifadə olunur.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
+        pleylist indi {oldPlaylistName} əvəzinə sürətli əlfəcin üçün istifadə olunur.
+        Geri almaq üçün bura kliklə
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        yeni sürətli əlfəcin pleylistidir.'
+      Playlist has been updated.: Pleylist yeniləndi.
+      Reverted to use {oldPlaylistName} for quick bookmark: Sürətli əlfəcin üçün {oldPlaylistName}
+        istifadəsinə geri qaytarıldı
+      This playlist is now used for quick bookmark: Bu pleylist indi sürətli əlfəcin
+        üçün istifadə olunur
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Pleylistdəki
+        bəzi videolar hələ yüklənməyib. Yenə də köçürmək üçün bura klikləyin.
+      There was an issue with updating this playlist.: Bu pleylisti yeniləyərkən problem
+        oldu.
+      "{videoCount} video(s) have been removed": 1 video silindi | {videoCount} video
+        silindi
+    Search for Videos: Videoları Axtar
+  Sort By:
+    EarliestUpdatedFirst: Ən Tez Yenilənib
+    Sort By: Çeşidlənmə
+    EarliestCreatedFirst: Ən Tez Yaradılıb
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Yenicə Yaradılıb
+    LatestUpdatedFirst: Yenicə Yenilənib
+    LatestPlayedFirst: Yenicə Oynadılıb
+    EarliestPlayedFirst: Daha Tez Oynadılıb
+  Save Changes: Dəyişiklikləri Saxla
+  Quick Bookmark Enabled: Tez Əlfəcin Aktivləşdirildi
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 1
+    baxılmış videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
+    | {playlistItemCount} baxılmış videonu bu pleylistdən silmək istədiyinizə əminsiniz?
+    Bu geri alına bilməz.
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} Seçildi'
+    Search in Playlists: Pleylistlərdə Axtar
+    Select a playlist to add your N videos to: Videonuzu |-ə əlavə etmək üçün pleylist
+      seçin {videoCount} videonuzu əlavə etmək üçün pleylist seçin
+  Remove Duplicate Videos: Eyni Videoları Sil
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu
+    pleylistdən 1 eyni videonu silmək istədiyinizə əminsiniz? Bu geri alına bilməz
+    | {playlistItemCount} eyni videonu bu pleylistdən silmək istədiyinizə əminsiniz?
+    Bu geri alına bilməz.
+  Cannot delete the quick bookmark target playlist.: Sürətli əlfəcin hədəf pleylisti
+    silinmir.
+  Are you sure you want to delete this playlist? This cannot be undone: Bu pleylisti
+    silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
 History:
   # On History Page
   History: 'Tarixçə'
@@ -234,3 +309,11 @@ Feed:
 Search character limit: Axtarış sorğusu {searchCharacterLimit} simvol həddindən çoxdur
 Go to page: '{Page} səhifəyə keç'
 Close Banner: Banneri Bağla
+Display Label: '{label}: {value}'
+Yes, Delete: Bəli, Sil
+Yes, Restart: Bəli, Yenidən Başlat
+Cancel: Ləğv et
+checkmark: ✓
+Yes: Bəli
+Ok: Oldu
+No: Xeyr
