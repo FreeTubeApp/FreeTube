@@ -112,7 +112,7 @@
     "lefthook": "^1.7.11",
     "mini-css-extract-plugin": "^2.9.0",
     "npm-run-all2": "^6.2.2",
-    "postcss": "^8.4.39",
+    "postcss": "^8.4.40",
     "postcss-scss": "^4.0.9",
     "prettier": "^2.8.8",
     "rimraf": "^6.0.1",
