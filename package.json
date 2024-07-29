@@ -63,7 +63,7 @@
     "autolinker": "^4.0.0",
     "electron-context-menu": "^4.0.1",
     "lodash.debounce": "^4.0.8",
-    "marked": "^13.0.2",
+    "marked": "^13.0.3",
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
