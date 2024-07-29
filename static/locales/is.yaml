@@ -248,6 +248,16 @@ User Playlists:
   Playlists with Matching Videos: Spilunarlistar með samsvarandi myndskeiðum
   Quick Bookmark Enabled: Flýtibókamerki virkjuð
   Remove Duplicate Videos: Fjarlægja tvítekin Myndskeið
+  Cannot delete the quick bookmark target playlist.: Tekst ekki að eyða þessum spilunarlista
+    flýtibókamerkja.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ertu
+    viss um að þú viljir fjarlægja 1 tvítekið myndskeið af þessum spilunarlista? Þetta
+    er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
+    tvítekin myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ertu
+    viss um að þú viljir fjarlægja 1 áhorft myndskeið af þessum spilunarlista? Þetta
+    er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
+    áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
 History:
   # On History Page
   History: 'Áhorf'
@@ -1100,6 +1110,10 @@ Tooltips:
       tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}"
       stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Settu inn orð, orðhluta eða setningu
+      (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn
+      inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils,
+      spilunarlistanna þinna og myndskeiða innan spilunarlista.
   SponsorBlock Settings:
     UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent
       inn á DeArrow.
