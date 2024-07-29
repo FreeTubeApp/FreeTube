@@ -544,6 +544,7 @@ Settings:
         1. Export your playlists with this option enabled.
         2. Delete all of your existing playlists using the Remove All Playlists option under Privacy Settings.
         3. Launch the older version of FreeTube and import the exported playlists."
+    Unable to load video: Unable to load video
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -568,6 +569,7 @@ Settings:
       successfully imported
     All playlists has been successfully exported: All playlists has been
       successfully exported
+    Playlists has been successfully exported: Playlists has been successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key

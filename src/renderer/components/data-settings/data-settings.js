@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import path from 'path'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
@@ -9,6 +10,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
+  replaceLast,
   copyToClipboard,
   deepCopy,
   escapeHTML,
@@ -18,9 +20,11 @@ import {
   showSaveDialog,
   showToast,
   writeFileFromDialog,
+  parseCsv,
 } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
+import { getVideoInfo } from '../../helpers/api/preference'
 
 export default defineComponent({
   name: 'DataSettings',
@@ -212,9 +216,6 @@ export default defineComponent({
     },
 
     importCsvYouTubeSubscriptions: async function(textDecode) { // first row = header, last row = empty
-      const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
-        return sub !== ''
-      })
       const subscriptions = []
       const errorList = []
 
@@ -224,17 +225,7 @@ export default defineComponent({
       this.setProgressBarPercentage(0)
       let count = 0
 
-      const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")|[^"])*"|[^\n",]*|(?:\n|$))/g
-
-      const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
-        return [...yt.matchAll(splitCSVRegex)].map(s => {
-          let newVal = s[1]
-          if (newVal.startsWith('"')) {
-            newVal = newVal.substring(1, newVal.length - 2).replaceAll('""', '"')
-          }
-          return newVal
-        })
-      }).filter(channel => {
+      const ytsubs = parseCsv(textDecode).slice(1).filter(channel => {
         return channel.length > 0
       })
       new Promise((resolve) => {
@@ -863,11 +854,11 @@ export default defineComponent({
 
     importPlaylists: async function () {
       const options = {
-        properties: ['openFile'],
+        properties: ['openFile', 'multiSelections'],
         filters: [
           {
             name: this.$t('Settings.Data Settings.Playlist File'),
-            extensions: ['db']
+            extensions: ['db', 'csv']
           }
         ]
       }
@@ -876,14 +867,29 @@ export default defineComponent({
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
-      let data
-      try {
-        data = await readFileFromDialog(response)
-      } catch (err) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        showToast(`${message}: ${err}`)
-        return
+
+      for (let i = 0; i < response.filePaths.length; i++) {
+        const filePath = response.filePaths[i]
+        let textDecode
+        try {
+          textDecode = await readFileFromDialog(response, i)
+        } catch (err) {
+          const fileName = path.basename(filePath)
+          const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+          showToast(`${message} ${fileName}: ${err}`)
+          return
+        }
+
+        if (filePath.endsWith('.db')) {
+          this.importFreeTubePlaylists(textDecode)
+        } else if (filePath.endsWith('.csv')) {
+          await this.importCsvYouTubePlaylists(filePath, textDecode)
+        }
       }
+    },
+
+    importFreeTubePlaylists: async function (textDecode) {
+      let data = textDecode
       let playlists = null
 
       // for the sake of backwards compatibility,
@@ -1017,6 +1023,93 @@ export default defineComponent({
       })
 
       showToast(this.$t('Settings.Data Settings.All playlists has been successfully imported'))
+    },
+
+    importCsvYouTubePlaylists: async function (filePath, textDecode) {
+      const fileName = path.basename(filePath)
+      const playlistName = (() => {
+        if (fileName.endsWith(' - video.csv')) {
+          return replaceLast(fileName, ' - video.csv', '')
+        } else if (fileName.endsWith('.csv')) {
+          return replaceLast(fileName, '.csv', '')
+        } else {
+          return fileName
+        }
+      })()
+
+      const videosData = parseCsv(textDecode).slice(1).filter(channel => {
+        return channel.length > 0
+      })
+
+      const message = this.$t('Settings.Data Settings.This might take a while, please wait')
+      showToast(message + ' ' + playlistName, 5000)
+      this.updateShowProgressBar(true)
+      this.setProgressBarPercentage(5)
+
+      const videos = await (async () => {
+        const result = []
+        for (let i = 0; i < videosData.length; i++) {
+          const videoData = videosData[i]
+          const videoId = videoData[0]
+          try {
+            const videoInfo = (await getVideoInfo(videoId))
+            const videoObj = {
+              author: videoInfo.author,
+              authorId: videoInfo.authorId,
+              lengthSeconds: videoInfo.lengthSeconds,
+              title: videoInfo.title,
+              videoId: videoId,
+            }
+            result.push(videoObj)
+          } catch (err) {
+            const errorMessage = this.$t('Settings.Data Settings.Unable to load video')
+            showToast(`${errorMessage} ID: ${videoId}: ${err}`, 10000, () => {
+              copyToClipboard(err)
+            })
+          }
+
+          const percentage = Math.floor((i / videosData.length) * 100)
+          this.setProgressBarPercentage(percentage)
+        }
+        return result
+      })()
+
+      const playlistObject = {
+        description: '',
+        playlistName: playlistName,
+        videos: videos
+      }
+
+      const existingPlaylist = this.allPlaylists.find((playlist) => {
+        return playlist.playlistName === playlistObject.playlistName
+      })
+
+      if (existingPlaylist !== undefined) {
+        playlistObject.videos.forEach((video) => {
+          const videoExists = existingPlaylist.videos.some((x) => {
+            // Disllow duplicate (by videoId) videos to be added
+            return x.videoId === video.videoId
+          })
+
+          if (!videoExists) {
+            // Keep original `timeAdded` value
+            const payload = {
+              _id: existingPlaylist._id,
+              videoData: video,
+            }
+
+            this.addVideo(payload)
+          }
+        })
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: existingPlaylist._id })
+      } else {
+        this.addPlaylist(playlistObject)
+      }
+
+      this.updateShowProgressBar(false)
+      const endMessage = this.$t('Settings.Data Settings.Playlists has been successfully exported')
+      showToast(`${endMessage}: ${playlistName}`, 5000)
     },
 
     exportPlaylists: async function () {

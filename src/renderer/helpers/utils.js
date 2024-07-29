@@ -16,6 +16,22 @@ function currentLocale () {
   return i18n.locale.replace('_', '-')
 }
 
+const isString = value => typeof value === 'string'
+
+export function replaceLast(str, find, replace) {
+  if (!isString(str) || !isString(find) || !isString(replace)) {
+    // returns input on invalid arguments
+    return str
+  }
+
+  const lastIndex = str.lastIndexOf(find)
+  if (lastIndex < 0) {
+    return str
+  }
+
+  return str.substr(0, lastIndex) + replace + str.substr(lastIndex + find.length)
+}
+
 export function getIconForSortPreference(sortPreference) {
   switch (sortPreference) {
     case 'name_descending':
@@ -867,4 +883,27 @@ export function ctrlFHandler(event, inputElement) {
         nextTick(() => inputElement?.focus())
       }
   }
+}
+
+/**
+ * @param {String} data - csv file data
+ * @returns {Array<Array>} - array of lines of cells
+ */
+export function parseCsv(data) {
+  const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")|[^"])*"|[^\n",]*|(?:\n|$))/g
+  const lines = data.split('\n').filter(sub => {
+    return sub !== ''
+  })
+  const result = lines.map(line => {
+    return [...line.matchAll(splitCSVRegex)].map(s => {
+      let newVal = s[1]
+      if (newVal.startsWith('"')) {
+        newVal = newVal.substring(1, newVal.length - 2).replaceAll('""', '"')
+      }
+      return newVal
+    })
+  }).filter(channel => {
+    return channel.length > 0
+  })
+  return result
 }

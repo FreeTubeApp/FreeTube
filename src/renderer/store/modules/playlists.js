@@ -156,6 +156,15 @@ const actions = {
     }
   },
 
+  async updatePlaylistVideo({ commit }, playlist, videoData) {
+    try {
+      await DBPlaylistHandlers.upsertVideoByPlaylistId(playlist._id, videoData)
+      commit('upsertPlaylistToList', playlist)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async updatePlaylistLastPlayedAt({ commit }, playlist) {
     // This action does NOT update `lastUpdatedAt` on purpose
     // Only `lastPlayedAt` should be updated
