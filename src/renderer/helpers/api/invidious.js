@@ -361,7 +361,6 @@ export function convertInvidiousToLocalFormat(format) {
   // audioQuality and qualityLabel don't go inside the DASH manifest, but are used by YouTube.js
   // to determine whether a format is an audio or video stream respectively.
 
-  /** @type {import('./local').LocalFormat} */
   const localFormat = new Misc.Format({
     itag: format.itag,
     mimeType: format.type,
@@ -389,7 +388,7 @@ export function convertInvidiousToLocalFormat(format) {
       : {
           fps: format.fps,
           qualityLabel: format.qualityLabel,
-          colorInfo: format.colorInfo ?? {}
+          ...(format.colorInfo ? { colorInfo: format.colorInfo } : {})
         })
   })
 
