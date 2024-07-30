@@ -11,128 +11,11 @@
   max-inline-size: 92vw;
 }
 
-.channelBannerContainer {
-  background: center / cover no-repeat var(--banner-url, transparent);
-  block-size: 13vw;
-  min-block-size: 110px;
-  max-block-size: 32vh;
-  inline-size: 100%;
-}
-
-.channelBannerContainer.default {
-  background-color: #000;
-  background-image: url('../../assets/img/defaultBanner.png');
-  background-repeat: repeat;
-  background-size: contain;
-}
-
-.channelInfoContainer {
-  position: relative;
-  background-color: var(--card-bg-color);
-  margin-block-start: 10px;
-  padding-block: 0;
-  padding-inline: 16px;
-}
-
-.channelInfo {
-  display: flex;
-  flex-flow: row wrap;
-  inline-size: 100%;
-  justify-content: space-between;
-}
-
-.channelInfoHasError {
-  padding-block-end: 10px;
-}
-
-.channelThumbnail {
-  inline-size: 100px;
-  block-size: 100px;
-  border-radius: 200px;
-  object-fit: cover;
-}
-
-.channelName {
-  font-weight: bold;
-  inline-size: 100%;
-  font-size: 25px;
-}
-
-.channelSubCount {
-  color: var(--tertiary-text-color);
-  inset-block-start: 50px;
-  inset-inline-start: 120px;
-}
-
-.channelInfoActionsContainer {
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.subscribeButton {
-  block-size: fit-content;
-}
-
-.shareIcon {
-  align-self: center;
-}
-
-.channelSearch {
-  margin-block-start: 10px;
-  max-inline-size: 250px;
-  inline-size: 220px;
-  margin-inline-start: auto;
-  align-self: flex-end;
-  flex: 1 1 0%;
-}
-
 .select-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   margin-block-end: 10px;
-}
-
-.channelInfoTabs {
-  position: relative;
-  inline-size: 100%;
-  block-size: auto;
-  justify-content: unset;
-  gap: 32px;
-  padding-block: 0.3em;
-  padding-inline: 0;
-  flex-wrap: nowrap;
-}
-
-.tabs {
-  display: flex;
-  flex: 0 1 66%;
-  flex-wrap: wrap;
-}
-
-.tab {
-  padding: 15px;
-  font-size: 15px;
-  cursor: pointer;
-  align-self: flex-end;
-  text-align: center;
-  color: var(--tertiary-text-color);
-  border-block-end: 3px solid transparent;
-}
-
-.tab:hover,
-.tab:focus {
-  font-weight: bold;
-  border-block-end: 3px solid var(--tertiary-text-color);
-}
-
-.selectedTab {
-  color: var(--primary-text-color);
-  border-block-end: 3px solid var(--primary-color);
-  font-weight: bold;
-  box-sizing: border-box;
 }
 
 .elementListLoading {
@@ -153,105 +36,16 @@
   margin-block-start: 16px;
 }
 
-.thumbnailContainer {
-  display: flex;
-}
-
-.channelLineContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-inline-start: 1em;
-}
-
-.channelLineContainer h1,
-.channelLineContainer p {
-  margin: 0;
-}
-
-.communityThumbnail {
-  border-radius: 200px;
-  block-size: 12%;
-  inline-size: 12%;
-}
-
-.ft-community-image {
-  display: block;
-  margin-inline: auto;
-}
-
-.community-post-container {
-  padding-inline: 30%;
-}
-
 @media only screen and (width <= 800px) {
-  .channelInfoTabs {
-    block-size: auto;
-    flex-flow: column-reverse;
-    gap: 0;
-  }
-
-  .channelSearch {
-    inline-size: 100%;
-    max-inline-size: none;
-  }
-
-  .tabs {
-    flex: 1 1 0;
-  }
-
-  .tab {
-    flex: 1 1 0%;
-  }
-
   .communityPanel {
     margin-block-start: 1rem;
   }
 }
 
 @media only screen and (width <= 680px) {
-  .channelInfo {
-    flex-direction: column;
-    margin-block: 20px 10px;
-  }
-
   .card {
     max-inline-size: none;
     inline-size: 100%;
-  }
-
-  .channelInfoActionsContainer {
-    flex-direction: row-reverse;
-    justify-content: left;
-    gap: 10px;
-    margin-block-start: 5px;
-  }
-}
-
-@media only screen and (width <= 400px) {
-  .channelInfo {
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .channelInfoActionsContainer {
-    justify-content: center;
-  }
-
-  .channelLineContainer {
-    padding-inline-start: 0;
-  }
-
-  .thumbnailContainer {
-    flex-direction: column;
-  }
-
-  .thumbnailContainer,
-  .channelInfoActionsContainer {
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
   }
 }
 
