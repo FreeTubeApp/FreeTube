@@ -395,19 +395,29 @@ export function convertInvidiousToLocalFormat(format) {
   return localFormat
 }
 
-export function mapInvidiousLegacyFormat(format) {
+/**
+ * @param {any} format
+ * @param {boolean} trustApiResponse
+ */
+export function mapInvidiousLegacyFormat(format, trustApiResponse) {
+  let width
+  let height
+
+  if (trustApiResponse) {
+    const [stringWidth, stringHeight] = format.size.split('x')
+
+    width = parseInt(stringWidth)
+    height = parseInt(stringHeight)
+  }
+
   return {
     itag: format.itag,
     qualityLabel: format.qualityLabel,
     fps: format.fps,
     bitrate: parseInt(format.bitrate),
     mimeType: format.type,
-
-    // Invidious' size parameter can't be trusted as it is hardcoded based on itag,
-    // this is especially problematic for shorts, where it returns landscape dimenions,
-    // even though the video is portrait
-    height: undefined,
-    width: undefined,
+    height,
+    width,
     url: format.url
   }
 }

@@ -854,16 +854,21 @@ export default defineComponent({
           } else {
             this.videoLengthSeconds = result.lengthSeconds
 
+            // Detect if the Invidious server is running a new enough version of Invidious
+            // to include this pull request: https://github.com/iv-org/invidious/pull/4586
+            // which fixed the API returning incorrect height, width and fps information
+            const trustApiResponse = result.adaptiveFormats.some(stream => typeof stream.size === 'string')
+
             if (process.env.SUPPORTS_LOCAL_API && this.forceLocalBackendForLegacy) {
               const legacyFormats = await this.getLocalLegacyFormats()
 
               if (legacyFormats !== null) {
                 this.legacyFormats = legacyFormats
               } else {
-                this.legacyFormats = result.formatStreams.map(mapInvidiousLegacyFormat)
+                this.legacyFormats = result.formatStreams.map(format => mapInvidiousLegacyFormat(format, trustApiResponse))
               }
             } else {
-              this.legacyFormats = result.formatStreams.map(mapInvidiousLegacyFormat)
+              this.legacyFormats = result.formatStreams.map(format => mapInvidiousLegacyFormat(format, trustApiResponse))
             }
 
             if (!process.env.SUPPORTS_LOCAL_API || (this.proxyVideos && !this.forceLocalBackendForLegacy)) {
@@ -909,7 +914,7 @@ export default defineComponent({
               return object
             }))
 
-            this.manifestSrc = await this.createInvidiousDashManifest(result)
+            this.manifestSrc = await this.createInvidiousDashManifest(result, trustApiResponse)
             this.manifestMimeType = MANIFEST_TYPE_DASH
           }
 
@@ -1377,21 +1382,25 @@ export default defineComponent({
       return `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(xmlData)}`
     },
 
-    createInvidiousDashManifest: async function (result) {
+    createInvidiousDashManifest: async function (result, trustApiResponse = false) {
       let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
       // If we are in Electron,
       // we can use YouTube.js' DASH manifest generator to generate the manifest.
       // Using YouTube.js' gives us support for multiple audio tracks (currently not supported by Invidious)
       if (process.env.SUPPORTS_LOCAL_API) {
-        const adaptiveFormats = await this.getAdaptiveFormatsInvidious(result)
+        const adaptiveFormats = await this.getAdaptiveFormatsInvidious(result, trustApiResponse)
 
-        // Invidious' API response doesn't include the height and width (and fps and qualityLabel for AV1) of video streams
-        // so we need to extract them from Invidious' manifest
-        const response = await fetch(url)
-        const originalText = await response.text()
+        let parsedManifest
 
-        const parsedManifest = new DOMParser().parseFromString(originalText, 'application/xml')
+        if (!trustApiResponse) {
+          // Invidious' API response doesn't include the height and width (and fps and qualityLabel for AV1) of video streams
+          // so we need to extract them from Invidious' manifest
+          const response = await fetch(url)
+          const originalText = await response.text()
+
+          parsedManifest = new DOMParser().parseFromString(originalText, 'application/xml')
+        }
 
         /** @type {import('youtubei.js').Misc.Format[]} */
         const formats = []
@@ -1402,7 +1411,7 @@ export default defineComponent({
         let hasMultipleAudioTracks = false
 
         for (const format of adaptiveFormats) {
-          if (format.type.startsWith('video/')) {
+          if (!trustApiResponse && format.type.startsWith('video/')) {
             const representation = parsedManifest.querySelector(`Representation[id="${format.itag}"][bandwidth="${format.bitrate}"]`)
 
             format.height = parseInt(representation.getAttribute('height'))
@@ -1482,7 +1491,7 @@ export default defineComponent({
       }
     },
 
-    getAdaptiveFormatsInvidious: async function (existingInfoResult = null) {
+    getAdaptiveFormatsInvidious: async function (existingInfoResult = null, trustApiResponse = false) {
       let result
       if (existingInfoResult) {
         result = existingInfoResult
@@ -1490,14 +1499,30 @@ export default defineComponent({
         result = await invidiousGetVideoInformation(this.videoId)
       }
 
-      return filterInvidiousFormats(result.adaptiveFormats)
-        .map((format) => {
+      if (trustApiResponse) {
+        result.adaptiveFormats.forEach((format) => {
           format.bitrate = parseInt(format.bitrate)
-          if (typeof format.resolution === 'string') {
-            format.height = parseInt(format.resolution.replace('p', ''))
+
+          // audio streams don't have a size property
+          if (typeof format.size === 'string') {
+            const [stringWidth, stringHeight] = format.size.split('x')
+
+            format.width = parseInt(stringWidth)
+            format.height = parseInt(stringHeight)
           }
-          return format
         })
+
+        return result.adaptiveFormats
+      } else {
+        return filterInvidiousFormats(result.adaptiveFormats)
+          .map((format) => {
+            format.bitrate = parseInt(format.bitrate)
+            if (typeof format.resolution === 'string') {
+              format.height = parseInt(format.resolution.replace('p', ''))
+            }
+            return format
+          })
+      }
     },
 
     createLocalStoryboardUrls: function (storyboardInfo) {
