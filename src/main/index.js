@@ -410,9 +410,24 @@ function runApp() {
       requestHeaders.Origin = 'https://www.youtube.com'
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
-        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
-        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
-        requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+        // Make iOS requests work and look more realistic
+        if (requestHeaders['x-youtube-client-name'] === '5') {
+          delete requestHeaders.Referer
+          delete requestHeaders.Origin
+          delete requestHeaders['Sec-Fetch-Site']
+          delete requestHeaders['Sec-Fetch-Mode']
+          delete requestHeaders['Sec-Fetch-Dest']
+          delete requestHeaders['sec-ch-ua']
+          delete requestHeaders['sec-ch-ua-mobile']
+          delete requestHeaders['sec-ch-ua-platform']
+
+          requestHeaders['User-Agent'] = requestHeaders['x-user-agent']
+          delete requestHeaders['x-user-agent']
+        } else {
+          requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+          requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+          requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+        }
       } else {
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
