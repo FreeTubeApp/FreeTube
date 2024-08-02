@@ -8,6 +8,7 @@ import {
   calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
+  randomArrayItem,
   toLocalePublicationString
 } from '../utils'
 
@@ -17,6 +18,25 @@ const TRACKING_PARAM_NAMES = [
   'utm_campaign',
   'utm_term',
   'utm_content',
+]
+
+const IOS_VERSIONS = [
+  '17.5.1',
+  '17.5',
+  '17.4.1',
+  '17.4',
+  '17.3.1',
+  '17.3',
+]
+
+const YOUTUBE_IOS_CLIENT_VERSIONS = [
+  '19.29.1',
+  '19.28.1',
+  '19.26.5',
+  '19.25.4',
+  '19.25.3',
+  '19.24.3',
+  '19.24.2',
 ]
 
 /**
@@ -56,7 +76,36 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: (input, init) => fetch(input, init),
+    fetch: (input, init) => {
+      // Make iOS requests work and look more realistic
+      if (init?.headers instanceof Headers && init.headers.get('x-youtube-client-name') === '5') {
+        // Use a random iOS version and YouTube iOS client version to make the requests look less suspicious
+        const clientVersion = randomArrayItem(YOUTUBE_IOS_CLIENT_VERSIONS)
+        const iosVersion = randomArrayItem(IOS_VERSIONS)
+
+        init.headers.set('x-youtube-client-version', clientVersion)
+
+        // We can't set the user-agent here, but in the main process we take the x-user-agent and set it as the user-agent
+        init.headers.delete('user-agent')
+        init.headers.set('x-user-agent', `com.google.ios.youtube/${clientVersion} (iPhone16,2; CPU iOS ${iosVersion.replaceAll('.', '_')} like Mac OS X; en_US)`)
+
+        const bodyJson = JSON.parse(init.body)
+
+        const client = bodyJson.context.client
+
+        client.clientVersion = clientVersion
+        client.deviceMake = 'Apple'
+        client.deviceModel = 'iPhone16,2' // iPhone 15 Pro Max
+        client.osName = 'iOS'
+        client.osVersion = iosVersion
+        delete client.browserName
+        delete client.browserVersion
+
+        init.body = JSON.stringify(bodyJson)
+      }
+
+      return fetch(input, init)
+    },
     cache,
     generate_session_locally: !!generateSessionLocally
   })
@@ -190,27 +239,69 @@ export async function getLocalSearchContinuation(continuationData) {
   return handleSearchResponse(response)
 }
 
-export async function getLocalVideoInfo(id, attemptBypass = false) {
-  let info
-  let player
+/**
+ * @param {string} id
+ */
+export async function getLocalVideoInfo(id) {
+  const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  if (attemptBypass) {
-    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
-    player = innertube.actions.session.player
+  const info = await webInnertube.getInfo(id)
 
-    // the second request that getInfo makes 404s with the bypass, so we use getBasicInfo instead
-    // that's fine as we have most of the information from the original getInfo request
-    info = await innertube.getBasicInfo(id, 'TV_EMBEDDED')
-  } else {
-    const innertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
-    player = innertube.actions.session.player
+  const hasTrailer = info.has_trailer
+  const trailerIsAgeRestricted = info.getTrailerInfo() === null
 
-    info = await innertube.getInfo(id)
+  if (hasTrailer) {
+    /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer} */
+    const trailerScreen = info.playability_status.error_screen
+    id = trailerScreen.video_id
   }
 
-  if (info.streaming_data) {
-    decipherFormats(info.streaming_data.adaptive_formats, player)
-    decipherFormats(info.streaming_data.formats, player)
+  // try to bypass the age restriction
+  if (info.playability_status.status === 'LOGIN_REQUIRED' || (hasTrailer && trailerIsAgeRestricted)) {
+    const tvInnertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
+
+    const tvInfo = await tvInnertube.getBasicInfo(id, 'TV_EMBEDDED')
+
+    if (tvInfo.streaming_data) {
+      decipherFormats(tvInfo.streaming_data.adaptive_formats, tvInnertube.actions.session.player)
+      decipherFormats(tvInfo.streaming_data.formats, tvInnertube.actions.session.player)
+    }
+
+    info.playability_status = tvInfo.playability_status
+    info.streaming_data = tvInfo.streaming_data
+    info.basic_info.start_timestamp = tvInfo.basic_info.start_timestamp
+    info.basic_info.duration = tvInfo.basic_info.duration
+    info.captions = tvInfo.captions
+    info.storyboards = tvInfo.storyboards
+  } else {
+    const iosInnertube = await createInnertube({ clientType: ClientType.IOS })
+
+    const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
+
+    if (hasTrailer) {
+      info.playability_status = iosInfo.playability_status
+      info.streaming_data = iosInfo.streaming_data
+      info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
+      info.basic_info.duration = iosInfo.basic_info.duration
+      info.captions = iosInfo.captions
+      info.storyboards = iosInfo.storyboards
+    } else if (iosInfo.streaming_data) {
+      info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
+      // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
+
+      for (const format of info.streaming_data.adaptive_formats) {
+        format.freeTubeUrl = format.url
+      }
+
+      // don't overwrite for live streams
+      if (!info.streaming_data.hls_manifest_url) {
+        info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
+      }
+    }
+
+    if (info.streaming_data) {
+      decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
+    }
   }
 
   return info

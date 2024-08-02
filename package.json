@@ -2,7 +2,7 @@
   "name": "freetube",
   "productName": "FreeTube",
   "description": "A private YouTube client",
-  "version": "0.21.2",
+  "version": "0.21.3",
   "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
   "private": true,
@@ -74,7 +74,7 @@
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
-    "youtubei.js": "^10.2.0"
+    "youtubei.js": "^10.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.9",
@@ -112,7 +112,7 @@
     "prettier": "^2.8.8",
     "rimraf": "^6.0.1",
     "sass": "^1.77.8",
-    "sass-loader": "^14.2.1",
+    "sass-loader": "^16.0.0",
     "stylelint": "^16.7.0",
     "stylelint-config-sass-guidelines": "^12.0.0",
     "stylelint-config-standard": "^36.0.1",
