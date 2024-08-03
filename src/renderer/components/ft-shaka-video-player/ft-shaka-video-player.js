@@ -2192,7 +2192,7 @@ export default defineComponent({
      * @param {object=} details
      */
     function handleError(error, context, details) {
-      logShakaError(error, context, details)
+      logShakaError(error, context, props.videoId, details)
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
@@ -2498,7 +2498,8 @@ export default defineComponent({
         promises.push(
           // Only log the error, as the thumbnails are a nice to have
           // If an error occurs with them, it's not critical
-          player.addThumbnailsTrack(props.storyboardSrc, 'text/vtt').catch(error => logShakaError(error, 'addThumbnailsTrack', props.storyboardSrc))
+          player.addThumbnailsTrack(props.storyboardSrc, 'text/vtt')
+            .catch(error => logShakaError(error, 'addThumbnailsTrack', props.videoId, props.storyboardSrc))
         )
       }
 

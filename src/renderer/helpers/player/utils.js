@@ -8,9 +8,10 @@ import { sponsorBlockSkipSegments } from '../sponsorblock'
 /**
  * @param {shaka.util.Error} error
  * @param {string} context
+ * @param {string} videoId
  * @param {object=} details
  */
-export function logShakaError(error, context, details) {
+export function logShakaError(error, context, videoId, details) {
   const { Severity, Category, Code } = shaka.util.Error
 
   // shaka's error type also has a message property but that is apparently only available in uncompiled mode
@@ -26,6 +27,7 @@ export function logShakaError(error, context, details) {
 
   const message =
     'Player Error (category and code explainations here: https://shaka-player-demo.appspot.com/docs/api/shaka.util.Error.html)\n' +
+    `Video ID: "${videoId}"\n` +
     `FreeTube player context: "${context}"\n\n` +
     `Severity: ${severityText} (${error.severity})\n` +
     `Category: ${categoryText} (${error.category})\n` +
