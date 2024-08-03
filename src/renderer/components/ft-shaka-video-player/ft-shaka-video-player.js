@@ -2496,7 +2496,9 @@ export default defineComponent({
 
       if (!isLive.value && props.storyboardSrc) {
         promises.push(
-          player.addThumbnailsTrack(props.storyboardSrc, 'text/vtt').catch(error => handleError(error, 'addThumbnailsTrack', props.storyboardSrc))
+          // Only log the error, as the thumbnails are a nice to have
+          // If an error occurs with them, it's not critical
+          player.addThumbnailsTrack(props.storyboardSrc, 'text/vtt').catch(error => logShakaError(error, 'addThumbnailsTrack', props.storyboardSrc))
         )
       }
 
