@@ -125,7 +125,7 @@ User Playlists:
     ole tallentanut videoita. Paina "Tallenna"-painiketta videon kulmassa tallentaaksesi
     sen tänne
   Search bar placeholder: Etsi soittolistoja
-  Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
+  Empty Search Message: Tällä soittolistalla ei ole hakuasi vastaavia videoita
   Sort By:
     NameAscending: A-Ö
     NameDescending: Ö-A
@@ -586,6 +586,7 @@ Settings:
     Set Password: Aseta salasana
     Remove Password: Poista salasana
   Expand All Settings Sections: Laajenna asetusten kaikki osiot
+  Sort Settings Sections (A-Z): Järjestä asetusosio (A-Ö)
 About:
   #On About page
   About: 'Tietoja'
@@ -640,6 +641,8 @@ About:
   Donate: Lahjoita
   Source code: Lähdekoodi
   Discussions: Keskustelut
+  Licensed under the: Lisenssi
+  AGPLv3: AGPLv3
 Channel:
   Subscribe: 'Tilaa'
   Unsubscribe: 'Peruuta tilaus'
@@ -1127,6 +1130,7 @@ Search Listing:
     Subtitles: Teksitykset
 Feed:
   Refresh Feed: Päivitä {subscriptionName}
+  Feed Last Updated: 'Syöte {feedName} päivitetty viimeksi: {date}'
 Yes, Delete: Kyllä, poista
 checkmark: ✓
 Cancel: Peruuta
