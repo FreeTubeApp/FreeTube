@@ -94,12 +94,8 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
         const client = bodyJson.context.client
 
         client.clientVersion = clientVersion
-        client.deviceMake = 'Apple'
         client.deviceModel = 'iPhone16,2' // iPhone 15 Pro Max
-        client.osName = 'iOS'
         client.osVersion = iosVersion
-        delete client.browserName
-        delete client.browserVersion
 
         init.body = JSON.stringify(bodyJson)
       }
