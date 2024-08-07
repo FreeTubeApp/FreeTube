@@ -410,7 +410,7 @@ export function convertInvidiousToLocalFormat(format) {
       : {
           fps: format.fps,
           qualityLabel: format.qualityLabel,
-          colorInfo: format.colorInfo
+          colorInfo: format.colorInfo ?? {}
         })
   })
 

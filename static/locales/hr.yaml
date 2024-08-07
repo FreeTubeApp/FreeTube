@@ -236,6 +236,14 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Nije moguće izbrisati zbirku
     cilja za brze zabilješke.
   Remove Duplicate Videos: Ukloni dupla videa
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Stvarno
+    želiš ukloniti 1 duplikat videa iz ove zbirke? To se ne može poništiti. | Stvarno
+    želiš ukloniti {playlistItemCount} duplakata videa iz ove zbirke? To se ne može
+    poništiti.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Stvarno
+    želiš ukloniti 1 gledani video iz ove zbirke? To se ne može poništiti. | Stvarno
+    želiš ukloniti {playlistItemCount} gledana/ih videa iz ove zbirke? To se ne može
+    poništiti.
 History:
   # On History Page
   History: 'Povijest'

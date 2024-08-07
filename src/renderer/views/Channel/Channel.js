@@ -1,24 +1,20 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
-import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
-import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import {
   setPublishedTimestampsInvidious,
   copyToClipboard,
-  ctrlFHandler,
   extractNumberFromString,
-  formatNumber,
   showToast,
   getIconForSortPreference
 } from '../../helpers/utils'
@@ -50,20 +46,18 @@ export default defineComponent({
   name: 'Channel',
   components: {
     'ft-card': FtCard,
-    'ft-input': FtInput,
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-age-restricted': FtAgeRestricted,
-    'ft-share-button': FtShareButton,
-    'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
+    ChannelDetails
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
@@ -155,10 +149,6 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
-    },
-
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
@@ -203,13 +193,6 @@ export default defineComponent({
       ]
     },
 
-    formattedSubCount: function () {
-      if (this.hideChannelSubscriptions) {
-        return null
-      }
-      return formatNumber(this.subCount)
-    },
-
     showFetchMoreButton: function () {
       switch (this.currentTab) {
         case 'videos':
@@ -231,13 +214,6 @@ export default defineComponent({
       }
 
       return false
-    },
-    hideChannelSubscriptions: function () {
-      return this.$store.getters.getHideChannelSubscriptions
-    },
-
-    hideSharingActions: function () {
-      return this.$store.getters.getHideSharingActions
     },
 
     hideChannelShorts: function () {
@@ -440,9 +416,6 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.isLoading = true
-    document.addEventListener('keydown', this.keyboardShortcutHandler)
-
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
       return
@@ -467,9 +440,6 @@ export default defineComponent({
         this.autoRefreshOnSortByChangeEnabled = true
       })
     }
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     resolveChannelUrl: async function (url, tab = undefined) {
@@ -1856,29 +1826,7 @@ export default defineComponent({
       }
     },
 
-    changeTab: function (tab, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.altKey) {
-          return
-        }
-
-        // use arrowkeys to navigate
-        event.preventDefault()
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-          const index = this.tabInfoValues.indexOf(tab)
-
-          // focus left or right tab with wrap around
-          tab = (event.key === 'ArrowLeft')
-            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
-            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
-
-          const tabNode = document.getElementById(`${tab}Tab`)
-          tabNode.focus()
-          this.showOutlines()
-          return
-        }
-      }
-
+    changeTab: function (tab) {
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
@@ -1991,10 +1939,6 @@ export default defineComponent({
           this.isLoading = false
         }
       })
-    },
-
-    keyboardShortcutHandler: function (event) {
-      ctrlFHandler(event, this.$refs.channelSearchBar)
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),

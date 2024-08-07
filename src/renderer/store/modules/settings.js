@@ -387,16 +387,14 @@ const stateWithSideEffects = {
       await Promise.allSettled(loadPromises)
 
       i18n.locale = targetLocale
-      await dispatch('getRegionData', {
-        locale: targetLocale
-      })
+      await dispatch('getRegionData', targetLocale)
     }
   },
 
   defaultInvidiousInstance: {
     defaultValue: '',
-    sideEffectsHandler: ({ commit, getters }, value) => {
-      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+    sideEffectsHandler: ({ commit, rootState }, value) => {
+      if (value !== '' && rootState.invidious.currentInvidiousInstance !== value) {
         commit('setCurrentInvidiousInstance', value)
       }
     }

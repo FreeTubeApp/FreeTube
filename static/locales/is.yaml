@@ -90,6 +90,18 @@ Search Filters:
   There are no more results for this search: 'Engar fleiri niðurstöður samsvara leitinni
     þinni'
 # Sidebar
+  Features:
+    HD: HD
+    Subtitles: Skjátextar
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Í beinni
+    4K: 4K
+    360 Video: 360-myndskeið
+    Location: Staðsetning
+    HDR: HDR
+    VR180: VR180
+    Features: Eiginleikar
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
@@ -130,7 +142,7 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Listinn
     þinn yfir vistuð myndskeið er tómur. Smelltu á vistunarhnapp myndskeiðs til að
     það birtist hér'
-  Search bar placeholder: Leita í spilunarlista
+  Search bar placeholder: Leita að spilunarlistum
   Empty Search Message: Það eru engin myndskeið í þessum spilunarlista sem samsvara
     leitinni þinni
   You have no playlists. Click on the create new playlist button to create a new one.: Þú
@@ -183,6 +195,11 @@ User Playlists:
         Smelltu hér til að afturkalla
       Reverted to use {oldPlaylistName} for quick bookmark: Snéri aftur í að nota
         {oldPlaylistName} undir flýtibókamerki
+      Playlist {playlistName} is the new quick bookmark playlist.: Spilunarlistinn
+        {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
+      This playlist is already being used for quick bookmark.: Þessi spilunarlisti
+        er nú þegar notaður undir flýtibókamerki.
+    Search for Videos: Leita að myndskeiðum
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
     Search in Playlists: Leita í spilunarlistum
@@ -196,7 +213,12 @@ User Playlists:
         | {videoCount} myndskeiðum bætt við 1 spilunarlista
     Select a playlist to add your N videos to: Veldu spilunarlista til að bæta myndskeiðinu
       þínu á | Veldu spilunarlista til að bæta {videoCount}̣ myndskeiðunum þínum á
-    Added {count} Times: Bætt við {count} sinni | Bætt við {count} sinnum
+    Added {count} Times: Þegar bætt við | Bætt við {count} sinnum
+    Allow Adding Duplicate Video(s): Leyfa að tvíteknum myndskeiðum sé bætt við
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      myndskeiðum verður bætt við'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      myndskeiðum hefur þegar verið bætt við'
   CreatePlaylistPrompt:
     Create: Búa til
     New Playlist Name: Heiti á nýjum spilunarlista
@@ -219,10 +241,23 @@ User Playlists:
   Delete Playlist: Eyða spilunarlista
   Are you sure you want to delete this playlist? This cannot be undone: Ertu viss
     um að þú viljir eyða þessum spilunarlista? Aðgerðin er ekki afturkallanleg.
-  Add to Favorites: Bæta á {playlistName}
+  Add to Favorites: Bæta í {playlistName}
   Remove from Favorites: Fjarlægja af {playlistName}
   Enable Quick Bookmark With This Playlist: Virkja flýtibókamerki með þessum spilunarlista
   Disable Quick Bookmark: Eyða flýtibókamerki
+  Playlists with Matching Videos: Spilunarlistar með samsvarandi myndskeiðum
+  Quick Bookmark Enabled: Flýtibókamerki virkjuð
+  Remove Duplicate Videos: Fjarlægja tvítekin Myndskeið
+  Cannot delete the quick bookmark target playlist.: Tekst ekki að eyða þessum spilunarlista
+    flýtibókamerkja.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ertu
+    viss um að þú viljir fjarlægja 1 tvítekið myndskeið af þessum spilunarlista? Þetta
+    er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
+    tvítekin myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ertu
+    viss um að þú viljir fjarlægja 1 áhorft myndskeið af þessum spilunarlista? Þetta
+    er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
+    áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
 History:
   # On History Page
   History: 'Áhorf'
@@ -281,6 +316,9 @@ Settings:
       Ask Before Opening Link: Spyrja áður en tengill er opnaður
       Open Link: Opna tengil
       External Link Handling: Meðhöndlun ytri tengla
+    Auto Load Next Page:
+      Label: Hlaða næstu síðu sjálfvirkt
+      Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
   Theme Settings:
     Theme Settings: 'Þemastillingar'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -298,6 +336,8 @@ Settings:
       Pastel Pink: Pastelbleikt
       Hot Pink: Dimmbleikt
       Nordic: Norrænt
+      Solarized Dark: Sólaríserað dökkt
+      Solarized Light: Sólaríserað ljóst
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -337,6 +377,14 @@ Settings:
       Catppuccin Mocha Peach: Catppuccin Mocha ferskju
       Catppuccin Mocha Yellow: Catppuccin Mocha gult
       Catppuccin Mocha Sapphire: Catppuccin Mocha safír
+      Solarized Violet: Sólaríserað fjólublátt
+      Solarized Blue: Sólaríserað blátt
+      Solarized Cyan: Sólaríserað blágrænt
+      Solarized Yellow: Sólaríserað gult
+      Solarized Orange: Sólaríserað appelsínugult
+      Solarized Magenta: Sólaríserað blárautt
+      Solarized Red: Sólaríserað rautt
+      Solarized Green: Sólaríserað grænt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -427,6 +475,7 @@ Settings:
     Fetch Automatically: Sækja streymi sjálfvirkt
     Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
       hverja myndskeiðarás
+    Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi stillingar'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -607,6 +656,7 @@ Settings:
     Remove Password: Fjarlægja lykilorð
     Password Settings: Stillingar lykilorðs
   Expand All Settings Sections: Fletta út öllum stillingahlutum
+  Sort Settings Sections (A-Z): Röðun stillingahluta (A-Ö)
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -637,6 +687,8 @@ About:
   Donate: 'Styrkja'
 
   Discussions: Umræður
+  Licensed under the: Gefið út með notkunarleyfinu
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Val á notkunarsniði'
   Profile Filter: 'Sía notkunarsnið'
@@ -915,6 +967,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Spilunarlisti
+  Sort By:
+    AuthorAscending: Höfundur (A-Ö)
+    Sort By: Raða eftir
+    DateAddedNewest: Nýlegast bætt við fyrst
+    AuthorDescending: Höfundur (Ö-A)
+    VideoTitleAscending: Titill (A-Ö)
+    VideoTitleDescending: Titill (Ö-A)
+    Custom: Sérsniðið
+    DateAddedOldest: Elsta bætt við fyrst
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
@@ -1049,6 +1110,10 @@ Tooltips:
       tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}"
       stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Settu inn orð, orðhluta eða setningu
+      (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn
+      inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils,
+      spilunarlistanna þinna og myndskeiða innan spilunarlista.
   SponsorBlock Settings:
     UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent
       inn á DeArrow.
@@ -1137,3 +1202,25 @@ Age Restricted:
   This video is age restricted: Þetta myndskeið er með aldurstakmörkunum
   This channel is age restricted: Þessi rás er með aldurstakmörkunum
 Tag already exists: '"{tagName}" merkið er þegar til staðar'
+Display Label: '{label}: {value}'
+Feed:
+  Refresh Feed: Endurlesa {subscriptionName}
+  Feed Last Updated: '{feedName}-streymi síðast uppfært: {date}'
+Search character limit: Leitarstrengurinn er kominn yfir hámarksfjöldann {searchCharacterLimit}
+  stafi
+Yes, Restart: Já, endurræsa
+Yes, Open Link: Já, opna tengil
+Cancel: Hætta við
+'Blocked opening potentially unsafe URL': 'Lokaði á opnun mögulega óöruggrar slóðar:
+  "{url}".'
+Yes, Delete: Já, eyða
+checkmark: ✓
+Trimmed input must be at least N characters long: Stytt úttak verður að minnsta kosti
+  að innihalda 1 staf | Stytt úttak verður að minnsta kosti að innihalda {length}
+  stafi
+Moments Ago: rétt áðan
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Skjátextar
+    Closed Captions: Þýðingartextar

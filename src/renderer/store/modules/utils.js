@@ -477,10 +477,9 @@ const actions = {
 
   /**
    * @param {import('../types/store').ActionContext<typeof state>} context
-   * @param {Object} payload
-   * @param {string} payload.locale
+   * @param {string} locale
    */
-  async getRegionData ({ commit }, { locale }) {
+  async getRegionData ({ commit }, locale) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
 
     const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)

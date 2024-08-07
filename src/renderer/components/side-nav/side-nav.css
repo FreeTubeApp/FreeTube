@@ -37,7 +37,8 @@
   margin-block-start: 10px;
 }
 
-.navOption, .navChannel {
+.navOption,
+.navChannel {
   position: relative;
   padding: 5px;
   min-block-size: 35px;
@@ -48,7 +49,8 @@
   display: none;
 }
 
-.navOption, .channelLink {
+.navOption,
+.channelLink {
   display: block;
   color: inherit;
   text-decoration: inherit;
@@ -61,20 +63,32 @@
   word-break: break-word;
 }
 
-.navOption:hover, .navChannel:hover {
+.navOption:hover,
+.navChannel:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
-.navOption:active, .navChannel:active {
+.navOption:active,
+.navChannel:active {
   background-color: var(--side-nav-active-color);
   color: var(--side-nav-active-text-color);
   transition: background 0.2s ease-in;
 }
 
 .navIcon {
+  block-size: 1em;
+  inline-size: 1.25em;
   margin-inline-start: 10px;
+}
+
+.navIcon.fa-user-check {
+  /* This icon is too big by default */
+  inline-size: 1em;
+
+  /* Align icon according to torso */
+  transform: translateX(0.2em);
 }
 
 .navChannel .navLabel {
@@ -90,6 +104,7 @@
   position: absolute;
   inset-block-start: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
 
 .channelThumbnail {
@@ -131,8 +146,13 @@
   margin-block-end: 0;
 }
 
-.closed .navIconExpand{
-  block-size:1.3em;
+.closed .navIconExpand {
+  block-size: 1.3em;
+}
+
+.closed .navIconExpand.fa-user-check {
+  /* This icon is too big by default */
+  block-size: 1.15em;
 }
 
 .closed .navLabel {
@@ -173,7 +193,9 @@
     display: contents; /* sunglasses emoji */
   }
 
-  hr, .mobileHidden, .refreshIcon {
+  hr,
+  .mobileHidden,
+  .refreshIcon {
     display: none;
   }
 
@@ -189,7 +211,8 @@
     padding-inline: 10px;
   }
 
-  .sideNav, .closed {
+  .sideNav,
+  .closed {
     margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
@@ -197,11 +220,12 @@
     overflow-y: hidden;
   }
 
-  .navOption, .closed .navOption {
+  .navOption,
+  .closed .navOption {
     inline-size: 70px;
     block-size: 40px;
     padding: 0;
-    padding-block: 10px 10px;
+    padding-block: 10px;
   }
 
   .navLabel {
@@ -216,7 +240,7 @@
     display: block;
   }
 
-  .closed.hiddenLabels{
+  .closed.hiddenLabels {
     inline-size: 100%;
   }
 }

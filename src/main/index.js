@@ -199,9 +199,11 @@ function runApp() {
   let startupUrl
 
   if (process.platform === 'linux') {
-    // Enable hardware acceleration via VA-API
+    // Enable hardware acceleration via VA-API with OpenGL if no other feature flags are found
     // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
-    app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+    if (!app.commandLine.hasSwitch('enable-features')) {
+      app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+    }
   }
 
   const userDataPath = app.getPath('userData')
@@ -408,9 +410,24 @@ function runApp() {
       requestHeaders.Origin = 'https://www.youtube.com'
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
-        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
-        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
-        requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+        // Make iOS requests work and look more realistic
+        if (requestHeaders['x-youtube-client-name'] === '5') {
+          delete requestHeaders.Referer
+          delete requestHeaders.Origin
+          delete requestHeaders['Sec-Fetch-Site']
+          delete requestHeaders['Sec-Fetch-Mode']
+          delete requestHeaders['Sec-Fetch-Dest']
+          delete requestHeaders['sec-ch-ua']
+          delete requestHeaders['sec-ch-ua-mobile']
+          delete requestHeaders['sec-ch-ua-platform']
+
+          requestHeaders['User-Agent'] = requestHeaders['x-user-agent']
+          delete requestHeaders['x-user-agent']
+        } else {
+          requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+          requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+          requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+        }
       } else {
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
@@ -976,12 +993,6 @@ function runApp() {
 
     try {
       const contents = await asyncFs.readFile(filePath)
-
-      // Probably a corrupted/broken cache entry, pretend it's absent
-      // A valid entry should be a few KB large
-      if (contents.byteLength < 500) {
-        return undefined
-      }
 
       return contents.buffer
     } catch (e) {

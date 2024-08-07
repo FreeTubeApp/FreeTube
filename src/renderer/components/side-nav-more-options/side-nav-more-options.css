@@ -37,7 +37,8 @@
     display: block;
   }
 
-  .sideNav, .closed {
+  .sideNav,
+  .closed {
     margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
@@ -45,7 +46,8 @@
     overflow-y: inherit;
   }
 
-  .navOption, .closed .navOption {
+  .navOption,
+  .closed .navOption {
     inline-size: 70px;
     block-size: 40px;
     padding-block: 10px;
@@ -67,11 +69,16 @@
     margin-block-start: 0.5em;
   }
 
+  .navIcon.fa-user-check {
+    /* Align icon according to torso */
+    transform: translateX(0.2em);
+  }
+
   .moreOption {
     display: block;
   }
 
-  .closed .navIconExpand{
-    block-size:1.3em;
+  .closed .navIconExpand {
+    block-size: 1.3em;
   }
 }

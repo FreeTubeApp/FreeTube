@@ -869,3 +869,12 @@ export function ctrlFHandler(event, inputElement) {
       }
   }
 }
+
+/**
+ * @template T
+ * @param {T[]} array
+ * @returns {T}
+ */
+export function randomArrayItem(array) {
+  return array[Math.floor(Math.random() * array.length)]
+}
