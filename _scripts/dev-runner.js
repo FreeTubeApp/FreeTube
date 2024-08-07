@@ -19,10 +19,14 @@ const web = process.argv.indexOf('--web') !== -1
 let mainConfig
 let rendererConfig
 let webConfig
+let SHAKA_LOCALES_TO_BE_BUNDLED
 
 if (!web) {
   mainConfig = require('./webpack.main.config')
   rendererConfig = require('./webpack.renderer.config')
+
+  SHAKA_LOCALES_TO_BE_BUNDLED = rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
+  delete rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
 } else {
   webConfig = require('./webpack.web.config')
 }
@@ -128,17 +132,27 @@ function startRenderer(callback) {
   })
 
   const server = new WebpackDevServer({
-    static: {
-      directory: path.resolve(__dirname, '..', 'static'),
-      watch: {
-        ignored: [
-          /(dashFiles|storyboards)\/*/,
-          '/**/.DS_Store',
-          '**/static/locales/*'
-        ]
+    static: [
+      {
+        directory: path.resolve(__dirname, '..', 'static'),
+        watch: {
+          ignored: [
+            /(dashFiles|storyboards)\/*/,
+            '/**/.DS_Store',
+            '**/static/locales/*'
+          ]
+        },
+        publicPath: '/static'
       },
-      publicPath: '/static'
-    },
+      {
+        directory: path.resolve(__dirname, '..', 'node_modules', 'shaka-player', 'ui', 'locales'),
+        publicPath: '/static/shaka-player-locales',
+        watch: {
+          // Ignore everything that isn't one of the locales that we would bundle in production mode
+          ignored: `**/!(${SHAKA_LOCALES_TO_BE_BUNDLED.join('|')}).json`
+        }
+      }
+    ],
     port
   }, compiler)
 

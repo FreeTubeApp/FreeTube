@@ -1240,7 +1240,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
 /**
  * @param {LocalFormat} format
  */
-export function mapLocalFormat(format) {
+export function mapLocalLegacyFormat(format) {
   return {
     itag: format.itag,
     qualityLabel: format.quality_label,

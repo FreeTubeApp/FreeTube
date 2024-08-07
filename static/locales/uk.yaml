@@ -322,7 +322,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Переходити в повноекранний режим за обертання
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
-    Allow DASH AV1 formats: Дозволити формат DASH AV1
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -689,11 +688,6 @@ Video:
   Download Video: 'Завантажити відео'
   video only: 'лише відео'
   audio only: 'лише звук'
-  Audio:
-    Low: 'Низька'
-    Medium: 'Середня'
-    High: 'Висока'
-    Best: 'Найкраща'
   Published:
     Jan: 'Ян'
     Feb: 'Лют'
@@ -733,7 +727,6 @@ Video:
   Video has been removed from your saved list: Відео вилучено зі списку збережених
   Video has been saved: Відео збережено
   Save Video: Зберегти відео
-  translated from English: перекладено з англійської
   Sponsor Block category:
     music offtopic: Музика поза темою
     interaction: Взаємодія
@@ -743,7 +736,6 @@ Video:
     sponsor: Спонсор
     recap: Підсумок
     filler: Заповнювач
-  Skipped segment: Пропущений відтинок
   External Player:
     Unsupported Actions:
       looping playlists: зациклювання добірок
@@ -760,26 +752,6 @@ Video:
     video: відео
     OpenInTemplate: Відкрити у {externalPlayer}
   Premieres on: Прем'єри
-  Stats:
-    player resolution: Вікно перегляду
-    fps: Кадрів/с
-    volume: Обсяг
-    bandwidth: Швидкість з'єднання
-    buffered: Буферизовано
-    out of: з
-    video id: ID відео (YouTube)
-    frame drop: Пропущені кадри
-    Resolution: Роздільність
-    Volume: Обсяг
-    Bandwidth: Пропускна здатність
-    Dropped / Total Frames: Пропущені / Усього кадрів
-    Mimetype: Тип MIME
-    Bitrate: Бітрейт
-    Video ID: ID відео
-    Player Dimensions: Розміри програвача
-    Buffered: Буферизовано
-    Video statistics are not available for legacy videos: Статистика відео недоступна
-      для застарілих відео
   Premieres in: Прем'єри в
   Premieres: Прем'єри
   Scroll to Bottom: Прокрутити до кінця
@@ -906,10 +878,6 @@ Tooltips:
       в налаштуваннях).
     Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування
       відео в стилі MPV.
-    Allow DASH AV1 formats: Формати DASH AV1 можуть виглядати краще, ніж формати DASH
-      H.264. Формати DASH AV1 вимагають більше енергії для відтворення! Вони доступні
-      не для всіх відео, у таких випадках програвач буде використовувати формати DASH
-      H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
       стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню

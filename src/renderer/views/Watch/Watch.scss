@@ -47,7 +47,7 @@
       max-inline-size: calc(80vh * 1.78);
       position: relative;
 
-      .upcomingThumbnail {
+      .videoThumbnail {
         inline-size: 100%;
       }
 
@@ -80,6 +80,46 @@
             font-size: 0.85em;
             font-weight: bold;
           }
+        }
+      }
+
+      .errorContainer {
+        position: absolute;
+        inset: 30px;
+        display: grid;
+        place-content: center;
+      }
+
+      .errorWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: rgb(0 0 0 / 90%);
+        color: #fff;
+      }
+
+      .errorIcon {
+        font-size: 80px;
+      }
+
+      .errorMessage {
+        margin: 0;
+      }
+
+      @media only screen and (width <= 680px) {
+        .errorContainer {
+          inset: 10px;
+        }
+
+        .errorWrapper {
+          gap: 10px;
+        }
+
+        .errorIcon {
+          font-size: 60px;
         }
       }
     }
