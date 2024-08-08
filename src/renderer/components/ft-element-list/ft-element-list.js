@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import FtAutoGrid from '../ft-auto-grid/ft-auto-grid.vue'
+import FtAutoGrid from '../FtAutoGrid/FtAutoGrid.vue'
 import FtListLazyWrapper from '../ft-list-lazy-wrapper/ft-list-lazy-wrapper.vue'
 
 export default defineComponent({
