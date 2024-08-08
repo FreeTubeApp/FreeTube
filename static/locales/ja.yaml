@@ -382,6 +382,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Save Watched Videos With Last Viewed Playlist: 「最後に再生した」リストで視聴済み動画を保存
+    Remove All Playlists: 再生リストをすべて削除
   Data Settings:
     How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
     Unknown data key: 不明なデータ キー
@@ -493,6 +494,9 @@ Settings:
       Do Nothing: 何もしない
     Category Color: カテゴリの色
     UseDeArrowTitles: 動画タイトルに DeArrow を使用する
+    UseDeArrowThumbnails: DeArrow のサムネイルを使用する
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API Url (デフォルトは https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
@@ -743,7 +747,7 @@ Video:
     playlist: 再生リスト
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
-  Premieres on: プレミア公開
+  Premieres on: プレミア公開中
   Stats:
     player resolution: 表示領域
     fps: FPS
@@ -764,12 +768,15 @@ Video:
     Bandwidth: 帯域幅
     Dropped / Total Frames: ドロップ率 / 総フレーム数
   Premieres in: 配信開始まで
-  Premieres: プレミア
+  Premieres: プレミア公開
   Show Super Chat Comment: Super Chat のコメント表示
   Scroll to Bottom: 下までスクロール
   Upcoming: 今後の配信予定
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
   Pause on Current Video: 現在の動画の一時停止
+  Hide Channel: チャンネルを非表示
+  Unhide Channel: チャンネルを表示
+  More Options: その他の設定
 Videos:
   #& Sort By
   Sort By:
@@ -843,8 +850,8 @@ Comments:
 Up Next: '次の動画'
 
 # Toast Messages
-Local API Error (Click to copy): '内部 API エラー（クリックするとコピー）'
-Invidious API Error (Click to copy): 'Invidious API エラー（クリックするとコピー）'
+Local API Error (Click to copy): '内部 API エラー（クリックしてコピー）'
+Invidious API Error (Click to copy): 'Invidious API エラー（クリックしてコピー）'
 Falling back to Invidious API: '代替の Invidious API に切替'
 Falling back to Local API: '代替の内部 API に切替'
 Subscriptions have not yet been implemented: '登録チャンネルは未実装です'
@@ -938,6 +945,7 @@ Tooltips:
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
+    Ignore Default Arguments: 動画のURL以外のデフォルトの引数（再生速度、再生リストのURLなど）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
   Experimental Settings:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
@@ -946,8 +954,11 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
+    Hide Videos and Playlists Containing Text: FreeTube 
+      全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
+    UseDeArrowThumbnails: 動画のサムネイルを DeArrow からのサムネイルに置き換えます。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
@@ -997,3 +1008,15 @@ Search character limit: 検索クエリは {searchCharacterLimit} 文字制限�
 Feed:
   Feed Last Updated: '{feedName} フィードの最終更新日時: {date}'
   Refresh Feed: '{subscriptionName} の更新'
+Channel Hidden: '{channel} をチャンネルフィルターに追加しました'
+Channel Unhidden: '{channel} をチャンネルフィルターから削除しました'
+Tag already exists: '"{tagName}" のタグはすでに存在します'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: 字幕
+Yes, Delete: はい、削除します
+Yes, Restart: はい、再起動します
+Yes, Open Link: はい、リンクを開きます
+Cancel: キャンセル
+checkmark: ✓
