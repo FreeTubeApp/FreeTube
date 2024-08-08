@@ -80,6 +80,18 @@ Search Filters:
   Fetch more results: 'もっと見る'
 # Sidebar
   There are no more results for this search: 検索結果は、これ以上ありません
+  Features:
+    Features: 特徴
+    3D: 3D
+    VR180: VR180
+    4K: 4K
+    HD: HD
+    Live: ライブ
+    Subtitles: 字幕
+    HDR: HDR
+    Creative Commons: クリエイティブ・コモンズ
+    Location: 場所
+    360 Video: 360° 動画
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
@@ -153,10 +165,13 @@ User Playlists:
       Playlist name cannot be empty. Please input a name.: 再生リストの名前は空白にできません。名前を入力してください.
       Reverted to use {oldPlaylistName} for quick bookmark: クイックブックマーク用に {oldPlaylistName}
         を元に戻しました
-      "{videoCount} video(s) have been removed": 1 つの動画を削除しました | {video Count} 動画を削除しました
+      "{videoCount} video(s) have been removed": 1 つの動画を削除しました | {video Count} つの動画を削除しました
       Playlist {playlistName} has been deleted.: 再生リスト {playlistName} が削除されました。
       There were no videos to remove.: 削除する動画はありません。
       This playlist does not exist: この再生リストは存在しません
+      This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
+      Playlist {playlistName} is the new quick bookmark playlist.: 再生リスト {playlistName}
+        が新しいクイックブックマーク再生リストです。
     Search for Videos: 動画検索
   Save Changes: 変更の保存
   Move Video Up: 動画を上へ移動
@@ -169,13 +184,38 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: 再生リストを削除してもいいですか？復元は不可能です。
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 再生リストから再生済みの動画を削除してもいいですか？復元は不可能です。
   You have no playlists. Click on the create new playlist button to create a new one.: 再生リストがありません。新しい再生リストを作成するには、「新しい再生リストの作成」ボタンをクリックしてください。
+  AddVideoPrompt:
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      つの動画が追加されます'
+    Select a playlist to add your N videos to: 動画を追加する再生リストを選択してください | {videoCount}
+      つの動画を追加する再生リストを選択してください
+    Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
+    Toast:
+      You haven't selected any playlist yet.: まだ再生リストを選択していません。
+      "{videoCount} video(s) added to 1 playlist": 1つの動画が1個の再生リストに追加されました | {videoCount}
+        つの動画が1個の再生リストに追加されました
+      "{videoCount} video(s) added to {playlistCount} playlists": 1つの動画が {playlistCount}
+        個の再生リストに追加されました | {videoCount} つの動画が {playlistCount} 個の再生リストに追加されました
+    Search in Playlists: 再生リストで検索
+    N playlists selected: '{playlistCount} 選択中'
+    Save: 保存
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      つの動画はすでに追加されています'
+  CreatePlaylistPrompt:
+    Toast:
+      There was an issue with creating the playlist.: 再生リストの作成中に問題が発生しました。
+      There is already a playlist with this name. Please pick a different name.: この名前の再生リストはすでに存在します。別の名前を選んでください。
+      Playlist {playlistName} has been successfully created.: 再生リスト {playlistName}
+        が正常に作成されました。
+    New Playlist Name: 新しい再生リスト名
+    Create: 作成
 History:
   # On History Page
   History: '履歴'
   Watch History: '視聴履歴'
-  Your history list is currently empty.: 履歴はありません。
+  Your history list is currently empty.: 現在、履歴リストは空です。
   Search bar placeholder: 履歴の検索
-  Empty Search Message: 履歴に、検索に一致する動画はありません
+  Empty Search Message: 検索条件に一致する動画は履歴にありません
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -206,7 +246,7 @@ Settings:
     Region for Trending: '急上昇の地域設定'
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
-    Check for Updates: 最新版の確認
+    Check for Updates: 更新の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
     System Default: 初期設定
     Clear Default Instance: デフォルトの設定をクリアする
@@ -220,6 +260,9 @@ Settings:
       Ask Before Opening Link: リンクを開く前に確認
       Open Link: リンクの表示
       External Link Handling: 外部リンク処理
+    Auto Load Next Page:
+      Label: 次のページを自動で読み込む
+      Tooltip: 追加のページやコメントを自動的に読み込む。
   Theme Settings:
     Theme Settings: 'テーマの設定'
     Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
@@ -230,11 +273,14 @@ Settings:
       Light: 'ライト'
       Dracula: 'ドラキュラ'
       System Default: 初期設定
-      Catppuccin Mocha: Catppuccin Mocha
+      Catppuccin Mocha: キャプチーノ・モカ
       Pastel Pink: パステルピンク
       Hot Pink: ホットピンク
+      Nordic: ノルディック
+      Solarized Dark: ソラライズド・ダーク
+      Solarized Light: ソラライズド・ライト
     Main Color Theme:
-      Main Color Theme: 'テーマのメイン カラー'
+      Main Color Theme: 'メインカラー'
       Red: '赤'
       Pink: '桃'
       Purple: '紫'
@@ -258,10 +304,10 @@ Settings:
       Dracula Purple: 'ドラキュラ 紫'
       Dracula Red: 'ドラキュラ 赤'
       Dracula Yellow: 'ドラキュラ 黄'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Rosewater: キャプチーノ・モカ ローズウォーター
+      Catppuccin Mocha Flamingo: キャプチーノ・モカ 鮮やかなピンク
+      Catppuccin Mocha Pink: キャプチーノ・モカ 淡いピンク
+      Catppuccin Mocha Mauve: キャプチーノ・モカ 淡い紫
       Catppuccin Mocha Red: Catppuccin Mocha Red
       Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
       Catppuccin Mocha Peach: Catppuccin Mocha Peach
@@ -465,6 +511,8 @@ Settings:
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: 既に存在するチャンネル ID
     Hide Channels API Error: 提供された ID のユーザーを取得できませんでした。ID が正しいかどうかをもう一度確認してください。
+    Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
+    Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -506,6 +554,7 @@ Settings:
     Players:
       None:
         Name: なし
+    Ignore Default Arguments: デフォルト引数を無視する
   Download Settings:
     Download Settings: ダウンロードの設定
     Ask Download Path: ダウンロードパスの設定
@@ -533,6 +582,8 @@ Settings:
     Password Incorrect: パスワードが正しくありません
     Password: パスワード
     Unlock: ロック解除
+  Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
+  Expand All Settings Sections: 全ての設定項目を展開する
 About:
   #On About page
   About: '概要'
@@ -983,7 +1034,7 @@ Channels:
   Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
   Count: '{number} 件のチャンネルが見つかりました。'
   Empty: 現在、チャンネル一覧は空です。
-Screenshot Success: スクリーンショットを「{filePath}」として保存しました
+Screenshot Success: スクリーンショットを「{filePath}」に保存しました
 Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:
@@ -996,7 +1047,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター:
     {chapterName}'
 Preferences: 環境設定
-Ok: OK
+Ok: オーケー
 Hashtag:
   Hashtag: ハッシュタグ
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
@@ -1020,3 +1071,10 @@ Yes, Restart: はい、再起動します
 Yes, Open Link: はい、リンクを開きます
 Cancel: キャンセル
 checkmark: ✓
+Moments Ago: たった今
+Age Restricted:
+  This video is age restricted: この動画には年齢制限があります
+  This channel is age restricted: このチャンネルは年齢制限があります
+Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
+  | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
+'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました: "{url}"。'
