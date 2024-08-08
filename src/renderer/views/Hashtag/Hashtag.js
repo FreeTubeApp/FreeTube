@@ -63,7 +63,7 @@ export default defineComponent({
     },
 
     getHashtag: async function() {
-      const hashtag = this.$route.params.hashtag
+      const hashtag = decodeURIComponent(this.$route.params.hashtag)
       if (this.backendFallback || this.backendPreference === 'local') {
         await this.getLocalHashtag(hashtag)
       } else {
