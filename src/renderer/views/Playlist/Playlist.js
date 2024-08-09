@@ -214,6 +214,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.AuthorAscending')
           case SORT_BY_VALUES.AuthorDescending:
             return this.$t('Playlist.Sort By.AuthorDescending')
+          case SORT_BY_VALUES.VideoLengthAscending:
+            return this.$t('Playlist.Sort By.VideoLengthAscending')
+          case SORT_BY_VALUES.VideoLengthDescending:
+            return this.$t('Playlist.Sort By.VideoLengthDescending')
           default:
             console.error(`Unknown sort: ${k}`)
             return k

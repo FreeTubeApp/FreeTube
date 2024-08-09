@@ -5,6 +5,8 @@ export const SORT_BY_VALUES = {
   AuthorDescending: 'author_descending',
   VideoTitleAscending: 'video_title_ascending',
   VideoTitleDescending: 'video_title_descending',
+  VideoLengthAscending: 'video_length_ascending',
+  VideoLengthDescending: 'video_length_descending',
   Custom: 'custom'
 }
 
@@ -19,7 +21,9 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
     sortOrder === SORT_BY_VALUES.VideoTitleAscending ||
     sortOrder === SORT_BY_VALUES.VideoTitleDescending ||
     sortOrder === SORT_BY_VALUES.AuthorAscending ||
-    sortOrder === SORT_BY_VALUES.AuthorDescending
+    sortOrder === SORT_BY_VALUES.AuthorDescending ||
+    sortOrder === SORT_BY_VALUES.VideoLengthAscending ||
+    sortOrder === SORT_BY_VALUES.VideoLengthDescending
   ) {
     collator = new Intl.Collator([locale, 'en'])
   }
@@ -45,6 +49,10 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
       return collator.compare(a.author, b.author)
     case SORT_BY_VALUES.AuthorDescending:
       return collator.compare(b.author, a.author)
+    case SORT_BY_VALUES.VideoLengthAscending:
+      return a.lengthSeconds - b.lengthSeconds
+    case SORT_BY_VALUES.VideoLengthDescending:
+      return b.lengthSeconds - a.lengthSeconds
     default:
       console.error(`Unknown sortOrder: ${sortOrder}`)
       return 0
