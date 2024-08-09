@@ -146,7 +146,7 @@ User Playlists:
   Playlist Description: 再生リストの説明
   Copy Playlist: 再生リストのコピー
   Edit Playlist Info: 再生リスト情報の編集
-  Remove Watched Videos: 再生済み動画の削除
+  Remove Watched Videos: 視聴済み動画の削除
   Enable Quick Bookmark With This Playlist: 再生リストでクイック ブックマークを有効にする
   SinglePlaylistView:
     Toast:
@@ -209,6 +209,13 @@ User Playlists:
         が正常に作成されました。
     New Playlist Name: 新しい再生リスト名
     Create: 作成
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: このプレイリストから重複する1つの動画を削除してもよろしいですか？この操作は元に戻せません。
+    | この再生リストから重複する {playlistItemCount} つの動画を削除してもよろしいですか？この操作は元に戻せません。
+  Cannot delete the quick bookmark target playlist.: クイックブックマーク対象の再生リストは削除できません。
+  Quick Bookmark Enabled: クイックブックマーク有効
+  Remove Duplicate Videos: 重複した動画を削除
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1つ削除してもよろしいですか？この操作は元に戻せません。
+    | この再生リストから視聴済みの {playlistItemCount} つの動画を削除してもよろしいですか？この操作は元に戻せません。
 History:
   # On History Page
   History: '履歴'
@@ -675,6 +682,7 @@ Channel:
     votes: '{votes} 投票'
     Reveal Answers: 回答を表示
     Hide Answers: 回答の非表示
+    Video hidden by FreeTube: FreeTube によって非表示にされた動画
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
   This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
@@ -847,6 +855,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 動画リスト
+  Sort By:
+    Custom: カスタム
+    VideoTitleDescending: タイトル（Z-A）
+    DateAddedOldest: 最初に追加された順
+    DateAddedNewest: 最近の追加された順
+    AuthorAscending: 著者名（A-Z）
+    AuthorDescending: 著者名（Z-A）
+    VideoTitleAscending: 著者名（A-Z）
+    Sort By: 並び替え
 Toggle Theatre Mode: 'サイズ変更'
 Change Format:
   Change Media Formats: '動画形式の変更'
@@ -1078,3 +1095,4 @@ Age Restricted:
 Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました: "{url}"。'
+Display Label: '{label}: {value}'
