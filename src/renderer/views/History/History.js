@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -44,44 +45,53 @@ export default defineComponent({
     },
   },
   watch: {
-    query() {
-      this.searchDataLimit = 100
-      this.filterHistoryAsync()
-    },
     fullData() {
       this.activeData = this.fullData
       this.filterHistory()
-    }
+    },
   },
-  mounted: function () {
+  created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
-    const limit = sessionStorage.getItem('historyLimit')
 
-    if (limit !== null) {
-      this.dataLimit = limit
-    }
-
-    this.activeData = this.fullData
-
-    if (this.activeData.length < this.historyCacheSorted.length) {
-      this.showLoadMoreButton = true
-    } else {
-      this.showLoadMoreButton = false
+    const oldDataLimit = sessionStorage.getItem('History/dataLimit')
+    if (oldDataLimit !== null) {
+      this.dataLimit = oldDataLimit
     }
 
     this.filterHistoryDebounce = debounce(this.filterHistory, 500)
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+      this.handleQueryChange(oldQuery, this.$route.query.searchDataLimit)
+    } else {
+      // Only display unfiltered data when no query used last time
+      this.filterHistory()
+    }
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    handleQueryChange(val, customLimit = null) {
+      this.query = val
+
+      const newLimit = customLimit ?? 100
+      this.searchDataLimit = newLimit
+
+      this.saveStateInRouter(val, newLimit)
+
+      this.filterHistoryAsync()
+    },
+
     increaseLimit: function () {
       if (this.query !== '') {
         this.searchDataLimit += 100
+        this.saveStateInRouter(this.query, this.searchDataLimit)
         this.filterHistory()
       } else {
         this.dataLimit += 100
-        sessionStorage.setItem('historyLimit', this.dataLimit)
+        sessionStorage.setItem('History/dataLimit', this.dataLimit)
       }
     },
     filterHistoryAsync: function() {
@@ -92,11 +102,7 @@ export default defineComponent({
     filterHistory: function() {
       if (this.query === '') {
         this.activeData = this.fullData
-        if (this.activeData.length < this.historyCacheSorted.length) {
-          this.showLoadMoreButton = true
-        } else {
-          this.showLoadMoreButton = false
-        }
+        this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
       } else {
         const lowerCaseQuery = this.query.toLowerCase()
         const filteredQuery = this.historyCacheSorted.filter((video) => {
@@ -110,14 +116,35 @@ export default defineComponent({
         }).sort((a, b) => {
           return b.timeWatched - a.timeWatched
         })
-        if (filteredQuery.length <= this.searchDataLimit) {
-          this.showLoadMoreButton = false
-        } else {
-          this.showLoadMoreButton = true
-        }
+        this.showLoadMoreButton = filteredQuery.length > this.searchDataLimit
         this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       }
     },
+
+    async saveStateInRouter(query, searchDataLimit) {
+      if (this.query === '') {
+        await this.$router.replace({ name: 'history' }).catch(failure => {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        })
+        return
+      }
+
+      await this.$router.replace({
+        name: 'history',
+        query: { searchQueryText: query, searchDataLimit: searchDataLimit },
+      }).catch(failure => {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      })
+    },
+
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
     }
