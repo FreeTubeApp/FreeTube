@@ -576,6 +576,8 @@ Settings:
   Proxy Settings:
     Proxy Settings: Proxy Settings
     Enable Tor / Proxy: Enable Tor / Proxy
+    Proxy Login: Proxy Login
+    Proxy Password: Proxy Password
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
     Proxy Port Number: Proxy Port Number

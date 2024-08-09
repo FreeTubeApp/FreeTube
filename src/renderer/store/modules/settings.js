@@ -235,6 +235,8 @@ const state = {
   maxVideoPlaybackRate: 3,
   onlyShowLatestFromChannel: false,
   playNextVideo: false,
+  proxyLogin: '',
+  proxyPassword: '',
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',

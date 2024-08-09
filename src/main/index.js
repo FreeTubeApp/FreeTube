@@ -336,6 +336,8 @@ function runApp() {
 
     let disableSmoothScrolling = false
     let useProxy = false
+    let proxyLogin = ''
+    let proxyPassword = ''
     let proxyProtocol = 'socks5'
     let proxyHostname = '127.0.0.1'
     let proxyPort = '9050'
@@ -348,6 +350,12 @@ function runApp() {
             break
           case 'useProxy':
             useProxy = doc.value
+            break
+          case 'proxyLogin':
+            proxyLogin = doc.value
+            break
+          case 'proxyPassword':
+            proxyPassword = doc.value
             break
           case 'proxyProtocol':
             proxyProtocol = doc.value
@@ -368,7 +376,11 @@ function runApp() {
       app.commandLine.appendSwitch('enable-smooth-scrolling')
     }
 
-    if (useProxy) {
+    if (useProxy && proxyLogin.length > 0 && proxyPassword.length > 0) {
+      session.defaultSession.setProxy({
+        proxyBypassRules: `${proxyProtocol}://${proxyLogin}:${proxyPassword}@${proxyHostname}:${proxyPort}`
+      })
+    } else {
       session.defaultSession.setProxy({
         proxyRules: `${proxyProtocol}://${proxyHostname}:${proxyPort}`
       })

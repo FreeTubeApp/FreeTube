@@ -54,6 +54,12 @@ export default defineComponent({
     proxyProtocol: function () {
       return this.$store.getters.getProxyProtocol
     },
+    proxyLogin: function () {
+      return this.$store.getters.getProxyLogin
+    },
+    proxyPassword: function () {
+      return this.$store.getters.getProxyPassword
+    },
     proxyHostname: function () {
       return this.$store.getters.getProxyHostname
     },
@@ -61,6 +67,9 @@ export default defineComponent({
       return this.$store.getters.getProxyPort
     },
     proxyUrl: function () {
+      if (this.proxyLogin.length > 0 && this.proxyPassword.length > 0) {
+        return `${this.proxyProtocol}://${this.proxyLogin}:${this.proxyPassword}@${this.proxyHostname}:${this.proxyPort}`
+      }
       return `${this.proxyProtocol}://${this.proxyHostname}:${this.proxyPort}`
     },
     lang: function() {
@@ -107,6 +116,20 @@ export default defineComponent({
         this.enableProxy()
       }
       this.updateProxyProtocol(value)
+    },
+
+    handleUpdateProxyLogin: function (value) {
+      if (this.useProxy) {
+        this.debounceEnableProxy()
+      }
+      this.updateProxyLogin(value)
+    },
+
+    handleUpdateProxyPassword: function (value) {
+      if (this.useProxy) {
+        this.debounceEnableProxy()
+      }
+      this.updateProxyPassword(value)
     },
 
     handleUpdateProxyHostname: function (value) {
@@ -172,6 +195,8 @@ export default defineComponent({
 
     ...mapActions([
       'updateUseProxy',
+      'updateProxyLogin',
+      'updateProxyPassword',
       'updateProxyProtocol',
       'updateProxyHostname',
       'updateProxyPort'
