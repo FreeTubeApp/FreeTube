@@ -23,11 +23,11 @@
 
   @media only screen and (width >= 1122px) {
     display: grid;
-    grid-template-columns: 1fr 720px .4fr;
+    grid-template-columns: 1.4fr 720px 1fr;
   }
   
   @media only screen and (width >= 1600px) {
-    grid-template-columns: 1fr 920px .6fr;
+    grid-template-columns: 1.4fr 2fr 1fr;
   }
 
   @include top-nav-is-colored {
