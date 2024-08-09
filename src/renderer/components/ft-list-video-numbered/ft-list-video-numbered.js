@@ -74,7 +74,19 @@ export default defineComponent({
     isCurrentVideo: {
       type: Boolean,
       default: false
-    }
+    },
+    useChannelsHiddenPreference: {
+      type: Boolean,
+      default: false,
+    },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false
+    },
+    origin: {
+      type: String,
+      default: null
+    },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {

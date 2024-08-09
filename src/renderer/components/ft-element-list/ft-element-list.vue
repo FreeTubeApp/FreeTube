@@ -22,6 +22,8 @@
       :playlist-id="playlistId"
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
+      :is-invidious-playlist="isInvidiousPlaylist"
+      :origin="origin"
       @move-video-up="moveVideoUp(result.videoId, result.playlistItemId)"
       @move-video-down="moveVideoDown(result.videoId, result.playlistItemId)"
       @remove-from-playlist="removeFromPlaylist(result.videoId, result.playlistItemId)"

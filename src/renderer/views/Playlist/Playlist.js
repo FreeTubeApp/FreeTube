@@ -48,6 +48,7 @@ export default defineComponent({
         channelId: this.channelId,
         items: this.sortedPlaylistItems,
         continuationData: this.continuationData,
+        query: this.query
       })
     }
     next()
@@ -67,6 +68,9 @@ export default defineComponent({
       channelThumbnail: '',
       channelId: '',
       infoSource: 'local',
+      isInvidiousPlaylist: false,
+      fetchIVPlaylist: false,
+      origin: null,
       playlistItems: [],
       userPlaylistVisibleLimit: 100,
       continuationData: null,
@@ -78,6 +82,7 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
+      query: {},
     }
   },
   computed: {
@@ -269,6 +274,12 @@ export default defineComponent({
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    enableViewPlaylist: function () {
+      this.isLoading = true
+      this.fetchIVPlaylist = true
+      this.getPlaylistInfoDebounce()
+    },
+
     getPlaylistInfo: function () {
       this.isLoading = true
       // `selectedUserPlaylist` result accuracy relies on data being ready
@@ -283,13 +294,31 @@ export default defineComponent({
         return
       }
 
-      switch (this.backendPreference) {
-        case 'local':
-          this.getPlaylistLocal()
-          break
-        case 'invidious':
+      this.query = this.$route.query ?? {}
+      this.isInvidiousPlaylist = this.query.playlistType === 'invidious'
+      this.origin = this.query.origin
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && (this.fetchIVPlaylist || this.backendFallback))) {
+        // playlist exists only invidious/user prefers invidious
+        if (this.isInvidiousPlaylist) {
+          const curInstance = new URL(this.currentInvidiousInstance)
+          // auto-fetch playlist since the playlist is on the same instance as the currently set invidious instance.
+          if (this.isInvidiousPlaylist && this.origin === curInstance.origin) {
+            this.fetchIVPlaylist = true
+          }
+        }
+
+        if (!this.isInvidiousPlaylist || this.fetchIVPlaylist) {
           this.getPlaylistInvidious()
-          break
+        } else {
+          this.isLoading = false
+        }
+      } else {
+        if (!this.isInvidiousPlaylist) {
+          this.getPlaylistLocal()
+        } else {
+          this.isLoading = false
+        }
       }
     },
     getPlaylistLocal: function () {
@@ -349,22 +378,27 @@ export default defineComponent({
     },
 
     getPlaylistInvidious: function () {
-      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
+      this.isLoading = true
+      const origin = this.query.origin
+
+      invidiousGetPlaylistInfo(this.playlistId, origin).then((result) => {
         this.playlistTitle = result.title
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
-        this.viewCount = result.viewCount
+        this.viewCount = (!this.query.playlistType === 'invidious') ? result.viewCount : null
         this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails.at(2)?.url, this.currentInvidiousInstance)
         this.channelId = result.authorId
         this.infoSource = 'invidious'
 
-        this.updateSubscriptionDetails({
-          channelThumbnailUrl: result.authorThumbnails[2].url,
-          channelName: this.channelName,
-          channelId: this.channelId
-        })
+        if (!this.query.playlistType === 'invidious') {
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: result.authorThumbnails[2].url,
+            channelName: this.channelName,
+            channelId: this.channelId
+          })
+        }
 
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })

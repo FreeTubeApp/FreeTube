@@ -39,6 +39,8 @@
         :can-move-video-up="canMoveVideoUp"
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
+        :origin="origin"
+        :is-invidious-playlist="isInvidiousPlaylist"
         @pause-player="pausePlayer"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"

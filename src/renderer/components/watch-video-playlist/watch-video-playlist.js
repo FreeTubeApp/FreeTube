@@ -3,6 +3,7 @@ import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
+import FtButton from '../ft-button/ft-button.vue'
 import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
@@ -17,7 +18,8 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video-numbered': FtListVideoNumbered
+    'ft-list-video-numbered': FtListVideoNumbered,
+    'ft-button': FtButton
   },
   props: {
     playlistId: {
@@ -40,6 +42,14 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    isInvidiousPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    origin: {
+      type: String,
+      default: null,
+    },
   },
   emits: ['pause-player'],
   data: function () {
@@ -55,6 +65,7 @@ export default defineComponent({
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: [],
+      fetchIVPlaylist: false,
 
       getPlaylistInfoRun: false,
     }
@@ -67,9 +78,15 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
+
+    currentInvidiousInstance: function () {
+      return this.$store.getters.getCurrentInvidiousInstance
+    },
+
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
+
     isUserPlaylist: function () {
       return this.playlistType === 'user'
     },
@@ -207,7 +224,7 @@ export default defineComponent({
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
-    if (cachedPlaylist?.id === this.playlistId) {
+    if (cachedPlaylist?.id === this.playlistId && !cachedPlaylist.items.length === 0) {
       this.loadCachedPlaylistInformation(cachedPlaylist)
     } else {
       this.getPlaylistInfoWithDelay()
@@ -225,6 +242,11 @@ export default defineComponent({
     }
   },
   methods: {
+    enableViewPlaylist: function () {
+      this.isLoading = true
+      this.fetchIVPlaylist = true
+      this.getPlaylistInfoWithDelay()
+    },
     findIndexOfCurrentVideoInPlaylist: function (playlist) {
       const playlistItemId = this.playlistItemId
       const prevVideoBeforeDeletion = this.prevVideoBeforeDeletion
@@ -253,10 +275,28 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
-      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-        this.getPlaylistInformationInvidious()
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || (this.isInvidiousPlaylist && (this.fetchIVPlaylist || this.backendFallback))) {
+        if (this.isInvidiousPlaylist) {
+          const curInstance = new URL(this.currentInvidiousInstance)
+          // auto-fetch playlist since the playlist is on the same instance as the currently set invidious instance.
+          if (this.isInvidiousPlaylist && this.origin === curInstance.origin) {
+            this.fetchIVPlaylist = true
+          }
+        }
+
+        if (!this.isInvidiousPlaylist || this.fetchIVPlaylist) {
+          this.getPlaylistInformationInvidious()
+        } else {
+          this.isLoading = false
+          this.getPlaylistInfoRun = false
+        }
       } else {
-        this.getPlaylistInformationLocal()
+        if (!this.isInvidiousPlaylist) {
+          this.getPlaylistInformationLocal()
+        } else {
+          this.isLoading = false
+          this.getPlaylistInfoRun = false
+        }
       }
     },
 
@@ -308,6 +348,7 @@ export default defineComponent({
       const playlistInfo = {
         playlistId: this.playlistId,
         playlistType: this.playlistType,
+        origin: this.origin,
       }
 
       const videoIndex = this.videoIndexInPlaylistItems
@@ -356,6 +397,7 @@ export default defineComponent({
       const playlistInfo = {
         playlistId: this.playlistId,
         playlistType: this.playlistType,
+        origin: this.origin,
       }
 
       let videoIndex = this.videoIndexInPlaylistItems
@@ -404,6 +446,10 @@ export default defineComponent({
       this.playlistTitle = cachedPlaylist.title
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
+
+      if (this.isInvidiousPlaylist) {
+        this.fetchIVPlaylist = true
+      }
 
       if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
@@ -466,7 +512,7 @@ export default defineComponent({
     getPlaylistInformationInvidious: function () {
       this.isLoading = true
 
-      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
+      invidiousGetPlaylistInfo(this.playlistId, this.origin).then((result) => {
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId

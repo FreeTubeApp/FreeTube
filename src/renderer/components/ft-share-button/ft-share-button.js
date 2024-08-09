@@ -38,7 +38,11 @@ export default defineComponent({
     dropdownPositionY: {
       type: String,
       default: 'bottom'
-    }
+    },
+    invidiousInstance: {
+      type: String,
+      default: null
+    },
   },
   data: function () {
     return {
@@ -54,6 +58,10 @@ export default defineComponent({
       return this.shareTargetType === 'Playlist'
     },
 
+    isIVPlaylist: function () {
+      return this.shareTargetType === 'IVPlaylist'
+    },
+
     isVideo: function() {
       return this.shareTargetType === 'Video'
     },
@@ -62,7 +70,7 @@ export default defineComponent({
       if (this.isChannel) {
         return this.$t('Share.Share Channel')
       }
-      if (this.isPlaylist) {
+      if (this.isPlaylist || this.isIVPlaylist) {
         return this.$t('Share.Share Playlist')
       }
       return this.$t('Share.Share Video')
@@ -91,6 +99,9 @@ export default defineComponent({
       if (this.isPlaylist) {
         return `${this.currentInvidiousInstance}/playlist?list=${this.id}`
       }
+      if (this.isIVPlaylist) {
+        return `${this.invidiousInstance}/playlist?list=${this.id}`
+      }
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
       if (this.playlistSharable) {
@@ -103,6 +114,9 @@ export default defineComponent({
     invidiousEmbedURL() {
       if (this.isPlaylist) {
         return `${this.currentInvidiousInstance}/embed/videoseries?list=${this.id}`
+      }
+      if (this.isIVPlaylist) {
+        return `${this.invidiousInstance}/embed/videoseries?list=${this.id}`
       }
       return `${this.currentInvidiousInstance}/embed/${this.id}`
     },
@@ -150,7 +164,7 @@ export default defineComponent({
         return `https://www.youtube-nocookie.com/embed/videoseries?list=${this.id}`
       }
       return `https://www.youtube-nocookie.com/embed/${this.id}`
-    },
+    }
   },
   mounted() {
     // Prevents to instantiate a ft-share-button for a video without a get-timestamp function
