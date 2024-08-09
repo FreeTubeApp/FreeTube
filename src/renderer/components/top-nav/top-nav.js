@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import TopNavEvents from './top-nav-events'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
@@ -134,6 +135,11 @@ export default defineComponent({
     })
 
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
+
+    TopNavEvents.addEventListener('updateSearchInput', this.updateSearchInputText)
+  },
+  beforeDestroy: function () {
+    TopNavEvents.removeEventListener('updateSearchInput', this.updateSearchInputText)
   },
   methods: {
     goToSearch: async function (query, { event }) {
@@ -333,8 +339,8 @@ export default defineComponent({
     navigate: function (route) {
       this.$router.push('/' + route)
     },
-    updateSearchInputText: function (text) {
-      this.$refs.searchInput.updateInputData(text)
+    updateSearchInputText: function ({ detail: { query } }) {
+      this.$refs.searchInput.updateInputData(query)
     },
     ...mapActions([
       'getYoutubeUrlInfo',

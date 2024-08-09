@@ -492,7 +492,7 @@ export default defineComponent({
     enableSetSearchQueryText: function () {
       ipcRenderer.on(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, (event, searchQueryText) => {
         if (searchQueryText) {
-          this.$refs.topNav.updateSearchInputText(searchQueryText)
+          this.$refs.topNav.updateSearchInputText({ detail: { query: searchQueryText } })
         }
       })
 
