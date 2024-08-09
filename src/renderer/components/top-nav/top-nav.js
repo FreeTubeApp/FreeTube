@@ -136,7 +136,7 @@ export default defineComponent({
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
-    goToSearch: async function (query, { event }) {
+    goToSearch: async function (queryText, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
       if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
@@ -148,7 +148,7 @@ export default defineComponent({
 
       clearLocalSearchSuggestionsSession()
 
-      this.getYoutubeUrlInfo(query).then((result) => {
+      this.getYoutubeUrlInfo(queryText).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp, playlistId } = result
@@ -164,7 +164,8 @@ export default defineComponent({
             openInternalPath({
               path: `/watch/${videoId}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: queryText,
             })
             break
           }
@@ -175,7 +176,8 @@ export default defineComponent({
             openInternalPath({
               path: `/playlist/${playlistId}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: queryText,
             })
             break
           }
@@ -187,7 +189,7 @@ export default defineComponent({
               path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
               doCreateNewWindow,
-              searchQueryText: searchQuery
+              searchQueryText: searchQuery,
             })
             break
           }
@@ -196,7 +198,8 @@ export default defineComponent({
             const { hashtag } = result
             openInternalPath({
               path: `/hashtag/${encodeURIComponent(hashtag)}`,
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: `#${hashtag}`,
             })
 
             break
@@ -209,8 +212,9 @@ export default defineComponent({
               path: `/channel/${channelId}/${subPath}`,
               doCreateNewWindow,
               query: {
-                url
-              }
+                url,
+              },
+              searchQueryText: queryText,
             })
             break
           }
@@ -218,7 +222,7 @@ export default defineComponent({
           case 'invalid_url':
           default: {
             openInternalPath({
-              path: `/search/${encodeURIComponent(query)}`,
+              path: `/search/${encodeURIComponent(queryText)}`,
               query: {
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
@@ -227,9 +231,14 @@ export default defineComponent({
                 features: this.searchSettings.features,
               },
               doCreateNewWindow,
-              searchQueryText: query
+              searchQueryText: queryText,
             })
           }
+        }
+
+        if (doCreateNewWindow) {
+          // Query text copied to new window = can be removed from current window
+          this.updateSearchInputText('')
         }
       })
     },
