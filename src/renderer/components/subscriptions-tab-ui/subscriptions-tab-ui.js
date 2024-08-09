@@ -4,7 +4,7 @@ import FtLoader from '../ft-loader/ft-loader.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtRefreshWidget from '../ft-refresh-widget/ft-refresh-widget.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtElementList from '../ft-element-list/ft-element-list.vue'
+import FtElementList from '../FtElementList/FtElementList.vue'
 import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
 import FtAutoLoadNextPageWrapper from '../ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
