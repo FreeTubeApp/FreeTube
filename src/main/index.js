@@ -1513,6 +1513,16 @@ function runApp() {
               }
             }
           },
+          {
+            label: 'GPU Internals (chrome://gpu)',
+            click() {
+              const gpuWindow = new BrowserWindow({
+                show: true,
+                autoHideMenuBar: true
+              })
+              gpuWindow.loadURL('chrome://gpu')
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
           { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
