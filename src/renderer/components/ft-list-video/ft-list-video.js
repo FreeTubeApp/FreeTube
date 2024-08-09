@@ -150,6 +150,10 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -336,23 +340,40 @@ export default defineComponent({
         return this.deArrowCache.thumbnail
       }
 
-      let baseUrl
-      if (this.backendPreference === 'invidious') {
+      let baseUrl = ''
+      let backendPreference = this.backendPreference
+      if (backendPreference === 'piped') {
+        if (this.data.thumbnail) {
+          return this.data.thumbnail
+        } else {
+          // this should be removed once piped supports more endpoints
+          backendPreference = this.fallbackPreference
+        }
+      }
+
+      if (!process.env.IS_ELECTRON || backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
       } else {
         baseUrl = 'https://i.ytimg.com'
       }
 
+      let imageUrl = ''
+
       switch (this.thumbnailPreference) {
         case 'start':
-          return `${baseUrl}/vi/${this.id}/mq1.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mq1.jpg`
+          break
         case 'middle':
-          return `${baseUrl}/vi/${this.id}/mq2.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mq2.jpg`
+          break
         case 'end':
-          return `${baseUrl}/vi/${this.id}/mq3.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mq3.jpg`
+          break
         default:
-          return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
+
+      return imageUrl
     },
 
     hideVideoViews: function () {

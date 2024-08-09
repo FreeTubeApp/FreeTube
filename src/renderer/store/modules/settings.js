@@ -167,6 +167,7 @@ const state = {
   autoplayVideos: true,
   backendFallback: process.env.SUPPORTS_LOCAL_API,
   backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
+  fallbackPreference: !process.env.SUPPORTS_LOCAL_API ? 'piped' : 'invidious',
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
@@ -394,6 +395,15 @@ const stateWithSideEffects = {
     sideEffectsHandler: ({ commit, rootState }, value) => {
       if (value !== '' && rootState.invidious.currentInvidiousInstance !== value) {
         commit('setCurrentInvidiousInstance', value)
+      }
+    }
+  },
+
+  defaultPipedInstance: {
+    defaultValue: '', // s
+    sideEffectsHandler: ({ commit, getters }, value) => {
+      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+        commit('setCurrentPipedInstance', value)
       }
     }
   },
