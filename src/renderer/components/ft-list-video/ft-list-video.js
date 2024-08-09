@@ -13,6 +13,7 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import debounce from 'lodash.debounce'
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -92,6 +93,7 @@ export default defineComponent({
       title: '',
       channelName: null,
       channelId: null,
+      channelThumbnail: null,
       viewCount: 0,
       parsedViewCount: '',
       uploadedTime: '',
@@ -219,6 +221,10 @@ export default defineComponent({
 
     youtubeEmbedUrl: function () {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
+    },
+
+    profileSubscriptions: function () {
+      return deepCopy(this.$store.getters.getActiveProfile.subscriptions)
     },
 
     progressPercentage: function () {
@@ -511,6 +517,7 @@ export default defineComponent({
   },
   created: function () {
     this.parseVideoData()
+    this.getChannelThumbnail()
 
     if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
       this.fetchDeArrowData()
@@ -697,6 +704,15 @@ export default defineComponent({
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
         this.hideViews = true
+      }
+    },
+
+    getChannelThumbnail: async function () {
+      const thisChannel = this.profileSubscriptions.find((profile) => profile.id === this.channelId)
+      this.channelThumbnail = thisChannel?.thumbnail?.replace(/=s\d+/, '=s35')
+
+      if (this.backendPreference === 'invidious' && this.channelThumbnail) {
+        this.channelThumbnail = youtubeImageUrlToInvidious(this.channelThumbnail, this.currentInvidiousInstance)
       }
     },
 

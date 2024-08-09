@@ -124,7 +124,17 @@
           class="channelName"
           :to="`/channel/${channelId}`"
         >
-          <span>{{ channelName }}</span>
+          <span class="channelNameAndThumbnail">
+            <img
+              v-if="channelThumbnail"
+              :src="channelThumbnail"
+              alt=""
+              class="channelThumbnail"
+            >
+            <span>
+              {{ channelName }}
+            </span>
+          </span>
         </router-link>
         <span v-else-if="channelName !== null">
           {{ channelName }}
@@ -133,7 +143,7 @@
           v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
           class="viewCount"
         >
-          <template v-if="channelId !== null || channelName !== null"> • </template>
+          <template v-if="channelId !== null || channelName !== null" />
           {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
         </span>
         <span
