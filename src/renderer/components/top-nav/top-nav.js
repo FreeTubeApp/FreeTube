@@ -16,6 +16,12 @@ export default defineComponent({
     FtInput,
     FtProfileSelector
   },
+  props: {
+    pageBookmarksAvailable: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => {
     let isArrowBackwardDisabled = true
     let isArrowForwardDisabled = true
@@ -31,6 +37,7 @@ export default defineComponent({
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
+      currentRouteFullPath: '',
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -101,14 +108,32 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    },
+
+    isPageBookmarked: function () {
+      return this.pageBookmarksAvailable && this.$store.getters.getPageBookmarkWithRoute(this.currentRouteFullPath) != null
+    },
+
+    matchingBookmarksDataList: function () {
+      return this.$store.getters.getPageBookmarksMatchingQuery(this.lastSuggestionQuery, this.currentRouteFullPath)
+    },
+
+    pageBookmarkIconTitle: function () {
+      return this.isPageBookmarked ? this.$t('Edit bookmark for this page') : this.$t('Bookmark this page')
+    },
+
+    pageBookmarkIconTheme: function () {
+      return this.isPageBookmarked ? 'base favorite' : 'base'
     }
   },
   watch: {
-    $route: function () {
+    $route: function (to, from) {
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
+
+      this.currentRouteFullPath = to.fullPath
     }
   },
   mounted: function () {
@@ -116,7 +141,7 @@ export default defineComponent({
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
-
+    this.currentRouteFullPath = this.$router.currentRoute.fullPath
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
       if (this.expandSideBar) {
@@ -147,6 +172,17 @@ export default defineComponent({
       }
 
       clearLocalSearchSuggestionsSession()
+
+      if (query.startsWith('ft:')) {
+        this.$refs.searchInput.handleClearTextClick()
+        const adjustedQuery = query.substring(3)
+        openInternalPath({
+          path: adjustedQuery,
+          adjustedQuery,
+          doCreateNewWindow
+        })
+        return
+      }
 
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
@@ -248,12 +284,15 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
+      const trimmedQuery = query.trim()
+      if (trimmedQuery === this.lastSuggestionQuery) {
+        return
+      }
+
+      this.lastSuggestionQuery = trimmedQuery
+
       if (this.enableSearchSuggestions) {
-        const trimmedQuery = query.trim()
-        if (trimmedQuery !== this.lastSuggestionQuery) {
-          this.lastSuggestionQuery = trimmedQuery
-          this.debounceSearchResults(trimmedQuery)
-        }
+        this.debounceSearchResults(trimmedQuery)
       }
     },
 
@@ -338,6 +377,7 @@ export default defineComponent({
     },
     ...mapActions([
       'getYoutubeUrlInfo',
+      'showPageBookmarkPrompt',
       'showSearchFilters'
     ])
   }

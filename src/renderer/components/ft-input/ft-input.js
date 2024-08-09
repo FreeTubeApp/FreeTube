@@ -2,7 +2,9 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
+import { getIconForRoute, isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
+
+const MAX_VISIBLE_LIST_ITEMS = 15
 
 export default defineComponent({
   name: 'FtInput',
@@ -83,7 +85,7 @@ export default defineComponent({
         isPointerInList: false,
         keyboardSelectedOptionIndex: -1,
       },
-      visibleDataList: this.dataList,
+      visibleDataList: this.dataList?.slice(0, MAX_VISIBLE_LIST_ITEMS),
       // This button should be invisible on app start
       // As the text input box should be empty
       clearTextButtonExisting: false,
@@ -120,8 +122,7 @@ export default defineComponent({
 
     searchStateKeyboardSelectedOptionValue() {
       if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
-
-      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+      return this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.keyboardSelectedOptionIndex)
     },
   },
   watch: {
@@ -147,6 +148,9 @@ export default defineComponent({
     this.updateVisibleDataList()
   },
   methods: {
+    getTextForArrayAtIndex: function (array, index) {
+      return array[index].name ?? array[index]
+    },
     handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) {
@@ -237,7 +241,11 @@ export default defineComponent({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      this.inputData = this.visibleDataList[index]
+      if (this.visibleDataList[index].route) {
+        this.inputData = `ft:${this.visibleDataList[index].route}`
+      } else {
+        this.inputData = this.visibleDataList[index]
+      }
       this.$emit('input', this.inputData)
       this.handleClick()
     },
@@ -251,9 +259,11 @@ export default defineComponent({
         if (this.searchState.selectedOption !== -1) {
           this.searchState.showOptions = false
           event.preventDefault()
-          this.inputData = this.visibleDataList[this.searchState.selectedOption]
+          this.inputData = this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.selectedOption)
+          this.handleOptionClick(this.searchState.selectedOption)
+        } else {
+          this.handleClick(event)
         }
-        this.handleClick(event)
         // Early return
         return
       }
@@ -299,24 +309,31 @@ export default defineComponent({
     },
 
     updateVisibleDataList: function () {
-      if (this.dataList.length === 0) { return }
       // Reset selected option before it's updated
       this.searchState.selectedOption = -1
       this.searchState.keyboardSelectedOptionIndex = -1
       if (this.inputData === '') {
-        this.visibleDataList = this.dataList
+        this.visibleDataList = this.dataList?.slice(0, MAX_VISIBLE_LIST_ITEMS)
         return
       }
       // get list of items that match input
       const lowerCaseInputData = this.inputData.toLowerCase()
 
-      this.visibleDataList = this.dataList.filter(x => {
+      this.visibleDataList = this.dataList?.slice(0, MAX_VISIBLE_LIST_ITEMS).filter(x => {
+        if (x.name) {
+          return x.name.toLowerCase().indexOf(lowerCaseInputData) !== -1
+        }
+
         return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
       })
     },
 
     updateInputData: function(text) {
       this.inputData = text
+    },
+
+    iconForBookmarkedPage: (pageBookmark) => {
+      return getIconForRoute(pageBookmark.route) ?? ['fas', 'magnifying-glass']
     },
 
     focus() {

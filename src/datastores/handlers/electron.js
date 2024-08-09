@@ -211,9 +211,54 @@ class Playlists {
   }
 }
 
+class SearchHistory {
+  static create(pageBookmark) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.CREATE, data: pageBookmark }
+    )
+  }
+
+  static find() {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.FIND }
+    )
+  }
+
+  static upsert(pageBookmark) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.UPSERT, data: pageBookmark }
+    )
+  }
+
+  static delete(_id) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.DELETE, data: _id }
+    )
+  }
+
+  static deleteMultiple(ids) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.DELETE_MULTIPLE, data: ids }
+    )
+  }
+
+  static deleteAll() {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SEARCH_HISTORY,
+      { action: DBActions.GENERAL.DELETE_ALL }
+    )
+  }
+}
+
 export {
   Settings as settings,
   History as history,
   Profiles as profiles,
-  Playlists as playlists
+  Playlists as playlists,
+  SearchHistory as searchHistory
 }

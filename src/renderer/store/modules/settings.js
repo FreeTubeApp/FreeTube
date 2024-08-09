@@ -500,6 +500,29 @@ const customActions = {
         }
       })
 
+      ipcRenderer.on(IpcChannels.SYNC_SEARCH_HISTORY, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.CREATE:
+            commit('addPageBookmarkToList', data)
+            break
+
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertPageBookmarkToList', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE:
+            commit('removePageBookmarkFromList', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_MULTIPLE:
+            commit('removePageBookmarksFromList', data)
+            break
+
+          default:
+            console.error('search history: invalid sync event received')
+        }
+      })
+
       ipcRenderer.on(IpcChannels.SYNC_PROFILES, (_, { event, data }) => {
         switch (event) {
           case SyncEvents.GENERAL.CREATE:

@@ -12,6 +12,7 @@
 .solarizedDark,
 .solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
+  --side-nav-hover-text-color: var(--primary-text-color);
   --top-bar-push-down-adjustment-default: -35px;
 
   /* Value of 0 without 'px' does not work inside calc() */

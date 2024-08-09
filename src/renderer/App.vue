@@ -55,6 +55,9 @@
     <ft-create-playlist-prompt
       v-if="showCreatePlaylistPrompt"
     />
+    <page-bookmark-prompt
+      v-if="showPageBookmarkPrompt"
+    />
     <ft-toast />
     <ft-progress-bar
       v-if="showProgressBar"
@@ -62,6 +65,7 @@
     <top-nav
       ref="topNav"
       :inert="isPromptOpen"
+      :page-bookmarks-available="pageBookmarksAvailable"
     />
     <side-nav
       ref="sideNav"

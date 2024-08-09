@@ -32,6 +32,10 @@ Forward: Forward
 Open New Window: Open New Window
 Go to page: Go to {page}
 Close Banner: Close Banner
+Bookmark this page: Bookmark this page
+Edit bookmark for this page: Edit bookmark for this page
+Save: Save
+Name: Name
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -466,6 +470,10 @@ Settings:
     Remove All Playlists: Remove All Playlists
     All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
+    Remove All Page Bookmarks: Remove All Page Bookmarks
+    Are you sure you want to remove all page bookmarks?  This cannot be undone.: Are
+      you sure you want to remove all page bookmarks?  This cannot be undone.
+    All page bookmarks have been removed: All page bookmarks have been removed
   Subscription Settings:
     Subscription Settings: Subscription Settings
     Hide Videos on Watch: Hide Videos on Watch
@@ -1102,6 +1110,17 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
+Page Bookmark:
+  Bookmark this page: Bookmark this page
+  Create Bookmark: Create Bookmark
+  Edit Bookmark: Edit Bookmark
+  Remove Bookmark: Remove Bookmark
+  Created page bookmark: Created page bookmark "{name}"
+  Updated page bookmark: Updated page bookmark "{name}"
+  Removed page bookmark: Removed page bookmark "{name}"
+  There is {count} other bookmark with the same name.: There is {count} other page bookmark with the same name. | There are {count} other page bookmarks with the same name.
+Role Descriptions:
+  bookmark: bookmark
 Moments Ago: moments ago
 Yes: Yes
 No: No
