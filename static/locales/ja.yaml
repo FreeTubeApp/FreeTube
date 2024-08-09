@@ -201,6 +201,7 @@ User Playlists:
     Save: 保存
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       つの動画はすでに追加されています'
+    Added {count} Times: すでに追加済み | {count} 回追加済み
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: 再生リストの作成中に問題が発生しました。
@@ -287,7 +288,7 @@ Settings:
       Solarized Dark: ソラライズド・ダーク
       Solarized Light: ソラライズド・ライト
     Main Color Theme:
-      Main Color Theme: 'メインカラー'
+      Main Color Theme: 'テーマのメインカラー'
       Red: '赤'
       Pink: '桃'
       Purple: '紫'
@@ -315,17 +316,25 @@ Settings:
       Catppuccin Mocha Flamingo: キャプチーノ・モカ 鮮やかなピンク
       Catppuccin Mocha Pink: キャプチーノ・モカ ピンク
       Catppuccin Mocha Mauve: キャプチーノ・モカ 淡い紫
-      Catppuccin Mocha Red: Catppuccin Mocha Red
-      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
-      Catppuccin Mocha Green: Catppuccin Mocha Green
-      Catppuccin Mocha Teal: Catppuccin Mocha Teal
-      Catppuccin Mocha Sky: Catppuccin Mocha Sky
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
-      Catppuccin Mocha Blue: Catppuccin Mocha Blue
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
-    Secondary Color Theme: 'テーマのアクセント カラー'
+      Catppuccin Mocha Red: キャプチーノ・モカ 赤色
+      Catppuccin Mocha Maroon: キャプチーノ・モカ 暗い赤茶色
+      Catppuccin Mocha Peach: キャプチーノ・モカ 桃色
+      Catppuccin Mocha Yellow: キャプチーノ・モカ 黄色
+      Catppuccin Mocha Green: キャプチーノ・モカ 緑色
+      Catppuccin Mocha Teal: キャプチーノ・モカ 青緑
+      Catppuccin Mocha Sky: キャプチーノ・モカ 空色
+      Catppuccin Mocha Sapphire: キャプチーノ・モカ 深い青
+      Catppuccin Mocha Blue: キャプチーノ・モカ 青色
+      Catppuccin Mocha Lavender: キャプチーノ・モカ 淡い紫
+      Solarized Yellow: ソラライズド・イエロー
+      Solarized Orange: ソラライズド・オレンジ
+      Solarized Red: ソラライズド・レッド
+      Solarized Magenta: ソラライズド・マジェンタ
+      Solarized Violet: ソラライズド・バイオレット
+      Solarized Cyan: ソラライズド・シアン
+      Solarized Green: ソラライズド・グリーン
+      Solarized Blue: ソラライズド・ブルー
+    Secondary Color Theme: 'テーマのセカンダリーカラー'
         #* Main Color Theme
     UI Scale: UI 縮尺率
     Expand Side Bar by Default: 幅広のサイド バーで起動
@@ -333,13 +342,13 @@ Settings:
     Hide Side Bar Labels: サイドバー ラベルの非表示
     Hide FreeTube Header Logo: FreeTube ヘッダー ロゴの非表示
   Player Settings:
-    Player Settings: 'プレイヤーの設定'
+    Player Settings: 'プレーヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式であれば内部 API の適用'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画の自動再生'
-    Turn on Subtitles by Default: '最初から字幕を有効化'
+    Turn on Subtitles by Default: '字幕をデフォルトでオンにする'
     Autoplay Videos: '動画の自動再生'
-    Proxy Videos Through Invidious: '動画を Invidious プロキシーを経由して取得'
+    Proxy Videos Through Invidious: '動画を Invidious プロキシを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
     Enable Theatre Mode by Default: 'シアターモードで起動'
     Default Volume: '音量の設定'
@@ -365,8 +374,8 @@ Settings:
     Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
-    Scroll Volume Over Video Player: 動画プレーヤーに音量調整を表示する
-    Scroll Playback Rate Over Video Player: 動画プレーヤーに再生速度調整を表示する
+    Scroll Volume Over Video Player: スクロールで動画の音量調整
+    Scroll Playback Rate Over Video Player: スクロールで動画の再生速度調整
     Max Video Playback Rate: 最大動画再生速度
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
@@ -382,8 +391,8 @@ Settings:
       Format Label: スクリーンショットのファイル形式
       Ask Path: 保存フォルダを尋ねる
       Folder Button: フォルダーの選択
-    Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
-    Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
+    Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
+    Skip by Scrolling Over Video Player: スクロールで動画をスキップ
     Allow DASH AV1 formats: DASH AV1形式を許可
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
@@ -399,6 +408,8 @@ Settings:
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
+    Confirm Before Unsubscribing: 登録解除前に確認する
+    Only Show Latest Video for Each Channel: 各チャンネルの最新の動画のみを表示する
   Advanced Settings:
     Advanced Settings: '詳細設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
@@ -431,11 +442,13 @@ Settings:
     Search cache has been cleared: 検索キャッシュを削除しました
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
-    Privacy Settings: 個人情報の設定
+    Privacy Settings: プライバシーの設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Save Watched Videos With Last Viewed Playlist: 「最後に再生した」リストで視聴済み動画を保存
     Remove All Playlists: 再生リストをすべて削除
+    All playlists have been removed: すべての再生リストが削除されました
+    Are you sure you want to remove all your playlists?: すべてのプレイリストを削除してもよろしいですか？
   Data Settings:
     How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
     Unknown data key: 不明なデータ キー
@@ -460,7 +473,7 @@ Settings:
     Import NewPipe: NewPipe インポート
     Import FreeTube: FreeTube インポート
     Export Subscriptions: 登録のエクスポート
-    Import Subscriptions: 登録のインポート
+    Import Subscriptions: 登録者のインポート
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
     Data Settings: データ設定
@@ -475,6 +488,11 @@ Settings:
     Subscription File: サブスクリプション ファイル
     History File: 履歴ファイル
     Playlist File: 再生リスト
+    Export Playlists For Older FreeTube Versions:
+      Label: 古いバージョンの FreeTube 用に再生リストをエクスポートする
+      Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n
+        1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「すべての再生リストを削除」オプションを使用して、既存のすべての再生リストを削除します。\n
+        3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -526,15 +544,15 @@ Settings:
     City: 都市名
     Region: 地域
     Country: 国名
-    Ip: Ip
+    Ip: IP
     Your Info: あなたの情報
-    Test Proxy: テスト プロキシー
-    Clicking on Test Proxy will send a request to: テスト プロキシーをクリックして、送信するリクエスト先は
-    Proxy Port Number: プロキシーのポート番号
-    Proxy Host: プロキシーのホスト
-    Proxy Protocol: プロキシーのプロトコル
-    Enable Tor / Proxy: Tor / プロキシーの有効化
-    Proxy Settings: プロキシーの設定
+    Test Proxy: テスト プロキシ
+    Clicking on Test Proxy will send a request to: テスト プロキシをクリックして、送信するリクエスト先は
+    Proxy Port Number: プロキシのポート番号
+    Proxy Host: プロキシのホスト
+    Proxy Protocol: プロキシのプロトコル
+    Enable Tor / Proxy: Tor / プロキシの有効化
+    Proxy Settings: プロキシの設定
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
@@ -551,7 +569,7 @@ Settings:
     UseDeArrowTitles: 動画タイトルに DeArrow を使用する
     UseDeArrowThumbnails: DeArrow のサムネイルを使用する
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Thumbnail Generator API Url (デフォルトは https://dearrow-thumb.ajay.app)
+      Thumbnail Generator API Url (デフォルト https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
@@ -1040,7 +1058,7 @@ Search Bar:
   Clear Input: 入力の消去
 Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"{videoTitle}" のダウンロードを開始します'
-Downloading has completed: '"{videoTitle}" のダウンロードが終了しました'
+Downloading has completed: '"{videoTitle}" のダウンロードが完了しました'
 Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
 Channels:
   Channels: チャンネル
@@ -1083,6 +1101,7 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: 字幕
+    Closed Captions: クローズドキャプション
 Yes, Delete: はい、削除します
 Yes, Restart: はい、再起動します
 Yes, Open Link: はい、リンクを開きます
