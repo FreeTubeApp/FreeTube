@@ -31,8 +31,21 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    subscriptionCacheReady: function () {
+      return this.$store.getters.getSubscriptionCacheReady
+    },
+
     lastShortRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastShortRefreshTimestampByProfile(this.activeProfileId), true)
+      if (!this.videoCacheForAllActiveProfileChannelsPresent) { return '' }
+      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return '' }
+
+      let minTimestamp = null
+      this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+        if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+          minTimestamp = cacheEntry.timestamp
+        }
+      })
+      return getRelativeTimeFromDate(minTimestamp, true)
     },
 
     activeProfile: function () {
@@ -74,6 +87,10 @@ export default defineComponent({
       this.isLoading = true
       this.loadVideosFromCacheSometimes()
     },
+
+    subscriptionCacheReady() {
+      this.loadVideosFromCacheSometimes()
+    },
   },
   mounted: async function () {
     this.isLoading = true
@@ -82,24 +99,15 @@ export default defineComponent({
   },
   methods: {
     loadVideosFromCacheSometimes() {
-      // This method is called on view visible
+      // Can only load reliably when cache ready
+      if (!this.subscriptionCacheReady) { return }
 
+      // This method is called on view visible
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
-        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
-          let minTimestamp = null
-          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
-            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
-              minTimestamp = cacheEntry.timestamp
-            }
-          })
-          this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
-        }
         return
       }
 
-      // clear timestamp if not all entries are present in the cache
-      this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
@@ -160,7 +168,6 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
-      this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -271,7 +278,6 @@ export default defineComponent({
       'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionShortsCacheByChannel',
-      'updateLastShortRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([
