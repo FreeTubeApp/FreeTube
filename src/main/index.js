@@ -1518,7 +1518,10 @@ function runApp() {
             click() {
               const gpuWindow = new BrowserWindow({
                 show: true,
-                autoHideMenuBar: true
+                autoHideMenuBar: true,
+                webPreferences: {
+                  devTools: false
+                }
               })
               gpuWindow.loadURL('chrome://gpu')
             }
