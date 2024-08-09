@@ -165,7 +165,9 @@ const state = {
   allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
+  /** @type {boolean} */
   backendFallback: process.env.SUPPORTS_LOCAL_API,
+  /** @type {'local' | 'invidious'} */
   backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
   checkForBlogPosts: true,
@@ -420,15 +422,14 @@ const stateWithSideEffects = {
 
 const settingsWithSideEffects = Object.keys(stateWithSideEffects)
 
-const customState = {
-}
+const customState = {}
 
-const customGetters = {
-}
+const customGetters = {}
 
 const customMutations = {}
 
 const customActions = {
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   grabUserSettings: async ({ commit, dispatch }) => {
     try {
       // Assigning default settings for settings that have side effects
@@ -453,6 +454,7 @@ const customActions = {
   },
 
   // Should be a root action, but we'll tolerate
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   setupListenersToSyncWindows: ({ commit, dispatch }) => {
     if (process.env.IS_ELECTRON) {
       const { ipcRenderer } = require('electron')
@@ -626,3 +628,11 @@ export default {
   actions,
   mutations
 }
+
+/**
+ * @typedef {{
+ *   [K in keyof typeof stateWithSideEffects]: typeof stateWithSideEffects[K]['defaultValue']
+ * }} SettingsStateWithSideEffects
+ *
+ * @typedef {typeof customActions} SettingsCustomActions
+ */

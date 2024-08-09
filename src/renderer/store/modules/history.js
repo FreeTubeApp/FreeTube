@@ -10,16 +10,19 @@ const state = {
 }
 
 const getters = {
+  /** @param {typeof state} state */
   getHistoryCacheSorted(state) {
     return state.historyCacheSorted
   },
 
+  /** @param {typeof state} state */
   getHistoryCacheById(state) {
     return state.historyCacheById
   }
 }
 
 const actions = {
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   async grabHistory({ commit }) {
     try {
       const results = await DBHistoryHandlers.find()
@@ -36,6 +39,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {any} record
+   */
   async updateHistory({ commit }, record) {
     try {
       await DBHistoryHandlers.upsert(record)
@@ -45,6 +52,10 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {string} videoId
+   */
   async removeFromHistory({ commit }, videoId) {
     try {
       await DBHistoryHandlers.delete(videoId)
@@ -54,6 +65,7 @@ const actions = {
     }
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   async removeAllHistory({ commit }) {
     try {
       await DBHistoryHandlers.deleteAll()
@@ -64,6 +76,12 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.videoId
+   * @param {number} payload.watchProgress
+   */
   async updateWatchProgress({ commit }, { videoId, watchProgress }) {
     try {
       await DBHistoryHandlers.updateWatchProgress(videoId, watchProgress)
@@ -73,6 +91,14 @@ const actions = {
     }
   },
 
+  /**
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   * @param {Object} payload
+   * @param {string} payload.videoId
+   * @param {string} payload.lastViewedPlaylistId
+   * @param {string} payload.lastViewedPlaylistType
+   * @param {string} payload.lastViewedPlaylistItemId
+   */
   async updateLastViewedPlaylist({ commit }, { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }) {
     try {
       await DBHistoryHandlers.updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId)
@@ -84,14 +110,26 @@ const actions = {
 }
 
 const mutations = {
+  /**
+   * @param {typeof state} state
+   * @param {any[]} historyCacheSorted
+   */
   setHistoryCacheSorted(state, historyCacheSorted) {
     state.historyCacheSorted = historyCacheSorted
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {{ [key: string]: any }} historyCacheById
+   */
   setHistoryCacheById(state, historyCacheById) {
     state.historyCacheById = historyCacheById
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {any} record
+   */
   upsertToHistoryCache(state, record) {
     const i = state.historyCacheSorted.findIndex((currentRecord) => {
       return record.videoId === currentRecord.videoId
@@ -107,6 +145,12 @@ const mutations = {
     vueSet(state.historyCacheById, record.videoId, record)
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.videoId
+   * @param {number} payload.watchProgress
+   */
   updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
     // historyCacheById and historyCacheSorted reference the same object instances,
     // so modifying an existing object in one of them will update both.
@@ -119,6 +163,14 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {Object} payload
+   * @param {string} payload.videoId
+   * @param {string} payload.lastViewedPlaylistId
+   * @param {string} payload.lastViewedPlaylistType
+   * @param {string} payload.lastViewedPlaylistItemId
+   */
   updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }) {
     // historyCacheById and historyCacheSorted reference the same object instances,
     // so modifying an existing object in one of them will update both.
@@ -133,6 +185,10 @@ const mutations = {
     }
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string} videoId
+   */
   removeFromHistoryCacheById(state, videoId) {
     for (let i = 0; i < state.historyCacheSorted.length; i++) {
       if (state.historyCacheSorted[i].videoId === videoId) {

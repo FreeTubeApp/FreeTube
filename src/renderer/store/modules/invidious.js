@@ -2,20 +2,24 @@ import { createWebURL, fetchWithTimeout } from '../../helpers/utils'
 
 const state = {
   currentInvidiousInstance: '',
+  /** @type {string[] | null} */
   invidiousInstancesList: null
 }
 
 const getters = {
+  /** @param {typeof state} state */
   getCurrentInvidiousInstance(state) {
     return state.currentInvidiousInstance
   },
 
+  /** @param {typeof state} state */
   getInvidiousInstancesList(state) {
     return state.invidiousInstancesList
   }
 }
 
 const actions = {
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   async fetchInvidiousInstancesFromFile({ commit }) {
     const url = createWebURL('/static/invidious-instances.json')
 
@@ -29,7 +33,10 @@ const actions = {
     commit('setInvidiousInstancesList', instances)
   },
 
-  /// fetch invidious instances from site and overwrite static file.
+  /**
+   * Fetch invidious instances from site and overwrite static file.
+   * @param {import('../types/store').ActionContext<typeof state>} context
+   */
   async fetchInvidiousInstances({ commit }) {
     const requestUrl = 'https://api.invidious.io/instances.json'
     try {
@@ -58,6 +65,7 @@ const actions = {
     }
   },
 
+  /** @param {import('../types/store').ActionContext<typeof state>} context */
   setRandomCurrentInvidiousInstance({ commit, state }) {
     const instanceList = state.invidiousInstancesList
     const randomIndex = Math.floor(Math.random() * instanceList.length)
@@ -66,10 +74,18 @@ const actions = {
 }
 
 const mutations = {
+  /**
+   * @param {typeof state} state
+   * @param {string} value
+   */
   setCurrentInvidiousInstance(state, value) {
     state.currentInvidiousInstance = value
   },
 
+  /**
+   * @param {typeof state} state
+   * @param {string[]} value
+   */
   setInvidiousInstancesList(state, value) {
     state.invidiousInstancesList = value
   }
