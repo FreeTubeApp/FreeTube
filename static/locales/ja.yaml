@@ -599,7 +599,7 @@ Settings:
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード設定
-    Set Password To Prevent Access: 設定の変更にはパスワードを設定とする
+    Set Password To Prevent Access: 設定にアクセスするためのパスワードを設定する
     Set Password: パスワードの設定
     Remove Password: パスワードの削除
   Password Dialog:
