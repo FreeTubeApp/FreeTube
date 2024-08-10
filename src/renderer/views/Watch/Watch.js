@@ -1272,7 +1272,13 @@ export default defineComponent({
 
       const { Code } = shaka.util.Error
 
-      if (error.code === Code.BAD_HTTP_STATUS) {
+      if (error.code === Code.HTTP_ERROR) {
+        if (error.data[1]?.message === 'Failed to fetch' && !navigator.onLine) {
+          // Internet connection was lost, do nothing on our side as
+          // shaka-player will keep trying until the internet connection returns and resume playback automatically when it does
+          return
+        }
+      } else if (error.code === Code.BAD_HTTP_STATUS) {
         switch (error.data[1]) {
           case 429:
             this.handleWatchProgress()
@@ -1280,15 +1286,13 @@ export default defineComponent({
             this.errorMessage = '[BAD_HTTP_STATUS: 429] Ratelimited'
             return
           case 403:
-            if (new Date() > this.streamingDataExpiryDate) {
-              this.handleWatchProgress()
+            this.handleWatchProgress()
 
+            if (new Date() > this.streamingDataExpiryDate) {
               this.errorMessage = '[BAD_HTTP_STATUS: 403] YouTube watch session expired. Please reopen this video.'
               this.customErrorIcon = ['fas', 'clock']
               return
             }
-
-            this.handleWatchProgress()
 
             if (this.videoGenreIsMusic) {
               this.errorMessage = '[BAD_HTTP_STATUS: 403] Potential causes: IP block, streaming URL deciphering failed or music video geo-block'
