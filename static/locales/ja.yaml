@@ -124,7 +124,7 @@ User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
   Playlist Message: 
-    このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
+    このページは完全に機能する再生リストを反映していません。保存した動画やお気に入りの動画のみが表示されます。作業が完了すると、現在ここにあるすべての動画は「Favorites」の再生リストに移行されます。
   Search bar placeholder: 再生リストの検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
   This playlist currently has no videos.: 現在、この再生リストには動画がありません。
@@ -147,7 +147,7 @@ User Playlists:
   Copy Playlist: 再生リストのコピー
   Edit Playlist Info: 再生リスト情報の編集
   Remove Watched Videos: 視聴済み動画の削除
-  Enable Quick Bookmark With This Playlist: 再生リストでクイック ブックマークを有効にする
+  Enable Quick Bookmark With This Playlist: この再生リストでクイックブックマークを有効にする
   SinglePlaylistView:
     Toast:
       This playlist is protected and cannot be removed.: この再生リストは保護されており、削除できません。
@@ -779,7 +779,7 @@ Video:
   Autoplay: 自動再生
   Play Previous Video: 前の動画を再生
   Play Next Video: 次の動画の再生
-  Reverse Playlist: 再生リストを逆順に
+  Reverse Playlist: 再生リストを逆順にする
   Shuffle Playlist: 再生リストのシャッフル
   Loop Playlist: 再生リストのループ
   Starting soon, please refresh the page to check again: すぐに再生されます、ページを再読み込みしてお待ちください
@@ -815,11 +815,11 @@ Video:
     OpeningTemplate: '{externalPlayer} で {videoOrPlaylist} を開く...'
     Unsupported Actions:
       looping playlists: 再生リストのループ
-      shuffling playlists: シャッフル動画リスト
-      reversing playlists: 動画リストを反転させる
+      shuffling playlists: シャッフル再生リスト
+      reversing playlists: 再生リストを反転させる
       opening specific video in a playlist (falling back to opening the video): 再生リストで特定のビデオを開く
         (ビデオを開く前にフォールバック)
-      opening playlists: 動画リストを開く
+      opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセットで動画の再生
     UnsupportedActionTemplate: '{externalPlayer} はサポートしていません: {action}'
@@ -1032,7 +1032,7 @@ Tooltips:
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   External Player Settings:
     Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
-    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（動画リストの反転など）に警告を抑制します。
+    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストの反転など）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
