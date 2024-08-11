@@ -8,7 +8,7 @@ import WatchVideoDescription from '../../components/watch-video-description/watc
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
-import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import packageDetails from '../../../../package.json'
 import {
