@@ -66,6 +66,28 @@
       </template>
     </div>
     <div
+      v-if="showOfflineMessage"
+      class="offlineWrapper"
+    >
+      <font-awesome-layers
+        fixed-width
+        class="offlineIcon"
+        aria-hidden="true"
+      >
+        <font-awesome-icon :icon="['fas', 'wifi']" />
+        <font-awesome-icon :icon="['fas', 'slash']" />
+      </font-awesome-layers>
+      <p class="offlineMessage">
+        <span>
+          {{ $t('Video.Player.You appear to be offline') }}
+        </span>
+        <br>
+        <span class="offlineMessageSubtitle">
+          {{ $t('Video.Player.Playback will resume automatically when your connection comes back') }}
+        </span>
+      </p>
+    </div>
+    <div
       v-if="sponsorBlockShowSkippedToast && skippedSponsorBlockSegments.length > 0"
       class="skippedSegmentsWrapper"
     >

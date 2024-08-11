@@ -65,6 +65,39 @@
   /* user-select is intentionally not disabled, so that you can select and copy the stats */
 }
 
+.offlineWrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+:global(body[dir='rtl'] .offlineWrapper) {
+  right: initial;
+  margin-left: initial;
+  left: 20px;
+  margin-right: 20px;
+}
+
+.offlineIcon {
+  font-size: 30px;
+}
+
+.offlineMessage {
+  margin: 0;
+}
+
+.offlineMessageSubtitle {
+  font-size: 0.8em;
+}
+
 :deep(.shaka-volume-bar-container) {
   flex-shrink: initial;
 }

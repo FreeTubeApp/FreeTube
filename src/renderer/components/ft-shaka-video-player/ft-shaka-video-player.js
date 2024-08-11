@@ -2278,6 +2278,31 @@ export default defineComponent({
 
     // #endregion seek bar markers
 
+    // #region offline message
+
+    const isOffline = ref(!navigator.onLine)
+    const isBuffering = ref(false)
+
+    function onlineHandler() {
+      isOffline.value = false
+    }
+
+    function offlineHandler() {
+      isOffline.value = true
+    }
+
+    window.addEventListener('online', onlineHandler)
+    window.addEventListener('offline', offlineHandler)
+
+    // Only display the offline message while buffering/the loading symbol is visible.
+    // If we briefly lose the connection but it comes back before the buffer is empty,
+    // the user won't notice anything so we don't need to display the message.
+    const showOfflineMessage = computed(() => {
+      return isOffline.value && isBuffering.value
+    })
+
+    // #endregion offline message
+
     // #region setup
 
     onMounted(async () => {
@@ -2319,6 +2344,10 @@ export default defineComponent({
 
       const controls = ui.getControls()
       player = controls.getPlayer()
+
+      player.addEventListener('buffering', event => {
+        isBuffering.value = event.buffering
+      })
 
       player.addEventListener('error', event => handleError(event.detail, 'shaka error handler'))
 
@@ -2701,6 +2730,9 @@ export default defineComponent({
       }
 
       skippedSponsorBlockSegments.value.forEach(segment => clearTimeout(segment.timeoutId))
+
+      window.removeEventListener('online', onlineHandler)
+      window.removeEventListener('offline', offlineHandler)
     })
 
     // #endregion tear down
@@ -2752,6 +2784,8 @@ export default defineComponent({
       sponsorBlockShowSkippedToast,
 
       skippedSponsorBlockSegments,
+
+      showOfflineMessage,
 
       handlePlay,
       handlePause,
