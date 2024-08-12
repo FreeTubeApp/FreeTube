@@ -68,22 +68,16 @@
 .offlineWrapper {
   position: absolute;
   top: 20px;
-  right: 20px;
-  margin-left: 20px;
+  inset-inline-end: 20px;
+  margin-inline-start: 20px;
   display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: center;
   background-color: #000;
+  color: #fff;
   padding: 10px;
   border-radius: 10px;
-}
-
-:global(body[dir='rtl'] .offlineWrapper) {
-  right: initial;
-  margin-left: initial;
-  left: 20px;
-  margin-right: 20px;
 }
 
 .offlineIcon {
