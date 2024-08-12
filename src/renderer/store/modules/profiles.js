@@ -91,10 +91,10 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
-  async batchUpdateSubscriptionDetails({ getters, dispatch }, channels) {
+  async batchUpdateSubscriptionDetails({ dispatch, state }, channels) {
     if (channels.length === 0) { return }
 
-    const profileList = getters.getProfileList
+    const profileList = state.profileList
 
     for (const profile of profileList) {
       const currentProfileCopy = deepCopy(profile)
@@ -128,9 +128,9 @@ const actions = {
     }
   },
 
-  async updateSubscriptionDetails({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
+  async updateSubscriptionDetails({ dispatch, state }, { channelThumbnailUrl, channelName, channelId }) {
     const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
-    const profileList = getters.getProfileList
+    const profileList = state.profileList
     for (const profile of profileList) {
       const currentProfileCopy = deepCopy(profile)
       const channel = currentProfileCopy.subscriptions.find((channel) => {
