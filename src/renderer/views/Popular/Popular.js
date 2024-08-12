@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 

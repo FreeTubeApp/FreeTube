@@ -80,6 +80,18 @@ Search Filters:
   Fetch more results: 'Получить больше результатов'
 # Sidebar
   There are no more results for this search: Больше выдачи по этому запросу нет
+  Features:
+    Features: Особенности
+    HD: HD
+    Subtitles: Субтитры
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Прямой эфир
+    4K: 4K
+    360 Video: 360 видео
+    Location: Местоположение
+    VR180: VR180
+    HDR: HDR
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
@@ -189,6 +201,11 @@ User Playlists:
     Select a playlist to add your N videos to: Выбери подборку на добавление видео
       | Выбери подборку на добавление {videoCount} видео в неё
     Added {count} Times: Добавлено {количество} Время | Добавлено {количество} Времени
+    Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Видео будут добавлены'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Видео уже добавлено'
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Подборка {playlistName}
@@ -218,6 +235,15 @@ User Playlists:
   Quick Bookmark Enabled: Быстрая закладка включена
   Cannot delete the quick bookmark target playlist.: Невозможно удалить целевой список
     воспроизведения быстрых закладок.
+  Remove Duplicate Videos: Удалить дубликаты видео
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы
+    уверены, что хотите удалить 1 дублирующее видео из этого плейлиста? Это нельзя
+    отменить. | Вы уверены, что хотите удалить {playlistItemCount} дубликатов видео
+    из этого плейлиста? Это нельзя отменить.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы
+    уверены, что хотите удалить 1 просмотренное видео из этого плейлиста? Это нельзя
+    отменить. | Вы уверены, что хотите удалить {playlistItemCount} просмотренных видео
+    из этого плейлиста? Это нельзя отменить.
 History:
   # On History Page
   History: 'История'
@@ -420,6 +446,7 @@ Settings:
     Fetch Automatically: Автоматически получать ленту
     Only Show Latest Video for Each Channel: Показывать только последние видео для
       каждого канала
+    Confirm Before Unsubscribing: Подтвердите, прежде чем отписаться
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -1239,3 +1266,10 @@ Feed:
   Refresh Feed: Обновить {имя подписки}
 Trimmed input must be at least N characters long: Обрезанный ввод должен быть длиной
   не менее 1 символа | Обрезанный ввод должен быть длиной не менее {длина} символов
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Субтитры
+    Closed Captions: Скрытые субтитры
+'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
+  URL: "{url}".'

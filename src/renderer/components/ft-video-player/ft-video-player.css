@@ -11,7 +11,8 @@
   cursor: none;
 }
 
-:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
+:deep(.sponsorBlockMarker),
+:deep(.chapterMarker) {
   position: absolute;
   opacity: 0.6;
 }

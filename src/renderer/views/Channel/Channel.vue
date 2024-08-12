@@ -4,216 +4,23 @@
       v-if="isLoading && !errorMessage"
       :fullscreen="true"
     />
-    <ft-card
+    <ChannelDetails
       v-else-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      :id="id"
+      :name="channelName"
+      :banner-url="bannerUrl"
+      :has-error-message="!!errorMessage"
+      :thumbnail-url="thumbnailUrl"
+      :sub-count="subCount"
+      :show-share-menu="showShareMenu"
+      :show-search-bar="showSearchBar"
+      :is-subscribed="isSubscribed"
+      :visible-tabs="tabInfoValues"
+      :current-tab="currentTab"
       class="card channelDetails"
-    >
-      <div
-        class="channelBannerContainer"
-        :class="{
-          default: !bannerUrl
-        }"
-        :style="{ '--banner-url': `url('${bannerUrl}')` }"
-      />
-
-      <div
-        class="channelInfoContainer"
-      >
-        <div
-          class="channelInfo"
-          :class="{ channelInfoHasError: errorMessage }"
-        >
-          <div
-            class="thumbnailContainer"
-          >
-            <img
-              v-if="thumbnailUrl"
-              class="channelThumbnail"
-              :src="thumbnailUrl"
-              alt=""
-            >
-            <font-awesome-icon
-              v-else
-              class="channelThumbnail"
-              :icon="['fas', 'circle-user']"
-            />
-            <div
-              class="channelLineContainer"
-            >
-              <h1
-                class="channelName"
-              >
-                {{ channelName }}
-              </h1>
-
-              <p
-                v-if="subCount !== null && !hideChannelSubscriptions"
-                class="channelSubCount"
-              >
-                {{ $tc('Global.Counts.Subscriber Count', subCount, { count: formattedSubCount }) }}
-              </p>
-            </div>
-          </div>
-
-          <div class="channelInfoActionsContainer">
-            <ft-share-button
-              v-if="!hideSharingActions && showShareMenu"
-              :id="id"
-              share-target-type="Channel"
-              class="shareIcon"
-            />
-
-            <ft-subscribe-button
-              v-if="!hideUnsubscribeButton && (!errorMessage || isSubscribed)"
-              :channel-id="id"
-              :channel-name="channelName"
-              :channel-thumbnail="thumbnailUrl"
-            />
-          </div>
-        </div>
-
-        <ft-flex-box
-          v-if="!errorMessage"
-          class="channelInfoTabs"
-        >
-          <div
-            class="tabs"
-            role="tablist"
-            :aria-label="$t('Channel.Channel Tabs')"
-          >
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('videos')"
-              id="videosTab"
-              class="tab"
-              :class="(currentTab==='videos')?'selectedTab':''"
-              role="tab"
-              :aria-selected="String(currentTab === 'videos')"
-              aria-controls="videoPanel"
-              :tabindex="(currentTab === 'videos' || currentTab === 'search') ? 0 : -1"
-              @click="changeTab('videos')"
-              @keydown.left.right.enter.space="changeTab('videos', $event)"
-            >
-              {{ $t("Channel.Videos.Videos").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('shorts') && !hideChannelShorts"
-              id="shortsTab"
-              class="tab"
-              :class="(currentTab==='shorts')?'selectedTab':''"
-              role="tab"
-              :aria-selected="String(currentTab === 'shorts')"
-              aria-controls="shortPanel"
-              :tabindex="currentTab === 'shorts' ? 0 : -1"
-              @click="changeTab('shorts')"
-              @keydown.left.right.enter.space="changeTab('shorts', $event)"
-            >
-              {{ $t("Global.Shorts").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('live') && !hideLiveStreams"
-              id="liveTab"
-              class="tab"
-              :class="(currentTab==='live')?'selectedTab':''"
-              role="tab"
-              :aria-selected="String(currentTab === 'live')"
-              aria-controls="livePanel"
-              :tabindex="currentTab === 'live' ? 0 : -1"
-              @click="changeTab('live')"
-              @keydown.left.right.enter.space="changeTab('live', $event)"
-            >
-              {{ $t("Channel.Live.Live").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('releases') && !hideChannelReleases"
-              id="releasesTab"
-              class="tab"
-              role="tab"
-              :aria-selected="String(currentTab === 'releases')"
-              aria-controls="releasePanel"
-              :tabindex="currentTab === 'releases' ? 0 : -1"
-              :class="(currentTab==='releases')?'selectedTab':''"
-              @click="changeTab('releases')"
-              @keydown.left.right.enter.space="changeTab('releases', $event)"
-            >
-              {{ $t("Channel.Releases.Releases").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('podcasts') && !hideChannelPodcasts"
-              id="podcastsTab"
-              class="tab"
-              role="tab"
-              :aria-selected="String(currentTab === 'podcasts')"
-              aria-controls="podcastPanel"
-              :tabindex="currentTab === 'podcasts' ? 0 : -1"
-              :class="(currentTab==='podcasts')?'selectedTab':''"
-              @click="changeTab('podcasts')"
-              @keydown.left.right.enter.space="changeTab('podcasts', $event)"
-            >
-              {{ $t("Channel.Podcasts.Podcasts").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('playlists') && !hideChannelPlaylists"
-              id="playlistsTab"
-              class="tab"
-              role="tab"
-              :aria-selected="String(currentTab === 'playlists')"
-              aria-controls="playlistPanel"
-              :tabindex="currentTab === 'playlists' ? 0 : -1"
-              :class="(currentTab==='playlists')?'selectedTab':''"
-              @click="changeTab('playlists')"
-              @keydown.left.right.enter.space="changeTab('playlists', $event)"
-            >
-              {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              v-if="tabInfoValues.includes('community') && !hideChannelCommunity"
-              id="communityTab"
-              class="tab"
-              role="tab"
-              :aria-selected="String(currentTab === 'community')"
-              aria-controls="communityPanel"
-              :tabindex="currentTab === 'community' ? 0 : -1"
-              :class="(currentTab==='community')?'selectedTab':''"
-              @click="changeTab('community')"
-              @keydown.left.right.enter.space="changeTab('community', $event)"
-            >
-              {{ $t("Global.Community").toUpperCase() }}
-            </div>
-            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-            <div
-              id="aboutTab"
-              class="tab"
-              role="tab"
-              :aria-selected="String(currentTab === 'about')"
-              aria-controls="aboutPanel"
-              :tabindex="currentTab === 'about' ? 0 : -1"
-              :class="(currentTab==='about')?'selectedTab':''"
-              @click="changeTab('about')"
-              @keydown.left.right.enter.space="changeTab('about', $event)"
-            >
-              {{ $t("Channel.About.About").toUpperCase() }}
-            </div>
-          </div>
-
-          <ft-input
-            v-if="showSearchBar"
-            ref="channelSearchBar"
-            :placeholder="$t('Channel.Search Channel')"
-            :show-clear-text-button="true"
-            class="channelSearch"
-            :maxlength="255"
-            @click="newSearch"
-          />
-        </ft-flex-box>
-      </div>
-    </ft-card>
+      @change-tab="changeTab"
+      @search="newSearch"
+    />
     <ft-card
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"

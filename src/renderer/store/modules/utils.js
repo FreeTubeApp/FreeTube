@@ -401,7 +401,7 @@ const actions = {
     commit('setShowProgressBar', value)
   },
 
-  async getRegionData ({ commit }, { locale }) {
+  async getRegionData ({ commit }, locale) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
 
     const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)

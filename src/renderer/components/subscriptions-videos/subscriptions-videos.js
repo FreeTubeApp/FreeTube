@@ -328,8 +328,8 @@ export default defineComponent({
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
-            copyToClipboard(err.responseText)
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
           switch (failedAttempts) {
             case 0:

@@ -36,9 +36,9 @@
 }
 
 .promptCard.flex-column {
-    /* Some child(ren) will grow vertically */
-    display: flex;
-    flex-direction: column;
+  /* Some child(ren) will grow vertically */
+  display: flex;
+  flex-direction: column;
 }
 
 .promptCard.slim {
