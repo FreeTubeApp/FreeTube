@@ -1515,6 +1515,19 @@ function runApp() {
               }
             }
           },
+          {
+            label: 'GPU Internals (chrome://gpu)',
+            click() {
+              const gpuWindow = new BrowserWindow({
+                show: true,
+                autoHideMenuBar: true,
+                webPreferences: {
+                  devTools: false
+                }
+              })
+              gpuWindow.loadURL('chrome://gpu')
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
           { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
