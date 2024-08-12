@@ -120,6 +120,17 @@ export async function getPipedPlaylistMore({ playlistId, continuation }) {
   }
 }
 
+export async function getPipedSearchSuggestions(query) {
+  const searchInfo = await pipedRequest({
+    resource: 'opensearch/suggestions',
+    params: {
+      query
+    }
+  })
+
+  return searchInfo[1]
+}
+
 export function getPipedUrlInfo(url) {
   const regex = /^(?<baseUrl>(https?:\/\/)[^/]*)\/((?<imageProtocol>vi|ytc)\/)?(?<resource>[^?]*).*host=(?<host>[^&]*)/
   return url.match(regex)?.groups

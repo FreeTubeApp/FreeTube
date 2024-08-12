@@ -9,6 +9,7 @@ import { openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getPipedSearchSuggestions } from '../../helpers/api/piped'
 
 export default defineComponent({
   name: 'TopNav',
@@ -71,20 +72,16 @@ export default defineComponent({
       return this.$store.getters.getBarColor
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
     },
 
-    backendPreference: function () {
-      let preference = this.$store.getters.getBackendPreference
-      if (preference === 'piped') {
-        preference = this.$store.getters.getFallbackPreference
-      }
-      return preference
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
 
     backendFallback: function () {
-      return this.$store.getters.getBackendFallback && this.$store.getters.getBackendPreference !== 'piped'
+      return this.$store.getters.getBackendFallback
     },
 
     expandSideBar: function () {
@@ -278,6 +275,9 @@ export default defineComponent({
         case 'invidious':
           this.getSearchSuggestionsInvidious(query)
           break
+        case 'piped':
+          this.getSearchSuggestionsPiped(query)
+          break
       }
     },
 
@@ -289,6 +289,21 @@ export default defineComponent({
 
       getLocalSearchSuggestions(query).then((results) => {
         this.searchSuggestionsDataList = results
+      }).catch((err) => {
+        console.error(err)
+        if (this.backendFallback && this.backendPreference === 'local') {
+          if (this.fallbackPreference === 'invidious') {
+            console.error(
+              'Error gettings search suggestions.  Falling back to Invidious API'
+            )
+            this.getSearchSuggestionsInvidious()
+          } else if (this.fallbackPreference === 'piped') {
+            console.error(
+              'Error gettings search suggestions.  Falling back to Piped API'
+            )
+            this.getSearchSuggestionsPiped(query)
+          }
+        }
       })
     },
 
@@ -310,11 +325,44 @@ export default defineComponent({
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
-        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback) {
-          console.error(
-            'Error gettings search suggestions.  Falling back to Local API'
-          )
-          this.getSearchSuggestionsLocal(query)
+        if (this.backendFallback && this.backendPreference === 'invidious') {
+          if (this.fallbackPreference === 'piped') {
+            console.error(
+              'Error gettings search suggestions.  Falling back to Piped API'
+            )
+            this.getSearchSuggestionsPiped(query)
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
+            console.error(
+              'Error gettings search suggestions.  Falling back to Local API'
+            )
+            this.getSearchSuggestionsLocal(query)
+          }
+        }
+      })
+    },
+
+    getSearchSuggestionsPiped: function (query) {
+      if (query === '') {
+        this.searchSuggestionsDataList = []
+        return
+      }
+
+      getPipedSearchSuggestions(query).then((results) => {
+        this.searchSuggestionsDataList = results
+      }).catch((err) => {
+        console.error(err)
+        if (this.backendFallback && this.backendPreference === 'piped') {
+          if (this.fallbackPreference === 'invidious') {
+            console.error(
+              'Error gettings search suggestions.  Falling back to Invidious API'
+            )
+            this.getSearchSuggestionsInvidious(query)
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            console.error(
+              'Error gettings search suggestions.  Falling back to Local API'
+            )
+            this.getSearchSuggestionsLocal(query)
+          }
         }
       })
     },
