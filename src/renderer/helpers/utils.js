@@ -906,4 +906,11 @@ export function parseCsv(data) {
     return channel.length > 0
   })
   return result
+
+ * @template T
+ * @param {T[]} array
+ * @returns {T}
+ */
+export function randomArrayItem(array) {
+  return array[Math.floor(Math.random() * array.length)]
 }
