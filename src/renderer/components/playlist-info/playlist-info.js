@@ -124,8 +124,8 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     historyCacheById: function () {

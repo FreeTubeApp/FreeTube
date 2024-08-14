@@ -877,3 +877,13 @@ export function ctrlFHandler(event, inputElement) {
 export function randomArrayItem(array) {
   return array[Math.floor(Math.random() * array.length)]
 }
+
+/**
+ * @param {string} text
+ */
+export function base64EncodeUtf8(text) {
+  const bytes = new TextEncoder().encode(text)
+
+  const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join('')
+  return btoa(binString)
+}

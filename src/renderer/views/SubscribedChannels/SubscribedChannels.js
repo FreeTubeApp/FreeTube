@@ -63,8 +63,8 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     }
   },
   watch: {
@@ -119,13 +119,13 @@ export default defineComponent({
       const hostname = new URL(newURL).hostname
       if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstanceUrl)
         }
       } else {
         if (this.backendPreference === 'local') { // IV to YT
           newURL = newURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
         } else { // IV to IV
-          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstanceUrl)
         }
       }
 

@@ -71,10 +71,6 @@ export default defineComponent({
       return this.$store.getters.getBarColor
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
-    },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },

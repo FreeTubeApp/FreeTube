@@ -31,6 +31,7 @@ import {
   convertInvidiousToLocalFormat,
   filterInvidiousFormats,
   generateInvidiousDashManifestLocally,
+  invidiousFetch,
   invidiousGetVideoInformation,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
@@ -150,8 +151,8 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
@@ -698,7 +699,7 @@ export default defineComponent({
         this.isLoading = true
       }
 
-      this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+      this.videoStoryboardSrc = `${this.currentInvidiousInstanceUrl}/api/v1/storyboards/${this.videoId}?height=90`
 
       invidiousGetVideoInformation(this.videoId)
         .then(async result => {
@@ -720,7 +721,7 @@ export default defineComponent({
           this.channelId = result.authorId
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
-          this.channelThumbnail = channelThumb ? youtubeImageUrlToInvidious(channelThumb.url, this.currentInvidiousInstance) : ''
+          this.channelThumbnail = channelThumb ? youtubeImageUrlToInvidious(channelThumb.url, this.currentInvidiousInstanceUrl) : ''
           this.updateSubscriptionDetails({
             channelThumbnailUrl: channelThumb?.url,
             channelName: result.author,
@@ -739,7 +740,7 @@ export default defineComponent({
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
-            caption.url = this.currentInvidiousInstance + caption.url
+            caption.url = this.currentInvidiousInstanceUrl + caption.url
             caption.type = ''
             caption.dataSource = 'invidious'
             return caption
@@ -747,13 +748,13 @@ export default defineComponent({
 
           switch (this.thumbnailPreference) {
             case 'start':
-              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres1.jpg`
+              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres1.jpg`
               break
             case 'middle':
-              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres2.jpg`
+              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres2.jpg`
               break
             case 'end':
-              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres3.jpg`
+              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres3.jpg`
               break
             default:
               this.thumbnail = result.videoThumbnails[0].url
@@ -1439,7 +1440,7 @@ export default defineComponent({
     },
 
     createInvidiousDashManifest: async function () {
-      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
+      let url = `${this.currentInvidiousInstanceUrl}/api/manifest/dash/id/${this.videoId}`
 
       // If we are in Electron,
       // we can use YouTube.js' DASH manifest generator to generate the manifest.
@@ -1447,7 +1448,7 @@ export default defineComponent({
       if (process.env.SUPPORTS_LOCAL_API) {
         // Invidious' API response doesn't include the height and width (and fps and qualityLabel for AV1) of video streams
         // so we need to extract them from Invidious' manifest
-        const response = await fetch(url)
+        const response = await invidiousFetch(url)
         const originalText = await response.text()
 
         const parsedManifest = new DOMParser().parseFromString(originalText, 'application/xml')

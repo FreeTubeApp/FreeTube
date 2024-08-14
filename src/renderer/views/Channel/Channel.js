@@ -153,8 +153,8 @@ export default defineComponent({
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     activeProfile: function () {
@@ -976,7 +976,7 @@ export default defineComponent({
         this.isFamilyFriendly = response.isFamilyFriendly
         this.subCount = response.subCount
         const thumbnail = response.authorThumbnails[3].url
-        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
+        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstanceUrl)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.description = autolinker.link(response.description)
         this.viewCount = response.totalViews
@@ -987,12 +987,12 @@ export default defineComponent({
           return {
             name: channel.author,
             id: channel.authorId,
-            thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
+            thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstanceUrl)
           }
         })
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
-          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
+          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstanceUrl)
         } else {
           this.bannerUrl = null
         }
