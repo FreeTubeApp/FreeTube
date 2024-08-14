@@ -87,7 +87,7 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/channel', '/watch'].some(p => path.startsWith(p)) ||
+            visible = ['/channel', '/watch', '/hashtag'].some(p => path.startsWith(p)) ||
               // Only show copy link entry for non user playlists
               (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
@@ -124,6 +124,8 @@ function runApp() {
             return `${origin}/playlist?list=${id}`
           case 'channel':
             return `${origin}/channel/${id}`
+          case 'hashtag':
+            return `${origin}/hashtag/${id}`
           case 'watch': {
             let url
 
@@ -1471,6 +1473,19 @@ function runApp() {
                 })
                 window.webContents.openDevTools()
               }
+            }
+          },
+          {
+            label: 'GPU Internals (chrome://gpu)',
+            click() {
+              const gpuWindow = new BrowserWindow({
+                show: true,
+                autoHideMenuBar: true,
+                webPreferences: {
+                  devTools: false
+                }
+              })
+              gpuWindow.loadURL('chrome://gpu')
             }
           },
           { type: 'separator' },
