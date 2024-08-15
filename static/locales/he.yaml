@@ -43,7 +43,7 @@ Global:
     View Count: צפייה אחת | {count} צפיות
     Watching Count: צופה 1 | {count} צורפים
   Input Tags:
-    Length Requirement: התג חייב להיות באורך של {number} תווים לפחות
+    Length Requirement: התגית חייבת להיות באורך של {number} תווים לפחות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -1009,8 +1009,8 @@ Playlist will pause when current video is finished: רשימת הנגינה תו
   הנוכחי
 Playlist will not pause when current video is finished: רשימת הנגינה לא תושהה עם סיום
   הסרטון הנוכחי
-Close Banner: סגור באנר
-Go to page: עבור אל {page}
+Close Banner: סגירת כרזה
+Go to page: מעבר אל {page}
 Search Listing:
   Label:
     4K: 4K
