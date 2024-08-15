@@ -12,10 +12,6 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   inset-inline-end: 0;
 }
 
-.ft-input-component.search.showClearTextButton {
-  padding-inline-start: 30px;
-}
-
 .ft-input-component.search.clearTextButtonVisible,
 .ft-input-component.search.showClearTextButton:focus-within {
   padding-inline-start: 0;
