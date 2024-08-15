@@ -23,7 +23,7 @@
 
   @media only screen and (width >= 1122px) {
     display: grid;
-    grid-template-columns: 2fr 3fr 1fr;
+    grid-template-columns: 1.5fr 720px 1fr;
   }
 
   @include top-nav-is-colored {
@@ -190,6 +190,7 @@
 
 .middle {
   flex: 1;
+  max-inline-size: 720px;
 
   .searchContainer {
     align-items: center;
