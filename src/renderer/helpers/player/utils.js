@@ -190,3 +190,130 @@ export function sortCaptions(captions) {
     return collator.compare(aName, bName)
   })
 }
+
+/**
+ * When the build doesn't support the local API
+ * we have to use Invidious' DASH manifest, instead of generating our own one.
+ * This function cleans it up, so that we can use it.
+ *
+ * Here is a list of things this function does:
+ * * Removes bogus roles and labels
+ * * Extracts the languages from the audio URLs if available and adds it to the adapation sets
+ * * Adds roles and labels when possible to add support for multiple audio tracks
+ *
+ * Things this function does not do:
+ * * Separate DRC (Stable Volume) from their original counterparts
+ * * Tag HDR video streams (Invidious puts all video streams in the same adaptation set,
+ * to tag HDR and SDR streams we would have to separate them out into multiple adaptation sets)
+ * @param {shaka.extern.xml.Node[]} periods
+ */
+export function repairInvidiousManifest(periods) {
+  /** @type {shaka.extern.xml.Node[]} */
+  const audioAdaptationSets = []
+
+  for (const period of periods) {
+    if (Array.isArray(period.children)) {
+      for (const periodChild of period.children) {
+        if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet' && periodChild.attributes.mimeType?.startsWith('audio/')) {
+          audioAdaptationSets.push(periodChild)
+        }
+      }
+    }
+  }
+
+  // match YouTube's local API response with English
+  const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+
+  for (const audioAdaptationSet of audioAdaptationSets) {
+    // Invidious adds a label to every audio stream with it's bitrate
+    // we need to remove those labels, so that they don't get treated as multiple audio tracks
+    if (audioAdaptationSet.attributes.label) {
+      delete audioAdaptationSet.attributes.label
+    }
+
+    if (Array.isArray(audioAdaptationSet.children)) {
+      // Invidious gives the first audio stream the main role and then the rest of them the alternate role
+      // regardless of which one is actually the main track
+      const roleIndex = audioAdaptationSet.children.findIndex((adaptationSetChild) => {
+        return typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Role'
+      })
+
+      if (roleIndex !== -1) {
+        audioAdaptationSet.children.splice(roleIndex, 1)
+      }
+
+      // Extract the language and audio content type from the URL if available
+      // and add the language, role and label to the adaption set
+
+      /** @type {shaka.extern.xml.Node | undefined} */
+      const representation = audioAdaptationSet.children
+        .find((child) => typeof child !== 'string' && child.tagName === 'Representation')
+
+      if (representation && Array.isArray(representation.children)) {
+        /** @type {string | undefined} */
+        const baseUrl = representation.children
+          .find((child) => typeof child !== 'string' && child.tagName === 'BaseURL')
+          ?.children[0]
+
+        if (baseUrl) {
+          const url = new URL(baseUrl.replaceAll('&amp;', '&'))
+
+          if (url.searchParams.has('xtags')) {
+            const xtags = url.searchParams.get('xtags').split(':')
+
+            const lang = xtags.find(xtag => xtag.startsWith('lang='))?.replace('lang=', '')
+            const audioContent = xtags.find(xtag => xtag.startsWith('acont='))?.replace('acont=', '')
+
+            const labelParts = []
+
+            if (lang) {
+              audioAdaptationSet.attributes.lang = lang
+
+              labelParts.push(languageNames.of(lang))
+            }
+
+            if (audioContent) {
+              let role = ''
+
+              switch (audioContent) {
+                case 'original':
+                  role = 'main'
+                  labelParts.push('original')
+                  break
+                case 'dubbed':
+                  role = 'dub'
+                  break
+                case 'descriptive':
+                  role = 'description'
+                  labelParts.push('descriptive')
+                  break
+                case 'secondary':
+                  role = 'alternate'
+                  labelParts.push('secondary')
+                  break
+                default:
+                  role = 'alternate'
+                  labelParts.push('alternative')
+                  break
+              }
+
+              audioAdaptationSet.children.push({
+                tagName: 'Role',
+                attributes: {
+                  schemeIdUri: 'urn:mpeg:dash:role:2011',
+                  value: role
+                },
+                children: [],
+                parent: audioAdaptationSet
+              })
+            }
+
+            if (labelParts.length > 0) {
+              audioAdaptationSet.attributes.label = labelParts.join(' ')
+            }
+          }
+        }
+      }
+    }
+  }
+}

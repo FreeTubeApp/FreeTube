@@ -19,6 +19,7 @@ import {
   getSponsorBlockSegments,
   logShakaError,
   qualityLabelToDimension,
+  repairInvidiousManifest,
   sortCaptions,
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
@@ -615,6 +616,8 @@ export default defineComponent({
             }
           }
         }
+      } else if (!process.env.SUPPORTS_LOCAL_API) {
+        repairInvidiousManifest(periods)
       }
     }
 
@@ -756,16 +759,6 @@ export default defineComponent({
         if (index !== -1) {
           elementList.splice(index, 1)
         }
-      }
-
-      // When the local API is supported, we generate our own manifest with the local API manifest generator,
-      // to workaround Invidious limitations, when it isn't supported we use Invidious' own one
-      // Invidious' manifest has labels on things that shouldn't be labelled,
-      // so lets hide the audio track selector in the web build
-      // TODO: consider fixing it with manifest.dash.manifestPreprocessor in the player config
-      if (!process.env.SUPPORTS_LOCAL_API) {
-        const indexAudioTrack = elementList.indexOf('ft_audio_tracks')
-        elementList.splice(indexAudioTrack, 1)
       }
 
       if (props.format === 'audio') {
