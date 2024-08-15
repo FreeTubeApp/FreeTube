@@ -89,6 +89,15 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Nu mai există rezultate pentru această
     căutare
+  Features:
+    Features: Caracteristici
+    HD: HD
+    3D: 3D
+    Live: În direct
+    4K: 4K
+    Subtitles: Subtitrări
+    Location: Locație
+    HDR: HDR
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonamente'
@@ -156,6 +165,18 @@ User Playlists:
     Select a playlist to add your N videos to: Selectați o listă de redare la care
       să adăugați videoclipul dvs. | Selectați o listă de redare la care să adăugați
       videoclipurile {videoCount}
+    Added {count} Times: Deja adăugat | Adăugat {count} ori
+    Allow Adding Duplicate Video(s): Permiteți adăugarea de videoclipuri duplicat(e)
+    Save: Salvează
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videoclipuri vor fi adăugate'
+    Toast:
+      You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de
+        redare.
+    N playlists selected: '{playlistCount} Selectat'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videoclipuri deja adăugate'
+    Search in Playlists: Caută in listele de redare
   Cancel: Anulare
   Edit Playlist Info: Editați informațiile despre lista de redare
   Copy Playlist: Copiați lista de redare
@@ -199,7 +220,24 @@ User Playlists:
       This video cannot be moved up.: Acest videoclip nu poate fi mutat în sus.
       Video has been removed: Videoclipul a fost eliminat
       Quick bookmark disabled: Marcaj rapid dezactivat
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Unele
+        videoclipuri din lista de redare nu au fost incă încărcate. Face-ți click
+        aici pentru a le copia oricum.
+      This playlist is protected and cannot be removed.: Această listă de redare este
+        protejată și nu poate fi ștearsă.
+      Playlist {playlistName} has been deleted.: Lista de redare {playlistName} a
+        fost ștearsă.
+      "{videoCount} video(s) have been removed": 1 videoclip a fost șters | {videoCount}
+        videoclipuri au fost șterse
+      There were no videos to remove.: Nu au existat videoclipuri care să fie eliminate.
+      Playlist name cannot be empty. Please input a name.: Numele listei de redare
+        nu poate fi gol. Vă rugăm să introduceți un nume.
+      Playlist has been updated.: Lista de redare a fost actualizată.
+      This playlist does not exist: Această listă de redare nu există
+      There was an issue with updating this playlist.: A fost o problemă în actualizarea
+        acestei liste de redare.
     Search for Videos: Căutați videoclipuri
+  Remove Duplicate Videos: Șterge videoclipurile duplicate
 History:
   # On History Page
   History: 'Istoric'
@@ -253,6 +291,8 @@ Settings:
       prezent este {instance}
     Current Invidious Instance: Instanța actuală Invidious
     System Default: Prestabilită de sistem
+    Auto Load Next Page:
+      Label: Încarcă următoarea pagină automat
   Theme Settings:
     Theme Settings: 'Setări temei'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
