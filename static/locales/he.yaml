@@ -89,11 +89,12 @@ Search Filters:
 # Sidebar
   There are no more results for this search: אין תוצאות נוספות לחיפוש הזה
   Features:
-    Features: תכונות
+    Features: יכולות
     HD: HD
     4K: 4K
-    3D: 3D
+    3D: תלת־ממד
     Subtitles: כתוביות
+    Live: שידור חי
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -1015,5 +1016,5 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: כתוביות
-    Closed Captions: כתוביות סגורות
+    Closed Captions: כתוביות לכבדי שמיעה
 Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
