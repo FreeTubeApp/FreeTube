@@ -138,8 +138,9 @@ User Playlists:
   Search bar placeholder: חיפוש רשימות נגינה
   Empty Search Message: אין סרטונים ברשימת הנגינה הזו שעונים לחיפוש שלך
   You have no playlists. Click on the create new playlist button to create a new one.: אין
-    לך רשימות השמעה. לחץ על כפתור צור רשימת השמעה חדשה כדי ליצור רשימת השמעה חדשה.
-  Edit Playlist Info: ערוך פרטי רשימת השמעה
+    לך רשימות נגינה. נא ללחוץ על כפתור יצירת רשימת נגינה חדשה כדי ליצור רשימת נגינה
+    חדשה.
+  Edit Playlist Info: עריכת פרטי רשימת נגינה
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: האם
     אתה בטוח שברצונך להסיר סרטון משוכפל אחד מפלייליסט זה? לא ניתן לבטל זאת. | האם
     אתה בטוח שברצונך להסיר {playlistItemCount} סרטונים כפולים מפלייליסט זה? לא ניתן
@@ -149,6 +150,9 @@ User Playlists:
     בטוח שברצונך להסיר {playlistItemCount} סרטונים שנצפו מפלייליסט זה? לא ניתן לבטל
     זאת.
   Delete Playlist: מחק רשימת השמעה
+  Copy Playlist: העתקת רשימת נגינה
+  Remove Watched Videos: הסרת סרטונים שנצפו
+  Remove Duplicate Videos: הסרת סרטונים כפולים
 History:
   # On History Page
   History: 'היסטוריה'
