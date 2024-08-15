@@ -23,11 +23,7 @@
 
   @media only screen and (width >= 1122px) {
     display: grid;
-    grid-template-columns: 1.4fr 720px 1fr;
-  }
-  
-  @media only screen and (width >= 1600px) {
-    grid-template-columns: 1.4fr 2fr 1fr;
+    grid-template-columns: 2fr 3fr 1fr;
   }
 
   @include top-nav-is-colored {
@@ -65,7 +61,7 @@
 
   &.arrowBackwardDisabled,
   &.arrowForwardDisabled {
-    color: #808080;
+    color: var(--tertiary-text-color);
     opacity: 0.5;
     pointer-events: none;
     user-select: none;
@@ -93,9 +89,9 @@
 }
 
 .navFilterIcon {
-  $effect-distance: 20px;
+  $effect-distance: 15px;
 
-  margin-inline-start: $effect-distance;
+  margin-inline: $effect-distance;
 
   &.filterChanged {
     box-shadow: 0 0 $effect-distance var(--primary-color);
@@ -136,7 +132,7 @@
     cursor: pointer;
     display: flex;
     padding-block: 0;
-    padding-inline: 10px 25px;
+    padding-inline: 10px;
 
     &:hover {
       background-color: var(--side-nav-hover-color);
@@ -194,7 +190,6 @@
 
 .middle {
   flex: 1;
-  max-inline-size: 920px;
 
   .searchContainer {
     align-items: center;
