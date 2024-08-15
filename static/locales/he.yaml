@@ -88,6 +88,12 @@ Search Filters:
   Fetch more results: 'חיפוש תוצאות נוספות'
 # Sidebar
   There are no more results for this search: אין תוצאות נוספות לחיפוש הזה
+  Features:
+    Features: תכונות
+    HD: HD
+    4K: 4K
+    3D: 3D
+    Subtitles: כתוביות
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -1005,3 +1011,9 @@ Playlist will not pause when current video is finished: רשימת הנגינה 
   הסרטון הנוכחי
 Close Banner: סגור באנר
 Go to page: עבור אל {page}
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: כתוביות
+    Closed Captions: כתוביות סגורות
+Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
