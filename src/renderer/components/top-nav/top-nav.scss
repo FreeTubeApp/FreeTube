@@ -25,6 +25,10 @@
     display: grid;
     grid-template-columns: 1.5fr 720px 1fr;
   }
+  
+  @media only screen and (width >= 1500px) {
+    grid-template-columns: 1fr 720px 1fr;
+  }
 
   @include top-nav-is-colored {
     background-color: var(--primary-color);
