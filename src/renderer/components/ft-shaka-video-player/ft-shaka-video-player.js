@@ -2659,6 +2659,10 @@ export default defineComponent({
             }
           }
 
+          if (oldFormat === 'audio' && newFormat === 'dash' && !useAutoQuality && defaultQuality.value !== 'auto') {
+            dimension = defaultQuality.value
+          }
+
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
 
           try {
