@@ -224,6 +224,7 @@ History:
   Your history list is currently empty.: 現在、履歴リストは空です。
   Search bar placeholder: 履歴の検索
   Empty Search Message: 検索条件に一致する動画は履歴にありません
+  Case Sensitive Search: 大文字小文字を区別した検索
 Settings:
   # On Settings Page
   Settings: '設定'
