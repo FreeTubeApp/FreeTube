@@ -269,7 +269,7 @@ History:
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
   Search bar placeholder: Im Verlauf suchen
   Empty Search Message: Es gibt keine Videos in deinem Verlauf, die deiner Suche entsprechen
-  Case Sensitive Search: Groß- und Kleinschreibung bei Suche beachten
+  Case Sensitive Search: Groß- und Kleinschreibung bei der Suche beachten
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -278,7 +278,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
       bei Fehlschlag zurück
     Enable Search Suggestions: Suchvorschläge aktivieren
-    Default Landing Page: Standard-Landeseite
+    Default Landing Page: Standard Startseite
 
     Locale Preference: Spracheinstellung
     Preferred API Backend:
@@ -464,7 +464,7 @@ Settings:
     Fetch Automatically: Feed automatisch abrufen
     Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
       anzeigen
-    Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren vermeiden
+    Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -680,7 +680,7 @@ Settings:
   Parental Control Settings:
     Parental Control Settings: Einstellungen der Kindersicherung
     Hide Unsubscribe Button: Schaltfläche zum Entfernen des Abos ausblenden
-    Show Family Friendly Only: Nur familienfreundlich anzeigen
+    Show Family Friendly Only: Nur familienfreundliche Inhalte anzeigen
     Hide Search Bar: Suchleiste ausblenden
   Experimental Settings:
     Experimental Settings: Experimentelle Einstellungen
@@ -1117,7 +1117,7 @@ Profile:
   Color Picker: Farbauswahl
   Edit Profile: Profil bearbeiten
   Create New Profile: Neues Profil erstellen
-  Profile Manager: Profilverwalter
+  Profile Manager: Profilverwaltung
   All Channels: Alle Kanäle
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist
     du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dadurch wird der
@@ -1266,7 +1266,7 @@ Channels:
   Channels: Kanäle
   Title: Kanal-Liste
   Search bar placeholder: Kanäle durchsuchen
-  Count: '{number} Kanal/Kanäle gefunden.'
+  Count: '{number} Kanal/Kanäle gefunden'
   Empty: Deine Kanal-Liste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
