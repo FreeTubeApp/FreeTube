@@ -1,4 +1,4 @@
-import { createWebURL, fetchWithTimeout } from '../../helpers/utils'
+import { createWebURL, fetchWithTimeout, randomArrayItem } from '../../helpers/utils'
 
 const state = {
   currentInvidiousInstance: '',
@@ -60,8 +60,7 @@ const actions = {
 
   setRandomCurrentInvidiousInstance({ commit, state }) {
     const instanceList = state.invidiousInstancesList
-    const randomIndex = Math.floor(Math.random() * instanceList.length)
-    commit('setCurrentInvidiousInstance', instanceList[randomIndex])
+    commit('setCurrentInvidiousInstance', randomArrayItem(instanceList))
   }
 }
 
