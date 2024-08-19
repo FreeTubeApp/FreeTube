@@ -120,8 +120,9 @@
         :icon="['fas', 'thumbs-up']"
       /> {{ voteCount }}</span>
       <router-link
-        v-if="isInvidiousAllowed"
+        v-if="isInvidiousAllowed && !singlePost"
         :to="`/post/${postId}`"
+        class="commentsLink"
       >
         <span class="commentCount">
           <font-awesome-icon

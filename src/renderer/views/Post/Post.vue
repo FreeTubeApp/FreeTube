@@ -10,6 +10,7 @@
       <FtCard>
         <FtCommunityPost
           :data="post"
+          :single-post="true"
           appearance="result"
         />
       </FtCard>

@@ -29,7 +29,11 @@ export default defineComponent({
     hideForbiddenTitles: {
       type: Boolean,
       default: true
-    }
+    },
+    singlePost: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {
