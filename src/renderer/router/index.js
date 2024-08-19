@@ -14,6 +14,7 @@ import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 import Hashtag from '../views/Hashtag/Hashtag.vue'
+import Post from '../views/Post/Post.vue'
 
 Vue.use(Router)
 
@@ -133,6 +134,13 @@ const router = new Router({
         title: 'Hashtag'
       },
       component: Hashtag
+    },
+    {
+      path: '/post/:id',
+      meta: {
+        title: 'Post',
+      },
+      component: Post
     }
   ],
   scrollBehavior(to, from, savedPosition) {

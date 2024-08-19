@@ -472,11 +472,13 @@ const actions = {
 
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
+    const postPattern = /^\/post\/(?<postId>.+)/
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
-      ['channel', channelPattern]
+      ['channel', channelPattern],
+      ['post', postPattern]
     ])
 
     for (const [type, pattern] of typePatterns) {
@@ -551,6 +553,17 @@ const actions = {
         return {
           urlType: 'hashtag',
           hashtag
+        }
+      }
+
+      case 'post': {
+        const match = url.pathname.match(postPattern)
+        const postId = match.groups.postId
+        const query = { ucid: url.searchParams.get('ucid') }
+        return {
+          urlType: 'post',
+          postId,
+          query
         }
       }
       /*

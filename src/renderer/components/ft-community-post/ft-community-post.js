@@ -56,6 +56,16 @@ export default defineComponent({
 
     hideVideo() {
       return this.forbiddenTitles.some((text) => this.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+    isInvidiousAllowed: function() {
+      return this.backendPreference === 'invidious' || this.backendFallback
     }
   },
   created: function () {

@@ -41,7 +41,7 @@
       {{ $t("Comments.Click to View Comments") }}
     </h4>
     <ft-select
-      v-if="commentData.length > 0 && !isLoading && showComments"
+      v-if="commentData.length > 0 && !isLoading && showComments && showSortBy"
       class="commentSort"
       :placeholder="$t('Comments.Sort by')"
       :value="currentSortValue"

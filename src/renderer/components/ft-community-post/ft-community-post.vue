@@ -119,11 +119,25 @@
         class="thumbs-up-icon"
         :icon="['fas', 'thumbs-up']"
       /> {{ voteCount }}</span>
-      <span class="commentCount">
-        <font-awesome-icon
-          class="comment-count-icon"
-          :icon="['fas', 'comment']"
-        /> {{ commentCount }}</span>
+      <router-link
+        v-if="isInvidiousAllowed"
+        :to="`/post/${postId}`"
+      >
+        <span class="commentCount">
+          <font-awesome-icon
+            class="comment-count-icon"
+            :icon="['fas', 'comment']"
+          /> {{ commentCount }}</span>
+      </router-link>
+      <template
+        v-else
+      >
+        <span class="commentCount">
+          <font-awesome-icon
+            class="comment-count-icon"
+            :icon="['fas', 'comment']"
+          /> {{ commentCount }}</span>
+      </template>
     </div>
   </div>
 </template>
