@@ -201,7 +201,7 @@ function runApp() {
   let startupUrl
 
   function isOpenLinkInNewWindow() {
-    return sessionStorage.getItem('openLinkInNewWindow') === "true"
+    return sessionStorage.getItem('openLinkInNewWindow') === 'true'
   }
 
   if (process.platform === 'linux') {
@@ -825,7 +825,7 @@ function runApp() {
   ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
       if (isOpenLinkInNewWindow()) {
-        createWindow({ replaceMainWindow: false, windowStartupUrl: startUrl, showWindowNow: true })
+        createWindow({ replaceMainWindow: false, windowStartupUrl: startupUrl, showWindowNow: true })
       } else {
         mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
       }
