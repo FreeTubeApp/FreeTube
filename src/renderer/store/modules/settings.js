@@ -407,6 +407,13 @@ const stateWithSideEffects = {
     }
   },
 
+  openLinkInNewWindow: {
+    defaultValue: false,
+    sideEffectsHandler: (_, value) => {
+      sessionStorage.setItem('openLinkInNewWindow', value)
+    }
+  },
+
   uiScale: {
     defaultValue: 100,
     sideEffectsHandler: (_, value) => {

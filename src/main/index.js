@@ -200,6 +200,10 @@ function runApp() {
   let mainWindow
   let startupUrl
 
+  function isOpenLinkInNewWindow() {
+    return sessionStorage.getItem('openLinkInNewWindow') === "true"
+  }
+
   if (process.platform === 'linux') {
     // Enable hardware acceleration via VA-API with OpenGL if no other feature flags are found
     // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
@@ -820,7 +824,11 @@ function runApp() {
 
   ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+      if (isOpenLinkInNewWindow()) {
+        createWindow({ replaceMainWindow: false, windowStartupUrl: startUrl, showWindowNow: true })
+      } else {
+        mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+      }
     }
   })
 
@@ -1369,10 +1377,16 @@ function runApp() {
   app.on('open-url', (event, url) => {
     event.preventDefault()
 
+    const startUrl = baseUrl(url)
+
     if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
+      if (isOpenLinkInNewWindow()) {
+        createWindow({ replaceMainWindow: false, windowStartupUrl: startUrl, showWindowNow: true })
+      } else {
+        mainWindow.webContents.send(IpcChannels.OPEN_URL, startUrl)
+      }
     } else {
-      startupUrl = baseUrl(url)
+      startupUrl = startUrl
     }
   })
 
