@@ -25,6 +25,7 @@ import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../help
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 export default defineComponent({
   name: 'Playlist',
@@ -257,7 +258,7 @@ export default defineComponent({
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
 
     if (this.isUserPlaylistRequested && this.searchQueryTextPresent) {
-      this.videoSearchQuery = this.searchQueryTextRequested
+      this.handleVideoSearchQueryChange(this.searchQueryTextRequested)
     }
   },
   mounted: function () {
@@ -562,6 +563,32 @@ export default defineComponent({
 
     handleResize: function () {
       this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
+    },
+
+    handleVideoSearchQueryChange(val) {
+      this.videoSearchQuery = val
+
+      this.saveStateInRouter(val)
+    },
+
+    async saveStateInRouter(query) {
+      const routeQuery = {
+        playlistType: this.$route.query.playlistType,
+      }
+      if (query !== '') {
+        routeQuery.searchQueryText = query
+      }
+
+      await this.$router.replace({
+        path: `/playlist/${this.playlistId}`,
+        query: routeQuery,
+      }).catch(failure => {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      })
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
