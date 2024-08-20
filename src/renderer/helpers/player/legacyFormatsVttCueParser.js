@@ -14,8 +14,9 @@ const ShakaCue = shaka.text.Cue
  *
  * The only tag this currently doesn't parse, is the voice (`<v>`) one, as I wasn't able to find a video with them.
  * @param {VTTCue} vttCue
+ * @param {boolean} ignoreTextAlignAndPosition auto-generated text tracks are displayed in the bottom left corner if we don't ignore these properties
  */
-export function shakaCueFromVTTCue(vttCue) {
+export function shakaCueFromVTTCue(vttCue, ignoreTextAlignAndPosition) {
   // https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API#cue_payload_text_tags
   // https://w3c.github.io/webvtt
 
@@ -27,7 +28,7 @@ export function shakaCueFromVTTCue(vttCue) {
   if (!text.includes('<')) {
     const shakaCue = new ShakaCue(vttCue.startTime, vttCue.endTime, replaceCueTextEscapeSequences(text))
 
-    copyFromVttCueToShakaCue(vttCue, shakaCue)
+    copyFromVttCueToShakaCue(vttCue, shakaCue, ignoreTextAlignAndPosition)
 
     return shakaCue
   }
@@ -166,7 +167,7 @@ export function shakaCueFromVTTCue(vttCue) {
 
   const shakaCue = new ShakaCue(vttCue.startTime, vttCue.endTime, '')
 
-  copyFromVttCueToShakaCue(vttCue, shakaCue)
+  copyFromVttCueToShakaCue(vttCue, shakaCue, ignoreTextAlignAndPosition)
 
   shakaCue.nestedCues = nestedCues
 
@@ -221,12 +222,12 @@ function createFormattedShakaCue(startTime, endTime, text, bold, italic, underli
 /**
  * @param {VTTCue} vttCue
  * @param {shaka.text.Cue} shakaCue
+ * @param {boolean} ignoreTextAlignAndPosition
  */
-function copyFromVttCueToShakaCue(vttCue, shakaCue) {
+function copyFromVttCueToShakaCue(vttCue, shakaCue, ignoreTextAlignAndPosition) {
   shakaCue.lineAlign = vttCue.lineAlign ?? ShakaCue.lineAlign.START
   shakaCue.positionAlign = vttCue.positionAlign ?? ShakaCue.positionAlign.AUTO
   shakaCue.size = vttCue.size
-  shakaCue.textAlign = vttCue.align
 
   switch (vttCue.vertical) {
     case '':
@@ -243,7 +244,11 @@ function copyFromVttCueToShakaCue(vttCue, shakaCue) {
   shakaCue.lineInterpretation = vttCue.snapToLines ? ShakaCue.lineInterpretation.LINE_NUMBER : ShakaCue.lineInterpretation.PERCENTAGE
 
   shakaCue.line = vttCue.line === 'auto' ? null : vttCue.line
-  shakaCue.position = vttCue.position === 'auto' ? null : vttCue.position
+
+  if (!ignoreTextAlignAndPosition) {
+    shakaCue.textAlign = vttCue.align
+    shakaCue.position = vttCue.position === 'auto' ? null : vttCue.position
+  }
 
   // only available in Firefox at the moment, but we might as well copy it, when it's there
   if (vttCue.region) {
