@@ -222,6 +222,7 @@ History:
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
+  Case Sensitive Search: 区分大小写的搜索
 Settings:
   # On Settings Page
   Settings: '设置'

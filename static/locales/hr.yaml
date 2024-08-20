@@ -252,6 +252,7 @@ History:
   Search bar placeholder: Pretraži povijest
   Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju
     tvojem pretraživanju
+  Case Sensitive Search: Razlikuj velika i mala slova tijekom pretraživanja
 Settings:
   # On Settings Page
   Settings: 'Postavke'

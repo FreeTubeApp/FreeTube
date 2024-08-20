@@ -265,6 +265,7 @@ History:
   Search bar placeholder: Претрага у историји
   Empty Search Message: У вашој историји нема видео снимака који одговарају вашој
     претрази
+  Case Sensitive Search: Претрага осетљива на велика и мала слова
 Settings:
   # On Settings Page
   Settings: 'Подешавања'

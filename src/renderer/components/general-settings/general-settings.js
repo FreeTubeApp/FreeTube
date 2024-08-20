@@ -9,7 +9,7 @@ import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
-import { showToast } from '../../helpers/utils'
+import { randomArrayItem, showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
@@ -214,8 +214,7 @@ export default defineComponent({
       // synchronous), unfortunately, we have to copy/paste the logic
       // from the `setRandomCurrentInvidiousInstance` action onto here
       const instanceList = this.invidiousInstancesList
-      const randomIndex = Math.floor(Math.random() * instanceList.length)
-      this.setCurrentInvidiousInstance(instanceList[randomIndex])
+      this.setCurrentInvidiousInstance(randomArrayItem(instanceList))
     }
   },
   methods: {

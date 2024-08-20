@@ -258,6 +258,7 @@ History:
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
   Search bar placeholder: Przeszukaj historię
   Empty Search Message: W historii nie ma filmów, które pasowałyby do Twojego zapytania
+  Case Sensitive Search: Rozróżniaj wielkość liter
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'

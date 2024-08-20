@@ -260,6 +260,7 @@ History:
   Your history list is currently empty.: 'Tu historial está vacío.'
   Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
+  Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
 Settings:
   # On Settings Page
   Settings: 'Ajustes'

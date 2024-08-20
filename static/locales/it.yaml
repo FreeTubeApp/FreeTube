@@ -261,6 +261,7 @@ History:
   Search bar placeholder: Cerca nella cronologia
   Empty Search Message: Non ci sono video nella tua cronologia che corrispondono alla
     tua ricerca
+  Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
