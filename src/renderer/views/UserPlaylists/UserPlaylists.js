@@ -13,6 +13,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import { ctrlFHandler, getIconForSortPreference } from '../../helpers/utils'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 const SORT_BY_VALUES = {
   NameAscending: 'name_ascending',
@@ -183,9 +184,9 @@ export default defineComponent({
       sessionStorage.setItem('UserPlaylists/sortBy', this.sortBy)
     },
   },
-  mounted: function () {
+  created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
-    const limit = sessionStorage.getItem('favoritesLimit')
+    const limit = sessionStorage.getItem('UserPlaylists/dataLimit')
     if (limit !== null) {
       this.dataLimit = limit
     }
@@ -195,23 +196,39 @@ export default defineComponent({
       this.sortBy = sortBy
     }
 
-    this.activeData = this.fullData
-
-    this.showLoadMoreButton = this.activeData.length < this.allPlaylists.length
-
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+      this.handleQueryChange(oldQuery, this.$route.query.searchDataLimit, true)
+    } else {
+      // Only display unfiltered data when no query used last time
+      this.filterPlaylist()
+    }
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    handleQueryChange(val, customLimit = null, filterNow = false) {
+      this.query = val
+
+      const newLimit = customLimit ?? 100
+      this.searchDataLimit = newLimit
+
+      this.saveStateInRouter(val, newLimit)
+
+      filterNow ? this.filterPlaylist() : this.filterPlaylistAsync()
+    },
+
     increaseLimit: function () {
       if (this.query !== '') {
         this.searchDataLimit += 100
         this.filterPlaylist()
       } else {
         this.dataLimit += 100
-        sessionStorage.setItem('favoritesLimit', this.dataLimit)
+        sessionStorage.setItem('UserPlaylists/dataLimit', this.dataLimit)
       }
     },
     filterPlaylistAsync: function() {
@@ -244,6 +261,30 @@ export default defineComponent({
     createNewPlaylist: function () {
       this.showCreatePlaylistPrompt({
         title: '',
+      })
+    },
+
+    async saveStateInRouter(query, searchDataLimit) {
+      if (this.query === '') {
+        await this.$router.replace({ name: 'userPlaylists' }).catch(failure => {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        })
+        return
+      }
+
+      await this.$router.replace({
+        name: 'userPlaylists',
+        query: { searchQueryText: query, searchDataLimit: searchDataLimit },
+      }).catch(failure => {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
       })
     },
 
