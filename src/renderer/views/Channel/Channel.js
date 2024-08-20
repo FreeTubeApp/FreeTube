@@ -41,6 +41,7 @@ import {
   parseLocalSubscriberCount,
   getLocalArtistTopicChannelReleasesContinuation
 } from '../../helpers/api/local'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 export default defineComponent({
   name: 'Channel',
@@ -57,6 +58,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      skipRouteChangeWatcherOnce: false,
       isLoading: true,
       isElementListLoading: false,
       currentTab: 'videos',
@@ -281,6 +283,10 @@ export default defineComponent({
   watch: {
     $route() {
       // react to route changes...
+      if (this.skipRouteChangeWatcherOnce) {
+        this.skipRouteChangeWatcherOnce = false
+        return
+      }
       this.isLoading = true
 
       if (this.$route.query.url) {
@@ -337,8 +343,9 @@ export default defineComponent({
 
       // Re-enable auto refresh on sort value change AFTER update done
       if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-        this.getChannelInfoInvidious()
-        this.autoRefreshOnSortByChangeEnabled = true
+        this.getChannelInfoInvidious().finally(() => {
+          this.autoRefreshOnSortByChangeEnabled = true
+        })
       } else {
         this.getChannelLocal().finally(() => {
           this.autoRefreshOnSortByChangeEnabled = true
@@ -415,9 +422,9 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  mounted: async function () {
     if (this.$route.query.url) {
-      this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
+      await this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
       return
     }
 
@@ -433,12 +440,18 @@ export default defineComponent({
 
     // Enable auto refresh on sort value change AFTER initial update done
     if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-      this.getChannelInfoInvidious()
-      this.autoRefreshOnSortByChangeEnabled = true
-    } else {
-      this.getChannelLocal().finally(() => {
+      await this.getChannelInfoInvidious().finally(() => {
         this.autoRefreshOnSortByChangeEnabled = true
       })
+    } else {
+      await this.getChannelLocal().finally(() => {
+        this.autoRefreshOnSortByChangeEnabled = true
+      })
+    }
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      this.newSearch(oldQuery)
     }
   },
   methods: {
@@ -963,7 +976,7 @@ export default defineComponent({
       this.channelInstance = null
 
       const expectedId = this.id
-      invidiousGetChannelInfo(this.id).then((response) => {
+      return invidiousGetChannelInfo(this.id).then((response) => {
         if (expectedId !== this.id) {
           return
         }
@@ -1850,6 +1863,10 @@ export default defineComponent({
           break
       }
     },
+    newSearchWithStatePersist(query) {
+      this.saveStateInRouter(query)
+      this.newSearch(query)
+    },
 
     searchChannelLocal: async function () {
       const isNewSearch = this.searchContinuationData === null
@@ -1939,6 +1956,35 @@ export default defineComponent({
           this.isLoading = false
         }
       })
+    },
+
+    async saveStateInRouter(query) {
+      this.skipRouteChangeWatcherOnce = true
+      if (query === '') {
+        await this.$router.replace({ path: `/channel/${this.id}` }).catch(failure => {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        })
+        return
+      }
+
+      await this.$router.replace({
+        path: `/channel/${this.id}`,
+        query: {
+          currentTab: 'search',
+          searchQueryText: query,
+        },
+      }).catch(failure => {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      })
+      this.skipRouteChangeWatcherOnce = false
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),

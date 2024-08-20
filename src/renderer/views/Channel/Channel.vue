@@ -17,9 +17,10 @@
       :is-subscribed="isSubscribed"
       :visible-tabs="tabInfoValues"
       :current-tab="currentTab"
+      :query="lastSearchQuery"
       class="card channelDetails"
       @change-tab="changeTab"
-      @search="newSearch"
+      @search="(v) => newSearchWithStatePersist(v)"
     />
     <ft-card
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
