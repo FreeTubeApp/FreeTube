@@ -7,7 +7,7 @@ import autolinker from 'autolinker'
 
 import { A11y, Navigation, Pagination } from 'swiper/modules'
 
-import { createWebURL, deepCopy, toLocalePublicationString } from '../../helpers/utils'
+import { createWebURL, deepCopy, formatNumber, toLocalePublicationString } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -41,9 +41,11 @@ export default defineComponent({
       postId: '',
       authorThumbnails: null,
       publishedText: '',
-      voteCount: '',
+      voteCount: 0,
+      formattedVoteCount: '',
       postContent: '',
-      commentCount: '',
+      commentCount: 0,
+      formattedCommentCount: '',
       author: '',
       authorId: '',
     }
@@ -141,7 +143,9 @@ export default defineComponent({
         isRSS: this.data.isRSS
       })
       this.voteCount = this.data.voteCount
+      this.formattedVoteCount = formatNumber(this.voteCount)
       this.commentCount = this.data.commentCount
+      this.formattedCommentCount = formatNumber(this.commentCount)
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
       this.author = this.data.author
       this.authorId = this.data.authorId

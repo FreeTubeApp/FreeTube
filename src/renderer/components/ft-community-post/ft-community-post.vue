@@ -115,24 +115,38 @@
     <div
       class="bottomSection"
     >
-      <span class="likeCount"><font-awesome-icon
-        class="thumbs-up-icon"
-        :icon="['fas', 'thumbs-up']"
-      /> {{ voteCount }}</span>
+      <span
+        class="likeCount"
+        :title="$tc('Global.Counts.Like Count', voteCount, {count: formattedVoteCount})"
+        :aria-label="$tc('Global.Counts.Like Count', voteCount, {count: formattedVoteCount})"
+      >
+        <font-awesome-icon
+          class="thumbs-up-icon"
+          :icon="['fas', 'thumbs-up']"
+          aria-hidden="true"
+        /> {{ formattedVoteCount }}</span>
       <router-link
         v-if="isInvidiousAllowed && !singlePost"
         :to="`/post/${postId}`"
         class="commentsLink"
+        :aria-label="$t('Channel.Community.View Full Post')"
       >
-        <span class="commentCount">
+        <span
+          class="commentCount"
+          :title="$tc('Global.Counts.Comment Count', commentCount, {count: formattedCommentCount})"
+          :aria-label="$tc('Global.Counts.Comment Count', commentCount, {count: formattedCommentCount})"
+        >
           <font-awesome-icon
             class="comment-count-icon"
             :icon="['fas', 'comment']"
-          /> {{ commentCount }}</span>
+            aria-hidden="true"
+          /> {{ formattedCommentCount }}</span>
       </router-link>
       <span
         v-else
         class="commentCount"
+        :title="$tc('Global.Counts.Comment Count', commentCount, {count: formattedCommentCount})"
+        :aria-label="$tc('Global.Counts.Comment Count', commentCount, {count: formattedCommentCount})"
       >
         <font-awesome-icon
           class="comment-count-icon"

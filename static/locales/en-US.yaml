@@ -52,6 +52,8 @@ Global:
     Channel Count: 1 channel | {count} channels
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
   Input Tags:
     Length Requirement: Tag must be at least {number} characters long
@@ -758,6 +760,7 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
+    View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
