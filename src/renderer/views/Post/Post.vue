@@ -29,4 +29,5 @@
     </template>
   </div>
 </template>
+
 <script src="./Post.js" />

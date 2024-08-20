@@ -130,15 +130,14 @@
             :icon="['fas', 'comment']"
           /> {{ commentCount }}</span>
       </router-link>
-      <template
+      <span
         v-else
+        class="commentCount"
       >
-        <span class="commentCount">
-          <font-awesome-icon
-            class="comment-count-icon"
-            :icon="['fas', 'comment']"
-          /> {{ commentCount }}</span>
-      </template>
+        <font-awesome-icon
+          class="comment-count-icon"
+          :icon="['fas', 'comment']"
+        /> {{ commentCount }}</span>
     </div>
   </div>
 </template>
