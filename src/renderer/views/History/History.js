@@ -84,7 +84,7 @@ export default defineComponent({
     const oldQuery = this.$route.query.searchQueryText ?? ''
     if (oldQuery !== null && oldQuery !== '') {
       // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
-      this.handleQueryChange(oldQuery, this.$route.query.searchDataLimit)
+      this.handleQueryChange(oldQuery, this.$route.query.searchDataLimit, true)
     } else {
       // Only display unfiltered data when no query used last time
       this.filterHistory()
@@ -94,7 +94,7 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
-    handleQueryChange(val, customLimit = null) {
+    handleQueryChange(val, customLimit = null, filterNow = false) {
       this.query = val
 
       const newLimit = customLimit ?? 100
@@ -102,7 +102,7 @@ export default defineComponent({
 
       this.saveStateInRouter(val, newLimit)
 
-      this.filterHistoryAsync()
+      filterNow ? this.filterHistory() : this.filterHistoryAsync()
     },
 
     increaseLimit: function () {
