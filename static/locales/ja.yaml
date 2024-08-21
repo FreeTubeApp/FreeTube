@@ -224,6 +224,7 @@ History:
   Your history list is currently empty.: 現在、履歴リストは空です。
   Search bar placeholder: 履歴の検索
   Empty Search Message: 検索条件に一致する動画は履歴にありません
+  Case Sensitive Search: 大文字小文字を区別した検索
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -451,7 +452,7 @@ Settings:
     Are you sure you want to remove all your playlists?: すべての再生リストを削除してもよろしいですか？
   Data Settings:
     How do I import my subscriptions?: 登録チャンネルをインポートするには？
-    Unknown data key: 不明なデータ キー
+    Unknown data key: 不明なデータキー
     Unable to write file: ファイルに書き込めません
     Unable to read file: ファイルを読み込めません
     All watched history has been successfully exported: すべての視聴履歴を正常にエクスポートしました
@@ -546,8 +547,8 @@ Settings:
     Country: 国名
     Ip: IP
     Your Info: あなたの情報
-    Test Proxy: テスト プロキシ
-    Clicking on Test Proxy will send a request to: テスト プロキシをクリックして、送信するリクエスト先は
+    Test Proxy: プロキシのテスト
+    Clicking on Test Proxy will send a request to: プロキシのテストをクリックして、送信するリクエスト先は
     Proxy Port Number: プロキシのポート番号
     Proxy Host: プロキシのホスト
     Proxy Protocol: プロキシのプロトコル
@@ -560,10 +561,10 @@ Settings:
     Enable SponsorBlock: スポンサーブロックの有効化
     SponsorBlock Settings: スポンサーブロックの設定
     Skip Options:
-      Skip Option: オプションのスキップ
+      Skip Option: スキップの設定
       Auto Skip: 自動スキップ
-      Show In Seek Bar: 動画の進行バーの非表示
-      Prompt To Skip: ログイン プロンプトのスキップ
+      Show In Seek Bar: 進行バーに表示
+      Prompt To Skip: プロンプトをスキップ
       Do Nothing: 何もしない
     Category Color: カテゴリの色
     UseDeArrowTitles: 動画タイトルに DeArrow を使用する
@@ -588,7 +589,7 @@ Settings:
     Open in web browser: Web ブラウザで開く
     Download in app: アプリでダウンロード
   Parental Control Settings:
-    Hide Search Bar: 検索ボックスの非表示
+    Hide Search Bar: 検索バーの非表示
     Parental Control Settings: 制限付きモードの設定
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
@@ -959,15 +960,15 @@ Profile:
   '{profile} is now the active profile': '{profile} プロファイルに変更しました'
   Your default profile has been changed to your primary profile: 起動時のプロファイルを、上位のプロファイルに変更しました
   Removed {profile} from your profiles: プロファイルから {profile} を削除しました
-  Your default profile has been set to {profile}: 起動時のプロファイルを {profile} に設定しました
+  Your default profile has been set to {profile}: 標準プロファイルが{profile}に設定されました
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
-  Profile could not be found: プロファイルはありません
+  Profile could not be found: プロファイルが見つかりません
   All subscriptions will also be deleted.: すべての登録チャンネルも削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
-  Make Default Profile: 起動時のプロファイルに設定
+  Make Default Profile: 標準のプロファイルに設定
   Create Profile: プロファイルの作成
   Update Profile: プロファイルの更新
   Profile Preview: プロファイルのプレビュー
@@ -985,11 +986,11 @@ Profile:
   Select All: すべて選択
   Other Channels: ほかのチャンネル
   Subscription List: 登録チャンネル一覧
-  '{number} selected': '{number} 項目選択'
+  '{number} selected': '{number} 件選択済み'
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : これはメインのプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
+  : これはあなたのメインのプロファイルです。選択したチャンネルを本当に削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
   Profile Settings: プロファイル設定
   Toggle Profile List: プロファイル一覧の切替

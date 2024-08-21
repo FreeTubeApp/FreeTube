@@ -7,7 +7,7 @@ import FtInstanceSelector from '../ft-instance-selector/ft-instance-selector.vue
 
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
-import { showToast } from '../../helpers/utils'
+import { randomArrayItem, showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
@@ -229,8 +229,7 @@ export default defineComponent({
     // from the `setRandomCurrentInvidiousInstance` action onto here
     if (this.currentInvidiousInstance === '') {
       const instanceList = this.invidiousInstancesList
-      const randomIndex = Math.floor(Math.random() * instanceList.length)
-      this.setCurrentInvidiousInstance(instanceList[randomIndex])
+      this.setCurrentInvidiousInstance(randomArrayItem(instanceList))
     }
 
     if (this.setCurrentPipedInstance === '') {

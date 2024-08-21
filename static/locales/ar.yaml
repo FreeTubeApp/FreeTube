@@ -251,6 +251,7 @@ History:
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
   Search bar placeholder: البحث في السجل
   Empty Search Message: لا توجد مقاطع فيديو في السجل الخاص بك تطابق بحثك
+  Case Sensitive Search: ‘بحث مميِّز لحالة الأحرف
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'

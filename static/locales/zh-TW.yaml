@@ -222,6 +222,7 @@ History:
   Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
   Search bar placeholder: 在觀看紀錄中搜尋
   Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
+  Case Sensitive Search: 區分大小寫的搜尋
 Settings:
   # On Settings Page
   Settings: '設定'
