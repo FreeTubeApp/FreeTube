@@ -259,6 +259,7 @@ History:
   Your history list is currently empty.: 'Sinu ajalugu on hetkel tühi.'
   Search bar placeholder: Otsi ajaloost
   Empty Search Message: Sinu ajaloos pole sinu otsingule vastavaid videosid
+  Case Sensitive Search: Tõstutundlik otsing
 Settings:
   # On Settings Page
   Settings: 'Seadistused'

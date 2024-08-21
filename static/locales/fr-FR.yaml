@@ -271,6 +271,7 @@ History:
   Search bar placeholder: "Recherche dans l'historique"
   Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent
     à votre recherche
+  Case Sensitive Search: Recherche sensible à la casse
 Settings:
   # On Settings Page
   Settings: 'Paramètres'

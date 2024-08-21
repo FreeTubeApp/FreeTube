@@ -271,6 +271,7 @@ History:
   Search bar placeholder: Keresés az előzmények között
   Empty Search Message: Nincsenek olyan videók az előzmények között, amelyek megfelelnek
     a keresésnek
+  Case Sensitive Search: Kis- nagybetű érzéken keresés
 Settings:
   # On Settings Page
   Settings: 'Beállítások'
