@@ -40,8 +40,8 @@ export default defineComponent({
       }
       return preference
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -75,7 +75,7 @@ export default defineComponent({
         return index === -1
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         }
         channel.selected = false
         return channel
@@ -96,7 +96,7 @@ export default defineComponent({
         return index === -1
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         }
         channel.selected = false
         return channel

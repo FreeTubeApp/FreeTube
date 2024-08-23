@@ -33,8 +33,8 @@ export default defineComponent({
     }
   },
   computed: {
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     listType: function () {
       return this.$store.getters.getListType
@@ -81,7 +81,7 @@ export default defineComponent({
       // Can be prefixed with `https://` or `//` (protocol relative)
       const thumbnailUrl = this.data.authorThumbnails[2].url
 
-      this.thumbnail = youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
+      this.thumbnail = youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstanceUrl)
 
       this.channelName = this.data.author
       this.id = this.data.authorId

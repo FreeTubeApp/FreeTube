@@ -98,6 +98,7 @@ Search Filters:
     Subtitles: Subtitrări
     Location: Locație
     HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonamente'
@@ -173,6 +174,8 @@ User Playlists:
     Toast:
       You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de
         redare.
+      "{videoCount} video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă
+        de redare| {videoCount} videoclupuri adăugate la 1 listă de redare
     N playlists selected: '{playlistCount} Selectat'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Videoclipuri deja adăugate'
@@ -238,6 +241,10 @@ User Playlists:
         acestei liste de redare.
     Search for Videos: Căutați videoclipuri
   Remove Duplicate Videos: Șterge videoclipurile duplicate
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sunteți
+    sigur(ă) că doriți să ștergeți 1 videoclip vizualizat din această lista de redare?
+    Această acțiune este definitivă. | Sunteți sigur(ă) că doriți să ștergeți {playlistItemCount}
+    videoclip vizualizat din această lista de redare? Această acțiune este definitivă.
 History:
   # On History Page
   History: 'Istoric'
@@ -293,6 +300,7 @@ Settings:
     System Default: Prestabilită de sistem
     Auto Load Next Page:
       Label: Încarcă următoarea pagină automat
+      Tooltip: Încarcă automat pagini și comentarii suplimentare.
   Theme Settings:
     Theme Settings: 'Setări temei'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
@@ -306,6 +314,8 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Roz
       Hot Pink: Hot Roz
+      Solarized Light: Lumină solarizată
+      Solarized Dark: Întuneric solarizat
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -345,6 +355,13 @@ Settings:
       Catppuccin Mocha Maroon: Catppuccin Mocha Maro
       Catppuccin Mocha Peach: Catppuccin Mocha Piersică
       Catppuccin Mocha Rosewater: Catppuccin Mocha Apă de Trandafiri
+      Solarized Violet: Violet solarizat
+      Solarized Cyan: Turcoaz solarizat
+      Solarized Red: Roșu solarizat
+      Solarized Green: Verde solarizat
+      Solarized Yellow: Galben solarizat
+      Solarized Blue: Albastru solarizat
+      Solarized Orange: Portocaliu solarizat
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala UI
@@ -426,12 +443,19 @@ Settings:
       nu poate fi anulat.'
     Save Watched Videos With Last Viewed Playlist: Salvați videoclipurile vizionate
       cu ultima listă de redare vizualizată
+    Are you sure you want to remove all your playlists?: Sunteți sigur(ă) că doriț
+      să ștergeți toate listele dvs. de redare?
+    Remove All Playlists: Șterge toate listele de redare
+    All playlists have been removed: Toate listele de redare au fost șterse
   Subscription Settings:
     Subscription Settings: 'Setări de abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Manage Subscriptions: 'Gestionați abonamentele'
     Fetch Automatically: Preluați feedul automat
+    Confirm Before Unsubscribing: Confirmă înainte de dezabonare
+    Only Show Latest Video for Each Channel: Arată doar cele mai noi videoclipuri
+      pentru fiecare canal
   Data Settings:
     Data Settings: 'Setări de date'
     Select Import Type: 'Selectează tipul de import'
@@ -596,6 +620,7 @@ Settings:
       răspundere!
     Replace HTTP Cache: Înlocuiți cache HTTP
     Experimental Settings: Setări experimentale
+  Sort Settings Sections (A-Z): Setări Sortare Secțiuni (A-Z)
 About:
   #On About page
   About: 'Despre'
@@ -1131,3 +1156,5 @@ Search Listing:
     4K: 4K
     Subtitles: Subtitrări
     Closed Captions: Subtitrări Complexe
+Feed:
+  Refresh Feed: Reîmprospătează {subscriptionName}

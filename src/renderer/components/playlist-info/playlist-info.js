@@ -125,8 +125,8 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     historyCacheById: function () {
@@ -207,7 +207,7 @@ export default defineComponent({
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
-      if (this.backendPreference === 'local') {
+      if (this.backendPreference === 'local' && typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
         return this.playlistThumbnail
       }
 
@@ -223,7 +223,7 @@ export default defineComponent({
       }
 
       if (!process.env.IS_ELECTRON || backendPreference === 'invidious') {
-        baseUrl = this.currentInvidiousInstance
+        baseUrl = this.currentInvidiousInstanceUrl
       } else {
         baseUrl = 'https://i.ytimg.com'
       }

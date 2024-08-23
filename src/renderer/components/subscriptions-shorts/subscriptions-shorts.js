@@ -4,6 +4,7 @@ import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue
 
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import { invidiousFetch } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'SubscriptionsShorts',
@@ -31,8 +32,8 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback && this.$store.getters.getBackendPreference !== 'piped'
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     lastShortRefreshTimestamp: function () {
@@ -235,10 +236,10 @@ export default defineComponent({
 
     getChannelShortsInvidious: async function (channel, failedAttempts = 0) {
       const playlistId = channel.id.replace('UC', 'UUSH')
-      const feedUrl = `${this.currentInvidiousInstance}/feed/playlist/${playlistId}`
+      const feedUrl = `${this.currentInvidiousInstanceUrl}/feed/playlist/${playlistId}`
 
       try {
-        const response = await fetch(feedUrl)
+        const response = await invidiousFetch(feedUrl)
 
         if (response.status === 500 || response.status === 404) {
           return {
