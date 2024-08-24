@@ -669,8 +669,8 @@ export default defineComponent({
       this.is4k = this.data.is4k
       this.is8k = this.data.is8k
       this.isNew = this.data.isNew
-      this.isVr180 = this.data.isVR180
-      this.isVr360 = this.data.isVR360
+      this.isVr180 = this.data.isVr180
+      this.isVr360 = this.data.isVr360
       this.is3D = this.data.is3d
       this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
