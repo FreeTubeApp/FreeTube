@@ -31,6 +31,7 @@ import {
   filterInvidiousFormats,
   generateInvidiousDashManifestLocally,
   getProxyUrl,
+  invidiousFetch,
   invidiousGetVideoInformation,
   mapInvidiousLegacyFormat,
   youtubeImageUrlToInvidious
@@ -148,8 +149,8 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
@@ -734,7 +735,7 @@ export default defineComponent({
           this.channelId = result.authorId
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
-          this.channelThumbnail = channelThumb ? youtubeImageUrlToInvidious(channelThumb.url, this.currentInvidiousInstance) : ''
+          this.channelThumbnail = channelThumb ? youtubeImageUrlToInvidious(channelThumb.url, this.currentInvidiousInstanceUrl) : ''
           this.updateSubscriptionDetails({
             channelThumbnailUrl: channelThumb?.url,
             channelName: result.author,
@@ -755,7 +756,7 @@ export default defineComponent({
 
           this.captions = result.captions.map(caption => {
             return {
-              url: this.currentInvidiousInstance + caption.url,
+              url: this.currentInvidiousInstanceUrl + caption.url,
               label: caption.label,
               language: caption.language_code,
               mimeType: 'text/vtt'
@@ -763,18 +764,18 @@ export default defineComponent({
           })
 
           if (!this.isLive && !this.isPostLiveDvr) {
-            this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
+            this.videoStoryboardSrc = `${this.currentInvidiousInstanceUrl}/api/v1/storyboards/${this.videoId}?height=90`
           }
 
           switch (this.thumbnailPreference) {
             case 'start':
-              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres1.jpg`
+              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres1.jpg`
               break
             case 'middle':
-              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres2.jpg`
+              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres2.jpg`
               break
             case 'end':
-              this.thumbnail = `${this.currentInvidiousInstance}/vi/${this.videoId}/maxres3.jpg`
+              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres3.jpg`
               break
             default:
               this.thumbnail = result.videoThumbnails[0].url
@@ -798,7 +799,7 @@ export default defineComponent({
           this.videoChapters = chapters
 
           if (this.isLive || this.isPostLiveDvr) {
-            const url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
+            const url = `${this.currentInvidiousInstanceUrl}/api/manifest/dash/id/${this.videoId}`
 
             // Proxying doesn't work for live or post live DVR DASH, so use HLS instead
             // https://github.com/iv-org/invidious/pull/4589
@@ -1356,7 +1357,7 @@ export default defineComponent({
     },
 
     createInvidiousDashManifest: async function (result, trustApiResponse = false) {
-      let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
+      let url = `${this.currentInvidiousInstanceUrl}/api/manifest/dash/id/${this.videoId}`
 
       // If we are in Electron,
       // we can use YouTube.js' DASH manifest generator to generate the manifest.
@@ -1369,7 +1370,7 @@ export default defineComponent({
         if (!trustApiResponse) {
           // Invidious' API response doesn't include the height and width (and fps and qualityLabel for AV1) of video streams
           // so we need to extract them from Invidious' manifest
-          const response = await fetch(url)
+          const response = await invidiousFetch(url)
           const originalText = await response.text()
 
           parsedManifest = new DOMParser().parseFromString(originalText, 'application/xml')

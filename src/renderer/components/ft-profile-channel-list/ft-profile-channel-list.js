@@ -43,8 +43,8 @@ export default defineComponent({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -76,7 +76,7 @@ export default defineComponent({
       })
       subscriptions.forEach((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         }
         channel.selected = false
       })
@@ -92,7 +92,7 @@ export default defineComponent({
       })
       subscriptions.forEach((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         }
         channel.selected = false
       })

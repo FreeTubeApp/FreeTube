@@ -28,8 +28,8 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     activeProfile: function () {
@@ -167,8 +167,8 @@ export default defineComponent({
               if (thumbnailUrl) {
                 if (thumbnailUrl.startsWith('//')) {
                   thumbnailUrl = 'https:' + thumbnailUrl
-                } else if (thumbnailUrl.startsWith(`${this.currentInvidiousInstance}/ggpht`)) {
-                  thumbnailUrl = thumbnailUrl.replace(`${this.currentInvidiousInstance}/ggpht`, 'https://yt3.googleusercontent.com')
+                } else if (thumbnailUrl.startsWith(`${this.currentInvidiousInstanceUrl}/ggpht`)) {
+                  thumbnailUrl = thumbnailUrl.replace(`${this.currentInvidiousInstanceUrl}/ggpht`, 'https://yt3.googleusercontent.com')
                 }
               }
 

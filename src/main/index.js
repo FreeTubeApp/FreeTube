@@ -396,15 +396,19 @@ function runApp() {
       sameSite: 'no_restriction',
     })
 
-    // make InnerTube requests work with the fetch function
-    // InnerTube rejects requests if the referer isn't YouTube or empty
-    const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
-
-    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeAndMediaRequestFilter, ({ requestHeaders, url }, callback) => {
-      requestHeaders.Referer = 'https://www.youtube.com/'
-      requestHeaders.Origin = 'https://www.youtube.com'
+    const onBeforeSendHeadersRequestFilter = {
+      urls: ['https://*/*', 'http://*/*'],
+      types: ['xhr', 'media', 'image']
+    }
+    session.defaultSession.webRequest.onBeforeSendHeaders(onBeforeSendHeadersRequestFilter, ({ requestHeaders, url, webContents }, callback) => {
+      const urlObj = new URL(url)
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
+        // make InnerTube requests work with the fetch function
+        // InnerTube rejects requests if the referer isn't YouTube or empty
+        requestHeaders.Referer = 'https://www.youtube.com/'
+        requestHeaders.Origin = 'https://www.youtube.com'
+
         // Make iOS requests work and look more realistic
         if (requestHeaders['x-youtube-client-name'] === '5') {
           delete requestHeaders.Referer
@@ -423,9 +427,18 @@ function runApp() {
           requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
           requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
         }
-      } else {
+      } else if (urlObj.origin.endsWith('.googlevideo.com') && urlObj.pathname === '/videoplayback') {
+        requestHeaders.Referer = 'https://www.youtube.com/'
+        requestHeaders.Origin = 'https://www.youtube.com'
+
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
+      } else if (webContents) {
+        const invidiousAuthorization = invidiousAuthorizations.get(webContents.id)
+
+        if (invidiousAuthorization && url.startsWith(invidiousAuthorization.url)) {
+          requestHeaders.Authorization = invidiousAuthorization.authorization
+        }
       }
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
@@ -448,8 +461,10 @@ function runApp() {
       const imageCache = new ImageCache()
 
       protocol.handle('imagecache', (request) => {
+        const [requestUrl, rawWebContentsId] = request.url.split('#')
+
         return new Promise((resolve, reject) => {
-          const url = decodeURIComponent(request.url.substring(13))
+          const url = decodeURIComponent(requestUrl.substring(13))
           if (imageCache.has(url)) {
             const cached = imageCache.get(url)
 
@@ -459,9 +474,22 @@ function runApp() {
             return
           }
 
+          let headers
+
+          if (rawWebContentsId) {
+            const invidiousAuthorization = invidiousAuthorizations.get(parseInt(rawWebContentsId))
+
+            if (invidiousAuthorization && url.startsWith(invidiousAuthorization.url)) {
+              headers = {
+                Authorization: invidiousAuthorization.authorization
+              }
+            }
+          }
+
           const newRequest = net.request({
             method: request.method,
-            url
+            url,
+            headers
           })
 
           // Electron doesn't allow certain headers to be set:
@@ -508,19 +536,20 @@ function runApp() {
         })
       })
 
-      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
+      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'], types: ['image'] }
       session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
         // the requests made by the imagecache:// handler to fetch the image,
         // are allowed through, as their resourceType is 'other'
-        if (details.resourceType === 'image') {
-          // eslint-disable-next-line n/no-callback-literal
-          callback({
-            redirectURL: `imagecache://${encodeURIComponent(details.url)}`
-          })
-        } else {
-          // eslint-disable-next-line n/no-callback-literal
-          callback({})
+
+        let redirectURL = `imagecache://${encodeURIComponent(details.url)}`
+
+        if (details.webContents) {
+          redirectURL += `#${details.webContents.id}`
         }
+
+        callback({
+          redirectURL
+        })
       })
 
       // --- end of `if experimentsDisableDiskCache` ---
@@ -971,6 +1000,21 @@ function runApp() {
     await asyncFs.writeFile(filePath, new Uint8Array(value))
   })
 
+  /** @type {Map<number, { url: string, authorization: string }>} */
+  const invidiousAuthorizations = new Map()
+
+  ipcMain.on(IpcChannels.SET_INVIDIOUS_AUTHORIZATION, (event, authorization, url) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    if (!authorization) {
+      invidiousAuthorizations.delete(event.sender.id)
+    } else if (typeof authorization === 'string' && typeof url === 'string') {
+      invidiousAuthorizations.set(event.sender.id, { authorization, url })
+    }
+  })
+
   // ************************************************* //
   // DB related IPC calls
   // *********** //
@@ -1334,6 +1378,12 @@ function runApp() {
     } else {
       startupUrl = baseUrl(url)
     }
+  })
+
+  app.on('web-contents-created', (_, webContents) => {
+    webContents.once('destroyed', () => {
+      invidiousAuthorizations.delete(webContents.id)
+    })
   })
 
   /*
