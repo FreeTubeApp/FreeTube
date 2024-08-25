@@ -499,12 +499,12 @@ Settings:
     Hide Popular Videos: 人気動画の非表示
     Hide Trending Videos: 急上昇動画の非表示
     Hide Recommended Videos: おすすめ動画の非表示
-    Hide Comment Likes: コメント評価の非表示
+    Hide Comment Likes: コメント欄の評価の非表示
     Hide Channel Subscribers: チャンネル登録者数の非表示
     Hide Video Views: 再生数の非表示
     Hide Video Likes And Dislikes: 評価の非表示
     Distraction Free Settings: 集中モード設定
-    Hide Active Subscriptions: 登録チャンネルを非表示
+    Hide Active Subscriptions: 登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
     Hide Video Description: 動画説明の非表示
     Hide Comments: コメントの非表示
@@ -898,7 +898,7 @@ Share:
   Share Playlist: '再生リストの共有'
   Copy Link: 'リンクのコピー'
   Open Link: 'リンクの表示'
-  Copy Embed: '埋め込みのコピー'
+  Copy Embed: '埋め込み コピー'
   Open Embed: '埋め込みの表示'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL をコピーしました'
