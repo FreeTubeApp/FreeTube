@@ -1434,18 +1434,33 @@ export default defineComponent({
 
       stats.bitrate = (newTrack.bandwidth / 1000).toFixed(2)
 
-      // for videos with multiple audio tracks, youtube.js appends the track id to the itag, to make it unique
-      stats.codecs.audioItag = newTrack.originalAudioId.split('-')[0]
-      stats.codecs.audioCodec = newTrack.audioCodec
+      // Combined audio and video HLS streams
+      if (newTrack.videoCodec.includes(',')) {
+        stats.codecs.audioItag = ''
+        stats.codecs.videoItag = ''
 
-      if (props.format === 'dash') {
+        const [audioCodec, videoCodec] = newTrack.videoCodec.split(',')
+
+        stats.codecs.audioCodec = audioCodec
+        stats.codecs.videoCodec = videoCodec
+
         stats.resolution.frameRate = newTrack.frameRate
-
-        stats.codecs.videoItag = newTrack.originalVideoId
-        stats.codecs.videoCodec = newTrack.videoCodec
-
         stats.resolution.width = newTrack.width
         stats.resolution.height = newTrack.height
+      } else {
+        // for videos with multiple audio tracks, youtube.js appends the track id to the itag, to make it unique
+        stats.codecs.audioItag = newTrack.originalAudioId.split('-')[0]
+        stats.codecs.audioCodec = newTrack.audioCodec
+
+        if (props.format === 'dash') {
+          stats.resolution.frameRate = newTrack.frameRate
+
+          stats.codecs.videoItag = newTrack.originalVideoId
+          stats.codecs.videoCodec = newTrack.videoCodec
+
+          stats.resolution.width = newTrack.width
+          stats.resolution.height = newTrack.height
+        }
       }
     }
 

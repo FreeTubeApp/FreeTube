@@ -52,8 +52,11 @@
         v-if="format === 'audio'"
       >{{ $t('Video.Player.Stats.CodecAudio', stats.codecs) }}</span>
       <span
-        v-else
+        v-else-if="stats.codecs.audioItag && stats.codecs.videoItag"
       >{{ $t('Video.Player.Stats.CodecsVideoAudio', stats.codecs) }}</span>
+      <span
+        v-else
+      >{{ $t('Video.Player.Stats.CodecsVideoAudioNoItags', stats.codecs) }}</span>
       <br>
       <span>{{ $t('Video.Player.Stats.Player Dimensions', stats.playerDimensions) }}</span>
       <br>
