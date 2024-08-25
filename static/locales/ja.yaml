@@ -241,13 +241,13 @@ Settings:
     Video View Type:
       Video View Type: '動画一覧の表示方法'
       Grid: 'グリッド'
-      List: '一覧'
+      List: 'リスト'
     Thumbnail Preference:
       Thumbnail Preference: 'サムネイルの設定'
       Default: 'デフォルト'
       Beginning: '開始'
       Middle: '中間'
-      End: '終了'
+      End: '最後'
       Hidden: 非表示
       Blur: ぼかし
     'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
@@ -258,7 +258,7 @@ Settings:
     Check for Updates: 更新の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
     System Default: システム初期設定
-    Clear Default Instance: デフォルトの設定をクリアする
+    Clear Default Instance: 既定のインスタンスをクリア
     Set Current Instance as Default: 現在のインスタンスを既定として設定する
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
     No default instance has been set: 既定のインスタンスが設定されていません
@@ -271,10 +271,10 @@ Settings:
       External Link Handling: 外部リンク処理
     Auto Load Next Page:
       Label: 次のページを自動で読み込む
-      Tooltip: 追加のページやコメントを自動的に読み込む。
+      Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
   Theme Settings:
     Theme Settings: 'テーマの設定'
-    Match Top Bar with Main Color: 'トップバーをメインカラーに合わせる'
+    Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
     Base Theme:
       Base Theme: 'テーマの選択'
       Black: '黒'
@@ -335,7 +335,7 @@ Settings:
       Solarized Cyan: ソラライズド・シアン
       Solarized Green: ソラライズド・グリーン
       Solarized Blue: ソラライズド・ブルー
-    Secondary Color Theme: 'テーマのセカンダリー カラー'
+    Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UI 縮尺率
     Expand Side Bar by Default: 幅広のサイド バーで起動
@@ -347,7 +347,7 @@ Settings:
     Force Local Backend for Legacy Formats: '旧形式であれば内部 API の適用'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画の自動再生'
-    Turn on Subtitles by Default: '字幕をデフォルトでオンにする'
+    Turn on Subtitles by Default: 'デフォルトで字幕を有効にする'
     Autoplay Videos: '動画の自動再生'
     Proxy Videos Through Invidious: '動画を Invidious プロキシを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
@@ -375,8 +375,8 @@ Settings:
     Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
-    Scroll Volume Over Video Player: スクロールで動画の音量調整
-    Scroll Playback Rate Over Video Player: スクロールで動画の再生速度調整
+    Scroll Volume Over Video Player: 動画プレーヤーをスクロールして音量を変更
+    Scroll Playback Rate Over Video Player: 動画プレーヤーをスクロールして再生速度を変更
     Max Video Playback Rate: 最大動画再生速度
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
@@ -391,13 +391,13 @@ Settings:
       Enable: スクリーンショットの有効化
       Format Label: スクリーンショット形式
       Ask Path: 保存フォルダを尋ねる
-      Folder Button: フォルダーの選択
+      Folder Button: フォルダの選択
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
-    Skip by Scrolling Over Video Player: スクロールで動画をスキップ
+    Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
     Allow DASH AV1 formats: DASH AV1形式を許可
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
-    Hide Videos on Watch: '視聴済み動画の非表示'
+    Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
@@ -503,8 +503,8 @@ Settings:
     Hide Channel Subscribers: チャンネル登録者数の非表示
     Hide Video Views: 再生数の非表示
     Hide Video Likes And Dislikes: 評価の非表示
-    Distraction Free Settings: 集中モード
-    Hide Active Subscriptions: 使用中の登録チャンネルの非表示
+    Distraction Free Settings: 集中モード設定
+    Hide Active Subscriptions: 登録チャンネルを非表示
     Hide Playlists: 再生リストの非表示
     Hide Video Description: 動画説明の非表示
     Hide Comments: コメントの非表示
@@ -516,11 +516,11 @@ Settings:
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
     Hide Channel Playlists: チャンネル再生リストの非表示
-    Hide Channel Community: チャンネル コミュニティの非表示
+    Hide Channel Community: チャンネルコミュニティの非表示
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
-      Watch Page: ウォッチページ
+      Watch Page: 視聴ページ
       General: 一般
       Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
@@ -530,7 +530,7 @@ Settings:
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
     Hide Channel Releases: チャンネルの新着情報の非表示
-    Hide Profile Pictures in Comments: コメントでプロフィール写真を隠す
+    Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
     Blur Thumbnails: サムネイルをぼかす
     Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
@@ -640,7 +640,7 @@ About:
 #On Channel Page
   Donate: 寄付
   FreeTube is made possible by: FreeTube が実現できているのは
-  these people and projects: これらの人々とプロジェクト
+  these people and projects: これらの人々とプロジェクトのおかげです
   Credits: 著作権
   Translate: 翻訳
   room rules: ルームの規則について
