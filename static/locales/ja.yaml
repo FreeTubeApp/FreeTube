@@ -1060,7 +1060,7 @@ Hashtags have not yet been implemented, try again later: ハッシュタグは�
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
-Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されています
+Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されました
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
 Search Bar:
   Clear Input: 入力の消去
