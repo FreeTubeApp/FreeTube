@@ -96,7 +96,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   Latest Subscriptions: '最新の登録'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録済みの登録チャンネルはありません。登録するとココに表示されます。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録済みの登録チャンネルがありません。登録するとこちらに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
@@ -898,7 +898,7 @@ Share:
   Share Playlist: '再生リストの共有'
   Copy Link: 'リンクのコピー'
   Open Link: 'リンクの表示'
-  Copy Embed: '埋め込み コピー'
+  Copy Embed: '埋め込みのコピー'
   Open Embed: '埋め込みの表示'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL をコピーしました'
