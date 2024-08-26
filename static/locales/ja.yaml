@@ -96,7 +96,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   Latest Subscriptions: '最新の登録'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録済みの登録チャンネルがありません。登録するとこちらに表示されます。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは空です。チャンネル登録をするとこちらに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
@@ -104,7 +104,7 @@ Subscriptions:
     RSS を使用します
   Load More Videos: もっと見る
   Error Channels: エラーが発生したチャンネル
-  Disabled Automatic Fetching: サブスクリプションの自動取得を無効にしました。サブスクリプションを更新して、ここで確認します。
+  Disabled Automatic Fetching: 登録チャンネルの自動取得が無効になっています。動画を表示するには更新をしてください。
   Empty Channels: 現在、チャンネル登録しているチャンネルには動画がありません。
   Subscriptions Tabs: 登録チャンネル タブ
   All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}"
@@ -386,7 +386,7 @@ Settings:
       Error:
         Forbidden Characters: 使用禁止文字
         Empty File Name: 空のファイル名
-      Folder Label: スクリーンショットのフォルダ
+      Folder Label: スクリーンショットの保存先
       Quality Label: スクリーンショットの品質
       Enable: スクリーンショットの有効化
       Format Label: スクリーンショットの形式
@@ -409,8 +409,8 @@ Settings:
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
-    Confirm Before Unsubscribing: 登録解除する前に確認する
-    Only Show Latest Video for Each Channel: 各チャンネルの最新の動画のみを表示する
+    Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
+    Only Show Latest Video for Each Channel: 各チャンネルの最新動画のみを表示する
   Advanced Settings:
     Advanced Settings: '詳細設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
@@ -446,7 +446,7 @@ Settings:
     Privacy Settings: プライバシーの設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
-    Save Watched Videos With Last Viewed Playlist: 「最後に再生した」リストで視聴済み動画を保存
+    Save Watched Videos With Last Viewed Playlist: 視聴済み動画を最後に見た再生リストと共に保存する
     Remove All Playlists: 再生リストをすべて削除
     All playlists have been removed: すべての再生リストが削除されました
     Are you sure you want to remove all your playlists?: すべての再生リストを削除してもよろしいですか？
@@ -486,7 +486,7 @@ Settings:
     All playlists has been successfully exported: すべての再生リストが正常にエクスポートされました
     Import Playlists: 再生リストのインポート
     Export Playlists: 再生リストのエキスポート
-    Subscription File: サブスクリプション ファイル
+    Subscription File: 登録チャンネル ファイル
     History File: 履歴ファイル
     Playlist File: 再生リスト
     Export Playlists For Older FreeTube Versions:
@@ -512,7 +512,7 @@ Settings:
     Hide Sharing Actions: 共有ボタンの非表示
     Hide Chapters: チャプターの非表示
     Hide Upcoming Premieres: 今後のプレミア公開を非表示
-    Hide Channels: チャンネルから動画を非表示
+    Hide Channels: チャンネルから動画を非表示にする
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
     Hide Channel Playlists: チャンネル再生リストの非表示
@@ -779,9 +779,9 @@ Video:
   Mark As Watched: 視聴済みに変更
   Autoplay: 自動再生
   Play Previous Video: 前の動画を再生
-  Play Next Video: 次の動画の再生
+  Play Next Video: 次の動画を再生
   Reverse Playlist: 再生リストを逆順にする
-  Shuffle Playlist: 再生リストのシャッフル
+  Shuffle Playlist: 再生リストをシャッフル
   Loop Playlist: 再生リストのループ
   Starting soon, please refresh the page to check again: すぐに再生されます、ページを再読み込みしてお待ちください
   Audio:
@@ -853,7 +853,7 @@ Video:
   Scroll to Bottom: 下までスクロール
   Upcoming: 今後の配信予定
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
-  Pause on Current Video: 現在の動画の一時停止
+  Pause on Current Video: 現在の動画を一時停止
   Hide Channel: チャンネルを非表示
   Unhide Channel: チャンネルを表示
   More Options: その他の設定
@@ -928,7 +928,7 @@ Comments:
   Newest first: 新しい順
   No more comments available: これ以上のコメントはありません
   Sort by: 並べ替え
-  Show More Replies: その他の返信を表示する
+  Show More Replies: 返信をもっと見る
   And others: その他
   Pinned by: ピン留め
   From {channelName}: '{channelName} から'
@@ -948,10 +948,10 @@ Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
 Shuffle is now disabled: 'シャッフル再生を無効にしました'
 Shuffle is now enabled: 'シャッフル再生を有効にしました'
-Playing Next Video: '次の動画の再生'
+Playing Next Video: '次の動画を再生'
 Playing Previous Video: '前の動画を再生'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
-'The playlist has ended. Enable loop to continue playing': '再生リストの最後に到達しました。再生を続けるにはループを有効にします'
+'The playlist has ended. Enable loop to continue playing': '再生リストが終了しました。再生を続けるにはループを有効にしてください'
 
 Yes: 'はい'
 No: 'いいえ'
@@ -1009,7 +1009,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
       は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
-    Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、サブスクリプション
+    Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、登録チャンネル
       フィードを自動的に取得します。
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
@@ -1095,7 +1095,7 @@ Hashtag:
   Hashtag: ハッシュタグ
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
 Playlist will pause when current video is finished: 現在の動画が終了すると、再生リストが一時停止します
-Playlist will not pause when current video is finished: 現在のビデオが終了しても、再生リストは一旦停止しません
+Playlist will not pause when current video is finished: 現在の動画が終了しても、再生リストは一旦停止しません
 Close Banner: バナーを閉じる
 Go to page: '{page} を表示'
 Search character limit: 検索クエリは {searchCharacterLimit} 文字制限を超えています
@@ -1118,7 +1118,7 @@ checkmark: ✓
 Moments Ago: たった今
 Age Restricted:
   This video is age restricted: この動画には年齢制限があります
-  This channel is age restricted: このチャンネルは年齢制限があります
+  This channel is age restricted: このチャンネルには年齢制限があります
 Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました: "{url}"。'
