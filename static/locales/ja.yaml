@@ -262,7 +262,8 @@ Settings:
     Set Current Instance as Default: 現在のインスタンスを既定として設定する
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
     No default instance has been set: 既定のインスタンスが設定されていません
-    The currently set default instance is {instance}: 現在設定されている既定のインスタンスは {instance}です
+    The currently set default instance is {instance}: 現在設定されているインスタンスは {instance}
+      です
     Current Invidious Instance: 現在の invidious インスタンス
     External Link Handling:
       No Action: 何もしない
@@ -337,7 +338,7 @@ Settings:
       Solarized Blue: ソラライズド・ブルー
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
-    UI Scale: UI 縮尺率
+    UI Scale: UIの拡大率
     Expand Side Bar by Default: 幅広のサイド バーで起動
     Disable Smooth Scrolling: スムーズ スクロールの無効化
     Hide Side Bar Labels: サイドバー ラベルの非表示
