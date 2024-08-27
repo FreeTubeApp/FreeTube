@@ -567,7 +567,7 @@ Settings:
       Prompt To Skip: プロンプトをスキップ
       Do Nothing: 何もしない
     Category Color: カテゴリの色
-    UseDeArrowTitles: 動画タイトルに DeArrow を使用する
+    UseDeArrowTitles: DeArrow の動画タイトルを使用する
     UseDeArrowThumbnails: DeArrow のサムネイルを使用する
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
       Thumbnail Generator API Url (デフォルト https://dearrow-thumb.ajay.app)
@@ -583,7 +583,7 @@ Settings:
     Ignore Default Arguments: デフォルト引数を無視する
   Download Settings:
     Download Settings: ダウンロードの設定
-    Ask Download Path: ダウンロードパスの設定
+    Ask Download Path: ダウンロードパスを尋ねる
     Choose Path: パスの選択
     Download Behavior: ダウンロードの処理方法
     Open in web browser: Web ブラウザで開く
