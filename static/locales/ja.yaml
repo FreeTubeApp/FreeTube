@@ -71,8 +71,8 @@ Search Filters:
   Duration:
     Duration: '動画時間'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編（4 分未満）'
-    Long (> 20 minutes): '長編（20 分以上）'
+    Short (< 4 minutes): '短編（< 4 分未満）'
+    Long (> 20 minutes): '長編（> 20 分以上）'
   # On Search Page
     Medium (4 - 20 minutes): 中編（4 - 20 分間）
   Search Results: '検索結果'
@@ -477,7 +477,7 @@ Settings:
     Import Subscriptions: 登録者のインポート
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
-    Data Settings: データ設定
+    Data Settings: データの設定
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
@@ -503,7 +503,7 @@ Settings:
     Hide Channel Subscribers: チャンネル登録者数の非表示
     Hide Video Views: 再生数の非表示
     Hide Video Likes And Dislikes: 評価の非表示
-    Distraction Free Settings: 集中モード設定
+    Distraction Free Settings: 集中モードの設定
     Hide Active Subscriptions: 登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
     Hide Video Description: 動画説明の非表示
@@ -535,7 +535,7 @@ Settings:
     Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
-    Hide Channels Already Exists: 既に存在するチャンネル ID
+    Hide Channels Already Exists: チャンネル ID は既に存在します
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
@@ -599,8 +599,8 @@ Settings:
     Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
-    Password Settings: パスワード設定
-    Set Password To Prevent Access: 設定にアクセスするためのパスワードを設定する
+    Password Settings: パスワードの設定
+    Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
     Set Password: パスワードの設定
     Remove Password: パスワードの削除
   Password Dialog:
@@ -641,10 +641,10 @@ About:
   Donate: 寄付
   FreeTube is made possible by: FreeTube が実現できているのは
   these people and projects: これらの人々とプロジェクトのおかげです
-  Credits: 著作権
+  Credits: クレジット
   Translate: 翻訳
-  room rules: ルームの規則について
-  Please read the: 次をお読みください
+  room rules: ルームの規則
+  Please read the: '次をお読みください:'
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
@@ -796,7 +796,7 @@ Video:
   Open Channel in Invidious: Invidious でチャンネル表示
   Copy YouTube Channel Link: YouTube チャンネルへのリンクのコピー
   Open Channel in YouTube: YouTube でチャンネル表示
-  Started streaming on: ライブ配信の開始
+  Started streaming on: ライブ開始日
   Streamed on: ライブ配信
   Video has been removed from your saved list: 動画を保存一覧から削除しました
   Video has been saved: 動画を保存しました
@@ -827,7 +827,7 @@ Video:
     playlist: 再生リスト
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
-  Premieres on: プレミア公開
+  Premieres on: プレミア公開日時
   Stats:
     player resolution: 表示領域
     fps: FPS
@@ -851,7 +851,7 @@ Video:
   Premieres: プレミア公開
   Show Super Chat Comment: Super Chat のコメント表示
   Scroll to Bottom: 下までスクロール
-  Upcoming: 今後の配信予定
+  Upcoming: 近日公開
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
   Pause on Current Video: 現在の動画を一時停止
   Hide Channel: チャンネルを非表示
@@ -992,7 +992,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これはあなたのメインのプロファイルです。選択したチャンネルを本当に削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
-  Profile Settings: プロファイル設定
+  Profile Settings: プロファイルの設定
   Toggle Profile List: プロファイル一覧の切替
   Create Profile Name: プロファイル名を作成
   Profile Name: プロファイル名
@@ -1098,7 +1098,7 @@ Playlist will pause when current video is finished: 現在の動画が終了す�
 Playlist will not pause when current video is finished: 現在の動画が終了しても、再生リストは一旦停止しません
 Close Banner: バナーを閉じる
 Go to page: '{page} を表示'
-Search character limit: 検索クエリは {searchCharacterLimit} 文字制限を超えています
+Search character limit: 検索クエリが {searchCharacterLimit} 文字の制限を超えています
 Feed:
   Feed Last Updated: '{feedName} フィードの最終更新日時: {date}'
   Refresh Feed: '{subscriptionName} の更新'
