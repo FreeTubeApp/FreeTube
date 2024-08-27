@@ -379,8 +379,6 @@ Settings:
       ir profiliai sėkmingai importuoti'
     All subscriptions have been successfully imported: 'Visos prenumeratos sėkmingai
       importuotos'
-    One or more subscriptions were unable to be imported: 'Nepavyko importuoti vienos
-      ar daugiau prenumeratų'
     Invalid subscriptions file: 'Netinkamas prenumeratų failas'
     This might take a while, please wait: 'Tai gali užtrukti, palaukite'
     Invalid history file: 'Netinkamas žiūrėjimo istorijos failas'

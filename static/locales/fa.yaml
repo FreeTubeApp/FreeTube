@@ -377,8 +377,6 @@ Settings:
       و پروفایل ها با موفقیت ثبت شد'
     All subscriptions have been successfully imported: 'همه دنبال شوندگان با موفقیت
       ثبت شد'
-    One or more subscriptions were unable to be imported: 'یک یا چند دنبال شونده قادر
-      به ثبت نبودند'
     Invalid subscriptions file: 'فایل دنبال شوندگان نامعتبر است'
     This might take a while, please wait: 'ممکن است کمی طول بکشد، لطفا اندکی صبر کنید'
     Invalid history file: 'فایل تاریخچه نامعتبر است'

@@ -491,8 +491,6 @@ Settings:
       ve profiller başarılı bir şekilde içe aktarıldı'
     All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir
       şekilde içe aktarıldı'
-    One or more subscriptions were unable to be imported: 'Bir ya da daha fazla abonelik
-      içe aktarılamadı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
     This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
     Invalid history file: 'Geçersiz geçmiş dosyası'

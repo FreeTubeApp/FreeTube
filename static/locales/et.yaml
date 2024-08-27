@@ -487,8 +487,6 @@ Settings:
       ja profiilide import õnnestus'
     All subscriptions have been successfully imported: 'Kõikide tellimuste import
       õnnestus'
-    One or more subscriptions were unable to be imported: 'Ühte või enamat tellimust
-      ei õnnestunud importida'
     Invalid subscriptions file: 'Vigane tellimuste fail'
     This might take a while, please wait: 'Nüüd võib natuke aega kuluda, palun oota'
     Invalid history file: 'Vigane ajaloofail'

@@ -493,8 +493,6 @@ Settings:
       и профили бяха внесени успешно'
     All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени
       успешно'
-    One or more subscriptions were unable to be imported: 'Един или повече абонаменти
-      не беше внесен'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
     This might take a while, please wait: 'Това може да отнеме повече време, моля
       изчакайте'
