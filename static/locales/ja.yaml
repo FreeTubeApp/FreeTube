@@ -475,25 +475,25 @@ Settings:
     Import NewPipe: NewPipe インポート
     Import FreeTube: FreeTube インポート
     Export Subscriptions: 登録チャンネルのエクスポート
-    Import Subscriptions: 登録者のインポート
+    Import Subscriptions: 登録チャンネルのインポート
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
     Data Settings: データの設定
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
-    Playlist insufficient data: 再生リスト"{playlist}"のデータが不完全なため、このアイテムは飛ばされます
-    All playlists has been successfully imported: 全ての再生リストは成功にインポートされました
+    Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
+    All playlists has been successfully imported: すべての再生リストが正常にインポートされました
     All playlists has been successfully exported: すべての再生リストが正常にエクスポートされました
     Import Playlists: 再生リストのインポート
-    Export Playlists: 再生リストのエキスポート
+    Export Playlists: 再生リストのエクスポート
     Subscription File: 登録チャンネル ファイル
     History File: 履歴ファイル
     Playlist File: 再生リスト
     Export Playlists For Older FreeTube Versions:
       Label: 古いバージョンの FreeTube 用に再生リストをエクスポートする
       Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n
-        1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「すべての再生リストを削除」オプションを使用して、既存のすべての再生リストを削除します。\n
+        1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n
         3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
