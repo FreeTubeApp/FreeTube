@@ -4,7 +4,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
@@ -153,8 +153,8 @@ export default defineComponent({
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     activeProfile: function () {
@@ -976,7 +976,7 @@ export default defineComponent({
         this.isFamilyFriendly = response.isFamilyFriendly
         this.subCount = response.subCount
         const thumbnail = response.authorThumbnails[3].url
-        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
+        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstanceUrl)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.description = autolinker.link(response.description)
         this.viewCount = response.totalViews
@@ -987,12 +987,12 @@ export default defineComponent({
           return {
             name: channel.author,
             id: channel.authorId,
-            thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
+            thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstanceUrl)
           }
         })
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
-          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
+          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstanceUrl)
         } else {
           this.bannerUrl = null
         }

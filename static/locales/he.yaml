@@ -42,6 +42,8 @@ Global:
     Subscriber Count: מנוי או מנויה 1 | {count} מנויים
     View Count: צפייה אחת | {count} צפיות
     Watching Count: צופה 1 | {count} צורפים
+  Input Tags:
+    Length Requirement: התגית חייבת להיות באורך של {number} תווים לפחות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -86,6 +88,17 @@ Search Filters:
   Fetch more results: 'חיפוש תוצאות נוספות'
 # Sidebar
   There are no more results for this search: אין תוצאות נוספות לחיפוש הזה
+  Features:
+    Features: יכולות
+    HD: HD
+    4K: 4K
+    3D: תלת־ממד
+    Subtitles: כתוביות
+    Live: שידור חי
+    360 Video: וידאו 360
+    HDR: HDR
+    VR180: VR180
+    Location: מקום
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -124,6 +137,45 @@ User Playlists:
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
   Search bar placeholder: חיפוש רשימות נגינה
   Empty Search Message: אין סרטונים ברשימת הנגינה הזו שעונים לחיפוש שלך
+  You have no playlists. Click on the create new playlist button to create a new one.: אין
+    לך רשימות נגינה. נא ללחוץ על כפתור יצירת רשימת נגינה חדשה כדי ליצור רשימת נגינה
+    חדשה.
+  Edit Playlist Info: עריכת פרטי רשימת נגינה
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: להסיר
+    סרטון משוכפל מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount}
+    סרטונים כפולים מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: להסיר
+    סרטון שנצפה מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount}
+    סרטונים שנצפו מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
+  Delete Playlist: מחיקת רשימת נגינה
+  Copy Playlist: העתקת רשימת נגינה
+  Remove Watched Videos: הסרת סרטונים שנצפו
+  Remove Duplicate Videos: הסרת סרטונים כפולים
+  Are you sure you want to delete this playlist? This cannot be undone: למחוק את רשימת
+    הנגינה הזו? זאת פעולה בלתי הפיכה.
+  Sort By:
+    EarliestUpdatedFirst: הראשונים שעודכנו
+    Sort By: מיון לפי
+    NameAscending: א-ת
+    NameDescending: ת-א
+    LatestPlayedFirst: האחרונים שהתנגנו
+    EarliestPlayedFirst: הראשונים שהתנגנו
+    LatestCreatedFirst: נוצרו לאחרונה
+    EarliestCreatedFirst: הראשונים שנוצרו
+    LatestUpdatedFirst: האחרונים שעודכנו
+  SinglePlaylistView:
+    Toast:
+      This playlist is already being used for quick bookmark.: רשימת הנגינה הזאת כבר
+        משמשת למועדפים זריזים.
+      This playlist is now used for quick bookmark: רשימת הנגינה הזאת משמשת כעת לסימניות
+        זריזות
+      This video cannot be moved up.: אי אפשר להעלות את הסרטון הזה למעלה.
+      This video cannot be moved down.: אי אפשר להוריד את הסרטון הזה למטה.
+      Video has been removed: הסרטון הוסר
+      There was a problem with removing this video: אירעה בעיה עם הסרת הסרטון הזה
+    Search for Videos: חיפוש סרטונים
+  Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
+    ביעד הסימניות הזריזות.
 History:
   # On History Page
   History: 'היסטוריה'
@@ -1001,3 +1053,11 @@ Playlist will pause when current video is finished: רשימת הנגינה תו
   הנוכחי
 Playlist will not pause when current video is finished: רשימת הנגינה לא תושהה עם סיום
   הסרטון הנוכחי
+Close Banner: סגירת כרזה
+Go to page: מעבר אל {page}
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: כתוביות
+    Closed Captions: כתוביות לכבדי שמיעה
+Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}

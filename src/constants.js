@@ -37,7 +37,9 @@ const IpcChannels = {
   SHOW_VIDEO_STATISTICS: 'show-video-statistics',
 
   PLAYER_CACHE_GET: 'player-cache-get',
-  PLAYER_CACHE_SET: 'player-cache-set'
+  PLAYER_CACHE_SET: 'player-cache-set',
+
+  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization'
 }
 
 const DBActions = {

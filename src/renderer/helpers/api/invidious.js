@@ -4,12 +4,12 @@ import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
 
-function getCurrentInstance() {
-  return store.getters.getCurrentInvidiousInstance
+function getCurrentInstanceUrl() {
+  return store.getters.getCurrentInvidiousInstanceUrl
 }
 
 export function getProxyUrl(uri) {
-  const currentInstance = getCurrentInstance()
+  const currentInstance = getCurrentInstanceUrl()
 
   const url = new URL(uri)
   const { origin } = url
@@ -20,10 +20,24 @@ export function getProxyUrl(uri) {
   return url.toString().replace(origin, currentInstance)
 }
 
+export function invidiousFetch(url) {
+  const authorization = store.getters.getCurrentInvidiousInstanceAuthorization
+
+  if (authorization) {
+    return fetch(url, {
+      headers: {
+        Authorization: authorization
+      }
+    })
+  } else {
+    return fetch(url)
+  }
+}
+
 export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   return new Promise((resolve, reject) => {
-    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
-    fetch(requestUrl)
+    const requestUrl = getCurrentInstanceUrl() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
+    invidiousFetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {
         if (json.error !== undefined) {
@@ -126,7 +140,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
   }
 
   if (currentInstance === null) {
-    currentInstance = getCurrentInstance()
+    currentInstance = getCurrentInstanceUrl()
   }
   // Can be prefixed with `https://` or `//` (protocol relative)
   if (url.startsWith('//')) {
@@ -149,7 +163,7 @@ function parseInvidiousCommentData(response) {
     comment.authorLink = comment.authorId
     comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url)
     comment.likes = comment.likeCount
-    comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstance())))
+    comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())))
     comment.dataType = 'invidious'
     comment.isOwner = comment.authorIsChannelOwner
     comment.numReplies = comment.replies?.replyCount ?? 0

@@ -263,6 +263,7 @@ History:
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
   Search bar placeholder: Geçmişte Ara
   Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
+  Case Sensitive Search: Büyük/Küçük Harfe Duyarlı Ara
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'

@@ -255,6 +255,7 @@ History:
   Your history list is currently empty.: 'Seu histórico está vazio no momento.'
   Search bar placeholder: Pesquisar no histórico
   Empty Search Message: Não há vídeos em seu histórico que correspondam à sua pesquisa
+  Case Sensitive Search: Pesquisa que diferencia maiúsculas de minúsculas
 Settings:
   # On Settings Page
   Settings: 'Configurações'
@@ -1222,7 +1223,7 @@ External link opening has been disabled in the general settings: A abertura de l
   externo foi desativada nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"{videoTitle}" download concluído'
-Starting download: Iniciando download de "{videoTitle}"
+Starting download: Iniciando download "{videoTitle}"
 Downloading failed: Falha no download "{videoTitle}"
 New Window: Nova janela
 Channels:

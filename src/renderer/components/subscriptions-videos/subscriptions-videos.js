@@ -3,7 +3,7 @@ import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
 import { setPublishedTimestampsInvidious, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
-import { invidiousAPICall } from '../../helpers/api/invidious'
+import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
@@ -29,8 +29,8 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     currentLocale: function () {
@@ -355,10 +355,10 @@ export default defineComponent({
 
     getChannelVideosInvidiousRSS: async function (channel, failedAttempts = 0) {
       const playlistId = channel.id.replace('UC', 'UULF')
-      const feedUrl = `${this.currentInvidiousInstance}/feed/playlist/${playlistId}`
+      const feedUrl = `${this.currentInvidiousInstanceUrl}/feed/playlist/${playlistId}`
 
       try {
-        const response = await fetch(feedUrl)
+        const response = await invidiousFetch(feedUrl)
 
         if (response.status === 500 || response.status === 404) {
           this.errorChannels.push(channel)

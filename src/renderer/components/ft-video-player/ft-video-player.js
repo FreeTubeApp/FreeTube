@@ -40,6 +40,9 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
     const { uri } = options
     options.uri = getProxyUrl(uri)
   }
+
+  const authorization = store.getters.getCurrentInvidiousInstanceAuthorization
+
   // pass in the optional base so it doesn't error for `dashFiles/videoId.xml` (DASH manifest in dev mode)
   if (new URL(options.uri, window.location.origin).hostname.endsWith('.googlevideo.com')) {
     // The official clients use POST requests with this body for the DASH requests, so we should do that too
@@ -49,6 +52,14 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
     if (options.headers?.Range) {
       options.uri += `&range=${options.headers.Range.split('=')[1]}`
       delete options.headers.Range
+    }
+  } else if (authorization && options.uri.startsWith(store.getters.getCurrentInvidiousInstanceUrl)) {
+    if (options.headers) {
+      options.headers.Authorization = authorization
+    } else {
+      options.headers = {
+        Authorization: authorization
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
@@ -87,8 +87,8 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     userPlaylistSortOrder: function () {
       return this.$store.getters.getUserPlaylistSortOrder
@@ -356,7 +356,7 @@ export default defineComponent({
         this.viewCount = result.viewCount
         this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstanceUrl)
         this.channelId = result.authorId
         this.infoSource = 'invidious'
 

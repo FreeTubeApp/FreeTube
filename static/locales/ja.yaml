@@ -1,6 +1,6 @@
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分は未完成です。完成後に実行してください。
+  アプリのこの部分はまだ準備ができていません。進捗があったらまたお越しください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -43,7 +43,7 @@ Global:
     Channel Count: 1 チャンネル | {count} チャンネル
   Input Tags:
     Length Requirement: タグは最低でも {number} 文字以上である必要があります
-Search / Go to URL: '検索 / URL の表示'
+Search / Go to URL: '検索 / URL に移動'
   # In Filter Button
 Search Filters:
   Search Filters: '検索の絞り込み'
@@ -71,15 +71,15 @@ Search Filters:
   Duration:
     Duration: '動画時間'
     All Durations: 'すべての長さ'
-    Short (< 4 minutes): '短編（4 分未満）'
-    Long (> 20 minutes): '長編（20 分以上）'
+    Short (< 4 minutes): '短編（< 4 分未満）'
+    Long (> 20 minutes): '長編（> 20 分以上）'
   # On Search Page
     Medium (4 - 20 minutes): 中編（4 - 20 分間）
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
   Fetch more results: 'もっと見る'
 # Sidebar
-  There are no more results for this search: 検索結果は、これ以上ありません
+  There are no more results for this search: 検索結果はこれ以上ありません
   Features:
     Features: 特徴
     3D: 3D
@@ -96,7 +96,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   Latest Subscriptions: '最新の登録'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録済みの登録チャンネルはありません。登録するとココに表示されます。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは空です。チャンネル登録をするとこちらに表示されます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
@@ -104,7 +104,7 @@ Subscriptions:
     RSS を使用します
   Load More Videos: もっと見る
   Error Channels: エラーが発生したチャンネル
-  Disabled Automatic Fetching: サブスクリプションの自動取得を無効にしました。サブスクリプションを更新して、ここで確認します。
+  Disabled Automatic Fetching: 登録チャンネルの自動取得が無効になっています。動画を表示するには更新をしてください。
   Empty Channels: 現在、チャンネル登録しているチャンネルには動画がありません。
   Subscriptions Tabs: 登録チャンネル タブ
   All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}"
@@ -124,20 +124,20 @@ User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
   Playlist Message: 
-    このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
+    このページは完全に機能する再生リストを反映していません。保存した動画やお気に入りの動画のみが表示されます。作業が完了すると、現在ここにあるすべての動画は「Favorites」の再生リストに移行されます。
   Search bar placeholder: 再生リストの検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
   This playlist currently has no videos.: 現在、この再生リストには動画がありません。
   Create New Playlist: 新しい再生リストの作成
   Sort By:
     NameAscending: A-Z
-    EarliestCreatedFirst: 初期に作成
-    LatestUpdatedFirst: 最近の更新
-    EarliestUpdatedFirst: 初期に更新
-    EarliestPlayedFirst: 初期に再生
-    LatestPlayedFirst: 最近の再生
+    EarliestCreatedFirst: 最も古い作成日
+    LatestUpdatedFirst: 最も新しい更新
+    EarliestUpdatedFirst: 最も古い更新
+    EarliestPlayedFirst: 最も古い再生
+    LatestPlayedFirst: 最も新しい再生
     Sort By: 並び替え順
-    LatestCreatedFirst: 最近に作成
+    LatestCreatedFirst: 最も新しい作成日
     NameDescending: Z-A
   Remove from Favorites: '{playlistName} から削除'
   Move Video Down: 動画を下へ移動
@@ -147,7 +147,7 @@ User Playlists:
   Copy Playlist: 再生リストのコピー
   Edit Playlist Info: 再生リスト情報の編集
   Remove Watched Videos: 視聴済み動画の削除
-  Enable Quick Bookmark With This Playlist: 再生リストでクイック ブックマークを有効にする
+  Enable Quick Bookmark With This Playlist: この再生リストでクイックブックマークを有効にする
   SinglePlaylistView:
     Toast:
       This playlist is protected and cannot be removed.: この再生リストは保護されており、削除できません。
@@ -160,12 +160,12 @@ User Playlists:
         の代わりにクイックブックマークとして使用されるようになりました。元に戻すにはここをクリック
       Video has been removed: 動画は削除されました
       There was a problem with removing this video: この動画の削除に問題が発生しました
-      This playlist is now used for quick bookmark: この再生リストは、今からクイックブックマークとして使用されます
+      This playlist is now used for quick bookmark: このプレイリストは現在、クイックブックマークとして使用されています
       Playlist has been updated.: 再生リストを更新しました。
       Playlist name cannot be empty. Please input a name.: 再生リストの名前は空白にできません。名前を入力してください.
-      Reverted to use {oldPlaylistName} for quick bookmark: クイックブックマーク用に {oldPlaylistName}
-        を元に戻しました
-      "{videoCount} video(s) have been removed": 1 つの動画を削除しました | {video Count} つの動画を削除しました
+      Reverted to use {oldPlaylistName} for quick bookmark: クイックブックマークを {oldPlaylistName}
+        に戻しました
+      "{videoCount} video(s) have been removed": 1 本の動画を削除しました | {video Count} 本の動画を削除しました
       Playlist {playlistName} has been deleted.: 再生リスト {playlistName} が削除されました。
       There were no videos to remove.: 削除する動画はありません。
       This playlist does not exist: この再生リストは存在しません
@@ -181,26 +181,27 @@ User Playlists:
   Delete Playlist: 再生リストの削除
   Cancel: キャンセル
   Disable Quick Bookmark: クイック ブックマークを無効にする
-  Are you sure you want to delete this playlist? This cannot be undone: 再生リストを削除してもいいですか？復元は不可能です。
+  Are you sure you want to delete this playlist? This cannot be undone: この再生リストを削除してもいいですか？復元は不可能です。
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 再生リストから再生済みの動画を削除してもいいですか？復元は不可能です。
   You have no playlists. Click on the create new playlist button to create a new one.: 再生リストがありません。新しい再生リストを作成するには、「新しい再生リストの作成」ボタンをクリックしてください。
   AddVideoPrompt:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      つの動画が追加されます'
+      本の動画が追加されます'
     Select a playlist to add your N videos to: 動画を追加する再生リストを選択してください | {videoCount}
-      つの動画を追加する再生リストを選択してください
+      本の動画を追加する再生リストを選択してください
     Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
     Toast:
       You haven't selected any playlist yet.: まだ再生リストを選択していません。
-      "{videoCount} video(s) added to 1 playlist": 1つの動画が1個の再生リストに追加されました | {videoCount}
-        つの動画が1個の再生リストに追加されました
-      "{videoCount} video(s) added to {playlistCount} playlists": 1つの動画が {playlistCount}
-        個の再生リストに追加されました | {videoCount} つの動画が {playlistCount} 個の再生リストに追加されました
+      "{videoCount} video(s) added to 1 playlist": 1本の動画が1個の再生リストに追加されました | {videoCount}
+        本の動画が1個の再生リストに追加されました
+      "{videoCount} video(s) added to {playlistCount} playlists": 1本の動画が {playlistCount}
+        個の再生リストに追加されました | {videoCount} 本の動画が {playlistCount} 個の再生リストに追加されました
     Search in Playlists: 再生リストで検索
     N playlists selected: '{playlistCount} 選択中'
     Save: 保存
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      つの動画はすでに追加されています'
+      本の動画はすでに追加されています'
+    Added {count} Times: すでに追加済み | {count} 回追加済み
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: 再生リストの作成中に問題が発生しました。
@@ -209,13 +210,13 @@ User Playlists:
         が正常に作成されました。
     New Playlist Name: 新しい再生リスト名
     Create: 作成
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: このプレイリストから重複する1つの動画を削除してもよろしいですか？この操作は元に戻せません。
-    | この再生リストから重複する {playlistItemCount} つの動画を削除してもよろしいですか？この操作は元に戻せません。
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: この再生リストから重複する1本の動画を削除してもよろしいですか？この操作は元に戻せません。
+    | この再生リストから重複する {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
   Cannot delete the quick bookmark target playlist.: クイックブックマーク対象の再生リストは削除できません。
   Quick Bookmark Enabled: クイックブックマーク有効
   Remove Duplicate Videos: 重複した動画を削除
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1つ削除してもよろしいですか？この操作は元に戻せません。
-    | この再生リストから視聴済みの {playlistItemCount} つの動画を削除してもよろしいですか？この操作は元に戻せません。
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1本削除してもよろしいですか？この操作は元に戻せません。
+    | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
 History:
   # On History Page
   History: '履歴'
@@ -223,6 +224,7 @@ History:
   Your history list is currently empty.: 現在、履歴リストは空です。
   Search bar placeholder: 履歴の検索
   Empty Search Message: 検索条件に一致する動画は履歴にありません
+  Case Sensitive Search: 大文字小文字を区別した検索
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -239,13 +241,13 @@ Settings:
     Video View Type:
       Video View Type: '動画一覧の表示方法'
       Grid: 'グリッド'
-      List: '一覧'
+      List: 'リスト'
     Thumbnail Preference:
       Thumbnail Preference: 'サムネイルの設定'
-      Default: '初期設定'
+      Default: 'デフォルト'
       Beginning: '開始'
       Middle: '中間'
-      End: '終了'
+      End: '最後'
       Hidden: 非表示
       Blur: ぼかし
     'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
@@ -255,12 +257,13 @@ Settings:
     Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 更新の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
-    System Default: 初期設定
-    Clear Default Instance: デフォルトの設定をクリアする
+    System Default: システム初期設定
+    Clear Default Instance: 既定のインスタンスをクリア
     Set Current Instance as Default: 現在のインスタンスを既定として設定する
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
     No default instance has been set: 既定のインスタンスが設定されていません
-    The currently set default instance is {instance}: 現在設定されている既定のインスタンスは {instance}です
+    The currently set default instance is {instance}: 現在設定されているインスタンスは {instance}
+      です
     Current Invidious Instance: 現在の invidious インスタンス
     External Link Handling:
       No Action: 何もしない
@@ -269,17 +272,17 @@ Settings:
       External Link Handling: 外部リンク処理
     Auto Load Next Page:
       Label: 次のページを自動で読み込む
-      Tooltip: 追加のページやコメントを自動的に読み込む。
+      Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
   Theme Settings:
     Theme Settings: 'テーマの設定'
-    Match Top Bar with Main Color: '上部バーをメイン カラーと同じにする'
+    Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
     Base Theme:
       Base Theme: 'テーマの選択'
       Black: '黒'
       Dark: 'ダーク'
       Light: 'ライト'
       Dracula: 'ドラキュラ'
-      System Default: 初期設定
+      System Default: システム初期設定
       Catppuccin Mocha: キャプチーノ・モカ
       Pastel Pink: パステルピンク
       Hot Pink: ホットピンク
@@ -287,7 +290,7 @@ Settings:
       Solarized Dark: ソラライズド・ダーク
       Solarized Light: ソラライズド・ライト
     Main Color Theme:
-      Main Color Theme: 'メインカラー'
+      Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
       Pink: '桃'
       Purple: '紫'
@@ -312,38 +315,46 @@ Settings:
       Dracula Red: 'ドラキュラ 赤'
       Dracula Yellow: 'ドラキュラ 黄'
       Catppuccin Mocha Rosewater: キャプチーノ・モカ 淡いピンク
-      Catppuccin Mocha Flamingo: キャプチーノ・モカ 鮮やかなピンク
+      Catppuccin Mocha Flamingo: キャプチーノ・モカ 明るいピンク
       Catppuccin Mocha Pink: キャプチーノ・モカ ピンク
       Catppuccin Mocha Mauve: キャプチーノ・モカ 淡い紫
-      Catppuccin Mocha Red: Catppuccin Mocha Red
-      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
-      Catppuccin Mocha Green: Catppuccin Mocha Green
-      Catppuccin Mocha Teal: Catppuccin Mocha Teal
-      Catppuccin Mocha Sky: Catppuccin Mocha Sky
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
-      Catppuccin Mocha Blue: Catppuccin Mocha Blue
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Red: キャプチーノ・モカ 赤色
+      Catppuccin Mocha Maroon: キャプチーノ・モカ 暗い赤茶色
+      Catppuccin Mocha Peach: キャプチーノ・モカ 桃色
+      Catppuccin Mocha Yellow: キャプチーノ・モカ 黄色
+      Catppuccin Mocha Green: キャプチーノ・モカ 緑色
+      Catppuccin Mocha Teal: キャプチーノ・モカ 青緑
+      Catppuccin Mocha Sky: キャプチーノ・モカ 空色
+      Catppuccin Mocha Sapphire: キャプチーノ・モカ 深い青
+      Catppuccin Mocha Blue: キャプチーノ・モカ 青色
+      Catppuccin Mocha Lavender: キャプチーノ・モカ 淡い紫
+      Solarized Yellow: ソラライズド・イエロー
+      Solarized Orange: ソラライズド・オレンジ
+      Solarized Red: ソラライズド・レッド
+      Solarized Magenta: ソラライズド・マジェンタ
+      Solarized Violet: ソラライズド・バイオレット
+      Solarized Cyan: ソラライズド・シアン
+      Solarized Green: ソラライズド・グリーン
+      Solarized Blue: ソラライズド・ブルー
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
-    UI Scale: UI 縮尺率
+    UI Scale: UIの拡大率
     Expand Side Bar by Default: 幅広のサイド バーで起動
     Disable Smooth Scrolling: スムーズ スクロールの無効化
     Hide Side Bar Labels: サイドバー ラベルの非表示
     Hide FreeTube Header Logo: FreeTube ヘッダー ロゴの非表示
   Player Settings:
-    Player Settings: 'プレイヤーの設定'
+    Player Settings: 'プレーヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式であれば内部 API の適用'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画の自動再生'
-    Turn on Subtitles by Default: '最初から字幕を有効化'
+    Turn on Subtitles by Default: 'デフォルトで字幕を有効にする'
     Autoplay Videos: '動画の自動再生'
-    Proxy Videos Through Invidious: '動画を Invidious プロキシーを経由して取得'
+    Proxy Videos Through Invidious: '動画を Invidious プロキシを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
-    Enable Theatre Mode by Default: 'シアターモードで起動'
-    Default Volume: '音量の設定'
-    Default Playback Rate: '再生速度の設定'
+    Enable Theatre Mode by Default: 'デフォルトでシアターモードを有効にする'
+    Default Volume: 'デフォルトの音量'
+    Default Playback Rate: 'デフォルトの再生速度'
     Default Video Format:
       Default Video Format: '動画形式の設定'
       Dash Formats: 'DASH 形式'
@@ -365,8 +376,8 @@ Settings:
     Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
-    Scroll Volume Over Video Player: 動画プレーヤーに音量調整を表示する
-    Scroll Playback Rate Over Video Player: 動画プレーヤーに再生速度調整を表示する
+    Scroll Volume Over Video Player: 動画プレーヤーをスクロールして音量を変更
+    Scroll Playback Rate Over Video Player: 動画プレーヤーをスクロールして再生速度を変更
     Max Video Playback Rate: 最大動画再生速度
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
@@ -375,19 +386,19 @@ Settings:
         2 桁の秒。%T 3 桁のミリ秒。%s 2 桁の動画の秒数。%t 3 桁の動画のミリ秒。%i 動画 ID。「\」または「/」を使用してサブフォルダを作成できます。
       Error:
         Forbidden Characters: 使用禁止文字
-        Empty File Name: ファイル名が空
-      Folder Label: スクリーンショットのフォルダ
-      Quality Label: スクリーンショット画像の品質
+        Empty File Name: 空のファイル名
+      Folder Label: スクリーンショットの保存先
+      Quality Label: スクリーンショットの品質
       Enable: スクリーンショットの有効化
-      Format Label: スクリーンショットのファイル形式
+      Format Label: スクリーンショットの形式
       Ask Path: 保存フォルダを尋ねる
-      Folder Button: フォルダーの選択
-    Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
-    Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
+      Folder Button: フォルダの選択
+    Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
+    Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
     Allow DASH AV1 formats: DASH AV1形式を許可
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
-    Hide Videos on Watch: '視聴済み動画の非表示'
+    Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
       #& Freetube
@@ -399,6 +410,8 @@ Settings:
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
+    Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
+    Only Show Latest Video for Each Channel: 各チャンネルの最新動画のみを表示する
   Advanced Settings:
     Advanced Settings: '詳細設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
@@ -431,14 +444,16 @@ Settings:
     Search cache has been cleared: 検索キャッシュを削除しました
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
-    Privacy Settings: 個人情報の設定
+    Privacy Settings: プライバシーの設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
-    Save Watched Videos With Last Viewed Playlist: 「最後に再生した」リストで視聴済み動画を保存
+    Save Watched Videos With Last Viewed Playlist: 視聴済み動画を最後に見た再生リストと共に保存する
     Remove All Playlists: 再生リストをすべて削除
+    All playlists have been removed: すべての再生リストが削除されました
+    Are you sure you want to remove all your playlists?: すべての再生リストを削除してもよろしいですか？
   Data Settings:
-    How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
-    Unknown data key: 不明なデータ キー
+    How do I import my subscriptions?: 登録チャンネルをインポートするには？
+    Unknown data key: 不明なデータキー
     Unable to write file: ファイルに書き込めません
     Unable to read file: ファイルを読み込めません
     All watched history has been successfully exported: すべての視聴履歴を正常にエクスポートしました
@@ -459,49 +474,54 @@ Settings:
     Import YouTube: YouTube インポート
     Import NewPipe: NewPipe インポート
     Import FreeTube: FreeTube インポート
-    Export Subscriptions: 登録のエクスポート
-    Import Subscriptions: 登録のインポート
+    Export Subscriptions: 登録チャンネルのエクスポート
+    Import Subscriptions: 登録チャンネルのインポート
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
-    Data Settings: データ設定
+    Data Settings: データの設定
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
-    Playlist insufficient data: 再生リスト"{playlist}"のデータが不完全なため、このアイテムは飛ばされます
-    All playlists has been successfully imported: 全ての再生リストは成功にインポートされました
-    All playlists has been successfully exported: 全ての再生リストは成功にエキスポートされました
+    Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
+    All playlists has been successfully imported: すべての再生リストが正常にインポートされました
+    All playlists has been successfully exported: すべての再生リストが正常にエクスポートされました
     Import Playlists: 再生リストのインポート
-    Export Playlists: 再生リストのエキスポート
-    Subscription File: サブスクリプション ファイル
+    Export Playlists: 再生リストのエクスポート
+    Subscription File: 登録チャンネル ファイル
     History File: 履歴ファイル
     Playlist File: 再生リスト
+    Export Playlists For Older FreeTube Versions:
+      Label: 古いバージョンの FreeTube 用に再生リストをエクスポートする
+      Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n
+        1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n
+        3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
     Hide Trending Videos: 急上昇動画の非表示
     Hide Recommended Videos: おすすめ動画の非表示
-    Hide Comment Likes: コメント評価の非表示
+    Hide Comment Likes: コメント欄の評価の非表示
     Hide Channel Subscribers: チャンネル登録者数の非表示
     Hide Video Views: 再生数の非表示
     Hide Video Likes And Dislikes: 評価の非表示
-    Distraction Free Settings: 集中モード
-    Hide Active Subscriptions: 使用中の登録チャンネルの非表示
+    Distraction Free Settings: 集中モードの設定
+    Hide Active Subscriptions: 登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
     Hide Video Description: 動画説明の非表示
     Hide Comments: コメントの非表示
     Hide Live Streams: ライブ配信の非表示
-    Hide Sharing Actions: 共有の非表示
+    Hide Sharing Actions: 共有ボタンの非表示
     Hide Chapters: チャプターの非表示
     Hide Upcoming Premieres: 今後のプレミア公開を非表示
-    Hide Channels: チャンネルから動画を非表示
+    Hide Channels: チャンネルから動画を非表示にする
     Hide Channels Placeholder: チャンネル ID
-    Display Titles Without Excessive Capitalisation: 英語の大文字化を控えたタイトル表示
+    Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
     Hide Channel Playlists: チャンネル再生リストの非表示
-    Hide Channel Community: チャンネル コミュニティの非表示
+    Hide Channel Community: チャンネルコミュニティの非表示
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
-      Watch Page: ウォッチリスト
+      Watch Page: 視聴ページ
       General: 一般
       Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
@@ -511,13 +531,13 @@ Settings:
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
     Hide Channel Releases: チャンネルの新着情報の非表示
-    Hide Profile Pictures in Comments: コメントでプロフィール写真を隠す
+    Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
     Blur Thumbnails: サムネイルをぼかす
-    Hide Subscriptions Community: チャンネルの購読者リストの非公開
-    Hide Channels Invalid: 提供チャンネル ID 無効
+    Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
+    Hide Channels Invalid: 提供されたチャンネル ID が無効です
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
-    Hide Channels Already Exists: 既に存在するチャンネル ID
-    Hide Channels API Error: 提供された ID のユーザーを取得できませんでした。ID が正しいかどうかをもう一度確認してください。
+    Hide Channels Already Exists: チャンネル ID は既に存在します
+    Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
@@ -526,15 +546,15 @@ Settings:
     City: 都市名
     Region: 地域
     Country: 国名
-    Ip: Ip
+    Ip: IP
     Your Info: あなたの情報
-    Test Proxy: テスト プロキシー
-    Clicking on Test Proxy will send a request to: テスト プロキシーをクリックして、送信するリクエスト先は
-    Proxy Port Number: プロキシーのポート番号
-    Proxy Host: プロキシーのホスト
-    Proxy Protocol: プロキシーのプロトコル
-    Enable Tor / Proxy: Tor / プロキシーの有効化
-    Proxy Settings: プロキシーの設定
+    Test Proxy: プロキシのテスト
+    Clicking on Test Proxy will send a request to: プロキシのテストをクリックして、送信するリクエスト先は
+    Proxy Port Number: プロキシのポート番号
+    Proxy Host: プロキシのホスト
+    Proxy Protocol: プロキシのプロトコル
+    Enable Tor / Proxy: Tor / プロキシの有効化
+    Proxy Settings: プロキシの設定
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
@@ -542,16 +562,16 @@ Settings:
     Enable SponsorBlock: スポンサーブロックの有効化
     SponsorBlock Settings: スポンサーブロックの設定
     Skip Options:
-      Skip Option: オプションのスキップ
+      Skip Option: スキップの設定
       Auto Skip: 自動スキップ
-      Show In Seek Bar: 動画の進行バーの非表示
-      Prompt To Skip: ログイン プロンプトのスキップ
+      Show In Seek Bar: 進行バーに表示
+      Prompt To Skip: プロンプトをスキップ
       Do Nothing: 何もしない
     Category Color: カテゴリの色
-    UseDeArrowTitles: 動画タイトルに DeArrow を使用する
+    UseDeArrowTitles: DeArrow の動画タイトルを使用する
     UseDeArrowThumbnails: DeArrow のサムネイルを使用する
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Thumbnail Generator API Url (デフォルトは https://dearrow-thumb.ajay.app)
+      Thumbnail Generator API Url (デフォルト https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
@@ -564,13 +584,13 @@ Settings:
     Ignore Default Arguments: デフォルト引数を無視する
   Download Settings:
     Download Settings: ダウンロードの設定
-    Ask Download Path: ダウンロードパスの設定
+    Ask Download Path: ダウンロードパスを尋ねる
     Choose Path: パスの選択
     Download Behavior: ダウンロードの処理方法
     Open in web browser: Web ブラウザで開く
     Download in app: アプリでダウンロード
   Parental Control Settings:
-    Hide Search Bar: 検索ボックスの非表示
+    Hide Search Bar: 検索バーの非表示
     Parental Control Settings: 制限付きモードの設定
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
@@ -580,8 +600,8 @@ Settings:
     Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
-    Password Settings: パスワード設定
-    Set Password To Prevent Access: 設定の変更にはパスワードを設定とする
+    Password Settings: パスワードの設定
+    Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
     Set Password: パスワードの設定
     Remove Password: パスワードの削除
   Password Dialog:
@@ -621,11 +641,11 @@ About:
 #On Channel Page
   Donate: 寄付
   FreeTube is made possible by: FreeTube が実現できているのは
-  these people and projects: これらの人々とプロジェクト
-  Credits: 著作権
+  these people and projects: これらの人々とプロジェクトのおかげです
+  Credits: クレジット
   Translate: 翻訳
   room rules: ルームの規則
-  Please read the: 確認してください
+  Please read the: '次をお読みください:'
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
@@ -644,11 +664,13 @@ About:
   Source code: ソースコード
   Beta: ベータ
   Discussions: 議論
+  Licensed under the: ライセンス
+  AGPLv3: AGPLv3
 Channel:
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
-  Search Channel: 'チャンネル検索'
-  Your search results have returned 0 results: '検索結果はありません'
+  Search Channel: 'チャンネル内検索'
+  Your search results have returned 0 results: '検索結果が0件です'
   Sort By: '並べ替え'
   Videos:
     Videos: '動画'
@@ -672,16 +694,16 @@ Channel:
       Tags: タグ
       Search for: 「{tag}」を検索
     Details: 詳細
-    Joined: 登録済み
+    Joined: 参加日
     Location: 場所
-  Added channel to your subscriptions: 登録にチャンネルを追加しました
-  Channel has been removed from your subscriptions: 登録からチャンネルを削除しました
+  Added channel to your subscriptions: チャンネルを登録しました
+  Channel has been removed from your subscriptions: チャンネルがあなたの登録チャンネルから削除されました
   Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
   Community:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
     votes: '{votes} 投票'
     Reveal Answers: 回答を表示
-    Hide Answers: 回答の非表示
+    Hide Answers: 回答を非表示
     Video hidden by FreeTube: FreeTube によって非表示にされた動画
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
@@ -706,7 +728,7 @@ Video:
   Copy YouTube Embedded Player Link: 'YouTube 埋め込みプレーヤーへのリンクのコピー'
   Open in Invidious: 'Invidious で表示'
   Copy Invidious Link: 'Invidious リンクのコピー'
-  Views: '回再生'
+  Views: '総再生回数'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
@@ -739,12 +761,12 @@ Video:
     Days: '日'
     Week: '週間'
     Weeks: '週間'
-    Month: 'か月'
-    Months: 'か月'
+    Month: 'ヶ月'
+    Months: 'ヶ月'
     Year: '年'
     Years: '年'
     Ago: '前'
-    Upcoming: '公開予定日'
+    Upcoming: 'プレミア公開'
     Minutes: 分
     Minute: 分
     Less than a minute: 1分以内
@@ -758,9 +780,9 @@ Video:
   Mark As Watched: 視聴済みに変更
   Autoplay: 自動再生
   Play Previous Video: 前の動画を再生
-  Play Next Video: 次の動画の再生
-  Reverse Playlist: 再生リストを逆順に
-  Shuffle Playlist: 再生リストのシャッフル
+  Play Next Video: 次の動画を再生
+  Reverse Playlist: 再生リストを逆順にする
+  Shuffle Playlist: 再生リストをシャッフル
   Loop Playlist: 再生リストのループ
   Starting soon, please refresh the page to check again: すぐに再生されます、ページを再読み込みしてお待ちください
   Audio:
@@ -775,7 +797,7 @@ Video:
   Open Channel in Invidious: Invidious でチャンネル表示
   Copy YouTube Channel Link: YouTube チャンネルへのリンクのコピー
   Open Channel in YouTube: YouTube でチャンネル表示
-  Started streaming on: ライブ配信の開始
+  Started streaming on: ライブ開始日
   Streamed on: ライブ配信
   Video has been removed from your saved list: 動画を保存一覧から削除しました
   Video has been saved: 動画を保存しました
@@ -795,18 +817,18 @@ Video:
     OpeningTemplate: '{externalPlayer} で {videoOrPlaylist} を開く...'
     Unsupported Actions:
       looping playlists: 再生リストのループ
-      shuffling playlists: シャッフル動画リスト
-      reversing playlists: 動画リストを反転させる
+      shuffling playlists: シャッフル再生リスト
+      reversing playlists: 再生リストを反転させる
       opening specific video in a playlist (falling back to opening the video): 再生リストで特定のビデオを開く
         (ビデオを開く前にフォールバック)
-      opening playlists: 動画リストを開く
+      opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセットで動画の再生
     UnsupportedActionTemplate: '{externalPlayer} はサポートしていません: {action}'
     playlist: 再生リスト
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
-  Premieres on: プレミア公開中
+  Premieres on: プレミア公開日時
   Stats:
     player resolution: 表示領域
     fps: FPS
@@ -830,9 +852,9 @@ Video:
   Premieres: プレミア公開
   Show Super Chat Comment: Super Chat のコメント表示
   Scroll to Bottom: 下までスクロール
-  Upcoming: 今後の配信予定
+  Upcoming: 近日公開
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
-  Pause on Current Video: 現在の動画の一時停止
+  Pause on Current Video: 現在の動画を一時停止
   Hide Channel: チャンネルを非表示
   Unhide Channel: チャンネルを表示
   More Options: その他の設定
@@ -854,7 +876,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: 動画リスト
+  Playlist: 再生リスト
   Sort By:
     Custom: カスタム
     VideoTitleDescending: タイトル（Z-A）
@@ -862,9 +884,9 @@ Playlist:
     DateAddedNewest: 最近の追加された順
     AuthorAscending: 著者名（A-Z）
     AuthorDescending: 著者名（Z-A）
-    VideoTitleAscending: 著者名（A-Z）
+    VideoTitleAscending: タイトル（A-Z）
     Sort By: 並び替え
-Toggle Theatre Mode: 'サイズ変更'
+Toggle Theatre Mode: 'シアターモードの切替'
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -892,7 +914,7 @@ Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
   Click to View Comments: 'コメント表示'
-  Getting comment replies, please wait: 'コメント返信の取得中。しばらくお待ちください'
+  Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
   Show Comments: 'コメント表示'
   Hide Comments: 'コメント非表示'
   # Context: View 10 Replies, View 1 Reply
@@ -900,19 +922,19 @@ Comments:
   Hide: '非表示'
   Replies: '返信'
   Reply: '返信'
-  There are no comments available for this video: 'この動画へのコメントはありません'
+  There are no comments available for this video: 'この動画にはコメントがありません'
   Load More Comments: 'もっと見る'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
   No more comments available: これ以上のコメントはありません
   Sort by: 並べ替え
-  Show More Replies: その他の返信を表示する
+  Show More Replies: 返信をもっと見る
   And others: その他
   Pinned by: ピン留め
   From {channelName}: '{channelName} から'
   Member: メンバー
-  Hearted: ハート付
+  Hearted: ハート
   View {replyCount} replies: '{replyCount} 件の返信を表示'
   Subscribed: チャンネル登録済み
 Up Next: '次の動画'
@@ -927,10 +949,10 @@ Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
 Shuffle is now disabled: 'シャッフル再生を無効にしました'
 Shuffle is now enabled: 'シャッフル再生を有効にしました'
-Playing Next Video: '次の動画の再生'
+Playing Next Video: '次の動画を再生'
 Playing Previous Video: '前の動画を再生'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
-'The playlist has ended. Enable loop to continue playing': '再生リストの最後に到達しました。再生を続けるにはループを有効にします'
+'The playlist has ended. Enable loop to continue playing': '再生リストが終了しました。再生を続けるにはループを有効にしてください'
 
 Yes: 'はい'
 No: 'いいえ'
@@ -939,15 +961,15 @@ Profile:
   '{profile} is now the active profile': '{profile} プロファイルに変更しました'
   Your default profile has been changed to your primary profile: 起動時のプロファイルを、上位のプロファイルに変更しました
   Removed {profile} from your profiles: プロファイルから {profile} を削除しました
-  Your default profile has been set to {profile}: 起動時のプロファイルを {profile} に設定しました
+  Your default profile has been set to {profile}: 標準プロファイルが{profile}に設定されました
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
-  Profile could not be found: プロファイルはありません
+  Profile could not be found: プロファイルが見つかりません
   All subscriptions will also be deleted.: すべての登録チャンネルも削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
-  Make Default Profile: 起動時のプロファイルに設定
+  Make Default Profile: 標準のプロファイルに設定
   Create Profile: プロファイルの作成
   Update Profile: プロファイルの更新
   Profile Preview: プロファイルのプレビュー
@@ -965,30 +987,35 @@ Profile:
   Select All: すべて選択
   Other Channels: ほかのチャンネル
   Subscription List: 登録チャンネル一覧
-  '{number} selected': '{number} 項目選択'
+  '{number} selected': '{number} 件選択済み'
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : これはメインのプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
+  : これはあなたのメインのプロファイルです。選択したチャンネルを本当に削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
-  Profile Settings: プロファイル設定
-  Toggle Profile List: プロファイル一覧の切り替え
+  Profile Settings: プロファイルの設定
+  Toggle Profile List: プロファイル一覧の切替
+  Create Profile Name: プロファイル名を作成
+  Profile Name: プロファイル名
+  Edit Profile Name: プロファイル名を編集
+  Close Profile Dropdown: プロフィールドロップダウンを閉じる
+  Open Profile Dropdown: プロフィールドロップダウンを開く
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
 Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber}
-  配信中！　詳細はクリックして確認してください
+  が利用可能！　詳細はこちらをクリック
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると,、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
+    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
       は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
-    Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、サブスクリプション
+    Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、登録チャンネル
       フィードを自動的に取得します。
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
-    Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
-      サーバーから取得した動画形式ではなく、内部 API で取得した旧形式を使用します。Invidious サーバーから取得する動画が、youtube の視聴制限国に該当して再生できないことがあるので回避します。
+    Force Local Backend for Legacy Formats: これは、Invidious API が有効の場合にのみ機能します。有効にすると内部APIが実行され、Invidiousが返す形式ではなく、その内部APIが返す旧形式を使用します。Invidious
+      から返された動画が国の制限で再生できない場合に役立ちます。
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます。
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
@@ -997,8 +1024,8 @@ Tooltips:
       AV1形式を使用できない場合、プレイヤーはDASH H.264形式を自動で使用します。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
-    Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
-      API」とは、Invidious を用いたサーバーに接続して取得する方法です。
+    Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。
+      Invidious API は、 Invidious サーバーへの接続が必要です。
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
@@ -1007,8 +1034,8 @@ Tooltips:
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   External Player Settings:
     Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
-    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（動画リストの反転など）に警告を抑制します。
-    Custom External Player Executable: デフォルトでは、FreeTube　は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
+    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストの反転など）に警告を抑制します。
+    Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
@@ -1034,18 +1061,18 @@ Hashtags have not yet been implemented, try again later: ハッシュタグは�
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
-Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されています
+Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されました
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
 Search Bar:
   Clear Input: 入力の消去
 Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"{videoTitle}" のダウンロードを開始します'
-Downloading has completed: '"{videoTitle}" のダウンロードが終了しました'
+Downloading has completed: '"{videoTitle}" のダウンロードが完了しました'
 Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除
-  Unsubscribed: '{channelName} のチャンネル登録を解除しました'
+  Unsubscribed: '「{channelName} 」のチャンネル登録を解除しました'
   Title: チャンネル一覧
   Search bar placeholder: チャンネル検索
   Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
@@ -1068,11 +1095,11 @@ Ok: オーケー
 Hashtag:
   Hashtag: ハッシュタグ
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
-Playlist will pause when current video is finished: 現在のビデオが終了すると、再生リストは一旦停止します
-Playlist will not pause when current video is finished: 現在のビデオが終了しても、再生リストは一旦停止しません
+Playlist will pause when current video is finished: 現在の動画が終了すると、再生リストが一時停止します
+Playlist will not pause when current video is finished: 現在の動画が終了しても、再生リストは一旦停止しません
 Close Banner: バナーを閉じる
 Go to page: '{page} を表示'
-Search character limit: 検索クエリは {searchCharacterLimit} 文字制限を超えています
+Search character limit: 検索クエリが {searchCharacterLimit} 文字の制限を超えています
 Feed:
   Feed Last Updated: '{feedName} フィードの最終更新日時: {date}'
   Refresh Feed: '{subscriptionName} の更新'
@@ -1083,6 +1110,7 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: 字幕
+    Closed Captions: クローズドキャプション
 Yes, Delete: はい、削除します
 Yes, Restart: はい、再起動します
 Yes, Open Link: はい、リンクを開きます
@@ -1091,7 +1119,7 @@ checkmark: ✓
 Moments Ago: たった今
 Age Restricted:
   This video is age restricted: この動画には年齢制限があります
-  This channel is age restricted: このチャンネルは年齢制限があります
+  This channel is age restricted: このチャンネルには年齢制限があります
 Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました: "{url}"。'
