@@ -111,6 +111,7 @@ export default defineComponent({
     },
 
     thumbnailURL: function(originalURL) {
+      if (originalURL == null) { return null }
       let newURL = originalURL
       // Sometimes relative protocol URLs are passed in
       if (originalURL.startsWith('//')) {
