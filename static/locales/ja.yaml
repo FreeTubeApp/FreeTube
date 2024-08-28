@@ -507,7 +507,7 @@ Settings:
     Distraction Free Settings: 集中モードの設定
     Hide Active Subscriptions: 登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
-    Hide Video Description: 動画説明の非表示
+    Hide Video Description: 動画概要欄の非表示
     Hide Comments: コメントの非表示
     Hide Live Streams: ライブ配信の非表示
     Hide Sharing Actions: 共有ボタンの非表示
@@ -1016,14 +1016,14 @@ Tooltips:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
     Force Local Backend for Legacy Formats: これは、Invidious API が有効の場合にのみ機能します。有効にすると内部APIが実行され、Invidiousが返す形式ではなく、その内部APIが返す旧形式を使用します。Invidious
       から返された動画が国の制限で再生できない場合に役立ちます。
-    Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます。
+    Proxy Videos Through Invidious: YouTube に直接接続せず、Invidious に接続します。これによりAPIの設定が上書きされます。
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
-    Skip by Scrolling Over Video Player: スクロール ホイールを使用して、ビデオ、MPV スタイルをスキップします。
+    Skip by Scrolling Over Video Player: MPVスタイルでスクロールホイールを使って動画をスキップします。
     Allow DASH AV1 formats: DASH H.264形式よりもDASH AV1形式の方がきれいに見える可能性がありますが、再生にはより多くの処理能力が必要となります。DASH
       AV1形式を使用できない場合、プレイヤーはDASH H.264形式を自動で使用します。
   General Settings:
-    Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
+    Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious のインスタンスです。
     Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。
       Invidious API は、 Invidious サーバーへの接続が必要です。
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
@@ -1034,13 +1034,13 @@ Tooltips:
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   External Player Settings:
     Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
-    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストの反転など）に警告を抑制します。
+    Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
-    Ignore Default Arguments: 動画のURL以外のデフォルトの引数（再生速度、再生リストのURLなど）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
+    Ignore Default Arguments: 動画の URL 以外のデフォルトの引数（再生速度、再生リストの URL など）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
   Experimental Settings:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
