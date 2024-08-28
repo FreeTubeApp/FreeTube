@@ -264,6 +264,7 @@ History:
   Your history list is currently empty.: 'Zure historia-zerrenda hutsik dago une honetan.'
   Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
   Search bar placeholder: Bilatu historikoan
+  Case Sensitive Search: Maiuskulak eta minuskulak bereizten ditu
 Settings:
   # On Settings Page
   Settings: 'Ezarpenak'
