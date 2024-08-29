@@ -110,7 +110,7 @@ export default defineComponent({
       if (!this.generalAutoLoadMorePaginatedItemsEnabled) {
         return false
       }
-      if (!this.videoPlayerReady) { return false }
+      if (!this.videoPlayerReady && !this.isPostComments) { return false }
 
       return {
         callback: (isVisible, _entry) => {
