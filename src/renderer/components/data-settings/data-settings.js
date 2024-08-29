@@ -160,7 +160,7 @@ export default defineComponent({
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(profileObject.subscriptions)
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.filter((sub, index) => {
               const profileIndex = this.primaryProfile.subscriptions.findIndex((x) => {
-                return x.name === sub.name
+                return x.id === sub.id
               })
 
               return profileIndex === index
@@ -176,7 +176,7 @@ export default defineComponent({
               existingProfile.subscriptions = existingProfile.subscriptions.concat(profileObject.subscriptions)
               existingProfile.subscriptions = existingProfile.subscriptions.filter((sub, index) => {
                 const profileIndex = existingProfile.subscriptions.findIndex((x) => {
-                  return x.name === sub.name
+                  return x.id === sub.id
                 })
 
                 return profileIndex === index
@@ -189,7 +189,7 @@ export default defineComponent({
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(profileObject.subscriptions)
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.filter((sub, index) => {
               const profileIndex = this.primaryProfile.subscriptions.findIndex((x) => {
-                return x.name === sub.name
+                return x.id === sub.id
               })
 
               return profileIndex === index
