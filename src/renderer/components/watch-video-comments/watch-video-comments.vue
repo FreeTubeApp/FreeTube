@@ -264,7 +264,16 @@
     <div
       v-else-if="showComments && !isLoading"
     >
-      <h3 class="noCommentMsg">
+      <h3
+        v-if="isPostComments"
+        class="noCommentMsg"
+      >
+        {{ $t("Comments.There are no comments available for this post") }}
+      </h3>
+      <h3
+        v-else
+        class="noCommentMsg"
+      >
         {{ $t("Comments.There are no comments available for this video") }}
       </h3>
     </div>
