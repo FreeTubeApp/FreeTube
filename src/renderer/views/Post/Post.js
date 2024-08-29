@@ -36,7 +36,6 @@ export default defineComponent({
   },
   mounted: async function () {
     if (this.isInvidiousAllowed) {
-      this.isLoading = true
       this.id = this.$route.params.id
       this.authorId = this.$route.query.authorId
       await this.loadDataInvidiousAsync()
