@@ -44,12 +44,6 @@ export default defineComponent({
     }
   },
   computed: {
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
-    },
-    backendFallback: function () {
-      return this.$store.getters.getBackendFallback
-    },
     profileList: function () {
       return this.$store.getters.getProfileList
     },
@@ -208,7 +202,7 @@ export default defineComponent({
       showToast(this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported'))
     },
 
-    importCsvYouTubeSubscriptions: async function(textDecode) { // first row = header, last row = empty
+    importCsvYouTubeSubscriptions: function(textDecode) { // first row = header, last row = empty
       const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
         return sub !== ''
       })
@@ -250,7 +244,7 @@ export default defineComponent({
       this.updateShowProgressBar(false)
     },
 
-    importYouTubeSubscriptions: async function (textDecode) {
+    importYouTubeSubscriptions: function (textDecode) {
       const subscriptions = []
       let count = 0
 
@@ -288,7 +282,7 @@ export default defineComponent({
       this.updateShowProgressBar(false)
     },
 
-    importOpmlYouTubeSubscriptions: async function (data) {
+    importOpmlYouTubeSubscriptions: function (data) {
       let xmlDom
       const domParser = new DOMParser()
       try {
@@ -362,7 +356,7 @@ export default defineComponent({
       this.updateShowProgressBar(false)
     },
 
-    importNewPipeSubscriptions: async function (newPipeData) {
+    importNewPipeSubscriptions: function (newPipeData) {
       if (typeof newPipeData.subscriptions === 'undefined') {
         showToast(this.$t('Settings.Data Settings.Invalid subscriptions file'))
 
