@@ -202,24 +202,24 @@ export async function invidiousGetCommunityPosts(channelId, continuation = null)
   return { posts: response.comments, continuation: response.continuation ?? null }
 }
 
-export async function getInvidiousCommunityPost(postId, channelId = null) {
+export async function getInvidiousCommunityPost(postId, authorId = null) {
   const payload = {
     resource: 'post',
     id: postId,
   }
 
-  if (channelId == null) {
-    channelId = await invidiousGetChannelId('https://www.youtube.com/post/' + postId)
+  if (authorId == null) {
+    authorId = await invidiousGetChannelId('https://www.youtube.com/post/' + postId)
   }
 
   payload.params = {
-    ucid: channelId
+    ucid: authorId
   }
 
   const response = await invidiousAPICall(payload)
 
   const post = parseInvidiousCommunityData(response.comments[0])
-  post.authorId = channelId
+  post.authorId = authorId
 
   return post
 }

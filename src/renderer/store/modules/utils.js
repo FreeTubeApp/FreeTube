@@ -559,7 +559,7 @@ const actions = {
       case 'post': {
         const match = url.pathname.match(postPattern)
         const postId = match.groups.postId
-        const query = { ucid: url.searchParams.get('ucid') }
+        const query = { authorId: url.searchParams.get('ucid') }
         return {
           urlType: 'post',
           postId,
@@ -623,6 +623,16 @@ const actions = {
             subPath = 'about'
             break
           case 'community':
+            if (url.searchParams.has('lb')) {
+              // if it has the lb search parameter then it is linking a specific community post
+              const postId = url.searchParams.get('lb')
+              const query = { authorId: channelId }
+              return {
+                urlType: 'post',
+                postId,
+                query
+              }
+            }
             subPath = 'community'
             break
           default:
