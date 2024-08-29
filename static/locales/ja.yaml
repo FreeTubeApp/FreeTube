@@ -1058,7 +1058,7 @@ Playing Next Video Interval: すぐに次の動画を再生します。クリッ
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
 Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
-Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
+Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL タイプのため、アプリで開くことができません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
 Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されました
