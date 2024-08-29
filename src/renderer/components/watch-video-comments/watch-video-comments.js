@@ -174,7 +174,7 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
         if (!this.isPostComments) {
           this.getCommentDataInvidious()
         } else {
@@ -189,7 +189,7 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
           if (!this.isPostComments) {
             this.getCommentDataInvidious()
           } else {
@@ -210,7 +210,7 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === 'invidious' || this.isPostComments) {
         if (!this.isPostComments) {
           this.getCommentRepliesInvidious(index)
         } else {
