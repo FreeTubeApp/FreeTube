@@ -1595,7 +1595,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.goBack()
+              browserWindow.webContents.navigationHistory.goBack()
             },
             type: 'normal',
           },
@@ -1605,7 +1605,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.goForward()
+              browserWindow.webContents.navigationHistory.goForward()
             },
             type: 'normal',
           },
