@@ -23,6 +23,7 @@
     >
       <span
         class="changeLogText"
+        lang="en"
         v-html="updateChangelog"
       />
       <ft-flex-box>
