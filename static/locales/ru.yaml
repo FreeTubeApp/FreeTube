@@ -42,7 +42,7 @@ Global:
     Watching Count: 1 смотрящий | {count} смотрящих
     Channel Count: 1 канал | {count} канала(ов)
   Input Tags:
-    Length Requirement: Длина тега должна составлять не менее {числа} символов
+    Length Requirement: Длина тега должна составлять не менее {number} символов
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -176,15 +176,15 @@ User Playlists:
       This video cannot be moved down.: Это видео нельзя передвинуть вниз.
       Video has been removed: Видео было удалено
       Reverted to use {oldPlaylistName} for quick bookmark: Переход на использование
-        {старого имени плейлиста} для быстрого создания закладок
+        {oldPlaylistName} для быстрого создания закладок
       This playlist is now used for quick bookmark: Этот список воспроизведения теперь
         используется для быстрого создания закладок
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот
-        плейлист теперь используется для быстрой закладки вместо {старого имени плейлиста}.
+        плейлист теперь используется для быстрой закладки вместо {oldPlaylistName}.
         Нажмите здесь, чтобы отменить
       This playlist is already being used for quick bookmark.: Этот плейлист уже используется
         для быстрого создания закладок.
-      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {плейлистНазвание}
+      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {playlistName}
         - это новый плейлист быстрых закладок.
     Search for Videos: Поиск видео
   AddVideoPrompt:
@@ -196,11 +196,11 @@ User Playlists:
       "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку
         | {videoCount} видео добавлено в 1 подборку
       "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено
-        в {плейлистКоличество} плейлистов | {видеоКоличество} видео добавлено в {плейлистКоличество}
+        в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount}
         плейлистов
     Select a playlist to add your N videos to: Выбери подборку на добавление видео
       | Выбери подборку на добавление {videoCount} видео в неё
-    Added {count} Times: Добавлено {количество} Время | Добавлено {количество} Времени
+    Added {count} Times: Добавлено {count} Время | Добавлено {count} Времени
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       Видео будут добавлены'
@@ -1216,22 +1216,21 @@ Age Restricted:
   This channel is age restricted: Канал с возрастным ограничением
   This video is age restricted: Видео с возрастным ограничением
 Tag already exists: «{tagName}» метка уже существует
-Search character limit: Поисковый запрос превышает лимит символов {поискОграничение
-  символов}
+Search character limit: Поисковый запрос превышает лимит символов {searchCharacterLimit}
 Moments Ago: несколько минут назад
 Yes, Delete: Да, удалить
 Yes, Restart: Да, перезагрузка
 Yes, Open Link: Да, открытая ссылка
 Cancel: Отмена
 checkmark: ✓
-Display Label: '{метка}: {значение}'
-Go to page: Перейти на {страницу}
+Display Label: '{label}: {value}'
+Go to page: Перейти на {page}
 Close Banner: Закрыть баннер
 Feed:
-  Feed Last Updated: '{фидНазвание} фид последний раз обновлялся: {дата}'
-  Refresh Feed: Обновить {имя подписки}
+  Feed Last Updated: '{feedName} фид последний раз обновлялся: {date}'
+  Refresh Feed: Обновить {subscriptionName}
 Trimmed input must be at least N characters long: Обрезанный ввод должен быть длиной
-  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {длина} символов
+  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {length} символов
 Search Listing:
   Label:
     4K: 4K

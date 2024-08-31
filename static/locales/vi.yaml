@@ -43,7 +43,7 @@ Global:
     Video Count: 1 video | {count} video
     Watching Count: 1 lượt xem | {count} lượt xem
   Input Tags:
-    Length Requirement: 1 đang xem | {count} đang xem
+    Length Requirement: 1 đang xem | {number} đang xem
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:

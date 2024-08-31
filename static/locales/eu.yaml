@@ -42,7 +42,7 @@ Global:
   Live: Zuzenekoa
   Shorts: Laburrak
   Input Tags:
-    Length Requirement: Etiketak {zenbaki} karaktere izan behar ditu gutxienez
+    Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
@@ -119,7 +119,7 @@ Subscriptions:
   Load More Posts: Kargatu mezu gehiago
   Subscriptions Tabs: Harpidetzen fitxak
   All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia
-    ikusteko, erakutsi fitxa batzuk "{azpisection}" ataleko "{settingsSection}"-ean.
+    ikusteko, erakutsi fitxa batzuk "{subsection}" ataleko "{settingsSection}"-ean.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -1078,7 +1078,7 @@ Tooltips:
       zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik
       kenduta.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak
-      ordezkatzen du, "{settingsSection}" ataleko "{azpisekzioa}" atalean
+      ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du
       eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko
