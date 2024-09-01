@@ -145,9 +145,6 @@ export default defineComponent({
     },
 
     ...mapActions([
-      //'batchUpdateSubscriptionDetails',
-      //'updateShowProgressBar',
-      //'updateSubscriptionVideosCacheByChannel',
       'updateLastVideoRefreshTimestampByProfile'
     ])
   }
