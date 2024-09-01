@@ -42,7 +42,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            :icon="['fas', 'rss']"
+            :icon="['fas', 'thumbs-up']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
