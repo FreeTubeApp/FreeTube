@@ -218,11 +218,10 @@ export default defineComponent({
 
           case 'invalid_url':
           default: {
-            console.log("search1")
-            let search_history = Array.from(new Set(JSON.parse(localStorage.getItem("search-history") || "[]")))
-            search_history.push(queryText)
-            localStorage.setItem("search-history", JSON.stringify(search_history))
-            
+            const searchHistory = Array.from(new Set(JSON.parse(localStorage.getItem('search-history') || '[]')))
+            searchHistory.push(queryText)
+            localStorage.setItem('search-history', JSON.stringify(searchHistory))
+
             openInternalPath({
               path: `/search/${encodeURIComponent(queryText)}`,
               query: {

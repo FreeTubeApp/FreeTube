@@ -24,7 +24,7 @@
         v-if="recommendedList.length === 0"
         class="message"
       >
-        {{ 'Your search history is currently empty. Start with some search to see recommendations.' }}
+        {{ $t("Your search history is currently empty. Start with some search to see recommendations.") }}
       </p>
       <p
         v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"

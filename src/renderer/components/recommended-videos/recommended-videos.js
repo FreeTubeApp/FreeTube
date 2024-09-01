@@ -2,10 +2,9 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import RecommendedTabUI from '../recommended-tab-ui/recommended-tab-ui.vue'
 
-import { setPublishedTimestampsInvidious, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
-import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
-import { getLocalChannelVideos } from '../../helpers/api/local'
-import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
+import { setPublishedTimestampsInvidious, getRelativeTimeFromDate } from '../../helpers/utils'
+import { invidiousAPICall } from '../../helpers/api/invidious'
+import { updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
 export default defineComponent({
   name: 'RecommendedVideos',
@@ -50,7 +49,7 @@ export default defineComponent({
     activeProfileId: function () {
       return this.activeProfile._id
     },
-    
+
     activeSubscriptionList: function () {
       return this.activeProfile.subscriptions
     },
@@ -78,11 +77,9 @@ export default defineComponent({
     },
 
     loadVideosForSubscriptionsFromRemote: async function () {
-      console.log("loadVideosForSubscriptionsFromRemote")
-      if (localStorage.getItem("search-history") === null) {
+      if (localStorage.getItem('search-history') === null) {
         this.isLoading = false
         this.videoList = []
-        console.log("search-history is empty")
         return
       }
 
@@ -93,12 +90,9 @@ export default defineComponent({
       this.setProgressBarPercentage(0)
       this.attemptedFetch = true
 
-      let videos, name, thumbnailUrl
+      const result = await this.getChannelVideosInvidiousScraper()
 
-      ({ videos, name, thumbnailUrl } = await this.getChannelVideosInvidiousScraper())
-      let videoListFromRemote = videos
-  
-      videoList.push(...videoListFromRemote)
+      videoList.push(...result.videos)
       this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
 
       this.videoList = updateVideoListAfterProcessing(videoList)
@@ -118,38 +112,53 @@ export default defineComponent({
 
     getChannelVideosInvidiousScraper: function (failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-      
-        let search_history = JSON.parse(localStorage.getItem("search-history"))
-        let index = Math.round(Math.random() * (search_history.length - 1))
-        let query_term = search_history[index]
-        
-        const recommendedPayload = {
-          resource: 'search',
-          params: {
-            q: query_term + " sort:date"
+        const searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
+        const numTerms = Math.min(4, searchHistory.length);
+        const selectedTerms = [];
+
+        // Select up to 4 random search terms
+        while (selectedTerms.length < numTerms) {
+          const index = Math.floor(Math.random() * searchHistory.length);
+          if (!selectedTerms.includes(searchHistory[index])) {
+            selectedTerms.push(searchHistory[index]);
           }
         }
 
-        invidiousAPICall(recommendedPayload).then((videos) => {
-          console.log("invidiousAPICall result", videos)
-          setPublishedTimestampsInvidious(videos)
+        const promises = selectedTerms.map(queryTerm => {
+          const recommendedPayload = {
+            resource: 'search',
+            params: {
+              q: queryTerm + ' sort:date'
+            }
+          };
 
-          let name
+          return invidiousAPICall(recommendedPayload).then(videos => {
+            setPublishedTimestampsInvidious(videos);
+            return videos;
+          }).catch(err => {
+            console.error(err);
+            return [];
+          });
+        });
 
-          if (videos.length > 0) {
-            name =videos.find(video => video.type === 'video' && video.author).author
+        Promise.all(promises).then(results => {
+          const allVideos = results.flat();
+          let name;
+
+          if (allVideos.length > 0) {
+            name = allVideos.find(video => video.type === 'video' && video.author).author;
           }
 
           resolve({
             name,
-            videos: videos
-          })
-        }).catch((err) => {
-          console.error(err)
-        })
-      })
+            videos: allVideos
+          });
+        }).catch(err => {
+          reject(err);
+        });
+      });
     },
-    
+
     ...mapActions([
       'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',

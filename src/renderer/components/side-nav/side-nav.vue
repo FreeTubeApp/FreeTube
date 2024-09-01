@@ -36,7 +36,7 @@
         class="navOption topNavOption mobileShow "
         role="button"
         to="/recommended"
-        :title="Recommended"
+        :title="$t('Recommended.Recommended')"
       >
         <div
           class="thumbnailContainer"
@@ -52,7 +52,7 @@
           v-if="!hideText"
           class="navLabel"
         >
-          Recommended
+          {{ $t("Recommended.Recommended") }}
         </p>
       </router-link>
       <router-link
