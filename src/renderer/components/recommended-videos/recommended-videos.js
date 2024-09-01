@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import RecommendedTabUI from '../recommended-tab-ui/recommended-tab-ui.vue'
 
 import { setPublishedTimestampsInvidious, getRelativeTimeFromDate } from '../../helpers/utils'
@@ -73,7 +73,6 @@ export default defineComponent({
     loadVideosFromCacheSometimes() {
       this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.loadRecommendationsFromRemote()
-      //this.maybeLoadRecommendationsFromRemote()
     },
 
     loadRecommendationsFromRemote: async function () {
@@ -85,9 +84,6 @@ export default defineComponent({
 
       const videoList = []
       this.isLoading = true
-
-      //this.updateShowProgressBar(true)
-      //this.setProgressBarPercentage(0)
       this.attemptedFetch = true
 
       const result = await this.getRecommendedVideos()
@@ -101,15 +97,15 @@ export default defineComponent({
 
     getRecommendedVideos: function (failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        const searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
-        const numTerms = Math.min(4, searchHistory.length);
-        const selectedTerms = [];
+        const searchHistory = JSON.parse(localStorage.getItem('search-history')) || []
+        const numTerms = Math.min(4, searchHistory.length)
+        const selectedTerms = []
 
         // Select up to 4 random search terms
         while (selectedTerms.length < numTerms) {
-          const index = Math.floor(Math.random() * searchHistory.length);
+          const index = Math.floor(Math.random() * searchHistory.length)
           if (!selectedTerms.includes(searchHistory[index])) {
-            selectedTerms.push(searchHistory[index]);
+            selectedTerms.push(searchHistory[index])
           }
         }
 
@@ -119,33 +115,33 @@ export default defineComponent({
             params: {
               q: queryTerm + ' sort:date'
             }
-          };
+          }
 
           return invidiousAPICall(recommendedPayload).then(videos => {
-            setPublishedTimestampsInvidious(videos);
-            return videos;
+            setPublishedTimestampsInvidious(videos)
+            return videos
           }).catch(err => {
-            console.error(err);
-            return [];
-          });
-        });
+            console.error(err)
+            return []
+          })
+        })
 
         Promise.all(promises).then(results => {
-          const allVideos = results.flat();
-          let name;
+          const allVideos = results.flat()
+          let name
 
           if (allVideos.length > 0) {
-            name = allVideos.find(video => video.type === 'video' && video.author).author;
+            name = allVideos.find(video => video.type === 'video' && video.author).author
           }
 
           resolve({
             name,
             videos: allVideos
-          });
+          })
         }).catch(err => {
-          reject(err);
-        });
-      });
+          reject(err)
+        })
+      })
     },
 
     ...mapActions([
@@ -153,10 +149,6 @@ export default defineComponent({
       //'updateShowProgressBar',
       //'updateSubscriptionVideosCacheByChannel',
       'updateLastVideoRefreshTimestampByProfile'
-    ]),
-
-    //...mapMutations([
-    //  'setProgressBarPercentage'
-    //])
+    ])
   }
 })
