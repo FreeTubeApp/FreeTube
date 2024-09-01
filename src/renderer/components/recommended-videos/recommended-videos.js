@@ -71,12 +71,12 @@ export default defineComponent({
   },
   methods: {
     loadVideosFromCacheSometimes() {
-      // clear timestamp if not all entries are present in the cache
       this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
-      this.maybeLoadVideosForSubscriptionsFromRemote()
+      this.loadRecommendationsFromRemote()
+      //this.maybeLoadRecommendationsFromRemote()
     },
 
-    loadVideosForSubscriptionsFromRemote: async function () {
+    loadRecommendationsFromRemote: async function () {
       if (localStorage.getItem('search-history') === null) {
         this.isLoading = false
         this.videoList = []
@@ -86,11 +86,11 @@ export default defineComponent({
       const videoList = []
       this.isLoading = true
 
-      this.updateShowProgressBar(true)
-      this.setProgressBarPercentage(0)
+      //this.updateShowProgressBar(true)
+      //this.setProgressBarPercentage(0)
       this.attemptedFetch = true
 
-      const result = await this.getChannelVideosInvidiousScraper()
+      const result = await this.getRecommendedVideos()
 
       videoList.push(...result.videos)
       this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
@@ -99,18 +99,7 @@ export default defineComponent({
       this.isLoading = false
     },
 
-    maybeLoadVideosForSubscriptionsFromRemote: async function () {
-      if (this.fetchSubscriptionsAutomatically) {
-        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-        await this.loadVideosForSubscriptionsFromRemote()
-      } else {
-        this.videoList = []
-        this.attemptedFetch = false
-        this.isLoading = false
-      }
-    },
-
-    getChannelVideosInvidiousScraper: function (failedAttempts = 0) {
+    getRecommendedVideos: function (failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
         const numTerms = Math.min(4, searchHistory.length);
@@ -160,14 +149,14 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'batchUpdateSubscriptionDetails',
-      'updateShowProgressBar',
-      'updateSubscriptionVideosCacheByChannel',
+      //'batchUpdateSubscriptionDetails',
+      //'updateShowProgressBar',
+      //'updateSubscriptionVideosCacheByChannel',
       'updateLastVideoRefreshTimestampByProfile'
     ]),
 
-    ...mapMutations([
-      'setProgressBarPercentage'
-    ])
+    //...mapMutations([
+    //  'setProgressBarPercentage'
+    //])
   }
 })
