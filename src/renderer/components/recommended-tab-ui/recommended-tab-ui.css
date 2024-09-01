@@ -1,0 +1,15 @@
+.card {
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
+}
+
+.message {
+  color: var(--tertiary-text-color);
+}
+
+@media only screen and (width <= 680px) {
+  .card {
+    inline-size: 90%;
+  }
+}
