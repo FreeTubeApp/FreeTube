@@ -143,7 +143,7 @@
           /> {{ formattedCommentCount }}</span>
       </router-link>
       <span
-        v-else
+        v-else-if="commentCount != null"
         class="commentCount"
         :title="$tc('Global.Counts.Comment Count', commentCount, {count: formattedCommentCount})"
         :aria-label="$tc('Global.Counts.Comment Count', commentCount, {count: formattedCommentCount})"

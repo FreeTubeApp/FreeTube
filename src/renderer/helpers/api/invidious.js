@@ -220,6 +220,7 @@ export async function getInvidiousCommunityPost(postId, authorId = null) {
 
   const post = parseInvidiousCommunityData(response.comments[0])
   post.authorId = authorId
+  post.commentCount = null
 
   return post
 }

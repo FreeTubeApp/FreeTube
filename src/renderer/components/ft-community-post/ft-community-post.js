@@ -44,7 +44,7 @@ export default defineComponent({
       voteCount: 0,
       formattedVoteCount: '',
       postContent: '',
-      commentCount: 0,
+      commentCount: null,
       formattedCommentCount: '',
       author: '',
       authorId: '',
