@@ -5,7 +5,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getLocalChannel } from '../../helpers/api/local'
+import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
 import { ctrlFHandler } from '../../helpers/utils'
 
 export default defineComponent({
@@ -111,6 +111,7 @@ export default defineComponent({
     },
 
     thumbnailURL: function(originalURL) {
+      if (originalURL == null) { return null }
       let newURL = originalURL
       // Sometimes relative protocol URLs are passed in
       if (originalURL.startsWith('//')) {
@@ -140,7 +141,7 @@ export default defineComponent({
           getLocalChannel(channel.id).then(response => {
             if (!response.alert) {
               this.updateSubscriptionDetails({
-                channelThumbnailUrl: this.thumbnailURL(response.header.author.thumbnails[0].url),
+                channelThumbnailUrl: this.thumbnailURL(parseLocalChannelHeader(response).thumbnailUrl),
                 channelName: channel.name,
                 channelId: channel.id
               })

@@ -541,8 +541,6 @@ Settings:
       kanály a profily byly úspěšně importovány'
     All subscriptions have been successfully imported: 'Všechny odebírané kanály byly
       úspěšně importovány'
-    One or more subscriptions were unable to be imported: 'Jednu nebo více položek
-      odebíraných kanálů nebylo možno importovat'
     Invalid subscriptions file: 'Vadný soubor odebíraných kanálů'
     This might take a while, please wait: 'Tato akce může chvíli trvat, prosím počkejte'
     Invalid history file: 'Vadný soubor s historií'

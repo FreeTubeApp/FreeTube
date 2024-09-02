@@ -333,8 +333,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: Suscripciones
       y perfiles se importaron con éxito
     Unable to read file: No se pudo leer el archivo
-    One or more subscriptions were unable to be imported: Una o más suscripciones
-      no se pudo importar
     Invalid subscriptions file: Archivo de suscripciones no válido
     History File: Archivo de historial
     Profile object has insufficient data, skipping item: El objeto de perfil tiene
