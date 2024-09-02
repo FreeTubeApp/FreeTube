@@ -935,10 +935,10 @@ Video:
   Hide Channel: Nascondi canale
   More Options: Più opzioni
   Player:
-    TranslatedCaptionTemplate: '{language} (tradotto da: {originalLanguage})'
+    TranslatedCaptionTemplate: '{language} (tradotto da "{originalLanguage}")'
     Audio Tracks: Tracce audio
     Theatre Mode: Modalità teatro
-    Exit Theatre Mode: Esci dalla modalità teatro
+    Exit Theatre Mode: Esci dalla Modalità teatro
     Show Stats: Mostra statistiche
     Stats:
       Media Formats: 'Formati multimediali: {formats}'
@@ -946,17 +946,23 @@ Video:
       Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
       Stats: Statistiche
       Video ID: 'ID video: {videoId}'
-      Bitrate: 'Velocità di trasmissione: {bitrate} kb/s'
+      Bitrate: 'Bitrate: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'
-      Bandwidth: 'Larghezza di banda: {bandwidth} kb/s'
+      Bandwidth: 'Larghezza di banda: {bandwidth} kbps'
       Buffered: 'Bufferizzato: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Fotogrammi persi: {droppedFrames} / Fotogrammi
+        totali: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
     Hide Stats: Nascondi statistiche
     Full Window: Finestra intera
     Exit Full Window: Esci da Finestra intera
     Take Screenshot: Acquisisci screenshot
     You appear to be offline: Sembra che tu sia offline.
     Playback will resume automatically when your connection comes back: La riproduzione
-      riprenderà automaticamente quando la connessione tornerà.
+      riprenderà automaticamente quando verrà ripristinata la connessione.
+    Skipped segment: Segmento {segmentCategory} saltato
 Videos:
   #& Sort By
   Sort By:
@@ -994,6 +1000,8 @@ Change Format:
   Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
   Dash formats are not available for this video: I formati DASH non sono disponibili
+    per questo video
+  Legacy formats are not available for this video: I formati obsoleti non sono disponibili
     per questo video
 Share:
   Share Video: 'Condividi video'
