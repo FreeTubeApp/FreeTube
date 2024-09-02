@@ -949,6 +949,7 @@ Video:
       Bitrate: 'Velocità di trasmissione: {bitrate} kb/s'
       Volume: 'Volume: {volumePercentage}%'
       Bandwidth: 'Larghezza di banda: {bandwidth} kb/s'
+      Buffered: 'Bufferizzato: {bufferedPercentage}%'
     Hide Stats: Nascondi statistiche
     Full Window: Finestra intera
     Exit Full Window: Esci da Finestra intera
