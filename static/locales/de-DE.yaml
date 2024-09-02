@@ -953,6 +953,30 @@ Video:
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
   More Options: Weitere Optionen
+  Player:
+    Audio Tracks: Audiospuren
+    Theatre Mode: Theater-Modus
+    Exit Theatre Mode: Theater-Modus beenden
+    Full Window: Vollständiges Fenster
+    Take Screenshot: Bildschirmfoto aufnehmen
+    Show Stats: Statistiken anzeigen
+    Stats:
+      Stats: Statistiken
+      Video ID: 'Videokennung: {videoId}'
+      Media Formats: 'Medienformate: {formats}'
+      Resolution: 'Auflösung: {width}×{height}@{frameRate}'
+      Player Dimensions: 'Player-Dimensionen: {width}×{height}'
+      Bitrate: 'Bitrate: {bitrate} kb/s'
+      Volume: 'Lautstärke: {volumePercentage} %'
+      Bandwidth: 'Bandbreite: {bandwidth} kb/s'
+      Buffered: 'Pufferspeichern: {bufferedPercentage} %'
+    You appear to be offline: Sie scheinen offline zu sein.
+    Playback will resume automatically when your connection comes back: Die Wiedergabe
+      wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
+    Skipped segment: '{segmentCategory}-Segment ausgelassen'
+    TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
+    Exit Full Window: Vollständiges Fenster beenden
+    Hide Stats: Statistiken ausblenden
 Videos:
   #& Sort By
   Sort By:
@@ -991,6 +1015,8 @@ Change Format:
     nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
+  Legacy formats are not available for this video: Legacy-Formate sind nicht verfügbar
+    für dieses Video
 Share:
   Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
