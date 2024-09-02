@@ -303,7 +303,6 @@ Settings:
       Βίντεο
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
-    Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -776,11 +775,6 @@ Video:
   Published on: 'Δημοσιεύθηκε στις'
   Publicationtemplate: 'δημοσιεύθηκε πριν από {number} {unit}'
 #& Videos
-  Audio:
-    Best: Καλύτερο
-    High: Υψηλή
-    Medium: Μεσαία
-    Low: Χαμηλή
   Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε
     κάντε ανανέωση της σελίδας για επανέλεγχο
   audio only: μόνο ήχος
@@ -796,7 +790,6 @@ Video:
     λίστα σας
   Video has been saved: Το βίντεο έχει αποθηκευτεί
   Save Video: Αποθήκευση βίντεο
-  translated from English: μεταφράστηκε από τα Αγγλικά
   Sponsor Block category:
     intro: Εισαγωγή
     interaction: Αλληλεπίδραση
@@ -823,26 +816,6 @@ Video:
     OpeningTemplate: Άνοιγμα {videoOrPlaylist} σε {externalPlayer}...
     UnsupportedActionTemplate: 'Το {externalPlayer} δεν υποστηρίζει: {action}'
   Premieres on: Πρεμιέρες στις
-  Stats:
-    video id: Αναγνωριστικό του βίντεο (YouTube)
-    player resolution: Θύρα προβολής
-    volume: Ένταση ήχου
-    fps: FPS
-    out of: από
-    frame drop: Πτώση καρέ
-    bandwidth: Ταχύτητα σύνδεσης
-    Mimetype: Τύπος αρχείου
-    Video statistics are not available for legacy videos: Τα στατιστικά βίντεο δεν
-      είναι διαθέσιμα για βίντεο παλαιού τύπου
-    Video ID: Αναγνωριστικό βίντεο
-    Resolution: Ανάλυση
-    Player Dimensions: Διαστάσεις αναπαραγωγής βίντεο
-    Bitrate: Ρυθμός μεταβίβασης δεδομένων
-    Volume: Ένταση
-    Bandwidth: Εύρος ζώνης
-    Buffered: Φορτωμένο
-    Dropped / Total Frames: Πτωμένα / Συνολικά Καρέ
-  Skipped segment: Τμήμα που παραλείφθηκε
   Show Super Chat Comment: Εμφάνιση Σχολίου Super Chat
   Scroll to Bottom: Κύλιση προς τα Κάτω
   Premieres: Πρεμιέρες
@@ -992,10 +965,6 @@ Tooltips:
       ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
     Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε
       το βίντεο, στυλ MPV.
-    Allow DASH AV1 formats: Οι μορφές DASH AV1 μπορεί να φαίνονται καλύτερες από τις
-      μορφές DASH H.264. Οι μορφές DASH AV1 απαιτούν περισσότερη ισχύ για την αναπαραγωγή!
-      Δεν είναι διαθέσιμα σε όλα τα βίντεο, σε αυτές τις περιπτώσεις το πρόγραμμα
-      αναπαραγωγής θα χρησιμοποιήσει τις μορφές DASH H.264.
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται.

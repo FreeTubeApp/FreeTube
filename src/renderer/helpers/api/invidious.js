@@ -311,40 +311,19 @@ function parseInvidiousCommunityAttachments(data) {
 }
 
 /**
- * video.js only supports MP4 DASH not WebM DASH
- * so we filter out the WebM DASH formats
+ * Invidious doesn't include the correct height or width for all formats in their API response and are also missing the fps and qualityLabel for the AV1 formats.
+ * When the local API is supported we generate our own manifest with the local API manifest generator, based on the Invidious API response and the height, width and fps extracted from Invidious' DASH manifest.
+ * As Invidious only includes h264 and AV1 in their DASH manifest, we have to always filter out the VP9 formats, due to missing information.
  * @param {any[]} formats
- * @param {boolean} allowAv1 Use the AV1 formats if they are available
  */
-export function filterInvidiousFormats(formats, allowAv1 = false) {
-  const audioFormats = []
-  const h264Formats = []
-  const av1Formats = []
-
-  formats.forEach(format => {
+export function filterInvidiousFormats(formats) {
+  return formats.filter(format => {
     const mimeType = format.type
 
-    if (mimeType.startsWith('audio/mp4')) {
-      audioFormats.push(format)
-    } else if (allowAv1 && mimeType.startsWith('video/mp4; codecs="av01')) {
-      av1Formats.push(format)
-    } else if (mimeType.startsWith('video/mp4; codecs="avc')) {
-      h264Formats.push(format)
-    }
+    return mimeType.startsWith('audio/') ||
+      mimeType.startsWith('video/mp4; codecs="avc') ||
+      mimeType.startsWith('video/mp4; codecs="av01')
   })
-
-  // Disabled AV1 as a workaround to https://github.com/FreeTubeApp/FreeTube/issues/3382
-  // Which is caused by Invidious API limitation on AV1 formats (see related issues)
-  // Commented code to be restored after Invidious issue fixed
-  //
-  // As we generate our own DASH manifest (using YouTube.js) for multiple audio track support when the local API is supported,
-  // we can allow AV1 in that situation. When the local API isn't supported,
-  // we still can't use them until Invidious fixes the issue on their side
-  if (process.env.SUPPORTS_LOCAL_API && allowAv1 && av1Formats.length > 0) {
-    return [...audioFormats, ...av1Formats]
-  }
-
-  return [...audioFormats, ...h264Formats]
 }
 
 export async function getHashtagInvidious(hashtag, page) {
@@ -396,7 +375,6 @@ export function convertInvidiousToLocalFormat(format) {
   // audioQuality and qualityLabel don't go inside the DASH manifest, but are used by YouTube.js
   // to determine whether a format is an audio or video stream respectively.
 
-  /** @type {import('./local').LocalFormat} */
   const localFormat = new Misc.Format({
     itag: format.itag,
     mimeType: format.type,
@@ -424,13 +402,36 @@ export function convertInvidiousToLocalFormat(format) {
       : {
           fps: format.fps,
           qualityLabel: format.qualityLabel,
-          colorInfo: format.colorInfo ?? {}
+          ...(format.colorInfo ? { colorInfo: format.colorInfo } : {})
         })
   })
 
-  // Adding freeTubeUrl allows us to reuse the code,
-  // to generate the audio tracks for audio only mode, that we use for the local API
-  localFormat.freeTubeUrl = format.url
-
   return localFormat
+}
+
+/**
+ * @param {any} format
+ * @param {boolean} trustApiResponse
+ */
+export function mapInvidiousLegacyFormat(format, trustApiResponse) {
+  let width
+  let height
+
+  if (trustApiResponse) {
+    const [stringWidth, stringHeight] = format.size.split('x')
+
+    width = parseInt(stringWidth)
+    height = parseInt(stringHeight)
+  }
+
+  return {
+    itag: format.itag,
+    qualityLabel: format.qualityLabel,
+    fps: format.fps,
+    bitrate: parseInt(format.bitrate),
+    mimeType: format.type,
+    height,
+    width,
+    url: format.url
+  }
 }

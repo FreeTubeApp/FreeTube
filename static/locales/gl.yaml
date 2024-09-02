@@ -288,7 +288,6 @@ Settings:
     Max Video Playback Rate: Velocidade máxima da reprodución do vídeo
     Enter Fullscreen on Display Rotate: Poñase a pantalla enteira o xirala pantalla
     Skip by Scrolling Over Video Player: Saltar desprazándose polo reprodutor de vídeo
-    Allow DASH AV1 formats: Permitilos formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Axustes de privacidade'
     Remember History: 'Lembrar histórico'
@@ -663,11 +662,6 @@ Video:
   Download Video: 'Descargar vídeo'
   video only: 'Só vídeo'
   audio only: 'Só audio'
-  Audio:
-    Low: 'Baixa'
-    Medium: 'Media'
-    High: 'Alta'
-    Best: 'Máxima'
   Published:
     Jan: 'Xan'
     Feb: 'Feb'
@@ -727,23 +721,9 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulación
     filler: Recheo
-  Skipped segment: Segmento omitido
-  translated from English: traducido do inglés
   Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
   Video has been saved: Gardouse o vídeo
   Save Video: Gardar vídeo
-  Stats:
-    Player Dimensions: Dimensións do reproductor
-    Video ID: Identificador do video
-    Buffered: No bufer
-    Mimetype: Tipo de medio
-    Video statistics are not available for legacy videos: As estadísticas dos vídeo
-      non se atopan dispoñibles para os vídeos antigos
-    Bitrate: Taxa dos bits
-    Volume: Volume
-    Resolution: Resolución
-    Bandwidth: Ancho da banda
-    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
   Premieres on: Estrease o
   Premieres: Estreos
   Show Super Chat Comment: Mostralos comentarios do Super Chat
@@ -865,10 +845,6 @@ Tooltips:
       que o modificase na configuración).
     Skip by Scrolling Over Video Player: Usala roda de desprazamento para saltalo
       vídeo, estilo MPV.
-    Allow DASH AV1 formats: Os formatos DASH AV1 poden parecer mellor que os formatos
-      DASH H.264. Os formatos DASH AV1 requiren máis potencia para reproducir. Non
-      están dispoñibles en todolos vídeos, neses casos o reprodutor utilizará os formatos
-      DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Cando está activado, FreeTube usará RSS no canto do método
       predeterminao para obter as subscricións. RSS é máis rápido e impide o bloqueo

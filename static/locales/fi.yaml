@@ -361,7 +361,6 @@ Settings:
         "\" tai "/" luodaksesi alikansioita.
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
-    Allow DASH AV1 formats: Salli DASH AV1 -formaatit
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -772,11 +771,6 @@ Video:
   Loop Playlist: Kierrätä soittolistaa
   Starting soon, please refresh the page to check again: Hetki pieni, päivitä sivu
     uudelleen
-  Audio:
-    Best: Paras
-    High: Korkea
-    Medium: Keskitaso
-    Low: Alhainen
   audio only: vain ääni
   video only: vain video
   Download Video: Lataa video
@@ -810,31 +804,10 @@ Video:
     sponsor: Sponsori
     recap: Kertaus
     filler: Täyte
-  Skipped segment: Ylihypätty osio
-  translated from English: käännetty englanninkielestä
   Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
-  Stats:
-    video id: Videon tunniste (YouTube)
-    player resolution: Näkymäikkuna
-    bandwidth: Yhteyden nopeus
-    buffered: Puskuroitu
-    volume: Äänenvoimakkuus
-    fps: Kuvanopeus
-    out of: /
-    Video ID: Videotunnus
-    Bitrate: Tiedonsiirtonopeus
-    Bandwidth: Kaistanleveys
-    Mimetype: Internet-mediatyyppi
-    Video statistics are not available for legacy videos: Vanhojen videoiden videotilastot
-      eivät ole saatavilla
-    Player Dimensions: Soittimen mitat
-    Volume: Äänenvoimakkuus
-    Buffered: Puskuroitu
-    Resolution: Resoluutio
-    Dropped / Total Frames: Pudotettu / Yhteensä
   Premieres on: Julkaistaan
   Premieres: Ensilähetykset
   Show Super Chat Comment: Näytä Super Chat -kommentti
@@ -1033,10 +1006,6 @@ Tooltips:
       painettuna ja paina hiiren vasenta näppäintä.
     Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen,
       MPV-tyyliin.
-    Allow DASH AV1 formats: DASH AV1 formaatit saattavat näyttää paremmalta kuin DASH
-      H.264 formaatit. DASH AV1 formaatit vaativat enemmän tehoa toistamiseen! Ne
-      eivät ole käytettävissä kaikissa videoissa ja näissä tapauksissa soitin käyttää
-      sen sijaan DASH H.264 formaatteja.
   External Player Settings:
     Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
       puolipisteillä eroteltuina (';'), jotka haluat siirtää eteenpäin ulkoiselle

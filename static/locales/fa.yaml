@@ -284,7 +284,6 @@ Settings:
       Folder Label: پوشه اسکرین شات
       Folder Button: پوشه را انتخاب کنید
     Skip by Scrolling Over Video Player: با پیمایش روی پخش‌کننده ویدیو از آن بگذرید
-    Allow DASH AV1 formats: فرمت‌های DASH AV1 را مجاز کنید
   External Player Settings:
     External Player Settings: 'تنظیمات پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
@@ -573,12 +572,10 @@ Video:
     Ago: پیش
     Upcoming: اولین نمایش در
     In less than a minute: در کمتر از یک دقیقه
-  translated from English: ترجمه شده از انگلیسی
   Copy Invidious Link: لینک Invidious را کپی کنید
   Play Previous Video: پخش ویدیوی قبلی
   Autoplay: پخش خودکار
   Started streaming on: پخش جریانی را شروع کرد
-  Skipped segment: بخش رد شد
   'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
     پایان رسیده است.
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
@@ -599,11 +596,6 @@ Video:
   Live Now: زنده هم اکنون
   Save Video: ذخیره ویدیو
   Open in Invidious: در Invidious باز کنید
-  Audio:
-    Medium: متوسط
-    Best: بهترین
-    High: عالی
-    Low: کم
   Video has been removed from your saved list: ویدیو از لیست ذخیره شده شما حذف شده
     است
   Download Video: دانلود ویدیو
@@ -627,18 +619,6 @@ Video:
   audio only: فقط صدا
   Publicationtemplate: '{number} {unit} پیش'
   Video has been saved: ویدیو ذخیره شده است
-  Stats:
-    Dropped / Total Frames: حذف شده / مجموع فریم ها
-    Video ID: شناسه ویدیو
-    Player Dimensions: ابعاد پخش کننده
-    Bitrate: میزان بیت
-    Volume: درجه صدا
-    Bandwidth: پهنای باند
-    Buffered: بافر شده
-    Video statistics are not available for legacy videos: آمار ویدیویی برای ویدیوهای
-      قدیمی موجود نیست
-    Resolution: کیفیت
-    Mimetype: نوع مایم
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': گفتگوی
     زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به YouTube مورد
     نیاز است.
@@ -679,10 +659,6 @@ Tooltips:
   Player Settings:
     Skip by Scrolling Over Video Player: از چرخ اسکرول برای رد شدن از ویدیو، سبک MPV
       استفاده کنید.
-    Allow DASH AV1 formats: فرمت‌های DASH AV1 ممکن است بهتر از فرمت‌های DASH H.264
-      به نظر برسند. فرمت های DASH AV1 برای پخش به قدرت بیشتری نیاز دارند! آنها در
-      همه ویدیوها در دسترس نیستند، در این موارد پخش کننده به جای آن از فرمت های DASH
-      H.264 استفاده می کند.
     Scroll Playback Rate Over Video Player: در حالی که مکان نما روی ویدیو است، کلید
       کنترل (کلید فرمان در مک) را فشار داده و نگه دارید و چرخ ماوس را به جلو یا عقب
       ببرید تا سرعت پخش را کنترل کنید. کلید کنترل (کلید فرمان در مک) را فشار داده

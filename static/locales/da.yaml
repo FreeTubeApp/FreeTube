@@ -363,7 +363,6 @@ Settings:
     Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
     Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
     Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
-    Allow DASH AV1 formats: Tillad DASH AV1-formater
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
@@ -801,28 +800,10 @@ Video:
   Save Video: Gem Video
   Started streaming on: Begyndte at sende
   Streamed on: Sendt
-  Audio:
-    Best: Bedst
-    High: Høj
-    Medium: Middel
-    Low: Lav
   audio only: kun lyd
   video only: kun video
   Download Video: Hent Video
   Premieres on: Har premiere på
-  Stats:
-    Resolution: Skærmopløsning
-    Player Dimensions: Afspillerdimensioner
-    Bitrate: Bitrate
-    Volume: Lydstyrke
-    Bandwidth: Båndbredde
-    Buffered: Bufferet
-    Dropped / Total Frames: Tabte / Antal Billeder
-    Mimetype: Mimetype
-    Video statistics are not available for legacy videos: Videostatistikker er ikke
-      tilgængelige for gamle videoer
-    Video ID: Video ID
-  translated from English: oversat fra engelsk
   Sponsor Block category:
     intro: Intro
     sponsor: Sponsor
@@ -847,7 +828,6 @@ Video:
     video: video
     playlist: playliste
     UnsupportedActionTemplate: '{externalPlayer} understøtter ikke: {action}'
-  Skipped segment: Sprunget over segment
   Hide Channel: Skjul Kanal
   Unhide Channel: Vis Kanal
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live

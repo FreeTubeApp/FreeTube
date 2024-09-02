@@ -435,7 +435,6 @@ Settings:
         video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
         te maken.'
     Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
-    Allow DASH AV1 formats: DASH-AV1-bestandstypes toestaan
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
@@ -874,11 +873,6 @@ Video:
   Loop Playlist: Playlist herhalen
   Starting soon, please refresh the page to check again: Start binnenkort, vernieuw
     de pagina om opnieuw te controleren
-  Audio:
-    Best: Beste
-    High: Hoog
-    Medium: Gemiddeld
-    Low: Laag
   audio only: alleen audio
   video only: alleen video
   Download Video: Video downloaden
@@ -892,7 +886,6 @@ Video:
     opgeslagen video's
   Video has been saved: Video is opgeslagen
   Save Video: Video opslaan
-  translated from English: vertaald uit het Engels
   Sponsor Block category:
     music offtopic: Niet-muziek
     interaction: Interactie
@@ -902,7 +895,6 @@ Video:
     sponsor: Sponsor
     recap: Samenvatting
     filler: Opvulling
-  Skipped segment: Segment overgeslagen
   External Player:
     Unsupported Actions:
       shuffling playlists: afspeellijsten shufflen
@@ -918,26 +910,6 @@ Video:
     playlist: afspeellijst
     video: video
     OpenInTemplate: Openen in {externalPlayer}
-  Stats:
-    player resolution: Venster
-    volume: Volume
-    video id: Video-ID (YouTube)
-    fps: FPS
-    frame drop: Frame verlies
-    bandwidth: Verbindingssnelheid
-    buffered: Gebufferd
-    out of: van de
-    Buffered: Gebufferd
-    Dropped / Total Frames: Frames verloren/totaal
-    Mimetype: MIME-type
-    Video statistics are not available for legacy videos: Videogegevens zijn niet
-      beschikbaar voor oudere video's
-    Video ID: Video-ID
-    Resolution: Resolutie
-    Bandwidth: Bandbreedte
-    Bitrate: Bitrate
-    Volume: Volume
-    Player Dimensions: Spelerafmetingen
   Premieres on: Gaat in première op
   Premieres: Premières
   Scroll to Bottom: Helemaal naar onderen scrollen
@@ -1132,10 +1104,6 @@ Tooltips:
       om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)
       ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de
       standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
-    Allow DASH AV1 formats: Video's in DASH AV1-formaat kunnen er beter uitzien dan
-      die in DASH H.264-formaat. DASH AV1 verbruikt op oudere apparaten meer energie!
-      Dit formaat is niet beschikbaar voor alle video's, in welk geval het DASH H.264-formaat
-      wordt gebruikt.
     Skip by Scrolling Over Video Player: Gebruik het scroll-wieltje om door de video
       te spoelen, zoals bij MPV.
   Subscription Settings:

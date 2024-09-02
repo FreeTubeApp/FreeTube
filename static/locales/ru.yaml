@@ -429,7 +429,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
-    Allow DASH AV1 formats: Разрешить форматы DASH AV1
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -868,11 +867,6 @@ Video:
   Loop Playlist: Повторять подборку
   Starting soon, please refresh the page to check again: Скоро начнется, обновите
     страницу, чтобы проверить ещё раз
-  Audio:
-    Best: Лучшее
-    High: Высокое
-    Medium: Среднее
-    Low: Низкое
   audio only: только звук
   video only: только видео
   Download Video: Скачать видео
@@ -885,7 +879,6 @@ Video:
   Video has been removed from your saved list: Видео было удалено из списка сохраненных
   Video has been saved: Видео было добавлено в сохраненные
   Save Video: Добавить видео в сохранённые
-  translated from English: переведён с английского
   Sponsor Block category:
     music offtopic: Сегмент без музыки
     interaction: Напоминание
@@ -895,7 +888,6 @@ Video:
     sponsor: Спонсор
     recap: Краткое содержание
     filler: Отвлечение
-  Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
       looping playlists: повторение подборок
@@ -911,26 +903,6 @@ Video:
     playlist: подборка
     video: видео
     OpenInTemplate: Открыть в {externalPlayer}
-  Stats:
-    frame drop: Пропущенные кадры
-    video id: ID видео (YouTube)
-    player resolution: Область просмотра
-    volume: Громкость
-    bandwidth: Скорость соединения
-    buffered: Буферизовано
-    out of: из
-    fps: Кадровая частота
-    Video statistics are not available for legacy videos: Статистика видео недоступна
-      для устаревших видео
-    Video ID: Идентификатор видео
-    Resolution: Разрешение
-    Player Dimensions: Размеры проигрывателя
-    Bitrate: Битрейт
-    Volume: Громкость
-    Bandwidth: Пропускная способность
-    Dropped / Total Frames: Пропущено / Всего кадров
-    Mimetype: MIME-типы
-    Buffered: Буферизовано
   Premieres on: Премьеры
   Premieres in: Премьеры в
   Premieres: Премьеры
@@ -1153,10 +1125,6 @@ Tooltips:
       не была изменена в настройках).
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
       видео в стиле MPV.
-    Allow DASH AV1 formats: Форматы DASH AV1 могут выглядеть лучше, чем форматы DASH
-      H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
-      Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
-      будет использовать форматы DASH H.264.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
