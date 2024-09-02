@@ -42,7 +42,7 @@ class Settings {
   }
 
   static _updateBounds(value) {
-    return db.settings.updateAsync({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
+    return {}
   }
   // ******************** //
 }
