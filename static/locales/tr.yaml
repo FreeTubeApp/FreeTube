@@ -989,11 +989,11 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Tüm Oynatma Listesini Görüntüle'
+  View Full Playlist: 'Tüm oynatma listesini görüntüle'
   Videos: 'Videolar'
   View: 'Görüntüle'
   Views: 'İzlenme'
-  Last Updated On: 'Son Güncelleme Tarihi'
+  Last Updated On: 'Son güncelleme tarihi'
 
 # On Video Watch Page
 #* Published
