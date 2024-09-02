@@ -946,13 +946,16 @@ Video:
       Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
       Stats: Statistiche
       Video ID: 'ID video: {videoId}'
-      Bitrate: 'Bitrate: {bitrate} kbps'
+      Bitrate: 'Velocità di trasmissione: {bitrate} kb/s'
       Volume: 'Volume: {volumePercentage}%'
-      Bandwidth: 'Larghezza di banda: {bandwidth} kbps'
+      Bandwidth: 'Larghezza di banda: {bandwidth} kb/s'
     Hide Stats: Nascondi statistiche
     Full Window: Finestra intera
     Exit Full Window: Esci da Finestra intera
     Take Screenshot: Acquisisci screenshot
+    You appear to be offline: Sembra che tu sia offline.
+    Playback will resume automatically when your connection comes back: La riproduzione
+      riprenderà automaticamente quando la connessione tornerà.
 Videos:
   #& Sort By
   Sort By:
