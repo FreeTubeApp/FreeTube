@@ -64,20 +64,18 @@
           tabindex="-1"
         >
           <!-- Hide comment photo only if it isn't the video uploader -->
-          <template v-if="hideCommentPhotos && !comment.isOwner">
-            <div
-              class="commentThumbnailHidden"
-            >
-              {{ comment.author.substr(1, 1) }}
-            </div>
-          </template>
-          <template v-else>
-            <img
-              :src="comment.authorThumb"
-              alt=""
-              class="commentThumbnail"
-            >
-          </template>
+          <div
+            v-if="hideCommentPhotos && !comment.isOwner"
+            class="commentThumbnailHidden"
+          >
+            {{ comment.author.substring(1, 2) }}
+          </div>
+          <img
+            v-else
+            :src="comment.authorThumb"
+            alt=""
+            class="commentThumbnail"
+          >
         </router-link>
         <p
           v-if="comment.isPinned"
@@ -186,20 +184,18 @@
               tabindex="-1"
             >
               <!-- Hide comment photo only if it isn't the video uploader -->
-              <template v-if="hideCommentPhotos && !reply.isOwner">
-                <div
-                  class="commentThumbnailHidden"
-                >
-                  {{ reply.author.substr(1, 1) }}
-                </div>
-              </template>
-              <template v-else>
-                <img
-                  :src="reply.authorThumb"
-                  alt=""
-                  class="commentThumbnail"
-                >
-              </template>
+              <div
+                v-if="hideCommentPhotos && !reply.isOwner"
+                class="commentThumbnailHidden"
+              >
+                {{ reply.author.substring(1, 2) }}
+              </div>
+              <img
+                v-else
+                :src="reply.authorThumb"
+                alt=""
+                class="commentThumbnail"
+              >
             </router-link>
             <p class="commentAuthorWrapper">
               <router-link
