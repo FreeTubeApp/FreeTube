@@ -52,7 +52,7 @@ export default defineComponent({
       return this.videoList.slice(0, this.dataLimit)
     },
     searchHistory: function () {
-      return JSON.parse(localStorage.getItem("search-history") || "[]")
+      return JSON.parse(localStorage.getItem('search-history') || '[]')
     }
   },
   mounted: function () {
