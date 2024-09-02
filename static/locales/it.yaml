@@ -945,7 +945,14 @@ Video:
       Resolution: 'Risoluzione: {width}×{height}@{frameRate}'
       Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
       Stats: Statistiche
+      Video ID: 'ID video: {videoId}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Larghezza di banda: {bandwidth} kbps'
     Hide Stats: Nascondi statistiche
+    Full Window: Finestra intera
+    Exit Full Window: Esci da Finestra intera
+    Take Screenshot: Acquisisci screenshot
 Videos:
   #& Sort By
   Sort By:
