@@ -19,28 +19,8 @@ export default defineComponent({
     }
   },
   computed: {
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
-    },
-
-    backendFallback: function () {
-      return this.$store.getters.getBackendFallback
-    },
-
-    currentInvidiousInstanceUrl: function () {
-      return this.$store.getters.getCurrentInvidiousInstanceUrl
-    },
-
-    currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
-    },
-
     lastVideoRefreshTimestamp: function () {
       return getRelativeTimeFromDate(this.$store.getters.getLastVideoRefreshTimestampByProfile(this.activeProfileId), true)
-    },
-
-    useRssFeeds: function () {
-      return this.$store.getters.getUseRssFeeds
     },
 
     activeProfile: function () {
@@ -48,14 +28,6 @@ export default defineComponent({
     },
     activeProfileId: function () {
       return this.activeProfile._id
-    },
-
-    activeSubscriptionList: function () {
-      return this.activeProfile.subscriptions
-    },
-
-    fetchSubscriptionsAutomatically: function() {
-      return this.$store.getters.getFetchSubscriptionsAutomatically
     },
   },
   watch: {

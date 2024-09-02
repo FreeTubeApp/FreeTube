@@ -28,21 +28,9 @@ export default defineComponent({
       type: Array,
       default: () => ([])
     },
-    isCommunity: {
-      type: Boolean,
-      default: false
-    },
-    errorChannels: {
-      type: Array,
-      default: () => ([])
-    },
     attemptedFetch: {
       type: Boolean,
       default: false
-    },
-    initialDataLimit: {
-      type: Number,
-      default: 100
     },
     lastRefreshTimestamp: {
       type: String,
@@ -54,39 +42,9 @@ export default defineComponent({
     }
   },
   emits: ['refresh'],
-  data: function () {
-    return {
-      dataLimit: 100,
-    }
-  },
   computed: {
-    activeVideoList: function () {
-      if (this.videoList.length < this.dataLimit) {
-        return this.videoList
-      } else {
-        return this.videoList.slice(0, this.dataLimit)
-      }
-    },
-
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
-    },
-
-    recommendedList: function () {
-      return this.activeProfile.subscriptions
-    },
-
-    fetchSubscriptionsAutomatically: function() {
-      return this.$store.getters.getFetchSubscriptionsAutomatically
-    }
-  },
-  created: function () {
-    const dataLimit = sessionStorage.getItem('subscriptionLimit')
-
-    if (dataLimit !== null) {
-      this.dataLimit = dataLimit
-    } else {
-      this.dataLimit = this.initialDataLimit
+    searchHistory: function () {
+      return JSON.parse(localStorage.getItem("search-history") || "[]")
     }
   },
   mounted: function () {
@@ -96,11 +54,6 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
-    increaseLimit: function () {
-      this.dataLimit += this.initialDataLimit
-      sessionStorage.setItem('subscriptionLimit', this.dataLimit)
-    },
-
     /**
      * This function `keyboardShortcutHandler` should always be at the bottom of this file
      * @param {KeyboardEvent} event the keyboard event
@@ -117,7 +70,7 @@ export default defineComponent({
         case 'r':
         case 'R':
         case 'F5':
-          if (!this.isLoading && this.activeSubscriptionList.length > 0) {
+          if (!this.isLoading && this.searchHistory.length > 0) {
             this.$emit('refresh')
           }
           break

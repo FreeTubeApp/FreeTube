@@ -5,7 +5,7 @@
     :last-refresh-timestamp="lastVideoRefreshTimestamp"
     :attempted-fetch="attemptedFetch"
     :title="$t('Global.Videos')"
-    @refresh="loadVideosForSubscriptionsFromRemote"
+    @refresh="loadRecommendationsFromRemote"
   />
 </template>
 
