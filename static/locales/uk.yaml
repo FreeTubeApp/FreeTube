@@ -414,8 +414,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Усі підписки
       та профілі успішно імпортовано'
     All subscriptions have been successfully imported: 'Усі підписки успішно імпортовано'
-    One or more subscriptions were unable to be imported: 'Не вдалося імпортувати
-      одну або кілька підписок'
     Invalid subscriptions file: 'Недійсний файл підписок'
     This might take a while, please wait: 'Це може тривати деякий час, зачекайте'
     Invalid history file: 'Недійсний файл історії'

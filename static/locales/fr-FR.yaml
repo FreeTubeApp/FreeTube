@@ -558,8 +558,6 @@ Settings:
       données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les
       données de profil sont insuffisantes
-    One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
-      n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
     Import Playlists: Importer des listes de lecture

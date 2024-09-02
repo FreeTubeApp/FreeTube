@@ -495,8 +495,6 @@ Settings:
       and profiles have been successfully imported'
     All subscriptions have been successfully imported: 'All subscriptions have been
       successfully imported'
-    One or more subscriptions were unable to be imported: 'One or more subscriptions
-      were unable to be imported'
     Invalid subscriptions file: 'Invalid subscriptions file'
     This might take a while, please wait: 'This might take a while, please wait'
     Invalid history file: 'Invalid history file'

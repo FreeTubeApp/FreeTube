@@ -383,8 +383,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'כל המינויים והפרופילים
       יובאו בהצלחה'
     All subscriptions have been successfully imported: 'כל המינויים יובאו בהצלחה'
-    One or more subscriptions were unable to be imported: 'לא ניתן היה לייבא אחד או
-      יותר מהמינויים'
     Invalid subscriptions file: 'קובץ מינויים בלתי קריא'
     This might take a while, please wait: 'זה עלול לקחת זמן מה, נא להמתין'
     Invalid history file: 'קובץ היסטוריה בלתי קריא'

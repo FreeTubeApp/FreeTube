@@ -290,8 +290,6 @@ Settings:
       i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han
       importat amb èxit'
-    One or more subscriptions were unable to be imported: 'Una o més subscripcions
-      no s''han pogut importar'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
     This might take a while, please wait: 'Això pot trigar una estona, si us plau,
       esperi'

@@ -413,8 +413,6 @@ Settings:
       at importere alle abonnementer og profiler'
     All subscriptions have been successfully imported: 'Det lykkedes at importere
       alle abonnementer'
-    One or more subscriptions were unable to be imported: 'Et eller flere abonnementer
-      kunne ikke importeres'
     Invalid subscriptions file: 'Ugyldig abonnementer-fil'
     This might take a while, please wait: 'Dette kan tage et stykke tid. Vent venligst'
     Invalid history file: 'Ugyldig historik-fil'

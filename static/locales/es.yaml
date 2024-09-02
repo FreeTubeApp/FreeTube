@@ -507,8 +507,6 @@ Settings:
     Unable to write file: 'Imposible escribir el archivo'
     Unknown data key: 'Clave de datos desconocida'
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
-    One or more subscriptions were unable to be imported: Una o varias de las suscripciones
-      no han podido ser importadas
     Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
     Import Playlists: Importar listas de reproducción
