@@ -934,6 +934,18 @@ Video:
   Unhide Channel: Mostra canale
   Hide Channel: Nascondi canale
   More Options: Più opzioni
+  Player:
+    TranslatedCaptionTemplate: '{language} (tradotto da: {originalLanguage})'
+    Audio Tracks: Tracce audio
+    Theatre Mode: Modalità teatro
+    Exit Theatre Mode: Esci dalla modalità teatro
+    Show Stats: Mostra statistiche
+    Stats:
+      Media Formats: 'Formati multimediali: {formats}'
+      Resolution: 'Risoluzione: {width}×{height}@{frameRate}'
+      Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
+      Stats: Statistiche
+    Hide Stats: Nascondi statistiche
 Videos:
   #& Sort By
   Sort By:
