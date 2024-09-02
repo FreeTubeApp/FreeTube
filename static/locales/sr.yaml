@@ -912,6 +912,35 @@ Video:
   Unhide Channel: Прикажи канал
   Hide Channel: Сакриј канал
   More Options: Више опција
+  Player:
+    TranslatedCaptionTemplate: '{language} (преведено са „{originalLanguage}“)'
+    Theatre Mode: Режим биоскопа
+    Exit Theatre Mode: Изађи из режима биоскопа
+    Exit Full Window: Изађи из целог прозора
+    Take Screenshot: Направи снимак екрана
+    Show Stats: Прикажи статистику
+    Hide Stats: Сакриј статистику
+    Stats:
+      Video ID: 'ID видеа: {videoId}'
+      Media Formats: 'Формат медија: {formats}'
+      Resolution: 'Резолуција: {width}x{height}@{frameRate}'
+      Volume: 'Волумен: {volumePercentage}%'
+      Stats: Статистика
+      Dropped Frames / Total Frames: 'Испуштени кадрови: {droppedFrames} / Укупан
+        број кадрова: {totalFrames}'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      Player Dimensions: 'Димензије плејера: {width}x{height}'
+      Bitrate: 'Брзина преноса: {bitrate} kbps'
+      Bandwidth: 'Пропусни опсег: {bandwidth} kbps'
+      Buffered: 'Баферовано: {bufferedPercentage}%'
+      CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
+    Audio Tracks: Аудио нумере
+    Full Window: Цео прозор
+    You appear to be offline: Изгледа да сте офлајн.
+    Playback will resume automatically when your connection comes back: Репродукција
+      ће се аутоматски наставити када се ваша интернет веза врати.
+    Skipped segment: Прескочен сегмент „{segmentCategory}“
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -1023,6 +1052,8 @@ Change Format:
   Change Media Formats: Промени формате медија
   Use Dash Formats: Користи DASH формате
   Use Legacy Formats: Користи застареле формате
+  Legacy formats are not available for this video: Застарели формати нису доступни
+    за овај видео снимак
 Comments:
   Comments: Коментари
   Sort by: Сортирање по
