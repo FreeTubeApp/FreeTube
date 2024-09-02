@@ -3,47 +3,20 @@
     <ft-loader
       v-if="isLoading"
     />
-    <div
-      v-if="!isLoading && errorChannels.length !== 0"
-    >
-      <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
-      <ft-flex-box>
-        <ft-channel-bubble
-          v-for="(channel, index) in errorChannels"
-          :key="index"
-          :channel-name="channel.name"
-          :channel-id="channel.id"
-          :channel-thumbnail="channel.thumbnail"
-        />
-      </ft-flex-box>
-    </div>
     <ft-flex-box
       v-if="!isLoading && activeVideoList.length === 0"
     >
       <p
-        v-if="recommendedList.length === 0"
+        v-if="searchHistory.length === 0"
         class="message"
       >
         {{ $t("Your search history is currently empty. Start with some search to see recommendations.") }}
-      </p>
-      <p
-        v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
-        class="message"
-      >
-        {{ $t("Subscriptions.Disabled Automatic Fetching") }}
-      </p>
-      <p
-        v-else
-        class="message"
-      >
-        {{ isCommunity ? $t("Subscriptions.Empty Posts") : $t("Subscriptions.Empty Channels") }}
       </p>
     </ft-flex-box>
     <ft-element-list
       v-if="!isLoading && activeVideoList.length > 0"
       :data="activeVideoList"
       :use-channels-hidden-preference="false"
-      :display="isCommunity ? 'list' : ''"
     />
     <ft-auto-load-next-page-wrapper
       v-if="!isLoading && videoList.length > dataLimit"
@@ -51,7 +24,7 @@
     >
       <ft-flex-box>
         <ft-button
-          :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
+          :label="$t('Subscriptions.Load More Videos')"
           background-color="var(--primary-color)"
           text-color="var(--text-with-main-color)"
           @click="increaseLimit"

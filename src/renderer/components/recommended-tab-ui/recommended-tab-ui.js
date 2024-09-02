@@ -42,7 +42,15 @@ export default defineComponent({
     }
   },
   emits: ['refresh'],
+  data: function () {
+    return {
+      dataLimit: 100,
+    }
+  },
   computed: {
+    activeVideoList: function () {
+      return this.videoList.slice(0, this.dataLimit)
+    },
     searchHistory: function () {
       return JSON.parse(localStorage.getItem("search-history") || "[]")
     }
