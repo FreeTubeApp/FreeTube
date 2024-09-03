@@ -938,6 +938,35 @@ Video:
   Unhide Channel: Pokaż kanał
   Hide Channel: Ukryj kanał
   More Options: Więcej opcji
+  Player:
+    TranslatedCaptionTemplate: '{language} (przetłumaczono z: "{originalLanguage}")'
+    Audio Tracks: Ścieżki audio
+    Theatre Mode: Tryb kina
+    Exit Theatre Mode: Wyłącz tryb kina
+    Exit Full Window: Wyłącz pełny ekran
+    Take Screenshot: Zrób zrzut ekranu
+    Show Stats: Pokaż statystyki
+    Hide Stats: Schowaj statystyki
+    Stats:
+      Stats: Statystyki
+      Video ID: 'ID filmu: {videoId}'
+      Player Dimensions: 'Rozmiary odtwarzacza: {width}x{height}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Głośność: {volumePercentage}%'
+      Bandwidth: 'Szerokość pasma: {bandwidth} kbps'
+      Buffered: 'Zbuforowano: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Zgubione klatki: {droppedFrames} / Wszystkie
+        klatki: {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeki: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodeki: {videoCodec} / {audioCodec}'
+      Media Formats: 'Formaty ścieżek: {formats}'
+      Resolution: 'Rozdzielczość: {width}x{height}@{frameRate}'
+    You appear to be offline: Zdaje się, że jesteś rozłączony.
+    Playback will resume automatically when your connection comes back: Odtwarzanie
+      zostanie wznowione, jak tylko połączenie zostanie odzyskane.
+    Skipped segment: Pominięto segment {segmentCategory}
+    Full Window: Pełny ekran
 Videos:
   #& Sort By
   Sort By:
@@ -976,6 +1005,8 @@ Change Format:
     tego filmu
   Dash formats are not available for this video: Formaty DASH nie są dostępne dla
     tego filmu
+  Legacy formats are not available for this video: Ten film nie jest dostępny w starych
+    formatach
 Share:
   Share Video: 'Podziel się filmem'
   Share Playlist: 'Podziel się playlistą'
