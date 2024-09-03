@@ -849,6 +849,7 @@ Video:
     Playback will resume automatically when your connection comes back: 网络连接恢复时，将自动继续播放。
     TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
     Exit Theatre Mode: 推出影院模式
+    Skipped segment: 跳过了 {segmentCategory} 部分
 Videos:
   #& Sort By
   Sort By:
@@ -885,6 +886,7 @@ Change Format:
   Use Audio Formats: '使用音频格式'
   Audio formats are not available for this video: 这个视频没有音频格式
   Dash formats are not available for this video: 这个视频没有Dash格式
+  Legacy formats are not available for this video: 旧格式对这个视频不可用
 Share:
   Share Video: '分享视频'
   Share Playlist: '分享播放列表'
