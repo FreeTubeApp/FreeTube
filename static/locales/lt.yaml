@@ -294,7 +294,6 @@ Settings:
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
     Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
     Skip by Scrolling Over Video Player: Praleiskite slinkdami per vaizdo grotuvą
-    Allow DASH AV1 formats: Leisti DASH AV1 formatus
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -379,8 +378,6 @@ Settings:
       ir profiliai sėkmingai importuoti'
     All subscriptions have been successfully imported: 'Visos prenumeratos sėkmingai
       importuotos'
-    One or more subscriptions were unable to be imported: 'Nepavyko importuoti vienos
-      ar daugiau prenumeratų'
     Invalid subscriptions file: 'Netinkamas prenumeratų failas'
     This might take a while, please wait: 'Tai gali užtrukti, palaukite'
     Invalid history file: 'Netinkamas žiūrėjimo istorijos failas'
@@ -608,11 +605,6 @@ Video:
   Download Video: 'Atsisiųsti vaizdo įrašą'
   video only: 'tik video'
   audio only: 'tik audio'
-  Audio:
-    Low: 'Žemiausia'
-    Medium: 'Vidutinė'
-    High: 'Aukščiausia'
-    Best: 'Pati geriausia'
   Published:
     Jan: 'Sau'
     Feb: 'Vas'
@@ -646,9 +638,7 @@ Video:
   Published on: 'Publikuota'
   Streamed on: 'Transliuota'
   Started streaming on: 'Transliaciją pradėjo'
-  translated from English: 'išversta iš anglų kalbos'
   Publicationtemplate: 'prieš {number} {unit}'
-  Skipped segment: 'Praleistas segmentas'
   Sponsor Block category:
     sponsor: 'Rėmėjas'
     intro: 'Įžanga'
@@ -675,26 +665,6 @@ Video:
       looping playlists: 'ciklu sukami grojaraščiai'
 #& Videos
   Premieres on: Premjera
-  Stats:
-    video id: Vaizdo įrašo ID (YouTube)
-    player resolution: Peržiūros sritis
-    fps: Kadrai per sekundę (FPS)
-    frame drop: Praleisti kadrai
-    bandwidth: Ryšio greitis
-    buffered: Užkrauta atmintyje
-    volume: Garsas
-    out of: iš
-    Video ID: Vaizdo įrašo ID
-    Resolution: Rezoliucija
-    Bitrate: Bitų sparta
-    Bandwidth: Pralaidumas
-    Volume: Apimtis
-    Player Dimensions: Grotuvo matmenys
-    Video statistics are not available for legacy videos: Vaizdo įrašų statistika
-      nepateikiama seniems vaizdo įrašams
-    Dropped / Total Frames: Pamesti / Iš viso kadrų
-    Mimetype: Mimetipas
-    Buffered: Buferizuota
   Premieres: Premjera
 Videos:
   #& Sort By

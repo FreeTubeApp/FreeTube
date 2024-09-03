@@ -346,8 +346,6 @@ Settings:
       og profila har blitt importert'
     All subscriptions have been successfully imported: 'Alle abonnement har blitt
       importert'
-    One or more subscriptions were unable to be imported: 'Eit eller fleire abonnentar
-      kunne ikkje importerast'
     Invalid subscriptions file: 'Ugyldig abonnementfil'
     This might take a while, please wait: 'Dette kan ta ei stund. Ver venleg og vent'
     Invalid history file: 'Ugyldig historikkfil'
@@ -592,11 +590,6 @@ Video:
   Download Video: 'Last ned video'
   video only: 'berre video'
   audio only: 'berre lyd'
-  Audio:
-    Low: 'Låg'
-    Medium: 'Middels'
-    High: 'Høg'
-    Best: 'Beste'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
@@ -632,7 +625,6 @@ Video:
   Started streaming on: 'Begynte å straume på'
   Publicationtemplate: '{number} {unit} sidan'
 #& Videos
-  translated from English: omsett frå engelsk
   Sponsor Block category:
     outro: Avslutting
     interaction: Samhandling
@@ -642,7 +634,6 @@ Video:
     self-promotion: Eigenpromotering
     recap: Oppsummering
     filler: Fyllstoff
-  Skipped segment: Overhoppa del
   External Player:
     video: video
     playlist: speleliste
@@ -659,18 +650,6 @@ Video:
       opening specific video in a playlist (falling back to opening the video): opner
         valt video i ei speleliste (faller tilbake til å opne videoen)
   Premieres on: Har premiere
-  Stats:
-    Volume: Lydstyrke
-    Bandwidth: Bandbreidde
-    Player Dimensions: Avspelarstorleik
-    Bitrate: Bithastigheit
-    Resolution: Oppløysing
-    Buffered: Hurtiglagra
-    Video ID: Video-ID
-    Mimetype: Medietype
-    Video statistics are not available for legacy videos: Videostatestikk er ikkje
-      tilgjengeleg for utdaterte videoar
-    Dropped / Total Frames: Redusert/total mengd bilete
   Show Super Chat Comment: Vis super-chat-kommentar
   Premieres: Premiere
   Scroll to Bottom: Rull til botn

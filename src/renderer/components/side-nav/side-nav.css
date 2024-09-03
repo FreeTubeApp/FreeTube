@@ -112,6 +112,11 @@
   vertical-align: middle;
 }
 
+.noThumbnail {
+  /* font-size is used for font-icon */
+  font-size: 35px;
+}
+
 .closed {
   inline-size: 80px;
 }

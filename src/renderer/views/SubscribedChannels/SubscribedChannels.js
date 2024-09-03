@@ -5,7 +5,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getLocalChannel } from '../../helpers/api/local'
+import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
 import { ctrlFHandler } from '../../helpers/utils'
 
 export default defineComponent({
@@ -63,8 +63,8 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     }
   },
   watch: {
@@ -111,6 +111,7 @@ export default defineComponent({
     },
 
     thumbnailURL: function(originalURL) {
+      if (originalURL == null) { return null }
       let newURL = originalURL
       // Sometimes relative protocol URLs are passed in
       if (originalURL.startsWith('//')) {
@@ -119,13 +120,13 @@ export default defineComponent({
       const hostname = new URL(newURL).hostname
       if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstanceUrl)
         }
       } else {
         if (this.backendPreference === 'local') { // IV to YT
           newURL = newURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
         } else { // IV to IV
-          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstance)
+          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstanceUrl)
         }
       }
 
@@ -140,7 +141,7 @@ export default defineComponent({
           getLocalChannel(channel.id).then(response => {
             if (!response.alert) {
               this.updateSubscriptionDetails({
-                channelThumbnailUrl: this.thumbnailURL(response.header.author.thumbnails[0].url),
+                channelThumbnailUrl: this.thumbnailURL(parseLocalChannelHeader(response).thumbnailUrl),
                 channelName: channel.name,
                 channelId: channel.id
               })

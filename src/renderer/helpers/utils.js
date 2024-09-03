@@ -253,41 +253,6 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
-export async function getFormatsFromHLSManifest(manifestUrl) {
-  const response = await fetch(manifestUrl)
-  const text = await response.text()
-
-  const lines = text.split('\n').filter(line => line)
-
-  const formats = []
-  let currentHeight = 0
-  let currentFPS = 0
-
-  for (const line of lines) {
-    if (line.startsWith('#')) {
-      if (!line.startsWith('#EXT-X-STREAM-INF:')) {
-        continue
-      }
-
-      const parts = line.split(',')
-      const height = parts.find(part => part.startsWith('RESOLUTION'))
-        .split('x')[1]
-      const fps = parts.find(part => part.startsWith('FRAME-RATE'))
-        .split('=')[1]
-      currentHeight = parseInt(height)
-      currentFPS = parseInt(fps)
-    } else {
-      formats.push({
-        height: currentHeight,
-        fps: currentFPS,
-        url: line.trim()
-      })
-    }
-  }
-
-  return formats
-}
-
 export function showToast(message, time = null, action = null) {
   FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
@@ -876,4 +841,14 @@ export function ctrlFHandler(event, inputElement) {
  */
 export function randomArrayItem(array) {
   return array[Math.floor(Math.random() * array.length)]
+}
+
+/**
+ * @param {string} text
+ */
+export function base64EncodeUtf8(text) {
+  const bytes = new TextEncoder().encode(text)
+
+  const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join('')
+  return btoa(binString)
 }

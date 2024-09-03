@@ -439,7 +439,6 @@ Settings:
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
-    Allow DASH AV1 formats: Povolit formáty DASH AV1
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -541,8 +540,6 @@ Settings:
       kanály a profily byly úspěšně importovány'
     All subscriptions have been successfully imported: 'Všechny odebírané kanály byly
       úspěšně importovány'
-    One or more subscriptions were unable to be imported: 'Jednu nebo více položek
-      odebíraných kanálů nebylo možno importovat'
     Invalid subscriptions file: 'Vadný soubor odebíraných kanálů'
     This might take a while, please wait: 'Tato akce může chvíli trvat, prosím počkejte'
     Invalid history file: 'Vadný soubor s historií'
@@ -882,11 +879,6 @@ Video:
   Download Video: 'Stáhnout Video'
   video only: 'pouze video'
   audio only: 'pouze zvuk'
-  Audio:
-    Low: 'Nízká'
-    Medium: 'Střední'
-    High: 'Vysoká'
-    Best: 'Nejlepší'
   Published:
     Jan: 'Leden'
     Feb: 'Únor'
@@ -927,7 +919,6 @@ Video:
   Save Video: Uložit video
   Video has been removed from your saved list: Video bylo odstraněno z vašeho uloženého
     seznamu
-  translated from English: přeloženo z angličtiny
   Sponsor Block category:
     music offtopic: Není hudba
     interaction: Interakce
@@ -937,7 +928,6 @@ Video:
     sponsor: Sponzor
     recap: Shrnutí
     filler: Výplň
-  Skipped segment: Přeskočen segment
   External Player:
     Unsupported Actions:
       opening specific video in a playlist (falling back to opening the video): Otevření
@@ -954,18 +944,6 @@ Video:
     video: video
     OpenInTemplate: Otevřít v {externalPlayer}
   Premieres on: Premiéra
-  Stats:
-    Mimetype: Typ int. média
-    Video statistics are not available for legacy videos: Statistiky videí nejsou
-      k dispozici pro starší videa
-    Video ID: ID videa
-    Resolution: Rozlišení
-    Player Dimensions: Rozměry přehrávače
-    Bitrate: Bitrate
-    Volume: Hlasitost
-    Bandwidth: Bandwidth
-    Buffered: V mezipaměti
-    Dropped / Total Frames: Vyřazené / Celkový počet snímků
   Premieres in: Premiéra za
   Premieres: Premiéra
   Show Super Chat Comment: Zobrazit komentář Super Chat
@@ -1102,9 +1080,6 @@ Tooltips:
       není změněná v nastavení).
     Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat
       ve stylu MPV.
-    Allow DASH AV1 formats: Formáty DASH AV1 mohou vypadat lépe než formáty DASH H.264,
-      vyžadují ale k přehrávání větší výkon! Nejsou k dispozici u všech videí, v těchto
-      případech přehrávač místo nich použije formáty DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale

@@ -374,7 +374,6 @@ Settings:
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
     Max Video Playback Rate: Maximal uppspelningshastighet
     Video Playback Rate Interval: Uppspelningshastighetsintervall
-    Allow DASH AV1 formats: Tillåt DASH AV1-format
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
     Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
   Privacy Settings:
@@ -421,8 +420,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer
       och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
-    One or more subscriptions were unable to be imported: 'En eller flera prenumerationer
-      kunde inte importeras'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
     This might take a while, please wait: 'Detta kan ta ett tag, vänligen vänta'
     Invalid history file: 'Ogiltigt historikarkiv'
@@ -831,11 +828,6 @@ Video:
   Published on: 'Publicerad den'
   Publicationtemplate: 'för {number} {unit} sedan'
 #& Videos
-  Audio:
-    Best: Högsta
-    High: Hög
-    Medium: Medium
-    Low: Låg
   audio only: endast ljud
   video only: endast video
   Download Video: Ladda ner video
@@ -858,8 +850,6 @@ Video:
     sponsor: sponsor
     recap: Sammanfattning
     filler: Utfyllnad
-  Skipped segment: Skippat segment
-  translated from English: översatt från Engelska
   External Player:
     Unsupported Actions:
       shuffling playlists: blandar spellistor
@@ -875,18 +865,6 @@ Video:
     playlist: spellista
     video: video
     OpenInTemplate: Öppna i {externalPlayer}
-  Stats:
-    Video statistics are not available for legacy videos: Videostatstik är inte tillgänglig
-      för föråldrade videor
-    Dropped / Total Frames: Missade / Totalt antal bildrutor
-    Bitrate: Bithastighet
-    Volume: Volym
-    Resolution: Upplösning
-    Player Dimensions: Spelardimensioner
-    Video ID: Video-ID
-    Bandwidth: Bandbredd
-    Mimetype: Mimetyp
-    Buffered: Buffrad
   Premieres on: Har premiär den
   Premieres: Premiärer
   Upcoming: Kommande
@@ -1016,9 +994,6 @@ Tooltips:
       landsbegränsningar.
     Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
       videon, MPV-stil.
-    Allow DASH AV1 formats: DASH AV1-format kan se bättre ut än DASH H.264-format.
-      DASH AV1-format kräver mer kraft för uppspelning! Det är inte tillgängligt för
-      alla videor, i de fall kommer spelaren använde DASh H.264-format istället.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
       CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten.
       Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa

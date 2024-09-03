@@ -438,7 +438,6 @@ Settings:
       orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
-    Allow DASH AV1 formats: Zezwól na format AV1 DASH
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -540,8 +539,6 @@ Settings:
     Select Export Type: Wybierz typ eksportu
     Select Import Type: Wybierz typ importu
     Data Settings: Ustawienia danych
-    One or more subscriptions were unable to be imported: Nie można było zaimportować
-      co najmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
@@ -891,11 +888,6 @@ Video:
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie. Proszę
     odświeżyć stronę, aby ponownie sprawdzić
-  Audio:
-    Best: Najlepsza
-    High: Wysoka
-    Medium: Średnia
-    Low: Niska
   audio only: tylko audio
   video only: tylko wideo
   Download Video: Pobierz film
@@ -909,7 +901,6 @@ Video:
     zapisanych
   Video has been saved: Film został zapisany
   Save Video: Zapisz film
-  translated from English: przetłumaczone z angielskiego
   Sponsor Block category:
     music offtopic: niemuzyczny
     interaction: o interakcji
@@ -919,7 +910,6 @@ Video:
     sponsor: sponsorowany
     filler: z wypełniaczem
     recap: z podsumowaniem
-  Skipped segment: Pominięto segment
   External Player:
     Unsupported Actions:
       reversing playlists: odwracania playlist
@@ -936,26 +926,6 @@ Video:
     video: filmu
     OpenInTemplate: Otwórz w {externalPlayer}
   Premieres on: Premiera
-  Stats:
-    buffered: Zbuforowano
-    out of: z
-    video id: ID filmu (YouTube)
-    player resolution: Odtwarzacz
-    volume: Głośność
-    bandwidth: Prędkość połączenia
-    fps: FPS
-    frame drop: Pominięte klatki
-    Video ID: ID filmu
-    Resolution: Rozdzielczość
-    Player Dimensions: Wymiary odtwarzacza
-    Bitrate: Szybkość transmisji
-    Volume: Głośność
-    Bandwidth: Przepustowość
-    Buffered: Zbuforowano
-    Mimetype: Typ MIME
-    Video statistics are not available for legacy videos: Statystyki filmu nie są
-      dostępne dla starych formatów
-    Dropped / Total Frames: Opuszczone klatki / klatki ogółem
   Premieres in: Premiera za
   Premieres: Premiery
   Show Super Chat Comment: Pokazuj komentarze z „Superczatu”
@@ -1173,10 +1143,6 @@ Tooltips:
       wartości (1x, chyba że została zmieniona w ustawieniach).
     Skip by Scrolling Over Video Player: Użyj kółka myszy, by przewijać film tak jak
       w MPV.
-    Allow DASH AV1 formats: Film w formacie AV1 DASH może wyglądać lepiej, niż w formacie
-      H.264 DASH. Dekodowanie formatu AV1 DASH wymaga większej mocy obliczeniowej.
-      W filmach, dla których ten format nie jest dostępny, zostanie użyty format H.264
-      DASH.
   External Player Settings:
     Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).

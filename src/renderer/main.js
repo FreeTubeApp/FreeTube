@@ -27,6 +27,7 @@ import {
   faCheck,
   faChevronRight,
   faCircleUser,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
@@ -76,6 +77,7 @@ import {
   faSearch,
   faServer,
   faShareAlt,
+  faSlash,
   faSlidersH,
   faSortAlphaDown,
   faSortAlphaDownAlt,
@@ -92,6 +94,7 @@ import {
   faUserCheck,
   faUsers,
   faUsersSlash,
+  faWifi,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -101,7 +104,7 @@ import {
   faGithub,
   faMastodon,
 } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
@@ -125,6 +128,7 @@ library.add(
   faCheck,
   faChevronRight,
   faCircleUser,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
@@ -175,6 +179,7 @@ library.add(
   faSearch,
   faServer,
   faShareAlt,
+  faSlash,
   faSlidersH,
   faSortAlphaDown,
   faSortAlphaDownAlt,
@@ -191,6 +196,7 @@ library.add(
   faUserCheck,
   faUsers,
   faUsersSlash,
+  faWifi,
 
   // solid icons
   farBookmark,
@@ -204,6 +210,7 @@ library.add(
 registerSwiper()
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+Vue.component('FontAwesomeLayers', FontAwesomeLayers)
 Vue.directive('observe-visibility', ObserveVisibility)
 
 /* eslint-disable-next-line no-new */

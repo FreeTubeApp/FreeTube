@@ -290,8 +290,6 @@ Settings:
       i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han
       importat amb èxit'
-    One or more subscriptions were unable to be imported: 'Una o més subscripcions
-      no s''han pogut importar'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
     This might take a while, please wait: 'Això pot trigar una estona, si us plau,
       esperi'
@@ -536,11 +534,6 @@ Video:
   Published on: 'Publicat el'
   Publicationtemplate: '{number} {unit} fa'
 #& Videos
-  Audio:
-    High: Alta
-    Best: Millor
-    Low: Baixa
-    Medium: Mitjana
   Started streaming on: Retransmissió iniciada el
   Sponsor Block category:
     interaction: interacció
@@ -549,7 +542,6 @@ Video:
     intro: introducció
     outro: conclusió
     self-promotion: autopromoció
-  Skipped segment: Segment saltat
   External Player:
     Unsupported Actions:
       starting video at offset: començant el vídeo al punt donat
@@ -574,7 +566,6 @@ Video:
   Download Video: Descàrrega El Vídeo
   video only: només vídeo
   Streamed on: Retransmès en directe el
-  translated from English: traduït de l'anglès
 Videos:
   #& Sort By
   Sort By:

@@ -391,7 +391,6 @@ Settings:
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
-    Allow DASH AV1 formats: 允许 DASH AV1 格式
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -474,7 +473,6 @@ Settings:
     Select Export Type: 选择导出类型
     Select Import Type: 选择导入类型
     Data Settings: 数据设置
-    One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表
@@ -778,11 +776,6 @@ Video:
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
   Starting soon, please refresh the page to check again: 即将开始，请刷新页面再次检查
-  Audio:
-    Best: 最佳
-    High: 高
-    Medium: 中
-    Low: 低
   audio only: 仅音频
   video only: 仅视频
   Download Video: 下载视频
@@ -795,25 +788,6 @@ Video:
   Video has been removed from your saved list: 视频已从你的播放列表移除
   Video has been saved: 视频已保存
   Save Video: 保存视频到播放列表
-  Stats:
-    video id: 视频 ID (YouTube)
-    player resolution: 视区
-    volume: 音量
-    fps: 每秒帧数
-    out of: 中的
-    frame drop: 掉帧
-    bandwidth: 连接速度
-    buffered: 缓冲
-    Video ID: 视频 ID
-    Resolution: 分辨率
-    Player Dimensions: 播放器尺寸
-    Bitrate: 比特率
-    Volume: 音量
-    Buffered: 已缓冲
-    Dropped / Total Frames: 丢弃帧/总帧数
-    Mimetype: 互联网媒体类型
-    Bandwidth: 带宽
-    Video statistics are not available for legacy videos: 视频统计数据对于 legacy 视频不可用
   External Player:
     OpenInTemplate: 在 {externalPlayer} 中打开
     video: 视频
@@ -839,8 +813,6 @@ Video:
     sponsor: 赞助者
     recap: 回顾
     filler: 过滤器
-  translated from English: 从英语翻译
-  Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
   Scroll to Bottom: 滚动到底部
@@ -851,6 +823,32 @@ Video:
   Unhide Channel: 显示频道
   Hide Channel: 隐藏频道
   More Options: 更多选项
+  Player:
+    Audio Tracks: 音轨
+    Theatre Mode: 影院模式
+    Full Window: 全窗口
+    Exit Full Window: 退出全窗口
+    Take Screenshot: 截屏
+    Show Stats: 显示统计信息
+    Hide Stats: 隐藏统计信息
+    Stats:
+      Stats: 统计信息
+      Video ID: 视频 ID： {videoId}
+      Media Formats: 媒体格式：{formats}
+      Resolution: 分辨率：{width}x{height}@{frameRate}
+      Player Dimensions: 播放器尺寸： {width}x{height}
+      Bitrate: 比特率：{bitrate} kbps
+      Volume: 音量：{volumePercentage}%
+      Buffered: 已缓冲：{bufferedPercentage}%
+      Dropped Frames / Total Frames: 丢弃帧：{droppedFrames} / 总帧数： {totalFrames}
+      CodecAudio: 编解码器：{audioCodec} ({audioItag})
+      CodecsVideoAudioNoItags: 编解码器：{videoCodec} / {audioCodec}
+      Bandwidth: 带宽：{bandwidth} kbps
+      CodecsVideoAudio: 编解码器：{videoCodec} ({videoItag}) / {audioCodec} ({audioItag})
+    You appear to be offline: 你似乎处于离线状态。
+    Playback will resume automatically when your connection comes back: 网络连接恢复时，将自动继续播放。
+    TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
+    Exit Theatre Mode: 推出影院模式
 Videos:
   #& Sort By
   Sort By:
@@ -1012,8 +1010,6 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
     Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
-    Allow DASH AV1 formats: DASH AV1 格式画质也许比 DASH H.264 格式要好。 但请注意 DASH AV1 格式耗电更多！不是所有视频都有
-      DASH AV1 格式，如果没有的话，播放器会使用 DASH H.264 格式。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。

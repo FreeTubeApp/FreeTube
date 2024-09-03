@@ -439,7 +439,6 @@ Settings:
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
-    Allow DASH AV1 formats: Consenti formati DASH AV1
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -522,8 +521,6 @@ Settings:
     This might take a while, please wait: Questa operazione potrebbe richiedere del
       tempo. Per favore attendi
     Invalid subscriptions file: File iscrizioni non valido
-    One or more subscriptions were unable to be imported: Una o più iscrizioni non
-      sono state importate
     All subscriptions have been successfully imported: Tutte le iscrizioni sono state
       importate con successo
     All subscriptions and profiles have been successfully imported: Tutte le iscrizioni
@@ -887,11 +884,6 @@ Video:
   Autoplay: Riproduzione automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra
     breve, aggiorna la pagina per ricontrollare
-  Audio:
-    Best: Migliore
-    High: Alto
-    Medium: Medio
-    Low: Basso
   audio only: solo audio
   video only: solo video
   Download Video: Download video
@@ -929,29 +921,7 @@ Video:
     sponsor: Sponsor
     recap: Ricapitolazione
     filler: Riempitivo
-  Skipped segment: Segmento saltato
-  translated from English: tradotto dall'inglese
   Premieres on: Première il
-  Stats:
-    volume: Volume
-    fps: FPS
-    frame drop: Perdita di immagine
-    buffered: Bufferizzato
-    bandwidth: Velocità di connessione
-    out of: per
-    video id: ID video (YouTube)
-    player resolution: Finestra di visualizzazione
-    Video statistics are not available for legacy videos: Le statistiche sui video
-      non sono disponibili per i video obsoleti
-    Video ID: ID video
-    Resolution: Risoluzione
-    Player Dimensions: Dimensioni del lettore
-    Bitrate: Velocità di trasmissione
-    Volume: Volume
-    Bandwidth: Larghezza di banda
-    Buffered: Memoria buffer
-    Dropped / Total Frames: Frame persi / Frame totali
-    Mimetype: Tipo di media
   Premieres in: Anteprima in
   Premieres: Première
   Scroll to Bottom: Scorri fino in fondo
@@ -964,6 +934,35 @@ Video:
   Unhide Channel: Mostra canale
   Hide Channel: Nascondi canale
   More Options: Più opzioni
+  Player:
+    TranslatedCaptionTemplate: '{language} (tradotto da "{originalLanguage}")'
+    Audio Tracks: Tracce audio
+    Theatre Mode: Modalità teatro
+    Exit Theatre Mode: Esci dalla Modalità teatro
+    Show Stats: Mostra statistiche
+    Stats:
+      Media Formats: 'Formati multimediali: {formats}'
+      Resolution: 'Risoluzione: {width}×{height}@{frameRate}'
+      Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
+      Stats: Statistiche
+      Video ID: 'ID video: {videoId}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Larghezza di banda: {bandwidth} kbps'
+      Buffered: 'Bufferizzato: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Fotogrammi persi: {droppedFrames} / Fotogrammi
+        totali: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
+    Hide Stats: Nascondi statistiche
+    Full Window: Finestra intera
+    Exit Full Window: Esci da Finestra intera
+    Take Screenshot: Acquisisci screenshot
+    You appear to be offline: Sembra che tu sia offline.
+    Playback will resume automatically when your connection comes back: La riproduzione
+      riprenderà automaticamente quando verrà ripristinata la connessione.
+    Skipped segment: Segmento {segmentCategory} saltato
 Videos:
   #& Sort By
   Sort By:
@@ -1001,6 +1000,8 @@ Change Format:
   Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
   Dash formats are not available for this video: I formati DASH non sono disponibili
+    per questo video
+  Legacy formats are not available for this video: I formati obsoleti non sono disponibili
     per questo video
 Share:
   Share Video: 'Condividi video'
@@ -1149,10 +1150,6 @@ Tooltips:
       nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
-    Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
-      formati DASH H.264. I formati DASH AV1 richiedono più potenza per la riproduzione!
-      Non sono disponibili su tutti i video, in questo caso il lettore userà invece
-      i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,

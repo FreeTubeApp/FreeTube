@@ -455,7 +455,6 @@ Settings:
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
-    Allow DASH AV1 formats: Autoriser les formats DASH AV1
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -558,8 +557,6 @@ Settings:
       données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les
       données de profil sont insuffisantes
-    One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
-      n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
     Import Playlists: Importer des listes de lecture
@@ -918,11 +915,6 @@ Video:
   Loop Playlist: Liste de lecture en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez
     actualiser la page pour vérifier à nouveau
-  Audio:
-    Best: Meilleure
-    Medium: Normale
-    Low: Basse
-    High: Haute
   audio only: audio uniquement
   video only: vidéo uniquement
   Download Video: Télécharger la vidéo
@@ -936,7 +928,6 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
-  translated from English: traduit de l'anglais
   Sponsor Block category:
     music offtopic: Musique hors sujet
     interaction: Interaction
@@ -946,7 +937,6 @@ Video:
     intro: Intro
     filler: Bouche-trou
     recap: Récap
-  Skipped segment: Segment ignoré
   External Player:
     playlist: liste de lecture
     video: vidéo
@@ -963,26 +953,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
     OpeningTemplate: Ouverture de {videoOrPlaylist} en {externalPlayer}…
     OpenInTemplate: Ouvrir avec {externalPlayer}
-  Stats:
-    video id: "Identifiant de la vidéo (YouTube)"
-    player resolution: "Résolution du lecteur"
-    volume: "Volume"
-    fps: "IPS"
-    frame drop: "Perte d'image"
-    bandwidth: "Vitesse de connexion"
-    buffered: "En tampon"
-    out of: "sur"
-    Player Dimensions: Dimensions du lecteur
-    Bitrate: Débit binaire
-    Volume: Volume
-    Mimetype: Type de médias
-    Video statistics are not available for legacy videos: Les statistiques vidéo ne
-      sont pas disponibles pour les anciennes vidéos
-    Resolution: Résolution
-    Bandwidth: Bande passante
-    Video ID: Identifiant vidéo
-    Buffered: En mémoire tampon
-    Dropped / Total Frames: Images perdues / Nombre total d'images
   Premieres on: Avant-première le
   Premieres in: Première dans
   Premieres: Avant-première
@@ -996,6 +966,33 @@ Video:
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
   More Options: Plus d'options
+  Player:
+    Audio Tracks: Pistes audio
+    Theatre Mode: Mode théâtre
+    Exit Theatre Mode: Quitter le mode théâtre
+    Full Window: Fenêtre pleine
+    Show Stats: Afficher les stats
+    Hide Stats: Masquer les stats
+    Stats:
+      Stats: Stats
+      Video ID: 'Identifiant de la vidéo : {videoId}'
+      Media Formats: 'Formats du média : {formats}'
+      Resolution: 'Résolution : {width}×{height}@{frameRate}'
+      Player Dimensions: 'Dimensions du lecteur : {width}×{height}'
+      Volume: 'Volume : {volumePercentage} %'
+      Bandwidth: 'Bande passante : {bandwidth} kb/s'
+      Bitrate: 'Débit binaire : {bitrate} kb/s'
+      Buffered: 'Mise en mémoire tampon : {bufferedPercentage} %'
+      CodecAudio: 'Codec : {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs : {videoCodec} / {audioCodec}'
+      CodecsVideoAudio: 'Codecs : {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    Skipped segment: Segment {segmentCategory} ignoré
+    TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
+    Exit Full Window: Quitter la fenêtre pleine
+    Take Screenshot: Prendre une capture d'écran
+    You appear to be offline: Vous semblez être hors ligne.
+    Playback will resume automatically when your connection comes back: La lecture
+      reprendra automatiquement quand votre connexion reviendra.
 Videos:
   #& Sort By
   Sort By:
@@ -1034,6 +1031,8 @@ Change Format:
     pour cette vidéo
   Dash formats are not available for this video: Le format DASH n'est pas disponible
     pour cette vidéo
+  Legacy formats are not available for this video: Les formats héritage ne sont pas
+    disponibles pour cette vidéo
 Share:
   Share Video: 'Partager la vidéo'
   Share Playlist: 'Partager la liste de lecture'
@@ -1194,10 +1193,6 @@ Tooltips:
       de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer
       d'une vidéo à l'autre, en style MPV.
-    Allow DASH AV1 formats: Les formats DASH AV1 peuvent être plus beaux que les formats
-      DASH H.264. Les formats DASH AV1 nécessitent plus de puissance pour être lus !
-      Ils ne sont pas disponibles sur toutes les vidéos, dans ce cas le lecteur utilisera
-      les formats DASH H.264 à la place.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.

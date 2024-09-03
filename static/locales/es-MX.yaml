@@ -312,8 +312,6 @@ Settings:
     This might take a while, please wait: Esto puede tomar un tiempo, por favor espera
     All subscriptions and profiles have been successfully imported: Suscripciones
       y perfiles se importaron con éxito
-    One or more subscriptions were unable to be imported: Una o más suscripciones
-      no se pudo importar
     All subscriptions have been successfully imported: Suscripciones se importaron
       con éxito
     Subscriptions have been successfully exported: Suscripciones se exportaron con
@@ -541,29 +539,11 @@ Video:
   Reverse Playlist: Lista de reproducción invertida
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción en bucle
-  translated from English: traducido del inglés
-  Stats:
-    Mimetype: Tipo de medio
-    Resolution: Resolución
-    Player Dimensions: Tamaño del reproductor
-    Bitrate: Tasa de bits
-    Volume: Volumen
-    Bandwidth: Ancho de banda
-    Video statistics are not available for legacy videos: Estadísticas no disponibles
-      para videos heredados
-    Video ID: ID del video
-    Buffered: Amplificado
-    Dropped / Total Frames: Caídos / Fotogramas totales
   Video has been removed from your saved list: El video se ha eliminado de su lista
     de guardado
   Video has been saved: Video guardado
   Starting soon, please refresh the page to check again: Empezará pronto, por favor
     actualice la página para volver a revisar
-  Audio:
-    Best: Máxima
-    Low: Baja
-    Medium: Media
-    High: Alta
   External Player:
     Unsupported Actions:
       reversing playlists: revirtiendo listas
@@ -596,7 +576,6 @@ Video:
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
   Premieres on: En estreno
-  Skipped segment: Omitida esta parte
   Download Video: Descargar video
 Videos:
   #& Sort By

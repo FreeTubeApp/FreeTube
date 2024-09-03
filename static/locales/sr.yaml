@@ -438,7 +438,6 @@ Settings:
     Scroll Volume Over Video Player: Превуци за јачину звука преко плејера видео снимка
     Skip by Scrolling Over Video Player: Прескочи превлачењем преко плејера видео
       снимка
-    Allow DASH AV1 formats: Дозволи DASH AV1 формате
     Scroll Playback Rate Over Video Player: Превуци за брзину репродукције преко плејера
       видео снимка
     Fast-Forward / Rewind Interval: Интервал брзог премотавања унапред/уназад
@@ -547,8 +546,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Сва праћења и
       профили су успешно увезени'
     All subscriptions have been successfully imported: 'Сва праћења су успешно увезена'
-    One or more subscriptions were unable to be imported: 'Није могуће увести једно
-      или више праћења'
     Invalid subscriptions file: 'Неважећи фајл праћења'
     This might take a while, please wait: 'Ово може потрајати, сачекајте'
     Invalid history file: 'Неважећи фајл историје'
@@ -869,18 +866,6 @@ Video:
     Ago: Пре
     Aug: Авг.
   Upcoming: Предстојеће
-  Stats:
-    Video statistics are not available for legacy videos: Статистика видео снимака
-      није доступна за застареле видео снимке
-    Buffered: Баферовано
-    Bitrate: Брзина кадра
-    Volume: Волумен (партиција)
-    Mimetype: Mimetype
-    Resolution: Резолуција
-    Dropped / Total Frames: Испуштено / Укупно кадрова
-    Bandwidth: Проток
-    Player Dimensions: Димензије плејера
-    Video ID: ID видео снимка
   Sponsor Block category:
     interaction: Интеракција
     filler: Попуњавање
@@ -890,7 +875,6 @@ Video:
     sponsor: Спонзор
     recap: Рекапитулација
     intro: Уводна анимација
-  translated from English: преведено са енглеског
   External Player:
     Unsupported Actions:
       opening playlists: отварање плејлиста
@@ -909,13 +893,7 @@ Video:
   Live chat is enabled. Chat messages will appear here once sent.: Ћаскање уживо је
     омогућено.  Поруке ћаскања ће се појавити овде када буду послате.
   Streamed on: Стримовано
-  Audio:
-    Medium: Средње
-    High: Високо
-    Best: Најбоље
-    Low: Ниско
   video only: само видео снимак
-  Skipped segment: Прескочен сегмент
   Pause on Current Video: Паузирај на тренутном видео снимку
   Premieres on: Премијера на
   audio only: само аудио снимак (звук)
@@ -934,6 +912,35 @@ Video:
   Unhide Channel: Прикажи канал
   Hide Channel: Сакриј канал
   More Options: Више опција
+  Player:
+    TranslatedCaptionTemplate: '{language} (преведено са „{originalLanguage}“)'
+    Theatre Mode: Режим биоскопа
+    Exit Theatre Mode: Изађи из режима биоскопа
+    Exit Full Window: Изађи из целог прозора
+    Take Screenshot: Направи снимак екрана
+    Show Stats: Прикажи статистику
+    Hide Stats: Сакриј статистику
+    Stats:
+      Video ID: 'ID видеа: {videoId}'
+      Media Formats: 'Формат медија: {formats}'
+      Resolution: 'Резолуција: {width}x{height}@{frameRate}'
+      Volume: 'Волумен: {volumePercentage}%'
+      Stats: Статистика
+      Dropped Frames / Total Frames: 'Испуштени кадрови: {droppedFrames} / Укупан
+        број кадрова: {totalFrames}'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      Player Dimensions: 'Димензије плејера: {width}x{height}'
+      Bitrate: 'Брзина преноса: {bitrate} kbps'
+      Bandwidth: 'Пропусни опсег: {bandwidth} kbps'
+      Buffered: 'Баферовано: {bufferedPercentage}%'
+      CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
+    Audio Tracks: Аудио нумере
+    Full Window: Цео прозор
+    You appear to be offline: Изгледа да сте офлајн.
+    Playback will resume automatically when your connection comes back: Репродукција
+      ће се аутоматски наставити када се ваша интернет веза врати.
+    Skipped segment: Прескочен сегмент „{segmentCategory}“
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -987,10 +994,6 @@ Tooltips:
       чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју,
       ваше плејлисте и видео снимке унутар плејлиста.
   Player Settings:
-    Allow DASH AV1 formats: DASH AV1 формати могу изгледати боље од DASH H.264 формата.
-      DASH AV1 формати захтевају више снаге за репродукцију! Они нису доступни на
-      свим видео снимцима, у тим случајевима плејер ће уместо њих користити DASH H.264
-      формате.
     Default Video Format: Подесите формате који се користе када се видео снимак пушта.
       DASH формати могу да пуштају виши квалитет. Застарели формати су ограничени
       на максимално 720p, али користе мање протока. Аудио формати су само звучни снимци.
@@ -1049,6 +1052,8 @@ Change Format:
   Change Media Formats: Промени формате медија
   Use Dash Formats: Користи DASH формате
   Use Legacy Formats: Користи застареле формате
+  Legacy formats are not available for this video: Застарели формати нису доступни
+    за овај видео снимак
 Comments:
   Comments: Коментари
   Sort by: Сортирање по

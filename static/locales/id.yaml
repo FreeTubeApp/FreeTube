@@ -328,7 +328,6 @@ Settings:
       Ask Path: Tanya Lokasi Penyimpanan
       Quality Label: Kualitas Tangkapan Layar
       File Name Label: Pola Nama Berkas
-    Allow DASH AV1 formats: Izinkan format DASH AV1
     Enter Fullscreen on Display Rotate: Masuk ke Layar Penuh ketika Perangkat Diputar
     Skip by Scrolling Over Video Player: Lewati dengan Menggulir Di Atas Pemutar Video
   Privacy Settings:
@@ -379,8 +378,6 @@ Settings:
       dan profil telah berhasil diimpor'
     All subscriptions have been successfully imported: 'Semua langganan telah berhasil
       diimpor'
-    One or more subscriptions were unable to be imported: 'Satu atau lebih langganan
-      tidak dapat diimpor'
     Invalid subscriptions file: 'Berkas langganan tidak valid'
     This might take a while, please wait: 'Mungkin memakan waktu cukup lama, silakan
       tunggu'
@@ -772,11 +769,6 @@ Video:
   Published on: 'Dipublikasi pada'
   Publicationtemplate: '{number} {unit} yang lalu'
 #& Videos
-  Audio:
-    Best: Terbaik
-    High: Tinggi
-    Medium: Sedang
-    Low: Rendah
   audio only: hanya audio
   video only: hanya video
   Download Video: Unduh Video
@@ -792,7 +784,6 @@ Video:
     Anda
   Video has been saved: Video telah disimpan
   Save Video: Simpan Video
-  translated from English: diterjemahkan dari Bahasa Inggris
   Sponsor Block category:
     interaction: Interaksi
     music offtopic: Musik Non-Topik
@@ -800,7 +791,6 @@ Video:
     outro: Outro
     intro: Intro
     sponsor: Sponsor
-  Skipped segment: Segmen yang dilewati
   External Player:
     Unsupported Actions:
       starting video at offset: memulai video pada offset
@@ -818,24 +808,6 @@ Video:
     video: video
     OpenInTemplate: Buka di {externalPlayer}
   Premieres on: Pemutaran Perdana pada
-  Stats:
-    bandwidth: Kecepatan Koneksi
-    volume: Volume
-    fps: FPS
-    video id: ID Video (YouTube)
-    frame drop: Frame Drop
-    buffered: Buffered
-    player resolution: Area pandang
-    out of: keluar dari
-    Bandwidth: Bandwidth
-    Video statistics are not available for legacy videos: Statistik video tidak tersedia
-      untuk video dengan format lawas
-    Video ID: ID Video
-    Resolution: Resolusi
-    Volume: Volume
-    Mimetype: Tipe Mime
-    Player Dimensions: Ukuran Pemutar
-    Bitrate: Laju Bit
   Hide Channel: Sembunyikan Kanal
   Upcoming: Akan Datang
 Videos:

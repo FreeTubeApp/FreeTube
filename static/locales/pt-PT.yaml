@@ -423,7 +423,6 @@ Settings:
       por cima do reprodutor
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: Definições de privacidade
     Remember History: Memorizar histórico
@@ -531,8 +530,6 @@ Settings:
       e perfis foram importados com sucesso
     All subscriptions have been successfully imported: Todas as subscrições foram
       importadas com sucesso
-    One or more subscriptions were unable to be imported: Uma ou mais subscrições
-      não foram importadas
     Invalid subscriptions file: Ficheiro de subscrições inválido
     This might take a while, please wait: Este processo pode ser demorado.
     Invalid history file: Ficheiro de histórico inválido
@@ -831,11 +828,6 @@ Video:
   Download Video: Descarregar vídeo
   video only: apenas vídeo
   audio only: apenas áudio
-  Audio:
-    Low: Baixa
-    Medium: Média
-    High: Alta
-    Best: Melhor
   Published:
     Jan: jan
     Feb: fev
@@ -876,7 +868,6 @@ Video:
   Reverse Playlist: Inverter lista de reprodução
   Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
-  translated from English: traduzido do inglês
   External Player:
     Unsupported Actions:
       looping playlists: repetir lista de reprodução
@@ -901,19 +892,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulação
     filler: Preenchimento
-  Skipped segment: Secção ignorada
-  Stats:
-    Mimetype: Tipo mime
-    Video statistics are not available for legacy videos: As estatísticas de vídeo
-      não estão disponíveis para vídeos mais antigos
-    Resolution: Resolução
-    Video ID: ID do vídeo
-    Volume: Volume
-    Bandwidth: Largura de banda
-    Buffered: Em memória
-    Bitrate: Taxa de dados
-    Dropped / Total Frames: Fotogramas perdidos/total de fotogramas
-    Player Dimensions: Dimensões do reprodutor
   Premieres on: Estreia a
   Premieres: Estreias
   Show Super Chat Comment: Mostrar comentário do Super Chat
@@ -1052,10 +1030,6 @@ Tooltips:
       padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
-    Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
-      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Não estão disponíveis para todos os vídeos e, nesses casos, o reprodutor usará
-      os formatos DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
@@ -1149,7 +1123,7 @@ Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: Erro ao capturar o ecrã. {error}
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
-    capítulo atual: {capítuloNoto}'
+    capítulo atual: {chapterName}'
   Chapters: Capítulos
   'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
     capítulo atual: {chapterName}'

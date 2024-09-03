@@ -87,8 +87,8 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     userPlaylistSortOrder: function () {
       return this.$store.getters.getUserPlaylistSortOrder
@@ -356,7 +356,7 @@ export default defineComponent({
         this.viewCount = result.viewCount
         this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstanceUrl)
         this.channelId = result.authorId
         this.infoSource = 'invidious'
 

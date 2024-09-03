@@ -1,13 +1,24 @@
-import { createWebURL, fetchWithTimeout, randomArrayItem } from '../../helpers/utils'
+import { IpcChannels } from '../../../constants'
+import { base64EncodeUtf8, createWebURL, fetchWithTimeout, randomArrayItem } from '../../helpers/utils'
 
 const state = {
   currentInvidiousInstance: '',
+  currentInvidiousInstanceAuthorization: null,
+  currentInvidiousInstanceUrl: '',
   invidiousInstancesList: null
 }
 
 const getters = {
   getCurrentInvidiousInstance(state) {
     return state.currentInvidiousInstance
+  },
+
+  getCurrentInvidiousInstanceUrl(state) {
+    return state.currentInvidiousInstanceUrl
+  },
+
+  getCurrentInvidiousInstanceAuthorization(state) {
+    return state.currentInvidiousInstanceAuthorization
   },
 
   getInvidiousInstancesList(state) {
@@ -67,6 +78,42 @@ const actions = {
 const mutations = {
   setCurrentInvidiousInstance(state, value) {
     state.currentInvidiousInstance = value
+
+    let url
+    try {
+      url = new URL(value)
+    } catch { }
+
+    let authorization = null
+
+    if (url && (url.username.length > 0 || url.password.length > 0)) {
+      authorization = `Basic ${base64EncodeUtf8(`${url.username}:${url.password}`)}`
+    }
+
+    state.currentInvidiousInstanceAuthorization = authorization
+
+    let instanceUrl
+
+    if (url && authorization) {
+      url.username = ''
+      url.password = ''
+
+      instanceUrl = url.toString().replace(/\/$/, '')
+    } else {
+      instanceUrl = value
+    }
+
+    state.currentInvidiousInstanceUrl = instanceUrl
+
+    if (process.env.IS_ELECTRON) {
+      const { ipcRenderer } = require('electron')
+
+      if (authorization) {
+        ipcRenderer.send(IpcChannels.SET_INVIDIOUS_AUTHORIZATION, authorization, instanceUrl)
+      } else {
+        ipcRenderer.send(IpcChannels.SET_INVIDIOUS_AUTHORIZATION, null)
+      }
+    }
   },
 
   setInvidiousInstancesList(state, value) {

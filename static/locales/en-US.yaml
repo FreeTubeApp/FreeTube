@@ -422,7 +422,6 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Allow DASH AV1 formats: Allow DASH AV1 formats
     Screenshot:
       Enable: Enable Screenshot
       Format Label: Screenshot Format
@@ -551,10 +550,7 @@ Settings:
       and profiles have been successfully imported
     All subscriptions have been successfully imported: All subscriptions have been
       successfully imported
-    One or more subscriptions were unable to be imported: One or more subscriptions
-      were unable to be imported
     Invalid subscriptions file: Invalid subscriptions file
-    This might take a while, please wait: This might take a while, please wait
     Invalid history file: Invalid history file
     Subscriptions have been successfully exported: Subscriptions have been successfully
       exported
@@ -821,11 +817,6 @@ Video:
   Download Video: Download Video
   video only: video only
   audio only: audio only
-  Audio:
-    Low: Low
-    Medium: Medium
-    High: High
-    Best: Best
   Published:
     Jan: Jan
     Feb: Feb
@@ -859,9 +850,7 @@ Video:
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
-  translated from English: translated from English
   Publicationtemplate: '{number} {unit} ago'
-  Skipped segment: Skipped segment
   Sponsor Block category:
     sponsor: Sponsor
     intro: Intro
@@ -885,17 +874,33 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
-  Stats:
-    Video statistics are not available for legacy videos: Video statistics are not available for legacy videos
-    Video ID: Video ID
-    Resolution: Resolution
-    Player Dimensions: Player Dimensions
-    Bitrate: Bitrate
-    Volume: Volume
-    Bandwidth: Bandwidth
-    Buffered: Buffered
-    Dropped / Total Frames: Dropped / Total Frames
-    Mimetype: Mimetype
+  Player:
+    TranslatedCaptionTemplate: '{language} (translated from "{originalLanguage}")'
+    Audio Tracks: Audio Tracks
+    Theatre Mode: Theater Mode
+    Exit Theatre Mode: Exit Theater Mode
+    Full Window: Full Window
+    Exit Full Window: Exit Full Window
+    Take Screenshot: Take Screenshot
+    Show Stats: Show Stats
+    Hide Stats: Hide Stats
+    Stats:
+      Stats: Stats
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Media Formats: {formats}'
+      Resolution: 'Resolution: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Player Dimensions: {width}x{height}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Bandwidth: {bandwidth} kbps'
+      Buffered: 'Buffered: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Dropped Frames: {droppedFrames} / Total Frames: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+    You appear to be offline: You appear to be offline.
+    Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
+    Skipped segment: 'Skipped {segmentCategory} segment'
 #& Videos
 Videos:
   #& Sort By
@@ -934,6 +939,8 @@ Change Format:
   Dash formats are not available for this video: DASH formats are not available for
     this video
   Audio formats are not available for this video: Audio formats are not available
+    for this video
+  Legacy formats are not available for this video: Legacy formats are not available
     for this video
 Share:
   Share Video: Share Video
@@ -1018,9 +1025,6 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
-    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
-      DASH AV1 formats require more power to playback! They are not available on all videos,
-      in those cases the player will use the DASH H.264 formats instead.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse

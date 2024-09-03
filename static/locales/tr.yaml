@@ -440,7 +440,6 @@ Settings:
         veya "/" kullanabilirsiniz.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
-    Allow DASH AV1 formats: DASH AV1 biçimlerine izin ver
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -491,8 +490,6 @@ Settings:
       ve profiller başarılı bir şekilde içe aktarıldı'
     All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir
       şekilde içe aktarıldı'
-    One or more subscriptions were unable to be imported: 'Bir ya da daha fazla abonelik
-      içe aktarılamadı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
     This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
     Invalid history file: 'Geçersiz geçmiş dosyası'
@@ -934,11 +931,6 @@ Video:
   Published on: 'Yayımlanma tarihi'
   Publicationtemplate: '{number} {unit} önce'
 #& Videos
-  Audio:
-    Best: En iyi
-    High: Yüksek
-    Medium: Orta
-    Low: Düşük
   audio only: yalnızca ses
   video only: yalnızca video
   Download Video: Video İndir
@@ -951,7 +943,6 @@ Video:
   Video has been removed from your saved list: Video, kaydedilen listenizden kaldırıldı
   Video has been saved: Video kaydedildi
   Save Video: Videoyu Kaydet
-  translated from English: İngilizceden çevrildi
   Sponsor Block category:
     music offtopic: Müzik Konu Dışı
     interaction: Etkileşim
@@ -961,7 +952,6 @@ Video:
     sponsor: Sponsor
     recap: Özet
     filler: Dolgu
-  Skipped segment: Atlanan bölüm
   External Player:
     Unsupported Actions:
       looping playlists: oynatma listelerini döngüye alma
@@ -978,26 +968,6 @@ Video:
     video: video
     OpenInTemplate: '{externalPlayer} içinde aç'
   Premieres on: İlk gösterim tarihi
-  Stats:
-    volume: Ses Seviyesi
-    out of: /
-    player resolution: Görüntü Penceresi
-    fps: FPS
-    frame drop: Çerçeve Kaybı
-    video id: Video Kimliği (YouTube)
-    bandwidth: Bağlantı Hızı
-    buffered: Arabelleğe Alınan
-    Video ID: Video Kimliği
-    Resolution: Çözünürlük
-    Player Dimensions: Oynatıcı Boyutları
-    Bitrate: Bit Hızı
-    Volume: Ses Seviyesi
-    Bandwidth: Bant Genişliği
-    Buffered: Arabelleğe Alınan
-    Dropped / Total Frames: Düşürülen / Toplam Çerçeve Sayısı
-    Mimetype: MIME Türü
-    Video statistics are not available for legacy videos: Video istatistikleri eski
-      videolar için kullanılabilir değil
   Premieres in: İlk gösterim
   Premieres: İlk gösterim
   Scroll to Bottom: Aşağıya Kaydır
@@ -1019,11 +989,11 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Tüm Oynatma Listesini Görüntüle'
+  View Full Playlist: 'Tüm oynatma listesini görüntüle'
   Videos: 'Videolar'
   View: 'Görüntüle'
   Views: 'İzlenme'
-  Last Updated On: 'Son Güncelleme Tarihi'
+  Last Updated On: 'Son güncelleme tarihi'
 
 # On Video Watch Page
 #* Published
@@ -1144,9 +1114,6 @@ Tooltips:
       için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
     Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma
       tekerleğini kullanın.
-    Allow DASH AV1 formats: DASH AV1 biçimleri, DASH H.264 biçimlerinden daha iyi
-      görünebilir. DASH AV1 biçimleri oynatmak daha fazla güç gerektirir! Tüm videolarda
-      bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme

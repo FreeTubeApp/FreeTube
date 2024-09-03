@@ -269,7 +269,6 @@ Settings:
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
         %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
         "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
-    Allow DASH AV1 formats: DASH AV1 포맷 허용
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
@@ -331,7 +330,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: '모든 구독 및 프로필을
       성공적으로 가져왔습니다'
     All subscriptions have been successfully imported: '모든 구독을 성공적으로 가져왔습니다'
-    One or more subscriptions were unable to be imported: '하나 이상의 구독을 가져올 수 없습니다'
     Invalid subscriptions file: '잘못된 구독 파일입니다'
     This might take a while, please wait: '시간이 좀 걸릴 수 있습니다. 잠시 기다려 주십시오'
     Invalid history file: '잘못된 기록 파일입니다'
@@ -552,11 +550,6 @@ Video:
   Download Video: '동영상 다운로드'
   video only: '비디오만'
   audio only: '오디오만'
-  Audio:
-    Low: '낮음'
-    Medium: '중간'
-    High: '높음'
-    Best: '최고'
   Published:
     Jan: '1월'
     Feb: '2월'
@@ -595,18 +588,6 @@ Video:
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
-  Stats:
-    Mimetype: 미디어 타입
-    Video statistics are not available for legacy videos: 레거시 비디오에 대한 비디오 통계를 사용할
-      수 없습니다
-    Player Dimensions: 플레이어 치수
-    Bandwidth: 대역폭
-    Video ID: 비디오 ID
-    Resolution: 해상도
-    Bitrate: 비트 전송률
-    Volume: 음량
-    Buffered: 버퍼링된
-    Dropped / Total Frames: 손실된 / 총 프레임 수
   Premieres on: 개봉일
   External Player:
     Unsupported Actions:
@@ -632,8 +613,6 @@ Video:
     outro: 결말부
     self-promotion: 자기 홍보
     interaction: 상호 작용
-  translated from English: 영어에서 번역됨
-  Skipped segment: 건너뛴 세그먼트
   Premieres: 프리미어
   Upcoming: 공개 예정
   Show Super Chat Comment: 슈퍼채팅 댓글 보이기
@@ -733,8 +712,6 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command
       키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게
       누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
-    Allow DASH AV1 formats: DASH AV1 포맷은 DASH H.264 포맷보다 화질이 좋을 수 있으나, 영상 재생을 위해 더
-      높은 성능을 요구합니다. 모든 영상에서 사용 가능한 것은 아니며, 사용이 불가능할 경우 DASH H.264 포맷을 사용합니다.
     Skip by Scrolling Over Video Player: MPV 방식으로 마우스 스크롤을 이용해 영상을 스킵합니다.
   Subscription Settings:
     Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더

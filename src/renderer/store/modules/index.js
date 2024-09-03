@@ -10,6 +10,7 @@ import profiles from './profiles'
 import settings from './settings'
 import subscriptionCache from './subscription-cache'
 import utils from './utils'
+import player from './player'
 
 export default {
   history,
@@ -18,5 +19,6 @@ export default {
   profiles,
   settings,
   subscriptionCache,
-  utils
+  utils,
+  player,
 }
