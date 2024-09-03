@@ -980,6 +980,36 @@ Video:
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
   More Options: Daha Fazla Seçenek
+  Player:
+    TranslatedCaptionTemplate: '{language} ("{originalLanguage}" dilinden çevrildi)'
+    Audio Tracks: Ses Parçaları
+    Stats:
+      Media Formats: 'Medya Biçimleri: {formats}'
+      Bitrate: 'Bit Hızı: {bitrate} kbps'
+      CodecsVideoAudioNoItags: 'Kod Çözücüler: {videoCodec} / {audioCodec}'
+      Stats: İstatistikler
+      Video ID: 'Video Kimliği: {videoId}'
+      Resolution: 'Çözünürlük: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Oynatıcı Boyutları: {width}x{height}'
+      Volume: 'Ses Düzeyi: {volumePercentage}%'
+      Bandwidth: 'Bant Genişliği: {bandwidth} kbps'
+      Buffered: 'Ara Belleğe Alınan: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Kaybedilen Çerçeve: {droppedFrames} / Toplam
+        Çerçeve: {totalFrames}'
+      CodecAudio: 'Kod Çözücü: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kod Çözücüler: {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+    Theatre Mode: Tiyatro Modu
+    Exit Theatre Mode: Tiyatro Modundan Çık
+    Full Window: Tam Pencere
+    Exit Full Window: Tam Pencereden Çık
+    Take Screenshot: Ekran Görüntüsü Al
+    Show Stats: İstatistikleri Göster
+    Hide Stats: İstatistikleri Gizle
+    You appear to be offline: Çevrim dışı görünüyorsunuz.
+    Playback will resume automatically when your connection comes back: Bağlantınız
+      geri geldiğinde oynatma otomatik olarak devam edecektir.
+    Skipped segment: '{segmentCategory} bölümü atlandı'
 Videos:
   #& Sort By
   Sort By:
@@ -1010,7 +1040,7 @@ Playlist:
     Custom: Özel
 Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
-  Change Media Formats: 'Video Biçimlerini Değiştir'
+  Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
   Use Legacy Formats: 'Eski Biçimleri Kullan'
   Use Audio Formats: 'Ses Biçimlerini Kullan'
@@ -1018,6 +1048,8 @@ Change Format:
     değil'
   Audio formats are not available for this video: 'Ses biçimleri bu video için kullanılabilir
     değil'
+  Legacy formats are not available for this video: Eski biçimler bu video için kullanılabilir
+    değil
 Share:
   Share Video: 'Videoyu Paylaş'
   Share Playlist: 'Oynatma Listesini Paylaş'
