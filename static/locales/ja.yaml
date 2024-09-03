@@ -123,7 +123,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message:
+  Playlist Message: 
     このページは完全に機能する再生リストを反映していません。保存した動画やお気に入りの動画のみが表示されます。作業が完了すると、現在ここにあるすべての動画は「Favorites」の再生リストに移行されます。
   Search bar placeholder: 再生リストの検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -595,7 +595,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
-    Warning:
+    Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワードの設定
@@ -830,6 +830,33 @@ Video:
   Hide Channel: チャンネルを非表示
   Unhide Channel: チャンネルを表示
   More Options: その他の設定
+  Player:
+    Stats:
+      Dropped Frames / Total Frames: 'コマ落ち: {droppedFrames} / 総フレーム: {totalFrames}'
+      CodecAudio: 'コーデック: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'コーデック: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'コーデック: {videoCodec} / {audioCodec}'
+      Video ID: '動画 ID: {videoId}'
+      Media Formats: 'メディア形式: {formats}'
+      Resolution: '解像度: {width}x{height}@{frameRate}'
+      Player Dimensions: 'プレーヤー寸法: {width}x{height}'
+      Bitrate: 'ビットレート: {bitrate} kbps'
+      Volume: '音量: {volumePercentage}%'
+      Bandwidth: '帯域幅: {bandwidth} kbps'
+      Buffered: 'バッファ済み: {bufferedPercentage}%'
+      Stats: 統計
+    You appear to be offline: オフラインのようです。
+    Playback will resume automatically when your connection comes back: ネットワーク接続が回復すると再生が自動的に再開されます。
+    Skipped segment: '{segmentCategory} セグメントをスキップしました'
+    TranslatedCaptionTemplate: '{language}（「{originalLanguage}」から翻訳）'
+    Audio Tracks: オーディオ トラック
+    Theatre Mode: シアターモード
+    Exit Theatre Mode: シアターモードを終了
+    Exit Full Window: フルウィンドウを終了
+    Full Window: フルウィンドウ
+    Hide Stats: 統計を隠す
+    Take Screenshot: スクリーンショットを撮る
+    Show Stats: 統計を表示
 Videos:
   #& Sort By
   Sort By:
@@ -866,6 +893,7 @@ Change Format:
   Use Audio Formats: '音声形式の使用'
   Audio formats are not available for this video: この動画には音声形式はありません
   Dash formats are not available for this video: この動画には DASH 形式はありません
+  Legacy formats are not available for this video: この動画には旧形式を使用できません
 Share:
   Share Video: '動画の共有'
   Share Playlist: '再生リストの共有'
@@ -1015,11 +1043,11 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル ID を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル
+    Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube
+    Hide Videos and Playlists Containing Text: FreeTube 
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
