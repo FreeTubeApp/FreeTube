@@ -832,6 +832,33 @@ Video:
   Unhide Channel: 顯示頻道
   Hide Channel: 隱藏頻道
   More Options: 更多選項
+  Player:
+    TranslatedCaptionTemplate: '{language}（翻譯自「{originalLanguage}」）'
+    Audio Tracks: 音訊軌
+    Theatre Mode: 劇院模式
+    Exit Theatre Mode: 離開劇院模式
+    Full Window: 全視窗
+    Exit Full Window: 離開全視窗
+    Take Screenshot: 拍攝螢幕截圖
+    Show Stats: 顯示統計資料
+    Hide Stats: 隱藏統計資料
+    Stats:
+      Stats: 統計資料
+      Video ID: 影片 ID：{videoId}
+      Media Formats: 媒體格式：{formats}
+      Resolution: 解析度：{width}x{height}@{frameRate}
+      Player Dimensions: 播放器尺寸：{width}x{height}
+      Bitrate: 位元速率：{bitrate} kbps
+      Volume: 音量：{volumePercentage}%
+      Bandwidth: 頻寬：{bandwidth} kbps
+      Buffered: 已緩衝：{bufferedPercentage}%
+      Dropped Frames / Total Frames: 丟棄的畫面數：{droppedFrames} / 總畫面數：{totalFrames}
+      CodecAudio: 編解碼器：{audioCodec} ({audioItag})
+      CodecsVideoAudio: 編解碼器：{videoCodec} ({videoItag}) / {audioCodec} ({audioItag})
+      CodecsVideoAudioNoItags: 編解碼器：{videoCodec} / {audioCodec}
+    You appear to be offline: 您似乎已離線。
+    Playback will resume automatically when your connection comes back: 當您的連線恢復時，將會自動繼續播放。
+    Skipped segment: 已跳過 {segmentCategory} 段
 Videos:
   #& Sort By
   Sort By:
@@ -868,6 +895,7 @@ Change Format:
   Use Audio Formats: '使用音訊格式'
   Audio formats are not available for this video: 這個影片沒有音訊格式
   Dash formats are not available for this video: 這個影片沒有 DASH 格式
+  Legacy formats are not available for this video: 舊格式不適用於該影片
 Share:
   Share Video: '分享影片'
   Share Playlist: '分享播放清單'
