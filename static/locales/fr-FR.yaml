@@ -986,6 +986,8 @@ Video:
       CodecAudio: 'Codec : {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codecs : {videoCodec} / {audioCodec}'
       CodecsVideoAudio: 'Codecs : {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Images perdues : {droppedFrames} / Images totales :
+        {totalFrames}'
     Skipped segment: Segment {segmentCategory} ignoré
     TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
     Exit Full Window: Quitter la fenêtre pleine
