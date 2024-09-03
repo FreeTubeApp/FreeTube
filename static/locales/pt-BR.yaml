@@ -18,8 +18,8 @@ Reload: 'Recarregar'
 Force Reload: 'Forçar recarregamento'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
 Actual size: 'Tamanho atual'
-Zoom in: 'Aumentar zoom'
-Zoom out: 'Diminuir zoom'
+Zoom in: 'Ampliar'
+Zoom out: 'Reduzir'
 Toggle fullscreen: 'Alternar tela cheia'
 Window: 'Janela'
 Minimize: 'Minimizar'
@@ -927,6 +927,35 @@ Video:
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
   More Options: Mais opções
+  Player:
+    Audio Tracks: Faixas de áudio
+    Theatre Mode: Modo Teatro
+    Exit Theatre Mode: Sair do modo Teatro
+    Take Screenshot: Capturar tela
+    Hide Stats: Ocultar estatísticas
+    Stats:
+      Stats: Estatísticas
+      Video ID: 'ID do vídeo: {videoId}'
+      Media Formats: 'Formatos de mídia: {formats}'
+      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensões do player: {width}x{height}'
+      Bitrate: 'Taxa de bits: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      Dropped Frames / Total Frames: 'Quadros descartados: {droppedFrames} / Total
+        de quadros: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+      Buffered: 'Transferência: {bufferedPercentage}%'
+      Bandwidth: 'Transmissão de dados: {bandwidth} kbps'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    You appear to be offline: Parece que você está offline.
+    Playback will resume automatically when your connection comes back: A reprodução
+      será retomada automaticamente quando a conexão for restabelecida.
+    Skipped segment: Segmento {segmentCategory} ignorado
+    Full Window: Preencher janela
+    TranslatedCaptionTemplate: '{language} (traduzido do "{originalLanguage}")'
+    Show Stats: Mostrar estatísticas
+    Exit Full Window: Sair do preenchimento de janela
 Videos:
   #& Sort By
   Sort By:
@@ -965,6 +994,8 @@ Change Format:
     para este vídeo
   Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
+  Legacy formats are not available for this video: Os formatos antigos não estão disponíveis
+    para este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
   Share Playlist: 'Compartilhar playlist'
