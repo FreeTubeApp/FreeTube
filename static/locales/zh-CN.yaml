@@ -823,6 +823,32 @@ Video:
   Unhide Channel: 显示频道
   Hide Channel: 隐藏频道
   More Options: 更多选项
+  Player:
+    Audio Tracks: 音轨
+    Theatre Mode: 影院模式
+    Full Window: 全窗口
+    Exit Full Window: 退出全窗口
+    Take Screenshot: 截屏
+    Show Stats: 显示统计信息
+    Hide Stats: 隐藏统计信息
+    Stats:
+      Stats: 统计信息
+      Video ID: 视频 ID： {videoId}
+      Media Formats: 媒体格式：{formats}
+      Resolution: 分辨率：{width}x{height}@{frameRate}
+      Player Dimensions: 播放器尺寸： {width}x{height}
+      Bitrate: 比特率：{bitrate} kbps
+      Volume: 音量：{volumePercentage}%
+      Buffered: 已缓冲：{bufferedPercentage}%
+      Dropped Frames / Total Frames: 丢弃帧：{droppedFrames} / 总帧数： {totalFrames}
+      CodecAudio: 编解码器：{audioCodec} ({audioItag})
+      CodecsVideoAudioNoItags: 编解码器：{videoCodec} / {audioCodec}
+      Bandwidth: 带宽：{bandwidth} kbps
+      CodecsVideoAudio: 编解码器：{videoCodec} ({videoItag}) / {audioCodec} ({audioItag})
+    You appear to be offline: 你似乎处于离线状态。
+    Playback will resume automatically when your connection comes back: 网络连接恢复时，将自动继续播放。
+    TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
+    Exit Theatre Mode: 推出影院模式
 Videos:
   #& Sort By
   Sort By:
