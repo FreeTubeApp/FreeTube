@@ -234,8 +234,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultalo logotipo de Freetube na cabeceira
   Player Settings:
     Player Settings: 'Axustes do reprodutor'
-    Force Local Backend for Legacy Formats: 'Forzar API local para formatos antigos
-      (Legacy)'
     Play Next Video: 'Reproducir próximo vídeo'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducir vídeos automaticamente'
@@ -827,10 +825,6 @@ Tooltips:
       nunha ligazón, que non se pode abrir en FreeTube.\nDe forma predeterminada,
       FreeTube abrirá a ligazón na que premeches no teu navegador predeterminado.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Só funcionará se a API de Invidious está
-      escollida por defecto. Cando estea activa, a API local usará formatos antigos
-      (Legacy) no canto dos de Invidious. Axuda cando Invidious non pode reproducir
-      un vídeo por causa das restricións rexionais.'
     Proxy Videos Through Invidious: 'Conectarase a Invidious para obter vídeos no
       canto de recorrer directamente a YouTube. Sobrescribirá a preferencia de API.'
     Default Video Format: 'Establecelos formatos utilizados cando se reproduce un

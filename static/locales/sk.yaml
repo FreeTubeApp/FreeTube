@@ -196,8 +196,6 @@ Settings:
     Hide Side Bar Labels: Skryť označenia v bočnom paneli
   Player Settings:
     Player Settings: 'Nastavenia Prehrávača'
-    Force Local Backend for Legacy Formats: 'Pre staré formáty predvolene používať
-      lokálny backend'
     Play Next Video: 'Prehrať nasledujúce video'
     Turn on Subtitles by Default: 'Zapínať titulky predvolene'
     Autoplay Videos: 'Automaticky prehrávať nasledujúce video'
@@ -655,10 +653,6 @@ Tooltips:
       využívajú menej dát. Zvukové formáty sú iba zvukové streamy.
     Proxy Videos Through Invidious: Namiesto priameho pripojenia k YouTube sa pripojí
       k Invidious, aby poskytoval videá. Prepíše preferenciu API.
-    Force Local Backend for Legacy Formats: Funguje, iba ak je predvolené rozhranie
-      Invidious API. Ak je zapnuté, miestne API sa spustí a bude používať pôvodné
-      formáty, namiesto tých, ktoré vráti Invidious. Pomáha, keď sa videá vrátené
-      Invidious neprehrávajú kvôli obmedzeniam krajiny.
     Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte
       kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo
       dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves

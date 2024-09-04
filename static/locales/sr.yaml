@@ -391,8 +391,6 @@ Settings:
     Hide Side Bar Labels: Сакриј ознаке бочне траке
   Player Settings:
     Player Settings: 'Подешавања плејера'
-    Force Local Backend for Legacy Formats: 'Присили локални бек-енд за застареле
-      формате'
     Play Next Video: 'Пусти следећи видео снимак'
     Turn on Subtitles by Default: 'Подразумевано укључи титлове'
     Autoplay Videos: 'Аутоматски пусти видео снимак'
@@ -1005,10 +1003,6 @@ Tooltips:
       тастер „Control“ (тастер „Command„ на Mac-у) и кликните левим тастером миша
       да бисте се брзо вратили на подразумевану брзину репродукције (1x, осим ако
       није промењено у подешавањима).
-    Force Local Backend for Legacy Formats: Ради само када је Invidious API подразумевани.
-      Када је омогућено, локални API ће се покренути и користити застареле формате
-      које је вратио, уместо оних које је вратио Invidious. Помаже када се видео снимци
-      које је вратио Invidious не пуштају због ограничења у држави.
     Skip by Scrolling Over Video Player: Користите точкић миша да бисте прескакали
       кроз видео снимак, MPV стил.
   Experimental Settings:

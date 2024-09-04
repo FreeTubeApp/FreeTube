@@ -267,8 +267,6 @@ Settings:
     Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
   Player Settings:
     Player Settings: 'Налаштування програвача'
-    Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
-      для застарілих форматів'
     Play Next Video: 'Грати наступне відео'
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
     Autoplay Videos: 'Автоматичне відтворення відео'
@@ -858,10 +856,6 @@ Tooltips:
       яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання
       у вашому типовому переглядачі.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Працює, лише якщо API Invidious використовується
-      типовим. Якщо увімкнено, локальний API буде запущено і використовуватиме застарілі
-      формати, які було повернуто Invidious. Допомагає, коли відео, повернуті Invidious,
-      не відтворюються через обмеження в країні.'
     Proxy Videos Through Invidious: 'Під’єднається до Invidious, щоб дивитися відео,
       а не встановлювати пряме з’єднання з YouTube. Замінює налаштування API.'
     Default Video Format: 'Встановіть формати, що використовуються під час відтворення

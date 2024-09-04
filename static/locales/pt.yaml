@@ -378,8 +378,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: 'Definições do reprodutor'
-    Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
-      formatos antigos'
     Play Next Video: 'Reproduzir vídeo seguinte'
     Turn on Subtitles by Default: 'Ativar legendas automaticamente'
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
@@ -1126,10 +1124,6 @@ Tooltips:
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
       vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
       API.
-    Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é sistema usado. Se ativa, a API local será executada para usar os formatos
-      antigos em vez dos usados pelo Invidious. Útil quando os vídeos Invidious não
-      funcionam devido a restrições geográficas.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)

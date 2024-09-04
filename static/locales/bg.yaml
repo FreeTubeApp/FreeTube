@@ -386,8 +386,6 @@ Settings:
     Hide FreeTube Header Logo: Скриване логото на FreeTube
   Player Settings:
     Player Settings: 'Настройки на плейъра'
-    Force Local Backend for Legacy Formats: 'Принудително връщане към локалния интерфейс
-      при стари формати'
     Play Next Video: 'Пускане на следващото видео'
     Turn on Subtitles by Default: 'Включване на субтитрите по подразбиране'
     Autoplay Videos: 'Автоматично пускане на видеата'
@@ -1093,10 +1091,6 @@ Tooltips:
     Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
       вместо да прави дирекна връзка с YouTube. Пренебрегва настройките на локалния
       интерфейс.
-    Force Local Backend for Legacy Formats: Действа само когато по подразбиране е
-      избран Invidious интерфейс. Когато е активиран, локалният интерфейс ще използва
-      старите формати вместо тези на Invidious. Това помага когато видеата, получавани
-      от Invidious не вървят поради регионални ограничения.
     Scroll Playback Rate Over Video Player: Докато курсорът е върху видеото, натиснете
       и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката
       напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете

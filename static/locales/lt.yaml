@@ -240,8 +240,6 @@ Settings:
     Hide FreeTube Header Logo: Slėpti FreeTube logotipą antraštėje
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
-    Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinę posistemę
-      seniesiems formatams'
     Play Next Video: 'Leisti sekanti vaizdo įrašą'
     Turn on Subtitles by Default: 'Įjungti subtitrus automatiškai'
     Autoplay Videos: 'Automatinis vaizdo įrašų paleidimas'
@@ -760,10 +758,6 @@ Tooltips:
       kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“
       atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Veikia tik tada, kai numatytasis nustatymas
-      yra „Invidious“ API. Kai įgalinta, vietinė API veiks ir naudos senus, o ne „Invidious“
-      grąžintus formatus. Padeda, kuomet „Invidious“ grąžinti vaizdo įrašai nėra leidžiami
-      dėl šalies apribojimų.'
     Proxy Videos Through Invidious: 'Bus prisijungęs prie „Invidious“, kad galėtų
       teikti vaizdo įrašus, užuot užmezgęs tiesioginį ryšį su „YouTube“. Nepaiso API
       nuostatų.'

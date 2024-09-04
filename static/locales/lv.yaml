@@ -242,8 +242,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Atskaņotāja iestatījumi'
-    Force Local Backend for Legacy Formats: 'Piespiest vietējo aizmugursistēmu priekš
-      mantojuma formātiem'
     Play Next Video: 'Atskaņot nākamo video'
     Turn on Subtitles by Default: ''
     Autoplay Videos: 'Autoatskaņot video'
@@ -775,7 +773,6 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
     Scroll Playback Rate Over Video Player: ''

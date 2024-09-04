@@ -223,7 +223,6 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspillingsinnstillinger'
-    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
     Play Next Video: 'Spill av neste video'
     Turn on Subtitles by Default: 'Undertekster som forvalg'
     Autoplay Videos: 'Spill av videoer automatisk'
@@ -845,11 +844,6 @@ Tooltips:
     Default Video Format: Sett formater brukt når en video spilles. DASH-formater
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
-    Force Local Backend for Legacy Formats: Fungerer kun med Invidious-API-et som
-      forvalg. Når det er påslått, vil det lokale API-et kjøre og bruke de foreldede
-      formatene som returneres derfra, istedenfor dem som blir returnert av Invidious.
-      Dette hjelper når videoer som blir returnert av Invidious, ikke kan spilles
-      av som følge av regionsbegrensninger.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube. Overstyrer API-innstillinger.
     Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe deg gjennom
