@@ -113,7 +113,7 @@ Subscriptions:
   Subscriptions Tabs: Guias de inscrições
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver
     o conteúdo aqui, desoculte algumas guias na seção "{subsection}" em "{settingsSection}".
-  Load More Posts: Carregar mais posts
+  Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
 Trending:
   Trending: 'Em alta'
@@ -141,7 +141,7 @@ User Playlists:
   Create New Playlist: Criar nova playlist
   Add to Playlist: Adicionar à playlist
   Move Video Up: Mover vídeo para cima
-  Remove from Playlist: Remover da Playlist
+  Remove from Playlist: Remover da playlist
   CreatePlaylistPrompt:
     Create: Criar
     New Playlist Name: Novo nome da playlist
@@ -155,16 +155,16 @@ User Playlists:
   Add to Favorites: Adicionar a "{playlistName}"
   Remove from Favorites: Remover de "{playlistName}"
   Move Video Down: Mover vídeo para baixo
-  Playlist Name: Nome da Playlist
-  Playlist Description: Descrição da Playlist
+  Playlist Name: Nome da playlist
+  Playlist Description: Descrição da playlist
   Save Changes: Salvar alterações
   Cancel: Cancelar
-  Edit Playlist Info: Editar informação da Playlist
-  Copy Playlist: Copiar Playlist
+  Edit Playlist Info: Editar informação da playlist
+  Copy Playlist: Copiar playlist
   Enable Quick Bookmark With This Playlist: Habilitar "Favoritos Rápidos" para esta
     playlist
   Disable Quick Bookmark: Desativar Favoritos Rápidos
-  Delete Playlist: Excluir Playlist
+  Delete Playlist: Excluir playlist
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
