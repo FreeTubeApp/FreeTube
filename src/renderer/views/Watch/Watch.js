@@ -38,7 +38,7 @@ import {
 } from '../../helpers/api/invidious'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
-const MANIFEST_TYPE_HLS = 'application/x-mpegURL'
+const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
 
 export default defineComponent({
   name: 'Watch',
