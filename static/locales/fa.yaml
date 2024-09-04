@@ -491,7 +491,7 @@ Channel:
       ای ندارد
   Community:
     Community: انجمن
-    votes: '{رای} رأی'
+    votes: '{votes} رأی'
     Reveal Answers: پاسخ ها را فاش کن
     This channel currently does not have any posts: این کانال در حال حاضر هیچ پستی
       ندارد
@@ -800,7 +800,7 @@ Hashtag:
   Hashtag: هشتگ
 External link opening has been disabled in the general settings: باز کردن پیوند خارجی
   در تنظیمات عمومی غیرفعال شده است
-Screenshot Error: اسکرین شات ناموفق بود. {خطا}
+Screenshot Error: اسکرین شات ناموفق بود. {error}
 'The playlist has ended. Enable loop to continue playing': لیست پخش به پایان رسیده
   است. حلقه را برای ادامه بازی فعال کنید
 Playing Next Video: پخش ویدیوی بعدی

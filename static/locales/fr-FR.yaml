@@ -1328,7 +1328,7 @@ Yes, Delete: Oui, effacer
 Yes, Restart: Oui, redémarrer
 Yes, Open Link: Oui, ouvrir le lien
 Cancel: Annuler
-Search character limit: La recherche dépasse le nombre de caractères impartis
+Search character limit: La recherche dépasse le nombre de caractères impartis {searchCharacterLimit}
 Search Listing:
   Label:
     4K: 4K

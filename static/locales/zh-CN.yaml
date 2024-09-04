@@ -133,7 +133,7 @@ User Playlists:
     Toast:
       "{videoCount} video(s) added to {playlistCount} playlists": 添加了 1 则视频到 {playlistCount}
         个播放列表 | 添加了 {videoCount} 则视频到 {playlistCount} 个播放列表
-      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {playlistCount}
+      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {videoCount}
         则视频到 1 个播放列表
       You haven't selected any playlist yet.: 你尚未选中任何播放列表。
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}

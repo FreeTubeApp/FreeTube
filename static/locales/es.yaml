@@ -154,9 +154,9 @@ User Playlists:
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
     Added {count} Times: Ya añadido | Añadido {count} veces
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Vídeos ya añadidos'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       Se añadirán vídeos'
     Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
@@ -1243,9 +1243,9 @@ Clipboard:
     sin una conexión segura
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
-    visibles, capítulo actual: {nombredelcapítulo}'
+    visibles, capítulo actual: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
-    ocultos, capítulo actual: {nombredelcapítulo}'
+    ocultos, capítulo actual: {chapterName}'
   Chapters: Capítulos
 Preferences: Preferencias
 Ok: De acuerdo
