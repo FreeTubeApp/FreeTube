@@ -387,7 +387,6 @@ Settings:
     Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
-    Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
     Play Next Video: 'Přehrát další video'
     Turn on Subtitles by Default: 'Ve výchozím nastavení zapnout titulky'
     Autoplay Videos: 'Automaticky přehrávat videa'
@@ -439,7 +438,6 @@ Settings:
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
-    Allow DASH AV1 formats: Povolit formáty DASH AV1
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -880,11 +878,6 @@ Video:
   Download Video: 'Stáhnout Video'
   video only: 'pouze video'
   audio only: 'pouze zvuk'
-  Audio:
-    Low: 'Nízká'
-    Medium: 'Střední'
-    High: 'Vysoká'
-    Best: 'Nejlepší'
   Published:
     Jan: 'Leden'
     Feb: 'Únor'
@@ -925,7 +918,6 @@ Video:
   Save Video: Uložit video
   Video has been removed from your saved list: Video bylo odstraněno z vašeho uloženého
     seznamu
-  translated from English: přeloženo z angličtiny
   Sponsor Block category:
     music offtopic: Není hudba
     interaction: Interakce
@@ -935,7 +927,6 @@ Video:
     sponsor: Sponzor
     recap: Shrnutí
     filler: Výplň
-  Skipped segment: Přeskočen segment
   External Player:
     Unsupported Actions:
       opening specific video in a playlist (falling back to opening the video): Otevření
@@ -952,18 +943,6 @@ Video:
     video: video
     OpenInTemplate: Otevřít v {externalPlayer}
   Premieres on: Premiéra
-  Stats:
-    Mimetype: Typ int. média
-    Video statistics are not available for legacy videos: Statistiky videí nejsou
-      k dispozici pro starší videa
-    Video ID: ID videa
-    Resolution: Rozlišení
-    Player Dimensions: Rozměry přehrávače
-    Bitrate: Bitrate
-    Volume: Hlasitost
-    Bandwidth: Bandwidth
-    Buffered: V mezipaměti
-    Dropped / Total Frames: Vyřazené / Celkový počet snímků
   Premieres in: Premiéra za
   Premieres: Premiéra
   Show Super Chat Comment: Zobrazit komentář Super Chat
@@ -975,6 +954,35 @@ Video:
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
   More Options: Další možnosti
+  Player:
+    Stats:
+      Player Dimensions: Rozměry přehrávače {width}x{height}
+      Bitrate: 'Datový tok: {bitrate} kb/s'
+      Volume: 'Hlasitost: {volumePercentage} %'
+      CodecsVideoAudioNoItags: 'Kodeky: {videoCodec} / {audioCodec}'
+      Stats: Statistiky
+      Video ID: 'ID videa: {videoId}'
+      Media Formats: 'Formáty médií: {formats}'
+      Resolution: 'Rozlišení: {width}x{height}@{frameRate}'
+      Bandwidth: 'Šířka pásma: {bandwidth} kb/s'
+      Buffered: 'Načteno: {bufferedPercentage} %'
+      Dropped Frames / Total Frames: 'Vypuštěno snímků: {droppedFrames} / Celkem snímků:
+        {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeky: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    Skipped segment: Přeskočen segment {segmentCategory}
+    TranslatedCaptionTemplate: '{language} (přeloženo z jazyka {originalLanguage})'
+    Audio Tracks: Zvukové stopy
+    Theatre Mode: Režim kina
+    Exit Theatre Mode: Opustit režim kina
+    Full Window: Celé okno
+    Exit Full Window: Opustit celé okno
+    Take Screenshot: Pořídit snímek
+    Show Stats: Zobrazit statistiky
+    Hide Stats: Skrýt statistiky
+    You appear to be offline: Zdá se, že jste offline.
+    Playback will resume automatically when your connection comes back: Přehrávání
+      bude automaticky pokračovat, jakmile budete opět připojeni.
 Videos:
   #& Sort By
   Sort By:
@@ -1013,6 +1021,8 @@ Change Format:
     dostupné'
   Audio formats are not available for this video: 'Zvukové formáty nejsou pro toto
     video dostupné'
+  Legacy formats are not available for this video: Starší formáty nejsou pro toto
+    video dostupné
 Share:
   Share Video: 'Sdílet video'
   Share Playlist: 'Sdílet playlist'
@@ -1083,10 +1093,6 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
-      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
-      formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
@@ -1100,9 +1106,6 @@ Tooltips:
       není změněná v nastavení).
     Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat
       ve stylu MPV.
-    Allow DASH AV1 formats: Formáty DASH AV1 mohou vypadat lépe než formáty DASH H.264,
-      vyžadují ale k přehrávání větší výkon! Nejsou k dispozici u všech videí, v těchto
-      případech přehrávač místo nich použije formáty DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale

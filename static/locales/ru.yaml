@@ -42,7 +42,7 @@ Global:
     Watching Count: 1 смотрящий | {count} смотрящих
     Channel Count: 1 канал | {count} канала(ов)
   Input Tags:
-    Length Requirement: Длина тега должна составлять не менее {числа} символов
+    Length Requirement: Длина тега должна составлять не менее {number} символов
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -176,15 +176,15 @@ User Playlists:
       This video cannot be moved down.: Это видео нельзя передвинуть вниз.
       Video has been removed: Видео было удалено
       Reverted to use {oldPlaylistName} for quick bookmark: Переход на использование
-        {старого имени плейлиста} для быстрого создания закладок
+        {oldPlaylistName} для быстрого создания закладок
       This playlist is now used for quick bookmark: Этот список воспроизведения теперь
         используется для быстрого создания закладок
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот
-        плейлист теперь используется для быстрой закладки вместо {старого имени плейлиста}.
+        плейлист теперь используется для быстрой закладки вместо {oldPlaylistName}.
         Нажмите здесь, чтобы отменить
       This playlist is already being used for quick bookmark.: Этот плейлист уже используется
         для быстрого создания закладок.
-      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {плейлистНазвание}
+      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {playlistName}
         - это новый плейлист быстрых закладок.
     Search for Videos: Поиск видео
   AddVideoPrompt:
@@ -196,11 +196,11 @@ User Playlists:
       "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку
         | {videoCount} видео добавлено в 1 подборку
       "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено
-        в {плейлистКоличество} плейлистов | {видеоКоличество} видео добавлено в {плейлистКоличество}
+        в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount}
         плейлистов
     Select a playlist to add your N videos to: Выбери подборку на добавление видео
       | Выбери подборку на добавление {videoCount} видео в неё
-    Added {count} Times: Добавлено {количество} Время | Добавлено {количество} Времени
+    Added {count} Times: Добавлено {count} Время | Добавлено {count} Времени
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       Видео будут добавлены'
@@ -373,8 +373,6 @@ Settings:
     Hide FreeTube Header Logo: Скрыть значок FreeTube
   Player Settings:
     Player Settings: 'Настройки проигрывателя'
-    Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
-      движок для устаревших форматов'
     Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
@@ -429,7 +427,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
-    Allow DASH AV1 formats: Разрешить форматы DASH AV1
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -868,11 +865,6 @@ Video:
   Loop Playlist: Повторять подборку
   Starting soon, please refresh the page to check again: Скоро начнется, обновите
     страницу, чтобы проверить ещё раз
-  Audio:
-    Best: Лучшее
-    High: Высокое
-    Medium: Среднее
-    Low: Низкое
   audio only: только звук
   video only: только видео
   Download Video: Скачать видео
@@ -885,7 +877,6 @@ Video:
   Video has been removed from your saved list: Видео было удалено из списка сохраненных
   Video has been saved: Видео было добавлено в сохраненные
   Save Video: Добавить видео в сохранённые
-  translated from English: переведён с английского
   Sponsor Block category:
     music offtopic: Сегмент без музыки
     interaction: Напоминание
@@ -895,7 +886,6 @@ Video:
     sponsor: Спонсор
     recap: Краткое содержание
     filler: Отвлечение
-  Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
       looping playlists: повторение подборок
@@ -911,26 +901,6 @@ Video:
     playlist: подборка
     video: видео
     OpenInTemplate: Открыть в {externalPlayer}
-  Stats:
-    frame drop: Пропущенные кадры
-    video id: ID видео (YouTube)
-    player resolution: Область просмотра
-    volume: Громкость
-    bandwidth: Скорость соединения
-    buffered: Буферизовано
-    out of: из
-    fps: Кадровая частота
-    Video statistics are not available for legacy videos: Статистика видео недоступна
-      для устаревших видео
-    Video ID: Идентификатор видео
-    Resolution: Разрешение
-    Player Dimensions: Размеры проигрывателя
-    Bitrate: Битрейт
-    Volume: Громкость
-    Bandwidth: Пропускная способность
-    Dropped / Total Frames: Пропущено / Всего кадров
-    Mimetype: MIME-типы
-    Buffered: Буферизовано
   Premieres on: Премьеры
   Premieres in: Премьеры в
   Premieres: Премьеры
@@ -1140,11 +1110,6 @@ Tooltips:
       форматы — только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
       вместо прямого подключения к YouTube. Переопределяет предпочтения набора функций.
-    Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
-      набор функций Invidious. Если эта настройка включена, локальный набор функций
-      будет работать и использовать устаревшие форматы вместо форматов Invidious.
-      Помогает, когда видео, возвращённые Invidious, не воспроизводятся из-за ограничений
-      страны.
     Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео,
       нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите
       колесо мыши вперед или назад, чтобы изменять скорость воспроизведения. Нажмите
@@ -1153,10 +1118,6 @@ Tooltips:
       не была изменена в настройках).
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
       видео в стиле MPV.
-    Allow DASH AV1 formats: Форматы DASH AV1 могут выглядеть лучше, чем форматы DASH
-      H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
-      Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
-      будет использовать форматы DASH H.264.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
@@ -1248,22 +1209,21 @@ Age Restricted:
   This channel is age restricted: Канал с возрастным ограничением
   This video is age restricted: Видео с возрастным ограничением
 Tag already exists: «{tagName}» метка уже существует
-Search character limit: Поисковый запрос превышает лимит символов {поискОграничение
-  символов}
+Search character limit: Поисковый запрос превышает лимит символов {searchCharacterLimit}
 Moments Ago: несколько минут назад
 Yes, Delete: Да, удалить
 Yes, Restart: Да, перезагрузка
 Yes, Open Link: Да, открытая ссылка
 Cancel: Отмена
 checkmark: ✓
-Display Label: '{метка}: {значение}'
-Go to page: Перейти на {страницу}
+Display Label: '{label}: {value}'
+Go to page: Перейти на {page}
 Close Banner: Закрыть баннер
 Feed:
-  Feed Last Updated: '{фидНазвание} фид последний раз обновлялся: {дата}'
-  Refresh Feed: Обновить {имя подписки}
+  Feed Last Updated: '{feedName} фид последний раз обновлялся: {date}'
+  Refresh Feed: Обновить {subscriptionName}
 Trimmed input must be at least N characters long: Обрезанный ввод должен быть длиной
-  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {длина} символов
+  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {length} символов
 Search Listing:
   Label:
     4K: 4K

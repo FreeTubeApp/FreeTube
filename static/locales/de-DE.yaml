@@ -394,7 +394,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
-    Force Local Backend for Legacy Formats: Lokales Backend für alte Formate erzwingen
     Remember History: Verlauf speichern
     Play Next Video: Nächstes Video abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
@@ -447,7 +446,6 @@ Settings:
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
-    Allow DASH AV1 formats: DASH AV1-Formate zulassen
   Subscription Settings:
     Subscription Settings: Abo-Einstellungen
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -905,11 +903,6 @@ Video:
   Loop Playlist: Wiedergabeliste wiederholen
   Starting soon, please refresh the page to check again: Es beginnt bald, bitte aktualisiere
     die Seite, um es erneut zu überprüfen
-  Audio:
-    Best: Am besten
-    High: Hoch
-    Medium: Mittel
-    Low: Niedrig
   audio only: nur Audio
   video only: nur Video
   Download Video: Video herunterladen
@@ -923,7 +916,6 @@ Video:
     Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
-  translated from English: aus dem Englischen übersetzt
   Sponsor Block category:
     music offtopic: Musik Offtopic
     interaction: Interaktion
@@ -933,7 +925,6 @@ Video:
     sponsor: Sponsor
     recap: Rekapitulation
     filler: Füller
-  Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In {externalPlayer} öffnen
     Unsupported Actions:
@@ -950,26 +941,6 @@ Video:
     playlist: Wiedergabeliste
     video: Video
   Premieres on: Premiere am
-  Stats:
-    volume: Lautstärke
-    fps: BpS
-    frame drop: Bildverlust
-    bandwidth: Verbindungsgeschwindigkeit
-    out of: aus
-    player resolution: Ansichtsfenster
-    video id: Video-ID (YouTube)
-    buffered: Gepuffert
-    Video ID: Video-ID
-    Resolution: Auflösung
-    Player Dimensions: Abspieler-Größe
-    Bitrate: Bitrate
-    Volume: Lautstärke
-    Bandwidth: Bandbreite
-    Buffered: Gepuffert
-    Dropped / Total Frames: Entfallene / gesamte Einzelbilder
-    Mimetype: MIME-Typ
-    Video statistics are not available for legacy videos: Videostatistiken sind für
-      ältere Videos nicht verfügbar
   Premieres in: Premieren in
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
@@ -981,6 +952,30 @@ Video:
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
   More Options: Weitere Optionen
+  Player:
+    Audio Tracks: Audiospuren
+    Theatre Mode: Theater-Modus
+    Exit Theatre Mode: Theater-Modus beenden
+    Full Window: Vollständiges Fenster
+    Take Screenshot: Bildschirmfoto aufnehmen
+    Show Stats: Statistiken anzeigen
+    Stats:
+      Stats: Statistiken
+      Video ID: 'Videokennung: {videoId}'
+      Media Formats: 'Medienformate: {formats}'
+      Resolution: 'Auflösung: {width}×{height}@{frameRate}'
+      Player Dimensions: 'Player-Dimensionen: {width}×{height}'
+      Bitrate: 'Bitrate: {bitrate} kb/s'
+      Volume: 'Lautstärke: {volumePercentage} %'
+      Bandwidth: 'Bandbreite: {bandwidth} kb/s'
+      Buffered: 'Pufferspeichern: {bufferedPercentage} %'
+    You appear to be offline: Sie scheinen offline zu sein.
+    Playback will resume automatically when your connection comes back: Die Wiedergabe
+      wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
+    Skipped segment: '{segmentCategory}-Segment ausgelassen'
+    TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
+    Exit Full Window: Vollständiges Fenster beenden
+    Hide Stats: Statistiken ausblenden
 Videos:
   #& Sort By
   Sort By:
@@ -1019,6 +1014,8 @@ Change Format:
     nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
+  Legacy formats are not available for this video: Legacy-Formate sind nicht verfügbar
+    für dieses Video
 Share:
   Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
@@ -1179,11 +1176,6 @@ Tooltips:
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
       bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
       die API-Einstellung außer Kraft.
-    Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
-      als Standard ausgewählt hast. Wenn aktiviert, wird die lokale API ausgeführt
-      und verwendet die von ihr zurückgegebenen Altformate anstelle der von Invidious
-      zurückgegebenen Formate. Dies hilft, wenn die von Invidious zurückgegebenen
-      Videos aufgrund von Länderbeschränkungen nicht abgespielt werden können.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
       befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
       das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.
@@ -1192,10 +1184,6 @@ Tooltips:
       (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
       zu springen, MPV-Stil.
-    Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
-      Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
-      bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
-      die DASH H.264-Formate.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
       getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden

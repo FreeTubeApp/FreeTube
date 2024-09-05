@@ -229,7 +229,6 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspelingsinnstillingar'
-    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for utdaterte format'
     Play Next Video: 'Spel av neste video'
     Turn on Subtitles by Default: 'Slå på undertekst som standard'
     Autoplay Videos: 'Spel av videoar automatisk'
@@ -590,11 +589,6 @@ Video:
   Download Video: 'Last ned video'
   video only: 'berre video'
   audio only: 'berre lyd'
-  Audio:
-    Low: 'Låg'
-    Medium: 'Middels'
-    High: 'Høg'
-    Best: 'Beste'
   Published:
     Jan: 'Jan'
     Feb: 'Feb'
@@ -630,7 +624,6 @@ Video:
   Started streaming on: 'Begynte å straume på'
   Publicationtemplate: '{number} {unit} sidan'
 #& Videos
-  translated from English: omsett frå engelsk
   Sponsor Block category:
     outro: Avslutting
     interaction: Samhandling
@@ -640,7 +633,6 @@ Video:
     self-promotion: Eigenpromotering
     recap: Oppsummering
     filler: Fyllstoff
-  Skipped segment: Overhoppa del
   External Player:
     video: video
     playlist: speleliste
@@ -657,18 +649,6 @@ Video:
       opening specific video in a playlist (falling back to opening the video): opner
         valt video i ei speleliste (faller tilbake til å opne videoen)
   Premieres on: Har premiere
-  Stats:
-    Volume: Lydstyrke
-    Bandwidth: Bandbreidde
-    Player Dimensions: Avspelarstorleik
-    Bitrate: Bithastigheit
-    Resolution: Oppløysing
-    Buffered: Hurtiglagra
-    Video ID: Video-ID
-    Mimetype: Medietype
-    Video statistics are not available for legacy videos: Videostatestikk er ikkje
-      tilgjengeleg for utdaterte videoar
-    Dropped / Total Frames: Redusert/total mengd bilete
   Show Super Chat Comment: Vis super-chat-kommentar
   Premieres: Premiere
   Scroll to Bottom: Rull til botn
@@ -770,11 +750,6 @@ Tooltips:
       som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i din
       standardnettlesar.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
-      standard. Når det er påslått, vil det lokale API-et køyre og bruke dei utdaterte
-      formata som returnerast derifrå, i staden for dei som blir returnert av Invidious.
-      Dette hjelper når videoar som blir returnert av Invidious, ikkje kan spelast
-      av som følgje av regionsavgrensingar.'
     Proxy Videos Through Invidious: 'Koplar til Invidious for å servere videoar i
       staden for å kople direkte til YouTube. Overstyrar API-innstillingar.'
     Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format

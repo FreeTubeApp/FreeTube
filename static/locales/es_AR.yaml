@@ -229,7 +229,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar el logo de FreeTube del encabezado
   Player Settings:
     Player Settings: 'Configuraciones del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar el uso local para formatos antiguos'
     Play Next Video: 'Reproducir siguiente video'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática'
@@ -274,7 +273,6 @@ Settings:
     Scroll Volume Over Video Player: Barra de volumen en el reproductor
     Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de
       Video
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
     Scroll Playback Rate Over Video Player: Acelerar video con la rueda del mouse
     Fast-Forward / Rewind Interval: Período de Avance Rápido / Retroceso
     Video Playback Rate Interval: Intervalo entre velocidades del video
@@ -446,10 +444,6 @@ Channel:
     Tags:
       Search for: Buscar por «{tag}»
     Details: Detalles
-Video:
-  translated from English: traducido del inglés
-  Stats:
-    Mimetype: Tipo de medio
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está

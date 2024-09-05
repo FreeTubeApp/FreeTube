@@ -246,7 +246,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'ڕێکخستنەکانی لێدەر'
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: 'لێدانی ڤیدیۆی دواتر'
     Turn on Subtitles by Default: 'هەڵکردنی بنەڕەتی ژێرنووس'
     Autoplay Videos: 'خۆلێدانی ڤیدیۆ'
@@ -281,7 +280,6 @@ Settings:
       1440p: '١٤٤٠p'
       4k: '٤k'
       8k: '٨k'
-    Allow DASH AV1 formats: ''
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -626,11 +624,6 @@ Video:
   Download Video: 'داگرتنی ڤیدیۆ'
   video only: 'تەنیا ڤیدیۆ'
   audio only: 'تەنیا دەنگ'
-  Audio:
-    Low: 'نزم'
-    Medium: 'مامناوەند'
-    High: 'بەرز'
-    Best: 'باشترین'
   Published:
     Jan: ''
     Feb: ''
@@ -664,9 +657,7 @@ Video:
   Published on: 'بڵاوکرایەوە لە'
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -690,17 +681,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: ''
-    Resolution: ''
-    Player Dimensions: ''
-    Bitrate: ''
-    Volume: ''
-    Bandwidth: ''
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: ''
 #& Videos
   Unhide Channel: پیشاندانی کەناڵ
   Hide Channel: شاردنەوەی کەناڵ
@@ -795,10 +775,8 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

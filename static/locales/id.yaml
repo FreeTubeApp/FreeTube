@@ -282,7 +282,6 @@ Settings:
     Hide FreeTube Header Logo: Sembunyikan Logo Header FreeTube
   Player Settings:
     Player Settings: 'Pengaturan Pemutar'
-    Force Local Backend for Legacy Formats: 'Paksa Layanan Lokal untuk Format Lama'
     Play Next Video: 'Putar Video Selanjutnya'
     Turn on Subtitles by Default: 'Nyalakan Takarir'
     Autoplay Videos: 'Putar-Otomatis Video'
@@ -328,7 +327,6 @@ Settings:
       Ask Path: Tanya Lokasi Penyimpanan
       Quality Label: Kualitas Tangkapan Layar
       File Name Label: Pola Nama Berkas
-    Allow DASH AV1 formats: Izinkan format DASH AV1
     Enter Fullscreen on Display Rotate: Masuk ke Layar Penuh ketika Perangkat Diputar
     Skip by Scrolling Over Video Player: Lewati dengan Menggulir Di Atas Pemutar Video
   Privacy Settings:
@@ -770,11 +768,6 @@ Video:
   Published on: 'Dipublikasi pada'
   Publicationtemplate: '{number} {unit} yang lalu'
 #& Videos
-  Audio:
-    Best: Terbaik
-    High: Tinggi
-    Medium: Sedang
-    Low: Rendah
   audio only: hanya audio
   video only: hanya video
   Download Video: Unduh Video
@@ -790,7 +783,6 @@ Video:
     Anda
   Video has been saved: Video telah disimpan
   Save Video: Simpan Video
-  translated from English: diterjemahkan dari Bahasa Inggris
   Sponsor Block category:
     interaction: Interaksi
     music offtopic: Musik Non-Topik
@@ -798,7 +790,6 @@ Video:
     outro: Outro
     intro: Intro
     sponsor: Sponsor
-  Skipped segment: Segmen yang dilewati
   External Player:
     Unsupported Actions:
       starting video at offset: memulai video pada offset
@@ -816,24 +807,6 @@ Video:
     video: video
     OpenInTemplate: Buka di {externalPlayer}
   Premieres on: Pemutaran Perdana pada
-  Stats:
-    bandwidth: Kecepatan Koneksi
-    volume: Volume
-    fps: FPS
-    video id: ID Video (YouTube)
-    frame drop: Frame Drop
-    buffered: Buffered
-    player resolution: Area pandang
-    out of: keluar dari
-    Bandwidth: Bandwidth
-    Video statistics are not available for legacy videos: Statistik video tidak tersedia
-      untuk video dengan format lawas
-    Video ID: ID Video
-    Resolution: Resolusi
-    Volume: Volume
-    Mimetype: Tipe Mime
-    Player Dimensions: Ukuran Pemutar
-    Bitrate: Laju Bit
   Hide Channel: Sembunyikan Kanal
   Upcoming: Akan Datang
 Videos:
@@ -951,11 +924,6 @@ Tooltips:
       lebih rendah. Format audio hanya berisi stream audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
       Menimpa preferensi API.
-    Force Local Backend for Legacy Formats: Hanya bekerja jika API Invidious diatur
-      sebagai default. Ketika diaktifkan, API lokal akan berjalan dan menggunakan
-      format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
-      Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
-      karena dibatasi oleh wilayah pemutaran.
     Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan
       dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan
       atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control

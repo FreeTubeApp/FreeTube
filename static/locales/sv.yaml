@@ -326,7 +326,6 @@ Settings:
     Hide FreeTube Header Logo: Dölj FreeTubelogga
   Player Settings:
     Player Settings: 'Spelarinställningar'
-    Force Local Backend for Legacy Formats: 'Tvinga lokal resurser för äldre format'
     Play Next Video: 'Spela nästa video'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Autospela video'
@@ -374,7 +373,6 @@ Settings:
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
     Max Video Playback Rate: Maximal uppspelningshastighet
     Video Playback Rate Interval: Uppspelningshastighetsintervall
-    Allow DASH AV1 formats: Tillåt DASH AV1-format
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
     Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
   Privacy Settings:
@@ -829,11 +827,6 @@ Video:
   Published on: 'Publicerad den'
   Publicationtemplate: 'för {number} {unit} sedan'
 #& Videos
-  Audio:
-    Best: Högsta
-    High: Hög
-    Medium: Medium
-    Low: Låg
   audio only: endast ljud
   video only: endast video
   Download Video: Ladda ner video
@@ -856,8 +849,6 @@ Video:
     sponsor: sponsor
     recap: Sammanfattning
     filler: Utfyllnad
-  Skipped segment: Skippat segment
-  translated from English: översatt från Engelska
   External Player:
     Unsupported Actions:
       shuffling playlists: blandar spellistor
@@ -873,18 +864,6 @@ Video:
     playlist: spellista
     video: video
     OpenInTemplate: Öppna i {externalPlayer}
-  Stats:
-    Video statistics are not available for legacy videos: Videostatstik är inte tillgänglig
-      för föråldrade videor
-    Dropped / Total Frames: Missade / Totalt antal bildrutor
-    Bitrate: Bithastighet
-    Volume: Volym
-    Resolution: Upplösning
-    Player Dimensions: Spelardimensioner
-    Video ID: Video-ID
-    Bandwidth: Bandbredd
-    Mimetype: Mimetyp
-    Buffered: Buffrad
   Premieres on: Har premiär den
   Premieres: Premiärer
   Upcoming: Kommande
@@ -1007,16 +986,8 @@ Tooltips:
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube. Åsidosätter
       API-preferens.
-    Force Local Backend for Legacy Formats: Fungerar bara när Invidious API är din
-      standard. När det är aktiverat kommer det lokala API:et att köras och använda
-      de äldre formaten som returneras av det i stället för de som returneras av Invidious.
-      Hjälper när videorna som returneras av Invidious inte spelas upp på grund av
-      landsbegränsningar.
     Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
       videon, MPV-stil.
-    Allow DASH AV1 formats: DASH AV1-format kan se bättre ut än DASH H.264-format.
-      DASH AV1-format kräver mer kraft för uppspelning! Det är inte tillgängligt för
-      alla videor, i de fall kommer spelaren använde DASh H.264-format istället.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
       CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten.
       Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa
@@ -1092,7 +1063,7 @@ Channels:
 Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparade skärmdump som "{filePath}"
-Screenshot Error: Skärmdump misslyckades {felkod}
+Screenshot Error: Skärmdump misslyckades {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
     utan en säker anslutning

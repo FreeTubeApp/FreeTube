@@ -199,7 +199,6 @@ Settings:
     Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Ajustes del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar motor local para el formato heredado'
     Remember History: 'Recordar historial'
     Play Next Video: 'Reproducir el video siguiente'
     Turn on Subtitles by Default: 'Activar subtitulos por defecto'
@@ -539,29 +538,11 @@ Video:
   Reverse Playlist: Lista de reproducción invertida
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción en bucle
-  translated from English: traducido del inglés
-  Stats:
-    Mimetype: Tipo de medio
-    Resolution: Resolución
-    Player Dimensions: Tamaño del reproductor
-    Bitrate: Tasa de bits
-    Volume: Volumen
-    Bandwidth: Ancho de banda
-    Video statistics are not available for legacy videos: Estadísticas no disponibles
-      para videos heredados
-    Video ID: ID del video
-    Buffered: Amplificado
-    Dropped / Total Frames: Caídos / Fotogramas totales
   Video has been removed from your saved list: El video se ha eliminado de su lista
     de guardado
   Video has been saved: Video guardado
   Starting soon, please refresh the page to check again: Empezará pronto, por favor
     actualice la página para volver a revisar
-  Audio:
-    Best: Máxima
-    Low: Baja
-    Medium: Media
-    High: Alta
   External Player:
     Unsupported Actions:
       reversing playlists: revirtiendo listas
@@ -594,7 +575,6 @@ Video:
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
   Premieres on: En estreno
-  Skipped segment: Omitida esta parte
   Download Video: Descargar video
 Videos:
   #& Sort By
@@ -782,11 +762,6 @@ Tooltips:
       Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados
       están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de
       banda. Los formatos de audio permiten escuchar solamente el audio.
-    Force Local Backend for Legacy Formats: Sólo funcionará si la API de Invidious
-      está por defecto. Si se habilita, la API local ejecutará los formatos heredados
-      que encuentre en lugar de los que le dé Invidious. Esto ayuda a que los videos
-      proporcionados por Invidious puedan ser reproducidos sin impedimentos debidos
-      a la región.
     Scroll Playback Rate Over Video Player: Mientras el cursor esté sobre el video,
       mantenga presionada la tecla Ctrl (tecla Comando en Mac) y use la rueda del
       ratón hacia adelante o atrás para controlar la velocidad de reproducción. Mantenga

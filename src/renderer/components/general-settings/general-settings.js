@@ -288,14 +288,14 @@ export default defineComponent({
 
       if (this.fallbackPreference === backend) {
         if (backend === 'invidious') {
-          this.updateFallbackPreference('local')
+          if (process.env.SUPPORTS_LOCAL_API) {
+            this.updateFallbackPreference('local')
+          } else {
+            this.updateFallbackPreference('piped')
+          }
         } else {
           this.updateFallbackPreference('invidious')
         }
-      }
-
-      if (backend === 'local' || backend === 'piped') {
-        this.updateForceLocalBackendForLegacy(false)
       }
     },
 
@@ -303,7 +303,11 @@ export default defineComponent({
       this.updateFallbackPreference(backend)
       if (this.backendPreference === backend) {
         if (backend === 'invidious') {
-          this.handlePreferredApiBackend('local')
+          if (process.env.SUPPORTS_LOCAL_API) {
+            this.handlePreferredApiBackend('local')
+          } else {
+            this.updateFallbackPreference('piped')
+          }
         } else {
           this.handlePreferredApiBackend('invidious')
         }
@@ -335,7 +339,6 @@ export default defineComponent({
       'updateRegion',
       'updateListType',
       'updateThumbnailPreference',
-      'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
       'updateExternalLinkHandling',
       'updateGeneralAutoLoadMorePaginatedItemsEnabled',

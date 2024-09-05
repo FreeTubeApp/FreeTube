@@ -382,7 +382,6 @@ Settings:
     Hide FreeTube Header Logo: Schowaj logo FreeTube z paska górnego
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
-    Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
     Play Next Video: 'Odtwórz następny film'
     Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
     Autoplay Videos: 'Autoodtwarzanie filmów'
@@ -438,7 +437,6 @@ Settings:
       orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
-    Allow DASH AV1 formats: Zezwól na format AV1 DASH
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -889,11 +887,6 @@ Video:
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie. Proszę
     odświeżyć stronę, aby ponownie sprawdzić
-  Audio:
-    Best: Najlepsza
-    High: Wysoka
-    Medium: Średnia
-    Low: Niska
   audio only: tylko audio
   video only: tylko wideo
   Download Video: Pobierz film
@@ -907,7 +900,6 @@ Video:
     zapisanych
   Video has been saved: Film został zapisany
   Save Video: Zapisz film
-  translated from English: przetłumaczone z angielskiego
   Sponsor Block category:
     music offtopic: niemuzyczny
     interaction: o interakcji
@@ -917,7 +909,6 @@ Video:
     sponsor: sponsorowany
     filler: z wypełniaczem
     recap: z podsumowaniem
-  Skipped segment: Pominięto segment
   External Player:
     Unsupported Actions:
       reversing playlists: odwracania playlist
@@ -934,26 +925,6 @@ Video:
     video: filmu
     OpenInTemplate: Otwórz w {externalPlayer}
   Premieres on: Premiera
-  Stats:
-    buffered: Zbuforowano
-    out of: z
-    video id: ID filmu (YouTube)
-    player resolution: Odtwarzacz
-    volume: Głośność
-    bandwidth: Prędkość połączenia
-    fps: FPS
-    frame drop: Pominięte klatki
-    Video ID: ID filmu
-    Resolution: Rozdzielczość
-    Player Dimensions: Wymiary odtwarzacza
-    Bitrate: Szybkość transmisji
-    Volume: Głośność
-    Bandwidth: Przepustowość
-    Buffered: Zbuforowano
-    Mimetype: Typ MIME
-    Video statistics are not available for legacy videos: Statystyki filmu nie są
-      dostępne dla starych formatów
-    Dropped / Total Frames: Opuszczone klatki / klatki ogółem
   Premieres in: Premiera za
   Premieres: Premiery
   Show Super Chat Comment: Pokazuj komentarze z „Superczatu”
@@ -966,6 +937,35 @@ Video:
   Unhide Channel: Pokaż kanał
   Hide Channel: Ukryj kanał
   More Options: Więcej opcji
+  Player:
+    TranslatedCaptionTemplate: '{language} (przetłumaczono z: "{originalLanguage}")'
+    Audio Tracks: Ścieżki audio
+    Theatre Mode: Tryb kina
+    Exit Theatre Mode: Wyłącz tryb kina
+    Exit Full Window: Wyłącz pełny ekran
+    Take Screenshot: Zrób zrzut ekranu
+    Show Stats: Pokaż statystyki
+    Hide Stats: Schowaj statystyki
+    Stats:
+      Stats: Statystyki
+      Video ID: 'ID filmu: {videoId}'
+      Player Dimensions: 'Rozmiary odtwarzacza: {width}x{height}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Głośność: {volumePercentage}%'
+      Bandwidth: 'Szerokość pasma: {bandwidth} kbps'
+      Buffered: 'Zbuforowano: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Zgubione klatki: {droppedFrames} / Wszystkie
+        klatki: {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeki: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodeki: {videoCodec} / {audioCodec}'
+      Media Formats: 'Formaty ścieżek: {formats}'
+      Resolution: 'Rozdzielczość: {width}x{height}@{frameRate}'
+    You appear to be offline: Zdaje się, że jesteś rozłączony.
+    Playback will resume automatically when your connection comes back: Odtwarzanie
+      zostanie wznowione, jak tylko połączenie zostanie odzyskane.
+    Skipped segment: Pominięto segment {segmentCategory}
+    Full Window: Pełny ekran
 Videos:
   #& Sort By
   Sort By:
@@ -1004,6 +1004,8 @@ Change Format:
     tego filmu
   Dash formats are not available for this video: Formaty DASH nie są dostępne dla
     tego filmu
+  Legacy formats are not available for this video: Ten film nie jest dostępny w starych
+    formatach
 Share:
   Share Video: 'Podziel się filmem'
   Share Playlist: 'Podziel się playlistą'
@@ -1155,10 +1157,6 @@ Tooltips:
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
-      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
-      zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
-      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej.
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
@@ -1171,10 +1169,6 @@ Tooltips:
       wartości (1x, chyba że została zmieniona w ustawieniach).
     Skip by Scrolling Over Video Player: Użyj kółka myszy, by przewijać film tak jak
       w MPV.
-    Allow DASH AV1 formats: Film w formacie AV1 DASH może wyglądać lepiej, niż w formacie
-      H.264 DASH. Dekodowanie formatu AV1 DASH wymaga większej mocy obliczeniowej.
-      W filmach, dla których ten format nie jest dostępny, zostanie użyty format H.264
-      DASH.
   External Player Settings:
     Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).

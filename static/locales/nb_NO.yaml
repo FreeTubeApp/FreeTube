@@ -223,7 +223,6 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspillingsinnstillinger'
-    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
     Play Next Video: 'Spill av neste video'
     Turn on Subtitles by Default: 'Undertekster som forvalg'
     Autoplay Videos: 'Spill av videoer automatisk'
@@ -276,7 +275,6 @@ Settings:
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
     Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
-    Allow DASH AV1 formats: Tillat DASH AV1-formater
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -626,11 +624,6 @@ Video:
   Published on: 'Publisert'
   Publicationtemplate: '{number} {unit} siden'
 #& Videos
-  Audio:
-    High: Høy
-    Medium: Middels
-    Low: Lav
-    Best: Beste
   audio only: Bare lyd
   video only: Bare video
   Download Video: Last ned video
@@ -652,7 +645,6 @@ Video:
   Open Channel in YouTube: Åpne kanal i YouTube
   Play Previous Video: Spill av forrige video
   Play Next Video: Spill av neste video
-  translated from English: oversatt fra engelsk
   Sponsor Block category:
     interaction: samhandling
     outro: utgang
@@ -662,7 +654,6 @@ Video:
     self-promotion: egenpromotering
     recap: Oppsummering
     filler: Fyllstoff
-  Skipped segment: Overhoppet del
   External Player:
     Unsupported Actions:
       shuffling playlists: omstokking av spillelister
@@ -678,18 +669,6 @@ Video:
     playlist: spilleliste
     video: video
     OpenInTemplate: Åpne i {externalPlayer}
-  Stats:
-    Bitrate: Bitrate
-    Volume: Lydstyrke
-    Bandwidth: Båndbredde
-    Resolution: Oppløsning
-    Player Dimensions: Avspillerdimensjoner
-    Mimetype: Media-type
-    Buffered: Mellomlagret
-    Video ID: Video-ID
-    Video statistics are not available for legacy videos: Videostatistikk er ikke
-      tilgjengelig for gammeldagse videoer
-    Dropped / Total Frames: Tapte/totalt antall rammer
   Show Super Chat Comment: Vis supersludringskommentar
   Scroll to Bottom: Rull til bunnen
   Premieres on: Har première
@@ -865,11 +844,6 @@ Tooltips:
     Default Video Format: Sett formater brukt når en video spilles. DASH-formater
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
-    Force Local Backend for Legacy Formats: Fungerer kun med Invidious-API-et som
-      forvalg. Når det er påslått, vil det lokale API-et kjøre og bruke de foreldede
-      formatene som returneres derfra, istedenfor dem som blir returnert av Invidious.
-      Dette hjelper når videoer som blir returnert av Invidious, ikke kan spilles
-      av som følge av regionsbegrensninger.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube. Overstyrer API-innstillinger.
     Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe deg gjennom
@@ -879,9 +853,6 @@ Tooltips:
       å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og
       venstreklikk på musen for å gå tilbake til fovalgt avspillingshastighet (1x
       med minde det har blitt endret i innstillingene).
-    Allow DASH AV1 formats: DASH AV1-formater kan ha bedre kvalitet enn DASH H.264
-      -formater. DASH AV1-formater krever dog mer regnekraft for avspilling. Ikke
-      tilgjengelig for alle videoer, og i sådant fall bruker avspilleren DASH H.264-formater.
   External Player Settings:
     Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
       semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.

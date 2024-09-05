@@ -58,13 +58,6 @@ function runApp() {
     showCopyLink: false,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
-        label: 'Show / Hide Video Statistics',
-        visible: parameters.mediaType === 'video',
-        click: () => {
-          browserWindow.webContents.send(IpcChannels.SHOW_VIDEO_STATISTICS)
-        }
-      },
-      {
         label: 'Open in a New Window',
         // Only show the option for in-app URLs and not external ones
         visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
@@ -407,7 +400,7 @@ function runApp() {
       urls: ['https://*/*', 'http://*/*'],
       types: ['xhr', 'media', 'image']
     }
-    session.defaultSession.webRequest.onBeforeSendHeaders(onBeforeSendHeadersRequestFilter, ({ requestHeaders, url, resourceType, webContents }, callback) => {
+    session.defaultSession.webRequest.onBeforeSendHeaders(onBeforeSendHeadersRequestFilter, ({ requestHeaders, url, webContents }, callback) => {
       const urlObj = new URL(url)
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
@@ -440,38 +433,6 @@ function runApp() {
 
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
-
-        // YouTube throttles the adaptive formats if you request a chunk larger than 10MiB.
-        // For the DASH formats we are fine as video.js doesn't seem to ever request chunks that big.
-        // The legacy formats don't have any chunk size limits.
-        // For the audio formats we need to handle it ourselves, as the browser requests the entire audio file,
-        // which means that for most videos that are longer than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
-
-        // This code checks if the file is larger than the limit, by checking the `clen` query param,
-        // which YouTube helpfully populates with the content length for us.
-        // If it does surpass that limit, it then checks if the requested range is larger than the limit
-        // (seeking right at the end of the video, would result in a small enough range to be under the chunk limit)
-        // if that surpasses the limit too, it then limits the requested range to 10MiB, by setting the range to `start-${start + 10MiB}`.
-        if (resourceType === 'media' && urlObj.searchParams.get('mime')?.startsWith('audio/') && requestHeaders.Range) {
-          const TEN_MIB = 10 * 1024 * 1024
-
-          const contentLength = parseInt(new URL(url).searchParams.get('clen'))
-
-          if (contentLength > TEN_MIB) {
-            const [startStr, endStr] = requestHeaders.Range.split('=')[1].split('-')
-
-            const start = parseInt(startStr)
-
-            // handle open ended ranges like `0-` and `1234-`
-            const end = endStr.length === 0 ? contentLength : parseInt(endStr)
-
-            if (end - start > TEN_MIB) {
-              const newEnd = start + TEN_MIB
-
-              requestHeaders.Range = `bytes=${start}-${newEnd}`
-            }
-          }
-        }
       } else if (webContents) {
         const invidiousAuthorization = invidiousAuthorizations.get(webContents.id)
 
@@ -479,7 +440,6 @@ function runApp() {
           requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
@@ -623,8 +583,8 @@ function runApp() {
         return 'text/javascript'
       case 'ttf':
         return 'font/ttf'
-      case 'woff':
-        return 'font/woff'
+      case 'woff2':
+        return 'font/woff2'
       case 'svg':
         return 'image/svg+xml'
       case 'png':
@@ -1595,7 +1555,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.goBack()
+              browserWindow.webContents.navigationHistory.goBack()
             },
             type: 'normal',
           },
@@ -1605,7 +1565,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.goForward()
+              browserWindow.webContents.navigationHistory.goForward()
             },
             type: 'normal',
           },

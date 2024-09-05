@@ -290,7 +290,6 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -341,7 +340,6 @@ Settings:
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
-    Allow DASH AV1 formats: לאפשר תצורות DASH AV1
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -773,11 +771,6 @@ Video:
   Published on: 'פורסם'
   Publicationtemplate: 'לפני {number} {unit}'
 #& Videos
-  Audio:
-    Best: איכות הכי טובה
-    High: איכות גבוהה
-    Medium: איכות בינונית
-    Low: איכות נמוכה
   audio only: שמע בלבד
   video only: סרטון בלבד
   Download Video: להוריד סרטון
@@ -790,7 +783,6 @@ Video:
   Video has been removed from your saved list: הסרטון הוסר מרשימת השמורים שלך
   Video has been saved: סרטון נשמר
   Save Video: שמירת סרטון
-  translated from English: תורגם מאנגלית
   Premieres on: שידור הבכורה ב־
   Sponsor Block category:
     outro: סיום
@@ -816,26 +808,6 @@ Video:
       looping playlists: לולאה על רשימות נגינה
       opening specific video in a playlist (falling back to opening the video): פתיחת
         סרטון מסוים ברשימת נגינה (ייסוג לפתיחת הסרטון)
-  Skipped segment: קטע שדילגת עליו
-  Stats:
-    video id: מזהה סרטון (YouTube)
-    bandwidth: מהירות החיבור
-    out of: מתוך
-    volume: עוצמת שמע
-    buffered: בזיכרון
-    frame drop: השמטת תמוניות
-    fps: תמוניות לשנייה
-    Video statistics are not available for legacy videos: סטטיסטיקת וידאו אינה זמינה
-      לסרטונים ישנים
-    Video ID: מזהה וידאו
-    Resolution: רזולוציה
-    Player Dimensions: ממדי נגן
-    Bitrate: קצב סיביות
-    Volume: עצמת שמע
-    Bandwidth: רוחב פס
-    Buffered: שמור בזיכרון
-    Dropped / Total Frames: תמוניות שהושמטו / סה״כ
-    Mimetype: טיפוס MIME
   Premieres in: בכורה בעוד
   Premieres: בכורות
   Scroll to Bottom: גלילה לתחתית
@@ -953,10 +925,6 @@ Tooltips:
     Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
       שמעניין אותך לראות.
   Player Settings:
-    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
-      המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
-      על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
-      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה.
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
@@ -969,9 +937,6 @@ Tooltips:
       בהגדרות).
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
       כמו ב־MPV.
-    Allow DASH AV1 formats: תסדירי DASH AV1 עשויים להיראות טוב יותר מתסדירי DASH H.264.
-      תסדירי DASH AV1 דורשים יותר חשמל כדי לנגן! הם אינם זמינים בכל הסרטונים, במקרים
-      האלה הנגן ישתמש בתסדירי DASH H.264 במקום.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל

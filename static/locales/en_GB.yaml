@@ -383,7 +383,6 @@ Settings:
     Hide FreeTube Header Logo: Hide FreeTube header logo
   Player Settings:
     Player Settings: 'Player settings'
-    Force Local Backend for Legacy Formats: 'Force local back-end for legacy formats'
     Play Next Video: 'Play next video'
     Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
@@ -434,7 +433,6 @@ Settings:
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
-    Allow DASH AV1 formats: Allow DASH AV1 formats
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -899,11 +897,6 @@ Video:
 #& Videos
   Started streaming on: Started streaming on
   Streamed on: Streamed on
-  Audio:
-    Best: Best
-    High: High
-    Medium: Medium
-    Low: Low
   audio only: audio only
   video only: video only
   Download Video: Download Video
@@ -915,7 +908,6 @@ Video:
     list
   Video has been saved: Video has been saved
   Save Video: Save Video
-  translated from English: translated from English
   Sponsor Block category:
     music offtopic: Music offtopic
     interaction: Interaction
@@ -925,7 +917,6 @@ Video:
     sponsor: Sponsor
     recap: Recap
     filler: Filler
-  Skipped segment: Skipped segment
   External Player:
     OpenInTemplate: Open in {externalPlayer}
     video: video
@@ -942,26 +933,6 @@ Video:
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
   Premieres on: Premieres on
-  Stats:
-    video id: Video ID (YouTube)
-    player resolution: Viewport
-    volume: Volume
-    frame drop: Frame Drop
-    buffered: Buffered
-    fps: FPS
-    bandwidth: Connection Speed
-    out of: out of
-    Player Dimensions: Player dimensions
-    Bitrate: Bitrate
-    Volume: Volume
-    Bandwidth: Bandwidth
-    Buffered: Buffered
-    Dropped / Total Frames: Dropped / Total frames
-    Mimetype: Media type
-    Resolution: Resolution
-    Video statistics are not available for legacy videos: Video statistics are not
-      available for legacy videos
-    Video ID: Video ID
   Premieres in: Premieres in
   Premieres: Premieres
   Show Super Chat Comment: Show Super Chat comment
@@ -973,6 +944,35 @@ Video:
   Hide Channel: Hide channel
   Unhide Channel: Show channel
   More Options: More options
+  Player:
+    TranslatedCaptionTemplate: '{language} (translated from ‘{originalLanguage}’)'
+    Audio Tracks: Audio tracks
+    Theatre Mode: Theatre mode
+    Exit Theatre Mode: Exit theatre mode
+    Full Window: Full window
+    Exit Full Window: Exit full window
+    Take Screenshot: Take screenshot
+    Show Stats: Show stats
+    Hide Stats: Hide stats
+    Stats:
+      Stats: Stats
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Media formats: {formats}'
+      Resolution: 'Resolution: {width}×{height}@{frameRate}'
+      Player Dimensions: 'Player dimensions: {width}×{height}'
+      Bitrate: 'Bitrate: {bitrate} kb/s'
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Bandwidth: {bandwidth} kb/s'
+      Buffered: 'Buffered: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Dropped frames: {droppedFrames} / Total frames:
+        {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+    You appear to be offline: You appear to be offline.
+    Playback will resume automatically when your connection comes back: Playback will
+      resume automatically when your connection comes back.
+    Skipped segment: 'Skipped {segmentCategory} segment'
 Videos:
   #& Sort By
   Sort By:
@@ -983,11 +983,11 @@ Videos:
 Playlist:
   #& About
   Playlist: Playlist
-  View Full Playlist: 'View Full Playlist'
+  View Full Playlist: 'View full playlist'
   Videos: 'Videos'
   View: 'View'
   Views: 'Views'
-  Last Updated On: 'Last Updated On'
+  Last Updated On: 'Last updated on'
 
 # On Video Watch Page
 #* Published
@@ -1011,6 +1011,8 @@ Change Format:
     this video'
   Audio formats are not available for this video: 'Audio formats are not available
     for this video'
+  Legacy formats are not available for this video: Legacy formats are not available
+    for this video
 Share:
   Share Video: 'Share Video'
   Share Channel: 'Share Channel'
@@ -1093,10 +1095,6 @@ Tooltips:
       bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube. Overrides API preference.
-    Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-      default. When enabled, the Local API will run and use the legacy formats returned
-      by that instead of the ones returned by Invidious. Helps when the videos returned
-      by Invidious don’t play due to country restrictions.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press
       and hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards
       or backwards to control the playback rate. Press and hold the Control key (Command
@@ -1104,9 +1102,6 @@ Tooltips:
       rate (1x unless it has been changed in the settings).
     Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the
       video, MPV style.
-    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
-      DASH AV1 formats require more power to playback! They are not available on all
-      videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed.

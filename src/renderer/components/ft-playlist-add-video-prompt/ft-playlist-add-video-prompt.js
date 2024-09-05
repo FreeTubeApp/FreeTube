@@ -289,7 +289,6 @@ export default defineComponent({
       if (addedPlaylistIds.size === 1) {
         message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', this.toBeAddedToPlaylistVideoCount, {
           videoCount: this.toBeAddedToPlaylistVideoCount,
-          playlistCount: addedPlaylistIds.size,
         })
       } else {
         message = this.$tc('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', this.toBeAddedToPlaylistVideoCount, {

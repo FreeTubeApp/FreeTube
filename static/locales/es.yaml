@@ -154,9 +154,9 @@ User Playlists:
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
     Added {count} Times: Ya añadido | Añadido {count} veces
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Vídeos ya añadidos'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       Se añadirán vídeos'
     Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
@@ -385,7 +385,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Configuración del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar backend local para formatos heredados'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
@@ -441,7 +440,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar historial'
@@ -926,11 +924,6 @@ Video:
   Loop Playlist: Reproducción en bucle
   Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
     recarga la página para comprobarlo
-  Audio:
-    Best: Máxima
-    High: Alta
-    Medium: Media
-    Low: Baja
   audio only: audio únicamente
   video only: vídeo únicamente
   Download Video: Descargar vídeo
@@ -944,7 +937,6 @@ Video:
     de guardados
   Video has been saved: El vídeo ha sido guardado
   Save Video: Guardar el vídeo
-  translated from English: traducido del inglés
   Sponsor Block category:
     music offtopic: No relacionado con la música
     interaction: Interacción
@@ -954,7 +946,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulación
     filler: Relleno
-  Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
     video: vídeo
@@ -971,26 +962,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
     OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
   Premieres on: Se estrena el
-  Stats:
-    bandwidth: Velocidad de conexión
-    volume: Volumen
-    video id: ID del vídeo (Youtube)
-    player resolution: Ventana
-    fps: FPS
-    frame drop: Pérdida de fotogramas
-    buffered: En buffer
-    out of: sin
-    Video statistics are not available for legacy videos: Las estadísticas de vídeo
-      no están disponibles para los vídeos heredados
-    Bitrate: Tasa de bits
-    Volume: Volumen
-    Mimetype: Tipo de medio
-    Resolution: Resolución
-    Player Dimensions: Dimensiones del reproductor
-    Bandwidth: Ancho de banda
-    Video ID: ID de vídeo
-    Buffered: En búfer
-    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
   Premieres in: Estrenos en
   Premieres: Estrenos
   Show Super Chat Comment: Mostrar los comentarios del Super Chat
@@ -1003,6 +974,35 @@ Video:
   Unhide Channel: Mostrar el canal
   Hide Channel: Ocultar el canal
   More Options: Más opciones
+  Player:
+    TranslatedCaptionTemplate: '{language} (traducido de "{originalLanguage}")'
+    Exit Full Window: Salir de la pantalla completa
+    Take Screenshot: Hacer una captura de pantalla
+    Show Stats: Mostrar estadísticas
+    Hide Stats: Ocultar estadísticas
+    Stats:
+      Stats: Estadísticas
+      Video ID: 'ID del vídeo: {videoId}'
+      Media Formats: 'Formatos del medio: {formats}'
+      Resolution: 'Resolución: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensiones del reproductor: {width}x{height}'
+      Bitrate: 'Tasa de bits: {bitrate} kbps'
+      Volume: 'Volumen: {volumePercentage}%'
+      Bandwidth: 'Ancho de banda: {bandwidth} kbps'
+      Buffered: 'Almacenado en búfer: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Fotogramas eliminados: {droppedFrames} / Fotogramas
+        totales: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+    You appear to be offline: Parece que no tienes conexión.
+    Playback will resume automatically when your connection comes back: La reproducción
+      se reanudará automáticamente cuando se restablezca la conexión.
+    Skipped segment: Segmento {segmentCategory} omitido
+    Audio Tracks: Pistas de audio
+    Theatre Mode: Modo cine
+    Exit Theatre Mode: Salir del modo cine
+    Full Window: Pantalla completa
 Videos:
   #& Sort By
   Sort By:
@@ -1041,6 +1041,8 @@ Change Format:
     para este vídeo
   Dash formats are not available for this video: Los formatos DASH no están disponibles
     para este vídeo
+  Legacy formats are not available for this video: Los formatos antiguos no están
+    disponibles para este vídeo
 Share:
   Share Video: 'Compartir vídeo'
   Share Playlist: 'Compartir lista de reproducción'
@@ -1134,11 +1136,6 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
-      es la predeterminada. Si está activada, la API local se ejecutará y utilizará
-      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
-      Es útil cuando los vídeos devueltos por Invidious no se reproducen debido a
-      restricciones nacionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -1147,10 +1144,6 @@ Tooltips:
       ajustes).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
       el vídeo, estilo MPV.
-    Allow DASH AV1 formats: Los formatos DASH AV1 pueden verse mejor que los formatos
-      DASH H.264. ¡Los formatos DASH AV1 requieren más potencia para reproducirse!
-      No están disponibles en todos los videos, en esos casos el reproductor usará
-      los formatos DASH H.264 en su lugar.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado.
@@ -1244,9 +1237,9 @@ Clipboard:
     sin una conexión segura
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
-    visibles, capítulo actual: {nombredelcapítulo}'
+    visibles, capítulo actual: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
-    ocultos, capítulo actual: {nombredelcapítulo}'
+    ocultos, capítulo actual: {chapterName}'
   Chapters: Capítulos
 Preferences: Preferencias
 Ok: De acuerdo

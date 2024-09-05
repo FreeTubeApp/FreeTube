@@ -233,7 +233,6 @@ Settings:
     Hide FreeTube Header Logo: لوگوی سربرگ FreeTube را مخفی کنید
   Player Settings:
     Player Settings: 'تنظیمات پخش کننده'
-    Force Local Backend for Legacy Formats: 'اجبار پشتیبان داخلی به فرمت‌های قدیمی'
     Play Next Video: 'پخش ویدیو بعدی'
     Turn on Subtitles by Default: 'فعال کردن زیرنویس به عنوان پیشفرض'
     Autoplay Videos: 'پخش خودکار ویدیو ها'
@@ -284,7 +283,6 @@ Settings:
       Folder Label: پوشه اسکرین شات
       Folder Button: پوشه را انتخاب کنید
     Skip by Scrolling Over Video Player: با پیمایش روی پخش‌کننده ویدیو از آن بگذرید
-    Allow DASH AV1 formats: فرمت‌های DASH AV1 را مجاز کنید
   External Player Settings:
     External Player Settings: 'تنظیمات پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
@@ -492,7 +490,7 @@ Channel:
       ای ندارد
   Community:
     Community: انجمن
-    votes: '{رای} رأی'
+    votes: '{votes} رأی'
     Reveal Answers: پاسخ ها را فاش کن
     This channel currently does not have any posts: این کانال در حال حاضر هیچ پستی
       ندارد
@@ -573,12 +571,10 @@ Video:
     Ago: پیش
     Upcoming: اولین نمایش در
     In less than a minute: در کمتر از یک دقیقه
-  translated from English: ترجمه شده از انگلیسی
   Copy Invidious Link: لینک Invidious را کپی کنید
   Play Previous Video: پخش ویدیوی قبلی
   Autoplay: پخش خودکار
   Started streaming on: پخش جریانی را شروع کرد
-  Skipped segment: بخش رد شد
   'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
     پایان رسیده است.
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
@@ -599,11 +595,6 @@ Video:
   Live Now: زنده هم اکنون
   Save Video: ذخیره ویدیو
   Open in Invidious: در Invidious باز کنید
-  Audio:
-    Medium: متوسط
-    Best: بهترین
-    High: عالی
-    Low: کم
   Video has been removed from your saved list: ویدیو از لیست ذخیره شده شما حذف شده
     است
   Download Video: دانلود ویدیو
@@ -627,18 +618,6 @@ Video:
   audio only: فقط صدا
   Publicationtemplate: '{number} {unit} پیش'
   Video has been saved: ویدیو ذخیره شده است
-  Stats:
-    Dropped / Total Frames: حذف شده / مجموع فریم ها
-    Video ID: شناسه ویدیو
-    Player Dimensions: ابعاد پخش کننده
-    Bitrate: میزان بیت
-    Volume: درجه صدا
-    Bandwidth: پهنای باند
-    Buffered: بافر شده
-    Video statistics are not available for legacy videos: آمار ویدیویی برای ویدیوهای
-      قدیمی موجود نیست
-    Resolution: کیفیت
-    Mimetype: نوع مایم
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': گفتگوی
     زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به YouTube مورد
     نیاز است.
@@ -679,10 +658,6 @@ Tooltips:
   Player Settings:
     Skip by Scrolling Over Video Player: از چرخ اسکرول برای رد شدن از ویدیو، سبک MPV
       استفاده کنید.
-    Allow DASH AV1 formats: فرمت‌های DASH AV1 ممکن است بهتر از فرمت‌های DASH H.264
-      به نظر برسند. فرمت های DASH AV1 برای پخش به قدرت بیشتری نیاز دارند! آنها در
-      همه ویدیوها در دسترس نیستند، در این موارد پخش کننده به جای آن از فرمت های DASH
-      H.264 استفاده می کند.
     Scroll Playback Rate Over Video Player: در حالی که مکان نما روی ویدیو است، کلید
       کنترل (کلید فرمان در مک) را فشار داده و نگه دارید و چرخ ماوس را به جلو یا عقب
       ببرید تا سرعت پخش را کنترل کنید. کلید کنترل (کلید فرمان در مک) را فشار داده
@@ -690,11 +665,6 @@ Tooltips:
       اینکه در تنظیمات تغییر نکرده باشد).
     Proxy Videos Through Invidious: به جای اتصال مستقیم به YouTube، به Invidious متصل
       می شود تا ویدیوها را ارائه دهد. اولویت API را لغو می کند.
-    Force Local Backend for Legacy Formats: فقط زمانی کار می کند که Invidious API
-      پیش فرض شما باشد. وقتی فعال باشد، API محلی اجرا می‌شود و از قالب‌های قدیمی بازگردانده
-      شده توسط آن به جای قالب‌هایی که توسط Invidious بازگردانده شده است استفاده می‌کند.
-      کمک می‌کند ویدیوهای بازگردانده شده توسط Invidious به دلیل محدودیت‌های کشور پخش
-      نشود.
     Default Video Format: فرمت های مورد استفاده هنگام پخش ویدیو را تنظیم کنید. فرمت
       های DASH می توانند کیفیت های بالاتری را پخش کنند. فرمت های قدیمی به حداکثر 720p
       محدود می شوند اما از پهنای باند کمتری استفاده می کنند. فرمت های صوتی فقط جریان
@@ -824,7 +794,7 @@ Hashtag:
   Hashtag: هشتگ
 External link opening has been disabled in the general settings: باز کردن پیوند خارجی
   در تنظیمات عمومی غیرفعال شده است
-Screenshot Error: اسکرین شات ناموفق بود. {خطا}
+Screenshot Error: اسکرین شات ناموفق بود. {error}
 'The playlist has ended. Enable loop to continue playing': لیست پخش به پایان رسیده
   است. حلقه را برای ادامه بازی فعال کنید
 Playing Next Video: پخش ویدیوی بعدی

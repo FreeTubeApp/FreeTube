@@ -40,7 +40,7 @@ Global:
   Counts:
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
-    View Count: 1 visualização | {contagem} visualizações
+    View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
     Channel Count: 1 canal | {count} canais
   Input Tags:
@@ -369,8 +369,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: Definições do reprodutor
-    Force Local Backend for Legacy Formats: Forçar sistema de ligação local para formatos
-      antigos
     Remember History: Lembrar Histórico
     Play Next Video: Reproduzir vídeo seguinte
     Turn on Subtitles by Default: Ativar legendas automaticamente
@@ -423,7 +421,6 @@ Settings:
       por cima do reprodutor
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: Definições de privacidade
     Remember History: Memorizar histórico
@@ -829,11 +826,6 @@ Video:
   Download Video: Descarregar vídeo
   video only: apenas vídeo
   audio only: apenas áudio
-  Audio:
-    Low: Baixa
-    Medium: Média
-    High: Alta
-    Best: Melhor
   Published:
     Jan: jan
     Feb: fev
@@ -874,7 +866,6 @@ Video:
   Reverse Playlist: Inverter lista de reprodução
   Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
-  translated from English: traduzido do inglês
   External Player:
     Unsupported Actions:
       looping playlists: repetir lista de reprodução
@@ -899,19 +890,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulação
     filler: Preenchimento
-  Skipped segment: Secção ignorada
-  Stats:
-    Mimetype: Tipo mime
-    Video statistics are not available for legacy videos: As estatísticas de vídeo
-      não estão disponíveis para vídeos mais antigos
-    Resolution: Resolução
-    Video ID: ID do vídeo
-    Volume: Volume
-    Bandwidth: Largura de banda
-    Buffered: Em memória
-    Bitrate: Taxa de dados
-    Dropped / Total Frames: Fotogramas perdidos/total de fotogramas
-    Player Dimensions: Dimensões do reprodutor
   Premieres on: Estreia a
   Premieres: Estreias
   Show Super Chat Comment: Mostrar comentário do Super Chat
@@ -1032,10 +1010,6 @@ Tooltips:
       não pode ser aberta no FreeTube, é clicada.\nPor definição, FreeTube abrirá
       a ligação no seu navegador de Internet.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é sistema usado. Se ativa, a API local será executada para usar os formatos
-      antigos em vez dos usados pelo Invidious. Útil quando os vídeos Invidious não
-      funcionam devido a restrições geográficas.
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
       vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
       API.
@@ -1050,10 +1024,6 @@ Tooltips:
       padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
-    Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
-      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Não estão disponíveis para todos os vídeos e, nesses casos, o reprodutor usará
-      os formatos DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
@@ -1147,7 +1117,7 @@ Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: Erro ao capturar o ecrã. {error}
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
-    capítulo atual: {capítuloNoto}'
+    capítulo atual: {chapterName}'
   Chapters: Capítulos
   'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
     capítulo atual: {chapterName}'

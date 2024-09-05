@@ -42,7 +42,7 @@ Global:
   Live: Zuzenekoa
   Shorts: Laburrak
   Input Tags:
-    Length Requirement: Etiketak {zenbaki} karaktere izan behar ditu gutxienez
+    Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
@@ -119,7 +119,7 @@ Subscriptions:
   Load More Posts: Kargatu mezu gehiago
   Subscriptions Tabs: Harpidetzen fitxak
   All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia
-    ikusteko, erakutsi fitxa batzuk "{azpisection}" ataleko "{settingsSection}"-ean.
+    ikusteko, erakutsi fitxa batzuk "{subsection}" ataleko "{settingsSection}"-ean.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -389,7 +389,6 @@ Settings:
     Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
     Player Settings: 'Erreprodukzioaren ezarpenak'
-    Force Local Backend for Legacy Formats: 'Behartu backend lokala Legacy formatuentzat'
     Play Next Video: 'Hurrengo bideoa erreproduzitu'
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
     Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
@@ -440,7 +439,6 @@ Settings:
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
-    Allow DASH AV1 formats: Baimendu DASH AV1 formatuak
   Privacy Settings:
     Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
     Remember History: 'Historikoa oroitu'
@@ -845,11 +843,6 @@ Video:
   Download Video: 'Bideoa deskargatu'
   video only: 'Bideoa soilik'
   audio only: 'Audioa soilik'
-  Audio:
-    Low: 'Eskasa'
-    Medium: 'Erdi-mailakoa'
-    High: 'Altua'
-    Best: 'Onena'
   Published:
     Jan: 'Urtarrila'
     Feb: 'Otsaila'
@@ -883,7 +876,6 @@ Video:
   Published on: 'Noiz argitaratua'
   Streamed on: 'Noiz zuzenean emana'
   Started streaming on: 'Noiz hasi zen zuzenekoa'
-  translated from English: 'Ingelesetik itzulia'
   Publicationtemplate: 'Duela {number} {unit}'
 #& Videos
   External Player:
@@ -901,18 +893,6 @@ Video:
     OpeningTemplate: '{videoOrPlaylist} irekitzen {externalPlayer}-an...'
     UnsupportedActionTemplate: '{externalPlayer}-k ez du onartzen: {action}'
     playlist: erreprodukzio zerrenda
-  Stats:
-    Video ID: Bideoaren identifikatzailea
-    Bitrate: biten tasa
-    Volume: Bolumena
-    Bandwidth: Banda zabalera
-    Buffered: Bufferera igota
-    Video statistics are not available for legacy videos: Bideoen estatistikak ez
-      daude eskuragarri legacy bideoentzat
-    Resolution: Bereizmena
-    Player Dimensions: Erreproduzitzailearen neurriak
-    Dropped / Total Frames: Bidalitako / Guztira Frame-ak
-    Mimetype: MIME mota
   Sponsor Block category:
     music offtopic: Gaiaz kanpoko musika
     interaction: Elkarrekintza
@@ -922,7 +902,6 @@ Video:
     recap: Laburpen
     filler: Betegarria
     intro: Sarrera
-  Skipped segment: Saltatu egin da segmentua
   Premieres on: Estreinaldiak
   Hide Channel: Kanala ezkutatu
   Unhide Channel: Kanala erakutsi
@@ -1043,11 +1022,6 @@ Tooltips:
       den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako
       nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Soilik funtzionatzen du Individious-en
-      APIa zure lehenetsitakoa denean. Aukera dagoenean, tokiko APIa eta azken honek
-      bidalitako legacy formatuak ibiliko dira, Individious-ek bidalitakoak baino.
-      Lagungarria da herrialdeek ezarritako mugen ondorioz Individious-eko bideoak
-      ezin direnean ikusi.'
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
       da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
       du.'
@@ -1063,10 +1037,6 @@ Tooltips:
       aldaketarik egin ez bada).
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko,
       MPV estiloa.
-    Allow DASH AV1 formats: DASH AV1 formatuak DASH H.264 formatuak baino itxura hobea
-      izan dezake. DASH AV1 formatuek potentzia gehiago behar dute erreproduzitzeko!
-      Ez daude bideo guztietan eskuragarri, kasu horietan erreproduzitzaileak DASH
-      H.264 formatuak erabiliko ditu ordez.
   Subscription Settings:
     Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
       beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
@@ -1102,7 +1072,7 @@ Tooltips:
       zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik
       kenduta.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak
-      ordezkatzen du, "{settingsSection}" ataleko "{azpisekzioa}" atalean
+      ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du
       eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko
