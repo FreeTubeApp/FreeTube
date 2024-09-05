@@ -393,8 +393,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
-    Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
-      örökölt formátumokra'
     Play Next Video: 'Következő videó lejátszása'
     Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
     Autoplay Videos: 'Videók automatikus lejátszása'
@@ -1156,11 +1154,6 @@ Tooltips:
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
       videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
       szolgáltatással. Felülbírálja az API beállítást.
-    Force Local Backend for Legacy Formats: Csak akkor működik, ha az Invidious API
-      az alapértelmezett. Ha engedélyezve van, a helyi API fut, és az általa visszaadott
-      régi formátumokat használja az Invidious által visszaadottak helyett. Segít,
-      ha az Invidious által visszaküldött videók nem játszódnak le az országos korlátozások
-      miatt.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja
       meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű),
       és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához.

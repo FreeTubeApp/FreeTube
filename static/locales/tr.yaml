@@ -386,8 +386,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
-    Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
-      Zorla'
     Play Next Video: 'Sonraki Videoyu Oynat'
     Turn on Subtitles by Default: 'Alt Yazıları Öntanımlı Olarak Aç'
     Autoplay Videos: 'Videoları Otomatik Başlat'
@@ -1134,11 +1132,6 @@ Tooltips:
       akışlarıdır.
     Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
       kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar.
-    Force Local Backend for Legacy Formats: Yalnızca Invidious API'si öntanımlı seçeneğiniz
-      olduğunda çalışır. Etkinleştirildiğinde, yerel API çalışacak ve Invidious tarafından
-      döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
-      tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
-      yardımcı olur.
     Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
       videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
       hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı

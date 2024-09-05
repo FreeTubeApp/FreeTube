@@ -233,7 +233,6 @@ Settings:
     Hide FreeTube Header Logo: لوگوی سربرگ FreeTube را مخفی کنید
   Player Settings:
     Player Settings: 'تنظیمات پخش کننده'
-    Force Local Backend for Legacy Formats: 'اجبار پشتیبان داخلی به فرمت‌های قدیمی'
     Play Next Video: 'پخش ویدیو بعدی'
     Turn on Subtitles by Default: 'فعال کردن زیرنویس به عنوان پیشفرض'
     Autoplay Videos: 'پخش خودکار ویدیو ها'
@@ -666,11 +665,6 @@ Tooltips:
       اینکه در تنظیمات تغییر نکرده باشد).
     Proxy Videos Through Invidious: به جای اتصال مستقیم به YouTube، به Invidious متصل
       می شود تا ویدیوها را ارائه دهد. اولویت API را لغو می کند.
-    Force Local Backend for Legacy Formats: فقط زمانی کار می کند که Invidious API
-      پیش فرض شما باشد. وقتی فعال باشد، API محلی اجرا می‌شود و از قالب‌های قدیمی بازگردانده
-      شده توسط آن به جای قالب‌هایی که توسط Invidious بازگردانده شده است استفاده می‌کند.
-      کمک می‌کند ویدیوهای بازگردانده شده توسط Invidious به دلیل محدودیت‌های کشور پخش
-      نشود.
     Default Video Format: فرمت های مورد استفاده هنگام پخش ویدیو را تنظیم کنید. فرمت
       های DASH می توانند کیفیت های بالاتری را پخش کنند. فرمت های قدیمی به حداکثر 720p
       محدود می شوند اما از پهنای باند کمتری استفاده می کنند. فرمت های صوتی فقط جریان

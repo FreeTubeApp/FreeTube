@@ -164,9 +164,6 @@ export default defineComponent({
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },
-    forceLocalBackendForLegacy: function () {
-      return this.$store.getters.getForceLocalBackendForLegacy
-    },
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
@@ -836,19 +833,9 @@ export default defineComponent({
             // which fixed the API returning incorrect height, width and fps information
             const trustApiResponse = result.adaptiveFormats.some(stream => typeof stream.size === 'string')
 
-            if (process.env.SUPPORTS_LOCAL_API && this.forceLocalBackendForLegacy) {
-              const legacyFormats = await this.getLocalLegacyFormats()
+            this.legacyFormats = result.formatStreams.map(format => mapInvidiousLegacyFormat(format, trustApiResponse))
 
-              if (legacyFormats !== null) {
-                this.legacyFormats = legacyFormats
-              } else {
-                this.legacyFormats = result.formatStreams.map(format => mapInvidiousLegacyFormat(format, trustApiResponse))
-              }
-            } else {
-              this.legacyFormats = result.formatStreams.map(format => mapInvidiousLegacyFormat(format, trustApiResponse))
-            }
-
-            if (!process.env.SUPPORTS_LOCAL_API || (this.proxyVideos && !this.forceLocalBackendForLegacy)) {
+            if (!process.env.SUPPORTS_LOCAL_API || this.proxyVideos) {
               this.legacyFormats.forEach(format => {
                 format.url = getProxyUrl(format.url)
               })
@@ -1123,20 +1110,6 @@ export default defineComponent({
     checkIfTimestamp: function () {
       const timestamp = parseInt(this.$route.query.timestamp)
       this.timestamp = isNaN(timestamp) || timestamp < 0 ? null : timestamp
-    },
-
-    getLocalLegacyFormats: async function () {
-      try {
-        const result = await getLocalVideoInfo(this.videoId)
-        return result.streaming_data.formats.map(mapLocalLegacyFormat)
-      } catch (err) {
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err}`, 10000, () => {
-          copyToClipboard(err)
-        })
-        console.error(err)
-        return null
-      }
     },
 
     handleFormatChange: function (format) {

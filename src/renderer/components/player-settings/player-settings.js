@@ -83,10 +83,6 @@ export default defineComponent({
       return this.$store.getters.getEnableSubtitlesByDefault
     },
 
-    forceLocalBackendForLegacy: function () {
-      return this.$store.getters.getForceLocalBackendForLegacy
-    },
-
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
     },
@@ -284,7 +280,6 @@ export default defineComponent({
       'updateAutoplayPlaylists',
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
-      'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',
       'updateDefaultSkipInterval',

@@ -282,7 +282,6 @@ Settings:
     Hide FreeTube Header Logo: Sembunyikan Logo Header FreeTube
   Player Settings:
     Player Settings: 'Pengaturan Pemutar'
-    Force Local Backend for Legacy Formats: 'Paksa Layanan Lokal untuk Format Lama'
     Play Next Video: 'Putar Video Selanjutnya'
     Turn on Subtitles by Default: 'Nyalakan Takarir'
     Autoplay Videos: 'Putar-Otomatis Video'
@@ -925,11 +924,6 @@ Tooltips:
       lebih rendah. Format audio hanya berisi stream audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
       Menimpa preferensi API.
-    Force Local Backend for Legacy Formats: Hanya bekerja jika API Invidious diatur
-      sebagai default. Ketika diaktifkan, API lokal akan berjalan dan menggunakan
-      format lama yang dihasilkan oleh API lokal daripada yang dihasilkan oleh API
-      Invidious. Membantu saat video yang ditampilkan oleh Invidious tidak bisa diputar
-      karena dibatasi oleh wilayah pemutaran.
     Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan
       dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan
       atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control

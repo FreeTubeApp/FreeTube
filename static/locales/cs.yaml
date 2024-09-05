@@ -387,7 +387,6 @@ Settings:
     Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
-    Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
     Play Next Video: 'Přehrát další video'
     Turn on Subtitles by Default: 'Ve výchozím nastavení zapnout titulky'
     Autoplay Videos: 'Automaticky přehrávat videa'
@@ -1094,10 +1093,6 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
-      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
-      formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty

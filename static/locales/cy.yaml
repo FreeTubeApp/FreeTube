@@ -249,7 +249,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Gosodiadau Chwaraewr'
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: ''
     Turn on Subtitles by Default: ''
     Autoplay Videos: 'Awto-chwarae Fideos'
@@ -778,7 +777,6 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
     Scroll Playback Rate Over Video Player: ''

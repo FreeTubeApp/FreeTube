@@ -193,7 +193,6 @@ const state = {
   externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '',
   expandSideBar: false,
-  forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
   hideChannelPlaylists: false,

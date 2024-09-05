@@ -246,7 +246,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'ڕێکخستنەکانی لێدەر'
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: 'لێدانی ڤیدیۆی دواتر'
     Turn on Subtitles by Default: 'هەڵکردنی بنەڕەتی ژێرنووس'
     Autoplay Videos: 'خۆلێدانی ڤیدیۆ'
@@ -776,7 +775,6 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
     Scroll Playback Rate Over Video Player: ''

@@ -195,11 +195,6 @@ Tooltips:
     Invidious Instance: 'वह इनविडियस इंस्टेंस जिससे FreeTube API कॉल के लिए कनेक्ट
       होगा।'
   Player Settings:
-    Force Local Backend for Legacy Formats: 'केवल तभी काम करता है जब Invidious API
-      आपका डिफ़ॉल्ट हो। जब सक्षम किया जाता है, तो स्थानीय एपीआई चलेगा और इसके द्वारा
-      लौटाए गए लीगेसी प्रारूपों का उपयोग करेगा, बजाय इसके कि इनविदियस द्वारा लौटाए
-      गए। मदद करता है जब Invidious द्वारा लौटाए गए वीडियो देश प्रतिबंधों के कारण नहीं
-      चलते हैं।'
     Proxy Videos Through Invidious: 'YouTube से सीधा संबंध बनाने के बजाय वीडियो परोसने
       के लिए Invidious से जुड़ेंगे। एपीआई वरीयता को ओवरराइड करता है।'
   External Player Settings:

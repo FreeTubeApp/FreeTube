@@ -389,7 +389,6 @@ Settings:
     Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
     Player Settings: 'Erreprodukzioaren ezarpenak'
-    Force Local Backend for Legacy Formats: 'Behartu backend lokala Legacy formatuentzat'
     Play Next Video: 'Hurrengo bideoa erreproduzitu'
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
     Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
@@ -1023,11 +1022,6 @@ Tooltips:
       den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako
       nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Soilik funtzionatzen du Individious-en
-      APIa zure lehenetsitakoa denean. Aukera dagoenean, tokiko APIa eta azken honek
-      bidalitako legacy formatuak ibiliko dira, Individious-ek bidalitakoak baino.
-      Lagungarria da herrialdeek ezarritako mugen ondorioz Individious-eko bideoak
-      ezin direnean ikusi.'
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
       da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
       du.'

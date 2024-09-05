@@ -382,7 +382,6 @@ Settings:
     Hide FreeTube Header Logo: Schowaj logo FreeTube z paska górnego
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
-    Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
     Play Next Video: 'Odtwórz następny film'
     Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
     Autoplay Videos: 'Autoodtwarzanie filmów'
@@ -1158,10 +1157,6 @@ Tooltips:
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
-      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
-      zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
-      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej.
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.

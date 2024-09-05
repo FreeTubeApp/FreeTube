@@ -307,8 +307,6 @@ Settings:
     Hide FreeTube Header Logo: Piilota FreeTube-otsikkologo
   Player Settings:
     Player Settings: 'Soittimen asetukset'
-    Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
-      formaateille'
     Remember History: 'Muista historia'
     Play Next Video: 'Toista seuraava video'
     Turn on Subtitles by Default: 'Ota tekstitys käyttöön oletusarvoisesti'
@@ -995,10 +993,6 @@ Tooltips:
       mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
     Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
       sijaan. Ohittaa API-valinnan.
-    Force Local Backend for Legacy Formats: Toimii vain kun Invidious API on oletuksena.
-      Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
-      sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
-      takia.
     Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina
       CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi
       toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
