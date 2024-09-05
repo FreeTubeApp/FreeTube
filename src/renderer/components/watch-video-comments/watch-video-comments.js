@@ -348,7 +348,7 @@ export default defineComponent({
           if (this.fallbackPreference === 'invidious') {
             showToast(this.$t('Falling back to Invidious API'))
             this.getCommentDataInvidious()
-          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             showToast(this.$t('Falling back to Local API'))
             this.getCommentDataLocal()
           }
@@ -390,7 +390,7 @@ export default defineComponent({
           if (this.fallbackPreference === 'invidious') {
             showToast(this.$t('Falling back to Invidious API'))
             this.getCommentDataInvidious()
-          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             showToast(this.$t('Falling back to Local API'))
             this.getCommentDataLocal()
           }

@@ -357,7 +357,7 @@ export default defineComponent({
               'Error gettings search suggestions.  Falling back to Invidious API'
             )
             this.getSearchSuggestionsInvidious(query)
-          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             console.error(
               'Error gettings search suggestions.  Falling back to Local API'
             )

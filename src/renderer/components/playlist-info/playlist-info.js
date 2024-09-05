@@ -222,7 +222,7 @@ export default defineComponent({
         }
       }
 
-      if (!process.env.IS_ELECTRON || backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstanceUrl
       } else {
         baseUrl = 'https://i.ytimg.com'

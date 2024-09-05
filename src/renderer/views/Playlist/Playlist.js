@@ -433,7 +433,7 @@ export default defineComponent({
       } catch (err) {
         console.error(err)
         if (this.backendPreference === 'piped' && this.backendFallback) {
-          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+          if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
             console.warn('Error getting data with Piped, falling back to Local backend')
             this.getPlaylistLocal()
           } else if (this.fallbackPreference === 'invidious') {
