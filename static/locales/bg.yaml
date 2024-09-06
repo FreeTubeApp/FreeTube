@@ -262,6 +262,7 @@ History:
   Your history list is currently empty.: 'Плейлиста с история на гледанията е празен.'
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
+  Case Sensitive Search: Главни / малки букви
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -970,6 +971,35 @@ Video:
   Unhide Channel: Показване на канала
   Hide Channel: Скриване на канала
   More Options: Още опции
+  Player:
+    Audio Tracks: Аудио пътеки
+    Exit Full Window: Изход от цял екран
+    Take Screenshot: Екранна снимка
+    Show Stats: Показване на статистика
+    Exit Theatre Mode: Изход от широкоекранния режим
+    Stats:
+      Stats: Статистика
+      Video ID: 'Видео ID: {videoId}'
+      Media Formats: 'Медиен формат: {formats}'
+      Volume: 'Сила на звука: {volumePercentage}%'
+      Bandwidth: 'Честотна лента: {bandwidth} kbps'
+      Buffered: 'Буферирани: {bufferedPercentage}%'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
+      Resolution: 'Резолюция: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Размери на плейъра: {width}x{height}'
+      Bitrate: 'Скорост на предаване: {bitrate} kbps'
+      Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри:
+        {totalFrames}'
+    You appear to be offline: Изглежда, че сте офлайн.
+    Playback will resume automatically when your connection comes back: Възпроизвеждането
+      ще се възобнови автоматично, когато връзката ви се възстанови.
+    Skipped segment: Пропуснат сегмент {segmentCategory}
+    TranslatedCaptionTemplate: '{language} (преведено от "{originalLanguage}")'
+    Theatre Mode: Широкоекранен режим
+    Full Window: Цял екран
+    Hide Stats: Скриване на статистиката
 Videos:
   #& Sort By
   Sort By:
@@ -1008,6 +1038,8 @@ Change Format:
     това видео'
   Audio formats are not available for this video: 'Аудио форматите не са достъпни
     за това видео'
+  Legacy formats are not available for this video: За това видео не са налични наследени
+    формати
 Share:
   Share Video: 'Споделяне на видео'
   Share Playlist: 'Споделяне на плейлиста'
