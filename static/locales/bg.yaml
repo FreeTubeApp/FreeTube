@@ -973,7 +973,7 @@ Video:
   More Options: Още опции
   Player:
     Audio Tracks: Аудио пътеки
-    Exit Full Window: Изход от цял екран
+    Exit Full Window: Изход от цял прозорец
     Take Screenshot: Екранна снимка
     Show Stats: Показване на статистика
     Exit Theatre Mode: Изход от широкоекранния режим
@@ -987,7 +987,7 @@ Video:
       CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
-      Resolution: 'Резолюция: {width}x{height}@{frameRate}'
+      Resolution: 'Разделителна способност: {width}x{height}@{frameRate}'
       Player Dimensions: 'Размери на плейъра: {width}x{height}'
       Bitrate: 'Скорост на предаване: {bitrate} kbps'
       Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри:
@@ -998,7 +998,7 @@ Video:
     Skipped segment: Пропуснат сегмент {segmentCategory}
     TranslatedCaptionTemplate: '{language} (преведено от "{originalLanguage}")'
     Theatre Mode: Широкоекранен режим
-    Full Window: Цял екран
+    Full Window: Цял прозорец
     Hide Stats: Скриване на статистиката
 Videos:
   #& Sort By
