@@ -9,3 +9,18 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+.getDescriptionTitle {
+  margin: 0;
+  padding-block: 8px;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--title-color);
+}
+
+.short {
+  block-size: 230px;
+  overflow: hidden;
+  mask-image: linear-gradient(180deg, rgb(2 0 36 / 100%) 80%, rgb(255 255 255 / 0%) 100%);
+}

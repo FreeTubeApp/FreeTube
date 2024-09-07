@@ -1059,6 +1059,8 @@ Comments:
   View {replyCount} replies: View {replyCount} replies
   Subscribed: Subscribed
 Up Next: 'Up Next'
+Description:
+  Click to View Description: Click to View Description
 
 # Toast Messages
 Local API Error (Click to copy): 'Local API Error (Click to copy)'

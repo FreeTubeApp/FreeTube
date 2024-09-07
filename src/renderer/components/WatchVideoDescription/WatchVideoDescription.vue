@@ -4,16 +4,28 @@
     class="videoDescription"
   >
     <FtTimestampCatcher
-      class="description"
+      :class="{ description: true, short: !showFullDescription }"
       :input-html="shownDescription"
       @timestamp-event="onTimestamp"
     />
+    <h4
+      v-if="!showFullDescription"
+      class="getDescriptionTitle"
+      role="button"
+      tabindex="0"
+      @click="expandDescription"
+      @keydown.space.prevent="expandDescription"
+      @keydown.enter.prevent="expandDescription"
+    >
+      {{ $t("Description.Click to View Description") }}
+    </h4>
   </FtCard>
 </template>
 
 <script setup>
 import autolinker from 'autolinker'
 
+import { ref } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 
@@ -31,6 +43,7 @@ const props = defineProps({
 const emit = defineEmits(['timestamp-event'])
 
 let shownDescription = ''
+const showFullDescription = ref(false)
 
 if (props.descriptionHtml !== '') {
   const parsed = parseDescriptionHtml(props.descriptionHtml)
@@ -56,6 +69,13 @@ if (props.descriptionHtml !== '') {
  */
 function onTimestamp(timestamp) {
   emit('timestamp-event', timestamp)
+}
+
+/**
+ * Enables user to scroll entire contents of description
+ */
+function expandDescription() {
+  showFullDescription.value = true
 }
 
 /**
