@@ -76,7 +76,6 @@ const actions = {
           hasData = true
         }
         if (Array.isArray(dataEntry.liveStreams)) {
-          liveStreams[channelId] = dataEntry.liveStreams
           liveStreams[channelId] = { videos: dataEntry.liveStreams, timestamp: dataEntry.liveStreamsTimestamp }
           hasData = true
         }
