@@ -154,9 +154,9 @@ User Playlists:
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
     Added {count} Times: Ya añadido | Añadido {count} veces
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Vídeos ya añadidos'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       Se añadirán vídeos'
     Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
@@ -385,7 +385,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Configuración del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar backend local para formatos heredados'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
@@ -1137,11 +1136,6 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
-      es la predeterminada. Si está activada, la API local se ejecutará y utilizará
-      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
-      Es útil cuando los vídeos devueltos por Invidious no se reproducen debido a
-      restricciones nacionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -1243,9 +1237,9 @@ Clipboard:
     sin una conexión segura
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
-    visibles, capítulo actual: {nombredelcapítulo}'
+    visibles, capítulo actual: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
-    ocultos, capítulo actual: {nombredelcapítulo}'
+    ocultos, capítulo actual: {chapterName}'
   Chapters: Capítulos
 Preferences: Preferencias
 Ok: De acuerdo

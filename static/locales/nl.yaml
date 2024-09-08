@@ -383,7 +383,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-koplogo verbergen
   Player Settings:
     Player Settings: 'Videospelerinstellingen'
-    Force Local Backend for Legacy Formats: 'Lokale backend voor oudere formaten forceren'
     Play Next Video: 'Volgende video afspelen'
     Turn on Subtitles by Default: 'Ondertiteling standaard inschakelen'
     Autoplay Videos: 'Video''s automatisch afspelen'
@@ -1091,11 +1090,6 @@ Tooltips:
       een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen.
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
       alleen het geluid streamen.
-    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
-      is geselecteerd als de standaard-API. Wanneer ingeschakeld zal de lokale API
-      legacy video­indelingen gebruiken in plaats van de video­indeling die worden
-      terug­gegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
-      via Invidious niet afspeelt in verband met regio­restricties.
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
       te halen. Dit overschrijft de ingestelde API voorkeur.

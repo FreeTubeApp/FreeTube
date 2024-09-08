@@ -385,8 +385,6 @@ Settings:
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Impostazioni del lettore'
-    Force Local Backend for Legacy Formats: 'Forza il backend locale per i formati
-      obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -1132,10 +1130,6 @@ This video is unavailable because of missing formats. This can happen due to cou
   in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
-    Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Se abilitate, le API locali useranno i formati obsoleti al posto
-      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
-      a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati DASH possono riprodurre qualità maggiore. I formati obsoleti sono
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono

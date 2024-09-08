@@ -245,8 +245,6 @@ Settings:
     Hide FreeTube Header Logo: Απόκρυψη Λογότυπου Κεφαλίδας FreeTube
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
-    Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
-      Διαμορφώσεις'
     Play Next Video: 'Αναπαραγωγή επόμενου Βίντεο'
     Turn on Subtitles by Default: 'Ενεργοποίηση υπότιτλων από προεπιλογή'
     Autoplay Videos: 'Αυτόματη αναπαραγωγή βίντεο'
@@ -952,11 +950,6 @@ Tooltips:
     Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει
       τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube. Παράκαμψη προτίμησης
       API.
-    Force Local Backend for Legacy Formats: Λειτουργεί μόνο όταν το Invidious API
-      είναι η προεπιλογή σας. Όταν ενεργοποιηθεί, το τοπικό API θα χρησιμοποιήσει
-      τις μορφές παλαιού τύπου που επιστρέφονται από αυτό αντί για αυτές που επιστρέφονται
-      από το Invidious. Βοηθά όταν τα βίντεο που επιστρέφονται από το Invidious δεν
-      αναπαράγονται λόγω περιορισμών χώρας.
     Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο,
       πατήστε και κρατήστε πατημένο το πλήκτρο Control (Command Key σε Mac) και μετακινηθείτε
       με τον τροχό του ποντικιού προς τα εμπρός ή προς τα πίσω για να ελέγξετε το
@@ -1040,12 +1033,12 @@ Channels:
   Title: Λίστα Καναλιών
   Search bar placeholder: Αναζήτηση Καναλιών
   Unsubscribe: Απεγγραφή
-  Count: $ κανάλι(α) βρέθηκαν.
+  Count: '{number} κανάλι(α) βρέθηκαν.'
   Empty: Η λίστα καναλιών σας είναι άδεια.
-  Unsubscribed: $ αφαιρέθηκε από τις Συνδρομές σας
-  Unsubscribe Prompt: Θέλετε σίγουρα να απεγγραφείτε από το "$"?
+  Unsubscribed: '{channelName} αφαιρέθηκε από τις Συνδρομές σας'
+  Unsubscribe Prompt: Θέλετε σίγουρα να απεγγραφείτε από το "{channelName}"?
 New Window: Νέο Παράθυρο
-Screenshot Error: Λήψη στιγμιότυπου απέτυχε. $
+Screenshot Error: 'Λήψη στιγμιότυπου απέτυχε. {error}'
 Clipboard:
   Copy failed: Η αντιγραφή στο πρόχειρο απέτυχε
   Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση

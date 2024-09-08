@@ -211,8 +211,6 @@ Settings:
     Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
-    Force Local Backend for Legacy Formats: 'Força el motor local per als formats
-      heretats'
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
     Autoplay Videos: 'Reprodueix automàticament els vídeos'

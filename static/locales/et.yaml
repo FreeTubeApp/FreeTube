@@ -384,8 +384,6 @@ Settings:
     Hide FreeTube Header Logo: Peida FreeTube'i päise logo
   Player Settings:
     Player Settings: 'Videomängija seadistused'
-    Force Local Backend for Legacy Formats: 'Pärandvormingute puhul kasuta sundkorras
-      kohalikku taustateenust'
     Play Next Video: 'Esita ka järgmist videot'
     Turn on Subtitles by Default: 'Vaikimisi näita subtiitreid'
     Autoplay Videos: 'Esita videod automaatselt'
@@ -1059,11 +1057,6 @@ Tooltips:
       nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
     Proxy Videos Through Invidious: Kasutab videote esitamiseks Invidious'e teenust
       ega tee päringuid otse YouTube serveri pihta. Asendab API eelistuse.
-    Force Local Backend for Legacy Formats: See lahendus toimib, kui Invidious'e API
-      on esimene eelistus. Kui see väärtus on sisselülitatud, siis toimib ka kohalik
-      API ning kasutab pärandvorminguid ning ei kasuta neid mida Invidious'e server
-      võimaldab kasutada. See seadistus on kasulik siis, kui Invidious'e API alusel
-      laaditud videote esitamine riigipiirangute tõttu ei toimi.
     Scroll Playback Rate Over Video Player: Kui kursor on video kohal, siis vajuta
       Ctrl klahvi (Mac'is ⌘ klahvi) ja taasesituse kiiruse muutmiseks keri hiireratast
       edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,

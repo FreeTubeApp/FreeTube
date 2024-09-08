@@ -290,7 +290,6 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -926,10 +925,6 @@ Tooltips:
     Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
       שמעניין אותך לראות.
   Player Settings:
-    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
-      המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
-      על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
-      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה.
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן

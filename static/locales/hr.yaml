@@ -375,8 +375,6 @@ Settings:
     Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
   Player Settings:
     Player Settings: 'Postavke playera'
-    Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
-      stare formate'
     Play Next Video: 'Reproduciraj sljedeći video'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
     Autoplay Videos: 'Automatski reproduciraj videa'
@@ -1082,10 +1080,6 @@ Tooltips:
       su zato brži. Audioformati sadrže samo prijenose audiosnimaka.
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
-    Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
-      standardno sučelje. Kada je aktivirano, lokalno API sučelje će pokretati i koristiti
-      stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
-      je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
       i drži tipku Control (Command tipka na Macu) i pomiči kotačić miša naprijed
       ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control

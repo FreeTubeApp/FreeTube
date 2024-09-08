@@ -242,10 +242,6 @@ export default defineComponent({
 
     handlePreferredApiBackend: function (backend) {
       this.updateBackendPreference(backend)
-
-      if (backend === 'local') {
-        this.updateForceLocalBackendForLegacy(false)
-      }
     },
 
     handleThumbnailPreferenceChange: function (value) {
@@ -270,7 +266,6 @@ export default defineComponent({
       'updateRegion',
       'updateListType',
       'updateThumbnailPreference',
-      'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
       'updateExternalLinkHandling',
       'updateGeneralAutoLoadMorePaginatedItemsEnabled',

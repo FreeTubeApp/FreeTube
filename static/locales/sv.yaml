@@ -326,7 +326,6 @@ Settings:
     Hide FreeTube Header Logo: Dölj FreeTubelogga
   Player Settings:
     Player Settings: 'Spelarinställningar'
-    Force Local Backend for Legacy Formats: 'Tvinga lokal resurser för äldre format'
     Play Next Video: 'Spela nästa video'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Autospela video'
@@ -987,11 +986,6 @@ Tooltips:
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube. Åsidosätter
       API-preferens.
-    Force Local Backend for Legacy Formats: Fungerar bara när Invidious API är din
-      standard. När det är aktiverat kommer det lokala API:et att köras och använda
-      de äldre formaten som returneras av det i stället för de som returneras av Invidious.
-      Hjälper när videorna som returneras av Invidious inte spelas upp på grund av
-      landsbegränsningar.
     Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
       videon, MPV-stil.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
@@ -1069,7 +1063,7 @@ Channels:
 Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparade skärmdump som "{filePath}"
-Screenshot Error: Skärmdump misslyckades {felkod}
+Screenshot Error: Skärmdump misslyckades {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
     utan en säker anslutning

@@ -221,7 +221,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube 헤더 로고 숨기기
   Player Settings:
     Player Settings: '플레이어 설정'
-    Force Local Backend for Legacy Formats: '레거시 포멧에 로컬 백엔드 강제적용'
     Play Next Video: '다음 동영상 재생'
     Turn on Subtitles by Default: '기본으로 자막켜기'
     Autoplay Videos: '동영상 자동재생'
@@ -686,7 +685,7 @@ Comments:
   And others: 및 기타
   Member: 구성원
   Hearted: 좋아요 표시한
-  View {replyCount} replies: '{reply Count} 개의 답글 보기'
+  View {replyCount} replies: '{replyCount} 개의 답글 보기'
 Up Next: '다음 위로'
 
 #Tooltips
@@ -702,9 +701,6 @@ Tooltips:
     External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는
       기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Invidious API가 기본값인 경우에만 작동합니다. 활성화되면
-      로컬 API가 실행되고 Invidious에서 반환된 형식 대신 해당 형식에서 반환된 레거시 형식을 사용합니다. Invidious에서 반환한
-      동영상이 국가 제한으로 인해 재생되지 않을 때 도움이 됩니다.'
     Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다.
       API 기본 설정을 재정의합니다.'
     Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다.
