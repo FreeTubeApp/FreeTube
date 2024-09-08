@@ -4,6 +4,7 @@
     class="videoDescription"
   >
     <FtTimestampCatcher
+      ref="descriptionContainer"
       :class="{ description: true, short: !showFullDescription }"
       :input-html="shownDescription"
       @timestamp-event="onTimestamp"
@@ -25,7 +26,7 @@
 <script setup>
 import autolinker from 'autolinker'
 
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 
@@ -43,7 +44,8 @@ const props = defineProps({
 const emit = defineEmits(['timestamp-event'])
 
 let shownDescription = ''
-const showFullDescription = ref(false)
+const descriptionContainer = ref()
+const showFullDescription = ref(true)
 
 if (props.descriptionHtml !== '') {
   const parsed = parseDescriptionHtml(props.descriptionHtml)
@@ -77,6 +79,23 @@ function onTimestamp(timestamp) {
 function expandDescription() {
   showFullDescription.value = true
 }
+
+/**
+ * Returns true when description content does not overflow description container
+ * Useful for hiding the 'Click to View Description' button for short descriptions
+ */
+function isShortDescription() {
+  const videoDescriptionMaxHeight = 300
+  const computedDescriptionHeight = descriptionContainer.value.$el.getBoundingClientRect().height
+  return computedDescriptionHeight < videoDescriptionMaxHeight
+}
+
+onMounted(() => {
+  // To verify whether or not the description is too short for the
+  // 'Click to View Description' button, we need to check the description's
+  // computed CSS height. The only way to make this work is to check on mount.
+  showFullDescription.value = isShortDescription()
+})
 
 /**
  * @param {string} descriptionText
