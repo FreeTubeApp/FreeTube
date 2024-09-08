@@ -44,16 +44,16 @@ Global:
   Live: 'Ужывую'
   Community: 'Супольнасць'
   Counts:
-    Video Count: ''
-    Channel Count: ''
-    Subscriber Count: ''
-    View Count: ''
-    Watching Count: ''
+    Video Count: '1 відэа | {count} відэа'
+    Channel Count: '1 канал | {count} каналы(аў)'
+    Subscriber Count: '1 падпісчык | {count} падпісчыкі(аў)'
+    View Count: '1 прагляд | {count} прагляды(аў)'
+    Watching Count: '1 гледач | {count} гледачы(оў)'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
-  Clear Input: ''
+  Clear Input: 'Ачысціць увод'
   # In Filter Button
 Search Filters:
   Search Filters: ''
@@ -460,23 +460,23 @@ Settings:
     Remove Password: ''
 About:
   #On About page
-  About: ''
+  About: 'Пра FreeTube'
   Beta: ''
   Source code: ''
   Licensed under the AGPLv3: ''
   View License: ''
   Downloads / Changelog: ''
   GitHub releases: ''
-  Help: ''
-  FreeTube Wiki: ''
+  Help: 'Даведка'
+  FreeTube Wiki: 'FreeTube Вікі'
   FAQ: ''
   Discussions: ''
   Report a problem: ''
   GitHub issues: ''
   Please check for duplicates before posting: ''
-  Website: ''
-  Blog: ''
-  Email: ''
+  Website: 'Вэб-сайт'
+  Blog: 'Блог'
+  Email: 'Электронная пошта'
   Mastodon: ''
   Chat on Matrix: ''
   Please read the: ''
@@ -487,6 +487,7 @@ About:
   these people and projects: ''
   Donate: ''
 
+  AGPLv3: AGPLv3
 Profile:
   Profile Settings: ''
   Toggle Profile List: ''
@@ -835,9 +836,11 @@ Ok: 'Ок'
 Search Listing:
   Label:
     Subtitles: Субцітры
+    4K: 4K
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}
 Display Label: '{label}: {value}'
 Cancel: Адмена
 checkmark: ✓
+Close Banner: Закрыць банер
