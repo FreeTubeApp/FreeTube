@@ -67,19 +67,19 @@ Search Filters:
     Time: ''
     Any Time: ''
     Last Hour: ''
-    Today: ''
+    Today: 'Сёння'
     This Week: ''
     This Month: ''
     This Year: ''
   Type:
     Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
-    Movies: ''
+    All Types: 'Усе тыпы'
+    Videos: 'Відэа'
+    Channels: 'Каналы'
+    Movies: 'Фільмы'
     #& Playlists
   Duration:
-    Duration: ''
+    Duration: 'Працягласць'
     All Durations: ''
     Short (< 4 minutes): ''
     Medium (4 - 20 minutes): ''
@@ -90,12 +90,18 @@ Search Filters:
   Fetch more results: ''
   There are no more results for this search: ''
 # Sidebar
+  Features:
+    HD: HD
+    Subtitles: Субцітры
+    3D: 3D
+    4K: 4K
+    HDR: HDR
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
+  Subscriptions: 'Падпіскі'
   # channels that were likely deleted
-  Error Channels: ''
-  Latest Subscriptions: ''
+  Error Channels: 'Каналы з памылкамі'
+  Latest Subscriptions: 'Апошнія падпіскі'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
@@ -107,44 +113,53 @@ Subscriptions:
   Load More Posts: ''
   Subscriptions Tabs: ''
   All Subscription Tabs Hidden: ''
-More: ''
+More: 'Больш'
 Channels:
-  Channels: ''
+  Channels: 'Каналы'
   Title: ''
   Search bar placeholder: ''
   Count: ''
   Empty: ''
-  Unsubscribe: ''
+  Unsubscribe: 'Адпісацца'
   Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
   Default: ''
-  Music: ''
-  Gaming: ''
-  Movies: ''
+  Music: 'Музыка'
+  Gaming: 'Гульні'
+  Movies: 'Фільмы'
   Trending Tabs: ''
 Most Popular: ''
-Playlists: ''
+Playlists: 'Плэй-лісты'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'Вашы плэй-лісты'
   Playlist Message: ''
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
   Search bar placeholder: ''
+  Create New Playlist: Стварыць новы плэй-ліст
+  Add to Playlist: Дадаць у плэй-ліст
+  Add to Favorites: Дадаць у {playlistName}
+  Remove from Favorites: Выдаліць з {playlistName}
+  Cancel: Адмена
+  AddVideoPrompt:
+    Save: Захаваць
+  CreatePlaylistPrompt:
+    Create: Стварыць
 History:
   # On History Page
-  History: ''
+  History: 'Гісторыя'
   Watch History: ''
   Your history list is currently empty.: ''
   Empty Search Message: ''
   Search bar placeholder: ""
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Налады'
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: ''
+    General Settings: 'Агульныя налады'
     Check for Updates: ''
     Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
@@ -267,15 +282,15 @@ Settings:
     Default Quality:
       Default Quality: ''
       Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -814,9 +829,15 @@ Screenshot Error: ''
 Hashtag:
   Hashtag: ''
   This hashtag does not currently have any videos: ''
-Yes: ''
-No: ''
-Ok: ''
+Yes: 'Так'
+No: 'Не'
+Ok: 'Ок'
 Search Listing:
   Label:
     Subtitles: Субцітры
+Yes, Delete: Так, выдаліць
+Feed:
+  Refresh Feed: Абнавіць {subscriptionName}
+Display Label: '{label}: {value}'
+Cancel: Адмена
+checkmark: ✓
