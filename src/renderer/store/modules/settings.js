@@ -476,6 +476,18 @@ const customActions = {
             commit('upsertToHistoryCache', data)
             break
 
+          case SyncEvents.HISTORY.OVERWRITE: {
+            const byId = {}
+            data.forEach(video => {
+              byId[video.videoId] = video
+            })
+
+            // It comes pre-sorted, so we don't have to sort it here
+            commit('setHistoryCacheSorted', data)
+            commit('setHistoryCacheById', byId)
+            break
+          }
+
           case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
             commit('updateRecordWatchProgressInHistoryCache', data)
             break
