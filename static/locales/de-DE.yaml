@@ -968,11 +968,16 @@ Video:
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'
       Bandwidth: 'Bandbreite: {bandwidth} kb/s'
-      Buffered: 'Pufferspeichern: {bufferedPercentage} %'
+      Buffered: 'Gepuffert: {bufferedPercentage} %'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Ausgelassene Einzelbilder: {droppedFrames} /
+        Einzelbilder insgesamt: {totalFrames}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Sie scheinen offline zu sein.
     Playback will resume automatically when your connection comes back: Die Wiedergabe
       wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
-    Skipped segment: '{segmentCategory}-Segment ausgelassen'
+    Skipped segment: 'Segment {segmentCategory} übersprungen'
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
@@ -1014,8 +1019,8 @@ Change Format:
     nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
-  Legacy formats are not available for this video: Legacy-Formate sind nicht verfügbar
-    für dieses Video
+  Legacy formats are not available for this video: Ältere Formate sind für dieses
+    Video nicht verfügbar
 Share:
   Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
