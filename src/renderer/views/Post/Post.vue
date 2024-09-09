@@ -14,18 +14,16 @@
           appearance="result"
         />
       </FtCard>
-      <FtCard>
-        <WatchVideoComments
-          :id="post.postId"
-          :channel-name="post.author"
-          :post-author-id="authorId"
-          :video-player-ready="false"
-          :force-state="null"
-          :is-post-comments="true"
-          :channel-thumbnail="post.authorThumbnails[0].url"
-          :show-sort-by="false"
-        />
-      </FtCard>
+      <WatchVideoComments
+        :id="post.postId"
+        :channel-name="post.author"
+        :post-author-id="authorId"
+        :video-player-ready="false"
+        :force-state="null"
+        :is-post-comments="true"
+        :channel-thumbnail="post.authorThumbnails[0].url"
+        :show-sort-by="false"
+      />
     </template>
   </div>
 </template>
