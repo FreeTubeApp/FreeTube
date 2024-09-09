@@ -7289,10 +7289,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shaka-player@^4.10.12:
-  version "4.10.12"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.10.12.tgz#29f9ffb0f7f3a67e5ccddbb48ba5601c911079de"
-  integrity sha512-Gn8MmSsWU/yrJyJLwEGZYQwz/09y6hMW+HaPnkC/+s3fgXbVYPgrpra45T0aCLV4LgfjXRf+uHDjVydUW5rTZA==
+shaka-player@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.11.0.tgz#993a5bb73f567921822c8fdb92d633d8cf227715"
+  integrity sha512-hGk8utgrghH7JgVt6LHYDRE2b7u+uAieP48B7tkHz6RmHSbS3teSLoCDh3OxYOaPO3VCf2zhREJC/QrqL91vkg==
   dependencies:
     eme-encryption-scheme-polyfill "^2.1.5"
 
