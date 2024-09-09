@@ -1164,10 +1164,6 @@ export default defineComponent({
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
         skipSponsorBlockSegments(currentTime)
       }
-
-      if ('mediaSession' in navigator) {
-        updateMediaSessionPositionState(currentTime)
-      }
     }
 
     // #endregion video event handlers
@@ -1236,63 +1232,6 @@ export default defineComponent({
     }
 
     // #endregion request/response filters
-
-    // #region media session
-
-    /** @type {MediaSessionActionHandler} */
-    function mediaSessionActionHandler(details) {
-      const video_ = video.value
-
-      switch (details.action) {
-        case 'play':
-          video_.play()
-          break
-        case 'pause':
-          video_.pause()
-          break
-        case 'seekbackward':
-          video_.currentTime -= (details.seekOffset || defaultSkipInterval.value)
-          break
-        case 'seekforward':
-          video_.currentTime += (details.seekOffset || defaultSkipInterval.value)
-          break
-        case 'seekto': {
-          const { start: seekRangeStart } = player.seekRange()
-
-          if (details.fastSeek) {
-            video_.fastSeek(seekRangeStart + details.seekTime)
-          } else {
-            video_.currentTime = seekRangeStart + details.seekTime
-          }
-          break
-        }
-      }
-    }
-
-    /**
-     * @param {number|Event} currentTime
-     */
-    function updateMediaSessionPositionState(currentTime) {
-      if (hasLoaded.value && 'mediaSession' in navigator) {
-        const seekRange = player.seekRange()
-
-        if (typeof currentTime !== 'number') {
-          currentTime = video.value.currentTime
-        }
-
-        const duration = seekRange.end - seekRange.start
-
-        const playbackRate = video.value.playbackRate
-
-        navigator.mediaSession.setPositionState({
-          duration,
-          position: Math.min(Math.max(0, currentTime - seekRange.start), duration),
-          playbackRate: playbackRate > 0 ? playbackRate : undefined
-        })
-      }
-    }
-
-    // #endregion media session
 
     // #region set quality
 
@@ -2423,15 +2362,6 @@ export default defineComponent({
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
-
-        if ('mediaSession' in navigator) {
-          navigator.mediaSession.setActionHandler('play', null)
-          navigator.mediaSession.setActionHandler('pause', null)
-          navigator.mediaSession.setActionHandler('seekto', null)
-          navigator.mediaSession.setActionHandler('seekbackward', null)
-          navigator.mediaSession.setActionHandler('seekforward', null)
-          navigator.mediaSession.setPositionState()
-        }
       })
 
       player.addEventListener('loaded', handleLoaded)
@@ -2595,21 +2525,6 @@ export default defineComponent({
       if (props.chapters.length > 0) {
         createChapterMarkers()
       }
-
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.setActionHandler('play', mediaSessionActionHandler)
-        navigator.mediaSession.setActionHandler('pause', mediaSessionActionHandler)
-
-        if (canSeek()) {
-          navigator.mediaSession.setActionHandler('seekto', mediaSessionActionHandler)
-          navigator.mediaSession.setActionHandler('seekbackward', mediaSessionActionHandler)
-          navigator.mediaSession.setActionHandler('seekforward', mediaSessionActionHandler)
-        } else {
-          navigator.mediaSession.setActionHandler('seekto', null)
-          navigator.mediaSession.setActionHandler('seekbackward', null)
-          navigator.mediaSession.setActionHandler('seekforward', null)
-        }
-      }
     }
 
     watch(
@@ -2746,12 +2661,6 @@ export default defineComponent({
 
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'none'
-        navigator.mediaSession.setPositionState()
-        navigator.mediaSession.setActionHandler('play', null)
-        navigator.mediaSession.setActionHandler('pause', null)
-        navigator.mediaSession.setActionHandler('seekforward', null)
-        navigator.mediaSession.setActionHandler('seekbackward', null)
-        navigator.mediaSession.setActionHandler('seekto', null)
       }
 
       skippedSponsorBlockSegments.value.forEach(segment => clearTimeout(segment.timeoutId))
@@ -2817,8 +2726,6 @@ export default defineComponent({
       handleEnded,
       updateVolume,
       handleTimeupdate,
-
-      updateMediaSessionPositionState
     }
   }
 })

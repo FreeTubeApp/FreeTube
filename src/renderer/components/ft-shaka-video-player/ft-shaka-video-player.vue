@@ -21,8 +21,6 @@
       @ended="handleEnded"
       @volumechange="updateVolume"
       @timeupdate="handleTimeupdate"
-      @ratechange="updateMediaSessionPositionState"
-      @seeked="updateMediaSessionPositionState"
     />
     <canvas
       ref="vrCanvas"
