@@ -127,7 +127,10 @@
         /> {{ formattedVoteCount }}</span>
       <router-link
         v-if="isInvidiousAllowed && !singlePost"
-        :to="`/post/${postId}`"
+        :to="{
+          path: `/post/${postId}`,
+          query: authorId ? { authorId } : undefined
+        }"
         class="commentsLink"
         :aria-label="$t('Channel.Community.View Full Post')"
       >

@@ -230,10 +230,9 @@ export async function getInvidiousCommunityPostComments({ postId, authorId }) {
     resource: 'post',
     id: postId,
     subResource: 'comments',
-  }
-
-  payload.params = {
-    ucid: authorId
+    params: {
+      ucid: authorId
+    }
   }
 
   const response = await invidiousAPICall(payload)
@@ -248,11 +247,10 @@ export async function getInvidiousCommunityPostCommentReplies({ postId, replyTok
     id: postId,
     subResource: 'comments',
     params: {
+      ucid: authorId,
       continuation: replyToken
     }
   }
-
-  payload.params.ucid = authorId
 
   const response = await invidiousAPICall(payload)
   return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
