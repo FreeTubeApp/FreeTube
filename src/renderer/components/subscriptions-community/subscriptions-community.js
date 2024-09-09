@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { calculatePublishedDate, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalChannelCommunity } from '../../helpers/api/local'
 import { invidiousGetCommunityPosts } from '../../helpers/api/invidious'
 
@@ -122,7 +122,7 @@ export default defineComponent({
       })
 
       postList.sort((a, b) => {
-        return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
+        return b.publishedTime - a.publishedTime
       })
 
       this.postList = postList
@@ -194,7 +194,7 @@ export default defineComponent({
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
       postList.sort((a, b) => {
-        return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
+        return b.publishedTime - a.publishedTime
       })
 
       this.postList = postList

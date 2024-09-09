@@ -1,5 +1,9 @@
 import store from '../../store/index'
-import { stripHTML, toLocalePublicationString } from '../utils'
+import {
+  calculatePublishedDate,
+  stripHTML,
+  toLocalePublicationString,
+} from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
@@ -208,7 +212,7 @@ function parseInvidiousCommunityData(data) {
       thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
       return thumbnail
     }),
-    publishedText: data.publishedText,
+    publishedTime: calculatePublishedDate(data.publishedText),
     voteCount: data.likeCount,
     postContent: parseInvidiousCommunityAttachments(data.attachment),
     commentCount: data?.replyCount ?? 0, // https://github.com/iv-org/invidious/pull/3635/

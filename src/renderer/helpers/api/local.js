@@ -1415,7 +1415,7 @@ function parseLocalCommunityPost(post) {
     postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
-    publishedText: post.published.text,
+    publishedTime: calculatePublishedDate(post.published.text),
     voteCount: post.vote_count.text,
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,

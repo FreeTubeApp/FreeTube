@@ -7,7 +7,12 @@ import autolinker from 'autolinker'
 
 import { A11y, Navigation, Pagination } from 'swiper/modules'
 
-import { createWebURL, deepCopy, toLocalePublicationString } from '../../helpers/utils'
+import {
+  createWebURL,
+  deepCopy,
+  getRelativeTimeFromDate,
+  toLocalePublicationString,
+} from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -121,7 +126,7 @@ export default defineComponent({
       this.postContent = this.data.postContent
       this.postId = this.data.postId
       this.publishedText = toLocalePublicationString({
-        publishText: this.data.publishedText,
+        publishText: getRelativeTimeFromDate(this.data.publishedTime),
         isLive: this.isLive,
         isUpcoming: this.isUpcoming,
         isRSS: this.data.isRSS
