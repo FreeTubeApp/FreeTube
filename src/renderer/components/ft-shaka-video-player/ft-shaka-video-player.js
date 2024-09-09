@@ -2355,17 +2355,62 @@ export default defineComponent({
       const promises = []
 
       for (const caption of sortedCaptions) {
-        promises.push(
-          player.addTextTrackAsync(
-            caption.url,
-            caption.language,
-            'captions',
-            caption.mimeType,
-            undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
-            caption.label
+        if (props.format === 'legacy') {
+          const url = new URL(caption.url)
+
+          if (url.hostname.endsWith('.youtube.com') && url.pathname === '/api/timedtext' &&
+            url.searchParams.get('caps') === 'asr' && url.searchParams.get('kind') === 'asr' && url.searchParams.get('fmt') === 'vtt') {
+            promises.push((async () => {
+              try {
+                const response = await fetch(caption.url)
+                let text = await response.text()
+
+                text = text.replaceAll(/ align:start position:0%$/gm, '')
+
+                const url = `data:${caption.mimeType};charset=utf-8,${encodeURIComponent(text)}`
+
+                await player.addTextTrackAsync(
+                  url,
+                  caption.language,
+                  'captions',
+                  caption.mimeType,
+                  undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
+                  caption.label
+                )
+              } catch (error) {
+                if (error instanceof shaka.util.Error) {
+                  handleError(error, 'addTextTrackAsync', caption)
+                } else {
+                  console.error(error)
+                }
+              }
+            })())
+          } else {
+            promises.push(
+              player.addTextTrackAsync(
+                caption.url,
+                caption.language,
+                'captions',
+                caption.mimeType,
+                undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
+                caption.label
+              )
+                .catch(error => handleError(error, 'addTextTrackAsync', caption))
+            )
+          }
+        } else {
+          promises.push(
+            player.addTextTrackAsync(
+              caption.url,
+              caption.language,
+              'captions',
+              caption.mimeType,
+              undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
+              caption.label
+            )
+              .catch(error => handleError(error, 'addTextTrackAsync', caption))
           )
-            .catch(error => handleError(error, 'addTextTrackAsync', caption))
-        )
+        }
       }
 
       if (!isLive.value && props.storyboardSrc) {
