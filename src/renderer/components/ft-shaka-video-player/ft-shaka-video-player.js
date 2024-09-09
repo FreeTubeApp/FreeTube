@@ -543,7 +543,8 @@ export default defineComponent({
           segmentRelativeVttTiming: true,
           dash: {
             manifestPreprocessorTXml: manifestPreprocessorTXml
-          }
+          },
+          availabilityWindowOverride: props.manifestMimeType === 'application/x-mpegurl' ? 0 : NaN
         },
         abr: {
           enabled: useAutoQuality,
