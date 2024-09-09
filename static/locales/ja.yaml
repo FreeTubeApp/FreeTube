@@ -123,7 +123,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message:
+  Playlist Message: 
     このページは完全に機能する再生リストを反映していません。保存した動画やお気に入りの動画のみが表示されます。作業が完了すると、現在ここにあるすべての動画は「Favorites」の再生リストに移行されます。
   Search bar placeholder: 再生リストの検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -594,7 +594,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
-    Warning:
+    Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワードの設定
@@ -642,7 +642,7 @@ About:
   Credits: クレジット
   Translate: 翻訳
   room rules: ルームの規則
-  Please read the: '次をお読みください:'
+  Please read the: '次をお読みください：'
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
@@ -814,7 +814,7 @@ Video:
       opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセットで動画の再生
-    UnsupportedActionTemplate: '{externalPlayer} はサポートしていません: {action}'
+    UnsupportedActionTemplate: '{externalPlayer} はサポートしていません： {action}'
     playlist: 再生リスト
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
@@ -831,7 +831,7 @@ Video:
   More Options: その他の設定
   Player:
     Stats:
-      Dropped Frames / Total Frames: 'コマ落ち： {droppedFrames} / 総フレーム: {totalFrames}'
+      Dropped Frames / Total Frames: 'コマ落ち： {droppedFrames} / 総コマ数： {totalFrames}'
       CodecAudio: 'コーデック： {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'コーデック： {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'コーデック： {videoCodec} / {audioCodec}'
@@ -846,7 +846,7 @@ Video:
       Stats: 統計
     You appear to be offline: オフラインのようです。
     Playback will resume automatically when your connection comes back: ネットワーク接続が回復すると再生が自動的に再開されます。
-    Skipped segment: '{segmentCategory} セグメントをスキップしました'
+    Skipped segment: '{segmentCategory} 区分をスキップしました'
     TranslatedCaptionTemplate: '{language}（「{originalLanguage}」から翻訳）'
     Audio Tracks: オーディオ トラック
     Theatre Mode: シアターモード
@@ -930,7 +930,7 @@ Comments:
   Sort by: 並べ替え
   Show More Replies: 返信をもっと見る
   And others: その他
-  Pinned by: ピン留め
+  Pinned by: 固定
   From {channelName}: '{channelName} から'
   Member: メンバー
   Hearted: ハート
@@ -1034,7 +1034,7 @@ Tooltips:
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
-    DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
+    DefaultCustomArgumentsTemplate: "（デフォルト： '{defaultCustomArguments}'）"
     Ignore Default Arguments: 動画の URL 以外のデフォルトの引数（再生速度、再生リストの URL など）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
   Experimental Settings:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
@@ -1044,7 +1044,7 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube
+    Hide Videos and Playlists Containing Text: FreeTube 
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
@@ -1081,9 +1081,9 @@ Clipboard:
   Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
 Chapters:
   Chapters: チャプター
-  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター:
+  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター：
     {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター:
+  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター：
     {chapterName}'
 Preferences: 環境設定
 Ok: オーケー
@@ -1096,7 +1096,7 @@ Close Banner: バナーを閉じる
 Go to page: '{page} を表示'
 Search character limit: 検索クエリが {searchCharacterLimit} 文字の制限を超えています
 Feed:
-  Feed Last Updated: '{feedName} フィードの最終更新日時: {date}'
+  Feed Last Updated: '{feedName} フィードの最終更新日時： {date}'
   Refresh Feed: '{subscriptionName} の更新'
 Channel Hidden: '{channel} をチャンネルフィルターに追加しました'
 Channel Unhidden: '{channel} をチャンネルフィルターから削除しました'
@@ -1117,5 +1117,5 @@ Age Restricted:
   This channel is age restricted: このチャンネルには年齢制限があります
 Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
-'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました: "{url}"。'
-Display Label: '{label}: {value}'
+'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました： "{url}"。'
+Display Label: '{label}：{value}'

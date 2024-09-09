@@ -332,7 +332,7 @@ export default defineComponent({
 
       if (this.id === '@@@') {
         this.showShareMenu = false
-        this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
+        this.setErrorMessage(this.$t('Channel.This channel does not exist'))
         return
       }
 
@@ -431,7 +431,7 @@ export default defineComponent({
 
     if (this.id === '@@@') {
       this.showShareMenu = false
-      this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
+      this.setErrorMessage(this.$t('Channel.This channel does not exist'))
       return
     }
 

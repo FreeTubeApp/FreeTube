@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -488,7 +488,7 @@ export default defineComponent({
           // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are renderered
           this.isLoadingMore = true
 
-          setTimeout(() => {
+          nextTick(() => {
             if (this.userPlaylistVisibleLimit + 100 < this.videoCount) {
               this.userPlaylistVisibleLimit += 100
             } else {

@@ -1387,7 +1387,7 @@ export default defineComponent({
           if (localFormat.has_audio) {
             audioFormats.push(localFormat)
 
-            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_drc || localFormat.is_secondary) {
+            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary) {
               hasMultipleAudioTracks = true
             }
           }
@@ -1501,7 +1501,7 @@ export default defineComponent({
       let translationName, translationCode
       // otherwise just fallback to the FreeTube display language and hope that YouTube will be able to handle it
       if (!translationLanguage) {
-        translationName = this.$i18n.t('Locale Name')
+        translationName = this.$t('Locale Name')
         translationCode = userLanguages.values().next()
       } else {
         translationName = translationLanguage.language_name.text

@@ -298,9 +298,9 @@ export default defineComponent({
       // Create a new array to avoid changing array in data store state
       // it could be user playlist or cache playlist
       this.playlistItems = this.playlistItems.toReversed()
-      setTimeout(() => {
+      nextTick(() => {
         this.isLoading = false
-      }, 1)
+      })
     },
 
     togglePauseOnCurrentVideo: function () {

@@ -92,6 +92,7 @@
         :select-names="localeNames"
         :select-values="localeOptions"
         :icon="['fas', 'language']"
+        is-locale-selector
         @change="updateCurrentLocale"
       />
       <ft-select

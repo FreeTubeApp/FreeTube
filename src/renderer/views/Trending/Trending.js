@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -119,7 +119,7 @@ export default defineComponent({
         this.trendingInstance = instance
 
         this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs[this.currentTab]?.focus()
         })
       } catch (err) {
@@ -172,7 +172,7 @@ export default defineComponent({
         this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs[this.currentTab]?.focus()
         })
       }).catch((err) => {
