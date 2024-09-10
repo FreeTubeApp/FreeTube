@@ -34,6 +34,17 @@ export default defineComponent({
       return this.backendPreference === 'invidious' || this.backendFallback
     }
   },
+  watch: {
+    async $route() {
+      // react to route changes...
+      this.isLoading = true
+      if (this.isInvidiousAllowed) {
+        this.id = this.$route.params.id
+        this.authorId = this.$route.query.authorId
+        await this.loadDataInvidiousAsync()
+      }
+    }
+  },
   mounted: async function () {
     if (this.isInvidiousAllowed) {
       this.id = this.$route.params.id
