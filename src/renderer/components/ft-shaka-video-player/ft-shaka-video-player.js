@@ -38,6 +38,7 @@ const HTTP_IN_HEX = 0x68747470
 const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 600
 
 const RequestType = shaka.net.NetworkingEngine.RequestType
+const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
 
 /** @type {Map<string, string>} */
@@ -1232,7 +1233,47 @@ export default defineComponent({
             response.data = new TextEncoder().encode(cleaned).buffer
           }
         }
+      } else if (type === RequestType.MANIFEST && context.type === AdvancedRequestType.MEDIA_PLAYLIST) {
+        const url = new URL(response.uri)
+
+        // Fixes proxied HLS manifests, as Invidious replaces the path parameters with query parameters,
+        // so shaka-player isn't able to infer the mime type from the `/file/seg.ts` part like it does for non-proxied HLS manifests.
+        // Shaka-player does attempt to detect it with HEAD request but the `Content-Type` header is `application/octet-stream`,
+        // which still doesn't tell shaka-player how to handle the stream because that's the equivalent of saying "binary data".
+        if (url.searchParams.has('local')) {
+          const stringBody = new TextDecoder().decode(response.data)
+          const fixed = stringBody.replaceAll(/https?:\/\/.+$/gm, hlsProxiedUrlReplacer)
+
+          response.data = new TextEncoder().encode(fixed).buffer
+        }
       }
+    }
+
+    /**
+     * @param {string} match
+     */
+    function hlsProxiedUrlReplacer(match) {
+      const url = new URL(match)
+
+      let fileValue
+      for (const [key, value] of url.searchParams) {
+        if (key === 'file') {
+          fileValue = value
+          continue
+        } else if (key === 'hls_chunk_host') {
+          // Add the host parameter so some Invidious instances stop complaining about the missing host parameter
+          // Replace .c.youtube.com with .googlevideo.com as the built-in Invidious video proxy only accepts host parameters with googlevideo.com
+          url.pathname += `/host/${encodeURIComponent(value.replace('.c.youtube.com', '.googlevideo.com'))}`
+        }
+
+        url.pathname += `/${key}/${encodeURIComponent(value)}`
+      }
+
+      // This has to be right at the end so that shaka-player can read the file extension
+      url.pathname += `/file/${encodeURIComponent(fileValue)}`
+
+      url.search = ''
+      return url.toString()
     }
 
     // #endregion request/response filters
