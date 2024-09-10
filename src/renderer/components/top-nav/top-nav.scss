@@ -23,6 +23,10 @@
 
   @media only screen and (width >= 1122px) {
     display: grid;
+    grid-template-columns: 1.5fr 720px 1fr;
+  }
+  
+  @media only screen and (width >= 1500px) {
     grid-template-columns: 1fr 720px 1fr;
   }
 
@@ -61,7 +65,7 @@
 
   &.arrowBackwardDisabled,
   &.arrowForwardDisabled {
-    color: #808080;
+    color: var(--tertiary-text-color);
     opacity: 0.5;
     pointer-events: none;
     user-select: none;
@@ -89,9 +93,9 @@
 }
 
 .navFilterIcon {
-  $effect-distance: 20px;
+  $effect-distance: 10px;
 
-  margin-inline-start: $effect-distance;
+  margin-inline: $effect-distance;
 
   &.filterChanged {
     box-shadow: 0 0 $effect-distance var(--primary-color);
@@ -132,7 +136,7 @@
     cursor: pointer;
     display: flex;
     padding-block: 0;
-    padding-inline: 10px 25px;
+    padding-inline: 10px;
 
     &:hover {
       background-color: var(--side-nav-hover-color);
