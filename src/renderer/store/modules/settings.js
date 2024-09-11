@@ -246,7 +246,7 @@ const state = {
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockSponsor: {
-    color: 'Blue',
+    color: 'Green',
     skip: 'autoSkip'
   },
   sponsorBlockSelfPromo: {
@@ -254,19 +254,19 @@ const state = {
     skip: 'showInSeekBar'
   },
   sponsorBlockInteraction: {
-    color: 'Green',
+    color: 'Purple',
     skip: 'showInSeekBar'
   },
   sponsorBlockIntro: {
-    color: 'Orange',
+    color: 'Cyan',
     skip: 'doNothing'
   },
   sponsorBlockOutro: {
-    color: 'Orange',
+    color: 'Blue',
     skip: 'doNothing'
   },
   sponsorBlockRecap: {
-    color: 'Orange',
+    color: 'Indigo',
     skip: 'doNothing'
   },
   sponsorBlockMusicOffTopic: {
