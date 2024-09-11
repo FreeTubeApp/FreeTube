@@ -633,7 +633,6 @@ export default defineComponent({
         'title',
         'type',
         'videoId',
-        'viewCount',
         'watchProgress',
       ]
 
@@ -641,6 +640,7 @@ export default defineComponent({
         // `_id` absent if marked as watched manually
         '_id',
         'lastViewedPlaylistId',
+        'viewCount',
       ]
 
       const ignoredKeys = [
