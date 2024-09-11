@@ -793,7 +793,7 @@ export default defineComponent({
     function configureUI(firstTime = false) {
       if (firstTime) {
         const firstTimeConfig = {
-          addSeekBar: true,
+          addSeekBar: props.manifestMimeType !== 'application/x-mpegurl',
           customContextMenu: true,
           contextMenuElements: ['ft_stats'],
           enableTooltips: true,
