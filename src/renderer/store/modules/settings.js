@@ -254,7 +254,7 @@ const state = {
     skip: 'showInSeekBar'
   },
   sponsorBlockInteraction: {
-    color: 'Purple',
+    color: 'Pink',
     skip: 'showInSeekBar'
   },
   sponsorBlockIntro: {
@@ -274,7 +274,7 @@ const state = {
     skip: 'doNothing'
   },
   sponsorBlockFiller: {
-    color: 'Orange',
+    color: 'Purple',
     skip: 'doNothing'
   },
   thumbnailPreference: '',
