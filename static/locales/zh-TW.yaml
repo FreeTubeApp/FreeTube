@@ -41,6 +41,8 @@ Global:
     Subscriber Count: 1 個訂閱者 | {count} 個訂閱者
     View Count: 1 次檢視 | {count} 次檢視
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
+    Comment Count: 1 則留言 | {count} 則留言
+    Like Count: 1 個喜歡 | {count} 個喜歡
   Input Tags:
     Length Requirement: 標籤必須至少 {number} 個字元長
 Search / Go to URL: '搜尋/ 前往網址'
@@ -710,6 +712,9 @@ Channel:
     Reveal Answers: 揭露答案
     Hide Answers: 隱藏答案
     Video hidden by FreeTube: 由 FreeTube 隱藏的影片
+    Viewing Posts Only Supported By Invidious: 僅 Invidious 支援檢視貼文。前往頻道的社群分頁即可檢視其中的內容而不需使用
+      Invidious。
+    View Full Post: 檢視完整貼文
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
@@ -938,6 +943,7 @@ Comments:
   View {replyCount} replies: 檢視 {replyCount} 則回覆
   Hearted: 喜歡的
   Subscribed: 已訂閱
+  There are no comments available for this post: 此貼文尚無留言
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
