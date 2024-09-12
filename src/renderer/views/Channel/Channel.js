@@ -16,6 +16,7 @@ import {
   copyToClipboard,
   extractNumberFromString,
   showToast,
+  getChannelPlaylistId,
   getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
@@ -39,7 +40,9 @@ import {
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount,
-  getLocalArtistTopicChannelReleasesContinuation
+  getLocalArtistTopicChannelReleasesContinuation,
+  getLocalPlaylist,
+  parseLocalPlaylistVideo
 } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -107,11 +110,6 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoLiveShortSelectValues: [
-        'newest',
-        'popular',
-        'oldest'
-      ],
       playlistSelectValues: [
         'newest',
         'last'
@@ -182,7 +180,29 @@ export default defineComponent({
       return profileList[0].subscriptions.some((channel) => channel.id === this.id)
     },
 
+    videoLiveShortSelectValues: function () {
+      if (this.isArtistTopicChannel) {
+        return [
+          'newest',
+          'popular',
+        ]
+      }
+
+      return [
+        'newest',
+        'popular',
+        'oldest'
+      ]
+    },
+
     videoLiveShortSelectNames: function () {
+      if (this.isArtistTopicChannel) {
+        return [
+          this.$t('Channel.Videos.Sort Types.Newest'),
+          this.$t('Channel.Videos.Sort Types.Most Popular'),
+        ]
+      }
+
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular'),
@@ -621,7 +641,7 @@ export default defineComponent({
         }
         const tabs = ['about']
 
-        if (channel.has_videos) {
+        if (channel.has_videos || this.isArtistTopicChannel) {
           tabs.push('videos')
           this.getChannelVideosLocal()
         }
@@ -695,7 +715,7 @@ export default defineComponent({
       }
     },
 
-    getChannelAboutLocal: async function (channel) {
+    getChannelAboutLocal: async function () {
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
@@ -753,26 +773,43 @@ export default defineComponent({
       const expectedId = this.id
 
       try {
-        /**
-         * @type {import('youtubei.js').YT.Channel}
-        */
-        const channel = this.channelInstance
-        let videosTab = await channel.getVideos()
+        if (this.isArtistTopicChannel) {
+          // Artist topic channels don't have a videos tab.
+          // Interestingly the auto-generated uploads playlists do exist for those channels,
+          // so we'll use them instead.
 
-        this.showVideoSortBy = videosTab.filters.length > 1
+          const playlistId = getChannelPlaylistId(this.id, 'videos', this.videoSortBy)
+          const playlist = await getLocalPlaylist(playlistId)
 
-        if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
-          videosTab = await videosTab.applyFilter(videosTab.filters[index])
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestVideos = playlist.items.map(parseLocalPlaylistVideo)
+          this.videoContinuationData = playlist.has_continuation ? playlist : null
+          this.isElementListLoading = false
+        } else {
+          /**
+           * @type {import('youtubei.js').YT.Channel}
+          */
+          const channel = this.channelInstance
+          let videosTab = await channel.getVideos()
+
+          this.showVideoSortBy = videosTab.filters.length > 1
+
+          if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
+            const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
+            videosTab = await videosTab.applyFilter(videosTab.filters[index])
+          }
+
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
+          this.videoContinuationData = videosTab.has_continuation ? videosTab : null
+          this.isElementListLoading = false
         }
-
-        if (expectedId !== this.id) {
-          return
-        }
-
-        this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
-        this.videoContinuationData = videosTab.has_continuation ? videosTab : null
-        this.isElementListLoading = false
 
         if (this.isSubscribedInAnyProfile && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
           this.updateSubscriptionVideosCacheByChannel({
@@ -784,6 +821,11 @@ export default defineComponent({
           })
         }
       } catch (err) {
+        if (this.isArtistTopicChannel && err.message === 'The playlist does not exist.') {
+          // If this artist topic channel doesn't have any videos, ignore the error.
+          return
+        }
+
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -800,13 +842,21 @@ export default defineComponent({
 
     channelLocalNextPage: async function () {
       try {
-        /**
-         * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
-         */
-        const continuation = await this.videoContinuationData.getContinuation()
+        if (this.isArtistTopicChannel) {
+          /** @type {import('youtubei.js').YT.Playlist} */
+          const continuation = await this.videoContinuationData.getContinuation()
 
-        this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
-        this.videoContinuationData = continuation.has_continuation ? continuation : null
+          this.latestVideos = this.latestVideos.concat(continuation.items.map(parseLocalPlaylistVideo))
+          this.videoContinuationData = continuation.has_continuation ? continuation : null
+        } else {
+          /**
+           * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
+           */
+          const continuation = await this.videoContinuationData.getContinuation()
+
+          this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
+          this.videoContinuationData = continuation.has_continuation ? continuation : null
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')

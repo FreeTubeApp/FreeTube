@@ -852,3 +852,44 @@ export function base64EncodeUtf8(text) {
   const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join('')
   return btoa(binString)
 }
+
+/**
+ * @overload
+ * @param {string} channelId
+ * @param {'videos' | 'live' | 'shorts'} type
+ * @param {'newest' | 'popular'} sortBy
+ * @returns {string}
+ *
+ * @overload
+ * @param {string} channelId
+ * @param {'all'} type
+ * @returns {string}
+*
+ * @param {string} channelId
+ * @param {'all' | 'videos' | 'live' | 'shorts'} type
+ * @param {'newest' | 'popular'} sortBy
+ */
+export function getChannelPlaylistId(channelId, type, sortBy) {
+  switch (type) {
+    case 'videos':
+      if (sortBy === 'popular') {
+        return channelId.replace(/^UC/, 'UULP')
+      } else {
+        return channelId.replace(/^UC/, 'UULF')
+      }
+    case 'live':
+      if (sortBy === 'popular') {
+        return channelId.replace(/^UC/, 'UULV')
+      } else {
+        return channelId.replace(/^UC/, 'UUPV')
+      }
+    case 'shorts':
+      if (sortBy === 'popular') {
+        return channelId.replace(/^UC/, 'UUPS')
+      } else {
+        return channelId.replace(/^UC/, 'UUSH')
+      }
+    case 'all':
+      return channelId.replace(/^UC/, 'UU')
+  }
+}

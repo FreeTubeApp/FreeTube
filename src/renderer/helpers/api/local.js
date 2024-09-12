@@ -8,6 +8,7 @@ import {
   calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
+  getChannelPlaylistId,
   randomArrayItem,
   toLocalePublicationString
 } from '../utils'
@@ -397,6 +398,21 @@ export async function getLocalChannelVideos(id) {
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
       videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+    } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
+      try {
+        const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
+
+        videos = playlist.items.map(parseLocalPlaylistVideo)
+      } catch (error) {
+        // If the channel doesn't exist, the API call to channel page above would have already failed,
+        // so if we get an error that the playlist doesn't exist here, it just means that this artist topic channel
+        // doesn't have any videos.
+        if (error.message === 'The playlist does not exist.') {
+          videos = []
+        } else {
+          throw error
+        }
+      }
     } else {
       videos = []
     }
@@ -922,6 +938,7 @@ export function parseLocalPlaylistVideo(video) {
     )
 
     return {
+      type: 'video',
       videoId: video_.id,
       title: video_.title.text,
       author: video_.author.name,
@@ -1416,7 +1433,7 @@ function parseLocalCommunityPost(post) {
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
     publishedText: post.published.text,
-    voteCount: post.vote_count,
+    voteCount: parseLocalSubscriberCount(post.vote_count.text),
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,
     author: post.author.name,

@@ -2,7 +2,13 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { setPublishedTimestampsInvidious, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import {
+  setPublishedTimestampsInvidious,
+  copyToClipboard,
+  getRelativeTimeFromDate,
+  showToast,
+  getChannelPlaylistId
+} from '../../helpers/utils'
 import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
@@ -252,7 +258,7 @@ export default defineComponent({
     },
 
     getChannelVideosLocalRSS: async function (channel, failedAttempts = 0) {
-      const playlistId = channel.id.replace('UC', 'UULF')
+      const playlistId = getChannelPlaylistId(channel.id, 'videos', 'newest')
       const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
 
       try {
@@ -358,7 +364,7 @@ export default defineComponent({
     },
 
     getChannelVideosInvidiousRSS: async function (channel, failedAttempts = 0) {
-      const playlistId = channel.id.replace('UC', 'UULF')
+      const playlistId = getChannelPlaylistId(channel.id, 'videos', 'newest')
       const feedUrl = `${this.currentInvidiousInstanceUrl}/feed/playlist/${playlistId}`
 
       try {

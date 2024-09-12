@@ -497,7 +497,16 @@ export default defineComponent({
             //   this.manifestSrc = src
             //   this.manifestMimeType = MANIFEST_TYPE_DASH
             // } else {
-            this.manifestSrc = result.streaming_data.hls_manifest_url
+            let hlsManifestUrl = result.streaming_data.hls_manifest_url
+
+            if (this.proxyVideos) {
+              const url = new URL(hlsManifestUrl)
+              url.searchParams.set('local', 'true')
+
+              hlsManifestUrl = url.toString().replace(url.origin, this.currentInvidiousInstanceUrl)
+            }
+
+            this.manifestSrc = hlsManifestUrl
             this.manifestMimeType = MANIFEST_TYPE_HLS
             // }
           }
@@ -812,7 +821,16 @@ export default defineComponent({
             // // Proxying doesn't work for live or post live DVR DASH, so use HLS instead
             // // https://github.com/iv-org/invidious/pull/4589
             // if (this.proxyVideos) {
-            this.manifestSrc = result.hlsUrl
+
+            let hlsManifestUrl = result.hlsUrl
+
+            if (this.proxyVideos) {
+              const url = new URL(hlsManifestUrl)
+              url.searchParams.set('local', 'true')
+              hlsManifestUrl = url.toString()
+            }
+
+            this.manifestSrc = hlsManifestUrl
             this.manifestMimeType = MANIFEST_TYPE_HLS
 
             // The HLS manifests only contain combined audio+video streams, so we can't do audio only
