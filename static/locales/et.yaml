@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 tellija | {count} tellijat
     View Count: 1 vaatamine | {count} vaatamist
     Watching Count: 1 vaatamas | {count} vaatamas
+    Like Count: 1 meeldimine | {count} meeldimist
+    Comment Count: 1 kommentaar | {count} kommentaari
   Input Tags:
     Length Requirement: Silt peab olema vähemalt {number} tähemärki pikk
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
@@ -775,6 +777,7 @@ Channel:
     Hide Answers: Peida vastused
     votes: '{votes} häält'
     Video hidden by FreeTube: FreeTube'i poolt peidetud video
+    View Full Post: Vaata kogu postitust
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
@@ -1017,6 +1020,7 @@ Comments:
   Hearted: Südamlik
   View {replyCount} replies: Näita {replyCount} vastust
   Subscribed: Tellitud
+  There are no comments available for this post: Sellel postitusel pole ühtegi kommentaari
 Up Next: 'Järgmisena'
 
 # Toast Messages
