@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 inscrito | {count} inscritos
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
+    Like Count: 1 curtida | {count} curtidas
+    Comment Count: 1 comentário | {count} comentários
   Input Tags:
     Length Requirement: A tag deve ter pelo menos {number} caracteres
 Search / Go to URL: 'Pesquisar ou digitar URL'
@@ -789,6 +791,10 @@ Channel:
     Reveal Answers: Mostrar respostas
     Hide Answers: Ocultar respostas
     Video hidden by FreeTube: Vídeo escondido pelo FreeTube
+    View Full Post: Ver postagem completa
+    Viewing Posts Only Supported By Invidious: A visualização de postagens só é compatível
+      com o Invidious. Acesse a guia da comunidade de um canal para visualizar o conteúdo
+      sem o Invidious.
   Channel Tabs: Guias de canais
   Live:
     Live: Ao vivo
@@ -1041,6 +1047,8 @@ Comments:
   Hearted: Recebeu um coração
   View {replyCount} replies: Exibir {replyCount} respostas
   Subscribed: Inscrito
+  There are no comments available for this post: Não há comentários disponíveis para
+    esta postagem
 Up Next: 'Próximo'
 
 # Toast Messages
