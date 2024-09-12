@@ -3,7 +3,12 @@ import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
-import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import {
+  copyToClipboard,
+  getChannelPlaylistId,
+  getRelativeTimeFromDate,
+  showToast
+} from '../../helpers/utils'
 import { invidiousFetch } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -189,7 +194,7 @@ export default defineComponent({
     },
 
     getChannelShortsLocal: async function (channel, failedAttempts = 0) {
-      const playlistId = channel.id.replace('UC', 'UUSH')
+      const playlistId = getChannelPlaylistId(channel.id, 'shorts', 'newest')
       const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
 
       try {
@@ -238,7 +243,7 @@ export default defineComponent({
     },
 
     getChannelShortsInvidious: async function (channel, failedAttempts = 0) {
-      const playlistId = channel.id.replace('UC', 'UUSH')
+      const playlistId = getChannelPlaylistId(channel.id, 'shorts', 'newest')
       const feedUrl = `${this.currentInvidiousInstanceUrl}/feed/playlist/${playlistId}`
 
       try {

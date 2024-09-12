@@ -52,6 +52,8 @@ Global:
     Channel Count: 1 channel | {count} channels
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
   Input Tags:
     Length Requirement: Tag must be at least {number} characters long
@@ -758,9 +760,11 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
+    View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
+    Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
   More Options: More Options
   Mark As Watched: Mark As Watched
@@ -988,12 +992,14 @@ Comments:
   And others: and others
   There are no comments available for this video: There are no comments available
     for this video
+  There are no comments available for this post: There are no comments available for this post
   Load More Comments: Load More Comments
   No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed
   Hearted: Hearted
+
 Up Next: Up Next
 
 #Tooltips
