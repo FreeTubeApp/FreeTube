@@ -304,7 +304,7 @@ Settings:
       No Action: Nenhuma ação
       Ask Before Opening Link: Perguntar antes de abrir o link
       Open Link: Abrir link
-      External Link Handling: Ação de links externos
+      External Link Handling: Ação para links externos
     Auto Load Next Page:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
@@ -1217,8 +1217,8 @@ Default Invidious instance has been set to {instance}: A instância padrão Invi
   foi definida para {instance}
 Search Bar:
   Clear Input: Limpar entrada
-External link opening has been disabled in the general settings: A abertura de link
-  externo foi desativada nas configurações gerais
+External link opening has been disabled in the general settings: Abrir links externos
+  foi desativado nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"{videoTitle}" download concluído'
 Starting download: Iniciando download "{videoTitle}"
