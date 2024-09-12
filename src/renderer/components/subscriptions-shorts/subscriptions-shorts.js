@@ -10,6 +10,7 @@ import {
   showToast
 } from '../../helpers/utils'
 import { invidiousFetch } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscriptionsShorts',
@@ -174,7 +175,7 @@ export default defineComponent({
         let videos = []
         let name
 
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           ({ videos, name } = await this.getChannelShortsInvidious(channel))
         } else {
           ({ videos, name } = await this.getChannelShortsLocal(channel))

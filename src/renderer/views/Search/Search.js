@@ -11,7 +11,7 @@ import {
 } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { SEARCH_CHAR_LIMIT } from '../../../constants'
+import { API_DATA_SOURCES, SEARCH_CHAR_LIMIT } from '../../../constants'
 
 export default defineComponent({
   name: 'Search',
@@ -24,7 +24,7 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: false,
-      apiUsed: 'local',
+      apiUsed: API_DATA_SOURCES.LOCAL,
       amountOfResults: 0,
       query: '',
       searchPage: 1,
@@ -125,10 +125,10 @@ export default defineComponent({
         this.searchSettings = payload.searchSettings
 
         switch (this.backendPreference) {
-          case 'local':
+          case API_DATA_SOURCES.LOCAL:
             this.performSearchLocal(payload)
             break
-          case 'invidious':
+          case API_DATA_SOURCES.INVIDIOUS:
             this.performSearchInvidious(payload, { resetSearchPage: true })
             break
         }
@@ -141,7 +141,7 @@ export default defineComponent({
       try {
         const { results, continuationData } = await getLocalSearchResults(payload.query, payload.searchSettings, this.showFamilyFriendlyOnly)
 
-        this.apiUsed = 'local'
+        this.apiUsed = API_DATA_SOURCES.LOCAL
 
         this.shownResults = results
         this.nextPageRef = continuationData
@@ -165,7 +165,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.performSearchInvidious(payload)
         } else {
@@ -182,7 +182,7 @@ export default defineComponent({
           return
         }
 
-        this.apiUsed = 'local'
+        this.apiUsed = API_DATA_SOURCES.LOCAL
 
         this.shownResults = this.shownResults.concat(results)
         this.nextPageRef = continuationData
@@ -204,7 +204,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.performSearchInvidious(payload)
         } else {
@@ -240,7 +240,7 @@ export default defineComponent({
           return
         }
 
-        this.apiUsed = 'invidious'
+        this.apiUsed = API_DATA_SOURCES.INVIDIOUS
 
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
@@ -275,7 +275,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.performSearchLocal(payload)
         } else {
@@ -294,7 +294,7 @@ export default defineComponent({
         }
       }
 
-      if (this.apiUsed === 'local') {
+      if (this.apiUsed === API_DATA_SOURCES.LOCAL) {
         if (this.nextPageRef !== null) {
           showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
           this.getNextpageLocal(payload)

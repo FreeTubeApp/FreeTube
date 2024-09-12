@@ -13,6 +13,7 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import debounce from 'lodash.debounce'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -337,7 +338,7 @@ export default defineComponent({
       }
 
       let baseUrl
-      if (this.backendPreference === 'invidious') {
+      if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         baseUrl = this.currentInvidiousInstanceUrl
       } else {
         baseUrl = 'https://i.ytimg.com'

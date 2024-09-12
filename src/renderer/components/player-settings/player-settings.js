@@ -8,7 +8,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { IpcChannels } from '../../../constants'
+import { API_DATA_SOURCES, IpcChannels } from '../../../constants'
 import path from 'path'
 import { getPicturesPath } from '../../helpers/utils'
 
@@ -92,7 +92,7 @@ export default defineComponent({
     },
 
     showProxyVideosAsDisabled: function () {
-      return this.backendPreference !== 'invidious' && !this.backendFallback
+      return this.backendPreference !== API_DATA_SOURCES.INVIDIOUS && !this.backendFallback
     },
 
     defaultSkipInterval: function () {

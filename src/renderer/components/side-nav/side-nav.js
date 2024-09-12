@@ -3,6 +3,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { deepCopy } from '../../helpers/utils'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'SideNav',
@@ -45,7 +46,7 @@ export default defineComponent({
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
 
-      if (this.backendPreference === 'invidious') {
+      if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         subscriptions.forEach((channel) => {
           channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         })

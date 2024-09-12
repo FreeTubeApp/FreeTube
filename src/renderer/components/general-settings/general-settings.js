@@ -11,6 +11,7 @@ import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
 import { randomArrayItem, showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'GeneralSettings',
@@ -26,11 +27,11 @@ export default defineComponent({
     return {
       backendValues: process.env.SUPPORTS_LOCAL_API
         ? [
-            'invidious',
-            'local'
+            API_DATA_SOURCES.INVIDIOUS,
+            API_DATA_SOURCES.LOCAL
           ]
         : [
-            'invidious'
+            API_DATA_SOURCES.INVIDIOUS
           ],
       viewTypeValues: [
         'grid',
@@ -92,7 +93,7 @@ export default defineComponent({
       let includedPageNames = this.includedDefaultPageNames
       if (this.hideTrendingVideos) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'trending')
       if (this.hidePlaylists) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'userPlaylists')
-      if (!(!this.hidePopularVideos && (this.backendFallback || this.backendPreference === 'invidious'))) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'popular')
+      if (!(!this.hidePopularVideos && (this.backendFallback || this.backendPreference === API_DATA_SOURCES.INVIDIOUS))) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'popular')
       return this.$router.getRoutes().filter((route) => includedPageNames.includes(route.name))
     },
     defaultPageNames: function () {
@@ -103,8 +104,8 @@ export default defineComponent({
       return this.defaultPages.map((route) => route.path.substring(1))
     },
     backendPreference: function () {
-      if (!process.env.SUPPORTS_LOCAL_API && this.$store.getters.getBackendPreference === 'local') {
-        this.handlePreferredApiBackend('invidious')
+      if (!process.env.SUPPORTS_LOCAL_API && this.$store.getters.getBackendPreference === API_DATA_SOURCES.LOCAL) {
+        this.handlePreferredApiBackend(API_DATA_SOURCES.INVIDIOUS)
       }
 
       return this.$store.getters.getBackendPreference

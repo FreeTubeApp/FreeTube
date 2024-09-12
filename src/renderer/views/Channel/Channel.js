@@ -44,6 +44,7 @@ import {
   getLocalPlaylist,
   parseLocalPlaylistVideo
 } from '../../helpers/api/local'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -353,7 +354,7 @@ export default defineComponent({
       this.errorMessage = ''
 
       // Re-enable auto refresh on sort value change AFTER update done
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         this.getChannelInfoInvidious()
         this.autoRefreshOnSortByChangeEnabled = true
       } else {
@@ -369,10 +370,10 @@ export default defineComponent({
       this.isElementListLoading = true
       this.latestVideos = []
       switch (this.apiUsed) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getChannelVideosLocal()
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.channelInvidiousVideos(true)
           break
         default:
@@ -386,10 +387,10 @@ export default defineComponent({
       this.isElementListLoading = true
       this.latestShorts = []
       switch (this.apiUsed) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getChannelShortsLocal()
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.channelInvidiousShorts(true)
           break
         default:
@@ -403,10 +404,10 @@ export default defineComponent({
       this.isElementListLoading = true
       this.latestLive = []
       switch (this.apiUsed) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getChannelLiveLocal()
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.channelInvidiousLive(true)
           break
         default:
@@ -421,10 +422,10 @@ export default defineComponent({
       this.latestPlaylists = []
       this.playlistContinuationData = null
       switch (this.apiUsed) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getChannelPlaylistsLocal()
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.getPlaylistsInvidious()
           break
         default:
@@ -449,7 +450,7 @@ export default defineComponent({
     }
 
     // Enable auto refresh on sort value change AFTER initial update done
-    if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
       this.getChannelInfoInvidious()
       this.autoRefreshOnSortByChangeEnabled = true
     } else {
@@ -462,7 +463,7 @@ export default defineComponent({
     resolveChannelUrl: async function (url, tab = undefined) {
       let id
 
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         id = await invidiousGetChannelId(url)
       } else {
         id = await getLocalChannelId(url)
@@ -493,7 +494,7 @@ export default defineComponent({
     },
 
     getChannelLocal: async function () {
-      this.apiUsed = 'local'
+      this.apiUsed = API_DATA_SOURCES.LOCAL
       this.isLoading = true
       const expectedId = this.id
 
@@ -699,7 +700,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelInfoInvidious()
         } else {
@@ -752,7 +753,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelInfoInvidious()
         } else {
@@ -824,7 +825,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelInfoInvidious()
         } else {
@@ -900,7 +901,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelInfoInvidious()
         } else {
@@ -977,7 +978,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelInfoInvidious()
         } else {
@@ -1006,7 +1007,7 @@ export default defineComponent({
 
     getChannelInfoInvidious: function () {
       this.isLoading = true
-      this.apiUsed = 'invidious'
+      this.apiUsed = API_DATA_SOURCES.INVIDIOUS
       this.channelInstance = null
 
       const expectedId = this.id
@@ -1098,7 +1099,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1320,7 +1321,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getPlaylistsInvidious()
         } else {
@@ -1369,7 +1370,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1410,7 +1411,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1456,7 +1457,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelReleasesInvidious()
         } else {
@@ -1511,7 +1512,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1545,7 +1546,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1578,7 +1579,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.channelInvidiousPodcasts()
         } else {
@@ -1624,7 +1625,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1658,7 +1659,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getChannelLocal()
         } else {
@@ -1714,7 +1715,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getCommunityPostsInvidious()
         } else {
@@ -1778,7 +1779,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
             this.channelInstance = await getLocalChannel(this.id)
@@ -1804,30 +1805,30 @@ export default defineComponent({
       switch (this.currentTab) {
         case 'videos':
           switch (this.apiUsed) {
-            case 'local':
+            case API_DATA_SOURCES.LOCAL:
               this.channelLocalNextPage()
               break
-            case 'invidious':
+            case API_DATA_SOURCES.INVIDIOUS:
               this.channelInvidiousVideos()
               break
           }
           break
         case 'shorts':
           switch (this.apiUsed) {
-            case 'local':
+            case API_DATA_SOURCES.LOCAL:
               this.getChannelShortsLocalMore()
               break
-            case 'invidious':
+            case API_DATA_SOURCES.INVIDIOUS:
               this.channelInvidiousShorts()
               break
           }
           break
         case 'live':
           switch (this.apiUsed) {
-            case 'local':
+            case API_DATA_SOURCES.LOCAL:
               this.getChannelLiveLocalMore()
               break
-            case 'invidious':
+            case API_DATA_SOURCES.INVIDIOUS:
               this.channelInvidiousLive()
               break
           }
@@ -1840,30 +1841,30 @@ export default defineComponent({
           break
         case 'playlists':
           switch (this.apiUsed) {
-            case 'local':
+            case API_DATA_SOURCES.LOCAL:
               this.getChannelPlaylistsLocalMore()
               break
-            case 'invidious':
+            case API_DATA_SOURCES.INVIDIOUS:
               this.getPlaylistsInvidiousMore()
               break
           }
           break
         case 'search':
           switch (this.apiUsed) {
-            case 'local':
+            case API_DATA_SOURCES.LOCAL:
               this.searchChannelLocal()
               break
-            case 'invidious':
+            case API_DATA_SOURCES.INVIDIOUS:
               this.searchChannelInvidious()
               break
           }
           break
         case 'community':
           switch (this.apiUsed) {
-            case 'local':
+            case API_DATA_SOURCES.LOCAL:
               this.getCommunityPostsLocalMore()
               break
-            case 'invidious':
+            case API_DATA_SOURCES.INVIDIOUS:
               this.getCommunityPostsInvidious()
               break
           }
@@ -1889,10 +1890,10 @@ export default defineComponent({
       this.searchResults = []
       this.changeTab('search')
       switch (this.apiUsed) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.searchChannelLocal()
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.searchChannelInvidious()
           break
       }
@@ -1943,7 +1944,7 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (isNewSearch) {
-          if (this.backendPreference === 'local' && this.backendFallback) {
+          if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
             showToast(this.$t('Falling back to Invidious API'))
             this.searchChannelInvidious()
           } else {
@@ -1979,7 +1980,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.searchChannelLocal()
         } else {

@@ -24,7 +24,7 @@ import {
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
-import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
+import { API_DATA_SOURCES, MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
 export default defineComponent({
   name: 'Playlist',
@@ -66,7 +66,7 @@ export default defineComponent({
       channelName: '',
       channelThumbnail: '',
       channelId: '',
-      infoSource: 'local',
+      infoSource: API_DATA_SOURCES.LOCAL,
       playlistItems: [],
       userPlaylistVisibleLimit: 100,
       continuationData: null,
@@ -284,10 +284,10 @@ export default defineComponent({
       }
 
       switch (this.backendPreference) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getPlaylistLocal()
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.getPlaylistInvidious()
           break
       }
@@ -317,7 +317,7 @@ export default defineComponent({
         this.channelName = channelName ?? ''
         this.channelThumbnail = result.info.author?.best_thumbnail?.url ?? ''
         this.channelId = result.info.author?.id
-        this.infoSource = 'local'
+        this.infoSource = API_DATA_SOURCES.LOCAL
 
         this.updateSubscriptionDetails({
           channelThumbnailUrl: this.channelThumbnail,
@@ -341,7 +341,7 @@ export default defineComponent({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           console.warn('Falling back to Invidious API')
           this.getPlaylistInvidious()
         } else {
@@ -360,7 +360,7 @@ export default defineComponent({
         this.channelName = result.author
         this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstanceUrl)
         this.channelId = result.authorId
-        this.infoSource = 'invidious'
+        this.infoSource = API_DATA_SOURCES.INVIDIOUS
 
         this.updateSubscriptionDetails({
           channelThumbnailUrl: result.authorThumbnails[2].url,
@@ -380,7 +380,7 @@ export default defineComponent({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {
@@ -422,7 +422,7 @@ export default defineComponent({
 
     getNextPage: function () {
       switch (this.infoSource) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getNextPageLocal()
           break
         case 'user':
@@ -439,7 +439,7 @@ export default defineComponent({
             this.isLoadingMore = false
           })
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
           break
       }

@@ -1,6 +1,6 @@
 import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
-import { SEARCH_CHAR_LIMIT } from '../../../constants'
+import { API_DATA_SOURCES, SEARCH_CHAR_LIMIT } from '../../../constants'
 
 import { PlayerCache } from './PlayerCache'
 import {
@@ -793,7 +793,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
 
     return {
       type: 'playlist',
-      dataSource: 'local',
+      dataSource: API_DATA_SOURCES.LOCAL,
       title: lockupView.metadata.title.text,
       thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
       channelName,
@@ -830,7 +830,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
 
     return {
       type: 'playlist',
-      dataSource: 'local',
+      dataSource: API_DATA_SOURCES.LOCAL,
       title: playlist.title.text,
       thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
       channelName: internalChannelName,
@@ -849,7 +849,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
 export function parseLocalCompactStation(compactStation, channelId, channelName) {
   return {
     type: 'playlist',
-    dataSource: 'local',
+    dataSource: API_DATA_SOURCES.LOCAL,
     title: compactStation.title.text,
     thumbnail: compactStation.thumbnail[1].url,
     channelName,
@@ -1096,7 +1096,7 @@ function parseListItem(item) {
 
       return {
         type: 'channel',
-        dataSource: 'local',
+        dataSource: API_DATA_SOURCES.LOCAL,
         thumbnail: channel.author.best_thumbnail?.url,
         name: channel.author.name,
         id: channel.author.id,
@@ -1338,7 +1338,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
 
   const parsed = {
     id: comment.comment_id,
-    dataType: 'local',
+    dataType: API_DATA_SOURCES.LOCAL,
     authorLink: comment.author.id,
     author: comment.author.name,
     authorId: comment.author.id,

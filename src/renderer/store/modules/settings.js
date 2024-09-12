@@ -1,6 +1,6 @@
 import i18n, { loadLocale } from '../../i18n/index'
 import allLocales from '../../../../static/locales/activeLocales.json'
-import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
+import { MAIN_PROFILE_ID, IpcChannels, SyncEvents, API_DATA_SOURCES } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
 import { getSystemLocale, showToast } from '../../helpers/utils'
 
@@ -166,7 +166,7 @@ const state = {
   autoplayPlaylists: true,
   autoplayVideos: true,
   backendFallback: process.env.SUPPORTS_LOCAL_API,
-  backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
+  backendPreference: !process.env.SUPPORTS_LOCAL_API ? API_DATA_SOURCES.INVIDIOUS : API_DATA_SOURCES.LOCAL,
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,

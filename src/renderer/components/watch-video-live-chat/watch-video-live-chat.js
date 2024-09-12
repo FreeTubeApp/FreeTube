@@ -7,6 +7,7 @@ import autolinker from 'autolinker'
 import { getRandomColorClass } from '../../helpers/colors'
 import { getLocalVideoInfo, parseLocalTextRuns } from '../../helpers/api/local'
 import { formatNumber } from '../../helpers/utils'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'WatchVideoLiveChat',
@@ -100,7 +101,7 @@ export default defineComponent({
       this.isLoading = false
     } else {
       switch (this.backendPreference) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           if (this.liveChat) {
             this.liveChatInstance = this.liveChat
             this.startLiveChatLocal()
@@ -108,7 +109,7 @@ export default defineComponent({
             this.showLiveChatUnavailable()
           }
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           if (this.backendFallback) {
             this.getLiveChatLocal()
           } else {

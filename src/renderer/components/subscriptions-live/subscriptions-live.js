@@ -12,6 +12,7 @@ import {
 import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscriptionsLive',
@@ -189,7 +190,7 @@ export default defineComponent({
         let videos = []
         let name, thumbnailUrl
 
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           if (useRss) {
             ({ videos, name, thumbnailUrl } = await this.getChannelLiveInvidiousRSS(channel))
           } else {

@@ -7,6 +7,7 @@ import {
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
+import { API_DATA_SOURCES } from '../../../constants'
 
 function getCurrentInstanceUrl() {
   return store.getters.getCurrentInvidiousInstanceUrl
@@ -172,7 +173,7 @@ function parseInvidiousCommentData(response) {
     comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url)
     comment.likes = comment.likeCount
     comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())))
-    comment.dataType = 'invidious'
+    comment.dataType = API_DATA_SOURCES.INVIDIOUS
     comment.isOwner = comment.authorIsChannelOwner
     comment.numReplies = comment.replies?.replyCount ?? 0
     comment.hasReplyToken = !!comment.replies?.continuation

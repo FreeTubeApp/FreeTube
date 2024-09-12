@@ -3,6 +3,7 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { formatNumber } from '../../helpers/utils'
 import { parseLocalSubscriberCount } from '../../helpers/api/local'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'FtListChannel',
@@ -44,7 +45,7 @@ export default defineComponent({
     }
   },
   created: function () {
-    if (this.data.dataSource === 'local') {
+    if (this.data.dataSource === API_DATA_SOURCES.LOCAL) {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()

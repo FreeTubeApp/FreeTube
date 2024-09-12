@@ -5,6 +5,7 @@ import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue
 import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalChannelCommunity } from '../../helpers/api/local'
 import { invidiousGetCommunityPosts } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscriptionsCommunity',
@@ -172,7 +173,7 @@ export default defineComponent({
 
       const postListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let posts = []
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           posts = await this.getChannelPostsInvidious(channel)
         } else {
           posts = await this.getChannelPostsLocal(channel)
@@ -241,7 +242,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           return await this.getChannelPostsInvidious(channel)
         }
@@ -262,7 +263,7 @@ export default defineComponent({
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)
           })
-          if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
             showToast(this.$t('Falling back to Local API'))
             resolve(this.getChannelPostsLocal(channel))
           } else {

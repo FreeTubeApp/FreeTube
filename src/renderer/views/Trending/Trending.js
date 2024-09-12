@@ -10,6 +10,7 @@ import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widge
 import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'Trending',
@@ -90,7 +91,7 @@ export default defineComponent({
         this.$store.commit('clearTrendingCache')
       }
 
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         this.getTrendingInfoInvidious()
       } else {
         this.getTrendingInfoLocal()
@@ -119,7 +120,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getTrendingInfoInvidious()
         } else {
@@ -168,7 +169,7 @@ export default defineComponent({
           copyToClipboard(err)
         })
 
-        if (process.env.SUPPORTS_LOCAL_API && (this.backendPreference === 'invidious' && this.backendFallback)) {
+        if (process.env.SUPPORTS_LOCAL_API && (this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback)) {
           showToast(this.$t('Falling back to Local API'))
           this.getTrendingInfoLocal()
         } else {

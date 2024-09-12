@@ -9,6 +9,7 @@ import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'Hashtag',
@@ -24,7 +25,7 @@ export default defineComponent({
       hashtag: '',
       hashtagContinuationData: null,
       videos: [],
-      apiUsed: 'local',
+      apiUsed: API_DATA_SOURCES.LOCAL,
       pageNumber: 1,
       isLoading: true
     }
@@ -39,7 +40,7 @@ export default defineComponent({
     },
 
     showFetchMoreButton() {
-      return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === 'invidious'
+      return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === API_DATA_SOURCES.INVIDIOUS
     },
   },
   watch: {
@@ -58,13 +59,13 @@ export default defineComponent({
       this.hashtag = ''
       this.hashtagContinuationData = null
       this.videos = []
-      this.apiUsed = 'local'
+      this.apiUsed = API_DATA_SOURCES.LOCAL
       this.pageNumber = 1
     },
 
     getHashtag: async function() {
       const hashtag = decodeURIComponent(this.$route.params.hashtag)
-      if (this.backendPreference === 'local') {
+      if (this.backendPreference === API_DATA_SOURCES.LOCAL) {
         await this.getLocalHashtag(hashtag)
       } else {
         await this.getInvidiousHashtag(hashtag)
@@ -78,7 +79,7 @@ export default defineComponent({
         setPublishedTimestampsInvidious(videos)
         this.hashtag = '#' + hashtag
         this.isLoading = false
-        this.apiUsed = 'invidious'
+        this.apiUsed = API_DATA_SOURCES.INVIDIOUS
         this.videos = this.videos.concat(videos)
         this.pageNumber += 1
       } catch (error) {
@@ -87,7 +88,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${error}`, 10000, () => {
           copyToClipboard(error)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.resetData()
           this.getLocalHashtag(hashtag)
@@ -120,7 +121,7 @@ export default defineComponent({
         }
 
         this.videos = hashtagData.videos.map(parseLocalListVideo)
-        this.apiUsed = 'local'
+        this.apiUsed = API_DATA_SOURCES.LOCAL
         this.hashtagContinuationData = hashtagData.has_continuation ? hashtagData : null
         this.isLoading = false
       } catch (error) {
@@ -129,7 +130,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${error}`, 10000, () => {
           copyToClipboard(error)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.resetData()
           this.getInvidiousHashtag(hashtag)
@@ -151,7 +152,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${error}`, 10000, () => {
           copyToClipboard(error)
         })
-        if (this.backendPreference === 'local' && this.backendFallback) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           const hashtag = this.hashtag.substring(1)
           this.resetData()
@@ -163,9 +164,9 @@ export default defineComponent({
     },
 
     handleFetchMore: function() {
-      if (this.apiUsed === 'local') {
+      if (this.apiUsed === API_DATA_SOURCES.LOCAL) {
         this.getLocalHashtagMore()
-      } else if (this.apiUsed === 'invidious') {
+      } else if (this.apiUsed === API_DATA_SOURCES.INVIDIOUS) {
         this.getInvidiousHashtag(this.hashtag.substring(1), this.pageNumber)
       }
     }

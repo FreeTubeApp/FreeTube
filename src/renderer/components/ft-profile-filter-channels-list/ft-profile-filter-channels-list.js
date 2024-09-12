@@ -8,7 +8,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import { deepCopy, showToast } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { MAIN_PROFILE_ID } from '../../../constants'
+import { API_DATA_SOURCES, MAIN_PROFILE_ID } from '../../../constants'
 
 export default defineComponent({
   name: 'FtProfileFilterChannelsList',
@@ -70,7 +70,7 @@ export default defineComponent({
 
         return index === -1
       }).map((channel) => {
-        if (this.backendPreference === 'invidious') {
+        if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         }
         channel.selected = false
@@ -91,7 +91,7 @@ export default defineComponent({
 
         return index === -1
       }).map((channel) => {
-        if (this.backendPreference === 'invidious') {
+        if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         }
         channel.selected = false

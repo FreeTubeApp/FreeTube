@@ -1,3 +1,4 @@
+import { API_DATA_SOURCES } from '../../constants'
 import { invidiousGetChannelInfo } from './api/invidious'
 import { getLocalChannel, parseLocalChannelHeader } from './api/local'
 
@@ -11,7 +12,7 @@ import { getLocalChannel, parseLocalChannelHeader } from './api/local'
 */
 async function findChannelById(id, backendOptions) {
   try {
-    if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === API_DATA_SOURCES.INVIDIOUS) {
       return await invidiousGetChannelInfo(id)
     } else {
       return await getLocalChannel(id)
@@ -22,10 +23,10 @@ async function findChannelById(id, backendOptions) {
       return { invalid: true }
     }
     if (process.env.SUPPORTS_LOCAL_API && backendOptions.fallback) {
-      if (backendOptions.preference === 'invidious') {
+      if (backendOptions.preference === API_DATA_SOURCES.INVIDIOUS) {
         return await getLocalChannel(id)
       }
-      if (backendOptions.preference === 'local') {
+      if (backendOptions.preference === API_DATA_SOURCES.LOCAL) {
         return await invidiousGetChannelInfo(id)
       }
     } else {
@@ -46,7 +47,7 @@ export async function findChannelTagInfo(id, backendOptions) {
   if (!checkYoutubeChannelId(id)) return { invalidId: true }
   try {
     const channel = await findChannelById(id, backendOptions)
-    if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === 'invidious') {
+    if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === API_DATA_SOURCES.INVIDIOUS) {
       if (channel.invalid) return { invalidId: true }
       return {
         preferredName: channel.author,

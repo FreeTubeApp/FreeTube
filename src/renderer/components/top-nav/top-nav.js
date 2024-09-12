@@ -4,7 +4,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+import { API_DATA_SOURCES, IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
@@ -275,10 +275,10 @@ export default defineComponent({
 
     getSearchSuggestions: function (query) {
       switch (this.backendPreference) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getSearchSuggestionsLocal(query)
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.getSearchSuggestionsInvidious(query)
           break
       }

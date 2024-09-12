@@ -5,6 +5,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
 
 import { getInvidiousCommunityPost } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'Post',
@@ -31,7 +32,7 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
     isInvidiousAllowed: function() {
-      return this.backendPreference === 'invidious' || this.backendFallback
+      return this.backendPreference === API_DATA_SOURCES.INVIDIOUS || this.backendFallback
     }
   },
   watch: {

@@ -15,6 +15,7 @@ import {
   toLocalePublicationString,
 } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'FtCommunityPost',
@@ -77,7 +78,7 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
     isInvidiousAllowed: function() {
-      return this.backendPreference === 'invidious' || this.backendFallback
+      return this.backendPreference === API_DATA_SOURCES.INVIDIOUS || this.backendFallback
     }
   },
   created: function () {
@@ -117,7 +118,7 @@ export default defineComponent({
         this.postText = 'Shared post'
         this.type = 'text'
         let authorThumbnails = ['', 'https://yt3.ggpht.com/ytc/AAUvwnjm-0qglHJkAHqLFsCQQO97G7cCNDuDLldsrn25Lg=s88-c-k-c0x00ffffff-no-rj']
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           authorThumbnails = authorThumbnails.map(thumbnail => {
             thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
             return thumbnail
@@ -128,7 +129,7 @@ export default defineComponent({
       }
       this.postText = autolinker.link(this.data.postText)
       const authorThumbnails = deepCopy(this.data.authorThumbnails)
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         authorThumbnails.forEach(thumbnail => {
           thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
         })

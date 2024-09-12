@@ -11,6 +11,7 @@ import {
   DBActions,
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
+  API_DATA_SOURCES,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -1704,7 +1705,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          (!hidePopularVideos && (backendFallback || backendPreference === 'invidious')) && {
+          (!hidePopularVideos && (backendFallback || backendPreference === API_DATA_SOURCES.INVIDIOUS)) && {
             label: 'Most Popular',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/popular', browserWindow)

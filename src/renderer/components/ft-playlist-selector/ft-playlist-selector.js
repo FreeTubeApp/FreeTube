@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'FtPlaylistSelector',
@@ -128,7 +129,7 @@ export default defineComponent({
       this.title = this.playlist.playlistName
       if (this.playlist.videos.length > 0) {
         const thumbnailURL = `https://i.ytimg.com/vi/${this.playlist.videos[0].videoId}/mqdefault.jpg`
-        if (this.backendPreference === 'invidious') {
+        if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           this.thumbnail = thumbnailURL.replace('https://i.ytimg.com', this.currentInvidiousInstanceUrl)
         } else {
           this.thumbnail = thumbnailURL

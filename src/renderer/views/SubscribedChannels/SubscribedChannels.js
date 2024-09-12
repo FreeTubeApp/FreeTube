@@ -7,6 +7,7 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
 import { ctrlFHandler } from '../../helpers/utils'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscribedChannels',
@@ -119,11 +120,11 @@ export default defineComponent({
       }
       const hostname = new URL(newURL).hostname
       if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
-        if (this.backendPreference === 'invidious') { // YT to IV
+        if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) { // YT to IV
           newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstanceUrl)
         }
       } else {
-        if (this.backendPreference === 'local') { // IV to YT
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL) { // IV to YT
           newURL = newURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
         } else { // IV to IV
           newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstanceUrl)
@@ -135,7 +136,7 @@ export default defineComponent({
 
     updateThumbnail: function(channel) {
       this.errorCount += 1
-      if (this.backendPreference === 'local') {
+      if (this.backendPreference === API_DATA_SOURCES.LOCAL) {
         // avoid too many concurrent requests
         setTimeout(() => {
           getLocalChannel(channel.id).then(response => {

@@ -6,6 +6,7 @@ import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timesta
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getInvidiousCommunityPostCommentReplies, getInvidiousCommunityPostComments, invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'WatchVideoComments',
@@ -174,7 +175,7 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS || this.isPostComments) {
         if (!this.isPostComments) {
           this.getCommentDataInvidious()
         } else {
@@ -189,7 +190,7 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS || this.isPostComments) {
           if (!this.isPostComments) {
             this.getCommentDataInvidious()
           } else {
@@ -210,7 +211,7 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === 'invidious' || this.isPostComments) {
+      if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === API_DATA_SOURCES.INVIDIOUS || this.isPostComments) {
         if (!this.isPostComments) {
           this.getCommentRepliesInvidious(index)
         } else {
@@ -260,7 +261,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendFallback && this.backendPreference === 'local') {
+        if (this.backendFallback && this.backendPreference === API_DATA_SOURCES.LOCAL) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getCommentDataInvidious()
         } else {
@@ -306,7 +307,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendFallback && this.backendPreference === 'local') {
+        if (this.backendFallback && this.backendPreference === API_DATA_SOURCES.LOCAL) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getCommentDataInvidious()
         } else {
@@ -354,7 +355,7 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback && this.backendPreference === 'invidious') {
+        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback && this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
           showToast(this.$t('Falling back to Local API'))
           this.getCommentDataLocal()
         } else {

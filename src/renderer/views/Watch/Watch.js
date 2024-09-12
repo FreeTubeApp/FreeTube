@@ -36,6 +36,7 @@ import {
   mapInvidiousLegacyFormat,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
+import { API_DATA_SOURCES } from '../../../constants'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
@@ -278,10 +279,10 @@ export default defineComponent({
       this.checkIfPlaylist()
 
       switch (this.backendPreference) {
-        case 'local':
+        case API_DATA_SOURCES.LOCAL:
           this.getVideoInformationLocal(this.videoId)
           break
-        case 'invidious':
+        case API_DATA_SOURCES.INVIDIOUS:
           this.getVideoInformationInvidious(this.videoId)
           break
       }
@@ -313,7 +314,7 @@ export default defineComponent({
       // this has to be below checkIfPlaylist() as theatrePossible needs to know if there is a playlist or not
       this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
 
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         this.getVideoInformationInvidious()
       } else {
         this.getVideoInformationLocal()
@@ -720,7 +721,7 @@ export default defineComponent({
           copyToClipboard(err)
         })
         console.error(err)
-        if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
+        if (this.backendPreference === API_DATA_SOURCES.LOCAL && this.backendFallback && !err.toString().includes('private')) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getVideoInformationInvidious()
         } else {
@@ -922,7 +923,7 @@ export default defineComponent({
             copyToClipboard(err)
           })
           console.error(err)
-          if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === API_DATA_SOURCES.INVIDIOUS && this.backendFallback) {
             showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {

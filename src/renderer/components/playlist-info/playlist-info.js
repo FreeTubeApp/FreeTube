@@ -12,6 +12,7 @@ import {
   showToast,
 } from '../../helpers/utils'
 import debounce from 'lodash.debounce'
+import { API_DATA_SOURCES } from '../../../constants'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -203,7 +204,7 @@ export default defineComponent({
       }
 
       let baseUrl = 'https://i.ytimg.com'
-      if (this.backendPreference === 'invidious') {
+      if (this.backendPreference === API_DATA_SOURCES.INVIDIOUS) {
         baseUrl = this.currentInvidiousInstanceUrl
       } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
         // Use playlist thumbnail provided by YT when available

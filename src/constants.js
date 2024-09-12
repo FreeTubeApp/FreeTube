@@ -1,5 +1,5 @@
 // IPC Channels
-const IpcChannels = {
+export const IpcChannels = {
   ENABLE_PROXY: 'enable-proxy',
   DISABLE_PROXY: 'disable-proxy',
   OPEN_EXTERNAL_LINK: 'open-external-link',
@@ -42,7 +42,7 @@ const IpcChannels = {
   SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization'
 }
 
-const DBActions = {
+export const DBActions = {
   GENERAL: {
     CREATE: 'db-action-create',
     FIND: 'db-action-find',
@@ -80,7 +80,7 @@ const DBActions = {
   },
 }
 
-const SyncEvents = {
+export const SyncEvents = {
   GENERAL: {
     CREATE: 'sync-create',
     UPSERT: 'sync-upsert',
@@ -114,27 +114,21 @@ const SyncEvents = {
 }
 
 // Utils
-const MAIN_PROFILE_ID = 'allChannels'
+export const MAIN_PROFILE_ID = 'allChannels'
 
 // Width threshold in px at which we switch to using a more heavily altered view for mobile users
-const MOBILE_WIDTH_THRESHOLD = 680
+export const MOBILE_WIDTH_THRESHOLD = 680
 
 // Height threshold in px at which we switch to using a more heavily altered playlist view for mobile users
-const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
+export const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
 
 // YouTube search character limit is 100 characters
-const SEARCH_CHAR_LIMIT = 100
+export const SEARCH_CHAR_LIMIT = 100
 
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
-const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
+export const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
-export {
-  IpcChannels,
-  DBActions,
-  SyncEvents,
-  MAIN_PROFILE_ID,
-  MOBILE_WIDTH_THRESHOLD,
-  PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
-  SEARCH_CHAR_LIMIT,
-  ABOUT_BITCOIN_ADDRESS,
+export const API_DATA_SOURCES = {
+  LOCAL: 'local',
+  INVIDIOUS: 'invidious'
 }
