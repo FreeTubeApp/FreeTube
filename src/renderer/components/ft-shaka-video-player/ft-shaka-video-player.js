@@ -16,6 +16,7 @@ import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { shakaCueFromVTTCue } from '../../helpers/player/legacyFormatsVttCueParser'
 import {
+  findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
   qualityLabelToDimension,
@@ -136,7 +137,6 @@ export default defineComponent({
     const hasLoaded = ref(false)
 
     const hasMultipleAudioTracks = ref(false)
-    let hasMultipleAudioChannelCounts = false
     const isLive = ref(false)
 
     const useOverFlowMenu = ref(false)
@@ -1339,11 +1339,15 @@ export default defineComponent({
 
     /**
      * @param {number} quality
+     * @param {number | undefined} audioBandwidth
+     * @param {string | undefined} label
      */
-    function setDashQuality(quality) {
+    function setDashQuality(quality, audioBandwidth, label) {
       let variants = player.getVariantTracks()
 
-      if (hasMultipleAudioTracks.value) {
+      if (label) {
+        variants = variants.filter(variant => variant.label === label)
+      } else if (hasMultipleAudioTracks.value) {
         // default audio track
         variants = variants.filter(variant => variant.audioRoles.includes('main'))
       }
@@ -1361,9 +1365,21 @@ export default defineComponent({
       }
 
       matches.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
-      variants = matches
 
-      player.selectVariantTrack(variants[0])
+      let chosenVariant
+
+      if (typeof audioBandwidth === 'number') {
+        const width = matches[0].width
+        const height = matches[0].height
+
+        matches = matches.filter(variant => variant.width === width && variant.height === height)
+
+        chosenVariant = findMostSimilarAudioBandwidth(matches, audioBandwidth)
+      } else {
+        chosenVariant = matches[0]
+      }
+
+      player.selectVariantTrack(chosenVariant)
     }
 
     /**
@@ -1404,7 +1420,6 @@ export default defineComponent({
       }
 
       hasMultipleAudioTracks.value = false
-      hasMultipleAudioChannelCounts = false
 
       events.dispatchEvent(new CustomEvent('setLegacyFormat', {
         detail: {
@@ -2492,7 +2507,6 @@ export default defineComponent({
           }
 
           hasMultipleAudioTracks.value = player.getAudioLanguagesAndRoles().length > 1
-          hasMultipleAudioChannelCounts = new Set(player.getVariantTracks().map(track => track.channelsCount)).size > 1
 
           if (props.format === 'dash') {
             const firstVariant = player.getVariantTracks()[0]
@@ -2679,7 +2693,7 @@ export default defineComponent({
 
         const wasPaused = video_.paused
 
-        const useAutoQuality = oldFormat === 'legacy' ? defaultQuality.value === 'auto' : player.getConfiguration().abr.enabled
+        let useAutoQuality = oldFormat === 'legacy' ? defaultQuality.value === 'auto' : player.getConfiguration().abr.enabled
 
         if (!wasPaused) {
           video_.pause()
@@ -2708,8 +2722,8 @@ export default defineComponent({
         }
 
         if (newFormat === 'audio' || newFormat === 'dash') {
-          /** @type {{language: string, role: string, channelsCount: number}|undefined} */
-          let audioTrack
+          let label
+          let audioBandwidth
           let dimension
 
           if (oldFormat === 'legacy' && newFormat === 'dash') {
@@ -2718,18 +2732,25 @@ export default defineComponent({
             if (!useAutoQuality) {
               dimension = qualityLabelToDimension(legacyFormat.qualityLabel)
             }
-          } else if (oldFormat !== 'legacy' && (hasMultipleAudioTracks.value || hasMultipleAudioChannelCounts)) {
+          } else if (oldFormat !== 'legacy') {
             const track = player.getVariantTracks().find(track => track.active)
 
-            audioTrack = {
-              language: track.language,
-              role: track.audioRoles[0],
-              channelsCount: track.channelsCount
+            if (typeof track.audioBandwidth === 'number') {
+              audioBandwidth = track.audioBandwidth
+            }
+
+            if (track.label) {
+              label = track.label
             }
           }
 
-          if (oldFormat === 'audio' && newFormat === 'dash' && !useAutoQuality && defaultQuality.value !== 'auto') {
-            dimension = defaultQuality.value
+          if (oldFormat === 'audio' && newFormat === 'dash' && !useAutoQuality) {
+            if (defaultQuality.value !== 'auto') {
+              dimension = defaultQuality.value
+            } else {
+              // Use auto as we don't know what resolution to pick
+              useAutoQuality = true
+            }
           }
 
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
@@ -2737,12 +2758,32 @@ export default defineComponent({
           try {
             await player.load(props.manifestSrc, playbackPosition, props.manifestMimeType)
 
-            if (dimension) {
-              setDashQuality(dimension)
-            }
+            if (useAutoQuality) {
+              if (label) {
+                player.selectVariantsByLabel(label)
+              }
+            } else {
+              if (dimension) {
+                setDashQuality(dimension, audioBandwidth, label)
+              } else {
+                let variants = player.getVariantTracks()
 
-            if (audioTrack) {
-              player.selectAudioLanguage(audioTrack.language, audioTrack.role, audioTrack.channelsCount)
+                if (label) {
+                  variants = variants.filter(variant => variant.label === label)
+                }
+
+                let chosenVariant
+
+                if (typeof audioBandwidth === 'number') {
+                  chosenVariant = findMostSimilarAudioBandwidth(variants, audioBandwidth)
+                } else {
+                  chosenVariant = variants.reduce((previous, current) => {
+                    return previous === null || current.bandwidth > previous.bandwidth ? current : previous
+                  }, null)
+                }
+
+                player.selectVariantTrack(chosenVariant)
+              }
             }
           } catch (error) {
             handleError(error, 'loading dash/audio manifest for format switch', `${oldFormat} -> ${newFormat}`)
