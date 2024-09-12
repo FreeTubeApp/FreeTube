@@ -778,6 +778,8 @@ Channel:
     votes: '{votes} häält'
     Video hidden by FreeTube: FreeTube'i poolt peidetud video
     View Full Post: Vaata kogu postitust
+    Viewing Posts Only Supported By Invidious: Postituste vaatamine toimib vaid Invidiouse
+      liidestusega. Ilma selleta saad lugeda sisu, mida näed kanali kogukonna vaatest.
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
