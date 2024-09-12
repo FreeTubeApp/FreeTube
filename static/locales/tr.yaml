@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 abone | {count} abone
     View Count: 1 izlenme | {count} izlenme
     Watching Count: 1 izliyor | {count} izliyor
+    Like Count: 1 beğenme | {count} beğenme
+    Comment Count: 1 yorum | {count} yorum
   Input Tags:
     Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
@@ -846,6 +848,10 @@ Channel:
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
     Video hidden by FreeTube: FreeTube tarafından gizlenen video
+    View Full Post: Gönderinin Tamamını Görüntüle
+    Viewing Posts Only Supported By Invidious: Gönderileri görüntüleme yalnızca Invidious
+      tarafından desteklenir. Invidious olmadan içeriği görüntülemek için bir kanalın
+      topluluk sekmesine gidin.
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
@@ -1093,6 +1099,7 @@ Comments:
   View {replyCount} replies: '{replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
+  There are no comments available for this post: Bu gönderi için hiç yorum yok
 Up Next: 'Sonraki'
 
 # Toast Messages
