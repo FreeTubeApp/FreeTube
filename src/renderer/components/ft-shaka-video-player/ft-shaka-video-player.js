@@ -1588,6 +1588,8 @@ export default defineComponent({
 
     // #region custom player controls
 
+    const { ContextMenu: shakaContextMenu, Controls: shakaControls, OverflowMenu: shakaOverflowMenu } = shaka.ui
+
     function registerAudioTrackSelection() {
       /** @implements {shaka.extern.IUIElement.Factory} */
       class AudioTrackSelectionFactory {
@@ -1596,8 +1598,8 @@ export default defineComponent({
         }
       }
 
-      shaka.ui.Controls.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
-      shaka.ui.OverflowMenu.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
+      shakaControls.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
+      shakaOverflowMenu.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
     }
 
     function registerTheatreModeButton() {
@@ -1614,8 +1616,8 @@ export default defineComponent({
         }
       }
 
-      shaka.ui.Controls.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
-      shaka.ui.OverflowMenu.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
+      shakaControls.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
+      shakaOverflowMenu.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
     }
 
     function registerFullWindowButton() {
@@ -1642,8 +1644,8 @@ export default defineComponent({
         }
       }
 
-      shaka.ui.Controls.registerElement('ft_full_window', new FullWindowButtonFactory())
-      shaka.ui.OverflowMenu.registerElement('ft_full_window', new FullWindowButtonFactory())
+      shakaControls.registerElement('ft_full_window', new FullWindowButtonFactory())
+      shakaOverflowMenu.registerElement('ft_full_window', new FullWindowButtonFactory())
     }
 
     function registerLegacyQualitySelection() {
@@ -1677,8 +1679,8 @@ export default defineComponent({
         }
       }
 
-      shaka.ui.Controls.registerElement('ft_legacy_quality', new LegacyQualitySelectionFactory())
-      shaka.ui.OverflowMenu.registerElement('ft_legacy_quality', new LegacyQualitySelectionFactory())
+      shakaControls.registerElement('ft_legacy_quality', new LegacyQualitySelectionFactory())
+      shakaOverflowMenu.registerElement('ft_legacy_quality', new LegacyQualitySelectionFactory())
     }
 
     function registerStatsButton() {
@@ -1699,7 +1701,7 @@ export default defineComponent({
         }
       }
 
-      shaka.ui.ContextMenu.registerElement('ft_stats', new StatsButtonFactory())
+      shakaContextMenu.registerElement('ft_stats', new StatsButtonFactory())
     }
 
     function registerScreenshotButton() {
@@ -1716,8 +1718,34 @@ export default defineComponent({
         }
       }
 
-      shaka.ui.Controls.registerElement('ft_screenshot', new ScreenshotButtonFactory())
-      shaka.ui.OverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
+      shakaControls.registerElement('ft_screenshot', new ScreenshotButtonFactory())
+      shakaOverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
+    }
+
+    /**
+     * As shaka-player doesn't let you unregister custom control factories,
+     * overwrite them with `null` instead so the referenced objects
+     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get gargabe collected
+     */
+    function cleanUpCustomPlayerControls() {
+      shakaControls.registerElement('ft_audio_tracks', null)
+      shakaOverflowMenu.registerElement('ft_audio_tracks', null)
+
+      shakaControls.registerElement('ft_theatre_mode', null)
+      shakaOverflowMenu.registerElement('ft_theatre_mode', null)
+
+      shakaControls.registerElement('ft_full_window', null)
+      shakaOverflowMenu.registerElement('ft_full_window', null)
+
+      shakaControls.registerElement('ft_legacy_quality', null)
+      shakaOverflowMenu.registerElement('ft_legacy_quality', null)
+
+      shakaContextMenu.registerElement('ft_stats', null)
+
+      if (process.env.IS_ELECTRON) {
+        shakaControls.registerElement('ft_screenshot', null)
+        shakaOverflowMenu.registerElement('ft_screenshot', null)
+      }
     }
 
     // #endregion custom player controls
@@ -2636,12 +2664,7 @@ export default defineComponent({
         resizeObserver = null
       }
 
-      if (ui) {
-        // destroying the ui also destroys the player
-        ui.destroy()
-        ui = null
-        player = null
-      }
+      cleanUpCustomPlayerControls()
 
       stopPowerSaveBlocker()
       window.removeEventListener('beforeunload', stopPowerSaveBlocker)
@@ -2679,13 +2702,31 @@ export default defineComponent({
       video.value.currentTime = time
     }
 
+    /**
+     * Vue's lifecycle hooks are synchonous, so if we destroy the player in {@linkcode onBeforeUnmount},
+     * it won't be finished in time, as the player destruction is asynchronous.
+     * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
+     */
+    async function destroyPlayer() {
+      if (ui) {
+        // destroying the ui also destroys the player
+        await ui.destroy()
+        ui = null
+        player = null
+      } else if (player) {
+        await player.destroy()
+        player = null
+      }
+    }
+
     expose({
       hasLoaded,
 
       isPaused,
       pause,
       getCurrentTime,
-      setCurrentTime
+      setCurrentTime,
+      destroyPlayer
     })
 
     // #endregion functions used by the watch page
