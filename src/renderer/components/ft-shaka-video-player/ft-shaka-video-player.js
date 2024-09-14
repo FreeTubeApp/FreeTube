@@ -2717,6 +2717,16 @@ export default defineComponent({
         await player.destroy()
         player = null
       }
+
+      // shaka-player doesn't clear these itself, which prevents shaka.ui.Overlay from being garbage collected
+      // Should really be fixed in shaka-player but it's easier just to do it ourselves
+      if (container.value) {
+        container.value.ui = null
+      }
+
+      if (video.value) {
+        video.value.ui = null
+      }
     }
 
     expose({
