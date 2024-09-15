@@ -284,15 +284,12 @@ export async function getLocalVideoInfo(id) {
       info.storyboards = iosInfo.storyboards
     } else if (iosInfo.streaming_data) {
       info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
+      info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
+
       // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
 
       for (const format of info.streaming_data.adaptive_formats) {
         format.freeTubeUrl = format.url
-      }
-
-      // don't overwrite for live streams
-      if (!info.streaming_data.hls_manifest_url) {
-        info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
       }
     }
 

@@ -100,7 +100,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
     this.button.setAttribute('shaka-status', this.currentSelection.innerText)
 
-    if (knownLabels.size > 0) {
+    if (knownLabels.size > 1) {
       this.button.classList.remove('shaka-hidden')
     } else {
       this.button.classList.add('shaka-hidden')
