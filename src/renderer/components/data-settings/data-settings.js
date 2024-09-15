@@ -640,6 +640,7 @@ export default defineComponent({
         // `_id` absent if marked as watched manually
         '_id',
         'lastViewedPlaylistId',
+        'lastViewedPlaylistItemId',
         'viewCount',
       ]
 
