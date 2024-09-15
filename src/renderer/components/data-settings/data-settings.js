@@ -641,6 +641,7 @@ export default defineComponent({
         '_id',
         'lastViewedPlaylistId',
         'lastViewedPlaylistItemId',
+        'lastViewedPlaylistType',
         'viewCount',
       ]
 
