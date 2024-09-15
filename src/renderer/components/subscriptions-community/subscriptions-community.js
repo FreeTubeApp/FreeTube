@@ -164,12 +164,8 @@ export default defineComponent({
             let thumbnailUrl = post.authorThumbnails?.[0]?.url
 
             if (name || thumbnailUrl) {
-              if (thumbnailUrl) {
-                if (thumbnailUrl.startsWith('//')) {
-                  thumbnailUrl = 'https:' + thumbnailUrl
-                } else if (thumbnailUrl.startsWith(`${this.currentInvidiousInstanceUrl}/ggpht`)) {
-                  thumbnailUrl = thumbnailUrl.replace(`${this.currentInvidiousInstanceUrl}/ggpht`, 'https://yt3.googleusercontent.com')
-                }
+              if (thumbnailUrl?.startsWith('//')) {
+                thumbnailUrl = 'https:' + thumbnailUrl
               }
 
               subscriptionUpdates.push({

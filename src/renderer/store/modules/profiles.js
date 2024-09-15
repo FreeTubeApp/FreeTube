@@ -113,7 +113,11 @@ const actions = {
         }
 
         if (channelThumbnailUrl) {
-          const thumbnail = channelThumbnailUrl.replace(/=s\d*/, '=s176') // change thumbnail size if different
+          const thumbnail = channelThumbnailUrl
+            // change thumbnail size if different
+            .replace(/=s\d*/, '=s176')
+            // If this is an Invidious URL, convert it to a YouTube one
+            .replace(/^https?:\/\/[^/]+\/ggpht/, 'https://yt3.googleusercontent.com')
 
           if (channel.thumbnail !== thumbnail) {
             channel.thumbnail = thumbnail
@@ -129,7 +133,12 @@ const actions = {
   },
 
   async updateSubscriptionDetails({ dispatch, state }, { channelThumbnailUrl, channelName, channelId }) {
-    const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
+    const thumbnail = channelThumbnailUrl
+      // change thumbnail size if different
+      ?.replace(/=s\d*/, '=s176')
+      // If this is an Invidious URL, convert it to a YouTube one
+      .replace(/^https?:\/\/[^/]+\/ggpht/, 'https://yt3.googleusercontent.com') ??
+      null
     const profileList = state.profileList
     for (const profile of profileList) {
       const currentProfileCopy = deepCopy(profile)
@@ -173,6 +182,11 @@ const actions = {
   },
 
   async addChannelToProfiles({ commit }, { channel, profileIds }) {
+    // If this is an Invidious URL, convert it to a YouTube one
+    if (!channel.thumbnail.startsWith('https://yt3.googleusercontent.com/')) {
+      channel.thumbnail = channel.thumbnail.replace(/^https?:\/\/[^/]+\/ggpht/, 'https://yt3.googleusercontent.com')
+    }
+
     try {
       await DBProfileHandlers.addChannelToProfiles(channel, profileIds)
       commit('addChannelToProfiles', { channel, profileIds })
