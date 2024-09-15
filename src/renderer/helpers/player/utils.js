@@ -317,3 +317,23 @@ export function repairInvidiousManifest(periods) {
     }
   }
 }
+
+/**
+ * @param {shaka.extern.TrackList} variants
+ * @param {number} bandwidthToMatch
+ */
+export function findMostSimilarAudioBandwidth(variants, bandwidthToMatch) {
+  let closestAudioBandwithDifference = Infinity
+  let closestVariant
+
+  for (const variant of variants) {
+    const difference = Math.abs(variant.audioBandwidth - bandwidthToMatch)
+
+    if (difference < closestAudioBandwithDifference) {
+      closestAudioBandwithDifference = difference
+      closestVariant = variant
+    }
+  }
+
+  return closestVariant
+}

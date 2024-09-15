@@ -1,6 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { findMostSimilarAudioBandwidth } from '../../../helpers/player/utils'
 
 export class AudioTrackSelection extends shaka.ui.SettingsMenu {
   /**
@@ -30,7 +31,6 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
       this.updateAudioTracks_()
     })
 
-    // selectVariantsByLabel doesn't trigger variant changed
     this.eventManager.listen(this.player, 'adaptation', () => {
       this.updateAudioTracks_()
     })
@@ -40,9 +40,14 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
     this.updateAudioTracks_()
   }
 
-  /** @private */
-  updateAudioTracks_() {
-    const tracks = this.player.getVariantTracks()
+  /**
+   * @private
+   * @param {shaka.extern.TrackList=} tracks
+   */
+  updateAudioTracks_(tracks) {
+    if (!tracks) {
+      tracks = this.player.getVariantTracks()
+    }
 
     const selectedTrack = tracks.find(track => track.active)
 
@@ -68,7 +73,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
       const button = document.createElement('button')
       button.addEventListener('click', () => {
-        this.onAudioTrackSelected_(track)
+        this.onAudioTrackSelected_(track.label)
       })
 
       const span = document.createElement('span')
@@ -116,11 +121,31 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
   }
 
   /**
-   * @param {shaka.extern.Track} track
+   * @param {string} label
    * @private
    */
-  onAudioTrackSelected_(track) {
-    this.player.selectVariantsByLabel(track.label)
+  onAudioTrackSelected_(label) {
+    if (this.player.getConfiguration().abr.enabled) {
+      this.player.selectVariantsByLabel(label)
+    } else {
+      const variants = this.player.getVariantTracks()
+      const previousVariant = variants.find(variant => variant.active)
+
+      let matchingVariants = variants.filter(variant => variant.label === label)
+
+      if (!this.player.isAudioOnly()) {
+        matchingVariants = matchingVariants.filter(variant => {
+          return variant.width === previousVariant.width &&
+            variant.height === previousVariant.height &&
+            variant.frameRate === previousVariant.frameRate &&
+            variant.hdr === previousVariant.hdr
+        })
+      }
+
+      const closestVariant = findMostSimilarAudioBandwidth(matchingVariants, previousVariant.audioBandwidth)
+
+      this.player.selectVariantTrack(closestVariant, true)
+    }
   }
 
   /** @private */
