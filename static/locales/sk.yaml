@@ -135,6 +135,25 @@ User Playlists:
     žiadne playlisty. Kliknutím na tlačidlo playlistu vytvoríte nový.
   Empty Search Message: V tomto playliste nie sú žiadne videá, ktoré by zodpovedali
     vášmu vyhľadávaniu
+  Add to Playlist: Pridať do playlistu
+  Move Video Down: Posunúť video nadol
+  Copy Playlist: Kopírovať playlist
+  Search bar placeholder: Hľadať playlisty
+  Create New Playlist: Vytvoriť nový playlist
+  This playlist currently has no videos.: Tento playlist momentálne neobsahuje žiadne
+    videá.
+  Add to Favorites: Pridať do playlistu {playlistName}
+  Remove from Favorites: Odobrať z playlistu {playlistName}
+  Playlist Name: Názov playlistu
+  Cancel: Zrušiť
+  Playlist Description: Popis playlistu
+  Playlists with Matching Videos: Playlisty so zodpovedajúcimi videami
+  Remove from Playlist: Odstrániť z playlistu
+  Save Changes: Uložiť zmeny
+  Edit Playlist Info: Upraviť informácie o playliste
+  Remove Watched Videos: Odstrániť pozerané videá
+  Remove Duplicate Videos: Odstrániť duplicitné videá
+  Move Video Up: Posunúť video nahor
 History:
   # On History Page
   History: 'História'
