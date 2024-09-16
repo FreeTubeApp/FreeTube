@@ -29,6 +29,10 @@ class History {
     return baseHandlers.history.upsert(record)
   }
 
+  static overwrite(records) {
+    return baseHandlers.history.overwrite(records)
+  }
+
   static updateWatchProgress(videoId, watchProgress) {
     return baseHandlers.history.updateWatchProgress(videoId, watchProgress)
   }
