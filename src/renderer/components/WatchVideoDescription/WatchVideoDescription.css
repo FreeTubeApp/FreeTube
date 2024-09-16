@@ -1,6 +1,7 @@
 .videoDescription {
+  position: relative;
   overflow-y: auto;
-  max-block-size: 300px;
+  max-block-size: 20lh;
 }
 
 .description {
@@ -10,7 +11,7 @@
   overflow-wrap: anywhere;
 }
 
-.getDescriptionTitle {
+.descriptionStatus {
   margin: 0;
   padding-block: 8px;
   text-align: center;
@@ -19,8 +20,18 @@
   color: var(--title-color);
 }
 
-.short {
-  block-size: 230px;
+.videoDescription.short .description {
+  max-block-size: 4lh;
   overflow: hidden;
-  mask-image: linear-gradient(180deg, rgb(2 0 36 / 100%) 80%, rgb(255 255 255 / 0%) 100%);
+}
+
+.videoDescription .overlay {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  transition: background-color 200ms ease;
+}
+
+.videoDescription .overlay:hover {
+  background-color: var(--accent-color-opacity1);
 }
