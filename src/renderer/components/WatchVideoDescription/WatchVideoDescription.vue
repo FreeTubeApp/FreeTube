@@ -116,9 +116,9 @@ function isShortDescription() {
 }
 
 onMounted(() => {
-  // To verify whether or not the description is too short for the
-  // 'Click to View Description' button, we need to check the description's
-  // computed CSS height. The only way to make this work is to check on mount.
+  // To verify whether or not the description is too short for displaying
+  // description controls, we need to check the description's dimensions.
+  // The only way to make this work is to check on mount.
   showFullDescription.value = isShortDescription()
   showControls.value = !showFullDescription.value
 })
