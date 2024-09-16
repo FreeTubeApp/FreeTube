@@ -1186,8 +1186,10 @@ export default defineComponent({
       }
 
       if (this.manifestSrc === null ||
-        // HLS consists of combined audio and video files, so we can't do audio only
-        ((this.isLive || this.isPostLiveDvr) && this.manifestMimeType !== MANIFEST_TYPE_DASH)) {
+        ((this.isLive || this.isPostLiveDvr) &&
+        // The WEB HLS manifests only contain combined audio and video files, so we can't do audio only
+        // The IOS HLS manifests have audio-only streams
+          this.manifestMimeType === MANIFEST_TYPE_HLS && !this.manifestSrc.includes('/demuxed/1'))) {
         showToast(this.$t('Change Format.Audio formats are not available for this video'))
         return
       }
@@ -1326,10 +1328,10 @@ export default defineComponent({
         // live streams don't have legacy formats, so only switch between dash and audio
 
         if (this.activeFormat === 'dash') {
-          console.error('Unable to play audio formats. Reverting to DASH formats...')
+          console.error('Unable to play DASH formats. Reverting to audio formats...')
           this.enableAudioFormat()
         } else {
-          console.error('Unable to play DASH formats. Reverting to audio formats...')
+          console.error('Unable to play audio formats. Reverting to DASH formats...')
           this.enableDashFormat()
         }
       } else {

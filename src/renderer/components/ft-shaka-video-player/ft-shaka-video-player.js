@@ -523,6 +523,17 @@ export default defineComponent({
 
     // #region player config
 
+    const seekingIsPossible = computed(() => {
+      if (props.manifestMimeType !== 'application/x-mpegurl') {
+        return true
+      }
+
+      const match = props.manifestSrc.match(/\/(?:manifest|playlist)_duration\/(\d+)\//)
+
+      // Check how many seconds we are allowed to seek, 30 is too short, 3600 is an hour which is great
+      return match != null && parseInt(match[1] || '0') > 30
+    })
+
     /**
      * @param {'dash'|'audio'|'legacy'} format
      * @param {boolean} useAutoQuality
@@ -545,7 +556,7 @@ export default defineComponent({
           dash: {
             manifestPreprocessorTXml: manifestPreprocessorTXml
           },
-          availabilityWindowOverride: props.manifestMimeType === 'application/x-mpegurl' ? 0 : NaN
+          availabilityWindowOverride: seekingIsPossible.value ? NaN : 0
         },
         abr: {
           enabled: useAutoQuality,
@@ -794,7 +805,7 @@ export default defineComponent({
     function configureUI(firstTime = false) {
       if (firstTime) {
         const firstTimeConfig = {
-          addSeekBar: props.manifestMimeType !== 'application/x-mpegurl',
+          addSeekBar: seekingIsPossible.value,
           customContextMenu: true,
           contextMenuElements: ['ft_stats'],
           enableTooltips: true,
@@ -1136,15 +1147,29 @@ export default defineComponent({
       } else if (type === RequestType.MANIFEST && context.type === AdvancedRequestType.MEDIA_PLAYLIST) {
         const url = new URL(response.uri)
 
+        let modifiedText
+
         // Fixes proxied HLS manifests, as Invidious replaces the path parameters with query parameters,
         // so shaka-player isn't able to infer the mime type from the `/file/seg.ts` part like it does for non-proxied HLS manifests.
         // Shaka-player does attempt to detect it with HEAD request but the `Content-Type` header is `application/octet-stream`,
         // which still doesn't tell shaka-player how to handle the stream because that's the equivalent of saying "binary data".
         if (url.searchParams.has('local')) {
           const stringBody = new TextDecoder().decode(response.data)
-          const fixed = stringBody.replaceAll(/https?:\/\/.+$/gm, hlsProxiedUrlReplacer)
 
-          response.data = new TextEncoder().encode(fixed).buffer
+          modifiedText = stringBody.replaceAll(/https?:\/\/.+$/gm, hlsProxiedUrlReplacer)
+        }
+
+        // The audio-only streams are actually raw AAC, so correct the file extension from `.ts` to `.aac`
+        if (/\/itag\/23[34]\//.test(url.pathname) || url.searchParams.get('itag') === '233' || url.searchParams.get('itag') === '234') {
+          if (!modifiedText) {
+            modifiedText = new TextDecoder().decode(response.data)
+          }
+
+          modifiedText = modifiedText.replaceAll('/file/seg.ts', '/file/seg.aac')
+        }
+
+        if (modifiedText) {
+          response.data = new TextEncoder().encode(modifiedText).buffer
         }
       }
     }
@@ -1334,7 +1359,7 @@ export default defineComponent({
       stats.bitrate = (newTrack.bandwidth / 1000).toFixed(2)
 
       // Combined audio and video HLS streams
-      if (newTrack.videoCodec.includes(',')) {
+      if (newTrack.videoCodec?.includes(',')) {
         stats.codecs.audioItag = ''
         stats.codecs.videoItag = ''
 
