@@ -3,15 +3,6 @@
     v-if="shownDescription.length > 0"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
-    <div
-      v-if="!showFullDescription && showControls"
-      class="overlay"
-      role="button"
-      tabindex="0"
-      @click="expandDescription"
-      @keydown.space.prevent="expandDescription"
-      @keydown.enter.prevent="expandDescription"
-    />
     <FtTimestampCatcher
       ref="descriptionContainer"
       class="description"
@@ -37,6 +28,15 @@
       >
         {{ $t("Description.Expand Description") }}
       </span>
+      <div
+        v-if="!showFullDescription"
+        class="overlay"
+        role="button"
+        tabindex="0"
+        @click="expandDescription"
+        @keydown.space.prevent="expandDescription"
+        @keydown.enter.prevent="expandDescription"
+      />
     </template>
   </FtCard>
 </template>

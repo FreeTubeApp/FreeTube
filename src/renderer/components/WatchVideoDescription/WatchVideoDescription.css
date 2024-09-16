@@ -13,11 +13,19 @@
 
 .descriptionStatus {
   margin: 0;
-  padding-block: 8px;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
+}
+
+.videoDescription.short .descriptionStatus {
+  position: absolute;
+  inset-block-end: calc(1lh + 12px);
+  padding-block: 2px;
+  inset-inline-end: 16px;
+  padding-inline-start: 40px;
+  background: linear-gradient(270deg, var(--card-bg-color) 75%, transparent 100%);
 }
 
 .videoDescription.short .description {
