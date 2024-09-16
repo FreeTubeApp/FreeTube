@@ -8,7 +8,7 @@ Locale Name: 'עברית'
 File: 'קובץ'
 Quit: 'יציאה'
 Edit: 'עריכה'
-Undo: 'ביטול'
+Undo: 'הסגה'
 Redo: 'לבצע שוב'
 Cut: 'גזירה'
 Copy: 'העתקה'
@@ -99,6 +99,7 @@ Search Filters:
     HDR: HDR
     VR180: VR180
     Location: מקום
+    Creative Commons: קריאייטיב קומונז
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -173,9 +174,37 @@ User Playlists:
       This video cannot be moved down.: אי אפשר להוריד את הסרטון הזה למטה.
       Video has been removed: הסרטון הוסר
       There was a problem with removing this video: אירעה בעיה עם הסרת הסרטון הזה
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: רשימת
+        הנגינה הזאת משמשת לסימניות מהירות במקום {oldPlaylistName}. לחיצה כאן תבטל
+        את זה
     Search for Videos: חיפוש סרטונים
   Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
     ביעד הסימניות הזריזות.
+  This playlist currently has no videos.: ברשימת הנגינה אין כרגע סרטונים.
+  Create New Playlist: יצירת רשימת נגינה חדשה
+  Playlist Name: שם רשימת נגינה
+  AddVideoPrompt:
+    Save: שמירה
+    Search in Playlists: חיפוש ברשימות הנגינה
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      סרטונים יתווספו'
+    Allow Adding Duplicate Video(s): לאפשר להוסיף סרטונים כפולים
+    Added {count} Times: כבר נוסף | נוסף {count} פעמים
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      סרטונים כבר נוספו'
+  CreatePlaylistPrompt:
+    Create: יצירה
+    New Playlist Name: שם חדש לרשימת נגינה
+  Playlists with Matching Videos: רשימות נגינה עם סרטונים תואמים
+  Add to Playlist: הוספת לרשימת נגינה
+  Remove from Favorites: הסרה מתוך {playlistName}
+  Move Video Up: העלאת הסרטון מעלה
+  Move Video Down: הורדת הסרטון מטה
+  Remove from Playlist: הסרת מרשימת הנגינה
+  Playlist Description: תיאור רשימת נגינה
+  Save Changes: שמירת השינויים
+  Cancel: ביטול
+  Add to Favorites: הוספה אל {playlistName}
 History:
   # On History Page
   History: 'היסטוריה'
@@ -183,6 +212,7 @@ History:
   Your history list is currently empty.: 'ההיסטוריה שלך ריקה כרגע.'
   Search bar placeholder: חיפוש בהיסטוריה
   Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
+  Case Sensitive Search: חיפוש תלוי רישיות
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -229,6 +259,8 @@ Settings:
     No default instance has been set: לא הוגדר עותק ברירת מחדל
     Current instance will be randomized on startup: העותק הנוכחי יעבור ערבוב אקראי
       עם ההפעלה
+    Auto Load Next Page:
+      Label: טעינת העמוד הבא אוטומטית
   Theme Settings:
     Theme Settings: 'הגדרת ערכת עיצוב'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -242,6 +274,9 @@ Settings:
       Catppuccin Mocha: מוקה קפוצ׳ינו
       Pastel Pink: ורוד פסטל
       Hot Pink: ורוד עז
+      Nordic: נורדית
+      Solarized Dark: חשוך זוהר
+      Solarized Light: בהיר זוהר
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -281,6 +316,12 @@ Settings:
       Catppuccin Mocha Lavender: מוקה קפוצ׳ינו לבנדר
       Catppuccin Mocha Teal: מוקה קפוצ׳ינו ירקרק-כחלחל
       Catppuccin Mocha Blue: מוקה קפוצ׳ינו כחול
+      Solarized Green: ירוק זוהר
+      Solarized Orange: כתום זוהר
+      Solarized Yellow: צהוב זוהר
+      Solarized Red: אדום זוהר
+      Solarized Magenta: ארגמן זוהר
+      Solarized Blue: כחול זוהר
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -290,7 +331,6 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -357,6 +397,8 @@ Settings:
       כל את המינויים והפרופילים? זופעולה בלתי הפיכה.'
     Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
       הנגינה לאחרונים שנצפו
+    Remove All Playlists: הסרת כל רשימות הנגינה
+    All playlists have been removed: כל רשימות הנגינה הוסרו
   Subscription Settings:
     Subscription Settings: 'הגדרות מינויים'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
@@ -926,10 +968,6 @@ Tooltips:
     Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
       שמעניין אותך לראות.
   Player Settings:
-    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
-      המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
-      על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
-      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה.
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
@@ -970,6 +1008,7 @@ Tooltips:
       בסעיף „{subsection}” שב„{settingsSection}”
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
+    UseDeArrowThumbnails: החלפת התמונות הממוזערות של הסרטונים בתמונות ממוזערות מ־DeArrow.
 More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
@@ -1029,3 +1068,18 @@ Search Listing:
     Subtitles: כתוביות
     Closed Captions: כתוביות לכבדי שמיעה
 Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
+Feed:
+  Feed Last Updated: 'הערוץ {feedName} התעדכן לאחרונה: {date}'
+  Refresh Feed: רענון {subscriptionName}
+Age Restricted:
+  This video is age restricted: הסרטון הזה מוגבל
+  This channel is age restricted: הערוץ הזה מוגבל בגיל
+Yes, Restart: כן, להפעיל מחדש
+Yes, Delete: כן, למחוק
+Yes, Open Link: כן, לפתוח את הקישור
+Cancel: ביטול
+'Blocked opening potentially unsafe URL': 'נחסמה פתיחת כתובת שחשודה כמפוקפקת: „{url}”.'
+checkmark: ✓
+Tag already exists: התגית „{tagName}” כבר קיימת
+Moments Ago: לפני מס׳ רגעים
+Display Label: '{label}:‏ {value}'

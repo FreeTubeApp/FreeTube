@@ -314,7 +314,6 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
-    Force Local Backend for Legacy Formats: 'Tving Lokal Backend til Ældre Formater'
     Play Next Video: 'Afspil Næste Video'
     Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
     Autoplay Videos: 'Autospil Videoer'
@@ -947,10 +946,6 @@ Tooltips:
       men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
     Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
       i stedet for at oprette en direkte forbindelse til YouTube. Tilsidesætter API-præference.
-    Force Local Backend for Legacy Formats: Virker kun når Invidious-API'en er din
-      standard. Når det er aktiveret, vil den lokale API køre og bruge de gamle formater,
-      den giver, i stedet for dem Invidious giver. Hjælper når de videoer, der gives
-      af Invidious, ikke spiller på grund af landerestriktioner.
     Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
       hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
       bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten

@@ -104,7 +104,7 @@ export function translateSponsorBlockCategory(category) {
     case 'outro':
       return i18n.t('Video.Sponsor Block category.outro')
     case 'recap':
-      return this.$t('Video.Sponsor Block category.recap')
+      return i18n.t('Video.Sponsor Block category.recap')
     case 'selfpromo':
       return i18n.t('Video.Sponsor Block category.self-promotion')
     case 'interaction':
@@ -316,4 +316,24 @@ export function repairInvidiousManifest(periods) {
       }
     }
   }
+}
+
+/**
+ * @param {shaka.extern.TrackList} variants
+ * @param {number} bandwidthToMatch
+ */
+export function findMostSimilarAudioBandwidth(variants, bandwidthToMatch) {
+  let closestAudioBandwithDifference = Infinity
+  let closestVariant
+
+  for (const variant of variants) {
+    const difference = Math.abs(variant.audioBandwidth - bandwidthToMatch)
+
+    if (difference < closestAudioBandwithDifference) {
+      closestAudioBandwithDifference = difference
+      closestVariant = variant
+    }
+  }
+
+  return closestVariant
 }

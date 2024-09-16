@@ -199,7 +199,6 @@ Settings:
     Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Ajustes del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar motor local para el formato heredado'
     Remember History: 'Recordar historial'
     Play Next Video: 'Reproducir el video siguiente'
     Turn on Subtitles by Default: 'Activar subtitulos por defecto'
@@ -763,11 +762,6 @@ Tooltips:
       Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados
       están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de
       banda. Los formatos de audio permiten escuchar solamente el audio.
-    Force Local Backend for Legacy Formats: Sólo funcionará si la API de Invidious
-      está por defecto. Si se habilita, la API local ejecutará los formatos heredados
-      que encuentre en lugar de los que le dé Invidious. Esto ayuda a que los videos
-      proporcionados por Invidious puedan ser reproducidos sin impedimentos debidos
-      a la región.
     Scroll Playback Rate Over Video Player: Mientras el cursor esté sobre el video,
       mantenga presionada la tecla Ctrl (tecla Comando en Mac) y use la rueda del
       ratón hacia adelante o atrás para controlar la velocidad de reproducción. Mantenga

@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 subskrybujący | {count} subskrybentów
     View Count: 1 wyświetlenie | {count} wyświetle(nia/ń)
     Watching Count: 1 oglądający | {count} oglądających
+    Like Count: Jedno polubienie | {count} polubie(ń/nia)
+    Comment Count: Jeden komentarz | {count} komentarz(e/y)
   Input Tags:
     Length Requirement: Tag musi mieć przynajmniej {number} znak(i/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
@@ -382,7 +384,6 @@ Settings:
     Hide FreeTube Header Logo: Schowaj logo FreeTube z paska górnego
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
-    Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
     Play Next Video: 'Odtwórz następny film'
     Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
     Autoplay Videos: 'Autoodtwarzanie filmów'
@@ -805,6 +806,10 @@ Channel:
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi
     Video hidden by FreeTube: Film schowany przez FreeTube
+    View Full Post: Zobacz całe posty
+    Viewing Posts Only Supported By Invidious: Wyświetlanie postów jest wspierane
+      tylko przez Invidious. Możesz zobaczyć zawartość nie korzystając z Invidious,
+      przechodząc do zakładki „Społeczność” danego kanału.
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -938,6 +943,35 @@ Video:
   Unhide Channel: Pokaż kanał
   Hide Channel: Ukryj kanał
   More Options: Więcej opcji
+  Player:
+    TranslatedCaptionTemplate: '{language} (przetłumaczono z: "{originalLanguage}")'
+    Audio Tracks: Ścieżki audio
+    Theatre Mode: Tryb kina
+    Exit Theatre Mode: Wyłącz tryb kina
+    Exit Full Window: Wyłącz pełny ekran
+    Take Screenshot: Zrób zrzut ekranu
+    Show Stats: Pokaż statystyki
+    Hide Stats: Schowaj statystyki
+    Stats:
+      Stats: Statystyki
+      Video ID: 'ID filmu: {videoId}'
+      Player Dimensions: 'Rozmiary odtwarzacza: {width}x{height}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Głośność: {volumePercentage}%'
+      Bandwidth: 'Szerokość pasma: {bandwidth} kbps'
+      Buffered: 'Zbuforowano: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Zgubione klatki: {droppedFrames} / Wszystkie
+        klatki: {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeki: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodeki: {videoCodec} / {audioCodec}'
+      Media Formats: 'Formaty ścieżek: {formats}'
+      Resolution: 'Rozdzielczość: {width}x{height}@{frameRate}'
+    You appear to be offline: Zdaje się, że jesteś rozłączony.
+    Playback will resume automatically when your connection comes back: Odtwarzanie
+      zostanie wznowione, jak tylko połączenie zostanie odzyskane.
+    Skipped segment: Pominięto segment {segmentCategory}
+    Full Window: Pełny ekran
 Videos:
   #& Sort By
   Sort By:
@@ -976,6 +1010,8 @@ Change Format:
     tego filmu
   Dash formats are not available for this video: Formaty DASH nie są dostępne dla
     tego filmu
+  Legacy formats are not available for this video: Ten film nie jest dostępny w starych
+    formatach
 Share:
   Share Video: 'Podziel się filmem'
   Share Playlist: 'Podziel się playlistą'
@@ -1023,6 +1059,8 @@ Comments:
   Hearted: z serduszkiem
   View {replyCount} replies: Zobacz {replyCount} odpowiedzi
   Subscribed: Zasubskrybowano
+  There are no comments available for this post: Nie ma żadnych komentarzy pod tym
+    postem
 Up Next: 'Następne'
 
 # Toast Messages
@@ -1127,10 +1165,6 @@ Tooltips:
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
-      ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
-      zostanie użyty lokalny API, zamiast API Invidious. Pomaga w przypadkach, gdy
-      filmy zwracane przez Invidious nie odtwarzają się z powodu blokady regionalnej.
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.

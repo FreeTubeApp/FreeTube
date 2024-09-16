@@ -472,11 +472,13 @@ const actions = {
 
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
+    const postPattern = /^\/post\/(?<postId>.+)/
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
-      ['channel', channelPattern]
+      ['channel', channelPattern],
+      ['post', postPattern]
     ])
 
     for (const [type, pattern] of typePatterns) {
@@ -553,6 +555,17 @@ const actions = {
           hashtag
         }
       }
+
+      case 'post': {
+        const match = url.pathname.match(postPattern)
+        const postId = match.groups.postId
+        const query = { authorId: url.searchParams.get('ucid') }
+        return {
+          urlType: 'post',
+          postId,
+          query
+        }
+      }
       /*
       Using RegExp named capture groups from ES2018
       To avoid access to specific captured value broken
@@ -610,6 +623,16 @@ const actions = {
             subPath = 'about'
             break
           case 'community':
+            if (url.searchParams.has('lb')) {
+              // if it has the lb search parameter then it is linking a specific community post
+              const postId = url.searchParams.get('lb')
+              const query = { authorId: channelId }
+              return {
+                urlType: 'post',
+                postId,
+                query
+              }
+            }
             subPath = 'community'
             break
           default:

@@ -201,6 +201,18 @@ export default defineComponent({
             break
           }
 
+          case 'post': {
+            const { postId, query } = result
+
+            openInternalPath({
+              path: `/post/${postId}`,
+              query,
+              doCreateNewWindow,
+              searchQueryText: queryText,
+            })
+            break
+          }
+
           case 'channel': {
             const { channelId, subPath, url } = result
 

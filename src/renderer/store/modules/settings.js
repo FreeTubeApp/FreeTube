@@ -193,7 +193,6 @@ const state = {
   externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '',
   expandSideBar: false,
-  forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
   hideChannelPlaylists: false,
@@ -247,7 +246,7 @@ const state = {
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockSponsor: {
-    color: 'Blue',
+    color: 'Green',
     skip: 'autoSkip'
   },
   sponsorBlockSelfPromo: {
@@ -255,19 +254,19 @@ const state = {
     skip: 'showInSeekBar'
   },
   sponsorBlockInteraction: {
-    color: 'Green',
+    color: 'Pink',
     skip: 'showInSeekBar'
   },
   sponsorBlockIntro: {
-    color: 'Orange',
+    color: 'Cyan',
     skip: 'doNothing'
   },
   sponsorBlockOutro: {
-    color: 'Orange',
+    color: 'Blue',
     skip: 'doNothing'
   },
   sponsorBlockRecap: {
-    color: 'Orange',
+    color: 'Indigo',
     skip: 'doNothing'
   },
   sponsorBlockMusicOffTopic: {
@@ -275,7 +274,7 @@ const state = {
     skip: 'doNothing'
   },
   sponsorBlockFiller: {
-    color: 'Orange',
+    color: 'Purple',
     skip: 'doNothing'
   },
   thumbnailPreference: '',
@@ -476,6 +475,18 @@ const customActions = {
           case SyncEvents.GENERAL.UPSERT:
             commit('upsertToHistoryCache', data)
             break
+
+          case SyncEvents.HISTORY.OVERWRITE: {
+            const byId = {}
+            data.forEach(video => {
+              byId[video.videoId] = video
+            })
+
+            // It comes pre-sorted, so we don't have to sort it here
+            commit('setHistoryCacheSorted', data)
+            commit('setHistoryCacheById', byId)
+            break
+          }
 
           case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
             commit('updateRecordWatchProgressInHistoryCache', data)

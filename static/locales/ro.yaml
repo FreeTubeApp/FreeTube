@@ -371,8 +371,6 @@ Settings:
     Hide FreeTube Header Logo: Ascundeți logo-ul FreeTube Header
   Player Settings:
     Player Settings: 'Setări player'
-    Force Local Backend for Legacy Formats: 'Forțați backend-ul local pentru formatele
-      vechi'
     Play Next Video: 'Redă următorul video'
     Turn on Subtitles by Default: 'Activați subtitrările în mod implicit'
     Autoplay Videos: 'Redare automată de videoclipuri'
@@ -1027,11 +1025,6 @@ Tooltips:
       audio.
     Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri
       în loc să facă o conexiune directă la YouTube. Anulează preferințele API.
-    Force Local Backend for Legacy Formats: Funcționează numai atunci când API-ul
-      Invidious este implicit. Atunci când este activat, API-ul local va rula și va
-      utiliza formatele vechi returnate de acesta în locul celor returnate de Invidious.
-      Ajută atunci când videoclipurile returnate de Invidious nu sunt redate din cauza
-      restricțiilor de țară.
     Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului,
       țineți apăsată tasta Control (tasta Command pe Mac) și derulați rotița mouse-ului
       înainte sau înapoi pentru a controla rata de redare. Țineți apăsată tasta Control

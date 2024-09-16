@@ -392,8 +392,6 @@ Settings:
     Hide FreeTube Header Logo: Fela táknmynd FreeTube í haus
   Player Settings:
     Player Settings: 'Stillingar spilara'
-    Force Local Backend for Legacy Formats: 'Þvinga notkun staðværs bakenda fyrir
-      eldri skráasnið'
     Play Next Video: 'Spila næsta myndskeið'
     Turn on Subtitles by Default: 'Sjálfgefið kveikja á skjátextum'
     Autoplay Videos: 'Spila myndskeið sjálfkrafa'
@@ -1024,11 +1022,6 @@ Tooltips:
       ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil
       í sjálfgefna vafranum þínum.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Virkar bara þegar Invidious API-kerfisviðmótið
-      er sjálfgefið hjá þér. Þegar þetta er virkt, mun staðværa API-kerfisviðmótið
-      keyra og nota þau eldri skráasnið sem finnast í stað þeirra sem Invidious gefur
-      upp. Hjálpar til þegar myndskeið sem Invidious gefur upp spilast ekki vegna
-      landsháðra takmarkana.'
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
       í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót.'
     Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.

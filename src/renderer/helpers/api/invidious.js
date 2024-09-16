@@ -60,6 +60,16 @@ export function invidiousAPICall({ resource, id = '', params = {}, doLogError = 
   })
 }
 
+async function resolveUrl(url) {
+  return await invidiousAPICall({
+    resource: 'resolveurl',
+    params: {
+      url
+    },
+    doLogError: false
+  })
+}
+
 /**
  * Gets the channel ID for a channel URL
  * used to get the ID for channel usernames and handles
@@ -67,13 +77,7 @@ export function invidiousAPICall({ resource, id = '', params = {}, doLogError = 
  */
 export async function invidiousGetChannelId(url) {
   try {
-    const response = await invidiousAPICall({
-      resource: 'resolveurl',
-      params: {
-        url
-      },
-      doLogError: false
-    })
+    const response = await resolveUrl(url)
 
     if (response.pageType === 'WEB_PAGE_TYPE_CHANNEL') {
       return response.ucid
@@ -196,6 +200,60 @@ export async function invidiousGetCommunityPosts(channelId, continuation = null)
   const response = await invidiousAPICall(payload)
   response.comments = response.comments.map(communityPost => parseInvidiousCommunityData(communityPost))
   return { posts: response.comments, continuation: response.continuation ?? null }
+}
+
+export async function getInvidiousCommunityPost(postId, authorId = null) {
+  const payload = {
+    resource: 'post',
+    id: postId,
+  }
+
+  if (authorId == null) {
+    authorId = await invidiousGetChannelId('https://www.youtube.com/post/' + postId)
+  }
+
+  payload.params = {
+    ucid: authorId
+  }
+
+  const response = await invidiousAPICall(payload)
+
+  const post = parseInvidiousCommunityData(response.comments[0])
+  post.authorId = authorId
+  post.commentCount = null
+
+  return post
+}
+
+export async function getInvidiousCommunityPostComments({ postId, authorId }) {
+  const payload = {
+    resource: 'post',
+    id: postId,
+    subResource: 'comments',
+    params: {
+      ucid: authorId
+    }
+  }
+
+  const response = await invidiousAPICall(payload)
+  const commentData = parseInvidiousCommentData(response)
+
+  return { response, commentData }
+}
+
+export async function getInvidiousCommunityPostCommentReplies({ postId, replyToken, authorId }) {
+  const payload = {
+    resource: 'post',
+    id: postId,
+    subResource: 'comments',
+    params: {
+      ucid: authorId,
+      continuation: replyToken
+    }
+  }
+
+  const response = await invidiousAPICall(payload)
+  return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
 }
 
 function parseInvidiousCommunityData(data) {

@@ -42,6 +42,8 @@ Global:
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
+    Comment Count: 1 commentaire | {count} commentaires
+    Like Count: 1 like | {count} likes
   Input Tags:
     Length Requirement: L'étiquette doit comporter au moins {number} caractères
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
@@ -397,8 +399,6 @@ Settings:
     Hide FreeTube Header Logo: Masquer le logo d'en-tête de FreeTube
   Player Settings:
     Player Settings: 'Paramètres du lecteur'
-    Force Local Backend for Legacy Formats: 'Forcer le backend local pour le format
-      Legacy'
     Remember History: 'Se souvenir de l''historique'
     Play Next Video: 'Lire la vidéo suivante'
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
@@ -831,6 +831,10 @@ Channel:
     Reveal Answers: Afficher les réponses
     Hide Answers: Masquer les réponses
     Video hidden by FreeTube: Vidéo cachée par FreeTube
+    View Full Post: Voir le message complet
+    Viewing Posts Only Supported By Invidious: L'affichage des messages n'est possible
+      qu'avec Indivious. Allez dans l'onglet communauté de la chaîne pour visualiser
+      le contenu sans Indivious.
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement
@@ -986,6 +990,8 @@ Video:
       CodecAudio: 'Codec : {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codecs : {videoCodec} / {audioCodec}'
       CodecsVideoAudio: 'Codecs : {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Images perdues : {droppedFrames} / Images totales :
+        {totalFrames}'
     Skipped segment: Segment {segmentCategory} ignoré
     TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
     Exit Full Window: Quitter la fenêtre pleine
@@ -1082,6 +1088,8 @@ Comments:
   Hearted: Aimé
   View {replyCount} replies: Voir les {replyCount} réponses
   Subscribed: Abonné(e)
+  There are no comments available for this post: Il n'y a pas de commentaire associé
+    à ce message
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -1180,11 +1188,6 @@ Tooltips:
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
       au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
       de l'API.
-    Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
-      est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
-      les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
-      Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
-      de restrictions pays.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo,
       maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler
       la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse
@@ -1326,7 +1329,7 @@ Yes, Delete: Oui, effacer
 Yes, Restart: Oui, redémarrer
 Yes, Open Link: Oui, ouvrir le lien
 Cancel: Annuler
-Search character limit: La recherche dépasse le nombre de caractères impartis
+Search character limit: La recherche dépasse le nombre de caractères impartis {searchCharacterLimit}
 Search Listing:
   Label:
     4K: 4K

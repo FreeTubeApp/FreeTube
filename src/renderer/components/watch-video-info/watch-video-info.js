@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
@@ -274,7 +274,7 @@ export default defineComponent({
         if (dropdownShown && window.innerWidth >= 901) {
           // adds a slight delay so we know that the dropdown has shown up
           // and won't mess up our scrolling
-          setTimeout(() => {
+          nextTick(() => {
             this.$emit('scroll-to-info-area')
           })
         }

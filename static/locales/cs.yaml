@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 odběratel | {count} odběratelů
     View Count: 1 zhlédnutí | {count} zhlédnutí
     Watching Count: 1 sledující | {count} sledujících
+    Like Count: 1 líbí se mi | {count} líbí se mi
+    Comment Count: 1 komentář | {count} komentářů
   Input Tags:
     Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
@@ -387,7 +389,6 @@ Settings:
     Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
-    Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
     Play Next Video: 'Přehrát další video'
     Turn on Subtitles by Default: 'Ve výchozím nastavení zapnout titulky'
     Autoplay Videos: 'Automaticky přehrávat videa'
@@ -823,6 +824,10 @@ Channel:
     votes: '{votes} hlasů'
     Reveal Answers: Odhalit odpovědi
     Video hidden by FreeTube: Video skryté programem FreeTube
+    View Full Post: Zobrazit celý příspěvek
+    Viewing Posts Only Supported By Invidious: Zobrazení příspěvků je podporováno
+      pouze službou Invidious. Přejděte do karty komunity kanálu pro zobrazení jejího
+      obsahu bez Invidious.
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
@@ -955,6 +960,35 @@ Video:
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
   More Options: Další možnosti
+  Player:
+    Stats:
+      Player Dimensions: Rozměry přehrávače {width}x{height}
+      Bitrate: 'Datový tok: {bitrate} kb/s'
+      Volume: 'Hlasitost: {volumePercentage} %'
+      CodecsVideoAudioNoItags: 'Kodeky: {videoCodec} / {audioCodec}'
+      Stats: Statistiky
+      Video ID: 'ID videa: {videoId}'
+      Media Formats: 'Formáty médií: {formats}'
+      Resolution: 'Rozlišení: {width}x{height}@{frameRate}'
+      Bandwidth: 'Šířka pásma: {bandwidth} kb/s'
+      Buffered: 'Načteno: {bufferedPercentage} %'
+      Dropped Frames / Total Frames: 'Vypuštěno snímků: {droppedFrames} / Celkem snímků:
+        {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeky: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    Skipped segment: Přeskočen segment {segmentCategory}
+    TranslatedCaptionTemplate: '{language} (přeloženo z jazyka {originalLanguage})'
+    Audio Tracks: Zvukové stopy
+    Theatre Mode: Režim kina
+    Exit Theatre Mode: Opustit režim kina
+    Full Window: Celé okno
+    Exit Full Window: Opustit celé okno
+    Take Screenshot: Pořídit snímek
+    Show Stats: Zobrazit statistiky
+    Hide Stats: Skrýt statistiky
+    You appear to be offline: Zdá se, že jste offline.
+    Playback will resume automatically when your connection comes back: Přehrávání
+      bude automaticky pokračovat, jakmile budete opět připojeni.
 Videos:
   #& Sort By
   Sort By:
@@ -993,6 +1027,8 @@ Change Format:
     dostupné'
   Audio formats are not available for this video: 'Zvukové formáty nejsou pro toto
     video dostupné'
+  Legacy formats are not available for this video: Starší formáty nejsou pro toto
+    video dostupné
 Share:
   Share Video: 'Sdílet video'
   Share Playlist: 'Sdílet playlist'
@@ -1042,6 +1078,8 @@ Comments:
   View {replyCount} replies: Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
   Subscribed: Odebíráno
+  There are no comments available for this post: U tohoto příspěvku nejsou dostupné
+    žádné komentáře
 Up Next: 'Další'
 
 #Tooltips
@@ -1063,10 +1101,6 @@ Tooltips:
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je jako výchozí
-      nastaveno API Invidious. Je-li povoleno, spustí se místní API a použije starší
-      formáty místo těch, které vrátí Invidious. Může pomoci, pokud videa z Invidious
-      nemohou být přehrána z důvodu regionálních omezení.'
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty

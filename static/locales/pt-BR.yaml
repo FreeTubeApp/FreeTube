@@ -18,8 +18,8 @@ Reload: 'Recarregar'
 Force Reload: 'Forçar recarregamento'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
 Actual size: 'Tamanho atual'
-Zoom in: 'Aumentar zoom'
-Zoom out: 'Diminuir zoom'
+Zoom in: 'Ampliar'
+Zoom out: 'Reduzir'
 Toggle fullscreen: 'Alternar tela cheia'
 Window: 'Janela'
 Minimize: 'Minimizar'
@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 inscrito | {count} inscritos
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
+    Like Count: 1 curtida | {count} curtidas
+    Comment Count: 1 comentário | {count} comentários
   Input Tags:
     Length Requirement: A tag deve ter pelo menos {number} caracteres
 Search / Go to URL: 'Pesquisar ou digitar URL'
@@ -113,7 +115,7 @@ Subscriptions:
   Subscriptions Tabs: Guias de inscrições
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver
     o conteúdo aqui, desoculte algumas guias na seção "{subsection}" em "{settingsSection}".
-  Load More Posts: Carregar mais posts
+  Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
 Trending:
   Trending: 'Em alta'
@@ -141,7 +143,7 @@ User Playlists:
   Create New Playlist: Criar nova playlist
   Add to Playlist: Adicionar à playlist
   Move Video Up: Mover vídeo para cima
-  Remove from Playlist: Remover da Playlist
+  Remove from Playlist: Remover da playlist
   CreatePlaylistPrompt:
     Create: Criar
     New Playlist Name: Novo nome da playlist
@@ -155,16 +157,15 @@ User Playlists:
   Add to Favorites: Adicionar a "{playlistName}"
   Remove from Favorites: Remover de "{playlistName}"
   Move Video Down: Mover vídeo para baixo
-  Playlist Name: Nome da Playlist
-  Playlist Description: Descrição da Playlist
+  Playlist Name: Nome da playlist
+  Playlist Description: Descrição da playlist
   Save Changes: Salvar alterações
   Cancel: Cancelar
-  Edit Playlist Info: Editar informação da Playlist
-  Copy Playlist: Copiar Playlist
-  Enable Quick Bookmark With This Playlist: Habilitar "Favoritos Rápidos" para esta
-    playlist
+  Edit Playlist Info: Editar informação da playlist
+  Copy Playlist: Copiar playlist
+  Enable Quick Bookmark With This Playlist: Habilitar "Quick Bookmark" para esta playlist
   Disable Quick Bookmark: Desativar Favoritos Rápidos
-  Delete Playlist: Excluir Playlist
+  Delete Playlist: Excluir playlist
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
@@ -180,16 +181,16 @@ User Playlists:
   SinglePlaylistView:
     Toast:
       This playlist is now used for quick bookmark: Esta playlist agora é usada como
-        "Favoritos Rápidos"
+        "Quick Bookmark"
       Quick bookmark disabled: Favoritos Rápidos desativado
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
-        playlist agora é usada como "Favoritos Rápidos" em vez de {oldPlaylistName}.
+        playlist agora é usada como "Quick Bookmark" em vez de "{oldPlaylistName}".
         Clique aqui para desfazer
       There was an issue with updating this playlist.: Ocorreu um problema ao atualizar
         esta playlist.
       This video cannot be moved down.: Este vídeo não pode ser movido para baixo.
-      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
-        como "Favoritos Rápidos"
+      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar "{oldPlaylistName}"
+        como "Quick Bookmark"
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alguns
         vídeos da playlist ainda não foram carregados. Clique aqui para copiar mesmo
         assim.
@@ -208,9 +209,9 @@ User Playlists:
       Playlist has been updated.: Playlist atualizada.
       Video has been removed: Vídeo removido
       This playlist is already being used for quick bookmark.: Esta playlist já está
-        sendo usada em "Favoritos Rápidos".
+        sendo usada como "Quick Bookmark".
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist "{playlistName}"
-        é a nova playlist em "Favoritos Rápidos".
+        é a nova playlist em "Quick Bookmark".
     Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Toast:
@@ -236,9 +237,9 @@ User Playlists:
     não pode ser desfeito.
   Remove Watched Videos: Remove vídeos assistidos
   Playlists with Matching Videos: Playlists com vídeos correspondentes
-  Quick Bookmark Enabled: Favoritos Rápidos ativado
+  Quick Bookmark Enabled: Quick Bookmark ativado
   Cannot delete the quick bookmark target playlist.: Não é possível excluir a playlist
-    de destino em "Favoritos Rápidos".
+    de destino do "Quick Bookmark".
   Remove Duplicate Videos: Remover vídeos duplicados
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Tem
     certeza de que deseja remover 1 vídeo duplicado desta playlist? Isso não pode
@@ -303,7 +304,7 @@ Settings:
       No Action: Nenhuma ação
       Ask Before Opening Link: Perguntar antes de abrir o link
       Open Link: Abrir link
-      External Link Handling: Ação de link externo
+      External Link Handling: Ação para links externos
     Auto Load Next Page:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
@@ -379,8 +380,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube na barra superior
   Player Settings:
     Player Settings: 'Configurações de reprodução'
-    Force Local Backend for Legacy Formats: 'Forçar processamento local para formatos
-      antigos'
     Remember History: 'Lembrar do histórico'
     Play Next Video: 'Reproduzir próximo vídeo'
     Turn on Subtitles by Default: 'Ativar legendas por padrão'
@@ -411,7 +410,7 @@ Settings:
     Next Video Interval: Intervalo para o próximo vídeo
     Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
     Scroll Volume Over Video Player: Alterar volume ao rolar sobre o player
-    Fast-Forward / Rewind Interval: Intervalo para avançar/retroceder rápido
+    Fast-Forward / Rewind Interval: Intervalo para avançar/retroceder rapidamente
     Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao rolar sobre
       o player
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
@@ -530,18 +529,18 @@ Settings:
     All watched history has been successfully imported: O histórico de exibição foi
       importado com sucesso
     History object has insufficient data, skipping item: O histórico tem dados insuficientes,
-      pulando item
+      ignorando item
     This might take a while, please wait: Este processo pode demorar, por favor aguarde
     Invalid subscriptions file: Arquivo de inscrições inválido
     All subscriptions and profiles have been successfully imported: Todas as inscrições
       e perfis foram importados com sucesso
     Profile object has insufficient data, skipping item: O perfil tem dados insuficientes,
       ignorando o item
-    Manage Subscriptions: Administrar inscrições
+    Manage Subscriptions: Gerenciar inscrições
     Import Playlists: Importar playlists
     Export Playlists: Exportar playlists
     Playlist insufficient data: Dados insuficientes para a playlist "{playlist}",
-      pulando item
+      ignorando item
     All playlists has been successfully exported: Todas as playlists foram exportadas
       com sucesso
     All playlists has been successfully imported: Todas as playlists foram importadas
@@ -566,7 +565,7 @@ Settings:
     Distraction Free Settings: Configurações de distrações
     Hide Channel Subscribers: Ocultar número de inscritos
     Hide Video Likes And Dislikes: Ocultar "curtidas" em vídeo
-    Hide Video Views: Ocultar visualizações de vídeo
+    Hide Video Views: Ocultar visualizações do vídeo
     Hide Active Subscriptions: Ocultar inscrições ativas
     Hide Playlists: Ocultar playlist
     Hide Video Description: Ocultar descrição do vídeo
@@ -591,20 +590,20 @@ Settings:
     Hide Channel Shorts: Ocultar "Shorts" do canal
     Hide Channel Podcasts: Ocultar podcasts do canal
     Hide Channel Releases: Ocultar lançamentos do canal
-    Hide Subscriptions Videos: Ocultar vídeos de inscrições
-    Hide Subscriptions Shorts: Ocultar "Shorts" de inscrições
-    Hide Subscriptions Live: Ocultar transmissões ao vivo de inscrições
+    Hide Subscriptions Videos: Ocultar vídeos de suas inscrições
+    Hide Subscriptions Shorts: Ocultar "Shorts" de suas inscrições
+    Hide Subscriptions Live: Ocultar transmissões ao vivo de suas inscrições
     Hide Profile Pictures in Comments: Ocultar foto do perfil nos comentários
     Blur Thumbnails: Desfocar Miniaturas
-    Hide Subscriptions Community: Ocultar comunidade de inscrições
+    Hide Subscriptions Community: Ocultar comunidade de suas inscrições
     Hide Channels Invalid: ID do canal fornecido é inválido
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram
-      processados. O recurso é bloqueado enquanto esses IDs estão sendo atualizados
+      processados. A função está bloqueada enquanto esses IDs estão sendo atualizados
     Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor,
       verifique novamente se o ID está correto.
-    Hide Videos and Playlists Containing Text Placeholder: Palavra, trecho de palavra
-      ou frase
+    Hide Videos and Playlists Containing Text Placeholder: Palavra, trecho de uma
+      palavra ou frase
     Hide Videos and Playlists Containing Text: Ocultar vídeos e playlists que contenham
       texto
   The app needs to restart for changes to take effect. Restart and apply change?: O
@@ -638,12 +637,12 @@ Settings:
       Prompt To Skip: Solicitar para pular
       Do Nothing: Não fazer nada
       Auto Skip: Pular automaticamente
-      Skip Option: Opção de pular
+      Skip Option: Opção para pular
     Category Color: Cor da categoria
-    UseDeArrowTitles: Utilizar títulos de vídeo DeArrow
-    UseDeArrowThumbnails: Usar DeArrow para miniaturas
+    UseDeArrowTitles: Usar títulos de vídeo estilo DeArrow
+    UseDeArrowThumbnails: Usar miniaturas estilo DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
-      da API do gerador de miniatura DeArrow (o padrão é https://dearrow-thumb.ajay.app)
+      da API para gerar miniaturas estilo DeArrow (o padrão é https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argumentos do player externo personalizados
     External Player: Player externo
@@ -662,7 +661,7 @@ Settings:
     Download in app: Baixar no aplicativo
     Download Behavior: Comportamento de download
   Parental Control Settings:
-    Show Family Friendly Only: Mostrar apenas conteúdo adequado para toda a família
+    Show Family Friendly Only: Mostrar apenas conteúdo adequado para todos os públicos
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de Controle Parental
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
@@ -792,6 +791,10 @@ Channel:
     Reveal Answers: Mostrar respostas
     Hide Answers: Ocultar respostas
     Video hidden by FreeTube: Vídeo escondido pelo FreeTube
+    View Full Post: Ver postagem completa
+    Viewing Posts Only Supported By Invidious: A visualização de postagens só é compatível
+      com o Invidious. Acesse a guia da comunidade de um canal para visualizar o conteúdo
+      sem o Invidious.
   Channel Tabs: Guias de canais
   Live:
     Live: Ao vivo
@@ -893,8 +896,8 @@ Video:
   Sponsor Block category:
     music offtopic: Música fora do contexto
     interaction: Interação
-    self-promotion: Auto-Promoção
-    outro: Conclusão
+    self-promotion: Auto-promoção
+    outro: Cartões finais e créditos
     intro: Introdução
     sponsor: Patrocinador
     filler: Preenchimento
@@ -927,6 +930,35 @@ Video:
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
   More Options: Mais opções
+  Player:
+    Audio Tracks: Faixas de áudio
+    Theatre Mode: Modo Teatro
+    Exit Theatre Mode: Sair do modo Teatro
+    Take Screenshot: Capturar tela
+    Hide Stats: Ocultar estatísticas
+    Stats:
+      Stats: Estatísticas
+      Video ID: 'ID do vídeo: {videoId}'
+      Media Formats: 'Formatos de mídia: {formats}'
+      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensões do player: {width}x{height}'
+      Bitrate: 'Taxa de bits: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      Dropped Frames / Total Frames: 'Quadros descartados: {droppedFrames} / Total
+        de quadros: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+      Buffered: 'Transferência: {bufferedPercentage}%'
+      Bandwidth: 'Transmissão de dados: {bandwidth} kbps'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    You appear to be offline: Parece que você está offline.
+    Playback will resume automatically when your connection comes back: A reprodução
+      será retomada automaticamente quando a conexão for restabelecida.
+    Skipped segment: Segmento {segmentCategory} ignorado
+    Full Window: Preencher janela
+    TranslatedCaptionTemplate: '{language} (traduzido do "{originalLanguage}")'
+    Show Stats: Mostrar estatísticas
+    Exit Full Window: Sair do preenchimento de janela
 Videos:
   #& Sort By
   Sort By:
@@ -965,13 +997,15 @@ Change Format:
     para este vídeo
   Dash formats are not available for this video: Formatos DASH não disponíveis para
     este vídeo
+  Legacy formats are not available for this video: Os formatos antigos não estão disponíveis
+    para este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
   Share Playlist: 'Compartilhar playlist'
   Copy Link: 'Copiar link'
   Open Link: 'Abrir link'
-  Copy Embed: 'Copiar incorporado'
-  Open Embed: 'Abrir incorporado'
+  Copy Embed: 'Copiar link incorporado'
+  Open Embed: 'Abrir link incorporado'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiado para a área de transferência'
   Invidious Embed URL copied to clipboard: 'URL incorporado do Invidious copiado para
@@ -1008,11 +1042,13 @@ Comments:
   Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por
   And others: e outros
-  From {channelName}: de {channelName}
+  From {channelName}: A partir de {channelName}
   Member: Membro
-  Hearted: Coração
+  Hearted: Recebeu um coração
   View {replyCount} replies: Exibir {replyCount} respostas
   Subscribed: Inscrito
+  There are no comments available for this post: Não há comentários disponíveis para
+    esta postagem
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -1061,7 +1097,7 @@ Profile:
   No channel(s) have been selected: Nenhum canal foi selecionado
   Add Selected To Profile: Adicionar selecionado ao perfil
   Delete Selected: Excluir selecionados
-  Select None: Cancelar seleção
+  Select None: Desfazer seleção
   Select All: Selecionar todos
   '{number} selected': '{number} selecionado(s)'
   Other Channels: Outros canais
@@ -1108,16 +1144,12 @@ Tooltips:
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter
       vídeos em vez de fazer uma conexão direta com o YouTube. Ignora a preferência
       da API.
-    Force Local Backend for Legacy Formats: Funciona apenas quando a API do Invidious
-      é o padrão. Quando ativada, a API Local será executada e usará os formatos herdados
-      retornados por ela, em vez dos retornados pelo Invidious. Ajuda quando os vídeos
-      retornados pelo Invidious não são reproduzidos devido a restrições do país.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
-      e segure a tecla Control (tecla Command no Mac) e role a roda do mouse para
-      frente ou para trás para controlar a taxa de reprodução. Pressione e segure
-      a tecla Control (tecla Command no Mac) e clique com o botão esquerdo do mouse
-      para retornar rapidamente à taxa de reprodução padrão (1x a menos que tenha
-      sido alterada nas configurações).
+      e segure a tecla Ctrl (tecla Command no Mac) e role a roda do mouse para frente
+      ou para trás para controlar a taxa de reprodução. Pressione e segure a tecla
+      Ctrl (tecla Command no Mac) e clique com o botão esquerdo do mouse para retornar
+      rapidamente à taxa de reprodução padrão (1x a menos que tenha sido alterada
+      nas configurações).
     Skip by Scrolling Over Video Player: Use a roda de rolagem para pular o vídeo,
       estilo MPV.
   General Settings:
@@ -1172,7 +1204,7 @@ Tooltips:
     UseDeArrowThumbnails: Substitua as miniaturas de vídeo pelas miniaturas do DeArrow.
 More: Mais
 Playing Next Video Interval: A reproduzir o próximo vídeo imediatamente. Clique para
-  cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundo(s). Clique
+  cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundo. Clique
   para cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundos. Clique
   para cancelar.
 Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
@@ -1185,8 +1217,8 @@ Default Invidious instance has been set to {instance}: A instância padrão Invi
   foi definida para {instance}
 Search Bar:
   Clear Input: Limpar entrada
-External link opening has been disabled in the general settings: A abertura de link
-  externo foi desativada nas configurações gerais
+External link opening has been disabled in the general settings: Abrir links externos
+  foi desativado nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"{videoTitle}" download concluído'
 Starting download: Iniciando download "{videoTitle}"
@@ -1225,7 +1257,7 @@ Playlist will not pause when current video is finished: A playlist não será pa
   quando o vídeo atual terminar
 Channel Hidden: '{channel} adicionado ao filtro de canais'
 Go to page: Ir para {page}
-Channel Unhidden: '{channel} removido do filtro do canal'
+Channel Unhidden: '{channel} removido do filtro de canais'
 Trimmed input must be at least N characters long: A entrada cortada deve ter pelo
   menos 1 caractere | A entrada cortada precisa ter pelo menos {length} caracteres
 Tag already exists: A tag "{tagName}" já existe

@@ -44,6 +44,8 @@ Global:
     Subscriber Count: 1 iscritto | {count} iscritti
     View Count: 1 visualizzazione | {count} visualizzazioni
     Watching Count: 1 spettatore | {count} spettatori
+    Comment Count: 1 commento | {count} commenti
+    Like Count: 1 mi piace | {count} mi piace
   Input Tags:
     Length Requirement: Il tag deve essere lungo almeno {number} caratteri
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
@@ -385,8 +387,6 @@ Settings:
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Impostazioni del lettore'
-    Force Local Backend for Legacy Formats: 'Forza il backend locale per i formati
-      obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -799,6 +799,10 @@ Channel:
     Reveal Answers: Rivela le risposte
     Hide Answers: Nascondi le risposte
     Video hidden by FreeTube: Video nascosto da FreeTube
+    Viewing Posts Only Supported By Invidious: La visualizzazione dei post è supportata
+      solo da Invidious. Vai alla scheda comunità di un canale per visualizzare i
+      contenuti senza Invidious.
+    View Full Post: Visualizza il post completo
   Live:
     Live: Dal vivo
     This channel does not currently have any live streams: Questo canale attualmente
@@ -1051,6 +1055,8 @@ Comments:
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
   Subscribed: Iscritto
+  There are no comments available for this post: Non ci sono commenti disponibili
+    per questo post
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -1132,10 +1138,6 @@ This video is unavailable because of missing formats. This can happen due to cou
   in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
-    Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Se abilitate, le API locali useranno i formati obsoleti al posto
-      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
-      a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati DASH possono riprodurre qualità maggiore. I formati obsoleti sono
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono

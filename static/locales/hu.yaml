@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 feliratkozó | {count} feliratkozó
     View Count: 1 megtekintés | {count} megtekintés
     Watching Count: 1 néző | {count} néző
+    Like Count: 1 embernek tetszik | {count} embernek tetszik
+    Comment Count: 1 hozzászólás | {count} hozzászólás
   Input Tags:
     Length Requirement: A címkének legalább {number} karakter hosszúnak kell lennie
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
@@ -393,8 +395,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
-    Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
-      örökölt formátumokra'
     Play Next Video: 'Következő videó lejátszása'
     Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
     Autoplay Videos: 'Videók automatikus lejátszása'
@@ -851,6 +851,10 @@ Channel:
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
     Video hidden by FreeTube: FreeTube által rejtett videó
+    View Full Post: Teljes bejegyzés megtekintése
+    Viewing Posts Only Supported By Invidious: A hozzászólások megtekintését csak
+      az Invidious támogatja. Az Invidious nélkül is megtekintheti a csatornák közösségi
+      fülét.
   Shorts:
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
       rövidfilmek
@@ -981,6 +985,35 @@ Video:
   Unhide Channel: Csatorna megjelenítése
   Hide Channel: Csatorna elrejtése
   More Options: További beállítások
+  Player:
+    Audio Tracks: Hangsávok
+    Exit Theatre Mode: Kilépés a színházmódból
+    Theatre Mode: Színházmód
+    Full Window: Teljes ablak
+    Exit Full Window: Kilépés a teljes ablakból
+    Take Screenshot: Képernyőkép készítése
+    Hide Stats: Statisztika elrejtése
+    Stats:
+      Stats: Statisztikák
+      Video ID: 'Videó azonosító: {videoId}'
+      Media Formats: 'Média formátum: {formats}'
+      Player Dimensions: 'Lejátszó mérete: {width}x{height}'
+      Bitrate: 'Bitsebesség: {bitrate} kbps'
+      Volume: 'Hangerő: {volumePercentage}%'
+      Bandwidth: 'Sávszélesség: {bandwidth} kbps'
+      Buffered: 'Pufferolt: {bufferedPercentage}%'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodekek: {videoCodec} / {audioCodec}'
+      Dropped Frames / Total Frames: 'Kihagyott képkockák: {droppedFrames} / Összes
+        képkocka: {totalFrames}'
+      Resolution: 'Felbontás: {width}x{height}@{frameRate}'
+      CodecsVideoAudio: 'Kodekek: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    You appear to be offline: Úgy tűnik, hogy jelenleg nem kapcsolódsz a hálózathoz.
+    Skipped segment: Kihagyott {segmentCategory} szakasz
+    TranslatedCaptionTemplate: '{language} (fordítva erről: "{originalLanguage}")'
+    Show Stats: Statisztika megjelenítése
+    Playback will resume automatically when your connection comes back: A lejátszás
+      automatikusan folytatódik, amikor a kapcsolat helyreáll.
 Videos:
   #& Sort By
   Sort By:
@@ -1021,6 +1054,8 @@ Change Format:
     a videóhoz'
   Audio formats are not available for this video: 'Hangformátumok nem érhetők el ehhez
     a videóhoz'
+  Legacy formats are not available for this video: A régebbi formátumok nem állnak
+    rendelkezésre ehhez a videóhoz
 Share:
   Share Video: 'Videó megosztása'
   Share Playlist: 'Lejátszási lista megosztása'
@@ -1068,6 +1103,7 @@ Comments:
   View {replyCount} replies: '{replyCount} válasz megtekintése'
   Hearted: Kedvenc
   Subscribed: Feliratkozott
+  There are no comments available for this post: Nincsenek hozzászólások ehhez a bejegyzéshez
 Up Next: 'Következő'
 
 # Toast Messages
@@ -1125,11 +1161,6 @@ Tooltips:
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
       videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
       szolgáltatással. Felülbírálja az API beállítást.
-    Force Local Backend for Legacy Formats: Csak akkor működik, ha az Invidious API
-      az alapértelmezett. Ha engedélyezve van, a helyi API fut, és az általa visszaadott
-      régi formátumokat használja az Invidious által visszaadottak helyett. Segít,
-      ha az Invidious által visszaküldött videók nem játszódnak le az országos korlátozások
-      miatt.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja
       meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű),
       és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához.

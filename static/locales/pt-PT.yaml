@@ -40,7 +40,7 @@ Global:
   Counts:
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
-    View Count: 1 visualização | {contagem} visualizações
+    View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
     Channel Count: 1 canal | {count} canais
   Input Tags:
@@ -369,8 +369,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: Definições do reprodutor
-    Force Local Backend for Legacy Formats: Forçar sistema de ligação local para formatos
-      antigos
     Remember History: Lembrar Histórico
     Play Next Video: Reproduzir vídeo seguinte
     Turn on Subtitles by Default: Ativar legendas automaticamente
@@ -1012,10 +1010,6 @@ Tooltips:
       não pode ser aberta no FreeTube, é clicada.\nPor definição, FreeTube abrirá
       a ligação no seu navegador de Internet.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é sistema usado. Se ativa, a API local será executada para usar os formatos
-      antigos em vez dos usados pelo Invidious. Útil quando os vídeos Invidious não
-      funcionam devido a restrições geográficas.
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
       vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
       API.

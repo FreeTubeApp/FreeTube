@@ -43,7 +43,7 @@ Global:
     Video Count: 1 video | {count} video
     Watching Count: 1 lượt xem | {count} lượt xem
   Input Tags:
-    Length Requirement: 1 đang xem | {count} đang xem
+    Length Requirement: 1 đang xem | {number} đang xem
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
@@ -329,8 +329,6 @@ Settings:
     Hide FreeTube Header Logo: Ẩn logo FreeTube trên thanh trên
   Player Settings:
     Player Settings: 'Cài đặt trình phát'
-    Force Local Backend for Legacy Formats: 'Bắt buộc Local Backend cho định dạng
-      cũ'
     Remember History: 'Nhớ lịch sử'
     Play Next Video: 'Phát video tiếp theo'
     Turn on Subtitles by Default: 'Bật phụ đề theo mặc định'
@@ -1044,10 +1042,6 @@ Tooltips:
     Region for Trending: Xu hướng khu vực cho phép bạn chọn các video thịnh hành của
       quốc gia mà bạn muốn hiển thị.
   Player Settings:
-    Force Local Backend for Legacy Formats: Chỉ hoạt động khi API Invidious là mặc
-      định của bạn. Khi được bật lên, API cục bộ sẽ chạy và sử dụng các định dạng
-      kế thừa được trả về thay vì các định dạng được trả về bởi Invidious. Điều này
-      có ích khi các video do Invidious trả về không phát được do giới hạn quốc gia.
     Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay
       vì kết nối trực tiếp với YouTube. Ghi đè tùy chọn API.
     Default Video Format: Cài đặt các định dạng được dùng khi phát video. Định dạng

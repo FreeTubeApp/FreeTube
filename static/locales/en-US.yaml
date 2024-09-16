@@ -52,6 +52,8 @@ Global:
     Channel Count: 1 channel | {count} channels
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
   Input Tags:
     Length Requirement: Tag must be at least {number} characters long
@@ -387,7 +389,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Player Settings
-    Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
     Play Next Video: Play Next Video
     Turn on Subtitles by Default: Turn on Subtitles by Default
     Autoplay Videos: Autoplay Videos
@@ -759,9 +760,11 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
+    View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
+    Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
   More Options: More Options
   Mark As Watched: Mark As Watched
@@ -989,12 +992,14 @@ Comments:
   And others: and others
   There are no comments available for this video: There are no comments available
     for this video
+  There are no comments available for this post: There are no comments available for this post
   Load More Comments: Load More Comments
   No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed
   Hearted: Hearted
+
 Up Next: Up Next
 
 #Tooltips
@@ -1016,10 +1021,6 @@ Tooltips:
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
-    Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-      default. When enabled, the Local API will run and use the legacy formats returned
-      by that instead of the ones returned by Invidious. Helps when the videos returned
-      by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube. Overrides API preference.
     Default Video Format: Set the formats used when a video plays. DASH formats can
