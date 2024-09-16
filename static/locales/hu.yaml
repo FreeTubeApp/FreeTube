@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 feliratkozó | {count} feliratkozó
     View Count: 1 megtekintés | {count} megtekintés
     Watching Count: 1 néző | {count} néző
+    Like Count: 1 embernek tetszik | {count} embernek tetszik
+    Comment Count: 1 hozzászólás | {count} hozzászólás
   Input Tags:
     Length Requirement: A címkének legalább {number} karakter hosszúnak kell lennie
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
@@ -849,6 +851,10 @@ Channel:
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
     Video hidden by FreeTube: FreeTube által rejtett videó
+    View Full Post: Teljes bejegyzés megtekintése
+    Viewing Posts Only Supported By Invidious: A hozzászólások megtekintését csak
+      az Invidious támogatja. Az Invidious nélkül is megtekintheti a csatornák közösségi
+      fülét.
   Shorts:
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
       rövidfilmek
@@ -1097,6 +1103,7 @@ Comments:
   View {replyCount} replies: '{replyCount} válasz megtekintése'
   Hearted: Kedvenc
   Subscribed: Feliratkozott
+  There are no comments available for this post: Nincsenek hozzászólások ehhez a bejegyzéshez
 Up Next: 'Következő'
 
 # Toast Messages

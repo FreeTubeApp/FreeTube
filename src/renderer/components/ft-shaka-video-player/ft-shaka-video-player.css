@@ -37,16 +37,6 @@
   flex-direction: column-reverse;
 }
 
-/*
-  With the legacy formats, shaka hands over the captions to the browser,
-  that causes issues like the captions being displayed under the player controls.
-  The browser positions captions based on the video element as it doesn't know about shaka's custom controls.
-  To solve that we use shaka's caption displayer (UITextDisplayer), so we need to hide the browser's ones
- */
-.player::-webkit-media-text-track-container {
-  display: none;
-}
-
 .sixteenByNine {
   aspect-ratio: 16 / 9;
 }

@@ -1075,6 +1075,15 @@ function runApp() {
           )
           return null
 
+        case DBActions.HISTORY.OVERWRITE:
+          await baseHandlers.history.overwrite(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.OVERWRITE, data }
+          )
+          return null
+
         case DBActions.HISTORY.UPDATE_WATCH_PROGRESS:
           await baseHandlers.history.updateWatchProgress(data.videoId, data.watchProgress)
           syncOtherWindows(

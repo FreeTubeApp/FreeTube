@@ -32,6 +32,13 @@ class History {
     )
   }
 
+  static overwrite(records) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HISTORY,
+      { action: DBActions.HISTORY.OVERWRITE, data: records }
+    )
+  }
+
   static updateWatchProgress(videoId, watchProgress) {
     return ipcRenderer.invoke(
       IpcChannels.DB_HISTORY,

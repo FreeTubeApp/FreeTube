@@ -53,6 +53,7 @@ const DBActions = {
   },
 
   HISTORY: {
+    OVERWRITE: 'db-action-history-overwrite',
     UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
     UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
@@ -88,6 +89,7 @@ const SyncEvents = {
   },
 
   HISTORY: {
+    OVERWRITE: 'sync-history-overwrite',
     UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
     UPDATE_PLAYLIST: 'sync-history-update-playlist',
   },

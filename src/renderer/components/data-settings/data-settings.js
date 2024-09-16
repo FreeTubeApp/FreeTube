@@ -50,6 +50,9 @@ export default defineComponent({
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
+    historyCacheById: function () {
+      return this.$store.getters.getHistoryCacheById
+    },
     historyCacheSorted: function () {
       return this.$store.getters.getHistoryCacheSorted
     },
@@ -616,7 +619,7 @@ export default defineComponent({
       })
     },
 
-    importFreeTubeHistory(textDecode) {
+    async importFreeTubeHistory(textDecode) {
       textDecode.pop()
 
       const requiredKeys = [
@@ -630,7 +633,6 @@ export default defineComponent({
         'title',
         'type',
         'videoId',
-        'viewCount',
         'watchProgress',
       ]
 
@@ -638,11 +640,16 @@ export default defineComponent({
         // `_id` absent if marked as watched manually
         '_id',
         'lastViewedPlaylistId',
+        'lastViewedPlaylistItemId',
+        'lastViewedPlaylistType',
+        'viewCount',
       ]
 
       const ignoredKeys = [
         'paid',
       ]
+
+      const historyItems = new Map(Object.entries(this.historyCacheById))
 
       textDecode.forEach((history) => {
         const historyData = JSON.parse(history)
@@ -667,14 +674,16 @@ export default defineComponent({
           showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
           console.error('Missing Keys: ', missingKeys, historyData)
         } else {
-          this.updateHistory(historyObject)
+          historyItems.set(historyObject.videoId, historyObject)
         }
       })
+
+      await this.overwriteHistory(historyItems)
 
       showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
     },
 
-    importYouTubeHistory(historyData) {
+    async importYouTubeHistory(historyData) {
       const filterPredicate = item =>
         item.products.includes('YouTube') &&
         item.titleUrl != null && // removed video doesnt contain url...
@@ -722,6 +731,8 @@ export default defineComponent({
         'activityControls',
       ].concat(Object.keys(keyMapping))
 
+      const historyItems = new Map(Object.entries(this.historyCacheById))
+
       filteredHistoryData.forEach(element => {
         const historyObject = {}
 
@@ -750,9 +761,11 @@ export default defineComponent({
           historyObject.watchProgress = 1
           historyObject.isLive = false
 
-          this.updateHistory(historyObject)
+          historyItems.set(historyObject.videoId, historyObject)
         }
       })
+
+      await this.overwriteHistory(historyItems)
 
       showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
     },
@@ -1069,10 +1082,10 @@ export default defineComponent({
     ...mapActions([
       'updateProfile',
       'updateShowProgressBar',
-      'updateHistory',
       'addPlaylist',
       'addVideo',
       'updatePlaylist',
+      'overwriteHistory'
     ]),
 
     ...mapMutations([
