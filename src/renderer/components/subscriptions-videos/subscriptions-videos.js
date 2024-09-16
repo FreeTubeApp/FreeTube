@@ -24,6 +24,7 @@ export default defineComponent({
       videoList: [],
       errorChannels: [],
       attemptedFetch: false,
+      lastRemoteRefreshSuccessTimestamp: null,
     }
   },
   computed: {
@@ -48,6 +49,10 @@ export default defineComponent({
     },
 
     lastVideoRefreshTimestamp: function () {
+      // Cache is not ready when data is just loaded from remote
+      if (this.lastRemoteRefreshSuccessTimestamp) {
+        return getRelativeTimeFromDate(this.lastRemoteRefreshSuccessTimestamp, true)
+      }
       if (!this.videoCacheForAllActiveProfileChannelsPresent) { return '' }
       if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return '' }
 
@@ -100,6 +105,7 @@ export default defineComponent({
   },
   watch: {
     activeProfile: async function (_) {
+      this.lastRemoteRefreshSuccessTimestamp = null
       this.isLoading = true
       this.loadVideosFromCacheSometimes()
     },
@@ -206,6 +212,7 @@ export default defineComponent({
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
       this.updateShowProgressBar(false)
+      this.lastRemoteRefreshSuccessTimestamp = new Date()
 
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
