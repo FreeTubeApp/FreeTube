@@ -41,7 +41,7 @@
       {{ $t("Comments.Click to View Comments") }}
     </h4>
     <ft-select
-      v-if="commentData.length > 0 && !isLoading && showComments"
+      v-if="commentData.length > 0 && !isLoading && showComments && showSortBy"
       class="commentSort"
       :placeholder="$t('Comments.Sort by')"
       :value="currentSortValue"
@@ -264,7 +264,16 @@
     <div
       v-else-if="showComments && !isLoading"
     >
-      <h3 class="noCommentMsg">
+      <h3
+        v-if="isPostComments"
+        class="noCommentMsg"
+      >
+        {{ $t("Comments.There are no comments available for this post") }}
+      </h3>
+      <h3
+        v-else
+        class="noCommentMsg"
+      >
         {{ $t("Comments.There are no comments available for this video") }}
       </h3>
     </div>

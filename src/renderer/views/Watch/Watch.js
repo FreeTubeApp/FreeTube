@@ -54,9 +54,14 @@ export default defineComponent({
     'watch-video-recommendations': WatchVideoRecommendations,
     'ft-age-restricted': FtAgeRestricted
   },
-  beforeRouteLeave: function (to, from, next) {
+  beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+
+    if (this.$refs.player) {
+      await this.$refs.player.destroyPlayer()
+    }
+
     next()
   },
   data: function () {
@@ -229,8 +234,13 @@ export default defineComponent({
     },
   },
   watch: {
-    $route() {
+    async $route() {
       this.handleRouteChange()
+
+      if (this.$refs.player) {
+        await this.$refs.player.destroyPlayer()
+      }
+
       // react to route changes...
       this.videoId = this.$route.params.id
 
@@ -493,7 +503,16 @@ export default defineComponent({
             //   this.manifestSrc = src
             //   this.manifestMimeType = MANIFEST_TYPE_DASH
             // } else {
-            this.manifestSrc = result.streaming_data.hls_manifest_url
+            let hlsManifestUrl = result.streaming_data.hls_manifest_url
+
+            if (this.proxyVideos) {
+              const url = new URL(hlsManifestUrl)
+              url.searchParams.set('local', 'true')
+
+              hlsManifestUrl = url.toString().replace(url.origin, this.currentInvidiousInstanceUrl)
+            }
+
+            this.manifestSrc = hlsManifestUrl
             this.manifestMimeType = MANIFEST_TYPE_HLS
             // }
           }
@@ -808,7 +827,16 @@ export default defineComponent({
             // // Proxying doesn't work for live or post live DVR DASH, so use HLS instead
             // // https://github.com/iv-org/invidious/pull/4589
             // if (this.proxyVideos) {
-            this.manifestSrc = result.hlsUrl
+
+            let hlsManifestUrl = result.hlsUrl
+
+            if (this.proxyVideos) {
+              const url = new URL(hlsManifestUrl)
+              url.searchParams.set('local', 'true')
+              hlsManifestUrl = url.toString()
+            }
+
+            this.manifestSrc = hlsManifestUrl
             this.manifestMimeType = MANIFEST_TYPE_HLS
 
             // The HLS manifests only contain combined audio+video streams, so we can't do audio only
@@ -1158,8 +1186,10 @@ export default defineComponent({
       }
 
       if (this.manifestSrc === null ||
-        // HLS consists of combined audio and video files, so we can't do audio only
-        ((this.isLive || this.isPostLiveDvr) && this.manifestMimeType !== MANIFEST_TYPE_DASH)) {
+        ((this.isLive || this.isPostLiveDvr) &&
+        // The WEB HLS manifests only contain combined audio and video files, so we can't do audio only
+        // The IOS HLS manifests have audio-only streams
+          this.manifestMimeType === MANIFEST_TYPE_HLS && !this.manifestSrc.includes('/demuxed/1'))) {
         showToast(this.$t('Change Format.Audio formats are not available for this video'))
         return
       }
@@ -1298,10 +1328,10 @@ export default defineComponent({
         // live streams don't have legacy formats, so only switch between dash and audio
 
         if (this.activeFormat === 'dash') {
-          console.error('Unable to play audio formats. Reverting to DASH formats...')
+          console.error('Unable to play DASH formats. Reverting to audio formats...')
           this.enableAudioFormat()
         } else {
-          console.error('Unable to play DASH formats. Reverting to audio formats...')
+          console.error('Unable to play audio formats. Reverting to DASH formats...')
           this.enableDashFormat()
         }
       } else {
@@ -1497,7 +1527,7 @@ export default defineComponent({
       let translationName, translationCode
       // otherwise just fallback to the FreeTube display language and hope that YouTube will be able to handle it
       if (!translationLanguage) {
-        translationName = this.$i18n.t('Locale Name')
+        translationName = this.$t('Locale Name')
         translationCode = userLanguages.values().next()
       } else {
         translationName = translationLanguage.language_name.text

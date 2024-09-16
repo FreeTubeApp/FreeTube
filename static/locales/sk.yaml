@@ -36,9 +36,15 @@ Global:
     Video Count: 1 video | {count} videí
     Subscriber Count: 1 odberateľ | {count} odberateľov
     Channel Count: 1 kanál | {count} kanálov
+    View Count: 1 pozretie | {count} pozretí
+    Watching Count: 1 sledujúci | {count} sledujúcich
+    Like Count: 1 páči sa | {count} páči sa
+    Comment Count: 1 komentár | {count} komentárov
   Live: Naživo
   Community: Komunita
   Shorts: Shorts
+  Input Tags:
+    Length Requirement: Štítok musí mať aspoň {number} znakov
 Search / Go to URL: 'Hľadať / Ísť na URL adresu'
   # In Filter Button
 Search Filters:
@@ -76,6 +82,18 @@ Search Filters:
   Fetch more results: 'Načítať viac výsledkov'
 # Sidebar
   There are no more results for this search: Pre toto hľadanie nie sú ďalšie výsledky
+  Features:
+    Subtitles: Titulky
+    Features: Vlastnosti
+    HD: HD
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    360 Video: 360 Video
+    Location: Umiestnenie
+    Live: Naživo
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
@@ -88,6 +106,15 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Sťahujem odbery, prosím čakajte.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tento
     profil má priveľa odberov. Vynucujem RSS na obídenie limitov
+  Empty Channels: Vaše odoberané kanály v súčasnosti nemajú žiadne videá.
+  Load More Posts: Načítať ďalšie príspevky
+  Subscriptions Tabs: Záložky s odbermi
+  All Subscription Tabs Hidden: Všetky záložky odberov sú skryté. Ak tu chcete vidieť
+    obsah, zrušte skrytie niektorých záložiek v sekcii "{subsection}" v časti "{settingsSection}".
+  Error Channels: Kanály s chybami
+  Empty Posts: Vaše odoberané kanály momentálne nemajú žiadne príspevky.
+  Disabled Automatic Fetching: Vypli ste automatické načítanie odberov. Obnovte odbery,
+    aby ste ich tu videli.
 Trending:
   Trending: 'Trendy'
   Default: Predvolené
@@ -104,6 +131,29 @@ User Playlists:
   Playlist Message: Zatiaľ tu nie sú plne funkčné playlisty. Sú tu len videá, ktoré
     ste uložili medzi obľúbené. Keď playlisty plne implementujeme do aplikácie, presunú
     sa do „Obľúbené“.
+  You have no playlists. Click on the create new playlist button to create a new one.: Nemáte
+    žiadne playlisty. Kliknutím na tlačidlo playlistu vytvoríte nový.
+  Empty Search Message: V tomto playliste nie sú žiadne videá, ktoré by zodpovedali
+    vášmu vyhľadávaniu
+  Add to Playlist: Pridať do playlistu
+  Move Video Down: Posunúť video nadol
+  Copy Playlist: Kopírovať playlist
+  Search bar placeholder: Hľadať playlisty
+  Create New Playlist: Vytvoriť nový playlist
+  This playlist currently has no videos.: Tento playlist momentálne neobsahuje žiadne
+    videá.
+  Add to Favorites: Pridať do playlistu {playlistName}
+  Remove from Favorites: Odobrať z playlistu {playlistName}
+  Playlist Name: Názov playlistu
+  Cancel: Zrušiť
+  Playlist Description: Popis playlistu
+  Playlists with Matching Videos: Playlisty so zodpovedajúcimi videami
+  Remove from Playlist: Odstrániť z playlistu
+  Save Changes: Uložiť zmeny
+  Edit Playlist Info: Upraviť informácie o playliste
+  Remove Watched Videos: Odstrániť pozerané videá
+  Remove Duplicate Videos: Odstrániť duplicitné videá
+  Move Video Up: Posunúť video nahor
 History:
   # On History Page
   History: 'História'
@@ -756,4 +806,20 @@ Channels:
   Title: Zoznam kanálov
   Count: 'Nájdených {number} kanálov.'
   Search bar placeholder: Vyhľadať kanály
+  Unsubscribed: '{channelName} bol odstránený z vašich odberov'
+  Empty: Váš zoznam kanálov je momentálne prázdny.
+  Unsubscribe: Zrušiť odber
+  Unsubscribe Prompt: Určite sa chcete odhlásiť z odberu "{channelName}"?
 Preferences: Predvoľby
+Close Banner: Zavrieť banner
+Search character limit: Vyhľadávaný výraz presahuje povolený limit {searchCharacterLimit}
+  znakov
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Titulky
+    Closed Captions: Skryté titulky
+Feed:
+  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizovaný: {date}'
+  Refresh Feed: Obnoviť {subscriptionName}
+Go to page: Prejsť na {page}

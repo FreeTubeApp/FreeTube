@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 odběratel | {count} odběratelů
     View Count: 1 zhlédnutí | {count} zhlédnutí
     Watching Count: 1 sledující | {count} sledujících
+    Like Count: 1 líbí se mi | {count} líbí se mi
+    Comment Count: 1 komentář | {count} komentářů
   Input Tags:
     Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
@@ -822,6 +824,10 @@ Channel:
     votes: '{votes} hlasů'
     Reveal Answers: Odhalit odpovědi
     Video hidden by FreeTube: Video skryté programem FreeTube
+    View Full Post: Zobrazit celý příspěvek
+    Viewing Posts Only Supported By Invidious: Zobrazení příspěvků je podporováno
+      pouze službou Invidious. Přejděte do karty komunity kanálu pro zobrazení jejího
+      obsahu bez Invidious.
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
@@ -1072,6 +1078,8 @@ Comments:
   View {replyCount} replies: Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
   Subscribed: Odebíráno
+  There are no comments available for this post: U tohoto příspěvku nejsou dostupné
+    žádné komentáře
 Up Next: 'Další'
 
 #Tooltips

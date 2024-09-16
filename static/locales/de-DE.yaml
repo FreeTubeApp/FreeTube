@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
+    Comment Count: 1 Kommentar | {count} Kommentare
+    Like Count: 1 Gefällt mir | {count} Gefällt mir
   Input Tags:
     Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
@@ -818,6 +820,10 @@ Channel:
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
     Video hidden by FreeTube: Video versteckt von FreeTube
+    View Full Post: Vollständigen Beitrag anzeigen
+    Viewing Posts Only Supported By Invidious: Die Anzeige von Beiträgen wird nur
+      von Invidious unterstützt. Gehen Sie zur Community-Registerkarte eines Kanals,
+      um dort Inhalte ohne Invidious anzuzeigen.
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
@@ -961,18 +967,23 @@ Video:
     Show Stats: Statistiken anzeigen
     Stats:
       Stats: Statistiken
-      Video ID: 'Videokennung: {videoId}'
+      Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
       Resolution: 'Auflösung: {width}×{height}@{frameRate}'
       Player Dimensions: 'Player-Dimensionen: {width}×{height}'
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'
       Bandwidth: 'Bandbreite: {bandwidth} kb/s'
-      Buffered: 'Pufferspeichern: {bufferedPercentage} %'
+      Buffered: 'Gepuffert: {bufferedPercentage} %'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Ausgelassene Einzelbilder: {droppedFrames} /
+        Einzelbilder insgesamt: {totalFrames}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Sie scheinen offline zu sein.
     Playback will resume automatically when your connection comes back: Die Wiedergabe
       wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
-    Skipped segment: '{segmentCategory}-Segment ausgelassen'
+    Skipped segment: 'Segment {segmentCategory} übersprungen'
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
@@ -1014,8 +1025,8 @@ Change Format:
     nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
-  Legacy formats are not available for this video: Legacy-Formate sind nicht verfügbar
-    für dieses Video
+  Legacy formats are not available for this video: Ältere Formate sind für dieses
+    Video nicht verfügbar
 Share:
   Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
@@ -1065,6 +1076,8 @@ Comments:
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
   Subscribed: Abonniert
+  There are no comments available for this post: Es sind keine Kommentare für diesen
+    Beitrag vorhanden
 Up Next: Nächster Titel
 
 # Toast Messages
