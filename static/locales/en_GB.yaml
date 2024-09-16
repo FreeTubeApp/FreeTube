@@ -1060,7 +1060,8 @@ Comments:
   Subscribed: Subscribed
 Up Next: 'Up Next'
 Description:
-  Click to View Description: Click to View Description
+  Expand Description: ...more
+  Collapse Description: Show less
 
 # Toast Messages
 Local API Error (Click to copy): 'Local API Error (Click to copy)'

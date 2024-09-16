@@ -18,7 +18,7 @@
       @keydown.space.prevent="expandDescription"
       @keydown.enter.prevent="expandDescription"
     >
-      {{ $t("Description.Click to View Description") }}
+      {{ $t("Description.Expand Description") }}
     </h4>
   </FtCard>
 </template>
