@@ -136,6 +136,12 @@ User Playlists:
   Edit Playlist Info: ویرایش اطلاعات فهرست پخش
   Remove from Favorites: حذف از {playlistName}
   Remove Duplicate Videos: حذف ویدیوهای تکراری
+  AddVideoPrompt:
+    Save: ذخیره کنید
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: ویدیو حذف شده است
+      There was a problem with removing this video: در حذف این ویدیو مشکلی وجود داشت
 History:
   # On History Page
   History: 'تاریخچه'
