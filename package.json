@@ -106,7 +106,7 @@
     "json-minimizer-webpack-plugin": "^5.0.0",
     "lefthook": "^1.7.15",
     "mini-css-extract-plugin": "^2.9.1",
-    "npm-run-all2": "^6.2.2",
+    "npm-run-all2": "^6.2.3",
     "postcss": "^8.4.47",
     "postcss-scss": "^4.0.9",
     "prettier": "^2.8.8",
