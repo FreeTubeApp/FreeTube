@@ -203,12 +203,92 @@ class Playlists {
   }
 }
 
+class SubscriptionCache {
+  static find() {
+    return db.subscriptionCache.findAsync({})
+  }
+
+  static updateVideosByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptionCache.updateAsync(
+      { _id: channelId },
+      { $set: { videos: entries, videosTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptionCache.updateAsync(
+      { _id: channelId },
+      { $set: { liveStreams: entries, liveStreamsTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static updateShortsByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptionCache.updateAsync(
+      { _id: channelId },
+      { $set: { shorts: entries, shortsTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+    return db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
+      if (doc == null) { return }
+
+      const shorts = doc.shorts
+      const cacheShorts = Array.isArray(shorts) ? shorts : []
+
+      cacheShorts.forEach(cachedVideo => {
+        const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
+        if (!channelVideo) { return }
+
+        // authorId probably never changes, so we don't need to update that
+        cachedVideo.title = channelVideo.title
+        cachedVideo.author = channelVideo.author
+
+        // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
+        // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
+        // 12345 vs 12000 => 12345
+        // 12345 vs 15000 => 15000
+
+        if (channelVideo.viewCount > cachedVideo.viewCount) {
+          cachedVideo.viewCount = channelVideo.viewCount
+        }
+      })
+
+      return db.subscriptionCache.updateAsync(
+        { _id: channelId },
+        { $set: { shorts: cacheShorts } },
+        { upsert: true }
+      )
+    })
+  }
+
+  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
+    return db.subscriptionCache.updateAsync(
+      { _id: channelId },
+      { $set: { communityPosts: entries, communityPostsTimestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static deleteMultipleChannels(channelIds) {
+    return db.subscriptionCache.removeAsync({ _id: { $in: channelIds } }, { multi: true })
+  }
+
+  static deleteAll() {
+    return db.subscriptionCache.removeAsync({}, { multi: true })
+  }
+}
+
 function compactAllDatastores() {
   return Promise.allSettled([
     db.settings.compactDatafileAsync(),
     db.history.compactDatafileAsync(),
     db.profiles.compactDatafileAsync(),
     db.playlists.compactDatafileAsync(),
+    db.subscriptionCache.compactDatafileAsync(),
   ])
 }
 
@@ -217,6 +297,7 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
+  SubscriptionCache as subscriptionCache,
 
   compactAllDatastores,
 }
