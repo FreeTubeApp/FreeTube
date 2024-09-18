@@ -60,6 +60,7 @@
             :channel-id="id"
             :channel-name="name"
             :channel-thumbnail="thumbnailUrl"
+            @subscribed="subscribed"
           />
         </div>
       </div>
@@ -277,7 +278,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['change-tab', 'search'])
+const emit = defineEmits(['change-tab', 'search', 'subscribed'])
 
 const hideChannelSubscriptions = computed(() => {
   return store.getters.getHideChannelSubscriptions
@@ -297,6 +298,10 @@ const formattedSubCount = computed(() => {
   }
   return formatNumber(props.subCount)
 })
+
+function subscribed() {
+  emit('subscribed')
+}
 
 /**
  * @param {string} tab
