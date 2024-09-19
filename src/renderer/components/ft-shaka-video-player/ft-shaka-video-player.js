@@ -2371,18 +2371,6 @@ export default defineComponent({
 
       if (props.format !== 'legacy') {
         player.addEventListener('streaming', () => {
-          if (props.startTime !== null) {
-            if (player.isLive() || player.getManifestType() === 'HLS') {
-              player.updateStartTime(null)
-            } else {
-              const { end } = player.seekRange()
-
-              if (props.startTime > (end - 10)) {
-                player.updateStartTime(end - 10)
-              }
-            }
-          }
-
           hasMultipleAudioTracks.value = player.getAudioLanguagesAndRoles().length > 1
 
           if (props.format === 'dash') {
