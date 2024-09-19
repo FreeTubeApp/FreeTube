@@ -1998,29 +1998,27 @@ export default defineComponent({
       // If we use the same array, the store will get angry at us for modifying it outside of the store
       // when the user clicks load more
 
-      if (this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
+      if (this.videoSortBy === 'newest') {
         this.updateSubscriptionVideosCacheByChannel({
           channelId: this.id,
           videos: [...this.latestVideos]
         })
       }
 
-      if (this.latestLive.length > 0 && this.liveSortBy === 'newest') {
+      if (this.liveSortBy === 'newest') {
         this.updateSubscriptionLiveCacheByChannel({
           channelId: this.id,
           videos: [...this.latestLive]
         })
       }
 
-      if (this.latestCommunityPosts.length > 0) {
-        this.latestCommunityPosts.forEach(post => {
-          post.authorId = this.id
-        })
-        this.updateSubscriptionPostsCacheByChannel({
-          channelId: this.id,
-          posts: [...this.latestCommunityPosts]
-        })
-      }
+      this.latestCommunityPosts.forEach(post => {
+        post.authorId = this.id
+      })
+      this.updateSubscriptionPostsCacheByChannel({
+        channelId: this.id,
+        posts: [...this.latestCommunityPosts]
+      })
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
