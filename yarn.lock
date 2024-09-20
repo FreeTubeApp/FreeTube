@@ -1099,6 +1099,11 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@bufbuild/protobuf@^2.0.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-2.1.0.tgz#6925f30c25789b4f74d7c505e731c96f79fb48a7"
+  integrity sha512-+2Mx67Y3skJ4NCD/qNSdBJNWtu6x6Qr53jeNg+QcwiL6mt0wK+3jwHH2x1p7xaYH6Ve2JKOVn0OxU35WsmqI9A==
+
 "@csstools/css-parser-algorithms@^3.0.0", "@csstools/css-parser-algorithms@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@csstools/css-parser-algorithms/-/css-parser-algorithms-3.0.1.tgz#f14ade63bae5f6025ac85c7d03fe47a7ca0e58af"
@@ -8965,11 +8970,12 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-youtubei.js@^10.4.0:
-  version "10.4.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-10.4.0.tgz#5c13ecdab7241960cb63533cb2bac274ddc3105a"
-  integrity sha512-FZahkkg5ROyH/FgJ4czy/xDNkqHbJTCUQzumQlnR+2Q7m6HaWghAFWWJUTcexemGuu7t/5EuyQz98eBgKQRMog==
+youtubei.js@^10.5.0:
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-10.5.0.tgz#3cf0c79cf73fb26e13d167f37dec7d65419e91b8"
+  integrity sha512-iyA+VF28c15tCCKH9ExM2RKC3zYiHzA/eixGlJ3vERANkuI+xYKzAZ4vtOhmyqwrAddu88R/DkzEsmpph5NWjg==
   dependencies:
+    "@bufbuild/protobuf" "^2.0.0"
     jintr "^2.1.1"
     tslib "^2.5.0"
     undici "^5.19.1"
