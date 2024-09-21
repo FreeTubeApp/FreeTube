@@ -18,7 +18,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       videoList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -105,8 +105,6 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    this.isLoading = true
-
     this.loadVideosFromCacheSometimes()
   },
   methods: {
@@ -124,12 +122,10 @@ export default defineComponent({
     },
 
     async loadVideosFromCacheForAllActiveProfileChannels() {
-      const videoList = []
-      this.activeSubscriptionList.forEach((channel) => {
-        const channelCacheEntry = this.$store.getters.getShortsCacheByChannel(channel.id)
-
-        videoList.push(...channelCacheEntry.videos)
+      const videoList = this.cacheEntriesForAllActiveProfileChannels.flatMap((cacheEntry) => {
+        return cacheEntry.videos
       })
+
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
     },
@@ -142,7 +138,6 @@ export default defineComponent({
       }
 
       const channelsToLoadFromRemote = this.activeSubscriptionList
-      const videoList = []
       let channelCount = 0
       this.isLoading = true
       this.updateShowProgressBar(true)
@@ -178,10 +173,9 @@ export default defineComponent({
         }
 
         return videos
-      }))).flatMap((o) => o)
-      videoList.push(...videoListFromRemote)
+      }))).flat()
 
-      this.videoList = updateVideoListAfterProcessing(videoList)
+      this.videoList = updateVideoListAfterProcessing(videoListFromRemote)
       this.isLoading = false
       this.updateShowProgressBar(false)
       this.lastRemoteRefreshSuccessTimestamp = new Date()
