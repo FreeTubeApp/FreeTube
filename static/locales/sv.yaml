@@ -211,6 +211,8 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Aktivera snabb bokmärke på den här spellistan
   Remove Watched Videos: Ta bort sedda videor
   Disable Quick Bookmark: Avaktivera snabb bokmärke
+  CreatePlaylistPrompt:
+    Create: Skapa
 History:
   # On History Page
   History: 'Historik'

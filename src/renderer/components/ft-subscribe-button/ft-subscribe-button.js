@@ -42,6 +42,7 @@ export default defineComponent({
       required: false
     }
   },
+  emits: ['subscribed'],
   data: function () {
     return {
       isProfileDropdownOpen: false,
@@ -139,6 +140,7 @@ export default defineComponent({
         this.addChannelToProfiles({ channel, profileIds })
 
         showToast(this.$t('Channel.Added channel to your subscriptions'))
+        this.$emit('subscribed')
       }
 
       if (this.isProfileDropdownEnabled && this.openDropdownOnSubscribe && !this.isProfileDropdownOpen) {

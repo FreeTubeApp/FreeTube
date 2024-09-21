@@ -21,6 +21,7 @@
       class="card channelDetails"
       @change-tab="changeTab"
       @search="(v) => newSearchWithStatePersist(v)"
+      @subscribed="handleSubscription"
     />
     <ft-card
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"

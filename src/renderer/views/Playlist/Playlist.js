@@ -306,9 +306,11 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
+        const playlistItems = result.items.map(parseLocalPlaylistVideo)
+
         this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
-        this.firstVideoId = result.items[0].id
+        this.firstVideoId = playlistItems[0].videoId
         this.playlistThumbnail = result.info.thumbnails[0].url
         this.viewCount = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
@@ -324,7 +326,7 @@ export default defineComponent({
           channelId: this.channelId
         })
 
-        this.playlistItems = result.items.map(parseLocalPlaylistVideo)
+        this.playlistItems = playlistItems
 
         let shouldGetNextPage = false
         if (result.has_continuation) {

@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { calculatePublishedDate, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalChannelCommunity } from '../../helpers/api/local'
 import { invidiousGetCommunityPosts } from '../../helpers/api/invidious'
 
@@ -17,6 +17,7 @@ export default defineComponent({
       postList: [],
       errorChannels: [],
       attemptedFetch: false,
+      lastRemoteRefreshSuccessTimestamp: null,
     }
   },
   computed: {
@@ -39,6 +40,10 @@ export default defineComponent({
       return this.activeProfile._id
     },
 
+    subscriptionCacheReady: function () {
+      return this.$store.getters.getSubscriptionCacheReady
+    },
+
     cacheEntriesForAllActiveProfileChannels() {
       const entries = []
       this.activeSubscriptionList.forEach((channel) => {
@@ -51,7 +56,20 @@ export default defineComponent({
     },
 
     lastCommunityRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastCommunityRefreshTimestampByProfile(this.activeProfileId), true)
+      // Cache is not ready when data is just loaded from remote
+      if (this.lastRemoteRefreshSuccessTimestamp) {
+        return getRelativeTimeFromDate(this.lastRemoteRefreshSuccessTimestamp, true)
+      }
+      if (!this.postCacheForAllActiveProfileChannelsPresent) { return '' }
+      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return '' }
+
+      let minTimestamp = null
+      this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+        if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+          minTimestamp = cacheEntry.timestamp
+        }
+      })
+      return getRelativeTimeFromDate(minTimestamp, true)
     },
 
     postCacheForAllActiveProfileChannelsPresent() {
@@ -73,7 +91,12 @@ export default defineComponent({
   },
   watch: {
     activeProfile: async function (_) {
+      this.lastRemoteRefreshSuccessTimestamp = null
       this.isLoading = true
+      this.loadPostsFromCacheSometimes()
+    },
+
+    subscriptionCacheReady() {
       this.loadPostsFromCacheSometimes()
     },
   },
@@ -84,23 +107,15 @@ export default defineComponent({
   },
   methods: {
     loadPostsFromCacheSometimes() {
+      // Can only load reliably when cache ready
+      if (!this.subscriptionCacheReady) { return }
+
       // This method is called on view visible
       if (this.postCacheForAllActiveProfileChannelsPresent) {
         this.loadPostsFromCacheForAllActiveProfileChannels()
-        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
-          let minTimestamp = null
-          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
-            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
-              minTimestamp = cacheEntry.timestamp
-            }
-          })
-          this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
-        }
         return
       }
 
-      // clear timestamp if not all entries are present in the cache
-      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadPostsForSubscriptionsFromRemote()
     },
 
@@ -113,7 +128,7 @@ export default defineComponent({
       })
 
       postList.sort((a, b) => {
-        return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
+        return b.publishedTime - a.publishedTime
       })
 
       this.postList = postList
@@ -180,14 +195,14 @@ export default defineComponent({
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
-      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
       postList.sort((a, b) => {
-        return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
+        return b.publishedTime - a.publishedTime
       })
 
       this.postList = postList
       this.isLoading = false
       this.updateShowProgressBar(false)
+      this.lastRemoteRefreshSuccessTimestamp = new Date()
 
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
@@ -256,7 +271,6 @@ export default defineComponent({
       'updateShowProgressBar',
       'batchUpdateSubscriptionDetails',
       'updateSubscriptionPostsCacheByChannel',
-      'updateLastCommunityRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

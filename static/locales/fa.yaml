@@ -73,6 +73,11 @@ Search Filters:
     Features: قابلیت ها
     Subtitles: زیرنویس
     3D: سه بعدی
+    HDR: اچ‌دی‌آر
+    Live: زنده
+    4K: ۴کی
+    HD: وضوح‌بالا
+    Creative Commons: کرییتیو کامنز
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'دنبال کرده ها'
@@ -93,6 +98,7 @@ Subscriptions:
     اینجا، لطفاً برخی از برگه‌ها را در بخش '{subsection}' در '{settingsSection}' باز
     کنید.
   Load More Posts: بارگذاری پیام های بیشتر
+  Empty Posts: کانال‌های مشترک شما در حال حاضر هیچ پستی برای نمایش ندارند.
 More: 'بیشتر'
 Trending:
   Trending: 'پربازدید ها'
@@ -118,6 +124,24 @@ User Playlists:
   Remove from Playlist: پاک کردن از فهرست پخش
   Playlist Name: نام فهرست پخش
   Save Changes: ذخیره سازی تغییرات
+  Move Video Down: انتقال ویدیو به پایین
+  Add to Playlist: افزودن به فهرست پخش
+  Add to Favorites: افزودن به {playlistName}
+  Move Video Up: انتقال ویدیو به بالا
+  Playlist Description: توضیحات فهرست پخش
+  Remove Watched Videos: ویدیوهای تماشا شده را حذف کنید
+  Create New Playlist: ایجاد فهرست پخش جدید
+  Playlists with Matching Videos: فهرست‌های پخش با ویدیوهای منطبق
+  This playlist currently has no videos.: این فهرست پخش در حال حاضر ویدیویی ندارد.
+  Edit Playlist Info: ویرایش اطلاعات فهرست پخش
+  Remove from Favorites: حذف از {playlistName}
+  Remove Duplicate Videos: حذف ویدیوهای تکراری
+  AddVideoPrompt:
+    Save: ذخیره کنید
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: ویدیو حذف شده است
+      There was a problem with removing this video: در حذف این ویدیو مشکلی وجود داشت
 History:
   # On History Page
   History: 'تاریخچه'
@@ -922,3 +946,4 @@ Go to page: برو به {page}
 Search Listing:
   Label:
     Subtitles: زیرنویس
+Close Banner: بستن بنر
