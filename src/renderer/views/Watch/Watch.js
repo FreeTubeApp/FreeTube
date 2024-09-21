@@ -201,7 +201,7 @@ export default defineComponent({
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     hideChapters: function () {
       return this.$store.getters.getHideChapters
