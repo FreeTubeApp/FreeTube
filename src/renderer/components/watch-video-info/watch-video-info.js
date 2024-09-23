@@ -119,7 +119,7 @@ export default defineComponent({
     },
 
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     hideVideoLikesAndDislikes: function () {

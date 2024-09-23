@@ -97,7 +97,7 @@ export default defineComponent({
       return this.isUserPlaylistRequested ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     playlistId: function() {
       return this.$route.params.id

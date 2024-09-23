@@ -11,8 +11,8 @@ const i18n = new VueI18n({
   fallbackLocale: {
     // https://kazupon.github.io/vue-i18n/guide/fallback.html#explicit-fallback-with-decision-maps
 
-    // es_AR -> es -> en-US
-    es_AR: ['es'],
+    // es-AR -> es -> en-US
+    'es-AR': ['es'],
     // es-MX -> es -> en-US
     'es-MX': ['es'],
     // pt-BR -> pt -> en-US

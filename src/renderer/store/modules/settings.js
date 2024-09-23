@@ -316,17 +316,15 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
-        const systemLocaleSplit = systemLocaleName.split('_') // ex: en
+        const systemLocaleName = (await getSystemLocale()).replace('_', '-') // ex: en-US
+        const systemLocaleSplit = systemLocaleName.split('-') // ex: en
         const targetLocaleOptions = allLocales.filter((locale) => {
           // filter out other languages
-          const localeLang = locale.replace('-', '_').split('_')[0]
+          const localeLang = locale.split('-')[0]
           return localeLang.includes(systemLocaleSplit[0])
-        }).sort((a, b) => {
-          const aLocaleName = a.replace('-', '_')
-          const bLocaleName = b.replace('-', '_')
-          const aLocale = aLocaleName.split('_') // ex: [en, US]
-          const bLocale = bLocaleName.split('_')
+        }).sort((aLocaleName, bLocaleName) => {
+          const aLocale = aLocaleName.split('-') // ex: [en, US]
+          const bLocale = bLocaleName.split('-')
 
           if (aLocaleName === systemLocaleName) { // country & language match, prefer a
             return -1
@@ -362,8 +360,8 @@ const stateWithSideEffects = {
         )
       }
 
-      // "es" is used as a fallback for "es_AR" and "es-MX"
-      if (targetLocale === 'es_AR' || targetLocale === 'es-MX') {
+      // "es" is used as a fallback for "es-AR" and "es-MX"
+      if (targetLocale === 'es-AR' || targetLocale === 'es-MX') {
         loadPromises.push(
           loadLocale('es')
         )

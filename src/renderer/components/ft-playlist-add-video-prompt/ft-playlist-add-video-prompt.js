@@ -119,7 +119,7 @@ export default defineComponent({
       return this.$store.getters.getNewPlaylistDefaultProperties
     },
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     processedQuery: function() {
       return this.query.trim().toLowerCase()
