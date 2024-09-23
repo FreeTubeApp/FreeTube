@@ -113,8 +113,6 @@ export default defineComponent({
       playlistItemId: null,
       /** @type {number|null} */
       timestamp: null,
-      /** @type {number|null} */
-      startTimeSeconds: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
@@ -203,7 +201,7 @@ export default defineComponent({
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     hideChapters: function () {
       return this.$store.getters.getHideChapters
@@ -232,6 +230,26 @@ export default defineComponent({
 
       return this.$store.getters.getPlaylist(this.playlistId)
     },
+    startTimeSeconds: function () {
+      if (this.isLoading || this.isLive) {
+        return null
+      }
+
+      if (this.timestamp !== null && this.timestamp < this.videoLengthSeconds) {
+        return this.timestamp
+      } else if (this.saveWatchedProgress && this.historyEntryExists) {
+        // For UX consistency, no progress reading if writing disabled
+
+        /** @type {number} */
+        const watchProgress = this.historyEntry.watchProgress
+
+        if (watchProgress > 0 && watchProgress < this.videoLengthSeconds - 2) {
+          return watchProgress
+        }
+      }
+
+      return null
+    }
   },
   watch: {
     async $route() {
@@ -254,11 +272,9 @@ export default defineComponent({
       this.vrProjection = null
       this.downloadLinks = []
       this.videoCurrentChapterIndex = 0
-      this.startTimeSeconds = null
       this.videoGenreIsMusic = false
 
       this.checkIfTimestamp()
-      this.setStartTime()
       this.checkIfPlaylist()
 
       switch (this.backendPreference) {
@@ -279,7 +295,6 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
-    this.setStartTime()
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -1067,23 +1082,6 @@ export default defineComponent({
 
         this.updateLocalPlaylistLastPlayedAtSometimes()
       }
-    },
-
-    setStartTime: function () {
-      if (this.timestamp !== null && this.timestamp > 0) {
-        this.startTimeSeconds = this.timestamp
-        return
-      } else if (this.saveWatchedProgress && this.historyEntryExists) {
-        // For UX consistency, no progress reading if writing disabled
-        const watchProgress = this.historyEntry.watchProgress
-
-        if (watchProgress > 0) {
-          this.startTimeSeconds = watchProgress
-          return
-        }
-      }
-
-      this.startTimeSeconds = null
     },
 
     checkIfPlaylist: function () {

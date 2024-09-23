@@ -741,20 +741,38 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.ReelItem[]} shorts
+ * @param {(import('youtubei.js').YTNodes.ReelItem | import('youtubei.js').YTNodes.ShortsLockupView)[]} shorts
  * @param {string} channelId
  * @param {string} channelName
  */
 export function parseLocalChannelShorts(shorts, channelId, channelName) {
   return shorts.map(short => {
-    return {
-      type: 'video',
-      videoId: short.id,
-      title: short.title.text,
-      author: channelName,
-      authorId: channelId,
-      viewCount: short.views.isEmpty() ? null : parseLocalSubscriberCount(short.views.text),
-      lengthSeconds: ''
+    if (short.type === 'ReelItem') {
+      /** @type {import('youtubei.js').YTNodes.ReelItem} */
+      const reelItem = short
+
+      return {
+        type: 'video',
+        videoId: reelItem.id,
+        title: reelItem.title.text,
+        author: channelName,
+        authorId: channelId,
+        viewCount: reelItem.views.isEmpty() ? null : parseLocalSubscriberCount(reelItem.views.text),
+        lengthSeconds: ''
+      }
+    } else {
+      /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
+      const shortsLockupView = short
+
+      return {
+        type: 'video',
+        videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
+        title: shortsLockupView.overlay_metadata.primary_text.text,
+        author: channelName,
+        authorId: channelId,
+        viewCount: shortsLockupView.overlay_metadata.secondary_text ? parseLocalSubscriberCount(shortsLockupView.overlay_metadata.secondary_text.text) : null,
+        lengthSeconds: ''
+      }
     }
   })
 }
@@ -866,7 +884,7 @@ function handleSearchResponse(response) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem} video
+ * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem|import('youtubei.js').YTNodes.ShortsLockupView} video
  */
 export function parseLocalPlaylistVideo(video) {
   if (video.type === 'ReelItem') {
@@ -878,6 +896,42 @@ export function parseLocalPlaylistVideo(video) {
       videoId: short.id,
       title: short.title.text,
       viewCount: parseLocalSubscriberCount(short.views.text),
+      lengthSeconds: ''
+    }
+  } else if (video.type === 'ShortsLockupView') {
+    /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
+    const shortsLockupView = video
+
+    let viewCount = null
+
+    // the accessiblity text is the only place with the view count
+    if (shortsLockupView.accessibility_text) {
+      // the `.*\s+` at the start of the regex, ensures we match the last occurence
+      // just in case the video title also contains that pattern
+      const match = shortsLockupView.accessibility_text.match(/.*\s+(\d+(?:[,.]\d+)?\s?(?:[BKMbkm]|million)?|no)\s+views?/)
+
+      if (match) {
+        const count = match[1]
+
+        // as it's rare that a video has no views,
+        // checking the length allows us to avoid running toLowerCase unless we have to
+        if (count.length === 2 && count === 'no') {
+          viewCount = 0
+        } else {
+          const views = parseLocalSubscriberCount(count)
+
+          if (!isNaN(views)) {
+            viewCount = views
+          }
+        }
+      }
+    }
+
+    return {
+      type: 'video',
+      videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
+      title: shortsLockupView.overlay_metadata.primary_text.text,
+      viewCount,
       lengthSeconds: ''
     }
   } else {
@@ -1362,7 +1416,7 @@ export function filterLocalFormats(formats, allowAv1 = false) {
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
-  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm])\b/)
+  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm]|million)\b/)
 
   if (match) {
     let multiplier = 0
@@ -1374,6 +1428,7 @@ export function parseLocalSubscriberCount(text) {
         break
       case 'M':
       case 'm':
+      case 'million':
         multiplier = 6
         break
       case 'B':
@@ -1429,7 +1484,7 @@ function parseLocalCommunityPost(post) {
     postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
-    publishedText: post.published.text,
+    publishedTime: calculatePublishedDate(post.published.text),
     voteCount: parseLocalSubscriberCount(post.vote_count.text),
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,

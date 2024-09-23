@@ -122,7 +122,7 @@ export default defineComponent({
     },
 
     locale: function() {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     systemTheme: function () {
@@ -178,6 +178,7 @@ export default defineComponent({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
+        this.grabAllSubscriptions()
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -552,6 +553,7 @@ export default defineComponent({
       'grabAllProfiles',
       'grabHistory',
       'grabAllPlaylists',
+      'grabAllSubscriptions',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',

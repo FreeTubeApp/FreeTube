@@ -42,6 +42,8 @@ Global:
     View Count: 1 view | {count} views
     Watching Count: 1 watching | {count} watching
     Channel Count: 1 channel | {count} channels
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 comment | {count} comments
   Input Tags:
     Length Requirement: Tag must be at least {number} characters long
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
@@ -811,6 +813,9 @@ Channel:
     Hide Answers: Hide answers
     votes: '{votes} votes'
     Video hidden by FreeTube: Video hidden by FreeTube
+    View Full Post: View Full Post
+    Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by
+      Invidious. Head to a channel's community tab to view content there without Invidious.
   Live:
     This channel does not currently have any live streams: This channel does not currently
       have any live streams
@@ -1058,6 +1063,8 @@ Comments:
   Hearted: Hearted
   View {replyCount} replies: View {replyCount} replies
   Subscribed: Subscribed
+  There are no comments available for this post: There are no comments available for
+    this post
 Up Next: 'Up Next'
 Description:
   Click to View Description: Click to View Description

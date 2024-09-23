@@ -18,11 +18,11 @@ Paste: 'Уставіць'
 Delete: 'Выдаліць'
 Select all: 'Вылучыць усё'
 Reload: 'Абнавіць'
-Force Reload: ''
+Force Reload: 'Абнавіць прымусова'
 Toggle Developer Tools: ''
 Actual size: ''
-Zoom in: ''
-Zoom out: ''
+Zoom in: 'Павялічыць'
+Zoom out: 'Паменшыць'
 Toggle fullscreen: ''
 Window: ''
 Minimize: ''
@@ -51,6 +51,8 @@ Global:
     Watching Count: '1 гледач | {count} гледачы(оў)'
 
 # Search Bar
+    Like Count: 1 лайк | {count} лайкаў
+    Comment Count: 1 каментарый | {count} каментарыяў
 Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
   Clear Input: 'Ачысціць увод'
@@ -844,3 +846,4 @@ Display Label: '{label}: {value}'
 Cancel: Адмена
 checkmark: ✓
 Close Banner: Закрыць банер
+Go to page: Перайсці да {page}

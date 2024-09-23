@@ -1300,6 +1300,89 @@ function runApp() {
 
   // *********** //
 
+  // *********** //
+  // Profiles
+  ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_CACHE, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.subscriptionCache.find()
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateVideosByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.subscriptionCache.deleteMultipleChannels(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.subscriptionCache.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL, data }
+          )
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid subscriptionCache db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+
   function syncOtherWindows(channel, event, payload) {
     const otherWindows = BrowserWindow.getAllWindows().filter((window) => {
       return window.webContents.id !== event.sender.id

@@ -20,10 +20,11 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       videoList: [],
       errorChannels: [],
       attemptedFetch: false,
+      lastRemoteRefreshSuccessTimestamp: null,
     }
   },
   computed: {
@@ -39,12 +40,29 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
+    subscriptionCacheReady: function () {
+      return this.$store.getters.getSubscriptionCacheReady
+    },
+
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     lastVideoRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastVideoRefreshTimestampByProfile(this.activeProfileId), true)
+      // Cache is not ready when data is just loaded from remote
+      if (this.lastRemoteRefreshSuccessTimestamp) {
+        return getRelativeTimeFromDate(this.lastRemoteRefreshSuccessTimestamp, true)
+      }
+      if (!this.videoCacheForAllActiveProfileChannelsPresent) { return '' }
+      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return '' }
+
+      let minTimestamp = null
+      this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+        if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+          minTimestamp = cacheEntry.timestamp
+        }
+      })
+      return getRelativeTimeFromDate(minTimestamp, true)
     },
 
     useRssFeeds: function () {
@@ -87,44 +105,37 @@ export default defineComponent({
   },
   watch: {
     activeProfile: async function (_) {
+      this.lastRemoteRefreshSuccessTimestamp = null
       this.isLoading = true
+      this.loadVideosFromCacheSometimes()
+    },
+
+    subscriptionCacheReady() {
       this.loadVideosFromCacheSometimes()
     },
   },
   mounted: async function () {
-    this.isLoading = true
-
     this.loadVideosFromCacheSometimes()
   },
   methods: {
     loadVideosFromCacheSometimes() {
+      // Can only load reliably when cache ready
+      if (!this.subscriptionCacheReady) { return }
+
       // This method is called on view visible
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
-        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
-          let minTimestamp = null
-          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
-            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
-              minTimestamp = cacheEntry.timestamp
-            }
-          })
-          this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
-        }
         return
       }
 
-      // clear timestamp if not all entries are present in the cache
-      this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: '' })
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
     async loadVideosFromCacheForAllActiveProfileChannels() {
-      const videoList = []
-      this.activeSubscriptionList.forEach((channel) => {
-        const channelCacheEntry = this.$store.getters.getVideoCacheByChannel(channel.id)
-
-        videoList.push(...channelCacheEntry.videos)
+      const videoList = this.cacheEntriesForAllActiveProfileChannels.flatMap((cacheEntry) => {
+        return cacheEntry.videos
       })
+
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
     },
@@ -137,7 +148,6 @@ export default defineComponent({
       }
 
       const channelsToLoadFromRemote = this.activeSubscriptionList
-      const videoList = []
       let channelCount = 0
       this.isLoading = true
 
@@ -191,13 +201,12 @@ export default defineComponent({
         }
 
         return videos
-      }))).flatMap((o) => o)
-      videoList.push(...videoListFromRemote)
-      this.updateLastVideoRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
+      }))).flat()
 
-      this.videoList = updateVideoListAfterProcessing(videoList)
+      this.videoList = updateVideoListAfterProcessing(videoListFromRemote)
       this.isLoading = false
       this.updateShowProgressBar(false)
+      this.lastRemoteRefreshSuccessTimestamp = new Date()
 
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
@@ -406,7 +415,6 @@ export default defineComponent({
       'batchUpdateSubscriptionDetails',
       'updateShowProgressBar',
       'updateSubscriptionVideosCacheByChannel',
-      'updateLastVideoRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([

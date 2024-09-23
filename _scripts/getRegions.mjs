@@ -46,13 +46,6 @@ for (const language of youTubeLanguages) {
       youTube: language,
       freeTube: language
     })
-  } else if (activeLanguages.includes(language.replace('-', '_'))) {
-    const withUnderScore = language.replace('-', '_')
-    foundLanguageNames.push(withUnderScore)
-    languagesToScrape.push({
-      youTube: language,
-      freeTube: withUnderScore
-    })
   }
   // special cases
   else if (language === 'de') {
@@ -70,10 +63,10 @@ for (const language of youTubeLanguages) {
   } else if (language === 'no') {
     // according to https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
     // "no" is the macro language for "nb" and "nn"
-    foundLanguageNames.push('nb_NO', 'nn')
+    foundLanguageNames.push('nb-NO', 'nn')
     languagesToScrape.push({
       youTube: 'no',
-      freeTube: 'nb_NO'
+      freeTube: 'nb-NO'
     })
     languagesToScrape.push({
       youTube: 'no',
@@ -88,10 +81,10 @@ for (const language of youTubeLanguages) {
       freeTube: 'he'
     })
   } else if (language === 'es-419') {
-    foundLanguageNames.push('es_AR', 'es-MX')
+    foundLanguageNames.push('es-AR', 'es-MX')
     languagesToScrape.push({
       youTube: 'es-419',
-      freeTube: 'es_AR'
+      freeTube: 'es-AR'
     })
     languagesToScrape.push({
       youTube: 'es-419',
