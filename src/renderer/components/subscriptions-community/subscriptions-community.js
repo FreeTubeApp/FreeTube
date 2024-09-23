@@ -13,7 +13,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       postList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -101,8 +101,6 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    this.isLoading = true
-
     this.loadPostsFromCacheSometimes()
   },
   methods: {
@@ -120,11 +118,8 @@ export default defineComponent({
     },
 
     async loadPostsFromCacheForAllActiveProfileChannels() {
-      const postList = []
-      this.activeSubscriptionList.forEach((channel) => {
-        const channelCacheEntry = this.$store.getters.getPostsCacheByChannel(channel.id)
-
-        postList.push(...channelCacheEntry.posts)
+      const postList = this.cacheEntriesForAllActiveProfileChannels.flatMap((cacheEntry) => {
+        return cacheEntry.posts
       })
 
       postList.sort((a, b) => {
@@ -143,7 +138,6 @@ export default defineComponent({
       }
 
       const channelsToLoadFromRemote = this.activeSubscriptionList
-      const postList = []
       let channelCount = 0
       this.isLoading = true
 
@@ -193,13 +187,13 @@ export default defineComponent({
         }
 
         return posts
-      }))).flatMap((o) => o)
-      postList.push(...postListFromRemote)
-      postList.sort((a, b) => {
+      }))).flat()
+
+      postListFromRemote.sort((a, b) => {
         return b.publishedTime - a.publishedTime
       })
 
-      this.postList = postList
+      this.postList = postListFromRemote
       this.isLoading = false
       this.updateShowProgressBar(false)
       this.lastRemoteRefreshSuccessTimestamp = new Date()
