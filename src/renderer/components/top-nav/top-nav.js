@@ -187,6 +187,7 @@ export default defineComponent({
               doCreateNewWindow,
               searchQueryText: searchQuery,
             })
+
             break
           }
 
@@ -229,6 +230,10 @@ export default defineComponent({
 
           case 'invalid_url':
           default: {
+            const searchHistory = Array.from(new Set(JSON.parse(localStorage.getItem('search-history') || '[]')))
+            searchHistory.push(queryText)
+            localStorage.setItem('search-history', JSON.stringify(searchHistory))
+
             openInternalPath({
               path: `/search/${encodeURIComponent(queryText)}`,
               query: {

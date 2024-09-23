@@ -33,6 +33,29 @@
         </p>
       </router-link>
       <router-link
+        class="navOption topNavOption mobileShow "
+        role="button"
+        to="/recommended"
+        :title="$t('Recommended.Recommended')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'thumbs-up']"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t("Recommended.Recommended") }}
+        </p>
+      </router-link>
+      <router-link
         class="navOption mobileHidden"
         role="button"
         to="/subscribedchannels"

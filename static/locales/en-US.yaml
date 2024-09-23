@@ -144,6 +144,8 @@ Channels:
   Unsubscribe: Unsubscribe
   Unsubscribed: '{channelName} has been removed from your subscriptions'
   Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
+Recommended:
+  Recommended: 'Recommended'
 Trending:
   Trending: Trending
   Default: Default
