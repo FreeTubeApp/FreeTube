@@ -26,6 +26,7 @@
   inset-inline-end: 16px;
   padding-inline-start: 40px;
   background: linear-gradient(270deg, var(--card-bg-color) 75%, transparent 100%);
+  text-decoration: none;
 }
 
 .videoDescription.short .description {
