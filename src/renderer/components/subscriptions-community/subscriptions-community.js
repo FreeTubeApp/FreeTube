@@ -101,9 +101,23 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    this.loadPostsFromCacheSometimes()
+    this.loadPostsFromRemoteFirstPerWindowSometimes()
   },
   methods: {
+    loadPostsFromRemoteFirstPerWindowSometimes() {
+      if (!this.fetchSubscriptionsAutomatically) {
+        this.loadPostsFromCacheSometimes()
+        return
+      }
+      if (this.$store.getters.getSubscriptionForCommunityPostsFirstAutoFetchRun) {
+        // Only auto fetch once per window
+        this.loadPostsFromCacheSometimes()
+        return
+      }
+
+      this.loadPostsForSubscriptionsFromRemote()
+      this.$store.commit('setSubscriptionForCommunityPostsFirstAutoFetchRun')
+    },
     loadPostsFromCacheSometimes() {
       // Can only load reliably when cache ready
       if (!this.subscriptionCacheReady) { return }
@@ -114,7 +128,15 @@ export default defineComponent({
         return
       }
 
-      this.maybeLoadPostsForSubscriptionsFromRemote()
+      if (this.fetchSubscriptionsAutomatically) {
+        // `this.isLoading = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
+        this.loadPostsForSubscriptionsFromRemote()
+        return
+      }
+
+      this.postList = []
+      this.attemptedFetch = false
+      this.isLoading = false
     },
 
     async loadPostsFromCacheForAllActiveProfileChannels() {
@@ -199,17 +221,6 @@ export default defineComponent({
       this.lastRemoteRefreshSuccessTimestamp = new Date()
 
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
-    },
-
-    maybeLoadPostsForSubscriptionsFromRemote: async function () {
-      if (this.fetchSubscriptionsAutomatically) {
-        // `this.isLoading = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
-        await this.loadPostsForSubscriptionsFromRemote()
-      } else {
-        this.postList = []
-        this.attemptedFetch = false
-        this.isLoading = false
-      }
     },
 
     getChannelPostsLocal: async function (channel) {

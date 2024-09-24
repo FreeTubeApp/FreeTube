@@ -111,9 +111,23 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    this.loadVideosFromCacheSometimes()
+    this.loadVideosFromRemoteFirstPerWindowSometimes()
   },
   methods: {
+    loadVideosFromRemoteFirstPerWindowSometimes() {
+      if (!this.fetchSubscriptionsAutomatically) {
+        this.loadVideosFromCacheSometimes()
+        return
+      }
+      if (this.$store.getters.getSubscriptionForLiveStreamsFirstAutoFetchRun) {
+        // Only auto fetch once per window
+        this.loadVideosFromCacheSometimes()
+        return
+      }
+
+      this.loadVideosForSubscriptionsFromRemote()
+      this.$store.commit('setSubscriptionForLiveStreamsFirstAutoFetchRun')
+    },
     loadVideosFromCacheSometimes() {
       // Can only load reliably when cache ready
       if (!this.subscriptionCacheReady) { return }
@@ -124,7 +138,16 @@ export default defineComponent({
         return
       }
 
-      this.maybeLoadVideosForSubscriptionsFromRemote()
+      if (this.fetchSubscriptionsAutomatically) {
+        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
+        this.loadVideosForSubscriptionsFromRemote()
+        return
+      }
+
+      // Auto fetch disabled, not enough cache for profile = show nothing
+      this.videoList = []
+      this.attemptedFetch = false
+      this.isLoading = false
     },
 
     async loadVideosFromCacheForAllActiveProfileChannels() {
@@ -205,17 +228,6 @@ export default defineComponent({
       this.lastRemoteRefreshSuccessTimestamp = new Date()
 
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
-    },
-
-    maybeLoadVideosForSubscriptionsFromRemote: async function () {
-      if (this.fetchSubscriptionsAutomatically) {
-        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-        await this.loadVideosForSubscriptionsFromRemote()
-      } else {
-        this.videoList = []
-        this.attemptedFetch = false
-        this.isLoading = false
-      }
     },
 
     getChannelLiveLocal: async function (channel, failedAttempts = 0) {
