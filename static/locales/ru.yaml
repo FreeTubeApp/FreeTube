@@ -41,6 +41,8 @@ Global:
     View Count: 1 просмотр | {count} просмотра(ов)
     Watching Count: 1 смотрящий | {count} смотрящих
     Channel Count: 1 канал | {count} канала(ов)
+    Comment Count: 1 комментарий | {count} комментариев
+    Like Count: 1 лайк | {count} лайков
   Input Tags:
     Length Requirement: Длина тега должна составлять не менее {number} символов
 Search / Go to URL: 'Поиск / Перейти по адресу'
@@ -81,7 +83,7 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Больше выдачи по этому запросу нет
   Features:
-    Features: Функции
+    Features: Опции
     HD: HD
     Subtitles: Субтитры
     Creative Commons: Creative Commons
@@ -203,7 +205,7 @@ User Playlists:
     Added {count} Times: Добавлено {count} Время | Добавлено {count} Времени
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Видео будут добавлены'
+      Видео будут добавлено'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Видео уже добавлено'
   CreatePlaylistPrompt:
@@ -251,6 +253,7 @@ History:
   Your history list is currently empty.: 'История просмотров в настоящее время пуста.'
   Search bar placeholder: Поиск в Истории
   Empty Search Message: В вашей истории нет видеороликов, соответствующих вашему поиску
+  Case Sensitive Search: Поиск с учетом регистра
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -443,7 +446,7 @@ Settings:
     Fetch Automatically: Автоматически получать ленту
     Only Show Latest Video for Each Channel: Показывать только последние видео для
       каждого канала
-    Confirm Before Unsubscribing: Подтвердите, прежде чем отписаться
+    Confirm Before Unsubscribing: Подтвердить, прежде чем отписаться
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -780,6 +783,10 @@ Channel:
     Hide Answers: Скрыть ответы
     Reveal Answers: Раскрыть ответы
     Video hidden by FreeTube: Видео скрыто FreeTube'ом
+    Viewing Posts Only Supported By Invidious: Просмотр постов поддерживается только
+      в Invidious. Перейдите на вкладку "Сообщество" канала, чтобы просматривать контент
+      там без Invidious.
+    View Full Post: Просмотреть полный пост
   Live:
     Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее
@@ -913,6 +920,35 @@ Video:
   Hide Channel: Скрыть канал
   Unhide Channel: Показать канал
   More Options: Больше настроек
+  Player:
+    TranslatedCaptionTemplate: '{language} (переведено с "{originalLanguage}")'
+    Stats:
+      CodecsVideoAudioNoItags: 'Кодеки: {videoCodec} / {audioCodec}'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      Stats: Статистики
+      Video ID: 'ID Видео: {videoId}'
+      Media Formats: 'Медиа Форматы: {formats}'
+      Buffered: 'Буферизовано: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Пропущенные кадры: {droppedFrames} / Всего кадров:
+        {totalFrames}'
+      CodecsVideoAudio: 'Кодеки: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Resolution: 'Разрешение: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Разрешение Проигрывателя: {width}x{height}'
+      Bitrate: 'Битрейт: {bitrate} кбит/с'
+      Volume: 'Громкость: {volumePercentage}%'
+      Bandwidth: 'Пропускная способность: {bandwidth} кбит/с'
+    You appear to be offline: Похоже, вы Оффлайн.
+    Skipped segment: Пропущен {segmentCategory} сегмент
+    Playback will resume automatically when your connection comes back: Воспроизведение
+      будет возобновлено автоматически, когда соединение будет восстановлено.
+    Audio Tracks: Аудиодорожки
+    Theatre Mode: Режим Театра
+    Exit Theatre Mode: Выход из Режима Театра
+    Full Window: Полноэкранный Режим
+    Exit Full Window: Выйти из Полноэкранного Режима
+    Take Screenshot: Сделать Снимок Экрана
+    Show Stats: Показать Статистику
+    Hide Stats: Скрыть Статистику
 Videos:
   #& Sort By
   Sort By:
@@ -951,6 +987,8 @@ Change Format:
     этого видео
   Dash formats are not available for this video: Форматы DASH недоступны для этого
     видео
+  Legacy formats are not available for this video: Устаревшие форматы недоступны для
+    этого видео
 Share:
   Share Video: 'Поделиться видео'
   Share Playlist: 'Поделиться подборкой'
@@ -999,6 +1037,7 @@ Comments:
   View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
   Hearted: С сердечком
   Subscribed: Подписан(а)
+  There are no comments available for this post: Для этого поста нет доступных комментариев
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -1228,6 +1267,6 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Субтитры
-    Closed Captions: Скрытые субтитры
+    Closed Captions: Субтитры
 'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
   URL: "{url}".'
