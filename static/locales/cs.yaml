@@ -270,7 +270,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Aby
     se změny projevily, je třeba aplikaci restartovat. Restartovat a použít změny?'
   General Settings:
-    General Settings: 'Obecné nastavení'
+    General Settings: 'Obecná nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
     Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
@@ -1189,7 +1189,7 @@ Default Invidious instance has been set to {instance}: Výchozí instance Invidi
 Search Bar:
   Clear Input: Vymazat
 External link opening has been disabled in the general settings: Otevírání externích
-  odkazů bylo v obecném nastavení zakázáno
+  odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
 Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
 Downloading failed: Došlo k problému při stahování "{videoTitle}"
