@@ -175,7 +175,7 @@ User Playlists:
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
-      Video has been removed: A videót eltávolították
+      Video has been removed: A videó el lett távolítva
       Playlist has been updated.: A lejátszási lista frissítésre került.
       There was an issue with updating this playlist.: Volt egy probléma a lejátszási
         lista frissítésével.
@@ -191,8 +191,8 @@ User Playlists:
       Playlist name cannot be empty. Please input a name.: A lejátszási lista neve
         nem lehet üres. Adjon meg egy nevet.
       There was a problem with removing this video: Probléma adódott a videó eltávolításával
-      "{videoCount} video(s) have been removed": 1 videó eltávolításra került | {videoCount}
-        videó eltávolításra került
+      "{videoCount} video(s) have been removed": 1 videó el lett távolítva | {videoCount}
+        videó el lett távolítva
       This video cannot be moved down.: Ez a videó nem mozgatható lejjebb.
       This playlist is now used for quick bookmark: Ez a lejátszási lista most gyors
         könyvjelzőként van használva
@@ -249,7 +249,7 @@ User Playlists:
   Playlist Description: Lejátszási lista leírása
   Add to Favorites: Hozzáadás a(z) {playlistName} lejátszási listához
   Disable Quick Bookmark: Gyors Könyvjelző Letiltása
-  Remove from Favorites: Törlés a(z) {playlistName} lejátszási listából
+  Remove from Favorites: Eltávolítás a(z) {playlistName} lejátszási listából
   Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a
     lejátszási listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
@@ -260,7 +260,7 @@ User Playlists:
     eltávolít 1 duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható
     vissza. | Biztosan eltávolít {playlistItemCount} duplikált videót ebből a lejátszási
     listából? Ez a művelet nem vonható vissza.
-  Remove Duplicate Videos: Duplikált videók törlése
+  Remove Duplicate Videos: Duplikált videók eltávolítása
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Biztosan
     eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
     vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
@@ -458,17 +458,17 @@ Settings:
       gyorsítótárat?'
     Search cache has been cleared: 'A keresési gyorsítótár törölve lett'
     Remove Watch History: 'Megtekintési előzmények eltávolítása'
-    Are you sure you want to remove your entire watch history?: 'Biztosan törli az
-      összes megtekintési előzményt?'
+    Are you sure you want to remove your entire watch history?: 'Biztosan eltávolítja
+      az összes megtekintési előzményt?'
     Watch history has been cleared: 'A megtekintési előzmények törölve lettek'
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
-      törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
+      eltávolítja az összes feliratkozást és profilt? Ez a művelet nem vonható vissza.'
     Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
       utoljára megtekintett lejátszási listával
     All playlists have been removed: Minden lejátszási lista eltávolításra került
     Remove All Playlists: Minden lejátszási lista eltávolítása
-    Are you sure you want to remove all your playlists?: Biztos, hogy el akarja távolítani
+    Are you sure you want to remove all your playlists?: Biztosan el akarja távolítani
       az összes lejátszási listáját?
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
@@ -651,7 +651,7 @@ Settings:
     UseDeArrowThumbnails: DeArrow használata miniatűrökhöz
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek
-      figyelmen kívül hagyása
+      mellőzése
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
     Custom External Player Executable: Egyéni külső lejátszó végrehajthatója
     External Player: Külső lejátszó
@@ -659,7 +659,7 @@ Settings:
     Players:
       None:
         Name: Nincs
-    Ignore Default Arguments: Alapértelmezett argumentumok figyelmen kívül hagyása
+    Ignore Default Arguments: Alapértelmezett argumentumok mellőzése
   Download Settings:
     Ask Download Path: Rákérdezés a letöltés elérési útjára
     Choose Path: Elérési út kijelölése
@@ -773,7 +773,8 @@ Profile:
   Profile has been updated: 'A profil frissült'
   Your default profile has been set to {profile}: 'Alapértelmezett profilja a következőre
     lett beállítva: {profile}'
-  Removed {profile} from your profiles: 'A(z) {profile} eltávolítva a profiljaiból'
+  Removed {profile} from your profiles: 'A(z) {profile} nevű profilja el lett távolítva
+    a profiljaiból'
   Your default profile has been changed to your primary profile: 'Az alapértelmezett
     profil az elsődleges profilra változott'
   '{profile} is now the active profile': 'A(z) {profile} most az aktív profil'
@@ -803,10 +804,10 @@ Profile:
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
-  Channel has been removed from your subscriptions: 'A csatornát eltávolítottuk a
-    feliratkozásokból'
-  Removed subscription from {count} other channel(s): '{count} másik csatornából eltávolítva
-    a feliratkozás'
+  Channel has been removed from your subscriptions: 'A csatorna el lett távolítva
+    a feliratkozásokból'
+  Removed subscription from {count} other channel(s): 'A feliratkozás el lett távolítva
+    {count} másik csatornából'
   Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
   Search Channel: 'Csatorna keresése'
   Your search results have returned 0 results: 'Keresési eredmény: 0 találat'
@@ -872,7 +873,7 @@ Video:
   Mark As Watched: 'Megjelölés megnézettként'
   Remove From History: 'Eltávolítás az előzményekből'
   Video has been marked as watched: 'A videó megtekintettnek lett jelölve'
-  Video has been removed from your history: 'A videót eltávolítottuk az előzményekből'
+  Video has been removed from your history: 'A videó el lett távolítva az előzményekből'
   Open in YouTube: 'Megnyitás a YouTube-ban'
   Copy YouTube Link: 'YouTube hivatkozás másolása'
   Open YouTube Embedded Player: 'YouTube beágyazott lejátszó megnyitása'
@@ -945,7 +946,8 @@ Video:
   Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
   Started streaming on: Folyamatos átvitel indult
   Streamed on: 'Közvetítve'
-  Video has been removed from your saved list: A videót eltávolítottuk a mentett listáról
+  Video has been removed from your saved list: A videó el lett távolíva a mentett
+    listáról
   Video has been saved: A videó mentve
   Save Video: Videó mentése
   Sponsor Block category:
@@ -1173,7 +1175,7 @@ Tooltips:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
       változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
-    Ignore Warnings: A figyelmeztetések elvetése, ha a jelenlegi külső lejátszó nem
+    Ignore Warnings: A figyelmeztetések mellőzése, ha a jelenlegi külső lejátszó nem
       támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
     Custom External Player Arguments: Bármely egyéni parancssori pontosvesszővel (;)
       elválasztott argumentumot át kell adni a külső lejátszónak.
@@ -1230,7 +1232,7 @@ Channels:
   Count: '{number} csatorna találat.'
   Empty: A csatornalistája jelenleg üres.
   Unsubscribe: Leiratkozás
-  Unsubscribed: '{channelName} eltávolítva az feliratkozásáiból'
+  Unsubscribed: 'A(z) {channelName} nevű csatorna el lett távolítva a feliratkozásáiból'
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltése során
 Starting download: „{videoTitle}” letöltésének indítása
@@ -1259,7 +1261,7 @@ Playlist will not pause when current video is finished: Nem szünetel a lejátsz
   lista, amikor a jelenlegi videó véget ér
 Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
 Go to page: Ugrás a(z) {page}. oldalra
-Channel Unhidden: '{channel} eltávolítva a csatornaszűrőből'
+Channel Unhidden: 'A(z) {channel} el lett távolítva a csatornaszűrőből'
 Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter
   hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak
   kell lennie
