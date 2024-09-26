@@ -42,6 +42,8 @@ Global:
     Subscriber Count: מנוי או מנויה 1 | {count} מנויים
     View Count: צפייה אחת | {count} צפיות
     Watching Count: צופה 1 | {count} צורפים
+    Like Count: 1 לייק | {count} לייקים
+    Comment Count: 1 תגובה | {count} תגובות
   Input Tags:
     Length Requirement: התגית חייבת להיות באורך של {number} תווים לפחות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
@@ -177,6 +179,24 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: רשימת
         הנגינה הזאת משמשת לסימניות מהירות במקום {oldPlaylistName}. לחיצה כאן תבטל
         את זה
+      This playlist does not exist: רשימת השידורים הזו לא קיימת.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: חלק
+        מהסרטונים ברשימת השידורים עדיין לא הועלו. לחץ כאן כדי להעתיק בכל זאת.
+      Playlist name cannot be empty. Please input a name.: שם רשימת השידורים לא יכול
+        להיות ריק. נא להזין שם.
+      "{videoCount} video(s) have been removed": 1 סרטון הוסר | {videoCount} סרטונים
+        הוסרו
+      This playlist is protected and cannot be removed.: רשימת השידורים הזו מוגנת
+        ולא ניתן למחוק אותה.
+      Playlist {playlistName} has been deleted.: רשימת השידורים {playlistName} נמחקה.
+      There were no videos to remove.: א היו סרטונים להסרה.
+      Reverted to use {oldPlaylistName} for quick bookmark: חזר להשתמש ב {oldPlaylistName}
+        לסימנייה מהירה
+      Playlist has been updated.: רשימת השידורים עודכנה.
+      There was an issue with updating this playlist.: הייתה בעיה בעדכון רשימת השידורים
+        הזו.
+      Playlist {playlistName} is the new quick bookmark playlist.: רשימת השידורים
+        {playlistName} היא רשימת הסימנייה המהירה החדשה.
     Search for Videos: חיפוש סרטונים
   Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
     ביעד הסימניות הזריזות.
@@ -192,9 +212,24 @@ User Playlists:
     Added {count} Times: כבר נוסף | נוסף {count} פעמים
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       סרטונים כבר נוספו'
+    N playlists selected: '{playlistCount} נבחרו'
+    Select a playlist to add your N videos to: בחר רשימת שידורים להוספת הסרטון שלך
+      | בחר רשימת שידורים להוספת {videoCount} הסרטונים שלך
+    Toast:
+      You haven't selected any playlist yet.: עדיין לא נבחרה רשימת שידורים.
+      "{videoCount} video(s) added to 1 playlist": סרטון 1 נוסף לרשימת השמעה 1 |  {videoCount}
+        סרטונים שנוספו לרשימת השמעה 1
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 סרטון הוסף ל{playlistCount}
+        רשימות שידורים | {videoCount} סרטונים הוספו ל{playlistCount} רשימות שידורים
   CreatePlaylistPrompt:
     Create: יצירה
     New Playlist Name: שם חדש לרשימת נגינה
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: קיימת
+        רשימת שידורים עם שם זה. נא לבחור שם אחר.
+      Playlist {playlistName} has been successfully created.: רשימת השידורים {playlistName}
+        נוצרה בהצלחה.
+      There was an issue with creating the playlist.: הייתה בעיה ביצירת רשימת השידורים.
   Playlists with Matching Videos: רשימות נגינה עם סרטונים תואמים
   Add to Playlist: הוספת לרשימת נגינה
   Remove from Favorites: הסרה מתוך {playlistName}
@@ -205,6 +240,8 @@ User Playlists:
   Save Changes: שמירת השינויים
   Cancel: ביטול
   Add to Favorites: הוספה אל {playlistName}
+  Quick Bookmark Enabled: סימנייה מהירה מופעלת
+  Enable Quick Bookmark With This Playlist: אפשר סימנייה מהירה עם רשימת השידורים הזו
 History:
   # On History Page
   History: 'היסטוריה'
@@ -261,6 +298,7 @@ Settings:
       עם ההפעלה
     Auto Load Next Page:
       Label: טעינת העמוד הבא אוטומטית
+      Tooltip: טען דפים ותגובות נוספים באופן אוטומטי.
   Theme Settings:
     Theme Settings: 'הגדרת ערכת עיצוב'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -322,6 +360,8 @@ Settings:
       Solarized Red: אדום זוהר
       Solarized Magenta: ארגמן זוהר
       Solarized Blue: כחול זוהר
+      Solarized Violet: ויולט מואר בשמש
+      Solarized Cyan: סולרייזד כחול-ירוק
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -399,12 +439,16 @@ Settings:
       הנגינה לאחרונים שנצפו
     Remove All Playlists: הסרת כל רשימות הנגינה
     All playlists have been removed: כל רשימות הנגינה הוסרו
+    Are you sure you want to remove all your playlists?: האם אתה בטוח שברצונך למחוק
+      את כל רשימות השידורים שלך?
   Subscription Settings:
     Subscription Settings: 'הגדרות מינויים'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Manage Subscriptions: 'ניהול מינויים'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
+    Confirm Before Unsubscribing: אשר לפני ביטול מנוי
+    Only Show Latest Video for Each Channel: הצג רק את הסרטון האחרון לכל ערוץ
   Data Settings:
     Data Settings: 'הגדרות נתונים'
     Select Import Type: 'נא לבחור את תסדיר הייבוא'
@@ -449,6 +493,12 @@ Settings:
     Playlist File: קובץ רשימות נגינה
     Subscription File: קובץ מינויים
     History File: קובץ היסטוריה
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "אפשרות זו מייצאת סרטונים מכל הרשימות לרשימת שידורים אחת בשם 'מועדפים'.\n
+        איך לייצא ולייבא סרטונים ברשימות לגרסה ישנה של FreeTube:\n1. יצא את הרשימות
+        שלך עם אפשרות זו מופעלת.\n2. מחק את כל הרשימות הקיימות שלך באמצעות אפשרות
+        הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא
+        את הרשימות שיוצאו."
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -495,9 +545,9 @@ Settings:
     Hide Chapters: הסתרת פרקים
     Hide Upcoming Premieres: הסתרת בכורות קרובות
     Hide Channels: הסתרת סרטונים מהערוצים
-    Hide Channels Placeholder: שם או מזהה ערוץ
-    Display Titles Without Excessive Capitalisation: להציג כותרות בלי אותיות גדולות
-      בהגזמה
+    Hide Channels Placeholder: ID של הערוץ
+    Display Titles Without Excessive Capitalisation: הצג כותרות ללא אותיות גדולות
+      וסימני פיסוק מיותרים
     Hide Featured Channels: הסתרת ערוצים מומלצים
     Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
     Hide Channel Community: הסתרת קהילת הערוץ
@@ -516,6 +566,15 @@ Settings:
     Blur Thumbnails: טשטוש התמונות הממוזערות
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
     Hide Subscriptions Community: הסתרת קהילת המינויים
+    Hide Videos and Playlists Containing Text Placeholder: מילה, חלק מילה או ביטוי
+    Hide Channels Invalid: ID הערוץ שסופק לא תקין
+    Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה
+      נחסמת עד שה-ID האלו מתעדכנים
+    Hide Channels Already Exists: ID הערוץ כבר קיים
+    Hide Channels API Error: אירעה שגיאה באיחזור משתמש עם ה-ID שסופק. נא לבדוק שוב
+      אם ה-ID נכון.
+    Hide Videos and Playlists Containing Text: הסתר סרטונים ורשימות שידורים המכילים
+      טקסט
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -543,6 +602,7 @@ Settings:
     Players:
       None:
         Name: ללא
+    Ignore Default Arguments: התעלם מפרמטרים ברירת מחדל
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
     SponsorBlock Settings: הגדרות חוסם מממנים
@@ -557,6 +617,9 @@ Settings:
       Prompt To Skip: לשאול אם לדלג
     Category Color: צבע קטגוריה
     UseDeArrowTitles: להשתמש בכותרות סרטונים דרך DeArrow
+    UseDeArrowThumbnails: השתמש ב-DeArrow לתמונות מיניאטורה
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת
+      API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
   Download Settings:
     Download Settings: הגדרות הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
@@ -584,6 +647,8 @@ Settings:
     Set Password: הגדרת סיסמה
     Remove Password: הסרת סיסמה
     Set Password To Prevent Access: יש להגדיר סיסמה כדי למנוע גישה להגדרות
+  Expand All Settings Sections: פתח את כל חלקי ההגדרות
+  Sort Settings Sections (A-Z): מיין חלקי הגדרות (א-ת)
 About:
   #On About page
   About: 'על אודות'
@@ -647,6 +712,8 @@ About:
   Licensed under the AGPLv3: בכפוף לרישיון AGPLv3
   Source code: קוד מקור
   Discussions: דיונים
+  AGPLv3: AGPLv3
+  Licensed under the: מורשה תחת
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
@@ -690,6 +757,11 @@ Profile:
   Profile Filter: מסנן פרופילים
   Profile Settings: הגדרת הפרופיל
   Toggle Profile List: החלפת תצוגת רשימת פרופילים
+  Edit Profile Name: ערוך שם הפרופיל
+  Close Profile Dropdown: סגור תפריט הפרופיל
+  Create Profile Name: צור שם פרופיל
+  Profile Name: שם הפרופיל
+  Open Profile Dropdown: פתח תפריט הפרופיל
 Channel:
   Subscribe: 'הרשמה למינוי'
   Unsubscribe: 'ביטול המינוי'
@@ -735,6 +807,10 @@ Channel:
     votes: '{votes} הצבעות'
     Reveal Answers: חשיפת התשובות
     Hide Answers: הסתרת התשובות
+    View Full Post: צפה בפוסט המלא
+    Viewing Posts Only Supported By Invidious: צפייה בפוסטים מתאפשרת רק באמצעות Invidious.
+      עבור ללשונית הקהילה של הערוץ כדי לצפות בתוכן שם ללא Invidious.
+    Video hidden by FreeTube: סרטון מוסתר על ידי FreeTube
   Live:
     Live: חי
     This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים
@@ -859,6 +935,17 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': הצ׳אט
     לא זמין לשידור הזה. יכול להיות שהוא הושבת על ידי המעלה.
   Pause on Current Video: השהייה על הסרטון הנוכחי
+  Player:
+    Theatre Mode: מצב תיאטרון
+    TranslatedCaptionTemplate: '{language} (תורגם מ"{originalLanguage}")'
+    Audio Tracks: מסלולי שמע
+    Exit Theatre Mode: צא ממצב תיאטרון
+    Full Window: מסך מלא
+    Exit Full Window: צא ממסך מלא
+    Take Screenshot: לעשות צילום מסך
+  Hide Channel: הסתר ערוץ
+  Unhide Channel: הצג ערוץ
+  More Options: אפשרויות נוספות
 Videos:
   #& Sort By
   Sort By:
