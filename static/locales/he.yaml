@@ -499,6 +499,7 @@ Settings:
         שלך עם אפשרות זו מופעלת.\n2. מחק את כל הרשימות הקיימות שלך באמצעות אפשרות
         הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא
         את הרשימות שיוצאו."
+      Label: ייצוא רשימות לגרסאות ישנות של FreeTube
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
@@ -943,6 +944,27 @@ Video:
     Full Window: מסך מלא
     Exit Full Window: צא ממסך מלא
     Take Screenshot: לעשות צילום מסך
+    Show Stats: הצג נתונים
+    Stats:
+      Video ID: 'ID סרטון: {videoId}'
+      Resolution: 'רזולוציה: {height}‎‏x‏{width}@{frameRate}'
+      Stats: נתונים
+      Media Formats: 'פורמטים מדיה: {formats}'
+      Player Dimensions: 'ממדי הנגן: {height}x‏{width}'
+      Bitrate: 'קצב נתונים:  kbps‏ {bitrate}'
+      Buffered: 'מטופל: %{bufferedPercentage}‏‏‎‏‏‏‏‏'
+      Volume: 'עוצמת קול: %{volumePercentage}'
+      Bandwidth: 'רוחב פס: kbps ‏‏‏‏‎‎‎{bandwidth}‏‎'
+      Dropped Frames / Total Frames: 'פריימים שנפלו: {droppedFrames} / פריימים כולל:
+        {totalFrames}'
+      CodecAudio: 'קודק: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'קודקים: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'קודקים: {videoCodec} / {audioCodec}'
+    Hide Stats: הסתר נתונים
+    You appear to be offline: נראה שאתה לא מחובר
+    Playback will resume automatically when your connection comes back: הפלייבק יחודש
+      אוטומטית כאשר החיבור שלך יחזור.
+    Skipped segment: דילגתי על {segmentCategory}
   Hide Channel: הסתר ערוץ
   Unhide Channel: הצג ערוץ
   More Options: אפשרויות נוספות
@@ -965,6 +987,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: רשימת נגינה
+  Sort By:
+    AuthorDescending: יוצר (ת-א)
+    DateAddedOldest: הראשונים שנוספו ראשונים
+    AuthorAscending: יוצר (א-ת)
+    VideoTitleAscending: כותר (א-ת)
+    Sort By: מיין לפי
+    Custom: מותאם
+    VideoTitleDescending: כותר (ת-א)
+    DateAddedNewest: האחרונים שנוספו ראשונים
 Toggle Theatre Mode: 'הפעלת / השבתת מצב קולנוע'
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
@@ -973,6 +1004,8 @@ Change Format:
   Use Audio Formats: 'שימוש בתסדירי שמע'
   Dash formats are not available for this video: 'לא קיימים תסדירי DASH לסרטון הזה'
   Audio formats are not available for this video: 'לא קיימים תסדירי שמע לסרטון הזה'
+  Legacy formats are not available for this video: פורמטים ישנים אינם זמינים לסרטון
+    זה
 Share:
   Share Video: 'שיתוף הסרטון'
   Share Playlist: 'שיתוף רשימת נגינה'
@@ -1016,6 +1049,7 @@ Comments:
   View {replyCount} replies: הצגת {replyCount} תגובות
   Hearted: סומן בלב
   Subscribed: נרשמת
+  There are no comments available for this post: אין תגובות זמינות לפוסט זה
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -1084,6 +1118,9 @@ Tooltips:
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
     Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
       מופרדים בפסיקים (‚;’).
+    Ignore Default Arguments: אל תשלח אף ארגומנט סטנדרטי לנגן החיצוני, מלבד כתובת
+      הסרטון (למשל, קצב הפלייבק, כתובת הרשימה, וכו'). ארגומנטים מותאמים ימשיכו להיות
+      מועברים.
   Experimental Settings:
     Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
       אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
@@ -1093,6 +1130,9 @@ Tooltips:
       הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
     Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”,
       בסעיף „{subsection}” שב„{settingsSection}”
+    Hide Videos and Playlists Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא
+      הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי
+      מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
     UseDeArrowThumbnails: החלפת התמונות הממוזערות של הסרטונים בתמונות ממוזערות מ־DeArrow.
@@ -1170,3 +1210,7 @@ checkmark: ✓
 Tag already exists: התגית „{tagName}” כבר קיימת
 Moments Ago: לפני מס׳ רגעים
 Display Label: '{label}:‏ {value}'
+Channel Unhidden: '{channel} הוסר ממסנן ערוצים'
+Channel Hidden: '{channel} נוסף למסנן ערוצים'
+Trimmed input must be at least N characters long: הקלט המקוצץ חייב להיות באורך של
+  לפחות תו אחד | הקלט המקוצץ חייב להיות באורך של לפחות {length} תווים
