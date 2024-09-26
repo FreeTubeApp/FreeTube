@@ -180,6 +180,7 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
+      this.showNoticesSometimes()
       return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
@@ -214,6 +215,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.AuthorAscending')
           case SORT_BY_VALUES.AuthorDescending:
             return this.$t('Playlist.Sort By.AuthorDescending')
+          case SORT_BY_VALUES.VideoLengthAscending:
+            return this.$t('Playlist.Sort By.VideoLengthAscending')
+          case SORT_BY_VALUES.VideoLengthDescending:
+            return this.$t('Playlist.Sort By.VideoLengthDescending')
           default:
             console.error(`Unknown sort: ${k}`)
             return k
@@ -418,6 +423,20 @@ export default defineComponent({
     },
     showUserPlaylistNotFound() {
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
+    },
+
+    showNoticesSometimes: function () {
+      if (this.alreadyShownNotice) return
+      if (
+        this.sortOrder === SORT_BY_VALUES.VideoLengthAscending ||
+        this.sortOrder === SORT_BY_VALUES.VideoLengthDescending
+      ) {
+        const anyVideoMissingLength = this.playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
+        if (anyVideoMissingLength) {
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a length error'), 5000)
+          this.alreadyShownNotice = true
+        }
+      }
     },
 
     getNextPage: function () {

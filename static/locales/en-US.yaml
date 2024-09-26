@@ -236,6 +236,8 @@ User Playlists:
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
+
+      This playlist has a video with a length error: This playlist contains at least one video that doesn't have a length, it will be sorted as if their length is zero.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
@@ -928,6 +930,8 @@ Playlist:
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
+    VideoLengthAscending: Length (Shortest first)
+    VideoLengthDescending: Length (Longest first)
     Custom: Custom
 
 # On Video Watch Page
