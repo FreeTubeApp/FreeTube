@@ -41,9 +41,9 @@ Global:
     Channel Count: ערוץ אחד | {count} ערוצים
     Subscriber Count: מנוי או מנויה 1 | {count} מנויים
     View Count: צפייה אחת | {count} צפיות
-    Watching Count: צופה 1 | {count} צורפים
-    Like Count: 1 לייק | {count} לייקים
-    Comment Count: 1 תגובה | {count} תגובות
+    Watching Count: עוקב/ת | {count} עוקבים
+    Like Count: לייק | {count} לייקים
+    Comment Count: תגובה | {count} תגובות
   Input Tags:
     Length Requirement: התגית חייבת להיות באורך של {number} תווים לפחות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
