@@ -74,6 +74,7 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
       forceListView: false,
+      alreadyShownNotice: false,
 
       videoSearchQuery: '',
 
