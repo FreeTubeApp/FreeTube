@@ -1072,7 +1072,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
-      IP-aadressi blokeerimise, kuid ei sisalda video kestust ja otseesituse olekut
+      IP-aadressi blokeerimise, kuid ei sisalda video kestust, otseesituse olekut
+      ja kogukonna postitusi
     Fetch Automatically: Kui see valik on kasutusel, siis FreeTube automaatselt laadib
       uue akna avamisel ja profiili vahetamisel sinu tellimuste loendi.
   General Settings:
