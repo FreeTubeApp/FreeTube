@@ -1053,7 +1053,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration or live status
+      but doesn't provide certain information like video duration, live status or community posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
   Experimental Settings:
