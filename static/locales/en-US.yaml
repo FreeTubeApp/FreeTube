@@ -930,8 +930,8 @@ Playlist:
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
-    VideoLengthAscending: Length (Shortest first)
-    VideoLengthDescending: Length (Longest first)
+    VideoDurationAscending: Length (Shortest first)
+    VideoDurationDescending: Length (Longest first)
     Custom: Custom
 
 # On Video Watch Page

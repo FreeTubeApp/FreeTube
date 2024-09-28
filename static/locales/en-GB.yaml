@@ -1008,8 +1008,8 @@ Playlist:
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
-    VideoLengthAscending: Length (Shortest first)
-    VideoLengthDescending: Length (Longest first)
+    VideoDurationAscending: Length (Shortest first)
+    VideoDurationDescending: Length (Longest first)
 Toggle Theatre Mode: 'Toggle Theatre Mode'
 Change Format:
   Change Media Formats: 'Change Media Formats'

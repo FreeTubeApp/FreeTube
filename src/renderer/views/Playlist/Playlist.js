@@ -216,10 +216,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.AuthorAscending')
           case SORT_BY_VALUES.AuthorDescending:
             return this.$t('Playlist.Sort By.AuthorDescending')
-          case SORT_BY_VALUES.VideoLengthAscending:
-            return this.$t('Playlist.Sort By.VideoLengthAscending')
-          case SORT_BY_VALUES.VideoLengthDescending:
-            return this.$t('Playlist.Sort By.VideoLengthDescending')
+          case SORT_BY_VALUES.VideoDurationAscending:
+            return this.$t('Playlist.Sort By.VideoDurationAscending')
+          case SORT_BY_VALUES.VideoDurationDescending:
+            return this.$t('Playlist.Sort By.VideoDurationDescending')
           default:
             console.error(`Unknown sort: ${k}`)
             return k
@@ -429,8 +429,8 @@ export default defineComponent({
     showNoticesSometimes: function () {
       if (this.alreadyShownNotice) return
       if (
-        this.sortOrder === SORT_BY_VALUES.VideoLengthAscending ||
-        this.sortOrder === SORT_BY_VALUES.VideoLengthDescending
+        this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
+        this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
       ) {
         const anyVideoMissingLength = this.playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
         if (anyVideoMissingLength) {

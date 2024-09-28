@@ -5,8 +5,8 @@ export const SORT_BY_VALUES = {
   AuthorDescending: 'author_descending',
   VideoTitleAscending: 'video_title_ascending',
   VideoTitleDescending: 'video_title_descending',
-  VideoLengthAscending: 'video_length_ascending',
-  VideoLengthDescending: 'video_length_descending',
+  VideoDurationAscending: 'video_length_ascending',
+  VideoDurationDescending: 'video_length_descending',
   Custom: 'custom'
 }
 
@@ -22,8 +22,8 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
     sortOrder === SORT_BY_VALUES.VideoTitleDescending ||
     sortOrder === SORT_BY_VALUES.AuthorAscending ||
     sortOrder === SORT_BY_VALUES.AuthorDescending ||
-    sortOrder === SORT_BY_VALUES.VideoLengthAscending ||
-    sortOrder === SORT_BY_VALUES.VideoLengthDescending
+    sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
+    sortOrder === SORT_BY_VALUES.VideoDurationDescending
   ) {
     collator = new Intl.Collator([locale, 'en'])
   }
@@ -49,12 +49,12 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
       return collator.compare(a.author, b.author)
     case SORT_BY_VALUES.AuthorDescending:
       return collator.compare(b.author, a.author)
-    case SORT_BY_VALUES.VideoLengthAscending: {
+    case SORT_BY_VALUES.VideoDurationAscending: {
       const aLengthForSort = (isNaN(a.lengthSeconds) || a.lengthSeconds === 0) ? 0 : a.lengthSeconds
       const bLengthForSort = (isNaN(b.lengthSeconds) || b.lengthSeconds === 0) ? 0 : b.lengthSeconds
       return aLengthForSort - bLengthForSort
     }
-    case SORT_BY_VALUES.VideoLengthDescending: {
+    case SORT_BY_VALUES.VideoDurationDescending: {
       const aLengthForSort = (isNaN(a.lengthSeconds) || a.lengthSeconds === 0) ? 0 : a.lengthSeconds
       const bLengthForSort = (isNaN(b.lengthSeconds) || b.lengthSeconds === 0) ? 0 : b.lengthSeconds
       return bLengthForSort - aLengthForSort
