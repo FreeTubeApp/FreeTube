@@ -5,8 +5,8 @@ export const SORT_BY_VALUES = {
   AuthorDescending: 'author_descending',
   VideoTitleAscending: 'video_title_ascending',
   VideoTitleDescending: 'video_title_descending',
-  VideoDurationAscending: 'video_length_ascending',
-  VideoDurationDescending: 'video_length_descending',
+  VideoDurationAscending: 'video_duration_ascending',
+  VideoDurationDescending: 'video_duration_descending',
   Custom: 'custom'
 }
 
