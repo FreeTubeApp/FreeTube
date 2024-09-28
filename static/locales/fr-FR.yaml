@@ -1173,10 +1173,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   en raison de restrictions d'accès dans certains pays.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera le RSS au lieu
-      de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
-      plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
-      comme la durée de la vidéo ou le statut en direct
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de
+      sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide
+      et empêche le blocage d'IP, mais ne fournit pas certaines informations comme
+      la durée de la vidéo, le statut en direct ou les commentaires
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement
       le flux de votre abonnement à l'ouverture d'une nouvelle fenêtre et lors du
       changement de profil.
