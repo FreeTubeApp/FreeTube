@@ -999,8 +999,8 @@ Video:
       Dropped Frames / Total Frames: 'Fotogramas eliminados: {droppedFrames} / Fotogramas
         totales: {totalFrames}'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
-      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+      CodecsVideoAudio: 'Códecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Códecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Parece que no tienes conexión.
     Playback will resume automatically when your connection comes back: La reproducción
       se reanudará automáticamente cuando se restablezca la conexión.
@@ -1130,10 +1130,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   la falta de acceso de este formato a tu región.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Al activarse, FreeTube utilizará RSS en lugar de su método
-      predeterminado para recuperar el feed de suscripciones. RSS es más rápido y
-      previene los bloqueos por IP, pero carece de ciertos datos, como la duración
-      de los vídeos o el estado de transmisión en directo
+    Fetch Feeds from RSS: Cuando se activa, FreeTube utilizará RSS en lugar de su
+      método por defecto para obtener su feed de suscripción. RSS es más rápido y
+      evita el bloqueo de IP, pero no proporciona cierta información como la duración
+      del vídeo, el estado en directo o los mensajes de la comunidad
     Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente
       su feed de suscripción cuando se abra una nueva ventana y al cambiar de perfil.
   Player Settings:
