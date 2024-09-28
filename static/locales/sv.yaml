@@ -986,8 +986,7 @@ Tooltips:
       DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
       720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
-      videor istället för att göra en direkt anslutning till YouTube. Åsidosätter
-      API-preferens.
+      videor istället för att göra en direkt anslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
       videon, MPV-stil.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere

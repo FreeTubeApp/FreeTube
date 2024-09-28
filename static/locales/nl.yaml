@@ -1092,7 +1092,7 @@ Tooltips:
       alleen het geluid streamen.
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
-      te halen. Dit overschrijft de ingestelde API voorkeur.
+      te halen.
     Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt,
       houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis
       om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)

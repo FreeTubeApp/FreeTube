@@ -1142,8 +1142,7 @@ Tooltips:
       a 720p, pero requiere menos ancho de banda. El formato del audio se limita al
       reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
-      lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
-      API.
+      lugar de conectar directamente con YouTube.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona

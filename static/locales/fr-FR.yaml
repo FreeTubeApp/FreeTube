@@ -1186,8 +1186,7 @@ Tooltips:
       sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
       formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
-      au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
-      de l'API.
+      au lieu d'établir une connexion directe avec YouTube.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo,
       maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler
       la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse

@@ -1102,7 +1102,7 @@ Tooltips:
       prohlížeči.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
-      namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
+      namísto přímého připojení k YouTube.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
       DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně
       720p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující

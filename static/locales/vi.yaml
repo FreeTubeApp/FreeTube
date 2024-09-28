@@ -1043,7 +1043,7 @@ Tooltips:
       quốc gia mà bạn muốn hiển thị.
   Player Settings:
     Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay
-      vì kết nối trực tiếp với YouTube. Ghi đè tùy chọn API.
+      vì kết nối trực tiếp với YouTube.
     Default Video Format: Cài đặt các định dạng được dùng khi phát video. Định dạng
       DASH có thể phát với chất lượng cao hơn. Các định dạng cũ được giới hạn ở mức
       tối đa là 720p nhưng chúng tiêu tốn ít băng thông hơn. Định dạng âm thanh là

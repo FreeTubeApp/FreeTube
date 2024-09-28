@@ -1093,7 +1093,7 @@ Tooltips:
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
       nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
     Proxy Videos Through Invidious: Kasutab videote esitamiseks Invidious'e teenust
-      ega tee päringuid otse YouTube serveri pihta. Asendab API eelistuse.
+      ega tee päringuid otse YouTube serveri pihta.
     Scroll Playback Rate Over Video Player: Kui kursor on video kohal, siis vajuta
       Ctrl klahvi (Mac'is ⌘ klahvi) ja taasesituse kiiruse muutmiseks keri hiireratast
       edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,

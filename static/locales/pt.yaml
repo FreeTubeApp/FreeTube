@@ -1122,8 +1122,7 @@ Tooltips:
       estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos
       de áudio são apenas para emissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
-      vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
-      API.
+      vídeos em vez de fazer uma ligação direta ao YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)

@@ -1022,7 +1022,7 @@ Tooltips:
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference.
+      of making a direct connection to YouTube.
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
