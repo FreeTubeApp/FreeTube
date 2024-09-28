@@ -1128,8 +1128,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
       için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
-      önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
-      sağlamaz
+      önüne geçer, ancak video süresi, canlı yayın durumu veya topluluk gönderileri
+      gibi belirli bilgileri sağlamaz
     Fetch Automatically: Etkinleştirildiğinde, FreeTube yeni bir pencere açıldığında
       ve profil değiştirirken abonelik akışınızı otomatik olarak getirecektir.
   Player Settings:
