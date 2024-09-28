@@ -67,6 +67,10 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -85,6 +89,10 @@ export default defineComponent({
 
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+
+    showProxyVideosAsDisabled: function () {
+      return this.backendPreference !== 'invidious' && !this.backendFallback
     },
 
     defaultSkipInterval: function () {
