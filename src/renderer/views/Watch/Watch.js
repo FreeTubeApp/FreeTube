@@ -358,12 +358,18 @@ export default defineComponent({
 
         const playabilityStatus = result.playability_status
 
-        if (playabilityStatus.status === 'UNPLAYABLE') {
-          /**
-           * @type {import ('youtubei.js').YTNodes.PlayerErrorMessage}
-           */
-          const errorScreen = playabilityStatus.error_screen
-          throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
+        if (playabilityStatus.status === 'UNPLAYABLE' || (playabilityStatus.status === 'LOGIN_REQUIRED' && playabilityStatus.reason === 'Sign in to confirm you are not a bot')) {
+          if (playabilityStatus.reason === 'Sign in to confirm you are not a bot') {
+            throw new Error(this.$t('Video.IP block'))
+          }
+
+          let errorText = `[${playabilityStatus.status}] ${playabilityStatus.reason}`
+
+          if (playabilityStatus.error_screen) {
+            errorText += `: ${playabilityStatus.error_screen.subreason.text}`
+          }
+
+          throw new Error(errorText)
         }
 
         // extract localised title first and fall back to the not localised one

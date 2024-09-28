@@ -766,6 +766,7 @@ Channel:
     Video hidden by FreeTube: Video hidden by FreeTube
     Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
+  IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
   More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
