@@ -432,9 +432,9 @@ export default defineComponent({
         this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
         this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
       ) {
-        const anyVideoMissingLength = this.playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
-        if (anyVideoMissingLength) {
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a length error'), 5000)
+        const anyVideoMissingDuration = this.playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
+        if (anyVideoMissingDuration) {
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
           this.alreadyShownNotice = true
         }
       }
