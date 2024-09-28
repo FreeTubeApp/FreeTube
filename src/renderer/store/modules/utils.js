@@ -58,6 +58,12 @@ const state = {
   lastCommunityRefreshTimestampByProfile: {},
   lastPopularRefreshTimestamp: '',
   lastTrendingRefreshTimestamp: '',
+  subscriptionFirstAutoFetchRunData: {
+    videos: false,
+    liveStreams: false,
+    shorts: false,
+    communityPosts: false,
+  },
 }
 
 const getters = {
@@ -163,6 +169,19 @@ const getters = {
 
   getLastPopularRefreshTimestamp(state) {
     return state.lastPopularRefreshTimestamp
+  },
+
+  getSubscriptionForVideosFirstAutoFetchRun(state) {
+    return state.subscriptionFirstAutoFetchRunData.videos === true
+  },
+  getSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.liveStreams === true
+  },
+  getSubscriptionForShortsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.shorts === true
+  },
+  getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
 }
 
@@ -944,7 +963,20 @@ const mutations = {
 
   setExternalPlayerCmdArguments (state, value) {
     state.externalPlayerCmdArguments = value
-  }
+  },
+
+  setSubscriptionForVideosFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.videos = true
+  },
+  setSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.liveStreams = true
+  },
+  setSubscriptionForShortsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.shorts = true
+  },
+  setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.communityPosts = true
+  },
 }
 
 export default {
