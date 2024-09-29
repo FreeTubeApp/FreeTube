@@ -1155,8 +1155,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
-      ma non forniscono determinate informazioni come la durata del video o lo stato
-      dal vivo
+      ma non forniscono determinate informazioni come la durata del video, lo stato
+      dal vivo o I post della comunità
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
       dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
   General Settings:
