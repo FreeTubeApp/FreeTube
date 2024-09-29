@@ -1117,7 +1117,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale
-      neposkytuje určité informace, jako je délka videa a podobně'
+      neposkytuje určité informace, jako je délka videa, stav vysílání nebo komunitní
+      příspěvky'
 
 # Toast Messages
     Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
