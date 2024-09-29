@@ -35,6 +35,10 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
   })
 }
 
+function getDurationForSort(a) {
+  return (isNaN(a.lengthSeconds) || a.lengthSeconds === 0) ? 0 : a.lengthSeconds
+}
+
 function compareTwoPlaylistItems(a, b, sortOrder, collator) {
   switch (sortOrder) {
     case SORT_BY_VALUES.DateAddedNewest:
@@ -50,14 +54,10 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
     case SORT_BY_VALUES.AuthorDescending:
       return collator.compare(b.author, a.author)
     case SORT_BY_VALUES.VideoDurationAscending: {
-      const aLengthForSort = (isNaN(a.lengthSeconds) || a.lengthSeconds === 0) ? 0 : a.lengthSeconds
-      const bLengthForSort = (isNaN(b.lengthSeconds) || b.lengthSeconds === 0) ? 0 : b.lengthSeconds
-      return aLengthForSort - bLengthForSort
+      return getDurationForSort(a) - getDurationForSort(b)
     }
     case SORT_BY_VALUES.VideoDurationDescending: {
-      const aLengthForSort = (isNaN(a.lengthSeconds) || a.lengthSeconds === 0) ? 0 : a.lengthSeconds
-      const bLengthForSort = (isNaN(b.lengthSeconds) || b.lengthSeconds === 0) ? 0 : b.lengthSeconds
-      return bLengthForSort - aLengthForSort
+      return getDurationForSort(b) - getDurationForSort(a)
     }
     default:
       console.error(`Unknown sortOrder: ${sortOrder}`)
