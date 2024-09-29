@@ -210,10 +210,13 @@ export default defineComponent({
         channelCount++
         const percentageComplete = (channelCount / channelsToLoadFromRemote.length) * 100
         this.setProgressBarPercentage(percentageComplete)
-        this.updateSubscriptionVideosCacheByChannel({
-          channelId: channel.id,
-          videos: videos
-        })
+
+        if (videos != null) {
+          this.updateSubscriptionVideosCacheByChannel({
+            channelId: channel.id,
+            videos: videos
+          })
+        }
 
         if (name || thumbnailUrl) {
           subscriptionUpdates.push({
@@ -223,7 +226,7 @@ export default defineComponent({
           })
         }
 
-        return videos
+        return videos ?? []
       }))).flat()
 
       this.videoList = updateVideoListAfterProcessing(videoListFromRemote)
@@ -280,6 +283,12 @@ export default defineComponent({
 
       try {
         const response = await fetch(feedUrl)
+
+        if (response.status === 403) {
+          return {
+            videos: null
+          }
+        }
 
         if (response.status === 404) {
           // playlists don't exist if the channel was terminated but also if it doesn't have the tab,
