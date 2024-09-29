@@ -42,6 +42,8 @@ Global:
     View Count: 1 visning | {count} visningar
     Watching Count: 1 tittar | {count} tittare
     Channel Count: 1 kanal | {count} kanaler
+    Like Count: 1 gillning | {count} gillningar
+    Comment Count: 1 kommentar | {count} kommentarer
   Input Tags:
     Length Requirement: Taggen måste vara minst {number} tecken långt
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
@@ -89,6 +91,16 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Det finns inga mer resultat för denna
     sökning
+  Features:
+    360 Video: 360 Video
+    Location: Plats
+    HDR: HDR
+    HD: HD
+    Subtitles: Undertexter
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Live
+    4K: 4K
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
@@ -1096,3 +1108,7 @@ Feed:
   Refresh Feed: Uppdatera {subscriptionName}
 checkmark: ✓
 Display Label: '{label}: {value}'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Undertexter
