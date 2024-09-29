@@ -605,8 +605,7 @@ Settings:
     Hide Subscriptions Community: Közösségi feliratkozások elrejtése
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
     Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító használatával,
-      és nem dolgozták fel őket. A jellemző le van tiltva az azonosítók frissítése
-      közben
+      és nem dolgozták fel őket. A jellemző le van tiltva az azonosítók frissítésekor
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
       lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
