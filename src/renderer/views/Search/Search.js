@@ -65,7 +65,7 @@ export default defineComponent({
         time: this.$route.query.time,
         type: this.$route.query.type,
         duration: this.$route.query.duration,
-        features: features,
+        features: features ?? [],
       }
 
       const payload = {
