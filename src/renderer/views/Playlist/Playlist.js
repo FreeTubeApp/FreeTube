@@ -20,6 +20,7 @@ import {
   getIconForSortPreference,
   setPublishedTimestampsInvidious,
   showToast,
+  deepCopy,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
@@ -181,7 +182,14 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
-      this.showNoticesSometimes()
+      if (
+        this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
+        this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
+      ) {
+        const playlistItems = this.getDurationPlaylistItems()
+        this.showNoticesSometimes(playlistItems)
+        return getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
+      }
       return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
@@ -426,17 +434,24 @@ export default defineComponent({
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
     },
 
-    showNoticesSometimes: function () {
-      if (this.alreadyShownNotice) return
-      if (
-        this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
-        this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
-      ) {
-        const anyVideoMissingDuration = this.playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
-        if (anyVideoMissingDuration) {
-          showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
-          this.alreadyShownNotice = true
+    getDurationPlaylistItems: function () {
+      const modifiedPlaylistItems = deepCopy(this.playlistItems)
+      for (const v in modifiedPlaylistItems) {
+        const lengthSeconds = modifiedPlaylistItems[v].lengthSeconds
+        if (isNaN(lengthSeconds) || lengthSeconds === 0 || lengthSeconds === '') {
+          const videoHistory = this.$store.getters.getHistoryCacheById[modifiedPlaylistItems[v].videoId]
+          if (typeof videoHistory !== 'undefined') modifiedPlaylistItems[v].lengthSeconds = videoHistory.lengthSeconds
         }
+      }
+      return modifiedPlaylistItems
+    },
+
+    showNoticesSometimes: function (playlistItems) {
+      if (this.alreadyShownNotice) return
+      const anyVideoMissingDuration = playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0 || v.lengthSeconds === '')
+      if (anyVideoMissingDuration) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
+        this.alreadyShownNotice = true
       }
     },
 
