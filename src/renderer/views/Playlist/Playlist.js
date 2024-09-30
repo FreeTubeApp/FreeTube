@@ -23,7 +23,7 @@ import {
   deepCopy,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
+import { getSortedPlaylistItems, checkDurationFromVideo, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
@@ -437,8 +437,8 @@ export default defineComponent({
     getDurationPlaylistItems: function () {
       const modifiedPlaylistItems = deepCopy(this.playlistItems)
       for (const v in modifiedPlaylistItems) {
-        const lengthSeconds = modifiedPlaylistItems[v].lengthSeconds
-        if (isNaN(lengthSeconds) || lengthSeconds === 0 || typeof lengthSeconds === 'string') {
+        const video = modifiedPlaylistItems[v]
+        if (!checkDurationFromVideo(video)) {
           const videoHistory = this.$store.getters.getHistoryCacheById[modifiedPlaylistItems[v].videoId]
           if (typeof videoHistory !== 'undefined') modifiedPlaylistItems[v].lengthSeconds = videoHistory.lengthSeconds
         }
@@ -448,7 +448,7 @@ export default defineComponent({
 
     showNoticesSometimes: function (playlistItems) {
       if (this.alreadyShownNotice) return
-      const anyVideoMissingDuration = playlistItems.some(v => isNaN(v.lengthSeconds) || v.lengthSeconds === 0 || typeof v.lengthSeconds === 'string')
+      const anyVideoMissingDuration = playlistItems.some(v => checkDurationFromVideo(v))
       if (anyVideoMissingDuration) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
         this.alreadyShownNotice = true

@@ -36,7 +36,7 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
 }
 
 export function checkDurationFromVideo(a) {
-  return (isNaN(a.lengthSeconds) || a.lengthSeconds === 0 || typeof a.lengthSeconds === 'string') ? 0 : a.lengthSeconds
+  return (isNaN(a.lengthSeconds) || a.lengthSeconds === 0 || typeof a.lengthSeconds !== 'number') ? 0 : a.lengthSeconds
 }
 
 function compareTwoPlaylistItems(a, b, sortOrder, collator) {
