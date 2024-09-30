@@ -35,8 +35,8 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
   })
 }
 
-function getDurationForSort(a) {
-  return (isNaN(a.lengthSeconds) || a.lengthSeconds === 0) ? 0 : a.lengthSeconds
+export function checkDurationFromVideo(a) {
+  return (isNaN(a.lengthSeconds) || a.lengthSeconds === 0 || typeof a.lengthSeconds === 'string') ? 0 : a.lengthSeconds
 }
 
 function compareTwoPlaylistItems(a, b, sortOrder, collator) {
@@ -54,10 +54,10 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
     case SORT_BY_VALUES.AuthorDescending:
       return collator.compare(b.author, a.author)
     case SORT_BY_VALUES.VideoDurationAscending: {
-      return getDurationForSort(a) - getDurationForSort(b)
+      return checkDurationFromVideo(a) - checkDurationFromVideo(b)
     }
     case SORT_BY_VALUES.VideoDurationDescending: {
-      return getDurationForSort(b) - getDurationForSort(a)
+      return checkDurationFromVideo(b) - checkDurationFromVideo(a)
     }
     default:
       console.error(`Unknown sortOrder: ${sortOrder}`)
