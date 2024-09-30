@@ -436,19 +436,18 @@ export default defineComponent({
 
     getDurationPlaylistItems: function () {
       const modifiedPlaylistItems = deepCopy(this.playlistItems)
-      for (const v in modifiedPlaylistItems) {
-        const video = modifiedPlaylistItems[v]
+      modifiedPlaylistItems.forEach(video => {
         if (!checkDurationFromVideo(video)) {
-          const videoHistory = this.$store.getters.getHistoryCacheById[modifiedPlaylistItems[v].videoId]
-          if (typeof videoHistory !== 'undefined') modifiedPlaylistItems[v].lengthSeconds = videoHistory.lengthSeconds
+          const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
+          if (typeof videoHistory !== 'undefined') video.lengthSeconds = videoHistory.lengthSeconds
         }
-      }
+      })
       return modifiedPlaylistItems
     },
 
     showNoticesSometimes: function (playlistItems) {
       if (this.alreadyShownNotice) return
-      const anyVideoMissingDuration = playlistItems.some(v => checkDurationFromVideo(v))
+      const anyVideoMissingDuration = playlistItems.some(v => !checkDurationFromVideo(v))
       if (anyVideoMissingDuration) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
         this.alreadyShownNotice = true
