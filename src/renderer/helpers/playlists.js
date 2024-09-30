@@ -37,7 +37,7 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
 
 export function videoDurationPresent(v) {
   if (typeof v.lengthSeconds !== 'number') { return false }
-  
+
   return !(isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
 }
 
