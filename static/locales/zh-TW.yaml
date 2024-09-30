@@ -1017,7 +1017,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
-      IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
+      IP 封鎖，但它可能不會提供某些資訊，例如影片長度、直播狀態或社群貼文
     Fetch Automatically: 啟用後，FreeTube 在開啟新視窗與切換設定檔時，將會自動擷取您的訂閱 feed。
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
