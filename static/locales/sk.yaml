@@ -702,7 +702,7 @@ Tooltips:
       môžu hrať vyššiu kvalitu. Staršie formáty sú obmedzené na maximum 720p, ale
       využívajú menej dát. Zvukové formáty sú iba zvukové streamy.
     Proxy Videos Through Invidious: Namiesto priameho pripojenia k YouTube sa pripojí
-      k Invidious, aby poskytoval videá. Prepíše preferenciu API.
+      k Invidious, aby poskytoval videá.
     Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte
       kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo
       dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves

@@ -1138,7 +1138,7 @@ Tooltips:
       sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
       akışlarıdır.
     Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
-      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar.
+      kurmak yerine Invidious'a bağlanılacak.
     Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
       videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
       hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı

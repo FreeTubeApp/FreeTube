@@ -1023,7 +1023,7 @@ Tooltips:
       í sjálfgefna vafranum þínum.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
-      í stað þess að tengjast beint við YouTube. Tekur fram fyrir valin API-kerfisviðmót.'
+      í stað þess að tengjast beint við YouTube.'
     Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
       Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi

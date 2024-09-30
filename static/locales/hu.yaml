@@ -1161,7 +1161,7 @@ Tooltips:
       csak hang-adatfolyamok.
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
       videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
-      szolgáltatással. Felülbírálja az API beállítást.
+      szolgáltatással.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja
       meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű),
       és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához.

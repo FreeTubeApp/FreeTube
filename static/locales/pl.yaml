@@ -1169,7 +1169,7 @@ Tooltips:
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
-      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+      a nie bezpośrednio z YouTube.
     Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj
       klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół,
       aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command”

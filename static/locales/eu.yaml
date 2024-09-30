@@ -1062,8 +1062,7 @@ Tooltips:
       nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
-      da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
-      du.'
+      da, YouTube-ra zuzeneko konexioa egin beharrean.'
     Default Video Format: 'Erabiliko diren formatuak ezarri bideo bat erreproduzitzerakoan.
       DASH formatuek kalitate handiagoak onartzen dituzte. Bestalde, Legacy formatuak
       720 puntutara mugatuta badaude ere banda zabalera gutxiago kontsumitzen dute.
