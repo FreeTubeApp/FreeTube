@@ -69,6 +69,7 @@ export default defineComponent({
     },
     doCaseSensitiveSearch() {
       this.filterHistory()
+      this.saveStateInRouter()
     },
   },
   created: function () {
@@ -84,7 +85,14 @@ export default defineComponent({
     const oldQuery = this.$route.query.searchQueryText ?? ''
     if (oldQuery !== null && oldQuery !== '') {
       // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
-      this.handleQueryChange(oldQuery, this.$route.query.searchDataLimit, true)
+      this.handleQueryChange(
+        oldQuery,
+        {
+          limit: this.$route.query.searchDataLimit,
+          doCaseSensitiveSearch: this.$route.query.doCaseSensitiveSearch === 'true',
+          filterNow: true,
+        },
+      )
     } else {
       // Only display unfiltered data when no query used last time
       this.filterHistory()
@@ -94,13 +102,19 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
-    handleQueryChange(val, customLimit = null, filterNow = false) {
-      this.query = val
+    handleQueryChange(query, { limit = null, doCaseSensitiveSearch = null, filterNow = false } = {}) {
+      this.query = query
 
-      const newLimit = customLimit ?? 100
+      const newLimit = limit ?? 100
       this.searchDataLimit = newLimit
+      const newDoCaseSensitiveSearch = doCaseSensitiveSearch ?? this.doCaseSensitiveSearch
+      this.doCaseSensitiveSearch = newDoCaseSensitiveSearch
 
-      this.saveStateInRouter(val, newLimit)
+      this.saveStateInRouter({
+        query: query,
+        searchDataLimit: newLimit,
+        doCaseSensitiveSearch: newDoCaseSensitiveSearch,
+      })
 
       filterNow ? this.filterHistory() : this.filterHistoryAsync()
     },
@@ -108,7 +122,6 @@ export default defineComponent({
     increaseLimit: function () {
       if (this.query !== '') {
         this.searchDataLimit += 100
-        this.saveStateInRouter(this.query, this.searchDataLimit)
         this.filterHistory()
       } else {
         this.dataLimit += 100
@@ -137,8 +150,8 @@ export default defineComponent({
       this.showLoadMoreButton = this.activeData.length > this.searchDataLimit
     },
 
-    async saveStateInRouter(query, searchDataLimit) {
-      if (this.query === '') {
+    async saveStateInRouter({ query = this.query, searchDataLimit = this.searchDataLimit, doCaseSensitiveSearch = this.doCaseSensitiveSearch } = {}) {
+      if (query === '') {
         await this.$router.replace({ name: 'history' }).catch(failure => {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
             return
@@ -149,9 +162,14 @@ export default defineComponent({
         return
       }
 
+      const routerQuery = {
+        searchQueryText: query,
+        searchDataLimit: searchDataLimit,
+      }
+      if (doCaseSensitiveSearch) { routerQuery.doCaseSensitiveSearch = 'true' }
       await this.$router.replace({
         name: 'history',
-        query: { searchQueryText: query, searchDataLimit: searchDataLimit },
+        query: routerQuery,
       }).catch(failure => {
         if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
           return

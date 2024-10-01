@@ -175,6 +175,7 @@ export default defineComponent({
     doSearchPlaylistsWithMatchingVideos() {
       this.searchDataLimit = 100
       this.filterPlaylistAsync()
+      this.saveStateInRouter()
     },
     fullData() {
       this.activeData = this.fullData
@@ -201,7 +202,14 @@ export default defineComponent({
     const oldQuery = this.$route.query.searchQueryText ?? ''
     if (oldQuery !== null && oldQuery !== '') {
       // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
-      this.handleQueryChange(oldQuery, this.$route.query.searchDataLimit, true)
+      this.handleQueryChange(
+        oldQuery,
+        {
+          limit: this.$route.query.searchDataLimit,
+          doSearchPlaylistsWithMatchingVideos: this.$route.query.doSearchPlaylistsWithMatchingVideos === 'true',
+          filterNow: true,
+        },
+      )
     } else {
       // Only display unfiltered data when no query used last time
       this.filterPlaylist()
@@ -211,13 +219,19 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
-    handleQueryChange(val, customLimit = null, filterNow = false) {
-      this.query = val
+    handleQueryChange(query, { limit = null, doSearchPlaylistsWithMatchingVideos = null, filterNow = false } = {}) {
+      this.query = query
 
-      const newLimit = customLimit ?? 100
+      const newLimit = limit ?? 100
       this.searchDataLimit = newLimit
+      const newDoSearchPlaylistsWithMatchingVideos = doSearchPlaylistsWithMatchingVideos ?? this.doSearchPlaylistsWithMatchingVideos
+      this.doSearchPlaylistsWithMatchingVideos = newDoSearchPlaylistsWithMatchingVideos
 
-      this.saveStateInRouter(val, newLimit)
+      this.saveStateInRouter({
+        query: query,
+        searchDataLimit: newLimit,
+        doSearchPlaylistsWithMatchingVideos: newDoSearchPlaylistsWithMatchingVideos,
+      })
 
       filterNow ? this.filterPlaylist() : this.filterPlaylistAsync()
     },
@@ -225,6 +239,7 @@ export default defineComponent({
     increaseLimit: function () {
       if (this.query !== '') {
         this.searchDataLimit += 100
+        this.saveStateInRouter()
         this.filterPlaylist()
       } else {
         this.dataLimit += 100
@@ -264,7 +279,7 @@ export default defineComponent({
       })
     },
 
-    async saveStateInRouter(query, searchDataLimit) {
+    async saveStateInRouter({ query = this.query, searchDataLimit = this.searchDataLimit, doSearchPlaylistsWithMatchingVideos = this.doSearchPlaylistsWithMatchingVideos } = {}) {
       if (this.query === '') {
         await this.$router.replace({ name: 'userPlaylists' }).catch(failure => {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
@@ -276,9 +291,14 @@ export default defineComponent({
         return
       }
 
+      const routerQuery = {
+        searchQueryText: query,
+        searchDataLimit: searchDataLimit,
+      }
+      if (doSearchPlaylistsWithMatchingVideos) { routerQuery.doSearchPlaylistsWithMatchingVideos = 'true' }
       await this.$router.replace({
         name: 'userPlaylists',
-        query: { searchQueryText: query, searchDataLimit: searchDataLimit },
+        query: routerQuery,
       }).catch(failure => {
         if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
           return
