@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
 import jsoncEslintParser from 'jsonc-eslint-parser'
+import eslintPluginJsonc from 'eslint-plugin-jsonc'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -13,10 +14,8 @@ const compat = new FlatCompat({
 })
 
 export default [
-  ...compat.extends(
-    'plugin:jsonc/base',
-  ).map(config => ({
-    ...config,
+  ...eslintPluginJsonc.configs['flat/base'],
+  {
     files: ['**/*.json'],
     ignores: [
       '**/node_modules',
@@ -32,5 +31,5 @@ export default [
       'no-tabs': 'off',
       'comma-spacing': 'off',
     },
-  })),
+  },
 ]
