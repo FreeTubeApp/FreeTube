@@ -10,6 +10,9 @@ import {
   ctrlFHandler,
   formatNumber,
   showToast,
+  getTodayDateStrLocalTimezone,
+  writeFileFromDialog,
+  showSaveDialog,
 } from '../../helpers/utils'
 import debounce from 'lodash.debounce'
 
@@ -410,6 +413,41 @@ export default defineComponent({
 
     handlePlaylistDeleteDisabledClick: function () {
       showToast(this.playlistDeletionDisabledLabel)
+    },
+
+    handlePlaylistExport: async function () {
+      const dateStr = getTodayDateStrLocalTimezone()
+      const title = this.selectedUserPlaylist.playlistName.replaceAll(' ', '-')
+      const exportFileName = 'freetube-playlist-' + title + '-' + dateStr + '.db'
+
+      const options = {
+        defaultPath: exportFileName,
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['db']
+          }
+        ]
+      }
+
+      const data = JSON.stringify(this.selectedUserPlaylist) + '\n'
+
+      // See data-settings.js `promptAndWriteToFile`
+      const response = await showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      try {
+        await writeFileFromDialog(response, data)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+
+      showToast(this.$t('User Playlists.The playlist has been successfully exported'))
     },
 
     exitEditMode: function () {
