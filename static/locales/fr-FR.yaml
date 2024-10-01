@@ -1167,7 +1167,7 @@ A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet 
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
-  est maintenant disponible !  Cliquez pour plus de détails
+  est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
@@ -1266,7 +1266,7 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
   a été définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
-Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
+Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
 Downloading has completed: '{videoTitle} a fini de se télécharger'
