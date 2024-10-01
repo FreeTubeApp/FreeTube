@@ -139,7 +139,7 @@ export function qualityLabelToDimension(qualityLabel) {
  * }[]} captions
  */
 export function sortCaptions(captions) {
-  const currentLocale = i18n.locale.replace('_', '-')
+  const currentLocale = i18n.locale
   const userLocale = currentLocale.split('-') // ex. [en,US]
 
   const collator = new Intl.Collator([currentLocale, 'en'])
@@ -316,4 +316,24 @@ export function repairInvidiousManifest(periods) {
       }
     }
   }
+}
+
+/**
+ * @param {shaka.extern.TrackList} variants
+ * @param {number} bandwidthToMatch
+ */
+export function findMostSimilarAudioBandwidth(variants, bandwidthToMatch) {
+  let closestAudioBandwithDifference = Infinity
+  let closestVariant
+
+  for (const variant of variants) {
+    const difference = Math.abs(variant.audioBandwidth - bandwidthToMatch)
+
+    if (difference < closestAudioBandwithDifference) {
+      closestAudioBandwithDifference = difference
+      closestVariant = variant
+    }
+  }
+
+  return closestVariant
 }

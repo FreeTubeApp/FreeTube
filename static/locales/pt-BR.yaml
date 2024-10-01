@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 inscrito | {count} inscritos
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
+    Like Count: 1 curtida | {count} curtidas
+    Comment Count: 1 comentário | {count} comentários
   Input Tags:
     Length Requirement: A tag deve ter pelo menos {number} caracteres
 Search / Go to URL: 'Pesquisar ou digitar URL'
@@ -302,7 +304,7 @@ Settings:
       No Action: Nenhuma ação
       Ask Before Opening Link: Perguntar antes de abrir o link
       Open Link: Abrir link
-      External Link Handling: Ação de links externos
+      External Link Handling: Ação para links externos
     Auto Load Next Page:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
@@ -789,6 +791,10 @@ Channel:
     Reveal Answers: Mostrar respostas
     Hide Answers: Ocultar respostas
     Video hidden by FreeTube: Vídeo escondido pelo FreeTube
+    View Full Post: Ver postagem completa
+    Viewing Posts Only Supported By Invidious: A visualização de postagens só é compatível
+      com o Invidious. Acesse a guia da comunidade de um canal para visualizar o conteúdo
+      sem o Invidious.
   Channel Tabs: Guias de canais
   Live:
     Live: Ao vivo
@@ -1041,6 +1047,8 @@ Comments:
   Hearted: Recebeu um coração
   View {replyCount} replies: Exibir {replyCount} respostas
   Subscribed: Inscrito
+  There are no comments available for this post: Não há comentários disponíveis para
+    esta postagem
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -1124,8 +1132,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
       padrão para obter o feed de sua inscrição. O RSS é mais rápido e evita bloqueio
-      de IP, mas não fornece certas informações como duração do vídeo ou status ao
-      vivo
+      de IP, mas não fornece certas informações como duração do vídeo, status ao vivo
+      ou publicações da comunidade
     Fetch Automatically: Quando habilitado, o FreeTube buscará automaticamente seu
       feed de inscrições ao abrir uma nova janela e ao trocar o perfil.
   Player Settings:
@@ -1134,8 +1142,7 @@ Tooltips:
       limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
       áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter
-      vídeos em vez de fazer uma conexão direta com o YouTube. Ignora a preferência
-      da API.
+      vídeos em vez de fazer uma conexão direta com o YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
       e segure a tecla Ctrl (tecla Command no Mac) e role a roda do mouse para frente
       ou para trás para controlar a taxa de reprodução. Pressione e segure a tecla
@@ -1209,8 +1216,8 @@ Default Invidious instance has been set to {instance}: A instância padrão Invi
   foi definida para {instance}
 Search Bar:
   Clear Input: Limpar entrada
-External link opening has been disabled in the general settings: A abertura de link
-  externo foi desativada nas configurações gerais
+External link opening has been disabled in the general settings: Abrir links externos
+  foi desativado nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"{videoTitle}" download concluído'
 Starting download: Iniciando download "{videoTitle}"

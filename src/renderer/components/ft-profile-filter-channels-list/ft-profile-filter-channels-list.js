@@ -53,7 +53,7 @@ export default defineComponent({
       return this.$t('Profile.{number} selected', { number: this.selectedLength })
     },
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     }
   },
   watch: {

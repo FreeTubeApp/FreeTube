@@ -1,171 +1,288 @@
 # Put the name of your locale in the same language
-Locale Name: 'Беларуская'
+Locale Name: 'West-Vlams'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Гэтая частка праграмы яшчэ не гатова. Прыходзьце пазней.
+  Et djil van den app woar daj nu zît is nog nie gerjid. Komt were wanjir dan der
+  vorderingn gemakt zîn.
 
 # Webkit Menu Bar
-File: 'Файл'
-New Window: 'Новае акно'
-Preferences: 'Параметры'
-Quit: 'Выйсці'
-Edit: 'Рэдагаваць'
-Undo: 'Адрабіць'
-Redo: 'Паўтарыць'
-Cut: 'Выразаць'
-Copy: 'Скапіяваць'
-Paste: 'Уставіць'
-Delete: 'Выдаліць'
-Select all: 'Вылучыць усё'
-Reload: 'Абнавіць'
-Force Reload: 'Абнавіць прымусова'
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: 'Павялічыць'
-Zoom out: 'Паменшыць'
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: 'Закрыць'
-Back: 'Назад'
-Forward: 'Наперад'
-Open New Window: 'Адкрыць новае акно'
+File: 'Bestand'
+New Window: 'Nieuw koader'
+Preferences: 'Vôrkeurn'
+Quit: 'Stopn'
+Edit: 'Anpasn'
+Undo: 'Were wegdoen'
+Redo: 'Erdoene'
+Cut: 'Snien'
+Copy: 'Kopiëern'
+Paste: 'Plakn'
+Delete: 'Wegdoen'
+Select all: 'Olles selecteern'
+Reload: 'Erloadn'
+Force Reload: 'Geforceert erloadn'
+Toggle Developer Tools: 'Ontwikkeloars gerjidschap anzetn'
+Actual size: '''D echte grôte'
+Zoom in: 'Vergrôtn'
+Zoom out: 'Verkljin'
+Toggle fullscreen: 'Vul skerm anzetn'
+Window: 'Koader'
+Minimize: 'Kljinne moakn'
+Close: 'Toedoen'
+Back: 'Werekjirn'
+Forward: 'Vôrût'
+Open New Window: 'Nieuw koader opendoen'
+Go to page: 'Na dizn {page} goane'
+Close Banner: 'Banner toedeoene'
 
-Version {versionNumber} is now available!  Click for more details: ''
-Download From Site: 'Спампаваць з сайта'
-A new blog is now available, {blogTitle}. Click to view more: ''
-Are you sure you want to open this link?: ''
+Version {versionNumber} is now available!  Click for more details: 'Versie {versionNumber}
+  is beschikboar!..Klikt ier vo mjir details'
+Download From Site: 'Download van de site'
+A new blog is now available, {blogTitle}. Click to view more: 'Der is ne nieuwn blog
+  ût, {blogTitle}. Klikt ier vo mjir te ziene'
+Are you sure you want to open this link?: 'Ziej zeker daj die link wilt opendoene?'
 
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: 'Відэа'
-  Shorts: ''
-  Live: 'Ужывую'
-  Community: 'Супольнасць'
+  Videos: 'Videos'
+  Shorts: 'Korte videos'
+  Live: 'Rechtstreeks'
+  Community: 'Gemjinschap'
   Counts:
-    Video Count: '1 відэа | {count} відэа'
-    Channel Count: '1 канал | {count} каналы(аў)'
-    Subscriber Count: '1 падпісчык | {count} падпісчыкі(аў)'
-    View Count: '1 прагляд | {count} прагляды(аў)'
-    Watching Count: '1 гледач | {count} гледачы(оў)'
+    Video Count: '1 video | {count} videos'
+    Channel Count: '1 kanoal | {count} kanoaln'
+    Subscriber Count: '1 abonnee | {count} abonnees'
+    View Count: '1 gekeekn | {count} gekeekn'
+    Like Count: '1 die et gjist vindt | {count} die et gjist vindn'
+    Comment Count: '1 reactie | {count} reacties'
+    Watching Count: '1 ant kiekn | {count} ant kiekn'
+  Input Tags:
+    Length Requirement: 'Trefwoord moet te minste {number} karakters lang zîn'
 
 # Search Bar
-    Like Count: 1 лайк | {count} лайкаў
-    Comment Count: 1 каментарый | {count} каментарыяў
-Search / Go to URL: 'Пошук / Перайсці да URL'
+Search / Go to URL: 'Zoekn / Nar URL goane'
 Search Bar:
-  Clear Input: 'Ачысціць увод'
+  Clear Input: 'Invoer wegdoene'
+Search character limit: 'Zoek ipdracht is {searchCharacterLimit} karakters te lange'
+Search Listing:
+  Label:
+    4K: '4K'
+    Subtitles: 'Ondertekst'
+    # Aria labels
+    Closed Captions: 'Geslootn ondertitels'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Zoekfilters'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Azwu sorteern'
+    Most Relevant: 'Tmjist relevante'
+    Rating: 'Score'
+    Upload Date: 'Doatum dat online stoat'
+    View Count: 'Oevele dan der gekeekn eine'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: 'Сёння'
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Den tîd'
+    Any Time: 'Van geliek wanjir'
+    Last Hour: 'Tlatste eure'
+    Today: 'Vandoage'
+    This Week: 'Dizze weke'
+    This Month: 'Dizze moande'
+    This Year: 'Diz joar'
   Type:
-    Type: ''
-    All Types: 'Усе тыпы'
-    Videos: 'Відэа'
-    Channels: 'Каналы'
-    Movies: 'Фільмы'
+    Type: 'De soarte'
+    All Types: 'Ol de soartn'
+    Videos: 'Videos'
+    Channels: 'Kanoaln'
+    Movies: 'Films'
     #& Playlists
   Duration:
-    Duration: 'Працягласць'
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Medium (4 - 20 minutes): ''
-    Long (> 20 minutes): ''
-  # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
-# Sidebar
+    Duration: 'Oe lange dat deurt'
+    All Durations: 'Al de meugelijke deuroaties'
+    Short (< 4 minutes): 'Kort (< 4 minutn)'
+    Medium (4 - 20 minutes): 'Tussen de twji (4 - 20 minutn)'
+    Long (> 20 minutes): 'Lange (> 20 minutn)'
   Features:
-    HD: HD
-    Subtitles: Субцітры
-    3D: 3D
-    4K: 4K
-    HDR: HDR
+    Features: 'Functies'
+    HD: 'HD'
+    Subtitles: 'Ondertekst'
+    Creative Commons: 'Creative Commons'
+    3D: '3D'
+    Live: 'Rechtstreeks'
+    4K: '4K'
+    360 Video: '360 video'
+    Location: 'Locoatie'
+    HDR: 'HDR'
+    VR180: 'VR180'
+  # On Search Page
+  Search Results: 'Zoek resultoatn'
+  Fetching results. Please wait: 'Resultoatn ant ipoaln. Efkes geduld alsjeblieft'
+  Fetch more results: 'Mjir resultoatn ipoaln'
+  There are no more results for this search: 'Der zin gin resultoatn nimji vo dize
+    zoekipdracht'
+# Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Падпіскі'
+  Subscriptions: 'Abonnees'
   # channels that were likely deleted
-  Error Channels: 'Каналы з памылкамі'
-  Latest Subscriptions: 'Апошнія падпіскі'
+  Error Channels: 'Kanoaln me foutn'
+  Latest Subscriptions: 'De latste abonnees'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  Disabled Automatic Fetching: ''
-  Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
-  Empty Posts: ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
-  Load More Posts: ''
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tstoat
+    vo de moment nietn in jon lîste van abonnees. Vo der te ziene goaj moetn startn
+    me joe te abonneern.'
+  Disabled Automatic Fetching: 'Gêit otomoatisch abonnees ipoaln ofgezet. Erload jon
+    abonnees voor ze ier te ziene.'
+  Empty Channels: 'Jon geabonneerde kanoaln ein vo de moment gin videos.'
+  'Getting Subscriptions. Please wait.': 'Abonnees ant ipoaln. Efkes wachtn.'
+  Empty Posts: 'Der zin vo de moment gin berichtn van jon geabonneerde kanoaln.'
+  Load More Videos: 'Mjir videos loadn'
+  Load More Posts: 'Mjir berichtn loadn'
   Subscriptions Tabs: ''
   All Subscription Tabs Hidden: ''
-More: 'Больш'
+More: ''
 Channels:
-  Channels: 'Каналы'
+  Channels: ''
   Title: ''
   Search bar placeholder: ''
   Count: ''
   Empty: ''
-  Unsubscribe: 'Адпісацца'
+  Unsubscribe: ''
   Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
   Default: ''
-  Music: 'Музыка'
-  Gaming: 'Гульні'
-  Movies: 'Фільмы'
+  Music: ''
+  Gaming: ''
+  Movies: ''
   Trending Tabs: ''
 Most Popular: ''
-Playlists: 'Плэй-лісты'
+Feed:
+  Feed Last Updated: ''
+  Refresh Feed: ''
+Playlists: ''
 User Playlists:
-  Your Playlists: 'Вашы плэй-лісты'
+  Your Playlists: ''
   Playlist Message: ''
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
+  You have no playlists. Click on the create new playlist button to create a new one.: ''
   Empty Search Message: ''
   Search bar placeholder: ''
-  Create New Playlist: Стварыць новы плэй-ліст
-  Add to Playlist: Дадаць у плэй-ліст
-  Add to Favorites: Дадаць у {playlistName}
-  Remove from Favorites: Выдаліць з {playlistName}
-  Cancel: Адмена
+  Playlists with Matching Videos: ''
+
+  This playlist currently has no videos.: ''
+
+  Create New Playlist: ''
+
+  Add to Playlist: ''
+  Add to Favorites: ''
+  Remove from Favorites: ''
+
+  Move Video Up: ''
+  Move Video Down: ''
+  Remove from Playlist: ''
+
+  Playlist Name: ''
+  Playlist Description: ''
+
+  Save Changes: ''
+  Cancel: ''
+  Edit Playlist Info: ''
+  Copy Playlist: ''
+  Remove Duplicate Videos: ''
+  Remove Watched Videos: ''
+  Enable Quick Bookmark With This Playlist: ''
+  Quick Bookmark Enabled: ''
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ''
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ''
+  Delete Playlist: ''
+  Cannot delete the quick bookmark target playlist.: ''
+  Are you sure you want to delete this playlist? This cannot be undone: ''
+
+  Sort By:
+    Sort By: ''
+
+    NameAscending: ''
+    NameDescending: ''
+
+    LatestCreatedFirst: ''
+    EarliestCreatedFirst: ''
+
+    LatestUpdatedFirst: ''
+    EarliestUpdatedFirst: ''
+
+    LatestPlayedFirst: ''
+    EarliestPlayedFirst: ''
+  SinglePlaylistView:
+    Search for Videos: ''
+
+    Toast:
+      This video cannot be moved up.: ''
+      This video cannot be moved down.: ''
+      Video has been removed: ''
+      There was a problem with removing this video: ''
+
+      This playlist is already being used for quick bookmark.: ''
+      This playlist is now used for quick bookmark: ''
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: ''
+      Reverted to use {oldPlaylistName} for quick bookmark: ''
+
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: ''
+      Playlist name cannot be empty. Please input a name.: ''
+      Playlist has been updated.: ''
+      There was an issue with updating this playlist.: ''
+      "{videoCount} video(s) have been removed": ""
+      There were no videos to remove.: ''
+      This playlist is protected and cannot be removed.: ''
+      Playlist {playlistName} has been deleted.: ''
+      Playlist {playlistName} is the new quick bookmark playlist.: ''
+
+      This playlist does not exist: ''
   AddVideoPrompt:
-    Save: Захаваць
+    Select a playlist to add your N videos to: ''
+    N playlists selected: ''
+    Search in Playlists: ''
+    Allow Adding Duplicate Video(s): ''
+    Save: ''
+
+    Added {count} Times: ''
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": ''
+    "{videoCount}/{totalVideoCount} Videos Already Added": ''
+
+    Toast:
+      You haven't selected any playlist yet.: ''
+      "{videoCount} video(s) added to 1 playlist": ""
+      "{videoCount} video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
-    Create: Стварыць
+    New Playlist Name: ''
+    Create: ''
+
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: ''
+      Playlist {playlistName} has been successfully created.: ''
+      There was an issue with creating the playlist.: ''
 History:
   # On History Page
-  History: 'Гісторыя'
+  History: ''
   Watch History: ''
   Your history list is currently empty.: ''
   Empty Search Message: ''
   Search bar placeholder: ""
+  Case Sensitive Search: ''
 Settings:
   # On Settings Page
-  Settings: 'Налады'
+  Settings: ''
+  Expand All Settings Sections: ''
+  Sort Settings Sections (A-Z): ''
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: 'Агульныя налады'
+    General Settings: ''
     Check for Updates: ''
     Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
+    Auto Load Next Page:
+      Label: ''
+      Tooltip: ''
     Default Landing Page: ''
     Locale Preference: ''
     System Default: ''
@@ -184,6 +301,7 @@ Settings:
       Middle: ''
       End: ''
       Hidden: ''
+      Blur: ''
     Current Invidious Instance: ''
     The currently set default instance is {instance}: ''
     No default instance has been set: ''
@@ -216,6 +334,9 @@ Settings:
       Catppuccin Mocha: ''
       Pastel Pink: ''
       Hot Pink: ''
+      Nordic: ''
+      Solarized Dark: ''
+      Solarized Light: ''
     Main Color Theme:
       Main Color Theme: ''
       Red: ''
@@ -255,6 +376,14 @@ Settings:
       Catppuccin Mocha Sapphire: ''
       Catppuccin Mocha Blue: ''
       Catppuccin Mocha Lavender: ''
+      Solarized Yellow: ''
+      Solarized Orange: ''
+      Solarized Red: ''
+      Solarized Magenta: ''
+      Solarized Violet: ''
+      Solarized Blue: ''
+      Solarized Cyan: ''
+      Solarized Green: ''
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
@@ -284,15 +413,15 @@ Settings:
     Default Quality:
       Default Quality: ''
       Auto: ''
-      144p: '144p'
-      240p: '240p'
-      360p: '360p'
-      480p: '480p'
-      720p: '720p'
-      1080p: '1080p'
-      1440p: '1440p'
-      4k: '4k'
-      8k: '8k'
+      144p: ''
+      240p: ''
+      360p: ''
+      480p: ''
+      720p: ''
+      1080p: ''
+      1440p: ''
+      4k: ''
+      8k: ''
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -309,6 +438,7 @@ Settings:
     External Player Settings: ''
     External Player: ''
     Ignore Unsupported Action Warnings: ''
+    Ignore Default Arguments: ''
     Custom External Player Executable: ''
     Custom External Player Arguments: ''
     Players:
@@ -327,12 +457,17 @@ Settings:
     Watch history has been cleared: ''
     Remove All Subscriptions / Profiles: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Remove All Playlists: ''
+    All playlists have been removed: ''
+    Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Manage Subscriptions: ''
     Fetch Automatically: ''
+    Only Show Latest Video for Each Channel: ''
+    Confirm Before Unsubscribing: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
     Sections:
@@ -341,7 +476,6 @@ Settings:
       Channel Page: ''
       Watch Page: ''
       General: ''
-    Blur Thumbnails: ''
     Hide Video Views: ''
     Hide Video Likes And Dislikes: ''
     Hide Channel Subscribers: ''
@@ -361,13 +495,19 @@ Settings:
     Hide Sharing Actions: ''
     Hide Chapters: ''
     Hide Channels: ''
+    Hide Channels Disabled Message: ''
     Hide Channels Placeholder: ''
+    Hide Channels Invalid: ''
+    Hide Channels API Error: ''
+    Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
     Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
+    Hide Videos and Playlists Containing Text: ''
+    Hide Videos and Playlists Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
@@ -389,11 +529,14 @@ Settings:
     Export History: ''
     Import Playlists: ''
     Export Playlists: ''
+    Export Playlists For Older FreeTube Versions:
+      Label: ''
+      # |- = Keep newlines, No newline at end
+      Tooltip: |
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
     Invalid subscriptions file: ''
-    This might take a while, please wait: ''
     Invalid history file: ''
     Subscriptions have been successfully exported: ''
     History object has insufficient data, skipping item: ''
@@ -427,6 +570,8 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Notify when sponsor segment is skipped: ''
     UseDeArrowTitles: ''
+    UseDeArrowThumbnails: ''
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': ''
     Skip Options:
       Skip Option: ''
       Auto Skip: ''
@@ -462,23 +607,23 @@ Settings:
     Remove Password: ''
 About:
   #On About page
-  About: 'Пра FreeTube'
+  About: ''
   Beta: ''
   Source code: ''
-  Licensed under the AGPLv3: ''
-  View License: ''
+  Licensed under the: ''
+  AGPLv3: ''
   Downloads / Changelog: ''
   GitHub releases: ''
-  Help: 'Даведка'
-  FreeTube Wiki: 'FreeTube Вікі'
+  Help: ''
+  FreeTube Wiki: ''
   FAQ: ''
   Discussions: ''
   Report a problem: ''
   GitHub issues: ''
   Please check for duplicates before posting: ''
-  Website: 'Вэб-сайт'
-  Blog: 'Блог'
-  Email: 'Электронная пошта'
+  Website: ''
+  Blog: ''
+  Email: ''
   Mastodon: ''
   Chat on Matrix: ''
   Please read the: ''
@@ -489,7 +634,6 @@ About:
   these people and projects: ''
   Donate: ''
 
-  AGPLv3: AGPLv3
 Profile:
   Profile Settings: ''
   Toggle Profile List: ''
@@ -499,6 +643,9 @@ Profile:
   Profile Manager: ''
   Create New Profile: ''
   Edit Profile: ''
+  Edit Profile Name: ''
+  Create Profile Name: ''
+  Profile Name: ''
   Color Picker: ''
   Custom Color: ''
   Profile Preview: ''
@@ -528,6 +675,8 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  Close Profile Dropdown: ''
+  Open Profile Dropdown: ''
 #On Channel Page
 Channel:
   Subscribe: ''
@@ -580,9 +729,13 @@ Channel:
   Community:
     This channel currently does not have any posts: ''
     votes: ''
+    View Full Post: ''
     Reveal Answers: ''
     Hide Answers: ''
+    Video hidden by FreeTube: ''
+    Viewing Posts Only Supported By Invidious: ''
 Video:
+  More Options: ''
   Mark As Watched: ''
   Remove From History: ''
   Video has been marked as watched: ''
@@ -600,6 +753,8 @@ Video:
   Copy YouTube Channel Link: ''
   Open Channel in Invidious: ''
   Copy Invidious Channel Link: ''
+  Hide Channel: ''
+  Unhide Channel: ''
   Views: ''
   Loop Playlist: ''
   Shuffle Playlist: ''
@@ -685,6 +840,33 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
+  Player:
+    TranslatedCaptionTemplate: ''
+    Audio Tracks: ''
+    Theatre Mode: ''
+    Exit Theatre Mode: ''
+    Full Window: ''
+    Exit Full Window: ''
+    Take Screenshot: ''
+    Show Stats: ''
+    Hide Stats: ''
+    Stats:
+      Stats: ''
+      Video ID: ''
+      Media Formats: ''
+      Resolution: ''
+      Player Dimensions: ''
+      Bitrate: ''
+      Volume: ''
+      Bandwidth: ''
+      Buffered: ''
+      Dropped Frames / Total Frames: ''
+      CodecAudio: ''
+      CodecsVideoAudio: ''
+      CodecsVideoAudioNoItags: ''
+    You appear to be offline: ''
+    Playback will resume automatically when your connection comes back: ''
+    Skipped segment: ''
 #& Videos
 Videos:
   #& Sort By
@@ -701,6 +883,15 @@ Playlist:
   View: ''
   Views: ''
   Last Updated On: ''
+  Sort By:
+    Sort By: ''
+    DateAddedNewest: ''
+    DateAddedOldest: ''
+    AuthorAscending: ''
+    AuthorDescending: ''
+    VideoTitleAscending: ''
+    VideoTitleDescending: ''
+    Custom: ''
 
 # On Video Watch Page
 #* Published
@@ -713,6 +904,7 @@ Change Format:
   Use Audio Formats: ''
   Dash formats are not available for this video: ''
   Audio formats are not available for this video: ''
+  Legacy formats are not available for this video: ''
 Share:
   Share Video: ''
   Share Channel: ''
@@ -759,12 +951,14 @@ Comments:
   From {channelName}: ''
   And others: ''
   There are no comments available for this video: ''
+  There are no comments available for this post: ''
   Load More Comments: ''
   No more comments available: ''
   Pinned by: ''
   Member: ''
   Subscribed: ''
   Hearted: ''
+
 Up Next: ''
 
 #Tooltips
@@ -785,11 +979,13 @@ Tooltips:
     External Player: ''
     Custom External Player Executable: ''
     Ignore Warnings: ''
+    Ignore Default Arguments: ''
     Custom External Player Arguments: ''
     DefaultCustomArgumentsTemplate: ""
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
+    Hide Videos and Playlists Containing Text: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
@@ -797,6 +993,7 @@ Tooltips:
     Replace HTTP Cache: ''
   SponsorBlock Settings:
     UseDeArrowTitles: ''
+    UseDeArrowThumbnails: ''
 
 # Toast Messages
 Local API Error (Click to copy): ''
@@ -822,28 +1019,33 @@ Canceled next video autoplay: ''
 Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
+Age Restricted:
+  This channel is age restricted: ''
+  This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
+'Blocked opening potentially unsafe URL': ''
 Downloading has completed: ''
 Starting download: ''
 Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
+Channel Hidden: ''
+Channel Unhidden: ''
+Trimmed input must be at least N characters long: ''
+Tag already exists: ''
 
 Hashtag:
   Hashtag: ''
   This hashtag does not currently have any videos: ''
-Yes: 'Так'
-No: 'Не'
-Ok: 'Ок'
-Search Listing:
-  Label:
-    Subtitles: Субцітры
-    4K: 4K
-Yes, Delete: Так, выдаліць
-Feed:
-  Refresh Feed: Абнавіць {subscriptionName}
-Display Label: '{label}: {value}'
-Cancel: Адмена
-checkmark: ✓
-Close Banner: Закрыць банер
-Go to page: Перайсці да {page}
+Moments Ago: ''
+Yes: ''
+No: ''
+Ok: ''
+Yes, Delete: ''
+Yes, Restart: ''
+Yes, Open Link: ''
+Cancel: ''
+# symbol used to indicate that an item is correct
+checkmark: ''
+# French is the only language that should change this (they have a space before the colon)
+Display Label: ''

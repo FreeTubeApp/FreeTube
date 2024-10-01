@@ -945,7 +945,7 @@ Tooltips:
       kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
       men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
     Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
-      i stedet for at oprette en direkte forbindelse til YouTube. Tilsidesætter API-præference.
+      i stedet for at oprette en direkte forbindelse til YouTube.
     Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
       hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
       bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten

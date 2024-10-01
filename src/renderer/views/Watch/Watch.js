@@ -54,9 +54,14 @@ export default defineComponent({
     'watch-video-recommendations': WatchVideoRecommendations,
     'ft-age-restricted': FtAgeRestricted
   },
-  beforeRouteLeave: function (to, from, next) {
+  beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+
+    if (this.$refs.player) {
+      await this.$refs.player.destroyPlayer()
+    }
+
     next()
   },
   data: function () {
@@ -108,8 +113,6 @@ export default defineComponent({
       playlistItemId: null,
       /** @type {number|null} */
       timestamp: null,
-      /** @type {number|null} */
-      startTimeSeconds: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
@@ -202,7 +205,7 @@ export default defineComponent({
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     hideChapters: function () {
       return this.$store.getters.getHideChapters
@@ -231,10 +234,35 @@ export default defineComponent({
 
       return this.$store.getters.getPlaylist(this.playlistId)
     },
+    startTimeSeconds: function () {
+      if (this.isLoading || this.isLive) {
+        return null
+      }
+
+      if (this.timestamp !== null && this.timestamp < this.videoLengthSeconds) {
+        return this.timestamp
+      } else if (this.saveWatchedProgress && this.historyEntryExists) {
+        // For UX consistency, no progress reading if writing disabled
+
+        /** @type {number} */
+        const watchProgress = this.historyEntry.watchProgress
+
+        if (watchProgress > 0 && watchProgress < this.videoLengthSeconds - 2) {
+          return watchProgress
+        }
+      }
+
+      return null
+    }
   },
   watch: {
-    $route() {
+    async $route() {
       this.handleRouteChange()
+
+      if (this.$refs.player) {
+        await this.$refs.player.destroyPlayer()
+      }
+
       // react to route changes...
       this.videoId = this.$route.params.id
 
@@ -248,11 +276,9 @@ export default defineComponent({
       this.vrProjection = null
       this.downloadLinks = []
       this.videoCurrentChapterIndex = 0
-      this.startTimeSeconds = null
       this.videoGenreIsMusic = false
 
       this.checkIfTimestamp()
-      this.setStartTime()
       this.checkIfPlaylist()
 
       switch (this.backendPreference) {
@@ -273,7 +299,6 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
-    this.setStartTime()
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -497,16 +522,8 @@ export default defineComponent({
             //   this.manifestSrc = src
             //   this.manifestMimeType = MANIFEST_TYPE_DASH
             // } else {
-            let hlsManifestUrl = result.streaming_data.hls_manifest_url
 
-            if (this.proxyVideos) {
-              const url = new URL(hlsManifestUrl)
-              url.searchParams.set('local', 'true')
-
-              hlsManifestUrl = url.toString().replace(url.origin, this.currentInvidiousInstanceUrl)
-            }
-
-            this.manifestSrc = hlsManifestUrl
+            this.manifestSrc = result.streaming_data.hls_manifest_url
             this.manifestMimeType = MANIFEST_TYPE_HLS
             // }
           }
@@ -574,12 +591,6 @@ export default defineComponent({
 
             if (result.streaming_data.formats.length > 0) {
               this.legacyFormats = result.streaming_data.formats.map(mapLocalLegacyFormat)
-
-              if (this.proxyVideos) {
-                this.legacyFormats.forEach(format => {
-                  format.url = getProxyUrl(format.url)
-                })
-              }
             }
 
             /** @type {import('../../helpers/api/local').LocalFormat[]} */
@@ -679,17 +690,8 @@ export default defineComponent({
               })
               ?.projection_type ?? null
 
-            // When `this.proxyVideos` is true
-            // It's possible that the Invidious instance used, only supports a subset of the formats from Local API
-            // i.e. the value passed into `adaptiveFormats`
-            // e.g. Supports 720p60, but not 720p - https://[DOMAIN_NAME]/api/manifest/dash/id/v3wm83zoSSY?local=true
-            if (this.proxyVideos) {
-              this.manifestSrc = await this.createInvidiousDashManifest()
-              this.manifestMimeType = MANIFEST_TYPE_DASH
-            } else {
-              this.manifestSrc = await this.createLocalDashManifest(result)
-              this.manifestMimeType = MANIFEST_TYPE_DASH
-            }
+            this.manifestSrc = await this.createLocalDashManifest(result)
+            this.manifestMimeType = MANIFEST_TYPE_DASH
           } else {
             this.manifestSrc = null
             this.enableLegacyFormat()
@@ -1063,23 +1065,6 @@ export default defineComponent({
       }
     },
 
-    setStartTime: function () {
-      if (this.timestamp !== null && this.timestamp > 0) {
-        this.startTimeSeconds = this.timestamp
-        return
-      } else if (this.saveWatchedProgress && this.historyEntryExists) {
-        // For UX consistency, no progress reading if writing disabled
-        const watchProgress = this.historyEntry.watchProgress
-
-        if (watchProgress > 0) {
-          this.startTimeSeconds = watchProgress
-          return
-        }
-      }
-
-      this.startTimeSeconds = null
-    },
-
     checkIfPlaylist: function () {
       // On the off chance that user selected pause on current video
       // Then clicks on another video in the playlist
@@ -1180,8 +1165,10 @@ export default defineComponent({
       }
 
       if (this.manifestSrc === null ||
-        // HLS consists of combined audio and video files, so we can't do audio only
-        ((this.isLive || this.isPostLiveDvr) && this.manifestMimeType !== MANIFEST_TYPE_DASH)) {
+        ((this.isLive || this.isPostLiveDvr) &&
+        // The WEB HLS manifests only contain combined audio and video files, so we can't do audio only
+        // The IOS HLS manifests have audio-only streams
+          this.manifestMimeType === MANIFEST_TYPE_HLS && !this.manifestSrc.includes('/demuxed/1'))) {
         showToast(this.$t('Change Format.Audio formats are not available for this video'))
         return
       }
@@ -1320,10 +1307,10 @@ export default defineComponent({
         // live streams don't have legacy formats, so only switch between dash and audio
 
         if (this.activeFormat === 'dash') {
-          console.error('Unable to play audio formats. Reverting to DASH formats...')
+          console.error('Unable to play DASH formats. Reverting to audio formats...')
           this.enableAudioFormat()
         } else {
-          console.error('Unable to play DASH formats. Reverting to audio formats...')
+          console.error('Unable to play audio formats. Reverting to DASH formats...')
           this.enableDashFormat()
         }
       } else {

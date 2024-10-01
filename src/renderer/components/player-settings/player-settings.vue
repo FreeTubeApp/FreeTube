@@ -7,7 +7,8 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Proxy Videos Through Invidious')"
           :compact="true"
-          :default-value="proxyVideos"
+          :default-value="showProxyVideosAsDisabled ? false : proxyVideos"
+          :disabled="showProxyVideosAsDisabled"
           :tooltip="$t('Tooltips.Player Settings.Proxy Videos Through Invidious')"
           @change="updateProxyVideos"
         />

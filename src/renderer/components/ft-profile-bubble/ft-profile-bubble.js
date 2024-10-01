@@ -26,7 +26,7 @@ export default defineComponent({
   emits: ['click'],
   computed: {
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     isMainProfile: function () {
       return this.profileId === MAIN_PROFILE_ID

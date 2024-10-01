@@ -39,6 +39,8 @@ Global:
     View Count: 1 преглед | {count} прегледа
     Watching Count: 1 гледање | {count} гледања
     Channel Count: 1 канал | {count} канала
+    Comment Count: 1 коментар | {count} коментара
+    Like Count: 1 свиђање | {count} свиђања
   Live: Уживо
   Community: Заједница
   Shorts: Shorts
@@ -775,6 +777,9 @@ Channel:
     Hide Answers: Сакриј одговоре
     votes: 'Гласова: {votes}'
     Video hidden by FreeTube: Видео снимак сакрио је FreeTube
+    View Full Post: Погледај целу објаву
+    Viewing Posts Only Supported By Invidious: Гледање објава подржава само Invidious.
+      Идите на картицу заједнице канала да видите садржај тамо без Invidious-a.
   Live:
     Live: Уживо
     This channel does not currently have any live streams: Овај канал тренутно нема
@@ -996,7 +1001,7 @@ Tooltips:
       DASH формати могу да пуштају виши квалитет. Застарели формати су ограничени
       на максимално 720p, али користе мање протока. Аудио формати су само звучни снимци.
     Proxy Videos Through Invidious: Повезаће се сa Invidious-ом ради приказивања видео
-      снимака уместо директног повезивања са YouTube-ом. Замењује подешавања API-ја.
+      снимака уместо директног повезивања са YouTube-ом.
     Scroll Playback Rate Over Video Player: Док је курсор изнад видео снимка, притисните
       и држите тастер „Control“ (тастер „Command“ на Mac-у) и померајте точкић миша
       унапред или уназад да бисте контролисали брзину репродукције. Притисните и држите
@@ -1074,6 +1079,7 @@ Comments:
   There are no more comments for this video: Нема више коментара за овај видео снимак
   And others: и осталих
   Newest first: Најновије прво
+  There are no comments available for this post: Нема доступних коментара за ову објаву
 Hashtags have not yet been implemented, try again later: Хеш-ознаке још увек нису
   имплементиране, покушајте поново касније
 Share:

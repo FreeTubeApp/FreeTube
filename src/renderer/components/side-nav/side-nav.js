@@ -34,7 +34,7 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile
     },
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     activeSubscriptions: function () {
       const subscriptions = deepCopy(this.activeProfile.subscriptions)

@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 odběratel | {count} odběratelů
     View Count: 1 zhlédnutí | {count} zhlédnutí
     Watching Count: 1 sledující | {count} sledujících
+    Like Count: 1 líbí se mi | {count} líbí se mi
+    Comment Count: 1 komentář | {count} komentářů
   Input Tags:
     Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
@@ -268,7 +270,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Aby
     se změny projevily, je třeba aplikaci restartovat. Restartovat a použít změny?'
   General Settings:
-    General Settings: 'Obecné nastavení'
+    General Settings: 'Obecná nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
     Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
@@ -822,6 +824,10 @@ Channel:
     votes: '{votes} hlasů'
     Reveal Answers: Odhalit odpovědi
     Video hidden by FreeTube: Video skryté programem FreeTube
+    View Full Post: Zobrazit celý příspěvek
+    Viewing Posts Only Supported By Invidious: Zobrazení příspěvků je podporováno
+      pouze službou Invidious. Přejděte do karty komunity kanálu pro zobrazení jejího
+      obsahu bez Invidious.
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
@@ -1072,6 +1078,8 @@ Comments:
   View {replyCount} replies: Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
   Subscribed: Odebíráno
+  There are no comments available for this post: U tohoto příspěvku nejsou dostupné
+    žádné komentáře
 Up Next: 'Další'
 
 #Tooltips
@@ -1094,7 +1102,7 @@ Tooltips:
       prohlížeči.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
-      namísto přímého připojení k YouTube. Toto přepíše předvolby API.'
+      namísto přímého připojení k YouTube.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
       DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně
       720p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující
@@ -1109,7 +1117,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale
-      neposkytuje určité informace, jako je délka videa a podobně'
+      neposkytuje určité informace, jako je délka videa, stav vysílání nebo komunitní
+      příspěvky'
 
 # Toast Messages
     Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
@@ -1181,7 +1190,7 @@ Default Invidious instance has been set to {instance}: Výchozí instance Invidi
 Search Bar:
   Clear Input: Vymazat
 External link opening has been disabled in the general settings: Otevírání externích
-  odkazů bylo v obecném nastavení zakázáno
+  odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
 Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
 Downloading failed: Došlo k problému při stahování "{videoTitle}"

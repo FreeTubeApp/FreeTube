@@ -70,7 +70,7 @@ export default defineComponent({
       ]
     },
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
   },
   watch: {

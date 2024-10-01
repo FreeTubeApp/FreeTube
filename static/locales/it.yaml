@@ -44,6 +44,8 @@ Global:
     Subscriber Count: 1 iscritto | {count} iscritti
     View Count: 1 visualizzazione | {count} visualizzazioni
     Watching Count: 1 spettatore | {count} spettatori
+    Comment Count: 1 commento | {count} commenti
+    Like Count: 1 mi piace | {count} mi piace
   Input Tags:
     Length Requirement: Il tag deve essere lungo almeno {number} caratteri
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
@@ -797,6 +799,10 @@ Channel:
     Reveal Answers: Rivela le risposte
     Hide Answers: Nascondi le risposte
     Video hidden by FreeTube: Video nascosto da FreeTube
+    Viewing Posts Only Supported By Invidious: La visualizzazione dei post è supportata
+      solo da Invidious. Vai alla scheda comunità di un canale per visualizzare i
+      contenuti senza Invidious.
+    View Full Post: Visualizza il post completo
   Live:
     Live: Dal vivo
     This channel does not currently have any live streams: Questo canale attualmente
@@ -1049,6 +1055,8 @@ Comments:
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
   Subscribed: Iscritto
+  There are no comments available for this post: Non ci sono commenti disponibili
+    per questo post
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -1135,7 +1143,7 @@ Tooltips:
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
       solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
-      invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
+      invece di una connessione diretta a YouTube.
     Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
       premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
@@ -1147,8 +1155,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
-      ma non forniscono determinate informazioni come la durata del video o lo stato
-      dal vivo
+      ma non forniscono determinate informazioni come la durata del video, lo stato
+      dal vivo o I post della comunità
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
       dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
   General Settings:

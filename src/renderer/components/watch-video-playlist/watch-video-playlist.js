@@ -73,7 +73,7 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     isUserPlaylist: function () {
       return this.playlistType === 'user'

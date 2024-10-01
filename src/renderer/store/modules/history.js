@@ -45,6 +45,27 @@ const actions = {
     }
   },
 
+  /**
+   * @param {any} param0
+   * @param {Map<string, any>} historyItems
+   */
+  async overwriteHistory({ commit }, historyItems) {
+    try {
+      const sortedRecords = Array.from(historyItems.values())
+
+      // sort before sending saving to the database and passing to other windows
+      // so that the other windows can use it as is, without having to sort the array themselves
+      sortedRecords.sort((a, b) => b.timeWatched - a.timeWatched)
+
+      await DBHistoryHandlers.overwrite(sortedRecords)
+
+      commit('setHistoryCacheSorted', sortedRecords)
+      commit('setHistoryCacheById', Object.fromEntries(historyItems))
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async removeFromHistory({ commit }, videoId) {
     try {
       await DBHistoryHandlers.delete(videoId)

@@ -41,6 +41,8 @@ Global:
     View Count: 1 回視聴 | {count} 回視聴
     Watching Count: 1 人が視聴中 | {count} 人が視聴中
     Channel Count: 1 チャンネル | {count} チャンネル
+    Comment Count: 1 コメント｜{count} コメント
+    Like Count: 1 いいね｜{count} いいね
   Input Tags:
     Length Requirement: タグは最低でも {number} 文字以上である必要があります
 Search / Go to URL: '検索 / URL に移動'
@@ -702,6 +704,9 @@ Channel:
     Reveal Answers: 回答を表示
     Hide Answers: 回答を非表示
     Video hidden by FreeTube: FreeTube によって非表示にされた動画
+    View Full Post: 全文表示
+    Viewing Posts Only Supported By Invidious: 投稿の閲覧は Invidious でのみサポートされています。Invidious
+      がなくても、チャンネルのコミュニティタブでコンテンツを見ることができます。
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
   This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
@@ -936,6 +941,7 @@ Comments:
   Hearted: ハート
   View {replyCount} replies: '{replyCount} 件の返信を表示'
   Subscribed: チャンネル登録済み
+  There are no comments available for this post: この記事にコメントはありません
 Up Next: '次の動画'
 
 # Toast Messages

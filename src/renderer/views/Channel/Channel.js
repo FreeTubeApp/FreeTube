@@ -1995,6 +1995,36 @@ export default defineComponent({
       })
     },
 
+    handleSubscription: function () {
+      // We can't cache the shorts data as YouTube doesn't return published dates on the shorts channel tab
+
+      // Create copies of the arrays so that we only cache the first page
+      // If we use the same array, the store will get angry at us for modifying it outside of the store
+      // when the user clicks load more
+
+      if (this.videoSortBy === 'newest') {
+        this.updateSubscriptionVideosCacheByChannel({
+          channelId: this.id,
+          videos: [...this.latestVideos]
+        })
+      }
+
+      if (this.liveSortBy === 'newest') {
+        this.updateSubscriptionLiveCacheByChannel({
+          channelId: this.id,
+          videos: [...this.latestLive]
+        })
+      }
+
+      this.latestCommunityPosts.forEach(post => {
+        post.authorId = this.id
+      })
+      this.updateSubscriptionPostsCacheByChannel({
+        channelId: this.id,
+        posts: [...this.latestCommunityPosts]
+      })
+    },
+
     getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([

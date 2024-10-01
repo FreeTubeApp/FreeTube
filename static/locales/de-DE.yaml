@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
+    Comment Count: 1 Kommentar | {count} Kommentare
+    Like Count: 1 Gefällt mir | {count} Gefällt mir
   Input Tags:
     Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
@@ -818,6 +820,10 @@ Channel:
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
     Video hidden by FreeTube: Video versteckt von FreeTube
+    View Full Post: Vollständigen Beitrag anzeigen
+    Viewing Posts Only Supported By Invidious: Die Anzeige von Beiträgen wird nur
+      von Invidious unterstützt. Gehen Sie zur Community-Registerkarte eines Kanals,
+      um dort Inhalte ohne Invidious anzuzeigen.
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
@@ -961,7 +967,7 @@ Video:
     Show Stats: Statistiken anzeigen
     Stats:
       Stats: Statistiken
-      Video ID: 'Videokennung: {videoId}'
+      Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
       Resolution: 'Auflösung: {width}×{height}@{frameRate}'
       Player Dimensions: 'Player-Dimensionen: {width}×{height}'
@@ -1070,6 +1076,8 @@ Comments:
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
   Subscribed: Abonniert
+  There are no comments available for this post: Es sind keine Kommentare für diesen
+    Beitrag vorhanden
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -1170,7 +1178,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
-      liefert aber bestimmte Informationen wie Videodauer oder Live-Status nicht
+      liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Community
+      Beiträge nicht
     Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
       ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
   Player Settings:
@@ -1179,8 +1188,7 @@ Tooltips:
       sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
       sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
-      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
-      die API-Einstellung außer Kraft.
+      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
       befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
       das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.

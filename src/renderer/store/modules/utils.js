@@ -58,6 +58,12 @@ const state = {
   lastCommunityRefreshTimestampByProfile: {},
   lastPopularRefreshTimestamp: '',
   lastTrendingRefreshTimestamp: '',
+  subscriptionFirstAutoFetchRunData: {
+    videos: false,
+    liveStreams: false,
+    shorts: false,
+    communityPosts: false,
+  },
 }
 
 const getters = {
@@ -165,20 +171,17 @@ const getters = {
     return state.lastPopularRefreshTimestamp
   },
 
-  getLastCommunityRefreshTimestampByProfile: (state) => (profileId) => {
-    return state.lastCommunityRefreshTimestampByProfile[profileId]
+  getSubscriptionForVideosFirstAutoFetchRun(state) {
+    return state.subscriptionFirstAutoFetchRunData.videos === true
   },
-
-  getLastShortRefreshTimestampByProfile: (state) => (profileId) => {
-    return state.lastShortRefreshTimestampByProfile[profileId]
+  getSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.liveStreams === true
   },
-
-  getLastLiveRefreshTimestampByProfile: (state) => (profileId) => {
-    return state.lastLiveRefreshTimestampByProfile[profileId]
+  getSubscriptionForShortsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.shorts === true
   },
-
-  getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
-    return state.lastVideoRefreshTimestampByProfile[profileId]
+  getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
 }
 
@@ -798,22 +801,6 @@ const actions = {
       ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
     }
   },
-
-  updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
-    commit('updateLastCommunityRefreshTimestampByProfile', payload)
-  },
-
-  updateLastShortRefreshTimestampByProfile ({ commit }, payload) {
-    commit('updateLastShortRefreshTimestampByProfile', payload)
-  },
-
-  updateLastLiveRefreshTimestampByProfile ({ commit }, payload) {
-    commit('updateLastLiveRefreshTimestampByProfile', payload)
-  },
-
-  updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
-    commit('updateLastVideoRefreshTimestampByProfile', payload)
-  }
 }
 
 const mutations = {
@@ -917,22 +904,6 @@ const mutations = {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
-  updateLastCommunityRefreshTimestampByProfile (state, { profileId, timestamp }) {
-    vueSet(state.lastCommunityRefreshTimestampByProfile, profileId, timestamp)
-  },
-
-  updateLastShortRefreshTimestampByProfile (state, { profileId, timestamp }) {
-    vueSet(state.lastShortRefreshTimestampByProfile, profileId, timestamp)
-  },
-
-  updateLastLiveRefreshTimestampByProfile (state, { profileId, timestamp }) {
-    vueSet(state.lastLiveRefreshTimestampByProfile, profileId, timestamp)
-  },
-
-  updateLastVideoRefreshTimestampByProfile (state, { profileId, timestamp }) {
-    vueSet(state.lastVideoRefreshTimestampByProfile, profileId, timestamp)
-  },
-
   clearTrendingCache(state) {
     state.trendingCache = {
       default: null,
@@ -992,7 +963,20 @@ const mutations = {
 
   setExternalPlayerCmdArguments (state, value) {
     state.externalPlayerCmdArguments = value
-  }
+  },
+
+  setSubscriptionForVideosFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.videos = true
+  },
+  setSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.liveStreams = true
+  },
+  setSubscriptionForShortsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.shorts = true
+  },
+  setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.communityPosts = true
+  },
 }
 
 export default {

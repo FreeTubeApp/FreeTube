@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 abone | {count} abone
     View Count: 1 izlenme | {count} izlenme
     Watching Count: 1 izliyor | {count} izliyor
+    Like Count: 1 beğenme | {count} beğenme
+    Comment Count: 1 yorum | {count} yorum
   Input Tags:
     Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
@@ -846,6 +848,10 @@ Channel:
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
     Video hidden by FreeTube: FreeTube tarafından gizlenen video
+    View Full Post: Gönderinin Tamamını Görüntüle
+    Viewing Posts Only Supported By Invidious: Gönderileri görüntüleme yalnızca Invidious
+      tarafından desteklenir. Invidious olmadan içeriği görüntülemek için bir kanalın
+      topluluk sekmesine gidin.
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
@@ -1093,6 +1099,7 @@ Comments:
   View {replyCount} replies: '{replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
+  There are no comments available for this post: Bu gönderi için hiç yorum yok
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -1121,8 +1128,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
       için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
-      önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
-      sağlamaz
+      önüne geçer, ancak video süresi, canlı yayın durumu veya topluluk gönderileri
+      gibi belirli bilgileri sağlamaz
     Fetch Automatically: Etkinleştirildiğinde, FreeTube yeni bir pencere açıldığında
       ve profil değiştirirken abonelik akışınızı otomatik olarak getirecektir.
   Player Settings:
@@ -1131,7 +1138,7 @@ Tooltips:
       sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
       akışlarıdır.
     Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
-      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar.
+      kurmak yerine Invidious'a bağlanılacak.
     Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
       videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
       hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı

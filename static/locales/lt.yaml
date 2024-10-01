@@ -759,8 +759,7 @@ Tooltips:
       atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Bus prisijungęs prie „Invidious“, kad galėtų
-      teikti vaizdo įrašus, užuot užmezgęs tiesioginį ryšį su „YouTube“. Nepaiso API
-      nuostatų.'
+      teikti vaizdo įrašus, užuot užmezgęs tiesioginį ryšį su „YouTube“.'
     Default Video Format: 'Nustatykite vaizdo įrašo atkūrimo formatus. DASH formatai
       gali rodyti aukštesnes kokybės vaizdo įrašus. Senieji formatai (Legacy) gali
       būti ne daugiau kaip 720p kokybės, tačiau jie reikalauja mažesnių tinklo resursų.
