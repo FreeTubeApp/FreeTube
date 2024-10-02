@@ -429,6 +429,7 @@ export default defineComponent({
 
       this.isLoading = false
     },
+
     showUserPlaylistNotFound() {
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
     },
@@ -449,13 +450,13 @@ export default defineComponent({
           video.lengthSeconds = 0
         }
       })
-      
+
       // Show notice if not already shown before returning playlist items
       if (anyVideoMissingDuration && !this.alreadyShownNotice) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
         this.alreadyShownNotice = true
       }
-      
+
       return modifiedPlaylistItems
     },
 
