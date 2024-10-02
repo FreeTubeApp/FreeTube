@@ -417,7 +417,7 @@ export default defineComponent({
 
     handlePlaylistExport: async function () {
       const dateStr = getTodayDateStrLocalTimezone()
-      const title = this.selectedUserPlaylist.playlistName.replaceAll(' ', '_').replace(/["%*/:<>?\\|]/g, '_')
+      const title = this.selectedUserPlaylist.playlistName.replaceAll(' ', '_').replaceAll(/["%*/:<>?\\|]/g, '_')
       const exportFileName = 'freetube-playlist-' + title + '-' + dateStr + '.db'
 
       const options = {
