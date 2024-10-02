@@ -901,48 +901,50 @@ export default defineComponent({
         const playlistObjectKeys = Object.keys(playlistObject)
         const playlistObjectHasAllRequiredKeys = requiredKeys.every((k) => playlistObjectKeys.includes(k))
 
-        if (playlistObjectHasAllRequiredKeys) {
-          const existingPlaylist = this.allPlaylists.find((playlist) => {
-            return playlist.playlistName === playlistObject.playlistName
-          })
-
-          if (existingPlaylist !== undefined) {
-            playlistObject.videos.forEach((video) => {
-              let videoExists = false
-              if (video.playlistItemId != null) {
-                // Find by `playlistItemId` if present
-                videoExists = existingPlaylist.videos.some((x) => {
-                  // Allow duplicate (by videoId) videos to be added
-                  return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
-                })
-              } else {
-                // Older playlist exports have no `playlistItemId` but have `timeAdded`
-                // Which might be duplicate for copied playlists with duplicate `videoId`
-                videoExists = existingPlaylist.videos.some((x) => {
-                  // Allow duplicate (by videoId) videos to be added
-                  return x.videoId === video.videoId && x.timeAdded === video.timeAdded
-                })
-              }
-
-              if (!videoExists) {
-                // Keep original `timeAdded` value
-                const payload = {
-                  _id: existingPlaylist._id,
-                  videoData: video,
-                }
-
-                this.addVideo(payload)
-              }
-            })
-            // Update playlist's `lastUpdatedAt`
-            this.updatePlaylist({ _id: existingPlaylist._id })
-          } else {
-            this.addPlaylist(playlistObject)
-          }
-        } else {
+        if (!playlistObjectHasAllRequiredKeys) {
           const message = this.$t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
           showToast(message)
+          return
         }
+
+        const existingPlaylist = this.allPlaylists.find((playlist) => {
+          return playlist.playlistName === playlistObject.playlistName
+        })
+
+        if (existingPlaylist === undefined) {
+          this.addPlaylist(playlistObject)
+          return
+        }
+
+        playlistObject.videos.forEach((video) => {
+          let videoExists = false
+          if (video.playlistItemId != null) {
+            // Find by `playlistItemId` if present
+            videoExists = existingPlaylist.videos.some((x) => {
+              // Allow duplicate (by videoId) videos to be added
+              return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
+            })
+          } else {
+            // Older playlist exports have no `playlistItemId` but have `timeAdded`
+            // Which might be duplicate for copied playlists with duplicate `videoId`
+            videoExists = existingPlaylist.videos.some((x) => {
+              // Allow duplicate (by videoId) videos to be added
+              return x.videoId === video.videoId && x.timeAdded === video.timeAdded
+            })
+          }
+
+          if (!videoExists) {
+            // Keep original `timeAdded` value
+            const payload = {
+              _id: existingPlaylist._id,
+              videoData: video,
+            }
+
+            this.addVideo(payload)
+          }
+        })
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: existingPlaylist._id })
       })
 
       showToast(this.$t('Settings.Data Settings.All playlists has been successfully imported'))
