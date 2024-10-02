@@ -455,7 +455,7 @@ function runApp() {
           requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-      // eslint-disable-next-line n/no-callback-literal
+       
       callback({ requestHeaders })
     })
 
@@ -466,7 +466,7 @@ function runApp() {
       if (responseHeaders) {
         delete responseHeaders['set-cookie']
       }
-      // eslint-disable-next-line n/no-callback-literal
+       
       callback({ responseHeaders })
     })
 
@@ -757,7 +757,7 @@ function runApp() {
     // If called multiple times
     // Duplicate menu items will be added
     if (replaceMainWindow) {
-      // eslint-disable-next-line
+       
       setMenu()
     }
 

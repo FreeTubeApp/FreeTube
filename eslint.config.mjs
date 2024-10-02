@@ -27,7 +27,7 @@ export default [
   ),
   js.configs.recommended,
   eslintConfigPrettier,
-  ...eslintPluginVue.configs['flat/recommended'],
+  ...eslintPluginVue.configs['flat/vue2-recommended'],
   ...vuejsAccessibility.configs["flat/recommended"],
   ...intlifyVueI18N.configs['flat/recommended'],
   {
@@ -77,6 +77,12 @@ export default [
       'vue/no-useless-template-attributes': 'off',
       'vue/multi-word-component-names': 'off',
       'vuejs-accessibility/no-onchange': 'off',
+
+      // rule for Vue 3.x , FT is on 2.x
+      'vue/no-v-for-template-key-on-child': 'off',
+      'vue/no-v-for-template-key': 'error',
+      // To be fixed on Vue 3 migration
+      'vue/no-deprecated-v-on-native-modifier': 'warn',
 
       'vuejs-accessibility/label-has-for': ['error', {
         required: {
