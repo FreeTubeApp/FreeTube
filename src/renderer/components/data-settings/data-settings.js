@@ -875,6 +875,7 @@ export default defineComponent({
         // to the app, so we'll only grab the data we need here.
 
         const playlistObject = {}
+        const videoIdToBeAddedSet = new Set()
 
         Object.keys(playlistData).forEach((key) => {
           if ([requiredKeys, optionalKeys, ignoredKeys].every((ks) => !ks.includes(key))) {
@@ -888,6 +889,7 @@ export default defineComponent({
 
               if (videoObjectHasAllRequiredKeys) {
                 videoArray.push(video)
+                videoIdToBeAddedSet.add(video.videoId)
               }
             })
 
@@ -916,20 +918,33 @@ export default defineComponent({
           return
         }
 
+        const duplicateVideoPresentInToBeAdded = playlistObject.videos.length > videoIdToBeAddedSet.size
+        const existingVideoIdSet = existingPlaylist.videos.reduce((video) => videoIdToBeAddedSet.add(video.videoId), new Set())
+        const duplicateVideoPresentInExistingPlaylist = existingPlaylist.videos.length > existingVideoIdSet.size
+        const shouldAddDuplicateVideos = duplicateVideoPresentInToBeAdded || duplicateVideoPresentInExistingPlaylist
+
         playlistObject.videos.forEach((video) => {
           let videoExists = false
-          if (video.playlistItemId != null) {
+          if (shouldAddDuplicateVideos) {
+            if (video.playlistItemId != null) {
+              // Find by `playlistItemId` if present
+              videoExists = existingPlaylist.videos.some((x) => {
+                // Allow duplicate (by videoId) videos to be added
+                return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
+              })
+            } else {
+              // Older playlist exports have no `playlistItemId` but have `timeAdded`
+              // Which might be duplicate for copied playlists with duplicate `videoId`
+              videoExists = existingPlaylist.videos.some((x) => {
+                // Allow duplicate (by videoId) videos to be added
+                return x.videoId === video.videoId && x.timeAdded === video.timeAdded
+              })
+            }
+          } else {
             // Find by `playlistItemId` if present
             videoExists = existingPlaylist.videos.some((x) => {
               // Allow duplicate (by videoId) videos to be added
-              return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
-            })
-          } else {
-            // Older playlist exports have no `playlistItemId` but have `timeAdded`
-            // Which might be duplicate for copied playlists with duplicate `videoId`
-            videoExists = existingPlaylist.videos.some((x) => {
-              // Allow duplicate (by videoId) videos to be added
-              return x.videoId === video.videoId && x.timeAdded === video.timeAdded
+              return x.videoId === video.videoId
             })
           }
 
