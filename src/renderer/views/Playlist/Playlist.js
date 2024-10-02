@@ -186,8 +186,7 @@ export default defineComponent({
         this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
         this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
       ) {
-        const playlistItems = this.getDurationPlaylistItems()
-        this.showNoticesSometimes(playlistItems)
+        const playlistItems = this.getPlaylistItemsWithDuration()
         return getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
       }
       return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
@@ -434,24 +433,30 @@ export default defineComponent({
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
     },
 
-    getDurationPlaylistItems: function () {
+    getPlaylistItemsWithDuration() {
       const modifiedPlaylistItems = deepCopy(this.playlistItems)
+      let anyVideoMissingDuration = false
       modifiedPlaylistItems.forEach(video => {
-        if (!videoDurationPresent(video)) {
-          const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
-          if (typeof videoHistory !== 'undefined') video.lengthSeconds = videoHistory.lengthSeconds
+        if (videoDurationPresent(video)) { return }
+
+        const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
+        if (typeof videoHistory !== 'undefined') {
+          video.lengthSeconds = videoHistory.lengthSeconds
+        } else {
+          // Mark at least one video have no duration, show notice later
+          // Also assign fallback duration here
+          anyVideoMissingDuration = true
+          video.lengthSeconds = 0
         }
       })
-      return modifiedPlaylistItems
-    },
-
-    showNoticesSometimes: function (playlistItems) {
-      if (this.alreadyShownNotice) return
-      const anyVideoMissingDuration = playlistItems.some(v => !videoDurationPresent(v))
-      if (anyVideoMissingDuration) {
+      
+      // Show notice if not already shown before returning playlist items
+      if (anyVideoMissingDuration && !this.alreadyShownNotice) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
         this.alreadyShownNotice = true
       }
+      
+      return modifiedPlaylistItems
     },
 
     getNextPage: function () {
