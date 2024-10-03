@@ -1894,7 +1894,8 @@ export default defineComponent({
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
       newTabNode?.focus()
-      this.showOutlines()
+      // Prevents outline shown in strange places
+      if (newTabNode != null) { this.showOutlines() }
     },
 
     newSearch: function (query) {
