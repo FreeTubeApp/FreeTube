@@ -358,8 +358,11 @@ export default defineComponent({
 
         const playabilityStatus = result.playability_status
 
-        if (playabilityStatus.status === 'UNPLAYABLE' || (playabilityStatus.status === 'LOGIN_REQUIRED' && playabilityStatus.reason === 'Sign in to confirm you are not a bot')) {
-          if (playabilityStatus.reason === 'Sign in to confirm you are not a bot') {
+        // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
+        const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
+
+        if (playabilityStatus.status === 'UNPLAYABLE' || (playabilityStatus.status === 'LOGIN_REQUIRED' && playabilityStatus.reason === BOT_MESSAGE)) {
+          if (playabilityStatus.reason === BOT_MESSAGE) {
             throw new Error(this.$t('Video.IP block'))
           }
 
