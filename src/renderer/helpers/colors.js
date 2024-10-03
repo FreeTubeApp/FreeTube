@@ -1,4 +1,5 @@
 import i18n from '../i18n/index'
+import { randomArrayItem } from './utils'
 
 export const colors = [
   { name: 'Red', value: '#d50000' },
@@ -103,8 +104,7 @@ export function getRandomColorClass() {
 }
 
 export function getRandomColor() {
-  const randomInt = Math.floor(Math.random() * colors.length)
-  return colors[randomInt]
+  return randomArrayItem(colors)
 }
 
 export function calculateColorLuminance(colorValue) {

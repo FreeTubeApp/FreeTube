@@ -3,14 +3,14 @@
   position: relative;
 }
 
- body[dir='rtl'] .ft-input-component.search.showClearTextButton .inputAction {
+body[dir='rtl'] .ft-input-component.search.showClearTextButton .inputAction {
   inset-inline-end: -30px;
- }
+}
 
- body[dir='rtl'] .ft-input-component.search.clearTextButtonVisible .inputAction,
- body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inputAction {
+body[dir='rtl'] .ft-input-component.search.clearTextButtonVisible .inputAction,
+body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inputAction {
   inset-inline-end: 0;
- }
+}
 
 .ft-input-component.search.showClearTextButton {
   padding-inline-start: 30px;
@@ -41,7 +41,8 @@
   opacity: 1;
 }
 
-.disabled label, .disabled .ft-input{
+.disabled label,
+.disabled .ft-input {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -82,7 +83,7 @@
 }
 
 .forceTextColor .clearInputTextButton {
-  color: #EEE;
+  color: #eee;
 }
 
 .forceTextColor .clearInputTextButton:active {
@@ -109,7 +110,7 @@
 }
 
 .forceTextColor .ft-input {
-  color: #EEE;
+  color: #eee;
   background-color: var(--primary-input-color);
 }
 
@@ -119,7 +120,7 @@
 }
 
 .forceTextColor ::placeholder {
-  color: #EEE;
+  color: #eee;
 }
 
 .inputWrapper {
@@ -153,7 +154,7 @@
 }
 
 .forceTextColor .inputAction {
-  color: #EEE;
+  color: #eee;
 }
 
 .ft-input-component.showActionButton .ft-input {

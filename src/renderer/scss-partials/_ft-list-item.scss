@@ -56,9 +56,9 @@ $watched-transition-duration: 0.5s;
   padding: 6px;
 
   &.watched {
-    @include low-contrast-when-watched(var(--primary-text-color));
-
     background-color: var(--bg-color);
+
+    @include low-contrast-when-watched(var(--primary-text-color));
 
     .thumbnailImage {
       opacity: 0.3;
@@ -227,13 +227,13 @@ $watched-transition-duration: 0.5s;
     }
 
     .title {
-      @include low-contrast-when-watched(var(--primary-text-color));
-
       font-size: 20px;
       grid-area: title;
       text-decoration: none;
       word-break: break-word;
       word-wrap: break-word;
+
+      @include low-contrast-when-watched(var(--primary-text-color));
 
       @include is-sidebar-item {
         font-size: 15px;
@@ -247,11 +247,11 @@ $watched-transition-duration: 0.5s;
       overflow-wrap: anywhere;
       text-align: start;
 
+      @include low-contrast-when-watched(var(--secondary-text-color));
+
       @include is-sidebar-item {
         font-size: 12px;
       }
-
-      @include low-contrast-when-watched(var(--secondary-text-color));
 
       .channelName {
         @include low-contrast-when-watched(var(--secondary-text-color));
@@ -259,12 +259,12 @@ $watched-transition-duration: 0.5s;
     }
 
     .description {
-      @include low-contrast-when-watched(var(--secondary-text-color));
-
       font-size: 14px;
       grid-area: description;
       max-block-size: 50px;
       overflow-y: hidden;
+
+      @include low-contrast-when-watched(var(--secondary-text-color));
     }
   }
 

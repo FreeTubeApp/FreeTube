@@ -41,6 +41,8 @@ Global:
     Subscriber Count: 1 個訂閱者 | {count} 個訂閱者
     View Count: 1 次檢視 | {count} 次檢視
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
+    Comment Count: 1 則留言 | {count} 則留言
+    Like Count: 1 個喜歡 | {count} 個喜歡
   Input Tags:
     Length Requirement: 標籤必須至少 {number} 個字元長
 Search / Go to URL: '搜尋/ 前往網址'
@@ -210,6 +212,11 @@ User Playlists:
   Playlists with Matching Videos: 包含相符影片的播放清單
   Quick Bookmark Enabled: 已啟用快速書籤
   Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
+  Remove Duplicate Videos: 移除重複的影片
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
+    1 個重複的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除 {playlistItemCount} 個重複影片嗎？這無法還原。
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
+    1 個觀看過的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除已觀看的 {playlistItemCount} 個影片嗎？這無法還原。
 History:
   # On History Page
   History: '觀看紀錄'
@@ -217,6 +224,7 @@ History:
   Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
   Search bar placeholder: 在觀看紀錄中搜尋
   Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
+  Case Sensitive Search: 區分大小寫的搜尋
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -336,7 +344,6 @@ Settings:
     Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
     Player Settings: '播放器選項'
-    Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
     Remember History: '記住曆史'
     Play Next Video: '播放下一部影片'
     Turn on Subtitles by Default: '預設開啟字幕'
@@ -387,7 +394,6 @@ Settings:
         或 "/" 來建立子資料夾。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
-    Allow DASH AV1 formats: 允許 DASH AV1 格式
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -403,7 +409,7 @@ Settings:
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Only Show Latest Video for Each Channel: 只顯示每個頻道的最新影片
-    Avoid Accidental Unsubscription: 避免意外取消訂閱
+    Confirm Before Unsubscribing: 避免意外取消訂閱
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -470,7 +476,6 @@ Settings:
     Select Export Type: 選取匯出類型
     Select Import Type: 選取匯入類型
     Data Settings: 資料設定
-    One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被匯入
     Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單
@@ -707,6 +712,9 @@ Channel:
     Reveal Answers: 揭露答案
     Hide Answers: 隱藏答案
     Video hidden by FreeTube: 由 FreeTube 隱藏的影片
+    Viewing Posts Only Supported By Invidious: 僅 Invidious 支援檢視貼文。前往頻道的社群分頁即可檢視其中的內容而不需使用
+      Invidious。
+    View Full Post: 檢視完整貼文
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
@@ -782,11 +790,6 @@ Video:
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
   Starting soon, please refresh the page to check again: 影片即將開始，請重新整理頁面以再次檢查是否有更新
-  Audio:
-    Best: 最佳
-    High: 高
-    Medium: 中
-    Low: 低
   audio only: 僅音訊
   video only: 僅影片
   Download Video: 下載影片
@@ -799,7 +802,6 @@ Video:
   Video has been removed from your saved list: 影片已從您的播放清單移除
   Video has been saved: 影片已儲存
   Save Video: 儲存影片至播放清單
-  translated from English: 從英文翻譯
   Sponsor Block category:
     music offtopic: 音樂離題
     interaction: 互動
@@ -809,7 +811,6 @@ Video:
     sponsor: 贊助商
     recap: 回顧
     filler: 填充
-  Skipped segment: 已跳過的片段
   External Player:
     Unsupported Actions:
       looping playlists: 循環播放清單
@@ -825,25 +826,6 @@ Video:
     video: 視訊
     OpenInTemplate: 在 {externalPlayer} 中開啟
   Premieres on: 首映日期
-  Stats:
-    buffered: 已緩衝
-    out of: 中的
-    video id: Video ID (YouTube)
-    volume: 音量
-    player resolution: 視野
-    fps: FPS
-    frame drop: 丟棄畫面
-    bandwidth: 連線速度
-    Resolution: 解析度
-    Player Dimensions: 播放器大小
-    Bitrate: 位元率
-    Volume: 音量
-    Bandwidth: 頻寬
-    Buffered: 已緩衝
-    Dropped / Total Frames: 丟棄／總畫面數
-    Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
-    Video ID: 影片 ID
-    Mimetype: 多媒體類型
   Premieres in: 首映於
   Premieres: 首映
   Show Super Chat Comment: 顯示超級聊天留言
@@ -854,6 +836,33 @@ Video:
   Unhide Channel: 顯示頻道
   Hide Channel: 隱藏頻道
   More Options: 更多選項
+  Player:
+    TranslatedCaptionTemplate: '{language}（翻譯自「{originalLanguage}」）'
+    Audio Tracks: 音訊軌
+    Theatre Mode: 劇院模式
+    Exit Theatre Mode: 離開劇院模式
+    Full Window: 全視窗
+    Exit Full Window: 離開全視窗
+    Take Screenshot: 拍攝螢幕截圖
+    Show Stats: 顯示統計資料
+    Hide Stats: 隱藏統計資料
+    Stats:
+      Stats: 統計資料
+      Video ID: 影片 ID：{videoId}
+      Media Formats: 媒體格式：{formats}
+      Resolution: 解析度：{width}x{height}@{frameRate}
+      Player Dimensions: 播放器尺寸：{width}x{height}
+      Bitrate: 位元速率：{bitrate} kbps
+      Volume: 音量：{volumePercentage}%
+      Bandwidth: 頻寬：{bandwidth} kbps
+      Buffered: 已緩衝：{bufferedPercentage}%
+      Dropped Frames / Total Frames: 丟棄的畫面數：{droppedFrames} / 總畫面數：{totalFrames}
+      CodecAudio: 編解碼器：{audioCodec} ({audioItag})
+      CodecsVideoAudio: 編解碼器：{videoCodec} ({videoItag}) / {audioCodec} ({audioItag})
+      CodecsVideoAudioNoItags: 編解碼器：{videoCodec} / {audioCodec}
+    You appear to be offline: 您似乎已離線。
+    Playback will resume automatically when your connection comes back: 當您的連線恢復時，將會自動繼續播放。
+    Skipped segment: 已跳過 {segmentCategory} 段
 Videos:
   #& Sort By
   Sort By:
@@ -890,6 +899,7 @@ Change Format:
   Use Audio Formats: '使用音訊格式'
   Audio formats are not available for this video: 這個影片沒有音訊格式
   Dash formats are not available for this video: 這個影片沒有 DASH 格式
+  Legacy formats are not available for this video: 舊格式不適用於該影片
 Share:
   Share Video: '分享影片'
   Share Playlist: '分享播放清單'
@@ -933,6 +943,7 @@ Comments:
   View {replyCount} replies: 檢視 {replyCount} 則回覆
   Hearted: 喜歡的
   Subscribed: 已訂閱
+  There are no comments available for this post: 此貼文尚無留言
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -1006,18 +1017,14 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
-      IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
+      IP 封鎖，但它可能不會提供某些資訊，例如影片長度、直播狀態或社群貼文
     Fetch Automatically: 啟用後，FreeTube 在開啟新視窗與切換設定檔時，將會自動擷取您的訂閱 feed。
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
-    Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
-    Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
-      API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
+    Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
       Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
-    Allow DASH AV1 formats: DASH AV1 格式可能會看起來比 DASH H.264 格式更好。DASH AV1 格式需要更大的功率來播放！且並非所有影片都提供，在這種情況下，播放程式會使用
-      DASH H.264 格式代替。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。

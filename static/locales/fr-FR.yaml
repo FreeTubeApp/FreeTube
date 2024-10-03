@@ -42,6 +42,8 @@ Global:
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
+    Comment Count: 1 commentaire | {count} commentaires
+    Like Count: 1 like | {count} likes
   Input Tags:
     Length Requirement: L'étiquette doit comporter au moins {number} caractères
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
@@ -162,9 +164,9 @@ User Playlists:
     Added {count} Times: Déjà ajouté | Ajouté {count} fois
     Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Les vidéos seront ajoutées'
+      vidéos seront ajoutées'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Vidéos déjà ajoutées'
+      vidéos déjà ajoutées'
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Il n'y avait aucune vidéo à supprimer.
@@ -254,6 +256,15 @@ User Playlists:
   Quick Bookmark Enabled: Signet rapide activé
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la liste
     de lecture cible des signets rapides.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous
+    sûr(e) de vouloir supprimer 1 vidéo en double de cette liste de lecture ? Cette
+    opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
+    vidéos en double de cette liste de lecture ? Cette opération est irréversible.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Êtes-vous
+    sûr(e) de vouloir supprimer 1 vidéo regardée de cette liste de lecture ? Cette
+    opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
+    vidéos regardées de cette liste de lecture ? Cette opération est irréversible.
+  Remove Duplicate Videos: Supprimer les vidéos en double
 History:
   # On History Page
   History: 'Historique'
@@ -262,6 +273,7 @@ History:
   Search bar placeholder: "Recherche dans l'historique"
   Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent
     à votre recherche
+  Case Sensitive Search: Recherche sensible à la casse
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
@@ -387,8 +399,6 @@ Settings:
     Hide FreeTube Header Logo: Masquer le logo d'en-tête de FreeTube
   Player Settings:
     Player Settings: 'Paramètres du lecteur'
-    Force Local Backend for Legacy Formats: 'Forcer le backend local pour le format
-      Legacy'
     Remember History: 'Se souvenir de l''historique'
     Play Next Video: 'Lire la vidéo suivante'
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
@@ -445,7 +455,6 @@ Settings:
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
-    Allow DASH AV1 formats: Autoriser les formats DASH AV1
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -462,6 +471,7 @@ Settings:
     Fetch Automatically: Récupération automatique des flux
     Only Show Latest Video for Each Channel: Afficher uniquement la dernière vidéo
       pour chaque chaîne
+    Confirm Before Unsubscribing: Évitez les désabonnements accidentels
   Advanced Settings:
     Advanced Settings: 'Paramètres Avancés'
     Enable Debug Mode (Prints data to the console): 'Activer le mode débug (afficher
@@ -547,8 +557,6 @@ Settings:
       données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les
       données de profil sont insuffisantes
-    One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
-      n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
     Import Playlists: Importer des listes de lecture
@@ -823,6 +831,10 @@ Channel:
     Reveal Answers: Afficher les réponses
     Hide Answers: Masquer les réponses
     Video hidden by FreeTube: Vidéo cachée par FreeTube
+    View Full Post: Voir le message complet
+    Viewing Posts Only Supported By Invidious: L'affichage des messages n'est possible
+      qu'avec Indivious. Allez dans l'onglet communauté de la chaîne pour visualiser
+      le contenu sans Indivious.
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement
@@ -907,11 +919,6 @@ Video:
   Loop Playlist: Liste de lecture en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez
     actualiser la page pour vérifier à nouveau
-  Audio:
-    Best: Meilleure
-    Medium: Normale
-    Low: Basse
-    High: Haute
   audio only: audio uniquement
   video only: vidéo uniquement
   Download Video: Télécharger la vidéo
@@ -925,7 +932,6 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
-  translated from English: traduit de l'anglais
   Sponsor Block category:
     music offtopic: Musique hors sujet
     interaction: Interaction
@@ -935,7 +941,6 @@ Video:
     intro: Intro
     filler: Bouche-trou
     recap: Récap
-  Skipped segment: Segment ignoré
   External Player:
     playlist: liste de lecture
     video: vidéo
@@ -952,26 +957,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
     OpeningTemplate: Ouverture de {videoOrPlaylist} en {externalPlayer}…
     OpenInTemplate: Ouvrir avec {externalPlayer}
-  Stats:
-    video id: "Identifiant de la vidéo (YouTube)"
-    player resolution: "Résolution du lecteur"
-    volume: "Volume"
-    fps: "IPS"
-    frame drop: "Perte d'image"
-    bandwidth: "Vitesse de connexion"
-    buffered: "En tampon"
-    out of: "sur"
-    Player Dimensions: Dimensions du lecteur
-    Bitrate: Débit binaire
-    Volume: Volume
-    Mimetype: Type de médias
-    Video statistics are not available for legacy videos: Les statistiques vidéo ne
-      sont pas disponibles pour les anciennes vidéos
-    Resolution: Résolution
-    Bandwidth: Bande passante
-    Video ID: Identifiant vidéo
-    Buffered: En mémoire tampon
-    Dropped / Total Frames: Images perdues / Nombre total d'images
   Premieres on: Avant-première le
   Premieres in: Première dans
   Premieres: Avant-première
@@ -985,6 +970,35 @@ Video:
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
   More Options: Plus d'options
+  Player:
+    Audio Tracks: Pistes audio
+    Theatre Mode: Mode théâtre
+    Exit Theatre Mode: Quitter le mode théâtre
+    Full Window: Fenêtre pleine
+    Show Stats: Afficher les stats
+    Hide Stats: Masquer les stats
+    Stats:
+      Stats: Stats
+      Video ID: 'Identifiant de la vidéo : {videoId}'
+      Media Formats: 'Formats du média : {formats}'
+      Resolution: 'Résolution : {width}×{height}@{frameRate}'
+      Player Dimensions: 'Dimensions du lecteur : {width}×{height}'
+      Volume: 'Volume : {volumePercentage} %'
+      Bandwidth: 'Bande passante : {bandwidth} kb/s'
+      Bitrate: 'Débit binaire : {bitrate} kb/s'
+      Buffered: 'Mise en mémoire tampon : {bufferedPercentage} %'
+      CodecAudio: 'Codec : {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs : {videoCodec} / {audioCodec}'
+      CodecsVideoAudio: 'Codecs : {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Images perdues : {droppedFrames} / Images totales :
+        {totalFrames}'
+    Skipped segment: Segment {segmentCategory} ignoré
+    TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
+    Exit Full Window: Quitter la fenêtre pleine
+    Take Screenshot: Prendre une capture d'écran
+    You appear to be offline: Vous semblez être hors ligne.
+    Playback will resume automatically when your connection comes back: La lecture
+      reprendra automatiquement quand votre connexion reviendra.
 Videos:
   #& Sort By
   Sort By:
@@ -1023,6 +1037,8 @@ Change Format:
     pour cette vidéo
   Dash formats are not available for this video: Le format DASH n'est pas disponible
     pour cette vidéo
+  Legacy formats are not available for this video: Les formats héritage ne sont pas
+    disponibles pour cette vidéo
 Share:
   Share Video: 'Partager la vidéo'
   Share Playlist: 'Partager la liste de lecture'
@@ -1072,6 +1088,8 @@ Comments:
   Hearted: Aimé
   View {replyCount} replies: Voir les {replyCount} réponses
   Subscribed: Abonné(e)
+  There are no comments available for this post: Il n'y a pas de commentaire associé
+    à ce message
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -1149,16 +1167,16 @@ A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet 
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
-  est maintenant disponible !  Cliquez pour plus de détails
+  est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera le RSS au lieu
-      de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
-      plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
-      comme la durée de la vidéo ou le statut en direct
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de
+      sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide
+      et empêche le blocage d'IP, mais ne fournit pas certaines informations comme
+      la durée de la vidéo, le statut en direct ou les commentaires
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement
       le flux de votre abonnement à l'ouverture d'une nouvelle fenêtre et lors du
       changement de profil.
@@ -1168,13 +1186,7 @@ Tooltips:
       sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
       formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
-      au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
-      de l'API.
-    Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
-      est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
-      les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
-      Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
-      de restrictions pays.
+      au lieu d'établir une connexion directe avec YouTube.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo,
       maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler
       la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse
@@ -1183,10 +1195,6 @@ Tooltips:
       de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer
       d'une vidéo à l'autre, en style MPV.
-    Allow DASH AV1 formats: Les formats DASH AV1 peuvent être plus beaux que les formats
-      DASH H.264. Les formats DASH AV1 nécessitent plus de puissance pour être lus !
-      Ils ne sont pas disponibles sur toutes les vidéos, dans ce cas le lecteur utilisera
-      les formats DASH H.264 à la place.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
@@ -1258,7 +1266,7 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
   a été définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
-Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
+Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
 Downloading has completed: '{videoTitle} a fini de se télécharger'
@@ -1320,9 +1328,11 @@ Yes, Delete: Oui, effacer
 Yes, Restart: Oui, redémarrer
 Yes, Open Link: Oui, ouvrir le lien
 Cancel: Annuler
-Search character limit: La recherche dépasse le nombre de caractères impartis
+Search character limit: La recherche dépasse le nombre de caractères impartis {searchCharacterLimit}
 Search Listing:
   Label:
     4K: 4K
     Subtitles: Sous-titres
     Closed Captions: Sous-titrage codé
+'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
+  dangereuse : « {url} »."

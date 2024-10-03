@@ -1,25 +1,22 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
-import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
-import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 
 import autolinker from 'autolinker'
 import {
   setPublishedTimestampsInvidious,
   copyToClipboard,
-  ctrlFHandler,
   extractNumberFromString,
-  formatNumber,
   showToast,
+  getChannelPlaylistId,
   getIconForSortPreference
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
@@ -43,27 +40,27 @@ import {
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount,
-  getLocalArtistTopicChannelReleasesContinuation
+  getLocalArtistTopicChannelReleasesContinuation,
+  getLocalPlaylist,
+  parseLocalPlaylistVideo
 } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'Channel',
   components: {
     'ft-card': FtCard,
-    'ft-input': FtInput,
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-age-restricted': FtAgeRestricted,
-    'ft-share-button': FtShareButton,
-    'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
+    ChannelDetails
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
@@ -113,11 +110,6 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoLiveShortSelectValues: [
-        'newest',
-        'popular',
-        'oldest'
-      ],
       playlistSelectValues: [
         'newest',
         'last'
@@ -155,16 +147,12 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
-    },
-
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     activeProfile: function () {
@@ -188,7 +176,29 @@ export default defineComponent({
       return profileList[0].subscriptions.some((channel) => channel.id === this.id)
     },
 
+    videoLiveShortSelectValues: function () {
+      if (this.isArtistTopicChannel) {
+        return [
+          'newest',
+          'popular',
+        ]
+      }
+
+      return [
+        'newest',
+        'popular',
+        'oldest'
+      ]
+    },
+
     videoLiveShortSelectNames: function () {
+      if (this.isArtistTopicChannel) {
+        return [
+          this.$t('Channel.Videos.Sort Types.Newest'),
+          this.$t('Channel.Videos.Sort Types.Most Popular'),
+        ]
+      }
+
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular'),
@@ -201,13 +211,6 @@ export default defineComponent({
         this.$t('Channel.Playlists.Sort Types.Newest'),
         this.$t('Channel.Playlists.Sort Types.Last Video Added')
       ]
-    },
-
-    formattedSubCount: function () {
-      if (this.hideChannelSubscriptions) {
-        return null
-      }
-      return formatNumber(this.subCount)
     },
 
     showFetchMoreButton: function () {
@@ -231,13 +234,6 @@ export default defineComponent({
       }
 
       return false
-    },
-    hideChannelSubscriptions: function () {
-      return this.$store.getters.getHideChannelSubscriptions
-    },
-
-    hideSharingActions: function () {
-      return this.$store.getters.getHideSharingActions
     },
 
     hideChannelShorts: function () {
@@ -352,7 +348,7 @@ export default defineComponent({
 
       if (this.id === '@@@') {
         this.showShareMenu = false
-        this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
+        this.setErrorMessage(this.$t('Channel.This channel does not exist'))
         return
       }
 
@@ -440,9 +436,6 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.isLoading = true
-    document.addEventListener('keydown', this.keyboardShortcutHandler)
-
     if (this.$route.query.url) {
       this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
       return
@@ -454,7 +447,7 @@ export default defineComponent({
 
     if (this.id === '@@@') {
       this.showShareMenu = false
-      this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
+      this.setErrorMessage(this.$t('Channel.This channel does not exist'))
       return
     }
 
@@ -467,9 +460,6 @@ export default defineComponent({
         this.autoRefreshOnSortByChangeEnabled = true
       })
     }
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     resolveChannelUrl: async function (url, tab = undefined) {
@@ -647,7 +637,7 @@ export default defineComponent({
         }
         const tabs = ['about']
 
-        if (channel.has_videos) {
+        if (channel.has_videos || this.isArtistTopicChannel) {
           tabs.push('videos')
           this.getChannelVideosLocal()
         }
@@ -721,7 +711,7 @@ export default defineComponent({
       }
     },
 
-    getChannelAboutLocal: async function (channel) {
+    getChannelAboutLocal: async function () {
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
@@ -779,26 +769,43 @@ export default defineComponent({
       const expectedId = this.id
 
       try {
-        /**
-         * @type {import('youtubei.js').YT.Channel}
-        */
-        const channel = this.channelInstance
-        let videosTab = await channel.getVideos()
+        if (this.isArtistTopicChannel) {
+          // Artist topic channels don't have a videos tab.
+          // Interestingly the auto-generated uploads playlists do exist for those channels,
+          // so we'll use them instead.
 
-        this.showVideoSortBy = videosTab.filters.length > 1
+          const playlistId = getChannelPlaylistId(this.id, 'videos', this.videoSortBy)
+          const playlist = await getLocalPlaylist(playlistId)
 
-        if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
-          videosTab = await videosTab.applyFilter(videosTab.filters[index])
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestVideos = playlist.items.map(parseLocalPlaylistVideo)
+          this.videoContinuationData = playlist.has_continuation ? playlist : null
+          this.isElementListLoading = false
+        } else {
+          /**
+           * @type {import('youtubei.js').YT.Channel}
+          */
+          const channel = this.channelInstance
+          let videosTab = await channel.getVideos()
+
+          this.showVideoSortBy = videosTab.filters.length > 1
+
+          if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
+            const index = this.videoLiveShortSelectValues.indexOf(this.videoSortBy)
+            videosTab = await videosTab.applyFilter(videosTab.filters[index])
+          }
+
+          if (expectedId !== this.id) {
+            return
+          }
+
+          this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
+          this.videoContinuationData = videosTab.has_continuation ? videosTab : null
+          this.isElementListLoading = false
         }
-
-        if (expectedId !== this.id) {
-          return
-        }
-
-        this.latestVideos = parseLocalChannelVideos(videosTab.videos, this.id, this.channelName)
-        this.videoContinuationData = videosTab.has_continuation ? videosTab : null
-        this.isElementListLoading = false
 
         if (this.isSubscribedInAnyProfile && this.latestVideos.length > 0 && this.videoSortBy === 'newest') {
           this.updateSubscriptionVideosCacheByChannel({
@@ -810,6 +817,11 @@ export default defineComponent({
           })
         }
       } catch (err) {
+        if (this.isArtistTopicChannel && err.message === 'The playlist does not exist.') {
+          // If this artist topic channel doesn't have any videos, ignore the error.
+          return
+        }
+
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -826,13 +838,21 @@ export default defineComponent({
 
     channelLocalNextPage: async function () {
       try {
-        /**
-         * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
-         */
-        const continuation = await this.videoContinuationData.getContinuation()
+        if (this.isArtistTopicChannel) {
+          /** @type {import('youtubei.js').YT.Playlist} */
+          const continuation = await this.videoContinuationData.getContinuation()
 
-        this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
-        this.videoContinuationData = continuation.has_continuation ? continuation : null
+          this.latestVideos = this.latestVideos.concat(continuation.items.map(parseLocalPlaylistVideo))
+          this.videoContinuationData = continuation.has_continuation ? continuation : null
+        } else {
+          /**
+           * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
+           */
+          const continuation = await this.videoContinuationData.getContinuation()
+
+          this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.id, this.channelName))
+          this.videoContinuationData = continuation.has_continuation ? continuation : null
+        }
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1006,7 +1026,7 @@ export default defineComponent({
         this.isFamilyFriendly = response.isFamilyFriendly
         this.subCount = response.subCount
         const thumbnail = response.authorThumbnails[3].url
-        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
+        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstanceUrl)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.description = autolinker.link(response.description)
         this.viewCount = response.totalViews
@@ -1017,12 +1037,12 @@ export default defineComponent({
           return {
             name: channel.author,
             id: channel.authorId,
-            thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
+            thumbnailUrl: youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstanceUrl)
           }
         })
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
-          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
+          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstanceUrl)
         } else {
           this.bannerUrl = null
         }
@@ -1856,29 +1876,7 @@ export default defineComponent({
       }
     },
 
-    changeTab: function (tab, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.altKey) {
-          return
-        }
-
-        // use arrowkeys to navigate
-        event.preventDefault()
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-          const index = this.tabInfoValues.indexOf(tab)
-
-          // focus left or right tab with wrap around
-          tab = (event.key === 'ArrowLeft')
-            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
-            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
-
-          const tabNode = document.getElementById(`${tab}Tab`)
-          tabNode.focus()
-          this.showOutlines()
-          return
-        }
-      }
-
+    changeTab: function (tab) {
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
@@ -1993,8 +1991,34 @@ export default defineComponent({
       })
     },
 
-    keyboardShortcutHandler: function (event) {
-      ctrlFHandler(event, this.$refs.channelSearchBar)
+    handleSubscription: function () {
+      // We can't cache the shorts data as YouTube doesn't return published dates on the shorts channel tab
+
+      // Create copies of the arrays so that we only cache the first page
+      // If we use the same array, the store will get angry at us for modifying it outside of the store
+      // when the user clicks load more
+
+      if (this.videoSortBy === 'newest') {
+        this.updateSubscriptionVideosCacheByChannel({
+          channelId: this.id,
+          videos: [...this.latestVideos]
+        })
+      }
+
+      if (this.liveSortBy === 'newest') {
+        this.updateSubscriptionLiveCacheByChannel({
+          channelId: this.id,
+          videos: [...this.latestLive]
+        })
+      }
+
+      this.latestCommunityPosts.forEach(post => {
+        post.authorId = this.id
+      })
+      this.updateSubscriptionPostsCacheByChannel({
+        channelId: this.id,
+        posts: [...this.latestCommunityPosts]
+      })
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),

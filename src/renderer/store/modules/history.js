@@ -45,6 +45,27 @@ const actions = {
     }
   },
 
+  /**
+   * @param {any} param0
+   * @param {Map<string, any>} historyItems
+   */
+  async overwriteHistory({ commit }, historyItems) {
+    try {
+      const sortedRecords = Array.from(historyItems.values())
+
+      // sort before sending saving to the database and passing to other windows
+      // so that the other windows can use it as is, without having to sort the array themselves
+      sortedRecords.sort((a, b) => b.timeWatched - a.timeWatched)
+
+      await DBHistoryHandlers.overwrite(sortedRecords)
+
+      commit('setHistoryCacheSorted', sortedRecords)
+      commit('setHistoryCacheById', Object.fromEntries(historyItems))
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async removeFromHistory({ commit }, videoId) {
     try {
       await DBHistoryHandlers.delete(videoId)
@@ -108,27 +129,29 @@ const mutations = {
   },
 
   updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
-    const i = state.historyCacheSorted.findIndex((currentRecord) => {
-      return currentRecord.videoId === videoId
-    })
+    // historyCacheById and historyCacheSorted reference the same object instances,
+    // so modifying an existing object in one of them will update both.
 
-    const targetRecord = Object.assign({}, state.historyCacheSorted[i])
-    targetRecord.watchProgress = watchProgress
-    state.historyCacheSorted.splice(i, 1, targetRecord)
-    vueSet(state.historyCacheById, videoId, targetRecord)
+    const record = state.historyCacheById[videoId]
+
+    // Don't set, if the item was removed from the watch history, as we don't have any video details
+    if (record) {
+      vueSet(record, 'watchProgress', watchProgress)
+    }
   },
 
   updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }) {
-    const i = state.historyCacheSorted.findIndex((currentRecord) => {
-      return currentRecord.videoId === videoId
-    })
+    // historyCacheById and historyCacheSorted reference the same object instances,
+    // so modifying an existing object in one of them will update both.
 
-    const targetRecord = Object.assign({}, state.historyCacheSorted[i])
-    targetRecord.lastViewedPlaylistId = lastViewedPlaylistId
-    targetRecord.lastViewedPlaylistType = lastViewedPlaylistType
-    targetRecord.lastViewedPlaylistItemId = lastViewedPlaylistItemId
-    state.historyCacheSorted.splice(i, 1, targetRecord)
-    vueSet(state.historyCacheById, videoId, targetRecord)
+    const record = state.historyCacheById[videoId]
+
+    // Don't set, if the item was removed from the watch history, as we don't have any video details
+    if (record) {
+      vueSet(record, 'lastViewedPlaylistId', lastViewedPlaylistId)
+      vueSet(record, 'lastViewedPlaylistType', lastViewedPlaylistType)
+      vueSet(record, 'lastViewedPlaylistItemId', lastViewedPlaylistItemId)
+    }
   },
 
   removeFromHistoryCacheById(state, videoId) {

@@ -68,8 +68,8 @@ export default defineComponent({
       return this.$t('Share.Share Video')
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     selectedUserPlaylist: function () {
@@ -86,12 +86,12 @@ export default defineComponent({
 
     invidiousURL() {
       if (this.isChannel) {
-        return `${this.currentInvidiousInstance}/channel/${this.id}`
+        return `${this.currentInvidiousInstanceUrl}/channel/${this.id}`
       }
       if (this.isPlaylist) {
-        return `${this.currentInvidiousInstance}/playlist?list=${this.id}`
+        return `${this.currentInvidiousInstanceUrl}/playlist?list=${this.id}`
       }
-      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.currentInvidiousInstanceUrl}/watch?v=${this.id}`
       // `playlistId` can be undefined
       if (this.playlistSharable) {
         // `index` seems can be ignored
@@ -102,9 +102,9 @@ export default defineComponent({
 
     invidiousEmbedURL() {
       if (this.isPlaylist) {
-        return `${this.currentInvidiousInstance}/embed/videoseries?list=${this.id}`
+        return `${this.currentInvidiousInstanceUrl}/embed/videoseries?list=${this.id}`
       }
-      return `${this.currentInvidiousInstance}/embed/${this.id}`
+      return `${this.currentInvidiousInstanceUrl}/embed/${this.id}`
     },
 
     youtubeChannelUrl() {

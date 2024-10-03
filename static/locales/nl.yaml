@@ -244,6 +244,15 @@ User Playlists:
   Quick Bookmark Enabled: Snel opslaan ingeschakeld
   Cannot delete the quick bookmark target playlist.: Kan afspeel­lĳst voor snel opslaan
     niet verwĳderen.
+  Remove Duplicate Videos: Dubbele video's verwĳderen
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Weet
+    u zeker dat u één dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan
+    niet ongedaan gemaakt worden. | Weet u zeker dat u {playlistItemCount} dubbele
+    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Weet
+    u zeker dat u één bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan
+    niet ongedaan gemaakt worden. | Weet u zeker dat u {playlistItemCount} bekeken
+    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -251,6 +260,7 @@ History:
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
   Search bar placeholder: In geschiedenis zoeken
   Empty Search Message: Geschiedenis bevat geen video's die overeen­komen met de zoek­opdracht
+  Case Sensitive Search: Hoofdletter­gevoelige zoek­opdracht
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -373,7 +383,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-koplogo verbergen
   Player Settings:
     Player Settings: 'Videospelerinstellingen'
-    Force Local Backend for Legacy Formats: 'Lokale backend voor oudere formaten forceren'
     Play Next Video: 'Volgende video afspelen'
     Turn on Subtitles by Default: 'Ondertiteling standaard inschakelen'
     Autoplay Videos: 'Video''s automatisch afspelen'
@@ -425,7 +434,6 @@ Settings:
         video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
         te maken.'
     Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
-    Allow DASH AV1 formats: DASH-AV1-bestandstypes toestaan
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
@@ -457,7 +465,7 @@ Settings:
     Fetch Automatically: Feed automatisch ophalen
     Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
       tonen
-    Avoid Accidental Unsubscription: Onbedoeld deabonneren voor­komen
+    Confirm Before Unsubscribing: Onbedoeld deabonneren voor­komen
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -492,8 +500,6 @@ Settings:
     Invalid history file: Ongeldig geschiedenisbestand
     This might take a while, please wait: Dit kan eventjes duren, even geduld aub
     Invalid subscriptions file: Ongeldig abonnementenbestand
-    One or more subscriptions were unable to be imported: Een of meer abonnementen
-      konden niet worden geïmporteerd
     All subscriptions have been successfully imported: Alle abonnementen zijn met
       succes geïmporteerd
     All subscriptions and profiles have been successfully imported: Alle abonnementen
@@ -787,6 +793,9 @@ Channel:
     This channel currently does not have any posts: Dit kanaal heeft momenteel geen
       posts
     Video hidden by FreeTube: Video verborgen door FreeTube
+    Viewing Posts Only Supported By Invidious: Posts bekijken wordt alleen ondersteund
+      door Invidious. Ga naar het community-tabblad van een kanaal om content te bekijken
+      zonder Invidious.
   Releases:
     Releases: Uitgaven
     This channel does not currently have any releases: Dit kanaal heeft momenteel
@@ -866,11 +875,6 @@ Video:
   Loop Playlist: Playlist herhalen
   Starting soon, please refresh the page to check again: Start binnenkort, vernieuw
     de pagina om opnieuw te controleren
-  Audio:
-    Best: Beste
-    High: Hoog
-    Medium: Gemiddeld
-    Low: Laag
   audio only: alleen audio
   video only: alleen video
   Download Video: Video downloaden
@@ -884,7 +888,6 @@ Video:
     opgeslagen video's
   Video has been saved: Video is opgeslagen
   Save Video: Video opslaan
-  translated from English: vertaald uit het Engels
   Sponsor Block category:
     music offtopic: Niet-muziek
     interaction: Interactie
@@ -894,7 +897,6 @@ Video:
     sponsor: Sponsor
     recap: Samenvatting
     filler: Opvulling
-  Skipped segment: Segment overgeslagen
   External Player:
     Unsupported Actions:
       shuffling playlists: afspeellijsten shufflen
@@ -910,26 +912,6 @@ Video:
     playlist: afspeellijst
     video: video
     OpenInTemplate: Openen in {externalPlayer}
-  Stats:
-    player resolution: Venster
-    volume: Volume
-    video id: Video-ID (YouTube)
-    fps: FPS
-    frame drop: Frame verlies
-    bandwidth: Verbindingssnelheid
-    buffered: Gebufferd
-    out of: van de
-    Buffered: Gebufferd
-    Dropped / Total Frames: Frames verloren/totaal
-    Mimetype: MIME-type
-    Video statistics are not available for legacy videos: Videogegevens zijn niet
-      beschikbaar voor oudere video's
-    Video ID: Video-ID
-    Resolution: Resolutie
-    Bandwidth: Bandbreedte
-    Bitrate: Bitrate
-    Volume: Volume
-    Player Dimensions: Spelerafmetingen
   Premieres on: Gaat in première op
   Premieres: Premières
   Scroll to Bottom: Helemaal naar onderen scrollen
@@ -1111,23 +1093,14 @@ Tooltips:
       een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen.
       Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
       alleen het geluid streamen.
-    Force Local Backend for Legacy Formats: Dit zal alleen werken wanneer Invidious
-      is geselecteerd als de standaard-API. Wanneer ingeschakeld zal de lokale API
-      legacy video­indelingen gebruiken in plaats van de video­indeling die worden
-      terug­gegeven door Invidious. Dit kan helpen wanneer een video die wordt gestreamed
-      via Invidious niet afspeelt in verband met regio­restricties.
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
       video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
-      te halen. Dit overschrijft de ingestelde API voorkeur.
+      te halen.
     Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt,
       houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis
       om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)
       ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de
       standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
-    Allow DASH AV1 formats: Video's in DASH AV1-formaat kunnen er beter uitzien dan
-      die in DASH H.264-formaat. DASH AV1 verbruikt op oudere apparaten meer energie!
-      Dit formaat is niet beschikbaar voor alle video's, in welk geval het DASH H.264-formaat
-      wordt gebruikt.
     Skip by Scrolling Over Video Player: Gebruik het scroll-wieltje om door de video
       te spoelen, zoals bij MPV.
   Subscription Settings:

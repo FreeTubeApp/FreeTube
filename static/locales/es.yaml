@@ -44,6 +44,8 @@ Global:
     Subscriber Count: 1 suscriptor | {count} suscriptores
     View Count: 1 vista | {count} vistas
     Watching Count: 1 espectador | {count} espectadores
+    Comment Count: 1 comentario | {count} comentarios
+    Like Count: 1 me gusta | {count} me gustan
   Input Tags:
     Length Requirement: La etiqueta debe tener al menos {number} caracteres
 Search / Go to URL: 'Buscar / Ir a la URL'
@@ -154,9 +156,9 @@ User Playlists:
       sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
     Added {count} Times: Ya añadido | Añadido {count} veces
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Vídeos ya añadidos'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{VideoCount}/{totalVideoCount}
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       Se añadirán vídeos'
     Allow Adding Duplicate Video(s): Permitir añadir vídeos duplicados
   SinglePlaylistView:
@@ -244,6 +246,15 @@ User Playlists:
   Quick Bookmark Enabled: Marcador rápido habilitado
   Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
     de reproducción de destino de marcadores rápidos.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto
+    no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos vistos de esta lista de reproducción? Esto no se puede deshacer.
+  Remove Duplicate Videos: Eliminar vídeos duplicados
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción?
+    Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
+    videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
 History:
   # On History Page
   History: 'Historial'
@@ -251,6 +262,7 @@ History:
   Your history list is currently empty.: 'Tu historial está vacío.'
   Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
+  Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -375,7 +387,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Configuración del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar backend local para formatos heredados'
     Play Next Video: 'Reproducción continua'
     Turn on Subtitles by Default: 'Activar subtítulos por defecto'
     Autoplay Videos: 'Reproducción automática de vídeos'
@@ -431,7 +442,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Ajustes de Privacidad'
     Remember History: 'Recordar historial'
@@ -461,7 +471,7 @@ Settings:
     Fetch Automatically: Obtener los feed automáticamente
     Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
       canal
-    Avoid Accidental Unsubscription: Evitar bajas accidentales
+    Confirm Before Unsubscribing: Evitar bajas accidentales
   Data Settings:
     Data Settings: 'Ajustes de Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -497,8 +507,6 @@ Settings:
     Unable to write file: 'Imposible escribir el archivo'
     Unknown data key: 'Clave de datos desconocida'
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
-    One or more subscriptions were unable to be imported: Una o varias de las suscripciones
-      no han podido ser importadas
     Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
     Import Playlists: Importar listas de reproducción
@@ -833,6 +841,10 @@ Channel:
     Hide Answers: Ocultar las respuestas
     votes: '{votes} votos'
     Video hidden by FreeTube: Vídeo oculto por FreeTube
+    View Full Post: Ver toda la publicación
+    Viewing Posts Only Supported By Invidious: La visualización de mensajes solo es
+      posible con Invidious. Ve a la pestaña de comunidad de un canal para ver el
+      contenido sin Invidious.
   Live:
     Live: En directo
     This channel does not currently have any live streams: Este canal no tiene actualmente
@@ -918,11 +930,6 @@ Video:
   Loop Playlist: Reproducción en bucle
   Starting soon, please refresh the page to check again: Comenzará en breve. Por favor,
     recarga la página para comprobarlo
-  Audio:
-    Best: Máxima
-    High: Alta
-    Medium: Media
-    Low: Baja
   audio only: audio únicamente
   video only: vídeo únicamente
   Download Video: Descargar vídeo
@@ -936,7 +943,6 @@ Video:
     de guardados
   Video has been saved: El vídeo ha sido guardado
   Save Video: Guardar el vídeo
-  translated from English: traducido del inglés
   Sponsor Block category:
     music offtopic: No relacionado con la música
     interaction: Interacción
@@ -946,7 +952,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulación
     filler: Relleno
-  Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
     video: vídeo
@@ -963,26 +968,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
     OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
   Premieres on: Se estrena el
-  Stats:
-    bandwidth: Velocidad de conexión
-    volume: Volumen
-    video id: ID del vídeo (Youtube)
-    player resolution: Ventana
-    fps: FPS
-    frame drop: Pérdida de fotogramas
-    buffered: En buffer
-    out of: sin
-    Video statistics are not available for legacy videos: Las estadísticas de vídeo
-      no están disponibles para los vídeos heredados
-    Bitrate: Tasa de bits
-    Volume: Volumen
-    Mimetype: Tipo de medio
-    Resolution: Resolución
-    Player Dimensions: Dimensiones del reproductor
-    Bandwidth: Ancho de banda
-    Video ID: ID de vídeo
-    Buffered: En búfer
-    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
   Premieres in: Estrenos en
   Premieres: Estrenos
   Show Super Chat Comment: Mostrar los comentarios del Super Chat
@@ -995,6 +980,35 @@ Video:
   Unhide Channel: Mostrar el canal
   Hide Channel: Ocultar el canal
   More Options: Más opciones
+  Player:
+    TranslatedCaptionTemplate: '{language} (traducido de "{originalLanguage}")'
+    Exit Full Window: Salir de la pantalla completa
+    Take Screenshot: Hacer una captura de pantalla
+    Show Stats: Mostrar estadísticas
+    Hide Stats: Ocultar estadísticas
+    Stats:
+      Stats: Estadísticas
+      Video ID: 'ID del vídeo: {videoId}'
+      Media Formats: 'Formatos del medio: {formats}'
+      Resolution: 'Resolución: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensiones del reproductor: {width}x{height}'
+      Bitrate: 'Tasa de bits: {bitrate} kbps'
+      Volume: 'Volumen: {volumePercentage}%'
+      Bandwidth: 'Ancho de banda: {bandwidth} kbps'
+      Buffered: 'Almacenado en búfer: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Fotogramas eliminados: {droppedFrames} / Fotogramas
+        totales: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Códecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Códecs: {videoCodec} / {audioCodec}'
+    You appear to be offline: Parece que no tienes conexión.
+    Playback will resume automatically when your connection comes back: La reproducción
+      se reanudará automáticamente cuando se restablezca la conexión.
+    Skipped segment: Segmento {segmentCategory} omitido
+    Audio Tracks: Pistas de audio
+    Theatre Mode: Modo cine
+    Exit Theatre Mode: Salir del modo cine
+    Full Window: Pantalla completa
 Videos:
   #& Sort By
   Sort By:
@@ -1033,6 +1047,8 @@ Change Format:
     para este vídeo
   Dash formats are not available for this video: Los formatos DASH no están disponibles
     para este vídeo
+  Legacy formats are not available for this video: Los formatos antiguos no están
+    disponibles para este vídeo
 Share:
   Share Video: 'Compartir vídeo'
   Share Playlist: 'Compartir lista de reproducción'
@@ -1080,6 +1096,8 @@ Comments:
   Hearted: Corazón
   View {replyCount} replies: Ver {replyCount} respuestas
   Subscribed: Suscrito
+  There are no comments available for this post: No hay comentarios disponibles para
+    este tema
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -1112,10 +1130,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   la falta de acceso de este formato a tu región.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Al activarse, FreeTube utilizará RSS en lugar de su método
-      predeterminado para recuperar el feed de suscripciones. RSS es más rápido y
-      previene los bloqueos por IP, pero carece de ciertos datos, como la duración
-      de los vídeos o el estado de transmisión en directo
+    Fetch Feeds from RSS: Cuando se activa, FreeTube utilizará RSS en lugar de su
+      método por defecto para obtener su feed de suscripción. RSS es más rápido y
+      evita el bloqueo de IP, pero no proporciona cierta información como la duración
+      del vídeo, el estado en directo o los mensajes de la comunidad
     Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente
       su feed de suscripción cuando se abra una nueva ventana y al cambiar de perfil.
   Player Settings:
@@ -1124,13 +1142,7 @@ Tooltips:
       a 720p, pero requiere menos ancho de banda. El formato del audio se limita al
       reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
-      lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
-      API.
-    Force Local Backend for Legacy Formats: Sólo funciona cuando la API de Invidious
-      es la predeterminada. Si está activada, la API local se ejecutará y utilizará
-      los formatos heredados devueltos por ella en lugar de los devueltos por Invidious.
-      Es útil cuando los vídeos devueltos por Invidious no se reproducen debido a
-      restricciones nacionales.
+      lugar de conectar directamente con YouTube.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -1139,10 +1151,6 @@ Tooltips:
       ajustes).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
       el vídeo, estilo MPV.
-    Allow DASH AV1 formats: Los formatos DASH AV1 pueden verse mejor que los formatos
-      DASH H.264. ¡Los formatos DASH AV1 requieren más potencia para reproducirse!
-      No están disponibles en todos los videos, en esos casos el reproductor usará
-      los formatos DASH H.264 en su lugar.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado.
@@ -1236,9 +1244,9 @@ Clipboard:
     sin una conexión segura
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
-    visibles, capítulo actual: {nombredelcapítulo}'
+    visibles, capítulo actual: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
-    ocultos, capítulo actual: {nombredelcapítulo}'
+    ocultos, capítulo actual: {chapterName}'
   Chapters: Capítulos
 Preferences: Preferencias
 Ok: De acuerdo

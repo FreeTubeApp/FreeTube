@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
   copyToClipboard,
@@ -65,7 +65,7 @@ export default defineComponent({
         time: this.$route.query.time,
         type: this.$route.query.type,
         duration: this.$route.query.duration,
-        features: features,
+        features: features ?? [],
       }
 
       const payload = {
@@ -93,7 +93,7 @@ export default defineComponent({
       time: this.$route.query.time,
       type: this.$route.query.type,
       duration: this.$route.query.duration,
-      features: features,
+      features: features ?? [],
     }
 
     const payload = {

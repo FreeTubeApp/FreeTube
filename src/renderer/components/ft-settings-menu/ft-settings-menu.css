@@ -108,7 +108,7 @@
 
 /* small height or width mobile breakpoint; intermediary text */
 @media only screen and (width <= 1015px) and (height <= 830px),
-only screen and (width <= 500px) {
+  only screen and (width <= 500px) {
   .settingsMenu {
     font-size: 25px;
   }

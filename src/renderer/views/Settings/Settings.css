@@ -30,7 +30,7 @@
 
   .settingsSections:last-child {
     /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to */
-    margin-block-end: calc(76vh - 150px)
+    margin-block-end: calc(76vh - 150px);
   }
 }
 
@@ -42,13 +42,14 @@
 
 @media only screen and (width <= 1015px) {
   /* Needed to overcome routerView styling for margin-block */
-  .settingsPage.settingsPage{
+  .settingsPage.settingsPage {
     margin-block: 0;
     flex-direction: column;
     gap: 10px;
   }
 
-  .switchRow, .settingsSections {
+  .switchRow,
+  .settingsSections {
     margin-inline: auto;
   }
 

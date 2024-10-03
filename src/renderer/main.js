@@ -1,9 +1,9 @@
 // import the styles
 import Vue from 'vue'
-import App from './App.vue'
+import i18n from './i18n/index'
 import router from './router/index'
 import store from './store/index'
-import i18n from './i18n/index'
+import App from './App.vue'
 import { IpcChannels } from '../constants'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -31,6 +31,7 @@ import {
   faCirclePlay,
   faCircleUser,
   faClapperboard,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
@@ -86,6 +87,7 @@ import {
   faServer,
   faShareAlt,
   faShield,
+  faSlash,
   faSlidersH,
   faSortAlphaDown,
   faSortAlphaDownAlt,
@@ -99,9 +101,11 @@ import {
   faTimes,
   faTimesCircle,
   faTrash,
+  faUserCheck,
   faUserLock,
   faUsers,
-  faUsersSlash
+  faUsersSlash,
+  faWifi
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -110,9 +114,8 @@ import {
   faBitcoin,
   faGithub,
   faMastodon,
-  faMonero
 } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
@@ -140,6 +143,7 @@ library.add(
   faCirclePlay,
   faCircleUser,
   faClapperboard,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
@@ -185,7 +189,6 @@ library.add(
   faPhotoFilm,
   faPlay,
   faPlus,
-  faPhotoFilm,
   faQuestionCircle,
   faRandom,
   faRetweet,
@@ -196,6 +199,7 @@ library.add(
   faServer,
   faShareAlt,
   faShield,
+  faSlash,
   faSlidersH,
   faSortAlphaDown,
   faSortAlphaDownAlt,
@@ -209,9 +213,11 @@ library.add(
   faTimes,
   faTimesCircle,
   faTrash,
+  faUserCheck,
   faUserLock,
   faUsers,
   faUsersSlash,
+  faWifi,
 
   // solid icons
   farBookmark,
@@ -220,12 +226,12 @@ library.add(
   faGithub,
   faBitcoin,
   faMastodon,
-  faMonero
 )
 
 registerSwiper()
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+Vue.component('FontAwesomeLayers', FontAwesomeLayers)
 Vue.directive('observe-visibility', ObserveVisibility)
 
 /* eslint-disable-next-line no-new */

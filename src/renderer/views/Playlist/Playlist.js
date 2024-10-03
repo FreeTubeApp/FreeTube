@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -7,7 +7,7 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
@@ -87,8 +87,8 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     userPlaylistSortOrder: function () {
       return this.$store.getters.getUserPlaylistSortOrder
@@ -97,7 +97,7 @@ export default defineComponent({
       return this.isUserPlaylistRequested ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     playlistId: function() {
       return this.$route.params.id
@@ -305,9 +305,11 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
-        this.setPlaylistTitle(result.info.title)
+        const playlistItems = result.items.map(parseLocalPlaylistVideo)
+
+        this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
-        this.firstVideoId = result.items[0].id
+        this.firstVideoId = playlistItems[0].videoId
         this.playlistThumbnail = result.info.thumbnails[0].url
         this.viewCount = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
@@ -323,7 +325,7 @@ export default defineComponent({
           channelId: this.channelId
         })
 
-        this.playlistItems = result.items.map(parseLocalPlaylistVideo)
+        this.playlistItems = playlistItems
 
         let shouldGetNextPage = false
         if (result.has_continuation) {
@@ -333,6 +335,8 @@ export default defineComponent({
         // To workaround the effect of useless continuation data
         // auto load next page again when no. of parsed items < page size
         if (shouldGetNextPage) { this.getNextPageLocal() }
+
+        this.updatePageTitle()
 
         this.isLoading = false
       }).catch((err) => {
@@ -348,13 +352,13 @@ export default defineComponent({
 
     getPlaylistInvidious: function () {
       invidiousGetPlaylistInfo(this.playlistId).then((result) => {
-        this.setPlaylistTitle(result.title)
+        this.playlistTitle = result.title
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
         this.viewCount = result.viewCount
         this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstanceUrl)
         this.channelId = result.authorId
         this.infoSource = 'invidious'
 
@@ -371,6 +375,8 @@ export default defineComponent({
 
         this.playlistItems = result.videos
 
+        this.updatePageTitle()
+
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
@@ -385,7 +391,7 @@ export default defineComponent({
     },
 
     parseUserPlaylist: function (playlist) {
-      this.setPlaylistTitle(playlist.playlistName)
+      this.playlistTitle = playlist.playlistName
       this.playlistDescription = playlist.description ?? ''
 
       if (playlist.videos.length > 0) {
@@ -406,6 +412,8 @@ export default defineComponent({
 
       this.playlistItems = playlist.videos
 
+      this.updatePageTitle()
+
       this.isLoading = false
     },
     showUserPlaylistNotFound() {
@@ -421,7 +429,7 @@ export default defineComponent({
           // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are renderered
           this.isLoadingMore = true
 
-          setTimeout(() => {
+          nextTick(() => {
             if (this.userPlaylistVisibleLimit + 100 < this.videoCount) {
               this.userPlaylistVisibleLimit += 100
             } else {
@@ -544,9 +552,14 @@ export default defineComponent({
       }
     },
 
-    setPlaylistTitle: function (value) {
-      this.playlistTitle = value
-      document.title = `${value} - ${packageDetails.productName}`
+    updatePageTitle() {
+      const playlistTitle = this.playlistTitle
+      const channelName = this.channelName
+      const titleText = [
+        playlistTitle,
+        channelName,
+      ].filter(v => v).join(' | ')
+      document.title = `${titleText} - ${packageDetails.productName}`
     },
 
     handleResize: function () {

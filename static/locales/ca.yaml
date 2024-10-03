@@ -129,13 +129,13 @@ Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
     Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
-    Fallback to Non-Preferred Backend on Failure: 'Tornar al Backend per defecte en
-      cas d''error'
+    Fallback to Non-Preferred Backend on Failure: 'Torna al motor per defecte en cas
+      d''error'
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
     Locale Preference: 'Preferència de configuració regional'
     Preferred API Backend:
-      Preferred API Backend: 'Motor API principal'
+      Preferred API Backend: 'Motor de l''API preferit'
       Local API: 'API local'
       Invidious API: 'API d''Invidious'
     Video View Type:
@@ -211,8 +211,6 @@ Settings:
     Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
-    Force Local Backend for Legacy Formats: 'Força el backend local per als formats
-      heretats'
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
     Autoplay Videos: 'Reprodueix automàticament els vídeos'
@@ -290,8 +288,6 @@ Settings:
       i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han
       importat amb èxit'
-    One or more subscriptions were unable to be imported: 'Una o més subscripcions
-      no s''han pogut importar'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
     This might take a while, please wait: 'Això pot trigar una estona, si us plau,
       esperi'
@@ -512,7 +508,7 @@ Video:
     May: 'Maig'
     Jun: 'Juny'
     Jul: 'Jul'
-    Aug: 'Ago'
+    Aug: 'Ag.'
     Sep: 'Set'
     Oct: 'Oct'
     Nov: 'Nov'
@@ -536,11 +532,6 @@ Video:
   Published on: 'Publicat el'
   Publicationtemplate: '{number} {unit} fa'
 #& Videos
-  Audio:
-    High: Alta
-    Best: Millor
-    Low: Baixa
-    Medium: Mitjana
   Started streaming on: Retransmissió iniciada el
   Sponsor Block category:
     interaction: interacció
@@ -549,7 +540,6 @@ Video:
     intro: introducció
     outro: conclusió
     self-promotion: autopromoció
-  Skipped segment: Segment saltat
   External Player:
     Unsupported Actions:
       starting video at offset: començant el vídeo al punt donat
@@ -558,7 +548,7 @@ Video:
     OpeningTemplate: Obrint {videoOrPlaylist} a {externalPlayer}…
     video: vídeo
     playlist: llista de reproducció
-    UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
+    UnsupportedActionTemplate: '{externalPlayer} no suporta: {action}'
   Save Video: Desa el Vídeo
   Premieres on: S'estrena el
   audio only: només àudio
@@ -574,7 +564,6 @@ Video:
   Download Video: Descàrrega El Vídeo
   video only: només vídeo
   Streamed on: Retransmès en directe el
-  translated from English: traduït de l'anglès
 Videos:
   #& Sort By
   Sort By:
@@ -636,3 +625,4 @@ Channels:
 Falling back to Invidious API: Recorrent a l'API d'Invidious
 Invidious API Error (Click to copy): S'ha produït un error en l'API d'Invidious (feu
   clic per copiar-lo)
+Moments Ago: fa un moment

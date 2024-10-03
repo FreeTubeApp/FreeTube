@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
@@ -102,6 +102,10 @@ export default defineComponent({
     videoThumbnail: {
       type: String,
       required: true
+    },
+    inUserPlaylist: {
+      type: Boolean,
+      required: true
     }
   },
   emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
@@ -115,7 +119,7 @@ export default defineComponent({
     },
 
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     hideVideoLikesAndDislikes: function () {
@@ -270,7 +274,7 @@ export default defineComponent({
         if (dropdownShown && window.innerWidth >= 901) {
           // adds a slight delay so we know that the dropdown has shown up
           // and won't mess up our scrolling
-          setTimeout(() => {
+          nextTick(() => {
             this.$emit('scroll-to-info-area')
           })
         }

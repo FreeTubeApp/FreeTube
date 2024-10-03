@@ -15,7 +15,7 @@
 .channels {
   inline-size: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 2.5rem;
   margin-block-start: 2rem;
 }
@@ -32,6 +32,7 @@
   flex-grow: 0;
   display: flex;
   align-items: center;
+  color: inherit;
 }
 
 .channelThumbnail {

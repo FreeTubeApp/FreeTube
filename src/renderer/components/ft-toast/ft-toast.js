@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtToastEvents from './ft-toast-events.js'
 
 let id = 0
@@ -38,7 +38,7 @@ export default defineComponent({
         id: id++
       }
       toast.timeout = setTimeout(this.close, time || 3000, toast)
-      setTimeout(() => { toast.isOpen = true })
+      nextTick(() => { toast.isOpen = true })
       if (this.toasts.length > 4) {
         this.remove(0)
       }

@@ -10,245 +10,397 @@ New Window: 'Новае акно'
 Preferences: 'Параметры'
 Quit: 'Выйсці'
 Edit: 'Рэдагаваць'
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
-Open New Window: ''
+Undo: 'Адрабіць'
+Redo: 'Паўтарыць'
+Cut: 'Выразаць'
+Copy: 'Скапіяваць'
+Paste: 'Уставіць'
+Delete: 'Выдаліць'
+Select all: 'Вылучыць усё'
+Reload: 'Абнавіць'
+Force Reload: 'Абнавіць прымусова'
+Toggle Developer Tools: 'Пераключыць інструменты распрацоўшчыка'
+Actual size: 'Фактычны памер'
+Zoom in: 'Павялічыць'
+Zoom out: 'Паменшыць'
+Toggle fullscreen: 'Пераключыць поўнаэкранны рэжым'
+Window: 'Акно'
+Minimize: 'Мінімізаваць'
+Close: 'Закрыць'
+Back: 'Назад'
+Forward: 'Наперад'
+Open New Window: 'Адкрыць новае акно'
 
-Version {versionNumber} is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, {blogTitle}. Click to view more: ''
-Are you sure you want to open this link?: ''
+Version {versionNumber} is now available!  Click for more details: 'Версія {versionNumber}
+  цяпер даступная!  Націсніце для больш падрабязнай інфармацыі'
+Download From Site: 'Спампаваць з сайта'
+A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог,
+  {blogTitle}. Націсніце, каб паглядзець больш'
+Are you sure you want to open this link?: 'Вы ўпэўнены, што хочаце адкрыць гэтую спасылку?'
 
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: ''
-  Shorts: ''
-  Live: ''
-  Community: ''
+  Videos: 'Відэа'
+  Shorts: 'Shorts'
+  Live: 'Ужывую'
+  Community: 'Супольнасць'
   Counts:
-    Video Count: ''
-    Channel Count: ''
-    Subscriber Count: ''
-    View Count: ''
-    Watching Count: ''
+    Video Count: '1 відэа | {count} відэа'
+    Channel Count: '1 канал | {count} каналы(аў)'
+    Subscriber Count: '1 падпісчык | {count} падпісчыкі(аў)'
+    View Count: '1 прагляд | {count} прагляды(аў)'
+    Watching Count: '1 гледач | {count} гледачы(оў)'
 
 # Search Bar
-Search / Go to URL: ''
+    Like Count: 1 лайк | {count} лайкаў
+    Comment Count: 1 каментарый | {count} каментарыяў
+Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
-  Clear Input: ''
+  Clear Input: 'Ачысціць увод'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Фільтры пошуку'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Сартаваць'
+    Most Relevant: 'Найбольш рэлевантныя'
+    Rating: 'Рэйтынг'
+    Upload Date: 'Дата запампоўкі'
+    View Count: 'Колькасць праглядаў'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Дата запампоўкі'
+    Any Time: 'У любы час'
+    Last Hour: 'Апошняя гадзіна'
+    Today: 'Сёння'
+    This Week: 'На гэтым тыдні'
+    This Month: 'У гэтым месяцы'
+    This Year: 'За гэты год'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
-    Movies: ''
+    Type: 'Тып'
+    All Types: 'Усе тыпы'
+    Videos: 'Відэа'
+    Channels: 'Каналы'
+    Movies: 'Фільмы'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Medium (4 - 20 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Працягласць'
+    All Durations: 'Любая працягласць'
+    Short (< 4 minutes): 'Кароткія (< 4 хвілін)'
+    Medium (4 - 20 minutes): 'Сярэднія (4-20 хвілін)'
+    Long (> 20 minutes): 'Доўгія (> 20 хвілін)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
+  Search Results: 'Вынікі пошуку'
+  Fetching results. Please wait: 'Атрыманне вынікаў. Калі ласка, пачакайце'
+  Fetch more results: 'Атрымаць больш вынікаў'
+  There are no more results for this search: 'Для гэтага пошуку больш няма вынікаў'
 # Sidebar
+  Features:
+    HD: HD
+    Subtitles: Субцітры
+    3D: 3D
+    4K: 4K
+    HDR: HDR
+    Features: Асаблівасці
+    VR180: VR180
+    Live: Ужывую
+    360 Video: 360°
+    Location: Месцазнаходжанне
+    Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
+  Subscriptions: 'Падпіскі'
   # channels that were likely deleted
-  Error Channels: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  Disabled Automatic Fetching: ''
-  Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
-  Empty Posts: ''
+  Error Channels: 'Каналы з памылкамі'
+  Latest Subscriptions: 'Апошнія падпіскі'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У
+    гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць
+    абмежавання хуткасці'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
+    спіс падпісак зараз пусты. Пачніце дадаваць падпіскі, каб убачыць іх тут.'
+  Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць
+    іх тут, абнавіце падпіскі.'
+  Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'
+  'Getting Subscriptions. Please wait.': 'Атрыманне падпісак. Калі ласка, пачакайце.'
+  Empty Posts: 'На каналах, на якія вы падпісаны, зараз няма паведамленняў.'
   Refresh Subscriptions: ''
-  Load More Videos: ''
-  Load More Posts: ''
-  Subscriptions Tabs: ''
-  All Subscription Tabs Hidden: ''
-More: ''
+  Load More Videos: 'Загрузіць больш відэа'
+  Load More Posts: 'Загрузіць больш паведамленняў'
+  Subscriptions Tabs: 'Укладкі падпісак'
+  All Subscription Tabs Hidden: 'Усе ўкладкі падпісак схаваныя. Каб убачыць змесціва,
+    уключыце некаторыя ўкладкі ў раздзеле "{subsection}" у "{settingsSection}".'
+More: 'Больш'
 Channels:
-  Channels: ''
-  Title: ''
-  Search bar placeholder: ''
-  Count: ''
-  Empty: ''
-  Unsubscribe: ''
-  Unsubscribed: ''
-  Unsubscribe Prompt: ''
+  Channels: 'Каналы'
+  Title: 'Спіс каналаў'
+  Search bar placeholder: 'Пошук каналаў'
+  Count: '{number} каналы(аў) знойдзена.'
+  Empty: 'Ваш спіс каналаў зараз пусты.'
+  Unsubscribe: 'Адпісацца'
+  Unsubscribed: '{channelName} быў выдалены з вашых падпісак'
+  Unsubscribe Prompt: 'Вы сапраўды хочаце адпісацца ад "{channelName}"?'
 Trending:
-  Trending: ''
-  Default: ''
-  Music: ''
-  Gaming: ''
-  Movies: ''
-  Trending Tabs: ''
-Most Popular: ''
-Playlists: ''
+  Trending: 'У трэндзе'
+  Default: 'Па змаўчанні'
+  Music: 'Музыка'
+  Gaming: 'Гульні'
+  Movies: 'Фільмы'
+  Trending Tabs: 'Укладкі Трэндаў'
+Most Popular: 'Папулярныя'
+Playlists: 'Плэй-лісты'
 User Playlists:
-  Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
-  Empty Search Message: ''
-  Search bar placeholder: ''
+  Your Playlists: 'Вашы плэй-лісты'
+  Playlist Message: 'Гэтая старонка не адлюстроўвае цалкам працоўныя плэй-лісты. Тут
+    пералічаны толькі відэа, якія вы захавалі або дадалі ў абранае. Калі праца будзе
+    завершана, усе відэа, якія знаходзяцца тут, будуць перанесены ў плэй-ліст «Выбранае».'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Вашы
+    захаваныя відэа пустыя. Націсніце на кнопку захавання ў куце відэа, каб яно з''явілася
+    тут'
+  Empty Search Message: 'У гэтым плэй-лісце няма відэа, якія б адпавядалі вашаму пошуку'
+  Search bar placeholder: 'Пошук плэй-лістоў'
+  Create New Playlist: Стварыць новы плэй-ліст
+  Add to Playlist: Дадаць у плэй-ліст
+  Add to Favorites: Дадаць у {playlistName}
+  Remove from Favorites: Выдаліць з {playlistName}
+  Cancel: Адмена
+  AddVideoPrompt:
+    Save: Захаваць
+    N playlists selected: '{playlistCount} выбрана'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      відэа ўжо дадзена'
+    Toast:
+      You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена
+        ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount}
+        плэй-лістоў
+      "{videoCount} video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст
+        | {videoCount} відэа дададзены ў 1 плэй-ліст
+    Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё
+      відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
+    Search in Playlists: Пошук у плэй-лістах
+    Added {count} Times: Ужо дададзена | Дададзена {count} разоў
+    Allow Adding Duplicate Video(s): Дазволіць дадаваць дублікаты відэа
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      відэа будзе дададзена'
+  CreatePlaylistPrompt:
+    Create: Стварыць
+    New Playlist Name: Назва новага плэй-ліста
+    Toast:
+      There was an issue with creating the playlist.: Узнікла праблема пры стварэнні
+        плэй-ліста.
+      There is already a playlist with this name. Please pick a different name.: Плэй-ліст
+        з такой назвай ужо існуе. Выберыце іншую назву.
+      Playlist {playlistName} has been successfully created.: Плэй-ліст {playlistName}
+        быў паспяхова створаны.
+  SinglePlaylistView:
+    Toast:
+      Playlist {playlistName} is the new quick bookmark playlist.: Плэй-ліст {playlistName}
+        - гэта новы плэй-ліст з хуткай закладкай.
+      This playlist is protected and cannot be removed.: Гэты плэй-ліст абаронены
+        і не можа быць выдалены.
+      This video cannot be moved up.: Гэта відэа нельга перамясціць уверх.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некаторыя
+        відэа ў плэй-лісце яшчэ не загружаныя. Націсніце тут, каб усё роўна скапіяваць.
+      Playlist {playlistName} has been deleted.: Плэй-ліст {playlistName} быў выдалены.
+      This playlist does not exist: Гэты плэй-ліст не існуе
+      This playlist is now used for quick bookmark: Цяпер гэты плэй-ліст выкарыстоўваецца
+        для хуткай закладкі
+      Playlist name cannot be empty. Please input a name.: Назва плэй-ліста не можа
+        быць пустой. Калі ласка, увядзіце назву.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Гэты
+        плэй-ліст цяпер выкарыстоўваецца для хуткай закладкі замест {oldPlaylistName}.
+        Націсніце тут, каб адмяніць
+      Reverted to use {oldPlaylistName} for quick bookmark: Вернута да выкарыстання
+        {oldPlaylistName} для хуткай закладкі
+      Playlist has been updated.: Плэй-ліст абноўлены.
+      "{videoCount} video(s) have been removed": 1 відэа было выдалена | {videoCount}
+        відэа былі выдалены
+      There were no videos to remove.: Не было відэа для выдалення.
+      There was an issue with updating this playlist.: Узнікла праблема з абнаўленнем
+        гэтага плэй-ліста.
+      This video cannot be moved down.: Гэта відэа нельга перамясціць уніз.
+      Video has been removed: Відэа было выдалена
+      There was a problem with removing this video: Узнікла праблема з выдаленнем
+        гэтага відэа
+      This playlist is already being used for quick bookmark.: Гэты плэй-ліст ужо
+        выкарыстоўваецца для хуткай закладкі.
+    Search for Videos: Пошук відэа
+  You have no playlists. Click on the create new playlist button to create a new one.: У
+    вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць
+    новы.
+  Playlists with Matching Videos: Плэй-лісты з адпаведнымі відэа
+  Move Video Up: Перамясціць відэа ўверх
+  Move Video Down: Перамясціць відэа ўніз
+  Remove from Playlist: Выдаліць з плэй-лісту
+  Playlist Name: Назва плэй-ліста
+  Playlist Description: Апісанне плэй-ліста
+  Edit Playlist Info: Рэдагаваць інфармацыю пра плэй-ліст
+  Copy Playlist: Скапіяваць плэй-ліст
+  Remove Watched Videos: Выдаліць прагледжаныя відэа
+  Delete Playlist: Выдаліць плэй-ліст
+  Are you sure you want to delete this playlist? This cannot be undone: Вы ўпэўнены,
+    што хочаце выдаліць плэй-ліст? Гэта нельга адмяніць.
+  Sort By:
+    Sort By: Сартаваць
+    EarliestPlayedFirst: Раней прайгравалі
+    NameDescending: Я-А
+    LatestCreatedFirst: Нядаўна створаны
+    EarliestCreatedFirst: Створаныя раней
+    NameAscending: А-Я
+    LatestUpdatedFirst: Нядаўна абноўлены
+    EarliestUpdatedFirst: Раней абноўленыя
+    LatestPlayedFirst: Нядаўна прайгравалі
+  Quick Bookmark Enabled: Хуткая закладка ўключана
+  Cannot delete the quick bookmark target playlist.: Немагчыма выдаліць мэтавы плэй-ліст
+    хуткай закладкі.
+  This playlist currently has no videos.: Зараз у гэтым плэй-лісце няма відэа.
+  Save Changes: Захаваць змены
+  Enable Quick Bookmark With This Playlist: Уключыць хуткую закладку для гэтага плэй-ліста
+  Remove Duplicate Videos: Выдаліць дублікаты відэа
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы
+    ўпэўнены, што хочаце выдаліць 1 прагледжанае відэа з гэтага плэй-ліста? Гэта нельга
+    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} прагледжаных
+    відэа з гэтага плэй-ліста? Гэта нельга адмяніць.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы
+    ўпэўнены, што хочаце выдаліць 1 дублікат відэа з гэтага плэй-ліста? Гэта нельга
+    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} дублікатаў відэа
+    з гэтага плэй-ліста? Гэта нельга адмяніць.
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
-  Empty Search Message: ''
-  Search bar placeholder: ""
+  History: 'Гісторыя'
+  Watch History: 'Гісторыя прагляду'
+  Your history list is currently empty.: 'Ваша гісторыя прагляду зараз пустая.'
+  Empty Search Message: 'У вашай гісторыі няма відэа, якія б адпавядалі вашаму пошуку'
+  Search bar placeholder: "Пошук у гісторыі"
+  Case Sensitive Search: Пошук з улікам рэгістра
 Settings:
   # On Settings Page
-  Settings: ''
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  Settings: 'Налады'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Праграму
+    трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
-    System Default: ''
+    General Settings: 'Агульныя налады'
+    Check for Updates: 'Праверыць наяўнасць абнаўленняў'
+    Check for Latest Blog Posts: 'Праверыць апошнія паведамленні ў блогу'
+    Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда
+      ў выпадку няўдачы'
+    Enable Search Suggestions: 'Уключыць прапановы пошуку'
+    Default Landing Page: 'Хатняя старонка'
+    Locale Preference: 'Рэгіянальныя налады'
+    System Default: 'Налада сістэмы'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Пераважны бэкэнд API'
+      Local API: 'Мясцовы API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Тып прагляду відэа'
+      Grid: 'Сетка'
+      List: 'Спіс'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-      Hidden: ''
-    Current Invidious Instance: ''
-    The currently set default instance is {instance}: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Налады эскізаў'
+      Default: 'Па змаўчанні'
+      Beginning: 'Пачатак'
+      Middle: 'Сярэдзіна'
+      End: 'Канец'
+      Hidden: 'Схавана'
+      Blur: Размыты
+    Current Invidious Instance: 'Бягучы экзэмпляр Invidious'
+    The currently set default instance is {instance}: 'Бягучы ўсталяваны экзэмпляр
+      па змаўчанні: {instance}'
+    No default instance has been set: 'Экземпляр па змаўчанні не ўсталяваны'
+    Current instance will be randomized on startup: 'Бягучы экзэмпляр будзе рандомізаваны
+      пры запуску'
+    Set Current Instance as Default: 'Усталяваць бягучы экзэмпляр па змаўчанні'
+    Clear Default Instance: 'Ачысціць экзэмпляр па змаўчанні'
+    View all Invidious instance information: 'Праглядзіце ўсю інфармацыю пра экзэмпляр
+      Invidious'
+    Region for Trending: 'Рэгіён для Трэндаў'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
-      Open Link: ''
-      Ask Before Opening Link: ''
-      No Action: ''
+      External Link Handling: 'Апрацоўка знешніх спасылак'
+      Open Link: 'Адкрыць спасылку'
+      Ask Before Opening Link: 'Спытаць, перш чым адкрываць спасылку'
+      No Action: 'Без дзеянняў'
+    Auto Load Next Page:
+      Label: Аўтаматычная загрузка наступнай старонкі
+      Tooltip: Аўтаматычна загружаць дадатковыя старонкі і каментарыі.
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
-    Hide Side Bar Labels: ''
-    Hide FreeTube Header Logo: ''
+    Theme Settings: 'Налады тэмы'
+    Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
+    Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
+    Disable Smooth Scrolling: 'Адключыць плыўную пракрутку'
+    UI Scale: 'Маштаб інтэрфейсу'
+    Hide Side Bar Labels: 'Схаваць надпісы на бакавой панэлі'
+    Hide FreeTube Header Logo: 'Схаваць лагатып загалоўка FreeTube'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      System Default: ''
-      Light: ''
-      Dracula: ''
-      Catppuccin Mocha: ''
-      Pastel Pink: ''
-      Hot Pink: ''
+      Base Theme: 'Базавая тэма'
+      Black: 'Чорная'
+      Dark: 'Цёмная'
+      System Default: 'Сістэмная'
+      Light: 'Светлая'
+      Dracula: 'Dracula'
+      Catppuccin Mocha: 'Catppuccin Mocha'
+      Pastel Pink: 'Пастэльна-ружовая'
+      Hot Pink: 'Ярка-ружовая'
+      Nordic: Nordic
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-      Dracula Cyan: ''
-      Dracula Green: ''
-      Dracula Orange: ''
-      Dracula Pink: ''
-      Dracula Purple: ''
-      Dracula Red: ''
-      Dracula Yellow: ''
-      Catppuccin Mocha Rosewater: ''
-      Catppuccin Mocha Flamingo: ''
-      Catppuccin Mocha Pink: ''
-      Catppuccin Mocha Mauve: ''
-      Catppuccin Mocha Red: ''
-      Catppuccin Mocha Maroon: ''
-      Catppuccin Mocha Peach: ''
-      Catppuccin Mocha Yellow: ''
-      Catppuccin Mocha Green: ''
-      Catppuccin Mocha Teal: ''
-      Catppuccin Mocha Sky: ''
-      Catppuccin Mocha Sapphire: ''
-      Catppuccin Mocha Blue: ''
-      Catppuccin Mocha Lavender: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Асноўны колер тэмы'
+      Red: 'Чырвоны'
+      Pink: 'Ружовы'
+      Purple: 'Фіялетавы'
+      Deep Purple: 'Насычаны фіялетавы'
+      Indigo: 'Індыга'
+      Blue: 'Сіні'
+      Light Blue: 'Светла-сіні'
+      Cyan: 'Блакітны'
+      Teal: 'Бірузовы'
+      Green: 'Зялёны'
+      Light Green: 'Светла-зялёны'
+      Lime: 'Лаймавы'
+      Yellow: 'Жоўты'
+      Amber: 'Бурштынавы'
+      Orange: 'Аранжавы'
+      Deep Orange: 'Насычаны аранжавы'
+      Dracula Cyan: 'Dracula Блакітны'
+      Dracula Green: 'Dracula Зялёны'
+      Dracula Orange: 'Dracula Аранжавы'
+      Dracula Pink: 'Dracula Ружовы'
+      Dracula Purple: 'Dracula Фіялетавы'
+      Dracula Red: 'Dracula Чырвоны'
+      Dracula Yellow: 'Dracula Жоўты'
+      Catppuccin Mocha Rosewater: 'Catppuccin Mocha Ружовая вада'
+      Catppuccin Mocha Flamingo: 'Catppuccin Mocha Фламінга'
+      Catppuccin Mocha Pink: 'Catppuccin Mocha Ружовы'
+      Catppuccin Mocha Mauve: 'Catppuccin Mocha Ліловы'
+      Catppuccin Mocha Red: 'Catppuccin Mocha Чырвоны'
+      Catppuccin Mocha Maroon: 'Catppuccin Mocha Бардовы'
+      Catppuccin Mocha Peach: 'Catppuccin Mocha Персікавы'
+      Catppuccin Mocha Yellow: 'Catppuccin Mocha Жоўты'
+      Catppuccin Mocha Green: 'Catppuccin Mocha Зялёны'
+      Catppuccin Mocha Teal: 'Catppuccin Mocha Бірузовы'
+      Catppuccin Mocha Sky: 'Catppuccin Mocha Неба'
+      Catppuccin Mocha Sapphire: 'Catppuccin Mocha Сапфір'
+      Catppuccin Mocha Blue: 'Catppuccin Mocha Сіні'
+      Catppuccin Mocha Lavender: 'Catppuccin Mocha Лаванда'
+      Solarized Magenta: Solarized Пурпурны
+      Solarized Violet: Solarized Фіялетавы
+      Solarized Cyan: Solarized Блакітны
+      Solarized Orange: Solarized Аранжавы
+      Solarized Red: Solarized Чырвоны
+      Solarized Green: Solarized Зялёны
+      Solarized Blue: Solarized Сіні
+      Solarized Yellow: Solarized Жоўты
+    Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Player Settings: 'Налады плэера'
+    Play Next Video: 'Прайграваць наступнае відэа'
+    Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
+    Autoplay Videos: 'Аўтапрайграванне відэа'
+    Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
+    Autoplay Playlists: 'Аўтапрайграванне плэй-лістоў'
+    Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
     Scroll Volume Over Video Player: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
@@ -268,16 +420,15 @@ Settings:
     Default Quality:
       Default Quality: ''
       Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
-    Allow DASH AV1 formats: ''
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -377,7 +528,6 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
     This might take a while, please wait: ''
     Invalid history file: ''
@@ -446,25 +596,27 @@ Settings:
     Set Password To Prevent Access: ''
     Set Password: ''
     Remove Password: ''
+  Sort Settings Sections (A-Z): Сартаваць раздзелы налад (А-Я)
+  Expand All Settings Sections: Разгарнуць усе раздзелы налад
 About:
   #On About page
-  About: ''
+  About: 'Пра FreeTube'
   Beta: ''
   Source code: ''
   Licensed under the AGPLv3: ''
   View License: ''
   Downloads / Changelog: ''
   GitHub releases: ''
-  Help: ''
-  FreeTube Wiki: ''
+  Help: 'Даведка'
+  FreeTube Wiki: 'FreeTube Вікі'
   FAQ: ''
   Discussions: ''
   Report a problem: ''
   GitHub issues: ''
   Please check for duplicates before posting: ''
-  Website: ''
-  Blog: ''
-  Email: ''
+  Website: 'Вэб-сайт'
+  Blog: 'Блог'
+  Email: 'Электронная пошта'
   Mastodon: ''
   Chat on Matrix: ''
   Please read the: ''
@@ -475,12 +627,13 @@ About:
   these people and projects: ''
   Donate: ''
 
+  AGPLv3: AGPLv3
 Profile:
   Profile Settings: ''
   Toggle Profile List: ''
   Profile Select: ''
   Profile Filter: ''
-  All Channels: ''
+  All Channels: 'Усе каналы'
   Profile Manager: ''
   Create New Profile: ''
   Edit Profile: ''
@@ -613,11 +766,6 @@ Video:
   Download Video: ''
   video only: ''
   audio only: ''
-  Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
   Published:
     Jan: ''
     Feb: ''
@@ -651,9 +799,7 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -677,38 +823,36 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: ''
-    Resolution: ''
-    Player Dimensions: ''
-    Bitrate: ''
-    Volume: ''
-    Bandwidth: ''
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: ''
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Новыя'
+    Oldest: 'Старыя'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  Playlist: ''
-  View Full Playlist: ''
-  Videos: ''
+  Playlist: 'Плэй-ліст'
+  View Full Playlist: 'Праглядзець увесь плэй-ліст'
+  Videos: 'Відэа'
   View: ''
-  Views: ''
-  Last Updated On: ''
+  Views: 'Прагляды'
+  Last Updated On: 'Апошняе абнаўленне'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+  Sort By:
+    AuthorAscending: Аўтар (А-Я)
+    Sort By: Сартаваць
+    Custom: Карыстальніцкі
+    AuthorDescending: Аўтар (Я-А)
+    DateAddedNewest: Новыя спачатку
+    DateAddedOldest: Старыя спачатку
+    VideoTitleAscending: Назва (А-Я)
+    VideoTitleDescending: Назва (Я-А)
+Toggle Theatre Mode: 'Пераключыць рэжым тэатра'
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -717,12 +861,12 @@ Change Format:
   Dash formats are not available for this video: ''
   Audio formats are not available for this video: ''
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
+  Share Video: 'Падзяліцца відэа'
+  Share Channel: 'Падзяліцца каналам'
+  Share Playlist: 'Падзяліцца плэй-лістам'
+  Include Timestamp: 'Дадаць метку часу'
+  Copy Link: 'Скапіяваць спасылку'
+  Open Link: 'Адкрыць спасылку'
   Copy Embed: ''
   Open Embed: ''
   # On Click
@@ -737,38 +881,39 @@ Clipboard:
   Cannot access clipboard without a secure connection: ''
 
 Chapters:
-  Chapters: ''
+  Chapters: 'Раздзелы'
   'Chapters list visible, current chapter: {chapterName}': ''
   'Chapters list hidden, current chapter: {chapterName}': ''
 
-Mini Player: ''
+Mini Player: 'Міні плэер'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  Comments: 'Каментарыі'
+  Click to View Comments: 'Націсніце, каб праглядзець каментарыі'
+  Getting comment replies, please wait: 'Атрымліваюцца адказы на каментарыі, пачакайце'
+  There are no more comments for this video: 'Да гэтага відэа больш няма каментарыяў'
+  Show Comments: 'Паказаць каментарыі'
+  Hide Comments: 'Схаваць каментарыі'
+  Sort by: 'Сартаваць'
+  Top comments: 'Папулярныя каментарыі'
+  Newest first: 'Спачатку новыя'
+  View {replyCount} replies: 'Праглядзець {replyCount} адказаў'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
-  Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-  Pinned by: ''
-  Member: ''
-  Subscribed: ''
+  View: 'Праглядзець'
+  Hide: 'Схаваць'
+  Replies: 'Адказы'
+  Show More Replies: 'Паказаць больш адказаў'
+  Reply: 'Адказ'
+  From {channelName}: 'ад {channelName}'
+  And others: 'і інш'
+  There are no comments available for this video: 'Да гэтага відэа няма каментарыяў'
+  Load More Comments: 'Загрузіць больш каментарыяў'
+  No more comments available: 'Больш каментарыяў няма'
+  Pinned by: 'Замацавана'
+  Member: 'Член'
+  Subscribed: 'Падпісан'
   Hearted: ''
-Up Next: ''
+  There are no comments available for this post: Да гэтай публікацыі няма каментарыяў
+Up Next: 'Далей'
 
 #Tooltips
 Tooltips:
@@ -780,10 +925,8 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:
@@ -837,6 +980,22 @@ Screenshot Error: ''
 Hashtag:
   Hashtag: ''
   This hashtag does not currently have any videos: ''
-Yes: ''
-No: ''
-Ok: ''
+Yes: 'Так'
+No: 'Не'
+Ok: 'Ок'
+Search Listing:
+  Label:
+    Subtitles: Субцітры
+    4K: 4K
+Yes, Delete: Так, выдаліць
+Feed:
+  Refresh Feed: Абнавіць {subscriptionName}
+  Feed Last Updated: 'Апошняе абнаўленне каналу {feedName}: {date}'
+Display Label: '{label}: {value}'
+Cancel: Адмена
+checkmark: ✓
+Close Banner: Закрыць банер
+Go to page: Перайсці да {page}
+Moments Ago: хвіліны таму
+Yes, Restart: Так, перазапусціць
+Yes, Open Link: Так, адкрыць спасылку

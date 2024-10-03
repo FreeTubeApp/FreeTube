@@ -55,7 +55,7 @@ export default defineComponent({
   },
   computed: {
     locale: function() {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     settingsPassword: function () {

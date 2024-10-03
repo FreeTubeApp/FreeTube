@@ -10,6 +10,27 @@ async function getVideoHash(videoId) {
     hashArray[1].toString(16).padStart(2, '0')
 }
 
+/**
+ * @typedef {'sponsor' | 'selfpromo' | 'interaction' | 'intro' | 'outro' | 'preview' | 'music_offtopic' | 'filler'} SponsorBlockCategory
+ */
+
+/**
+ * @param {string} videoId
+ * @param {SponsorBlockCategory[]} categories
+ * @returns {Promise<{
+ *   UUID: string,
+ *   actionType: string,
+ *   category: SponsorBlockCategory,
+ *   description: string,
+ *   locked: 1|0,
+ *   segment: [
+ *     number,
+ *     number
+ *   ],
+ *   videoDuration: number,
+ *   votes: number
+ * }[]>}
+ */
 export async function sponsorBlockSkipSegments(videoId, categories) {
   const videoIdHashPrefix = await getVideoHash(videoId)
   const requestUrl = `${store.getters.getSponsorBlockUrl}/api/skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
@@ -66,8 +87,8 @@ export async function deArrowThumbnail(videoId, timestamp) {
   try {
     const response = await fetch(requestUrl)
 
-    // 404 means that there are no thumbnails found for the video
-    if (response.status === 404) {
+    // 204 means that there are no thumbnails found for the video
+    if (response.status === 204) {
       return undefined
     }
 

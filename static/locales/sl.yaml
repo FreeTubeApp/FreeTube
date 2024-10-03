@@ -228,8 +228,6 @@ Settings:
     Hide Side Bar Labels: Skrij oznake na stranski vrstici
   Player Settings:
     Player Settings: 'Nastavitve predvajalnika'
-    Force Local Backend for Legacy Formats: 'Vedno uporabi lokalni zaledni sistem
-      za zapuščinske oblike'
     Play Next Video: 'Predvajaj naslednji videoposnetek'
     Turn on Subtitles by Default: 'Samodejno vklopi podnapise'
     Autoplay Videos: 'Samodejno predvajaj naslednji videoposnetek'
@@ -273,7 +271,6 @@ Settings:
       File Name Label: Vzorec imena datoteke
     Enter Fullscreen on Display Rotate: Pri vrtenju zaslona vstopite v celozaslonski
       način
-    Allow DASH AV1 formats: Dovoli oblike DASH AV1
     Next Video Interval: Interval do naslednjega videa
     Display Play Button In Video Player: Prikaz gumba za predvajanje v video predvajalniku
     Fast-Forward / Rewind Interval: Interval za hitro previjanje naprej/nazaj
@@ -321,8 +318,6 @@ Settings:
       in profili so bili uspešno uvoženi'
     All subscriptions have been successfully imported: 'Vse naročnine so bile uspešno
       uvožene'
-    One or more subscriptions were unable to be imported: 'Ene ali več naročnin ni
-      bilo mogoče uvoziti'
     Invalid subscriptions file: 'Neveljavna datoteka z naročninami'
     This might take a while, please wait: 'To bo lahko trajalo nekaj časa. Prosimo,
       počakajte'
@@ -613,11 +608,6 @@ Video:
   Published on: 'Objavljeno dne'
   Publicationtemplate: '{number} {unit} nazaj'
 #& Videos
-  Audio:
-    Best: Najvišja
-    High: Visoka
-    Medium: Srednja
-    Low: Nizka
   audio only: Samo avdio
   video only: Samo video
   Download Video: Prenesi videoposnetek
@@ -631,9 +621,6 @@ Video:
     seznama
   Video has been saved: Videoposnetek je bil shranjen
   Save Video: Shrani videoposnetek
-  Stats:
-    Bandwidth: Pasovna širina
-  translated from English: prevedeno iz angleščine
 Videos:
   #& Sort By
   Sort By:
