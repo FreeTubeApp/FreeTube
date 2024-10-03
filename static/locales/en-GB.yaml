@@ -1095,7 +1095,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
-      but it doesn’t provide certain information like video duration, or live status
+      but it doesn’t provide certain information like video duration, live status
+      or community posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription
       feed when a new window is opened and when switching profile.
   Player Settings:
@@ -1103,7 +1104,7 @@ Tooltips:
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference.
+      of making a direct connection to YouTube.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press
       and hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards
       or backwards to control the playback rate. Press and hold the Control key (Command

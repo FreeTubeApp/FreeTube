@@ -845,7 +845,7 @@ Tooltips:
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
-      å koble direkte til YouTube. Overstyrer API-innstillinger.
+      å koble direkte til YouTube.
     Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe deg gjennom
       videoen i MPV-stil.
     Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke

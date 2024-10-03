@@ -53,8 +53,7 @@ export default defineComponent({
         {
           page: translateWindowTitle(this.$router.getRoutes()
             .find((route) => route.path === '/' + this.landingPage)
-            .meta.title,
-          this.$i18n
+            .meta.title
           )
         })
     },

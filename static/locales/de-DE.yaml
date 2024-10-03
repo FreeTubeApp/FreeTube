@@ -1178,7 +1178,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
-      liefert aber bestimmte Informationen wie Videodauer oder Live-Status nicht
+      liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Community
+      Beiträge nicht
     Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
       ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
   Player Settings:
@@ -1187,8 +1188,7 @@ Tooltips:
       sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
       sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
-      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
-      die API-Einstellung außer Kraft.
+      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
       befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
       das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.

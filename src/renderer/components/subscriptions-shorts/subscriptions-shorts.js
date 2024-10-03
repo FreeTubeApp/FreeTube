@@ -105,9 +105,23 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    this.loadVideosFromCacheSometimes()
+    this.loadVideosFromRemoteFirstPerWindowSometimes()
   },
   methods: {
+    loadVideosFromRemoteFirstPerWindowSometimes() {
+      if (!this.fetchSubscriptionsAutomatically) {
+        this.loadVideosFromCacheSometimes()
+        return
+      }
+      if (this.$store.getters.getSubscriptionForShortsFirstAutoFetchRun) {
+        // Only auto fetch once per window
+        this.loadVideosFromCacheSometimes()
+        return
+      }
+
+      this.loadVideosForSubscriptionsFromRemote()
+      this.$store.commit('setSubscriptionForShortsFirstAutoFetchRun')
+    },
     loadVideosFromCacheSometimes() {
       // Can only load reliably when cache ready
       if (!this.subscriptionCacheReady) { return }
@@ -118,7 +132,16 @@ export default defineComponent({
         return
       }
 
-      this.maybeLoadVideosForSubscriptionsFromRemote()
+      if (this.fetchSubscriptionsAutomatically) {
+        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
+        this.loadVideosForSubscriptionsFromRemote()
+        return
+      }
+
+      // Auto fetch disabled, not enough cache for profile = show nothing
+      this.videoList = []
+      this.attemptedFetch = false
+      this.isLoading = false
     },
 
     async loadVideosFromCacheForAllActiveProfileChannels() {
@@ -160,10 +183,13 @@ export default defineComponent({
         channelCount++
         const percentageComplete = (channelCount / channelsToLoadFromRemote.length) * 100
         this.setProgressBarPercentage(percentageComplete)
-        this.updateSubscriptionShortsCacheByChannel({
-          channelId: channel.id,
-          videos: videos
-        })
+
+        if (videos != null) {
+          this.updateSubscriptionShortsCacheByChannel({
+            channelId: channel.id,
+            videos: videos
+          })
+        }
 
         if (name) {
           subscriptionUpdates.push({
@@ -172,7 +198,7 @@ export default defineComponent({
           })
         }
 
-        return videos
+        return videos ?? []
       }))).flat()
 
       this.videoList = updateVideoListAfterProcessing(videoListFromRemote)
@@ -183,23 +209,18 @@ export default defineComponent({
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
     },
 
-    maybeLoadVideosForSubscriptionsFromRemote: async function () {
-      if (this.fetchSubscriptionsAutomatically) {
-        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-        await this.loadVideosForSubscriptionsFromRemote()
-      } else {
-        this.videoList = []
-        this.attemptedFetch = false
-        this.isLoading = false
-      }
-    },
-
     getChannelShortsLocal: async function (channel, failedAttempts = 0) {
       const playlistId = getChannelPlaylistId(channel.id, 'shorts', 'newest')
       const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
 
       try {
         const response = await fetch(feedUrl)
+
+        if (response.status === 403) {
+          return {
+            videos: null
+          }
+        }
 
         if (response.status === 404) {
           // playlists don't exist if the channel was terminated but also if it doesn't have the tab,

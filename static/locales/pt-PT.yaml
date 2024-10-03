@@ -1011,8 +1011,7 @@ Tooltips:
       a ligação no seu navegador de Internet.\n"
   Player Settings:
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
-      vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
-      API.
+      vídeos em vez de fazer uma ligação direta ao YouTube.
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos
       estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos

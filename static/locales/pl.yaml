@@ -1144,8 +1144,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej
       metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale
-      nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
-      na żywo
+      nie dostarcza informacji, takich jak czas trwania filmu,status transmisji na
+      żywo, czy posty społeczności
     Fetch Automatically: Po włączeniu FreeTube będzie automatycznie pobierał Twoje
       subskrypcje po otwarciu nowego okna lub po zmianie profilu.
   General Settings:
@@ -1169,7 +1169,7 @@ Tooltips:
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
       720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
-      a nie bezpośrednio z YouTube. Nadpisuje ustawienia API.
+      a nie bezpośrednio z YouTube.
     Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj
       klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół,
       aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command”

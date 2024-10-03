@@ -1485,7 +1485,8 @@ function parseLocalCommunityPost(post) {
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
     publishedTime: calculatePublishedDate(post.published.text),
-    voteCount: parseLocalSubscriberCount(post.vote_count.text),
+    // YouTube hides the vote/like count on posts when it is zero
+    voteCount: post.vote_count ? parseLocalSubscriberCount(post.vote_count.text) : 0,
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,
     author: post.author.name,
