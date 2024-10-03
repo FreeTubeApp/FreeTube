@@ -19,22 +19,24 @@ Delete: 'Выдаліць'
 Select all: 'Вылучыць усё'
 Reload: 'Абнавіць'
 Force Reload: 'Абнавіць прымусова'
-Toggle Developer Tools: ''
-Actual size: ''
+Toggle Developer Tools: 'Пераключыць інструменты распрацоўшчыка'
+Actual size: 'Фактычны памер'
 Zoom in: 'Павялічыць'
 Zoom out: 'Паменшыць'
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
+Toggle fullscreen: 'Пераключыць поўнаэкранны рэжым'
+Window: 'Акно'
+Minimize: 'Мінімізаваць'
 Close: 'Закрыць'
 Back: 'Назад'
 Forward: 'Наперад'
 Open New Window: 'Адкрыць новае акно'
 
-Version {versionNumber} is now available!  Click for more details: ''
+Version {versionNumber} is now available!  Click for more details: 'Версія {versionNumber}
+  цяпер даступная!  Націсніце для больш падрабязнай інфармацыі'
 Download From Site: 'Спампаваць з сайта'
-A new blog is now available, {blogTitle}. Click to view more: ''
-Are you sure you want to open this link?: ''
+A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог,
+  {blogTitle}. Націсніце, каб паглядзець больш'
+Are you sure you want to open this link?: 'Вы ўпэўнены, што хочаце адкрыць гэтую спасылку?'
 
 # Global
 # Anything shared among components / views should be put here
@@ -58,23 +60,23 @@ Search Bar:
   Clear Input: 'Ачысціць увод'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Фільтры пошуку'
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Sort By: 'Сартаваць'
+    Most Relevant: 'Найбольш рэлевантныя'
+    Rating: 'Рэйтынг'
+    Upload Date: 'Дата запампоўкі'
+    View Count: 'Колькасць праглядаў'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
+    Time: 'Дата запампоўкі'
+    Any Time: 'У любы час'
+    Last Hour: 'Апошняя гадзіна'
     Today: 'Сёння'
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    This Week: 'На гэтым тыдні'
+    This Month: 'У гэтым месяцы'
+    This Year: 'За гэты год'
   Type:
-    Type: ''
+    Type: 'Тып'
     All Types: 'Усе тыпы'
     Videos: 'Відэа'
     Channels: 'Каналы'
@@ -82,15 +84,15 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: 'Працягласць'
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Medium (4 - 20 minutes): ''
-    Long (> 20 minutes): ''
+    All Durations: 'Любая працягласць'
+    Short (< 4 minutes): 'Кароткія (< 4 хвілін)'
+    Medium (4 - 20 minutes): 'Сярэднія (4-20 хвілін)'
+    Long (> 20 minutes): 'Доўгія (> 20 хвілін)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
+  Search Results: 'Вынікі пошуку'
+  Fetching results. Please wait: 'Атрыманне вынікаў. Калі ласка, пачакайце'
+  Fetch more results: 'Атрымаць больш вынікаў'
+  There are no more results for this search: 'Для гэтага пошуку больш няма вынікаў'
 # Sidebar
   Features:
     HD: HD
@@ -98,41 +100,52 @@ Search Filters:
     3D: 3D
     4K: 4K
     HDR: HDR
+    Features: Асаблівасці
+    VR180: VR180
+    Live: Ужывую
+    360 Video: 360°
+    Location: Месцазнаходжанне
+    Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Падпіскі'
   # channels that were likely deleted
   Error Channels: 'Каналы з памылкамі'
   Latest Subscriptions: 'Апошнія падпіскі'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  Disabled Automatic Fetching: ''
-  Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
-  Empty Posts: ''
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У
+    гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць
+    абмежавання хуткасці'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
+    спіс падпісак зараз пусты. Пачніце дадаваць падпіскі, каб убачыць іх тут.'
+  Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць
+    іх тут, абнавіце падпіскі.'
+  Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'
+  'Getting Subscriptions. Please wait.': 'Атрыманне падпісак. Калі ласка, пачакайце.'
+  Empty Posts: 'На каналах, на якія вы падпісаны, зараз няма паведамленняў.'
   Refresh Subscriptions: ''
-  Load More Videos: ''
-  Load More Posts: ''
-  Subscriptions Tabs: ''
-  All Subscription Tabs Hidden: ''
+  Load More Videos: 'Загрузіць больш відэа'
+  Load More Posts: 'Загрузіць больш паведамленняў'
+  Subscriptions Tabs: 'Укладкі падпісак'
+  All Subscription Tabs Hidden: 'Усе ўкладкі падпісак схаваныя. Каб убачыць змесціва,
+    уключыце некаторыя ўкладкі ў раздзеле "{subsection}" у "{settingsSection}".'
 More: 'Больш'
 Channels:
   Channels: 'Каналы'
-  Title: ''
-  Search bar placeholder: ''
-  Count: ''
-  Empty: ''
+  Title: 'Спіс каналаў'
+  Search bar placeholder: 'Пошук каналаў'
+  Count: '{number} каналы(аў) знойдзена.'
+  Empty: 'Ваш спіс каналаў зараз пусты.'
   Unsubscribe: 'Адпісацца'
-  Unsubscribed: ''
-  Unsubscribe Prompt: ''
+  Unsubscribed: '{channelName} быў выдалены з вашых падпісак'
+  Unsubscribe Prompt: 'Вы сапраўды хочаце адпісацца ад "{channelName}"?'
 Trending:
-  Trending: ''
+  Trending: 'У трэндзе'
   Default: ''
   Music: 'Музыка'
   Gaming: 'Гульні'
   Movies: 'Фільмы'
   Trending Tabs: ''
-Most Popular: ''
+Most Popular: 'Папулярныя'
 Playlists: 'Плэй-лісты'
 User Playlists:
   Your Playlists: 'Вашы плэй-лісты'
@@ -152,10 +165,10 @@ User Playlists:
 History:
   # On History Page
   History: 'Гісторыя'
-  Watch History: ''
+  Watch History: 'Гісторыя прагляду'
   Your history list is currently empty.: ''
   Empty Search Message: ''
-  Search bar placeholder: ""
+  Search bar placeholder: "Пошук у гісторыі"
 Settings:
   # On Settings Page
   Settings: 'Налады'
@@ -495,7 +508,7 @@ Profile:
   Toggle Profile List: ''
   Profile Select: ''
   Profile Filter: ''
-  All Channels: ''
+  All Channels: 'Усе каналы'
   Profile Manager: ''
   Create New Profile: ''
   Edit Profile: ''
@@ -689,23 +702,32 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Новыя'
+    Oldest: 'Старыя'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  Playlist: ''
-  View Full Playlist: ''
-  Videos: ''
+  Playlist: 'Плэй-ліст'
+  View Full Playlist: 'Праглядзець увесь плэй-ліст'
+  Videos: 'Відэа'
   View: ''
-  Views: ''
-  Last Updated On: ''
+  Views: 'Прагляды'
+  Last Updated On: 'Апошняе абнаўленне'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+  Sort By:
+    AuthorAscending: Аўтар (А-Я)
+    Sort By: Сартаваць
+    Custom: Карыстальніцкі
+    AuthorDescending: Аўтар (Я-А)
+    DateAddedNewest: Новыя спачатку
+    DateAddedOldest: Старыя спачатку
+    VideoTitleAscending: Назва (А-Я)
+    VideoTitleDescending: Назва (Я-А)
+Toggle Theatre Mode: 'Пераключыць рэжым тэатра'
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -714,12 +736,12 @@ Change Format:
   Dash formats are not available for this video: ''
   Audio formats are not available for this video: ''
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
+  Share Video: 'Падзяліцца відэа'
+  Share Channel: 'Падзяліцца каналам'
+  Share Playlist: 'Падзяліцца плэй-лістам'
+  Include Timestamp: 'Дадаць метку часу'
+  Copy Link: 'Скапіяваць спасылку'
+  Open Link: 'Адкрыць спасылку'
   Copy Embed: ''
   Open Embed: ''
   # On Click
@@ -734,38 +756,39 @@ Clipboard:
   Cannot access clipboard without a secure connection: ''
 
 Chapters:
-  Chapters: ''
+  Chapters: 'Раздзелы'
   'Chapters list visible, current chapter: {chapterName}': ''
   'Chapters list hidden, current chapter: {chapterName}': ''
 
-Mini Player: ''
+Mini Player: 'Міні плэер'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  Comments: 'Каментарыі'
+  Click to View Comments: 'Націсніце, каб праглядзець каментарыі'
+  Getting comment replies, please wait: 'Атрымліваюцца адказы на каментарыі, пачакайце'
+  There are no more comments for this video: 'Да гэтага відэа больш няма каментарыяў'
+  Show Comments: 'Паказаць каментарыі'
+  Hide Comments: 'Схаваць каментарыі'
+  Sort by: 'Сартаваць'
+  Top comments: 'Папулярныя каментарыі'
+  Newest first: 'Спачатку новыя'
+  View {replyCount} replies: 'Праглядзець {replyCount} адказаў'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
-  Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-  Pinned by: ''
-  Member: ''
+  View: 'Праглядзець'
+  Hide: 'Схаваць'
+  Replies: 'Адказы'
+  Show More Replies: 'Паказаць больш адказаў'
+  Reply: 'Адказ'
+  From {channelName}: 'ад {channelName}'
+  And others: 'і інш'
+  There are no comments available for this video: 'Да гэтага відэа няма каментарыяў'
+  Load More Comments: 'Загрузіць больш каментарыяў'
+  No more comments available: 'Больш каментарыяў няма'
+  Pinned by: 'Замацавана'
+  Member: 'Член'
   Subscribed: ''
   Hearted: ''
-Up Next: ''
+  There are no comments available for this post: Да гэтай публікацыі няма каментарыяў
+Up Next: 'Далей'
 
 #Tooltips
 Tooltips:
@@ -847,3 +870,6 @@ Cancel: Адмена
 checkmark: ✓
 Close Banner: Закрыць банер
 Go to page: Перайсці да {page}
+Moments Ago: хвіліны таму
+Yes, Restart: Так, перазапусціць
+Yes, Open Link: Так, адкрыць спасылку
