@@ -751,7 +751,7 @@ Tooltips:
       standardnettlesar.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Koplar til Invidious for å servere videoar i
-      staden for å kople direkte til YouTube. Overstyrar API-innstillingar.'
+      staden for å kople direkte til YouTube.'
     Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format
       kan spele høgare kvalitet. Utdaterte format er avgrensa til maks 720p, men bruker
       mindre bandbreidde. Lydformat er berre for lydstraumar.'

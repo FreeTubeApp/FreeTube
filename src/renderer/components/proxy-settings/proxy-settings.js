@@ -64,7 +64,7 @@ export default defineComponent({
       return `${this.proxyProtocol}://${this.proxyHostname}:${this.proxyPort}`
     },
     lang: function() {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     localeToUse: function() {
       // locales found here: https://ipwhois.io/documentation

@@ -20,6 +20,7 @@
       class="card channelDetails"
       @change-tab="changeTab"
       @search="newSearch"
+      @subscribed="handleSubscription"
     />
     <ft-card
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"

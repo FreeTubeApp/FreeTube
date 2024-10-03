@@ -113,8 +113,6 @@ export default defineComponent({
       playlistItemId: null,
       /** @type {number|null} */
       timestamp: null,
-      /** @type {number|null} */
-      startTimeSeconds: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
@@ -203,7 +201,7 @@ export default defineComponent({
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     hideChapters: function () {
       return this.$store.getters.getHideChapters
@@ -232,6 +230,26 @@ export default defineComponent({
 
       return this.$store.getters.getPlaylist(this.playlistId)
     },
+    startTimeSeconds: function () {
+      if (this.isLoading || this.isLive) {
+        return null
+      }
+
+      if (this.timestamp !== null && this.timestamp < this.videoLengthSeconds) {
+        return this.timestamp
+      } else if (this.saveWatchedProgress && this.historyEntryExists) {
+        // For UX consistency, no progress reading if writing disabled
+
+        /** @type {number} */
+        const watchProgress = this.historyEntry.watchProgress
+
+        if (watchProgress > 0 && watchProgress < this.videoLengthSeconds - 2) {
+          return watchProgress
+        }
+      }
+
+      return null
+    }
   },
   watch: {
     async $route() {
@@ -254,11 +272,9 @@ export default defineComponent({
       this.vrProjection = null
       this.downloadLinks = []
       this.videoCurrentChapterIndex = 0
-      this.startTimeSeconds = null
       this.videoGenreIsMusic = false
 
       this.checkIfTimestamp()
-      this.setStartTime()
       this.checkIfPlaylist()
 
       switch (this.backendPreference) {
@@ -279,7 +295,6 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
-    this.setStartTime()
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -503,16 +518,8 @@ export default defineComponent({
             //   this.manifestSrc = src
             //   this.manifestMimeType = MANIFEST_TYPE_DASH
             // } else {
-            let hlsManifestUrl = result.streaming_data.hls_manifest_url
 
-            if (this.proxyVideos) {
-              const url = new URL(hlsManifestUrl)
-              url.searchParams.set('local', 'true')
-
-              hlsManifestUrl = url.toString().replace(url.origin, this.currentInvidiousInstanceUrl)
-            }
-
-            this.manifestSrc = hlsManifestUrl
+            this.manifestSrc = result.streaming_data.hls_manifest_url
             this.manifestMimeType = MANIFEST_TYPE_HLS
             // }
           }
@@ -580,12 +587,6 @@ export default defineComponent({
 
             if (result.streaming_data.formats.length > 0) {
               this.legacyFormats = result.streaming_data.formats.map(mapLocalLegacyFormat)
-
-              if (this.proxyVideos) {
-                this.legacyFormats.forEach(format => {
-                  format.url = getProxyUrl(format.url)
-                })
-              }
             }
 
             /** @type {import('../../helpers/api/local').LocalFormat[]} */
@@ -685,17 +686,8 @@ export default defineComponent({
               })
               ?.projection_type ?? null
 
-            // When `this.proxyVideos` is true
-            // It's possible that the Invidious instance used, only supports a subset of the formats from Local API
-            // i.e. the value passed into `adaptiveFormats`
-            // e.g. Supports 720p60, but not 720p - https://[DOMAIN_NAME]/api/manifest/dash/id/v3wm83zoSSY?local=true
-            if (this.proxyVideos) {
-              this.manifestSrc = await this.createInvidiousDashManifest()
-              this.manifestMimeType = MANIFEST_TYPE_DASH
-            } else {
-              this.manifestSrc = await this.createLocalDashManifest(result)
-              this.manifestMimeType = MANIFEST_TYPE_DASH
-            }
+            this.manifestSrc = await this.createLocalDashManifest(result)
+            this.manifestMimeType = MANIFEST_TYPE_DASH
           } else {
             this.manifestSrc = null
             this.enableLegacyFormat()
@@ -1067,23 +1059,6 @@ export default defineComponent({
 
         this.updateLocalPlaylistLastPlayedAtSometimes()
       }
-    },
-
-    setStartTime: function () {
-      if (this.timestamp !== null && this.timestamp > 0) {
-        this.startTimeSeconds = this.timestamp
-        return
-      } else if (this.saveWatchedProgress && this.historyEntryExists) {
-        // For UX consistency, no progress reading if writing disabled
-        const watchProgress = this.historyEntry.watchProgress
-
-        if (watchProgress > 0) {
-          this.startTimeSeconds = watchProgress
-          return
-        }
-      }
-
-      this.startTimeSeconds = null
     },
 
     checkIfPlaylist: function () {

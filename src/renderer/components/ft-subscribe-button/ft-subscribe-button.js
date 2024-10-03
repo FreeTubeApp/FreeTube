@@ -42,6 +42,7 @@ export default defineComponent({
       required: false
     }
   },
+  emits: ['subscribed'],
   data: function () {
     return {
       isProfileDropdownOpen: false,
@@ -50,7 +51,7 @@ export default defineComponent({
   },
   computed: {
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     profileInitials: function () {
       return this.profileDisplayList.map((profile) => {
@@ -139,6 +140,7 @@ export default defineComponent({
         this.addChannelToProfiles({ channel, profileIds })
 
         showToast(this.$t('Channel.Added channel to your subscriptions'))
+        this.$emit('subscribed')
       }
 
       if (this.isProfileDropdownEnabled && this.openDropdownOnSubscribe && !this.isProfileDropdownOpen) {

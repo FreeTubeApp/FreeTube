@@ -87,7 +87,7 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/channel', '/watch', '/hashtag'].some(p => path.startsWith(p)) ||
+            visible = ['/channel', '/watch', '/hashtag', '/post'].some(p => path.startsWith(p)) ||
               // Only show copy link entry for non user playlists
               (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
@@ -156,6 +156,21 @@ function runApp() {
             }
 
             return url.toString()
+          }
+          case 'post': {
+            if (query) {
+              const authorId = new URLSearchParams(query).get('authorId')
+
+              if (authorId) {
+                if (toYouTube) {
+                  return `${origin}/channel/${authorId}/community?lb=${id}`
+                } else {
+                  return `${origin}/post/${id}?ucid=${authorId}`
+                }
+              }
+            }
+
+            return `${origin}/post/${id}`
           }
         }
       }
@@ -1291,6 +1306,89 @@ function runApp() {
         default:
           // eslint-disable-next-line no-throw-literal
           throw 'invalid playlist db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+
+  // *********** //
+  // Profiles
+  ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_CACHE, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.subscriptionCache.find()
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateVideosByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.subscriptionCache.deleteMultipleChannels(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.subscriptionCache.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL, data }
+          )
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid subscriptionCache db action'
       }
     } catch (err) {
       if (typeof err === 'string') throw err

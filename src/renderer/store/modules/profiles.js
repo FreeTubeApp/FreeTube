@@ -27,9 +27,15 @@ const getters = {
   },
 
   profileById: (state) => (id) => {
-    const profile = state.profileList.find(p => p._id === id)
-    return profile
-  }
+    return state.profileList.find(p => p._id === id)
+  },
+
+  getSubscribedChannelIdSet: (state) => {
+    // The all channels profile is always the first profile in the array
+    const mainProfile = state.profileList[0]
+
+    return mainProfile.subscriptions.reduce((set, channel) => set.add(channel.id), new Set())
+  },
 }
 
 function profileSort(a, b) {

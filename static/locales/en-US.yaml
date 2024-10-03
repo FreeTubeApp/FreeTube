@@ -1025,7 +1025,7 @@ Tooltips:
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference.
+      of making a direct connection to YouTube.
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
@@ -1056,7 +1056,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration or live status
+      but doesn't provide certain information like video duration, live status or community posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
   Experimental Settings:

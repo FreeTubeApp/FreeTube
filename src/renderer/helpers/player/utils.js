@@ -139,7 +139,7 @@ export function qualityLabelToDimension(qualityLabel) {
  * }[]} captions
  */
 export function sortCaptions(captions) {
-  const currentLocale = i18n.locale.replace('_', '-')
+  const currentLocale = i18n.locale
   const userLocale = currentLocale.split('-') // ex. [en,US]
 
   const collator = new Intl.Collator([currentLocale, 'en'])
