@@ -108,11 +108,12 @@ jobs:
       run: |
         sudo apt install desktop-file-utils
         cd build
+        appimage="FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        chmod +x *.AppImage && ./FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage --appimage-extract
-        rm -f ./FreeTube*.AppImage
+        chmod +x ./"$appimage" ./appimagetool.AppImage
+        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
         ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -n ./squashfs-root ./FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage
+          -n ./squashfs-root ./"$appimage"
         rm -rf ./squashfs-root ./appimagetool.AppImage
 
     - name: Upload Linux .zip x64 Artifact
