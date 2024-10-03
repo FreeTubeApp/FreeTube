@@ -42,7 +42,7 @@ Are you sure you want to open this link?: 'Вы ўпэўнены, што хоч�
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Відэа'
-  Shorts: ''
+  Shorts: 'Shorts'
   Live: 'Ужывую'
   Community: 'Супольнасць'
   Counts:
@@ -395,12 +395,12 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Налады плэера'
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Play Next Video: 'Прайграваць наступнае відэа'
+    Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
+    Autoplay Videos: 'Аўтапрайграванне відэа'
+    Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
+    Autoplay Playlists: 'Аўтапрайграванне плэй-лістоў'
+    Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
     Scroll Volume Over Video Player: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
