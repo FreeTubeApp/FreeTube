@@ -236,6 +236,14 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Nije moguće izbrisati zbirku
     cilja za brze zabilješke.
   Remove Duplicate Videos: Ukloni dupla videa
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Stvarno
+    želiš ukloniti 1 duplikat videa iz ove zbirke? To se ne može poništiti. | Stvarno
+    želiš ukloniti {playlistItemCount} duplakata videa iz ove zbirke? To se ne može
+    poništiti.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Stvarno
+    želiš ukloniti 1 gledani video iz ove zbirke? To se ne može poništiti. | Stvarno
+    želiš ukloniti {playlistItemCount} gledana/ih videa iz ove zbirke? To se ne može
+    poništiti.
 History:
   # On History Page
   History: 'Povijest'
@@ -244,6 +252,7 @@ History:
   Search bar placeholder: Pretraži povijest
   Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju
     tvojem pretraživanju
+  Case Sensitive Search: Razlikuj velika i mala slova tijekom pretraživanja
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -366,8 +375,6 @@ Settings:
     Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
   Player Settings:
     Player Settings: 'Postavke playera'
-    Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
-      stare formate'
     Play Next Video: 'Reproduciraj sljedeći video'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
     Autoplay Videos: 'Automatski reproduciraj videa'
@@ -420,7 +427,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
-    Allow DASH AV1 formats: Dozvoli DASH AV1 formate
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -458,7 +464,7 @@ Settings:
     Fetch Automatically: Automatski dohvati feed
     Only Show Latest Video for Each Channel: Prikaži samo najnoviji video za svaki
       kanal
-    Avoid Accidental Unsubscription: Izbjegni slučajno otkazivanje pretplate
+    Confirm Before Unsubscribing: Izbjegni slučajno otkazivanje pretplate
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -518,8 +524,6 @@ Settings:
     Select Import Type: Odaberi vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako uvesti pretplate?
-    One or more subscriptions were unable to be imported: Neuspio uvoz jedne ili više
-      pretplata
     Check for Legacy Subscriptions: Potraži stare pretplate
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
@@ -908,11 +912,6 @@ Video:
   Loop Playlist: Ponavljaj zbirku
   Starting soon, please refresh the page to check again: Uskoro počinje. Aktualiziraj
     stranicu za ponovnu provjeru
-  Audio:
-    Best: Najbolja
-    High: Visoka
-    Medium: Srednja
-    Low: Niska
   audio only: samo audiosnimku
   video only: samo video
   Download Video: Preuzmi video
@@ -926,7 +925,6 @@ Video:
     spremljenih
   Video has been saved: Video je spremljen
   Save Video: Spremi video
-  translated from English: prevedeno iz engleskog
   Sponsor Block category:
     music offtopic: Druga vrsta glazbe
     interaction: Interakcija
@@ -936,7 +934,6 @@ Video:
     sponsor: Sponzor
     recap: Rekapitulacija
     filler: Dodatni materijal
-  Skipped segment: Preskočeni segment
   External Player:
     Unsupported Actions:
       starting video at offset: pokretanje videa pri odmaku
@@ -953,26 +950,6 @@ Video:
     video: video
     OpenInTemplate: Otvori u {externalPlayer}
   Premieres on: Premijera
-  Stats:
-    fps: Kadrova u sekundi
-    player resolution: Rezolucija prikaza
-    video id: Video ID (YouTube)
-    volume: Glasnoća
-    frame drop: Ispuštanje kadrova
-    bandwidth: Brzina veze
-    buffered: Učitano u memoriju
-    out of: od
-    Video statistics are not available for legacy videos: Statistika videa nije dostupna
-      za stara videa
-    Video ID: Video ID
-    Resolution: Razlučivost
-    Player Dimensions: Dimenzije playera
-    Bitrate: Brzina prijenosa
-    Volume: Direktorij
-    Bandwidth: Propusnost
-    Buffered: Učitano u memoriju
-    Mimetype: Mimetype
-    Dropped / Total Frames: Ispušteni/ukupni kadrovi
   Premieres in: Premijera u
   Premieres: Premijere
   Show Super Chat Comment: Prikaži Super Chat komentar
@@ -1102,11 +1079,7 @@ Tooltips:
       reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
       su zato brži. Audioformati sadrže samo prijenose audiosnimaka.
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
-      umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
-    Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
-      standardno sučelje. Kada je aktivirano, lokalno API sučelje će pokretati i koristiti
-      stare formate umjesto onih koje dostavlja Invidious. Pomaže u slučajevima, kad
-      je reprodukcija videa koje dostavlja Invidious u zemlji zabranjena/ograničena.
+      umjesto izravnog povezivanja s YouTubeom.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni
       i drži tipku Control (Command tipka na Macu) i pomiči kotačić miša naprijed
       ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control
@@ -1114,10 +1087,6 @@ Tooltips:
       brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
     Skip by Scrolling Over Video Player: Koristi kotačić za pregledavanje videa, MPV
       stil.
-    Allow DASH AV1 formats: DASH AV1 formati mogu izgledati bolje od DASH H.264 formata.
-      DASH AV1 formati zahtijevaju više kapaciteta za reprodukciju! Nisu dostupni
-      pri svim videima. U tim će slučajevima player umjesto njih koristiti DASH H.264
-      formate.
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
       API-a.

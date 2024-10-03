@@ -1,0 +1,486 @@
+# Put the name of your locale in the same language
+Locale Name: 'español (Argentina)'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Esta parte de la aplicación no esta lista por el momento. Vuelve después cuando
+  haya habido progreso.
+
+# Webkit Menu Bar
+File: 'Archivo'
+Quit: 'Salir'
+Edit: 'Editar'
+Undo: 'Deshacer'
+Redo: 'Rehacer'
+Cut: 'Cortar'
+Copy: 'Copiar'
+Paste: 'Pegar'
+Delete: 'Eliminar'
+Select all: 'Seleccionar todo'
+Reload: 'Recargar'
+Force Reload: 'Forzar recarga'
+Toggle Developer Tools: 'Activar/Desactivar Herramientas de Desarrollo'
+Actual size: 'Escala : 100%'
+Zoom in: 'Acercarse'
+Zoom out: 'Alejarse'
+Toggle fullscreen: 'Alternar pantalla completa'
+Window: 'Ventana'
+Minimize: 'Minimizar'
+Close: 'Cerrar'
+Back: 'Volver'
+Forward: 'Avanzar'
+
+# Search Bar
+Search / Go to URL: 'Buscar / Ir a URL'
+  # In Filter Button
+Search Filters:
+  Search Filters: 'Filtros de búsqueda'
+  Sort By:
+    Sort By: 'Ordenar por'
+    Most Relevant: 'Más relevante'
+    Rating: 'Clasificación'
+    Upload Date: 'Fecha de carga'
+    View Count: 'Conteo de visitas'
+  Time:
+    Time: 'Hora'
+    Any Time: 'En cualquier momento'
+    Last Hour: 'Última hora'
+    Today: 'Hoy'
+    This Week: 'Esta semana'
+    This Month: 'Este mes'
+    This Year: 'Este año'
+  Type:
+    Type: 'Tipo'
+    All Types: 'Todos los tipos'
+    Videos: 'Vidéos'
+    Channels: 'Canales'
+    #& Playlists
+    Movies: Películas
+  Duration:
+    Duration: 'Duración'
+    All Durations: 'Todas las duraciones'
+    Short (< 4 minutes): 'Corto (< 4 minutos)'
+    Long (> 20 minutes): 'Larga (> 20 minutos)'
+  # On Search Page
+    Medium (4 - 20 minutes): Media (4 - 20 minutos)
+  Search Results: 'Resultados de la búsqueda'
+  Fetching results. Please wait: 'Obteniendo resultados. Por favor esperá'
+  Fetch more results: 'Obtener más resultados'
+# Sidebar
+  There are no more results for this search: No hay más resultados para esta búsqueda
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: 'Suscripciones'
+  Latest Subscriptions: 'Últimas suscripciones'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Su
+    lista de suscripción está actualmente vacía. Comience a agregar suscripciones
+    para verlas aquí.'
+  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, esperá.'
+  Refresh Subscriptions: 'Actualizar suscripciones'
+  Load More Videos: Cargar más videos
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
+    perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
+  Load More Posts: Cargar más publicaciones
+  Empty Channels: Tus canales suscriptos actualmente no tienen ningún video.
+  Subscriptions Tabs: Pestañas de suscripciones
+  Empty Posts: Tus canales suscriptos actualmente no tienen ninguna publicación.
+  All Subscription Tabs Hidden: Todas las pestañas de suscripciones están ocultas.
+    Para ver contenido acá, por favor, desocultá algunas pestañas en la sección "{subsection}"
+    en "{settingsSection}".
+  Disabled Automatic Fetching: Has desactivado la recuperación automática de suscripciones.
+    Actualizá las suscripciones para verlas acá.
+  Error Channels: Canales con errores
+Trending:
+  Trending: 'Tendencias'
+  Movies: Películas
+  Gaming: Juegos
+  Music: Música
+  Default: Por defecto
+  Trending Tabs: Lo más destacado
+Most Popular: 'Más popular'
+Playlists: 'Listas de reproducción'
+User Playlists:
+  Your Playlists: 'Tus listas de reproducción'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tu
+    lista de videos guardados está vacía. Hacé clic en el botón de guardado en la
+    esquina de un video para que aparezca acá
+  Playlist Message: Esta página no refleja listas de reproducción completamente funcionales.
+    Solo lista los videos que guardaste o marcaste como favoritos. Cuando el trabajo
+    esté terminado, todos los videos que se encuentren acá serán migrados a una lista
+    de reproducción de 'Favoritos'.
+  Search bar placeholder: Buscar en la Lista de Reproducción
+  Empty Search Message: No hay videos en esta lista de reproducción que coincidan
+    con tu búsqueda
+  This playlist currently has no videos.: Esta lista de reproducción no tiene videos.
+  Playlists with Matching Videos: Listas de reproducción con videos repetidos
+  Create New Playlist: Crear nueva lista de reproducción
+  Add to Favorites: Añadir a {playlistName}
+  Add to Playlist: Añadir a la lista de reproducción
+History:
+  # On History Page
+  History: 'Historial'
+  Watch History: 'Ver historial'
+  Your history list is currently empty.: 'Su lista de historial está actualmente vacía.'
+  Search bar placeholder: Buscar en el Historial
+  Empty Search Message: No hay videos en tu historial que coincidan con tu búsqueda
+Settings:
+  # On Settings Page
+  Settings: 'Configuraciones'
+  General Settings:
+    General Settings: 'Configuraciones generales'
+    Fallback to Non-Preferred Backend on Failure: 'Usar una Alternativa en Caso de
+      Problemas con la Opción Preferida'
+    Enable Search Suggestions: 'Habilitar sugerencias de búsqueda'
+    Default Landing Page: 'Página de destino predeterminada'
+    Locale Preference: 'Preferencia regional'
+    Preferred API Backend:
+      Preferred API Backend: 'Backend de API preferido'
+      Local API: 'API local'
+      Invidious API: 'API de Invidious'
+    Video View Type:
+      Video View Type: 'Tipo de vista de video'
+      Grid: 'Cuadrícula'
+      List: 'Lista'
+    Thumbnail Preference:
+      Thumbnail Preference: 'Preferencia de miniaturas'
+      Default: 'Predeterminado'
+      Beginning: 'Comenzando'
+      Middle: 'Medio'
+      End: 'Final'
+      Hidden: Oculto
+    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
+      Invidious (por defecto es https://invidious.snopyta.org)'
+    Region for Trending: 'Región para Tendencias'
+        #! List countries
+    View all Invidious instance information: Ver toda la información sobre la instancia
+      de Invidious
+    Check for Latest Blog Posts: Buscar nuevas entradas de blogs
+    Check for Updates: Buscar actualizaciones
+    Set Current Instance as Default: Definir Instancia Actual como Por Defecto
+    Clear Default Instance: Limpiar Instancia Por Defecto
+    Current Invidious Instance: Instancia Actual de Individuous
+    The currently set default instance is {instance}: La instancia actual es {instance}
+    No default instance has been set: No se ha elegido ninguna instancia
+    Current instance will be randomized on startup: La instancia actual será aleatorizada
+      en el inicio
+    System Default: Por defecto del Sistema
+    External Link Handling:
+      No Action: Sin Acción
+      External Link Handling: Manejo de Enlaces Externos
+      Open Link: Abrir enlace
+      Ask Before Opening Link: Preguntar antes de abrir el enlace
+  Theme Settings:
+    Theme Settings: 'Configuraciones del tema'
+    Match Top Bar with Main Color: 'Utilizar el color principal para la barra superior'
+    Base Theme:
+      Base Theme: 'Tema base'
+      Black: 'Negro'
+      Dark: 'Oscuro'
+      Light: 'Claro'
+      Dracula: 'Drácula'
+      Pastel Pink: Rosa claro
+      Hot Pink: Rosa Intenso
+      Catppuccin Mocha: Cappuccino Moka
+      System Default: Predeterminado del sistema
+    Main Color Theme:
+      Main Color Theme: 'Color principal del tema'
+      Red: 'Rojo'
+      Pink: 'Rosa'
+      Purple: 'Morado'
+      Deep Purple: 'Morado oscuro'
+      Indigo: 'Indigo'
+      Blue: 'Azul'
+      Light Blue: 'Celeste'
+      Cyan: 'Cian'
+      Teal: 'Verde azulado'
+      Green: 'Verde'
+      Light Green: 'Verde claro'
+      Lime: 'Lima'
+      Yellow: 'Amarillo'
+      Amber: 'Ámbar'
+      Orange: 'Naranja'
+      Deep Orange: 'Naranja oscuro'
+      Dracula Cyan: 'Drácula Cian'
+      Dracula Green: 'Drácula Verde'
+      Dracula Orange: 'Drácula Naranja'
+      Dracula Pink: 'Drácula Rosado'
+      Dracula Purple: 'Drácula Morado'
+      Dracula Red: 'Drácula Rojo'
+      Dracula Yellow: 'Drácula Amarillo'
+      Catppuccin Mocha Red: Cappuccino Mocca Rojo
+      Catppuccin Mocha Maroon: Cappuccino Mocca Bordó
+      Catppuccin Mocha Sky: Cappuccino Mocca Cielo
+      Catppuccin Mocha Sapphire: Cappuccino Mocca Zafiro
+      Catppuccin Mocha Teal: Cappuccino Mocca Turquesa
+      Catppuccin Mocha Yellow: Cappuccino Mocca Amarillo
+      Catppuccin Mocha Rosewater: Cappuccino Mocca Rosa Claro
+      Catppuccin Mocha Peach: Cappuccino Mocca Durazno
+      Catppuccin Mocha Flamingo: Cappuccino Mocca Flamenco
+      Catppuccin Mocha Mauve: Cappuccino Mocca Violeta Claro
+      Catppuccin Mocha Pink: Cappuccino Mocca Rosa
+      Catppuccin Mocha Lavender: Cappuccino Mocca Lavanda
+      Catppuccin Mocha Blue: Cappuccino Mocca Azul
+      Catppuccin Mocha Green: Cappuccino Mocca Verde
+    Secondary Color Theme: 'Color secundario del tema'
+        #* Main Color Theme
+    UI Scale: Escala de la interfaz de usuario
+    Disable Smooth Scrolling: Desactivar desplazamiento suave
+    Expand Side Bar by Default: Expandir la barra lateral por defecto
+    Hide Side Bar Labels: Esconder las etiquetas de la barra lateral
+    Hide FreeTube Header Logo: Ocultar el logo de FreeTube del encabezado
+  Player Settings:
+    Player Settings: 'Configuraciones del reproductor'
+    Play Next Video: 'Reproducir siguiente video'
+    Turn on Subtitles by Default: 'Activar subtítulos por defecto'
+    Autoplay Videos: 'Reproducción automática'
+    Proxy Videos Through Invidious: 'Redirigir Videos a Través de Invidious'
+    Autoplay Playlists: 'Reproducción Automática de Listas'
+    Enable Theatre Mode by Default: 'Habilitar modo cine por defecto'
+    Default Volume: 'Volumen por defecto'
+    Default Playback Rate: 'Velocidad de reproducción por defecto'
+    Default Video Format:
+      Default Video Format: 'Formato de video por defecto'
+      Dash Formats: 'Formatos de Transmisión de Video DASH'
+      Legacy Formats: 'Formatos antiguos'
+      Audio Formats: 'Formatos de audio'
+    Default Quality:
+      Default Quality: 'Calidad de video por defecto'
+      Auto: 'Automática'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+      1080p: 1080p
+    Screenshot:
+      Folder Label: Carpeta de capturas de pantalla
+      Error:
+        Empty File Name: Nombre de archivo vacío
+        Forbidden Characters: Caracteres prohibidos
+      Folder Button: Seleccionar carpeta
+      Format Label: Formato de las capturas de pantalla
+      Enable: Habilitar capturas de pantalla
+      Ask Path: Solicitar Carpeta de Guardado
+      Quality Label: Calidad de Captura de Pantalla
+      File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos).
+        %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2
+        dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del
+        Video. %t Milisegundo del Video (3 dígitos). %i ID del Video. También podés
+        utilizar "" o "/" para crear subcarpetas.'
+      File Name Label: Formato de Nombre de Archivo
+    Scroll Volume Over Video Player: Barra de volumen en el reproductor
+    Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de
+      Video
+    Scroll Playback Rate Over Video Player: Acelerar video con la rueda del mouse
+    Fast-Forward / Rewind Interval: Período de Avance Rápido / Retroceso
+    Video Playback Rate Interval: Intervalo entre velocidades del video
+    Max Video Playback Rate: Velocidad máxima de reproducción de video
+    Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
+    Next Video Interval: Siguiente segmento de video
+    Display Play Button In Video Player: Mostrar botón de reproducir antes de empezar
+      el video
+  Privacy Settings:
+    Privacy Settings: 'Configuraciones de privacidad'
+    Remember History: 'Recordar historial'
+    Save Watched Progress: 'Guardar el progreso observado'
+    Clear Search Cache: 'Borrar la caché de búsqueda'
+    Are you sure you want to clear out your search cache?: '¿Realmente deseas limpiar
+      la caché de búsqueda?'
+    Search cache has been cleared: 'La caché de búsqueda ha sido borrada'
+    Remove Watch History: 'Borrar historial de videos vistos'
+    Are you sure you want to remove your entire watch history?: '¿Estás seguro de
+      querer borrar tu historial completo de videos vistos?'
+    Watch history has been cleared: 'El historial de videos vistos ha sido borrado'
+    Remove All Subscriptions / Profiles: 'Remover todas las suscripciones / perfiles'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Realmente
+      querés remover todas las suscripciones y perfiles? Esta acción no puede deshacerse.'
+    Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última
+      lista de reproducción vista
+  Subscription Settings:
+    Subscription Settings: 'Configuraciones de suscripción'
+    Hide Videos on Watch: 'Ocultar videos vistos'
+    Manage Subscriptions: 'Administrar suscripciones'
+    Fetch Automatically: Obtener feed automáticamente
+    Fetch Feeds from RSS: Obtener feeds desde RSS
+  Data Settings:
+    Data Settings: 'Configuraciones de datos'
+    Select Import Type: 'Seleccionar tipo de importación'
+    Select Export Type: 'Seleccionar tipo para exportar'
+    Import Subscriptions: 'Importar suscripciones'
+    Import FreeTube: 'Importar FreeTube'
+    Import YouTube: 'Importar Youtube'
+    Import NewPipe: 'Importar NewPipe'
+    Export Subscriptions: 'Exportar suscripciones'
+    Export FreeTube: 'Exportar Freetube'
+    Export YouTube: 'Exportar Youtube'
+    Export NewPipe: 'Exportar NewPipe'
+    Import History: 'Importar historial'
+    Export History: 'Exportar historial'
+    Check for Legacy Subscriptions: Comprobar suscripciones de legado
+    All playlists has been successfully exported: Todas las listas de reproducción
+      se han exportado con éxito
+    Playlist File: Archivo de lista de reproducción
+    History object has insufficient data, skipping item: El historial no tiene datos
+      suficientes, omitiendo objeto
+    Subscription File: Archivo de suscripción
+    All watched history has been successfully imported: Historial de reproducciones
+      se importó con éxito
+    How do I import my subscriptions?: ¿Cómo puedo importar mis suscripciones?
+    All subscriptions and profiles have been successfully imported: Suscripciones
+      y perfiles se importaron con éxito
+    Unable to read file: No se pudo leer el archivo
+    Invalid subscriptions file: Archivo de suscripciones no válido
+    History File: Archivo de historial
+    Profile object has insufficient data, skipping item: El objeto de perfil tiene
+      datos insuficientes, saltando elemento
+    All watched history has been successfully exported: Historial de reproducciones
+      se exportó con éxito
+    Export Playlists: Exportar lista de reproducción
+    Manage Subscriptions: Administrar suscripciones
+    Import Playlists: Importar lista de reproducción
+    All playlists has been successfully imported: Todas sus listas han sido importadas
+      con éxito
+    Subscriptions have been successfully exported: Suscripciones se exportaron con
+      éxito
+    Playlist insufficient data: Datos insuficientes de la lista "{playlist}", omitiendo
+    All subscriptions have been successfully imported: Suscripciones se importaron
+      con éxito
+    Unable to write file: No se pudo escribir el archivo
+    Unknown data key: Clave de datos desconocida
+    This might take a while, please wait: Esto puede tardar un rato. Por favor, esperá
+    Invalid history file: Archivo de historial no válido
+  Advanced Settings: {}
+  Distraction Free Settings:
+    Hide Active Subscriptions: Ocultar suscripciones activas
+    Hide Live Chat: Ocultar chat en vivo
+    Hide Popular Videos: Ocultar videos populares
+    Hide Trending Videos: Ocultar videos en tendencia
+    Hide Recommended Videos: Ocultar videos recomendados
+    Hide Comment Likes: Ocultar los "Me gusta" de comentarios
+    Hide Channel Subscribers: Ocultar los suscriptores del canal
+    Hide Video Likes And Dislikes: Ocultar calificaciones del video
+    Hide Video Views: Ocultar vistas del video
+    Distraction Free Settings: Configuraciones para evitar distraerse
+    Blur Thumbnails: Desenfocar miniaturas
+    Hide Channels Placeholder: Nombre o ID del canal
+    Hide Video Description: Ocultar la descripción del vídeo
+    Hide Chapters: Ocultar los capítulos
+    Sections:
+      Watch Page: Ver la página
+      Side Bar: Barra lateral
+      Channel Page: Página del canal
+      Subscriptions Page: Página de suscripciones
+      General: General
+    Hide Channel Community: Ocultar canal «Comunidad»
+    Hide Subscriptions Videos: Ocultar las suscripciones de los videos
+    Hide Comments: Ocultar comentarios
+    Hide Channel Shorts: Ocultar canal «Shorts»
+    Hide Sharing Actions: Ocultar acciones de uso compartido
+    Hide Channel Podcasts: Ocultar canal «Podcast»
+    Hide Live Streams: Ocultar transmisiones en vivo
+    Hide Channel Playlists: Ocultar las listas de reproducción de los canales
+    Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
+    Hide Channels: Ocultar los vídeos de los canales
+    Hide Subscriptions Live: Ocultar Suscripciones en Vivo
+    Hide Subscriptions Shorts: Ocultar las suscripciones para los Shorts
+    Display Titles Without Excessive Capitalisation: Mostrar títulos sin mayúsculas
+      excesivas
+    Hide Featured Channels: Ocultar los canales recomendados
+    Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
+    Hide Upcoming Premieres: Ocultar próximos estrenos
+    Hide Channel Releases: Ocultar canal «Releases»
+    Hide Playlists: Ocultar listas de reproducción
+  The app needs to restart for changes to take effect. Restart and apply change?: Esta
+    aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar
+    y aplicar el cambio?
+  Proxy Settings:
+    Clicking on Test Proxy will send a request to: Hacer clic en Probar proxy enviará
+      una solicitud a
+    Proxy Protocol: Protocolo de Proxy
+    Proxy Port Number: Puerto del Proxy
+    Region: Región
+    Country: País
+    City: Ciudad
+    Proxy Settings: Configuración del Proxy
+    Ip: IP
+    Enable Tor / Proxy: Habilitar Tor/Proxy
+    Test Proxy: Probar proxy
+    Error getting network information. Is your proxy configured properly?: Error al
+      recibir datos de la red. ¿Configuraste bien tu Proxy?
+    Your Info: Sus datos
+    Proxy Host: Host del Proxy
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Notificar cuando el tramo publicitario
+      es omitido
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
+      SponsorBlock (https://sponsor.ajay.app por defecto)
+    Skip Options:
+      Skip Option: Omitir opción
+      Auto Skip: Salto Automático
+      Show In Seek Bar: Mostrar en la barra de búsqueda
+    UseDeArrowTitles: Utilizar «DeArrow» para los títulos de los videos
+    Enable SponsorBlock: Habilitar SponsorBlock
+    SponsorBlock Settings: Configuración de SponsorBlock
+  External Player Settings:
+    External Player: Reproductor externo
+    External Player Settings: Configuración de reproductor externo
+    Custom External Player Executable: Reproductor externo personalizado
+    Ignore Unsupported Action Warnings: Ignorar advertencias de acciones no compatibles
+    Custom External Player Arguments: Argumentos del reproductor externo
+    Players:
+      None:
+        Name: Ninguno
+About:
+  #On About page
+  Website: Sitio web
+  Email: Correo electrónico
+  Blog: Blog
+Channel:
+  Videos: {}
+  Playlists: {}
+  About:
+    Tags:
+      Search for: Buscar por «{tag}»
+    Details: Detalles
+Yes: 'Sí'
+No: 'No'
+A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está
+  disponible, {blogTitle}. Hacé clic para ver más'
+Download From Site: Descargar desde el sitio
+Version {versionNumber} is now available!  Click for more details: La versión {versionNumber}
+  ya está disponible. Hacé clic acá para más detalles
+More: Más
+Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?
+Open New Window: Abrir nueva ventana
+Search Bar:
+  Clear Input: Limpiar Entrada
+New Window: Nueva ventana
+Global:
+  Counts:
+    Video Count: 1 vidéo | {count} vidéos
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    View Count: 1 vista | {count} vistas
+    Watching Count: 1 espectador | {count} espectadores
+    Channel Count: 1 canal | {count} canales
+  Community: Comunidad
+  Videos: Videos
+  Shorts: Shorts
+  Live: En vivo
+Channels:
+  Search bar placeholder: Buscar Canales
+  Unsubscribe Prompt: ¿Deseás confirmar la desuscripción de "{channelName}"?
+  Channels: Canales
+  Title: Lista de canales
+  Empty: Tu lista de canales está actualmente vacía.
+  Unsubscribe: Desuscribirse
+  Count: '{number} canal(es) encontrado(s).'
+  Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
+Preferences: Preferencias
+Tooltips:
+  Distraction Free Settings:
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
+      «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
+Go to page: Ir a {page}
+Close Banner: Cerrar banner

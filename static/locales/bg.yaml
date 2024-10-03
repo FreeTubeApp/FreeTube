@@ -262,6 +262,7 @@ History:
   Your history list is currently empty.: 'Плейлиста с история на гледанията е празен.'
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
+  Case Sensitive Search: Главни / малки букви
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -386,8 +387,6 @@ Settings:
     Hide FreeTube Header Logo: Скриване логото на FreeTube
   Player Settings:
     Player Settings: 'Настройки на плейъра'
-    Force Local Backend for Legacy Formats: 'Принудително връщане към локалния интерфейс
-      при стари формати'
     Play Next Video: 'Пускане на следващото видео'
     Turn on Subtitles by Default: 'Включване на субтитрите по подразбиране'
     Autoplay Videos: 'Автоматично пускане на видеата'
@@ -441,7 +440,6 @@ Settings:
       Folder Button: Избор на папка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
-    Allow DASH AV1 formats: Разрешаване на форматите DASH AV1
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -472,7 +470,7 @@ Settings:
     Fetch Automatically: Автоматично извличане на съдържание
     Only Show Latest Video for Each Channel: Показване само най-новите видеа за всеки
       канал
-    Avoid Accidental Unsubscription: Избягване на случайно отписване
+    Confirm Before Unsubscribing: Избягване на случайно отписване
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -493,8 +491,6 @@ Settings:
       и профили бяха внесени успешно'
     All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени
       успешно'
-    One or more subscriptions were unable to be imported: 'Един или повече абонаменти
-      не беше внесен'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
     This might take a while, please wait: 'Това може да отнеме повече време, моля
       изчакайте'
@@ -926,11 +922,6 @@ Video:
   Published on: 'Публикувано на'
   Publicationtemplate: 'Преди {number} {unit}'
 #& Videos
-  Audio:
-    Best: Най-добро
-    High: Високо
-    Medium: Средно
-    Low: Ниско
   audio only: само аудио
   video only: само видео
   Download Video: Сваляне на видео
@@ -944,7 +935,6 @@ Video:
     със запазени
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
-  translated from English: преведено от английски
   Sponsor Block category:
     interaction: Взаимодействие
     self-promotion: Самореклама
@@ -954,7 +944,6 @@ Video:
     music offtopic: Музика извън темата
     recap: Резюме
     filler: Запълване
-  Skipped segment: Пропуснат сегмент
   External Player:
     Unsupported Actions:
       looping playlists: повтаряне на плейлисти
@@ -970,26 +959,6 @@ Video:
     playlist: плейлист
     video: видео
     OpenInTemplate: Отваряне във {externalPlayer}
-  Stats:
-    fps: Кадри в секунда
-    video id: Идентификатор на видеоклип (YouTube)
-    player resolution: Изглед
-    volume: Сила на звука
-    frame drop: Пропускане на кадър
-    bandwidth: Скорост на свързване
-    buffered: Буферирани
-    out of: от
-    Resolution: Резолюция
-    Video ID: Идентификатор на видеото
-    Player Dimensions: Размери на плейъра
-    Bitrate: Побитова скорост
-    Bandwidth: Пропускателна способност
-    Volume: Сила на звука
-    Dropped / Total Frames: Отпаднали / Общо кадри
-    Mimetype: MIME тип
-    Buffered: Буферирани
-    Video statistics are not available for legacy videos: Статистиката не е налична
-      за наследени видеа
   Premieres on: Премиера на
   Premieres in: Премиери в
   Premieres: Премиерa
@@ -1002,6 +971,35 @@ Video:
   Unhide Channel: Показване на канала
   Hide Channel: Скриване на канала
   More Options: Още опции
+  Player:
+    Audio Tracks: Аудио пътеки
+    Exit Full Window: Изход от цял прозорец
+    Take Screenshot: Екранна снимка
+    Show Stats: Показване на статистика
+    Exit Theatre Mode: Изход от широкоекранния режим
+    Stats:
+      Stats: Статистика
+      Video ID: 'Видео ID: {videoId}'
+      Media Formats: 'Медиен формат: {formats}'
+      Volume: 'Сила на звука: {volumePercentage}%'
+      Bandwidth: 'Честотна лента: {bandwidth} kbps'
+      Buffered: 'Буферирани: {bufferedPercentage}%'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
+      Resolution: 'Разделителна способност: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Размери на плейъра: {width}x{height}'
+      Bitrate: 'Скорост на предаване: {bitrate} kbps'
+      Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри:
+        {totalFrames}'
+    You appear to be offline: Изглежда, че сте офлайн.
+    Playback will resume automatically when your connection comes back: Възпроизвеждането
+      ще се възобнови автоматично, когато връзката ви се възстанови.
+    Skipped segment: Пропуснат сегмент {segmentCategory}
+    TranslatedCaptionTemplate: '{language} (преведено от "{originalLanguage}")'
+    Theatre Mode: Широкоекранен режим
+    Full Window: Цял прозорец
+    Hide Stats: Скриване на статистиката
 Videos:
   #& Sort By
   Sort By:
@@ -1040,6 +1038,8 @@ Change Format:
     това видео'
   Audio formats are not available for this video: 'Аудио форматите не са достъпни
     за това видео'
+  Legacy formats are not available for this video: За това видео не са налични наследени
+    формати
 Share:
   Share Video: 'Споделяне на видео'
   Share Playlist: 'Споделяне на плейлиста'
@@ -1121,12 +1121,7 @@ Tooltips:
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
       720р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
     Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
-      вместо да прави дирекна връзка с YouTube. Пренебрегва настройките на локалния
-      интерфейс.
-    Force Local Backend for Legacy Formats: Действа само когато по подразбиране е
-      избран Invidious интерфейс. Когато е активиран, локалният интерфейс ще използва
-      старите формати вместо тези на Invidious. Това помага когато видеата, получавани
-      от Invidious не вървят поради регионални ограничения.
+      вместо да прави дирекна връзка с YouTube.
     Scroll Playback Rate Over Video Player: Докато курсорът е върху видеото, натиснете
       и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката
       напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете
@@ -1135,10 +1130,6 @@ Tooltips:
       (1x, освен ако не е променена в настройките).
     Skip by Scrolling Over Video Player: Използване колелцето на мишката за превъртане
       на видео в стил MPV.
-    Allow DASH AV1 formats: Форматите DASH AV1 може да изглеждат по-добре от DASH
-      H.264. DASH AV1 форматите изискват повече енергия за възпроизвеждане! Те не
-      са налични за всички видеа, като в тези случаи плейърът ще използва DASH H.264
-      вместо тях.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
       избере страната, за която това се отнася.

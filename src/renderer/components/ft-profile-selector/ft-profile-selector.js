@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -21,7 +21,7 @@ export default defineComponent({
   },
   computed: {
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -53,7 +53,7 @@ export default defineComponent({
       if (this.profileListShown) {
         // wait until the profile list is visible
         // then focus it so we can hide it automatically when it loses focus
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs.profileList?.$el?.focus()
         })
       }

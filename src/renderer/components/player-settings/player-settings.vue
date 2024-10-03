@@ -5,17 +5,10 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Force Local Backend for Legacy Formats')"
-          :compact="true"
-          :disabled="backendPreference === 'local'"
-          :default-value="forceLocalBackendForLegacy"
-          :tooltip="$t('Tooltips.Player Settings.Force Local Backend for Legacy Formats')"
-          @change="updateForceLocalBackendForLegacy"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Proxy Videos Through Invidious')"
           :compact="true"
-          :default-value="proxyVideos"
+          :default-value="showProxyVideosAsDisabled ? false : proxyVideos"
+          :disabled="showProxyVideosAsDisabled"
           :tooltip="$t('Tooltips.Player Settings.Proxy Videos Through Invidious')"
           @change="updateProxyVideos"
         />
@@ -160,14 +153,6 @@
         :select-values="qualityValues"
         :icon="['fas', 'photo-film']"
         @change="updateDefaultQuality"
-      />
-      <ft-toggle-switch
-        class="av1Switch"
-        :label="$t('Settings.Player Settings.Allow DASH AV1 formats')"
-        :compact="true"
-        :default-value="allowDashAv1Formats"
-        :tooltip="$t('Tooltips.Player Settings.Allow DASH AV1 formats')"
-        @change="updateAllowDashAv1Formats"
       />
     </ft-flex-box>
     <br>

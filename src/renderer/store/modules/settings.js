@@ -193,7 +193,6 @@ const state = {
   externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '',
   expandSideBar: false,
-  forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
   hideChannelPlaylists: false,
@@ -247,7 +246,7 @@ const state = {
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockSponsor: {
-    color: 'Blue',
+    color: 'Green',
     skip: 'autoSkip'
   },
   sponsorBlockSelfPromo: {
@@ -255,19 +254,19 @@ const state = {
     skip: 'showInSeekBar'
   },
   sponsorBlockInteraction: {
-    color: 'Green',
+    color: 'Pink',
     skip: 'showInSeekBar'
   },
   sponsorBlockIntro: {
-    color: 'Orange',
+    color: 'Cyan',
     skip: 'doNothing'
   },
   sponsorBlockOutro: {
-    color: 'Orange',
+    color: 'Blue',
     skip: 'doNothing'
   },
   sponsorBlockRecap: {
-    color: 'Orange',
+    color: 'Indigo',
     skip: 'doNothing'
   },
   sponsorBlockMusicOffTopic: {
@@ -275,7 +274,7 @@ const state = {
     skip: 'doNothing'
   },
   sponsorBlockFiller: {
-    color: 'Orange',
+    color: 'Purple',
     skip: 'doNothing'
   },
   thumbnailPreference: '',
@@ -300,7 +299,6 @@ const state = {
   settingsSectionSortEnabled: false,
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
-  allowDashAv1Formats: false,
   useDeArrowTitles: false,
   useDeArrowThumbnails: false,
   deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
@@ -318,17 +316,15 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
-        const systemLocaleSplit = systemLocaleName.split('_') // ex: en
+        const systemLocaleName = (await getSystemLocale()).replace('_', '-') // ex: en-US
+        const systemLocaleSplit = systemLocaleName.split('-') // ex: en
         const targetLocaleOptions = allLocales.filter((locale) => {
           // filter out other languages
-          const localeLang = locale.replace('-', '_').split('_')[0]
+          const localeLang = locale.split('-')[0]
           return localeLang.includes(systemLocaleSplit[0])
-        }).sort((a, b) => {
-          const aLocaleName = a.replace('-', '_')
-          const bLocaleName = b.replace('-', '_')
-          const aLocale = aLocaleName.split('_') // ex: [en, US]
-          const bLocale = bLocaleName.split('_')
+        }).sort((aLocaleName, bLocaleName) => {
+          const aLocale = aLocaleName.split('-') // ex: [en, US]
+          const bLocale = bLocaleName.split('-')
 
           if (aLocaleName === systemLocaleName) { // country & language match, prefer a
             return -1
@@ -364,8 +360,8 @@ const stateWithSideEffects = {
         )
       }
 
-      // "es" is used as a fallback for "es_AR" and "es-MX"
-      if (targetLocale === 'es_AR' || targetLocale === 'es-MX') {
+      // "es" is used as a fallback for "es-AR" and "es-MX"
+      if (targetLocale === 'es-AR' || targetLocale === 'es-MX') {
         loadPromises.push(
           loadLocale('es')
         )
@@ -385,16 +381,14 @@ const stateWithSideEffects = {
       await Promise.allSettled(loadPromises)
 
       i18n.locale = targetLocale
-      await dispatch('getRegionData', {
-        locale: targetLocale
-      })
+      await dispatch('getRegionData', targetLocale)
     }
   },
 
   defaultInvidiousInstance: {
     defaultValue: '',
-    sideEffectsHandler: ({ commit, getters }, value) => {
-      if (value !== '' && getters.getCurrentInvidiousInstance !== value) {
+    sideEffectsHandler: ({ commit, rootState }, value) => {
+      if (value !== '' && rootState.invidious.currentInvidiousInstance !== value) {
         commit('setCurrentInvidiousInstance', value)
       }
     }
@@ -420,6 +414,8 @@ const stateWithSideEffects = {
   }
 }
 
+const settingsWithSideEffects = Object.keys(stateWithSideEffects)
+
 const customState = {
 }
 
@@ -428,28 +424,8 @@ const customGetters = {
 
 const customMutations = {}
 
-/**********/
-/*
- * DO NOT TOUCH THIS SECTION
- * If you wanna add to custom data or logic to the module,
- * do so in the aproppriate `custom_` variable
- *
- * Some of the custom actions below use these properties, so I'll be
- * adding them here instead of further down for clarity's sake
- */
-Object.assign(customState, {
-  settingsWithSideEffects: Object.keys(stateWithSideEffects)
-})
-
-Object.assign(customGetters, {
-  settingHasSideEffects: (state) => {
-    return (id) => state.settingsWithSideEffects.includes(id)
-  }
-})
-/**********/
-
 const customActions = {
-  grabUserSettings: async ({ commit, dispatch, getters }) => {
+  grabUserSettings: async ({ commit, dispatch }) => {
     try {
       // Assigning default settings for settings that have side effects
       const userSettings = Object.entries(Object.assign({},
@@ -459,7 +435,7 @@ const customActions = {
 
       for (const setting of userSettings) {
         const [_id, value] = setting
-        if (getters.settingHasSideEffects(_id)) {
+        if (settingsWithSideEffects.includes(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
 
@@ -473,14 +449,14 @@ const customActions = {
   },
 
   // Should be a root action, but we'll tolerate
-  setupListenersToSyncWindows: ({ commit, dispatch, getters }) => {
+  setupListenersToSyncWindows: ({ commit, dispatch }) => {
     if (process.env.IS_ELECTRON) {
       const { ipcRenderer } = require('electron')
 
       ipcRenderer.on(IpcChannels.SYNC_SETTINGS, (_, { event, data }) => {
         switch (event) {
           case SyncEvents.GENERAL.UPSERT:
-            if (getters.settingHasSideEffects(data._id)) {
+            if (settingsWithSideEffects.includes(data._id)) {
               dispatch(defaultSideEffectsTriggerId(data._id), data.value)
             }
 
@@ -497,6 +473,18 @@ const customActions = {
           case SyncEvents.GENERAL.UPSERT:
             commit('upsertToHistoryCache', data)
             break
+
+          case SyncEvents.HISTORY.OVERWRITE: {
+            const byId = {}
+            data.forEach(video => {
+              byId[video.videoId] = video
+            })
+
+            // It comes pre-sorted, so we don't have to sort it here
+            commit('setHistoryCacheSorted', data)
+            commit('setHistoryCacheById', byId)
+            break
+          }
 
           case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
             commit('updateRecordWatchProgressInHistoryCache', data)
@@ -528,6 +516,14 @@ const customActions = {
 
           case SyncEvents.GENERAL.UPSERT:
             commit('upsertProfileToList', data)
+            break
+
+          case SyncEvents.PROFILES.ADD_CHANNEL:
+            commit('addChannelToProfiles', data)
+            break
+
+          case SyncEvents.PROFILES.REMOVE_CHANNEL:
+            commit('removeChannelFromProfiles', data)
             break
 
           case SyncEvents.GENERAL.DELETE:
@@ -569,6 +565,41 @@ const customActions = {
             console.error('playlists: invalid sync event received')
         }
       })
+
+      ipcRenderer.on(IpcChannels.SYNC_SUBSCRIPTION_CACHE, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
+            commit('updateVideoCacheByChannel', data)
+            break
+
+          case SyncEvents.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
+            commit('updateLiveCacheByChannel', data)
+            break
+
+          case SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
+            commit('updateShortsCacheByChannel', data)
+            break
+
+          case SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
+            commit('updateShortsCacheWithChannelPageShorts', data)
+            break
+
+          case SyncEvents.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
+            commit('updatePostsCacheByChannel', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_MULTIPLE:
+            commit('clearCachesForManyChannels', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_ALL:
+            commit('clearCaches', data)
+            break
+
+          default:
+            console.error('subscription-cache: invalid sync event received')
+        }
+      })
     }
   }
 }
@@ -607,15 +638,15 @@ for (const settingId of Object.keys(state)) {
   mutations[mutationId] = (state, value) => { state[settingId] = value }
 
   // If setting has side effects, generate action to handle them
-  if (Object.keys(stateWithSideEffects).includes(settingId)) {
+  if (settingsWithSideEffects.includes(settingId)) {
     actions[triggerId] = stateWithSideEffects[settingId].sideEffectsHandler
   }
 
-  actions[updaterId] = async ({ commit, dispatch, getters }, value) => {
+  actions[updaterId] = async ({ commit, dispatch }, value) => {
     try {
       await DBSettingHandlers.upsert(settingId, value)
 
-      if (getters.settingHasSideEffects(settingId)) {
+      if (settingsWithSideEffects.includes(settingId)) {
         dispatch(triggerId, value)
       }
 

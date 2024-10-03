@@ -80,7 +80,8 @@
 }
 
 .top-bar {
-  .playlistThumbnail, .playlistInfoSeparator {
+  .playlistThumbnail,
+  .playlistInfoSeparator {
     display: none;
   }
 
@@ -95,7 +96,8 @@
     margin-block-start: 0.2em;
   }
 
-  .playlistTitle, .playlistDescription {
+  .playlistTitle,
+  .playlistDescription {
     overflow-x: hidden;
     text-align: center;
     white-space: nowrap;
@@ -116,7 +118,9 @@
     align-items: center;
   }
 
-  .channelShareWrapper, .searchInputsRow, .playlistStats {
+  .channelShareWrapper,
+  .searchInputsRow,
+  .playlistStats {
     column-gap: 0;
     inline-size: 100%;
   }
@@ -128,6 +132,6 @@
 
 @media only screen and (width <= 1250px) {
   :deep(.sharePlaylistIcon .iconDropdown) {
-    inset-inline: auto auto;
+    inset-inline: auto;
   }
 }

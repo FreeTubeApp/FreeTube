@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/side-nav/side-nav.vue'
@@ -83,7 +83,7 @@ export default defineComponent({
     windowTitle: function () {
       const routePath = this.$route.path
       if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/')) {
-        let title = translateWindowTitle(this.$route.meta.title, this.$i18n)
+        let title = translateWindowTitle(this.$route.meta.title)
         if (!title) {
           title = packageDetails.productName
         } else {
@@ -122,7 +122,7 @@ export default defineComponent({
     },
 
     locale: function() {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     systemTheme: function () {
@@ -178,6 +178,7 @@ export default defineComponent({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
+        this.grabAllSubscriptions()
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -453,6 +454,17 @@ export default defineComponent({
             break
           }
 
+          case 'post': {
+            const { postId, query } = result
+
+            openInternalPath({
+              path: `/post/${postId}`,
+              query,
+              doCreateNewWindow
+            })
+            break
+          }
+
           case 'channel': {
             const { channelId, subPath, url } = result
 
@@ -536,15 +548,12 @@ export default defineComponent({
       }
     },
 
-    ...mapMutations([
-      'setInvidiousInstancesList'
-    ]),
-
     ...mapActions([
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',
       'grabAllPlaylists',
+      'grabAllSubscriptions',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',

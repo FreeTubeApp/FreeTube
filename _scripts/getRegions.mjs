@@ -28,7 +28,7 @@ const initialResponse = await scrapeLanguage('en')
 // Scrape language menu in en-US
 
 /** @type {string[]} */
-const youTubeLanguages = initialResponse.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[1].multiPageMenuSectionRenderer.items[1].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
+const youTubeLanguages = initialResponse.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items[2].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
   .map(({ compactLinkRenderer }) => {
     return compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].selectLanguageCommand.hl
   })
@@ -45,13 +45,6 @@ for (const language of youTubeLanguages) {
     languagesToScrape.push({
       youTube: language,
       freeTube: language
-    })
-  } else if (activeLanguages.includes(language.replace('-', '_'))) {
-    const withUnderScore = language.replace('-', '_')
-    foundLanguageNames.push(withUnderScore)
-    languagesToScrape.push({
-      youTube: language,
-      freeTube: withUnderScore
     })
   }
   // special cases
@@ -70,19 +63,43 @@ for (const language of youTubeLanguages) {
   } else if (language === 'no') {
     // according to https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
     // "no" is the macro language for "nb" and "nn"
-    foundLanguageNames.push('nb_NO', 'nn')
+    foundLanguageNames.push('nb-NO', 'nn')
     languagesToScrape.push({
       youTube: 'no',
-      freeTube: 'nb_NO'
+      freeTube: 'nb-NO'
     })
     languagesToScrape.push({
       youTube: 'no',
       freeTube: 'nn'
     })
+  } else if (language === 'iw') {
+    // according to https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+    // "iw" is the old/original code for Hebrew, these days it's "he"
+    foundLanguageNames.push('he')
+    languagesToScrape.push({
+      youTube: 'iw',
+      freeTube: 'he'
+    })
+  } else if (language === 'es-419') {
+    foundLanguageNames.push('es-AR', 'es-MX')
+    languagesToScrape.push({
+      youTube: 'es-419',
+      freeTube: 'es-AR'
+    })
+    languagesToScrape.push({
+      youTube: 'es-419',
+      freeTube: 'es-MX'
+    })
   } else if (language !== 'en') {
     unusedYouTubeLanguageNames.push(language)
   }
 }
+
+foundLanguageNames.push('pt-BR')
+languagesToScrape.push({
+  youTube: 'pt',
+  freeTube: 'pt-BR'
+})
 
 console.log("Active FreeTube languages that aren't available on YouTube:")
 console.log(activeLanguages.filter(lang => !foundLanguageNames.includes(lang)).sort())
@@ -116,7 +133,7 @@ async function scrapeLanguage(youTubeLanguageCode) {
 }
 
 function processGeolocations(freeTubeLanguage, youTubeLanguage, response) {
-  const geolocations = response.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[1].multiPageMenuSectionRenderer.items[3].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
+  const geolocations = response.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items[4].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
     .map(({ compactLinkRenderer }) => {
       return {
         name: new Misc.Text(compactLinkRenderer.title).toString().trim(),

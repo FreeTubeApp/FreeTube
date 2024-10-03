@@ -40,17 +40,17 @@ class ProcessLocalesPlugin {
     /** @type {(updatedLocales: [string, string][]) => void|null} */
     this.notifyLocaleChange = null
 
-    if (this.hotReload) {
-      this.hotReloadScript = readFileSync(`${__dirname}/_hotReloadLocalesScript.js`, 'utf-8')
-    }
-
     this.loadLocales()
   }
 
   /** @param {import('webpack').Compiler} compiler  */
   apply(compiler) {
     const { CachedSource, RawSource } = compiler.webpack.sources;
-    const { Compilation } = compiler.webpack
+    const { Compilation, DefinePlugin } = compiler.webpack
+
+    new DefinePlugin({
+      'process.env.HOT_RELOAD_LOCALES': this.hotReload
+    }).apply(compiler)
 
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation) => {
       const IS_DEV_SERVER = !!compiler.watching
@@ -134,19 +134,6 @@ class ProcessLocalesPlugin {
       if (!!compiler.watching) {
         // watch locale files for changes
         compilation.fileDependencies.addAll(this.filePaths)
-      }
-    })
-
-    compiler.hooks.emit.tap(PLUGIN_NAME, (compilation) => {
-      if (this.hotReload) {
-        // Find generated JavaScript output file (e.g. renderer.js or web.js)
-        // and inject the code snippet that listens for locale updates and replaces vue-i18n's locales
-
-        /** @type {string} */
-        const filename = [...[...compilation.chunks][0].files]
-          .find(file => file.endsWith('.js'))
-
-        compilation.assets[filename]._source._children.push(`\n${this.hotReloadScript}`)
       }
     })
   }

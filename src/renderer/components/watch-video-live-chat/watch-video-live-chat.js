@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -169,7 +169,7 @@ export default defineComponent({
 
         this.isLoading = false
 
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs.liveChatComments?.scrollTo({
             top: this.$refs.liveChatComments.scrollHeight,
             behavior: 'instant'
@@ -278,7 +278,7 @@ export default defineComponent({
       this.comments.push(comment)
 
       if (!this.isLoading && this.stayAtBottom) {
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs.liveChatComments?.scrollTo({
             top: this.$refs.liveChatComments.scrollHeight,
             behavior: this.scrollingBehaviour
@@ -306,7 +306,7 @@ export default defineComponent({
       }
     },
 
-    onScroll: function (event) {
+    onScroll: function (event, isScrollEnd = false) {
       const liveChatComments = this.$refs.liveChatComments
       if (event.wheelDelta >= 0 && this.stayAtBottom) {
         this.stayAtBottom = false
@@ -314,10 +314,8 @@ export default defineComponent({
         if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
           this.showScrollToBottom = true
         }
-      } else if (event.wheelDelta < 0 && !this.stayAtBottom) {
-        if ((liveChatComments.scrollHeight - liveChatComments.scrollTop) === liveChatComments.clientHeight) {
-          this.scrollToBottom()
-        }
+      } else if ((isScrollEnd || event.wheelDelta < 0) && !this.stayAtBottom && (liveChatComments.scrollHeight - liveChatComments.scrollTop) === liveChatComments.clientHeight) {
+        this.scrollToBottom()
       }
     },
 

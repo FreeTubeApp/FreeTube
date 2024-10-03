@@ -20,8 +20,8 @@ export default defineComponent({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -30,7 +30,7 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile
     },
     locale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     activeSubscriptions: function () {
       const subscriptions = deepCopy(this.activeProfile.subscriptions)
@@ -47,7 +47,7 @@ export default defineComponent({
 
       if (this.backendPreference === 'invidious') {
         subscriptions.forEach((channel) => {
-          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstanceUrl)
         })
       }
 

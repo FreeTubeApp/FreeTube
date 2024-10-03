@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
@@ -102,7 +102,7 @@ export default defineComponent({
         if (this.dropdownShown && !this.useModal) {
           // wait until the dropdown is visible
           // then focus it so we can hide it automatically when it loses focus
-          setTimeout(() => {
+          nextTick(() => {
             this.$refs.dropdown?.focus()
           })
         }
