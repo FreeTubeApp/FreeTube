@@ -140,19 +140,23 @@ Channels:
   Unsubscribe Prompt: 'Вы сапраўды хочаце адпісацца ад "{channelName}"?'
 Trending:
   Trending: 'У трэндзе'
-  Default: ''
+  Default: 'Па змаўчанні'
   Music: 'Музыка'
   Gaming: 'Гульні'
   Movies: 'Фільмы'
-  Trending Tabs: ''
+  Trending Tabs: 'Укладкі Трэндаў'
 Most Popular: 'Папулярныя'
 Playlists: 'Плэй-лісты'
 User Playlists:
   Your Playlists: 'Вашы плэй-лісты'
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
-  Empty Search Message: ''
-  Search bar placeholder: ''
+  Playlist Message: 'Гэтая старонка не адлюстроўвае цалкам працоўныя плэй-лісты. Тут
+    пералічаны толькі відэа, якія вы захавалі або дадалі ў абранае. Калі праца будзе
+    завершана, усе відэа, якія знаходзяцца тут, будуць перанесены ў плэй-ліст «Выбранае».'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Вашы
+    захаваныя відэа пустыя. Націсніце на кнопку захавання ў куце відэа, каб яно з''явілася
+    тут'
+  Empty Search Message: 'У гэтым плэй-лісце няма відэа, якія б адпавядалі вашаму пошуку'
+  Search bar placeholder: 'Пошук плэй-лістоў'
   Create New Playlist: Стварыць новы плэй-ліст
   Add to Playlist: Дадаць у плэй-ліст
   Add to Favorites: Дадаць у {playlistName}
@@ -160,8 +164,99 @@ User Playlists:
   Cancel: Адмена
   AddVideoPrompt:
     Save: Захаваць
+    N playlists selected: '{playlistCount} выбрана'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      відэа ўжо дадзена'
+    Toast:
+      You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена
+        ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount}
+        плэй-лістоў
+      "{videoCount} video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст
+        | {videoCount} відэа дададзены ў 1 плэй-ліст
+    Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё
+      відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
+    Search in Playlists: Пошук у плэй-лістах
+    Added {count} Times: Ужо дададзена | Дададзена {count} разоў
+    Allow Adding Duplicate Video(s): Дазволіць дадаваць дублікаты відэа
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      відэа будзе дададзена'
   CreatePlaylistPrompt:
     Create: Стварыць
+    New Playlist Name: Назва новага плэй-ліста
+  SinglePlaylistView:
+    Toast:
+      Playlist {playlistName} is the new quick bookmark playlist.: Плэй-ліст {playlistName}
+        - гэта новы плэй-ліст з хуткай закладкай.
+      This playlist is protected and cannot be removed.: Гэты плэй-ліст абаронены
+        і не можа быць выдалены.
+      This video cannot be moved up.: Гэта відэа нельга перамясціць уверх.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некаторыя
+        відэа ў плэй-лісце яшчэ не загружаныя. Націсніце тут, каб усё роўна скапіяваць.
+      Playlist {playlistName} has been deleted.: Плэй-ліст {playlistName} быў выдалены.
+      This playlist does not exist: Гэты плэй-ліст не існуе
+      This playlist is now used for quick bookmark: Цяпер гэты плэй-ліст выкарыстоўваецца
+        для хуткай закладкі
+      Playlist name cannot be empty. Please input a name.: Назва плэй-ліста не можа
+        быць пустой. Калі ласка, увядзіце назву.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Гэты
+        плэй-ліст цяпер выкарыстоўваецца для хуткай закладкі замест {oldPlaylistName}.
+        Націсніце тут, каб адмяніць
+      Reverted to use {oldPlaylistName} for quick bookmark: Вернута да выкарыстання
+        {oldPlaylistName} для хуткай закладкі
+      Playlist has been updated.: Плэй-ліст абноўлены.
+      "{videoCount} video(s) have been removed": 1 відэа было выдалена | {videoCount}
+        відэа былі выдалены
+      There were no videos to remove.: Не было відэа для выдалення.
+      There was an issue with updating this playlist.: Узнікла праблема з абнаўленнем
+        гэтага плэй-ліста.
+      This video cannot be moved down.: Гэта відэа нельга перамясціць уніз.
+      Video has been removed: Відэа было выдалена
+      There was a problem with removing this video: Узнікла праблема з выдаленнем
+        гэтага відэа
+      This playlist is already being used for quick bookmark.: Гэты плэй-ліст ужо
+        выкарыстоўваецца для хуткай закладкі.
+    Search for Videos: Пошук відэа
+  You have no playlists. Click on the create new playlist button to create a new one.: У
+    вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць
+    новы.
+  Playlists with Matching Videos: Плэй-лісты з адпаведнымі відэа
+  Move Video Up: Перамясціць відэа ўверх
+  Move Video Down: Перамясціць відэа ўніз
+  Remove from Playlist: Выдаліць з плэй-лісту
+  Playlist Name: Назва плэй-ліста
+  Playlist Description: Апісанне плэй-ліста
+  Edit Playlist Info: Рэдагаваць інфармацыю пра плэй-ліст
+  Copy Playlist: Скапіяваць плэй-ліст
+  Remove Watched Videos: Выдаліць прагледжаныя відэа
+  Delete Playlist: Выдаліць плэй-ліст
+  Are you sure you want to delete this playlist? This cannot be undone: Вы ўпэўнены,
+    што хочаце выдаліць плэй-ліст? Гэта нельга адмяніць.
+  Sort By:
+    Sort By: Сартаваць
+    EarliestPlayedFirst: Раней прайгравалі
+    NameDescending: Я-А
+    LatestCreatedFirst: Нядаўна створаны
+    EarliestCreatedFirst: Створаныя раней
+    NameAscending: А-Я
+    LatestUpdatedFirst: Нядаўна абноўлены
+    EarliestUpdatedFirst: Раней абноўленыя
+    LatestPlayedFirst: Нядаўна прайгравалі
+  Quick Bookmark Enabled: Хуткая закладка ўключана
+  Cannot delete the quick bookmark target playlist.: Немагчыма выдаліць мэтавы плэй-ліст
+    хуткай закладкі.
+  This playlist currently has no videos.: Зараз у гэтым плэй-лісце няма відэа.
+  Save Changes: Захаваць змены
+  Enable Quick Bookmark With This Playlist: Уключыць хуткую закладку для гэтага плэй-ліста
+  Remove Duplicate Videos: Выдаліць дублікаты відэа
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы
+    ўпэўнены, што хочаце выдаліць 1 прагледжанае відэа з гэтага плэй-ліста? Гэта нельга
+    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} прагледжаных
+    відэа з гэтага плэй-ліста? Гэта нельга адмяніць.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы
+    ўпэўнены, што хочаце выдаліць 1 дублікат відэа з гэтага плэй-ліста? Гэта нельга
+    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} дублікатаў відэа
+    з гэтага плэй-ліста? Гэта нельга адмяніць.
 History:
   # On History Page
   History: 'Гісторыя'
@@ -865,6 +960,7 @@ Search Listing:
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}
+  Feed Last Updated: 'Апошняе абнаўленне каналу {feedName}: {date}'
 Display Label: '{label}: {value}'
 Cancel: Адмена
 checkmark: ✓
