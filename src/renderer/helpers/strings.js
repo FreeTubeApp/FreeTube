@@ -1,3 +1,5 @@
+import i18n from '../i18n/index'
+
 /**
  * This will return true if a string is null, undefined or empty.
  * @param {string|null|undefined} _string the string to process
@@ -24,7 +26,7 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
   return false
 }
 
-export function translateWindowTitle(title, i18n) {
+export function translateWindowTitle(title) {
   switch (title) {
     case 'Subscriptions':
       return i18n.t('Subscriptions.Subscriptions')

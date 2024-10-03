@@ -826,7 +826,7 @@ Tooltips:
       FreeTube abrirá a ligazón na que premeches no teu navegador predeterminado.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Conectarase a Invidious para obter vídeos no
-      canto de recorrer directamente a YouTube. Sobrescribirá a preferencia de API.'
+      canto de recorrer directamente a YouTube.'
     Default Video Format: 'Establecelos formatos utilizados cando se reproduce un
       vídeo. Os formatos DASH poden reproducir calidades superiores. Os formatos legados
       están limitados a un máximo de 720p pero usan menos ancho de banda. Os formatos

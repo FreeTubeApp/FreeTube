@@ -14,32 +14,16 @@ const state = {
 const getters = {
   getSubscriptionCacheReady: (state) => state.subscriptionCacheReady,
 
-  getVideoCache: (state) => {
-    return state.videoCache
-  },
-
   getVideoCacheByChannel: (state) => (channelId) => {
     return state.videoCache[channelId]
-  },
-
-  getShortsCache: (state) => {
-    return state.shortsCache
   },
 
   getShortsCacheByChannel: (state) => (channelId) => {
     return state.shortsCache[channelId]
   },
 
-  getLiveCache: (state) => {
-    return state.liveCache
-  },
-
   getLiveCacheByChannel: (state) => (channelId) => {
     return state.liveCache[channelId]
-  },
-
-  getPostsCache: (state) => {
-    return state.postsCache
   },
 
   getPostsCacheByChannel: (state) => (channelId) => {
@@ -175,7 +159,7 @@ const actions = {
     }
   },
 
-  async clearSubscriptionsCache({ commit }, payload) {
+  async clearSubscriptionsCache({ commit }) {
     try {
       await DBSubscriptionCacheHandlers.deleteAll()
       commit('clearCaches')

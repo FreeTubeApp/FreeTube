@@ -83,7 +83,7 @@ export default defineComponent({
     windowTitle: function () {
       const routePath = this.$route.path
       if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/')) {
-        let title = translateWindowTitle(this.$route.meta.title, this.$i18n)
+        let title = translateWindowTitle(this.$route.meta.title)
         if (!title) {
           title = packageDetails.productName
         } else {
@@ -122,7 +122,7 @@ export default defineComponent({
     },
 
     locale: function() {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
 
     systemTheme: function () {

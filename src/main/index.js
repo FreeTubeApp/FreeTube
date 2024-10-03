@@ -87,7 +87,7 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/channel', '/watch', '/hashtag'].some(p => path.startsWith(p)) ||
+            visible = ['/channel', '/watch', '/hashtag', '/post'].some(p => path.startsWith(p)) ||
               // Only show copy link entry for non user playlists
               (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
@@ -156,6 +156,21 @@ function runApp() {
             }
 
             return url.toString()
+          }
+          case 'post': {
+            if (query) {
+              const authorId = new URLSearchParams(query).get('authorId')
+
+              if (authorId) {
+                if (toYouTube) {
+                  return `${origin}/channel/${authorId}/community?lb=${id}`
+                } else {
+                  return `${origin}/post/${id}?ucid=${authorId}`
+                }
+              }
+            }
+
+            return `${origin}/post/${id}`
           }
         }
       }

@@ -923,7 +923,6 @@ Tooltips:
       lebih tinggi. Format lama terbatas ke maks 720p tetapi dengan bandwidth yang
       lebih rendah. Format audio hanya berisi stream audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
-      Menimpa preferensi API.
     Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan
       dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan
       atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control

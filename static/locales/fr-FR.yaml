@@ -1167,16 +1167,16 @@ A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet 
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
-  est maintenant disponible !  Cliquez pour plus de détails
+  est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera le RSS au lieu
-      de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
-      plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
-      comme la durée de la vidéo ou le statut en direct
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de
+      sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide
+      et empêche le blocage d'IP, mais ne fournit pas certaines informations comme
+      la durée de la vidéo, le statut en direct ou les commentaires
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement
       le flux de votre abonnement à l'ouverture d'une nouvelle fenêtre et lors du
       changement de profil.
@@ -1186,8 +1186,7 @@ Tooltips:
       sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
       formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
-      au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
-      de l'API.
+      au lieu d'établir une connexion directe avec YouTube.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo,
       maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler
       la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse
@@ -1267,7 +1266,7 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
   a été définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
-Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
+Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
 Downloading has completed: '{videoTitle} a fini de se télécharger'

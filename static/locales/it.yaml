@@ -1143,7 +1143,7 @@ Tooltips:
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
       solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
-      invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
+      invece di una connessione diretta a YouTube.
     Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
       premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
@@ -1155,8 +1155,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
-      ma non forniscono determinate informazioni come la durata del video o lo stato
-      dal vivo
+      ma non forniscono determinate informazioni come la durata del video, lo stato
+      dal vivo o I post della comunità
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
       dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
   General Settings:

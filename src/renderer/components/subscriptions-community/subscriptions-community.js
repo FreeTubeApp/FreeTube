@@ -13,7 +13,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       postList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -101,11 +101,23 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    this.isLoading = true
-
-    this.loadPostsFromCacheSometimes()
+    this.loadPostsFromRemoteFirstPerWindowSometimes()
   },
   methods: {
+    loadPostsFromRemoteFirstPerWindowSometimes() {
+      if (!this.fetchSubscriptionsAutomatically) {
+        this.loadPostsFromCacheSometimes()
+        return
+      }
+      if (this.$store.getters.getSubscriptionForCommunityPostsFirstAutoFetchRun) {
+        // Only auto fetch once per window
+        this.loadPostsFromCacheSometimes()
+        return
+      }
+
+      this.loadPostsForSubscriptionsFromRemote()
+      this.$store.commit('setSubscriptionForCommunityPostsFirstAutoFetchRun')
+    },
     loadPostsFromCacheSometimes() {
       // Can only load reliably when cache ready
       if (!this.subscriptionCacheReady) { return }
@@ -116,15 +128,20 @@ export default defineComponent({
         return
       }
 
-      this.maybeLoadPostsForSubscriptionsFromRemote()
+      if (this.fetchSubscriptionsAutomatically) {
+        // `this.isLoading = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
+        this.loadPostsForSubscriptionsFromRemote()
+        return
+      }
+
+      this.postList = []
+      this.attemptedFetch = false
+      this.isLoading = false
     },
 
     async loadPostsFromCacheForAllActiveProfileChannels() {
-      const postList = []
-      this.activeSubscriptionList.forEach((channel) => {
-        const channelCacheEntry = this.$store.getters.getPostsCacheByChannel(channel.id)
-
-        postList.push(...channelCacheEntry.posts)
+      const postList = this.cacheEntriesForAllActiveProfileChannels.flatMap((cacheEntry) => {
+        return cacheEntry.posts
       })
 
       postList.sort((a, b) => {
@@ -143,7 +160,6 @@ export default defineComponent({
       }
 
       const channelsToLoadFromRemote = this.activeSubscriptionList
-      const postList = []
       let channelCount = 0
       this.isLoading = true
 
@@ -193,29 +209,18 @@ export default defineComponent({
         }
 
         return posts
-      }))).flatMap((o) => o)
-      postList.push(...postListFromRemote)
-      postList.sort((a, b) => {
+      }))).flat()
+
+      postListFromRemote.sort((a, b) => {
         return b.publishedTime - a.publishedTime
       })
 
-      this.postList = postList
+      this.postList = postListFromRemote
       this.isLoading = false
       this.updateShowProgressBar(false)
       this.lastRemoteRefreshSuccessTimestamp = new Date()
 
       this.batchUpdateSubscriptionDetails(subscriptionUpdates)
-    },
-
-    maybeLoadPostsForSubscriptionsFromRemote: async function () {
-      if (this.fetchSubscriptionsAutomatically) {
-        // `this.isLoading = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
-        await this.loadPostsForSubscriptionsFromRemote()
-      } else {
-        this.postList = []
-        this.attemptedFetch = false
-        this.isLoading = false
-      }
     },
 
     getChannelPostsLocal: async function (channel) {

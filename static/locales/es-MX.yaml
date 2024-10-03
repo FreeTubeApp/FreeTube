@@ -757,7 +757,7 @@ Tooltips:
       etc.).
   Player Settings:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
-      lugar de conectarse directamente a YouTube. Anulará la API seleccionada.
+      lugar de conectarse directamente a YouTube.
     Default Video Format: Establezca los formatos a usar cuando reproduce un video.
       Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados
       están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de

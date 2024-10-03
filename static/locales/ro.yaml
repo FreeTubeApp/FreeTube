@@ -1024,7 +1024,7 @@ Tooltips:
       720p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri
       audio.
     Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri
-      în loc să facă o conexiune directă la YouTube. Anulează preferințele API.
+      în loc să facă o conexiune directă la YouTube.
     Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului,
       țineți apăsată tasta Control (tasta Command pe Mac) și derulați rotița mouse-ului
       înainte sau înapoi pentru a controla rata de redare. Țineți apăsată tasta Control

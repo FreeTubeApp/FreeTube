@@ -1,7 +1,15 @@
 import * as db from '../index'
 
 class Settings {
-  static find() {
+  static async find() {
+    const currentLocale = await db.settings.findOneAsync({ _id: 'currentLocale' })
+
+    // In FreeTube 0.21.3 and earlier the locales 'en-GB', 'es-AR' and 'nb-NO' had underscores instead of a hyphens
+    // This is a one time migration for users that are using one of those locales
+    if (currentLocale?.value.includes('_')) {
+      await this.upsert('currentLocale', currentLocale.value.replace('_', '-'))
+    }
+
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
   }
 

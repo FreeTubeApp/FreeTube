@@ -39,6 +39,8 @@ Global:
     Channel Count: 1. kanala ! {count} kanal
     Video Count: 1. bideoa | {count} bideo
     View Count: 1. ikustaldia | {count} ikustaldi
+    Like Count: atsegin dut 1 | {count} atsegin dut
+    Comment Count: Iruzkin 1 | {count} iruzkin
   Live: Zuzenekoa
   Shorts: Laburrak
   Input Tags:
@@ -785,6 +787,10 @@ Channel:
       argitalpenik
     Reveal Answers: Erantzunak agerian utzi
     Video hidden by FreeTube: FreeTube-k ezkutatutako bideoa
+    View Full Post: Ikusi mezu osoa
+    Viewing Posts Only Supported By Invidious: Argitalpenak ikustea Invidious-ek soilik
+      onartzen du. Zoaz kanal baten komunitatearen fitxara bertan edukia ikusteko
+      Invidious gabe.
   Channel Tabs: Kanalaren fitxak
   This channel does not allow searching: Kanal honek ez du bilaketarik onartzen
   Live:
@@ -913,6 +919,35 @@ Video:
   More Options: Aukera gehiago
   Upcoming: Datozenak
   Scroll to Bottom: Joan Beherantz
+  Player:
+    Stats:
+      Media Formats: 'Multimediaren formatuak: {formats}'
+      Stats: Estatistikak
+      Video ID: 'Bideoaren ID: {videoId}'
+      Bandwidth: 'Banda-zabalera: {bandwidth} kbps'
+      Buffered: 'Bufferrean: {bufferedPercentage}%'
+      CodecAudio: 'Kodeka: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Jaregindako fotogramak: {droppedFrames} / Total
+        Frames: {totalFrames}'
+      Volume: 'Bolumena: {volumePercentage}%'
+      CodecsVideoAudio: 'Kodekak: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Resolution: 'Bereizmena: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Erreproduzigailuaren neurriak: {width}x{height}'
+      Bitrate: 'Bit-emaria: {bitrate} kbps'
+      CodecsVideoAudioNoItags: 'Kodekak: {videoCodec} / {audioCodec}'
+    Show Stats: Erakutsi estatistikak
+    Hide Stats: Ezkutatu estatistikak
+    TranslatedCaptionTemplate: '{language} ("{originalLanguage}"-tik itzulia)'
+    Audio Tracks: Audio-pistak
+    Theatre Mode: Antzoki modua
+    Exit Theatre Mode: Irten antzoki modutik
+    Exit Full Window: Irten pantaila osotik
+    Take Screenshot: Egin pantaila-argazkia
+    Skipped segment: '{segmentCategory} segmentua saltatu da'
+    You appear to be offline: Lineaz kanpo zaudela dirudi.
+    Playback will resume automatically when your connection comes back: Erreprodukzioa
+      automatikoki berrekingo da konexioa itzultzen denean.
+    Full Window: Pantaila osoa
 Videos:
   #& Sort By
   Sort By:
@@ -951,6 +986,8 @@ Change Format:
     bideo honentzat'
   Audio formats are not available for this video: 'Audio formatuak ez dira eskuragarri
     bideo honentzat'
+  Legacy formats are not available for this video: Formatu zaharrak ez daude bideo
+    honetarako erabilgarri
 Share:
   Share Video: 'Bideoa partekatu'
   Share Playlist: 'Erreprodukzio-zerrenda partekatu'
@@ -1001,6 +1038,8 @@ Comments:
   From {channelName}: '{channelName}-tik'
   View {replyCount} replies: Ikusi {replyCount} erantzunak
   Subscribed: Harpidetuta
+  There are no comments available for this post: Ez dago iruzkinik eskuragarri mezu
+    honetarako
 Up Next: 'Hurrengoa'
 
 #Tooltips
@@ -1023,8 +1062,7 @@ Tooltips:
       nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
-      da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
-      du.'
+      da, YouTube-ra zuzeneko konexioa egin beharrean.'
     Default Video Format: 'Erabiliko diren formatuak ezarri bideo bat erreproduzitzerakoan.
       DASH formatuek kalitate handiagoak onartzen dituzte. Bestalde, Legacy formatuak
       720 puntutara mugatuta badaude ere banda zabalera gutxiago kontsumitzen dute.
