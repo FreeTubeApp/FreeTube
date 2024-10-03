@@ -184,6 +184,13 @@ User Playlists:
   CreatePlaylistPrompt:
     Create: Стварыць
     New Playlist Name: Назва новага плэй-ліста
+    Toast:
+      There was an issue with creating the playlist.: Узнікла праблема пры стварэнні
+        плэй-ліста.
+      There is already a playlist with this name. Please pick a different name.: Плэй-ліст
+        з такой назвай ужо існуе. Выберыце іншую назву.
+      Playlist {playlistName} has been successfully created.: Плэй-ліст {playlistName}
+        быў паспяхова створаны.
   SinglePlaylistView:
     Toast:
       Playlist {playlistName} is the new quick bookmark playlist.: Плэй-ліст {playlistName}
@@ -261,78 +268,91 @@ History:
   # On History Page
   History: 'Гісторыя'
   Watch History: 'Гісторыя прагляду'
-  Your history list is currently empty.: ''
-  Empty Search Message: ''
+  Your history list is currently empty.: 'Ваша гісторыя прагляду зараз пустая.'
+  Empty Search Message: 'У вашай гісторыі няма відэа, якія б адпавядалі вашаму пошуку'
   Search bar placeholder: "Пошук у гісторыі"
+  Case Sensitive Search: Пошук з улікам рэгістра
 Settings:
   # On Settings Page
   Settings: 'Налады'
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Праграму
+    трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
   General Settings:
     General Settings: 'Агульныя налады'
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
-    System Default: ''
+    Check for Updates: 'Праверыць наяўнасць абнаўленняў'
+    Check for Latest Blog Posts: 'Праверыць апошнія паведамленні ў блогу'
+    Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда
+      ў выпадку няўдачы'
+    Enable Search Suggestions: 'Уключыць прапановы пошуку'
+    Default Landing Page: 'Хатняя старонка'
+    Locale Preference: 'Рэгіянальныя налады'
+    System Default: 'Налада сістэмы'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Пераважны бэкэнд API'
+      Local API: 'Мясцовы API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Тып прагляду відэа'
+      Grid: 'Сетка'
+      List: 'Спіс'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-      Hidden: ''
-    Current Invidious Instance: ''
-    The currently set default instance is {instance}: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Налады эскізаў'
+      Default: 'Па змаўчанні'
+      Beginning: 'Пачатак'
+      Middle: 'Сярэдзіна'
+      End: 'Канец'
+      Hidden: 'Схавана'
+      Blur: Размыты
+    Current Invidious Instance: 'Бягучы экзэмпляр Invidious'
+    The currently set default instance is {instance}: 'Бягучы ўсталяваны экзэмпляр
+      па змаўчанні: {instance}'
+    No default instance has been set: 'Экземпляр па змаўчанні не ўсталяваны'
+    Current instance will be randomized on startup: 'Бягучы экзэмпляр будзе рандомізаваны
+      пры запуску'
+    Set Current Instance as Default: 'Усталяваць бягучы экзэмпляр па змаўчанні'
+    Clear Default Instance: 'Ачысціць экзэмпляр па змаўчанні'
+    View all Invidious instance information: 'Праглядзіце ўсю інфармацыю пра экзэмпляр
+      Invidious'
+    Region for Trending: 'Рэгіён для Трэндаў'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
-      Open Link: ''
-      Ask Before Opening Link: ''
-      No Action: ''
+      External Link Handling: 'Апрацоўка знешніх спасылак'
+      Open Link: 'Адкрыць спасылку'
+      Ask Before Opening Link: 'Спытаць, перш чым адкрываць спасылку'
+      No Action: 'Без дзеянняў'
+    Auto Load Next Page:
+      Label: Аўтаматычная загрузка наступнай старонкі
+      Tooltip: Аўтаматычна загружаць дадатковыя старонкі і каментарыі.
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
-    Hide Side Bar Labels: ''
-    Hide FreeTube Header Logo: ''
+    Theme Settings: 'Налады тэмы'
+    Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
+    Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
+    Disable Smooth Scrolling: 'Адключыць плыўную пракрутку'
+    UI Scale: 'Маштаб інтэрфейсу'
+    Hide Side Bar Labels: 'Схаваць надпісы на бакавой панэлі'
+    Hide FreeTube Header Logo: 'Схаваць лагатып загалоўка FreeTube'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      System Default: ''
-      Light: ''
-      Dracula: ''
-      Catppuccin Mocha: ''
-      Pastel Pink: ''
-      Hot Pink: ''
+      Base Theme: 'Базавая тэма'
+      Black: 'Чорная'
+      Dark: 'Цёмная'
+      System Default: 'Сістэмная'
+      Light: 'Светлая'
+      Dracula: 'Dracula'
+      Catppuccin Mocha: 'Catppuccin Mocha'
+      Pastel Pink: 'Пастэльна-ружовая'
+      Hot Pink: 'Ярка-ружовая'
+      Nordic: Nordic
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
+      Main Color Theme: 'Асноўны колер тэмы'
+      Red: 'Чырвоны'
+      Pink: 'Ружовы'
+      Purple: 'Фіялетавы'
+      Deep Purple: 'Цёмна-фіялетавы'
+      Indigo: 'Індыга'
+      Blue: 'Сіні'
+      Light Blue: 'Блакітны'
       Cyan: ''
       Teal: ''
       Green: ''
@@ -568,6 +588,8 @@ Settings:
     Set Password To Prevent Access: ''
     Set Password: ''
     Remove Password: ''
+  Sort Settings Sections (A-Z): Сартаваць раздзелы налад (А-Я)
+  Expand All Settings Sections: Разгарнуць усе раздзелы налад
 About:
   #On About page
   About: 'Пра FreeTube'
@@ -880,7 +902,7 @@ Comments:
   No more comments available: 'Больш каментарыяў няма'
   Pinned by: 'Замацавана'
   Member: 'Член'
-  Subscribed: ''
+  Subscribed: 'Падпісан'
   Hearted: ''
   There are no comments available for this post: Да гэтай публікацыі няма каментарыяў
 Up Next: 'Далей'
