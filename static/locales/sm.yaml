@@ -304,23 +304,31 @@ Settings:
     Custom External Player Arguments: ''
     Players:
       None:
-        Name: ''
+        Name: 'Ніякі'
     Ignore Default Arguments: Ігнараваць аргументы па змаўчанні
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Налады прыватнасці'
+    Remember History: 'Памятаць гісторыю'
+    Save Watched Progress: 'Захоўваць прагрэс прагляду'
+    Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з
+      апошнім прагледжаным плэй-лістам'
+    Clear Search Cache: 'Ачысціць кэш пошуку'
+    Are you sure you want to clear out your search cache?: 'Вы ўпэўнены, што хочаце
+      ачысціць кэш пошуку?'
+    Search cache has been cleared: 'Кэш пошуку ачышчаны'
+    Remove Watch History: 'Выдаліць гісторыю праглядаў'
+    Are you sure you want to remove your entire watch history?: 'Вы ўпэўнены, што
+      хочаце выдаліць усю гісторыю праглядаў?'
+    Watch history has been cleared: 'Гісторыя праглядаў ачышчана'
+    Remove All Subscriptions / Profiles: 'Выдаліць усе падпіскі / профілі'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Вы
+      ўпэўнены, што хочаце выдаліць усе падпіскі і профілі?  Гэта нельга адмяніць.'
+    Remove All Playlists: Выдаліць усе плэй-лісты
+    All playlists have been removed: Усе плэй-лісты былі выдалены
+    Are you sure you want to remove all your playlists?: Вы ўпэўнены, што хочаце выдаліць
+      усе свае плэй-лісты?
   Subscription Settings:
-    Subscription Settings: ''
+    Subscription Settings: 'Налады падпіскі'
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Manage Subscriptions: ''
