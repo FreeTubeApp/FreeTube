@@ -442,7 +442,10 @@ export default defineComponent({
 
         const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
         if (typeof videoHistory !== 'undefined') {
-          video.lengthSeconds = videoDurationWithFallback(videoHistory)
+          const fetchedLengthSeconds = videoDurationWithFallback(videoHistory)
+          video.lengthSeconds = fetchedLengthSeconds
+          // if the video duration is 0, it will be the fallback value, so mark it as missing a duration
+          if (fetchedLengthSeconds === 0) { anyVideoMissingDuration = true }
         } else {
           // Mark at least one video have no duration, show notice later
           // Also assign fallback duration here
