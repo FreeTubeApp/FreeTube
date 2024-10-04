@@ -58,13 +58,6 @@ function runApp() {
     showCopyLink: false,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
-        label: 'Show / Hide Video Statistics',
-        visible: parameters.mediaType === 'video',
-        click: () => {
-          browserWindow.webContents.send(IpcChannels.SHOW_VIDEO_STATISTICS)
-        }
-      },
-      {
         label: 'Open in a New Window',
         // Only show the option for in-app URLs and not external ones
         visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
@@ -94,7 +87,7 @@ function runApp() {
           const path = urlParts[1]
 
           if (path) {
-            visible = ['/channel', '/watch'].some(p => path.startsWith(p)) ||
+            visible = ['/channel', '/watch', '/hashtag', '/post'].some(p => path.startsWith(p)) ||
               // Only show copy link entry for non user playlists
               (path.startsWith('/playlist') && !/playlistType=user/.test(path))
           }
@@ -131,6 +124,8 @@ function runApp() {
             return `${origin}/playlist?list=${id}`
           case 'channel':
             return `${origin}/channel/${id}`
+          case 'hashtag':
+            return `${origin}/hashtag/${id}`
           case 'watch': {
             let url
 
@@ -161,6 +156,21 @@ function runApp() {
             }
 
             return url.toString()
+          }
+          case 'post': {
+            if (query) {
+              const authorId = new URLSearchParams(query).get('authorId')
+
+              if (authorId) {
+                if (toYouTube) {
+                  return `${origin}/channel/${authorId}/community?lb=${id}`
+                } else {
+                  return `${origin}/post/${id}?ucid=${authorId}`
+                }
+              }
+            }
+
+            return `${origin}/post/${id}`
           }
         }
       }
@@ -199,9 +209,11 @@ function runApp() {
   let startupUrl
 
   if (process.platform === 'linux') {
-    // Enable hardware acceleration via VA-API
+    // Enable hardware acceleration via VA-API with OpenGL if no other feature flags are found
     // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
-    app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+    if (!app.commandLine.hasSwitch('enable-features')) {
+      app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+    }
   }
 
   const userDataPath = app.getPath('userData')
@@ -399,53 +411,50 @@ function runApp() {
       sameSite: 'no_restriction',
     })
 
-    // make InnerTube requests work with the fetch function
-    // InnerTube rejects requests if the referer isn't YouTube or empty
-    const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
-
-    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeAndMediaRequestFilter, ({ requestHeaders, url, resourceType }, callback) => {
-      requestHeaders.Referer = 'https://www.youtube.com/'
-      requestHeaders.Origin = 'https://www.youtube.com'
+    const onBeforeSendHeadersRequestFilter = {
+      urls: ['https://*/*', 'http://*/*'],
+      types: ['xhr', 'media', 'image']
+    }
+    session.defaultSession.webRequest.onBeforeSendHeaders(onBeforeSendHeadersRequestFilter, ({ requestHeaders, url, webContents }, callback) => {
+      const urlObj = new URL(url)
 
       if (url.startsWith('https://www.youtube.com/youtubei/')) {
-        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
-      } else {
+        // make InnerTube requests work with the fetch function
+        // InnerTube rejects requests if the referer isn't YouTube or empty
+        requestHeaders.Referer = 'https://www.youtube.com/'
+        requestHeaders.Origin = 'https://www.youtube.com'
+
+        // Make iOS requests work and look more realistic
+        if (requestHeaders['x-youtube-client-name'] === '5') {
+          delete requestHeaders.Referer
+          delete requestHeaders.Origin
+          delete requestHeaders['Sec-Fetch-Site']
+          delete requestHeaders['Sec-Fetch-Mode']
+          delete requestHeaders['Sec-Fetch-Dest']
+          delete requestHeaders['sec-ch-ua']
+          delete requestHeaders['sec-ch-ua-mobile']
+          delete requestHeaders['sec-ch-ua-platform']
+
+          requestHeaders['User-Agent'] = requestHeaders['x-user-agent']
+          delete requestHeaders['x-user-agent']
+        } else {
+          requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+          requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+          requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+        }
+      } else if (urlObj.origin.endsWith('.googlevideo.com') && urlObj.pathname === '/videoplayback') {
+        requestHeaders.Referer = 'https://www.youtube.com/'
+        requestHeaders.Origin = 'https://www.youtube.com'
+
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
-      }
+      } else if (webContents) {
+        const invidiousAuthorization = invidiousAuthorizations.get(webContents.id)
 
-      // YouTube throttles the adaptive formats if you request a chunk larger than 10MiB.
-      // For the DASH formats we are fine as video.js doesn't seem to ever request chunks that big.
-      // The legacy formats don't have any chunk size limits.
-      // For the audio formats we need to handle it ourselves, as the browser requests the entire audio file,
-      // which means that for most videos that are longer than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
-
-      // This code checks if the file is larger than the limit, by checking the `clen` query param,
-      // which YouTube helpfully populates with the content length for us.
-      // If it does surpass that limit, it then checks if the requested range is larger than the limit
-      // (seeking right at the end of the video, would result in a small enough range to be under the chunk limit)
-      // if that surpasses the limit too, it then limits the requested range to 10MiB, by setting the range to `start-${start + 10MiB}`.
-      if (resourceType === 'media' && url.includes('&mime=audio') && requestHeaders.Range) {
-        const TEN_MIB = 10 * 1024 * 1024
-
-        const contentLength = parseInt(new URL(url).searchParams.get('clen'))
-
-        if (contentLength > TEN_MIB) {
-          const [startStr, endStr] = requestHeaders.Range.split('=')[1].split('-')
-
-          const start = parseInt(startStr)
-
-          // handle open ended ranges like `0-` and `1234-`
-          const end = endStr.length === 0 ? contentLength : parseInt(endStr)
-
-          if (end - start > TEN_MIB) {
-            const newEnd = start + TEN_MIB
-
-            requestHeaders.Range = `bytes=${start}-${newEnd}`
-          }
+        if (invidiousAuthorization && url.startsWith(invidiousAuthorization.url)) {
+          requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
@@ -467,8 +476,10 @@ function runApp() {
       const imageCache = new ImageCache()
 
       protocol.handle('imagecache', (request) => {
+        const [requestUrl, rawWebContentsId] = request.url.split('#')
+
         return new Promise((resolve, reject) => {
-          const url = decodeURIComponent(request.url.substring(13))
+          const url = decodeURIComponent(requestUrl.substring(13))
           if (imageCache.has(url)) {
             const cached = imageCache.get(url)
 
@@ -478,9 +489,22 @@ function runApp() {
             return
           }
 
+          let headers
+
+          if (rawWebContentsId) {
+            const invidiousAuthorization = invidiousAuthorizations.get(parseInt(rawWebContentsId))
+
+            if (invidiousAuthorization && url.startsWith(invidiousAuthorization.url)) {
+              headers = {
+                Authorization: invidiousAuthorization.authorization
+              }
+            }
+          }
+
           const newRequest = net.request({
             method: request.method,
-            url
+            url,
+            headers
           })
 
           // Electron doesn't allow certain headers to be set:
@@ -527,19 +551,20 @@ function runApp() {
         })
       })
 
-      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
+      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'], types: ['image'] }
       session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
         // the requests made by the imagecache:// handler to fetch the image,
         // are allowed through, as their resourceType is 'other'
-        if (details.resourceType === 'image') {
-          // eslint-disable-next-line n/no-callback-literal
-          callback({
-            redirectURL: `imagecache://${encodeURIComponent(details.url)}`
-          })
-        } else {
-          // eslint-disable-next-line n/no-callback-literal
-          callback({})
+
+        let redirectURL = `imagecache://${encodeURIComponent(details.url)}`
+
+        if (details.webContents) {
+          redirectURL += `#${details.webContents.id}`
         }
+
+        callback({
+          redirectURL
+        })
       })
 
       // --- end of `if experimentsDisableDiskCache` ---
@@ -573,8 +598,8 @@ function runApp() {
         return 'text/javascript'
       case 'ttf':
         return 'font/ttf'
-      case 'woff':
-        return 'font/woff'
+      case 'woff2':
+        return 'font/woff2'
       case 'svg':
         return 'image/svg+xml'
       case 'png':
@@ -974,6 +999,7 @@ function runApp() {
 
     try {
       const contents = await asyncFs.readFile(filePath)
+
       return contents.buffer
     } catch (e) {
       console.error(e)
@@ -987,6 +1013,21 @@ function runApp() {
     await asyncFs.mkdir(PLAYER_CACHE_PATH, { recursive: true })
 
     await asyncFs.writeFile(filePath, new Uint8Array(value))
+  })
+
+  /** @type {Map<number, { url: string, authorization: string }>} */
+  const invidiousAuthorizations = new Map()
+
+  ipcMain.on(IpcChannels.SET_INVIDIOUS_AUTHORIZATION, (event, authorization, url) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    if (!authorization) {
+      invidiousAuthorizations.delete(event.sender.id)
+    } else if (typeof authorization === 'string' && typeof url === 'string') {
+      invidiousAuthorizations.set(event.sender.id, { authorization, url })
+    }
   })
 
   // ************************************************* //
@@ -1046,6 +1087,15 @@ function runApp() {
             IpcChannels.SYNC_HISTORY,
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.HISTORY.OVERWRITE:
+          await baseHandlers.history.overwrite(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.OVERWRITE, data }
           )
           return null
 
@@ -1265,6 +1315,89 @@ function runApp() {
 
   // *********** //
 
+  // *********** //
+  // Profiles
+  ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_CACHE, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.subscriptionCache.find()
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateVideosByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
+          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.subscriptionCache.deleteMultipleChannels(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.subscriptionCache.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL, data }
+          )
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid subscriptionCache db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
+
   function syncOtherWindows(channel, event, payload) {
     const otherWindows = BrowserWindow.getAllWindows().filter((window) => {
       return window.webContents.id !== event.sender.id
@@ -1352,6 +1485,12 @@ function runApp() {
     } else {
       startupUrl = baseUrl(url)
     }
+  })
+
+  app.on('web-contents-created', (_, webContents) => {
+    webContents.once('destroyed', () => {
+      invidiousAuthorizations.delete(webContents.id)
+    })
   })
 
   /*
@@ -1493,6 +1632,19 @@ function runApp() {
               }
             }
           },
+          {
+            label: 'GPU Internals (chrome://gpu)',
+            click() {
+              const gpuWindow = new BrowserWindow({
+                show: true,
+                autoHideMenuBar: true,
+                webPreferences: {
+                  devTools: false
+                }
+              })
+              gpuWindow.loadURL('chrome://gpu')
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
           { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
@@ -1510,7 +1662,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.goBack()
+              browserWindow.webContents.navigationHistory.goBack()
             },
             type: 'normal',
           },
@@ -1520,7 +1672,7 @@ function runApp() {
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) { return }
 
-              browserWindow.webContents.goForward()
+              browserWindow.webContents.navigationHistory.goForward()
             },
             type: 'normal',
           },

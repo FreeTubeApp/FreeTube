@@ -1,15 +1,19 @@
 import store from '../../store/index'
-import { stripHTML, toLocalePublicationString } from '../utils'
+import {
+  calculatePublishedDate,
+  stripHTML,
+  toLocalePublicationString,
+} from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
 
-function getCurrentInstance() {
-  return store.getters.getCurrentInvidiousInstance
+function getCurrentInstanceUrl() {
+  return store.getters.getCurrentInvidiousInstanceUrl
 }
 
 export function getProxyUrl(uri) {
-  const currentInstance = getCurrentInstance()
+  const currentInstance = getCurrentInstanceUrl()
 
   const url = new URL(uri)
   const { origin } = url
@@ -20,10 +24,24 @@ export function getProxyUrl(uri) {
   return url.toString().replace(origin, currentInstance)
 }
 
+export function invidiousFetch(url) {
+  const authorization = store.getters.getCurrentInvidiousInstanceAuthorization
+
+  if (authorization) {
+    return fetch(url, {
+      headers: {
+        Authorization: authorization
+      }
+    })
+  } else {
+    return fetch(url)
+  }
+}
+
 export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   return new Promise((resolve, reject) => {
-    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
-    fetch(requestUrl)
+    const requestUrl = getCurrentInstanceUrl() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
+    invidiousFetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {
         if (json.error !== undefined) {
@@ -46,6 +64,16 @@ export function invidiousAPICall({ resource, id = '', params = {}, doLogError = 
   })
 }
 
+async function resolveUrl(url) {
+  return await invidiousAPICall({
+    resource: 'resolveurl',
+    params: {
+      url
+    },
+    doLogError: false
+  })
+}
+
 /**
  * Gets the channel ID for a channel URL
  * used to get the ID for channel usernames and handles
@@ -53,13 +81,7 @@ export function invidiousAPICall({ resource, id = '', params = {}, doLogError = 
  */
 export async function invidiousGetChannelId(url) {
   try {
-    const response = await invidiousAPICall({
-      resource: 'resolveurl',
-      params: {
-        url
-      },
-      doLogError: false
-    })
+    const response = await resolveUrl(url)
 
     if (response.pageType === 'WEB_PAGE_TYPE_CHANNEL') {
       return response.ucid
@@ -126,7 +148,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
   }
 
   if (currentInstance === null) {
-    currentInstance = getCurrentInstance()
+    currentInstance = getCurrentInstanceUrl()
   }
   // Can be prefixed with `https://` or `//` (protocol relative)
   if (url.startsWith('//')) {
@@ -149,7 +171,7 @@ function parseInvidiousCommentData(response) {
     comment.authorLink = comment.authorId
     comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url)
     comment.likes = comment.likeCount
-    comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstance())))
+    comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())))
     comment.dataType = 'invidious'
     comment.isOwner = comment.authorIsChannelOwner
     comment.numReplies = comment.replies?.replyCount ?? 0
@@ -184,6 +206,60 @@ export async function invidiousGetCommunityPosts(channelId, continuation = null)
   return { posts: response.comments, continuation: response.continuation ?? null }
 }
 
+export async function getInvidiousCommunityPost(postId, authorId = null) {
+  const payload = {
+    resource: 'post',
+    id: postId,
+  }
+
+  if (authorId == null) {
+    authorId = await invidiousGetChannelId('https://www.youtube.com/post/' + postId)
+  }
+
+  payload.params = {
+    ucid: authorId
+  }
+
+  const response = await invidiousAPICall(payload)
+
+  const post = parseInvidiousCommunityData(response.comments[0])
+  post.authorId = authorId
+  post.commentCount = null
+
+  return post
+}
+
+export async function getInvidiousCommunityPostComments({ postId, authorId }) {
+  const payload = {
+    resource: 'post',
+    id: postId,
+    subResource: 'comments',
+    params: {
+      ucid: authorId
+    }
+  }
+
+  const response = await invidiousAPICall(payload)
+  const commentData = parseInvidiousCommentData(response)
+
+  return { response, commentData }
+}
+
+export async function getInvidiousCommunityPostCommentReplies({ postId, replyToken, authorId }) {
+  const payload = {
+    resource: 'post',
+    id: postId,
+    subResource: 'comments',
+    params: {
+      ucid: authorId,
+      continuation: replyToken
+    }
+  }
+
+  const response = await invidiousAPICall(payload)
+  return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
+}
+
 function parseInvidiousCommunityData(data) {
   return {
     // use #/ to support channel YT links.
@@ -194,7 +270,7 @@ function parseInvidiousCommunityData(data) {
       thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
       return thumbnail
     }),
-    publishedText: data.publishedText,
+    publishedTime: calculatePublishedDate(data.publishedText),
     voteCount: data.likeCount,
     postContent: parseInvidiousCommunityAttachments(data.attachment),
     commentCount: data?.replyCount ?? 0, // https://github.com/iv-org/invidious/pull/3635/
@@ -297,40 +373,19 @@ function parseInvidiousCommunityAttachments(data) {
 }
 
 /**
- * video.js only supports MP4 DASH not WebM DASH
- * so we filter out the WebM DASH formats
+ * Invidious doesn't include the correct height or width for all formats in their API response and are also missing the fps and qualityLabel for the AV1 formats.
+ * When the local API is supported we generate our own manifest with the local API manifest generator, based on the Invidious API response and the height, width and fps extracted from Invidious' DASH manifest.
+ * As Invidious only includes h264 and AV1 in their DASH manifest, we have to always filter out the VP9 formats, due to missing information.
  * @param {any[]} formats
- * @param {boolean} allowAv1 Use the AV1 formats if they are available
  */
-export function filterInvidiousFormats(formats, allowAv1 = false) {
-  const audioFormats = []
-  const h264Formats = []
-  const av1Formats = []
-
-  formats.forEach(format => {
+export function filterInvidiousFormats(formats) {
+  return formats.filter(format => {
     const mimeType = format.type
 
-    if (mimeType.startsWith('audio/mp4')) {
-      audioFormats.push(format)
-    } else if (allowAv1 && mimeType.startsWith('video/mp4; codecs="av01')) {
-      av1Formats.push(format)
-    } else if (mimeType.startsWith('video/mp4; codecs="avc')) {
-      h264Formats.push(format)
-    }
+    return mimeType.startsWith('audio/') ||
+      mimeType.startsWith('video/mp4; codecs="avc') ||
+      mimeType.startsWith('video/mp4; codecs="av01')
   })
-
-  // Disabled AV1 as a workaround to https://github.com/FreeTubeApp/FreeTube/issues/3382
-  // Which is caused by Invidious API limitation on AV1 formats (see related issues)
-  // Commented code to be restored after Invidious issue fixed
-  //
-  // As we generate our own DASH manifest (using YouTube.js) for multiple audio track support when the local API is supported,
-  // we can allow AV1 in that situation. When the local API isn't supported,
-  // we still can't use them until Invidious fixes the issue on their side
-  if (process.env.SUPPORTS_LOCAL_API && allowAv1 && av1Formats.length > 0) {
-    return [...audioFormats, ...av1Formats]
-  }
-
-  return [...audioFormats, ...h264Formats]
 }
 
 export async function getHashtagInvidious(hashtag, page) {
@@ -382,7 +437,6 @@ export function convertInvidiousToLocalFormat(format) {
   // audioQuality and qualityLabel don't go inside the DASH manifest, but are used by YouTube.js
   // to determine whether a format is an audio or video stream respectively.
 
-  /** @type {import('./local').LocalFormat} */
   const localFormat = new Misc.Format({
     itag: format.itag,
     mimeType: format.type,
@@ -410,13 +464,36 @@ export function convertInvidiousToLocalFormat(format) {
       : {
           fps: format.fps,
           qualityLabel: format.qualityLabel,
-          colorInfo: format.colorInfo
+          ...(format.colorInfo ? { colorInfo: format.colorInfo } : {})
         })
   })
 
-  // Adding freeTubeUrl allows us to reuse the code,
-  // to generate the audio tracks for audio only mode, that we use for the local API
-  localFormat.freeTubeUrl = format.url
-
   return localFormat
+}
+
+/**
+ * @param {any} format
+ * @param {boolean} trustApiResponse
+ */
+export function mapInvidiousLegacyFormat(format, trustApiResponse) {
+  let width
+  let height
+
+  if (trustApiResponse) {
+    const [stringWidth, stringHeight] = format.size.split('x')
+
+    width = parseInt(stringWidth)
+    height = parseInt(stringHeight)
+  }
+
+  return {
+    itag: format.itag,
+    qualityLabel: format.qualityLabel,
+    fps: format.fps,
+    bitrate: parseInt(format.bitrate),
+    mimeType: format.type,
+    height,
+    width,
+    url: format.url
+  }
 }

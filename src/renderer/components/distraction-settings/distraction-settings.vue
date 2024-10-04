@@ -261,4 +261,4 @@
 </template>
 
 <script src="./distraction-settings.js" />
-<style src="./distraction-settings.css" />
+<style scoped src="./distraction-settings.css" />

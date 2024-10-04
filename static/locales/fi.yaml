@@ -125,7 +125,7 @@ User Playlists:
     ole tallentanut videoita. Paina "Tallenna"-painiketta videon kulmassa tallentaaksesi
     sen tänne
   Search bar placeholder: Etsi soittolistoja
-  Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
+  Empty Search Message: Tällä soittolistalla ei ole hakuasi vastaavia videoita
   Sort By:
     NameAscending: A-Ö
     NameDescending: Ö-A
@@ -307,8 +307,6 @@ Settings:
     Hide FreeTube Header Logo: Piilota FreeTube-otsikkologo
   Player Settings:
     Player Settings: 'Soittimen asetukset'
-    Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
-      formaateille'
     Remember History: 'Muista historia'
     Play Next Video: 'Toista seuraava video'
     Turn on Subtitles by Default: 'Ota tekstitys käyttöön oletusarvoisesti'
@@ -361,7 +359,6 @@ Settings:
         "\" tai "/" luodaksesi alikansioita.
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
-    Allow DASH AV1 formats: Salli DASH AV1 -formaatit
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -439,8 +436,6 @@ Settings:
     Invalid history file: Puutteellinen historiatiedosto
     This might take a while, please wait: Tämä saattaa viedä tovin, odota hetki
     Invalid subscriptions file: Puutteellinen tilaustiedosto
-    One or more subscriptions were unable to be imported: Yhden tai useamman tilauksen
-      tuonti epäonnistui
     All subscriptions have been successfully imported: Kaikki tilaukset on tuotu onnistuneesti
     All subscriptions and profiles have been successfully imported: Kaikki tilaukset
       ja profiilit on tuotu onnistuneesti
@@ -586,6 +581,7 @@ Settings:
     Set Password: Aseta salasana
     Remove Password: Poista salasana
   Expand All Settings Sections: Laajenna asetusten kaikki osiot
+  Sort Settings Sections (A-Z): Järjestä asetusosio (A-Ö)
 About:
   #On About page
   About: 'Tietoja'
@@ -640,6 +636,8 @@ About:
   Donate: Lahjoita
   Source code: Lähdekoodi
   Discussions: Keskustelut
+  Licensed under the: Lisenssi
+  AGPLv3: AGPLv3
 Channel:
   Subscribe: 'Tilaa'
   Unsubscribe: 'Peruuta tilaus'
@@ -771,11 +769,6 @@ Video:
   Loop Playlist: Kierrätä soittolistaa
   Starting soon, please refresh the page to check again: Hetki pieni, päivitä sivu
     uudelleen
-  Audio:
-    Best: Paras
-    High: Korkea
-    Medium: Keskitaso
-    Low: Alhainen
   audio only: vain ääni
   video only: vain video
   Download Video: Lataa video
@@ -809,31 +802,10 @@ Video:
     sponsor: Sponsori
     recap: Kertaus
     filler: Täyte
-  Skipped segment: Ylihypätty osio
-  translated from English: käännetty englanninkielestä
   Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
-  Stats:
-    video id: Videon tunniste (YouTube)
-    player resolution: Näkymäikkuna
-    bandwidth: Yhteyden nopeus
-    buffered: Puskuroitu
-    volume: Äänenvoimakkuus
-    fps: Kuvanopeus
-    out of: /
-    Video ID: Videotunnus
-    Bitrate: Tiedonsiirtonopeus
-    Bandwidth: Kaistanleveys
-    Mimetype: Internet-mediatyyppi
-    Video statistics are not available for legacy videos: Vanhojen videoiden videotilastot
-      eivät ole saatavilla
-    Player Dimensions: Soittimen mitat
-    Volume: Äänenvoimakkuus
-    Buffered: Puskuroitu
-    Resolution: Resoluutio
-    Dropped / Total Frames: Pudotettu / Yhteensä
   Premieres on: Julkaistaan
   Premieres: Ensilähetykset
   Show Super Chat Comment: Näytä Super Chat -kommentti
@@ -1020,11 +992,7 @@ Tooltips:
       toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon,
       mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
     Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
-      sijaan. Ohittaa API-valinnan.
-    Force Local Backend for Legacy Formats: Toimii vain kun Invidious API on oletuksena.
-      Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
-      sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
-      takia.
+      sijaan.
     Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina
       CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi
       toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
@@ -1032,10 +1000,6 @@ Tooltips:
       painettuna ja paina hiiren vasenta näppäintä.
     Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen,
       MPV-tyyliin.
-    Allow DASH AV1 formats: DASH AV1 formaatit saattavat näyttää paremmalta kuin DASH
-      H.264 formaatit. DASH AV1 formaatit vaativat enemmän tehoa toistamiseen! Ne
-      eivät ole käytettävissä kaikissa videoissa ja näissä tapauksissa soitin käyttää
-      sen sijaan DASH H.264 formaatteja.
   External Player Settings:
     Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
       puolipisteillä eroteltuina (';'), jotka haluat siirtää eteenpäin ulkoiselle
@@ -1127,6 +1091,7 @@ Search Listing:
     Subtitles: Teksitykset
 Feed:
   Refresh Feed: Päivitä {subscriptionName}
+  Feed Last Updated: 'Syöte {feedName} päivitetty viimeksi: {date}'
 Yes, Delete: Kyllä, poista
 checkmark: ✓
 Cancel: Peruuta

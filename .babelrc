@@ -11,6 +11,6 @@
     ]
   ],
   "plugins": [
-    "@babel/proposal-class-properties"
+    "@babel/plugin-transform-class-properties"
   ]
 }

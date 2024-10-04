@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
+    Comment Count: 1 Kommentar | {count} Kommentare
+    Like Count: 1 Gefällt mir | {count} Gefällt mir
   Input Tags:
     Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
@@ -269,6 +271,7 @@ History:
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
   Search bar placeholder: Im Verlauf suchen
   Empty Search Message: Es gibt keine Videos in deinem Verlauf, die deiner Suche entsprechen
+  Case Sensitive Search: Groß- und Kleinschreibung bei der Suche beachten
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -277,7 +280,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
       bei Fehlschlag zurück
     Enable Search Suggestions: Suchvorschläge aktivieren
-    Default Landing Page: Standard-Landeseite
+    Default Landing Page: Standard Startseite
 
     Locale Preference: Spracheinstellung
     Preferred API Backend:
@@ -393,7 +396,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
-    Force Local Backend for Legacy Formats: Lokales Backend für alte Formate erzwingen
     Remember History: Verlauf speichern
     Play Next Video: Nächstes Video abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
@@ -446,7 +448,6 @@ Settings:
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
-    Allow DASH AV1 formats: DASH AV1-Formate zulassen
   Subscription Settings:
     Subscription Settings: Abo-Einstellungen
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -463,7 +464,7 @@ Settings:
     Fetch Automatically: Feed automatisch abrufen
     Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
       anzeigen
-    Avoid Accidental Unsubscription: Unbeabsichtigtes Deabonnieren vermeiden
+    Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -528,8 +529,6 @@ Settings:
     Invalid history file: Ungültige Verlaufsdatei
     This might take a while, please wait: Dies dauert einen Moment, bitte warten
     Invalid subscriptions file: Ungültige Abo-Datei
-    One or more subscriptions were unable to be imported: Eine oder mehrere Abos konnten
-      nicht importiert werden
     All subscriptions and profiles have been successfully imported: Alle Abos und
       Profile wurden erfolgreich importiert
     All subscriptions have been successfully imported: Alle Abos wurden erfolgreich
@@ -679,7 +678,7 @@ Settings:
   Parental Control Settings:
     Parental Control Settings: Einstellungen der Kindersicherung
     Hide Unsubscribe Button: Schaltfläche zum Entfernen des Abos ausblenden
-    Show Family Friendly Only: Nur familienfreundlich anzeigen
+    Show Family Friendly Only: Nur familienfreundliche Inhalte anzeigen
     Hide Search Bar: Suchleiste ausblenden
   Experimental Settings:
     Experimental Settings: Experimentelle Einstellungen
@@ -821,6 +820,10 @@ Channel:
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
     Video hidden by FreeTube: Video versteckt von FreeTube
+    View Full Post: Vollständigen Beitrag anzeigen
+    Viewing Posts Only Supported By Invidious: Die Anzeige von Beiträgen wird nur
+      von Invidious unterstützt. Gehen Sie zur Community-Registerkarte eines Kanals,
+      um dort Inhalte ohne Invidious anzuzeigen.
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
@@ -906,11 +909,6 @@ Video:
   Loop Playlist: Wiedergabeliste wiederholen
   Starting soon, please refresh the page to check again: Es beginnt bald, bitte aktualisiere
     die Seite, um es erneut zu überprüfen
-  Audio:
-    Best: Am besten
-    High: Hoch
-    Medium: Mittel
-    Low: Niedrig
   audio only: nur Audio
   video only: nur Video
   Download Video: Video herunterladen
@@ -924,7 +922,6 @@ Video:
     Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
-  translated from English: aus dem Englischen übersetzt
   Sponsor Block category:
     music offtopic: Musik Offtopic
     interaction: Interaktion
@@ -934,7 +931,6 @@ Video:
     sponsor: Sponsor
     recap: Rekapitulation
     filler: Füller
-  Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In {externalPlayer} öffnen
     Unsupported Actions:
@@ -951,26 +947,6 @@ Video:
     playlist: Wiedergabeliste
     video: Video
   Premieres on: Premiere am
-  Stats:
-    volume: Lautstärke
-    fps: BpS
-    frame drop: Bildverlust
-    bandwidth: Verbindungsgeschwindigkeit
-    out of: aus
-    player resolution: Ansichtsfenster
-    video id: Video-ID (YouTube)
-    buffered: Gepuffert
-    Video ID: Video-ID
-    Resolution: Auflösung
-    Player Dimensions: Abspieler-Größe
-    Bitrate: Bitrate
-    Volume: Lautstärke
-    Bandwidth: Bandbreite
-    Buffered: Gepuffert
-    Dropped / Total Frames: Entfallene / gesamte Einzelbilder
-    Mimetype: MIME-Typ
-    Video statistics are not available for legacy videos: Videostatistiken sind für
-      ältere Videos nicht verfügbar
   Premieres in: Premieren in
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
@@ -982,6 +958,35 @@ Video:
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
   More Options: Weitere Optionen
+  Player:
+    Audio Tracks: Audiospuren
+    Theatre Mode: Theater-Modus
+    Exit Theatre Mode: Theater-Modus beenden
+    Full Window: Vollständiges Fenster
+    Take Screenshot: Bildschirmfoto aufnehmen
+    Show Stats: Statistiken anzeigen
+    Stats:
+      Stats: Statistiken
+      Video ID: 'Videokennung (ID): {videoId}'
+      Media Formats: 'Medienformate: {formats}'
+      Resolution: 'Auflösung: {width}×{height}@{frameRate}'
+      Player Dimensions: 'Player-Dimensionen: {width}×{height}'
+      Bitrate: 'Bitrate: {bitrate} kb/s'
+      Volume: 'Lautstärke: {volumePercentage} %'
+      Bandwidth: 'Bandbreite: {bandwidth} kb/s'
+      Buffered: 'Gepuffert: {bufferedPercentage} %'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Ausgelassene Einzelbilder: {droppedFrames} /
+        Einzelbilder insgesamt: {totalFrames}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+    You appear to be offline: Sie scheinen offline zu sein.
+    Playback will resume automatically when your connection comes back: Die Wiedergabe
+      wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
+    Skipped segment: 'Segment {segmentCategory} übersprungen'
+    TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
+    Exit Full Window: Vollständiges Fenster beenden
+    Hide Stats: Statistiken ausblenden
 Videos:
   #& Sort By
   Sort By:
@@ -1020,6 +1025,8 @@ Change Format:
     nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
+  Legacy formats are not available for this video: Ältere Formate sind für dieses
+    Video nicht verfügbar
 Share:
   Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
@@ -1069,6 +1076,8 @@ Comments:
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
   Subscribed: Abonniert
+  There are no comments available for this post: Es sind keine Kommentare für diesen
+    Beitrag vorhanden
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -1116,7 +1125,7 @@ Profile:
   Color Picker: Farbauswahl
   Edit Profile: Profil bearbeiten
   Create New Profile: Neues Profil erstellen
-  Profile Manager: Profilverwalter
+  Profile Manager: Profilverwaltung
   All Channels: Alle Kanäle
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist
     du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dadurch wird der
@@ -1169,7 +1178,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
-      liefert aber bestimmte Informationen wie Videodauer oder Live-Status nicht
+      liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Community
+      Beiträge nicht
     Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
       ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
   Player Settings:
@@ -1178,13 +1188,7 @@ Tooltips:
       sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
       sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
-      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
-      die API-Einstellung außer Kraft.
-    Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
-      als Standard ausgewählt hast. Wenn aktiviert, wird die lokale API ausgeführt
-      und verwendet die von ihr zurückgegebenen Altformate anstelle der von Invidious
-      zurückgegebenen Formate. Dies hilft, wenn die von Invidious zurückgegebenen
-      Videos aufgrund von Länderbeschränkungen nicht abgespielt werden können.
+      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
       befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
       das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.
@@ -1193,10 +1197,6 @@ Tooltips:
       (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
       zu springen, MPV-Stil.
-    Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
-      Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
-      bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
-      die DASH H.264-Formate.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
       getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
@@ -1265,7 +1265,7 @@ Channels:
   Channels: Kanäle
   Title: Kanal-Liste
   Search bar placeholder: Kanäle durchsuchen
-  Count: '{number} Kanal/Kanäle gefunden.'
+  Count: '{number} Kanal/Kanäle gefunden'
   Empty: Deine Kanal-Liste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
@@ -1318,5 +1318,5 @@ Search Listing:
     4K: 4K
     Closed Captions: Geschlossene Untertitel
     Subtitles: Untertitel
-'Blocked opening potentially unsafe URL': Das Öffnen einer potenziell unsicheren URL
-  wurde blockiert:"{url}".
+'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
+  URL wurde blockiert: „{url}“.'

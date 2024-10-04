@@ -17,8 +17,8 @@
   }
 }
 
- @media only screen and (width <= 680px) {
+@media only screen and (width <= 680px) {
   .ft-card {
     max-inline-size: calc(100vw - 64px);
   }
- }
+}

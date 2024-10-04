@@ -221,7 +221,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube 헤더 로고 숨기기
   Player Settings:
     Player Settings: '플레이어 설정'
-    Force Local Backend for Legacy Formats: '레거시 포멧에 로컬 백엔드 강제적용'
     Play Next Video: '다음 동영상 재생'
     Turn on Subtitles by Default: '기본으로 자막켜기'
     Autoplay Videos: '동영상 자동재생'
@@ -269,7 +268,6 @@ Settings:
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
         %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
         "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
-    Allow DASH AV1 formats: DASH AV1 포맷 허용
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
@@ -331,7 +329,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: '모든 구독 및 프로필을
       성공적으로 가져왔습니다'
     All subscriptions have been successfully imported: '모든 구독을 성공적으로 가져왔습니다'
-    One or more subscriptions were unable to be imported: '하나 이상의 구독을 가져올 수 없습니다'
     Invalid subscriptions file: '잘못된 구독 파일입니다'
     This might take a while, please wait: '시간이 좀 걸릴 수 있습니다. 잠시 기다려 주십시오'
     Invalid history file: '잘못된 기록 파일입니다'
@@ -552,11 +549,6 @@ Video:
   Download Video: '동영상 다운로드'
   video only: '비디오만'
   audio only: '오디오만'
-  Audio:
-    Low: '낮음'
-    Medium: '중간'
-    High: '높음'
-    Best: '최고'
   Published:
     Jan: '1월'
     Feb: '2월'
@@ -595,18 +587,6 @@ Video:
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
-  Stats:
-    Mimetype: 미디어 타입
-    Video statistics are not available for legacy videos: 레거시 비디오에 대한 비디오 통계를 사용할
-      수 없습니다
-    Player Dimensions: 플레이어 치수
-    Bandwidth: 대역폭
-    Video ID: 비디오 ID
-    Resolution: 해상도
-    Bitrate: 비트 전송률
-    Volume: 음량
-    Buffered: 버퍼링된
-    Dropped / Total Frames: 손실된 / 총 프레임 수
   Premieres on: 개봉일
   External Player:
     Unsupported Actions:
@@ -632,8 +612,6 @@ Video:
     outro: 결말부
     self-promotion: 자기 홍보
     interaction: 상호 작용
-  translated from English: 영어에서 번역됨
-  Skipped segment: 건너뛴 세그먼트
   Premieres: 프리미어
   Upcoming: 공개 예정
   Show Super Chat Comment: 슈퍼채팅 댓글 보이기
@@ -707,7 +685,7 @@ Comments:
   And others: 및 기타
   Member: 구성원
   Hearted: 좋아요 표시한
-  View {replyCount} replies: '{reply Count} 개의 답글 보기'
+  View {replyCount} replies: '{replyCount} 개의 답글 보기'
 Up Next: '다음 위로'
 
 #Tooltips
@@ -723,9 +701,6 @@ Tooltips:
     External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는
       기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Invidious API가 기본값인 경우에만 작동합니다. 활성화되면
-      로컬 API가 실행되고 Invidious에서 반환된 형식 대신 해당 형식에서 반환된 레거시 형식을 사용합니다. Invidious에서 반환한
-      동영상이 국가 제한으로 인해 재생되지 않을 때 도움이 됩니다.'
     Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다.
       API 기본 설정을 재정의합니다.'
     Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다.
@@ -733,8 +708,6 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command
       키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게
       누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
-    Allow DASH AV1 formats: DASH AV1 포맷은 DASH H.264 포맷보다 화질이 좋을 수 있으나, 영상 재생을 위해 더
-      높은 성능을 요구합니다. 모든 영상에서 사용 가능한 것은 아니며, 사용이 불가능할 경우 DASH H.264 포맷을 사용합니다.
     Skip by Scrolling Over Video Player: MPV 방식으로 마우스 스크롤을 이용해 영상을 스킵합니다.
   Subscription Settings:
     Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더

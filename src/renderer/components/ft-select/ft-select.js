@@ -47,6 +47,10 @@ export default defineComponent({
     iconColor: {
       type: String,
       default: null
+    },
+    isLocaleSelector: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['change'],

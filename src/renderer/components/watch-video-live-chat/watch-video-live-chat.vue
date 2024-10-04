@@ -128,6 +128,7 @@
         class="liveChatComments"
         :style="{ blockSize: chatHeight }"
         @mousewheel="e => onScroll(e)"
+        @scrollend="e => onScroll(e, true)"
       >
         <div
           v-for="(comment, index) in comments"

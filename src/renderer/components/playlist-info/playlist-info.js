@@ -124,8 +124,8 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
 
     historyCacheById: function () {
@@ -204,7 +204,7 @@ export default defineComponent({
 
       let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
-        baseUrl = this.currentInvidiousInstance
+        baseUrl = this.currentInvidiousInstanceUrl
       } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
         // Use playlist thumbnail provided by YT when available
         return this.playlistThumbnail

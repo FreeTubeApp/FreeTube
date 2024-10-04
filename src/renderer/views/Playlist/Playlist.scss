@@ -138,7 +138,8 @@
   }
 }
 
-.playlistItem-enter, .playlistItem-leave-to {
+.playlistItem-enter,
+.playlistItem-leave-to {
   opacity: 0;
   transform: translate(calc(10% * var(--horizontal-directionality-coefficient)));
 }

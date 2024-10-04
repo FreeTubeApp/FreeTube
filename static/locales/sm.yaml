@@ -243,63 +243,69 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: ''
     Turn on Subtitles by Default: ''
     Autoplay Videos: ''
     Proxy Videos Through Invidious: ''
     Autoplay Playlists: ''
     Enable Theatre Mode by Default: ''
-    Scroll Volume Over Video Player: ''
-    Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
-    Display Play Button In Video Player: ''
-    Enter Fullscreen on Display Rotate: ''
-    Next Video Interval: ''
-    Fast-Forward / Rewind Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
-    Max Video Playback Rate: ''
-    Video Playback Rate Interval: ''
+    Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
+    Scroll Playback Rate Over Video Player: 'Прагортваць хуткасці прайгравання па-над
+      відэапрайгравальнікам'
+    Skip by Scrolling Over Video Player: 'Прапусціць, прагарнуўшы відэапрайгравальнік'
+    Display Play Button In Video Player: 'Адлюстроўваць кнопку прайгравання ў відэапрайгравальніку'
+    Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
+      дысплэя'
+    Next Video Interval: 'Інтэрвал да наступнага відэа'
+    Fast-Forward / Rewind Interval: 'Інтэрвал перамоткі наперад / назад'
+    Default Volume: 'Гучнасць па змаўчанні'
+    Default Playback Rate: 'Хуткасць прайгравання па змаўчанні'
+    Max Video Playback Rate: 'Максімальная хуткасць прайгравання відэа'
+    Video Playback Rate Interval: 'Інтэрвал хуткасці прайгравання відэа'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Фармат відэа па змаўчанні'
+      Dash Formats: 'Фарматы DASH'
+      Legacy Formats: 'Састарэлыя фарматы'
+      Audio Formats: 'Аўдыё фарматы'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
-    Allow DASH AV1 formats: ''
+      Default Quality: 'Якасць па змаўчанні'
+      Auto: 'Аўта'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
     Screenshot:
-      Enable: ''
-      Format Label: ''
-      Quality Label: ''
-      Ask Path: ''
-      Folder Label: ''
-      Folder Button: ''
-      File Name Label: ''
-      File Name Tooltip: ''
+      Enable: 'Уключыць здымак экрана'
+      Format Label: 'Фармат здымка'
+      Quality Label: 'Якасць здымка'
+      Ask Path: 'Пытаць папку для захоўвання'
+      Folder Label: 'Папка для здымкаў'
+      Folder Button: 'Выбраць папку'
+      File Name Label: 'Шаблон назвы файла'
+      File Name Tooltip: 'Вы можаце выкарыстоўваць пераменныя ніжэй. %Y Год 4 лічбы.
+        %M Месяц 2 лічбы. %D Дні 2 лічбы. %H Гадзіны 2 лічбы. %N Хвіліны 2 лічбы.
+        %S Секунды 2 лічбы. %T Мілісекунды 3 лічбы. %s Секунды відэа. %t Мілісекунды
+        відэа 3 лічбы. %i Ідэнтыфікатар відэа. Вы таксама можаце выкарыстоўваць "\"
+        або "/" для стварэння падпапак.'
       Error:
-        Forbidden Characters: ''
-        Empty File Name: ''
+        Forbidden Characters: 'Забароненыя сімвалы'
+        Empty File Name: 'Пустая назва файла'
   External Player Settings:
-    External Player Settings: ''
-    External Player: ''
-    Ignore Unsupported Action Warnings: ''
+    External Player Settings: 'Налады вонкавага прайгравальніка'
+    External Player: 'Вонкавы прайгравальнік'
+    Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
+      не падтрымліваюцца'
     Custom External Player Executable: ''
     Custom External Player Arguments: ''
     Players:
       None:
         Name: ''
+    Ignore Default Arguments: Ігнараваць аргументы па змаўчанні
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
@@ -378,7 +384,6 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
     This might take a while, please wait: ''
     Invalid history file: ''
@@ -614,11 +619,6 @@ Video:
   Download Video: ''
   video only: ''
   audio only: ''
-  Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
   Published:
     Jan: ''
     Feb: ''
@@ -652,9 +652,7 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -678,17 +676,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: ''
-    Resolution: ''
-    Player Dimensions: ''
-    Bitrate: ''
-    Volume: ''
-    Bandwidth: ''
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: ''
 #& Videos
 Videos:
   #& Sort By
@@ -781,10 +768,8 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

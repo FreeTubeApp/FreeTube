@@ -39,10 +39,12 @@ Global:
     Channel Count: 1. kanala ! {count} kanal
     Video Count: 1. bideoa | {count} bideo
     View Count: 1. ikustaldia | {count} ikustaldi
+    Like Count: atsegin dut 1 | {count} atsegin dut
+    Comment Count: Iruzkin 1 | {count} iruzkin
   Live: Zuzenekoa
   Shorts: Laburrak
   Input Tags:
-    Length Requirement: Etiketak {zenbaki} karaktere izan behar ditu gutxienez
+    Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
@@ -88,6 +90,18 @@ Search Filters:
   Fetch more results: 'Emaitza gehiago ekarri'
   There are no more results for this search: 'Ez da emaitza gehiagorik bilaketa honentzat'
 # Sidebar
+  Features:
+    Features: Funtzioak
+    HD: HD
+    Subtitles: Azpitituluak
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Zuzenean
+    4K: 4K
+    360 Video: 360 bideoa
+    Location: Kokapena
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Harpidetzak'
@@ -107,7 +121,7 @@ Subscriptions:
   Load More Posts: Kargatu mezu gehiago
   Subscriptions Tabs: Harpidetzen fitxak
   All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia
-    ikusteko, erakutsi fitxa batzuk "{azpisection}" ataleko "{settingsSection}"-ean.
+    ikusteko, erakutsi fitxa batzuk "{subsection}" ataleko "{settingsSection}"-ean.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -203,9 +217,13 @@ User Playlists:
       Playlist {playlistName} has been deleted.: '{playlistName} erreprodukzio-zerrenda
         ezabatu da.'
       This playlist does not exist: Erreprodukzio-zerrenda hau ez da existitzen
+      This playlist is already being used for quick bookmark.: Erreprodukzio-zerrenda
+        hau laster-markak egiteko erabiltzen ari da dagoeneko.
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        erreprodukzio-zerrenda laster-marken erreprodukzio-zerrenda azkarra da.'
     Search for Videos: Bilatu bideoak
   AddVideoPrompt:
-    Added {count} Times: Gehitu da {count} Time | {count} aldiz gehitu da
+    Added {count} Times: Gehitu da | {count} aldiz gehitu da
     Toast:
       "{videoCount} video(s) added to 1 playlist": Bideo 1 gehitu da erreprodukzio-zerrenda
         batera | {videoCount} bideo gehitu dira erreprodukzio-zerrenda batera
@@ -220,10 +238,27 @@ User Playlists:
     N playlists selected: '{playlistCount} hautatuta'
     Search in Playlists: Bilatu erreprodukzio-zerrendetan
     Save: Gorde
+    Allow Adding Duplicate Video(s): Baimendu bideo bikoiztuak gehitzea
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      bideo gehituko dira'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      gehitu dira'
   Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ziur
     ikusitako bideo guztiak erreprodukzio-zerrenda honetatik kendu nahi dituzula?
     Hau ezin da desegin.
   Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio-zerrendak
+  Remove Duplicate Videos: Kendu bideo bikoiztuak
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ziur
+    bikoiztutako bideo bat erreprodukzio-zerrenda honetatik kendu nahi duzula? Hau
+    ezin da desegin. | Ziur {playlistItemCount} bideo bikoiztu erreprodukzio-zerrenda
+    honetatik kendu nahi dituzula? Hau ezin da desegin.
+  Quick Bookmark Enabled: Laster-marka azkarra gaituta
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ziur
+    ikusitako bideo bat erreprodukzio-zerrenda honetatik kendu nahi duzula? Hau ezin
+    da desegin. | Ziur ikusitako {playlistItemCount} bideo erreprodukzio-zerrenda
+    honetatik kendu nahi dituzula? Hau ezin da desegin.
+  Cannot delete the quick bookmark target playlist.: Ezin da laster-marken helburuko
+    erreprodukzio zerrenda azkarra ezabatu.
 History:
   # On History Page
   History: 'Historikoa'
@@ -231,6 +266,7 @@ History:
   Your history list is currently empty.: 'Zure historia-zerrenda hutsik dago une honetan.'
   Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
   Search bar placeholder: Bilatu historikoan
+  Case Sensitive Search: Maiuskulak eta minuskulak bereizten ditu
 Settings:
   # On Settings Page
   Settings: 'Ezarpenak'
@@ -355,7 +391,6 @@ Settings:
     Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
     Player Settings: 'Erreprodukzioaren ezarpenak'
-    Force Local Backend for Legacy Formats: 'Behartu backend lokala Legacy formatuentzat'
     Play Next Video: 'Hurrengo bideoa erreproduzitu'
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
     Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
@@ -406,7 +441,6 @@ Settings:
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
-    Allow DASH AV1 formats: Baimendu DASH AV1 formatuak
   Privacy Settings:
     Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
     Remember History: 'Historikoa oroitu'
@@ -437,6 +471,7 @@ Settings:
     Fetch Automatically: Eskuratu jarioa automatikoki
     Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
       bideoa
+    Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
@@ -506,8 +541,6 @@ Settings:
       guztiak ongi inportatu dira'
     All subscriptions have been successfully imported: 'Harpidetza guztiak ongi inportatu
       dira'
-    One or more subscriptions were unable to be imported: 'Zenbait harpidetza ezin
-      izan dira inportatu'
     Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
     This might take a while, please wait: 'Baliteke denbora pixka bat behar izatea,
       itxaron mesedez'
@@ -754,6 +787,10 @@ Channel:
       argitalpenik
     Reveal Answers: Erantzunak agerian utzi
     Video hidden by FreeTube: FreeTube-k ezkutatutako bideoa
+    View Full Post: Ikusi mezu osoa
+    Viewing Posts Only Supported By Invidious: Argitalpenak ikustea Invidious-ek soilik
+      onartzen du. Zoaz kanal baten komunitatearen fitxara bertan edukia ikusteko
+      Invidious gabe.
   Channel Tabs: Kanalaren fitxak
   This channel does not allow searching: Kanal honek ez du bilaketarik onartzen
   Live:
@@ -812,11 +849,6 @@ Video:
   Download Video: 'Bideoa deskargatu'
   video only: 'Bideoa soilik'
   audio only: 'Audioa soilik'
-  Audio:
-    Low: 'Eskasa'
-    Medium: 'Erdi-mailakoa'
-    High: 'Altua'
-    Best: 'Onena'
   Published:
     Jan: 'Urtarrila'
     Feb: 'Otsaila'
@@ -850,7 +882,6 @@ Video:
   Published on: 'Noiz argitaratua'
   Streamed on: 'Noiz zuzenean emana'
   Started streaming on: 'Noiz hasi zen zuzenekoa'
-  translated from English: 'Ingelesetik itzulia'
   Publicationtemplate: 'Duela {number} {unit}'
 #& Videos
   External Player:
@@ -868,18 +899,6 @@ Video:
     OpeningTemplate: '{videoOrPlaylist} irekitzen {externalPlayer}-an...'
     UnsupportedActionTemplate: '{externalPlayer}-k ez du onartzen: {action}'
     playlist: erreprodukzio zerrenda
-  Stats:
-    Video ID: Bideoaren identifikatzailea
-    Bitrate: biten tasa
-    Volume: Bolumena
-    Bandwidth: Banda zabalera
-    Buffered: Bufferera igota
-    Video statistics are not available for legacy videos: Bideoen estatistikak ez
-      daude eskuragarri legacy bideoentzat
-    Resolution: Bereizmena
-    Player Dimensions: Erreproduzitzailearen neurriak
-    Dropped / Total Frames: Bidalitako / Guztira Frame-ak
-    Mimetype: MIME mota
   Sponsor Block category:
     music offtopic: Gaiaz kanpoko musika
     interaction: Elkarrekintza
@@ -889,7 +908,6 @@ Video:
     recap: Laburpen
     filler: Betegarria
     intro: Sarrera
-  Skipped segment: Saltatu egin da segmentua
   Premieres on: Estreinaldiak
   Hide Channel: Kanala ezkutatu
   Unhide Channel: Kanala erakutsi
@@ -901,6 +919,35 @@ Video:
   More Options: Aukera gehiago
   Upcoming: Datozenak
   Scroll to Bottom: Joan Beherantz
+  Player:
+    Stats:
+      Media Formats: 'Multimediaren formatuak: {formats}'
+      Stats: Estatistikak
+      Video ID: 'Bideoaren ID: {videoId}'
+      Bandwidth: 'Banda-zabalera: {bandwidth} kbps'
+      Buffered: 'Bufferrean: {bufferedPercentage}%'
+      CodecAudio: 'Kodeka: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Jaregindako fotogramak: {droppedFrames} / Total
+        Frames: {totalFrames}'
+      Volume: 'Bolumena: {volumePercentage}%'
+      CodecsVideoAudio: 'Kodekak: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Resolution: 'Bereizmena: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Erreproduzigailuaren neurriak: {width}x{height}'
+      Bitrate: 'Bit-emaria: {bitrate} kbps'
+      CodecsVideoAudioNoItags: 'Kodekak: {videoCodec} / {audioCodec}'
+    Show Stats: Erakutsi estatistikak
+    Hide Stats: Ezkutatu estatistikak
+    TranslatedCaptionTemplate: '{language} ("{originalLanguage}"-tik itzulia)'
+    Audio Tracks: Audio-pistak
+    Theatre Mode: Antzoki modua
+    Exit Theatre Mode: Irten antzoki modutik
+    Exit Full Window: Irten pantaila osotik
+    Take Screenshot: Egin pantaila-argazkia
+    Skipped segment: '{segmentCategory} segmentua saltatu da'
+    You appear to be offline: Lineaz kanpo zaudela dirudi.
+    Playback will resume automatically when your connection comes back: Erreprodukzioa
+      automatikoki berrekingo da konexioa itzultzen denean.
+    Full Window: Pantaila osoa
 Videos:
   #& Sort By
   Sort By:
@@ -939,6 +986,8 @@ Change Format:
     bideo honentzat'
   Audio formats are not available for this video: 'Audio formatuak ez dira eskuragarri
     bideo honentzat'
+  Legacy formats are not available for this video: Formatu zaharrak ez daude bideo
+    honetarako erabilgarri
 Share:
   Share Video: 'Bideoa partekatu'
   Share Playlist: 'Erreprodukzio-zerrenda partekatu'
@@ -989,6 +1038,8 @@ Comments:
   From {channelName}: '{channelName}-tik'
   View {replyCount} replies: Ikusi {replyCount} erantzunak
   Subscribed: Harpidetuta
+  There are no comments available for this post: Ez dago iruzkinik eskuragarri mezu
+    honetarako
 Up Next: 'Hurrengoa'
 
 #Tooltips
@@ -1010,14 +1061,8 @@ Tooltips:
       den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako
       nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Soilik funtzionatzen du Individious-en
-      APIa zure lehenetsitakoa denean. Aukera dagoenean, tokiko APIa eta azken honek
-      bidalitako legacy formatuak ibiliko dira, Individious-ek bidalitakoak baino.
-      Lagungarria da herrialdeek ezarritako mugen ondorioz Individious-eko bideoak
-      ezin direnean ikusi.'
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
-      da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
-      du.'
+      da, YouTube-ra zuzeneko konexioa egin beharrean.'
     Default Video Format: 'Erabiliko diren formatuak ezarri bideo bat erreproduzitzerakoan.
       DASH formatuek kalitate handiagoak onartzen dituzte. Bestalde, Legacy formatuak
       720 puntutara mugatuta badaude ere banda zabalera gutxiago kontsumitzen dute.
@@ -1030,10 +1075,6 @@ Tooltips:
       aldaketarik egin ez bada).
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko,
       MPV estiloa.
-    Allow DASH AV1 formats: DASH AV1 formatuak DASH H.264 formatuak baino itxura hobea
-      izan dezake. DASH AV1 formatuek potentzia gehiago behar dute erreproduzitzeko!
-      Ez daude bideo guztietan eskuragarri, kasu horietan erreproduzitzaileak DASH
-      H.264 formatuak erabiliko ditu ordez.
   Subscription Settings:
     Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
       beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
@@ -1069,7 +1110,7 @@ Tooltips:
       zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik
       kenduta.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak
-      ordezkatzen du, "{settingsSection}" ataleko "{azpisekzioa}" atalean
+      ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du
       eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko
@@ -1176,3 +1217,10 @@ Yes, Delete: Bai, ezabatu
 Cancel: Utzi
 Yes, Open Link: Bai, ireki esteka
 Yes, Restart: Bai, berrabiarazi
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Azpitituluak
+    Closed Captions: Azpititulu deskriptiboak
+'Blocked opening potentially unsafe URL': 'Insegurua izan daitekeen URLa irekitzea
+  blokeatu da: "{url}".'

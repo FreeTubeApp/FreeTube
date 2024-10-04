@@ -4,7 +4,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
-import { invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
+import { getInvidiousCommunityPostCommentReplies, getInvidiousCommunityPostComments, invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -36,6 +36,18 @@ export default defineComponent({
       type: String,
       default: null,
     },
+    isPostComments: {
+      type: Boolean,
+      default: false,
+    },
+    postAuthorId: {
+      type: String,
+      default: null
+    },
+    showSortBy: {
+      type: Boolean,
+      default: true,
+    }
   },
   emits: ['timestamp-event'],
   setup: function () {
@@ -98,7 +110,7 @@ export default defineComponent({
       if (!this.generalAutoLoadMorePaginatedItemsEnabled) {
         return false
       }
-      if (!this.videoPlayerReady) { return false }
+      if (!this.videoPlayerReady && !this.isPostComments) { return false }
 
       return {
         callback: (isVisible, _entry) => {
@@ -133,7 +145,7 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile.subscriptions
     }
   },
-  mounted: function () {
+  created: function () {
     // region No comment detection
     // For videos without any comment (comment disabled?)
     // e.g. https://youtu.be/8NBSwDEf8a8
@@ -162,8 +174,12 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-        this.getCommentDataInvidious()
+      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
+        if (!this.isPostComments) {
+          this.getCommentDataInvidious()
+        } else {
+          this.getPostCommentsInvidious()
+        }
       } else {
         this.getCommentDataLocal()
       }
@@ -173,8 +189,12 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-          this.getCommentDataInvidious()
+        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
+          if (!this.isPostComments) {
+            this.getCommentDataInvidious()
+          } else {
+            this.getPostCommentsInvidious()
+          }
         } else {
           this.getCommentDataLocal(true)
         }
@@ -190,17 +210,14 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (process.env.SUPPORTS_LOCAL_API) {
-        switch (this.commentData[index].dataType) {
-          case 'local':
-            this.getCommentRepliesLocal(index)
-            break
-          case 'invidious':
-            this.getCommentRepliesInvidious(index)
-            break
+      if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === 'invidious' || this.isPostComments) {
+        if (!this.isPostComments) {
+          this.getCommentRepliesInvidious(index)
+        } else {
+          this.getPostCommentRepliesInvidious(index)
         }
       } else {
-        this.getCommentRepliesInvidious(index)
+        this.getCommentRepliesLocal(index)
       }
     },
 
@@ -366,14 +383,77 @@ export default defineComponent({
           }
 
           this.isLoading = false
-        }).catch((xhr) => {
-          console.error(xhr)
+        }).catch((error) => {
+          console.error(error)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-            copyToClipboard(xhr.responseText)
+          showToast(`${errorMessage}: ${error}`, 10000, () => {
+            copyToClipboard(error)
           })
           this.isLoading = false
         })
     },
+
+    getPostCommentsInvidious: function() {
+      const nextPageToken = this.nextPageToken
+
+      const fetchComments = nextPageToken == null
+        ? getInvidiousCommunityPostComments({ postId: this.id, authorId: this.postAuthorId })
+        : getInvidiousCommunityPostCommentReplies({ postId: this.id, replyToken: this.nextPageToken, authorId: this.postAuthorId })
+
+      fetchComments.then(({ response, commentData, continuation }) => {
+        commentData = commentData.map(({ replyToken, ...comment }) => {
+          if (comment.hasReplyToken) {
+            this.replyTokens.set(comment.id, replyToken)
+          } else {
+            this.replyTokens.delete(comment.id)
+          }
+
+          return comment
+        })
+
+        this.commentData = this.commentData.concat(commentData)
+        this.nextPageToken = response?.continuation ?? continuation
+        this.isLoading = false
+        this.showComments = true
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        this.isLoading = false
+      })
+    },
+
+    getPostCommentRepliesInvidious: function(index) {
+      showToast(this.$t('Comments.Getting comment replies, please wait'))
+
+      const comment = this.commentData[index]
+      const replyToken = this.replyTokens.get(comment.id)
+      const id = this.id
+
+      getInvidiousCommunityPostCommentReplies({ postId: id, replyToken: replyToken, authorId: this.postAuthorId })
+        .then(({ commentData, continuation }) => {
+          comment.replies = comment.replies.concat(commentData)
+          comment.showReplies = true
+
+          if (continuation) {
+            this.replyTokens.set(comment.id, continuation)
+            comment.hasReplyToken = true
+          } else {
+            this.replyTokens.delete(comment.id)
+            comment.hasReplyToken = false
+          }
+
+          this.isLoading = false
+        }).catch((error) => {
+          console.error(error)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          showToast(`${errorMessage}: ${error}`, 10000, () => {
+            copyToClipboard(error)
+          })
+          this.isLoading = false
+        })
+    }
   }
 })

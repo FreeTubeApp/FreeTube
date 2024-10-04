@@ -41,6 +41,8 @@ Global:
     Subscriber Count: 1 位订阅者 | {count} 位订阅者
     View Count: 1 次观看 | {count} 次观看
     Watching Count: 1 人正在观看 | {count} 人正在观看
+    Like Count: 1 个赞 | {count} 个赞
+    Comment Count: 1 条评论 | {count} 条评论
   Input Tags:
     Length Requirement: 标签长度至少为 {number} 个字符
 Search / Go to URL: '搜索 / 前往URL'
@@ -133,7 +135,7 @@ User Playlists:
     Toast:
       "{videoCount} video(s) added to {playlistCount} playlists": 添加了 1 则视频到 {playlistCount}
         个播放列表 | 添加了 {videoCount} 则视频到 {playlistCount} 个播放列表
-      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {playlistCount}
+      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {videoCount}
         则视频到 1 个播放列表
       You haven't selected any playlist yet.: 你尚未选中任何播放列表。
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
@@ -222,6 +224,7 @@ History:
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
+  Case Sensitive Search: 区分大小写的搜索
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -340,7 +343,6 @@ Settings:
     Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
     Player Settings: '播放器选项'
-    Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
     Remember History: '记住历史'
     Play Next Video: '播放下一视频'
     Turn on Subtitles by Default: '默认开启字幕'
@@ -390,7 +392,6 @@ Settings:
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
-    Allow DASH AV1 formats: 允许 DASH AV1 格式
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -406,7 +407,7 @@ Settings:
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
     Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
-    Avoid Accidental Unsubscription: 避免意外取消订阅
+    Confirm Before Unsubscribing: 避免意外取消订阅
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -473,7 +474,6 @@ Settings:
     Select Export Type: 选择导出类型
     Select Import Type: 选择导入类型
     Data Settings: 数据设置
-    One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
     Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表
@@ -702,6 +702,9 @@ Channel:
     Reveal Answers: 揭晓答案
     Hide Answers: 隐藏答案
     Video hidden by FreeTube: 视频被 FreeTube 隐藏
+    View Full Post: 查看完整帖子
+    Viewing Posts Only Supported By Invidious: 仅 Invidious 支持查看帖子。请转到频道的社区标签页在不用 Invidious
+      情况下查看内容。
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流
@@ -777,11 +780,6 @@ Video:
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
   Starting soon, please refresh the page to check again: 即将开始，请刷新页面再次检查
-  Audio:
-    Best: 最佳
-    High: 高
-    Medium: 中
-    Low: 低
   audio only: 仅音频
   video only: 仅视频
   Download Video: 下载视频
@@ -794,25 +792,6 @@ Video:
   Video has been removed from your saved list: 视频已从你的播放列表移除
   Video has been saved: 视频已保存
   Save Video: 保存视频到播放列表
-  Stats:
-    video id: 视频 ID (YouTube)
-    player resolution: 视区
-    volume: 音量
-    fps: 每秒帧数
-    out of: 中的
-    frame drop: 掉帧
-    bandwidth: 连接速度
-    buffered: 缓冲
-    Video ID: 视频 ID
-    Resolution: 分辨率
-    Player Dimensions: 播放器尺寸
-    Bitrate: 比特率
-    Volume: 音量
-    Buffered: 已缓冲
-    Dropped / Total Frames: 丢弃帧/总帧数
-    Mimetype: 互联网媒体类型
-    Bandwidth: 带宽
-    Video statistics are not available for legacy videos: 视频统计数据对于 legacy 视频不可用
   External Player:
     OpenInTemplate: 在 {externalPlayer} 中打开
     video: 视频
@@ -838,8 +817,6 @@ Video:
     sponsor: 赞助者
     recap: 回顾
     filler: 过滤器
-  translated from English: 从英语翻译
-  Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
   Scroll to Bottom: 滚动到底部
@@ -850,6 +827,33 @@ Video:
   Unhide Channel: 显示频道
   Hide Channel: 隐藏频道
   More Options: 更多选项
+  Player:
+    Audio Tracks: 音轨
+    Theatre Mode: 影院模式
+    Full Window: 全窗口
+    Exit Full Window: 退出全窗口
+    Take Screenshot: 截屏
+    Show Stats: 显示统计信息
+    Hide Stats: 隐藏统计信息
+    Stats:
+      Stats: 统计信息
+      Video ID: 视频 ID： {videoId}
+      Media Formats: 媒体格式：{formats}
+      Resolution: 分辨率：{width}x{height}@{frameRate}
+      Player Dimensions: 播放器尺寸： {width}x{height}
+      Bitrate: 比特率：{bitrate} kbps
+      Volume: 音量：{volumePercentage}%
+      Buffered: 已缓冲：{bufferedPercentage}%
+      Dropped Frames / Total Frames: 丢弃帧：{droppedFrames} / 总帧数： {totalFrames}
+      CodecAudio: 编解码器：{audioCodec} ({audioItag})
+      CodecsVideoAudioNoItags: 编解码器：{videoCodec} / {audioCodec}
+      Bandwidth: 带宽：{bandwidth} kbps
+      CodecsVideoAudio: 编解码器：{videoCodec} ({videoItag}) / {audioCodec} ({audioItag})
+    You appear to be offline: 你似乎处于离线状态。
+    Playback will resume automatically when your connection comes back: 网络连接恢复时，将自动继续播放。
+    TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
+    Exit Theatre Mode: 推出影院模式
+    Skipped segment: 跳过了 {segmentCategory} 部分
 Videos:
   #& Sort By
   Sort By:
@@ -886,6 +890,7 @@ Change Format:
   Use Audio Formats: '使用音频格式'
   Audio formats are not available for this video: 这个视频没有音频格式
   Dash formats are not available for this video: 这个视频没有Dash格式
+  Legacy formats are not available for this video: 旧格式对这个视频不可用
 Share:
   Share Video: '分享视频'
   Share Playlist: '分享播放列表'
@@ -929,6 +934,7 @@ Comments:
   Hearted: 喜欢的
   View {replyCount} replies: 查看 {replyCount} 条回复
   Subscribed: 已订阅
+  There are no comments available for this post: 此帖子没有评论
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -1000,19 +1006,15 @@ Version {versionNumber} is now available!  Click for more details: 版本{versio
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 启用后，FreeTube将使用RSS而非默认方式来取得您的订阅推送。RSS更快而且可避免IP封锁，但不提供某些信息，如影片长度与即时状态
+    Fetch Feeds from RSS: 启用后，FreeTube 将使用 RSS 而非默认方式来取得您的订阅推送。RSS 更快而且可避免 IP 封锁，但不提供某些信息，如视频长度，直播状态或社区帖子
     Fetch Automatically: 开启后，打开新窗口和切换配置文件时，FreeTube 会自动抓取你的订阅源。
   Player Settings:
     Default Video Format: 设置播放视频时使用的格式。DASH 格式可以播放更高质量的视频。 传统格式限制为最大 720p，但使用较少的带宽。
       音频格式是纯音频流。
-    Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。覆盖 API 偏好。
-    Force Local Backend for Legacy Formats: 仅当 Invidious API是您默认 API 时才有效。启用后，本地API
-      将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
+    Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
     Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
-    Allow DASH AV1 formats: DASH AV1 格式画质也许比 DASH H.264 格式要好。 但请注意 DASH AV1 格式耗电更多！不是所有视频都有
-      DASH AV1 格式，如果没有的话，播放器会使用 DASH H.264 格式。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。

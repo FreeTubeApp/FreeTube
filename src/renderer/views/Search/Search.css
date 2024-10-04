@@ -8,7 +8,8 @@
   margin-block-start: 16px;
 }
 
-.getNextPage:hover, .getNextPage:focus {
+.getNextPage:hover,
+.getNextPage:focus {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
 }

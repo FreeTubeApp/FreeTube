@@ -59,6 +59,12 @@
   white-space: pre-wrap;
 }
 
+.commentsLink {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .bottomSection {
   color: var(--tertiary-text-color);
   display: block;

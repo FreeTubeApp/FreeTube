@@ -40,7 +40,7 @@ Global:
     Channel Count: 1 canal | {count} canais
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
-    View Count: 1 visualização | {contagem} visualizações
+    View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
   Input Tags:
     Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
@@ -378,8 +378,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: 'Definições do reprodutor'
-    Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
-      formatos antigos'
     Play Next Video: 'Reproduzir vídeo seguinte'
     Turn on Subtitles by Default: 'Ativar legendas automaticamente'
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
@@ -431,7 +429,6 @@ Settings:
       Ask Path: Perguntar onde guardar
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Memorizar histórico'
@@ -462,7 +459,7 @@ Settings:
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
-    Avoid Accidental Unsubscription: Impedir cancelamento acidental de subscrições
+    Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Selecione o tipo de importação'
@@ -483,8 +480,6 @@ Settings:
       e perfis foram importados com sucesso'
     All subscriptions have been successfully imported: 'Todas as subscrições foram
       importadas com sucesso'
-    One or more subscriptions were unable to be imported: 'Uma ou mais subscrições
-      não foram importadas'
     Invalid subscriptions file: 'Ficheiro de subscrições inválido'
     This might take a while, please wait: 'Este processo pode ser demorado.'
     Invalid history file: 'Ficheiro de histórico inválido'
@@ -945,8 +940,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulação
     filler: Preenchimento
-  Skipped segment: Secção ignorada
-  translated from English: traduzido do inglês
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido a
   Audio:
@@ -965,26 +958,6 @@ Video:
   Video has been saved: O vídeo foi guardado
   Save Video: Guardar vídeo
   Premieres on: Estreia a
-  Stats:
-    video id: Video ID (YouTube)
-    volume: Volume
-    fps: FPS
-    frame drop: Fotogramas ignorados
-    bandwidth: Velocidade da conexão
-    out of: de
-    player resolution: Janela de visualização
-    buffered: Buffered
-    Mimetype: Tipo mime
-    Video ID: ID do vídeo
-    Player Dimensions: Dimensões do reprodutor
-    Bitrate: Taxa de dados
-    Volume: Volume
-    Video statistics are not available for legacy videos: As estatísticas de vídeo
-      não estão disponíveis para vídeos mais antigos
-    Resolution: Resolução
-    Bandwidth: Largura de banda
-    Buffered: Em memória
-    Dropped / Total Frames: Fotogramas perdidos/total de fotogramas
   Premieres in: Estreia em
   Premieres: Estreias
   Scroll to Bottom: Deslocar para baixo
@@ -1149,12 +1122,7 @@ Tooltips:
       estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos
       de áudio são apenas para emissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
-      vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
-      API.
-    Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é sistema usado. Se ativa, a API local será executada para usar os formatos
-      antigos em vez dos usados pelo Invidious. Útil quando os vídeos Invidious não
-      funcionam devido a restrições geográficas.
+      vídeos em vez de fazer uma ligação direta ao YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)
@@ -1162,10 +1130,6 @@ Tooltips:
       padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
-    Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
-      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Não estão disponíveis para todos os vídeos e, nesses casos, o reprodutor usará
-      os formatos DASH H.264.
   General Settings:
     Region for Trending: A região permite-lhe escolher de que país virão os vídeos
       na secção de tendências.
@@ -1218,7 +1182,7 @@ Channels:
   Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
-    capítulo atual: {capítuloNoto}'
+    capítulo atual: {chapterName}'
   Chapters: Capítulos
   'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
     capítulo atual: {chapterName}'

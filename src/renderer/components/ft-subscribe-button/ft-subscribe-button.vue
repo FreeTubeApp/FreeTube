@@ -88,4 +88,4 @@
 </template>
 
 <script src="./ft-subscribe-button.js" />
-<style lang="scss" src="./ft-subscribe-button.scss" />
+<style scoped lang="scss" src="./ft-subscribe-button.scss" />
