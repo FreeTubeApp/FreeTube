@@ -35,14 +35,14 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
   })
 }
 
-export function videoDurationPresent(v) {
-  if (typeof v.lengthSeconds !== 'number') { return false }
+export function videoDurationPresent(video) {
+  if (typeof video.lengthSeconds !== 'number') { return false }
 
-  return !(isNaN(v.lengthSeconds) || v.lengthSeconds === 0)
+  return !(isNaN(video.lengthSeconds) || video.lengthSeconds === 0)
 }
 
-function videoDurationWithFallback(v) {
-  if (videoDurationPresent(v)) { return v.lengthSeconds }
+export function videoDurationWithFallback(video) {
+  if (videoDurationPresent(video)) { return video.lengthSeconds }
 
   // Fallback
   return 0

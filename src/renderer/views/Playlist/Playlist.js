@@ -23,7 +23,7 @@ import {
   deepCopy,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getSortedPlaylistItems, videoDurationPresent, SORT_BY_VALUES } from '../../helpers/playlists'
+import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
@@ -442,7 +442,7 @@ export default defineComponent({
 
         const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
         if (typeof videoHistory !== 'undefined') {
-          video.lengthSeconds = videoHistory.lengthSeconds
+          video.lengthSeconds = videoDurationWithFallback(videoHistory)
         } else {
           // Mark at least one video have no duration, show notice later
           // Also assign fallback duration here
