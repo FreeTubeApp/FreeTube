@@ -81,7 +81,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 /* Dark theme Youtube and Invidious logo styling (in ft-share-button) */
 .system[data-system-theme*='dark'],
 .dark,
-.gray,
 .dracula,
 .catppuccinMocha,
 .hotPink,
