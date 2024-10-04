@@ -401,25 +401,27 @@ Settings:
     Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
     Autoplay Playlists: 'Аўтапрайграванне плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
-    Scroll Volume Over Video Player: ''
-    Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
-    Display Play Button In Video Player: ''
-    Enter Fullscreen on Display Rotate: ''
-    Next Video Interval: ''
-    Fast-Forward / Rewind Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
-    Max Video Playback Rate: ''
-    Video Playback Rate Interval: ''
+    Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
+    Scroll Playback Rate Over Video Player: 'Прагортваць хуткасці прайгравання па-над
+      відэапрайгравальнікам'
+    Skip by Scrolling Over Video Player: 'Прапусціць, прагарнуўшы відэапрайгравальнік'
+    Display Play Button In Video Player: 'Адлюстроўваць кнопку прайгравання ў відэапрайгравальніку'
+    Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
+      дысплэя'
+    Next Video Interval: 'Інтэрвал да наступнага відэа'
+    Fast-Forward / Rewind Interval: 'Інтэрвал перамоткі наперад / назад'
+    Default Volume: 'Гучнасць па змаўчанні'
+    Default Playback Rate: 'Хуткасць прайгравання па змаўчанні'
+    Max Video Playback Rate: 'Максімальная хуткасць прайгравання відэа'
+    Video Playback Rate Interval: 'Інтэрвал хуткасці прайгравання відэа'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Фармат відэа па змаўчанні'
+      Dash Formats: 'Фарматы DASH'
+      Legacy Formats: 'Састарэлыя фарматы'
+      Audio Formats: 'Аўдыё фарматы'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
+      Default Quality: 'Якасць па змаўчанні'
+      Auto: 'Аўта'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -430,55 +432,72 @@ Settings:
       4k: '4k'
       8k: '8k'
     Screenshot:
-      Enable: ''
-      Format Label: ''
-      Quality Label: ''
-      Ask Path: ''
-      Folder Label: ''
-      Folder Button: ''
-      File Name Label: ''
-      File Name Tooltip: ''
+      Enable: 'Уключыць здымак экрана'
+      Format Label: 'Фармат здымка'
+      Quality Label: 'Якасць здымка'
+      Ask Path: 'Пытаць папку для захоўвання'
+      Folder Label: 'Папка для здымкаў'
+      Folder Button: 'Выбраць папку'
+      File Name Label: 'Шаблон назвы файла'
+      File Name Tooltip: 'Вы можаце выкарыстоўваць пераменныя ніжэй. %Y Год 4 лічбы.
+        %M Месяц 2 лічбы. %D Дні 2 лічбы. %H Гадзіны 2 лічбы. %N Хвіліны 2 лічбы.
+        %S Секунды 2 лічбы. %T Мілісекунды 3 лічбы. %s Секунды відэа. %t Мілісекунды
+        відэа 3 лічбы. %i Ідэнтыфікатар відэа. Вы таксама можаце выкарыстоўваць "\"
+        або "/" для стварэння падпапак.'
       Error:
-        Forbidden Characters: ''
-        Empty File Name: ''
+        Forbidden Characters: 'Забароненыя сімвалы'
+        Empty File Name: 'Пустая назва файла'
   External Player Settings:
-    External Player Settings: ''
-    External Player: ''
-    Ignore Unsupported Action Warnings: ''
+    External Player Settings: 'Налады вонкавага прайгравальніка'
+    External Player: 'Вонкавы прайгравальнік'
+    Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
+      не падтрымліваюцца'
     Custom External Player Executable: ''
     Custom External Player Arguments: ''
     Players:
       None:
-        Name: ''
+        Name: 'Ніякі'
+    Ignore Default Arguments: Ігнараваць аргументы па змаўчанні
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Налады прыватнасці'
+    Remember History: 'Памятаць гісторыю'
+    Save Watched Progress: 'Захоўваць прагрэс прагляду'
+    Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з
+      апошнім прагледжаным плэй-лістам'
+    Clear Search Cache: 'Ачысціць кэш пошуку'
+    Are you sure you want to clear out your search cache?: 'Вы ўпэўнены, што хочаце
+      ачысціць кэш пошуку?'
+    Search cache has been cleared: 'Кэш пошуку ачышчаны'
+    Remove Watch History: 'Выдаліць гісторыю праглядаў'
+    Are you sure you want to remove your entire watch history?: 'Вы ўпэўнены, што
+      хочаце выдаліць усю гісторыю праглядаў?'
+    Watch history has been cleared: 'Гісторыя праглядаў ачышчана'
+    Remove All Subscriptions / Profiles: 'Выдаліць усе падпіскі / профілі'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Вы
+      ўпэўнены, што хочаце выдаліць усе падпіскі і профілі?  Гэта нельга адмяніць.'
+    Are you sure you want to remove all your playlists?: Вы ўпэўнены, што хочаце выдаліць
+      усе свае плэй-лісты?
+    Remove All Playlists: Выдаліць усе плэй-лісты
+    All playlists have been removed: Усе плэй-лісты былі выдалены
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
-    Fetch Automatically: ''
+    Subscription Settings: 'Налады падпіскі'
+    Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
+    Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
+    Manage Subscriptions: 'Кіраванне падпіскамі'
+    Fetch Automatically: 'Аўтаматычна атрымліваць стужку'
+    Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
+    Only Show Latest Video for Each Channel: Паказваць толькі апошняе відэа для кожнага
+      канала
   Distraction Free Settings:
-    Distraction Free Settings: ''
+    Distraction Free Settings: 'Налады засяроджвання'
     Sections:
-      Side Bar: ''
-      Subscriptions Page: ''
-      Channel Page: ''
-      Watch Page: ''
-      General: ''
+      Side Bar: 'Бакавая панэль'
+      Subscriptions Page: 'Старонка падпісак'
+      Channel Page: 'Старонка каналу'
+      Watch Page: 'Старонка прагляду'
+      General: 'Агульныя'
     Blur Thumbnails: ''
-    Hide Video Views: ''
+    Hide Video Views: 'Хаваць прагляды відэа'
     Hide Video Likes And Dislikes: ''
     Hide Channel Subscribers: ''
     Hide Comment Likes: ''
