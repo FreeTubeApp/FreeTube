@@ -5,8 +5,6 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import intlifyVueI18N from '@intlify/eslint-plugin-vue-i18n'
 import globals from 'globals'
 import vueEslintParser from 'vue-eslint-parser'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
 import { fixupConfigRules } from '@eslint/compat'
@@ -15,13 +13,10 @@ import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 
-const { default: activeLocales } =
-  await import('./static/locales/activeLocales.json', { with: { type: 'json' } })
+import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: import.meta.dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all
 })
@@ -84,12 +79,6 @@ export default [
       'vue/no-useless-template-attributes': 'off',
       'vue/multi-word-component-names': 'off',
       'vuejs-accessibility/no-onchange': 'off',
-
-      // rule for Vue 3.x , FT is on 2.x
-      'vue/no-v-for-template-key-on-child': 'off',
-      'vue/no-v-for-template-key': 'error',
-      // To be fixed on Vue 3 migration
-      'vue/no-deprecated-v-on-native-modifier': 'warn',
 
       'vuejs-accessibility/label-has-for': ['error', {
         required: {
