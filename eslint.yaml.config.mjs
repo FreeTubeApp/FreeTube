@@ -2,6 +2,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
+import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -13,10 +14,8 @@ const compat = new FlatCompat({
 })
 
 export default [
-  ...compat.extends(
-    'plugin:yml/recommended',
-  ).map(config => ({
-    ...config,
+  ...eslintPluginYml.configs['flat/recommended'],
+  {
     files: ['**/*.{yml,yaml}'],
     ignores: [
       '**/node_modules',
@@ -31,5 +30,5 @@ export default [
     rules: {
       'yml/no-irregular-whitespace': 'off',
     },
-  })),
+  },
 ]
