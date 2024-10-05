@@ -10,6 +10,10 @@ import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
 import { fixupConfigRules } from '@eslint/compat'
+import jsoncEslintParser from 'jsonc-eslint-parser'
+import eslintPluginJsonc from 'eslint-plugin-jsonc'
+import eslintPluginYml from 'eslint-plugin-yml'
+import yamlEslintParser from 'yaml-eslint-parser'
 
 const { default: activeLocales } =
   await import('./static/locales/activeLocales.json', { with: { type: 'json' } })
@@ -126,6 +130,78 @@ export default [
       '@intlify/vue-i18n/no-deprecated-tc': 'off',
       'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
+    },
+  },
+
+  ...eslintPluginJsonc.configs['flat/base'],
+  {
+    files: ['**/*.json'],
+    ignores: [
+      '**/node_modules/**',
+      '**/_scripts/**',
+      '**/dist/**',
+    ],
+
+    languageOptions: {
+      parser: jsoncEslintParser,
+    },
+
+    rules: {
+      'no-tabs': 'off',
+      'comma-spacing': 'off',
+      'no-irregular-whitespace': 'off',
+    },
+
+    settings: {
+      'vue-i18n': {
+        localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
+        messageSyntaxVersion: '^8.0.0',
+      },
+    },
+  },
+
+  ...eslintPluginYml.configs['flat/recommended'],
+  {
+    files: ['**/*.{yml,yaml}'],
+    ignores: [
+      '**/node_modules/**',
+      '**/_scripts/**',
+      '**/dist/**',
+      '**/.github/**',
+    ],
+
+    languageOptions: {
+      parser: yamlEslintParser,
+    },
+
+    rules: {
+      'yml/no-irregular-whitespace': 'off',
+    },
+
+    settings: {
+      'vue-i18n': {
+        localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
+        messageSyntaxVersion: '^8.0.0',
+      },
+    },
+  },
+  {
+    files: ['.github/**/*.{yml,yaml}'],
+
+    languageOptions: {
+      parser: yamlEslintParser,
+    },
+
+    rules: {
+      'yml/no-empty-mapping-value': 'off',
+      'yml/no-irregular-whitespace': 'off',
+    },
+
+    settings: {
+      'vue-i18n': {
+        localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
+        messageSyntaxVersion: '^8.0.0',
+      },
     },
   },
 ]
