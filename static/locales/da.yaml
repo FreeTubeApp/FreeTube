@@ -39,7 +39,9 @@ Global:
     View Count: 1 visning | {count} visninger
     Video Count: 1 video | {count} videoer
     Channel Count: 1 kanal | {count} kanaler
+    Comment Count: 1 kommentar | {count} kommentarer
   Community: Fællesskab
+  Live: Live
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
@@ -85,6 +87,14 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Der er ikke flere resultater for denne
     søgning
+  Features:
+    Subtitles: Undertekster
+    HD: HD
+    3D: 3D
+    4K: 4K
+    Live: Live
+    HDR: HDR
+    Features: Funktioner
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnenter'
@@ -1033,3 +1043,7 @@ Chapters:
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset
+Search Listing:
+  Label:
+    Subtitles: Undertekster
+    4K: 4K
