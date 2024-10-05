@@ -11,6 +11,9 @@ import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
 import { fixupConfigRules } from '@eslint/compat'
 
+const { default: activeLocales } =
+  await import('./static/locales/activeLocales.json', { with: { type: 'json' } })
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
@@ -56,7 +59,7 @@ export default [
 
     settings: {
       'vue-i18n': {
-        localeDir: './static/locales/{en-US,en-GB,ar,bg,ca,cs,da,de-DE,el,es,es-AR,es-MX,et,eu,fa,fi,fr-FR,gl,he,hu,hr,id,is,it,ja,ko,lt,nb-NO,nl,nn,pl,pt,pt-BR,pt-PT,ro,ru,sk,sl,sr,sv,tr,uk,vi,zh-CN,zh-TW}.yaml',
+        localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
         messageSyntaxVersion: '^8.0.0',
       },
     },
