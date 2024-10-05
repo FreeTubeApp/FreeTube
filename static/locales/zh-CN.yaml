@@ -98,7 +98,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
   Latest Subscriptions: '最新订阅'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的订阅列表目前是空的。在这里开始添加订阅。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的订阅列表目前是空的。如果想要导入订阅，可以转到“数据设置”并选择“导入订阅”，或者搜索频道并订阅。'
   'Getting Subscriptions.  Please wait.': '获取订阅中。 请稍等。'
   Refresh Subscriptions: 刷新订阅
   Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
@@ -854,6 +854,7 @@ Video:
     TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
     Exit Theatre Mode: 推出影院模式
     Skipped segment: 跳过了 {segmentCategory} 部分
+  IP block: 你的 IP 地址被 Youtube 禁止观看视频。请试着切换到不同的 VPN 或代理。
 Videos:
   #& Sort By
   Sort By:
