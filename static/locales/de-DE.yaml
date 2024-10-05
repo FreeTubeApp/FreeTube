@@ -101,8 +101,9 @@ Subscriptions:
   Subscriptions: Abos
   Latest Subscriptions: Neueste Abos
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
-    Aboliste ist aktuell leer. Beginne mit dem Hinzufügen von Abos, um sie hier zu
-    sehen.
+    Aboliste ist derzeit leer. Wenn Sie Ihre Abos importieren möchten, können Sie
+    zu den Dateneinstellungen gehen und "Abos importieren" wählen oder Sie können
+    nach einem Kanal suchen und ihn abonnieren.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abos aktualisieren
   Getting Subscriptions. Please wait.: Abos werden geholt. Bitte warten.
@@ -987,6 +988,8 @@ Video:
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
+  IP block: YouTube hat Ihre IP-Adresse für die Videowiedergabe gesperrt. Bitte versuchen
+    Sie, zu einem anderen VPN oder Proxy zu wechseln.
 Videos:
   #& Sort By
   Sort By:
