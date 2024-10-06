@@ -707,130 +707,157 @@ Profile:
   Your profile name cannot be empty: 'Назва вашага профілю не можа быць пустой'
   Profile has been created: 'Профіль створаны'
   Profile has been updated: 'Профіль абноўлены'
-  Your default profile has been set to {profile}: ''
-  Removed {profile} from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  '{profile} is now the active profile': ''
-  Subscription List: ''
-  Other Channels: ''
-  '{number} selected': ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Your default profile has been set to {profile}: 'Профілем па змаўчанню заданы {profile}'
+  Removed {profile} from your profiles: '{profile} выдалены з вашых профіляў'
+  Your default profile has been changed to your primary profile: 'Ваш профіль па змаўчанні
+    быў зменены на асноўны'
+  '{profile} is now the active profile': '{profile} цяпер актыўны профіль'
+  Subscription List: 'Спіс падпісак'
+  Other Channels: 'Іншыя каналы'
+  '{number} selected': '{number} выбрана'
+  Select All: 'Выбраць усе'
+  Select None: 'Ачысціць'
+  Delete Selected: 'Выдаліць выбранае'
+  Add Selected To Profile: 'Дадаць выбранае ў профіль'
+  No channel(s) have been selected: 'Канал(-ы) не выбраны'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'Гэта ваш асноўны профіль.  Вы ўпэўнены, што хочаце выдаліць выбраныя каналы?  Тыя
+    ж каналы будуць выдалены ў любым профілі, у якім яны знаходзяцца.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Вы
+    ўпэўнены, што хочаце выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых
+    профіляў.'
 #On Channel Page
   Edit Profile Name: Рэдагаваць назву профілю
   Create Profile Name: Стварыце назву профілю
   Profile Name: Назва профілю
+  Close Profile Dropdown: Зачыніць выпадное меню профілю
+  Open Profile Dropdown: Адкрыць выпадное меню профілю
 Channel:
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from {count} other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
-  This channel does not exist: ''
-  This channel does not allow searching: ''
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
-  Channel Tabs: ''
+  Subscribe: 'Падпісацца'
+  Unsubscribe: 'Адпісацца'
+  Channel has been removed from your subscriptions: 'Канал быў выдалены з вашых падпісак'
+  Removed subscription from {count} other channel(s): 'Выдалена падпіска з {count}
+    іншых каналаў'
+  Added channel to your subscriptions: 'Канал дададзены да вашых падпісак'
+  Search Channel: 'Шукаць на канале'
+  Your search results have returned 0 results: 'Пошук даў 0 вынікаў'
+  Sort By: 'Сартаваць'
+  This channel does not exist: 'Гэты канал не існуе'
+  This channel does not allow searching: 'Гэты канал не дазваляе шукаць'
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Гэты
+    канал абмежаваны па ўзросце, і зараз яго нельга праглядаць у FreeTube.'
+  Channel Tabs: 'Укладкі каналу'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Відэа'
+    This channel does not currently have any videos: 'Зараз на гэтым канале няма відэа'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Самае новае'
+      Oldest: 'Самае старое'
+      Most Popular: 'Самае папулярнае'
   Shorts:
-    This channel does not currently have any shorts: ''
+    This channel does not currently have any shorts: 'Зараз на гэтым канале няма кароткіх
+      відэа'
   Live:
-    Live: ''
-    This channel does not currently have any live streams: ''
+    Live: 'Ужывую'
+    This channel does not currently have any live streams: 'Зараз на гэтым канале
+      няма жывых трансляцый'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Плэй-лісты'
+    This channel does not currently have any playlists: 'Зараз на гэтым канале няма
+      плэй-лістоў'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Апошняе дададзенае відэа'
+      Newest: 'Самае новае'
+      Oldest: 'Самае старое'
   Podcasts:
-    Podcasts: ''
-    This channel does not currently have any podcasts: ''
+    Podcasts: 'Падкасты'
+    This channel does not currently have any podcasts: 'Зараз на гэтым канале няма
+      падкастаў'
   Releases:
-    Releases: ''
-    This channel does not currently have any releases: ''
+    Releases: 'Выпускі'
+    This channel does not currently have any releases: 'Зараз на гэтым канале няма
+      выпускаў'
   About:
-    About: ''
-    Channel Description: ''
+    About: 'Пра канал'
+    Channel Description: 'Апісанне канала'
     Tags:
-      Tags: ''
-      Search for: ''
-    Details: ''
-    Joined: ''
-    Location: ''
-    Featured Channels: ''
+      Tags: 'Цэтлікі'
+      Search for: 'Шукаць "{tag}"'
+    Details: 'Падрабязнасці'
+    Joined: 'Далучыўся'
+    Location: 'Месцазнаходжанне'
+    Featured Channels: 'Рэкамендаваныя каналы'
   Community:
-    This channel currently does not have any posts: ''
-    votes: ''
-    Reveal Answers: ''
-    Hide Answers: ''
+    This channel currently does not have any posts: 'Зараз на гэтым канале няма паведамленняў'
+    votes: '{votes} галасоў'
+    Reveal Answers: 'Адкрыць адказы'
+    Hide Answers: 'Схаваць адказы'
+    Video hidden by FreeTube: Відэа схавана FreeTube'ам
+    View Full Post: Глядзець поўны пост
+    Viewing Posts Only Supported By Invidious: Прагляд паведамленняў падтрымліваецца
+      толькі ў Invidious. Перайдзіце на ўкладку супольнасці канала, каб праглядзець
+      там змесціва без Invidious.
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Save Video: ''
-  Video has been saved: ''
-  Video has been removed from your saved list: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  Open Channel in YouTube: ''
-  Copy YouTube Channel Link: ''
-  Open Channel in Invidious: ''
-  Copy Invidious Channel Link: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
-  Pause on Current Video: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Mark As Watched: 'Пазначыць як прагледжанае'
+  Remove From History: 'Выдаліць з гісторыі'
+  Video has been marked as watched: 'Відэа было пазначана як прагледжанае'
+  Video has been removed from your history: 'Відэа было выдалена з вашай гісторыі'
+  Save Video: 'Захаваць відэа'
+  Video has been saved: 'Відэа захавана'
+  Video has been removed from your saved list: 'Відэа было выдалена з вашага спісу
+    захаваных'
+  Open in YouTube: 'Адкрыць у YouTube'
+  Copy YouTube Link: 'Скапіяваць спасылку YouTube'
+  Open YouTube Embedded Player: 'Адкрыць убудаваны прайгравальнік YouTube'
+  Copy YouTube Embedded Player Link: 'Скапіяваць спасылку на ўбудаваны прайгравальнік
+    YouTube'
+  Open in Invidious: 'Адкрыць у Invidious'
+  Copy Invidious Link: 'Скапіяваць спасылку Invidious'
+  Open Channel in YouTube: 'Адкрыць канал у YouTube'
+  Copy YouTube Channel Link: 'Скапіяваць спасылку на канал YouTube'
+  Open Channel in Invidious: 'Адкрыць канал у Invidious'
+  Copy Invidious Channel Link: 'Скапіяваць спасылку на канал Invidious'
+  Views: 'Прагляды'
+  Loop Playlist: 'Зацыкліць плэй-ліст'
+  Shuffle Playlist: 'Перамяшаць плэй-ліст'
+  Reverse Playlist: 'Адваротны кірунак прайгравання'
+  Play Next Video: 'Прайграць наступнае відэа'
+  Play Previous Video: 'Прайграць папярэдняе відэа'
+  Pause on Current Video: 'Прыпыніць на бягучым відэа'
+  Watched: 'Прагледжанае'
+  Autoplay: 'Аўтапрайграванне'
+  Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце
+    старонку, каб праверыць яшчэ раз'
   # As in a Live Video
-  Premieres on: ''
-  Premieres: ''
-  Upcoming: ''
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled. Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
-  Show Super Chat Comment: ''
-  Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
+  Premieres on: 'Прэм''еры на'
+  Premieres: 'Прэм''еры'
+  Upcoming: 'Хутка'
+  Live: 'Ужывую'
+  Live Now: 'Зараз у эфіры'
+  Live Chat: 'Жывы чат'
+  Enable Live Chat: 'Уключыць жывы чат'
+  Live Chat is currently not supported in this build.: 'Жывы чат зараз не падтрымліваецца
+    ў гэтай зборцы.'
+  'Chat is disabled or the Live Stream has ended.': 'Чат адключаны або жывая трансляцыя
+    скончылася.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Жывы чат уключаны.  Паведамленні
+    чата з''явяцца тут пасля адпраўкі.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Жывы
+    чат зараз не падтрымліваецца Invidious API.  Патрабуецца прамое падключэнне да
+    YouTube.'
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Жывы
+    чат недаступны для гэтай трансляцыі. Магчыма, ён быў адключаны запампавальнікам.'
+  Show Super Chat Comment: 'Паказаць каментарый Суперчата'
+  Scroll to Bottom: 'Пракруціць уніз'
+  Download Video: 'Спампаваць відэа'
+  video only: 'толькі відэа'
+  audio only: 'толькі аўдыё'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
+    Jan: 'Сту'
+    Feb: 'Лют'
+    Mar: 'Сак'
+    Apr: 'Кра'
     May: ''
     Jun: ''
     Jul: ''
@@ -884,6 +911,11 @@ Video:
       shuffling playlists: ''
       looping playlists: ''
 #& Videos
+  Hide Channel: Схаваць канал
+  Unhide Channel: Паказаць канал
+  More Options: Іншыя параметры
+  IP block: YouTube заблакіраваў ваш IP-адрас для прагляду відэа. Паспрабуйце пераключыцца
+    на іншы VPN або проксі.
 Videos:
   #& Sort By
   Sort By:
