@@ -55,6 +55,8 @@ Global:
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
     Comment Count: 1 каментарый | {count} каментарыяў
+  Input Tags:
+    Length Requirement: Даўжыня цэтліка павінна быць не менш за {number} сімвалаў
 Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
   Clear Input: 'Ачысціць увод'
@@ -289,7 +291,7 @@ Settings:
     System Default: 'Налада сістэмы'
     Preferred API Backend:
       Preferred API Backend: 'Пераважны бэкэнд API'
-      Local API: 'Мясцовы API'
+      Local API: 'Лакальны API'
       Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Тып прагляду відэа'
@@ -316,7 +318,7 @@ Settings:
     Region for Trending: 'Рэгіён для Трэндаў'
     #! List countries
     External Link Handling:
-      External Link Handling: 'Апрацоўка знешніх спасылак'
+      External Link Handling: 'Апрацоўка вонкавых спасылак'
       Open Link: 'Адкрыць спасылку'
       Ask Before Opening Link: 'Спытаць, перш чым адкрываць спасылку'
       No Action: 'Без дзеянняў'
@@ -452,8 +454,8 @@ Settings:
     External Player: 'Вонкавы прайгравальнік'
     Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
       не падтрымліваюцца'
-    Custom External Player Executable: ''
-    Custom External Player Arguments: ''
+    Custom External Player Executable: 'Шлях да ўласнага вонкавага прайгравальніка'
+    Custom External Player Arguments: 'Аргументы вонкавага прайгравальніка'
     Players:
       None:
         Name: 'Ніякі'
@@ -821,7 +823,7 @@ Video:
   Views: 'Прагляды'
   Loop Playlist: 'Зацыкліць плэй-ліст'
   Shuffle Playlist: 'Перамяшаць плэй-ліст'
-  Reverse Playlist: 'Рэверсіраваць плэй-ліст'
+  Reverse Playlist: 'Перавернуць плэй-ліст'
   Play Next Video: 'Прайграць наступнае відэа'
   Play Previous Video: 'Прайграць папярэдняе відэа'
   Pause on Current Video: 'Прыпыніць на бягучым відэа'
@@ -908,7 +910,7 @@ Video:
       opening playlists: 'адкрыццё плэй-лістоў'
       opening specific video in a playlist (falling back to opening the video): 'адкрыццё
         пэўнага відэа ў плэй-лісце (вяртанне да адкрыцця відэа)'
-      reversing playlists: 'рэверсіраванне плэй-ліста'
+      reversing playlists: 'пераварочванне плэй-ліста'
       shuffling playlists: 'перамешванне плэй-лістоў'
       looping playlists: 'зацыкліванне плэй-лістоў'
 #& Videos
@@ -993,23 +995,30 @@ Share:
   Include Timestamp: 'Дадаць метку часу'
   Copy Link: 'Скапіяваць спасылку'
   Open Link: 'Адкрыць спасылку'
-  Copy Embed: ''
-  Open Embed: ''
+  Copy Embed: 'Капіяваць для ўбудавання'
+  Open Embed: 'Адкрыць убудаванае'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'URL-адрас Invidious скапіяваны ў буфер абмену'
+  Invidious Embed URL copied to clipboard: 'Invidious URL-адрас для ўбудавання скапіяваны
+    ў буфер абмену'
+  Invidious Channel URL copied to clipboard: 'URL-адрас канала Invidious скапіяваны
+    ў буфер абмену'
+  YouTube URL copied to clipboard: 'URL-адрас YouTube скапіяваны ў буфер абмену'
+  YouTube Embed URL copied to clipboard: 'URL-адрас YouTube для ўбудавання скапіяваны
+    ў буфер абмену'
+  YouTube Channel URL copied to clipboard: 'URL-адрас канала YouTube скапіяваны ў
+    буфер абмену'
 Clipboard:
-  Copy failed: ''
-  Cannot access clipboard without a secure connection: ''
+  Copy failed: 'Не атрымалася скапіяваць у буфер абмену'
+  Cannot access clipboard without a secure connection: 'Немагчыма атрымаць доступ
+    да буфера абмену без бяспечнага злучэння'
 
 Chapters:
   Chapters: 'Раздзелы'
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  'Chapters list visible, current chapter: {chapterName}': 'Бачны спіс раздзелаў,
+    бягучы раздзел: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Спіс раздзелаў схаваны,
+    бягучы раздзел: {chapterName}'
 
 Mini Player: 'Міні плэер'
 Comments:
@@ -1037,75 +1046,131 @@ Comments:
   Pinned by: 'Замацавана'
   Member: 'Член'
   Subscribed: 'Падпісан'
-  Hearted: ''
+  Hearted: 'З сэрцам'
   There are no comments available for this post: Да гэтай публікацыі няма каментарыяў
 Up Next: 'Далей'
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'Выберыце бэкэнд, які FreeTube выкарыстоўвае для атрымання
+      даных. Лакальны API - гэта ўбудаваны экстрактар. Для падключэння Invidious API
+      патрабуецца сервер Invidious.'
+    Fallback to Non-Preferred Backend on Failure: 'Калі ў вашым абраным API ўзнікае
+      праблема, FreeTube аўтаматычна паспрабуе выкарыстаць непрыярытэтны API у якасці
+      рэзервовага метаду, калі ён уключаны.'
+    Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа замест
+      мініяцюры па змаўчанні.'
+    Invidious Instance: 'Экземпляр Invidious, да якога FreeTube будзе падключацца
+      для выклікаў API.'
+    Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны,
+      якія вы жадаеце паказваць.'
     External Link Handling: |
+      Выберыце паводзіны па змаўчанні, калі націскаецца спасылка, якую нельга адкрыць у FreeTube..
+      Па змаўчанні FreeTube адкрые націснутую спасылку ў браўзеры па змаўчанні.
   Player Settings:
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
-    Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
+    Proxy Videos Through Invidious: 'Будзе падключацца да Invidious для прагляду відэа
+      замест прамога падключэння да YouTube.'
+    Default Video Format: 'Задайце фарматы, якія выкарыстоўваюцца пры прайграванні
+      відэа. Фарматы DASH могуць прайграваць больш высокія якасці. Састарэлыя фарматы
+      абмежаваныя максімумам 720p, але выкарыстоўваюць меншую паласу прапускання.
+      Аўдыяфарматы - гэта толькі аўдыяпатокі.'
+    Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце
+      і ўтрымлівайце клавішу Control (клавіша Command на Mac) і пракручвайце кола
+      мышы наперад або назад, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце
+      клавішу Control (клавіша Command на Mac) і пстрыкніце левай кнопкай мышы, каб
+      хутка вярнуцца да хуткасці прайгравання па змаўчанні (1x, калі яна не была зменена
+      ў наладах).'
+    Skip by Scrolling Over Video Player: 'Выкарыстоўвайце кола прагорткі, каб прапускаць
+      відэа ў стылі MPV.'
   External Player Settings:
-    External Player: ''
-    Custom External Player Executable: ''
-    Ignore Warnings: ''
-    Custom External Player Arguments: ''
-    DefaultCustomArgumentsTemplate: ""
+    External Player: 'Пры выбары вонкавага прайгравальніка на мініяцюры будзе адлюстроўвацца
+      значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у вонкавым прайгравальніку.
+      Увага, налады Invidious не ўплываюць на вонкавыя прайгравальнікі.'
+    Custom External Player Executable: 'Па змаўчанні FreeTube мяркуе, што абраны вонкавы
+      прайгравальнік можна знайсці праз пераменную асяроддзя PATH. Пры неабходнасці
+      тут можна задаць уласны шлях.'
+    Ignore Warnings: 'Адключыць папярэджанні, калі бягучы вонкавы прайгравальнік не
+      падтрымлівае бягучае дзеянне (напрыклад, пераварочванне плэй-ліста і г.д.).'
+    Custom External Player Arguments: 'Любыя карыстальніцкія аргументы каманднага
+      радка, падзеленыя кропкай з коскай ('';''), якія вы хочаце перадаць вонкаваму
+      прайгравальніку.'
+    DefaultCustomArgumentsTemplate: "(Па змаўчанні: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Не адпраўляйце ніякіх аргументаў па змаўчанні на вонкавы
+      прайгравальнік, акрамя URL-адраса відэа (напрыклад, частата прайгравання, URL-адрас
+      плэй-ліста і г.д.). Карыстальніцкія аргументы ўсё роўна будуць перадавацца.
   Distraction Free Settings:
-    Hide Channels: ''
-    Hide Subscriptions Live: ''
+    Hide Channels: 'Увядзіце ідэнтыфікатар канала, каб схаваць усе відэа, плэй-лісты
+      і сам канал ад з''яўлення ў пошукавых, трэндавых, самых папулярных і рэкамендаваных.
+      Уведзены ідэнтыфікатар канала павінен цалкам супадаць і ўлічваць рэгістр.'
+    Hide Subscriptions Live: 'Гэта налада перавызначаецца наладай "{appWideSetting}"
+      для ўсёй праграмы ў раздзеле "{subsection}" у "{settingsSection}"'
+    Hide Videos and Playlists Containing Text: Увядзіце слова, фрагмент слова або
+      фразу (без уліку рэгістра), каб схаваць усе відэа і плэй-лісты, арыгінальныя
+      назвы якіх утрымліваюць гэта, ва ўсім FreeTube, за выключэннем толькі Гісторыі,
+      Вашых плэй-лістоў і відэа ў плэй-лістах.
   Subscription Settings:
-    Fetch Feeds from RSS: ''
-    Fetch Automatically: ''
+    Fetch Feeds from RSS: 'Пры ўключэнні FreeTube будзе выкарыстоўваць RSS замест
+      метаду па змаўчанні для атрымання вашай стужкі падпіскі. RSS працуе хутчэй і
+      прадухіляе блакіроўку IP-адрасоў, але не дае пэўнай інфармацыі, такой як працягласць
+      відэа, стан у прамым эфіры або паведамленняў у супольнасці'
+    Fetch Automatically: 'Калі ўключана, FreeTube будзе аўтаматычна атрымліваць стужку
+      вашай падпіскі пры адкрыцці новага акна і пры пераключэнні профілю.'
   Experimental Settings:
-    Replace HTTP Cache: ''
+    Replace HTTP Cache: 'Адключае HTTP кэш Electron''у на дыску і ўключае карыстальніцкі
+      кэш малюнкаў у памяці. Прывядзе да павелічэння выкарыстання аператыўнай памяці.'
   SponsorBlock Settings:
-    UseDeArrowTitles: ''
+    UseDeArrowTitles: 'Заменіце загалоўкі відэа на загалоўкі, прадстаўленыя карыстальнікамі
+      з DeArrow.'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to Local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playlist will not pause when current video is finished: ''
-Playlist will pause when current video is finished: ''
-Playing Next Video Interval: ''
-Canceled next video autoplay: ''
+    UseDeArrowThumbnails: Заменіце мініяцюры відэа на мініяцюры ад DeArrow.
+Local API Error (Click to copy): 'Памылка лакальнага API (націсніце, каб скапіяваць)'
+Invidious API Error (Click to copy): 'Памылка API Invidious (Націсніце, каб скапіяваць)'
+Falling back to Invidious API: 'Вяртанне да Invidious API'
+Falling back to Local API: 'Вяртанне да лакальнага API'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Гэта
+  відэа недаступнае з-за адсутнасці фарматаў. Гэта можа адбыцца з-за недаступнасці
+  краіны.'
+Subscriptions have not yet been implemented: 'Падпіскі яшчэ не рэалізаваны'
+Unknown YouTube url type, cannot be opened in app: 'Невядомы тып URL-адраса YouTube,
+  немагчыма адкрыць у праграме'
+Hashtags have not yet been implemented, try again later: 'Хэштэгі яшчэ не рэалізаваны,
+  паўтарыце спробу пазней'
+Loop is now disabled: 'Цыкл адключаны'
+Loop is now enabled: 'Цыкл уключаны'
+Shuffle is now disabled: 'Перамешванне выключана'
+Shuffle is now enabled: 'Перамешванне ўключана'
+The playlist has been reversed: 'Плэй-ліст перавернуты'
+Playing Next Video: 'Прайграванне наступнага відэа'
+Playing Previous Video: 'Прайграванне папярэдняга відэа'
+Playlist will not pause when current video is finished: 'Плэй-ліст не будзе прыпынены,
+  калі бягучае відэа будзе завершана'
+Playlist will pause when current video is finished: 'Плэй-ліст будзе прыпынены, калі
+  бягучае відэа будзе завершана'
+Playing Next Video Interval: 'Прайграванне наступнага відэа ў самыя кароткія тэрміны.
+  Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
+  секунды. Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
+  секунд. Націсніце, каб адмяніць.'
+Canceled next video autoplay: 'Аўтапрайграванне наступнага відэа адменена'
 
-Default Invidious instance has been set to {instance}: ''
-Default Invidious instance has been cleared: ''
-'The playlist has ended. Enable loop to continue playing': ''
-External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
-Screenshot Success: ''
-Screenshot Error: ''
+Default Invidious instance has been set to {instance}: 'Экземпляр Invidious па змаўчанні
+  быў усталяваны ў {экзэмпляр}'
+Default Invidious instance has been cleared: 'Экземпляр Invidious па змаўчанні быў
+  выдалены'
+'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
+  працягнуць прайграванне, уключыце цыкл'
+External link opening has been disabled in the general settings: 'Адкрыццё вонкавых
+  спасылак было адключана ў агульных наладах'
+Downloading has completed: 'Спампоўка "{videoTitle}" скончана'
+Starting download: 'Пачатак спампоўкі "{videoTitle}"'
+Downloading failed: 'Узнікла праблема спампоўкі "{videoTitle}"'
+Screenshot Success: 'Здымак захаваны як "{filePath}"'
+Screenshot Error: 'Здымак не ўдаўся. {error}'
 
 Hashtag:
-  Hashtag: ''
-  This hashtag does not currently have any videos: ''
+  Hashtag: 'Хэштэг'
+  This hashtag does not currently have any videos: 'Гэты хэштэг зараз не змяшчае відэа'
 Yes: 'Так'
 No: 'Не'
 Ok: 'Ок'
@@ -1113,10 +1178,11 @@ Search Listing:
   Label:
     Subtitles: Субцітры
     4K: 4K
+    Closed Captions: Закрытыя субцітры
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}
-  Feed Last Updated: 'Апошняе абнаўленне каналу {feedName}: {date}'
+  Feed Last Updated: 'Апошняе абнаўленне стужкі {feedName}: {date}'
 Display Label: '{label}: {value}'
 Cancel: Адмена
 checkmark: ✓
@@ -1125,3 +1191,14 @@ Go to page: Перайсці да {page}
 Moments Ago: хвіліны таму
 Yes, Restart: Так, перазапусціць
 Yes, Open Link: Так, адкрыць спасылку
+Tag already exists: Цэтлік "{tagName}" ужо існуе
+Search character limit: Пошукавы запыт перавышае ліміт сімвалаў у {searchCharacterLimit}
+Trimmed input must be at least N characters long: Скарочаны ўвод павінен змяшчаць
+  не менш за 1 сімвал | Скарочаны ўвод павінен змяшчаць не менш за {length} сімвалаў
+Channel Hidden: '{channel} дададзены ў фільтр каналаў'
+Age Restricted:
+  This channel is age restricted: Гэты канал мае ўзроставыя абмежаванні
+  This video is age restricted: Гэты відэа мае ўзроставыя абмежаванні
+'Blocked opening potentially unsafe URL': 'Заблакіравана адкрыццё патэнцыйна небяспечнага
+  URL: "{url}".'
+Channel Unhidden: '{channel} выдалены з фільтра каналаў'
