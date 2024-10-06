@@ -402,7 +402,7 @@ Settings:
     Autoplay Playlists: 'Аўтапрайграванне плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
     Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
-    Scroll Playback Rate Over Video Player: 'Прагортваць хуткасці прайгравання па-над
+    Scroll Playback Rate Over Video Player: 'Прагортваць хуткасць прайгравання па-над
       відэапрайгравальнікам'
     Skip by Scrolling Over Video Player: 'Прапусціць, прагарнуўшы відэапрайгравальнік'
     Display Play Button In Video Player: 'Адлюстроўваць кнопку прайгравання ў відэапрайгравальніку'
@@ -821,7 +821,7 @@ Video:
   Views: 'Прагляды'
   Loop Playlist: 'Зацыкліць плэй-ліст'
   Shuffle Playlist: 'Перамяшаць плэй-ліст'
-  Reverse Playlist: 'Адваротны кірунак прайгравання'
+  Reverse Playlist: 'Рэверсіраваць плэй-ліст'
   Play Next Video: 'Прайграць наступнае відэа'
   Play Previous Video: 'Прайграць папярэдняе відэа'
   Pause on Current Video: 'Прыпыніць на бягучым відэа'
@@ -904,18 +904,48 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} не падтрымлівае: {action}'
     Unsupported Actions:
       starting video at offset: 'пачатак відэа са зрушэннем'
-      setting a playback rate: ''
-      opening playlists: ''
-      opening specific video in a playlist (falling back to opening the video): ''
-      reversing playlists: ''
-      shuffling playlists: ''
-      looping playlists: ''
+      setting a playback rate: 'налада хуткасці прайгравання'
+      opening playlists: 'адкрыццё плэй-лістоў'
+      opening specific video in a playlist (falling back to opening the video): 'адкрыццё
+        пэўнага відэа ў плэй-лісце (вяртанне да адкрыцця відэа)'
+      reversing playlists: 'рэверсіраванне плэй-ліста'
+      shuffling playlists: 'перамешванне плэй-лістоў'
+      looping playlists: 'зацыкліванне плэй-лістоў'
 #& Videos
   Hide Channel: Схаваць канал
   Unhide Channel: Паказаць канал
   More Options: Іншыя параметры
   IP block: YouTube заблакіраваў ваш IP-адрас для прагляду відэа. Паспрабуйце пераключыцца
     на іншы VPN або проксі.
+  Player:
+    Audio Tracks: Гукавыя дарожкі
+    Full Window: Поўнаэкранны рэжым
+    Stats:
+      Stats: Статыстыка
+      Video ID: 'Ідэнтыфікатар відэа: {videoId}'
+      Media Formats: 'Фарматы медыя: {formats}'
+      Player Dimensions: 'Памеры прайгравальніка: {width}x{height}'
+      Bitrate: 'Бітрэйт: {bitrate} кбіт/с'
+      Buffered: 'Буферызавана: {bufferedPercentage}%'
+      Resolution: 'Раздзяляльнасць: {width}x{height}@{frameRate}'
+      Dropped Frames / Total Frames: 'Прапушчаныя кадры: {droppedFrames} / Усяго кадраў:
+        {totalFrames}'
+      CodecsVideoAudio: 'Кодэкі: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Кодэкі: {videoCodec} / {audioCodec}'
+      Volume: 'Гучнасць: {volumePercentage}%'
+      Bandwidth: 'Паласа прапускання: {bandwidth} кбіт/с'
+      CodecAudio: 'Кодэк: {audioCodec} ({audioItag})'
+    Skipped segment: Прапушчаны сегмент {segmentCategory}
+    TranslatedCaptionTemplate: '{language} (пераклад з "{originalLanguage}")'
+    Theatre Mode: Рэжым тэатра
+    Exit Full Window: Выйсці з поўнаэкраннага рэжыму
+    Hide Stats: Схаваць статыстыку
+    Take Screenshot: Зрабіць здымак
+    Show Stats: Паказаць статыстыку
+    Exit Theatre Mode: Выйдзіце з рэжыму тэатра
+    You appear to be offline: Здаецца, вы па-за сеткай.
+    Playback will resume automatically when your connection comes back: Прайграванне
+      ўзновіцца аўтаматычна, калі падключэнне адновіцца.
 Videos:
   #& Sort By
   Sort By:
@@ -928,7 +958,7 @@ Playlist:
   Playlist: 'Плэй-ліст'
   View Full Playlist: 'Праглядзець увесь плэй-ліст'
   Videos: 'Відэа'
-  View: ''
+  View: 'Прагляд'
   Views: 'Прагляды'
   Last Updated On: 'Апошняе абнаўленне'
 
@@ -946,12 +976,16 @@ Playlist:
     VideoTitleDescending: Назва (Я-А)
 Toggle Theatre Mode: 'Пераключыць рэжым тэатра'
 Change Format:
-  Change Media Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Media Formats: 'Змяніць фарматы медыя'
+  Use Dash Formats: 'Выкарыстоўваць фарматы DASH'
+  Use Legacy Formats: 'Выкарыстоўваць старыя фарматы'
+  Use Audio Formats: 'Выкарыстоўваць аўдыяфарматы'
+  Dash formats are not available for this video: 'Фарматы DASH недаступныя для гэтага
+    відэа'
+  Audio formats are not available for this video: 'Аўдыяфарматы недаступныя для гэтага
+    відэа'
+  Legacy formats are not available for this video: Састарэлыя фарматы недаступныя
+    для гэтага відэа
 Share:
   Share Video: 'Падзяліцца відэа'
   Share Channel: 'Падзяліцца каналам'
