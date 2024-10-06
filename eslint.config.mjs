@@ -76,7 +76,6 @@ export default [
       'no-undef': 'warn',
       'object-shorthand': 'off',
       'vue/no-template-key': 'warn',
-      'vue/no-useless-template-attributes': 'off',
       'vue/multi-word-component-names': 'off',
       'vuejs-accessibility/no-onchange': 'off',
 
