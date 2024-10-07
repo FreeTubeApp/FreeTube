@@ -2020,9 +2020,11 @@ export default defineComponent({
           break
         case 'M':
         case 'm':
-          // Toggle mute
-          event.preventDefault()
-          video_.muted = !video_.muted
+          // Toggle mute only if metakey is not pressed
+          if (!event.metaKey) {
+            event.preventDefault()
+            video_.muted = !video_.muted
+          }
           break
         case 'C':
         case 'c':
