@@ -110,8 +110,9 @@ Subscriptions:
     профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничавање
     брзине'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваша
-    листа праћења је тренутно празна. Почните да додајете праћења да бисте их видели
-    овде.'
+    листа праћења је тренутно празна. Ако желите да увезете своја праћења, можете
+    отићи у Подешавања података и изабрати Увоз праћења или можете претражити канал
+    и запратити га.'
   'Getting Subscriptions. Please wait.': 'Набављање праћења. Сачекајте.'
   Refresh Subscriptions: 'Освежи праћења'
   Load More Videos: 'Учитај више видео снимака'
@@ -944,6 +945,8 @@ Video:
     Playback will resume automatically when your connection comes back: Репродукција
       ће се аутоматски наставити када се ваша интернет веза врати.
     Skipped segment: Прескочен сегмент „{segmentCategory}“
+  IP block: YouTube је блокирао вашу IP адресу за гледање видео снимака. Покушајте
+    прећи на други VPN или прокси.
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
