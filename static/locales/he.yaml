@@ -107,7 +107,8 @@ Subscriptions:
   Subscriptions: 'מינויים'
   Latest Subscriptions: 'מינויים אחרונים'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת
-    המינויים שלך ריקה כרגע. יש להוסיף מינויים כדי לראות אותם כאן.'
+    המינויים שלך ריקה כרגע. כדי לייבא את המינויים שלך ניתן לגשת להגדרות הנתונים ולבחור
+    בייבוא מנויים או לחפש ערוצים ולהירשם אליהם.'
   'Getting Subscriptions. Please wait.': 'מינויים נאספים. נא להמתין.'
   Refresh Subscriptions: 'רענון מינויים'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל
@@ -968,6 +969,8 @@ Video:
   Hide Channel: הסתר ערוץ
   Unhide Channel: הצג ערוץ
   More Options: אפשרויות נוספות
+  IP block: YouTube חסמו את כתובת ה־IP לצפייה בסרטונים. נא לנסות לעבור ל־VPN או למתווך
+    אחרים.
 Videos:
   #& Sort By
   Sort By:
@@ -1090,7 +1093,7 @@ Tooltips:
       שמעניין אותך לראות.
   Player Settings:
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
-      להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
+      להתחבר ישירות ל־YouTube.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
       באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־720 פיקסלים לכל היותר אך משתמשויםבפחות
       רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
