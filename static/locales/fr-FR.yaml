@@ -101,8 +101,9 @@ Subscriptions:
   Subscriptions: 'Abonnements'
   Latest Subscriptions: 'Derniers abonnements'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre
-    liste d''abonnements est vide. Ajoutez des abonnements pour les voir apparaître
-    ici.'
+    liste d''abonnements est actuellement vide. Si vous souhaitez importer vos abonnements,
+    vous pouvez aller dans Paramètres des données et sélectionner Importer des abonnements
+    ou vous pouvez rechercher une chaîne et vous y abonner.'
   'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
     veuillez patienter.'
   Getting Subscriptions. Please wait.: Obtention des abonnements. Veuillez patienter.
@@ -999,6 +1000,8 @@ Video:
     You appear to be offline: Vous semblez être hors ligne.
     Playback will resume automatically when your connection comes back: La lecture
       reprendra automatiquement quand votre connexion reviendra.
+  IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez
+    essayer de changer de VPN ou de proxy.
 Videos:
   #& Sort By
   Sort By:

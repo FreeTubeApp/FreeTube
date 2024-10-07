@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 áskrifandi | {count} áskrifendur
     View Count: 1 áhorf | {count} áhorf
     Watching Count: 1 að horfa | {count} að horfa
+    Like Count: 1 líkaði | {count} líkaði
+    Comment Count: 1 athugasemd | {count} athugasemdir
   Input Tags:
     Length Requirement: Merki þarf að vera a.m.k. {number} stafa langt
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
@@ -786,6 +788,7 @@ Channel:
     Hide Answers: Fela svör
     votes: '{votes} atkvæði'
     Video hidden by FreeTube: Myndskeið falið af FreeTube
+    View Full Post: Skoða alla færsluna
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
@@ -917,6 +920,19 @@ Video:
   Unhide Channel: Birta rás
   Hide Channel: Fela rás
   More Options: Fleiri valkostir
+  Player:
+    Stats:
+      Player Dimensions: 'Stærðir spilara: {width}x{height}'
+      Bitrate: 'Bitahraði: {bitrate} kbps'
+      Resolution: 'Upplausn: {width}x{height}@{frameRate}'
+      Volume: 'Hljóðstyrkur: {volumePercentage}%'
+      Stats: Tölfræði
+      Bandwidth: 'Bandbreidd: {bandwidth} kbps'
+    TranslatedCaptionTemplate: '{language} (þýtt úr "{originalLanguage}")'
+    Take Screenshot: Taka skjámynd
+    Hide Stats: Fela tölfræði
+    Show Stats: Birta tölfræði
+    Audio Tracks: Hljóðrásir
 Videos:
   #& Sort By
   Sort By:
@@ -1040,7 +1056,7 @@ Tooltips:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
       í veg fyrir útilokun IP-vistfanga, en nær ekki að birta ákveðnar upplýsingar
-      á borð við tímalengd myndskeiða eða stöðu í beinni útsendingu'
+      á borð við tímalengd myndskeiða, stöðu í beinni útsendingu eða færslur á samfélagsgáttum'
 
 # Toast Messages
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin

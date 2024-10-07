@@ -172,10 +172,7 @@ export default defineComponent({
     },
 
     isSubscribedInAnyProfile: function () {
-      const profileList = this.$store.getters.getProfileList
-
-      // check the all channels profile
-      return profileList[0].subscriptions.some((channel) => channel.id === this.id)
+      return this.$store.getters.getSubscribedChannelIdSet.has(this.id)
     },
 
     videoLiveShortSelectValues: function () {

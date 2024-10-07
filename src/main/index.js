@@ -455,7 +455,7 @@ function runApp() {
           requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-      // eslint-disable-next-line n/no-callback-literal
+       
       callback({ requestHeaders })
     })
 
@@ -466,7 +466,7 @@ function runApp() {
       if (responseHeaders) {
         delete responseHeaders['set-cookie']
       }
-      // eslint-disable-next-line n/no-callback-literal
+       
       callback({ responseHeaders })
     })
 
@@ -639,6 +639,8 @@ function runApp() {
         return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
 
+      // Determine window color to be shown (shown most prominently during initial app load)
+      // Uses the --bg-color for each corresponding theme
       switch (setting.value) {
         case 'dark':
           return '#212121'
@@ -755,7 +757,7 @@ function runApp() {
     // If called multiple times
     // Duplicate menu items will be added
     if (replaceMainWindow) {
-      // eslint-disable-next-line
+       
       setMenu()
     }
 
