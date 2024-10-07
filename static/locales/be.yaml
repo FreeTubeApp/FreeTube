@@ -118,7 +118,9 @@ Subscriptions:
     гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць
     абмежавання хуткасці'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
-    спіс падпісак зараз пусты. Пачніце дадаваць падпіскі, каб убачыць іх тут.'
+    спіс падпісак зараз пусты. Калі вы хочаце імпартаваць свае падпіскі, вы можаце
+    перайсці ў Налады даных і выбраць Імпартаваць падпіскі або вы можаце знайсці каналы
+    і падпісацца на іх.'
   Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць
     іх тут, абнавіце падпіскі.'
   Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'
@@ -344,8 +346,8 @@ Settings:
       Pastel Pink: 'Пастэльна-ружовая'
       Hot Pink: 'Ярка-ружовая'
       Nordic: Nordic
-      Solarized Dark: Solarized Dark
-      Solarized Light: Solarized Light
+      Solarized Dark: Solarized Цёмная
+      Solarized Light: Solarized Светлая
     Main Color Theme:
       Main Color Theme: 'Асноўны колер тэмы'
       Red: 'Чырвоны'
@@ -500,11 +502,11 @@ Settings:
       General: 'Агульныя'
     Blur Thumbnails: ''
     Hide Video Views: 'Хаваць прагляды відэа'
-    Hide Video Likes And Dislikes: 'Хаваць "Падабаецца" і "Не падабаецца" да відэа'
+    Hide Video Likes And Dislikes: 'Хаваць лайкі і дызлайкі да відэа'
     Hide Channel Subscribers: 'Хаваць падпісчыкаў каналу'
     Hide Comment Likes: 'Хаваць лайкі да каментарыяў'
     Hide Recommended Videos: 'Хаваць рэкамендаваныя відэа'
-    Hide Trending Videos: 'Схаваць відэа ў трэндзе'
+    Hide Trending Videos: 'Схаваць трэндавыя відэа'
     Hide Popular Videos: 'Хаваць папулярныя відэа'
     Hide Playlists: 'Хаваць плэй-лісты'
     Hide Live Chat: 'Хаваць жывы чат'
@@ -1178,7 +1180,7 @@ Search Listing:
   Label:
     Subtitles: Субцітры
     4K: 4K
-    Closed Captions: Закрытыя субцітры
+    Closed Captions: Субцітры
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}
