@@ -1137,7 +1137,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Subscriptions have not yet been implemented: 'Падпіскі яшчэ не рэалізаваны'
 Unknown YouTube url type, cannot be opened in app: 'Невядомы тып URL-адраса YouTube,
   немагчыма адкрыць у праграме'
-Hashtags have not yet been implemented, try again later: 'Хэштэгі яшчэ не рэалізаваны,
+Hashtags have not yet been implemented, try again later: 'Цэтлікі яшчэ не рэалізаваны,
   паўтарыце спробу пазней'
 Loop is now disabled: 'Цыкл адключаны'
 Loop is now enabled: 'Цыкл уключаны'
@@ -1171,8 +1171,8 @@ Screenshot Success: 'Здымак захаваны як "{filePath}"'
 Screenshot Error: 'Здымак не ўдаўся. {error}'
 
 Hashtag:
-  Hashtag: 'Хэштэг'
-  This hashtag does not currently have any videos: 'Гэты хэштэг зараз не змяшчае відэа'
+  Hashtag: 'Цэтлік'
+  This hashtag does not currently have any videos: 'Гэты цэтлік зараз не змяшчае відэа'
 Yes: 'Так'
 No: 'Не'
 Ok: 'Ок'
