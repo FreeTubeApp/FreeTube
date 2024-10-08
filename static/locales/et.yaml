@@ -107,7 +107,9 @@ Subscriptions:
   Subscriptions: 'Tellimused'
   Latest Subscriptions: 'Viimased tellimused'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinu
-    tellimuste loend on hetkel tühi. Telli kanaleid ja sa näed neid siin loendis.'
+    tellimuste loend on hetkel tühi. Kui sa soovid importida oma tellimusi, siis ava
+    seadistustest „Andmehaldus“ ja vali „Impordi tellimused“, aga samuti võid kanaleid
+    lihtsalt otsida ning seejärel tellida.'
   'Getting Subscriptions. Please wait.': 'Laadin tellimusi, palun oota.'
   Refresh Subscriptions: 'Värskenda tellimusi'
   Load More Videos: Laadi veel videosid
@@ -937,6 +939,8 @@ Video:
     Playback will resume automatically when your connection comes back: Taasesitus
       jätkub automaatselt niipea, kui sinu seadme võrguühendus taastub.
     You appear to be offline: Sa ei tundu olema võrgus.
+  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise.
+    Palun kasuta mõnda muud VPN-teenust või puhverserverit.
 Videos:
   #& Sort By
   Sort By:

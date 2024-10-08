@@ -108,8 +108,9 @@ Subscriptions:
   Subscriptions: 'Feliratkozások'
   Latest Subscriptions: 'Legfrissebb feliratkozások'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
-    feliratkozások listája jelenleg üres. Kezdjen hozzáadni a feliratkozásokat, hogy
-    itt láthassa őket.'
+    feliratkozások listája jelenleg üres. Ha importálni szeretné előfizetéseit, lépjen
+    az Adatok beállításaiba és válassza a feliratkozások importálása lehetőséget,
+    vagy kereshet csatornákat és feliratkozhat rájuk.'
   'Getting Subscriptions. Please wait.': 'Feliratkozások megszerzése. Kis türelmet
     kérünk.'
   Refresh Subscriptions: 'Feliratkozások frissítése'
@@ -1015,6 +1016,8 @@ Video:
     Show Stats: Statisztika megjelenítése
     Playback will resume automatically when your connection comes back: A lejátszás
       automatikusan folytatódik, amikor a kapcsolat helyreáll.
+  IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg
+    másik VPN-re vagy proxyra váltani.
 Videos:
   #& Sort By
   Sort By:

@@ -102,7 +102,9 @@ Subscriptions:
   Subscriptions: 'Suscripciones'
   Latest Subscriptions: 'Últimas suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
-    lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
+    lista de suscripciones está vacía. Si deseas importar tus suscripciones puedes
+    ir a Configuración de datos y seleccionar Importar suscripciones o puedes buscar
+    un canal y suscribirte.'
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
   Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
@@ -1009,6 +1011,8 @@ Video:
     Theatre Mode: Modo cine
     Exit Theatre Mode: Salir del modo cine
     Full Window: Pantalla completa
+  IP block: YouTube ha bloqueado tu dirección IP para ver vídeos. Por favor, intenta
+    cambiar a otra VPN o proxy.
 Videos:
   #& Sort By
   Sort By:

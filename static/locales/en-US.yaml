@@ -125,7 +125,7 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
@@ -770,6 +770,7 @@ Channel:
     Video hidden by FreeTube: Video hidden by FreeTube
     Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
+  IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
   More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History

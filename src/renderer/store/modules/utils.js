@@ -52,10 +52,6 @@ const state = {
   externalPlayerNames: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
-  lastVideoRefreshTimestampByProfile: {},
-  lastShortRefreshTimestampByProfile: {},
-  lastLiveRefreshTimestampByProfile: {},
-  lastCommunityRefreshTimestampByProfile: {},
   lastPopularRefreshTimestamp: '',
   lastTrendingRefreshTimestamp: '',
   subscriptionFirstAutoFetchRunData: {
@@ -73,10 +69,6 @@ const getters = {
 
   getOutlinesHidden(state) {
     return state.outlinesHidden
-  },
-
-  getCurrentVolume(state) {
-    return state.currentVolume
   },
 
   getSessionSearchHistory(state) {

@@ -38,7 +38,7 @@ export default defineComponent({
     }
   },
   watch: {
-    async $route() {
+    async '$route.params.id'() {
       // react to route changes...
       this.isLoading = true
       if (this.isInvidiousAllowed) {
@@ -60,6 +60,18 @@ export default defineComponent({
       this.post = await getInvidiousCommunityPost(this.id, this.authorId)
       this.authorId = this.post.authorId
       this.isLoading = false
+
+      // If the authorId is missing from the URL we should add it,
+      // that way if the user comes back to this page by pressing the back button
+      // we don't have to resolve the authorId again
+      if (this.authorId !== this.$route.query.authorId) {
+        this.$router.replace({
+          path: `/post/${this.id}`,
+          query: {
+            authorId: this.authorId
+          }
+        })
+      }
     }
   }
 })

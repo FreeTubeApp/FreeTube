@@ -107,7 +107,8 @@ Subscriptions:
   Subscriptions: 'Abonelikler'
   Latest Subscriptions: 'En Yeni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
-    listeniz şu anda boş. Aboneliklerinizi görebilmek için abone olmaya başlayın.'
+    listeniz şu anda boş. Aboneliklerinizi içe aktarmak istiyorsanız Veri Ayarları''na
+    gidip Abonelikleri İçe Aktar''ı seçebilir veya bir kanal arayıp abone olabilirsiniz.'
   'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu
@@ -1014,6 +1015,8 @@ Video:
     Playback will resume automatically when your connection comes back: Bağlantınız
       geri geldiğinde oynatma otomatik olarak devam edecektir.
     Skipped segment: '{segmentCategory} bölümü atlandı'
+  IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir
+    VPN veya vekil sunucuya geçmeyi deneyin.
 Videos:
   #& Sort By
   Sort By:

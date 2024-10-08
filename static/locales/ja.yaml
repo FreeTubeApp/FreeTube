@@ -98,7 +98,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   Latest Subscriptions: '最新の登録'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは空です。チャンネル登録をするとこちらに表示されます。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは現在空です。登録チャンネルをインポートするには、設定からデータの設定に移動して登録チャンネルをインポートするか、チャンネルを検索して登録することができます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
@@ -861,6 +861,7 @@ Video:
     Hide Stats: 統計を隠す
     Take Screenshot: スクリーンショットを撮る
     Show Stats: 統計を表示
+  IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
 Videos:
   #& Sort By
   Sort By:
@@ -1013,13 +1014,13 @@ Version {versionNumber} is now available!  Click for more details: 最新バー�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
-      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は通常の方法の代わりに RSS を使用して購読フィードを取得します。RSS は高速で
+      IP ブロックを防ぎますが、動画の長さやライブ配信の情報、コミュニティ投稿などの情報は提供されません
     Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、登録チャンネル
       フィードを自動的に取得します。
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
-    Proxy Videos Through Invidious: YouTube に直接接続せず、Invidious に接続します。これによりAPIの設定が上書きされます。
+    Proxy Videos Through Invidious: YouTube に直接接続するのではなく、Invidious を通じて動画を提供します。
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: MPVスタイルでスクロールホイールを使って動画をスキップします。

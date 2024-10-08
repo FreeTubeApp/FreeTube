@@ -362,12 +362,21 @@ export default defineComponent({
 
         const playabilityStatus = result.playability_status
 
-        if (playabilityStatus.status === 'UNPLAYABLE') {
-          /**
-           * @type {import ('youtubei.js').YTNodes.PlayerErrorMessage}
-           */
-          const errorScreen = playabilityStatus.error_screen
-          throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
+        // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
+        const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
+
+        if (playabilityStatus.status === 'UNPLAYABLE' || (playabilityStatus.status === 'LOGIN_REQUIRED' && playabilityStatus.reason === BOT_MESSAGE)) {
+          if (playabilityStatus.reason === BOT_MESSAGE) {
+            throw new Error(this.$t('Video.IP block'))
+          }
+
+          let errorText = `[${playabilityStatus.status}] ${playabilityStatus.reason}`
+
+          if (playabilityStatus.error_screen) {
+            errorText += `: ${playabilityStatus.error_screen.subreason.text}`
+          }
+
+          throw new Error(errorText)
         }
 
         // extract localised title first and fall back to the not localised one
