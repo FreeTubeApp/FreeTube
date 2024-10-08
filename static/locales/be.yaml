@@ -328,7 +328,7 @@ Settings:
       Label: Аўтаматычная загрузка наступнай старонкі
       Tooltip: Аўтаматычна загружаць дадатковыя старонкі і каментарыі.
   Theme Settings:
-    Theme Settings: 'Налады тэмы'
+    Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
     Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
     Disable Smooth Scrolling: 'Адключыць плыўную пракрутку'
@@ -398,7 +398,7 @@ Settings:
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Налады плэера'
+    Player Settings: 'Прайгравальнік'
     Play Next Video: 'Прайграваць наступнае відэа'
     Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
     Autoplay Videos: 'Аўтапрайграванне відэа'
@@ -452,7 +452,7 @@ Settings:
         Forbidden Characters: 'Забароненыя сімвалы'
         Empty File Name: 'Пустая назва файла'
   External Player Settings:
-    External Player Settings: 'Налады вонкавага прайгравальніка'
+    External Player Settings: 'Вонкавы прайгравальнік'
     External Player: 'Вонкавы прайгравальнік'
     Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
       не падтрымліваюцца'
@@ -463,7 +463,7 @@ Settings:
         Name: 'Ніякі'
     Ignore Default Arguments: Ігнараваць аргументы па змаўчанні
   Privacy Settings:
-    Privacy Settings: 'Налады прыватнасці'
+    Privacy Settings: 'Прыватнасць'
     Remember History: 'Памятаць гісторыю'
     Save Watched Progress: 'Захоўваць прагрэс прагляду'
     Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з
@@ -484,7 +484,7 @@ Settings:
     Remove All Playlists: Выдаліць усе плэй-лісты
     All playlists have been removed: Усе плэй-лісты былі выдалены
   Subscription Settings:
-    Subscription Settings: 'Налады падпіскі'
+    Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
     Manage Subscriptions: 'Кіраванне падпіскамі'
@@ -544,7 +544,7 @@ Settings:
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам.
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
   Data Settings:
-    Data Settings: 'Налады даных'
+    Data Settings: 'Даныя'
     Select Import Type: 'Выбраць тып імпарту'
     Select Export Type: 'Выбраць тып экспарту'
     Import Subscriptions: 'Імпарт падпісак'
@@ -594,7 +594,7 @@ Settings:
         ў раздзеле «Налады прыватнасці».\n3. Запусціце старую версію FreeTube і імпартуйце
         экспартаваныя плэй-лісты.\""
   Proxy Settings:
-    Proxy Settings: 'Налады проксі'
+    Proxy Settings: 'Проксі'
     Enable Tor / Proxy: 'Уключыць Tor / Проксі'
     Proxy Protocol: 'Пратакол проксі'
     Proxy Host: 'Адрас проксі'
@@ -610,7 +610,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Памылка
       атрымання інфармацыі аб сетцы. Ці правільна наладжаны ваш проксі?'
   SponsorBlock Settings:
-    SponsorBlock Settings: 'Налады SponsorBlock'
+    SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Уключыць SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'URL-адрас SponsorBlock
       API (па змаўчанні https://sponsor.ajay.app)'
@@ -627,12 +627,12 @@ Settings:
       API генератара мініяцюр DeArrow (па змаўчанні https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Выкарыстоўваць DeArrow для мініяцюр
   Parental Control Settings:
-    Parental Control Settings: 'Налады бацькоўскага кантролю'
+    Parental Control Settings: 'Бацькоўскі кантроль'
     Hide Unsubscribe Button: 'Хаваць кнопку адпіскі'
     Show Family Friendly Only: 'Паказаць толькі для сямейнага прагляду'
     Hide Search Bar: 'Хаваць панэль пошуку'
   Download Settings:
-    Download Settings: 'Налады спампоўкі'
+    Download Settings: 'Спампоўка'
     Ask Download Path: 'Пытаць шлях спампоўкі'
     Choose Path: 'Выберыце шлях'
     Download Behavior: 'Паводзіны спампоўкі'
@@ -650,7 +650,7 @@ Settings:
     Password Incorrect: 'Пароль няправільны'
     Unlock: 'Разблакіраваць'
   Password Settings:
-    Password Settings: 'Налады пароля'
+    Password Settings: 'Пароль'
     Set Password To Prevent Access: 'Задайце пароль, каб забараніць доступ да налад'
     Set Password: 'Задаць пароль'
     Remove Password: 'Выдаліць пароль'
@@ -689,7 +689,7 @@ About:
   AGPLv3: AGPLv3
   Licensed under the: Пад ліцэнзіяй
 Profile:
-  Profile Settings: 'Налады профілю'
+  Profile Settings: 'Профіль'
   Toggle Profile List: 'Пераключыць спіс профіляў'
   Profile Select: 'Выбар профілю'
   Profile Filter: 'Фільтр профілю'
