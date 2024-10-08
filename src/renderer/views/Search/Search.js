@@ -340,7 +340,7 @@ export default defineComponent({
           continue
         }
 
-        if (result.dataSource === 'local') {
+        if (result.dataSource === API_DATA_SOURCES.LOCAL) {
           channels.push({
             channelId: result.id,
             channelName: result.name,
