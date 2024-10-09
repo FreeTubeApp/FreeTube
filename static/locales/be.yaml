@@ -1157,7 +1157,7 @@ Playing Next Video Interval: 'Прайграванне наступнага ві
 Canceled next video autoplay: 'Аўтапрайграванне наступнага відэа адменена'
 
 Default Invidious instance has been set to {instance}: 'Экземпляр Invidious па змаўчанні
-  быў усталяваны ў {экзэмпляр}'
+  быў усталяваны ў {instance}'
 Default Invidious instance has been cleared: 'Экземпляр Invidious па змаўчанні быў
   выдалены'
 'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
