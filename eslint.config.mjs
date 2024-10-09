@@ -24,8 +24,8 @@ const compat = new FlatCompat({
 export default [
   {
     ignores: [
-      '**/node_modules',
-      '**/dist',
+      'node_modules/',
+      'dist/',
       "eslint.config.mjs"
     ]
   },
@@ -44,7 +44,7 @@ export default [
       '**/*.{js,vue}',
     ],
     ignores: [
-      '**/_scripts',
+      '_scripts/',
       'eslint.config.mjs'
     ],
     plugins: {
@@ -131,7 +131,7 @@ export default [
   {
     files: ['**/*.json'],
     ignores: [
-      '**/_scripts/**',
+      '_scripts/',
     ],
 
     languageOptions: {
@@ -156,8 +156,8 @@ export default [
   {
     files: ['**/*.{yml,yaml}'],
     ignores: [
-      '**/.github/**',
-      '**/_scripts/**'
+      '.github/',
+      '_scripts/'
     ],
 
     languageOptions: {
@@ -195,7 +195,7 @@ export default [
     },
   },
   {
-    files: ['**/_scripts/*.js'],
+    files: ['_scripts/*.js'],
     languageOptions: {
       globals: {
         ...globals.node
