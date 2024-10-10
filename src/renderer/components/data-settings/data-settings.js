@@ -837,12 +837,12 @@ export default defineComponent({
       ]
 
       const optionalKeys = [
+        '_id',
         'description',
         'createdAt',
       ]
 
       const ignoredKeys = [
-        '_id',
         'title',
         'type',
         'protected',
@@ -910,6 +910,10 @@ export default defineComponent({
         }
 
         const existingPlaylist = this.allPlaylists.find((playlist) => {
+          if (playlistObject._id != null && playlist._id === playlistObject._id) {
+            return true
+          }
+
           return playlist.playlistName === playlistObject.playlistName
         })
 
