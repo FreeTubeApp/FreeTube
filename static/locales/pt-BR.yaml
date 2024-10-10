@@ -1285,5 +1285,10 @@ Search Listing:
     Subtitles: Legendas
     Closed Captions: Legendas ocultas (CC)
     4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    3D: 3D
+    New: Novo
 'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
   "{url}".'
