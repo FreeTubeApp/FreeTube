@@ -98,7 +98,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   Latest Subscriptions: '最新訂閱'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始新增訂閱。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。如果您想要匯入您的訂閱，您可以前往「資料設定」，然後選取「匯入訂閱」，或者您也可以搜尋頻道並訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
@@ -863,6 +863,7 @@ Video:
     You appear to be offline: 您似乎已離線。
     Playback will resume automatically when your connection comes back: 當您的連線恢復時，將會自動繼續播放。
     Skipped segment: 已跳過 {segmentCategory} 段
+  IP block: YouTube 已封鎖您的 IP 位址，因此無法觀看影片。請嘗試切換到其他 VPN 或代理伺服器。
 Videos:
   #& Sort By
   Sort By:

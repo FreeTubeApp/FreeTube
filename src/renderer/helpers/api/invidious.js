@@ -388,7 +388,7 @@ export function filterInvidiousFormats(formats) {
   })
 }
 
-export async function getHashtagInvidious(hashtag, page) {
+export async function getHashtagInvidious(hashtag, page = 1) {
   const payload = {
     resource: 'hashtag',
     id: hashtag,

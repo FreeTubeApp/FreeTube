@@ -220,7 +220,7 @@ export default defineComponent({
         return [...yt.matchAll(splitCSVRegex)].map(s => {
           let newVal = s[1]
           if (newVal.startsWith('"')) {
-            newVal = newVal.substring(1, newVal.length - 2).replaceAll('""', '"')
+            newVal = newVal.substring(1, newVal.length - 1).replaceAll('""', '"')
           }
           return newVal
         })
