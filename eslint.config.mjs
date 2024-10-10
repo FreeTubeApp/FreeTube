@@ -25,7 +25,7 @@ export default [
   {
     ignores: [
       'dist/',
-      "eslint.config.mjs"
+      'eslint.config.mjs'
     ]
   },
   ...fixupConfigRules(
@@ -44,7 +44,6 @@ export default [
     ],
     ignores: [
       '_scripts/',
-      'eslint.config.mjs'
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
@@ -199,7 +198,7 @@ export default [
       globals: {
         ...globals.node
       },
-      ecmaVersion: 2022
+      ecmaVersion: 'latest',
     },
 
     plugins: {
@@ -213,13 +212,13 @@ export default [
     }
   },
   {
-    files: ['**/*.mjs'],
+    files: ['_scripts/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,
       },
-      ecmaVersion: 2022,
-      sourceType: 'module'
+      ecmaVersion: 'latest',
+      sourceType: 'module',
     },
 
     plugins: {
