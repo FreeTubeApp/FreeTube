@@ -93,7 +93,7 @@ Search Filters:
     další výsledky
   Features:
     HD: HD
-    360 Video: 360°
+    360 Video: 360° video
     Subtitles: Titulky
     Features: Vlastnosti
     Creative Commons: Creative Commons
@@ -1257,5 +1257,10 @@ Search Listing:
     4K: 4K
     Subtitles: Titulky
     Closed Captions: Skryté titulky
+    360 Video: 360°
+    New: Nové
+    8K: 8K
+    VR180: VR180
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
   adresy URL: „{url}“.'
