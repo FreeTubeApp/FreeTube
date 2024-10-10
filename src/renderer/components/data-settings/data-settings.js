@@ -943,7 +943,7 @@ export default defineComponent({
           } else {
             // Find by `playlistItemId` if present
             videoExists = existingPlaylist.videos.some((x) => {
-              // Allow duplicate (by videoId) videos to be added
+              // Disallow duplicate (by videoId) videos to be added
               return x.videoId === video.videoId
             })
           }
