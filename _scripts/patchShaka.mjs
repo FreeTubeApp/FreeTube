@@ -63,7 +63,7 @@ async function removeRobotoFont() {
     let cssContents = readFileSync(cssFileHandle, 'utf-8')
 
     const beforeReplacement = cssContents.length
-    cssContents = cssContents.replace(/@font-face\{font-family:Roboto;[^}]+\}/, '')
+    cssContents = cssContents.replace(/@font-face{font-family:Roboto;[^}]+}/, '')
 
     if (cssContents.length !== beforeReplacement) {
       ftruncateSync(cssFileHandle)
@@ -100,7 +100,7 @@ async function replaceAndDownloadMaterialIconsFont() {
       let newFontCSS = text.match(/(@font-face\s*{[^}]+})/)[1].replaceAll('\n', '')
 
 
-      const urlMatch = newFontCSS.match(/https:\/\/fonts\.gstatic\.com\/s\/materialiconsround\/(?<version>[^\/]+)\/[^.]+\.(?<extension>[\w]+)/)
+      const urlMatch = newFontCSS.match(/https:\/\/fonts\.gstatic\.com\/s\/materialiconsround\/(?<version>[^/]+)\/[^.]+\.(?<extension>\w+)/)
 
       const url = urlMatch[0]
       const { version, extension } = urlMatch.groups
