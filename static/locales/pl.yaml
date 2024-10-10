@@ -100,8 +100,8 @@ Subscriptions:
   Subscriptions: 'Subskrypcje'
   Latest Subscriptions: 'Ostatnie subskrypcje'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Twoja
-    lista subskrypcji jest obecnie pusta. Zacznij dodawać subskrypcje, aby zobaczyć
-    je tutaj.'
+    lista subskrypcji jest obecnie pusta. Możesz zaimportować swoje subskrypcje w
+    Ustawieniach danych, klikając w „Zaimportuj subskrypcje”.'
   'Getting Subscriptions.  Please wait.': 'Pobieranie subskrypcji. Proszę czekać...'
   Refresh Subscriptions: Odśwież subskrypcje
   Getting Subscriptions. Please wait.: Pobieranie subskrypcji. Proszę poczekać.
@@ -972,6 +972,8 @@ Video:
       zostanie wznowione, jak tylko połączenie zostanie odzyskane.
     Skipped segment: Pominięto segment {segmentCategory}
     Full Window: Pełny ekran
+  IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz
+    spróbować przełączyć się na inny, korzystając z VPN lub proxy.
 Videos:
   #& Sort By
   Sort By:
@@ -1294,5 +1296,10 @@ Search Listing:
     Subtitles: Napisy
     Closed Captions: Napisy z opisami
     4K: 4K
+    New: Nowe
+    3D: 3D
+    VR180: VR180
+    8K: 8K
+    360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
   URL: "{url}".'
