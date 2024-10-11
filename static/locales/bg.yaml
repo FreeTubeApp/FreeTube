@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 абонат | {count} абоната
     View Count: 1 преглед | {count} прегледа
     Watching Count: 1 гледане | {count} гледания
+    Like Count: 1 харесване | {count} харесвания
+    Comment Count: 1 коментар | {count} коментара
   Input Tags:
     Length Requirement: Дължината на етикета трябва да бъде поне {number} знака
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
@@ -106,7 +108,9 @@ Subscriptions:
   Subscriptions: 'Абонаменти'
   Latest Subscriptions: 'Последни абонаменти'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът
-    с абонаменти е празен. Започнете да добавяте, за да ги видите тук.'
+    с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки
+    на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да
+    се абонирате за него.'
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
   Refresh Subscriptions: 'Опресняване на абонаментите'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този
@@ -183,6 +187,9 @@ User Playlists:
         се използва за бързи отметки.
       Playlist {playlistName} is the new quick bookmark playlist.: Плейлиста {playlistName}
         е новият списък за бързи отметки.
+      This playlist has a video with a duration error: Този плейлист съдържа поне
+        едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността
+        му е нула.
     Search for Videos: Търсене за видеа
   CreatePlaylistPrompt:
     Toast:
@@ -833,6 +840,10 @@ Channel:
     Reveal Answers: Разкриване на отговорите
     Hide Answers: Скриване на отговорите
     Video hidden by FreeTube: Видео, скрито от FreeTube
+    Viewing Posts Only Supported By Invidious: Преглеждането на публикации се поддържа
+      само от Invidious. Отидете в раздела на общността на канала, за да видите съдържанието
+      там без Invidious.
+    View Full Post: Преглед на цялата публикация
   This channel does not exist: Каналът не съществува
   This channel does not allow searching: Каналът не позволява търсене
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Каналът
@@ -1000,6 +1011,8 @@ Video:
     Theatre Mode: Широкоекранен режим
     Full Window: Цял прозорец
     Hide Stats: Скриване на статистиката
+  IP block: YouTube е блокирал вашия IP адрес за гледане на видеа. Опитайте да преминете
+    към друга VPN услуга или прокси сървър.
 Videos:
   #& Sort By
   Sort By:
@@ -1028,6 +1041,8 @@ Playlist:
     VideoTitleAscending: Заглавие (A-Z)
     Custom: Потребителски
     VideoTitleDescending: Заглавие (Z-A)
+    VideoDurationAscending: Продължителност (първо най-кратките)
+    VideoDurationDescending: Продължителност (първо най-дългите)
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Media Formats: 'Смяна видео формати'
@@ -1084,6 +1099,7 @@ Comments:
   View {replyCount} replies: Преглед на {replyCount} отговора
   Hearted: Сърдечно
   Subscribed: Абониран
+  There are no comments available for this post: За тази публикация няма налични коментари
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -1112,8 +1128,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: FreeTube ще използва RSS вместо метода по подразбиране за
       получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
-      IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
-      или дали е на живо
+      IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото,
+      дали е на живо или публикации в общността
     Fetch Automatically: FreeTube автоматично ще извлича абонаментите при отваряне
       на нов прозорец и при смяна на профила.
   Player Settings:
@@ -1261,5 +1277,10 @@ Search Listing:
     4K: 4K
     Subtitles: Субтитри
     Closed Captions: Затворени субтитри
+    VR180: VR180
+    3D: 3D
+    8K: 8K
+    360 Video: 360°
+    New: Нов
 'Blocked opening potentially unsafe URL': 'Блокирано отваряне на потенциално опасен
   URL адрес: "{url}".'
