@@ -200,6 +200,9 @@ User Playlists:
         utilizzata per i segnalibri rapidi.
       Playlist {playlistName} is the new quick bookmark playlist.: La playlist {playlistName}
         è la nuova playlist con segnalibri rapidi.
+      This playlist has a video with a duration error: Questa playlist contiene almeno
+        un video che non ha durata; verranno ordinati come se la loro durata fosse
+        zero.
     Search for Videos: Cerca video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
@@ -999,6 +1002,8 @@ Playlist:
     DateAddedNewest: Prima gli aggiunti più nuovi
     DateAddedOldest: Prima gli aggiunti più vecchi
     VideoTitleAscending: Titolo (A-Z)
+    VideoDurationAscending: Durata (prima la più breve)
+    VideoDurationDescending: Durata (prima la più lunga)
 Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
