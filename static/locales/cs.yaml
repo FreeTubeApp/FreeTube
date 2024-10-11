@@ -200,6 +200,9 @@ User Playlists:
         používán pro rychlou záložku.
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
         je nový playlist rychlé záložky.
+      This playlist has a video with a duration error: Tento playlist obsahuje nejméně
+        jedno video, které nemá dobu trvání. Bude seřazeno tak, jako by mělo dobu
+        trvání nula.
     Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
@@ -1021,6 +1024,8 @@ Playlist:
     VideoTitleDescending: Název (Z-A)
     VideoTitleAscending: Název (A-Z)
     Custom: Vlastní
+    VideoDurationAscending: Doba trvání (od nejkratších)
+    VideoDurationDescending: Doba trvání (od nejdelších)
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
