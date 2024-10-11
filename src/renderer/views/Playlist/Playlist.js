@@ -20,9 +20,10 @@ import {
   getIconForSortPreference,
   setPublishedTimestampsInvidious,
   showToast,
+  deepCopy,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
+import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
@@ -74,6 +75,7 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
       forceListView: false,
+      alreadyShownNotice: false,
 
       videoSearchQuery: '',
 
@@ -180,6 +182,13 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
+      if (
+        this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
+        this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
+      ) {
+        const playlistItems = this.getPlaylistItemsWithDuration()
+        return getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
+      }
       return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
@@ -214,6 +223,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.AuthorAscending')
           case SORT_BY_VALUES.AuthorDescending:
             return this.$t('Playlist.Sort By.AuthorDescending')
+          case SORT_BY_VALUES.VideoDurationAscending:
+            return this.$t('Playlist.Sort By.VideoDurationAscending')
+          case SORT_BY_VALUES.VideoDurationDescending:
+            return this.$t('Playlist.Sort By.VideoDurationDescending')
           default:
             console.error(`Unknown sort: ${k}`)
             return k
@@ -416,8 +429,38 @@ export default defineComponent({
 
       this.isLoading = false
     },
+
     showUserPlaylistNotFound() {
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
+    },
+
+    getPlaylistItemsWithDuration() {
+      const modifiedPlaylistItems = deepCopy(this.playlistItems)
+      let anyVideoMissingDuration = false
+      modifiedPlaylistItems.forEach(video => {
+        if (videoDurationPresent(video)) { return }
+
+        const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
+        if (typeof videoHistory !== 'undefined') {
+          const fetchedLengthSeconds = videoDurationWithFallback(videoHistory)
+          video.lengthSeconds = fetchedLengthSeconds
+          // if the video duration is 0, it will be the fallback value, so mark it as missing a duration
+          if (fetchedLengthSeconds === 0) { anyVideoMissingDuration = true }
+        } else {
+          // Mark at least one video have no duration, show notice later
+          // Also assign fallback duration here
+          anyVideoMissingDuration = true
+          video.lengthSeconds = 0
+        }
+      })
+
+      // Show notice if not already shown before returning playlist items
+      if (anyVideoMissingDuration && !this.alreadyShownNotice) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
+        this.alreadyShownNotice = true
+      }
+
+      return modifiedPlaylistItems
     },
 
     getNextPage: function () {
