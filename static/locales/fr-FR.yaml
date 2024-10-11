@@ -1337,5 +1337,10 @@ Search Listing:
     4K: 4K
     Subtitles: Sous-titres
     Closed Captions: Sous-titrage codé
+    8K: 8k
+    VR180: VR180
+    360 Video: 360°
+    New: Nouveau
+    3D: 3D
 'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
   dangereuse : « {url} »."
