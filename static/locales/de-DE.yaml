@@ -208,6 +208,9 @@ User Playlists:
         {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
       This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
         wird bereits für schnelle Lesezeichen verwendet.
+      This playlist has a video with a duration error: Diese Wiedergabeliste enthält
+        mindestens ein Video ohne Dauer. Daher wird die Wiedergabeliste so sortiert,
+        als ob die Dauer null wäre.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -1018,6 +1021,8 @@ Playlist:
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Titel (A-Z)
     Custom: Benutzerdefiniert
+    VideoDurationAscending: Dauer (Kürzeste zuerst)
+    VideoDurationDescending: Dauer (Längste zuerst)
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
