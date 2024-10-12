@@ -187,7 +187,15 @@ export default defineComponent({
   methods: {
     navigateToSection: function(sectionType) {
       if (this.isInDesktopView) {
-        nextTick(() => { this.$refs[sectionType][0].$el.scrollIntoView() })
+        nextTick(() => {
+          const sectionElement = this.$refs[sectionType][0].$el
+          sectionElement.scrollIntoView()
+
+          const sectionHeading = sectionElement.firstChild.firstChild
+          sectionHeading.tabIndex = 0
+          sectionHeading.focus()
+          sectionHeading.tabIndex = -1
+        })
       } else {
         this.settingsSectionTypeOpenInMobile = sectionType
       }
