@@ -215,6 +215,9 @@ User Playlists:
         on uus kiirjärjehoidjate esitusloend.
       This playlist is already being used for quick bookmark.: See esitusloend juba
         on kasutusel kiirjärjehoidjate jaoks.
+      This playlist has a video with a duration error: Selles esitusloendis on vähemalt
+        üks video, millel puudub kestus. Järjestamisel me sel puhul arvestame kestuseks
+        nulli.
     Search for Videos: Otsi videoid
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
     kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
@@ -969,6 +972,8 @@ Playlist:
     AuthorDescending: Autori alusel (Z-A)
     VideoTitleAscending: Pealkirja alusel (A-Z)
     VideoTitleDescending: Pealkirja alusel (Z-A)
+    VideoDurationAscending: Kestuse alusel (esmalt lühemad)
+    VideoDurationDescending: Kestuse alusel (esmalt pikemad)
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
