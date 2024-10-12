@@ -100,7 +100,9 @@ Subscriptions:
   Subscriptions: 'Inscrições'
   Latest Subscriptions: 'Últimas inscrições'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sua
-    lista de inscrições está vazia no momento. Adicione algumas para vê-las aqui.'
+    lista de inscrições está vazia no momento. Se quiser importar suas inscrições,
+    acesse "Configurações de dados" e selecione "Importar inscrições" ou pesquise
+    um canal para inscrever-se.'
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
   Refresh Subscriptions: Atualizar inscrições
   'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, aguarde.
@@ -959,6 +961,8 @@ Video:
     TranslatedCaptionTemplate: '{language} (traduzido do "{originalLanguage}")'
     Show Stats: Mostrar estatísticas
     Exit Full Window: Sair do preenchimento de janela
+  IP block: O YouTube bloqueou seu endereço IP para assistir a vídeos. Tente mudar
+    para uma VPN ou proxy diferente.
 Videos:
   #& Sort By
   Sort By:
@@ -1281,5 +1285,10 @@ Search Listing:
     Subtitles: Legendas
     Closed Captions: Legendas ocultas (CC)
     4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    3D: 3D
+    New: Novo
 'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
   "{url}".'

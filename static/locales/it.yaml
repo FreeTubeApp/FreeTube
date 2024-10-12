@@ -102,8 +102,10 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Iscrizioni'
   Latest Subscriptions: 'Ultime iscrizioni'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'L''elenco
-    delle iscrizioni è vuoto. Iscriviti a qualche canale per visualizzare qui i video.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Il
+    tuo elenco di iscrizioni è attualmente vuoto. Se vuoi importare le tue iscrizioni
+    puoi andare su Impostazioni dati e selezionare Importa iscrizioni oppure puoi
+    cercare un canale e iscriverti ad esso.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
   Refresh Subscriptions: Ricarica le iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Per favore
@@ -198,6 +200,9 @@ User Playlists:
         utilizzata per i segnalibri rapidi.
       Playlist {playlistName} is the new quick bookmark playlist.: La playlist {playlistName}
         è la nuova playlist con segnalibri rapidi.
+      This playlist has a video with a duration error: Questa playlist contiene almeno
+        un video che non ha durata; verranno ordinati come se la loro durata fosse
+        zero.
     Search for Videos: Cerca video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
@@ -967,6 +972,8 @@ Video:
     Playback will resume automatically when your connection comes back: La riproduzione
       riprenderà automaticamente quando verrà ripristinata la connessione.
     Skipped segment: Segmento {segmentCategory} saltato
+  IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video.
+    Prova a passare a una VPN o a un proxy diverso.
 Videos:
   #& Sort By
   Sort By:
@@ -995,6 +1002,8 @@ Playlist:
     DateAddedNewest: Prima gli aggiunti più nuovi
     DateAddedOldest: Prima gli aggiunti più vecchi
     VideoTitleAscending: Titolo (A-Z)
+    VideoDurationAscending: Durata (prima la più breve)
+    VideoDurationDescending: Durata (prima la più lunga)
 Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
@@ -1288,5 +1297,10 @@ Search Listing:
     4K: 4K
     Closed Captions: Sottotitoli per non udenti
     Subtitles: Sottotitoli
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Nuovo
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
   bloccata: "{url}".'

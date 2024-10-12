@@ -100,12 +100,13 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
   Latest Subscriptions: Neueste Abos
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
-    Aboliste ist aktuell leer. Beginne mit dem Hinzufügen von Abos, um sie hier zu
-    sehen.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Ihre
+    Aboliste ist derzeit leer. Wenn Sie Ihre Abos importieren möchten, können Sie
+    zu den Dateneinstellungen gehen und "Abos importieren" wählen oder Sie können
+    nach einem Kanal suchen und ihn abonnieren.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abos aktualisieren
-  Getting Subscriptions. Please wait.: Abos werden geholt. Bitte warten.
+  Getting Subscriptions. Please wait.: Abos werden geladen. Bitte warten.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
@@ -207,6 +208,9 @@ User Playlists:
         {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
       This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
         wird bereits für schnelle Lesezeichen verwendet.
+      This playlist has a video with a duration error: Diese Wiedergabeliste enthält
+        mindestens ein Video ohne Dauer. Daher wird die Wiedergabeliste so sortiert,
+        als ob die Dauer null wäre.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -987,6 +991,8 @@ Video:
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
+  IP block: YouTube hat Ihre IP-Adresse für die Videowiedergabe gesperrt. Bitte versuchen
+    Sie, zu einem anderen VPN oder Proxy zu wechseln.
 Videos:
   #& Sort By
   Sort By:
@@ -1015,6 +1021,8 @@ Playlist:
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Titel (A-Z)
     Custom: Benutzerdefiniert
+    VideoDurationAscending: Dauer (Kürzeste zuerst)
+    VideoDurationDescending: Dauer (Längste zuerst)
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
@@ -1318,5 +1326,10 @@ Search Listing:
     4K: 4K
     Closed Captions: Geschlossene Untertitel
     Subtitles: Untertitel
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Neu
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
   URL wurde blockiert: „{url}“.'
