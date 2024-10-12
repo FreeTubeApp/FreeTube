@@ -214,6 +214,9 @@ User Playlists:
         sendo usada como "Quick Bookmark".
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist "{playlistName}"
         é a nova playlist em "Quick Bookmark".
+      This playlist has a video with a duration error: Esta playlist contém pelo menos
+        um vídeo que não tem duração, ela será classificada como se sua duração fosse
+        zero.
     Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Toast:
@@ -991,6 +994,8 @@ Playlist:
     DateAddedOldest: Mais antigos
     AuthorDescending: Autor (Z-A)
     VideoTitleDescending: Título (Z-A)
+    VideoDurationAscending: Duração (a mais curta primeiro)
+    VideoDurationDescending: Duração (a mais longa primeiro)
 Toggle Theatre Mode: 'Alternar "Modo Teatro"'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
