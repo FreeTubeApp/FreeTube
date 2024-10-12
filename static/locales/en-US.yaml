@@ -66,7 +66,12 @@ Search character limit: Search query is over the {searchCharacterLimit} characte
 Search Listing:
   Label:
     4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
     Subtitles: Subtitles
+    New: New
+    3D: 3D
     # Aria labels
     Closed Captions: Closed Captions
   # In Filter Button
@@ -236,6 +241,8 @@ User Playlists:
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
+
+      This playlist has a video with a duration error: This playlist contains at least one video that doesn't have a duration, it will be sorted as if their duration is zero.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
@@ -929,6 +936,8 @@ Playlist:
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
+    VideoDurationAscending: Duration (Shortest first)
+    VideoDurationDescending: Duration (Longest first)
     Custom: Custom
 
 # On Video Watch Page

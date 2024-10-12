@@ -101,6 +101,11 @@ export default defineComponent({
       published: undefined,
       isLive: false,
       is4k: false,
+      is8k: false,
+      isNew: false,
+      isVr180: false,
+      isVr360: false,
+      is3D: false,
       hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
@@ -662,6 +667,11 @@ export default defineComponent({
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.is4k = this.data.is4k
+      this.is8k = this.data.is8k
+      this.isNew = this.data.isNew
+      this.isVr180 = this.data.isVr180
+      this.isVr360 = this.data.isVr360
+      this.is3D = this.data.is3d
       this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount

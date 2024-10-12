@@ -72,6 +72,7 @@ class ProcessLocalesPlugin {
         }
 
         for (let [locale, data] of this.locales) {
+          // eslint-disable-next-line no-async-promise-executor
           promises.push(new Promise(async (resolve) => {
             if (IS_DEV_SERVER && compiler.fileTimestamps) {
               const filePath = join(this.inputDir, `${locale}.yaml`)
@@ -131,6 +132,7 @@ class ProcessLocalesPlugin {
     })
 
     compiler.hooks.afterCompile.tap(PLUGIN_NAME, (compilation) => {
+      // eslint-disable-next-line no-extra-boolean-cast
       if (!!compiler.watching) {
         // watch locale files for changes
         compilation.fileDependencies.addAll(this.filePaths)

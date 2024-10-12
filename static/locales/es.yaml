@@ -198,6 +198,9 @@ User Playlists:
         ya se utiliza como marcador rápido.
       Playlist {playlistName} is the new quick bookmark playlist.: L lista de reproducción
         {playlistName} es la nueva lista de reproducción de marcadores rápidos.
+      This playlist has a video with a duration error: Esta lista de reproducción
+        contiene al menos un vídeo sin duración, se ordenará como si su duración fuera
+        cero.
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
@@ -1041,6 +1044,8 @@ Playlist:
     VideoTitleAscending: Título (A-Z)
     Sort By: Ordenar por
     VideoTitleDescending: Título (Z-A)
+    VideoDurationAscending: Duración (primero la más corta)
+    VideoDurationDescending: Duración (la más larga primero)
 Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
@@ -1289,5 +1294,10 @@ Search Listing:
     Subtitles: Subtítulos
     Closed Captions: Subtítulos descriptivos
     4K: 4K
+    360 Video: 360°
+    New: Nuevo
+    8K: 8K
+    VR180: VR180
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
   insegura: «{url}».'

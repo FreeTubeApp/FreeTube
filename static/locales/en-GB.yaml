@@ -107,7 +107,9 @@ Subscriptions:
   Subscriptions: 'Subscriptions'
   Latest Subscriptions: 'Latest subscriptions'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Your
-    Subscription list is currently empty. Start adding subscriptions to see them here.'
+    Subscription list is currently empty. If you want to import your subscriptions
+    you can go to Data Settings and select Import Subscriptions or you can search
+    for a channel and subscribe to them.'
   'Getting Subscriptions. Please wait.': 'Getting Subscriptions. Please wait.'
   Refresh Subscriptions: 'Refresh Subscriptions'
   Load More Videos: Load more videos
@@ -174,6 +176,10 @@ User Playlists:
       This playlist is protected and cannot be removed.: This playlist is protected
         and cannot be removed.
       This playlist does not exist: This playlist does not exist
+
+      This playlist has a video with a duration error: This playlist contains at least
+        one video that doesn't have a duration, it will be sorted as if their duration
+        is zero.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been
         deleted.
       Video has been removed: Video has been removed
@@ -978,6 +984,8 @@ Video:
     Playback will resume automatically when your connection comes back: Playback will
       resume automatically when your connection comes back.
     Skipped segment: 'Skipped {segmentCategory} segment'
+  IP block: YouTube has blocked your IP address from watching videos. Please try switching
+    to a different VPN or proxy.
 Videos:
   #& Sort By
   Sort By:
@@ -1006,6 +1014,8 @@ Playlist:
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
+    VideoDurationAscending: Duration (Shortest first)
+    VideoDurationDescending: Duration (Longest first)
 Toggle Theatre Mode: 'Toggle Theatre Mode'
 Change Format:
   Change Media Formats: 'Change Media Formats'
@@ -1229,6 +1239,11 @@ Search Listing:
     4K: 4K
     Subtitles: Subtitles
     Closed Captions: Closed Captions
+    8K: 8K
+    3D: 3D
+    VR180: VR180
+    360 Video: 360°
+    New: New
 Search character limit: Search query is over the {searchCharacterLimit} character
   limit
 Feed:
