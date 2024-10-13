@@ -8,6 +8,7 @@ import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widge
 
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import { KeyboardShortcuts } from '../../../constants'
 
 export default defineComponent({
   name: 'Popular',
@@ -90,10 +91,9 @@ export default defineComponent({
       // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
       if (event.repeat) { return }
 
-      switch (event.key) {
-        case 'r':
-        case 'R':
-        case 'F5':
+      switch (event.key.toLowerCase()) {
+        case 'f5':
+        case KeyboardShortcuts.FEED.REFRESH:
           if (!this.isLoading) {
             this.fetchPopularInfo()
           }
