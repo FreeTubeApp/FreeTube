@@ -2051,8 +2051,10 @@ export default defineComponent({
 
       await this.$router.replace({
         path: `/channel/${this.id}`,
-        query: {
+        params: {
           currentTab: 'search',
+        },
+        query: {
           searchQueryText: query,
         },
       }).catch(failure => {
