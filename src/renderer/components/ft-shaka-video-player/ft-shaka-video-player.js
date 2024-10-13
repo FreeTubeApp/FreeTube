@@ -7,7 +7,7 @@ import shaka from 'shaka-player'
 import store from '../../store/index'
 import i18n from '../../i18n/index'
 
-import { IpcChannels } from '../../../constants'
+import { IpcChannels, KeyboardShortcuts } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
@@ -40,6 +40,19 @@ const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 600
 const RequestType = shaka.net.NetworkingEngine.RequestType
 const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
+
+const shakaControlKeysToShortcuts = {
+  MUTE: KeyboardShortcuts.VIDEO_PLAYER.MUTE,
+  UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.MUTE,
+  PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAY,
+  PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAY,
+  PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE,
+  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE,
+  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE,
+  CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.CAPTIONS,
+  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.FULLSCREEN,
+  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.FULLSCREEN
+}
 
 /** @type {Map<string, string>} */
 const LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
@@ -968,7 +981,7 @@ export default defineComponent({
      * @param {string} locale
      */
     async function setLocale(locale) {
-      // For most of FreeTube's locales their is an equivalent one in shaka-player,
+      // For most of FreeTube's locales, there is an equivalent one in shaka-player,
       // however if there isn't one we should fall back to US English.
       // At the time of writing "et", "eu", "gl", "is" don't have any translations
       const shakaLocale = LOCALE_MAPPINGS.get(locale) ?? 'en'
@@ -988,6 +1001,20 @@ export default defineComponent({
       }
 
       localization.changeLocale([shakaLocale])
+
+      // Add the keyboard shortcut to the label for the default Shaka controls
+
+      const shakaControlKeysToShortcutLocalizations = new Map()
+      Object.entries(shakaControlKeysToShortcuts).forEach(([shakaControlKey, shortcut]) => {
+        const originalLocalization = localization.resolve(shakaControlKey)
+        const localizationWithShortcut = i18n.t('KeyboardShortcutTemplate', {
+          label: originalLocalization,
+          shortcut: shortcut
+        })
+        shakaControlKeysToShortcutLocalizations.set(shakaControlKey, localizationWithShortcut)
+      })
+
+      localization.insert(shakaLocale, shakaControlKeysToShortcutLocalizations)
 
       events.dispatchEvent(new CustomEvent('localeChanged'))
     }
