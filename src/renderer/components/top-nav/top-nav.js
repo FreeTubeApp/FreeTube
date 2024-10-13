@@ -4,7 +4,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
 import { openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
@@ -87,15 +87,24 @@ export default defineComponent({
     },
 
     forwardText: function () {
-      return this.$t('Forward')
+      return this.$t('KeyboardShortcutTemplate', {
+        label: this.$t('Forward'),
+        shortcut: KeyboardShortcuts.APP.HISTORY_FORWARD
+      })
     },
 
     backwardText: function () {
-      return this.$t('Back')
+      return this.$t('KeyboardShortcutTemplate', {
+        label: this.$t('Back'),
+        shortcut: KeyboardShortcuts.APP.HISTORY_BACKWARD
+      })
     },
 
     newWindowText: function () {
-      return this.$t('Open New Window')
+      return this.$t('KeyboardShortcutTemplate', {
+        label: this.$t('Open New Window'),
+        shortcut: KeyboardShortcuts.APP.NEW_WINDOW
+      })
     }
   },
   watch: {

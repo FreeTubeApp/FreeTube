@@ -1,6 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { KeyboardShortcuts } from '../../../../constants'
 
 export class ScreenshotButton extends shaka.ui.Element {
   /**
@@ -49,8 +50,11 @@ export class ScreenshotButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Player.Take Screenshot')
-
-    this.button_.ariaLabel = i18n.t('Video.Player.Take Screenshot')
+    const label = i18n.t('KeyboardShortcutTemplate', {
+      label: i18n.t('Video.Player.Take Screenshot'),
+      shortcut: KeyboardShortcuts.VIDEO_PLAYER.TAKE_SCREENSHOT
+    })
+    this.nameSpan_.textContent = label
+    this.button_.ariaLabel = label
   }
 }

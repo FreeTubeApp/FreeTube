@@ -113,6 +113,40 @@ const SyncEvents = {
   },
 }
 
+const KeyboardShortcuts = {
+  APP: {
+    HISTORY_BACKWARD: 'Alt+Left Arrow',
+    HISTORY_FORWARD: 'Alt+Right Arrow',
+    NEW_WINDOW: 'Cmd/Ctrl+N'
+  },
+  FEED: {
+    REFRESH: 'r'
+  },
+  VIDEO_PLAYER: {
+    SUBTITLES: 'c',
+    STATS: 'd',
+    FULLSCREEN: 'f',
+    PICTURE_IN_PICTURE: 'i',
+    LARGE_REWIND: 'j',
+    PLAY: 'k',
+    LARGE_FAST_FORWARD: 'l',
+    MUTE: 'm',
+    DECREASE_VIDEO_SPEED: 'o',
+    INCREASE_VIDEO_SPEED: 'p',
+    FULLWINDOW: 's',
+    THEATRE_MODE: 't',
+    TAKE_SCREENSHOT: 'u',
+    VOLUME_UP: 'Up Arrow',
+    VOLUME_DOWN: 'Down Arrow',
+    SMALL_REWIND: 'Left Arrow',
+    SMALL_FAST_FORWARD: 'Right Arrow',
+    LAST_CHAPTER: 'Cmd/Ctrl+Left Arrow',
+    NEXT_CHAPTER: 'Cmd/Ctrl+Right Arrow',
+    LAST_FRAME: ',',
+    NEXT_FRAME: '.'
+  },
+}
+
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -132,6 +166,7 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  KeyboardShortcuts,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
