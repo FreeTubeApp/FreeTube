@@ -894,10 +894,11 @@ function getIndividualLocalizedShortcut(shortcut) {
   switch (shortcut) {
     case 'alt':
       return i18n.t('Keys.alt')
+    case 'cmd':
     case 'ctrl':
       return process.platform === 'darwin'
-        ? i18n.t('Keys.ctrl')
-        : i18n.t('Keys.cmd')
+        ? i18n.t('Keys.cmd')
+        : i18n.t('Keys.ctrl')
     case 'arrowleft':
       return i18n.t('Keys.arrowleft')
     case 'arrowright':
@@ -911,6 +912,10 @@ function getIndividualLocalizedShortcut(shortcut) {
   }
 }
 
+/**
+ * @param {string} shortcut
+ * @returns {string} the localized and recombined shortcut
+ */
 function getLocalizedShortcut(shortcut) {
   const shortcuts = shortcut.split('+')
   const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
@@ -919,14 +924,24 @@ function getLocalizedShortcut(shortcut) {
   return localizedShortcuts.join(shortcutJoinOperator)
 }
 
-export function addKeyboardShortcutToActionLabel(actionLabel, shortcut) {
+/**
+ * @param {string} actionTitle
+ * @param {string} shortcut
+ * @returns {string} the localized action title with keyboard shortcut
+ */
+export function addKeyboardShortcutToActionTitle(actionTitle, shortcut) {
   return i18n.t('KeyboardShortcutTemplate', {
-    label: actionLabel,
+    label: actionTitle,
     shortcut
   })
 }
 
-export function localizeAndAddKeyboardShortcutToActionLabel(localizedActionLabel, unlocalizedShortcut) {
+/**
+ * @param {string} localizedActionTitle
+ * @param {string} unlocalizedShortcut
+ * @returns {string} the localized action title with keyboard shortcut
+ */
+export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle, unlocalizedShortcut) {
   const localizedShortcut = getLocalizedShortcut(unlocalizedShortcut)
-  return addKeyboardShortcutToActionLabel(localizedActionLabel, localizedShortcut)
+  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcut)
 }

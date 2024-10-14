@@ -2,7 +2,7 @@ import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
 import { KeyboardShortcuts } from '../../../../constants'
-import { addKeyboardShortcutToActionLabel } from '../../../helpers/utils'
+import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class FullWindowButton extends shaka.ui.Element {
   /**
@@ -78,7 +78,7 @@ export class FullWindowButton extends shaka.ui.Element {
 
     const baseAriaLabel = this.fullWindowEnabled_ ? i18n.t('Video.Player.Exit Full Window') : i18n.t('Video.Player.Full Window')
 
-    this.button_.ariaLabel = addKeyboardShortcutToActionLabel(
+    this.button_.ariaLabel = addKeyboardShortcutToActionTitle(
       baseAriaLabel,
       KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW
     )

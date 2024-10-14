@@ -113,12 +113,15 @@ const SyncEvents = {
   },
 }
 
-// note: the multi-character shortcut values are currently just for presentational use
+// note: the multi-key shortcut values are currently just for display use in action titles
 const KeyboardShortcuts = {
   APP: {
     HISTORY_BACKWARD: 'alt+arrowleft',
     HISTORY_FORWARD: 'alt+arrowright',
-    NEW_WINDOW: 'ctrl+N'
+    NEW_WINDOW: 'ctrl+N',
+    NAVIGATE_TO_SETTINGS: 'ctrl+,',
+    NAVIGATE_TO_HISTORY: 'ctrl+H',
+    NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
   },
   FEED: {
     REFRESH: 'r'

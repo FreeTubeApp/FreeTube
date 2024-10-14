@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { KeyboardShortcuts } from '../../../constants'
-import { addKeyboardShortcutToActionLabel } from '../../helpers/utils'
+import { addKeyboardShortcutToActionTitle } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtRefreshWidget',
@@ -26,7 +26,7 @@ export default defineComponent({
   emits: ['click'],
   computed: {
     refreshFeedButtonTitle: function() {
-      return addKeyboardShortcutToActionLabel(
+      return addKeyboardShortcutToActionTitle(
         this.$t('Feed.Refresh Feed', { subscriptionName: this.title }),
         KeyboardShortcuts.FEED.REFRESH
       )

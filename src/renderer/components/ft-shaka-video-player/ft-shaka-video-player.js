@@ -24,7 +24,7 @@ import {
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
 import {
-  addKeyboardShortcutToActionLabel,
+  addKeyboardShortcutToActionTitle,
   getPicturesPath,
   showSaveDialog,
   showToast
@@ -1014,7 +1014,7 @@ export default defineComponent({
           return
         }
 
-        const localizationWithShortcut = addKeyboardShortcutToActionLabel(
+        const localizationWithShortcut = addKeyboardShortcutToActionTitle(
           originalLocalization,
           shortcut
         )
