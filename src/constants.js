@@ -113,6 +113,7 @@ const SyncEvents = {
   },
 }
 
+// note: the multi-character shortcut values are currently just for presentational use
 const KeyboardShortcuts = {
   APP: {
     HISTORY_BACKWARD: 'Alt+Left Arrow',
@@ -136,14 +137,17 @@ const KeyboardShortcuts = {
     FULLWINDOW: 's',
     THEATRE_MODE: 't',
     TAKE_SCREENSHOT: 'u',
-    VOLUME_UP: 'Up Arrow',
-    VOLUME_DOWN: 'Down Arrow',
-    SMALL_REWIND: 'Left Arrow',
-    SMALL_FAST_FORWARD: 'Right Arrow',
-    LAST_CHAPTER: 'Cmd/Ctrl+Left Arrow',
-    NEXT_CHAPTER: 'Cmd/Ctrl+Right Arrow',
     LAST_FRAME: ',',
-    NEXT_FRAME: '.'
+    NEXT_FRAME: '.',
+
+    /* For future use
+      VOLUME_UP: 'Up Arrow',
+      VOLUME_DOWN: 'Down Arrow',
+      SMALL_REWIND: 'Left Arrow',
+      SMALL_FAST_FORWARD: 'Right Arrow',
+      LAST_CHAPTER: 'Cmd/Ctrl+Left Arrow',
+      NEXT_CHAPTER: 'Cmd/Ctrl+Right Arrow',
+    */
   },
 }
 
