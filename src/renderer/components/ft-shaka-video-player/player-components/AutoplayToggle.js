@@ -4,6 +4,7 @@ import i18n from '../../../i18n/index'
 
 export class AutoplayToggle extends shaka.ui.Element {
   /**
+   * @param {boolean} autoplayEnabled
    * @param {EventTarget} events
    * @param {HTMLElement} parent
    * @param {shaka.ui.Controls} controls
