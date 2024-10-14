@@ -24,6 +24,7 @@ import {
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
 import {
+  addKeyboardShortcutToActionLabel,
   getPicturesPath,
   showSaveDialog,
   showToast
@@ -1013,10 +1014,11 @@ export default defineComponent({
           return
         }
 
-        const localizationWithShortcut = i18n.t('KeyboardShortcutTemplate', {
-          label: originalLocalization,
-          shortcut: shortcut
-        })
+        const localizationWithShortcut = addKeyboardShortcutToActionLabel(
+          originalLocalization,
+          shortcut
+        )
+
         shakaControlKeysToShortcutLocalizations.set(shakaControlKey, localizationWithShortcut)
       })
 
@@ -2052,7 +2054,7 @@ export default defineComponent({
             video_.muted = !video_.muted
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.SUBTITLES:
+        case KeyboardShortcuts.VIDEO_PLAYER.CAPTIONS:
           // Toggle caption/subtitles
           if (player.getTextTracks().length > 0) {
             event.preventDefault()

@@ -1131,3 +1131,12 @@ checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  cmd: Cmd
+  ctrl: Ctrl
+  down arrow: Down Arrow
+  left arrow: Left Arrow
+  right arrow: Right Arrow
+  up arrow: Up Arrow

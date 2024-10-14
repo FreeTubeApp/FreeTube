@@ -5,7 +5,7 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
-import { openInternalPath } from '../../helpers/utils'
+import { localizeAndAddKeyboardShortcutToActionLabel, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
@@ -87,24 +87,24 @@ export default defineComponent({
     },
 
     forwardText: function () {
-      return this.$t('KeyboardShortcutTemplate', {
-        label: this.$t('Forward'),
-        shortcut: KeyboardShortcuts.APP.HISTORY_FORWARD
-      })
+      return localizeAndAddKeyboardShortcutToActionLabel(
+        this.$t('Forward'),
+        KeyboardShortcuts.APP.HISTORY_FORWARD
+      )
     },
 
     backwardText: function () {
-      return this.$t('KeyboardShortcutTemplate', {
-        label: this.$t('Back'),
-        shortcut: KeyboardShortcuts.APP.HISTORY_BACKWARD
-      })
+      return localizeAndAddKeyboardShortcutToActionLabel(
+        this.$t('Back'),
+        KeyboardShortcuts.APP.HISTORY_BACKWARD
+      )
     },
 
     newWindowText: function () {
-      return this.$t('KeyboardShortcutTemplate', {
-        label: this.$t('Open New Window'),
-        shortcut: KeyboardShortcuts.APP.NEW_WINDOW
-      })
+      return localizeAndAddKeyboardShortcutToActionLabel(
+        this.$t('Open New Window'),
+        KeyboardShortcuts.APP.NEW_WINDOW
+      )
     }
   },
   watch: {

@@ -2,6 +2,7 @@ import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
 import { KeyboardShortcuts } from '../../../../constants'
+import { addKeyboardShortcutToActionLabel } from '../../../helpers/utils'
 
 export class FullWindowButton extends shaka.ui.Element {
   /**
@@ -73,16 +74,13 @@ export class FullWindowButton extends shaka.ui.Element {
 
     this.icon_.textContent = this.fullWindowEnabled_ ? 'close_fullscreen' : 'open_in_full'
 
-    this.currentState_.textContent = i18n.t('KeyboardShortcutTemplate', {
-      label: this.localization.resolve(this.fullWindowEnabled_ ? 'ON' : 'OFF'),
-      shortcut: KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW
-    })
+    this.currentState_.textContent = this.localization.resolve(this.fullWindowEnabled_ ? 'ON' : 'OFF')
 
     const baseAriaLabel = this.fullWindowEnabled_ ? i18n.t('Video.Player.Exit Full Window') : i18n.t('Video.Player.Full Window')
 
-    this.button_.ariaLabel = i18n.t('KeyboardShortcutTemplate', {
-      label: baseAriaLabel,
-      shortcut: KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW
-    })
+    this.button_.ariaLabel = addKeyboardShortcutToActionLabel(
+      baseAriaLabel,
+      KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW
+    )
   }
 }

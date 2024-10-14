@@ -2,6 +2,7 @@ import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
 import { KeyboardShortcuts } from '../../../../constants'
+import { addKeyboardShortcutToActionLabel } from '../../../helpers/utils'
 
 export class TheatreModeButton extends shaka.ui.Element {
   /**
@@ -72,16 +73,13 @@ export class TheatreModeButton extends shaka.ui.Element {
 
     this.icon_.textContent = this.theatreModeEnabled_ ? 'monitor' : 'tv'
 
-    this.currentState_.textContent = i18n.t('KeyboardShortcutTemplate', {
-      label: this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF'),
-      shortcut: KeyboardShortcuts.VIDEO_PLAYER.THEATRE_MODE
-    })
+    this.currentState_.textContent = this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF')
 
     const baseAriaLabel = this.theatreModeEnabled_ ? i18n.t('Video.Player.Exit Theatre Mode') : i18n.t('Video.Player.Theatre Mode')
 
-    this.button_.ariaLabel = i18n.t('KeyboardShortcutTemplate', {
-      label: baseAriaLabel,
-      shortcut: KeyboardShortcuts.VIDEO_PLAYER.THEATRE_MODE
-    })
+    this.button_.ariaLabel = addKeyboardShortcutToActionLabel(
+      baseAriaLabel,
+      KeyboardShortcuts.VIDEO_PLAYER.THEATRE_MODE
+    )
   }
 }

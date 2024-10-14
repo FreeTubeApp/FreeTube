@@ -889,3 +889,44 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
       return channelId.replace(/^UC/, 'UU')
   }
 }
+
+function getIndividualLocalizedShortcut(shortcut) {
+  switch (shortcut) {
+    case 'alt':
+      return i18n.t('Keys.alt')
+    case 'ctrl':
+      return process.platform === 'darwin'
+        ? i18n.t('Keys.ctrl')
+        : i18n.t('Keys.cmd')
+    case 'left arrow':
+      return i18n.t('Keys.left arrow')
+    case 'right arrow':
+      return i18n.t('Keys.right arrow')
+    case 'up arrow':
+      return i18n.t('Keys.up arrow')
+    case 'down arrow':
+      return i18n.t('Keys.down arrow')
+    default:
+      return shortcut
+  }
+}
+
+function getLocalizedShortcut(shortcut) {
+  const shortcuts = shortcut.split('+')
+  const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
+
+  const shortcutJoinOperator = i18n.t('shortcutJoinOperator')
+  return localizedShortcuts.join(shortcutJoinOperator)
+}
+
+export function addKeyboardShortcutToActionLabel(actionLabel, shortcut) {
+  return i18n.t('KeyboardShortcutTemplate', {
+    label: actionLabel,
+    shortcut
+  })
+}
+
+export function localizeAndAddKeyboardShortcutToActionLabel(localizedActionLabel, unlocalizedShortcut) {
+  const localizedShortcut = getLocalizedShortcut(unlocalizedShortcut)
+  return addKeyboardShortcutToActionLabel(localizedActionLabel, localizedShortcut)
+}
