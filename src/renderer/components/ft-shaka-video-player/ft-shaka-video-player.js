@@ -1007,6 +1007,12 @@ export default defineComponent({
       const shakaControlKeysToShortcutLocalizations = new Map()
       Object.entries(shakaControlKeysToShortcuts).forEach(([shakaControlKey, shortcut]) => {
         const originalLocalization = localization.resolve(shakaControlKey)
+        if (originalLocalization === '') {
+          // e.g., A Shaka localization key in shakaControlKeysToShortcuts has fallen out of date and need to be updated
+          console.error('Mising Shaka localization key "%s"', shakaControlKey)
+          return
+        }
+
         const localizationWithShortcut = i18n.t('KeyboardShortcutTemplate', {
           label: originalLocalization,
           shortcut: shortcut
