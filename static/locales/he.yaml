@@ -649,8 +649,9 @@ Settings:
     Set Password: הגדרת סיסמה
     Remove Password: הסרת סיסמה
     Set Password To Prevent Access: יש להגדיר סיסמה כדי למנוע גישה להגדרות
-  Expand All Settings Sections: פתח את כל חלקי ההגדרות
-  Sort Settings Sections (A-Z): מיין חלקי הגדרות (א-ת)
+  Expand All Settings Sections: פתיחת כל אזורי ההגדרות
+  Sort Settings Sections (A-Z): מיון אזורי הגדרות (א-ת)
+  Return to Settings Menu: חזרה לתפריט ההגדרות
 About:
   #On About page
   About: 'על אודות'
@@ -999,6 +1000,8 @@ Playlist:
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
     DateAddedNewest: האחרונים שנוספו ראשונים
+    VideoDurationAscending: משך (קצרים בהתחלה)
+    VideoDurationDescending: משך (ארוכים בהתחלה)
 Toggle Theatre Mode: 'הפעלת / השבתת מצב קולנוע'
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
@@ -1197,6 +1200,11 @@ Search Listing:
     4K: 4K
     Subtitles: כתוביות
     Closed Captions: כתוביות לכבדי שמיעה
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: חדש
+    3D: תלת־ממד
 Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
 Feed:
   Feed Last Updated: 'הערוץ {feedName} התעדכן לאחרונה: {date}'
