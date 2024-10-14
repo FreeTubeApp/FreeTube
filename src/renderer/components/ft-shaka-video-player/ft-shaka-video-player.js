@@ -2063,17 +2063,17 @@ export default defineComponent({
             player.setTextTrackVisibility(!currentlyVisible)
           }
           break
-        case 'arrowup':
+        case KeyboardShortcuts.VIDEO_PLAYER.VOLUME_UP:
           // Increase volume
           event.preventDefault()
           changeVolume(0.05)
           break
-        case 'arrowdown':
+        case KeyboardShortcuts.VIDEO_PLAYER.VOLUME_DOWN:
           // Decrease Volume
           event.preventDefault()
           changeVolume(-0.05)
           break
-        case 'arrowleft':
+        case KeyboardShortcuts.VIDEO_PLAYER.SMALL_REWIND:
           event.preventDefault()
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
@@ -2083,7 +2083,7 @@ export default defineComponent({
             seekBySeconds(-defaultSkipInterval.value * video_.playbackRate)
           }
           break
-        case 'arrowright':
+        case KeyboardShortcuts.VIDEO_PLAYER.SMALL_FAST_FORWARD:
           event.preventDefault()
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter

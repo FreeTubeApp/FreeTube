@@ -898,14 +898,14 @@ function getIndividualLocalizedShortcut(shortcut) {
       return process.platform === 'darwin'
         ? i18n.t('Keys.ctrl')
         : i18n.t('Keys.cmd')
-    case 'left arrow':
-      return i18n.t('Keys.left arrow')
-    case 'right arrow':
-      return i18n.t('Keys.right arrow')
-    case 'up arrow':
-      return i18n.t('Keys.up arrow')
-    case 'down arrow':
-      return i18n.t('Keys.down arrow')
+    case 'arrowleft':
+      return i18n.t('Keys.arrowleft')
+    case 'arrowright':
+      return i18n.t('Keys.arrowright')
+    case 'arrowup':
+      return i18n.t('Keys.arrowup')
+    case 'arrowdown':
+      return i18n.t('Keys.arrowdown')
     default:
       return shortcut
   }
