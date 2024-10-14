@@ -51,11 +51,12 @@ export class AutoplayToggle extends shaka.ui.Element {
       }))
     })
 
-    this.eventManager.listen(events, 'toggleAutoplay', (/** @type {CustomEvent} */ event) => {
+    const handleAutoplayValueChange = (/** @type {CustomEvent} */ event) => {
       this.autoplayEnabled_ = event.detail
-
       this.updateLocalisedStrings_()
-    })
+    }
+
+    this.eventManager.listen(events, 'setAutoplay', handleAutoplayValueChange)
 
     this.eventManager.listen(events, 'localeChanged', () => {
       this.updateLocalisedStrings_()
