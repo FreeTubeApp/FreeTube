@@ -334,9 +334,6 @@ export default defineComponent({
       return store.getters.getSponsorBlockShowSkippedToast
     })
 
-    /** @type {import('vue').ComputedRef<boolean>} */
-    const autoplayEnabled = computed(() => props.autoplayEnabled)
-
     const sponsorSkips = computed(() => {
       // save some work when sponsorblock is disabled
       if (!useSponsorBlock.value) {
@@ -969,7 +966,7 @@ export default defineComponent({
       }
     })
 
-    watch(autoplayEnabled, (newValue, oldValue) => {
+    watch(() => props.autoplayEnabled, (newValue, oldValue) => {
       if (newValue !== oldValue) {
         events.dispatchEvent(new CustomEvent('setAutoplay', {
           detail: newValue
