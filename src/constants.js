@@ -124,7 +124,7 @@ const KeyboardShortcuts = {
     REFRESH: 'r'
   },
   VIDEO_PLAYER: {
-    SUBTITLES: 'c',
+    CAPTIONS: 'c',
     STATS: 'd',
     FULLSCREEN: 'f',
     PICTURE_IN_PICTURE: 'i',
