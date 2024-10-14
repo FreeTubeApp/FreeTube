@@ -397,11 +397,11 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Player
-    Play Next Video: Play Next Video
+    Play Next Video: Autoplay Recommended Videos
+    Autoplay Playlists: Autoplay Playlist Videos
+    Autoplay Videos: Start Videos Automatically
     Turn on Subtitles by Default: Turn on Subtitles by Default
-    Autoplay Videos: Autoplay Videos
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
-    Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
