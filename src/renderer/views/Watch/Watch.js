@@ -117,6 +117,8 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+      blockVideoAutoplay: false,
+      autoplayInterruptionTimeout: null,
 
       onMountedRun: false,
 
@@ -157,6 +159,9 @@ export default defineComponent({
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+    defaultAutoplayInterruptionInterval: function () {
+      return this.$store.getters.getDefaultAutoplayInterruptionInterval
     },
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
@@ -320,6 +325,7 @@ export default defineComponent({
       }
 
       window.addEventListener('beforeunload', this.handleWatchProgress)
+      this.resetAutoplayInterruptionTimeout()
     },
 
     changeTimestamp: function (timestamp) {
@@ -1617,6 +1623,12 @@ export default defineComponent({
 
       const playlist = this.selectedUserPlaylist
       this.updatePlaylistLastPlayedAt({ _id: playlist._id })
+    },
+
+    resetAutoplayInterruptionTimeout() {
+      clearTimeout(this.autoplayInterruptionTimeout)
+      this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionInterval * 3_600_000)
+      this.blockVideoAutoplay = false
     },
 
     ...mapActions([
