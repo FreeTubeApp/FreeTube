@@ -69,11 +69,11 @@
         </h2>
         <p>
           {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}
-          <span v-if="!hideViews && !isUserPlaylist">
+          <span v-if="!hideViews && !isUserPlaylist && infoSource !== 'piped'">
             - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
           </span>
-          <span>- </span>
-          <span v-if="infoSource !== 'local'">
+          <span v-if="infoSource !== 'piped'">- </span>
+          <span v-if="infoSource !== 'local' && infoSource !== 'piped'">
             {{ $t("Playlist.Last Updated On") }}
           </span>
           {{ lastUpdated }}
@@ -90,6 +90,12 @@
       :value="newDescription"
       @input="(input) => newDescription = input"
       @keydown.enter.native="savePlaylistInfo"
+    />
+
+    <p
+      v-if="infoSource === 'piped'"
+      class="playlistDescription"
+      v-html="description"
     />
     <p
       v-else

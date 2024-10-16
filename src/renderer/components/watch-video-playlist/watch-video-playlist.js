@@ -10,6 +10,7 @@ import {
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { getPipedPlaylist, getPipedPlaylistMore } from '../../helpers/api/piped'
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 export default defineComponent({
@@ -62,6 +63,10 @@ export default defineComponent({
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
 
     backendFallback: function () {
@@ -197,7 +202,9 @@ export default defineComponent({
     },
     playlistId: function (newVal, oldVal) {
       if (oldVal !== newVal) {
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
+        if (this.backendPreference === 'piped') {
+          this.getPlaylistInformationPiped()
+        } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
           this.getPlaylistInformationLocal()
@@ -253,6 +260,8 @@ export default defineComponent({
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
+      } else if (this.backendPreference === 'piped') {
+        this.getPlaylistInformationPiped()
       } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getPlaylistInformationInvidious()
       } else {
@@ -405,7 +414,26 @@ export default defineComponent({
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
 
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+      if (this.backendPreference === 'piped') {
+        const items = cachedPlaylist.items
+        let nextpage = cachedPlaylist.continuationData
+        while (nextpage != null) {
+          const moreInfo = await getPipedPlaylistMore({
+            playlistId: cachedPlaylist.id,
+            continuation: nextpage
+          })
+
+          items.push(...moreInfo.videos)
+
+          if (!moreInfo.nextpage) {
+            nextpage = null
+          } else {
+            nextpage = moreInfo.nextpage
+          }
+        }
+
+        this.playlistItems = items
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
@@ -455,8 +483,54 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getPlaylistInformationInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getPlaylistInformationInvidious()
+          } else {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getPlaylistInformationPiped()
+          }
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getPlaylistInformationPiped: async function() {
+      this.isLoading = true
+      try {
+        const playlistInfo = await getPipedPlaylist(this.playlistId)
+        this.playlistTitle = playlistInfo.playlist.title
+        this.channelName = playlistInfo.playlist.channelName
+        this.channelId = playlistInfo.playlist.channelId
+        let nextpage = playlistInfo.nextpage
+        const videos = playlistInfo.videos
+        while (nextpage != null) {
+          const playlistContInfo = await getPipedPlaylistMore({
+            playlistId: this.playlistId,
+            continuation: nextpage
+          })
+          nextpage = playlistContInfo.nextpage
+          videos.push(...playlistContInfo.videos)
+        }
+        this.playlistItems = videos
+        this.isLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Piped API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'piped' && this.backendFallback) {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getPlaylistInformationInvidious()
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to Local API'))
+            this.getPlaylistInformationLocal()
+          } else {
+            this.isLoading = false
+          }
         } else {
           this.isLoading = false
         }
@@ -481,9 +555,16 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
-          showToast(this.$t('Falling back to Local API'))
-          this.getPlaylistInformationLocal()
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to Local API'))
+            this.getPlaylistInformationLocal()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getPlaylistInformationPiped()
+          } else {
+            this.isLoading = false
+          }
         } else {
           this.isLoading = false
           // TODO: Show toast with error message
