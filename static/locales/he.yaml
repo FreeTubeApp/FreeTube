@@ -255,7 +255,7 @@ Settings:
   # On Settings Page
   Settings: 'הגדרות'
   General Settings:
-    General Settings: 'הגדרות כלליות'
+    General Settings: 'כללי'
     Check for Updates: 'לבדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'לבדוק אם קיימים פוסטים חדשים בבלוג'
     Fallback to Non-Preferred Backend on Failure: 'נסיגה למנגנון שאינו מועדף בעת כשל'
@@ -301,7 +301,7 @@ Settings:
       Label: טעינת העמוד הבא אוטומטית
       Tooltip: טען דפים ותגובות נוספים באופן אוטומטי.
   Theme Settings:
-    Theme Settings: 'הגדרת ערכת עיצוב'
+    Theme Settings: 'ערכת עיצוב'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
     Base Theme:
       Base Theme: 'ערכת עיצוב בסיסית'
@@ -371,7 +371,7 @@ Settings:
     Hide Side Bar Labels: הסתרת התוויות בסרגל הצד
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
-    Player Settings: 'הגדרת נגן'
+    Player Settings: 'נגן'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -423,7 +423,7 @@ Settings:
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
   Privacy Settings:
-    Privacy Settings: 'הגדרות פרטיות'
+    Privacy Settings: 'פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
     Save Watched Progress: 'שמירת משך הצפייה'
     Clear Search Cache: 'ניקוי מטמון החיפוש'
@@ -443,15 +443,15 @@ Settings:
     Are you sure you want to remove all your playlists?: האם אתה בטוח שברצונך למחוק
       את כל רשימות השידורים שלך?
   Subscription Settings:
-    Subscription Settings: 'הגדרות מינויים'
+    Subscription Settings: 'מינוי'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Manage Subscriptions: 'ניהול מינויים'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
-    Confirm Before Unsubscribing: אשר לפני ביטול מנוי
-    Only Show Latest Video for Each Channel: הצג רק את הסרטון האחרון לכל ערוץ
+    Confirm Before Unsubscribing: אישור לפני ביטול מינוי
+    Only Show Latest Video for Each Channel: להציג רק את הסרטון האחרון לכל ערוץ
   Data Settings:
-    Data Settings: 'הגדרות נתונים'
+    Data Settings: 'נתונים'
     Select Import Type: 'נא לבחור את תסדיר הייבוא'
     Select Export Type: 'נא לבחור את תסדיר הייצוא'
     Import Subscriptions: 'ייבוא מינויים'
@@ -536,7 +536,7 @@ Settings:
     Hide Comment Likes: הסתרת לייקים על תגובות
     Hide Channel Subscribers: הסתרת מנויי הערוץ
     Hide Video Likes And Dislikes: הסתרת לייקים ודיסלייקים לסרטון
-    Distraction Free Settings: הגדרות להשבתת הסחות
+    Distraction Free Settings: השבתת הסחות
     Hide Video Views: הסתרת תצוגות סרטונים
     Hide Active Subscriptions: הסתרת מינויים פעילים
     Hide Playlists: הסתרת רשימות נגינה
@@ -594,10 +594,10 @@ Settings:
     Proxy Host: מארח מתווך
     Proxy Protocol: פרוטוקול מתווך
     Enable Tor / Proxy: הפעלת Tor / מתווך
-    Proxy Settings: הגדרות מתווך (פרוקסי)
+    Proxy Settings: מתווך (פרוקסי)
   External Player Settings:
     External Player: נגן חיצוני
-    External Player Settings: הגדרות נגן חיצוני
+    External Player Settings: נגן חיצוני
     Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
     Ignore Unsupported Action Warnings: התעלמות מאזהרות על פעולות שאינן נתמכות
     Custom External Player Arguments: משתנים לנגן חיצוני בהתאמה אישית
@@ -607,7 +607,7 @@ Settings:
     Ignore Default Arguments: התעלם מפרמטרים ברירת מחדל
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
-    SponsorBlock Settings: הגדרות חוסם מממנים
+    SponsorBlock Settings: חוסם מממנים
     Enable SponsorBlock: הפעלת חוסם מממנים
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
       המממנים (ברירת המחדל היא https://sponsor.ajay.app)
@@ -623,19 +623,19 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת
       API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
   Download Settings:
-    Download Settings: הגדרות הורדה
+    Download Settings: הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
     Choose Path: בחירת נתיב
     Download Behavior: התנהגות הורדה
     Download in app: הורדה ביישומון
     Open in web browser: פתיחה בדפדפן
   Parental Control Settings:
-    Parental Control Settings: הגדרות בקרת הורים
+    Parental Control Settings: בקרת הורים
     Hide Search Bar: הסתרת סרגל החיפוש
     Hide Unsubscribe Button: הסתרת כפתור ביטול מינוי
     Show Family Friendly Only: הצגת דברים ידידותיים למשפחה בלבד
   Experimental Settings:
-    Experimental Settings: הגדרות ניסיוניות
+    Experimental Settings: ניסיוני
     Replace HTTP Cache: החלפת מטמון HTTP
     Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. מומלץ מאוד לבצע
       גיבויים. השימוש על אחריותך בלבד!
@@ -645,12 +645,13 @@ Settings:
     Password: סיסמה
     Enter Password To Unlock: נא למלא סיסמה כדי לשחרר את ההגדרות
   Password Settings:
-    Password Settings: הגדרות סיסמה
+    Password Settings: סיסמה
     Set Password: הגדרת סיסמה
     Remove Password: הסרת סיסמה
     Set Password To Prevent Access: יש להגדיר סיסמה כדי למנוע גישה להגדרות
-  Expand All Settings Sections: פתח את כל חלקי ההגדרות
-  Sort Settings Sections (A-Z): מיין חלקי הגדרות (א-ת)
+  Expand All Settings Sections: פתיחת כל אזורי ההגדרות
+  Sort Settings Sections (A-Z): מיון אזורי הגדרות (א-ת)
+  Return to Settings Menu: חזרה לתפריט ההגדרות
 About:
   #On About page
   About: 'על אודות'
@@ -757,7 +758,7 @@ Profile:
     את הערוצים שבחרת? הערוצים לא יימחקו משאר הפרופילים.'
 #On Channel Page
   Profile Filter: מסנן פרופילים
-  Profile Settings: הגדרת הפרופיל
+  Profile Settings: הפרופיל
   Toggle Profile List: החלפת תצוגת רשימת פרופילים
   Edit Profile Name: ערוך שם הפרופיל
   Close Profile Dropdown: סגור תפריט הפרופיל
@@ -999,6 +1000,8 @@ Playlist:
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
     DateAddedNewest: האחרונים שנוספו ראשונים
+    VideoDurationAscending: משך (קצרים בהתחלה)
+    VideoDurationDescending: משך (ארוכים בהתחלה)
 Toggle Theatre Mode: 'הפעלת / השבתת מצב קולנוע'
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
@@ -1197,6 +1200,11 @@ Search Listing:
     4K: 4K
     Subtitles: כתוביות
     Closed Captions: כתוביות לכבדי שמיעה
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: חדש
+    3D: תלת־ממד
 Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
 Feed:
   Feed Last Updated: 'הערוץ {feedName} התעדכן לאחרונה: {date}'

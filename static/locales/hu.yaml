@@ -207,6 +207,9 @@ User Playlists:
         lejátszási lista az új gyors könyvjelző lejátszási lista.
       This playlist is already being used for quick bookmark.: Ez a lejátszási lista
         már használatban van mint gyors könyvjelző.
+      This playlist has a video with a duration error: Ez a lejátszási lista legalább
+        egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve,
+        mintha az időtartamuk nulla lenne.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztos, hogy
     törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
@@ -279,7 +282,7 @@ Settings:
   # On Settings Page
   Settings: 'Beállítások'
   General Settings:
-    General Settings: 'Általános beállítások'
+    General Settings: 'Általános'
     Check for Updates: 'Frissítések keresése'
     Check for Latest Blog Posts: 'Legújabb blogbejegyzések keresése'
     Fallback to Non-Preferred Backend on Failure: 'A nem előnyben részesített háttéralkalmazás
@@ -325,7 +328,7 @@ Settings:
       Label: Következő oldal automatikus betöltése
       Tooltip: További oldalak és a hozzászólások automatikus betöltése.
   Theme Settings:
-    Theme Settings: 'Téma beállítások'
+    Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
     Base Theme:
       Base Theme: 'Alap téma'
@@ -395,7 +398,7 @@ Settings:
     Hide Side Bar Labels: Oldalsáv címkék elrejtése
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
-    Player Settings: 'Lejátszó beállításai'
+    Player Settings: 'Lejátszó'
     Play Next Video: 'Következő videó lejátszása'
     Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
     Autoplay Videos: 'Videók automatikus lejátszása'
@@ -451,7 +454,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
   Privacy Settings:
-    Privacy Settings: 'Adatvédelmi beállítások'
+    Privacy Settings: 'Adatvédelem'
     Remember History: 'Előzmények megjegyzése'
     Save Watched Progress: 'Megtekintési előrehaladás mentése'
     Clear Search Cache: 'Keresési gyorsítótár törlése'
@@ -472,7 +475,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Biztosan el akarja távolítani
       az összes lejátszási listáját?
   Subscription Settings:
-    Subscription Settings: 'Feliratkozás beállításai'
+    Subscription Settings: 'Feliratkozás'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
@@ -481,7 +484,7 @@ Settings:
       a csatornáktól
     Confirm Before Unsubscribing: Kerülje el a véletlen leiratkozást
   Data Settings:
-    Data Settings: 'Adatbeállítások'
+    Data Settings: 'Adat'
     Select Import Type: 'Importálási típus kiválasztása'
     Select Export Type: 'Exportálási típus kiválasztása'
     Import Subscriptions: 'Feliratkozások importálása'
@@ -573,7 +576,7 @@ Settings:
     Hide Channel Subscribers: Csatorna feliratkozók elrejtése
     Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
     Hide Video Views: Videónézettség elrejtése
-    Distraction Free Settings: Ne zavarjanak beállítások
+    Distraction Free Settings: Ne zavarjanak
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
     Hide Video Description: Videó leírásának elrejtése
@@ -629,7 +632,7 @@ Settings:
     Proxy Host: Proxy gazdaszámítógép
     Proxy Protocol: Proxy protokoll
     Enable Tor / Proxy: Tor/Proxy engedélyezése
-    Proxy Settings: Proxy beállítások
+    Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
   SponsorBlock Settings:
@@ -637,7 +640,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
       webcíme (Alapértelmezett: https://sponsor.ajay.app)'
     Enable SponsorBlock: SponsorBlock engedélyezése
-    SponsorBlock Settings: SponsorBlock beállításai
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Beállítás kihagyása
       Auto Skip: Automatikus kihagyás
@@ -655,7 +658,7 @@ Settings:
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
     Custom External Player Executable: Egyéni külső lejátszó végrehajthatója
     External Player: Külső lejátszó
-    External Player Settings: Külső lejátszó beállításai
+    External Player Settings: Külső lejátszó
     Players:
       None:
         Name: Nincs
@@ -663,18 +666,18 @@ Settings:
   Download Settings:
     Ask Download Path: Rákérdezés a letöltés elérési útjára
     Choose Path: Elérési út kiválasztása
-    Download Settings: Letöltési beállítások
+    Download Settings: Letöltés
     Download Behavior: Letöltés viselkedése
     Open in web browser: Megnyitás böngészőben
     Download in app: Letöltés az alkalmazásban
   Parental Control Settings:
-    Parental Control Settings: Szülői felügyelet beállításai
+    Parental Control Settings: Szülői felügyelet
     Show Family Friendly Only: Kizárólag családbarát megjelenítése
     Hide Search Bar: Keresősáv elrejtése
     Hide Unsubscribe Button: Leiratkozás gomb elrejtése
   Experimental Settings:
     Replace HTTP Cache: HTTP-gyorsítótár cseréje
-    Experimental Settings: Kísérleti beállítások
+    Experimental Settings: Kísérleti
     Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okozhatnak, ha engedélyezve
       vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre
       használja!
@@ -684,13 +687,14 @@ Settings:
     Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
     Password: Jelszó
   Password Settings:
-    Password Settings: Jelszóbeállítások
+    Password Settings: Jelszó
     Set Password To Prevent Access: Jelszó megadása a beállításokhoz való hozzáférés
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Expand All Settings Sections: Beállítások kibontása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
+  Return to Settings Menu: Vissza a „Beállítások” menübe
 About:
   #On About page
   About: 'Névjegy'
@@ -794,7 +798,7 @@ Profile:
     törli a kiválasztott csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
-  Profile Settings: Profilbeállítások
+  Profile Settings: Profil
   Toggle Profile List: Profillista be-/kikapcsolása
   Profile Name: Profilnév
   Edit Profile Name: Profilnév szerkesztése
@@ -1046,6 +1050,8 @@ Playlist:
     VideoTitleAscending: Cím szerint (A-Z)
     VideoTitleDescending: Cím szerint (Z-A)
     Custom: Egyéni rendezés
+    VideoDurationAscending: Időtartam (legrövidebb elöl)
+    VideoDurationDescending: Időtartam (leghosszabb elöl)
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
@@ -1096,9 +1102,9 @@ Comments:
     hozzászólások'
   Load More Comments: 'További hozzászólások betöltése'
   No more comments available: Nincs több hozzászólás
-  Newest first: Legújabb először
+  Newest first: Legújabb elöl
   Top comments: Legnépszerűbb hozzászólások
-  Sort by: Rendezés alapja
+  Sort by: Rendezési szempont
   Show More Replies: További válaszok megjelenítése
   From {channelName}: 'forrás: {channelName}'
   And others: és mások
@@ -1288,5 +1294,10 @@ Search Listing:
     4K: 4K
     Subtitles: Feliratok
     Closed Captions: Feliratok (effektek is)
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Új
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos webcím megnyitása
   letiltva: „{url}”.'

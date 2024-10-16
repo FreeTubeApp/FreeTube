@@ -174,6 +174,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
       Playlist {playlistName} is the new quick bookmark playlist.: 播放清單 {playlistName}
         是新的快速書籤播放清單。
+      This playlist has a video with a duration error: 此播放清單至少包含一個沒有時間長度的影片，則會以時間長度為零的方式排序。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
@@ -229,7 +230,7 @@ Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
-    General Settings: '一般設定'
+    General Settings: '一般'
     Fallback to Non-Preferred Backend on Failure: '連線失敗時連線到非預設伺服器'
     Enable Search Suggestions: '啟用搜尋建議'
     Default Landing Page: '預設加載頁面'
@@ -273,7 +274,7 @@ Settings:
       Tooltip: 自動載入額外頁面與留言。
       Label: 自動載入下一頁
   Theme Settings:
-    Theme Settings: '主題設定'
+    Theme Settings: '主題'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
     Base Theme:
       Base Theme: '基本主題'
@@ -343,7 +344,7 @@ Settings:
     Hide Side Bar Labels: 隱藏側邊欄標籤
     Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
-    Player Settings: '播放器選項'
+    Player Settings: '播放器'
     Remember History: '記住曆史'
     Play Next Video: '播放下一部影片'
     Turn on Subtitles by Default: '預設開啟字幕'
@@ -395,7 +396,7 @@ Settings:
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
   Subscription Settings:
-    Subscription Settings: '訂閱設定'
+    Subscription Settings: '訂閱'
     Hide Videos on Watch: '觀看時隱藏影片'
     Subscriptions Export Format:
       Subscriptions Export Format: '導出訂閱格式'
@@ -441,7 +442,7 @@ Settings:
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
     Remember History: 儲存觀看紀錄
-    Privacy Settings: 隱私設定
+    Privacy Settings: 隱私
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
     Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
@@ -475,7 +476,7 @@ Settings:
     Import Subscriptions: 匯入訂閱
     Select Export Type: 選取匯出類型
     Select Import Type: 選取匯入類型
-    Data Settings: 資料設定
+    Data Settings: 資料
     Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單
@@ -492,7 +493,7 @@ Settings:
         啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
-    Distraction Free Settings: 勿擾設定
+    Distraction Free Settings: 勿擾
     Hide Video Views: 隱藏影片觀看次數
     Hide Popular Videos: 隱藏流行影片
     Hide Trending Videos: 隱藏熱門影片
@@ -549,13 +550,13 @@ Settings:
     Proxy Host: 代理伺服器主機
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
-    Proxy Settings: 代理伺服器設定
+    Proxy Settings: 代理伺服器
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
-    SponsorBlock Settings: SponsorBlock 設定
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: 略過選項
       Auto Skip: 自動略過
@@ -572,13 +573,13 @@ Settings:
     Custom External Player Executable: 自訂外部播放程式可執行檔
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
-    External Player Settings: 外部播放程式設定
+    External Player Settings: 外部播放程式
     Players:
       None:
         Name: 無
     Ignore Default Arguments: 忽略預設引數
   Download Settings:
-    Download Settings: 下載設定
+    Download Settings: 下載
     Ask Download Path: 詢問下載路徑
     Choose Path: 選擇路徑
     Download in app: 在應用程式中下載
@@ -588,15 +589,15 @@ Settings:
     Hide Unsubscribe Button: 隱藏取消訂閱按鈕
     Show Family Friendly Only: 僅顯示適合家庭觀看
     Hide Search Bar: 隱藏搜尋列
-    Parental Control Settings: 家長控制設定
+    Parental Control Settings: 家長控制
   Experimental Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
-    Experimental Settings: 實驗設定
+    Experimental Settings: 實驗
   Password Settings:
     Set Password To Prevent Access: 設定密碼以防止存取設定
     Remove Password: 移除密碼
-    Password Settings: 密碼設定
+    Password Settings: 密碼
     Set Password: 設定密碼
   Password Dialog:
     Password: 密碼
@@ -605,6 +606,7 @@ Settings:
     Unlock: 解鎖
   Expand All Settings Sections: 展開所有設定
   Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
+  Return to Settings Menu: 回到設定選單
 About:
   #On About page
   About: '關於'
@@ -892,6 +894,8 @@ Playlist:
     VideoTitleAscending: 標題 (A-Z)
     VideoTitleDescending: 標題 (Z-A)
     Custom: 自訂
+    VideoDurationDescending: 持續時間（最長優先）
+    VideoDurationAscending: 持續時間（最短優先）
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Media Formats: '變更影片格式'
@@ -1002,7 +1006,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
-  Profile Settings: 設定檔設定
+  Profile Settings: 設定檔
   Toggle Profile List: 切換個人檔案清單
   Open Profile Dropdown: 開啟個人資料下拉式選單
   Close Profile Dropdown: 關閉個人資料下拉式選單
@@ -1120,4 +1124,9 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: 隱藏式字幕
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: 新
+    3D: 3D
 'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。

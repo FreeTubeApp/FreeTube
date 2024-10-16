@@ -3,7 +3,7 @@ const { readFileSync, readdirSync } = require('fs')
 function getPreloadedLocales() {
   const localesFile = readFileSync(`${__dirname}/../node_modules/shaka-player/dist/locales.js`, 'utf-8')
 
-  const localesLine = localesFile.match(/^\/\/ LOCALES: ([\w, -]+)$/m)
+  const localesLine = localesFile.match(/^\/\/ LOCALES: ([\w ,-]+)$/m)
 
   if (!localesLine) {
     throw new Error("Failed to parse shaka-player's preloaded locales")

@@ -203,6 +203,9 @@ User Playlists:
         користи за брзо обележавање.
       Playlist {playlistName} is the new quick bookmark playlist.: Плејлиста {playlistName}
         је нова плејлиста за брзо обележавање.
+      This playlist has a video with a duration error: Ова плејлиста садржи најмање
+        један видео снимак који нема трајање, биће сортиран као да је његово трајање
+        нула.
     Search for Videos: Претрага видео снимака
   Are you sure you want to delete this playlist? This cannot be undone: Желите ли
     заиста да избришете ову плејлисту? Ово се не може поништити.
@@ -275,7 +278,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Апликација
     се мора рестартовати да би се примениле промене. Рестартовати и применити промене?'
   General Settings:
-    General Settings: 'Општа подешавања'
+    General Settings: 'Опште'
     Check for Updates: 'Провера ажурирања'
     Check for Latest Blog Posts: 'Провера најновијих објава на блогу'
     Fallback to Non-Preferred Backend on Failure: 'Повратак на непреферирани бек-енд
@@ -323,7 +326,7 @@ Settings:
       Label: Аутоматски учитај следећу страницу
       Tooltip: Аутоматско учитавање додатних страница и коментара.
   Theme Settings:
-    Theme Settings: 'Подешавања теме'
+    Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
     Expand Side Bar by Default: 'Подразумевано прошири бочну траку'
     Disable Smooth Scrolling: 'Онемогући глатко прелажење'
@@ -393,7 +396,7 @@ Settings:
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
     Hide Side Bar Labels: Сакриј ознаке бочне траке
   Player Settings:
-    Player Settings: 'Подешавања плејера'
+    Player Settings: 'Плејер'
     Play Next Video: 'Пусти следећи видео снимак'
     Turn on Subtitles by Default: 'Подразумевано укључи титлове'
     Autoplay Videos: 'Аутоматски пусти видео снимак'
@@ -449,7 +452,7 @@ Settings:
     Display Play Button In Video Player: Прикажи дугме за пуштање у плејеру видео
       снимка
   Privacy Settings:
-    Privacy Settings: 'Подешавања приватности'
+    Privacy Settings: 'Приватност'
     Remember History: 'Запамти историју'
     Save Watched Progress: 'Сачувај напредак одгледаног'
     Clear Search Cache: 'Очисти кеш претраге'
@@ -470,7 +473,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Желите ли заиста да уклоните
       све своје плејлисте?
   Subscription Settings:
-    Subscription Settings: 'Подешавања праћења'
+    Subscription Settings: 'Праћење'
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
     Manage Subscriptions: 'Управљање праћењима'
@@ -479,7 +482,7 @@ Settings:
       сваки канал
     Confirm Before Unsubscribing: Избегни случајно отпраћивање
   Distraction Free Settings:
-    Distraction Free Settings: 'Подешавања „Без ометања“'
+    Distraction Free Settings: 'Без ометања'
     Hide Video Views: 'Сакриј прегледе видео снимка'
     Hide Video Likes And Dislikes: 'Сакриј свиђања и несвиђања видео снимка'
     Hide Channel Subscribers: 'Сакриј праћења канала'
@@ -528,7 +531,7 @@ Settings:
       садрже текст
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
   Data Settings:
-    Data Settings: 'Подешавања података'
+    Data Settings: 'Подаци'
     Select Import Type: 'Избор врсте увоза'
     Select Export Type: 'Избор врсте извоза'
     Import Subscriptions: 'Увоз праћења'
@@ -580,7 +583,7 @@ Settings:
         верзију FreeTube-а и увезите извезене плејлисте."
       Label: Извоз плејлиста за старије верзије FreeTube-а
   Proxy Settings:
-    Proxy Settings: 'Подешавања проксија'
+    Proxy Settings: 'Прокси'
     Enable Tor / Proxy: 'Омогући Tor / Прокси'
     Proxy Protocol: 'Протокол проксија'
     Proxy Host: 'Хост проксија'
@@ -597,7 +600,7 @@ Settings:
       при набављању информација о мрежи. Да ли је ваш прокси исправно конфигурисан?'
   Experimental Settings:
     Replace HTTP Cache: Замени HTTP кеш
-    Experimental Settings: Експериментална подешавања
+    Experimental Settings: Експериментално
     Warning: Ова подешавања су експериментална, могу да доведу до отказивања док су
       омогућена. Прављење резервних копија је веома препоручљиво. Користите на властиту
       одговорност!
@@ -613,14 +616,14 @@ Settings:
       Show In Seek Bar: Приказ у траци за прескакање
     UseDeArrowTitles: Користи DeArrow наслове видео снимака
     Enable SponsorBlock: Омогући SponsorBlock
-    SponsorBlock Settings: Подешавања SponsorBlock-а
+    SponsorBlock Settings: SponsorBlock
     Category Color: Боја категорије
     UseDeArrowThumbnails: Користи DeArrow за сличице
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
       API-ја DeArrow генератора сличица (Подразумевано је https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Спољни плејер
-    External Player Settings: Подешавања спољног плејера
+    External Player Settings: Спољни плејер
     Custom External Player Executable: Прилагођени извршни спољни плејер
     Ignore Unsupported Action Warnings: Игнориши упозорења о неподржаним радњама
     Custom External Player Arguments: Прилагођени аргументи спољног плејера
@@ -634,17 +637,17 @@ Settings:
     Ask Download Path: Питај за путању за преузимање
     Download Behavior: Понашање преузимања
     Download in app: Преузми у апликацији
-    Download Settings: Подешавања преузимања
+    Download Settings: Преузимање
   Password Settings:
     Remove Password: Уклони лозинку
     Set Password To Prevent Access: Подеси лозинку да спречиш приступ подешавањима
-    Password Settings: Подешавања лозинке
+    Password Settings: Лозинка
     Set Password: Подеси лозинку
   Parental Control Settings:
     Show Family Friendly Only: Прикажи само погодно за породицу
     Hide Unsubscribe Button: Сакриј дугме „Прекини праћење“
     Hide Search Bar: Сакриј траку за претрагу
-    Parental Control Settings: Подешавања родитељске контроле
+    Parental Control Settings: Родитељска контрола
   Password Dialog:
     Password Incorrect: Лозинка нетачна
     Password: Лозинка
@@ -652,6 +655,7 @@ Settings:
     Unlock: Откључај
   Expand All Settings Sections: Прошири све одељке подешавања
   Sort Settings Sections (A-Z): Сортирање одељка подешавања (A-Z)
+  Return to Settings Menu: Врати се у мени подешавања
 About:
   #On About page
   About: 'О апликацији'
@@ -726,7 +730,7 @@ Profile:
     ли заиста да избришете изабране канале?  Ово неће избрисати канал из било ког
     другог профила.'
 #On Channel Page
-  Profile Settings: Подешавања профила
+  Profile Settings: Профил
   Toggle Profile List: Укључи листу профила
   Open Profile Dropdown: Отвори падајући мени профила
   Close Profile Dropdown: Затвори падајући мени профила
@@ -1044,6 +1048,8 @@ Playlist:
     Sort By: Сортирање по
     AuthorDescending: Аутор (Z-A)
     DateAddedNewest: Најновије додато прво
+    VideoDurationDescending: Трајање (прво најдуже)
+    VideoDurationAscending: Трајање (прво најкраће)
 Falling back to Invidious API: Повратак на Invidious API
 Change Format:
   Dash formats are not available for this video: DASH формати нису доступни за овај
@@ -1199,5 +1205,10 @@ Search Listing:
     Closed Captions: Скривени титлови
     4K: 4K
     Subtitles: Титлови
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Ново
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
   URL адресе: „{url}“.'

@@ -93,7 +93,7 @@ Search Filters:
     další výsledky
   Features:
     HD: HD
-    360 Video: 360°
+    360 Video: 360° video
     Subtitles: Titulky
     Features: Vlastnosti
     Creative Commons: Creative Commons
@@ -200,6 +200,9 @@ User Playlists:
         používán pro rychlou záložku.
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
         je nový playlist rychlé záložky.
+      This playlist has a video with a duration error: Tento playlist obsahuje nejméně
+        jedno video, které nemá dobu trvání. Bude seřazeno tak, jako by mělo dobu
+        trvání nula.
     Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
@@ -272,7 +275,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Aby
     se změny projevily, je třeba aplikaci restartovat. Restartovat a použít změny?'
   General Settings:
-    General Settings: 'Obecná nastavení'
+    General Settings: 'Obecné'
     Check for Updates: 'Kontrolovat aktualizace'
     Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
@@ -320,7 +323,7 @@ Settings:
       Label: Automaticky načíst další stránku
       Tooltip: Automaticky načítat další stránky a komentáře.
   Theme Settings:
-    Theme Settings: 'Nastavení motivu'
+    Theme Settings: 'Motiv'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
     Expand Side Bar by Default: 'Ve výchozím stavu rozbalený postranní panel'
     Disable Smooth Scrolling: 'Zakázat plynulé posouvání'
@@ -390,7 +393,7 @@ Settings:
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
     Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
-    Player Settings: 'Nastavení přehrávače'
+    Player Settings: 'Přehrávač'
     Play Next Video: 'Přehrát další video'
     Turn on Subtitles by Default: 'Ve výchozím nastavení zapnout titulky'
     Autoplay Videos: 'Automaticky přehrávat videa'
@@ -443,7 +446,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
   Privacy Settings:
-    Privacy Settings: 'Nastavení soukromí'
+    Privacy Settings: 'Soukromí'
     Remember History: 'Zapamatovat historii'
     Save Watched Progress: 'Uložit průběh zhlédnutých videí'
     Clear Search Cache: 'Vymazat mezipaměť vyhledávání'
@@ -464,7 +467,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Opravdu chcete odstranit
       všechny své playlisty?
   Subscription Settings:
-    Subscription Settings: 'Nastavení odběrů'
+    Subscription Settings: 'Odběry'
     Hide Videos on Watch: 'Skrýt přehraná videa'
     Fetch Feeds from RSS: 'Získávat odběry z RSS'
     Manage Subscriptions: 'Spravovat odebírané kanály'
@@ -473,7 +476,7 @@ Settings:
       video
     Confirm Before Unsubscribing: Zamezit nechtěným odběrům
   Distraction Free Settings:
-    Distraction Free Settings: 'Nastavení rozptylování'
+    Distraction Free Settings: 'Rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
     Hide Video Likes And Dislikes: 'Skrýt hodnocení videa'
     Hide Channel Subscribers: 'Skrýt odběratele kanálu'
@@ -523,7 +526,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo
       fráze
   Data Settings:
-    Data Settings: 'Nastavení dat'
+    Data Settings: 'Data'
     Select Import Type: 'Vybrat typ importu'
     Select Export Type: 'Vybrat typ exportu'
     Import Subscriptions: 'Importovat odběry'
@@ -601,7 +604,7 @@ Settings:
       #& No
 
   Proxy Settings:
-    Proxy Settings: Nastavení proxy
+    Proxy Settings: Proxy
     City: Město
     Ip: IP
     Your Info: Vaše informace
@@ -621,7 +624,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
       (výchozí je https://sponsor.ajay.app)
     Enable SponsorBlock: Zapnout SponsorBlock
-    SponsorBlock Settings: Nastavení služby SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Do Nothing: Nic nedělat
       Skip Option: Možnost přeskočení
@@ -638,25 +641,25 @@ Settings:
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
     Ignore Unsupported Action Warnings: Ignorovat varování u nepodporovaných akcí
     External Player: Externí přehrávač
-    External Player Settings: Nastavení externího přehrávače
+    External Player Settings: Externí přehrávač
     Players:
       None:
         Name: Žádný
     Ignore Default Arguments: Ignorovat výchozí argumenty
   Download Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
-    Download Settings: Nastavení stahování
+    Download Settings: Stahování
     Choose Path: Zvolit cestu
     Download in app: Stáhnout v aplikaci
     Open in web browser: Otevřít v prohlížeči
     Download Behavior: Chování stahování
   Parental Control Settings:
-    Parental Control Settings: Nastavení rodičovské kontroly
+    Parental Control Settings: Rodičovská kontrola
     Hide Search Bar: Skrýt lištu vyhledávání
     Show Family Friendly Only: Zobrazit pouze obsah vhodný pro rodiny
     Hide Unsubscribe Button: Skrýt tlačítko ke zrušení odběru
   Experimental Settings:
-    Experimental Settings: Experimentální nastavení
+    Experimental Settings: Experimentální
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci může docházet
       k pádům. Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
@@ -666,12 +669,13 @@ Settings:
     Password Incorrect: Nesprávné heslo
     Unlock: Odemknout
   Password Settings:
-    Password Settings: Nastavení hesla
-    Set Password To Prevent Access: Nastavte heslo, abyste zabránili přístupu k nastavení
+    Password Settings: Heslo
+    Set Password To Prevent Access: Nastavte heslo pro zabránění přístupu k nastavení
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
   Expand All Settings Sections: Rozbalit všechny sekce nastavení
   Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
+  Return to Settings Menu: Vrátit se do nastavení
 About:
   #On About page
   About: 'O aplikaci'
@@ -772,7 +776,7 @@ Profile:
     profilu.'
 #On Channel Page
   Profile Filter: Filtr profilu
-  Profile Settings: Nastavení profilu
+  Profile Settings: Profil
   Toggle Profile List: Přepnout seznam profilů
   Open Profile Dropdown: Otevřít rozbalovací nabídku profilu
   Close Profile Dropdown: Zavřít rozbalovací nabídku profilu
@@ -1021,6 +1025,8 @@ Playlist:
     VideoTitleDescending: Název (Z-A)
     VideoTitleAscending: Název (A-Z)
     Custom: Vlastní
+    VideoDurationAscending: Doba trvání (od nejkratších)
+    VideoDurationDescending: Doba trvání (od nejdelších)
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
@@ -1257,5 +1263,10 @@ Search Listing:
     4K: 4K
     Subtitles: Titulky
     Closed Captions: Skryté titulky
+    360 Video: 360°
+    New: Nové
+    8K: 8K
+    VR180: VR180
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
   adresy URL: „{url}“.'

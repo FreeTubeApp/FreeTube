@@ -196,6 +196,8 @@ User Playlists:
         oynatma listesi yeni hızlı yer imi oynatma listesi.'
       This playlist is already being used for quick bookmark.: Bu oynatma listesi
         zaten hızlı yer imi için kullanılıyor.
+      This playlist has a video with a duration error: Bu oynatma listesi süresi olmayan
+        en az bir video içeriyor, süreleri sıfırmış gibi sıralanacaktır.
     Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
@@ -271,7 +273,7 @@ Settings:
   # On Settings Page
   Settings: 'Ayarlar'
   General Settings:
-    General Settings: 'Genel Ayarlar'
+    General Settings: 'Genel'
     Check for Updates: 'Güncellemeleri Denetle'
     Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
     Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen
@@ -318,7 +320,7 @@ Settings:
       Label: Sonraki Sayfayı Otomatik Yükle
       Tooltip: Sonraki sayfaları ve yorumları otomatik olarak yükle.
   Theme Settings:
-    Theme Settings: 'Tema Ayarları'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
     Base Theme:
       Base Theme: 'Uygulama Teması'
@@ -388,7 +390,7 @@ Settings:
     Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
     Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
-    Player Settings: 'Oynatıcı Ayarları'
+    Player Settings: 'Oynatıcı'
     Play Next Video: 'Sonraki Videoyu Oynat'
     Turn on Subtitles by Default: 'Alt Yazıları Öntanımlı Olarak Aç'
     Autoplay Videos: 'Videoları Otomatik Başlat'
@@ -442,7 +444,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
   Privacy Settings:
-    Privacy Settings: 'Gizlilik Ayarları'
+    Privacy Settings: 'Gizlilik'
     Remember History: 'Geçmişi Hatırla'
     Save Watched Progress: 'Kaldığım Yeri Hatırla'
     Clear Search Cache: 'Arama Önbelleğini Temizle'
@@ -463,7 +465,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi
       kaldırmak istediğinizden emin misiniz?
   Subscription Settings:
-    Subscription Settings: 'Abonelik Ayarları'
+    Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
@@ -472,7 +474,7 @@ Settings:
       Göster
     Confirm Before Unsubscribing: Abonelikten Çıkmadan Önce Onayla
   Data Settings:
-    Data Settings: 'Veri Ayarları'
+    Data Settings: 'Veri'
     Select Import Type: 'İçe Aktarma Türünü Seç'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
     Import Subscriptions: 'Abonelikleri İçe Aktar'
@@ -565,7 +567,7 @@ Settings:
     Hide Channel Subscribers: Kanal Abonelerini Gizle
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
     Hide Video Views: Video İzlenme Sayılarını Gizle
-    Distraction Free Settings: Dikkat Dağıtmama Ayarları
+    Distraction Free Settings: Dikkat Dağıtmama
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
     Hide Live Streams: Canlı Yayınları Gizle
@@ -624,13 +626,13 @@ Settings:
     Proxy Host: Vekil Sunucu Ana Makinesi
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
-    Proxy Settings: Vekil Sunucu Ayarları
+    Proxy Settings: Vekil Sunucu
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       URL'si (Öntanımlı olarak https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
-    SponsorBlock Settings: SponsorBlock Ayarları
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Atlama Seçeneği
       Auto Skip: Otomatik Atla
@@ -647,7 +649,7 @@ Settings:
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
-    External Player Settings: Harici Oynatıcı Ayarları
+    External Player Settings: Harici Oynatıcı
     Players:
       None:
         Name: Yok
@@ -655,12 +657,12 @@ Settings:
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
-    Download Settings: İndirme Ayarları
+    Download Settings: İndirme
     Download Behavior: İndirme Davranışı
     Download in app: Uygulamada indir
     Open in web browser: Web tarayıcısında aç
   Parental Control Settings:
-    Parental Control Settings: Ebeveyn Denetimi Ayarları
+    Parental Control Settings: Ebeveyn Denetimi
     Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
     Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
     Hide Search Bar: Arama Çubuğunu Gizle
@@ -669,19 +671,20 @@ Settings:
     Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler.
       Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
       aittir!
-    Experimental Settings: Deneysel Ayarlar
+    Experimental Settings: Deneysel
   Password Dialog:
     Password Incorrect: Parola Yanlış
     Unlock: Kilidi aç
     Password: Parola
     Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
   Password Settings:
-    Password Settings: Parola Ayarları
+    Password Settings: Parola
     Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
     Remove Password: Parolayı Kaldır
     Set Password: Parola Ayarla
   Expand All Settings Sections: Tüm Ayarlar Bölümlerini Genişlet
   Sort Settings Sections (A-Z): Ayarlar Bölümlerini Sırala (A-Z)
+  Return to Settings Menu: Ayarlar Menüsüne Dön
 About:
   #On About page
   About: 'Hakkında'
@@ -792,7 +795,7 @@ Profile:
     silmez.'
 #On Channel Page
   Profile Filter: Profil Filtresi
-  Profile Settings: Profil Ayarları
+  Profile Settings: Profil
   Toggle Profile List: Profil Listesini Aç/Kapat
   Profile Name: Profil Adı
   Edit Profile Name: Profil Adını Düzenle
@@ -1045,6 +1048,8 @@ Playlist:
     Sort By: Sıralama ölçütü
     DateAddedOldest: İlk eklenen önce
     Custom: Özel
+    VideoDurationAscending: Süre (Önce en kısa)
+    VideoDurationDescending: Süre (Önce en uzun)
 Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
@@ -1285,5 +1290,10 @@ Search Listing:
     Closed Captions: Kapalı Alt Yazılar
     4K: 4K
     Subtitles: Alt Yazılar
+    VR180: VR180
+    360 Video: 360°
+    New: Yeni
+    3D: 3B
+    8K: 8K
 'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
   \"{url}\"."

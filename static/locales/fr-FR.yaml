@@ -43,7 +43,7 @@ Global:
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
     Comment Count: 1 commentaire | {count} commentaires
-    Like Count: 1 like | {count} likes
+    Like Count: 1 j’aime | {count} j’aime
   Input Tags:
     Length Requirement: L'étiquette doit comporter au moins {number} caractères
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
@@ -82,7 +82,7 @@ Search Filters:
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Afficher plus de résultats'
 # Sidebar
-  There are no more results for this search: Il n'y a plus de résultats pour cette
+  There are no more results for this search: Il n’y a pas plus de résultats pour cette
     recherche
   Features:
     Creative Commons: Creative Commons
@@ -101,7 +101,7 @@ Subscriptions:
   Subscriptions: 'Abonnements'
   Latest Subscriptions: 'Derniers abonnements'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre
-    liste d''abonnements est actuellement vide. Si vous souhaitez importer vos abonnements,
+    liste d’abonnements est actuellement vide. Si vous souhaitez importer vos abonnements,
     vous pouvez aller dans Paramètres des données et sélectionner Importer des abonnements
     ou vous pouvez rechercher une chaîne et vous y abonner.'
   'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
@@ -109,7 +109,7 @@ Subscriptions:
   Getting Subscriptions. Please wait.: Obtention des abonnements. Veuillez patienter.
   Refresh Subscriptions: Actualiser les abonnements
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ce
-    profil comporte un grand nombre d'abonnements.  Le flux RSS outrepassera la limite
+    profil comporte un grand nombre d'abonnements.  Le flux RSS dépassera la limite
     fixée
   Load More Videos: Charger plus de vidéos
   Error Channels: Chaînes avec des erreurs
@@ -152,7 +152,7 @@ User Playlists:
     Save: Sauvegarder
     Select a playlist to add your N videos to: Sélectionnez une liste de lecture à
       laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle
-      ajouter vos vidéos {videoCount}
+      ajouter vos {videoCount} vidéos
     Toast:
       "{videoCount} video(s) added to 1 playlist": 1 vidéo ajoutée à 1 liste de lecture
         | {videoCount} vidéos ajoutées à 1 liste de lecture
@@ -205,6 +205,9 @@ User Playlists:
         est déjà utilisée comme signet rapide.
       Playlist {playlistName} is the new quick bookmark playlist.: La liste de lecture
         {playlistName} est la nouvelle liste de lecture des signets rapides.
+      This playlist has a video with a duration error: Cette liste de lecture contient
+        au moins une vidéo qui n'a pas de durée, elle sera triée comme si la durée
+        était nulle.
     Search for Videos: Rechercher des vidéos
   Are you sure you want to delete this playlist? This cannot be undone: Êtes-vous
     sûr(e) de vouloir supprimer cette liste de lecture ? Cette opération ne peut pas
@@ -279,7 +282,7 @@ Settings:
   # On Settings Page
   Settings: 'Paramètres'
   General Settings:
-    General Settings: 'Paramètres généraux'
+    General Settings: 'Général'
     Fallback to Non-Preferred Backend on Failure: 'Revenir au Backend non préférentiel
       en cas d''échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
@@ -328,7 +331,7 @@ Settings:
       Label: Chargement automatique de la page suivante
       Tooltip: Chargement automatique des pages supplémentaires et des commentaires.
   Theme Settings:
-    Theme Settings: 'Paramètres du thème'
+    Theme Settings: 'Thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
       principale'
     Base Theme:
@@ -399,7 +402,7 @@ Settings:
     Hide Side Bar Labels: Masquer les étiquettes de la barre latérale
     Hide FreeTube Header Logo: Masquer le logo d'en-tête de FreeTube
   Player Settings:
-    Player Settings: 'Paramètres du lecteur'
+    Player Settings: 'Lecteur'
     Remember History: 'Se souvenir de l''historique'
     Play Next Video: 'Lire la vidéo suivante'
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
@@ -457,7 +460,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
   Subscription Settings:
-    Subscription Settings: 'Paramètres des abonnements'
+    Subscription Settings: 'Abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format d''exportation des abonnements'
@@ -501,7 +504,7 @@ Settings:
       #& No
 
   Privacy Settings:
-    Privacy Settings: Paramètres de confidentialité
+    Privacy Settings: Confidentialité
     Remember History: Enregistrer l'historique
     Watch history has been cleared: L'historique a été effacé
     Are you sure you want to remove your entire watch history?: Êtes-vous sûr(e) de
@@ -549,7 +552,7 @@ Settings:
     This might take a while, please wait: Cela pourrait prendre un certain temps,
       veuillez patienter
     Invalid subscriptions file: Fichier d'abonnements invalide
-    Data Settings: Paramètres des données
+    Data Settings: Données
     All watched history has been successfully exported: Tout votre historique de visionnage
       a été exporté avec succès
     All watched history has been successfully imported: Tout votre historique de visionnage
@@ -589,7 +592,7 @@ Settings:
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
-    Distraction Free Settings: Mode sans distraction
+    Distraction Free Settings: Sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
     Hide Playlists: Masquer les listes de lecture
     Hide Video Description: Masquer la description de la vidéo
@@ -650,14 +653,14 @@ Settings:
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
     Enable Tor / Proxy: Activer Tor / proxy
-    Proxy Settings: Paramètres du proxy
+    Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
       est ignoré
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API SponsorBlock
       (la valeur par défaut est https://sponsor.ajay.app)
     Enable SponsorBlock: Activer SponsorBlock
-    SponsorBlock Settings: Paramètres de SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Ignorer l'option
       Auto Skip: Ignorer automatiquement
@@ -673,7 +676,7 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
       actions non prises en charge
     External Player: Lecteur externe
-    External Player Settings: Paramètres du lecteur externe
+    External Player Settings: Lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
     Players:
@@ -681,7 +684,7 @@ Settings:
         Name: Aucun
     Ignore Default Arguments: Ignorer les arguments par défaut
   Download Settings:
-    Download Settings: 'Paramètres de téléchargement'
+    Download Settings: 'Téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
     Choose Path: 'Choisir l''emplacement'
     Download Behavior: Comportement de téléchargement
@@ -690,11 +693,11 @@ Settings:
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
-    Parental Control Settings: Paramètres du contrôle parental
+    Parental Control Settings: Contrôle parental
     Show Family Friendly Only: Afficher uniquement le contenu familial
   Experimental Settings:
     Replace HTTP Cache: Remplacer le cache HTTP
-    Experimental Settings: Paramètres expérimentaux
+    Experimental Settings: Expérimental
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages
       lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes.
       Utilisez-les à vos risques et périls !
@@ -708,9 +711,10 @@ Settings:
     Set Password To Prevent Access: Définir un mot de passe pour empêcher l'accès
       aux paramètres
     Set Password: Définir un mot de passe
-    Password Settings: Paramètres de mot de passe
+    Password Settings: Mot de passe
   Expand All Settings Sections: Développer toutes les sections des paramètres
   Sort Settings Sections (A-Z): Trier les rubriques de paramètres (A-Z)
+  Return to Settings Menu: Revenir au Menu Paramètres
 About:
   #On About page
   About: 'À propos'
@@ -1030,6 +1034,8 @@ Playlist:
     VideoTitleAscending: Titre (A-Z)
     VideoTitleDescending: Titre (Z-A)
     Custom: Personnalisé
+    VideoDurationDescending: Durée (la plus longue en premier)
+    VideoDurationAscending: Durée (la plus courte en premier)
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
@@ -1114,7 +1120,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français
+Locale Name: Français (France)
 Profile:
   '{profile} is now the active profile': '{profile} est maintenant le profil actif'
   Your default profile has been changed to your primary profile: Votre profil par
@@ -1158,7 +1164,7 @@ Profile:
   '{number} selected': '{number} sélectionné(s)'
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
-  Profile Settings: Paramètres du profil
+  Profile Settings: Profil
   Toggle Profile List: Afficher la liste des profils
   Open Profile Dropdown: Ouvrir la liste déroulante du profil
   Close Profile Dropdown: Fermer la liste déroulante du profil
@@ -1337,5 +1343,10 @@ Search Listing:
     4K: 4K
     Subtitles: Sous-titres
     Closed Captions: Sous-titrage codé
+    8K: 8k
+    VR180: VR180
+    360 Video: 360°
+    New: Nouveau
+    3D: 3D
 'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
   dangereuse : « {url} »."

@@ -171,6 +171,8 @@ User Playlists:
       This playlist is already being used for quick bookmark.: 此播放列表已被用于快速书签。
       Playlist {playlistName} is the new quick bookmark playlist.: 播放列表 {playlistName}
         是新的快速书签播放列表。
+      This playlist has a video with a duration error: 此播放列表包含至少一个没有持续时间的视频，排序时将按照持续时间为
+        0 对待此视频。
     Search for Videos: 搜索视频
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
@@ -229,7 +231,7 @@ Settings:
   # On Settings Page
   Settings: '设置'
   General Settings:
-    General Settings: '常规设置'
+    General Settings: '常规'
     Fallback to Non-Preferred Backend on Failure: '失败时回撤到非首选后端'
     Enable Search Suggestions: '允许搜索建议'
     Default Landing Page: '默认加载页面'
@@ -272,7 +274,7 @@ Settings:
       Label: 自动加载下一页
       Tooltip: 自动加载额外页面和评论。
   Theme Settings:
-    Theme Settings: '主题设置'
+    Theme Settings: '主题'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
     Base Theme:
       Base Theme: '基本主题'
@@ -342,7 +344,7 @@ Settings:
     Hide Side Bar Labels: 隐藏侧边栏标签
     Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
-    Player Settings: '播放器选项'
+    Player Settings: '播放器'
     Remember History: '记住历史'
     Play Next Video: '播放下一视频'
     Turn on Subtitles by Default: '默认开启字幕'
@@ -393,7 +395,7 @@ Settings:
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
   Subscription Settings:
-    Subscription Settings: '订阅设置'
+    Subscription Settings: '订阅'
     Hide Videos on Watch: '观看时隐藏视频'
     Subscriptions Export Format:
       Subscriptions Export Format: '导出订阅格式'
@@ -435,7 +437,7 @@ Settings:
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
     Save Watched Progress: 保存观看进度
     Remember History: 记住历史记录
-    Privacy Settings: 隐私设置
+    Privacy Settings: 隐私
     Watch history has been cleared: 观看历史记录已清除
     Remove Watch History: 移除观看历史记录
     Search cache has been cleared: 搜索缓存已清除
@@ -473,7 +475,7 @@ Settings:
     Import Subscriptions: 导入订阅
     Select Export Type: 选择导出类型
     Select Import Type: 选择导入类型
-    Data Settings: 数据设置
+    Data Settings: 数据
     Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表
@@ -498,7 +500,7 @@ Settings:
     Hide Channel Subscribers: 隐藏频道订阅者
     Hide Video Likes And Dislikes: 隐藏视频喜欢与不喜欢
     Hide Video Views: 隐藏视频观看数量
-    Distraction Free Settings: 零打扰设置
+    Distraction Free Settings: 零打扰
     Hide Active Subscriptions: 隐藏活跃的订阅
     Hide Playlists: 隐藏播放列表
     Hide Live Streams: 隐藏直播
@@ -538,7 +540,7 @@ Settings:
   Proxy Settings:
     Proxy Protocol: 代理协议
     Enable Tor / Proxy: 使用Tor/代理
-    Proxy Settings: 代理设置
+    Proxy Settings: 代理
     Error getting network information. Is your proxy configured properly?: 获取网络信息错误。您的代理配置是否正确？
     City: 城市
     Region: 地区
@@ -554,7 +556,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 赞助商区域调用的API地址（默认是
       https://sponsor.ajay.app）
     Enable SponsorBlock: 开启赞助商区域
-    SponsorBlock Settings: 赞助商区域设置
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Auto Skip: 自动跳过
       Show In Seek Bar: 显示在查找栏中
@@ -571,25 +573,25 @@ Settings:
     Custom External Player Executable: 自定义外部播放器的可执行文件
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
-    External Player Settings: 外部播放器设置
+    External Player Settings: 外部播放器
     Players:
       None:
         Name: 无
     Ignore Default Arguments: 忽略默认变量
   Download Settings:
-    Download Settings: 下载设置
+    Download Settings: 下载
     Ask Download Path: 询问下载路径
     Choose Path: 选择路径
     Download in app: 应用内下载
     Open in web browser: 在网络浏览器内打开
     Download Behavior: 下载行为
   Parental Control Settings:
-    Parental Control Settings: 家长控制设置
+    Parental Control Settings: 家长控制
     Show Family Friendly Only: 仅显示“家庭友好”视频
     Hide Search Bar: 隐藏搜索栏
     Hide Unsubscribe Button: 隐藏“取消订阅”按钮
   Experimental Settings:
-    Experimental Settings: 实验性设置
+    Experimental Settings: 实验性
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
     Replace HTTP Cache: 替换 HTTP 缓存
   Password Dialog:
@@ -598,12 +600,13 @@ Settings:
     Password Incorrect: 密码不正确
     Unlock: 解锁
   Password Settings:
-    Password Settings: 密码设置
+    Password Settings: 密码
     Set Password To Prevent Access: 设置密码防止访问设置
     Set Password: 设置密码
     Remove Password: 删除密码
   Expand All Settings Sections: 展开所有设置部分
   Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
+  Return to Settings Menu: 返回设置菜单
 About:
   #On About page
   About: '关于'
@@ -883,6 +886,8 @@ Playlist:
     VideoTitleDescending: 标题（Z-A)
     Custom: 自定义
     VideoTitleAscending: 标题（A-Z）
+    VideoDurationAscending: 持续时间（最短的优先）
+    VideoDurationDescending: 持续时间（最长的优先）
 Toggle Theatre Mode: '切换剧场模式'
 Change Format:
   Change Media Formats: '更换视频格式'
@@ -992,7 +997,7 @@ Profile:
   Select All: 全选
   Other Channels: 其他频道
   Subscription List: 订阅列表
-  Profile Settings: 个人资料设置
+  Profile Settings: 个人资料
   Profile Filter: 个人资料筛选器
   Toggle Profile List: 切换个人资料列表
   Open Profile Dropdown: 打开配置文件下拉菜单
@@ -1110,4 +1115,9 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: 隐藏式字幕
+    New: 新的
+    3D: 3D
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
 'Blocked opening potentially unsafe URL': 阻止了打开潜在不安全的 URL： "{url}".

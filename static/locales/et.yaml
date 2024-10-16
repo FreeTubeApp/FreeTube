@@ -215,6 +215,9 @@ User Playlists:
         on uus kiirjärjehoidjate esitusloend.
       This playlist is already being used for quick bookmark.: See esitusloend juba
         on kasutusel kiirjärjehoidjate jaoks.
+      This playlist has a video with a duration error: Selles esitusloendis on vähemalt
+        üks video, millel puudub kestus. Järjestamisel me sel puhul arvestame kestuseks
+        nulli.
     Search for Videos: Otsi videoid
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
     kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
@@ -268,7 +271,7 @@ Settings:
   # On Settings Page
   Settings: 'Seadistused'
   General Settings:
-    General Settings: 'Üldised seadistused'
+    General Settings: 'Üldist'
     Check for Updates: 'Kontrolli uuendusi'
     Check for Latest Blog Posts: 'Vaata viimaseid blogipostitusi'
     Fallback to Non-Preferred Backend on Failure: 'Luba vigade korral kasutada teist
@@ -317,7 +320,7 @@ Settings:
       Label: Laadi järgmine leht automaatselt
       Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
   Theme Settings:
-    Theme Settings: 'Välimuse seadistused'
+    Theme Settings: 'Kujundus'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
     Base Theme:
       Base Theme: 'Põhiteema'
@@ -387,7 +390,7 @@ Settings:
     Hide Side Bar Labels: Peida külgriba sildid
     Hide FreeTube Header Logo: Peida FreeTube'i päise logo
   Player Settings:
-    Player Settings: 'Videomängija seadistused'
+    Player Settings: 'Meediamängija'
     Play Next Video: 'Esita ka järgmist videot'
     Turn on Subtitles by Default: 'Vaikimisi näita subtiitreid'
     Autoplay Videos: 'Esita videod automaatselt'
@@ -439,7 +442,7 @@ Settings:
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
   Privacy Settings:
-    Privacy Settings: 'Privaatsuse seadistused'
+    Privacy Settings: 'Privaatsus'
     Remember History: 'Jäta ajalugu meelde'
     Save Watched Progress: 'Salvesta vaatamise olek'
     Clear Search Cache: 'Kustuta otsingute ajalugu'
@@ -461,7 +464,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Kas sa oled kindel, et soovid
       kõik esitusloendid eemaldada?
   Subscription Settings:
-    Subscription Settings: 'Tellimuste seadistused'
+    Subscription Settings: 'Tellimused'
     Hide Videos on Watch: 'Vaatamisel peida videod'
     Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
     Manage Subscriptions: 'Halda tellimusi'
@@ -533,7 +536,7 @@ Settings:
     Hide Channel Subscribers: Peida kanalite tellijad
     Hide Video Likes And Dislikes: Peida videote meeldimiste ja mittemeeldimiste arvud
     Hide Video Views: Peida videote vaatamiskordade arv
-    Distraction Free Settings: Seadista endale võimalikult rahulik videote vaatamine
+    Distraction Free Settings: Rahulik vaade
     Hide Video Description: Peida video kirjeldus
     Hide Comments: Peida kommentaarid
     Hide Live Streams: Peida otseülekanded
@@ -587,7 +590,7 @@ Settings:
     Proxy Host: Puhverserveri aadress
     Proxy Protocol: Puhverserveri protokoll
     Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
-    Proxy Settings: Puhverserveri seadistused
+    Proxy Settings: Puhverserver
   The app needs to restart for changes to take effect. Restart and apply change?: See
     rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
@@ -595,7 +598,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Sponsorite blokeerija
       API URL (vaikimisi https://sponsor.ajay.app)
     Enable SponsorBlock: Kasuta sponsorite blokeerijat
-    SponsorBlock Settings: Sponsorite blokeerija seadistused
+    SponsorBlock Settings: Sponsorite blokeerija
     Skip Options:
       Auto Skip: Automaatne vahelejätmine
       Show In Seek Bar: Näita otsinguribal
@@ -609,7 +612,7 @@ Settings:
       pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Väline meediamängija
-    External Player Settings: Välise meediamängija seadistused
+    External Player Settings: Väline meediamängija
     Custom External Player Arguments: Välise meediamängija rakenduse argumendid
     Custom External Player Executable: Välise meediamängija rakenduse asukoht
     Ignore Unsupported Action Warnings: Eira mittetoetatud toimingute hoiatusi
@@ -618,19 +621,19 @@ Settings:
         Name: Puudub
     Ignore Default Arguments: Eira vaikimisi käsureaargumente
   Download Settings:
-    Download Settings: Allalaadimise seadistused
+    Download Settings: Allalaadimised
     Ask Download Path: Küsi kuhu kausta soovid faile alla laadida
     Choose Path: Vali asukoht
     Download Behavior: Tegevus allalaadimisel
     Open in web browser: Ava veebibrauseris
     Download in app: Laadi alla rakenduses
   Parental Control Settings:
-    Parental Control Settings: Vanemliku järelevalve seadistused
+    Parental Control Settings: Vanemlik järelevalve
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
     Show Family Friendly Only: Näita ainult peresõbralikku sisu
     Hide Search Bar: Peida otsinguriba
   Experimental Settings:
-    Experimental Settings: Katselised seadistused
+    Experimental Settings: Katsed
     Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada
       rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete varundamist. Jätka
       omal vastutusel!
@@ -641,12 +644,13 @@ Settings:
     Unlock: Võta lukust lahti
     Password: Salasõna
   Password Settings:
-    Password Settings: Salasõna seadistused
+    Password Settings: Salasõnad
     Remove Password: Eemalda salasõna
     Set Password: Määra salasõna
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Expand All Settings Sections: Laienda kõik seadistuste lõigud
   Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
+  Return to Settings Menu: Tagasi seadistuste menüü juurde
 About:
   #On About page
   About: 'Teave'
@@ -722,7 +726,7 @@ Profile:
     profiilidest.'
 #On Channel Page
   Profile Filter: Sirvi profiile
-  Profile Settings: Profiili seadistused
+  Profile Settings: Profiil
   Toggle Profile List: Lülita profiilide loend sisse/välja
   Profile Name: Profiili nimi
   Edit Profile Name: Muuda profiili nime
@@ -969,6 +973,8 @@ Playlist:
     AuthorDescending: Autori alusel (Z-A)
     VideoTitleAscending: Pealkirja alusel (A-Z)
     VideoTitleDescending: Pealkirja alusel (Z-A)
+    VideoDurationAscending: Kestuse alusel (esmalt lühemad)
+    VideoDurationDescending: Kestuse alusel (esmalt pikemad)
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
@@ -1199,5 +1205,10 @@ Search Listing:
     Subtitles: Subtiitrid
     Closed Captions: Subtiitrid
     4K: 4K
+    New: Uus
+    3D: 3D-sisu
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
   avamise: „{url}“.'

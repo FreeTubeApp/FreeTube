@@ -214,6 +214,9 @@ User Playlists:
         sendo usada como "Quick Bookmark".
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist "{playlistName}"
         é a nova playlist em "Quick Bookmark".
+      This playlist has a video with a duration error: Esta playlist contém pelo menos
+        um vídeo que não tem duração, ela será classificada como se sua duração fosse
+        zero.
     Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Toast:
@@ -263,7 +266,7 @@ Settings:
   # On Settings Page
   Settings: 'Configurações'
   General Settings:
-    General Settings: 'Configurações gerais'
+    General Settings: 'Geral'
     Fallback to Non-Preferred Backend on Failure: 'Usar mecanismo de pesquisa alternativo
       em caso de falha'
     Enable Search Suggestions: 'Habilitar sugestões de pesquisa'
@@ -311,7 +314,7 @@ Settings:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
   Theme Settings:
-    Theme Settings: 'Configurações de aparência'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -381,7 +384,7 @@ Settings:
     Hide Side Bar Labels: Ocultar título na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube na barra superior
   Player Settings:
-    Player Settings: 'Configurações de reprodução'
+    Player Settings: 'Player'
     Remember History: 'Lembrar do histórico'
     Play Next Video: 'Reproduzir próximo vídeo'
     Turn on Subtitles by Default: 'Ativar legendas por padrão'
@@ -437,7 +440,7 @@ Settings:
       para o modo paisagem
     Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
   Subscription Settings:
-    Subscription Settings: 'Configurações de inscrições'
+    Subscription Settings: 'Inscrições'
     Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Formato de exportação das inscrições'
@@ -491,7 +494,7 @@ Settings:
     Clear Search Cache: Limpar cache de buscas
     Save Watched Progress: Habilitar histórico de exibição
     Remember History: Lembrar histórico
-    Privacy Settings: Configurações de privacidade
+    Privacy Settings: Privacidade
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
       certeza de que deseja remover todas as inscrições e perfis? Isto não pode ser
       desfeito.
@@ -509,7 +512,7 @@ Settings:
     All subscriptions have been successfully imported: Todas as inscrições foram importadas
       com sucesso
     Select Import Type: Selecionar tipo de importação
-    Data Settings: Configurações de dados
+    Data Settings: Dados
     Export History: Exportar histórico
     Import History: Importar histórico
     Export NewPipe: Exportar NewPipe
@@ -564,7 +567,7 @@ Settings:
     Hide Trending Videos: Ocultar vídeos em alta
     Hide Recommended Videos: Ocultar vídeos recomendados
     Hide Comment Likes: Ocultar "curtidas" em comentários
-    Distraction Free Settings: Configurações de distrações
+    Distraction Free Settings: Modo Sem Distrações
     Hide Channel Subscribers: Ocultar número de inscritos
     Hide Video Likes And Dislikes: Ocultar "curtidas" em vídeo
     Hide Video Views: Ocultar visualizações do vídeo
@@ -622,7 +625,7 @@ Settings:
     Proxy Host: Host do Proxy
     Proxy Protocol: Protocolo do Proxy
     Enable Tor / Proxy: Ativar Tor/Proxy
-    Proxy Settings: Configurações de Proxy
+    Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. Seu proxy está configurado corretamente?
     City: Cidade
@@ -633,7 +636,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (o padrão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ativar SponsorBlock
-    SponsorBlock Settings: Configurações SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Show In Seek Bar: Mostrar na barra de busca
       Prompt To Skip: Solicitar para pular
@@ -649,14 +652,14 @@ Settings:
     Custom External Player Arguments: Argumentos do player externo personalizados
     External Player: Player externo
     Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
-    External Player Settings: Configurações para players externos
+    External Player Settings: Player externo
     Custom External Player Executable: Executável do player externo personalizado
     Players:
       None:
         Name: Nenhum
     Ignore Default Arguments: Ignorar argumentos padrão
   Download Settings:
-    Download Settings: Configurações de download
+    Download Settings: Download
     Ask Download Path: Perguntar onde salvar o download
     Choose Path: Escolha o caminho
     Open in web browser: Abrir no navegador
@@ -665,16 +668,16 @@ Settings:
   Parental Control Settings:
     Show Family Friendly Only: Mostrar apenas conteúdo adequado para todos os públicos
     Hide Search Bar: Ocultar barra de pesquisa
-    Parental Control Settings: Configurações de Controle Parental
+    Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
   Experimental Settings:
-    Experimental Settings: Configurações experimentais
+    Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos
       enquanto ativadas. Fazer backups é altamente recomendado. Use por sua conta
       e risco!
     Replace HTTP Cache: Repor cache HTTP
   Password Settings:
-    Password Settings: Configurações de senha
+    Password Settings: Senha
     Set Password: Definir senha
     Remove Password: Remover senha
     Set Password To Prevent Access: Defina uma senha para impedir o acesso às configurações
@@ -685,6 +688,7 @@ Settings:
     Enter Password To Unlock: Digite a senha para desbloquear as configurações
   Expand All Settings Sections: Expandir todas as seções de configurações
   Sort Settings Sections (A-Z): Classificar seções de configurações (A-Z)
+  Return to Settings Menu: Retornar ao menu de configurações
 About:
   #On About page
   About: 'Sobre'
@@ -991,6 +995,8 @@ Playlist:
     DateAddedOldest: Mais antigos
     AuthorDescending: Autor (Z-A)
     VideoTitleDescending: Título (Z-A)
+    VideoDurationAscending: Duração (a mais curta primeiro)
+    VideoDurationDescending: Duração (a mais longa primeiro)
 Toggle Theatre Mode: 'Alternar "Modo Teatro"'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
@@ -1116,7 +1122,7 @@ Profile:
   Profile has been created: Perfil criado
   Your profile name cannot be empty: O nome do seu perfil não pode ficar vazio
   Profile Filter: Filtrar perfil
-  Profile Settings: Configurações do perfil
+  Profile Settings: Perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
@@ -1285,5 +1291,10 @@ Search Listing:
     Subtitles: Legendas
     Closed Captions: Legendas ocultas (CC)
     4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    3D: 3D
+    New: Novo
 'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
   "{url}".'

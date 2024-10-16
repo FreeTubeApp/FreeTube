@@ -208,6 +208,9 @@ User Playlists:
         {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
       This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
         wird bereits für schnelle Lesezeichen verwendet.
+      This playlist has a video with a duration error: Diese Wiedergabeliste enthält
+        mindestens ein Video ohne Dauer. Daher wird die Wiedergabeliste so sortiert,
+        als ob die Dauer null wäre.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -277,7 +280,7 @@ Settings:
   # On Settings Page
   Settings: Einstellungen
   General Settings:
-    General Settings: Allgemeine Einstellungen
+    General Settings: Allgemein
     Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
       bei Fehlschlag zurück
     Enable Search Suggestions: Suchvorschläge aktivieren
@@ -326,7 +329,7 @@ Settings:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
   Theme Settings:
-    Theme Settings: Farbschema-Einstellungen
+    Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
       Base Theme: Grundlegendes Farbschema
@@ -396,7 +399,7 @@ Settings:
     Hide Side Bar Labels: Seitenleisten-Beschriftungen ausblenden
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
-    Player Settings: Videoabspieler-Einstellungen
+    Player Settings: Videoabspieler
     Remember History: Verlauf speichern
     Play Next Video: Nächstes Video abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
@@ -450,7 +453,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
   Subscription Settings:
-    Subscription Settings: Abo-Einstellungen
+    Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
     Subscriptions Export Format:
       Subscriptions Export Format: Abonnement Exportierformat
@@ -504,7 +507,7 @@ Settings:
     Clear Search Cache: Suchcache löschen
     Save Watched Progress: Videofortschritt speichern
     Remember History: Verlauf merken
-    Privacy Settings: Datenschutzeinstellungen
+    Privacy Settings: Datenschutz
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
       nicht rückgängig gemacht werden.
@@ -548,7 +551,7 @@ Settings:
     Import Subscriptions: Abos importieren
     Select Export Type: Exporttyp auswählen
     Select Import Type: Importtyp auswählen
-    Data Settings: Dateneinstellungen
+    Data Settings: Daten
     Check for Legacy Subscriptions: Auf ältere Abos prüfen
     Manage Subscriptions: Abos verwalten
     Export Playlists: Wiedergabelisten exportieren
@@ -580,7 +583,7 @@ Settings:
     Hide Comment Likes: Kommentarbewertungen ausblenden
     Hide Video Likes And Dislikes: Videobewertungen ausblenden
     Hide Video Views: Video-Aufrufe ausblenden
-    Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
+    Distraction Free Settings: Ablenkungsfreier Modus
     Hide Active Subscriptions: Aktive Abos ausblenden
     Hide Playlists: Wiedergabelisten ausblenden
     Hide Comments: Kommentare ausblenden
@@ -639,14 +642,14 @@ Settings:
     Proxy Host: Proxy-Host
     Proxy Protocol: Proxy-Protokoll
     Enable Tor / Proxy: Tor / Proxy aktivieren
-    Proxy Settings: Proxy-Einstellungen
+    Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Sponsorsegment
       übersprungen wird
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-URL
       (Standard ist https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock aktivieren
-    SponsorBlock Settings: SponsorBlock-Einstellungen
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Option überspringen
       Auto Skip: Automatisch überspringen
@@ -662,7 +665,7 @@ Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
       ignorieren
     External Player: Externer Abspieler
-    External Player Settings: Einstellungen für externe Abspieler
+    External Player Settings: Externe Abspieler
     Custom External Player Executable: Benutzerdefinierte ausführbare Datei des Abspielers
     Custom External Player Arguments: Benutzerdefinierte Argumente für externe Abspieler
     Players:
@@ -670,19 +673,19 @@ Settings:
         Name: Keine
     Ignore Default Arguments: Ignoriere Standardargument
   Download Settings:
-    Download Settings: Herunterladen-Einstellungen
+    Download Settings: Herunterladen
     Ask Download Path: Nach dem Herunterladepfad fragen
     Choose Path: Pfad auswählen
     Download Behavior: Herunterladeverhalten
     Download in app: In der App herunterladen
     Open in web browser: Im Webbrowser öffnen
   Parental Control Settings:
-    Parental Control Settings: Einstellungen der Kindersicherung
+    Parental Control Settings: Kindersicherung
     Hide Unsubscribe Button: Schaltfläche zum Entfernen des Abos ausblenden
     Show Family Friendly Only: Nur familienfreundliche Inhalte anzeigen
     Hide Search Bar: Suchleiste ausblenden
   Experimental Settings:
-    Experimental Settings: Experimentelle Einstellungen
+    Experimental Settings: Experimentell
     Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen,
       wenn sie aktiviert sind. Es wird dringend empfohlen, Sicherungskopien zu erstellen.
       Verwendung auf eigene Gefahr!
@@ -694,12 +697,13 @@ Settings:
     Unlock: Entsperren
   Password Settings:
     Remove Password: Passwort entfernen
-    Password Settings: Passworteinstellungen
+    Password Settings: Passwort
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
   Expand All Settings Sections: Alle Einstellungsabschnitte aufklappen
   Sort Settings Sections (A-Z): Einstellungsbereiche sortieren (A-Z)
+  Return to Settings Menu: Zurück zum Einstellungsmenü
 About:
   #On About page
   About: Über
@@ -1018,6 +1022,8 @@ Playlist:
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Titel (A-Z)
     Custom: Benutzerdefiniert
+    VideoDurationAscending: Dauer (Kürzeste zuerst)
+    VideoDurationDescending: Dauer (Längste zuerst)
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
@@ -1147,7 +1153,7 @@ Profile:
   Subscription List: Abo-Liste
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
-  Profile Settings: Profileinstellungen
+  Profile Settings: Profil
   Toggle Profile List: Profilliste umschalten
   Profile Name: Profilname
   Edit Profile Name: Profilname bearbeiten
@@ -1268,7 +1274,7 @@ Channels:
   Channels: Kanäle
   Title: Kanal-Liste
   Search bar placeholder: Kanäle durchsuchen
-  Count: '{number} Kanal/Kanäle gefunden'
+  Count: '{number} Kanal/Kanäle gefunden.'
   Empty: Deine Kanal-Liste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
@@ -1321,5 +1327,10 @@ Search Listing:
     4K: 4K
     Closed Captions: Geschlossene Untertitel
     Subtitles: Untertitel
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Neu
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
   URL wurde blockiert: „{url}“.'

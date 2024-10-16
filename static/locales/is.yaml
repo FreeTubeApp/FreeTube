@@ -276,7 +276,7 @@ Settings:
     þarft að endurræsa forritið svo breytingarnar taki gildi. á að endurræsa og virkja
     breytingar?'
   General Settings:
-    General Settings: 'Almennar stillingar'
+    General Settings: 'Almennt'
     Check for Updates: 'Athuga með uppfærslur'
     Check for Latest Blog Posts: 'Athuga með nýjustu bloggfærslur'
     Fallback to Non-Preferred Backend on Failure: 'Nota varaleið um ekki-forgangsbakenda
@@ -323,7 +323,7 @@ Settings:
       Label: Hlaða næstu síðu sjálfvirkt
       Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
   Theme Settings:
-    Theme Settings: 'Þemastillingar'
+    Theme Settings: 'Þema'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
     Expand Side Bar by Default: 'Fletta sjálfgefið út hliðarstiku'
     Disable Smooth Scrolling: 'Gera mjúkt skrun óvirkt'
@@ -393,7 +393,7 @@ Settings:
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
     Hide FreeTube Header Logo: Fela táknmynd FreeTube í haus
   Player Settings:
-    Player Settings: 'Stillingar spilara'
+    Player Settings: 'Spilari'
     Play Next Video: 'Spila næsta myndskeið'
     Turn on Subtitles by Default: 'Sjálfgefið kveikja á skjátextum'
     Autoplay Videos: 'Spila myndskeið sjálfkrafa'
@@ -446,7 +446,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
   Privacy Settings:
-    Privacy Settings: 'Stillingar gagnaleyndar'
+    Privacy Settings: 'Gagnaleynd'
     Remember History: 'Muna áhorfsferil'
     Save Watched Progress: 'Vista framvindu áhorfs'
     Clear Search Cache: 'Hreinsa skyndiminni leitar'
@@ -468,7 +468,7 @@ Settings:
       fjarlægja alla spilunarlistana þína?
     All playlists have been removed: Allir spilunarlistar hafa verið fjarlægðir
   Subscription Settings:
-    Subscription Settings: 'Stillingar áskrifta'
+    Subscription Settings: 'Áskrift'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Manage Subscriptions: 'Sýsla með áskriftir'
@@ -477,7 +477,7 @@ Settings:
       hverja myndskeiðarás
     Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
   Distraction Free Settings:
-    Distraction Free Settings: 'Truflanaminnkandi stillingar'
+    Distraction Free Settings: 'Truflanaminnkandi'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
     Hide Video Likes And Dislikes: 'Fela hve mörgum líkar eða mislíkar myndskeið'
     Hide Channel Subscribers: 'Fela fjölda áskrifenda myndskeiða'
@@ -527,7 +527,7 @@ Settings:
       innihalda texta
     Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
   Data Settings:
-    Data Settings: 'Stillingar gagna'
+    Data Settings: 'Gögn'
     Select Import Type: 'Veldu tegund innflutnings'
     Select Export Type: 'Veldu tegund útflutnings'
     Import Subscriptions: 'Flytja inn áskriftir'
@@ -583,7 +583,7 @@ Settings:
         spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
         og flyttu inn spilunarlistana sem þú fluttir út.\""
   Proxy Settings:
-    Proxy Settings: 'Stillingar milliþjóns (proxy)'
+    Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
     Proxy Protocol: 'Samskiptamáti milliþjóns'
     Proxy Host: 'Hýsilvél milliþjóns'
@@ -603,7 +603,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
       (sjálfgefið er https://sponsor.ajay.app)
     Enable SponsorBlock: Virkja SponsorBlock
-    SponsorBlock Settings: Stillingar SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Valkostir við hunsun
       Auto Skip: Hunsa sjálfvirkt
@@ -621,13 +621,13 @@ Settings:
     Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
     Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
     External Player: Utanaðkomandi spilari
-    External Player Settings: Stillingar utanaðkomandi spilara
+    External Player Settings: Utanaðkomandi spilari
     Players:
       None:
         Name: Ekkert
     Ignore Default Arguments: Hunsa sjálfgefnar breytur
   Download Settings:
-    Download Settings: Stillingar niðurhals
+    Download Settings: Niðurhal
     Ask Download Path: Spyrja hvar eigi að vista skrár
     Choose Path: Veldu slóð
     Download in app: Sækja í forritinu
@@ -637,9 +637,9 @@ Settings:
     Hide Unsubscribe Button: Fela hnapp til að segja upp áskrift
     Show Family Friendly Only: Aðeins sýna fjölskylduvænt efni
     Hide Search Bar: Fela leitarstiku
-    Parental Control Settings: Stillingar foreldrastýringar
+    Parental Control Settings: Foreldrastýringar
   Experimental Settings:
-    Experimental Settings: Stillingar á tilraunastigi
+    Experimental Settings: Á tilraunastigi
     Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær
       eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
@@ -652,9 +652,10 @@ Settings:
     Set Password To Prevent Access: Settu lykilorð til að hindra aðgang að stillingum
     Set Password: Setja lykilorð
     Remove Password: Fjarlægja lykilorð
-    Password Settings: Stillingar lykilorðs
+    Password Settings: Lykilorð
   Expand All Settings Sections: Fletta út öllum stillingahlutum
   Sort Settings Sections (A-Z): Röðun stillingahluta (A-Ö)
+  Return to Settings Menu: Fara aftur í stillingavalmynd
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -730,7 +731,7 @@ Profile:
     viss um að þú viljir eyða völdu rásunum? Þetta mun ekki eyða rásunum úr öðrum
     notkunarsniðum.'
 #On Channel Page
-  Profile Settings: Stillingar notkunarsniðs
+  Profile Settings: Notkunarsnið
   Toggle Profile List: Víxla lista með notkunarsniðum af/á
   Profile Name: Heiti notkunarsniðs
   Edit Profile Name: Breyta heiti notkunarsniðs
@@ -928,11 +929,24 @@ Video:
       Volume: 'Hljóðstyrkur: {volumePercentage}%'
       Stats: Tölfræði
       Bandwidth: 'Bandbreidd: {bandwidth} kbps'
+      Buffered: 'Biðminni: {bufferedPercentage}%'
+      CodecsVideoAudio: 'Kóðunarlyklar: {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kóðunarlyklar: {videoCodec} / {audioCodec}'
+      Video ID: 'Auðkenni myndskeiðs: {videoId}'
+      Media Formats: 'Snið efnis: {formats}'
+      CodecAudio: 'Kóðunarlykill: {audioCodec} ({audioItag})'
     TranslatedCaptionTemplate: '{language} (þýtt úr "{originalLanguage}")'
     Take Screenshot: Taka skjámynd
     Hide Stats: Fela tölfræði
     Show Stats: Birta tölfræði
     Audio Tracks: Hljóðrásir
+    Full Window: Skjáfylli
+    You appear to be offline: Þú virðist ekki vera með tengingu við netið.
+    Skipped segment: Sleppti {segmentCategory} bút
+    Exit Full Window: Hætta í skjáfylli
+    Playback will resume automatically when your connection comes back: Afspilun heldur
+      sjálfkrafa áfram þegar tenging næst aftur.
 Videos:
   #& Sort By
   Sort By:
@@ -961,6 +975,8 @@ Playlist:
     VideoTitleDescending: Titill (Ö-A)
     Custom: Sérsniðið
     DateAddedOldest: Elsta bætt við fyrst
+    VideoDurationAscending: Tímalengd (stysta fyrst)
+    VideoDurationDescending: Tímalengd (lengsta fyrst)
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
@@ -971,6 +987,8 @@ Change Format:
     þetta myndskeið'
   Audio formats are not available for this video: 'Hljóðskráasnið eru ekki tiltæk
     fyrir þetta myndskeið'
+  Legacy formats are not available for this video: Eldri snið eru ekki tiltæk fyrir
+    þetta myndskeið
 Share:
   Share Video: 'Deila myndskeiði'
   Share Playlist: 'Deila spilunarlista'
@@ -1017,6 +1035,8 @@ Comments:
   View {replyCount} replies: Skoða {replyCount} svör
   Hearted: Líkað
   Subscribed: Áskrifandi
+  There are no comments available for this post: Engar athugasemdir finnast fyrir
+    þessa færslu
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -1201,3 +1221,8 @@ Search Listing:
     4K: 4K
     Subtitles: Skjátextar
     Closed Captions: Þýðingartextar
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Nýtt
+    3D: 3D

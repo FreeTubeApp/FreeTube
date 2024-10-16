@@ -22,6 +22,12 @@ const compat = new FlatCompat({
 })
 
 export default [
+  {
+    ignores: [
+      'dist/',
+      'eslint.config.mjs'
+    ]
+  },
   ...fixupConfigRules(
     compat.config({
       extends: ['standard']
@@ -37,9 +43,7 @@ export default [
       '**/*.{js,vue}',
     ],
     ignores: [
-      '**/node_modules',
-      '**/_scripts',
-      '**/dist',
+      '_scripts/',
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
@@ -125,9 +129,7 @@ export default [
   {
     files: ['**/*.json'],
     ignores: [
-      '**/node_modules/**',
-      '**/_scripts/**',
-      '**/dist/**',
+      '_scripts/',
     ],
 
     languageOptions: {
@@ -152,10 +154,8 @@ export default [
   {
     files: ['**/*.{yml,yaml}'],
     ignores: [
-      '**/node_modules/**',
-      '**/_scripts/**',
-      '**/dist/**',
-      '**/.github/**',
+      '.github/',
+      '_scripts/'
     ],
 
     languageOptions: {
@@ -192,4 +192,43 @@ export default [
       },
     },
   },
+  {
+    files: ['_scripts/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node
+      },
+      ecmaVersion: 'latest',
+    },
+
+    plugins: {
+      unicorn: eslintPluginUnicorn,
+    },
+
+    rules: {
+      'no-console': 'off',
+      'n/no-path-concat': 'off',
+      'unicorn/better-regex': 'error',
+    }
+  },
+  {
+    files: ['_scripts/*.mjs'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+
+    plugins: {
+      unicorn: eslintPluginUnicorn,
+    },
+
+    rules: {
+      'no-console': 'off',
+      'n/no-path-concat': 'off',
+      'unicorn/better-regex': 'error',
+    }
+  }
 ]
