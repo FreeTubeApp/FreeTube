@@ -211,6 +211,7 @@ export default defineComponent({
             case 'search':
             case 'channel':
             case 'hashtag':
+            case 'post':
               isYoutubeLink = true
               break
 

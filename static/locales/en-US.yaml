@@ -56,6 +56,8 @@ Global:
     Channel Count: 1 channel | {count} channels
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
   Input Tags:
     Length Requirement: Tag must be at least {number} characters long
@@ -68,7 +70,12 @@ Search character limit: Search query is over the {searchCharacterLimit} characte
 Search Listing:
   Label:
     4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
     Subtitles: Subtitles
+    New: New
+    3D: 3D
     # Aria labels
     Closed Captions: Closed Captions
   # In Filter Button
@@ -127,7 +134,7 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
@@ -238,6 +245,8 @@ User Playlists:
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
+
+      This playlist has a video with a duration error: This playlist contains at least one video that doesn't have a duration, it will be sorted as if their duration is zero.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
@@ -268,15 +277,17 @@ History:
   Your history list is currently empty.: Your history list is currently empty.
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
+  Case Sensitive Search: Case Sensitive Search
 Settings:
   # On Settings Page
   Settings: Settings
   Expand All Settings Sections: Expand All Settings Sections
   Sort Settings Sections (A-Z): Sort Settings Sections (A-Z)
+  Return to Settings Menu: Return to Settings Menu
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
-    General Settings: General Settings
+    General Settings: General
     Check for Updates: Check for Updates
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
@@ -319,7 +330,7 @@ Settings:
       Ask Before Opening Link: Ask Before Opening Link
       No Action: No Action
   Theme Settings:
-    Theme Settings: Theme Settings
+    Theme Settings: Theme
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
     Disable Smooth Scrolling: Disable Smooth Scrolling
@@ -389,8 +400,7 @@ Settings:
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
-    Player Settings: Player Settings
-    Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
+    Player Settings: Player
     Play Next Video: Play Next Video
     Turn on Subtitles by Default: Turn on Subtitles by Default
     Autoplay Videos: Autoplay Videos
@@ -425,7 +435,6 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Allow DASH AV1 formats: Allow DASH AV1 formats
     Screenshot:
       Enable: Enable Screenshot
       Format Label: Screenshot Format
@@ -441,7 +450,7 @@ Settings:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
   External Player Settings:
-    External Player Settings: External Player Settings
+    External Player Settings: External Player
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Ignore Default Arguments: Ignore Default Arguments
@@ -451,7 +460,7 @@ Settings:
       None:
         Name: None
   Privacy Settings:
-    Privacy Settings: Privacy Settings
+    Privacy Settings: Privacy
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
@@ -475,7 +484,7 @@ Settings:
       you sure you want to remove all page bookmarks?  This cannot be undone.
     All page bookmarks have been removed: All page bookmarks have been removed
   Subscription Settings:
-    Subscription Settings: Subscription Settings
+    Subscription Settings: Subscription
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
@@ -483,7 +492,7 @@ Settings:
     Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
     Confirm Before Unsubscribing: Confirm Before Unsubscribing
   Distraction Free Settings:
-    Distraction Free Settings: Distraction Free Settings
+    Distraction Free Settings: Distraction Free
     Sections:
       Side Bar: Side Bar
       Subscriptions Page: Subscriptions Page
@@ -527,7 +536,7 @@ Settings:
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Community: Hide Subscriptions Community
   Data Settings:
-    Data Settings: Data Settings
+    Data Settings: Data
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
@@ -558,10 +567,7 @@ Settings:
       and profiles have been successfully imported
     All subscriptions have been successfully imported: All subscriptions have been
       successfully imported
-    One or more subscriptions were unable to be imported: One or more subscriptions
-      were unable to be imported
     Invalid subscriptions file: Invalid subscriptions file
-    This might take a while, please wait: This might take a while, please wait
     Invalid history file: Invalid history file
     Subscriptions have been successfully exported: Subscriptions have been successfully
       exported
@@ -582,7 +588,7 @@ Settings:
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
-    Proxy Settings: Proxy Settings
+    Proxy Settings: Proxy
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -596,7 +602,7 @@ Settings:
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
   SponsorBlock Settings:
-    SponsorBlock Settings: SponsorBlock Settings
+    SponsorBlock Settings: SponsorBlock
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
@@ -611,19 +617,19 @@ Settings:
       Do Nothing: Do Nothing
     Category Color: Category Color
   Parental Control Settings:
-    Parental Control Settings: Parental Control Settings
+    Parental Control Settings: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
   Download Settings:
-    Download Settings: Download Settings
+    Download Settings: Download
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
     Download Behavior: Download Behavior
     Download in app: Download in app
     Open in web browser: Open in web browser
   Experimental Settings:
-    Experimental Settings: Experimental Settings
+    Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
   Password Dialog:
@@ -632,7 +638,7 @@ Settings:
     Password Incorrect: Password Incorrect
     Unlock: Unlock
   Password Settings:
-    Password Settings: Password Settings
+    Password Settings: Password
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
@@ -666,7 +672,7 @@ About:
   Donate: Donate
 
 Profile:
-  Profile Settings: Profile Settings
+  Profile Settings: Profile
   Toggle Profile List: Toggle Profile List
   Profile Select: Profile Select
   Profile Filter: Profile Filter
@@ -770,10 +776,13 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
+    View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
+    Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
+  IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
   More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
@@ -828,11 +837,6 @@ Video:
   Download Video: Download Video
   video only: video only
   audio only: audio only
-  Audio:
-    Low: Low
-    Medium: Medium
-    High: High
-    Best: Best
   Published:
     Jan: Jan
     Feb: Feb
@@ -866,9 +870,7 @@ Video:
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
-  translated from English: translated from English
   Publicationtemplate: '{number} {unit} ago'
-  Skipped segment: Skipped segment
   Sponsor Block category:
     sponsor: Sponsor
     intro: Intro
@@ -892,17 +894,33 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
-  Stats:
-    Video statistics are not available for legacy videos: Video statistics are not available for legacy videos
-    Video ID: Video ID
-    Resolution: Resolution
-    Player Dimensions: Player Dimensions
-    Bitrate: Bitrate
-    Volume: Volume
-    Bandwidth: Bandwidth
-    Buffered: Buffered
-    Dropped / Total Frames: Dropped / Total Frames
-    Mimetype: Mimetype
+  Player:
+    TranslatedCaptionTemplate: '{language} (translated from "{originalLanguage}")'
+    Audio Tracks: Audio Tracks
+    Theatre Mode: Theater Mode
+    Exit Theatre Mode: Exit Theater Mode
+    Full Window: Full Window
+    Exit Full Window: Exit Full Window
+    Take Screenshot: Take Screenshot
+    Show Stats: Show Stats
+    Hide Stats: Hide Stats
+    Stats:
+      Stats: Stats
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Media Formats: {formats}'
+      Resolution: 'Resolution: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Player Dimensions: {width}x{height}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Bandwidth: {bandwidth} kbps'
+      Buffered: 'Buffered: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Dropped Frames: {droppedFrames} / Total Frames: {totalFrames}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+    You appear to be offline: You appear to be offline.
+    Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
+    Skipped segment: 'Skipped {segmentCategory} segment'
 #& Videos
 Videos:
   #& Sort By
@@ -927,6 +945,8 @@ Playlist:
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
+    VideoDurationAscending: Duration (Shortest first)
+    VideoDurationDescending: Duration (Longest first)
     Custom: Custom
 
 # On Video Watch Page
@@ -941,6 +961,8 @@ Change Format:
   Dash formats are not available for this video: DASH formats are not available for
     this video
   Audio formats are not available for this video: Audio formats are not available
+    for this video
+  Legacy formats are not available for this video: Legacy formats are not available
     for this video
 Share:
   Share Video: Share Video
@@ -989,12 +1011,14 @@ Comments:
   And others: and others
   There are no comments available for this video: There are no comments available
     for this video
+  There are no comments available for this post: There are no comments available for this post
   Load More Comments: Load More Comments
   No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed
   Hearted: Hearted
+
 Up Next: Up Next
 
 #Tooltips
@@ -1016,18 +1040,11 @@ Tooltips:
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
-    Force Local Backend for Legacy Formats: Only works when the Invidious API is your
-      default. When enabled, the Local API will run and use the legacy formats returned
-      by that instead of the ones returned by Invidious. Helps when the videos returned
-      by Invidious don't play due to country restrictions.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference.
+      of making a direct connection to YouTube.
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
-    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
-      DASH AV1 formats require more power to playback! They are not available on all videos,
-      in those cases the player will use the DASH H.264 formats instead.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
@@ -1055,7 +1072,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration or live status
+      but doesn't provide certain information like video duration, live status or community posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
   Experimental Settings:

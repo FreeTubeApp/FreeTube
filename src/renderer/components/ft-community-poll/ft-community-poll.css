@@ -65,6 +65,7 @@
   cursor: pointer;
 }
 
-.reveal-answer:hover, .reveal-answer:focus {
-  background-color: var(--side-nav-hover-color)
+.reveal-answer:hover,
+.reveal-answer:focus {
+  background-color: var(--side-nav-hover-color);
 }

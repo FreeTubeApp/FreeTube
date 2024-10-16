@@ -243,7 +243,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: ''
     Turn on Subtitles by Default: ''
     Autoplay Videos: ''
@@ -269,16 +268,15 @@ Settings:
     Default Quality:
       Default Quality: ''
       Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
-    Allow DASH AV1 formats: ''
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -300,6 +298,7 @@ Settings:
     Players:
       None:
         Name: ''
+    Ignore Default Arguments: ''
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
@@ -313,6 +312,9 @@ Settings:
     Watch history has been cleared: ''
     Remove All Subscriptions / Profiles: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Remove All Playlists: ''
+    All playlists have been removed: ''
+    Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
@@ -378,7 +380,6 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
     This might take a while, please wait: ''
     Invalid history file: ''
@@ -614,11 +615,6 @@ Video:
   Download Video: ''
   video only: ''
   audio only: ''
-  Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
   Published:
     Jan: ''
     Feb: ''
@@ -652,9 +648,7 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -678,17 +672,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: ''
-    Resolution: ''
-    Player Dimensions: ''
-    Bitrate: ''
-    Volume: ''
-    Bandwidth: ''
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: ''
 #& Videos
 Videos:
   #& Sort By
@@ -781,10 +764,8 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

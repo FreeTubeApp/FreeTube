@@ -26,20 +26,22 @@ const IpcChannels = {
   DB_PROFILES: 'db-profiles',
   DB_PLAYLISTS: 'db-playlists',
   DB_SEARCH_HISTORY: 'db-search-history',
+  DB_SUBSCRIPTION_CACHE: 'db-subscription-cache',
 
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
   SYNC_SEARCH_HISTORY: 'sync-search-history',
   SYNC_PROFILES: 'sync-profiles',
   SYNC_PLAYLISTS: 'sync-playlists',
+  SYNC_SUBSCRIPTION_CACHE: 'sync-subscription-cache',
 
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
   TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
 
-  SHOW_VIDEO_STATISTICS: 'show-video-statistics',
-
   PLAYER_CACHE_GET: 'player-cache-get',
-  PLAYER_CACHE_SET: 'player-cache-set'
+  PLAYER_CACHE_SET: 'player-cache-set',
+
+  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization'
 }
 
 const DBActions = {
@@ -53,6 +55,7 @@ const DBActions = {
   },
 
   HISTORY: {
+    OVERWRITE: 'db-action-history-overwrite',
     UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
     UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
@@ -68,7 +71,15 @@ const DBActions = {
     DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
     DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
     DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos',
-  }
+  },
+
+  SUBSCRIPTION_CACHE: {
+    UPDATE_VIDEOS_BY_CHANNEL: 'db-action-subscriptions-update-videos-by-channel',
+    UPDATE_LIVE_STREAMS_BY_CHANNEL: 'db-action-subscriptions-update-live-streams-by-channel',
+    UPDATE_SHORTS_BY_CHANNEL: 'db-action-subscriptions-update-shorts-by-channel',
+    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'db-action-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
+    UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'db-action-subscriptions-update-community-posts-by-channel',
+  },
 }
 
 const SyncEvents = {
@@ -80,6 +91,7 @@ const SyncEvents = {
   },
 
   HISTORY: {
+    OVERWRITE: 'sync-history-overwrite',
     UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
     UPDATE_PLAYLIST: 'sync-history-update-playlist',
   },
@@ -92,7 +104,15 @@ const SyncEvents = {
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     DELETE_VIDEO: 'sync-playlists-delete-video',
-  }
+  },
+
+  SUBSCRIPTION_CACHE: {
+    UPDATE_VIDEOS_BY_CHANNEL: 'sync-subscriptions-update-videos-by-channel',
+    UPDATE_LIVE_STREAMS_BY_CHANNEL: 'sync-subscriptions-update-live-streams-by-channel',
+    UPDATE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-by-channel',
+    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
+    UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'sync-subscriptions-update-community-posts-by-channel',
+  },
 }
 
 // Utils

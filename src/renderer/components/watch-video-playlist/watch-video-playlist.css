@@ -4,7 +4,8 @@
   white-space: nowrap;
 }
 
-.playlistTitleLink, .channelName {
+.playlistTitleLink,
+.channelName {
   text-decoration: none;
   color: inherit;
 }

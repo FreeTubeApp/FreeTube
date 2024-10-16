@@ -9,7 +9,7 @@ import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
-import { showToast } from '../../helpers/utils'
+import { randomArrayItem, showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({
@@ -96,7 +96,7 @@ export default defineComponent({
       return this.$router.getRoutes().filter((route) => includedPageNames.includes(route.name))
     },
     defaultPageNames: function () {
-      return this.defaultPages.map((route) => translateWindowTitle(route.meta.title, this.$i18n))
+      return this.defaultPages.map((route) => translateWindowTitle(route.meta.title))
     },
     defaultPageValues: function () {
       // avoid Vue parsing issues by excluding '/' from path values
@@ -214,8 +214,7 @@ export default defineComponent({
       // synchronous), unfortunately, we have to copy/paste the logic
       // from the `setRandomCurrentInvidiousInstance` action onto here
       const instanceList = this.invidiousInstancesList
-      const randomIndex = Math.floor(Math.random() * instanceList.length)
-      this.setCurrentInvidiousInstance(instanceList[randomIndex])
+      this.setCurrentInvidiousInstance(randomArrayItem(instanceList))
     }
   },
   methods: {
@@ -243,10 +242,6 @@ export default defineComponent({
 
     handlePreferredApiBackend: function (backend) {
       this.updateBackendPreference(backend)
-
-      if (backend === 'local') {
-        this.updateForceLocalBackendForLegacy(false)
-      }
     },
 
     handleThumbnailPreferenceChange: function (value) {
@@ -271,7 +266,6 @@ export default defineComponent({
       'updateRegion',
       'updateListType',
       'updateThumbnailPreference',
-      'updateForceLocalBackendForLegacy',
       'updateCurrentLocale',
       'updateExternalLinkHandling',
       'updateGeneralAutoLoadMorePaginatedItemsEnabled',

@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -169,7 +169,7 @@ export default defineComponent({
 
         this.isLoading = false
 
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs.liveChatComments?.scrollTo({
             top: this.$refs.liveChatComments.scrollHeight,
             behavior: 'instant'
@@ -278,7 +278,7 @@ export default defineComponent({
       this.comments.push(comment)
 
       if (!this.isLoading && this.stayAtBottom) {
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs.liveChatComments?.scrollTo({
             top: this.$refs.liveChatComments.scrollHeight,
             behavior: this.scrollingBehaviour

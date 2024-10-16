@@ -42,6 +42,8 @@ Global:
     View Count: 1 visning | {count} visningar
     Watching Count: 1 tittar | {count} tittare
     Channel Count: 1 kanal | {count} kanaler
+    Like Count: 1 gillning | {count} gillningar
+    Comment Count: 1 kommentar | {count} kommentarer
   Input Tags:
     Length Requirement: Taggen måste vara minst {number} tecken långt
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
@@ -89,6 +91,16 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Det finns inga mer resultat för denna
     sökning
+  Features:
+    360 Video: 360 Video
+    Location: Plats
+    HDR: HDR
+    HD: HD
+    Subtitles: Undertexter
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Live
+    4K: 4K
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
@@ -211,6 +223,8 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Aktivera snabb bokmärke på den här spellistan
   Remove Watched Videos: Ta bort sedda videor
   Disable Quick Bookmark: Avaktivera snabb bokmärke
+  CreatePlaylistPrompt:
+    Create: Skapa
 History:
   # On History Page
   History: 'Historik'
@@ -326,7 +340,6 @@ Settings:
     Hide FreeTube Header Logo: Dölj FreeTubelogga
   Player Settings:
     Player Settings: 'Spelarinställningar'
-    Force Local Backend for Legacy Formats: 'Tvinga lokal resurser för äldre format'
     Play Next Video: 'Spela nästa video'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Autospela video'
@@ -374,7 +387,6 @@ Settings:
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
     Max Video Playback Rate: Maximal uppspelningshastighet
     Video Playback Rate Interval: Uppspelningshastighetsintervall
-    Allow DASH AV1 formats: Tillåt DASH AV1-format
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
     Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
   Privacy Settings:
@@ -421,8 +433,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer
       och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
-    One or more subscriptions were unable to be imported: 'En eller flera prenumerationer
-      kunde inte importeras'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
     This might take a while, please wait: 'Detta kan ta ett tag, vänligen vänta'
     Invalid history file: 'Ogiltigt historikarkiv'
@@ -831,11 +841,6 @@ Video:
   Published on: 'Publicerad den'
   Publicationtemplate: 'för {number} {unit} sedan'
 #& Videos
-  Audio:
-    Best: Högsta
-    High: Hög
-    Medium: Medium
-    Low: Låg
   audio only: endast ljud
   video only: endast video
   Download Video: Ladda ner video
@@ -858,8 +863,6 @@ Video:
     sponsor: sponsor
     recap: Sammanfattning
     filler: Utfyllnad
-  Skipped segment: Skippat segment
-  translated from English: översatt från Engelska
   External Player:
     Unsupported Actions:
       shuffling playlists: blandar spellistor
@@ -875,18 +878,6 @@ Video:
     playlist: spellista
     video: video
     OpenInTemplate: Öppna i {externalPlayer}
-  Stats:
-    Video statistics are not available for legacy videos: Videostatstik är inte tillgänglig
-      för föråldrade videor
-    Dropped / Total Frames: Missade / Totalt antal bildrutor
-    Bitrate: Bithastighet
-    Volume: Volym
-    Resolution: Upplösning
-    Player Dimensions: Spelardimensioner
-    Video ID: Video-ID
-    Bandwidth: Bandbredd
-    Mimetype: Mimetyp
-    Buffered: Buffrad
   Premieres on: Har premiär den
   Premieres: Premiärer
   Upcoming: Kommande
@@ -1007,18 +998,9 @@ Tooltips:
       DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
       720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
-      videor istället för att göra en direkt anslutning till YouTube. Åsidosätter
-      API-preferens.
-    Force Local Backend for Legacy Formats: Fungerar bara när Invidious API är din
-      standard. När det är aktiverat kommer det lokala API:et att köras och använda
-      de äldre formaten som returneras av det i stället för de som returneras av Invidious.
-      Hjälper när videorna som returneras av Invidious inte spelas upp på grund av
-      landsbegränsningar.
+      videor istället för att göra en direkt anslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
       videon, MPV-stil.
-    Allow DASH AV1 formats: DASH AV1-format kan se bättre ut än DASH H.264-format.
-      DASH AV1-format kräver mer kraft för uppspelning! Det är inte tillgängligt för
-      alla videor, i de fall kommer spelaren använde DASh H.264-format istället.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
       CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten.
       Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa
@@ -1094,7 +1076,7 @@ Channels:
 Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparade skärmdump som "{filePath}"
-Screenshot Error: Skärmdump misslyckades {felkod}
+Screenshot Error: Skärmdump misslyckades {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
     utan en säker anslutning
@@ -1125,3 +1107,7 @@ Feed:
   Refresh Feed: Uppdatera {subscriptionName}
 checkmark: ✓
 Display Label: '{label}: {value}'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Undertexter

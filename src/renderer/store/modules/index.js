@@ -9,8 +9,9 @@ import playlists from './playlists'
 import profiles from './profiles'
 import settings from './settings'
 import searchHistory from './search-history'
-import subscriptions from './subscriptions'
+import subscriptionCache from './subscription-cache'
 import utils from './utils'
+import player from './player'
 
 export default {
   history,
@@ -19,6 +20,7 @@ export default {
   profiles,
   settings,
   searchHistory,
-  subscriptions,
-  utils
+  subscriptionCache,
+  utils,
+  player,
 }

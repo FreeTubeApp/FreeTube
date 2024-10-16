@@ -19,7 +19,7 @@
           :select-names="protocolNames"
           :select-values="protocolValues"
           class="protocol-dropdown"
-          :icon="['fas', 'microchip']"
+          :icon="['fas', 'network-wired']"
           @change="handleUpdateProxyProtocol"
         />
       </ft-flex-box>

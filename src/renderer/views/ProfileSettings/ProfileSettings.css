@@ -18,7 +18,8 @@ h2 {
   color: var(--card-bg-color);
 }
 
-.profileList > .openedProfile:hover, .profileList > .openedProfile:focus-visible {
+.profileList > .openedProfile:hover,
+.profileList > .openedProfile:focus-visible {
   background-color: var(--tertiary-text-color);
   transition: background 0.2s ease-in;
 }

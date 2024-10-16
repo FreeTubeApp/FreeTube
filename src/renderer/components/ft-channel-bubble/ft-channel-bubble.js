@@ -13,7 +13,7 @@ export default defineComponent({
     },
     channelThumbnail: {
       type: String,
-      required: true
+      default: null
     },
     showSelected: {
       type: Boolean,

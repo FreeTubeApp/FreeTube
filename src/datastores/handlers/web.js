@@ -29,6 +29,10 @@ class History {
     return baseHandlers.history.upsert(record)
   }
 
+  static overwrite(records) {
+    return baseHandlers.history.overwrite(records)
+  }
+
   static updateWatchProgress(videoId, watchProgress) {
     return baseHandlers.history.updateWatchProgress(videoId, watchProgress)
   }
@@ -144,10 +148,64 @@ class SearchHistory {
   }
 }
 
+class SubscriptionCache {
+  static find() {
+    return baseHandlers.subscriptionCache.find()
+  }
+
+  static updateVideosByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptionCache.updateVideosByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptionCache.updateLiveStreamsByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static updateShortsByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptionCache.updateShortsByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+    return baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId({
+      channelId,
+      entries,
+    })
+  }
+
+  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
+    return baseHandlers.subscriptionCache.updateCommunityPostsByChannelId({
+      channelId,
+      entries,
+      timestamp,
+    })
+  }
+
+  static deleteMultipleChannels(channelIds) {
+    return baseHandlers.subscriptionCache.deleteMultipleChannels(channelIds)
+  }
+
+  static deleteAll() {
+    return baseHandlers.subscriptionCache.deleteAll()
+  }
+}
+
 export {
   Settings as settings,
   History as history,
   Profiles as profiles,
   Playlists as playlists,
-  SearchHistory as searchHistory
+  SearchHistory as searchHistory,
+  SubscriptionCache as subscriptionCache,
 }

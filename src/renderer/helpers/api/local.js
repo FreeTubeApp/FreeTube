@@ -8,6 +8,8 @@ import {
   calculatePublishedDate,
   escapeHTML,
   extractNumberFromString,
+  getChannelPlaylistId,
+  randomArrayItem,
   toLocalePublicationString
 } from '../utils'
 
@@ -17,6 +19,25 @@ const TRACKING_PARAM_NAMES = [
   'utm_campaign',
   'utm_term',
   'utm_content',
+]
+
+const IOS_VERSIONS = [
+  '17.5.1',
+  '17.5',
+  '17.4.1',
+  '17.4',
+  '17.3.1',
+  '17.3',
+]
+
+const YOUTUBE_IOS_CLIENT_VERSIONS = [
+  '19.29.1',
+  '19.28.1',
+  '19.26.5',
+  '19.25.4',
+  '19.25.3',
+  '19.24.3',
+  '19.24.2',
 ]
 
 /**
@@ -56,7 +77,32 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: (input, init) => fetch(input, init),
+    fetch: (input, init) => {
+      // Make iOS requests work and look more realistic
+      if (init?.headers instanceof Headers && init.headers.get('x-youtube-client-name') === '5') {
+        // Use a random iOS version and YouTube iOS client version to make the requests look less suspicious
+        const clientVersion = randomArrayItem(YOUTUBE_IOS_CLIENT_VERSIONS)
+        const iosVersion = randomArrayItem(IOS_VERSIONS)
+
+        init.headers.set('x-youtube-client-version', clientVersion)
+
+        // We can't set the user-agent here, but in the main process we take the x-user-agent and set it as the user-agent
+        init.headers.delete('user-agent')
+        init.headers.set('x-user-agent', `com.google.ios.youtube/${clientVersion} (iPhone16,2; CPU iOS ${iosVersion.replaceAll('.', '_')} like Mac OS X; en_US)`)
+
+        const bodyJson = JSON.parse(init.body)
+
+        const client = bodyJson.context.client
+
+        client.clientVersion = clientVersion
+        client.deviceModel = 'iPhone16,2' // iPhone 15 Pro Max
+        client.osVersion = iosVersion
+
+        init.body = JSON.stringify(bodyJson)
+      }
+
+      return fetch(input, init)
+    },
     cache,
     generate_session_locally: !!generateSessionLocally
   })
@@ -190,27 +236,66 @@ export async function getLocalSearchContinuation(continuationData) {
   return handleSearchResponse(response)
 }
 
-export async function getLocalVideoInfo(id, attemptBypass = false) {
-  let info
-  let player
+/**
+ * @param {string} id
+ */
+export async function getLocalVideoInfo(id) {
+  const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  if (attemptBypass) {
-    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
-    player = innertube.actions.session.player
+  const info = await webInnertube.getInfo(id)
 
-    // the second request that getInfo makes 404s with the bypass, so we use getBasicInfo instead
-    // that's fine as we have most of the information from the original getInfo request
-    info = await innertube.getBasicInfo(id, 'TV_EMBEDDED')
-  } else {
-    const innertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
-    player = innertube.actions.session.player
+  const hasTrailer = info.has_trailer
+  const trailerIsAgeRestricted = info.getTrailerInfo() === null
 
-    info = await innertube.getInfo(id)
+  if (hasTrailer) {
+    /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer} */
+    const trailerScreen = info.playability_status.error_screen
+    id = trailerScreen.video_id
   }
 
-  if (info.streaming_data) {
-    decipherFormats(info.streaming_data.adaptive_formats, player)
-    decipherFormats(info.streaming_data.formats, player)
+  // try to bypass the age restriction
+  if (info.playability_status.status === 'LOGIN_REQUIRED' || (hasTrailer && trailerIsAgeRestricted)) {
+    const tvInnertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
+
+    const tvInfo = await tvInnertube.getBasicInfo(id, 'TV_EMBEDDED')
+
+    if (tvInfo.streaming_data) {
+      decipherFormats(tvInfo.streaming_data.adaptive_formats, tvInnertube.actions.session.player)
+      decipherFormats(tvInfo.streaming_data.formats, tvInnertube.actions.session.player)
+    }
+
+    info.playability_status = tvInfo.playability_status
+    info.streaming_data = tvInfo.streaming_data
+    info.basic_info.start_timestamp = tvInfo.basic_info.start_timestamp
+    info.basic_info.duration = tvInfo.basic_info.duration
+    info.captions = tvInfo.captions
+    info.storyboards = tvInfo.storyboards
+  } else {
+    const iosInnertube = await createInnertube({ clientType: ClientType.IOS })
+
+    const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
+
+    if (hasTrailer) {
+      info.playability_status = iosInfo.playability_status
+      info.streaming_data = iosInfo.streaming_data
+      info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
+      info.basic_info.duration = iosInfo.basic_info.duration
+      info.captions = iosInfo.captions
+      info.storyboards = iosInfo.storyboards
+    } else if (iosInfo.streaming_data) {
+      info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
+      info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
+
+      // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
+
+      for (const format of info.streaming_data.adaptive_formats) {
+        format.freeTubeUrl = format.url
+      }
+    }
+
+    if (info.streaming_data) {
+      decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
+    }
   }
 
   return info
@@ -310,6 +395,21 @@ export async function getLocalChannelVideos(id) {
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
       videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+    } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
+      try {
+        const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
+
+        videos = playlist.items.map(parseLocalPlaylistVideo)
+      } catch (error) {
+        // If the channel doesn't exist, the API call to channel page above would have already failed,
+        // so if we get an error that the playlist doesn't exist here, it just means that this artist topic channel
+        // doesn't have any videos.
+        if (error.message === 'The playlist does not exist.') {
+          videos = []
+        } else {
+          throw error
+        }
+      }
     } else {
       videos = []
     }
@@ -641,20 +741,38 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.ReelItem[]} shorts
+ * @param {(import('youtubei.js').YTNodes.ReelItem | import('youtubei.js').YTNodes.ShortsLockupView)[]} shorts
  * @param {string} channelId
  * @param {string} channelName
  */
 export function parseLocalChannelShorts(shorts, channelId, channelName) {
   return shorts.map(short => {
-    return {
-      type: 'video',
-      videoId: short.id,
-      title: short.title.text,
-      author: channelName,
-      authorId: channelId,
-      viewCount: short.views.isEmpty() ? null : parseLocalSubscriberCount(short.views.text),
-      lengthSeconds: ''
+    if (short.type === 'ReelItem') {
+      /** @type {import('youtubei.js').YTNodes.ReelItem} */
+      const reelItem = short
+
+      return {
+        type: 'video',
+        videoId: reelItem.id,
+        title: reelItem.title.text,
+        author: channelName,
+        authorId: channelId,
+        viewCount: reelItem.views.isEmpty() ? null : parseLocalSubscriberCount(reelItem.views.text),
+        lengthSeconds: ''
+      }
+    } else {
+      /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
+      const shortsLockupView = short
+
+      return {
+        type: 'video',
+        videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
+        title: shortsLockupView.overlay_metadata.primary_text.text,
+        author: channelName,
+        authorId: channelId,
+        viewCount: shortsLockupView.overlay_metadata.secondary_text ? parseLocalSubscriberCount(shortsLockupView.overlay_metadata.secondary_text.text) : null,
+        lengthSeconds: ''
+      }
     }
   })
 }
@@ -766,7 +884,7 @@ function handleSearchResponse(response) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem} video
+ * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem|import('youtubei.js').YTNodes.ShortsLockupView} video
  */
 export function parseLocalPlaylistVideo(video) {
   if (video.type === 'ReelItem') {
@@ -778,6 +896,42 @@ export function parseLocalPlaylistVideo(video) {
       videoId: short.id,
       title: short.title.text,
       viewCount: parseLocalSubscriberCount(short.views.text),
+      lengthSeconds: ''
+    }
+  } else if (video.type === 'ShortsLockupView') {
+    /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
+    const shortsLockupView = video
+
+    let viewCount = null
+
+    // the accessiblity text is the only place with the view count
+    if (shortsLockupView.accessibility_text) {
+      // the `.*\s+` at the start of the regex, ensures we match the last occurence
+      // just in case the video title also contains that pattern
+      const match = shortsLockupView.accessibility_text.match(/.*\s+(\d+(?:[,.]\d+)?\s?(?:[BKMbkm]|million)?|no)\s+views?/)
+
+      if (match) {
+        const count = match[1]
+
+        // as it's rare that a video has no views,
+        // checking the length allows us to avoid running toLowerCase unless we have to
+        if (count.length === 2 && count === 'no') {
+          viewCount = 0
+        } else {
+          const views = parseLocalSubscriberCount(count)
+
+          if (!isNaN(views)) {
+            viewCount = views
+          }
+        }
+      }
+    }
+
+    return {
+      type: 'video',
+      videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
+      title: shortsLockupView.overlay_metadata.primary_text.text,
+      viewCount,
       lengthSeconds: ''
     }
   } else {
@@ -835,6 +989,7 @@ export function parseLocalPlaylistVideo(video) {
     )
 
     return {
+      type: 'video',
       videoId: video_.id,
       title: video_.title.text,
       author: video_.author.name,
@@ -1153,7 +1308,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
 /**
  * @param {LocalFormat} format
  */
-export function mapLocalFormat(format) {
+export function mapLocalLegacyFormat(format) {
   return {
     itag: format.itag,
     qualityLabel: format.quality_label,
@@ -1261,7 +1416,7 @@ export function filterLocalFormats(formats, allowAv1 = false) {
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
-  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm])\b/)
+  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm]|million)\b/)
 
   if (match) {
     let multiplier = 0
@@ -1273,6 +1428,7 @@ export function parseLocalSubscriberCount(text) {
         break
       case 'M':
       case 'm':
+      case 'million':
         multiplier = 6
         break
       case 'B':
@@ -1328,8 +1484,9 @@ function parseLocalCommunityPost(post) {
     postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
-    publishedText: post.published.text,
-    voteCount: post.vote_count,
+    publishedTime: calculatePublishedDate(post.published.text),
+    // YouTube hides the vote/like count on posts when it is zero
+    voteCount: post.vote_count ? parseLocalSubscriberCount(post.vote_count.text) : 0,
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,
     author: post.author.name,

@@ -39,7 +39,9 @@ Global:
     View Count: 1 visning | {count} visninger
     Video Count: 1 video | {count} videoer
     Channel Count: 1 kanal | {count} kanaler
+    Comment Count: 1 kommentar | {count} kommentarer
   Community: Fællesskab
+  Live: Live
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
@@ -85,13 +87,22 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Der er ikke flere resultater for denne
     søgning
+  Features:
+    Subtitles: Undertekster
+    HD: HD
+    3D: 3D
+    4K: 4K
+    Live: Live
+    HDR: HDR
+    Features: Funktioner
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnenter'
   Latest Subscriptions: 'Seneste Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    abonnentliste er i øjeblikket tom. Begynd at tilføje abonnenter for at se dem
-    her.'
+    Abonnementsliste er i øjeblikket tom. Hvis du vil importere dine abonnementer,
+    kan du gå til Dataindstillinger og vælge Importér Abonnementer, eller du kan søge
+    efter en kanal og abonnere på den.'
   'Getting Subscriptions. Please wait.': 'Henter Abonnenter. Vent venligst.'
   Refresh Subscriptions: 'Opdatér Abonnenter'
   Load More Videos: Indlæs Flere Videoer
@@ -120,7 +131,7 @@ User Playlists:
   Playlist Message: Denne side afspejler ikke fuldt funktionelle playlister. Den optegner
     blot videoer, som du har gemt eller favoriseret. Når arbejdet er færdigt, vil
     alle videoer her blive flyttet til en 'Favoritter'-playliste.
-  Search bar placeholder: Søg i Playliste
+  Search bar placeholder: Søg efter Playlister
   Empty Search Message: Der er ingen videoer i denne playliste, der passer til din
     søgning
   This playlist currently has no videos.: Denne playliste har i øjeblikket ingen videoer.
@@ -178,14 +189,20 @@ User Playlists:
       You haven't selected any playlist yet.: Du har ikke valgt nogen playliste endnu.
       "{videoCount} video(s) added to 1 playlist": 1 video tilføjet til 1 playliste
         | {videoCount} videoer tilføjet til 1 playliste
-    Added {count} Times: Tilføjet {count} Gang | Tilføjet {count} Gange
+    Added {count} Times: Allerede Tilføjet | Tilføjet {count} Gange
     Save: Gem
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videoer Bliver Tilføjet'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videoer Allerede Tilføjet'
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Der opstod et problem med at
         oprette denne playliste.
       There is already a playlist with this name. Please pick a different name.: En
         playliste med dette navn eksisterer allerede. Vælg venligst et andet navn.
+      Playlist {playlistName} has been successfully created.: Playlisten {playlistName}
+        blev oprettet.
     New Playlist Name: Ny Playliste Navn
     Create: Opret
   Move Video Down: Flyt Video Ned
@@ -204,7 +221,7 @@ History:
   History: 'Historik'
   Watch History: 'Set Historik'
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
-  Empty Search Message: Der er ingen videoer i din historik som passer til din søgning
+  Empty Search Message: Der er ingen videoer i din historik, som passer til din søgning
   Search bar placeholder: Søg i Historik
 Settings:
   # On Settings Page
@@ -253,6 +270,9 @@ Settings:
     Current Invidious Instance: Nuværende Invidious-instans
     No default instance has been set: Ingen standardinstans er angivet
     Set Current Instance as Default: Angiv Nuværende Instans som Standard
+    Auto Load Next Page:
+      Label: Auto-indlæs Næste Side
+      Tooltip: Indlæs flere sider og kommentarer automatisk.
   Theme Settings:
     Theme Settings: 'Temaindstillinger'
     Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
@@ -314,7 +334,6 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
-    Force Local Backend for Legacy Formats: 'Tving Lokal Backend til Ældre Formater'
     Play Next Video: 'Afspil Næste Video'
     Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
     Autoplay Videos: 'Autospil Videoer'
@@ -363,7 +382,6 @@ Settings:
     Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
     Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
     Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
-    Allow DASH AV1 formats: Tillad DASH AV1-formater
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
@@ -393,6 +411,7 @@ Settings:
     Manage Subscriptions: 'Abonnementshåndtering'
     Only Show Latest Video for Each Channel: Vis Kun Seneste Video for Hver Kanal
     Fetch Automatically: Hent Feed Automatisk
+    Confirm Before Unsubscribing: Bekræft Før Afmelding
   Data Settings:
     Data Settings: 'Dataindstillinger'
     Select Import Type: 'Vælg Importtype'
@@ -413,8 +432,6 @@ Settings:
       at importere alle abonnementer og profiler'
     All subscriptions have been successfully imported: 'Det lykkedes at importere
       alle abonnementer'
-    One or more subscriptions were unable to be imported: 'Et eller flere abonnementer
-      kunne ikke importeres'
     Invalid subscriptions file: 'Ugyldig abonnementer-fil'
     This might take a while, please wait: 'Dette kan tage et stykke tid. Vent venligst'
     Invalid history file: 'Ugyldig historik-fil'
@@ -631,6 +648,7 @@ About:
   Licensed under the AGPLv3: Licenseret under AGPLv3
   Source code: Kildekode
   Beta: Beta
+  Discussions: Diskussioner
 Profile:
   Profile Select: 'Vælg Profil'
   All Channels: 'Alle Kanaler'
@@ -710,6 +728,8 @@ Channel:
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Fremhævede Kanaler'
     Details: Detaljer
+    Tags:
+      Search for: Søg efter "{tag}"
   Community:
     Hide Answers: Skjul Svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
@@ -725,7 +745,12 @@ Channel:
   Podcasts:
     This channel does not currently have any podcasts: Denne kanal har i øjeblikket
       ingen podcasts
+    Podcasts: Podcasts
   This channel does not exist: Denne kanal eksisterer ikke
+  Releases:
+    Releases: Udgivelser
+    This channel does not currently have any releases: Denne kanal har i øjeblikket
+      ingen udgivelser
 Video:
   Mark As Watched: 'Markér Som Set'
   Remove From History: 'Fjern Fra Historik'
@@ -803,28 +828,10 @@ Video:
   Save Video: Gem Video
   Started streaming on: Begyndte at sende
   Streamed on: Sendt
-  Audio:
-    Best: Bedst
-    High: Høj
-    Medium: Middel
-    Low: Lav
   audio only: kun lyd
   video only: kun video
   Download Video: Hent Video
   Premieres on: Har premiere på
-  Stats:
-    Resolution: Skærmopløsning
-    Player Dimensions: Afspillerdimensioner
-    Bitrate: Bitrate
-    Volume: Lydstyrke
-    Bandwidth: Båndbredde
-    Buffered: Bufferet
-    Dropped / Total Frames: Tabte / Antal Billeder
-    Mimetype: Mimetype
-    Video statistics are not available for legacy videos: Videostatistikker er ikke
-      tilgængelige for gamle videoer
-    Video ID: Video ID
-  translated from English: oversat fra engelsk
   Sponsor Block category:
     intro: Intro
     sponsor: Sponsor
@@ -849,7 +856,6 @@ Video:
     video: video
     playlist: playliste
     UnsupportedActionTemplate: '{externalPlayer} understøtter ikke: {action}'
-  Skipped segment: Sprunget over segment
   Hide Channel: Skjul Kanal
   Unhide Channel: Vis Kanal
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
@@ -859,6 +865,15 @@ Video:
   Upcoming: Kommende
   Scroll to Bottom: Rul til Bunden
   Pause on Current Video: Pause på Nuværende Video
+  Player:
+    Stats:
+      Video ID: 'Video-ID: {videoId}'
+      Media Formats: 'Medieformater: {formats}'
+      Resolution: 'Opløsning: {width}x{height}@{frameRate}'
+      Bandwidth: 'Båndbredde: {bandwidth} kbps'
+    Skipped segment: Sprang {segmentCategory} segment over
+    Playback will resume automatically when your connection comes back: Afspilning
+      genoptager automatisk, når din forbindelse vender tilbage.
 Videos:
   #& Sort By
   Sort By:
@@ -878,6 +893,11 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playliste
+  Sort By:
+    DateAddedNewest: Seneste tilføjet først
+    VideoTitleDescending: Titel (Å-A)
+    VideoTitleAscending: Titel (A-Å)
+    Sort By: Sortér Efter
 Toggle Theatre Mode: 'Slå Biograftilstand til/fra'
 Change Format:
   Change Media Formats: 'Skift Videoformater'
@@ -968,11 +988,7 @@ Tooltips:
       kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
       men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
     Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
-      i stedet for at oprette en direkte forbindelse til YouTube. Tilsidesætter API-præference.
-    Force Local Backend for Legacy Formats: Virker kun når Invidious-API'en er din
-      standard. Når det er aktiveret, vil den lokale API køre og bruge de gamle formater,
-      den giver, i stedet for dem Invidious giver. Hjælper når de videoer, der gives
-      af Invidious, ikke spiller på grund af landerestriktioner.
+      i stedet for at oprette en direkte forbindelse til YouTube.
     Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
       hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
       bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
@@ -1060,3 +1076,9 @@ Chapters:
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset
+Search Listing:
+  Label:
+    Subtitles: Undertekster
+    4K: 4K
+Feed:
+  Refresh Feed: Opdater {subscriptionName}

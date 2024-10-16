@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { randomArrayItem } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtAgeRestricted',
@@ -14,8 +15,7 @@ export default defineComponent({
   },
   computed: {
     emoji: function () {
-      const emojis = ['😵', '😦', '🙁', '☹️', '😦', '🤫', '😕']
-      return emojis[Math.floor(Math.random() * emojis.length)]
+      return randomArrayItem(['😵', '😦', '🙁', '☹️', '😦', '🤫', '😕'])
     },
 
     restrictedMessage: function () {

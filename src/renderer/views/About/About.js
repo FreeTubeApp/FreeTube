@@ -12,12 +12,16 @@ export default defineComponent({
   },
   data: function () {
     return {
-      versionNumber: `v${packageDetails.version}`,
-      chunks: [
+      versionNumber: `v${packageDetails.version}`
+    }
+  },
+  computed: {
+    chunks: function () {
+      return [
         {
           icon: ['fab', 'github'],
           title: this.$t('About.Source code'),
-          content: `<a href="https://github.com/FreeTubeApp/FreeTube">GitHub: FreeTubeApp/FreeTube</a><br>${this.$t('About.Licensed under the')} <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${this.$t('About.AGPLv3')}</a>`
+          content: `<a href="https://github.com/FreeTubeApp/FreeTube" lang="en">GitHub: FreeTubeApp/FreeTube</a><br>${this.$t('About.Licensed under the')} <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${this.$t('About.AGPLv3')}</a>`
         },
         {
           icon: ['fas', 'file-download'],
@@ -74,7 +78,7 @@ export default defineComponent({
           title: `${this.$t('About.Donate')} - BTC`,
           content: `<a href="bitcoin:${ABOUT_BITCOIN_ADDRESS}">${ABOUT_BITCOIN_ADDRESS}</a>`
         }
-      ],
+      ]
     }
   }
 })

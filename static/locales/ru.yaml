@@ -41,8 +41,10 @@ Global:
     View Count: 1 просмотр | {count} просмотра(ов)
     Watching Count: 1 смотрящий | {count} смотрящих
     Channel Count: 1 канал | {count} канала(ов)
+    Comment Count: 1 комментарий | {count} комментариев
+    Like Count: 1 лайк | {count} лайков
   Input Tags:
-    Length Requirement: Длина тега должна составлять не менее {числа} символов
+    Length Requirement: Длина тега должна составлять не менее {number} символов
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -80,13 +82,26 @@ Search Filters:
   Fetch more results: 'Получить больше результатов'
 # Sidebar
   There are no more results for this search: Больше выдачи по этому запросу нет
+  Features:
+    Features: Опции
+    HD: HD
+    Subtitles: Субтитры
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Прямой эфир
+    4K: 4K
+    360 Video: 360 видео
+    Location: Местоположение
+    VR180: VR180
+    HDR: HDR
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
   Latest Subscriptions: 'Последние подписки'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
-    список подписок в настоящее время пуст. Начните добавлять подписки, чтобы увидеть
-    их здесь.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'В
+    настоящее время список подписок пуст. Если вы хотите импортировать свои подписки,
+    вы можете перейти в Настройки данных и выбрать Импорт подписок или найти канал
+    и подписаться на него.'
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
   Refresh Subscriptions: Обновить подписки
   Getting Subscriptions. Please wait.: Получение подписок, подождите.
@@ -164,16 +179,18 @@ User Playlists:
       This video cannot be moved down.: Это видео нельзя передвинуть вниз.
       Video has been removed: Видео было удалено
       Reverted to use {oldPlaylistName} for quick bookmark: Переход на использование
-        {старого имени плейлиста} для быстрого создания закладок
+        {oldPlaylistName} для быстрого создания закладок
       This playlist is now used for quick bookmark: Этот список воспроизведения теперь
         используется для быстрого создания закладок
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот
-        плейлист теперь используется для быстрой закладки вместо {старого имени плейлиста}.
+        плейлист теперь используется для быстрой закладки вместо {oldPlaylistName}.
         Нажмите здесь, чтобы отменить
       This playlist is already being used for quick bookmark.: Этот плейлист уже используется
         для быстрого создания закладок.
-      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {плейлистНазвание}
+      Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {playlistName}
         - это новый плейлист быстрых закладок.
+      This playlist has a video with a duration error: Этот плейлист содержит хотя-бы
+        одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
@@ -184,11 +201,16 @@ User Playlists:
       "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку
         | {videoCount} видео добавлено в 1 подборку
       "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено
-        в {плейлистКоличество} плейлистов | {видеоКоличество} видео добавлено в {плейлистКоличество}
+        в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount}
         плейлистов
     Select a playlist to add your N videos to: Выбери подборку на добавление видео
       | Выбери подборку на добавление {videoCount} видео в неё
-    Added {count} Times: Добавлено {количество} Время | Добавлено {количество} Времени
+    Added {count} Times: Добавлено {count} Время | Добавлено {count} Времени
+    Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Видео будут добавлено'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Видео уже добавлено'
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Подборка {playlistName}
@@ -218,6 +240,15 @@ User Playlists:
   Quick Bookmark Enabled: Быстрая закладка включена
   Cannot delete the quick bookmark target playlist.: Невозможно удалить целевой список
     воспроизведения быстрых закладок.
+  Remove Duplicate Videos: Удалить дубликаты видео
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы
+    уверены, что хотите удалить 1 дублирующее видео из этого плейлиста? Это нельзя
+    отменить. | Вы уверены, что хотите удалить {playlistItemCount} дубликатов видео
+    из этого плейлиста? Это нельзя отменить.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы
+    уверены, что хотите удалить 1 просмотренное видео из этого плейлиста? Это нельзя
+    отменить. | Вы уверены, что хотите удалить {playlistItemCount} просмотренных видео
+    из этого плейлиста? Это нельзя отменить.
 History:
   # On History Page
   History: 'История'
@@ -225,22 +256,23 @@ History:
   Your history list is currently empty.: 'История просмотров в настоящее время пуста.'
   Search bar placeholder: Поиск в Истории
   Empty Search Message: В вашей истории нет видеороликов, соответствующих вашему поиску
+  Case Sensitive Search: Поиск с учетом регистра
 Settings:
   # On Settings Page
   Settings: 'Настройки'
   General Settings:
-    General Settings: 'Общие настройки'
+    General Settings: 'Общие'
     Fallback to Non-Preferred Backend on Failure: 'Откатить к непредпочтительному
       движку при сбое'
     Enable Search Suggestions: 'Отображать поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
     Locale Preference: 'Язык приложения'
     Preferred API Backend:
-      Preferred API Backend: 'Предпочитаемый движок набора функций'
-      Local API: 'Локальный набор функций'
-      Invidious API: 'Набор функций Invidious'
+      Preferred API Backend: 'Предпочитаемый движок API'
+      Local API: 'Локальный API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Тип отображения видео'
+      Video View Type: 'Способ отображения видео'
       Grid: 'Сеткой'
       List: 'Списком'
     Thumbnail Preference:
@@ -258,7 +290,7 @@ Settings:
     Check for Latest Blog Posts: Проверять последние записи в блоге
     Check for Updates: Проверять обновления
     View all Invidious instance information: Просмотреть все экземпляры Invidious
-    System Default: Системные установки по умолчанию
+    System Default: Системные настройки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
     Set Current Instance as Default: Установить текущий экземпляр по умолчанию
     Current instance will be randomized on startup: Текущий экземпляр при запуске
@@ -273,7 +305,7 @@ Settings:
       Open Link: Открыть ссылку
       External Link Handling: Обработка внешних ссылок
     Auto Load Next Page:
-      Label: Автоматическая загрузка следующей страницы
+      Label: Автоматически загружать следующую страницу
       Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
   Theme Settings:
     Theme Settings: 'Внешний вид'
@@ -346,9 +378,7 @@ Settings:
     Hide Side Bar Labels: Скрыть надписи боковой панели
     Hide FreeTube Header Logo: Скрыть значок FreeTube
   Player Settings:
-    Player Settings: 'Настройки проигрывателя'
-    Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
-      движок для устаревших форматов'
+    Player Settings: 'Проигрыватель'
     Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
@@ -403,7 +433,6 @@ Settings:
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
-    Allow DASH AV1 formats: Разрешить форматы DASH AV1
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -420,6 +449,7 @@ Settings:
     Fetch Automatically: Автоматически получать ленту
     Only Show Latest Video for Each Channel: Показывать только последние видео для
       каждого канала
+    Confirm Before Unsubscribing: Подтвердить, прежде чем отписаться
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -501,8 +531,6 @@ Settings:
     Select Export Type: Выбрать тип экспорта
     Select Import Type: Выбрать тип импорта
     Data Settings: Данные
-    One or more subscriptions were unable to be imported: Не удалось импортировать
-      одну или несколько подписок
     Check for Legacy Subscriptions: Проверить устаревшие подписки
     Manage Subscriptions: Управление подписками
     Import Playlists: Импортировать подборки
@@ -527,7 +555,7 @@ Settings:
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
-    Distraction Free Settings: Отвлекающие части интерфейса
+    Distraction Free Settings: Отвлекающие элементы
     Hide Comment Likes: Скрыть лайки в комментариях
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
@@ -595,7 +623,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
-    SponsorBlock Settings: Настройки SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
@@ -627,11 +655,11 @@ Settings:
     Open in web browser: Открыть в браузере
   Parental Control Settings:
     Show Family Friendly Only: Показать только семейный контент
-    Parental Control Settings: Настройки родительского контроля
+    Parental Control Settings: Родительский Контроль
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
   Experimental Settings:
-    Experimental Settings: Пробные настройки
+    Experimental Settings: Эксперементы
     Replace HTTP Cache: Заменить HTTP-кэш
     Warning: Эти настройки являются пробными, они могут привести к вылетам приложения
       при включении. Желательно сделать резервные копии. Используйте на своё усмотрение!
@@ -641,13 +669,14 @@ Settings:
     Unlock: Разблокировать
     Enter Password To Unlock: Введите пароль для разблокировки настроек
   Password Settings:
-    Password Settings: Настройка пароля
+    Password Settings: Пароль
     Set Password To Prevent Access: Установите пароль для предотвращения доступа к
       настройкам
     Set Password: Установить пароль
     Remove Password: Удалить пароль
   Expand All Settings Sections: Расширить все разделы настроек
   Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
+  Return to Settings Menu: Вернуться в Настройки
 About:
   #On About page
   About: 'О приложении'
@@ -758,6 +787,10 @@ Channel:
     Hide Answers: Скрыть ответы
     Reveal Answers: Раскрыть ответы
     Video hidden by FreeTube: Видео скрыто FreeTube'ом
+    Viewing Posts Only Supported By Invidious: Просмотр постов поддерживается только
+      в Invidious. Перейдите на вкладку "Сообщество" канала, чтобы просматривать контент
+      там без Invidious.
+    View Full Post: Просмотреть полный пост
   Live:
     Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее
@@ -843,11 +876,6 @@ Video:
   Loop Playlist: Повторять подборку
   Starting soon, please refresh the page to check again: Скоро начнется, обновите
     страницу, чтобы проверить ещё раз
-  Audio:
-    Best: Лучшее
-    High: Высокое
-    Medium: Среднее
-    Low: Низкое
   audio only: только звук
   video only: только видео
   Download Video: Скачать видео
@@ -860,7 +888,6 @@ Video:
   Video has been removed from your saved list: Видео было удалено из списка сохраненных
   Video has been saved: Видео было добавлено в сохраненные
   Save Video: Добавить видео в сохранённые
-  translated from English: переведён с английского
   Sponsor Block category:
     music offtopic: Сегмент без музыки
     interaction: Напоминание
@@ -870,7 +897,6 @@ Video:
     sponsor: Спонсор
     recap: Краткое содержание
     filler: Отвлечение
-  Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
       looping playlists: повторение подборок
@@ -886,26 +912,6 @@ Video:
     playlist: подборка
     video: видео
     OpenInTemplate: Открыть в {externalPlayer}
-  Stats:
-    frame drop: Пропущенные кадры
-    video id: ID видео (YouTube)
-    player resolution: Область просмотра
-    volume: Громкость
-    bandwidth: Скорость соединения
-    buffered: Буферизовано
-    out of: из
-    fps: Кадровая частота
-    Video statistics are not available for legacy videos: Статистика видео недоступна
-      для устаревших видео
-    Video ID: Идентификатор видео
-    Resolution: Разрешение
-    Player Dimensions: Размеры проигрывателя
-    Bitrate: Битрейт
-    Volume: Громкость
-    Bandwidth: Пропускная способность
-    Dropped / Total Frames: Пропущено / Всего кадров
-    Mimetype: MIME-типы
-    Buffered: Буферизовано
   Premieres on: Премьеры
   Premieres in: Премьеры в
   Premieres: Премьеры
@@ -918,6 +924,37 @@ Video:
   Hide Channel: Скрыть канал
   Unhide Channel: Показать канал
   More Options: Больше настроек
+  Player:
+    TranslatedCaptionTemplate: '{language} (переведено с "{originalLanguage}")'
+    Stats:
+      CodecsVideoAudioNoItags: 'Кодеки: {videoCodec} / {audioCodec}'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      Stats: Статистики
+      Video ID: 'ID Видео: {videoId}'
+      Media Formats: 'Медиа Форматы: {formats}'
+      Buffered: 'Буферизовано: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Пропущенные кадры: {droppedFrames} / Всего кадров:
+        {totalFrames}'
+      CodecsVideoAudio: 'Кодеки: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Resolution: 'Разрешение: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Разрешение Проигрывателя: {width}x{height}'
+      Bitrate: 'Битрейт: {bitrate} кбит/с'
+      Volume: 'Громкость: {volumePercentage}%'
+      Bandwidth: 'Пропускная способность: {bandwidth} кбит/с'
+    You appear to be offline: Похоже, вы Оффлайн.
+    Skipped segment: Пропущен {segmentCategory} сегмент
+    Playback will resume automatically when your connection comes back: Воспроизведение
+      будет возобновлено автоматически, когда соединение будет восстановлено.
+    Audio Tracks: Аудиодорожки
+    Theatre Mode: Режим Театра
+    Exit Theatre Mode: Выход из Режима Театра
+    Full Window: Полноэкранный Режим
+    Exit Full Window: Выйти из Полноэкранного Режима
+    Take Screenshot: Сделать Снимок Экрана
+    Show Stats: Показать Статистику
+    Hide Stats: Скрыть Статистику
+  IP block: YouTube заблокировал ваш IP-адрес для просмотра видео. Пожалуйста, попробуйте
+    переключиться на другой VPN или прокси.
 Videos:
   #& Sort By
   Sort By:
@@ -946,6 +983,8 @@ Playlist:
     VideoTitleAscending: Название (от А до Я)
     VideoTitleDescending: Название (Z-A)
     Custom: Пользовательский
+    VideoDurationAscending: Продолжительность (Сначала кратчайшие)
+    VideoDurationDescending: Продолжительность (Сначала длиннейшие)
 Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
@@ -956,6 +995,8 @@ Change Format:
     этого видео
   Dash formats are not available for this video: Форматы DASH недоступны для этого
     видео
+  Legacy formats are not available for this video: Устаревшие форматы недоступны для
+    этого видео
 Share:
   Share Video: 'Поделиться видео'
   Share Playlist: 'Поделиться подборкой'
@@ -1004,6 +1045,7 @@ Comments:
   View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
   Hearted: С сердечком
   Subscribed: Подписан(а)
+  There are no comments available for this post: Для этого поста нет доступных комментариев
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -1068,7 +1110,7 @@ Profile:
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
-  Profile Settings: Настройки профиля
+  Profile Settings: Профиль
   Toggle Profile List: Переключить список профилей
   Create Profile Name: Создать название учётки
   Profile Name: Название учётки
@@ -1103,9 +1145,10 @@ Tooltips:
       по умолчанию.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу
-      ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
-      блокировку IP, но не предоставляет определённую информацию, такую как продолжительность
-      видео или сведения о том, транслируется ли видео в настоящем времени
+      ленту подписок с помощью RSS, вместо метода по умолчанию. RSS работает быстрее
+      и предотвращает блокировку IP, но не предоставляет определённую информацию,
+      такую как продолжительность видео или сведения о том, транслируется ли видео
+      в настоящем времени
     Fetch Automatically: Если эта функция включена, FreeTube автоматически будет получать
       ленту ваших подписок как при открытии нового окна, так при переключении профиля.
   Player Settings:
@@ -1114,12 +1157,7 @@ Tooltips:
       ограничены пределом в 720p, но используют меньшую пропускную способность. Звуковые
       форматы — только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
-      вместо прямого подключения к YouTube. Переопределяет предпочтения набора функций.
-    Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
-      набор функций Invidious. Если эта настройка включена, локальный набор функций
-      будет работать и использовать устаревшие форматы вместо форматов Invidious.
-      Помогает, когда видео, возвращённые Invidious, не воспроизводятся из-за ограничений
-      страны.
+      вместо прямого подключения к YouTube.
     Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео,
       нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите
       колесо мыши вперед или назад, чтобы изменять скорость воспроизведения. Нажмите
@@ -1128,10 +1166,6 @@ Tooltips:
       не была изменена в настройках).
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
       видео в стиле MPV.
-    Allow DASH AV1 formats: Форматы DASH AV1 могут выглядеть лучше, чем форматы DASH
-      H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
-      Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
-      будет использовать форматы DASH H.264.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
@@ -1223,19 +1257,30 @@ Age Restricted:
   This channel is age restricted: Канал с возрастным ограничением
   This video is age restricted: Видео с возрастным ограничением
 Tag already exists: «{tagName}» метка уже существует
-Search character limit: Поисковый запрос превышает лимит символов {поискОграничение
-  символов}
+Search character limit: Поисковый запрос превышает лимит символов {searchCharacterLimit}
 Moments Ago: несколько минут назад
 Yes, Delete: Да, удалить
 Yes, Restart: Да, перезагрузка
 Yes, Open Link: Да, открытая ссылка
 Cancel: Отмена
 checkmark: ✓
-Display Label: '{метка}: {значение}'
-Go to page: Перейти на {страницу}
+Display Label: '{label}: {value}'
+Go to page: Перейти на {page}
 Close Banner: Закрыть баннер
 Feed:
-  Feed Last Updated: '{фидНазвание} фид последний раз обновлялся: {дата}'
-  Refresh Feed: Обновить {имя подписки}
+  Feed Last Updated: '{feedName} фид последний раз обновлялся: {date}'
+  Refresh Feed: Обновить {subscriptionName}
 Trimmed input must be at least N characters long: Обрезанный ввод должен быть длиной
-  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {длина} символов
+  не менее 1 символа | Обрезанный ввод должен быть длиной не менее {length} символов
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Субтитры
+    Closed Captions: Субтитры
+    8K: 8К
+    VR180: VR180
+    360 Video: 360°
+    New: Новинка
+    3D: 3D
+'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
+  URL: "{url}".'
