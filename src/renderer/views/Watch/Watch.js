@@ -57,6 +57,7 @@ export default defineComponent({
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+    document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
     if (this.$refs.player) {
       await this.$refs.player.destroyPlayer()
@@ -117,6 +118,8 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+      blockVideoAutoplay: false,
+      autoplayInterruptionTimeout: null,
 
       onMountedRun: false,
 
@@ -157,6 +160,9 @@ export default defineComponent({
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+    defaultAutoplayInterruptionInterval: function () {
+      return this.$store.getters.getDefaultAutoplayInterruptionInterval
     },
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
@@ -319,7 +325,11 @@ export default defineComponent({
         this.getVideoInformationLocal()
       }
 
+      document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('click', this.resetAutoplayInterruptionTimeout)
+
       window.addEventListener('beforeunload', this.handleWatchProgress)
+      this.resetAutoplayInterruptionTimeout()
     },
 
     changeTimestamp: function (timestamp) {
@@ -1186,6 +1196,12 @@ export default defineComponent({
         return
       }
 
+      if (this.blockVideoAutoplay) {
+        showToast(this.$t('Canceled next video autoplay due to inactivity'))
+        this.resetAutoplayInterruptionTimeout()
+        return
+      }
+
       if (this.watchingPlaylist && this.getPlaylistPauseOnCurrent()) {
         this.disablePlaylistPauseOnCurrent()
         return
@@ -1617,6 +1633,12 @@ export default defineComponent({
 
       const playlist = this.selectedUserPlaylist
       this.updatePlaylistLastPlayedAt({ _id: playlist._id })
+    },
+
+    resetAutoplayInterruptionTimeout() {
+      clearTimeout(this.autoplayInterruptionTimeout)
+      this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionInterval * 3_600_000)
+      this.blockVideoAutoplay = false
     },
 
     ...mapActions([
