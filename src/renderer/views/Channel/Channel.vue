@@ -81,7 +81,7 @@
         />
       </div>
       <ft-loader
-        v-if="isElementListLoading"
+        v-if="isCurrentTabLoading"
       />
       <div
         v-if="currentTab !== 'about' && !isElementListLoading"
@@ -201,7 +201,7 @@
           :use-channels-hidden-preference="false"
         />
         <ft-flex-box
-          v-if="currentTab === 'search' && searchResults.length === 0"
+          v-if="currentTab === 'search' && !isSearchTabLoading && searchResults.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Your search results have returned 0 results") }}

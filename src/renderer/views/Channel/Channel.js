@@ -64,6 +64,7 @@ export default defineComponent({
       skipRouteChangeWatcherOnce: false,
       isLoading: true,
       isElementListLoading: false,
+      isSearchTabLoading: false,
       currentTab: 'videos',
       id: '',
       /** @type {import('youtubei.js').YT.Channel|null} */
@@ -295,6 +296,14 @@ export default defineComponent({
       })
 
       return values
+    },
+
+    isCurrentTabLoading() {
+      if (this.currentTab === 'search') {
+        return this.isSearchTabLoading
+      }
+
+      return this.isElementListLoading
     },
   },
   watch: {
@@ -1898,7 +1907,7 @@ export default defineComponent({
     newSearch: function (query) {
       this.lastSearchQuery = query
       this.searchContinuationData = null
-      this.isElementListLoading = true
+      this.isSearchTabLoading = true
       this.searchPage = 1
       this.searchResults = []
       this.changeTab('search')
@@ -1953,7 +1962,7 @@ export default defineComponent({
         }
 
         this.searchContinuationData = result.has_continuation ? result : null
-        this.isElementListLoading = false
+        this.isSearchTabLoading = false
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1989,7 +1998,7 @@ export default defineComponent({
         } else {
           this.searchResults = this.searchResults.concat(response)
         }
-        this.isElementListLoading = false
+        this.isSearchTabLoading = false
         this.searchPage++
       }).catch((err) => {
         console.error(err)
