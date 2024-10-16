@@ -34,13 +34,11 @@
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
           :vr-projection="vrProjection"
-          :block-video-autoplay="blockVideoAutoplay"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
-          @reset-autoplay-interruption-timeout="resetAutoplayInterruptionTimeout"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
         />
         <div

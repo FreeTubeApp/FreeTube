@@ -107,16 +107,11 @@ export default defineComponent({
       type: String,
       default: null
     },
-    blockVideoAutoplay: {
-      type: Boolean,
-      default: false
-    }
   },
   emits: [
     'error',
     'loaded',
     'ended',
-    'reset-autoplay-interruption-timeout',
     'timeupdate',
     'toggle-theatre-mode'
   ],
@@ -159,15 +154,6 @@ export default defineComponent({
      * }[]}
      */
     let sortedCaptions
-
-    const blockAutoplay = props.blockVideoAutoplay
-    if (blockAutoplay) {
-      resetAutoplayInterruptionTimeout()
-    }
-
-    function resetAutoplayInterruptionTimeout() {
-      emit('reset-autoplay-interruption-timeout')
-    }
 
     // we don't need to sort if we only have one caption or don't have any
     if (props.captions.length > 1) {
@@ -1973,8 +1959,6 @@ export default defineComponent({
      * @param {KeyboardEvent} event
      */
     function keyboardShortcutHandler(event) {
-      resetAutoplayInterruptionTimeout()
-
       if (!player || !hasLoaded.value) {
         return
       }
@@ -2381,9 +2365,6 @@ export default defineComponent({
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
 
-      document.removeEventListener('click', resetAutoplayInterruptionTimeout)
-      document.addEventListener('click', resetAutoplayInterruptionTimeout)
-
       player.addEventListener('loading', () => {
         hasLoaded.value = false
       })
@@ -2692,7 +2673,6 @@ export default defineComponent({
       document.body.classList.remove('playerFullWindow')
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
-      document.removeEventListener('click', resetAutoplayInterruptionTimeout)
 
       if (resizeObserver) {
         resizeObserver.disconnect()
@@ -2788,7 +2768,6 @@ export default defineComponent({
       stats,
 
       autoplayVideos,
-      blockAutoplay,
       sponsorBlockShowSkippedToast,
 
       skippedSponsorBlockSegments,

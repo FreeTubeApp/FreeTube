@@ -57,6 +57,7 @@ export default defineComponent({
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+    document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
     if (this.$refs.player) {
       await this.$refs.player.destroyPlayer()
@@ -323,6 +324,9 @@ export default defineComponent({
       } else {
         this.getVideoInformationLocal()
       }
+
+      document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('click', this.resetAutoplayInterruptionTimeout)
 
       window.addEventListener('beforeunload', this.handleWatchProgress)
       this.resetAutoplayInterruptionTimeout()
@@ -1189,6 +1193,12 @@ export default defineComponent({
 
     handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+        return
+      }
+
+      if (this.blockVideoAutoplay) {
+        showToast(this.$t('Canceled next video autoplay due to inactivity'))
+        this.resetAutoplayInterruptionTimeout()
         return
       }
 
