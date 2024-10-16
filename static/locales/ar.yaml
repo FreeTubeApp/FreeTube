@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
     Watching Count: 1 مشاهد | {count} مشاهدون
+    Like Count: إعجاب واحد |{ count} إعجاب
+    Comment Count: تعليق واحد | {count} تعليقًا
   Input Tags:
     Length Requirement: يجب أن يبلغ طول العلامة {number} حرفًا على الأقل
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
@@ -99,7 +101,8 @@ Subscriptions:
   Subscriptions: 'الاشتراكات'
   Latest Subscriptions: 'أحدث الاشتراكات'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة
-    اشتراكاتك فارغة حالياً. ابدأ بإضافة الاشتراكات لتراهم هنا.'
+    اشتراكك فارغة حاليًا. إذا كنت ترغب في استيراد اشتراكاتك، فيمكنك الانتقال إلى إعدادات
+    البيانات وتحديد استيراد الاشتراكات أو يمكنك البحث عن قناة والاشتراك فيها.'
   'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
   Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
@@ -188,6 +191,8 @@ User Playlists:
         هذه بالفعل لوضع إشارة مرجعية سريعة.
       Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
         هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
+      This playlist has a video with a duration error: تحتوي قائمة التشغيل هذه على
+        مقطع فيديو واحد على الأقل ليس له مدة، وسيتم فرزه كما لو كانت مدته صفرًا.
     Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
@@ -256,7 +261,7 @@ Settings:
   # On Settings Page
   Settings: 'الإعدادات'
   General Settings:
-    General Settings: 'الإعدادات العامة'
+    General Settings: 'العامة'
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير
       مفضلة عند الفشل'
     Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
@@ -303,7 +308,7 @@ Settings:
       Label: تحميل تلقائي للصفحة التالية
       Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
   Theme Settings:
-    Theme Settings: 'إعدادات السِمة'
+    Theme Settings: 'السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
     Base Theme:
       Base Theme: 'السِمة الأساسية'
@@ -373,7 +378,7 @@ Settings:
     Hide Side Bar Labels: إخفاء تسميات الشريط الجانبي
     Hide FreeTube Header Logo: إخفاء شعار رأس FreeTube
   Player Settings:
-    Player Settings: 'إعدادات المشغل'
+    Player Settings: 'المشغل'
     Play Next Video: 'شغل الفيديو التالي'
     Turn on Subtitles by Default: 'شغّل الترجمات بشكل افتراضي'
     Autoplay Videos: 'شغًل الفيديوهات تلقائياً'
@@ -425,7 +430,7 @@ Settings:
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
   Privacy Settings:
-    Privacy Settings: 'إعدادات الخصوصية'
+    Privacy Settings: 'الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
     Save Watched Progress: 'حفظ نسبة المشاهدة'
     Clear Search Cache: 'مسح ذاكرة التخزين المؤقت للبحث'
@@ -447,7 +452,7 @@ Settings:
     Are you sure you want to remove all your playlists?: هل أنت متأكد أنك تريد إزالة
       جميع قوائم التشغيل الخاصة بك؟
   Subscription Settings:
-    Subscription Settings: 'إعدادات الاشتراك'
+    Subscription Settings: 'الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
     Fetch Feeds from RSS: 'جلب المحتوى عن طريق RSS'
     Subscriptions Export Format:
@@ -520,7 +525,7 @@ Settings:
     Import Subscriptions: استيراد الاشتراكات
     Select Export Type: حدّد نوع التصدير
     Select Import Type: حدّد نوع الاستيراد
-    Data Settings: إعدادات البيانات
+    Data Settings: البيانات
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
@@ -549,7 +554,7 @@ Settings:
     Hide Channel Subscribers: اخف عدد اشتراكات القناة
     Hide Video Views: اخف عدد مشاهدات الفيديو
     Hide Video Likes And Dislikes: إخفاء الإعجاب وعدم الإعجاب للفيديو
-    Distraction Free Settings: إعدادات عدم الإزعاج
+    Distraction Free Settings: عدم الإزعاج
     Hide Active Subscriptions: اخفي الإشتراكات الناشطة
     Hide Playlists: إخفاء قوائم التشغيل
     Hide Video Description: إخفاء وصف الفيديو
@@ -602,7 +607,7 @@ Settings:
     Proxy Host: خادوم البروكسي
     Proxy Protocol: بروتوكول البروكسي
     Enable Tor / Proxy: تفعيل تور / البروكسي
-    Proxy Settings: خيارات البروكسي
+    Proxy Settings: البروكسي
     Error getting network information. Is your proxy configured properly?: هنالك خطأ
       في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
     Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي
@@ -612,7 +617,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       عنوان (الافتراضي هو https://sponsor.ajay.app)
     Enable SponsorBlock: تفعيل حجب الرعاة
-    SponsorBlock Settings: إعدادات حظر الرعاة
+    SponsorBlock Settings: حظر الرعاة
     Category Color: لون الفئة
     Skip Options:
       Auto Skip: تخطي تلقائي
@@ -629,13 +634,13 @@ Settings:
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
-    External Player Settings: إعدادات المشغل الخارجي
+    External Player Settings: المشغل الخارجي
     Players:
       None:
         Name: لاشيء
     Ignore Default Arguments: تجاهل الحجج الافتراضية
   Download Settings:
-    Download Settings: إعدادات التنزيل
+    Download Settings: التنزيل
     Choose Path: اختر المسار
     Ask Download Path: اطلب مسار التنزيل
     Download Behavior: سلوك التحميل
@@ -643,18 +648,18 @@ Settings:
     Download in app: تحميل في التطبيق
   Parental Control Settings:
     Hide Search Bar: إخفاء شريط البحث
-    Parental Control Settings: إعدادات الرقابة الأبوية
+    Parental Control Settings: الرقابة الأبوية
     Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
     Show Family Friendly Only: عرض مناسب للعائلة فقط
   Experimental Settings:
     Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
-    Experimental Settings: الإعدادات التجريبية
+    Experimental Settings: الاختبارية
     Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء تمكينها. يوصى بشدة بعمل
       نسخ احتياطية. استخدمها على مسؤوليتك الخاصة!
   Password Settings:
     Set Password To Prevent Access: تعيين كلمة مرور لمنع الوصول إلى الإعدادات
     Remove Password: إزالة كلمة المرور
-    Password Settings: إعدادات كلمة المرور
+    Password Settings: كلمة المرور
     Set Password: ضبط كلمة السر
   Password Dialog:
     Password Incorrect: كلمة المرور غير صحيحة
@@ -663,6 +668,7 @@ Settings:
     Unlock: الغاء القفل
   Expand All Settings Sections: توسيع كافة أقسام الإعدادات
   Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
+  Return to Settings Menu: العودة إلى قائمة الإعدادات
 About:
   #On About page
   About: 'حول'
@@ -764,7 +770,7 @@ Profile:
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
-  Profile Settings: إعدادات الملف الشخصي
+  Profile Settings: الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
   Open Profile Dropdown: فتح القائمة المنسدلة للملف الشخصي
   Close Profile Dropdown: إغلاق القائمة المنسدلة للملف الشخصي
@@ -819,6 +825,9 @@ Channel:
     votes: '{votes} أصوات'
     Reveal Answers: كشف الإجابات
     Video hidden by FreeTube: تم إخفاء الفيديو بواسطة FreeTube
+    Viewing Posts Only Supported By Invidious: عرض المنشورات مدعوم فقط من قبل Invidious.
+      توجه إلى علامة التبويب مجتمع القناة لعرض المحتوى هناك دون Invidious.
+    View Full Post: عرض المنشور كاملا
   Live:
     Live: مباشر
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر
@@ -950,6 +959,38 @@ Video:
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
   More Options: المزيد من الخيارات
+  Player:
+    TranslatedCaptionTemplate: '{language} (مترجمة من "{ originalLanguage }")'
+    Stats:
+      Volume: 'الحجم: {volumePercentage}%'
+      CodecAudio: 'برنامج الترميز: {audioCodec} ({audioItag})'
+      Media Formats: 'تنسيقات الوسائط: {formats}'
+      Player Dimensions: 'أبعاد المشغل: {width}×{height}'
+      Bitrate: 'معدل البت: {bitrate} كيلوبت في الثانية'
+      CodecsVideoAudioNoItags: 'برامج الترميز: {videoCodec} / {audioCodec}'
+      Buffered: 'المخزن المؤقت: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'الإطارات المسقطة: {droppedFrames} / إجمالي الإطارات:
+        {totalFrames}'
+      CodecsVideoAudio: 'برامج الترميز: {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+      Stats: الاحصائيات
+      Video ID: 'معرف الفيديو: {videoId}'
+      Resolution: 'الدقة: {width}x{height}@{frameRate}'
+      Bandwidth: 'عرض النطاق الترددي: {bandwidth} كيلوبت في الثانية'
+    Skipped segment: تم تخطي شريحة {segmentCategory}
+    Theatre Mode: وضع المسرح
+    Exit Theatre Mode: الخروج من وضع المسرح
+    Show Stats: عرض الاحصائيات
+    You appear to be offline: يبدو أنك غير متصل بالإنترنت.
+    Playback will resume automatically when your connection comes back: سيتم استئناف
+      التشغيل تلقائيًا عندما يعود اتصالك.
+    Audio Tracks: المسارات الصوتية
+    Full Window: الشاشة كاملة
+    Exit Full Window: الخروج من وضع الشاشة الكاملة
+    Take Screenshot: اخذ لقطة الشاشة
+    Hide Stats: اخفاء الاحصائيات
+  IP block: حظر YouTube عنوان IP الخاص بك من مشاهدة مقاطع الفيديو. يرجى محاولة التبديل
+    إلى VPN أو وكيل مختلف.
 Videos:
   #& Sort By
   Sort By:
@@ -978,6 +1019,8 @@ Playlist:
     VideoTitleAscending: العنوان (A-Z)
     VideoTitleDescending: العنوان (Z-A)
     Custom: مُخصّص
+    VideoDurationDescending: المدة (الاطول أولاً)
+    VideoDurationAscending: المدة (الأقصر أولاً)
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
@@ -986,6 +1029,8 @@ Change Format:
   Use Audio Formats: 'استخدم تنسيقات الصوت'
   Audio formats are not available for this video: تنسيقات الصوت غير متوفرة لهذا الفيديو
   Dash formats are not available for this video: تنسيقات DASH غير متوفرة لهذا الفيديو
+  Legacy formats are not available for this video: لا تتوفر التنسيقات القديمة لهذا
+    الفيديو
 Share:
   Share Video: 'شارك الفيديو'
   Share Playlist: 'مشاركة قائمة التشغيل'
@@ -1029,6 +1074,7 @@ Comments:
   View {replyCount} replies: عرض {replyCount} ردود
   Hearted: القلب
   Subscribed: مشترك
+  There are no comments available for this post: لا توجد تعليقات متاحة لهذا المنشور
 Up Next: 'التالي'
 
 # Toast Messages
@@ -1072,8 +1118,8 @@ Tooltips:
     Region for Trending: الانتشار المحلي (Trend) يسمح لك بأن تشاهد الفيديوهات الأكثر
       انتشارا حسب الدولة. ليست كل الدول المعروضة في هذه القائمة مدعومة من طرف يوتيوب.
   Player Settings:
-    Proxy Videos Through Invidious: سيتم الاتصال ب Invidious لتقديم مقاطع الفيديو
-      بدلاً من إجراء اتصال مباشر مع يوتيوب. يلغي تفضيل الواجهة البرمجية.
+    Proxy Videos Through Invidious: سيتم الاتصال بـ Invidious لعرض مقاطع الفيديو بدلاً
+      من إجراء اتصال مباشر بـ YouTube.
     Default Video Format: حدّد التنسيقات المستخدمة عند تشغيل الفيديو. تنسيق داش (التدفق
       الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى.
       التنسيقات القديمة محدودة بجودة 720p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
@@ -1085,9 +1131,9 @@ Tooltips:
       يتم تغييره في الإعدادات).
     Skip by Scrolling Over Video Player: استخدم عجلة التمرير لتخطي الفيديو بنمط MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
-      المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
-      تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر
+    Fetch Feeds from RSS: عند تمكينه، سيستخدم FreeTube RSS بدلاً من طريقته الافتراضية
+      للحصول على خلاصة اشتراكك. RSS أسرع ويمنع حظر IP، لكنه لا يوفر معلومات معينة
+      مثل مدة الفيديو أو الحالة المباشرة أو مشاركات المجتمع
     Fetch Automatically: عند التمكين ، سيقوم FreeTube تلقائيا بجلب خلاصة الاشتراك
       الخاصة بك عند فتح نافذة جديدة وعند تبديل ملف التعريف.
   External Player Settings:
@@ -1204,5 +1250,10 @@ Search Listing:
     4K: 4K
     Closed Captions: التعاليق مغلقة
     Subtitles: التسميات التوضيحية
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: جديد
+    3D: ثلاثي الابعاد
 'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
   آمن: "{url}".'
