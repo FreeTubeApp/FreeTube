@@ -197,6 +197,9 @@ User Playlists:
         jest od teraz playlistą używaną dla funkcji Szybkiej Zakładki.
       This playlist is already being used for quick bookmark.: Ta playlista jest już
         używana dla funkcji Szybkiej Zakładki.
+      This playlist has a video with a duration error: Ta playlista zawiera przynajmniej
+        jeden film bez określonego czasu trwania. Będą one rozmieszczone tak, jakby
+        ich czas trwania wynosił zero.
     Search for Videos: Szukaj filmów
   Are you sure you want to delete this playlist? This cannot be undone: Czy na pewno
     chcesz usunąć tę playlistę? Nie można cofnąć tej czynności.
@@ -265,7 +268,7 @@ Settings:
   # On Settings Page
   Settings: 'Ustawienia'
   General Settings:
-    General Settings: 'Ustawienia ogólne'
+    General Settings: 'Ogólne'
     Fallback to Non-Preferred Backend on Failure: 'Wycofaj się do niepreferowanego
       back-endu przy niepowodzeniu'
     Enable Search Suggestions: 'Włącz sugestie wyszukiwania'
@@ -313,7 +316,7 @@ Settings:
       Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
       Label: Automatycznie wczytaj kolejną stronę
   Theme Settings:
-    Theme Settings: 'Ustawienia wyglądu'
+    Theme Settings: 'Wygląd'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
     Base Theme:
       Base Theme: 'Bazowy motyw'
@@ -383,7 +386,7 @@ Settings:
     Hide Side Bar Labels: Schowaj etykiety paska bocznego
     Hide FreeTube Header Logo: Schowaj logo FreeTube z paska górnego
   Player Settings:
-    Player Settings: 'Ustawienia odtwarzacza'
+    Player Settings: 'Odtwarzacz'
     Play Next Video: 'Odtwórz następny film'
     Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
     Autoplay Videos: 'Autoodtwarzanie filmów'
@@ -440,7 +443,7 @@ Settings:
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
   Subscription Settings:
-    Subscription Settings: 'Ustawienia subskrypcji'
+    Subscription Settings: 'Subskrypcje'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format exportu subskrypcji'
@@ -494,7 +497,7 @@ Settings:
     Clear Search Cache: Wyczyść plik pamięci podręcznej wyszukiwań
     Save Watched Progress: Zapisuj postęp odtwarzania
     Remember History: Pamiętaj historię
-    Privacy Settings: Ustawienia prywatności
+    Privacy Settings: Prywatność
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Czy
       jesteś pewny/a, że chcesz usunąć wszystkie subskrypcje i profile? Nie będzie
       można tego cofnąć.
@@ -539,7 +542,7 @@ Settings:
     Import Subscriptions: Zaimportuj subskrypcje
     Select Export Type: Wybierz typ eksportu
     Select Import Type: Wybierz typ importu
-    Data Settings: Ustawienia danych
+    Data Settings: Dane
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
@@ -560,7 +563,7 @@ Settings:
         zaimportuj wyeksportowane playlisty."
       Label: Wyeksportuj playlisty dla starszych wersji FreeTube
   Distraction Free Settings:
-    Distraction Free Settings: Ustawienia skupienia uwagi
+    Distraction Free Settings: Skupienie uwagi
     Hide Live Chat: Schowaj czat na żywo
     Hide Popular Videos: Schowaj filmy „Popularne”
     Hide Trending Videos: Schowaj filmy „Na czasie”
@@ -628,14 +631,14 @@ Settings:
     Proxy Host: Host proxy
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
-    Proxy Settings: Ustawienia proxy
+    Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany
       zostanie pominięty
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adres URL interfejsu
       API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
     Enable SponsorBlock: Włącz SponsorBlock
-    SponsorBlock Settings: Ustawienia SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Opcja pominięcia
       Auto Skip: Pomijaj automatycznie
@@ -653,26 +656,26 @@ Settings:
       odtwarzacza
     Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
     External Player: Zewnętrzny odtwarzacz
-    External Player Settings: Ustawienia zewnętrznego odtwarzacza
+    External Player Settings: Zewnętrzny odtwarzacz
     Players:
       None:
         Name: Żaden
     Ignore Default Arguments: Zignoruj argumenty domyślne
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
-    Download Settings: Ustawienia pobierania
+    Download Settings: Pobieranie
     Choose Path: Wybierz folder
     Download Behavior: Sposób pobierania
     Download in app: Pobierz w aplikacji
     Open in web browser: Otwórz w przeglądarce
   Parental Control Settings:
-    Parental Control Settings: Ustawienia kontroli rodzicielskiej
+    Parental Control Settings: Kontrola rodzicielska
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
   Experimental Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
-    Experimental Settings: Ustawienia eksperymentalne
+    Experimental Settings: Eksperymentalne
     Warning: Te ustawienia są w fazie testów i po włączeniu mogą powodować wywalanie
       się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
   Password Dialog:
@@ -681,12 +684,13 @@ Settings:
     Password Incorrect: Niepoprawne hasło
     Password: Hasło
   Password Settings:
-    Password Settings: Ustawienia hasła
+    Password Settings: Hasło
     Set Password To Prevent Access: Ustaw hasło, aby zabezpieczyć dostęp do ustawień
     Set Password: Ustaw hasło
     Remove Password: Usuń hasło
   Expand All Settings Sections: Rozwiń wszystkie sekcje ustawień
   Sort Settings Sections (A-Z): Sortuj sekcje ustawień (A-Z)
+  Return to Settings Menu: Wróć do menu „Ustawienia”
 About:
   #On About page
   About: 'O projekcie'
@@ -1002,6 +1006,8 @@ Playlist:
     Sort By: Sortuj
     AuthorAscending: Po autorze (A-Z)
     AuthorDescending: Po autorze (Z-A)
+    VideoDurationDescending: Czas trwania (od najdłuższych)
+    VideoDurationAscending: Czas trwania (od najkrótszych)
 Toggle Theatre Mode: 'Włącz/wyłącz tryb kinowy'
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
@@ -1126,7 +1132,7 @@ Profile:
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
-  Profile Settings: Ustawienia profilu
+  Profile Settings: Profil
   Toggle Profile List: Włącz/wyłącz listę profili
   Open Profile Dropdown: Otwórz rozwijane menu profilu
   Close Profile Dropdown: Zamknij rozwijane menu profilu
