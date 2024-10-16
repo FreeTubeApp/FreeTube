@@ -43,6 +43,8 @@ Global:
     Subscriber Count: 1 абонат | {count} абоната
     View Count: 1 преглед | {count} прегледа
     Watching Count: 1 гледане | {count} гледания
+    Like Count: 1 харесване | {count} харесвания
+    Comment Count: 1 коментар | {count} коментара
   Input Tags:
     Length Requirement: Дължината на етикета трябва да бъде поне {number} знака
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
@@ -106,7 +108,9 @@ Subscriptions:
   Subscriptions: 'Абонаменти'
   Latest Subscriptions: 'Последни абонаменти'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът
-    с абонаменти е празен. Започнете да добавяте, за да ги видите тук.'
+    с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки
+    на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да
+    се абонирате за него.'
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
   Refresh Subscriptions: 'Опресняване на абонаментите'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този
@@ -183,6 +187,9 @@ User Playlists:
         се използва за бързи отметки.
       Playlist {playlistName} is the new quick bookmark playlist.: Плейлиста {playlistName}
         е новият списък за бързи отметки.
+      This playlist has a video with a duration error: Този плейлист съдържа поне
+        едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността
+        му е нула.
     Search for Videos: Търсене за видеа
   CreatePlaylistPrompt:
     Toast:
@@ -267,7 +274,7 @@ Settings:
   # On Settings Page
   Settings: 'Настройки'
   General Settings:
-    General Settings: 'Общи настройки'
+    General Settings: 'Общи'
     Check for Updates: 'Проверка за актуализации'
     Check for Latest Blog Posts: 'Проверка за нови публикации в блога'
     Fallback to Non-Preferred Backend on Failure: 'При грешка, връщане към непредпочитан
@@ -315,7 +322,7 @@ Settings:
       Label: Автоматично зареждане на следващата страница
       Tooltip: Автоматично зареждане на допълнителни страници и коментари.
   Theme Settings:
-    Theme Settings: 'Настройки на изгледа на приложението'
+    Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
       тема'
     Base Theme:
@@ -386,7 +393,7 @@ Settings:
     Hide Side Bar Labels: Скриване етикетите на страничната лента
     Hide FreeTube Header Logo: Скриване логото на FreeTube
   Player Settings:
-    Player Settings: 'Настройки на плейъра'
+    Player Settings: 'Плейър'
     Play Next Video: 'Пускане на следващото видео'
     Turn on Subtitles by Default: 'Включване на субтитрите по подразбиране'
     Autoplay Videos: 'Автоматично пускане на видеата'
@@ -441,7 +448,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
   Privacy Settings:
-    Privacy Settings: 'Настройки за поверителност'
+    Privacy Settings: 'Поверителност'
     Remember History: 'Запазване на историята'
     Save Watched Progress: 'Запазване напредъка на гледането'
     Clear Search Cache: 'Изчистване кеша на търсенията'
@@ -463,7 +470,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Сигурни ли сте, че искате
       да премахнете всичките си плейлисти?
   Subscription Settings:
-    Subscription Settings: 'Настройки на абонаменти'
+    Subscription Settings: 'Абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
     Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Manage Subscriptions: 'Управление на абонаменти'
@@ -472,7 +479,7 @@ Settings:
       канал
     Confirm Before Unsubscribing: Избягване на случайно отписване
   Data Settings:
-    Data Settings: 'Настройки на данни'
+    Data Settings: 'Данни'
     Select Import Type: 'Избор на тип за внасяне'
     Select Export Type: 'Избор на тип за изнасяне'
     Import Subscriptions: 'Внасяне на абонаменти'
@@ -561,7 +568,7 @@ Settings:
     Hide Channel Subscribers: Скриване броя на абонатите на канали
     Hide Video Likes And Dislikes: Скриване оценките на видеата
     Hide Video Views: Скриване броя показвания на видеата
-    Distraction Free Settings: Настройки за неразсейване
+    Distraction Free Settings: Без разсейване
     Hide Active Subscriptions: Скриване на активните абонаменти
     Hide Playlists: Скриване на плейлисти
     Hide Video Description: Скриване описанието на видеото
@@ -620,12 +627,12 @@ Settings:
     Proxy Host: Прокси хост
     Proxy Protocol: Прокси протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
-    Proxy Settings: Настройки на прокси
+    Proxy Settings: Прокси
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Известие при пропускане на спонсориран
       сегмент
     Enable SponsorBlock: Активиране на SponsorBlock
-    SponsorBlock Settings: SponsorBlock настройки
+    SponsorBlock Settings: SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       адрес (по подразбиране е https://sponsor.ajay.app)
     Skip Options:
@@ -645,31 +652,31 @@ Settings:
     Ignore Unsupported Action Warnings: Игнориране на предупрежденията за неподдържани
       действия
     External Player: Външен плейър
-    External Player Settings: Настройки за външен плейър
+    External Player Settings: Външен плейър
     Players:
       None:
         Name: Няма
     Ignore Default Arguments: Игнориране на аргументите по подразбиране
   Download Settings:
-    Download Settings: Настройки за изтегляне
+    Download Settings: Изтегляне
     Choose Path: Избор на път
     Ask Download Path: Питане за пътя за изтегляне
     Download Behavior: Поведение при изтегляне
     Download in app: Изтегляне в приложението
     Open in web browser: Отваряне в уеб браузър
   Parental Control Settings:
-    Parental Control Settings: Настройки за родителски контрол
+    Parental Control Settings: Родителски контрол
     Hide Unsubscribe Button: Скриване на бутона за отписване
     Show Family Friendly Only: Показване само за семейства
     Hide Search Bar: Скриване на лентата за търсене
   Experimental Settings:
-    Experimental Settings: Експериментални настройки
+    Experimental Settings: Експериментални
     Replace HTTP Cache: Замяна на HTTP кеша
     Warning: Тези настройки са експериментални и може да причинят сривове, докато
       са разрешени. Силно се препоръчва създаването на резервни копия. Използвайте
       на свой риск!
   Password Settings:
-    Password Settings: Настройки на парола
+    Password Settings: Парола
     Set Password To Prevent Access: Задаване на парола, за предотвратяване на достъпа
       до настройките
     Set Password: Задаване на парола
@@ -681,6 +688,7 @@ Settings:
     Password: Парола
   Expand All Settings Sections: Разширяване на всички раздели с настройки
   Sort Settings Sections (A-Z): Сортиране на секциите на настройките (A-Z)
+  Return to Settings Menu: Връщане към менюто с настройки
 About:
   #On About page
   About: 'Относно'
@@ -782,7 +790,7 @@ Profile:
     от другите профили.'
 #On Channel Page
   Profile Filter: Профилен филтър
-  Profile Settings: Настройки на профил
+  Profile Settings: Профил
   Toggle Profile List: Превключване на списъка с профили
   Profile Name: Име на профила
   Open Profile Dropdown: Отваряне на падащото меню на профила
@@ -833,6 +841,10 @@ Channel:
     Reveal Answers: Разкриване на отговорите
     Hide Answers: Скриване на отговорите
     Video hidden by FreeTube: Видео, скрито от FreeTube
+    Viewing Posts Only Supported By Invidious: Преглеждането на публикации се поддържа
+      само от Invidious. Отидете в раздела на общността на канала, за да видите съдържанието
+      там без Invidious.
+    View Full Post: Преглед на цялата публикация
   This channel does not exist: Каналът не съществува
   This channel does not allow searching: Каналът не позволява търсене
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Каналът
@@ -1000,6 +1012,8 @@ Video:
     Theatre Mode: Широкоекранен режим
     Full Window: Цял прозорец
     Hide Stats: Скриване на статистиката
+  IP block: YouTube е блокирал вашия IP адрес за гледане на видеа. Опитайте да преминете
+    към друга VPN услуга или прокси сървър.
 Videos:
   #& Sort By
   Sort By:
@@ -1028,6 +1042,8 @@ Playlist:
     VideoTitleAscending: Заглавие (A-Z)
     Custom: Потребителски
     VideoTitleDescending: Заглавие (Z-A)
+    VideoDurationAscending: Първо най-кратките
+    VideoDurationDescending: Първо най-дългите
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
   Change Media Formats: 'Смяна видео формати'
@@ -1084,6 +1100,7 @@ Comments:
   View {replyCount} replies: Преглед на {replyCount} отговора
   Hearted: Сърдечно
   Subscribed: Абониран
+  There are no comments available for this post: За тази публикация няма налични коментари
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -1112,8 +1129,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: FreeTube ще използва RSS вместо метода по подразбиране за
       получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
-      IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
-      или дали е на живо
+      IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото,
+      дали е на живо или публикации в общността
     Fetch Automatically: FreeTube автоматично ще извлича абонаментите при отваряне
       на нов прозорец и при смяна на профила.
   Player Settings:
@@ -1261,5 +1278,10 @@ Search Listing:
     4K: 4K
     Subtitles: Субтитри
     Closed Captions: Затворени субтитри
+    VR180: VR180
+    3D: 3D
+    8K: 8K
+    360 Video: 360°
+    New: Нов
 'Blocked opening potentially unsafe URL': 'Блокирано отваряне на потенциално опасен
   URL адрес: "{url}".'

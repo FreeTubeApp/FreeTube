@@ -1,24 +1,74 @@
-hr {
-  inline-size: 85%;
-  margin-block: 0;
-  margin-inline: auto;
-  border: 0;
-  border-block-start: 2px solid var(--scrollbar-color-hover);
+.settingsPage {
+  display: flex;
+  gap: 20px;
 }
 
-@media only screen and (width <= 800px) {
-  hr {
-    inline-size: 100%;
-  }
+.settingsSections {
+  overflow-x: hidden;
+  max-inline-size: 90%;
 }
 
 .switchRow {
-  inline-size: 85%;
-  margin-inline: auto;
   display: flex;
+  margin-inline-end: auto;
 }
 
 .settingsToggle {
   padding-block: 0;
-  margin-block: 10px 5px;
+  margin-block: 0;
+}
+
+.section {
+  /* enables anchor link clicks to land with the section title in the top quarter of the page */
+  scroll-margin-top: 24vh;
+}
+
+@media only screen and (width >= 1015px) {
+  .section + .section {
+    padding-block-start: 20px;
+  }
+
+  .settingsSections:last-child {
+    /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to */
+    margin-block-end: calc(76vh - 150px);
+  }
+}
+
+@media only screen and (width <= 1200px) {
+  .settingsSections {
+    max-inline-size: 100%;
+  }
+}
+
+@media only screen and (width <= 1015px) {
+  /* Needed to overcome routerView styling for margin-block */
+  .settingsPage.settingsPage {
+    margin-block: 0;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .switchRow,
+  .settingsSections {
+    margin-inline: auto;
+  }
+
+  .switchRow {
+    display: none;
+  }
+
+  .settingsSections {
+    overflow-y: hidden;
+    margin-block-end: 80px;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  .returnToMenuMobileIcon {
+    margin-block-start: 20px;
+    block-size: 30px;
+    font-size: 30px;
+  }
 }
