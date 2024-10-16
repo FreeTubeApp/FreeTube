@@ -889,3 +889,59 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
       return channelId.replace(/^UC/, 'UU')
   }
 }
+
+function getIndividualLocalizedShortcut(shortcut) {
+  switch (shortcut) {
+    case 'alt':
+      return i18n.t('Keys.alt')
+    case 'cmd':
+    case 'ctrl':
+      return process.platform === 'darwin'
+        ? i18n.t('Keys.cmd')
+        : i18n.t('Keys.ctrl')
+    case 'arrowleft':
+      return i18n.t('Keys.arrowleft')
+    case 'arrowright':
+      return i18n.t('Keys.arrowright')
+    case 'arrowup':
+      return i18n.t('Keys.arrowup')
+    case 'arrowdown':
+      return i18n.t('Keys.arrowdown')
+    default:
+      return shortcut
+  }
+}
+
+/**
+ * @param {string} shortcut
+ * @returns {string} the localized and recombined shortcut
+ */
+function getLocalizedShortcut(shortcut) {
+  const shortcuts = shortcut.split('+')
+  const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
+
+  const shortcutJoinOperator = i18n.t('shortcutJoinOperator')
+  return localizedShortcuts.join(shortcutJoinOperator)
+}
+
+/**
+ * @param {string} actionTitle
+ * @param {string} shortcut
+ * @returns {string} the localized action title with keyboard shortcut
+ */
+export function addKeyboardShortcutToActionTitle(actionTitle, shortcut) {
+  return i18n.t('KeyboardShortcutTemplate', {
+    label: actionTitle,
+    shortcut
+  })
+}
+
+/**
+ * @param {string} localizedActionTitle
+ * @param {string} unlocalizedShortcut
+ * @returns {string} the localized action title with keyboard shortcut
+ */
+export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle, unlocalizedShortcut) {
+  const localizedShortcut = getLocalizedShortcut(unlocalizedShortcut)
+  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcut)
+}

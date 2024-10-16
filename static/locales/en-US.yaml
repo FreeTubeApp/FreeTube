@@ -1131,3 +1131,13 @@ Cancel: Cancel
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  cmd: Cmd
+  ctrl: Ctrl
+  arrowdown: Down Arrow
+  arrowleft: Left Arrow
+  arrowright: Right Arrow
+  arrowup: Up Arrow
