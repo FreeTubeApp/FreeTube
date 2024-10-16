@@ -1,0 +1,125 @@
+.settingsMenu {
+  /* top nav + margin */
+  inset-block-start: 96px;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 0;
+  block-size: calc(85vh - 96px);
+  max-block-size: 600px;
+}
+
+.header {
+  inline-size: fit-content;
+  margin-block: 0 10px;
+}
+
+.title {
+  text-decoration: none;
+  color: var(--tertiary-text-color);
+  inline-size: 220px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* prevent hover styling from showing on title click for mobile */
+@media (hover: hover) {
+  .title:hover {
+    color: var(--primary-text-color);
+  }
+}
+
+.titleContent {
+  inline-size: fit-content;
+  max-inline-size: 100%;
+}
+
+
+.iconAndTitleText {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  /* needed to have underline poke out */
+  margin-inline-start: 3px;
+}
+
+.titleUnderline {
+  /* have underline poke out */
+  inline-size: calc(100% + 6px);
+
+  /* prevent "active" border from visibly pushing the content up */
+  border-block-end: 4px solid transparent;
+}
+
+@media only screen and (width >= 1015px) {
+  .settingsMenu {
+    margin-block: 0;
+    font-size: 16px;
+  }
+
+  .header {
+    margin-block-start: 10px;
+    font-size: 26px;
+  }
+
+  .titleIcon {
+    inline-size: 16px;
+    block-size: 16px;
+  }
+
+  .title.active {
+    color: var(--primary-text-color);
+    font-weight: 600;
+  }
+
+  .title.active .titleUnderline {
+    border-block-end: 4px solid var(--primary-color);
+  }
+}
+
+/* overall mobile breakpoint; large text */
+@media only screen and (width <= 1015px) {
+  .settingsMenu {
+    inline-size: fit-content;
+    margin-inline: auto;
+    position: relative;
+    inset-block-start: 0;
+    font-size: 30px;
+    max-block-size: 1100px;
+  }
+
+  .titleIcon {
+    inline-size: 30px;
+    block-size: 30px;
+    margin-inline-end: 10px;
+  }
+
+  .title {
+    inline-size: fit-content;
+    max-inline-size: 90vw;
+  }
+
+  .header {
+    font-size: 32px;
+  }
+}
+
+/* small height or width mobile breakpoint; intermediary text */
+@media only screen and (width <= 1015px) and (height <= 830px),
+  only screen and (width <= 500px) {
+  .settingsMenu {
+    font-size: 25px;
+  }
+
+  .titleIcon {
+    inline-size: 25px;
+    block-size: 25px;
+    margin-inline-end: 5px;
+  }
+
+  .header {
+    font-size: 25px;
+  }
+}

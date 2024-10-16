@@ -189,6 +189,8 @@ User Playlists:
         для быстрого создания закладок.
       Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {playlistName}
         - это новый плейлист быстрых закладок.
+      This playlist has a video with a duration error: Этот плейлист содержит хотя-бы
+        одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
@@ -259,18 +261,18 @@ Settings:
   # On Settings Page
   Settings: 'Настройки'
   General Settings:
-    General Settings: 'Общие настройки'
+    General Settings: 'Общие'
     Fallback to Non-Preferred Backend on Failure: 'Откатить к непредпочтительному
       движку при сбое'
     Enable Search Suggestions: 'Отображать поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
     Locale Preference: 'Язык приложения'
     Preferred API Backend:
-      Preferred API Backend: 'Предпочитаемый движок набора функций'
-      Local API: 'Локальный набор функций'
-      Invidious API: 'Набор функций Invidious'
+      Preferred API Backend: 'Предпочитаемый движок API'
+      Local API: 'Локальный API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Тип отображения видео'
+      Video View Type: 'Способ отображения видео'
       Grid: 'Сеткой'
       List: 'Списком'
     Thumbnail Preference:
@@ -288,7 +290,7 @@ Settings:
     Check for Latest Blog Posts: Проверять последние записи в блоге
     Check for Updates: Проверять обновления
     View all Invidious instance information: Просмотреть все экземпляры Invidious
-    System Default: Системные установки по умолчанию
+    System Default: Системные настройки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
     Set Current Instance as Default: Установить текущий экземпляр по умолчанию
     Current instance will be randomized on startup: Текущий экземпляр при запуске
@@ -303,7 +305,7 @@ Settings:
       Open Link: Открыть ссылку
       External Link Handling: Обработка внешних ссылок
     Auto Load Next Page:
-      Label: Автоматическая загрузка следующей страницы
+      Label: Автоматически загружать следующую страницу
       Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
   Theme Settings:
     Theme Settings: 'Внешний вид'
@@ -376,7 +378,7 @@ Settings:
     Hide Side Bar Labels: Скрыть надписи боковой панели
     Hide FreeTube Header Logo: Скрыть значок FreeTube
   Player Settings:
-    Player Settings: 'Настройки проигрывателя'
+    Player Settings: 'Проигрыватель'
     Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
@@ -553,7 +555,7 @@ Settings:
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
-    Distraction Free Settings: Отвлекающие части интерфейса
+    Distraction Free Settings: Отвлекающие элементы
     Hide Comment Likes: Скрыть лайки в комментариях
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
@@ -621,7 +623,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
-    SponsorBlock Settings: Настройки SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
@@ -653,11 +655,11 @@ Settings:
     Open in web browser: Открыть в браузере
   Parental Control Settings:
     Show Family Friendly Only: Показать только семейный контент
-    Parental Control Settings: Настройки родительского контроля
+    Parental Control Settings: Родительский Контроль
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
   Experimental Settings:
-    Experimental Settings: Пробные настройки
+    Experimental Settings: Эксперементы
     Replace HTTP Cache: Заменить HTTP-кэш
     Warning: Эти настройки являются пробными, они могут привести к вылетам приложения
       при включении. Желательно сделать резервные копии. Используйте на своё усмотрение!
@@ -667,13 +669,14 @@ Settings:
     Unlock: Разблокировать
     Enter Password To Unlock: Введите пароль для разблокировки настроек
   Password Settings:
-    Password Settings: Настройка пароля
+    Password Settings: Пароль
     Set Password To Prevent Access: Установите пароль для предотвращения доступа к
       настройкам
     Set Password: Установить пароль
     Remove Password: Удалить пароль
   Expand All Settings Sections: Расширить все разделы настроек
   Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
+  Return to Settings Menu: Вернуться в Настройки
 About:
   #On About page
   About: 'О приложении'
@@ -980,6 +983,8 @@ Playlist:
     VideoTitleAscending: Название (от А до Я)
     VideoTitleDescending: Название (Z-A)
     Custom: Пользовательский
+    VideoDurationAscending: Продолжительность (Сначала кратчайшие)
+    VideoDurationDescending: Продолжительность (Сначала длиннейшие)
 Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
@@ -1105,7 +1110,7 @@ Profile:
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
-  Profile Settings: Настройки профиля
+  Profile Settings: Профиль
   Toggle Profile List: Переключить список профилей
   Create Profile Name: Создать название учётки
   Profile Name: Название учётки
@@ -1272,5 +1277,10 @@ Search Listing:
     4K: 4K
     Subtitles: Субтитры
     Closed Captions: Субтитры
+    8K: 8К
+    VR180: VR180
+    360 Video: 360°
+    New: Новинка
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
   URL: "{url}".'

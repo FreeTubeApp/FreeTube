@@ -174,6 +174,8 @@ User Playlists:
       This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
       Playlist {playlistName} is the new quick bookmark playlist.: 再生リスト {playlistName}
         が新しいクイックブックマーク再生リストです。
+      This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも
+        1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
     Search for Videos: 動画検索
   Save Changes: 変更の保存
   Move Video Up: 動画を上へ移動
@@ -231,7 +233,7 @@ Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
-    General Settings: '一般設定'
+    General Settings: '一般'
     Fallback to Non-Preferred Backend on Failure: 'データ取得の問題発生時には取得方法を自動変更'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
@@ -276,7 +278,7 @@ Settings:
       Label: 次のページを自動で読み込む
       Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
   Theme Settings:
-    Theme Settings: 'テーマの設定'
+    Theme Settings: 'テーマ'
     Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
     Base Theme:
       Base Theme: 'テーマの選択'
@@ -346,7 +348,7 @@ Settings:
     Hide Side Bar Labels: サイドバー ラベルの非表示
     Hide FreeTube Header Logo: FreeTube ヘッダー ロゴの非表示
   Player Settings:
-    Player Settings: 'プレーヤーの設定'
+    Player Settings: 'プレーヤー'
     Remember History: '履歴を記憶'
     Play Next Video: '次の動画の自動再生'
     Turn on Subtitles by Default: 'デフォルトで字幕を有効にする'
@@ -397,7 +399,7 @@ Settings:
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
     Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
   Subscription Settings:
-    Subscription Settings: '登録チャンネルの設定'
+    Subscription Settings: '登録チャンネル'
     Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Subscriptions Export Format:
       Subscriptions Export Format: '登録のエクスポート形式'
@@ -444,7 +446,7 @@ Settings:
     Search cache has been cleared: 検索キャッシュを削除しました
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
-    Privacy Settings: プライバシーの設定
+    Privacy Settings: プライバシー
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Save Watched Videos With Last Viewed Playlist: 視聴済み動画を最後に見た再生リストと共に保存する
@@ -478,7 +480,7 @@ Settings:
     Import Subscriptions: 登録チャンネルのインポート
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
-    Data Settings: データの設定
+    Data Settings: データ
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
     Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
@@ -503,7 +505,7 @@ Settings:
     Hide Channel Subscribers: チャンネル登録者数の非表示
     Hide Video Views: 再生数の非表示
     Hide Video Likes And Dislikes: 評価の非表示
-    Distraction Free Settings: 集中モードの設定
+    Distraction Free Settings: 集中モード
     Hide Active Subscriptions: 登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
     Hide Video Description: 動画概要欄の非表示
@@ -553,13 +555,13 @@ Settings:
     Proxy Host: プロキシのホスト
     Proxy Protocol: プロキシのプロトコル
     Enable Tor / Proxy: Tor / プロキシの有効化
-    Proxy Settings: プロキシの設定
+    Proxy Settings: プロキシ
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
       https://sponsor.ajay.app）
     Enable SponsorBlock: スポンサーブロックの有効化
-    SponsorBlock Settings: スポンサーブロックの設定
+    SponsorBlock Settings: スポンサーブロック
     Skip Options:
       Skip Option: スキップの設定
       Auto Skip: 自動スキップ
@@ -576,13 +578,13 @@ Settings:
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
     Ignore Unsupported Action Warnings: 未対応のアクションの警告を無視
     External Player: 外部プレーヤー
-    External Player Settings: 外部プレーヤーの設定
+    External Player Settings: 外部プレーヤー
     Players:
       None:
         Name: なし
     Ignore Default Arguments: デフォルト引数を無視する
   Download Settings:
-    Download Settings: ダウンロードの設定
+    Download Settings: ダウンロード
     Ask Download Path: ダウンロードパスを尋ねる
     Choose Path: パスの選択
     Download Behavior: ダウンロードの処理方法
@@ -590,16 +592,16 @@ Settings:
     Download in app: アプリでダウンロード
   Parental Control Settings:
     Hide Search Bar: 検索バーの非表示
-    Parental Control Settings: 制限付きモードの設定
+    Parental Control Settings: 制限付きモード
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
-    Experimental Settings: 実験中の設定
+    Experimental Settings: 試験的
     Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
-    Password Settings: パスワードの設定
+    Password Settings: パスワード
     Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
     Set Password: パスワードの設定
     Remove Password: パスワードの削除
@@ -610,6 +612,7 @@ Settings:
     Unlock: ロック解除
   Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
   Expand All Settings Sections: 全ての設定項目を展開する
+  Return to Settings Menu: 設定に戻る
 About:
   #On About page
   About: '概要'
@@ -890,6 +893,8 @@ Playlist:
     AuthorDescending: 著者名（Z-A）
     VideoTitleAscending: タイトル（A-Z）
     Sort By: 並び替え
+    VideoDurationAscending: 再生時間（短い順）
+    VideoDurationDescending: 再生時間（長い順）
 Toggle Theatre Mode: 'シアターモードの切替'
 Change Format:
   Change Media Formats: '動画形式の変更'
@@ -999,7 +1004,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これはあなたのメインのプロファイルです。選択したチャンネルを本当に削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
-  Profile Settings: プロファイルの設定
+  Profile Settings: プロファイル
   Toggle Profile List: プロファイル一覧の切替
   Create Profile Name: プロファイル名を作成
   Profile Name: プロファイル名
@@ -1113,6 +1118,11 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: クローズドキャプション
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: 最新
+    3D: 3D
 Yes, Delete: はい、削除します
 Yes, Restart: はい、再起動します
 Yes, Open Link: はい、リンクを開きます

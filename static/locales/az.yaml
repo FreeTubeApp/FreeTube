@@ -97,7 +97,9 @@ Subscriptions:
     profilin çoxlu sayda abunəsi var. Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
     zorlanır'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik
-    siyahınız hazırda boşdur. Abunəlikləri burada görmək üçün əlavə etməyə başlayın.'
+    siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat
+    Parametrlərinə gedib ''Abunəlikləri İdxal Et'' seçimini edə bilərsiniz və ya bir
+    kanal axtarıb abunə ola bilərsiniz.'
   'Getting Subscriptions. Please wait.': 'Abunəliklərin əldə edilməsi. Zəhmət olmasa,
     gözləyin.'
   Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
@@ -352,6 +354,8 @@ Global:
     Video Count: 1 video | {count} video
     Watching Count: 1 baxır | {count} baxır
     Channel Count: 1 kanal | {count} kanal
+    Like Count: 1 bəyəni | {sayı} bəyənmələr
+    Comment Count: 1 şərh | {sayı} şərhlər
   Videos: Videolar
   Live: Canlı
   Input Tags:
@@ -363,6 +367,11 @@ Search Listing:
     Closed Captions: Titrlər Bağlandı
     4K: 4K
     Subtitles: Titrlər
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Yeni
+    3D: 3D
 Channels:
   Empty: Kanal siyahınız hazırda boşdur.
   Unsubscribe: Abunə olma
