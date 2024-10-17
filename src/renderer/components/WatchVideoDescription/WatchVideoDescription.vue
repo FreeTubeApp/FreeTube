@@ -13,7 +13,6 @@
       <span
         v-if="showFullDescription"
         class="descriptionStatus"
-        role="button"
         tabindex="0"
         @click="collapseDescription"
         @keydown.space.prevent="collapseDescription"
@@ -25,14 +24,14 @@
         v-else
         class="descriptionStatus"
         tabindex="0"
+        @keydown.space.prevent="expandDescription"
+        @keydown.enter.prevent="expandDescription"
       >
         {{ $t("Description.Expand Description") }}
       </span>
       <div
         v-if="!showFullDescription"
         class="overlay"
-        role="button"
-        tabindex="0"
         @click="expandDescription"
         @keydown.space.prevent="expandDescription"
         @keydown.enter.prevent="expandDescription"
