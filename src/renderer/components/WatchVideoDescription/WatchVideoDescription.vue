@@ -13,6 +13,7 @@
       <span
         v-if="showFullDescription"
         class="descriptionStatus"
+        role="button"
         tabindex="0"
         @click="collapseDescription"
         @keydown.space.prevent="collapseDescription"
@@ -23,6 +24,7 @@
       <span
         v-else
         class="descriptionStatus"
+        role="button"
         tabindex="0"
         @keydown.space.prevent="expandDescription"
         @keydown.enter.prevent="expandDescription"
