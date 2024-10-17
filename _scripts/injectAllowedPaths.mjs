@@ -9,7 +9,7 @@ import { closeSync, ftruncateSync, openSync, readFileSync, readdirSync, writeSyn
 import { dirname, join, relative, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const distDirectory = resolve(__dirname, '..', 'dist')
 const webDirectory = join(distDirectory, 'web')
@@ -25,13 +25,12 @@ const paths = readdirSync(distDirectory, {
       dirent.name !== 'main.js' &&
       dirent.name !== 'main.js.LICENSE.txt' &&
       // filter out any web build files, in case the dist directory contains a web build
-      !dirent.path.startsWith(webDirectory);
+      !dirent.path.startsWith(webDirectory)
   })
   .map(dirent => {
     const joined = join(dirent.path, dirent.name)
     return '/' + relative(distDirectory, joined).replaceAll('\\', '/')
   })
-
 
 let fileHandle
 try {

@@ -45,7 +45,7 @@ class ProcessLocalesPlugin {
 
   /** @param {import('webpack').Compiler} compiler  */
   apply(compiler) {
-    const { CachedSource, RawSource } = compiler.webpack.sources;
+    const { CachedSource, RawSource } = compiler.webpack.sources
     const { Compilation, DefinePlugin } = compiler.webpack
 
     new DefinePlugin({
@@ -59,7 +59,6 @@ class ProcessLocalesPlugin {
         name: PLUGIN_NAME,
         stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
       }, async (_assets) => {
-
         // While running in the webpack dev server, this hook gets called for every incremental build.
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
