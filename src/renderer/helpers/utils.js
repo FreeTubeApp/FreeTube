@@ -254,7 +254,7 @@ export function showToast(message, time = null, action = null) {
     detail: {
       message,
       time,
-      action
+      action,
     }
   }))
 }
