@@ -45,7 +45,10 @@ export default defineComponent({
         // Third group
         'catppuccinMocha',
         'dracula',
+        'gruvboxDark',
+        'gruvboxLight'
         'solarizedDark',
+        'solarizedLight'
         'solarizedLight',
         'gruvboxDark',
         'gruvboxLight'
