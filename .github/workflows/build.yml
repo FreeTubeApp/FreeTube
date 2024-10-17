@@ -86,7 +86,6 @@ jobs:
       with:
         version: ${{ steps.versionNumber.outputs.result }}
 
-
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu')
       run: sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(job) }} ${{ toJson(needs) }}"

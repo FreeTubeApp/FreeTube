@@ -455,7 +455,7 @@ function runApp() {
           requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-       
+
       callback({ requestHeaders })
     })
 
@@ -466,7 +466,7 @@ function runApp() {
       if (responseHeaders) {
         delete responseHeaders['set-cookie']
       }
-       
+
       callback({ responseHeaders })
     })
 
@@ -757,7 +757,6 @@ function runApp() {
     // If called multiple times
     // Duplicate menu items will be added
     if (replaceMainWindow) {
-       
       setMenu()
     }
 

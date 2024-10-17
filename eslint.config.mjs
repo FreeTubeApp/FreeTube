@@ -1,40 +1,33 @@
 import eslintPluginVue from 'eslint-plugin-vue'
 import vuejsAccessibility from 'eslint-plugin-vuejs-accessibility'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
-import eslintConfigPrettier from 'eslint-config-prettier'
 import intlifyVueI18N from '@intlify/eslint-plugin-vue-i18n'
 import globals from 'globals'
 import vueEslintParser from 'vue-eslint-parser'
 import js from '@eslint/js'
-import { FlatCompat } from '@eslint/eslintrc'
-import { fixupConfigRules } from '@eslint/compat'
 import jsoncEslintParser from 'jsonc-eslint-parser'
 import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
+import neostandard from 'neostandard'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all
-})
 
 export default [
   {
     ignores: [
+      'build/',
       'dist/',
-      'eslint.config.mjs'
+      'eslint.config.mjs',
+      // The JSON files inside this directory are auto-generated, so they don't follow the code style rules
+      'static/geolocations/'
     ]
   },
-  ...fixupConfigRules(
-    compat.config({
-      extends: ['standard']
-    })
-  ),
+  ...neostandard({
+    noJsx: true,
+    ts: false,
+  }),
   js.configs.recommended,
-  eslintConfigPrettier,
   ...eslintPluginVue.configs['flat/vue2-recommended'],
   ...vuejsAccessibility.configs["flat/recommended"],
   ...intlifyVueI18N.configs['flat/recommended'],
@@ -68,8 +61,8 @@ export default [
     },
 
     rules: {
-      'space-before-function-paren': 'off',
-      'comma-dangle': ['error', 'only-multiline'],
+      '@stylistic/space-before-function-paren': 'off',
+      '@stylistic/comma-dangle': ['error', 'only-multiline'],
       'vue/no-v-html': 'off',
 
       'no-console': ['error', {
@@ -137,8 +130,9 @@ export default [
     },
 
     rules: {
-      'no-tabs': 'off',
-      'comma-spacing': 'off',
+      '@stylistic/no-tabs': 'off',
+      '@stylistic/comma-spacing': 'off',
+      '@stylistic/eol-last': 'off',
       'no-irregular-whitespace': 'off',
     },
 
@@ -164,6 +158,7 @@ export default [
 
     rules: {
       'yml/no-irregular-whitespace': 'off',
+      '@stylistic/spaced-comment': 'off',
     },
 
     settings: {
@@ -206,6 +201,8 @@ export default [
     },
 
     rules: {
+      '@stylistic/space-before-function-paren': 'off',
+      '@stylistic/comma-dangle': ['error', 'only-multiline'],
       'no-console': 'off',
       'n/no-path-concat': 'off',
       'unicorn/better-regex': 'error',
@@ -227,6 +224,8 @@ export default [
 
     rules: {
       'no-console': 'off',
+      '@stylistic/space-before-function-paren': 'off',
+      '@stylistic/comma-dangle': ['error', 'only-multiline'],
       'n/no-path-concat': 'off',
       'unicorn/better-regex': 'error',
     }
