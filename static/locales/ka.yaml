@@ -99,8 +99,6 @@ Channels:
   Search bar placeholder: 'არხების ძიება'
   Count: 'ნაპოვნია {number} არხი.'
   Empty: 'თქვენი არხების სია ამჟამად ცარიელია.'
-  Unsubscribe: 'გამოწერის გაუქმება'
-  Unsubscribed: '{channelName} წაიშალა თქვენი გამოწერებიდან'
   Unsubscribe Prompt: 'დარწმუნებული ხართ, რომ გსურთ "{channelName}"ის გამოწერის გაუქმება?'
 Trending:
   Trending: 'პოპულარული'
@@ -113,13 +111,6 @@ Most Popular: 'ყველაზე პოპულარული'
 Playlists: 'დასაკრავი სიები'
 User Playlists:
   Your Playlists: 'თქვენი დასაკრავი სიები'
-  Playlist Message: 'ეს გვერდი არ ასახავს სრულად მოქმედ დასაკრავ სიებს. აქ მხოლოდ
-    ჩამოთვლილი იქნება ვიდეოები, რომლებიც თქვენ გაქვთ შენახული ან დამატებული გაქვთ
-    რჩეულებში. როდესაც მუშაობა დასრულდება, ყველა აქ ჩამოთვლილი ვიდეო გადაინაცვლებს
-    „რჩეულების“ დასაკრავ სიაში.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'თქვენი
-    შენახული ვიდეოები ცარიელია. დააჭირეთ ღილაკს შენახვა ვიდეოს კუთხეში, რათა ის აქ
-    გამოჩნდეს'
   Empty Search Message: 'ამ დასაკრავ სიაში თქვენი ძიების შესაბამისი ვიდეოები არ არის'
   Search bar placeholder: 'დასაკრავ სიაში ძიება'
 History:

@@ -63,13 +63,7 @@ Channels:
   Search bar placeholder: 'چینلز تلاش کریں۔'
   Count: '{number}چینل ملا۔'
   Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
-  Unsubscribe: 'ان سبسکرائب کریں۔'
-  Unsubscribed: '{channelName} کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
 User Playlists:
-  Playlist Message: یہ صفحہ مکمل طور پر کام کرنے والی پلے لسٹس کا عکاس نہیں ہے۔ یہ
-    صرف ان ویڈیوز کی فہرست بناتا ہے جنہیں آپ نے محفوظ کیا ہے یا پسند کیا ہے۔ جب کام
-    ختم ہو جائے تو سب فی الحال یہاں موجود ویڈیوز کو 'پسندیدہ' پلے لسٹ میں منتقل کر
-    دیا جائے گا۔
   Empty Search Message: 'اس پلے لسٹ میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش سے
     مماثل ہوں۔'
   Search bar placeholder: 'پلے لسٹ میں تلاش کریں۔'
@@ -197,12 +191,8 @@ Tooltips:
 # Toast Messages
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
   ویڈیو غائب فارمیٹس کی وجہ سے دستیاب نہیں ہے۔ یہ ملک کی وجہ سے ہوسکتا ہے۔ غیر دستیابی'
-Subscriptions have not yet been implemented: 'سبسکرپشنز کو ابھی تک نافذ نہیں کیا گیا
-  ہے۔'
 Unknown YouTube url type, cannot be opened in app: 'نامعلوم YouTube url قسم، ایپ میں
   نہیں کھولی جا سکتی'
-Hashtags have not yet been implemented, try again later: 'ہیش ٹیگز ابھی لاگو نہیں
-  ہوئے، بعد میں دوبارہ کوشش کریں۔'
 Loop is now disabled: 'لوپ اب غیر فعال ہے۔'
 Loop is now enabled: 'لوپ اب فعال ہے۔'
 Shuffle is now disabled: 'شفل اب غیر فعال ہے۔'

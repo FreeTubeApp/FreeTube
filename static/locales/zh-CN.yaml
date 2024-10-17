@@ -124,11 +124,8 @@ Most Popular: '最流行'
 Playlists: '播放列表'
 User Playlists:
   Your Playlists: '您的播放列表'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
-  Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 搜索播放列表
   Empty Search Message: 此播放列表中没有匹配你搜索的视频
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除所有已观看的视频吗？此操作无法撤销。
   AddVideoPrompt:
     Search in Playlists: 在播放列表中搜索
     Save: 保存
@@ -163,7 +160,6 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 则视频已被删除 | {videoCount} 则视频已被删除
       This video cannot be moved down.: 无法下移此视频。
       This playlist is now used for quick bookmark: 此播放列表现用于快速添加书签
-      Quick bookmark disabled: 停用了快速添加书签
       Reverted to use {oldPlaylistName} for quick bookmark: 恢复到使用播放列表 {oldPlaylistName}
         进行快速添加书签操作
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放列表现用于快速添加书签，而非
@@ -210,7 +206,6 @@ User Playlists:
   Add to Favorites: 添加到播放列表 {playlistName}
   Enable Quick Bookmark With This Playlist: 开启使用此播放列表来快速添加书签
   Remove from Favorites: 从播放列表 {playlistName} 删除
-  Disable Quick Bookmark: 停用快速添加书签
   Playlists with Matching Videos: 有匹配视频的播放列表
   Quick Bookmark Enabled: 启用了快速书签
   Cannot delete the quick bookmark target playlist.: 无法删除快速书签目标播放列表。
@@ -252,7 +247,6 @@ Settings:
       End: '结尾'
       Hidden: 隐藏缩略图
       Blur: 模糊
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries
     Check for Updates: 检查更新
@@ -345,7 +339,6 @@ Settings:
     Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
     Player Settings: '播放器'
-    Remember History: '记住历史'
     Play Next Video: '播放下一视频'
     Turn on Subtitles by Default: '默认开启字幕'
     Autoplay Videos: '自动播放视频'
@@ -397,40 +390,10 @@ Settings:
   Subscription Settings:
     Subscription Settings: '订阅'
     Hide Videos on Watch: '观看时隐藏视频'
-    Subscriptions Export Format:
-      Subscriptions Export Format: '导出订阅格式'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: '管理订阅'
-    Import Subscriptions: '导入订阅'
-    Export Subscriptions: '导出订阅'
-    How do I import my subscriptions?: '如何导入我的订阅？'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
     Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
     Confirm Before Unsubscribing: 避免意外取消订阅
-  Advanced Settings:
-    Advanced Settings: '高级设置'
-    Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': '代理地址（例如：SOCKS5://127.0.0.1:9050）'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '点击“测试代理”键将发送请求给https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: '用Tor / 代理给API呼叫'
-    TEST PROXY: '测试代理'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '显示公共实例'
-    Clear History:
-      Clear History: '清除历史记录'
-      # On Click
-      Are you sure you want to delete your history?: '您确认想删除您的历史记录？'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: '清除订阅'
-      # On Click
-      Are you sure you want to remove all subscriptions?: '您确定想移除所有订阅？'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史记录？
@@ -469,14 +432,10 @@ Settings:
     Export YouTube: 导出YouTube
     Export FreeTube: 导出FreeTube
     Export Subscriptions: 导出订阅
-    Import NewPipe: 导入NewPipe
-    Import YouTube: 导入YouTube
-    Import FreeTube: 导入FreeTube
     Import Subscriptions: 导入订阅
     Select Export Type: 选择导出类型
     Select Import Type: 选择导入类型
     Data Settings: 数据
-    Check for Legacy Subscriptions: 检查传统订阅
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表
     Export Playlists: 导出播放列表
@@ -528,7 +487,6 @@ Settings:
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
-    Blur Thumbnails: 模糊缩略图
     Hide Subscriptions Community: 隐藏订阅社区
     Hide Channels Invalid: 提供的频道 ID 无效
     Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
@@ -604,33 +562,12 @@ Settings:
     Set Password To Prevent Access: 设置密码防止访问设置
     Set Password: 设置密码
     Remove Password: 删除密码
-  Expand All Settings Sections: 展开所有设置部分
   Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
   Return to Settings Menu: 返回设置菜单
 About:
   #On About page
   About: '关于'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': '这个自由软件发布在AGPL-3.0自由许可证下。'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    发现bug？想建议新功能？想帮助？查看我们的GitHub页面。 欢迎pull requests。
-
-  Thank you very much to the People and Projects that make FreeTube possible!: '非常感谢让FreeTube变得有可能的人和项目！'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '想聊天？加入我们的Element
-    / Matrix服务器。加入前请检查规则。'
-
-  'Looking for help? Check out our Wiki page.': '寻求帮助？查看我们的Wiki页面。'
-
-  Check out our Firefox extension!: '查看我们的Firefox插件！'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': '如果您喜欢使用FreeTube，考虑通过Liberapay或者Bitcoin地址捐赠。'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: '最新FreeTube新闻'
-
 #On Channel Page
   Source code: 源代码
   Beta: 测试版
@@ -647,8 +584,6 @@ About:
   FreeTube Wiki: FreeTube维基
   Help: 说明
   GitHub releases: GitHub 版本
-  View License: 查看授权
-  Licensed under the AGPLv3: 以 AGPLv3 协议授权
   Please check for duplicates before posting: 请在发布前检查是否与现有问题重复
   GitHub issues: Github 问题
   Report a problem: 报告问题
@@ -660,8 +595,6 @@ About:
   Licensed under the: 许可依据
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: '订阅者'
-  Subscribers: '订阅者'
   Subscribe: '订阅'
   Unsubscribe: '取消订阅'
   Search Channel: '搜索频道'
@@ -868,9 +801,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
-  Videos: '视频'
-  View: '观看'
-  Views: '观看'
   Last Updated On: '最后更新于'
 
 # On Video Watch Page
@@ -888,7 +818,6 @@ Playlist:
     VideoTitleAscending: 标题（A-Z）
     VideoDurationAscending: 持续时间（最短的优先）
     VideoDurationDescending: 持续时间（最长的优先）
-Toggle Theatre Mode: '切换剧场模式'
 Change Format:
   Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
@@ -948,7 +877,6 @@ Local API Error (Click to copy): '本地API错误（点击复制）'
 Invidious API Error (Click to copy): 'Invidious API错误（点击复制）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to Local API: '回退到本地API'
-Subscriptions have not yet been implemented: '订阅功能尚未被推行'
 Loop is now disabled: '循环播放现在被禁用'
 Loop is now enabled: '循环播放现在被允许'
 Shuffle is now disabled: '随机播放现在被禁用'
@@ -1053,7 +981,6 @@ Search Bar:
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
-Hashtags have not yet been implemented, try again later: 话题标签功能尚未实现，请稍后再试
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
@@ -1069,11 +996,9 @@ New Window: 新窗口
 Channels:
   Search bar placeholder: 搜索频道
   Count: 找到了 {number} 个频道。
-  Unsubscribe: 取消订阅
   Channels: 频道
   Title: 频道列表
   Empty: 你的频道列表当前为空。
-  Unsubscribed: 从你的订阅里删除了 {channelName}
   Unsubscribe Prompt: 你确定你要取消订阅 "{channelName}" 吗？
 Clipboard:
   Copy failed: 未能复制到剪贴板

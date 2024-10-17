@@ -115,8 +115,6 @@ Channels:
   Search bar placeholder: ''
   Count: ''
   Empty: ''
-  Unsubscribe: ''
-  Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
@@ -129,8 +127,6 @@ Most Popular: ''
 Playlists: ''
 User Playlists:
   Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
   Search bar placeholder: ''
 History:
@@ -319,7 +315,6 @@ Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
     Fetch Automatically: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
@@ -329,7 +324,6 @@ Settings:
       Channel Page: ''
       Watch Page: ''
       General: ''
-    Blur Thumbnails: ''
     Hide Video Views: ''
     Hide Video Likes And Dislikes: ''
     Hide Channel Subscribers: ''
@@ -368,7 +362,6 @@ Settings:
     Subscription File: ''
     History File: ''
     Playlist File: ''
-    Check for Legacy Subscriptions: ''
     Export Subscriptions: ''
     Export FreeTube: ''
     Export YouTube: ''
@@ -453,8 +446,6 @@ About:
   About: ''
   Beta: ''
   Source code: ''
-  Licensed under the AGPLv3: ''
-  View License: ''
   Downloads / Changelog: ''
   GitHub releases: ''
   Help: ''
@@ -684,15 +675,11 @@ Playlist:
   #& About
   Playlist: ''
   View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -791,9 +778,7 @@ Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to Local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''

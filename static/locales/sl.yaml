@@ -105,13 +105,6 @@ Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
 User Playlists:
   Your Playlists: 'Vaši seznami predvajanja'
-  Playlist Message: Ta stran ne odraža stanja popolnoma delujočih seznamov predvajanja.
-    Na njej so prikazani zgolj videoposnetki, ki ste jih shranili ali označili kot
-    priljubljene. Ko bo delo končano, bodo ti videoposnetki preseljeni v Seznam priljubljenih
-    videoposnetkov.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nimate
-    shranjenih videoposnetkov. Kliknite na gumb Shrani v kotu videoposnetka, da bo
-    ta dodan tukaj
   Search bar placeholder: Iskanje v seznamu predvajanja
   Empty Search Message: Na tem seznamu predvajanja ni videoposnetkov, ki bi ustrezali
     vašemu iskanju
@@ -150,8 +143,6 @@ Settings:
       Beginning: 'Začetek'
       Middle: 'Sredina'
       End: 'Konec'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanca
-      (prevzeta je https://invidious.snopyta.org)'
     Region for Trending: 'Regija za priljubljene videoposnetke'
         #! List countries
     View all Invidious instance information: Prikaži vse podatke o Invidious domeni
@@ -297,15 +288,11 @@ Settings:
     Subscription Settings: 'Nastavitve naročnin'
     Hide Videos on Watch: 'Skrij gledane videoposnetke'
     Fetch Feeds from RSS: 'Pridobi vire iz RSS'
-    Manage Subscriptions: 'Upravljanje z naročninami'
   Data Settings:
     Data Settings: 'Podatkovne nastavitve'
     Select Import Type: 'Izberi uvozno obliko'
     Select Export Type: 'Izberi izvozno obliko'
     Import Subscriptions: 'Uvozi naročnine'
-    Import FreeTube: 'Uvozi iz FreeTube'
-    Import YouTube: 'Uvozi iz YouTube'
-    Import NewPipe: 'Uvozi iz NewPipe'
     Export Subscriptions: 'Izvozi naročnine'
     Export FreeTube: 'Izvozi za FreeTube'
     Export YouTube: 'Izvozi za YouTube'
@@ -333,33 +320,7 @@ Settings:
     Unable to write file: 'Datoteke ni možno prebrati'
     Unknown data key: 'Neznan podatkovni ključ'
     How do I import my subscriptions?: 'Kako lahko uvozim moje naročnine?'
-    Check for Legacy Subscriptions: Poišči zapuščinske naročnine
     Manage Subscriptions: Upravljaj z naročninami
-  Advanced Settings:
-    Advanced Settings: 'Napredne nastavitve'
-    Enable Debug Mode (Prints data to the console): 'Vklopi razhroščevalni način (podatke
-      prikaže v konzoli)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy naslov (primer: SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Če
-      kliknete gumb "Preizkusi Proxy", bo poslana zahteva na https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Uporabi Tor/Proxy za API klice'
-    TEST PROXY: 'Preizkusi Proxy'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Prikaži javne domene'
-    Clear History:
-      Clear History: 'Izbriši zgodovino'
-      # On Click
-      Are you sure you want to delete your history?: 'Ste prepričani, da želite izbrisati
-        vašo zgodovino?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Izbriši naročnine'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Ste prepričani, da želite
-        izbrisati vse naročnine?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Live Chat: Skrij klepet v živo
@@ -411,33 +372,6 @@ About:
   #On About page
   About: 'O programu'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ta
-    programska oprema je objavljena pod odprto licenco AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Ste našli napako? Želite prelagati novo funkcijo? Želite priskočiti na pomoč?
-    Pojdite na našo GitHub stran. Pull request-i so dobrodošli.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Najlepša
-    hvala projektom in osebam, zaradi katerih je FreeTube mogoč!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Si
-    želite pogovora? Pridružite se našemu Element/Matrix strežniku. Prosimo, pred
-    včlanitvijo preberite pravila.'
-
-  'Looking for help? Check out our Wiki page.': 'Potrebujete pomoč? Oglejte si našo
-    Wiki stran.'
-
-  Check out our Firefox extension!: 'Preizkusite naš Firefox dodatek!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Če
-    radi uporabljate FreeTube, bi bili zelo veseli donacije preko LiberaPay ali našega
-    Bitcoin naslova.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Najnovejše FreeTube novice'
-
   Donate: Doniraj
   these people and projects: teh ljudi in projektov
   FreeTube is made possible by: FreeTube obstaja zaradi
@@ -459,8 +393,6 @@ About:
   Help: Pomoč
   GitHub releases: Github izdaje
   Downloads / Changelog: Prenosi in dnevnik sprememb
-  View License: Ogled licence
-  Licensed under the AGPLv3: Licencirano pod AGPLv3
   Source code: Izvirna koda
   Beta: Beta
 Profile:
@@ -508,8 +440,6 @@ Profile:
   Profile Filter: Filter profilov
   Profile Settings: Nastavitve profila
 Channel:
-  Subscriber: 'Naročnik'
-  Subscribers: 'Naročnikov'
   Subscribe: 'Naroči se'
   Unsubscribe: 'Prekini naročnino'
   Channel has been removed from your subscriptions: 'Kanal je bil odstranjen iz vaših
@@ -631,16 +561,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Pokaži celoten seznam predvajanja'
-  Videos: 'Videoposnetki'
-  View: 'Ogled'
-  Views: 'Ogledi'
   Last Updated On: 'Nazadnje posodobljeno dne'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Seznam predvajanja
-Toggle Theatre Mode: 'Preklopi gledališki način'
 Change Format:
   Change Media Formats: 'Spremeni vrsto videoposnetka'
   Use Dash Formats: 'Uporabi DASH oblike'
@@ -697,7 +623,6 @@ Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
 Falling back to Local API: 'Začasno bo uporabljen lokalni APV'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek
   zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
-Subscriptions have not yet been implemented: 'Naročnine še niso bile implementirane'
 Loop is now disabled: 'Ponovno predvajanje je izklopljeno'
 Loop is now enabled: 'Ponovno predvajanje je vklopljeno'
 Shuffle is now disabled: 'Mešanje je izklopljeno'
@@ -731,9 +656,7 @@ Channels:
   Title: Seznam kanalov
   Search bar placeholder: Išči kanale
   Empty: Vaš seznam kanalov je trenutno prazen.
-  Unsubscribe: Prekini naročnino
   Count: Najdenih {number} kanalov.
-  Unsubscribed: '{channelName} je bil odstranjen iz vašega seznama kanalov'
   Unsubscribe Prompt: Ali ste prepričani, da želite prekiniti naročnino od "{channelName}"?
 Are you sure you want to open this link?: Ali ste prepričani, da želite odpreti to
   povezavo?

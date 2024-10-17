@@ -137,18 +137,9 @@ Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
 User Playlists:
   Your Playlists: 'Ваше плејлисте'
-  Playlist Message: 'Ова страница не одражава потпуно функционалне плејлисте. Наводи
-    само видео снимке које сте сачували или означили као фаворите. Када се посао заврши,
-    сви видео снимци који су тренутно овде биће пребачени на плејлисту „Омиљено“.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Немате
-    сачуване видео снимке. Кликните на дугме за чување у углу видео снимка да бисте
-    га додали на ову листу'
   Empty Search Message: На овој плејлисти нема видео снимака који одговарају вашој
     претрази
   Search bar placeholder: Претрага плејлиста
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Желите
-    ли заиста да уклоните све одгледане видео снимке са ове плејлисте? Ово се не може
-    поништити.
   AddVideoPrompt:
     Search in Playlists: Претрага у плејлистама
     Save: Сачувај
@@ -193,7 +184,6 @@ User Playlists:
       This video cannot be moved down.: Овај видео снимак се не може померити надоле.
       This playlist is now used for quick bookmark: Ова плејлиста се сада користи
         за брзо обележавање
-      Quick bookmark disabled: Брзо обележавање је онемогућено
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ова
         плејлиста се сада користи за брзо обележавање, уместо „{oldPlaylistName}“.
         Кликните овде да поништите
@@ -247,7 +237,6 @@ User Playlists:
   Copy Playlist: Копирај плејлисту
   Playlist Description: Опис плејлисте
   Enable Quick Bookmark With This Playlist: Омогући брзо обележавање помоћу ове плејлисте
-  Disable Quick Bookmark: Онемогући брзо обележавање
   Add to Favorites: Додај на плејлисту „{playlistName}“
   Remove from Favorites: Уклони са плејлисте „{playlistName}“
   Playlists with Matching Videos: Плејлисте с подударајућим видео снимцима
@@ -302,8 +291,6 @@ Settings:
       End: 'Крај'
       Hidden: Скривено
       Blur: Замагљено
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious инстанца
-      (Подразумевано је https://invidious.snopyta.org)'
     View all Invidious instance information: 'Погледај све информације о Invidious
       инстанци'
     Region for Trending: 'Регион за „У тренду“'
@@ -476,7 +463,6 @@ Settings:
     Subscription Settings: 'Праћење'
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
-    Manage Subscriptions: 'Управљање праћењима'
     Fetch Automatically: Аутоматски прикупи фид
     Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
       сваки канал
@@ -493,7 +479,6 @@ Settings:
     Hide Playlists: 'Сакриј плејлисте'
     Hide Live Chat: 'Сакриј ћаскање уживо'
     Hide Active Subscriptions: 'Сакриј активна праћења'
-    Blur Thumbnails: Замагли сличице
     Hide Channels Placeholder: ID канала
     Hide Video Description: Сакриј опис видео снимка
     Hide Chapters: Сакриј поглавља
@@ -535,10 +520,6 @@ Settings:
     Select Import Type: 'Избор врсте увоза'
     Select Export Type: 'Избор врсте извоза'
     Import Subscriptions: 'Увоз праћења'
-    Import FreeTube: 'Увоз FreeTube'
-    Import YouTube: 'Увоз YouTube'
-    Import NewPipe: 'Увоз NewPipe'
-    Check for Legacy Subscriptions: 'Провера застарелих праћења'
     Export Subscriptions: 'Извоз праћења'
     Export FreeTube: 'Извоз FreeTube-а'
     Export YouTube: 'Извоз YouTube-а'
@@ -653,7 +634,6 @@ Settings:
     Password: Лозинка
     Enter Password To Unlock: Унесите лозинку да бисте откључали подешавања
     Unlock: Откључај
-  Expand All Settings Sections: Прошири све одељке подешавања
   Sort Settings Sections (A-Z): Сортирање одељка подешавања (A-Z)
   Return to Settings Menu: Врати се у мени подешавања
 About:
@@ -661,8 +641,6 @@ About:
   About: 'О апликацији'
   Beta: 'Бета'
   Source code: 'Изворни кôд'
-  Licensed under the AGPLv3: 'Лиценцирано под AGPLv3'
-  View License: 'Погледај лиценцу'
   Downloads / Changelog: 'Преузимања / Евиденција промена'
   GitHub releases: 'GitHub издања'
   Help: 'Помоћ'
@@ -738,8 +716,6 @@ Profile:
   Edit Profile Name: Измени име профила
   Create Profile Name: Направи име профила
 Channel:
-  Subscriber: 'Пратилац'
-  Subscribers: 'Пратиоци'
   Subscribe: 'Запрати'
   Unsubscribe: 'Прекини праћење'
   Channel has been removed from your subscriptions: 'Канал је уклоњен из ваших праћења'
@@ -1024,7 +1000,6 @@ Tooltips:
     UseDeArrowTitles: Замена наслова видео снимака насловима које су послали корисници
       DeArrow-a.
     UseDeArrowThumbnails: Замените сличице видео снимака сличицама из DeArrow-а.
-Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено
 New Window: Нови прозор
@@ -1035,10 +1010,7 @@ Clipboard:
 Playlist:
   View Full Playlist: Погледај целу плејлисту
   Last Updated On: Последњи пут ажурирано
-  Videos: Видео снимци
-  View: Преглед
   Playlist: Плејлиста
-  Views: Прегледа
   Sort By:
     DateAddedOldest: Најраније додато прво
     AuthorAscending: Аутор (A-Z)
@@ -1089,8 +1061,6 @@ Comments:
   And others: и осталих
   Newest first: Најновије прво
   There are no comments available for this post: Нема доступних коментара за ову објаву
-Hashtags have not yet been implemented, try again later: Хеш-ознаке још увек нису
-  имплементиране, покушајте поново касније
 Share:
   Invidious Embed URL copied to clipboard: Invidious уграђени URL је копиран у привремену
     меморију
@@ -1132,9 +1102,7 @@ Channels:
   Channels: Канали
   Title: Листа канала
   Empty: Ваша листа канала је тренутно празна.
-  Unsubscribe: Прекини праћење
   Count: 'Пронађено канала: {number}.'
-  Unsubscribed: '{channelName} је уклоњен из ваших праћења'
 External link opening has been disabled in the general settings: Отварање спољног
   линка је онемогућено у општим подешавањима
 Screenshot Success: Снимак екрана је сачуван као „{filePath}“
@@ -1164,7 +1132,6 @@ Preferences: Преференце
 Default Invidious instance has been cleared: Подразумевана инстанца Invidious-а је
   избрисана
 Mini Player: Мини плејер
-Toggle Theatre Mode: Укључи биоскопски режим
 'The playlist has ended. Enable loop to continue playing': Плејлиста је завршена.
   Омогућите понављање да бисте наставили пуштање
 Shuffle is now enabled: Мешање је сада омогућено

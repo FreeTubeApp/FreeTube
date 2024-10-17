@@ -130,13 +130,6 @@ Most Popular: 'Mais populares'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Suas playlists'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
-    seus vídeos salvos estão vazios. Clique no botão salvar no canto de um vídeo para
-    que ele seja listado aqui
-  Playlist Message: Esta página não reflete playlists totalmente funcionais. Ela lista
-    apenas os vídeos que você salvou ou adicionou aos favoritos. Quando o trabalho
-    terminar, todos os vídeos atualmente aqui serão migrados para uma playlist chamada
-    "Favoritos".
   Search bar placeholder: Pesquisar playlists
   Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
   You have no playlists. Click on the create new playlist button to create a new one.: Você
@@ -166,7 +159,6 @@ User Playlists:
   Edit Playlist Info: Editar informação da playlist
   Copy Playlist: Copiar playlist
   Enable Quick Bookmark With This Playlist: Habilitar "Quick Bookmark" para esta playlist
-  Disable Quick Bookmark: Desativar Favoritos Rápidos
   Delete Playlist: Excluir playlist
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que deseja excluir esta playlist? Isto não pode ser desfeito.
@@ -184,7 +176,6 @@ User Playlists:
     Toast:
       This playlist is now used for quick bookmark: Esta playlist agora é usada como
         "Quick Bookmark"
-      Quick bookmark disabled: Favoritos Rápidos desativado
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
         playlist agora é usada como "Quick Bookmark" em vez de "{oldPlaylistName}".
         Clique aqui para desfazer
@@ -237,9 +228,6 @@ User Playlists:
       vídeos serão adicionados'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       vídeos já adicionados'
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
-    certeza de que deseja remover todos os vídeos assistidos desta playlist? Isto
-    não pode ser desfeito.
   Remove Watched Videos: Remove vídeos assistidos
   Playlists with Matching Videos: Playlists com vídeos correspondentes
   Quick Bookmark Enabled: Quick Bookmark ativado
@@ -288,8 +276,6 @@ Settings:
       End: 'No fim'
       Hidden: Escondido
       Blur: Desfocar
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
-      Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região'
         #! List countries
     Check for Updates: Buscar por atualizações
@@ -385,7 +371,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube na barra superior
   Player Settings:
     Player Settings: 'Player'
-    Remember History: 'Lembrar do histórico'
     Play Next Video: 'Reproduzir próximo vídeo'
     Turn on Subtitles by Default: 'Ativar legendas por padrão'
     Autoplay Videos: 'Reprodução automática de vídeos'
@@ -442,46 +427,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Inscrições'
     Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
-    Subscriptions Export Format:
-      Subscriptions Export Format: 'Formato de exportação das inscrições'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Gerenciar inscrições'
-    Import Subscriptions: 'Importar inscrições'
-    Export Subscriptions: 'Exportar inscrições'
-    How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
     Fetch Feeds from RSS: Buscar Informações através de RSS
     Fetch Automatically: Buscar feed automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas vídeo mais recente para
       cada canal
     Confirm Before Unsubscribing: Evitar cancelamento acidental de inscrições
-  Advanced Settings:
-    Advanced Settings: 'Configurações avançadas'
-    Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
-      dados no console)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de proxy (ex.:
-      SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Clicar
-      em "TESTAR PROXY" enviara uma requisição para https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Usar tor / proxy para chamadas da API'
-    TEST PROXY: 'TESTAR PROXY'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Ver instâncias públicas'
-    Clear History:
-      Clear History: 'Apagar histórico'
-      # On Click
-      Are you sure you want to delete your history?: 'Tens certeza que queres apagar
-        teu histórico?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Apagar inscrições'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Tens certeza que queres
-        remover todas as tuas inscrições?'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Watch history has been cleared: O histórico de exibição foi apagado
@@ -519,10 +469,6 @@ Settings:
     Export YouTube: Exportar YouTube
     Export FreeTube: Exportar FreeTube
     Export Subscriptions: Exportar inscrições
-    Check for Legacy Subscriptions: Verificar se há inscrições em formato antigo
-    Import NewPipe: Importar NewPipe
-    Import YouTube: Importar YouTube
-    Import FreeTube: Importar FreeTube
     Import Subscriptions: Importar inscrições
     Select Export Type: Escolher tipo de exportação
     How do I import my subscriptions?: Como faço para importar minhas inscrições?
@@ -599,7 +545,6 @@ Settings:
     Hide Subscriptions Shorts: Ocultar "Shorts" de suas inscrições
     Hide Subscriptions Live: Ocultar transmissões ao vivo de suas inscrições
     Hide Profile Pictures in Comments: Ocultar foto do perfil nos comentários
-    Blur Thumbnails: Desfocar Miniaturas
     Hide Subscriptions Community: Ocultar comunidade de suas inscrições
     Hide Channels Invalid: ID do canal fornecido é inválido
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram
@@ -686,39 +631,12 @@ Settings:
     Password Incorrect: Senha incorreta
     Password: Senha
     Enter Password To Unlock: Digite a senha para desbloquear as configurações
-  Expand All Settings Sections: Expandir todas as seções de configurações
   Sort Settings Sections (A-Z): Classificar seções de configurações (A-Z)
   Return to Settings Menu: Retornar ao menu de configurações
 About:
   #On About page
   About: 'Sobre'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
-    software é Livre sob a licença AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Encontrastes um problema? Tens uma sugestão de funcionalidade? Queres ajudar?
-    Veja como na nossa página na GitHub. PR são bem-vindas.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Muito
-    Obrigado a todas as pessoas e projetos que tornam o FreeTube possível!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Queres
-    conversar? Junte-se ao nosso servidor Element/Matrix. Verifique as regras antes
-    de juntar-se.'
-
-  'Looking for help? Check out our Wiki page.': 'Procurastes ajuda? Veja na nossa
-    página Wiki.'
-
-  Check out our Firefox extension!: 'Experimente nosso complemento do Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Gosta
-    de usar o FreeTube, considere realizar uma doação via Liberapay ou via Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Ultimas notícias sobre o FreeTube'
-
 #On Channel Page
   GitHub issues: Relatórios no GitHub
   Report a problem: Informar um problema
@@ -727,8 +645,6 @@ About:
   Help: Ajuda
   GitHub releases: Lançamentos do GitHub
   Downloads / Changelog: Downloads / Modificações
-  View License: Ver Licença
-  Licensed under the AGPLv3: Licença AGPLv3
   Source code: Código-fonte
   Beta: Beta
   Donate: Fazer doação
@@ -749,8 +665,6 @@ About:
   Licensed under the: Licenciado sob o
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: 'Inscrito'
-  Subscribers: 'Inscritos'
   Subscribe: 'Inscrever-se'
   Unsubscribe: 'Remover inscrição'
   Search Channel: 'Buscar no canal'
@@ -977,9 +891,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Visualizar playlist completa'
-  Videos: 'Vídeos'
-  View: 'Visualização'
-  Views: 'Visualizações'
   Last Updated On: 'Atualizado em'
 
 # On Video Watch Page
@@ -997,7 +908,6 @@ Playlist:
     VideoTitleDescending: Título (Z-A)
     VideoDurationAscending: Duração (a mais curta primeiro)
     VideoDurationDescending: Duração (a mais longa primeiro)
-Toggle Theatre Mode: 'Alternar "Modo Teatro"'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'
@@ -1066,7 +976,6 @@ Local API Error (Click to copy): 'Erro da API local (clique para copiar)'
 Invidious API Error (Click to copy): 'Erro da API do Invidious (clique para copiar)'
 Falling back to Invidious API: 'Recorrendo à API do Invidious'
 Falling back to Local API: 'Recorrendo à API local'
-Subscriptions have not yet been implemented: 'Inscrições ainda não foram implementadas'
 Loop is now disabled: 'Modo de repetição desativado'
 Loop is now enabled: 'Modo de repetição ativado'
 Shuffle is now disabled: 'Reprodução aleatória desativada'
@@ -1216,8 +1125,6 @@ Playing Next Video Interval: A reproduzir o próximo vídeo imediatamente. Cliqu
   cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundo. Clique
   para cancelar. | A reproduzir o próximo vídeo em {nextVideoInterval} segundos. Clique
   para cancelar.
-Hashtags have not yet been implemented, try again later: Hashtags ainda não foram
-  implementadas, tente novamente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
   não pode ser aberta no aplicativo
 Open New Window: Abrir uma nova janela
@@ -1238,8 +1145,6 @@ Channels:
   Title: Lista de canais
   Search bar placeholder: Buscar canais
   Empty: Sua lista de canais está vazia no momento.
-  Unsubscribe: Cancelar inscrição
-  Unsubscribed: '"{channelName}" foi removido de suas inscrições'
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canais encontrados.'
 Screenshot Success: Captura de tela salva em "{filePath}"
