@@ -49,7 +49,6 @@ export default defineComponent({
         'gruvboxLight',
         'solarizedDark',
         'solarizedLight'
-        'solarizedLight',
       ]
     }
   },
