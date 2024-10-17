@@ -46,7 +46,9 @@ export default defineComponent({
         'catppuccinMocha',
         'dracula',
         'solarizedDark',
-        'solarizedLight'
+        'solarizedLight',
+        'gruvboxDark',
+        'gruvboxLight'
       ]
     }
   },
@@ -118,7 +120,9 @@ export default defineComponent({
         this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
         this.$t('Settings.Theme Settings.Base Theme.Dracula'),
         this.$t('Settings.Theme Settings.Base Theme.Solarized Dark'),
-        this.$t('Settings.Theme Settings.Base Theme.Solarized Light')
+        this.$t('Settings.Theme Settings.Base Theme.Solarized Light'),
+        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
+        this.$t('Settings.Theme Settings.Base Theme.Gruvbox Light')
       ]
     },
 

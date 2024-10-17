@@ -346,6 +346,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarized Dark
       Solarized Light: Solarized Light
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -393,6 +395,13 @@ Settings:
       Solarized Blue: Solarized Blue
       Solarized Cyan: Solarized Cyan
       Solarized Green: Solarized Green
+      Gruvbox Red: Gruvbox Red
+      Gruvbox Green: Gruvbox Green
+      Gruvbox Yellow: Gruvbox Yellow
+      Gruvbox Blue: Gruvbox Blue
+      Gruvbox Purple: Gruvbox Purple
+      Gruvbox Aqua: Gruvbox Aqua
+      Gruvbox Orange: Gruvbox Orange
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
