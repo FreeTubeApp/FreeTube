@@ -123,8 +123,6 @@ Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
   Your Playlists: '您的播放清單'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
-  Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
   Search bar placeholder: 搜尋播放清單
   Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
   This playlist currently has no videos.: 此播放清單目前沒有影片。
@@ -166,7 +164,6 @@ User Playlists:
       Playlist {playlistName} has been deleted.: 播放清單 {playlistName} 已刪除。
       This playlist does not exist: 此播放清單不存在
       This playlist is now used for quick bookmark: 此播放清單現在用於快速書籤
-      Quick bookmark disabled: 快速書籤已停用
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放清單現在用於快速書籤，而非
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
@@ -204,12 +201,9 @@ User Playlists:
   You have no playlists. Click on the create new playlist button to create a new one.: 您沒有播放清單。按一下建立新播放清單按鈕以建立新的。
   Save Changes: 儲存變更
   Remove Watched Videos: 移除已觀看的影片
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中移除所有觀看過的影片嗎？
-    這無法還原。
   Add to Favorites: 新增至 {playlistName}
   Remove from Favorites: 從 {playlistName} 移除
   Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
-  Disable Quick Bookmark: 停用快速書籤
   Playlists with Matching Videos: 包含相符影片的播放清單
   Quick Bookmark Enabled: 已啟用快速書籤
   Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
@@ -251,8 +245,6 @@ Settings:
       End: '片尾'
       Hidden: 隱藏
       Blur: 模糊
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
-      https://invidious.snopyta.org )'
     Region for Trending: '發燒影片區域'
         #! List countries
     Check for Latest Blog Posts: 檢查最新的部落格貼文
@@ -345,7 +337,6 @@ Settings:
     Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
     Player Settings: '播放器'
-    Remember History: '記住曆史'
     Play Next Video: '播放下一部影片'
     Turn on Subtitles by Default: '預設開啟字幕'
     Autoplay Videos: '自動播放影片'
@@ -398,40 +389,10 @@ Settings:
   Subscription Settings:
     Subscription Settings: '訂閱'
     Hide Videos on Watch: '觀看時隱藏影片'
-    Subscriptions Export Format:
-      Subscriptions Export Format: '導出訂閱格式'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: '管理訂閱'
-    Import Subscriptions: '導入訂閱'
-    Export Subscriptions: '導出訂閱'
-    How do I import my subscriptions?: '如何導入我的訂閱？'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Only Show Latest Video for Each Channel: 只顯示每個頻道的最新影片
     Confirm Before Unsubscribing: 避免意外取消訂閱
-  Advanced Settings:
-    Advanced Settings: '進階設定'
-    Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': '代理位址（例如：SOCKS5://127.0.0.1:9050）'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '點擊“測試代理”健將傳送要求給https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: '用Tor / 代理給API呼叫'
-    TEST PROXY: '測試代理'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '察看公用實例'
-    Clear History:
-      Clear History: '清除曆史紀錄'
-      # On Click
-      Are you sure you want to delete your history?: '您確認想刪除您的曆史紀錄？'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: '清除訂閱'
-      # On Click
-      Are you sure you want to remove all subscriptions?: '您確定想移除所有訂閱？'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Watch history has been cleared: 已刪除觀看紀錄
@@ -470,14 +431,10 @@ Settings:
     Export YouTube: 匯出YouTube
     Export FreeTube: 匯出FreeTube
     Export Subscriptions: 匯出訂閱
-    Import NewPipe: 匯入NewPipe
-    Import YouTube: 匯入YouTube
-    Import FreeTube: 匯入FreeTube
     Import Subscriptions: 匯入訂閱
     Select Export Type: 選取匯出類型
     Select Import Type: 選取匯入類型
     Data Settings: 資料
-    Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單
     All playlists has been successfully imported: 所有播放清單都已成功匯入
@@ -528,7 +485,6 @@ Settings:
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
     Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
-    Blur Thumbnails: 模糊縮圖
     Hide Subscriptions Community: 隱藏訂閱社群
     Hide Channels Invalid: 提供的頻道 ID 無效
     Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
@@ -604,51 +560,21 @@ Settings:
     Enter Password To Unlock: 輸入密碼以解鎖設定
     Password Incorrect: 密碼不正確
     Unlock: 解鎖
-  Expand All Settings Sections: 展開所有設定
   Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
   Return to Settings Menu: 回到設定選單
 About:
   #On About page
   About: '關於'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': '這個自由軟體發布在AGPL-3.0自由許可證下。'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    發現bug？想建議新功能？想輔助說明？檢視我們的GitHub頁面。 歡迎pull requests。
-
-  Thank you very much to the People and Projects that make FreeTube possible!: '非常感謝讓FreeTube變得有可能的人和項目！'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '想聊天？加入我們的Element
-    / Matrix伺服器。加入前請檢查規則。'
-
-  'Looking for help? Check out our Wiki page.': '尋求輔助說明？檢視我們的Wiki頁面。'
-
-  Check out our Firefox extension!: '檢視我們的Firefox插件！'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': '如果您喜歡使用FreeTube，考慮通過Liberapay或者Bitcoin位址捐贈。'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: '最新FreeTube新聞'
-
 #On Channel Page
-  Translate via Weblate: 透過 Weblate 翻譯
   Website: 網站
-  Source Code: 原始碼
-  Release Notes: 版本註記
   Blog: 部落格
   Credits: 貢獻者
   FAQ: 常見問題
-  Wiki: Wiki
-  Report an Issue: 回報問題
-  Channel Rules: 頻道規則
   Email: 電子郵件
-  License: 授權條款
   Beta: 測試版
   Donate: 捐款
-  Useful Links: 有用連結
   Help: 說明
-  Contact: 聯絡
   these people and projects: 這些人與專案
   FreeTube is made possible by: FreeTube 誕生都要感謝這些人
   Translate: 翻譯
@@ -662,15 +588,11 @@ About:
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub 版本
   Downloads / Changelog: 下載 / 變更紀錄
-  View License: 檢視授權條款
-  Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
   Discussions: 討論
   Licensed under the: 授權以
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: '訂閱者'
-  Subscribers: '訂閱者'
   Subscribe: '訂閱'
   Unsubscribe: '取消訂閱'
   Search Channel: '搜尋頻道'
@@ -876,9 +798,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
-  Videos: '影片'
-  View: '觀看'
-  Views: '觀看'
   Last Updated On: '最後更新於'
 
 # On Video Watch Page
@@ -896,7 +815,6 @@ Playlist:
     Custom: 自訂
     VideoDurationDescending: 持續時間（最長優先）
     VideoDurationAscending: 持續時間（最短優先）
-Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
@@ -956,7 +874,6 @@ Local API Error (Click to copy): '區域API錯誤（點擊複製）'
 Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to Local API: '回退到區域API'
-Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
 Loop is now disabled: '循環播放現在被停用'
 Loop is now enabled: '循環播放現在被啟用'
 Shuffle is now disabled: '隨機播放現在被停用'
@@ -1060,7 +977,6 @@ Tooltips:
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
-Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
 Open New Window: 開啟新視窗
 Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
@@ -1079,11 +995,9 @@ Channels:
   Channels: 頻道
   Title: 頻道清單
   Search bar placeholder: 搜尋頻道
-  Unsubscribe: 取消訂閱
   Count: 找到 {number} 個頻道。
   Empty: 您的頻道清單目前為空。
   Unsubscribe Prompt: 您確定您想要從「{channelName}」取消訂閱嗎？
-  Unsubscribed: '{channelName} 已從您的訂閱移除'
 Clipboard:
   Copy failed: 複製到剪貼簿失敗
   Cannot access clipboard without a secure connection: 無法在沒有安全連線的情況下存取剪貼簿

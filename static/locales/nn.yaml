@@ -104,12 +104,6 @@ Most Popular: 'Mest populært'
 Playlists: 'Spelelister'
 User Playlists:
   Your Playlists: 'Dine spelelister'
-  Playlist Message: 'Denne sida reflekterer ikkje fullt fungerande spelelister. Den
-    viser berre videoar som du har lagra eller lagt til favorittar. Når arbeidet er
-    ferdig, blir alle videoane som for augeblikket er her overført til ei "Favoritt"-speleliste.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
-    har ingen lagra videoar for augeblikket. Klikk på "Lagre"-knappen i hjørnet av
-    ein video slik at den bli oppført her'
   Search bar placeholder: Søk i speleliste
   Empty Search Message: Det er ingen videoar i denne spelelista som samsvarar med
     søket ditt
@@ -150,8 +144,6 @@ Settings:
       Beginning: 'Begynning'
       Middle: 'Mellom'
       End: 'Slutt'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-førekomst
-      (forvalet er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Vis informasjon om alle Invidious-førekomstar'
     Region for Trending: 'Region for "På veg opp"'
         #! List countries
@@ -300,7 +292,6 @@ Settings:
     Subscription Settings: 'Abonnementinnstillingar'
     Hide Videos on Watch: 'Skjul sette videoar'
     Fetch Feeds from RSS: 'Hent informasjonkanalar frå RSS'
-    Manage Subscriptions: 'Behandle abonnement'
     Fetch Automatically: Hent informasjonkanalar automatisk
   Distraction Free Settings:
     Distraction Free Settings: '"Ikkje forstyrr"-innstillingar'
@@ -329,10 +320,6 @@ Settings:
     Select Import Type: 'Vel importtype'
     Select Export Type: 'Vel eksporttype'
     Import Subscriptions: 'Importer abonnement'
-    Import FreeTube: 'Importer FreeTube'
-    Import YouTube: 'Importer YouTube'
-    Import NewPipe: 'Importer NewPipe'
-    Check for Legacy Subscriptions: 'Sjå etter utdaterte abonnement'
     Export Subscriptions: 'Eksporter abonnement'
     Export FreeTube: 'Eksporter FreeTube'
     Export YouTube: 'Eksporter YouTube'
@@ -442,8 +429,6 @@ About:
   About: 'Om'
   Beta: 'Beta'
   Source code: 'Kjeldekode'
-  Licensed under the AGPLv3: 'Lisensiert under AGPLv3'
-  View License: 'Vis lisens'
   Downloads / Changelog: 'Nedlastingar / Endringslogg'
   GitHub releases: 'GitHub-utgjevingar'
   Help: 'Hjelp'
@@ -511,8 +496,6 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profilinnstillingar
 Channel:
-  Subscriber: 'Abonnent'
-  Subscribers: 'Abonnentar'
   Subscribe: 'Abonner'
   Unsubscribe: 'Opphev abonnement'
   Channel has been removed from your subscriptions: 'Kanalen har blitt fjerna frå
@@ -663,16 +646,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Vis heile spelelista'
-  Videos: 'Videoar'
-  View: 'Vising'
-  Views: 'Visingar'
   Last Updated On: 'Sist oppdatert'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Speleliste
-Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Media Formats: 'Endre videoformat'
   Use Dash Formats: 'Bruk DASH-format'
@@ -797,8 +776,6 @@ Falling back to Local API: 'Faller tilbake til det lokale API-et'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Denne
   videoen er utilgjengeleg grunna manglande format. Dette kan skuldast tilgangsavgrensingar
   i ditt land.'
-Subscriptions have not yet been implemented: 'Abonnement har ikkje blitt implementert
-  enda'
 Loop is now disabled: 'Gjenta er no deaktivert'
 Loop is now enabled: 'Gjenta er no aktivert'
 Shuffle is now disabled: 'Tilfeldig avspeling er no deaktivert'
@@ -819,8 +796,6 @@ Playing Next Video Interval: Speler av neste video no. Klikk her for å avbryte.
   Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte.
 More: Meir
 Open New Window: Opne nytt vindauge
-Hashtags have not yet been implemented, try again later: Emneknaggar er ikkje implementert
-  enda, ver venleg og prøv igjen seinare
 Search Bar:
   Clear Input: Tøm inndata
 Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?
@@ -832,9 +807,7 @@ Channels:
   Search bar placeholder: Søk etter kanalar
   Count: Fant {number} kanal(ar).
   Empty: Kanallista di er tom.
-  Unsubscribed: '{channelName} blei fjerna frå dine abonnement'
   Unsubscribe Prompt: Er du sikker på at du vil avslutte abonnementet på "{channelName}"?
-  Unsubscribe: Opphev abonnement
 Screenshot Success: Lagra skjermbilete som "{filePath}"
 Screenshot Error: Skjermbilete feila. {error}
 Downloading has completed: Nedlastinga av "{videoTitle}" er fullført
