@@ -39,6 +39,13 @@ export const colors = [
   { name: 'DraculaPurple', value: '#BD93F9' },
   { name: 'DraculaRed', value: '#FF5555' },
   { name: 'DraculaYellow', value: '#F1FA8C' },
+  { name: 'GruvboxRed', value: '#fb4934' },
+  { name: 'GruvboxGreen', value: '#b8bb26' },
+  { name: 'GruvboxYellow', value: '#fabd2f' },
+  { name: 'GruvboxBlue', value: '#83a593' },
+  { name: 'GruvboxPurple', value: '#d3869b' },
+  { name: 'GruvboxAqua', value: '#8ec07c' },
+  { name: 'GruvboxOrange', value: '#fe8019' },
   { name: 'SolarizedYellow', value: '#b58900' },
   { name: 'SolarizedOrange', value: '#cb4b16' },
   { name: 'SolarizedRed', value: '#dc322f' },
@@ -47,13 +54,6 @@ export const colors = [
   { name: 'SolarizedBlue', value: '#268bd2' },
   { name: 'SolarizedCyan', value: '#2aa198' },
   { name: 'SolarizedGreen', value: '#859900' },
-  { name: 'GruvboxRed', value: '#fb4934' },
-  { name: 'GruvboxGreen', value: '#b8bb26' },
-  { name: 'GruvboxYellow', value: '#fabd2f' },
-  { name: 'GruvboxBlue', value: '#83a593' },
-  { name: 'GruvboxPurple', value: '#d3869b' },
-  { name: 'GruvboxAqua', value: '#8ec07c' },
-  { name: 'GruvboxOrange', value: '#fe8019' },
 ]
 
 export function getColorTranslations() {
@@ -95,6 +95,13 @@ export function getColorTranslations() {
     i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Purple'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Red'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Dracula Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Red'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Green'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Yellow'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Blue'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Purple'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Aqua'),
+    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Orange'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Yellow'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Orange'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Red'),
@@ -103,14 +110,6 @@ export function getColorTranslations() {
     i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Blue'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Cyan'),
     i18n.t('Settings.Theme Settings.Main Color Theme.Solarized Green'),
-
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Red'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Green'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Yellow'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Blue'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Purple'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Aqua'),
-    i18n.t('Settings.Theme Settings.Main Color Theme.Gruvbox Orange'),
   ]
 }
 
