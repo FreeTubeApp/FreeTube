@@ -184,7 +184,6 @@
 
 @media only screen and (width <= 680px) {
   .playlistPage {
-    margin-top: 0 !important;
     margin-inline: 0 !important;
 
     // this is a hack, the proper way would be to set `margin-inline: 0px;` on .routerView, but I don't know how to do that without affecting other pages
