@@ -76,7 +76,7 @@
   display: grid;
   grid-template-columns: auto minmax(min-content, 1fr);
   position: sticky;
-  bottom: -20px;
+  inset-block-end: -20px;
   background-color: var(--card-bg-color);
   padding-block: 5px;
 }

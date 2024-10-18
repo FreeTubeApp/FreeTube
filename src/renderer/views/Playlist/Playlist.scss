@@ -10,13 +10,13 @@
         position: relative;
         inset-block-start: 0;
         block-size: auto;
-        inline-size: 100%;
+        min-inline-size: 100%;
         margin-inline: 0;
       }
 
       .playlistItemsCard {
         box-sizing: border-box;
-        inline-size: 100%;
+        min-inline-size: 100%;
       }
     }
   }
@@ -103,6 +103,7 @@
     .playlistInfoContainer {
       background-color: var(--card-bg-color);
       block-size: calc(100vh - 132px);
+      min-inline-size: 30%;
       inline-size: 30%;
       inset-block-start: 96px;
       margin-block: 0;
@@ -111,11 +112,12 @@
 
       .playlistInfo {
         padding: 10px;
+        padding-inline-end: 0;
       }
     }
 
     .playlistItemsCard {
-      inline-size: 60%;
+      inline-size: 100%;
       padding: 10px;
     }
   }
@@ -184,9 +186,7 @@
 
 @media only screen and (width <= 680px) {
   .playlistPage {
-    margin-inline: 0 !important;
-
-    // this is a hack, the proper way would be to set `margin-inline: 0px;` on .routerView, but I don't know how to do that without affecting other pages
-    margin-left: -8px !important;
+    // this is a hack, the proper way would be to set `margin-inline: 0;` on .routerView, but I don't know how to do that without affecting other pages
+    margin-inline: -8px !important;
   }
 }
