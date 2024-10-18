@@ -1,7 +1,6 @@
 .card {
   margin-block: 0 60px;
   margin-inline: auto;
-  inline-size: 85%;
 }
 
 .brand {
@@ -59,11 +58,5 @@
 @media only screen and (width <=650px) {
   .about-chunks {
     grid-template-columns: 1fr;
-  }
-}
-
-@media only screen and (width <=680px) {
-  .card {
-    inline-size: 90%;
   }
 }
