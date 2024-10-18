@@ -90,6 +90,16 @@
   }
 
   &.list {
+    @media only screen and (width <= 680px) {
+      .playlistInfoContainer {
+        max-inline-size: 100vw;
+      }
+
+      .playlistItemsCard {
+        max-inline-size: 100vw;
+      }
+    }
+
     .playlistInfoContainer {
       background-color: var(--card-bg-color);
       block-size: calc(100vh - 132px);
@@ -170,4 +180,14 @@
 
 .message {
   color: var(--tertiary-text-color);
+}
+
+@media only screen and (width <= 680px) {
+  .playlistPage {
+    margin-top: 0 !important;
+    margin-inline: 0 !important;
+
+    // this is a hack, the proper way would be to set `margin-inline: 0px;` on .routerView, but I don't know how to do that without affecting other pages
+    margin-left: -8px !important;
+  }
 }
