@@ -27,6 +27,7 @@
 
 .playlistTitle {
   margin-block-end: 0.1em;
+  word-break: break-word;
 }
 
 .playlistDescription {
@@ -34,6 +35,7 @@
   overflow-y: auto;
   white-space: break-spaces;
   margin-inline: auto;
+  word-break: break-word;
 
   @media only screen and (width <= 500px) {
     max-block-size: 10vh;
@@ -153,7 +155,6 @@
   .playlistTitle,
   .top-bar .playlistDescription {
     overflow-x: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
   }
 }
