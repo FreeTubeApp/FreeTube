@@ -28,6 +28,8 @@
 .playlistTitle {
   margin-block-end: 0.1em;
   word-break: break-word;
+  max-block-size: 20vh;
+  overflow-y: scroll;
 }
 
 .playlistDescription {
@@ -36,10 +38,6 @@
   white-space: break-spaces;
   margin-inline: auto;
   word-break: break-word;
-
-  @media only screen and (width <= 500px) {
-    max-block-size: 10vh;
-  }
 }
 
 .isSideNavOpen {
@@ -77,13 +75,17 @@
   column-gap: 8px;
   display: grid;
   grid-template-columns: auto minmax(min-content, 1fr);
+  position: sticky;
+  bottom: -20px;
+  background-color: var(--card-bg-color);
+  padding-block: 5px;
 }
 
 .playlistOptions {
-  display: grid;
-  grid-auto-flow: column;
-  column-gap: 8px;
-  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
 
 .searchInputsRow {
@@ -147,15 +149,6 @@
 
   .inputElement {
     inline-size: 100%;
-  }
-}
-
-/* Only show full untruncated playlist description and title on smaller viewport sizes */
-@media only screen and (width > 680px) {
-  .playlistTitle,
-  .top-bar .playlistDescription {
-    overflow-x: hidden;
-    text-overflow: ellipsis;
   }
 }
 

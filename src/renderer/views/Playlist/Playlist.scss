@@ -31,6 +31,7 @@
 
 .playlistInfoContainer {
   box-sizing: border-box;
+  overflow-y: scroll;
 
   /* This is needed to make prompt always above video entries. Value being too high would block search suggestions */
   z-index: 1;
@@ -61,7 +62,6 @@
     }
 
     .playlistInfoContainer {
-      position: sticky;
       margin-block: -35px 16px;
       inset-block-start: calc(var(--top-bar-push-down-adjustment-default) + var(--top-bar-push-down-adjustment-edit-mode) + var(--top-bar-push-down-adjustment-no-description) + var(--top-bar-push-down-adjustment-one-or-fewer));
       padding-block: 0;
@@ -103,7 +103,7 @@
     .playlistInfoContainer {
       background-color: var(--card-bg-color);
       block-size: calc(100vh - 132px);
-      min-inline-size: 30%;
+      inline-size: 30%;
       inset-block-start: 96px;
       margin-block: 0;
       margin-inline-end: 1em;
