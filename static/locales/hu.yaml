@@ -395,14 +395,14 @@ Settings:
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerinti oldalsáv megjelenítés
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
-    Hide Side Bar Labels: Oldalsáv címkék elrejtése
+    Hide Side Bar Labels: Gombfeliratok elrejtése az oldalsávról
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
     Player Settings: 'Lejátszó'
     Play Next Video: 'Következő videó lejátszása'
     Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
     Autoplay Videos: 'Videók automatikus lejátszása'
-    Proxy Videos Through Invidious: 'Meghatalmazás videók az Invidious révén'
+    Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
     Enable Theatre Mode by Default: 'Alapértelmezetten a mozi mód engedélyezése'
     Default Volume: 'Alapértelmezett hangerő'
@@ -436,7 +436,7 @@ Settings:
       File Name Label: Fájlnévminta
       Folder Label: Képernyőképek mappa
       Folder Button: Mappa kiválasztása
-      Enable: Képernyőkép engedélyezése
+      Enable: Képernyőkép készítésének engedélyezése
       Format Label: Képernyőkép formátuma
       Error:
         Forbidden Characters: Tiltott karakterek
@@ -574,7 +574,7 @@ Settings:
     Hide Recommended Videos: Ajánlott videók elrejtése
     Hide Comment Likes: Hozzászólás-kedvelések elrejtése
     Hide Channel Subscribers: Csatorna feliratkozók elrejtése
-    Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
+    Hide Video Likes And Dislikes: Kedvelések és nemtetszések elrejtése a videóknál
     Hide Video Views: Videónézettség elrejtése
     Distraction Free Settings: Ne zavarjanak
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
@@ -982,7 +982,7 @@ Video:
     OpenInTemplate: 'Megnyitás itt: {externalPlayer}'
   Premieres on: 'Bemutató dátuma'
   Premieres: Első előadások
-  Show Super Chat Comment: Haladó csevegési hozzászólás megjelenítése
+  Show Super Chat Comment: Super Chat hozzászólás megjelenítése
   Scroll to Bottom: Görgetés legalulra
   Upcoming: Közelgő
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
@@ -1245,7 +1245,7 @@ Channels:
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltésekor
 Starting download: „{videoTitle}” letöltésének indítása
 Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
-Screenshot Success: Képernyőkép „{filePath}” néven mentve
+Screenshot Success: A képernyőkép „{filePath}” néven mentve
 Chapters:
   Chapters: Fejezetek
   'Chapters list visible, current chapter: {chapterName}': 'Fejezetlista látható,
@@ -1256,7 +1256,7 @@ Clipboard:
   Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
     nem lehet hozzáférni a vágólaphoz
   Copy failed: A vágólapra másolás nem sikerült
-Screenshot Error: A képernyőkép nem sikerült. {error}
+Screenshot Error: Nem sikerült képernyőképet készíteni. {error}
 Preferences: Beállítások
 Ok: OK
 Hashtag:
