@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
+    Like Count: 1 gosto | {count} gostos
+    Comment Count: 1 comentário | {count} comentários
   Input Tags:
     Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
@@ -105,7 +107,9 @@ Subscriptions:
   Subscriptions: 'Subscrições'
   Latest Subscriptions: 'Subscrições recentes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
-    sua lista de subscrições está vazia. Adicione algumas para as ver aqui.'
+    sua lista de subscrições está vazia. Se quiser importar subscrições, pode aceder
+    às definições de dados e selecionar Importar subscrições. Em alternativa, pode
+    procurar os canais e efetuar a subscrição.'
   'Getting Subscriptions. Please wait.': 'A carregar subscrições. Por favor aguarde.'
   Refresh Subscriptions: 'Recarregar subscrições'
   Load More Videos: Carregar mais vídeos
@@ -256,11 +260,12 @@ History:
   Your history list is currently empty.: 'O seu histórico está vazio.'
   Search bar placeholder: Procurar no histórico
   Empty Search Message: Não há vídeos no histórico que coincidam com a sua pesquisa
+  Case Sensitive Search: Diferenciar maiúsculas e minúsculas
 Settings:
   # On Settings Page
   Settings: 'Definições'
   General Settings:
-    General Settings: 'Definições gerais'
+    General Settings: 'Geral'
     Check for Updates: 'Procurar atualizações'
     Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
     Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário,
@@ -307,7 +312,7 @@ Settings:
       Label: Carregar seguinte automaticamente
       Tooltip: Carrega as páginas e comentários automaticamente.
   Theme Settings:
-    Theme Settings: 'Definições de tema'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -377,7 +382,7 @@ Settings:
     Hide Side Bar Labels: Ocultar texto na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
-    Player Settings: 'Definições do reprodutor'
+    Player Settings: 'Reprodutor'
     Play Next Video: 'Reproduzir vídeo seguinte'
     Turn on Subtitles by Default: 'Ativar legendas automaticamente'
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
@@ -430,7 +435,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
   Privacy Settings:
-    Privacy Settings: 'Definições de privacidade'
+    Privacy Settings: 'Privacidade'
     Remember History: 'Memorizar histórico'
     Save Watched Progress: 'Guardar progresso de reprodução'
     Clear Search Cache: 'Limpar cache de pesquisas'
@@ -452,7 +457,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Tem a certeza de que pretende
       remover todas as suas listas de reprodução?
   Subscription Settings:
-    Subscription Settings: 'Definições de subscrições'
+    Subscription Settings: 'Subscrição'
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Manage Subscriptions: 'Gerir subscrições'
@@ -461,7 +466,7 @@ Settings:
       canal
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
-    Data Settings: 'Definições de dados'
+    Data Settings: 'Dados'
     Select Import Type: 'Selecione o tipo de importação'
     Select Export Type: 'Selecione o tipo de exportação'
     Import Subscriptions: 'Importar subscrições'
@@ -549,7 +554,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (padrão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ativar bloqueio da publicidade SponsorBlock
-    SponsorBlock Settings: Definições SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Opção para ignorar
       Auto Skip: Ignorar automaticamente
@@ -576,7 +581,7 @@ Settings:
     Proxy Host: Servidor do proxy
     Proxy Protocol: Protocolo do proxy
     Enable Tor / Proxy: Ativar Tor/Proxy
-    Proxy Settings: Definições de proxy
+    Proxy Settings: Proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar subscrições ativas
     Hide Live Chat: Ocultar conversas em direto
@@ -588,7 +593,7 @@ Settings:
     Hide Channel Subscribers: Ocultar número de subscritores
     Hide Video Likes And Dislikes: Ocultar "gostos" em vídeos
     Hide Video Views: Ocultar visualizações
-    Distraction Free Settings: Definições de distrações
+    Distraction Free Settings: Distrações
     Hide Video Description: Ocultar descrição dos vídeos
     Hide Sharing Actions: Ocultar ações de partilha
     Hide Live Streams: Ocultar transmissões em direto
@@ -633,7 +638,7 @@ Settings:
     Custom External Player Executable: Executável do reprodutor externo
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Reprodutor externo
-    External Player Settings: Definições para reprodutores externos
+    External Player Settings: Reprodutores externos
     Players:
       None:
         Name: Nenhum
@@ -641,7 +646,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Tem
     que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar alterações?
   Download Settings:
-    Download Settings: Definições para descargas
+    Download Settings: Descargas
     Ask Download Path: Perguntar local para guardar
     Choose Path: Escolher local
     Download in app: Descarregar na aplicação
@@ -651,10 +656,10 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Search Bar: Ocultar barra de pesquisa
-    Parental Control Settings: Definições de controlo parental
+    Parental Control Settings: Controlo parental
   Experimental Settings:
     Replace HTTP Cache: Substituir cache HTTP
-    Experimental Settings: Definições experimentais
+    Experimental Settings: Experimentais
     Warning: Estas definições são experimentais e podem provocar falhas se ativadas.
       É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
   Password Dialog:
@@ -663,13 +668,14 @@ Settings:
     Password: Palavra-passe
     Unlock: Desbloquear
   Password Settings:
-    Password Settings: Definições de palavra-passe
+    Password Settings: Palavra-passe
     Set Password To Prevent Access: Defina uma palavra-passe para impedir o acesso
       às definições
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
   Expand All Settings Sections: Expandir todas as secções de definições
   Sort Settings Sections (A-Z): Ordenar definições (A-Z)
+  Return to Settings Menu: Voltar para as definições
 About:
   #On About page
   About: 'Acerca'
@@ -773,7 +779,7 @@ Profile:
     os canais dos outros perfis.'
 #On Channel Page
   Profile Filter: Filtro de perfil
-  Profile Settings: Definições do perfil
+  Profile Settings: Perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
@@ -832,6 +838,7 @@ Channel:
     Reveal Answers: Mostrar respostas
     votes: '{votes} votos'
     Video hidden by FreeTube: Freetube ocultou este vídeo
+    View Full Post: Ver publicação na íntegra
   Live:
     Live: Em direto
     This channel does not currently have any live streams: Este canal não tem, atualmente,
@@ -970,6 +977,25 @@ Video:
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
   More Options: Mais opções
+  Player:
+    Theatre Mode: Modo teatro
+    Stats:
+      Media Formats: 'Formatos multimédia: {formats}'
+      Bitrate: Taxa de dados :{bitrate} kbps
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Largura de banda: {bandwidth} kbps'
+      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensões do reprodutor: {width}x{height}'
+      Stats: Estatísticas
+      Video ID: 'ID do vídeo: {videoId}'
+    TranslatedCaptionTemplate: '{language} (traduzido de "{originalLanguage}")'
+    Audio Tracks: Faixas de áudio
+    Exit Theatre Mode: Sair do modo teatro
+    Full Window: Ecrã completo
+    Exit Full Window: Sair de ecrã completo
+    Take Screenshot: Captura de ecrã
+    Show Stats: Mostrar estatísticas
+    Hide Stats: Ocultar estatísticas
 Videos:
   #& Sort By
   Sort By:
@@ -1224,3 +1250,8 @@ Search Listing:
     4K: 4K
     Subtitles: Legendas
     Closed Captions: Legendas fechadas
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Nova
+    3D: 3D
