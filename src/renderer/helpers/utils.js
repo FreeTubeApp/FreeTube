@@ -892,16 +892,10 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
 
 function getIndividualLocalizedShortcut(shortcut) {
   switch (shortcut) {
-    case 'option':
     case 'alt':
-      return process.platform === 'darwin'
-      ? i18n.t('Keys.option')
-      : i18n.t('Keys.alt')
-    case 'cmd':
+      return i18n.t('Keys.alt')
     case 'ctrl':
-      return process.platform === 'darwin'
-        ? i18n.t('Keys.cmd')
-        : i18n.t('Keys.ctrl')
+      return i18n.t('Keys.ctrl')
     case 'arrowleft':
       return i18n.t('Keys.arrowleft')
     case 'arrowright':
@@ -915,16 +909,42 @@ function getIndividualLocalizedShortcut(shortcut) {
   }
 }
 
+function getMacIconForShortcut(shortcut) {
+  switch (shortcut) {
+    case 'option':
+    case 'alt':
+      return '⌥'
+    case 'cmd':
+    case 'ctrl':
+      return '⌘'
+    case 'arrowleft':
+      return '◀'
+    case 'arrowright':
+      return '▶'
+    case 'arrowup':
+      return '▲'
+    case 'arrowdown':
+      return '▼'
+    default:
+      return shortcut
+  }
+}
+
 /**
  * @param {string} shortcut
  * @returns {string} the localized and recombined shortcut
  */
 function getLocalizedShortcut(shortcut) {
   const shortcuts = shortcut.split('+')
-  const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
 
-  const shortcutJoinOperator = i18n.t('shortcutJoinOperator')
-  return localizedShortcuts.join(shortcutJoinOperator)
+  if (process.platform === 'darwin') {
+    const shortcutsAsIcons = shortcuts.map((shortCut => getMacIconForShortcut(shortCut)))
+    return shortcutsAsIcons.join('')
+  } else {
+    const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
+    const shortcutJoinOperator = i18n.t('shortcutJoinOperator')
+    return localizedShortcuts.join(shortcutJoinOperator)
+  }
 }
 
 /**
