@@ -18,6 +18,12 @@
           :compact="true"
           @change="updateUseRssFeeds"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
+          :default-value="unsubscriptionPopupStatus"
+          :compact="true"
+          @change="updateUnsubscriptionPopupStatus"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -39,14 +45,6 @@
           input-type="number"
           :value="onlyShowLatestFromChannelNumber"
           @input="updateOnlyShowLatestFromChannelNumber"
-        />
-      </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
-          :default-value="unsubscriptionPopupStatus"
-          :compact="true"
-          @change="updateUnsubscriptionPopupStatus"
         />
       </div>
     </div>
