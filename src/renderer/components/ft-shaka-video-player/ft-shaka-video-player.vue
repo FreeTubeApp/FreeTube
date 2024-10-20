@@ -1,5 +1,6 @@
 <template>
   <div
+    id="videoContainer"
     ref="container"
     class="ftVideoPlayer"
     :class="{

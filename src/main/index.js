@@ -928,7 +928,7 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.REQUEST_FULLSCREEN, ({ sender }) => {
-    sender.executeJavaScript('document.getElementById("video").requestFullscreen({navigationUI: "hide"})', true)
+    sender.executeJavaScript('document.getElementById("videoContainer").requestFullscreen({navigationUI: "hide"})', true)
   })
 
   ipcMain.on(IpcChannels.REQUEST_PIP, ({ sender }) => {
