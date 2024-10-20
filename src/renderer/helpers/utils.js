@@ -892,8 +892,11 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
 
 function getIndividualLocalizedShortcut(shortcut) {
   switch (shortcut) {
+    case 'option':
     case 'alt':
-      return i18n.t('Keys.alt')
+      return process.platform === 'darwin'
+      ? i18n.t('Keys.option')
+      : i18n.t('Keys.alt')
     case 'cmd':
     case 'ctrl':
       return process.platform === 'darwin'
