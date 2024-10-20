@@ -341,7 +341,6 @@ export default defineComponent({
           return
         case 'pip':
           this.startNextVideoInPip = true
-          
       }
     },
 

@@ -10,11 +10,14 @@
   >
     <div
       class="videoThumbnail"
-    >
-      <router-link
+    > 
+      <component
+        :is="watchPageLinkType"
         class="thumbnailLink"
         tabindex="-1"
         :to="watchPageLinkTo"
+        href="javascript:void(0)"
+        @click="handleWatchPageLinkClick"
       >
         <img
           :src="thumbnail"
@@ -22,7 +25,7 @@
           alt=""
           :style="{filter: blurThumbnailsStyle}"
         >
-      </router-link>
+      </component>
       <div
         v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
@@ -34,7 +37,7 @@
         {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : displayDuration) }}
       </div>
       <ft-icon-button
-        v-if="externalPlayer !== ''"
+        v-if="externalPlayer !== '' && !externalPlayerIsDefaultViewingMode"
         :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
         :icon="['fas', 'external-link-alt']"
         class="externalPlayerIcon"
@@ -110,14 +113,17 @@
       />
     </div>
     <div class="info">
-      <router-link
+      <component
+        :is="watchPageLinkType"
         class="title"
         :to="watchPageLinkTo"
+        href="javascript:void(0)"
+        @click="handleWatchPageLinkClick"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
         </h3>
-      </router-link>
+      </component>
       <div class="infoLine">
         <router-link
           v-if="channelId !== null"

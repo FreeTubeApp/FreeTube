@@ -376,6 +376,10 @@ export default defineComponent({
       return this.$store.getters.getExternalPlayer
     },
 
+    externalPlayerIsDefaultViewingMode: function () {
+      return this.$store.getters.getDefaultViewingMode === 'external_player'
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -478,6 +482,10 @@ export default defineComponent({
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },
 
+    watchPageLinkType() {
+      return this.externalPlayerIsDefaultViewingMode ? 'a' : 'router-link'
+    },
+
     watchPageLinkTo() {
       // For `router-link` attribute `to`
       return {
@@ -530,6 +538,11 @@ export default defineComponent({
     }
   },
   methods: {
+    handleWatchPageLinkClick: function() {
+      if (this.externalPlayerIsDefaultViewingMode) {
+        this.handleExternalPlayer()
+      }
+    },
     fetchDeArrowThumbnail: async function() {
       if (this.thumbnailPreference === 'hidden') { return }
       const videoId = this.id
