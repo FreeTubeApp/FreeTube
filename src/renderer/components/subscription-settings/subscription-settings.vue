@@ -27,10 +27,18 @@
           @change="updateHideWatchedSubs"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Only Show Latest Video for Each Channel')"
+          :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
           :default-value="onlyShowLatestFromChannel"
           :compact="true"
           @change="updateOnlyShowLatestFromChannel"
+        />
+        <ft-input
+          v-if="onlyShowLatestFromChannel"
+          :placeholder="'1'"
+          :show-action-button="false"
+          input-type="number"
+          :value="onlyShowLatestFromChannelNumber"
+          @input="updateOnlyShowLatestFromChannelNumber"
         />
       </div>
       <div class="switchColumn">
