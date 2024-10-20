@@ -19,6 +19,12 @@
           @change="updateEnableSubtitlesByDefault"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
+          :compact="true"
+          :default-value="defaultTheatreMode"
+          @change="updateDefaultTheatreMode"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
           :disabled="videoSkipMouseScroll"

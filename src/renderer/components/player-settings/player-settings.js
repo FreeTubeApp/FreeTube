@@ -62,7 +62,6 @@ export default defineComponent({
       screenshotDefaultPattern: '%Y%M%D-%H%N%S',
       viewingModeValues: [
         'default',
-        'theatre',
         'fullscreen',
         'fullwindow',
         'pip',
@@ -136,6 +135,10 @@ export default defineComponent({
       return this.$store.getters.getDefaultViewingMode
     },
 
+    defaultTheatreMode: function () {
+      return this.$store.getters.getDefaultTheatreMode
+    },
+
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
@@ -197,8 +200,7 @@ export default defineComponent({
     viewingModeNames: function () {
       const viewingModeNames = [
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
-        this.$t('Video.Player.Theatre Mode'),
-        this.$t('Settings.Player Settings.Default Viewing Mode.Fullscreen'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
         this.$t('Video.Player.Full Window'),
         this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture'),
       ]
@@ -329,6 +331,7 @@ export default defineComponent({
       'updateDefaultInterval',
       'updateDefaultVolume',
       'updateDefaultPlayback',
+      'updateDefaultTheatreMode',
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
       'updateVideoVolumeMouseScroll',

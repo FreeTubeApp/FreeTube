@@ -16,7 +16,7 @@ const IpcChannels = {
   RELAUNCH_REQUEST: 'relaunch-request',
 
   REQUEST_FULLSCREEN: 'request-fullscreen',
-  REQUEST_PIP: 'request_pip',
+  REQUEST_PIP: 'request-pip',
 
   SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
   UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',

@@ -398,13 +398,14 @@ Settings:
   Player Settings:
     Player Settings: Player
     Play Next Video: Play Next Video
-    Turn on Subtitles by Default: Turn on Subtitles by Default
+    Turn on Subtitles by Default: Enable Subtitles by Default
     Autoplay Videos: Autoplay Videos
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
     Autoplay Playlists: Autoplay Playlists
+    Enable Theatre Mode by Default: Enable Theater Mode by Default
     Default Viewing Mode: 
       Default Viewing Mode: Default Viewing Mode
-      Fullscreen: Fullscreen
+      Full Screen: Full Screen
       Picture in Picture: Picture in Picture
       External Player: External Player ({externalPlayerName})
     Scroll Volume Over Video Player: Scroll Volume Over Video Player

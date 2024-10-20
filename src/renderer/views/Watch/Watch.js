@@ -164,6 +164,9 @@ export default defineComponent({
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
     },
+    defaultTheatreMode: function () {
+      return this.$store.getters.getDefaultTheatreMode
+    },
     defaultViewingMode: function () {
       return this.$store.getters.getDefaultViewingMode
     },
@@ -329,10 +332,9 @@ export default defineComponent({
     },
 
     setViewingModeOnFirstLoad: function () {
+      this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
+
       switch (this.defaultViewingMode) {
-        case 'theatre':
-          this.useTheatreMode = this.theatrePossible
-          return
         case 'fullscreen':
           this.startNextVideoInFullscreen = true
           return
