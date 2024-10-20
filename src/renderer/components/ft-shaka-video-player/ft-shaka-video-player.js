@@ -106,6 +106,10 @@ export default defineComponent({
     vrProjection: {
       type: String,
       default: null
+    },
+    startInFullwindow: {
+      type: Boolean,
+      default: false
     }
   },
   emits: [
@@ -139,7 +143,7 @@ export default defineComponent({
     const isLive = ref(false)
 
     const useOverFlowMenu = ref(false)
-    const fullWindowEnabled = ref(false)
+    const fullWindowEnabled = ref(props.startInFullwindow)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
@@ -1042,7 +1046,7 @@ export default defineComponent({
         navigator.mediaSession.playbackState = 'none'
       }
 
-      emit('ended')
+      emit('ended', fullWindowEnabled.value)
     }
 
     function updateVolume() {
@@ -2349,6 +2353,7 @@ export default defineComponent({
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
+
 
       if (ui.isMobile()) {
         useOverFlowMenu.value = true

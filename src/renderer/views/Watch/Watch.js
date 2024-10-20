@@ -66,6 +66,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      isInFullwindow: false,
       isLoading: true,
       firstLoad: true,
       useTheatreMode: false,
@@ -1181,7 +1182,8 @@ export default defineComponent({
       this.activeFormat = 'audio'
     },
 
-    handleVideoEnded: function () {
+    handleVideoEnded: function (isInFullwindow = false) {
+      this.isInFullwindow = isInFullwindow
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
         return
       }

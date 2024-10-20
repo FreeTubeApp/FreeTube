@@ -34,11 +34,14 @@
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
           :vr-projection="vrProjection"
+          :start-in-fullwindow="isInFullwindow"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
+          @set-fullscreen="e => isInFullscreen = e"
+          @set-fullwindow="e => isInFullwindow = e"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
         />
         <div
