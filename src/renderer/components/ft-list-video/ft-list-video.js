@@ -377,7 +377,7 @@ export default defineComponent({
     },
 
     externalPlayerIsDefaultViewingMode: function () {
-      return this.$store.getters.getDefaultViewingMode === 'external_player'
+      return this.externalPlayer !== '' && this.$store.getters.getDefaultViewingMode === 'external_player'
     },
 
     defaultPlayback: function () {

@@ -49,14 +49,6 @@ export default defineComponent({
         0.5,
         1
       ],
-      viewingModeValues: [
-        'default',
-        'theatre',
-        'fullscreen',
-        'fullwindow',
-        'pip',
-        'external_player'
-      ],
       screenshotFormatNames: [
         'PNG',
         'JPEG'
@@ -68,6 +60,14 @@ export default defineComponent({
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
       screenshotDefaultPattern: '%Y%M%D-%H%N%S',
+      viewingModeValues: [
+        'default',
+        'theatre',
+        'fullscreen',
+        'fullwindow',
+        'pip',
+        'external_player'
+      ]
     }
   },
   computed: {
@@ -128,7 +128,16 @@ export default defineComponent({
     },
 
     defaultViewingMode: function () {
+      const defaultViewingMode = this.$store.getters.getDefaultViewingMode
+      if (defaultViewingMode === 'external_player' && this.externalPlayer === '') {
+        return 'default'
+      }
+
       return this.$store.getters.getDefaultViewingMode
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
     },
 
     hideRecommendedVideos: function () {
@@ -186,14 +195,21 @@ export default defineComponent({
     },
 
     viewingModeNames: function () {
-      return [
+      const viewingModeNames = [
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         this.$t('Video.Player.Theatre Mode'),
         this.$t('Settings.Player Settings.Default Viewing Mode.Fullscreen'),
         this.$t('Video.Player.Full Window'),
         this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture'),
-        this.$t('Settings.External Player Settings.External Player'),
       ]
+
+      if (this.externalPlayer !== '') {
+        viewingModeNames.push(
+          this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
+        )
+      }
+
+      return viewingModeNames
     },
 
     enableScreenshot: function() {

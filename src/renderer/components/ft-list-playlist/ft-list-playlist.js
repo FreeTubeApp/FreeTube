@@ -60,10 +60,6 @@ export default defineComponent({
       return this.$store.getters.getExternalPlayer
     },
 
-    externalPlayerIsDefaultViewingMode: function () {
-      return this.$store.getters.getDefaultViewingMode === 'external_player'
-    },
-
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
