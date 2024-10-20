@@ -49,6 +49,14 @@ export default defineComponent({
         0.5,
         1
       ],
+      viewingModeValues: [
+        'default',
+        'theatre',
+        'fullscreen',
+        'fullwindow',
+        'pip',
+        'external_player'
+      ],
       screenshotFormatNames: [
         'PNG',
         'JPEG'
@@ -119,8 +127,8 @@ export default defineComponent({
       return this.$store.getters.getDefaultQuality
     },
 
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultViewingMode: function () {
+      return this.$store.getters.getDefaultViewingMode
     },
 
     hideRecommendedVideos: function () {
@@ -174,6 +182,17 @@ export default defineComponent({
         this.$t('Settings.Player Settings.Default Quality.240p'),
         this.$t('Settings.Player Settings.Default Quality.144p'),
         this.$t('Settings.Player Settings.Default Quality.Auto')
+      ]
+    },
+
+    viewingModeNames: function () {
+      return [
+        this.$t('Settings.General Settings.Thumbnail Preference.Default'),
+        this.$t('Video.Player.Theatre Mode'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.Fullscreen'),
+        this.$t('Video.Player.Full Window'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture'),
+        this.$t('Settings.External Player Settings.External Player'),
       ]
     },
 
@@ -289,7 +308,7 @@ export default defineComponent({
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
       'updateProxyVideos',
-      'updateDefaultTheatreMode',
+      'updateDefaultViewingMode',
       'updateDefaultSkipInterval',
       'updateDefaultInterval',
       'updateDefaultVolume',

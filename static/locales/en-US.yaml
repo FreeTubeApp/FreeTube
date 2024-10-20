@@ -402,7 +402,10 @@ Settings:
     Autoplay Videos: Autoplay Videos
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
     Autoplay Playlists: Autoplay Playlists
-    Enable Theatre Mode by Default: Enable Theatre Mode by Default
+    Default Viewing Mode: 
+      Default Viewing Mode: Default Viewing Mode
+      Fullscreen: Fullscreen
+      Picture in Picture: Picture in Picture
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player

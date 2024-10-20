@@ -2378,7 +2378,6 @@ export default defineComponent({
       registerLegacyQualitySelection()
       registerStatsButton()
 
-
       if (ui.isMobile()) {
         useOverFlowMenu.value = true
       } else {
