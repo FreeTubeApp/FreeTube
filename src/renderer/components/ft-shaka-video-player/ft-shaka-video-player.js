@@ -107,7 +107,15 @@ export default defineComponent({
       type: String,
       default: null
     },
+    startInFullscreen: {
+      type: Boolean,
+      default: false
+    },
     startInFullwindow: {
+      type: Boolean,
+      default: false
+    },
+    startInPip: {
       type: Boolean,
       default: false
     }
@@ -116,6 +124,7 @@ export default defineComponent({
     'error',
     'loaded',
     'ended',
+    'reset-start-in-viewing-mode',
     'timeupdate',
     'toggle-theatre-mode'
   ],
@@ -143,10 +152,15 @@ export default defineComponent({
     const isLive = ref(false)
 
     const useOverFlowMenu = ref(false)
-    const fullWindowEnabled = ref(props.startInFullwindow)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
+
+    const fullWindowEnabled = ref(props.startInFullwindow)
+    let startInFullscreen = props.startInFullscreen
+    let startInPip = props.startInPip
+
+    emit('reset-start-in-viewing-mode')
 
     /**
      * @type {{
@@ -1046,7 +1060,17 @@ export default defineComponent({
         navigator.mediaSession.playbackState = 'none'
       }
 
-      emit('ended', fullWindowEnabled.value)
+      const controls = ui.getControls()
+      emit('ended', controls.isFullScreenEnabled(), fullWindowEnabled.value, controls.isPiPEnabled())
+    }
+
+    function handleCanPlay() {
+      // PiP can only be activated once the video's readState and video track are populated
+      if (startInPip && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
+        startInPip = false
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.REQUEST_PIP)
+      }
     }
 
     function updateVolume() {
@@ -1754,7 +1778,7 @@ export default defineComponent({
     /**
      * As shaka-player doesn't let you unregister custom control factories,
      * overwrite them with `null` instead so the referenced objects
-     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get gargabe collected
+     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get garbage collected
      */
     function cleanUpCustomPlayerControls() {
       shakaControls.registerElement('ft_audio_tracks', null)
@@ -2543,6 +2567,12 @@ export default defineComponent({
       if (props.chapters.length > 0) {
         createChapterMarkers()
       }
+
+      if (startInFullscreen && process.env.IS_ELECTRON) {
+        startInFullscreen = false
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.REQUEST_FULLSCREEN)
+      }
     }
 
     watch(
@@ -2781,6 +2811,7 @@ export default defineComponent({
 
       handlePlay,
       handlePause,
+      handleCanPlay,
       handleEnded,
       updateVolume,
       handleTimeupdate,

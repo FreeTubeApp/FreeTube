@@ -927,6 +927,14 @@ function runApp() {
     return app.getPath('pictures')
   })
 
+  ipcMain.on(IpcChannels.REQUEST_FULLSCREEN, ({ sender }) => {
+    sender.executeJavaScript('document.getElementById("video").requestFullscreen({navigationUI: "hide"})', true)
+  })
+
+  ipcMain.on(IpcChannels.REQUEST_PIP, ({ sender }) => {
+    sender.executeJavaScript('document.getElementById("video").requestPictureInPicture()', true)
+  })
+
   ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {
     const senderWindow = findSenderWindow(sender)
     if (senderWindow) {
