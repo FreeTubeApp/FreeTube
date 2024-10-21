@@ -177,6 +177,13 @@
             @click="showRemoveDuplicateVideosPrompt = true"
           />
           <ft-icon-button
+            v-if="!editMode"
+            :title="$t('User Playlists.Export Playlist')"
+            :icon="['fas', 'file-arrow-down']"
+            theme="secondary"
+            @click="handlePlaylistExport"
+          />
+          <ft-icon-button
             v-if="!editMode && userPlaylistAnyVideoWatched"
             :title="$t('User Playlists.Remove Watched Videos')"
             :icon="['fas', 'eye-slash']"
