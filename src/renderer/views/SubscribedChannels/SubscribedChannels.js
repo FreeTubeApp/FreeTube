@@ -60,7 +60,11 @@ export default defineComponent({
     },
 
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      let preference = this.$store.getters.getBackendPreference
+      if (preference === 'piped') {
+        preference = this.$store.getters.getFallbackPreference
+      }
+      return preference
     },
 
     currentInvidiousInstanceUrl: function () {

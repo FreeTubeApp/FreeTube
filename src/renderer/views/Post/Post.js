@@ -30,8 +30,11 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
+    },
     isInvidiousAllowed: function() {
-      return this.backendPreference === 'invidious' || this.backendFallback
+      return this.backendPreference === 'invidious' || (this.backendFallback && this.fallbackPreference === 'invidious')
     }
   },
   watch: {
