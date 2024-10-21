@@ -579,20 +579,41 @@ export default defineComponent({
       }
     },
 
-    removeVideoFromPlaylist: function (videoId, playlistItemId) {
+    addVideoBackToPlaylist: function(videoData) {
       try {
-        this.removeVideo({
+        this.addVideo({
           _id: this.playlistId,
-          videoId: videoId,
-          playlistItemId: playlistItemId,
-        })
+          videoData: videoData
+        });
+
         // Update playlist's `lastUpdatedAt`
-        this.updatePlaylist({ _id: this.playlistId })
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Video has been removed'))
+        this.updatePlaylist({ _id: this.playlistId });
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Video has been added back to playlist'), 3000);
       } catch (e) {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
-        console.error(e)
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with adding this video back to playlist'));
+        console.error(e);
       }
+    },
+
+    removeVideoFromPlaylist: function (videoData) {
+      try {
+		this.removeVideo({
+		  _id: this.playlistId,
+		  videoId: videoData.videoId,
+		  playlistItemId: videoData.playlistItemId,
+		})
+
+		// Update playlist's `lastUpdatedAt`
+		this.updatePlaylist({ _id: this.playlistId })
+		showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'), 3000, () => {
+		  this.addVideoBackToPlaylist(videoData);
+		}
+	      );
+	      } catch (e) {
+		showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
+		console.error(e)
+	      }
+
     },
 
     updatePageTitle() {
@@ -616,6 +637,7 @@ export default defineComponent({
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
       'removeVideo',
+      'addVideo'
     ]),
 
     ...mapMutations([

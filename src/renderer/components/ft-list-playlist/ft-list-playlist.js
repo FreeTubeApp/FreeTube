@@ -172,7 +172,6 @@ export default defineComponent({
 
     enableQuickBookmarkForThisPlaylist: function () {
       const currentQuickBookmarkTargetPlaylist = this.$store.getters.getQuickBookmarkPlaylist
-
       this.updateQuickBookmarkTargetPlaylistId(this.playlistId)
       if (currentQuickBookmarkTargetPlaylist != null) {
         showToast(
