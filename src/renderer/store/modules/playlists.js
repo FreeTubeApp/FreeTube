@@ -210,7 +210,11 @@ const actions = {
         }
         // Undesired attributes, even with `null` values
         [
+          'authorUrl',
           'description',
+          'index',
+          'liveNow',
+          'videoThumbnails',
           'viewCount',
         ].forEach(attrName => {
           if (typeof videoData[attrName] !== 'undefined') {
