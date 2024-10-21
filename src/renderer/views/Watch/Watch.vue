@@ -34,12 +34,16 @@
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
           :vr-projection="vrProjection"
+          :start-in-fullscreen="startNextVideoInFullscreen"
+          :start-in-fullwindow="startNextVideoInFullwindow"
+          :start-in-pip="startNextVideoInPip"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @reset-start-in-viewing-mode="resetStartInViewingMode"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"

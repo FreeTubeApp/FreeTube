@@ -179,6 +179,7 @@ const state = {
   defaultQuality: '720',
   defaultSkipInterval: 5,
   defaultTheatreMode: false,
+  defaultViewingMode: 'default',
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,

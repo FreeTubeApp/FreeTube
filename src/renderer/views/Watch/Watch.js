@@ -66,6 +66,9 @@ export default defineComponent({
   },
   data: function () {
     return {
+      startNextVideoInFullscreen: false,
+      startNextVideoInFullwindow: false,
+      startNextVideoInPip: false,
       isLoading: true,
       firstLoad: true,
       useTheatreMode: false,
@@ -162,6 +165,12 @@ export default defineComponent({
     },
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
+    },
+    defaultViewingMode: function () {
+      return this.$store.getters.getDefaultViewingMode
+    },
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
     },
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
@@ -310,7 +319,7 @@ export default defineComponent({
       this.checkIfPlaylist()
 
       // this has to be below checkIfPlaylist() as theatrePossible needs to know if there is a playlist or not
-      this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
+      this.setViewingModeOnFirstLoad()
 
       if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
         this.getVideoInformationInvidious()
@@ -319,6 +328,21 @@ export default defineComponent({
       }
 
       window.addEventListener('beforeunload', this.handleWatchProgress)
+    },
+
+    setViewingModeOnFirstLoad: function () {
+      this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
+
+      switch (this.defaultViewingMode) {
+        case 'fullscreen':
+          this.startNextVideoInFullscreen = true
+          return
+        case 'fullwindow':
+          this.startNextVideoInFullwindow = true
+          return
+        case 'pip':
+          this.startNextVideoInPip = true
+      }
     },
 
     changeTimestamp: function (timestamp) {
@@ -1169,7 +1193,7 @@ export default defineComponent({
       this.activeFormat = 'audio'
     },
 
-    handleVideoEnded: function () {
+    handleVideoEnded: function (startNextVideoInFullscreen = false, startNextVideoInFullwindow = false, startNextVideoInPip = false) {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
         return
       }
@@ -1196,6 +1220,10 @@ export default defineComponent({
           return
         }
       }
+
+      this.startNextVideoInFullscreen = startNextVideoInFullscreen
+      this.startNextVideoInFullwindow = startNextVideoInFullwindow
+      this.startNextVideoInPip = startNextVideoInPip
 
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(() => {
@@ -1605,6 +1633,12 @@ export default defineComponent({
 
       const playlist = this.selectedUserPlaylist
       this.updatePlaylistLastPlayedAt({ _id: playlist._id })
+    },
+
+    resetStartInViewingMode: function() {
+      this.startNextVideoInFullscreen = false
+      this.startNextVideoInFullwindow = false
+      this.startNextVideoInPip = false
     },
 
     ...mapActions([
