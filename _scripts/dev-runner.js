@@ -88,7 +88,7 @@ async function restartElectron() {
  */
 function setupNotifyLocaleUpdate(compiler, devServer) {
   const notifyLocaleChange = (updatedLocales) => {
-    devServer.sendMessage(devServer.webSocketServer.clients, "freetube-locale-update", updatedLocales)
+    devServer.sendMessage(devServer.webSocketServer.clients, 'freetube-locale-update', updatedLocales)
   }
 
   compiler.options.plugins

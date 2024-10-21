@@ -46,6 +46,7 @@ for (const language of youTubeLanguages) {
       youTube: language,
       freeTube: language
     })
+  // eslint-disable-next-line @stylistic/brace-style
   }
   // special cases
   else if (language === 'de') {
@@ -119,8 +120,6 @@ for (const { youTube, freeTube } of languagesToScrape) {
 
   processGeolocations(freeTube, youTube, response)
 }
-
-
 
 async function scrapeLanguage(youTubeLanguageCode) {
   const session = await Innertube.create({

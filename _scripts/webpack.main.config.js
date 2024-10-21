@@ -54,15 +54,15 @@ const config = {
 if (!isDevMode) {
   config.plugins.push(
     new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/static'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/manifest.json', '**/dashFiles/**', '**/storyboards/**'],
-            },
+      patterns: [
+        {
+          from: path.join(__dirname, '../static'),
+          to: path.join(__dirname, '../dist/static'),
+          globOptions: {
+            dot: true,
+            ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/manifest.json', '**/dashFiles/**', '**/storyboards/**'],
           },
+        },
       ]
     })
   )
