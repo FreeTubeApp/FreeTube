@@ -105,7 +105,7 @@
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-plugin-yml": "^1.14.0",
     "globals": "^15.11.0",
-    "html-webpack-plugin": "^5.6.0",
+    "html-webpack-plugin": "^5.6.2",
     "js-yaml": "^4.1.0",
     "json-minimizer-webpack-plugin": "^5.0.0",
     "lefthook": "^1.7.22",
