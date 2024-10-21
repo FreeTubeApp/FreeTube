@@ -108,7 +108,7 @@
     "html-webpack-plugin": "^5.6.0",
     "js-yaml": "^4.1.0",
     "json-minimizer-webpack-plugin": "^5.0.0",
-    "lefthook": "^1.7.18",
+    "lefthook": "^1.7.22",
     "mini-css-extract-plugin": "^2.9.1",
     "npm-run-all2": "^6.2.3",
     "postcss": "^8.4.47",
