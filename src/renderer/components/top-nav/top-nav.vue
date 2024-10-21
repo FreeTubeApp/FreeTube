@@ -84,7 +84,7 @@
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :data-list="searchSuggestionsDataList"
+          :data-list="[...matchingBookmarksDataList, ...searchSuggestionsDataList]"
           :spellcheck="false"
           :show-clear-text-button="true"
           @input="getSearchSuggestionsDebounce"
@@ -102,6 +102,18 @@
         />
       </div>
     </div>
+    <font-awesome-icon
+      class="pageBookmarkIcon navIcon"
+      :icon="['fas', 'star']"
+      :title="pageBookmarkIconTitle"
+      :active="isPageBookmarked"
+      :class="{ [pageBookmarkIconTheme]: true }"
+      :disabled="!pageBookmarksAvailable"
+      role="button"
+      tabindex="0"
+      @click="showPageBookmarkPrompt"
+      @keydown.enter.prevent="showPageBookmarkPrompt"
+    />
     <ft-profile-selector class="side profiles" />
   </div>
 </template>
