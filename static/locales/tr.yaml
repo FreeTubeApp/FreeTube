@@ -135,13 +135,6 @@ Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Kaydedilen
-    videolarınız boş. Kaydedilen videolarınızın burada listelenmesi için videonun
-    köşesindeki kaydet düğmesine tıklayın
-  Playlist Message: Bu sayfa, tam olarak çalışan oynatma listelerini yansıtmamaktadır.
-    Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
-    bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
-    taşınacaktır.
   Search bar placeholder: Oynatma Listesi Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
   This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
@@ -184,7 +177,6 @@ User Playlists:
         ve kaldırılamaz.
       There were no videos to remove.: Kaldırılacak video yok.
       This playlist does not exist: Bu oynatma listesi yok
-      Quick bookmark disabled: Hızlı yer imi devre dışı bırakıldı
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
         oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor.
         Geri almak için buraya tıklayın
@@ -239,15 +231,11 @@ User Playlists:
   Cancel: İptal
   Edit Playlist Info: Oynatma Listesi Bilgilerini Düzenle
   Copy Playlist: Oynatma Listesini Kopyala
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: İzlenen
-    tüm videoları bu oynatma listesinden kaldırmak istediğinizden emin misiniz? Bu
-    işlem geri alınamaz.
   Remove Watched Videos: İzlenen Videoları Kaldır
   Add to Favorites: '{playlistName} oynatma listesine ekle'
   Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
   Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini
     Etkinleştir
-  Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
   Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
   Quick Bookmark Enabled: Hızlı Yer İmi Etkin
   Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
@@ -297,8 +285,6 @@ Settings:
       End: 'Bitiş'
       Hidden: Gizli
       Blur: Bulanıklık
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
-      (Öntanımlı olarak https://invidious.snopyta.org)'
     Region for Trending: 'Öne Çıkanlar İçin Bölge Tercihi'
         #! List countries
     View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
@@ -468,7 +454,6 @@ Settings:
     Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
-    Manage Subscriptions: 'Abonelikleri Yönet'
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
       Göster
@@ -478,9 +463,6 @@ Settings:
     Select Import Type: 'İçe Aktarma Türünü Seç'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
     Import Subscriptions: 'Abonelikleri İçe Aktar'
-    Import FreeTube: 'Freetube''dan İçe Aktar'
-    Import YouTube: 'YouTube''dan İçe Aktar'
-    Import NewPipe: 'NewPipe''dan İçe Aktar'
     Export Subscriptions: 'Abonelikleri Dışa Aktar'
     Export FreeTube: 'Freetube Biçiminde Dışa Aktar'
     Export YouTube: 'YouTube Biçiminde Dışa Aktar'
@@ -508,7 +490,6 @@ Settings:
     Unable to write file: 'Dosya yazılamadı'
     Unknown data key: 'Bilinmeyen veri anahtarı'
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
-    Check for Legacy Subscriptions: Eski Abonelikleri Denetle
     Manage Subscriptions: Abonelikleri Yönet
     Export Playlists: Oynatma Listelerini Dışa Aktar
     All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
@@ -530,33 +511,6 @@ Settings:
         Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi
         silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini
         içe aktarın.\""
-  Advanced Settings:
-    Advanced Settings: 'Gelişmiş Ayarlar'
-    Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
-      (Veriyi Konsola Yazdırır)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Vekil Sunucu Adresi (Örneğin:
-      SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '"Vekil
-      Sunucuyu Test Et" Butonuna Tıklamak https://ipinfo.io/json Adresine bir Talep
-      Gönderecek'
-    Use Tor / Proxy for API calls: 'API çağrıları için Tor / Vekil Sunucu Kullan'
-    TEST PROXY: 'Vekil Sunucuyu Test Et'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Genel Oluşumları Göster'
-    Clear History:
-      Clear History: 'Geçmişi Temizle'
-      # On Click
-      Are you sure you want to delete your history?: 'Geçmişi silmek istediğinizden
-        emin misiniz?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Abonelikleri Temizle'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Abonelikleri temizlemek
-        istediğinizden emin misiniz?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
@@ -596,7 +550,6 @@ Settings:
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
-    Blur Thumbnails: Küçük Resimleri Bulanıklaştır
     Hide Subscriptions Community: Abonelik Topluluğunu Gizle
     Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
     Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
@@ -682,56 +635,20 @@ Settings:
     Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
     Remove Password: Parolayı Kaldır
     Set Password: Parola Ayarla
-  Expand All Settings Sections: Tüm Ayarlar Bölümlerini Genişlet
   Sort Settings Sections (A-Z): Ayarlar Bölümlerini Sırala (A-Z)
   Return to Settings Menu: Ayarlar Menüsüne Dön
 About:
   #On About page
   About: 'Hakkında'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Bu
-    copyleft yazılım, özgür bir şekilde AGPL-3.0 altında lisanslanmıştır.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Hata mı buldunuz? Yeni bir özellik mi önermek istiyorsunuz? Yardım etmek mi istiyorsunuz?
-    GitHub sayfamıza bakın. Çekme istekleri kabul edilir.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Freetube''yi
-    yapmamıza olanak veren herkese ve tüm projelere teşekkürler!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Sohbet
-    etmek mi istiyorsunuz? Element / Matrix sunucumuza katılın. Lütfen katılmadan
-    önce kuralları gözden geçirin.'
-
-  'Looking for help? Check out our Wiki page.': 'Yardım mı lazım? Wiki sayfamıza bakın.'
-
-  Check out our Firefox extension!: 'Firefox uzantımıza göz atın!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube''u
-    kullanmaktan hoşlanıyorsanız, Liberapay veya Bitcoin adresimiz aracılığıyla bağış
-    yapmayı düşünün.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'En Yeni FreeTube Haberleri'
-
-  Translate via Weblate: Weblate'de Çevir
   Website: İnternet Sitesi
-  Source Code: Kaynak Kodları
-  Release Notes: Sürüm Notları
   Blog: Blog
   Credits: Katkıda Bulunanlar
   FAQ: SSS
-  Wiki: Wiki
-  Report an Issue: Sorun Bildir
-  Channel Rules: Kanal Kuralları
   Email: E-posta
-  License: Lisans
   Beta: Beta
   Donate: Bağış Yap
-  Useful Links: Faydalı Bağlantılar
   Help: Yardım
-  Contact: İletişim
   these people and projects: bu kişiler ve projeler
   FreeTube is made possible by: FreeTube'e katkıda bulunanlar
   Translate: Çevir
@@ -746,8 +663,6 @@ About:
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub yayınları
   Downloads / Changelog: İndirmeler / Değişiklikler
-  View License: Lisansı Görüntüle
-  Licensed under the AGPLv3: AGPLv3 altında lisanslanmıştır
   Source code: Kaynak kodları
   Discussions: Tartışmalar
   Licensed under the: 'Lisans:'
@@ -803,8 +718,6 @@ Profile:
   Open Profile Dropdown: Profil Açılır Menüsünü Aç
   Close Profile Dropdown: Profil Açılır Menüsünü Kapat
 Channel:
-  Subscriber: 'Abone'
-  Subscribers: 'Abone'
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
   Channel has been removed from your subscriptions: 'Kanal aboneliklerinizden kaldırıldı'
@@ -1030,9 +943,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
-  Videos: 'Videolar'
-  View: 'Görüntüle'
-  Views: 'İzlenme'
   Last Updated On: 'Son güncelleme tarihi'
 
 # On Video Watch Page
@@ -1050,7 +960,6 @@ Playlist:
     Custom: Özel
     VideoDurationAscending: Süre (Önce en kısa)
     VideoDurationDescending: Süre (Önce en uzun)
-Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
@@ -1115,7 +1024,6 @@ Local API Error (Click to copy): 'Yerel API Hatası (Kopyalamak için tıklayın
 Invidious API Error (Click to copy): 'Invidious API Hatası (Kopyalamak için tıklayın)'
 Falling back to Invidious API: 'Invidious API''ye geri dönülüyor'
 Falling back to Local API: 'Yerel API''ye geri dönülüyor'
-Subscriptions have not yet been implemented: 'Abonelikler henüz uygulanmadı'
 Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
 Shuffle is now disabled: 'Karıştır artık devre dışı'
@@ -1211,8 +1119,6 @@ Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek iç
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
   için tıklayın.
 More: Daha Fazla
-Hashtags have not yet been implemented, try again later: Hashtag'ler henüz uygulanmadı,
-  daha sonra tekrar deneyin
 Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü, uygulamada
   açılamıyor
 Open New Window: Yeni Pencere Aç
@@ -1240,8 +1146,6 @@ Channels:
   Title: Kanal Listesi
   Search bar placeholder: Kanalları Ara
   Count: '{number} kanal bulundu.'
-  Unsubscribe: Abonelikten çık
-  Unsubscribed: '{channelName} aboneliklerinizden kaldırıldı'
   Unsubscribe Prompt: '"{channelName}" aboneliğinden çıkmak istediğinizden emin misiniz?'
 Clipboard:
   Copy failed: Panoya kopyalanamadı

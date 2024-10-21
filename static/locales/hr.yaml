@@ -127,12 +127,6 @@ Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
   Your Playlists: 'Tvoje zbirke'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nemaš
-    spremljenih videa. Pritisni gumb za spremanje u sličici videa, kako bi se video
-    ovdje prikazao
-  Playlist Message: Ova stranica ne odražava potpuno funkcionalne zbirke. Prikazuje
-    samo spremljena ili kao favoriti označena videa. Kad posao završi, sva trenutačno
-    ovdje prisutna videa premjestit će se u zbirku „Favoriti”.
   Search bar placeholder: Traži zbirke
   Empty Search Message: U ovoj zbirci nema videa koji odgovaraju tvojem pretraživanju
   This playlist currently has no videos.: Ova zbirka trenutačno nema nijedan video.
@@ -146,8 +140,6 @@ User Playlists:
   Cancel: Odustani
   Edit Playlist Info: Uredi podatke zbirke
   Copy Playlist: Kopiraj zbirku
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Stvarno
-    želiš ukloniti sva gledana videa iz ove zbirke? To se ne može poništiti.
   Delete Playlist: Ukloni zbirku
   Are you sure you want to delete this playlist? This cannot be undone: Stvarno želiš
     izbrisati ovu zbirku? To se ne može poništiti.
@@ -188,7 +180,6 @@ User Playlists:
       There were no videos to remove.: Nije bilo videa za uklanjanje.
       This playlist is now used for quick bookmark: Ova se zbirka sada koristi za
         brze zabilješke
-      Quick bookmark disabled: Brze zabilješke su deaktivirane
       Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje
         zbirke „{oldPlaylistName}” za brze zabilješke
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
@@ -230,7 +221,6 @@ User Playlists:
   Add to Favorites: Dodaj u zbirku „{playlistName}”
   Remove from Favorites: Ukloni iz zbirke „{playlistName}”
   Enable Quick Bookmark With This Playlist: Aktiviraj brze zabilješke s ovom zbirkom
-  Disable Quick Bookmark: Deaktiviraj brze zabilješke
   Playlists with Matching Videos: Zbirke s poklapajućim videima
   Quick Bookmark Enabled: Brze zabilješke aktivirano
   Cannot delete the quick bookmark target playlist.: Nije moguće izbrisati zbirku
@@ -279,8 +269,6 @@ Settings:
       End: 'Kraj'
       Hidden: Skriveno
       Blur: Neoštro
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
-      (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videa u trendu'
         #! List countries
     Check for Latest Blog Posts: Traži najnovije objave na blogu
@@ -452,44 +440,10 @@ Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
     Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
-    Subscriptions Export Format:
-      Subscriptions Export Format: 'Format izvoza pretplata'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Upravljaj pretplatama'
-    Import Subscriptions: 'Uvoz pretplata'
-    Export Subscriptions: 'Izvoz pretplata'
-    How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
     Fetch Automatically: Automatski dohvati feed
     Only Show Latest Video for Each Channel: Prikaži samo najnoviji video za svaki
       kanal
     Confirm Before Unsubscribing: Izbjegni slučajno otkazivanje pretplate
-  Advanced Settings:
-    Advanced Settings: 'Napredne postavke'
-    Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
-      (ispisuje podatke na konzolu)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresa posrednika (npr.:
-      SOCKS5: //127.0.0.1: 9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Pritiskom
-      gumba „TESTIRAJ POSREDNIKA” poslat će se zahtjev na https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Koristi Tor/posrednika za pozive sučelja'
-    TEST PROXY: 'TESTIRAJ POSREDNIKA'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Pogledaj javne primjerke'
-    Clear History:
-      Clear History: 'Izbriši povijest'
-      # On Click
-      Are you sure you want to delete your history?: 'Stvarno želiš izbrisati povijest?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Izbriši pretplate'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Stvarno želiš ukloniti
-        sve pretplate?'
-      #& Yes
-      #& No
 
   Data Settings:
     Unknown data key: Nepoznat podatkovni ključ
@@ -516,15 +470,11 @@ Settings:
     Export YouTube: Izvezi YouTube
     Export FreeTube: Izvezi FreeTube
     Export Subscriptions: Izvezi pretplate
-    Import NewPipe: Uvezi NewPipe
-    Import YouTube: Uvezi YouTube
     Import Subscriptions: Uvezi pretplate
-    Import FreeTube: Uvezi FreeTube
     Select Export Type: Odaberi vrstu izvoza
     Select Import Type: Odaberi vrstu uvoza
     Data Settings: Postavke podataka
     How do I import my subscriptions?: Kako uvesti pretplate?
-    Check for Legacy Subscriptions: Potraži stare pretplate
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
     Export Playlists: Izvezi zbirke
@@ -579,7 +529,6 @@ Settings:
     Hide Subscriptions Shorts: Sakrij pretplate kratkih videa
     Hide Subscriptions Live: Sakrij pretplate videa uživo
     Hide Subscriptions Videos: Sakrij pretplate videa
-    Blur Thumbnails: Zamuti minijature
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
     Hide Subscriptions Community: Sakrij pretplate zajednice
     Hide Channels Invalid: Navedeni ID kanala nije bio ispravan
@@ -663,56 +612,19 @@ Settings:
     Set Password: Postavi lozinku
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
-  Expand All Settings Sections: Rasklopi sve odjeljke postavki
   Sort Settings Sections (A-Z): Razvrstaj odjeljke postavki (A-Z)
 About:
   #On About page
   About: 'Informacije'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ovaj
-    je program licenciran pod uvjetima AGPL-3.0 licence.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Pronašao/la si grešku? Želiš predložiti funkciju? Želiš pomoći? Pogledaj našu
-    GitHub stranicu. Zahtjevi za povlačenje su dobrodošli.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Zahvaljujemo
-    svim ljudima i projektima koji omogućuju razvoj programa FreeTube!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Želiš
-    razgovarati? Pridruži se našem Element/Matrix poslužitelju. Pročitaj pravila prije
-    pridruživanja.'
-
-  'Looking for help? Check out our Wiki page.': 'Tražiš pomoć? Pogledaj našu Wiki
-    stranicu.'
-
-  Check out our Firefox extension!: 'Isprobaj naše proširenje za Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Ako
-    voliš koristiti FreeTube, doniraj projektu putem Liberapaya ili putem naše Bitcoin
-    adrese.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Najnovije vijesti o programu FreeTube'
-
-  Translate via Weblate: Prevedi putem Weblatea
   Website: Web-stranica
-  Source Code: Izvorni kod
-  Release Notes: Napomene uz izdanje
   Blog: Blog
   Credits: Zasluge
   FAQ: Često postavljena pitanja
-  Wiki: Wiki
-  Report an Issue: Prijavi problem
-  Channel Rules: Pravila kanala
   Email: E-adresa
-  License: Licenca
   Beta: Beta
   Donate: Doniraj
-  Useful Links: Korisne poveznice
   Help: Pomoć
-  Contact: Kontakt
   Chat on Matrix: Razgovaraj na Matrixu
   Please check for duplicates before posting: Prije slanja greške, provjeri, je li
     ista greška već prijavljena
@@ -727,8 +639,6 @@ About:
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub izdanja
   Downloads / Changelog: Preuzimanja/dnevnik promjena
-  View License: Pogledaj licencu
-  Licensed under the AGPLv3: AGPLv3 licenca
   Source code: Izvorni kod
   Discussions: Diskusije
   Licensed under the: Licencirano pod
@@ -971,9 +881,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
-  Videos: 'Videa'
-  View: 'Prikaz'
-  Views: 'Prikazi'
   Last Updated On: 'Zadnje aktualiziranje'
 
 # On Video Watch Page
@@ -989,7 +896,6 @@ Playlist:
     VideoTitleAscending: Naslov (A-Z)
     VideoTitleDescending: Naslov (Z-A)
     Custom: Prilagođeno
-Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
@@ -1051,7 +957,6 @@ Local API Error (Click to copy): 'Greška lokalnog sučelja (pritisni za kopiran
 Invidious API Error (Click to copy): 'Greška Invidious sučelja (pritisni za kopiranje)'
 Falling back to Invidious API: 'Koristit će se Invidious sučelje'
 Falling back to Local API: 'Koristit će se lokalno sučelje'
-Subscriptions have not yet been implemented: 'Pretplate još nisu implementirane'
 Loop is now disabled: 'Ponavljanje je sada deaktivirano'
 Loop is now enabled: 'Ponavljanje je sada aktivirano'
 Shuffle is now disabled: 'Slučajni redoslijed je sada deaktiviran'
@@ -1145,8 +1050,6 @@ Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
 More: Još
-Hashtags have not yet been implemented, try again later: Hashtagovi još nisu implementirani,
-  pokušaj kasnije ponovo
 Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na YouTubeu,
   ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
@@ -1170,9 +1073,7 @@ Channels:
   Search bar placeholder: Pretraži kanale
   Count: '{number} kanala pronađena.'
   Empty: Tvoj popis kanala je trenutačno prazan.
-  Unsubscribe: Otkaži pretplatu
   Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „{channelName}”?
-  Unsubscribed: '{channelName} je uklonjen iz tvojih pretplata'
 Clipboard:
   Copy failed: Neuspjelo kopiranje u međuspremnik
   Cannot access clipboard without a secure connection: Pristup međuspremniku nije
