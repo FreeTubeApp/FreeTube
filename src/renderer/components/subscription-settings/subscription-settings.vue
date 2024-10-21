@@ -18,6 +18,12 @@
           :compact="true"
           @change="updateUseRssFeeds"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
+          :default-value="unsubscriptionPopupStatus"
+          :compact="true"
+          @change="updateUnsubscriptionPopupStatus"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -27,18 +33,18 @@
           @change="updateHideWatchedSubs"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Only Show Latest Video for Each Channel')"
+          :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
           :default-value="onlyShowLatestFromChannel"
           :compact="true"
           @change="updateOnlyShowLatestFromChannel"
         />
-      </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
-          :default-value="unsubscriptionPopupStatus"
-          :compact="true"
-          @change="updateUnsubscriptionPopupStatus"
+        <ft-input
+          v-if="onlyShowLatestFromChannel"
+          :placeholder="'1'"
+          :show-action-button="false"
+          input-type="number"
+          :value="onlyShowLatestFromChannelNumber"
+          @input="updateOnlyShowLatestFromChannelNumber"
         />
       </div>
     </div>
