@@ -20,7 +20,7 @@ Delete: 'Dilemel'
 Select all: 'Diuzañ pep tra'
 Reload: 'Adkargañ'
 Force Reload: 'Rediañ an adkargañ'
-Toggle Developer Tools: ''
+Toggle Developer Tools: 'Enaouiñ/Lazhañ Ostilhoù diorren'
 Actual size: 'Ment a-vremañ'
 Zoom in: 'Zoum brassat'
 Zoom out: 'Zoum bihanaat'
@@ -32,11 +32,13 @@ Back: 'Distreiñ'
 Forward: 'War-raok'
 Open New Window: 'Digeriñ ur prenestr nevez'
 Go to page: 'Mont d''ar bajenn {page}'
-Close Banner: ''
+Close Banner: 'Serriñ ar Giton'
 
-Version {versionNumber} is now available!  Click for more details: ''
+Version {versionNumber} is now available!  Click for more details: 'Stumm {versionNumber}
+  a zo hegerz !  Klikit amañ evit gouzout hiroc''h'
 Download From Site: 'Pellgargañ diwar al lec''hienn'
-A new blog is now available, {blogTitle}. Click to view more: ''
+A new blog is now available, {blogTitle}. Click to view more: 'Embannet ez eus bet
+  ur pennad nevez, {blogTitle}. Klikit amañ evit gouzout hiroc''h'
 Are you sure you want to open this link?: 'Ha sur oc''h e faot deoc''h digeriñ al
   liamm-mañ ?'
 
@@ -79,7 +81,7 @@ Search Filters:
   Search Filters: 'Siloù evit Klask'
   Sort By:
     Sort By: 'Rummañ dre'
-    Most Relevant: ''
+    Most Relevant: 'Ar re wellañ'
     Rating: 'Notenn'
     Upload Date: 'Deiziad kargañ'
     View Count: 'Niver a selloù'
@@ -280,7 +282,7 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
+    Check for Latest Blog Posts: 'Diskouez pennadoù diwezhañ ar Blog'
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Auto Load Next Page:
