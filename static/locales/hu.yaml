@@ -483,8 +483,6 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
-      a csatornáktól
     Confirm Before Unsubscribing: Kerülje el a véletlen leiratkozást
   Data Settings:
     Data Settings: 'Adat'

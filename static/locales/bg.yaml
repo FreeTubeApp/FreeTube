@@ -475,8 +475,6 @@ Settings:
     Hide Videos on Watch: 'Скриване на видеата при гледане'
     Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Fetch Automatically: Автоматично извличане на съдържание
-    Only Show Latest Video for Each Channel: Показване само най-новите видеа за всеки
-      канал
     Confirm Before Unsubscribing: Избягване на случайно отписване
   Data Settings:
     Data Settings: 'Данни'
