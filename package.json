@@ -102,7 +102,7 @@
     "json-minimizer-webpack-plugin": "^5.0.0",
     "lefthook": "^1.7.22",
     "mini-css-extract-plugin": "^2.9.1",
-    "neostandard": "^0.11.6",
+    "neostandard": "^0.11.7",
     "npm-run-all2": "^6.2.4",
     "postcss": "^8.4.47",
     "postcss-scss": "^4.0.9",
