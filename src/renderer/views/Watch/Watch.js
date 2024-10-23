@@ -661,9 +661,8 @@ export default defineComponent({
               })
 
               downloadLinks.push(...captionLinks)
-
-              this.downloadLinks = downloadLinks
             }
+            this.downloadLinks = downloadLinks
           } else {
             // video might be region locked or something else. This leads to no formats being available
             showToast(
