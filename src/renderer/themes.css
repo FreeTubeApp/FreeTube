@@ -364,7 +364,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --card-bg-color: #504945;
   --secondary-card-bg-color: #3c3836;
   --scrollbar-color: #665c54;
-  --scrollbar-color-hover: #504945;
+  --scrollbar-color-hover: #282828;
   --side-nav-color: #504945;
   --side-nav-hover-color: #665c54;
   --side-nav-active-color: #504945;
@@ -384,7 +384,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --card-bg-color: #ebdbb2;
   --secondary-card-bg-color: #d5c4a1;
   --scrollbar-color: #bdae93;
-  --scrollbar-color-hover: #ebdbb2;
+  --scrollbar-color-hover: #fbf1c7;
   --side-nav-color: #ebdbb2;
   --side-nav-hover-color: #bdae93;
   --side-nav-active-color: #ebdbb2;
