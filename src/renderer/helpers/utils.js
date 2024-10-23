@@ -918,13 +918,13 @@ function getMacIconForShortcut(shortcut) {
     case 'ctrl':
       return '⌘'
     case 'arrowleft':
-      return '◀'
+      return '←'
     case 'arrowright':
-      return '▶'
+      return '→'
     case 'arrowup':
-      return '▲'
+      return '↑'
     case 'arrowdown':
-      return '▼'
+      return '↓'
     default:
       return shortcut
   }
