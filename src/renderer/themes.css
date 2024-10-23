@@ -374,6 +374,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .gruvboxLight {
+  --primary-shadow-color: rgb(255 241 199 / 100%);
   --primary-text-color: #3c3836;
   --secondary-text-color: #282828;
   --tertiary-text-color: #282828;
