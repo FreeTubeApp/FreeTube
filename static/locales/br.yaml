@@ -197,36 +197,37 @@ User Playlists:
   Edit Playlist Info: 'Kemmañ titouroù ar roll-videoioù'
   Copy Playlist: 'Eilañ ar roll-videoioù'
   Remove Duplicate Videos: 'Dilemel doublennoù ar videoioù'
-  Remove Watched Videos: ''
+  Remove Watched Videos: 'Dilemel ar videoioù bet gwelet'
   Enable Quick Bookmark With This Playlist: ''
   Quick Bookmark Enabled: ''
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ''
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ''
-  Delete Playlist: ''
+  Delete Playlist: 'Dilemel roll-videoioù'
   Cannot delete the quick bookmark target playlist.: ''
-  Are you sure you want to delete this playlist? This cannot be undone: ''
+  Are you sure you want to delete this playlist? This cannot be undone: 'Ha sur oc''h
+    e faot deoc''h dilemel ar roll-videoioù-mañ ? Ne vo ket moaien da nullañ war-lerc''h.'
 
   Sort By:
-    Sort By: ''
+    Sort By: 'Rummañ dre'
 
-    NameAscending: ''
-    NameDescending: ''
+    NameAscending: 'A-Z'
+    NameDescending: 'Z-A'
 
-    LatestCreatedFirst: ''
-    EarliestCreatedFirst: ''
+    LatestCreatedFirst: 'Krouet nevez ''zo'
+    EarliestCreatedFirst: 'Krouet pell ''zo'
 
-    LatestUpdatedFirst: ''
-    EarliestUpdatedFirst: ''
+    LatestUpdatedFirst: 'Kemmet nevez ''zo'
+    EarliestUpdatedFirst: 'Kemmet pell ''zo'
 
-    LatestPlayedFirst: ''
-    EarliestPlayedFirst: ''
+    LatestPlayedFirst: 'Lennet nevez ''zo'
+    EarliestPlayedFirst: 'Lennet pell ''zo'
   SinglePlaylistView:
-    Search for Videos: ''
+    Search for Videos: 'Klask Videoioù'
 
     Toast:
       This video cannot be moved up.: ''
       This video cannot be moved down.: ''
-      Video has been removed: ''
+      Video has been removed: 'Dilamet eo bet ar video'
       There was a problem with removing this video: ''
 
       This playlist is already being used for quick bookmark.: ''
@@ -236,7 +237,7 @@ User Playlists:
 
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: ''
       Playlist name cannot be empty. Please input a name.: ''
-      Playlist has been updated.: ''
+      Playlist has been updated.: 'Kemmet eo bet ar roll-videoioù.'
       There was an issue with updating this playlist.: ''
       "{videoCount} video(s) have been removed": ""
       There were no videos to remove.: ''
