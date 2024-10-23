@@ -228,7 +228,8 @@ User Playlists:
       This video cannot be moved up.: ''
       This video cannot be moved down.: ''
       Video has been removed: 'Dilamet eo bet ar video'
-      There was a problem with removing this video: ''
+      There was a problem with removing this video: 'Ur gudenn a oa en ur glask dilemel
+        ar video-mañ'
 
       This playlist is already being used for quick bookmark.: ''
       This playlist is now used for quick bookmark: ''
@@ -508,7 +509,7 @@ Settings:
     Hide Chapters: ''
     Hide Channels: ''
     Hide Channels Disabled Message: ''
-    Hide Channels Placeholder: ''
+    Hide Channels Placeholder: 'ID ar chadenn'
     Hide Channels Invalid: ''
     Hide Channels API Error: ''
     Hide Channels Already Exists: ''
