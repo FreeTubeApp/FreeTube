@@ -43,16 +43,16 @@ const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
 
 const shakaControlKeysToShortcuts = {
-  MUTE: KeyboardShortcuts.VIDEO_PLAYER.MUTE,
-  UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.MUTE,
-  PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAY,
-  PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAY,
-  PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE,
-  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE,
-  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE,
-  CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.CAPTIONS,
-  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.FULLSCREEN,
-  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.FULLSCREEN
+  MUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
+  UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
+  PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
+  PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
+  PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS,
+  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
+  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN
 }
 
 /** @type {Map<string, string>} */
@@ -2017,44 +2017,44 @@ export default defineComponent({
       switch (event.key.toLowerCase()) {
         case ' ':
         case 'spacebar': // older browsers might return spacebar instead of a space character
-        case KeyboardShortcuts.VIDEO_PLAYER.PLAY:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY:
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.LARGE_REWIND:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
           seekBySeconds(-defaultSkipInterval.value * video_.playbackRate * 2)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.LARGE_FAST_FORWARD:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
           seekBySeconds(defaultSkipInterval.value * video_.playbackRate * 2)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.DECREASE_VIDEO_SPEED:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
           // Decrease playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(-videoPlaybackRateInterval.value)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.INCREASE_VIDEO_SPEED:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED:
           // Increase playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.FULLSCREEN:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN:
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.MUTE:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
           if (!event.metaKey) {
             event.preventDefault()
             video_.muted = !video_.muted
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.CAPTIONS:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS:
           // Toggle caption/subtitles
           if (player.getTextTracks().length > 0) {
             event.preventDefault()
@@ -2063,17 +2063,17 @@ export default defineComponent({
             player.setTextTrackVisibility(!currentlyVisible)
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.VOLUME_UP:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_UP:
           // Increase volume
           event.preventDefault()
           changeVolume(0.05)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.VOLUME_DOWN:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_DOWN:
           // Decrease Volume
           event.preventDefault()
           changeVolume(-0.05)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.SMALL_REWIND:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_REWIND:
           event.preventDefault()
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
@@ -2083,7 +2083,7 @@ export default defineComponent({
             seekBySeconds(-defaultSkipInterval.value * video_.playbackRate)
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.SMALL_FAST_FORWARD:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
           event.preventDefault()
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
@@ -2093,7 +2093,7 @@ export default defineComponent({
             seekBySeconds(defaultSkipInterval.value * video_.playbackRate)
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.PICTURE_IN_PICTURE:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
           // Toggle picture in picture
           if (props.format !== 'audio') {
             const controls = ui.getControls()
@@ -2126,17 +2126,17 @@ export default defineComponent({
           }
           break
         }
-        case KeyboardShortcuts.VIDEO_PLAYER.LAST_FRAME:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LAST_FRAME:
           event.preventDefault()
           // Return to previous frame
           frameByFrame(-1)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.NEXT_FRAME:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.NEXT_FRAME:
           event.preventDefault()
           // Advance to next frame
           frameByFrame(1)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.STATS:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS:
           // Toggle stats display
           event.preventDefault()
 
@@ -2154,14 +2154,14 @@ export default defineComponent({
             }))
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW:
           // Toggle full window mode
           event.preventDefault()
           events.dispatchEvent(new CustomEvent('setFullWindow', {
             detail: !fullWindowEnabled.value
           }))
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.THEATRE_MODE:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
           // Toggle theatre mode
           if (props.theatrePossible) {
             event.preventDefault()
@@ -2171,7 +2171,7 @@ export default defineComponent({
             }))
           }
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.TAKE_SCREENSHOT:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
           if (process.env.IS_ELECTRON && enableScreenshot.value && props.format !== 'audio') {
             event.preventDefault()
             // Take screenshot

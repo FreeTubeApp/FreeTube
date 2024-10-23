@@ -79,7 +79,7 @@ export class TheatreModeButton extends shaka.ui.Element {
 
     this.button_.ariaLabel = addKeyboardShortcutToActionTitle(
       baseAriaLabel,
-      KeyboardShortcuts.VIDEO_PLAYER.THEATRE_MODE
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE
     )
   }
 }

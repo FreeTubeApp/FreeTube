@@ -89,21 +89,21 @@ export default defineComponent({
     forwardText: function () {
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Forward'),
-        KeyboardShortcuts.APP.HISTORY_FORWARD
+        KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD
       )
     },
 
     backwardText: function () {
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Back'),
-        KeyboardShortcuts.APP.HISTORY_BACKWARD
+        KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD
       )
     },
 
     newWindowText: function () {
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Open New Window'),
-        KeyboardShortcuts.APP.NEW_WINDOW
+        KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
       )
     }
   },

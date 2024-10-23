@@ -28,7 +28,7 @@ export default defineComponent({
     refreshFeedButtonTitle: function() {
       return addKeyboardShortcutToActionTitle(
         this.$t('Feed.Refresh Feed', { subscriptionName: this.title }),
-        KeyboardShortcuts.FEED.REFRESH
+        KeyboardShortcuts.APP.SITUATIONAL.REFRESH
       )
     }
   },

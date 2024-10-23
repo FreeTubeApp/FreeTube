@@ -80,7 +80,7 @@ export class FullWindowButton extends shaka.ui.Element {
 
     this.button_.ariaLabel = addKeyboardShortcutToActionTitle(
       baseAriaLabel,
-      KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW
     )
   }
 }
