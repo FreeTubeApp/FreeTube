@@ -156,7 +156,8 @@ export default defineComponent({
 
     const activeLegacyFormat = shallowRef(null)
 
-    const fullWindowEnabled = ref(props.startInFullwindow)
+    const fullWindowEnabled = ref(false)
+    const startInFullwindow = props.startInFullwindow
     let startInFullscreen = props.startInFullscreen
     let startInPip = props.startInPip
 
@@ -1693,7 +1694,7 @@ export default defineComponent({
        */
       class FullWindowButtonFactory {
         create(rootElement, controls) {
-          return new FullWindowButton(fullWindowEnabled.value, events, rootElement, controls)
+          return new FullWindowButton(fullWindowEnabled.value, startInFullwindow, events, rootElement, controls)
         }
       }
 

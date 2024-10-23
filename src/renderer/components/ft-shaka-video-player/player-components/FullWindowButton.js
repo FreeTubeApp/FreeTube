@@ -5,11 +5,12 @@ import i18n from '../../../i18n/index'
 export class FullWindowButton extends shaka.ui.Element {
   /**
    * @param {boolean} fullWindowEnabled
+   * @param {boolean} startInFullWindow
    * @param {EventTarget} events
    * @param {HTMLElement} parent
    * @param {shaka.ui.Controls} controls
    */
-  constructor(fullWindowEnabled, events, parent, controls) {
+  constructor(fullWindowEnabled, startInFullWindow, events, parent, controls) {
     super(parent, controls)
 
     /** @private */
@@ -61,6 +62,12 @@ export class FullWindowButton extends shaka.ui.Element {
     this.eventManager.listen(events, 'localeChanged', () => {
       this.updateLocalisedStrings_()
     })
+
+    if (startInFullWindow) {
+      events.dispatchEvent(new CustomEvent('setFullWindow', {
+        detail: true
+      }))
+    }
 
     this.updateLocalisedStrings_()
   }
