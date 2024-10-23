@@ -16,6 +16,7 @@ import ExperimentalSettings from '../../components/experimental-settings/experim
 import PasswordSettings from '../../components/password-settings/password-settings.vue'
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
+import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSettingsMenu from '../../components/ft-settings-menu/ft-settings-menu.vue'
 
 const ACTIVE_CLASS_NAME = 'active'
@@ -35,6 +36,7 @@ export default defineComponent({
     'parental-control-settings': ParentControlSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
+    'ft-button': FtButton,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-settings-menu': FtSettingsMenu,
     ...(process.env.IS_ELECTRON
@@ -247,6 +249,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'showKeyboardShortcutPrompt',
       'updateSettingsSectionSortEnabled'
     ])
   }

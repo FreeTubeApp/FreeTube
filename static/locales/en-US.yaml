@@ -279,6 +279,7 @@ Settings:
   Settings: Settings
   Expand All Settings Sections: Expand All Settings Sections
   Sort Settings Sections (A-Z): Sort Settings Sections (A-Z)
+  Show Keyboard Shortcuts: Show Keyboard Shortcuts
   Return to Settings Menu: Return to Settings Menu
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
@@ -1131,3 +1132,39 @@ Cancel: Cancel
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Keyboard Shortcuts
+  Sections:
+    Video:
+      Playback: Video: Playback
+      General: Video: General
+    App:
+      Situational: 'App: Situational'
+      General: App: General
+  History Backward: Go back one page
+  History Forward: Go forward one page
+  New Window: Create a new window
+  Navigate to Settings: Navigate to the Settings page
+  Navigate to History: Navigate to the History page
+  Refresh: Refresh feed with latest content
+  Captions: Toggle captions ON/OFF
+  Stats: Show video statistics
+  Fullscreen: Toggle fullscreen
+  Picture in Picture: Toggle Picture-in-Picture mode
+  Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate'
+  Play: Toggle play/pause
+  Large Fast Forward: 'Forward 10 seconds / Fast-Forward video based on current Video Playback Rate'
+  Mute: Toggle mute
+  Decrease Video Speed: 'Decrease video speed based on Video Playback Rate Interval'
+  Increase Video Speed: 'Increase video speed based on Video Playback Rate Interval'
+  Full Window: Toggle full window
+  Theatre Mode: Toggle theater mode
+  Take Screenshot: Take screenshot
+  Last Frame: Previous frame (while paused)
+  Next Frame: Next frame (while paused)
+  Volume Up: Increase volume
+  Volume Down: Decrease Volume 
+  Small Rewind: 'Rewind X seconds based on the Rewind Interval and current Video Playback Rate'
+  Small Fast Forward: 'Fast-Forward X seconds based on the Fast-Forward Interval and current Video Playback Rate'
+  Last Chapter: Last Chapter
+  Next Chapter: Next Chapter

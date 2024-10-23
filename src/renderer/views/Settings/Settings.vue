@@ -29,6 +29,10 @@
             :compact="false"
             @change="updateSettingsSectionSortEnabled"
           />
+          <ft-button
+            :label="$t('Settings.Show Keyboard Shortcuts')"
+            @click="showKeyboardShortcutPrompt"
+          />
         </div>
         <div class="settingsSections">
           <template

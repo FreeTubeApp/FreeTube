@@ -11,6 +11,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'
+import FtKeyboardShortcutPrompt from './components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
@@ -32,7 +33,8 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
-    FtSearchFilters
+    FtSearchFilters,
+    FtKeyboardShortcutPrompt,
   },
   data: function () {
     return {
@@ -70,6 +72,9 @@ export default defineComponent({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
+    },
+    isKeyboardShortcutPromptShown: function () {
+      return this.$store.getters.getIsKeyboardShortcutPromptShown
     },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
@@ -159,6 +164,11 @@ export default defineComponent({
     this.checkThemeSettings()
     this.setWindowTitle()
     this.setLocale()
+    document.addEventListener('keydown', (event) => {
+      if (event.key.toUpperCase() === 'Z' && ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
+        this.showKeyboardShortcutPrompt()
+      }
+    })
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -560,6 +570,7 @@ export default defineComponent({
       'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
+      'showKeyboardShortcutPrompt',
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',

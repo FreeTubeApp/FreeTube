@@ -1,0 +1,66 @@
+
+
+.keyboardShortcutPrompt {
+  max-inline-size: 80%;
+}
+
+.titleAndCloseButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2,
+h3 {
+  margin-block: 0.25em;
+  inline-size: fit-content;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.primarySections,
+.primarySection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.secondarySection {
+  flex: 0 0 350px;
+}
+
+.labelsAndShortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.labelAndShortcut {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.labelAndShortcut + .labelAndShortcut {
+  border-block-start: 1px solid var(--primary-shadow-color);
+}
+
+.label {
+  flex: 2;
+}
+
+.shortcut {
+  flex: 1;
+  min-inline-size: 5em;
+}
+
+:deep(.ft-input) {
+  margin-block-end: 0;
+}

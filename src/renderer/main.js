@@ -105,7 +105,8 @@ import {
   faUserLock,
   faUsers,
   faUsersSlash,
-  faWifi
+  faWifi,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -218,6 +219,7 @@ library.add(
   faUsers,
   faUsersSlash,
   faWifi,
+  faXmark,
 
   // solid icons
   farBookmark,
