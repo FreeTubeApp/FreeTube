@@ -132,7 +132,7 @@ export default defineComponent({
         return 'default'
       }
 
-      return this.$store.getters.getDefaultViewingMode
+      return defaultViewingMode
     },
 
     defaultTheatreMode: function () {
