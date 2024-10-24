@@ -253,49 +253,35 @@ export async function getLocalVideoInfo(id) {
     id = trailerScreen.video_id
   }
 
-  // try to bypass the age restriction
-  if (info.playability_status.status === 'LOGIN_REQUIRED' || (hasTrailer && trailerIsAgeRestricted)) {
-    const tvInnertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
+  if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
+    info.playability_status.status === 'LOGIN_REQUIRED') {
+    return info
+  }
 
-    const tvInfo = await tvInnertube.getBasicInfo(id, 'TV_EMBEDDED')
+  const iosInnertube = await createInnertube({ clientType: ClientType.IOS })
 
-    if (tvInfo.streaming_data) {
-      decipherFormats(tvInfo.streaming_data.adaptive_formats, tvInnertube.actions.session.player)
-      decipherFormats(tvInfo.streaming_data.formats, tvInnertube.actions.session.player)
+  const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
+
+  if (hasTrailer) {
+    info.playability_status = iosInfo.playability_status
+    info.streaming_data = iosInfo.streaming_data
+    info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
+    info.basic_info.duration = iosInfo.basic_info.duration
+    info.captions = iosInfo.captions
+    info.storyboards = iosInfo.storyboards
+  } else if (iosInfo.streaming_data) {
+    info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
+    info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
+
+    // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
+
+    for (const format of info.streaming_data.adaptive_formats) {
+      format.freeTubeUrl = format.url
     }
+  }
 
-    info.playability_status = tvInfo.playability_status
-    info.streaming_data = tvInfo.streaming_data
-    info.basic_info.start_timestamp = tvInfo.basic_info.start_timestamp
-    info.basic_info.duration = tvInfo.basic_info.duration
-    info.captions = tvInfo.captions
-    info.storyboards = tvInfo.storyboards
-  } else {
-    const iosInnertube = await createInnertube({ clientType: ClientType.IOS })
-
-    const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
-
-    if (hasTrailer) {
-      info.playability_status = iosInfo.playability_status
-      info.streaming_data = iosInfo.streaming_data
-      info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
-      info.basic_info.duration = iosInfo.basic_info.duration
-      info.captions = iosInfo.captions
-      info.storyboards = iosInfo.storyboards
-    } else if (iosInfo.streaming_data) {
-      info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
-      info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
-
-      // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
-
-      for (const format of info.streaming_data.adaptive_formats) {
-        format.freeTubeUrl = format.url
-      }
-    }
-
-    if (info.streaming_data) {
-      decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
-    }
+  if (info.streaming_data) {
+    decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
   }
 
   return info
