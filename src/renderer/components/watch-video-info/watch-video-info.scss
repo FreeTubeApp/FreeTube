@@ -22,6 +22,17 @@
   gap: 10px;
 }
 
+.unlistedBadge {
+  background-color: var(--secondary-card-bg-color);
+  border-radius: 5px;
+  display: inline;
+  padding-inline: 5px;
+  padding-block: 2px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+}
+
 .videoButtons {
   .profileRow {
     display: flex;
