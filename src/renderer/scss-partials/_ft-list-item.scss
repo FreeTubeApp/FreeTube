@@ -311,6 +311,10 @@ $watched-transition-duration: 0.5s;
     .info .description {
       margin-inline-end: 10px;
     }
+
+    @media only screen and (width >= 1514px) {
+      max-inline-size: 1250px;
+    }
   }
 
   &.grid {
