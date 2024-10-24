@@ -1,5 +1,6 @@
 <template>
   <div
+    id="videoContainer"
     ref="container"
     class="ftVideoPlayer"
     :class="{
@@ -9,6 +10,7 @@
   >
     <!-- eslint-disable-next-line vuejs-accessibility/media-has-caption -->
     <video
+      id="video"
       ref="video"
       class="player"
       preload="auto"
@@ -19,6 +21,7 @@
       @play="handlePlay"
       @pause="handlePause"
       @ended="handleEnded"
+      @canplay="handleCanPlay"
       @volumechange="updateVolume"
       @timeupdate="handleTimeupdate"
     />

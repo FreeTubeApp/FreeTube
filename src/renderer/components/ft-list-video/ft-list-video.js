@@ -376,6 +376,10 @@ export default defineComponent({
       return this.$store.getters.getExternalPlayer
     },
 
+    externalPlayerIsDefaultViewingMode: function () {
+      return this.externalPlayer !== '' && this.$store.getters.getDefaultViewingMode === 'external_player'
+    },
+
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
     },
@@ -478,13 +482,18 @@ export default defineComponent({
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },
 
-    watchPageLinkTo() {
-      // For `router-link` attribute `to`
+    watchVideoRoute() {
       return {
         path: `/watch/${this.id}`,
         query: this.watchPageLinkQuery,
       }
     },
+
+    // For `router-link` attribute `to`
+    watchVideoRouterLink() {
+      return !this.externalPlayerIsDefaultViewingMode ? this.watchVideoRoute : {}
+    },
+
     watchPageLinkQuery() {
       const query = {}
       if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }
@@ -530,6 +539,11 @@ export default defineComponent({
     }
   },
   methods: {
+    handleWatchPageLinkClick: function() {
+      if (this.externalPlayerIsDefaultViewingMode) {
+        this.handleExternalPlayer()
+      }
+    },
     fetchDeArrowThumbnail: async function() {
       if (this.thumbnailPreference === 'hidden') { return }
       const videoId = this.id
