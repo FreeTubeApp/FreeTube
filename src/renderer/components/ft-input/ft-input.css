@@ -202,8 +202,22 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
 .list li {
   display: block;
   padding-block: 0;
-  padding-inline: 15px;
   line-height: 2rem;
+  padding-inline: 15px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.bookmarkStarIcon {
+  color: var(--favorite-icon-color);
+}
+
+.searchResultIcon {
+  opacity: 0.6;
+  padding-inline-end: 10px;
+  inline-size: 16px;
+  block-size: 16px;
 }
 
 .hover {

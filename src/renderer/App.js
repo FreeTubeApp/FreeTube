@@ -10,6 +10,7 @@ import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
+import PageBookmarkPrompt from './components/page-bookmark-prompt/page-bookmark-prompt.vue'
 import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
@@ -32,6 +33,7 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
+    PageBookmarkPrompt,
     FtSearchFilters
   },
   data: function () {
@@ -40,6 +42,7 @@ export default defineComponent({
       showUpdatesBanner: false,
       showBlogBanner: false,
       showReleaseNotes: false,
+      pageBookmarksAvailable: false,
       updateBannerMessage: '',
       blogBannerMessage: '',
       latestBlogUrl: '',
@@ -76,6 +79,9 @@ export default defineComponent({
     },
     showCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+    showPageBookmarkPrompt: function () {
+      return this.$store.getters.getShowPageBookmarkPrompt
     },
     showSearchFilters: function () {
       return this.$store.getters.getShowSearchFilters
@@ -142,7 +148,7 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
-    }
+    },
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -178,6 +184,9 @@ export default defineComponent({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
+        this.grabPageBookmarks().then(async () => {
+          this.pageBookmarksAvailable = true
+        })
         this.grabAllSubscriptions()
 
         if (process.env.IS_ELECTRON) {
@@ -552,6 +561,7 @@ export default defineComponent({
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',
+      'grabPageBookmarks',
       'grabAllPlaylists',
       'grabAllSubscriptions',
       'getYoutubeUrlInfo',

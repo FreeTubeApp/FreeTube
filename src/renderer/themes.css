@@ -5,6 +5,7 @@ body {
   background-color: var(--bg-color);
 
   --primary-input-color: rgb(0 0 0 / 50%);
+  --side-nav-hover-text-color: var(--primary-text-color);
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
