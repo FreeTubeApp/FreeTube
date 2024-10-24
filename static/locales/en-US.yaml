@@ -1132,6 +1132,16 @@ Cancel: Cancel
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  shift: Shift
+  arrowdown: Down Arrow
+  arrowleft: Left Arrow
+  arrowright: Right Arrow
+  arrowup: Up Arrow
 KeyboardShortcutPrompt:
   Keyboard Shortcuts: Keyboard Shortcuts
   Sections:
@@ -1147,6 +1157,7 @@ KeyboardShortcutPrompt:
   Navigate to Settings: Navigate to the Settings page
   Navigate to History: Navigate to the History page
   Refresh: Refresh feed with latest content
+  Focus Secondary Search: Focus on the secondary search bar (if one is present)
   Captions: Toggle captions ON/OFF
   Stats: Show video statistics
   Fullscreen: Toggle fullscreen
@@ -1160,11 +1171,23 @@ KeyboardShortcutPrompt:
   Full Window: Toggle full window
   Theatre Mode: Toggle theater mode
   Take Screenshot: Take screenshot
+  Minimize Window: Miminize window
+  Close Window: Close window
+  Quit: Quit FreeTube
+  Reload: Reload FreeTube
+  Force Reload: Force reload FreeTube (avoids caching)
+  Toggle Developer Tools: Toggle developer tools
+  Reset Zoom: Reset zoom level / ui scale
+  Zoom In: Zoom in
+  Zoom Out: Zoom out
+  Focus Search: Focus on the search bar
+  Search in New Window: Search in a new window
   Last Frame: Previous frame (while paused)
   Next Frame: Next frame (while paused)
   Volume Up: Increase volume
-  Volume Down: Decrease Volume 
+  Volume Down: Decrease volume 
   Small Rewind: 'Rewind X seconds based on the Rewind Interval and current Video Playback Rate'
   Small Fast Forward: 'Fast-Forward X seconds based on the Fast-Forward Interval and current Video Playback Rate'
   Last Chapter: Last Chapter
   Next Chapter: Next Chapter
+  Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)

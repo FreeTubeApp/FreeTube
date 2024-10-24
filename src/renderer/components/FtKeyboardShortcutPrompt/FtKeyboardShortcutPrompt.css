@@ -7,6 +7,16 @@
 .titleAndCloseButton {
   display: flex;
   justify-content: space-between;
+  margin-block: 20px;
+  margin-inline-start: 10px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
 }
 
 h2,
@@ -14,53 +24,72 @@ h3 {
   margin-block: 0.25em;
   inline-size: fit-content;
   font-weight: bold;
-  font-size: 20px;
 }
 
 .center {
   text-align: center;
 }
 
+.primarySections {
+  justify-content: flex-start;
+}
+
+.primarySection {
+  inline-size: 100%;
+}
+
 .primarySections,
 .primarySection {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
   gap: 30px;
+  justify-content: space-evenly;
 }
 
 .secondarySection {
-  flex: 0 0 350px;
+  flex: 0 0 500px;
 }
 
 .labelsAndShortcuts {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  display: table;
+  table-layout: auto;
+  border-collapse: collapse;
 }
 
 .labelAndShortcut {
-  display: flex;
-  flex-direction: row;
+  display: table-row;
   font-size: 16px;
-  gap: 20px;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .labelAndShortcut + .labelAndShortcut {
   border-block-start: 1px solid var(--primary-shadow-color);
 }
 
+.label,
+.shortcut {
+  padding-block: 0.25em;
+}
+
 .label {
-  flex: 2;
+  display: table-cell;
+  padding-inline-end: 2em;
+  inline-size: 300px;
+  min-inline-size: 300px;
 }
 
 .shortcut {
-  flex: 1;
-  min-inline-size: 5em;
+  font-family: monospace;
+  display: table-cell;
+  vertical-align: middle;
 }
 
-:deep(.ft-input) {
-  margin-block-end: 0;
+:deep(.promptCard) {
+  overflow-x: hidden;
+}
+
+@media only screen and (width <= 600px) {
+  .label {
+    min-inline-size: 200px;
+    inline-size: 200px;
+  }
 }

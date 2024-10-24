@@ -37,19 +37,14 @@
               :key="label"
               class="labelAndShortcut"
             >
-              <label
-                :for="label + shortcut"
+              <p
                 class="label"
-              >{{ label }}</label>
-              <FtInput
-                :id="label + shortcut"
-                input-type="text"
-                class="shortcut"
-                :value="shortcut"
-                :disabled="true"
-                placeholder=""
-                :show-action-button="false"
-              />
+              >
+                {{ label }}
+              </p>
+              <p class="shortcut">
+                {{ shortcut }}
+              </p>
             </div>
           </div>
         </div>
@@ -65,7 +60,6 @@ import { computed } from 'vue'
 // import { getLocalizedShortcut } from '../../store/modules/utils'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import store from '../../store/index'
-import FtInput from '../ft-input/ft-input.vue'
 import i18n from '../../i18n/index'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
@@ -76,13 +70,28 @@ const KeyboardShortcuts = {
     GENERAL: {
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
-      NEW_WINDOW: 'ctrl+N',
+      FULLSCREEN: 'f11',
       NAVIGATE_TO_SETTINGS: 'ctrl+,',
       NAVIGATE_TO_HISTORY: 'ctrl+H',
       NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+      NEW_WINDOW: 'ctrl+N',
+      MINIMIZE_WINDOW: 'ctrl+M',
+      CLOSE_WINDOW: 'ctrl+W',
+      QUIT: 'alt+f4',
+      QUIT_MAC: 'cmd+Q',
+      RELOAD: 'ctrl+R',
+      FORCE_RELOAD: 'ctrl+shift+R',
+      TOGGLE_DEVTOOLS: 'ctrl+shift+I',
+      FOCUS_SEARCH: 'alt+D',
+      SEARCH_IN_NEW_WINDOW: 'shift+enter',
+      RESET_ZOOM: 'ctrl+0',
+      ZOOM_IN: 'ctrl+=',
+      ZOOM_OUT: 'ctrl+-'
+
     },
     SITUATIONAL: {
-      REFRESH: 'r'
+      REFRESH: 'r',
+      FOCUS_SECONDARY_SEARCH: 'ctrl+F'
     },
   },
   VIDEO_PLAYER: {
@@ -106,10 +115,11 @@ const KeyboardShortcuts = {
       SMALL_FAST_FORWARD: 'arrowright',
       DECREASE_VIDEO_SPEED: 'o',
       INCREASE_VIDEO_SPEED: 'p',
-      LAST_FRAME: ',',
-      NEXT_FRAME: '.',
+      SKIP_N_TENTHS: '0..9',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
     }
   },
 }
@@ -134,13 +144,13 @@ const primarySections = computed(() => [
   {
     secondarySections: [
       {
+        title: i18n.t('KeyboardShortcutPrompt.Sections.Video.Playback'),
+        shortcutDictionary: playbackPlayerShortcuts.value
+      },
+      {
         title: i18n.t('KeyboardShortcutPrompt.Sections.Video.General'),
         shortcutDictionary: generalPlayerShortcuts.value
       },
-      {
-        title: i18n.t('KeyboardShortcutPrompt.Sections.Video.Playback'),
-        shortcutDictionary: playbackPlayerShortcuts.value
-      }
     ]
   },
   {
@@ -167,14 +177,31 @@ const localizedShortcutNameDictionary = computed(() => {
   return new Map([
     ['HISTORY_BACKWARD', i18n.t('KeyboardShortcutPrompt.History Backward')],
     ['HISTORY_FORWARD', i18n.t('KeyboardShortcutPrompt.History Forward')],
-    ['NEW_WINDOW', i18n.t('KeyboardShortcutPrompt.New Window')],
+    ['FULLSCREEN', i18n.t('KeyboardShortcutPrompt.Fullscreen')],
     ['NAVIGATE_TO_SETTINGS', i18n.t('KeyboardShortcutPrompt.Navigate to Settings')],
     (
       isMac
       ? ['NAVIGATE_TO_HISTORY_MAC', i18n.t('KeyboardShortcutPrompt.Navigate to History')]
       : ['NAVIGATE_TO_HISTORY', i18n.t('KeyboardShortcutPrompt.Navigate to History')]
     ),
+    ['NEW_WINDOW', i18n.t('KeyboardShortcutPrompt.New Window')],
+    ['MINIMIZE_WINDOW', i18n.t('KeyboardShortcutPrompt.Minimize Window')],
+    ['CLOSE_WINDOW', i18n.t('KeyboardShortcutPrompt.Close Window')],
+    (isMac
+      ? ['QUIT', i18n.t('KeyboardShortcutPrompt.Quit')]
+      : ['QUIT_MAC', i18n.t('KeyboardShortcutPrompt.Quit')]
+    ),
+    ['RELOAD', i18n.t('KeyboardShortcutPrompt.Reload')],
+    ['FORCE_RELOAD', i18n.t('KeyboardShortcutPrompt.Force Reload')],
+    ['TOGGLE_DEVTOOLS', i18n.t('KeyboardShortcutPrompt.Toggle Developer Tools')],
+    ['RESET_ZOOM', i18n.t('KeyboardShortcutPrompt.Reset Zoom')],
+    ['ZOOM_IN', i18n.t('KeyboardShortcutPrompt.Zoom In')],
+    ['ZOOM_OUT', i18n.t('KeyboardShortcutPrompt.Zoom Out')],
+    ['FOCUS_SEARCH', i18n.t('KeyboardShortcutPrompt.Focus Search')],
+    ['SEARCH_IN_NEW_WINDOW', i18n.t('KeyboardShortcutPrompt.Search in New Window')],
+
     ['REFRESH', i18n.t('KeyboardShortcutPrompt.Refresh')],
+    ['FOCUS_SECONDARY_SEARCH', i18n.t('KeyboardShortcutPrompt.Focus Secondary Search')],
 
     ['CAPTIONS', i18n.t('KeyboardShortcutPrompt.Captions')],
     ['THEATRE_MODE', i18n.t('KeyboardShortcutPrompt.Theatre Mode')],
@@ -194,10 +221,11 @@ const localizedShortcutNameDictionary = computed(() => {
     ['SMALL_FAST_FORWARD', i18n.t('KeyboardShortcutPrompt.Small Fast Forward')],
     ['DECREASE_VIDEO_SPEED', i18n.t('KeyboardShortcutPrompt.Decrease Video Speed')],
     ['INCREASE_VIDEO_SPEED', i18n.t('KeyboardShortcutPrompt.Increase Video Speed')],
+    ['SKIP_N_TENTHS', i18n.t('KeyboardShortcutPrompt.Skip by Tenths')],
+    ['LAST_CHAPTER', i18n.t('KeyboardShortcutPrompt.Last Chapter')],
+    ['NEXT_CHAPTER', i18n.t('KeyboardShortcutPrompt.Next Chapter')],
     ['LAST_FRAME', i18n.t('KeyboardShortcutPrompt.Last Frame')],
     ['NEXT_FRAME', i18n.t('KeyboardShortcutPrompt.Next Frame')],
-    ['LAST_CHAPTER', i18n.t('KeyboardShortcutPrompt.Last Chapter')],
-    ['NEXT_CHAPTER', i18n.t('KeyboardShortcutPrompt.Next Chapter')]
   ])
 })
 

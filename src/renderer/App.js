@@ -166,7 +166,7 @@ export default defineComponent({
     this.setLocale()
     document.addEventListener('keydown', (event) => {
       if (event.key.toUpperCase() === 'Z' && ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
-        this.showKeyboardShortcutPrompt()
+        this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
       }
     })
   },
@@ -570,6 +570,7 @@ export default defineComponent({
       'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
+      'hideKeyboardShortcutPrompt',
       'showKeyboardShortcutPrompt',
       'updateBaseTheme',
       'updateMainColor',

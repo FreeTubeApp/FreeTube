@@ -29,6 +29,7 @@
             :compact="false"
             @change="updateSettingsSectionSortEnabled"
           />
+          <!-- ZZZ: TODO: REMOVE -->
           <ft-button
             :label="$t('Settings.Show Keyboard Shortcuts')"
             @click="showKeyboardShortcutPrompt"
