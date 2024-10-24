@@ -10,6 +10,7 @@ import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widge
 import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { KeyboardShortcuts } from '../../../constants'
 
 export default defineComponent({
   name: 'Trending',
@@ -189,10 +190,9 @@ export default defineComponent({
       // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
       if (event.repeat) { return }
 
-      switch (event.key) {
-        case 'r':
-        case 'R':
-        case 'F5':
+      switch (event.key.toLowerCase()) {
+        case 'f5':
+        case KeyboardShortcuts.APP.SITUATIONAL.REFRESH:
           if (!this.isLoading) {
             this.getTrendingInfo(true)
           }

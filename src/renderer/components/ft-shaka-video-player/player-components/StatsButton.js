@@ -1,6 +1,8 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { KeyboardShortcuts } from '../../../../constants'
+import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class StatsButton extends shaka.ui.Element {
   /**
@@ -65,12 +67,15 @@ export class StatsButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Player.Stats.Stats')
-
     this.icon_.textContent = this.showStats_ ? 'insert_chart' : 'insert_chart_outlined'
 
-    this.currentState_.textContent = this.localization.resolve(this.showStats_ ? 'ON' : 'OFF')
+    const baseLabel = this.showStats_ ? i18n.t('Video.Player.Hide Stats') : i18n.t('Video.Player.Show Stats')
+    const label = addKeyboardShortcutToActionTitle(
+      baseLabel,
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS
+    )
 
-    this.button_.ariaLabel = this.showStats_ ? i18n.t('Video.Player.Hide Stats') : i18n.t('Video.Player.Show Stats')
+    this.currentState_.textContent = label
+    this.button_.ariaLabel = label
   }
 }

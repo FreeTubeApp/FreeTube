@@ -2,7 +2,8 @@ import { defineComponent } from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { deepCopy } from '../../helpers/utils'
+import { deepCopy, localizeAndAddKeyboardShortcutToActionTitle } from '../../helpers/utils'
+import { KeyboardShortcuts } from '../../../constants'
 
 export default defineComponent({
   name: 'SideNav',
@@ -80,6 +81,22 @@ export default defineComponent({
       return {
         hiddenLabels: this.hideText
       }
+    },
+    historyTitle: function() {
+      const shortcut = process.platform === 'darwin'
+        ? KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_HISTORY_MAC
+        : KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_HISTORY
+
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('History.History'),
+        shortcut
+      )
+    },
+    settingsTitle: function() {
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Settings.Settings'),
+        KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_SETTINGS
+      )
     }
   }
 })
