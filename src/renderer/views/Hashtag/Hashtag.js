@@ -43,13 +43,12 @@ export default defineComponent({
     },
   },
   watch: {
-    $route() {
+    '$route.params.hashtag'() {
       this.resetData()
       this.getHashtag()
     }
   },
   mounted: function() {
-    this.resetData()
     this.getHashtag()
   },
   methods: {
