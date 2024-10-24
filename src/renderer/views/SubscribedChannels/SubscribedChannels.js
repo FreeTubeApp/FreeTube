@@ -7,6 +7,8 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
 import { ctrlFHandler } from '../../helpers/utils'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
+import debounce from 'lodash.debounce'
 
 export default defineComponent({
   name: 'SubscribedChannels',
@@ -78,9 +80,17 @@ export default defineComponent({
       this.filterChannels()
     }
   },
-  mounted: function () {
+  created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
+
+    this.filterChannelsDebounce = debounce(this.filterChannels, 500)
     this.getSubscription()
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+      this.handleQueryChange(oldQuery, true)
+    }
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
@@ -90,11 +100,6 @@ export default defineComponent({
       this.subscribedChannels = this.activeSubscriptionList.slice().sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
-    },
-
-    handleInput: function(input) {
-      this.query = input
-      this.filterChannels()
     },
 
     filterChannels: function () {
@@ -108,6 +113,11 @@ export default defineComponent({
       this.filteredChannels = this.subscribedChannels.filter(channel => {
         return re.test(channel.name)
       })
+    },
+    filterChannelsAsync: function() {
+      // Updating list on every char input could be wasting resources on rendering
+      // So run it with delay (to be cancelled when more input received within time)
+      this.filterChannelsDebounce()
     },
 
     thumbnailURL: function(originalURL) {
@@ -159,6 +169,38 @@ export default defineComponent({
           })
         }, this.errorCount * 500)
       }
+    },
+
+    handleQueryChange(val, filterNow = false) {
+      this.query = val
+
+      this.saveStateInRouter(val)
+
+      filterNow ? this.filterChannels() : this.filterChannelsAsync()
+    },
+
+    async saveStateInRouter(query) {
+      if (this.query === '') {
+        await this.$router.replace({ name: 'subscribedChannels' }).catch(failure => {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        })
+        return
+      }
+
+      await this.$router.replace({
+        name: 'subscribedChannels',
+        query: { searchQueryText: query },
+      }).catch(failure => {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      })
     },
 
     keyboardShortcutHandler: function (event) {
