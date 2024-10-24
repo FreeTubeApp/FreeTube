@@ -11,13 +11,11 @@
     <div
       class="videoThumbnail"
     > 
-      <component
-        :is="watchPageLinkType"
+      <router-link
         class="thumbnailLink"
         tabindex="-1"
-        :to="watchPageLinkTo"
-        href="javascript:void(0)"
-        @click="handleWatchPageLinkClick"
+        :to="watchVideoRouterLink"
+        @click.native="handleWatchPageLinkClick"
       >
         <img
           :src="thumbnail"
@@ -25,7 +23,7 @@
           alt=""
           :style="{filter: blurThumbnailsStyle}"
         >
-      </component>
+      </router-link>
       <div
         v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
@@ -113,17 +111,15 @@
       />
     </div>
     <div class="info">
-      <component
-        :is="watchPageLinkType"
+      <router-link
         class="title"
-        :to="watchPageLinkTo"
-        href="javascript:void(0)"
-        @click="handleWatchPageLinkClick"
+        :to="watchVideoRouterLink"
+        @click.native="handleWatchPageLinkClick"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
         </h3>
-      </component>
+      </router-link>
       <div class="infoLine">
         <router-link
           v-if="channelId !== null"

@@ -482,17 +482,18 @@ export default defineComponent({
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },
 
-    watchPageLinkType() {
-      return this.externalPlayerIsDefaultViewingMode ? 'a' : 'router-link'
-    },
-
-    watchPageLinkTo() {
-      // For `router-link` attribute `to`
+    watchVideoRoute() {
       return {
         path: `/watch/${this.id}`,
         query: this.watchPageLinkQuery,
       }
     },
+
+    // For `router-link` attribute `to`
+    watchVideoRouterLink() {
+      return !this.externalPlayerIsDefaultViewingMode ? this.watchVideoRoute : {}
+    },
+
     watchPageLinkQuery() {
       const query = {}
       if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }
