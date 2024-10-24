@@ -35,7 +35,7 @@ export default defineComponent({
         action: action || (() => { }),
         isOpen: false,
         timeout: null,
-        id: id++
+        id: id++,
       }
       toast.timeout = setTimeout(this.close, time || 3000, toast)
       nextTick(() => { toast.isOpen = true })
