@@ -1,6 +1,7 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
+
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -70,7 +71,7 @@ export default defineComponent({
     },
     viewCount: {
       type: Number,
-      required: true,
+      default: null
     },
     lastUpdated: {
       type: String,
@@ -148,6 +149,10 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
+    },
+
     hideViews: function () {
       return this.$store.getters.getHideVideoViews
     },
@@ -202,24 +207,44 @@ export default defineComponent({
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
-      let baseUrl = 'https://i.ytimg.com'
-      if (this.backendPreference === 'invidious') {
-        baseUrl = this.currentInvidiousInstanceUrl
-      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
-        // Use playlist thumbnail provided by YT when available
+      if (this.backendPreference === 'local' && typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
         return this.playlistThumbnail
       }
 
+      let baseUrl = ''
+      let backendPreference = this.backendPreference
+
+      if (backendPreference === 'piped') {
+        if (this.infoSource === 'piped' || this.playlistThumbnail) {
+          return this.playlistThumbnail
+        } else {
+          backendPreference = this.fallbackPreference
+        }
+      }
+
+      if (!process.env.SUPPORTS_LOCAL_API || backendPreference === 'invidious') {
+        baseUrl = this.currentInvidiousInstanceUrl
+      } else {
+        baseUrl = 'https://i.ytimg.com'
+      }
+
+      let imageUrl = ''
+
       switch (this.thumbnailPreference) {
         case 'start':
-          return `${baseUrl}/vi/${this.firstVideoId}/mq1.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mq1.jpg`
+          break
         case 'middle':
-          return `${baseUrl}/vi/${this.firstVideoId}/mq2.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mq2.jpg`
+          break
         case 'end':
-          return `${baseUrl}/vi/${this.firstVideoId}/mq3.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mq3.jpg`
+          break
         default:
-          return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
+
+      return imageUrl
     },
 
     isUserPlaylist() {

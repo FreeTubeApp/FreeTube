@@ -6,7 +6,7 @@ import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timesta
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getInvidiousCommunityPostCommentReplies, getInvidiousCommunityPostComments, invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
-
+import { getPipedComments, getPipedCommentsMore } from '../../helpers/api/piped'
 export default defineComponent({
   name: 'WatchVideoComments',
   components: {
@@ -62,11 +62,16 @@ export default defineComponent({
       nextPageToken: null,
       commentData: [],
       sortNewest: false,
+      apiUsed: 'local',
     }
   },
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
 
     backendFallback: function () {
@@ -156,7 +161,9 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
+      if (this.backendPreference === 'piped' && !this.isPostComments) {
+        this.getCommentDataPiped()
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
         if (!this.isPostComments) {
           this.getCommentDataInvidious()
         } else {
@@ -171,7 +178,9 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
+        if (this.apiUsed === 'piped' && !this.isPostComments) {
+          this.getCommentDataPipedMore(this.nextPageToken)
+        } else if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious' || this.isPostComments) {
           if (!this.isPostComments) {
             this.getCommentDataInvidious()
           } else {
@@ -192,7 +201,9 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === 'invidious' || this.isPostComments) {
+      if (this.commentData[index].dataType === 'piped' && !this.isPostComments) {
+        this.getCommentDataPipedMore(this.replyTokens.get(this.commentData[index].id), index)
+      } else if (!process.env.SUPPORTS_LOCAL_API || this.commentData[index].dataType === 'invidious' || this.isPostComments) {
         if (!this.isPostComments) {
           this.getCommentRepliesInvidious(index)
         } else {
@@ -236,6 +247,7 @@ export default defineComponent({
         this.nextPageToken = comments.has_continuation ? comments : null
         this.isLoading = false
         this.showComments = true
+        this.apiUsed = 'local'
       } catch (err) {
         // region No comment detection
         // No comment related info when video info requested earlier in parent component
@@ -256,8 +268,13 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getCommentDataPiped()
+          }
         } else {
           this.isLoading = false
         }
@@ -302,8 +319,93 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getCommentDataPiped()
+          }
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getCommentDataPiped: async function () {
+      try {
+        const { comments, continuation } = await getPipedComments(this.id)
+        comments.map((fullComment) => {
+          // Use destructuring to create a new object without the replyToken
+          const { replyToken, ...comment } = fullComment
+          if (comment.hasReplyToken) {
+            this.replyTokens.set(comment.id, replyToken)
+          } else {
+            this.replyTokens.delete(comment.id)
+          }
+          return comment
+        })
+        this.commentData = comments
+        this.nextPageToken = continuation
+        this.isLoading = false
+        this.showComments = true
+        this.apiUsed = 'piped'
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Piped API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendFallback && this.backendPreference === 'piped') {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to Local API'))
+            this.getCommentDataLocal()
+          }
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getCommentDataPipedMore: async function(token, index = null) {
+      try {
+        const { comments, continuation } = await getPipedCommentsMore({
+          videoId: this.id,
+          continuation: token
+        })
+        if (index !== null) {
+          const comment = this.commentData[index]
+          comment.replies = comment.replies.concat(comments)
+          comment.showReplies = true
+          if (comment.hasReplyToken) {
+            this.replyTokens.set(comment.id, continuation)
+            comment.hasReplyToken = true
+          } else {
+            this.replyTokens.delete(comment.id)
+            comment.hasReplyToken = false
+          }
+        } else {
+          this.commentData = this.commentData.concat(comments)
+          this.nextPageToken = continuation
+        }
+        this.isLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Piped API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendFallback && this.backendPreference === 'piped') {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to Local API'))
+            this.getCommentDataLocal()
+          }
         } else {
           this.isLoading = false
         }
@@ -330,6 +432,7 @@ export default defineComponent({
         this.nextPageToken = response.continuation
         this.isLoading = false
         this.showComments = true
+        this.apiUsed = 'invidious'
       }).catch((err) => {
         // region No comment detection
         // No comment related info when video info requested earlier in parent component
@@ -349,9 +452,15 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.SUPPORTS_LOCAL_API && this.backendFallback && this.backendPreference === 'invidious') {
-          showToast(this.$t('Falling back to Local API'))
-          this.getCommentDataLocal()
+
+        if (this.backendFallback && this.backendPreference === 'invidious') {
+          if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getCommentDataPiped()
+          } else if (process.env.SUPPORTS_LOCAL_API && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to Local API'))
+            this.getCommentDataLocal()
+          }
         } else {
           this.isLoading = false
         }

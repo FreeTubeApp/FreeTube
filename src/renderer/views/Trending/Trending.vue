@@ -10,6 +10,7 @@
     >
       <h2>{{ $t("Trending.Trending") }}</h2>
       <ft-flex-box
+        v-if="!hideTabs"
         class="trendingInfoTabs"
         role="tablist"
         :aria-label="$t('Trending.Trending Tabs')"
@@ -81,7 +82,7 @@
       </ft-flex-box>
       <ft-element-list
         id="trendingPanel"
-        role="tabpanel"
+        :role="!hideTabs ? 'tabPanel' : null"
         :data="shownResults"
       />
     </ft-card>
