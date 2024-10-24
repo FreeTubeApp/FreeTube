@@ -18,6 +18,12 @@
           :compact="true"
           @change="updateUseRssFeeds"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
+          :default-value="unsubscriptionPopupStatus"
+          :compact="true"
+          @change="updateUnsubscriptionPopupStatus"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -26,23 +32,28 @@
           :compact="true"
           @change="updateHideWatchedSubs"
         />
-        <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Only Show Latest Video for Each Channel')"
-          :default-value="onlyShowLatestFromChannel"
-          :compact="true"
-          @change="updateOnlyShowLatestFromChannel"
-        />
-      </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
-          :default-value="unsubscriptionPopupStatus"
-          :compact="true"
-          @change="updateUnsubscriptionPopupStatus"
-        />
+        <div class="onlyShowLatestFromChannel">
+          <ft-toggle-switch
+            :id="'onlyShowLatestFromChannel'"
+            :label="onlyShowLatestFromChannel ? $t('Settings.Subscription Settings.Limit the number of videos displayed for each channel to') : $t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
+            :default-value="onlyShowLatestFromChannel"
+            :compact="true"
+            @change="updateOnlyShowLatestFromChannel"
+          />
+          <ft-input
+            v-if="onlyShowLatestFromChannel"
+            :placeholder="'1'"
+            :show-action-button="false"
+            input-type="number"
+            :value="onlyShowLatestFromChannelNumber"
+            :aria-labelledby="'onlyShowLatestFromChannel'"
+            @input="updateOnlyShowLatestFromChannelNumber"
+          />
+        </div>
       </div>
     </div>
   </ft-settings-section>
 </template>
 
 <script src="./subscription-settings.js" />
+<style lang="scss" src="./subscription-settings.scss"  />

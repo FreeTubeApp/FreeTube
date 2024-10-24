@@ -2,12 +2,14 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtInput from '../ft-input/ft-input.vue'
 
 export default defineComponent({
   name: 'SubscriptionSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-toggle-switch': FtToggleSwitch
+    'ft-toggle-switch': FtToggleSwitch,
+    'ft-input': FtInput,
   },
   computed: {
     hideWatchedSubs: function () {
@@ -15,6 +17,9 @@ export default defineComponent({
     },
     onlyShowLatestFromChannel: function () {
       return this.$store.getters.getOnlyShowLatestFromChannel
+    },
+    onlyShowLatestFromChannelNumber: function () {
+      return this.$store.getters.getOnlyShowLatestFromChannelNumber
     },
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
@@ -32,6 +37,7 @@ export default defineComponent({
       'updateUseRssFeeds',
       'updateFetchSubscriptionsAutomatically',
       'updateOnlyShowLatestFromChannel',
+      'updateOnlyShowLatestFromChannelNumber',
       'updateUnsubscriptionPopupStatus'
     ])
   }

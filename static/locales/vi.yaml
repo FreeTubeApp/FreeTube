@@ -372,8 +372,6 @@ Settings:
     Hide Videos on Watch: 'Ẩn video khi đã xem'
     Fetch Feeds from RSS: Cập nhật bảng tin qua RSS
     Fetch Automatically: Tự động làm mới bảng tin
-    Only Show Latest Video for Each Channel: Chỉ hiện video mới nhất cho mỗi kênh
-
   Data Settings:
     How do I import my subscriptions?: Làm sao để tôi nhập đăng ký?
     Unknown data key: Key dữ liệu không xác định
