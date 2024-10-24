@@ -14,6 +14,7 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: true,
+      alreadyLoadedRemotely: false,
       postList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -97,7 +98,9 @@ export default defineComponent({
     },
 
     subscriptionCacheReady() {
-      this.loadPostsFromCacheSometimes()
+      if (!this.alreadyLoadedRemotely) {
+        this.loadPostsFromCacheSometimes()
+      }
     },
   },
   mounted: async function () {
@@ -115,6 +118,7 @@ export default defineComponent({
         return
       }
 
+      this.alreadyLoadedRemotely = true
       this.loadPostsForSubscriptionsFromRemote()
       this.$store.commit('setSubscriptionForCommunityPostsFirstAutoFetchRun')
     },
