@@ -87,7 +87,7 @@
         :value="defaultViewingMode"
         :select-names="viewingModeNames"
         :select-values="viewingModeValues"
-        :icon="['fas', 'display']"
+        :icon="['fas', 'expand']"
         @change="updateDefaultViewingMode"
       />
       <ft-select
