@@ -690,7 +690,9 @@ function runApp() {
         webSecurity: false,
         backgroundThrottling: false,
         contextIsolation: false
-      }
+      },
+      minWidth: 340,
+      minHeight: 380
     }
 
     const newWindow = new BrowserWindow(
