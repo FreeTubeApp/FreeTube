@@ -6,6 +6,7 @@
       fullWindow: fullWindowEnabled,
       sixteenByNine: forceAspectRatio
     }"
+    @fullscreenchange="handleFullScreenChange"
   >
     <!-- eslint-disable-next-line vuejs-accessibility/media-has-caption -->
     <video

@@ -1082,6 +1082,13 @@ export default defineComponent({
       }
     }
 
+    function handleFullScreenChange() {
+      // Fixes the seek bar thumbnail container overflowing outside of the viewport after exiting full screen
+      if (!ui.getControls().isFullScreenEnabled()) {
+        document.getElementById('shaka-player-ui-thumbnail-container').style.left = '0'
+      }
+    }
+
     // #endregion video event handlers
 
     // #region request/response filters
@@ -2779,6 +2786,7 @@ export default defineComponent({
       handleEnded,
       updateVolume,
       handleTimeupdate,
+      handleFullScreenChange
     }
   }
 })
