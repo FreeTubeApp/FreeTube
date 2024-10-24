@@ -43,7 +43,7 @@ Global:
     Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
     Watching Count: 1 مشاهد | {count} مشاهدون
-    Like Count: إعجاب واحد |{ count} إعجاب
+    Like Count: إعجاب واحد |{count} إعجاب
     Comment Count: تعليق واحد | {count} تعليقًا
   Input Tags:
     Length Requirement: يجب أن يبلغ طول العلامة {number} حرفًا على الأقل
@@ -878,7 +878,7 @@ Video:
   Hide Channel: إخفاء القناة
   More Options: المزيد من الخيارات
   Player:
-    TranslatedCaptionTemplate: '{language} (مترجمة من "{ originalLanguage }")'
+    TranslatedCaptionTemplate: '{language} (مترجمة من "{originalLanguage}")'
     Stats:
       Volume: 'الحجم: {volumePercentage}%'
       CodecAudio: 'برنامج الترميز: {audioCodec} ({audioItag})'
