@@ -866,11 +866,33 @@ Video:
   Scroll to Bottom: Pomakni se skroz dolje
   Upcoming: Predstojeći
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
-    uživo nije dostupan za ovaj prijenos. Možda ga je prenosnik deaktivirao.
+    uživo nije dostupan za ovaj prijenos. Možda ga je autor deaktivirao.
   Pause on Current Video: Zaustavi trenutačni video
   Unhide Channel: Prikaži kanal
   Hide Channel: Sakrij kanal
   More Options: Više opcija
+  Player:
+    Stats:
+      Stats: Statistika
+      CodecsVideoAudio: 'Kodeci: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Bitrate: 'Brzina: {bitrate} kbps'
+      Resolution: 'Rezolucija: {width}x{height}@{frameRate}'
+      CodecsVideoAudioNoItags: 'Kodeci: {videoCodec} / {audioCodec}'
+      Volume: 'Glasnoća: {volumePercentage}%'
+      Video ID: 'ID videa: {videoId}'
+      Media Formats: 'Formati medija: {formats}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Ispušteni kadrovi: {droppedFrames} / Ukupni
+        broj kadrova: {totalFrames}'
+      Bandwidth: 'Propusnost: {bandwidth} kbps'
+      Player Dimensions: 'Veličina playera: {width}x{height}'
+    You appear to be offline: Čini se da ne postoji veza s internetom.
+    Skipped segment: Preskočen segment „{segmentCategory}”
+    Take Screenshot: Snimi snimku ekrana
+    Show Stats: Prikaži statistiku
+    Hide Stats: Sakrij statistiku
+    Playback will resume automatically when your connection comes back: Reprodukcija
+      će se automatski nastaviti nakon što se veza ponovo uspostavi.
 Videos:
   #& Sort By
   Sort By:
@@ -896,6 +918,8 @@ Playlist:
     VideoTitleAscending: Naslov (A-Z)
     VideoTitleDescending: Naslov (Z-A)
     Custom: Prilagođeno
+    VideoDurationDescending: Trajanje (najprije najduže)
+    VideoDurationAscending: Trajanje (najprije najkraće)
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
@@ -905,6 +929,8 @@ Change Format:
     video
   Dash formats are not available for this video: DASH formati nisu dostupni za ovaj
     video
+  Legacy formats are not available for this video: Stari formati nisu dostupni za
+    ovaj video
 Share:
   Share Video: 'Dijeli video'
   Share Playlist: 'Dijeli zbirku'
@@ -935,7 +961,7 @@ Comments:
   Hide: 'Sakrij'
   Replies: 'Odgovori'
   Reply: 'Odgovor'
-  There are no comments available for this video: 'Nema komentara za ovaj video'
+  There are no comments available for this video: 'Za ovaj video nema komentara'
   Load More Comments: 'Učitaj još komentara'
   There are no more comments for this video: Nema daljnjih komentara za ovaj video
   No more comments available: Nema daljnjih komentara
@@ -950,6 +976,7 @@ Comments:
   Hearted: Omiljeno
   View {replyCount} replies: Pogledaj {replyCount} odgovora
   Subscribed: Pretplaćeno
+  There are no comments available for this post: Za ovaj post nema komentara
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -1011,8 +1038,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Kada je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
-      blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
-      ili stanja „uživo”
+      blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa,
+      stanje „uživo” ili postova zajednice
     Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
       tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
   External Player Settings:
