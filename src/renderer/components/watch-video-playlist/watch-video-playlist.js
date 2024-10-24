@@ -48,7 +48,6 @@ export default defineComponent({
       shuffleEnabled: false,
       loopEnabled: false,
       reversePlaylist: false,
-      pauseOnCurrentVideo: false,
       prevVideoBeforeDeletion: null,
       channelName: '',
       channelId: '',
@@ -292,16 +291,6 @@ export default defineComponent({
       nextTick(() => {
         this.isLoading = false
       })
-    },
-
-    togglePauseOnCurrentVideo: function () {
-      if (this.pauseOnCurrentVideo) {
-        this.pauseOnCurrentVideo = false
-        showToast(this.$t('Playlist will not pause when current video is finished'))
-      } else {
-        this.pauseOnCurrentVideo = true
-        showToast(this.$t('Playlist will pause when current video is finished'))
-      }
     },
 
     playNextVideo: function () {
