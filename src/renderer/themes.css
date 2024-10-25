@@ -750,12 +750,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #c5d940;
 }
 
-.mainGruvboxDarkRed {
-  --primary-color: #fb4934;
-  --primary-color-hover: #fd6954;
-  --primary-color-active: #ff8974;
-}
-
 .mainGruvboxDarkGreen {
   --primary-color: #b8bb26;
   --primary-color-hover: #d8db46;
@@ -798,18 +792,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #dd4046;
 }
 
-.mainGruvboxLightGreen {
-  --primary-color: #79740e;
-  --primary-color-hover: #99962e;
-  --primary-color-active: #b9b54e;
-}
-
-.mainGruvboxLightYellow {
-  --primary-color: #b57614;
-  --primary-color-hover: #d59634;
-  --primary-color-active: #f5b654;
-}
-
 .mainGruvboxLightBlue {
   --primary-color: #076678;
   --primary-color-hover: #276898;
@@ -820,12 +802,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #8f3f71;
   --primary-color-hover: #af5f91;
   --primary-color-active: #cf7fb1;
-}
-
-.mainGruvboxLightAqua {
-  --primary-color: #427b58;
-  --primary-color-hover: #628d78;
-  --primary-color-active: #829f98;
 }
 
 .mainGruvboxLightOrange {
