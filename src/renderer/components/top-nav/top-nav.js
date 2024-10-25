@@ -43,10 +43,6 @@ export default defineComponent({
     }
   },
   computed: {
-    appTitle: function () {
-      return this.$store.getters.getAppTitle
-    },
-
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
@@ -125,12 +121,6 @@ export default defineComponent({
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
     },
-    appTitle: function (value) {
-      document.title = value
-      if (this.navigationHistoryDropdownActiveEntry?.label) {
-        this.navigationHistoryDropdownActiveEntry.label = value
-      }
-    }
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -435,6 +425,14 @@ export default defineComponent({
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
+    setActiveNavigationHistoryEntryTitle(value) {
+      this.$nextTick(() => {
+        if (this.navigationHistoryDropdownActiveEntry?.label) {
+          this.navigationHistoryDropdownActiveEntry.label = value
+        }
+      })
+    },
+
     ...mapActions([
       'getYoutubeUrlInfo',
       'showSearchFilters'
