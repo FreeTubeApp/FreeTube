@@ -230,19 +230,21 @@ let authorThumbnails = null
 let postContent = ''
 let author = ''
 let authorId = ''
-const voteCount = ref(0)
-const commentCount = ref(null)
+let voteCount = 0
+let commentCount = null
+
+parseCommunityData()
 
 const formattedCommentCount = computed(() => {
-  if (commentCount.value != null) {
-    return formatNumber(commentCount.value)
+  if (commentCount != null) {
+    return formatNumber(commentCount)
   }
 
   return ''
 })
 
 const formattedVoteCount = computed(() => {
-  return formatNumber(voteCount.value)
+  return formatNumber(voteCount)
 })
 
 const publishedText = computed(() => {
@@ -252,8 +254,6 @@ const publishedText = computed(() => {
 
   return ''
 })
-
-parseCommunityData()
 
 function parseCommunityData() {
   if ('backstagePostThreadRenderer' in props.data) {
@@ -274,8 +274,8 @@ function parseCommunityData() {
   postText = autolinker.link(props.data.postText)
   postContent = props.data.postContent
   postId = props.data.postId
-  voteCount.value = props.data.voteCount
-  commentCount.value = props.data.commentCount
+  voteCount = props.data.voteCount
+  commentCount = props.data.commentCount
   postType = props.data.postContent?.type ?? 'text'
   author = props.data.author
   authorId = props.data.authorId
