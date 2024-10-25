@@ -8,6 +8,12 @@
     so we want to make it black as it defaults to transparent
    */
   background-color: #000;
+
+  /*
+    Fixes the seek bar thumbnails causing a horizontal scroll bar
+    to appear after exiting full screen and full window.
+  */
+  overflow-x: hidden;
 }
 
 .player {
