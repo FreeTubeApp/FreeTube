@@ -99,7 +99,7 @@ export default defineComponent({
       this.dropdownShown = false
     },
 
-    handleIconClick: function (event, isRightOrLongClick = false) {
+    handleIconClick: function (e, isRightOrLongClick = false) {
       if (this.disabled) {
         this.$emit('disabled-click')
         return

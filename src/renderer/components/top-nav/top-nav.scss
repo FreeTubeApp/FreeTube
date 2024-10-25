@@ -54,7 +54,8 @@
   user-select: none;
 }
 
-.navIcon, :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+.navIcon,
+:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   border-radius: 50%;
   color: var(--primary-text-color);
   cursor: pointer;
@@ -78,7 +79,8 @@
   }
 }
 
-.topNavBarColor .navIcon, .topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton)  {
+.topNavBarColor .navIcon,
+.topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   color: var(--text-with-main-color);
 
   &:hover {

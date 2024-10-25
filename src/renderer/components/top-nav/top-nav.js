@@ -36,9 +36,7 @@ export default defineComponent({
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
-      /** @type {Electron.NavigationHistory | null} */
-      navigationHistory: null,
-      navigationHistoryCurrentIndex: -1,
+      navigationHistoryDropdownOptions: [],
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -95,7 +93,7 @@ export default defineComponent({
     },
 
     navigationHistoryAddendum: function () {
-      if (this.navigationHistory == null) {
+      if (this.navigationHistoryDropdownOptions.length === 0) {
         return ''
       }
 
@@ -113,38 +111,10 @@ export default defineComponent({
     newWindowText: function () {
       return this.$t('Open New Window')
     },
-
-    navigationHistoryResultEndIndex: function () {
-      if (this.navigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
-        return Math.min(this.navigationHistory.length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
-      } else if (this.navigationHistory.length - this.navigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
-        return this.navigationHistory.length - 1
-      } else {
-        return this.navigationHistoryCurrentIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
-      }
-    },
-
-    navigationHistoryDropdownOptions: function () {
-      const dropdownOptions = []
-      const end = this.navigationHistoryResultEndIndex
-      for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
-        const routeLabel = this.navigationHistory.getEntryAtIndex(index).title
-        dropdownOptions.push({
-          // TODO: pass & show the more useful document.title instead
-          // Difficult to do now because we update it asynchronously on some pages after an indeterminately long load
-          // translateWindowTitle(routeLabel, this.$i18n) ?? routeLabel
-          label: routeLabel,
-          value: index - this.navigationHistoryCurrentIndex,
-          active: index === this.navigationHistoryCurrentIndex
-        })
-      }
-      return dropdownOptions
-    },
-
   },
   watch: {
     $route: function () {
-      this.setNavigationHistory()
+      this.setNavigationHistoryDropdownOptions()
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
@@ -371,30 +341,62 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    setNavigationHistory: function() {
+    getNavigationHistoryResultEndIndex: function (navigationHistoryActiveIndex, navigationHistoryLength) {
+      if (navigationHistoryActiveIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return Math.min(navigationHistoryLength - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+      } else if (navigationHistoryLength - navigationHistoryActiveIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
+        return navigationHistoryLength - 1
+      } else {
+        return navigationHistoryActiveIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
+      }
+    },
+
+    getNavigationHistoryDropdownOptions: async function (ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength) {
+      const dropdownOptions = []
+      const end = this.getNavigationHistoryResultEndIndex(navigationHistoryActiveIndex, navigationHistoryLength)
+
+      for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+        const routeLabel = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, index)
+        dropdownOptions.push({
+          label: routeLabel,
+          value: index - navigationHistoryActiveIndex,
+          active: index === navigationHistoryActiveIndex
+        })
+      }
+      return dropdownOptions
+    },
+
+    setNavigationHistoryDropdownOptions: async function() {
+      if (!process.env.IS_ELECTRON) { return }
+
+      const { ipcRenderer } = require('electron')
+      const navigationHistoryLength = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_LENGTH)
+      const navigationHistoryActiveIndex = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX)
+
+      this.navigationHistoryDropdownOptions = await this.getNavigationHistoryDropdownOptions(ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength)
+    },
+
+    goToOffset: function (offset) {
       if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
-        this.navigationHistory = ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY)
-        this.navigationHistoryCurrentIndex = this.navigationHistory.getActiveIndex()
+        ipcRenderer.send(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, offset)
       }
     },
 
-    historyBack: function (index) {
-      if (!index) {
-        this.$router.back()
-        return
+    historyBack: function (offset) {
+      if (offset != null) {
+        this.goToOffset(offset)
+      } else {
+        this.$router.back() 
       }
-
-      this.navigationHistory.goToIndex(index)
     },
 
-    historyForward: function (index) {
-      if (!index) {
-        this.$router.forward()
-        return
+    historyForward: function (offset) {
+      if (offset != null) {
+        this.goToOffset(offset)
+      } else {
+        this.$router.forward() 
       }
-
-      this.navigationHistory.goToIndex(index)
     },
 
     toggleSideNav: function () {

@@ -927,8 +927,20 @@ function runApp() {
     return app.getPath('pictures')
   })
 
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY, ({ sender }) => {
-    return sender.navigationHistory
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, async ({ sender }, index) => {
+    return sender.navigationHistory.getEntryAtIndex(index)?.title
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX, async ({ sender }) => {
+    return sender.navigationHistory.getActiveIndex()
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_LENGTH, async ({ sender }) => {
+    return sender.navigationHistory.length()
+  })
+
+  ipcMain.on(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, async ({ sender }, offset) => {
+    sender.navigationHistory.goToOffset(offset)
   })
 
   ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {
