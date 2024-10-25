@@ -602,7 +602,7 @@ export default defineComponent({
         playlistTitle,
         channelName,
       ].filter(v => v).join(' | ')
-      document.title = `${titleText} - ${packageDetails.productName}`
+      this.setAppTitle(`${titleText} - ${packageDetails.productName}`)
     },
 
     handleResize: function () {
@@ -616,6 +616,7 @@ export default defineComponent({
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
       'removeVideo',
+      'setAppTitle'
     ]),
 
     ...mapMutations([

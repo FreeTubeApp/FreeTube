@@ -535,7 +535,7 @@ export default defineComponent({
 
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
-        document.title = this.windowTitle
+        this.setAppTitle(this.windowTitle)
       }
     },
 
@@ -558,6 +558,7 @@ export default defineComponent({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'fetchInvidiousInstancesFromFile',
+      'setAppTitle',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
       'updateBaseTheme',

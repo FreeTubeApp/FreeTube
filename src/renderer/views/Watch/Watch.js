@@ -1590,7 +1590,7 @@ export default defineComponent({
     },
 
     updateTitle: function () {
-      document.title = `${this.videoTitle} - ${packageDetails.productName}`
+      this.setAppTitle(`${this.videoTitle} - ${packageDetails.productName}`)
     },
 
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
@@ -1607,6 +1607,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'setAppTitle',
       'updateHistory',
       'updateWatchProgress',
       'updateLastViewedPlaylist',

@@ -43,6 +43,10 @@ export default defineComponent({
     }
   },
   computed: {
+    appTitle: function () {
+      return this.$store.getters.getAppTitle
+    },
+
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
@@ -120,18 +124,12 @@ export default defineComponent({
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
-
-      /*
-        We currently don't have a good system for computing the current document title,
-        which can update asynchronously
-      */
-      const updateActiveNavigationEntryTitle = () => {
-        if (this.navigationHistoryDropdownActiveEntry?.label && this.navigationHistoryDropdownActiveEntry.label !== document.title) {
-          this.navigationHistoryDropdownActiveEntry.label = document.title
-          clearInterval(awaitDocumentTitleUpdateInterval)
-        }
+    },
+    appTitle: function (value) {
+      document.title = value
+      if (this.navigationHistoryDropdownActiveEntry?.label) {
+        this.navigationHistoryDropdownActiveEntry.label = value
       }
-      const awaitDocumentTitleUpdateInterval = setInterval(updateActiveNavigationEntryTitle, 500)
     }
   },
   mounted: function () {

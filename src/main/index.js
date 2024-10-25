@@ -887,6 +887,28 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
+
+  // #region navigation history
+
+  ipcMain.on(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, ({ sender }, offset) => {
+    sender.navigationHistory.goToOffset(offset)
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, async ({ sender }, index) => {
+    return sender.navigationHistory.getEntryAtIndex(index)?.title
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX, async ({ sender }) => {
+    return sender.navigationHistory.getActiveIndex()
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_LENGTH, async ({ sender }) => {
+    return sender.navigationHistory.length()
+  })
+
+  // #endregion navigation history
+
+
   ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') {
       let parsedURL
@@ -925,22 +947,6 @@ function runApp() {
 
   ipcMain.handle(IpcChannels.GET_PICTURES_PATH, () => {
     return app.getPath('pictures')
-  })
-
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, async ({ sender }, index) => {
-    return sender.navigationHistory.getEntryAtIndex(index)?.title
-  })
-
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX, async ({ sender }) => {
-    return sender.navigationHistory.getActiveIndex()
-  })
-
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_LENGTH, async ({ sender }) => {
-    return sender.navigationHistory.length()
-  })
-
-  ipcMain.on(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, async ({ sender }, offset) => {
-    sender.navigationHistory.goToOffset(offset)
   })
 
   ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {

@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -68,7 +69,7 @@ export default defineComponent({
       } else {
         await this.getInvidiousHashtag(hashtag)
       }
-      document.title = `${this.hashtag} - ${packageDetails.productName}`
+      this.setAppTitle(`${this.hashtag} - ${packageDetails.productName}`)
     },
 
     getInvidiousHashtag: async function(hashtag, page) {
@@ -167,6 +168,10 @@ export default defineComponent({
       } else if (this.apiUsed === 'invidious') {
         this.getInvidiousHashtag(this.hashtag.substring(1), this.pageNumber)
       }
-    }
+    },
+
+    ...mapActions([
+      'setAppTitle'
+    ])
   }
 })
