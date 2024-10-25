@@ -22,7 +22,7 @@ Toggle Developer Tools: 'I-toggle ang mga Developer Tools'
 Actual size: 'Totoong sukat'
 Zoom in: 'Palakihin'
 Zoom out: 'Paliitin'
-Toggle fullscreen: 'I-toogle ang fullscreen'
+Toggle fullscreen: 'I-fullscreen'
 Window: 'Ang window'
 Minimize: 'I-minimize'
 Close: 'Isara'
@@ -60,10 +60,15 @@ Search Filters:
     Short (< 4 minutes): 'Maikli (< 4 minuto)'
     Long (> 20 minutes): 'Mahaba (> 20 minuto)'
   # On Search Page
+    Medium (4 - 20 minutes): Kalagitnaan (4 - 20 na minuto)
   Search Results: 'Mga Resulta'
   Fetching results. Please wait: 'Sinusundo ang mga resulta. Maghintay lang po'
   Fetch more results: 'Magsundo ng marami pang resulta'
 # Sidebar
+  Features:
+    Features: Mga Feature
+    Location: Lokasyon
+  There are no more results for this search: Wala nang resulta sa search na ito
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Mga Suskripsyon'
@@ -74,6 +79,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Kinukuha ang mga suskripsyon. Maghintay
     lang po.'
   Refresh Subscriptions: 'I-refresh ang mga Suskripsyon'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming
+    subscriptions itong profile.   Pilitin na iwasan ang rate limiting
 Trending:
   Trending: 'Nagte-trend'
 Most Popular: 'Pinakasikat'
@@ -87,4 +94,32 @@ Channel:
   Playlists: {}
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
-New Window: bagong window
+New Window: Bagong window
+Global:
+  Counts:
+    View Count: 1 na panonood | {count} na mga panonood
+  Live: Mga Live
+  Videos: Mga Video
+  Shorts: Mga Shorts
+  Input Tags:
+    Length Requirement: Ang Tag ay dapat {number} na kahaba ng character
+  Community: Komunidad
+Search Bar:
+  Clear Input: Alisin ang Input
+External link opening has been disabled in the general settings: Ang pag bukas ng
+  link sa panlabas ay pinasara sa general settings
+'Blocked opening potentially unsafe URL': 'I-Blinock ang URL na possibleng hindi ligtas:
+  "{url]".'
+Age Restricted:
+  This channel is age restricted: Itong channel ay pinaghihigpitan sa edad
+  This video is age restricted: Ang video na ito ay pinaghihigpitan sa edad
+Close Banner: I-Sara ang banner
+Are you sure you want to open this link?: Sigurado mo na buksan itong link?
+Search character limit: Na sobrahan ng {searchCharacterLimit} na tilik ang Search
+  query
+Go to page: Pumunta sa {page}
+Preferences: Preferences
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber}
+  ay magamit na! . . Pindutin para sa detalye
+A new blog is now available, {blogTitle}. Click to view more: May bagong blog, {blogTitle},
+  Pindutin para makita

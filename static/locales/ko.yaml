@@ -105,10 +105,6 @@ Most Popular: '인기 동영상'
 Playlists: '재생 목록'
 User Playlists:
   Your Playlists: '나의 재생 목록'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 재생
-    목록이 없습니다. 영상의 오른쪽 아래에 있는 저장 버튼을 사용하여 재생 목록에 영상을 추가하세요
-  Playlist Message: 지금 보시는 페이지는 완전한 플레이 리스트가 아닙니다. 이곳에는 저장되었거나 즐겨 찾기 표시가 된 항목만 표시
-    됩니다. 작업이 끝나면, 여기에 표시된 영상들은 '즐겨 찾기' 항목으로 옮겨집니다.
   Search bar placeholder: 재생 목록에서 검색
   Empty Search Message: 이 재생 목록에 검색과 일치하는 동영상이 없습니다
 History:
@@ -145,8 +141,6 @@ Settings:
       Beginning: '시작장면'
       Middle: '중간장면'
       End: '마지막장면'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
-      (기본설정은 https://invidious.snopyta.org)'
     Region for Trending: '트렌드 국가'
         #! List countries
     View all Invidious instance information: Indivious 서버의 전체 목록 보기
@@ -221,7 +215,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube 헤더 로고 숨기기
   Player Settings:
     Player Settings: '플레이어 설정'
-    Force Local Backend for Legacy Formats: '레거시 포멧에 로컬 백엔드 강제적용'
     Play Next Video: '다음 동영상 재생'
     Turn on Subtitles by Default: '기본으로 자막켜기'
     Autoplay Videos: '동영상 자동재생'
@@ -269,7 +262,6 @@ Settings:
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
         %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
         "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
-    Allow DASH AV1 formats: DASH AV1 포맷 허용
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
@@ -289,7 +281,6 @@ Settings:
     Subscription Settings: '구독 설정'
     Hide Videos on Watch: '시청한 동영상 숨기기'
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
-    Manage Subscriptions: '구독 관리'
     Fetch Automatically: 자동으로 피드 수집하기
   Distraction Free Settings:
     Distraction Free Settings: '방해받지 않는 모드 설정'
@@ -317,10 +308,6 @@ Settings:
     Select Import Type: '가져오기 유형 선택'
     Select Export Type: '내보내기 유형 선택'
     Import Subscriptions: '구독 목록 가져오기'
-    Import FreeTube: 'FreeTube 가져오기'
-    Import YouTube: 'YouTube 가져오기'
-    Import NewPipe: 'NewPipe 가져오기'
-    Check for Legacy Subscriptions: '레거시 구독 확인'
     Export Subscriptions: '구독 목록 내보내기'
     Export FreeTube: 'FreeTube 내보내기'
     Export YouTube: 'YouTube 내보내기'
@@ -331,7 +318,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: '모든 구독 및 프로필을
       성공적으로 가져왔습니다'
     All subscriptions have been successfully imported: '모든 구독을 성공적으로 가져왔습니다'
-    One or more subscriptions were unable to be imported: '하나 이상의 구독을 가져올 수 없습니다'
     Invalid subscriptions file: '잘못된 구독 파일입니다'
     This might take a while, please wait: '시간이 좀 걸릴 수 있습니다. 잠시 기다려 주십시오'
     Invalid history file: '잘못된 기록 파일입니다'
@@ -352,7 +338,6 @@ Settings:
     Subscription File: 구독 정보 파일
     Playlist File: 재생목록 파일
     History File: 시청기록 파일
-  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 네트워크 정보를
       가져오는 중 오류가 발생했습니다. 프록시가 올바르게 구성되어 있습니까?
@@ -441,8 +426,6 @@ About:
   Help: 도움말
   GitHub releases: GitHub 릴리스
   Downloads / Changelog: 다운로드 / 변경 로그
-  View License: 라이센스 보기
-  Licensed under the AGPLv3: AGPLv3에 따라 라이센스가 부여됨
   Source code: 소스 코드
   Beta: 베타
 Profile:
@@ -486,8 +469,6 @@ Profile:
   Profile Filter: 프로필 필터
   Profile Settings: 프로필 설정
 Channel:
-  Subscriber: '구독자'
-  Subscribers: '구독자'
   Subscribe: '구독'
   Unsubscribe: '구독 취소'
   Channel has been removed from your subscriptions: '채널이 구독에서 제거되었습니다'
@@ -552,11 +533,6 @@ Video:
   Download Video: '동영상 다운로드'
   video only: '비디오만'
   audio only: '오디오만'
-  Audio:
-    Low: '낮음'
-    Medium: '중간'
-    High: '높음'
-    Best: '최고'
   Published:
     Jan: '1월'
     Feb: '2월'
@@ -595,18 +571,6 @@ Video:
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
-  Stats:
-    Mimetype: 미디어 타입
-    Video statistics are not available for legacy videos: 레거시 비디오에 대한 비디오 통계를 사용할
-      수 없습니다
-    Player Dimensions: 플레이어 치수
-    Bandwidth: 대역폭
-    Video ID: 비디오 ID
-    Resolution: 해상도
-    Bitrate: 비트 전송률
-    Volume: 음량
-    Buffered: 버퍼링된
-    Dropped / Total Frames: 손실된 / 총 프레임 수
   Premieres on: 개봉일
   External Player:
     Unsupported Actions:
@@ -632,8 +596,6 @@ Video:
     outro: 결말부
     self-promotion: 자기 홍보
     interaction: 상호 작용
-  translated from English: 영어에서 번역됨
-  Skipped segment: 건너뛴 세그먼트
   Premieres: 프리미어
   Upcoming: 공개 예정
   Show Super Chat Comment: 슈퍼채팅 댓글 보이기
@@ -648,16 +610,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '전체 재생 목록 보기'
-  Videos: '비디오'
-  View: '보기'
-  Views: '보기'
   Last Updated On: '마지막 업데이트 날짜'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: 재생 목록
-Toggle Theatre Mode: '극장 모드 전환'
 Change Format:
   Change Media Formats: '비디오 형식 변경'
   Use Dash Formats: 'DASH 형식 사용'
@@ -707,7 +665,7 @@ Comments:
   And others: 및 기타
   Member: 구성원
   Hearted: 좋아요 표시한
-  View {replyCount} replies: '{reply Count} 개의 답글 보기'
+  View {replyCount} replies: '{replyCount} 개의 답글 보기'
 Up Next: '다음 위로'
 
 #Tooltips
@@ -723,9 +681,6 @@ Tooltips:
     External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는
       기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: 'Invidious API가 기본값인 경우에만 작동합니다. 활성화되면
-      로컬 API가 실행되고 Invidious에서 반환된 형식 대신 해당 형식에서 반환된 레거시 형식을 사용합니다. Invidious에서 반환한
-      동영상이 국가 제한으로 인해 재생되지 않을 때 도움이 됩니다.'
     Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다.
       API 기본 설정을 재정의합니다.'
     Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다.
@@ -733,8 +688,6 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command
       키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게
       누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
-    Allow DASH AV1 formats: DASH AV1 포맷은 DASH H.264 포맷보다 화질이 좋을 수 있으나, 영상 재생을 위해 더
-      높은 성능을 요구합니다. 모든 영상에서 사용 가능한 것은 아니며, 사용이 불가능할 경우 DASH H.264 포맷을 사용합니다.
     Skip by Scrolling Over Video Player: MPV 방식으로 마우스 스크롤을 이용해 영상을 스킵합니다.
   Subscription Settings:
     Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더
@@ -759,7 +712,6 @@ Falling back to Invidious API: 'Invidious API로 대체'
 Falling back to Local API: '로컬 API로 대체'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: '이
   동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
-Subscriptions have not yet been implemented: '구독이 아직 구현되지 않았습니다'
 Loop is now disabled: '반복이 비활성화되었습니다'
 Loop is now enabled: '반복이 활성화되었습니다'
 Shuffle is now disabled: '셔플이 비활성화되었습니다'
@@ -776,8 +728,6 @@ No: '아니오'
 More: 더 보기
 Unknown YouTube url type, cannot be opened in app: 알 수 없는 YouTube URL 유형, 앱에서 열 수
   없음
-Hashtags have not yet been implemented, try again later: 해시태그가 아직 구현되지 않았습니다. 나중에
-  다시 시도하세요
 Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초
   후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
 Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로
@@ -795,10 +745,8 @@ Channels:
   Title: 채널 목록
   Search bar placeholder: 채널 검색
   Empty: 채널 목록이 비어 있습니다.
-  Unsubscribe: 구독 취소
   Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
   Count: '{number} 채널이 발견되었습니다.'
-  Unsubscribed: '{channelName} 구독에서 제거되었습니다'
 Downloading has completed: '"{videoTitle}" 다운로드가 완료되었습니다'
 Starting download: '"{videoTitle}" 다운로드를 시작하는 중'
 Downloading failed: '"{videoTitle}"를 다운로드하는 동안 문제가 발생했습니다'

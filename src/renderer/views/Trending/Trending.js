@@ -1,8 +1,8 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
@@ -110,7 +110,7 @@ export default defineComponent({
         this.trendingInstance = instance
 
         this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs[this.currentTab]?.focus()
         })
       } catch (err) {
@@ -158,14 +158,14 @@ export default defineComponent({
         this.shownResults = returnData
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
-        setTimeout(() => {
+        nextTick(() => {
           this.$refs[this.currentTab]?.focus()
         })
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
-          copyToClipboard(err.responseText)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
 
         if (process.env.SUPPORTS_LOCAL_API && (this.backendPreference === 'invidious' && this.backendFallback)) {

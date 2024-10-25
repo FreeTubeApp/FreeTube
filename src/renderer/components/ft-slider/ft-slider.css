@@ -8,7 +8,7 @@
   display: inline-block;
   inline-size: 380px;
   color: rgb(var(--primary-text-color) 0.87);
-  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-family: var(--pure-material-font, 'Roboto', 'Segoe UI', BlinkMacSystemFont, system-ui, -apple-system);
   font-size: 16px;
   line-height: 1.5;
   padding: 5px;

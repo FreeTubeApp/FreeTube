@@ -18,6 +18,17 @@
         @input="(input) => query = input"
         @clear="query = ''"
       />
+      <div
+        class="optionsRow"
+      >
+        <ft-toggle-switch
+          v-if="fullData.length > 1"
+          :label="$t('History.Case Sensitive Search')"
+          :compact="true"
+          :default-value="doCaseSensitiveSearch"
+          @change="doCaseSensitiveSearch = !doCaseSensitiveSearch"
+        />
+      </div>
       <ft-flex-box
         v-show="fullData.length === 0"
       >

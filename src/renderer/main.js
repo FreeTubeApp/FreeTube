@@ -1,9 +1,9 @@
 // import the styles
 import Vue from 'vue'
-import App from './App.vue'
+import i18n from './i18n/index'
 import router from './router/index'
 import store from './store/index'
-import i18n from './i18n/index'
+import App from './App.vue'
 import { IpcChannels } from '../constants'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -15,6 +15,7 @@ import { ObserveVisibility } from 'vue-observe-visibility'
 // to avoid code conflict and duplicate entries
 import {
   faAngleDown,
+  faAngleLeft,
   faAngleUp,
   faArrowDown,
   faArrowDownShortWide,
@@ -23,14 +24,20 @@ import {
   faArrowRight,
   faArrowUp,
   faBars,
+  faBorderAll,
   faBookmark,
   faCheck,
   faChevronRight,
+  faCirclePlay,
   faCircleUser,
+  faClapperboard,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
   faCopy,
+  faDatabase,
+  faDisplay,
   faDownload,
   faEdit,
   faEllipsisH,
@@ -45,6 +52,7 @@ import {
   faFileImage,
   faFileVideo,
   faFilter,
+  faFlask,
   faFire,
   faForward,
   faGauge,
@@ -55,12 +63,14 @@ import {
   faHistory,
   faImages,
   faInfoCircle,
+  faKey,
   faLanguage,
   faLink,
   faLinkSlash,
   faList,
   faLocationDot,
-  faMicrochip,
+  faLock,
+  faNetworkWired,
   faNewspaper,
   faPalette,
   faPause,
@@ -76,6 +86,8 @@ import {
   faSearch,
   faServer,
   faShareAlt,
+  faShield,
+  faSlash,
   faSlidersH,
   faSortAlphaDown,
   faSortAlphaDownAlt,
@@ -89,8 +101,11 @@ import {
   faTimes,
   faTimesCircle,
   faTrash,
+  faUserCheck,
+  faUserLock,
   faUsers,
   faUsersSlash,
+  faWifi
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark
@@ -99,9 +114,8 @@ import {
   faBitcoin,
   faGithub,
   faMastodon,
-  faMonero
 } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
@@ -113,6 +127,7 @@ Vue.config.productionTip = process.env.NODE_ENV === 'development'
 library.add(
   // solid icons
   faAngleDown,
+  faAngleLeft,
   faAngleUp,
   faArrowDown,
   faArrowDownShortWide,
@@ -121,14 +136,20 @@ library.add(
   faArrowRight,
   faArrowUp,
   faBars,
+  faBorderAll,
   faBookmark,
   faCheck,
   faChevronRight,
+  faCirclePlay,
   faCircleUser,
+  faClapperboard,
+  faClock,
   faClone,
   faComment,
   faCommentDots,
   faCopy,
+  faDatabase,
+  faDisplay,
   faDownload,
   faEdit,
   faEllipsisH,
@@ -143,6 +164,7 @@ library.add(
   faFileImage,
   faFileVideo,
   faFilter,
+  faFlask,
   faFire,
   faForward,
   faGauge,
@@ -153,19 +175,20 @@ library.add(
   faHistory,
   faImages,
   faInfoCircle,
+  faKey,
   faLanguage,
   faLink,
   faLinkSlash,
   faList,
   faLocationDot,
-  faMicrochip,
+  faLock,
+  faNetworkWired,
   faNewspaper,
   faPalette,
   faPause,
   faPhotoFilm,
   faPlay,
   faPlus,
-  faPhotoFilm,
   faQuestionCircle,
   faRandom,
   faRetweet,
@@ -175,6 +198,8 @@ library.add(
   faSearch,
   faServer,
   faShareAlt,
+  faShield,
+  faSlash,
   faSlidersH,
   faSortAlphaDown,
   faSortAlphaDownAlt,
@@ -188,8 +213,11 @@ library.add(
   faTimes,
   faTimesCircle,
   faTrash,
+  faUserCheck,
+  faUserLock,
   faUsers,
   faUsersSlash,
+  faWifi,
 
   // solid icons
   farBookmark,
@@ -198,12 +226,12 @@ library.add(
   faGithub,
   faBitcoin,
   faMastodon,
-  faMonero
 )
 
 registerSwiper()
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+Vue.component('FontAwesomeLayers', FontAwesomeLayers)
 Vue.directive('observe-visibility', ObserveVisibility)
 
 /* eslint-disable-next-line no-new */

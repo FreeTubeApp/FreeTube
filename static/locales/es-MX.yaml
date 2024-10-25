@@ -32,6 +32,7 @@ Global:
   Videos: 'Videos'
 
 # Search Bar
+  Community: Comunidad
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -96,12 +97,6 @@ User Playlists:
   Search bar placeholder: Buscar en la lista de reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan
     con su búsqueda
-  Playlist Message: Esta página no muestra listas de reproducción funcionales. Únicamente
-    enlista videos que ha guardado o marcado en favoritos. Una vez terminado el proyecto,
-    todos los videos de aquí serán trasladados a la lista de 'Favoritos'.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Aún
-    no ha guardado videos. Haga clic en el botón de guardado en la esquina de cualquier
-    video para enlistarlo aquí
 History:
   # On History Page
   History: 'Historial'
@@ -133,8 +128,6 @@ Settings:
       Beginning: 'Comienzo'
       Middle: 'Medio'
       End: 'Fin'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
-      Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Tendencia por región'
         #! List countries
     Check for Updates: Buscar actualizaciones
@@ -198,8 +191,6 @@ Settings:
     Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
   Player Settings:
     Player Settings: 'Ajustes del reproductor'
-    Force Local Backend for Legacy Formats: 'Forzar motor local para el formato heredado'
-    Remember History: 'Recordar historial'
     Play Next Video: 'Reproducir el video siguiente'
     Turn on Subtitles by Default: 'Activar subtitulos por defecto'
     Autoplay Videos: 'Reproduccion automatica'
@@ -236,42 +227,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
     Hide Videos on Watch: 'Ocultar videos vistos'
-    Subscriptions Export Format:
-      Subscriptions Export Format: 'Formato de exportación de suscripciones'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Administrar suscripciones'
-    Import Subscriptions: 'Importa tus suscripciones'
-    Export Subscriptions: 'Exporta tus suscripciones'
-    How do I import my subscriptions?: '¿Cómo importo mis suscripciones?'
     Fetch Feeds from RSS: Buscar Información desde RSS
-  Advanced Settings:
-    Advanced Settings: 'Ajustes avanzados'
-    Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (Muestra
-      datos en la consola)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Dirección de mascara (Ejemplo:
-      SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Presionando
-      el botón "PROBAR MASCARA" enviará una solicitud a https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Usar Tor / Mascara para las llamadas API'
-    TEST PROXY: 'PROBAR MASCARA'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Ver Instancias Públicas'
-    Clear History:
-      Clear History: 'Borrar Historial'
-      # On Click
-      Are you sure you want to delete your history?: '¿Está seguro de que desea eliminar
-        su historial?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Borrar Suscripciones'
-      # On Click
-      Are you sure you want to remove all subscriptions?: '¿Está seguro de que desea
-        eliminar todas las suscripciones?'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Search cache has been cleared: Se ha borrado la caché de búsqueda
@@ -297,9 +253,6 @@ Settings:
     Export YouTube: Exportar YouTube
     Export FreeTube: Exportar FreeTube
     Export Subscriptions: Exportar Suscripciones
-    Import NewPipe: Importar NewPipe
-    Import YouTube: Importar YouTube
-    Import FreeTube: Importar FreeTube
     Import Subscriptions: Importar Suscripciones
     Select Export Type: Seleccionar tipo de exportación
     Select Import Type: Seleccionar tipo de importación
@@ -311,8 +264,6 @@ Settings:
     This might take a while, please wait: Esto puede tomar un tiempo, por favor espera
     All subscriptions and profiles have been successfully imported: Suscripciones
       y perfiles se importaron con éxito
-    One or more subscriptions were unable to be imported: Una o más suscripciones
-      no se pudo importar
     All subscriptions have been successfully imported: Suscripciones se importaron
       con éxito
     Subscriptions have been successfully exported: Suscripciones se exportaron con
@@ -328,7 +279,6 @@ Settings:
       datos insuficientes, ignorando artículo
     Import Playlists: Importar listas de reproducción
     Export Playlists: Exportar listas de reproducción
-    Check for Legacy Subscriptions: Revisar suscripciones heredadas
     All playlists has been successfully exported: Todas sus listas de reproducción
       han sido exportadas con éxito
     All playlists has been successfully imported: Todas sus listas han sido importadas
@@ -387,42 +337,13 @@ About:
   #On About page
   About: 'Acerca de'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
-    software copylefted tiene licencia libre AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    ¿Encontraste un bug? ¿Quieres sugerir una nueva característica? ¿Quieres ayudar?
-    Visita nuestra página de Github. Las contribuciones son bienvenidas.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: '¡Muchas
-    gracias a las personas y proyectos que hacen posible FreeTube!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '¿Desea
-    chatear? Únete a nuestro servidor de Element / Matrix. Por favor revise las reglas
-    antes de unirse.'
-
-  'Looking for help? Check out our Wiki page.': '¿Buscando ayuda? Visite nuestra pagina
-    de Wiki.'
-
-  Check out our Firefox extension!: '¡Prueba nuestra extensión para Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Si
-    te gusta usar Free Tube, considera donar a través de Liberapay o a través de nuestra
-    dirección de Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Últimas noticias de FreeTube'
-
 #On Channel Page
   Blog: Blog
   Website: Sitio web
   Email: Correo electrónico
   Mastodon: Mastodon
   Source code: Código fuente
-  View License: Ver licencia
   Beta: Beta
-  Licensed under the AGPLv3: Bajo licencia de AGPLv3
   Downloads / Changelog: Descargas / Informe de cambios
   GitHub releases: Lanzamientos en GitHub
   Help: Ayuda
@@ -540,29 +461,11 @@ Video:
   Reverse Playlist: Lista de reproducción invertida
   Shuffle Playlist: Lista de reproducción aleatoria
   Loop Playlist: Lista de reproducción en bucle
-  translated from English: traducido del inglés
-  Stats:
-    Mimetype: Tipo de medio
-    Resolution: Resolución
-    Player Dimensions: Tamaño del reproductor
-    Bitrate: Tasa de bits
-    Volume: Volumen
-    Bandwidth: Ancho de banda
-    Video statistics are not available for legacy videos: Estadísticas no disponibles
-      para videos heredados
-    Video ID: ID del video
-    Buffered: Amplificado
-    Dropped / Total Frames: Caídos / Fotogramas totales
   Video has been removed from your saved list: El video se ha eliminado de su lista
     de guardado
   Video has been saved: Video guardado
   Starting soon, please refresh the page to check again: Empezará pronto, por favor
     actualice la página para volver a revisar
-  Audio:
-    Best: Máxima
-    Low: Baja
-    Medium: Media
-    High: Alta
   External Player:
     Unsupported Actions:
       reversing playlists: revirtiendo listas
@@ -595,7 +498,6 @@ Video:
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
   Premieres on: En estreno
-  Skipped segment: Omitida esta parte
   Download Video: Descargar video
 Videos:
   #& Sort By
@@ -607,16 +509,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Ver lista de reproducción completa'
-  Videos: 'Videos'
-  View: 'Vista'
-  Views: 'Vistas'
   Last Updated On: 'Última actualización el'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Lista de reproducción
-Toggle Theatre Mode: 'Alternar modo teatro'
 Change Format:
   Change Media Formats: 'Cambia formatos de vídeo'
   Use Dash Formats: 'Usar formatos DASH'
@@ -677,7 +575,6 @@ Invidious API Error (Click to copy): 'Error de la API de Invidious (Presione par
   copiar)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to Local API: 'Recurriendo a la API local'
-Subscriptions have not yet been implemented: 'Las suscripciones aún no se han implementado'
 Loop is now disabled: 'El bucle esta desactivado'
 Loop is now enabled: 'El bucle esta activado'
 Shuffle is now disabled: 'La reproducción aleatoria se ha desactivada'
@@ -778,16 +675,11 @@ Tooltips:
       etc.).
   Player Settings:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en
-      lugar de conectarse directamente a YouTube. Anulará la API seleccionada.
+      lugar de conectarse directamente a YouTube.
     Default Video Format: Establezca los formatos a usar cuando reproduce un video.
       Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados
       están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de
       banda. Los formatos de audio permiten escuchar solamente el audio.
-    Force Local Backend for Legacy Formats: Sólo funcionará si la API de Invidious
-      está por defecto. Si se habilita, la API local ejecutará los formatos heredados
-      que encuentre en lugar de los que le dé Invidious. Esto ayuda a que los videos
-      proporcionados por Invidious puedan ser reproducidos sin impedimentos debidos
-      a la región.
     Scroll Playback Rate Over Video Player: Mientras el cursor esté sobre el video,
       mantenga presionada la tecla Ctrl (tecla Comando en Mac) y use la rueda del
       ratón hacia adelante o atrás para controlar la velocidad de reproducción. Mantenga
@@ -816,8 +708,6 @@ Default Invidious instance has been set to {instance}: La dirección de Invidiou
   se ha establecido en {instance}
 Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocida,
   imposible de abrir en la app
-Hashtags have not yet been implemented, try again later: Las etiquetas aún no han
-  sido implementadas, próximamente estarán en nuevas versiones
 Playing Next Video Interval: El próximo video se abrirá inmediatamente. Haga clic
   aquí para cancelar. | Se abrirá el siguiente video en {nextVideoInterval} segundo.
   Haga clic aquí para cancelar. | Se abrirá el siguiente video en {nextVideoInterval}

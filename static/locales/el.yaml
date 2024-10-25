@@ -116,13 +116,6 @@ Most Popular: 'Δημοφιλέστερα'
 Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
   Your Playlists: 'Προσωπικές Λίστες αναπαραγωγής'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Τα
-    αποθηκευμένα βίντεο σας είναι κενά. Κάντε κλικ στο κουμπί αποθήκευσης στη γωνία
-    ενός βίντεο για να το εισάγετε εδώ
-  Playlist Message: Αυτή η σελίδα δεν αντικατοπτρίζει πλήρως λειτουργικές λίστες αναπαραγωγής.
-    Παραθέτει μόνο βίντεο που έχετε αποθηκεύσει ή προσθέσει στα αγαπημένα. Όταν ολοκληρωθεί
-    η εργασία, όλα τα βίντεο που βρίσκονται εδώ θα μεταφερθούν στη λίστα αναπαραγωγής
-    «Αγαπημένα».
   Search bar placeholder: Αναζήτηση στη λίστα αναπαραγωγής
   Empty Search Message: Δεν υπάρχουν βίντεο σε αυτήν τη λίστα αναπαραγωγής που να
     ταιριάζουν με την αναζήτησή σας
@@ -161,8 +154,6 @@ Settings:
       End: 'Τέλος'
       Hidden: Κρυμμένο
       Blur: 'Θάμπωμα'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Διακομιστής
-      Invidious (προεπιλογή https://invidious.snopyta.org)'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
         #! List countries
     Check for Latest Blog Posts: Ελέγξτε για τις τελευταίες δημοσιεύσεις ιστολογίου
@@ -245,8 +236,6 @@ Settings:
     Hide FreeTube Header Logo: Απόκρυψη Λογότυπου Κεφαλίδας FreeTube
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
-    Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
-      Διαμορφώσεις'
     Play Next Video: 'Αναπαραγωγή επόμενου Βίντεο'
     Turn on Subtitles by Default: 'Ενεργοποίηση υπότιτλων από προεπιλογή'
     Autoplay Videos: 'Αυτόματη αναπαραγωγή βίντεο'
@@ -303,7 +292,6 @@ Settings:
       Βίντεο
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
-    Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -326,7 +314,6 @@ Settings:
     Subscription Settings: 'Ρυθμίσεις Συνδρομών'
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
-    Manage Subscriptions: 'Διαχείριση Εγγραφών'
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
     Only Show Latest Video for Each Channel: Εμφάνιση μόνο του τελευταίου βίντεο για
       κάθε κανάλι
@@ -335,9 +322,6 @@ Settings:
     Select Import Type: 'Επιλογή Τρόπου Εισαγωγής'
     Select Export Type: 'Επιλογή Τρόπου Εξαγωγής'
     Import Subscriptions: 'Εισαγωγή Συνδρομών'
-    Import FreeTube: 'Εισαγωγή από FreeTube'
-    Import YouTube: 'Εισαγωγή από το Youtube'
-    Import NewPipe: 'Εισαγωγή από το NewPipe'
     Export Subscriptions: 'Εξαγωγή Συνδρομών'
     Export FreeTube: 'Εξαγωγή για FreeTube'
     Export YouTube: 'Εξαγωγή για Youtube'
@@ -350,8 +334,6 @@ Settings:
       των συνδρομών και των προφίλ έχει γίνει με επιτυχία'
     All subscriptions have been successfully imported: 'Η εισαγωγή των συνδρομών έχει
       γίνει με επιτυχία'
-    One or more subscriptions were unable to be imported: 'Μία ή παραπάνω συνδρομές
-      απέτυχαν να εισαχθούν'
     Invalid subscriptions file: 'Μη συμβατό/έγκυρο αρχείο συνδρομών'
     This might take a while, please wait: 'Αυτή η ενέργεια μπορεί να διαρκέσει για
       λίγο, παρακαλώ περιμένετε'
@@ -368,7 +350,6 @@ Settings:
     Unable to write file: 'Αδύνατη εγγραφή του αρχείου'
     Unknown data key: 'Άγνωστο κλειδί δεδομένων'
     How do I import my subscriptions?: 'Πως γίνεται η εισαγωγή των συνδρομών μου;'
-    Check for Legacy Subscriptions: Ελέγξτε για παλαιότερες εγγραφές
     Manage Subscriptions: Διαχείριση συνδρομών
     Import Playlists: Εισαγωγή λιστών αναπαραγωγής
     Export Playlists: Εξαγωγή Λιστών Αναπαραγωγής
@@ -381,33 +362,6 @@ Settings:
     Subscription File: Αρχείο Συνδρομής
     History File: Αρχείο Ιστορικού
     Playlist File: Αρχείο Λίστας Αναπαραγωγής
-  Advanced Settings:
-    Advanced Settings: 'Ρυθμίσεις για προχωρημένους'
-    Enable Debug Mode (Prints data to the console): 'Ενεργοποίηση λειτουργίας εντοπισμού
-      σφαλμάτων (Εκτυπώνει τα δεδομένα στην κονσόλα)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Διεύθυνση διακομιστή μεσολάβησης
-      (παράδειγμα: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Κάνοντας
-      κλικ στο κουμπί "Δοκιμή διακομιστή μεσολάβησης" θα στείλετε μια αίτηση στο https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Χρήση Tor / Διακομιστής μεσολάβησης για κλήσεις
-      σε διεπαφή προγραμματισμού εφαρμογών (API)'
-    TEST PROXY: 'Δοκιμή Διακομιστή Μεσολάβησης'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Δείτε δημόσιους μεσολαβητές'
-    Clear History:
-      Clear History: 'Εκκαθάριση Ιστορικού'
-      # On Click
-      Are you sure you want to delete your history?: 'Είστε βέβαιοι πως θέλετε να
-        γίνει διαγραφή του ιστορικού σας ;'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Εκκαθάριση Συνδρομών/Εγγραφών'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Είστε βέβαιοι ότι θέλετε
-        να γίνει διαγραφή όλων των Συνδρομών/Εγγραφών;'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Distraction Free Settings: Ρυθμίσεις απόσπασης προσοχής
@@ -446,7 +400,6 @@ Settings:
     Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
     Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
-    Blur Thumbnails: Θάμπωμα Μικρογραφιών
     Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
     Hide Subscriptions Community: Απόκρυψη Συνδρομών Κοινότητας
     Hide Channels Invalid: Το αναγνωριστικό καναλιού που δόθηκε δεν ήταν έγκυρο
@@ -531,41 +484,10 @@ Settings:
     Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
     Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
     Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
-  Expand All Settings Sections: Αναπτύξτε όλες τις ενότητες ρυθμίσεων
 About:
   #On About page
   About: 'Σχετικά με'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Αυτό
-    το ανοιχτό λογισμικό έχει άδεια χρήσης βάσει του AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Εντοπίσατε κάποιο σφάλμα ή μήπως θέλετε να προτείνετε κάποια περαιτέρω λειτουργία;
-    Θέλετε να συμβάλετε στο έργο μας; Ρίξτε μία ματιά στη σελίδα μας στο Github. Τα
-    αιτήματα για Pull Request είναι ευπρόσδεκτα.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Ένα
-    μεγάλο ευχαριστώ σε όλους τους ανθρώπους και τα έργα, που καθιστούν τη λειτουργία
-    του FreeTube εφικτή!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Θέλετε
-    μήπως να συζητήσετε; Μπορείτε να μας βρείτε στον δικό μας Element/Matrix Server.
-    Παρακαλώ ελέγξτε τους υπάρχοντες κανόνες πριν από την εγγραφή σας.'
-
-  'Looking for help? Check out our Wiki page.': 'Ψάχνετε για βοήθεια; Ελέγξτε την
-    σελίδα μας στο Wiki.'
-
-  Check out our Firefox extension!: 'Εγκαταστήστε την επέκταση μας για τον φυλλομετρητή
-    FIREFOX!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Εάν
-    σας αρέσει να χρησιμοποιείτε την εφαρμογή FreeTube, σκεφτείτε να κάνετε μία δωρεά
-    μέσω του Liberapay ή μέσω της διεύθυνσης Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Τελευταία νέα που αφορούν το FreeTube'
-
   Donate: Δωρεά
   these people and projects: αυτούς τους ανθρώπους και τα έργα
   FreeTube is made possible by: Το FreeTube καθίσταται δυνατό από
@@ -587,8 +509,6 @@ About:
   Help: Βοήθεια
   GitHub releases: Κυκλοφορίες GitHub
   Downloads / Changelog: Λήψεις / Αρχείο καταγραφής αλλαγών
-  View License: Προβολή άδειας
-  Licensed under the AGPLv3: Με άδεια βάσει του AGPLv3
   Source code: Πηγαίος κώδικας
   Beta: Βήτα
   Discussions: Συζητήσεις
@@ -778,11 +698,6 @@ Video:
   Published on: 'Δημοσιεύθηκε στις'
   Publicationtemplate: 'δημοσιεύθηκε πριν από {number} {unit}'
 #& Videos
-  Audio:
-    Best: Καλύτερο
-    High: Υψηλή
-    Medium: Μεσαία
-    Low: Χαμηλή
   Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε
     κάντε ανανέωση της σελίδας για επανέλεγχο
   audio only: μόνο ήχος
@@ -798,7 +713,6 @@ Video:
     λίστα σας
   Video has been saved: Το βίντεο έχει αποθηκευτεί
   Save Video: Αποθήκευση βίντεο
-  translated from English: μεταφράστηκε από τα Αγγλικά
   Sponsor Block category:
     intro: Εισαγωγή
     interaction: Αλληλεπίδραση
@@ -825,26 +739,6 @@ Video:
     OpeningTemplate: Άνοιγμα {videoOrPlaylist} σε {externalPlayer}...
     UnsupportedActionTemplate: 'Το {externalPlayer} δεν υποστηρίζει: {action}'
   Premieres on: Πρεμιέρες στις
-  Stats:
-    video id: Αναγνωριστικό του βίντεο (YouTube)
-    player resolution: Θύρα προβολής
-    volume: Ένταση ήχου
-    fps: FPS
-    out of: από
-    frame drop: Πτώση καρέ
-    bandwidth: Ταχύτητα σύνδεσης
-    Mimetype: Τύπος αρχείου
-    Video statistics are not available for legacy videos: Τα στατιστικά βίντεο δεν
-      είναι διαθέσιμα για βίντεο παλαιού τύπου
-    Video ID: Αναγνωριστικό βίντεο
-    Resolution: Ανάλυση
-    Player Dimensions: Διαστάσεις αναπαραγωγής βίντεο
-    Bitrate: Ρυθμός μεταβίβασης δεδομένων
-    Volume: Ένταση
-    Bandwidth: Εύρος ζώνης
-    Buffered: Φορτωμένο
-    Dropped / Total Frames: Πτωμένα / Συνολικά Καρέ
-  Skipped segment: Τμήμα που παραλείφθηκε
   Show Super Chat Comment: Εμφάνιση Σχολίου Super Chat
   Scroll to Bottom: Κύλιση προς τα Κάτω
   Premieres: Πρεμιέρες
@@ -865,16 +759,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Προβολή πλήρους λίστας αναπαραγωγής'
-  Videos: 'Βίντεο'
-  View: 'Προβολή'
-  Views: 'Προβολές'
   Last Updated On: 'Τελευταία ενημέρωση στις'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Λίστα αναπαραγωγής
-Toggle Theatre Mode: 'Εναλλαγή λειτουργίας θεάτρου'
 Change Format:
   Change Media Formats: 'Αλλαγή μορφής του βίντεο'
   Use Dash Formats: 'Χρησιμοποίηση μορφών Dash'
@@ -943,7 +833,6 @@ Invidious API Error (Click to copy): 'Σφάλμα Διεπαφής προγρα
 Falling back to Invidious API: 'Επιστροφή στο Invidious API'
 Falling back to Local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής
   (API)'
-Subscriptions have not yet been implemented: 'Οι συνδρομές δεν έχουν ακόμη υλοποιηθεί'
 Loop is now disabled: 'Η επανάληψη είναι πλέον απενεργοποιημένη'
 Loop is now enabled: 'Η επανάληψη έχει ενεργοποιηθεί'
 Shuffle is now disabled: 'Η τυχαία αναπαραγωγή είναι πλέον απενεργοποιημένη'
@@ -979,13 +868,7 @@ Tooltips:
       μορφές περιορίζονται σε μέγιστο ανάλυσης 720p αλλά χρησιμοποιούν λιγότερους
       πόρους. Οι μορφές ήχου περιλαμβάνουν ροές μόνο ήχου.
     Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει
-      τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube. Παράκαμψη προτίμησης
-      API.
-    Force Local Backend for Legacy Formats: Λειτουργεί μόνο όταν το Invidious API
-      είναι η προεπιλογή σας. Όταν ενεργοποιηθεί, το τοπικό API θα χρησιμοποιήσει
-      τις μορφές παλαιού τύπου που επιστρέφονται από αυτό αντί για αυτές που επιστρέφονται
-      από το Invidious. Βοηθά όταν τα βίντεο που επιστρέφονται από το Invidious δεν
-      αναπαράγονται λόγω περιορισμών χώρας.
+      τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube.
     Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο,
       πατήστε και κρατήστε πατημένο το πλήκτρο Control (Command Key σε Mac) και μετακινηθείτε
       με τον τροχό του ποντικιού προς τα εμπρός ή προς τα πίσω για να ελέγξετε το
@@ -994,10 +877,6 @@ Tooltips:
       ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
     Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε
       το βίντεο, στυλ MPV.
-    Allow DASH AV1 formats: Οι μορφές DASH AV1 μπορεί να φαίνονται καλύτερες από τις
-      μορφές DASH H.264. Οι μορφές DASH AV1 απαιτούν περισσότερη ισχύ για την αναπαραγωγή!
-      Δεν είναι διαθέσιμα σε όλα τα βίντεο, σε αυτές τις περιπτώσεις το πρόγραμμα
-      αναπαραγωγής θα χρησιμοποιήσει τις μορφές DASH H.264.
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται.
@@ -1051,8 +930,6 @@ Playing Next Video Interval: Αναπαραγωγή επόμενου βίντε�
   ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
   κλικ για ακύρωση.
 More: Περισσότερα
-Hashtags have not yet been implemented, try again later: Τα Hashtags δεν έχουν ακόμη
-  εφαρμοστεί, δοκιμάστε ξανά αργότερα
 Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος διεύθυνσης URL YouTube,
   δεν είναι δυνατό να ανοίξει στην εφαρμογή
 Search Bar:
@@ -1072,13 +949,11 @@ Channels:
   Channels: Κανάλια
   Title: Λίστα Καναλιών
   Search bar placeholder: Αναζήτηση Καναλιών
-  Unsubscribe: Απεγγραφή
-  Count: $ κανάλι(α) βρέθηκαν.
+  Count: '{number} κανάλι(α) βρέθηκαν.'
   Empty: Η λίστα καναλιών σας είναι άδεια.
-  Unsubscribed: $ αφαιρέθηκε από τις Συνδρομές σας
-  Unsubscribe Prompt: Θέλετε σίγουρα να απεγγραφείτε από το "$"?
+  Unsubscribe Prompt: Θέλετε σίγουρα να απεγγραφείτε από το "{channelName}"?
 New Window: Νέο Παράθυρο
-Screenshot Error: Λήψη στιγμιότυπου απέτυχε. $
+Screenshot Error: 'Λήψη στιγμιότυπου απέτυχε. {error}'
 Clipboard:
   Copy failed: Η αντιγραφή στο πρόχειρο απέτυχε
   Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση

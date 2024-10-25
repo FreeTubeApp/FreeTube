@@ -59,7 +59,6 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 * Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
 * View channel community posts
-* View most age restricted videos
 
 ### Browser Extension
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. 
@@ -150,13 +149,9 @@ If you ever have any questions, feel free to ask it on our [Discussions](https:/
 > Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.
 
 ## Donate
-If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  
-
-* [FreeTube on Liberapay](https://liberapay.com/FreeTube)
+If you enjoy using FreeTube, you're welcome to leave a donation using the following method.  
 
 * Bitcoin Address: `1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS`
-
-* Monero Address: `48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB`
 
 While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs. 
 

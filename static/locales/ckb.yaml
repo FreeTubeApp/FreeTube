@@ -116,8 +116,6 @@ Channels:
   Search bar placeholder: ''
   Count: '{number} کەناڵ دۆزرانەوە.'
   Empty: 'ئێستا پێڕستی کەناڵەکانت بەتاڵە.'
-  Unsubscribe: ''
-  Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
@@ -130,8 +128,6 @@ Most Popular: 'باوترین'
 Playlists: 'پێڕستی لێدانەکان'
 User Playlists:
   Your Playlists: 'پێڕستی لێدانەکانت'
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
   Search bar placeholder: 'لەناو پێڕستی لێدان بگەڕێ'
 History:
@@ -246,7 +242,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'ڕێکخستنەکانی لێدەر'
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: 'لێدانی ڤیدیۆی دواتر'
     Turn on Subtitles by Default: 'هەڵکردنی بنەڕەتی ژێرنووس'
     Autoplay Videos: 'خۆلێدانی ڤیدیۆ'
@@ -281,7 +276,6 @@ Settings:
       1440p: '١٤٤٠p'
       4k: '٤k'
       8k: '٨k'
-    Allow DASH AV1 formats: ''
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -321,7 +315,6 @@ Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
     Fetch Automatically: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
@@ -373,7 +366,6 @@ Settings:
     Subscription File: ''
     History File: 'پەڕگەی مێژوو'
     Playlist File: 'پەڕگەی پێڕستی لێدان'
-    Check for Legacy Subscriptions: ''
     Export Subscriptions: ''
     Export FreeTube: 'هەناردەکردنی فریتیوب'
     Export YouTube: 'هەناردەکردنی یوتیوب'
@@ -385,7 +377,6 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
     This might take a while, please wait: 'تکایە چاوەڕوانبە لەوانەیە هەندێک کاتی پێ
       بچێت'
@@ -461,8 +452,6 @@ About:
   About: 'دەربارە'
   Beta: ''
   Source code: 'کۆدی سەرچاوە'
-  Licensed under the AGPLv3: 'مۆڵەتی وەشانی سێیەمی AGPL هەیە'
-  View License: 'بینینی مۆڵەت'
   Downloads / Changelog: ''
   GitHub releases: ''
   Help: 'یارمەتی'
@@ -627,11 +616,6 @@ Video:
   Download Video: 'داگرتنی ڤیدیۆ'
   video only: 'تەنیا ڤیدیۆ'
   audio only: 'تەنیا دەنگ'
-  Audio:
-    Low: 'نزم'
-    Medium: 'مامناوەند'
-    High: 'بەرز'
-    Best: 'باشترین'
   Published:
     Jan: ''
     Feb: ''
@@ -665,9 +649,7 @@ Video:
   Published on: 'بڵاوکرایەوە لە'
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -691,17 +673,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: ''
-    Resolution: ''
-    Player Dimensions: ''
-    Bitrate: ''
-    Volume: ''
-    Bandwidth: ''
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: ''
 #& Videos
   Unhide Channel: پیشاندانی کەناڵ
   Hide Channel: شاردنەوەی کەناڵ
@@ -716,15 +687,11 @@ Playlist:
   #& About
   Playlist: 'پێڕستی لێدان'
   View Full Playlist: ''
-  Videos: 'ڤیدیۆکان'
-  View: 'بینراو'
-  Views: 'بینراو'
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -796,10 +763,8 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:
@@ -825,9 +790,7 @@ Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to Local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''

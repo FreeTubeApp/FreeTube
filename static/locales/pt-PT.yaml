@@ -40,7 +40,7 @@ Global:
   Counts:
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
-    View Count: 1 visualização | {contagem} visualizações
+    View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
     Channel Count: 1 canal | {count} canais
   Input Tags:
@@ -134,18 +134,9 @@ Most Popular: Mais populares
 Playlists: Listas de reprodução
 User Playlists:
   Your Playlists: As suas listas de reprodução
-  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
-    os vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
-    todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
-    lista está vazia. Clique no botão Guardar no canto de um vídeo para o mostrar
-    aqui.
   Search bar placeholder: Procurar listas de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com
     a sua pesquisa
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
-    certeza que quer remover todos os vídeos vistos desta lista de reprodução? Isto
-    não pode ser revertido.
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que pretende eliminar esta lista de reprodução? Isto não pode ser revertido.
   SinglePlaylistView:
@@ -275,8 +266,6 @@ Settings:
       End: Final
       Blur: Desfocar
       Hidden: Oculta
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Instância Invidious
-      (Por omissão é https://invidious.snopyta.org)
     View all Invidious instance information: Mostrar toda a informação sobre esta
       instância Invidious
     Region for Trending: Região para as tendências
@@ -369,9 +358,6 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: Definições do reprodutor
-    Force Local Backend for Legacy Formats: Forçar sistema de ligação local para formatos
-      antigos
-    Remember History: Lembrar Histórico
     Play Next Video: Reproduzir vídeo seguinte
     Turn on Subtitles by Default: Ativar legendas automaticamente
     Autoplay Videos: Reproduzir vídeos automaticamente
@@ -423,7 +409,6 @@ Settings:
       por cima do reprodutor
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
-    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: Definições de privacidade
     Remember History: Memorizar histórico
@@ -450,16 +435,10 @@ Settings:
     Subscription Settings: Definições de subscrições
     Hide Videos on Watch: Ocultar vídeos visualizados
     Fetch Feeds from RSS: Obter subscrições através de RSS
-    Subscriptions Export Format:
-      Subscriptions Export Format: Formato de Exportação de Subscrições
-      #& Freetube
-      Newpipe: Newpipe
-      OPML: OPML
-    Manage Subscriptions: Gerir subscrições
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
-    Avoid Accidental Unsubscription: Impedir cancelamento acidental de subscrições
+    Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Distraction Free Settings:
     Distraction Free Settings: Definições de distrações
     Hide Video Views: Ocultar visualizações
@@ -515,10 +494,6 @@ Settings:
     Select Import Type: Selecione o tipo de importação
     Select Export Type: Selecione o tipo de exportação
     Import Subscriptions: Importar subscrições
-    Import FreeTube: Importar FreeTube
-    Import YouTube: Importar YouTube
-    Import NewPipe: Importar NewPipe
-    Check for Legacy Subscriptions: Verificar se há subscrições no formato antigo
     Export Subscriptions: Exportar subscrições
     Export FreeTube: Exportar FreeTube
     Export YouTube: Exportar YouTube
@@ -531,8 +506,6 @@ Settings:
       e perfis foram importados com sucesso
     All subscriptions have been successfully imported: Todas as subscrições foram
       importadas com sucesso
-    One or more subscriptions were unable to be imported: Uma ou mais subscrições
-      não foram importadas
     Invalid subscriptions file: Ficheiro de subscrições inválido
     This might take a while, please wait: Este processo pode ser demorado.
     Invalid history file: Ficheiro de histórico inválido
@@ -640,15 +613,12 @@ Settings:
       às definições
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
-  Expand All Settings Sections: Expandir todas as secções de definições
   Sort Settings Sections (A-Z): Ordenar definições (A-Z)
 About:
   #On About page
   About: Acerca
   Beta: Beta
   Source code: Código-fonte
-  Licensed under the AGPLv3: Licenciado nos termos da AGPLv3
-  View License: Ver licença
   Downloads / Changelog: Descargas/Alterações
   GitHub releases: Versões no GitHub
   Help: Ajuda
@@ -726,8 +696,6 @@ Profile:
   Create Profile Name: Criar nome do perfil
   Profile Name: Nome do perfil
 Channel:
-  Subscriber: Subscritor
-  Subscribers: Subscritores
   Subscribe: Subscrever
   Unsubscribe: Cancelar subscrição
   Channel has been removed from your subscriptions: O canal foi removido das suas
@@ -831,11 +799,6 @@ Video:
   Download Video: Descarregar vídeo
   video only: apenas vídeo
   audio only: apenas áudio
-  Audio:
-    Low: Baixa
-    Medium: Média
-    High: Alta
-    Best: Melhor
   Published:
     Jan: jan
     Feb: fev
@@ -876,7 +839,6 @@ Video:
   Reverse Playlist: Inverter lista de reprodução
   Shuffle Playlist: Baralhar lista de reprodução
   Loop Playlist: Repetir lista de reprodução
-  translated from English: traduzido do inglês
   External Player:
     Unsupported Actions:
       looping playlists: repetir lista de reprodução
@@ -901,19 +863,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulação
     filler: Preenchimento
-  Skipped segment: Secção ignorada
-  Stats:
-    Mimetype: Tipo mime
-    Video statistics are not available for legacy videos: As estatísticas de vídeo
-      não estão disponíveis para vídeos mais antigos
-    Resolution: Resolução
-    Video ID: ID do vídeo
-    Volume: Volume
-    Bandwidth: Largura de banda
-    Buffered: Em memória
-    Bitrate: Taxa de dados
-    Dropped / Total Frames: Fotogramas perdidos/total de fotogramas
-    Player Dimensions: Dimensões do reprodutor
   Premieres on: Estreia a
   Premieres: Estreias
   Show Super Chat Comment: Mostrar comentário do Super Chat
@@ -936,9 +885,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: Ver lista de reprodução completa
-  Videos: Vídeos
-  View: Visualização
-  Views: Visualizações
   Last Updated On: Última atualização
 
 # On Video Watch Page
@@ -954,7 +900,6 @@ Playlist:
     Sort By: Ordenar por
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
-Toggle Theatre Mode: Alternar modo cinema
 Change Format:
   Change Media Formats: Alterar formatos multimédia
   Use Dash Formats: Utilizar formatos DASH
@@ -1034,13 +979,8 @@ Tooltips:
       não pode ser aberta no FreeTube, é clicada.\nPor definição, FreeTube abrirá
       a ligação no seu navegador de Internet.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é sistema usado. Se ativa, a API local será executada para usar os formatos
-      antigos em vez dos usados pelo Invidious. Útil quando os vídeos Invidious não
-      funcionam devido a restrições geográficas.
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
-      vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
-      API.
+      vídeos em vez de fazer uma ligação direta ao YouTube.
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos
       estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos
@@ -1052,10 +992,6 @@ Tooltips:
       padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
-    Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
-      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Não estão disponíveis para todos os vídeos e, nesses casos, o reprodutor usará
-      os formatos DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
@@ -1098,7 +1034,6 @@ Falling back to Local API: Ocorreu um erro e a API local será utilizada
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
   no seu país.
-Subscriptions have not yet been implemented: As subscrições ainda não foram implementadas
 Loop is now disabled: Repetição desativada
 Loop is now enabled: Repetição ativada
 Shuffle is now disabled: Reprodução aleatória desativada
@@ -1119,8 +1054,6 @@ Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Cliqu
   para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos.
   Clique para cancelar.
 More: Mais
-Hashtags have not yet been implemented, try again later: As 'hashtags' ainda não foram
-  implementadas, tente mais tarde
 Unknown YouTube url type, cannot be opened in app: O tipo de URL YouTube é desconhecido
   e não pode ser aberto na aplicação
 Open New Window: Abrir nova janela
@@ -1139,8 +1072,6 @@ Channels:
   Search bar placeholder: Procurar canais
   Count: '{number} canais encontrados.'
   Empty: A lista de canais está vazia.
-  Unsubscribe: Anular subscrição
-  Unsubscribed: '{channelName} foi removido das suas subscrições'
   Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
 Downloading has completed: '"{videoTitle}" foi descarregado'
 Starting download: A descarregar "{videoTitle}"
@@ -1149,7 +1080,7 @@ Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: Erro ao capturar o ecrã. {error}
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
-    capítulo atual: {capítuloNoto}'
+    capítulo atual: {chapterName}'
   Chapters: Capítulos
   'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
     capítulo atual: {chapterName}'

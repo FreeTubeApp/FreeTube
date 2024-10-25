@@ -96,7 +96,7 @@
   font-size: 14px;
   margin-block-start: -10px;
   margin-inline-start: 70px;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .commentPinned {

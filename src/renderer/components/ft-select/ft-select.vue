@@ -15,6 +15,7 @@
         v-for="(name, index) in selectNames"
         :key="index"
         :value="selectValues[index]"
+        :lang="isLocaleSelector && selectValues[index] !== 'system' ? selectValues[index] : null"
       >
         {{ name }}
       </option>

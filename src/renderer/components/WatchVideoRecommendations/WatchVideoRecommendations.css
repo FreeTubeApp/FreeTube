@@ -1,0 +1,19 @@
+.relative {
+  position: relative;
+}
+
+.watchVideoRecommendations {
+  display: grid;
+  grid-gap: 8px;
+}
+
+.autoPlayToggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.VideoRecommendationsTopBar {
+  display: flex;
+  justify-content: space-between;
+}
