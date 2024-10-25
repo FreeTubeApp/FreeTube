@@ -274,6 +274,7 @@ function parseInvidiousCommunityData(data) {
     voteCount: data.likeCount,
     postContent: parseInvidiousCommunityAttachments(data.attachment),
     commentCount: data?.replyCount ?? 0, // https://github.com/iv-org/invidious/pull/3635/
+    authorId: data.authorId,
     author: data.author,
     type: 'community'
   }
