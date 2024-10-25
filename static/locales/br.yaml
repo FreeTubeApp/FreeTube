@@ -924,26 +924,28 @@ Change Format:
   Legacy formats are not available for this video: ''
 Share:
   Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Channel: 'Rannañ ar chadenn'
+  Share Playlist: 'Rannañ ar roll-videoioù'
+  Include Timestamp: 'Adalek ar mare resis'
+  Copy Link: 'Eilañ al liamm'
+  Open Link: 'Digeriñ an ere'
+  Copy Embed: 'Eilañ kod al lenner video enkorfet'
+  Open Embed: 'Digeriñ kod al lenner video enkorfet'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Liamm Invidious eilet er golver'
+  Invidious Embed URL copied to clipboard: 'Liamm lenner enkorfet Invidious eilet
+    er golver'
+  Invidious Channel URL copied to clipboard: 'Liamm Invidious ar chadenn eilet er
+    golver'
+  YouTube URL copied to clipboard: 'Liamm YouTube eilet er golver'
+  YouTube Embed URL copied to clipboard: 'Liamm lenner enkorfet YouTube eilet er golver'
+  YouTube Channel URL copied to clipboard: 'Liamm YouTube ar chadenn eilet er golver'
 Clipboard:
-  Copy failed: ''
+  Copy failed: 'Eilañ er golver c''hwitet'
   Cannot access clipboard without a secure connection: ''
 
 Chapters:
-  Chapters: ''
+  Chapters: 'Chabistroù'
   'Chapters list visible, current chapter: {chapterName}': ''
   'Chapters list hidden, current chapter: {chapterName}': ''
 
