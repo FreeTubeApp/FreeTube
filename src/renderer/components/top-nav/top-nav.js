@@ -385,13 +385,13 @@ export default defineComponent({
     },
 
     setNavigationHistoryDropdownOptions: async function() {
-      if (!process.env.IS_ELECTRON) { return }
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        const navigationHistoryLength = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_LENGTH)
+        const navigationHistoryActiveIndex = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX)
 
-      const { ipcRenderer } = require('electron')
-      const navigationHistoryLength = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_LENGTH)
-      const navigationHistoryActiveIndex = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX)
-
-      this.navigationHistoryDropdownOptions = await this.getNavigationHistoryDropdownOptions(ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength)
+        this.navigationHistoryDropdownOptions = await this.getNavigationHistoryDropdownOptions(ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength)
+      }
     },
 
     goToOffset: function (offset) {
