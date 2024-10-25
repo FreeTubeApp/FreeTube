@@ -199,13 +199,20 @@ User Playlists:
   Edit Playlist Info: 'Kemmañ titouroù ar roll-videoioù'
   Copy Playlist: 'Eilañ ar roll-videoioù'
   Remove Duplicate Videos: 'Dilemel doublennoù ar videoioù'
-  Remove Watched Videos: 'Dilemel ar videoioù bet gwelet'
+  Remove Watched Videos: 'Dilemel ar videoioù bet lennet'
   Enable Quick Bookmark With This Playlist: 'Gweredekaat ar sined prim evit ar roll-videoioù-mañ'
   Quick Bookmark Enabled: 'Sined prim gweredekaet'
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ''
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ''
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 'Ha
+    sur oc''h e faot deoc''h dilemel 1 doublenn video diouzh ar roll-videoioù-mañ ?
+    Ne c''hall ket bezañ nullet. | Ha sur oc''h e faot deoc''h dilemel {playlistItemCount}
+    doublenn video diouzh ar roll-videoioù-mañ ? Ne c''hall ket bezañ nullet.'
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 'Ha
+    sur oc''h e faot deoc''h dilemel 1 video bet lennet diouzh ar roll-videoioù-mañ ?
+    Ne c''hall ket bezañ nullet. | Ha sur oc''h e faot deoc''h dilemel {playlistItemCount}
+    video bet lennet diouzh ar roll-videoioù-mañ ? Ne c''hall ket bezañ nullet.'
   Delete Playlist: 'Dilemel roll-videoioù'
-  Cannot delete the quick bookmark target playlist.: ''
+  Cannot delete the quick bookmark target playlist.: 'N''eo ket posupl dilemel ar
+    roll-videoioù e-lec''h ma vez enrollet ar sinedoù prim.'
   Are you sure you want to delete this playlist? This cannot be undone: 'Ha sur oc''h
     e faot deoc''h dilemel ar roll-videoioù-mañ ? Ne vo ket moaien da nullañ war-lerc''h.'
 
@@ -227,28 +234,39 @@ User Playlists:
     Search for Videos: 'Klask Videoioù'
 
     Toast:
-      This video cannot be moved up.: ''
-      This video cannot be moved down.: ''
+      This video cannot be moved up.: 'Ar video-mañ n''hall ket pignat er roll.'
+      This video cannot be moved down.: 'Ar video-mañ n''hall ket diskenn er roll.'
       Video has been removed: 'Dilamet eo bet ar video'
       There was a problem with removing this video: 'Ur gudenn a oa en ur glask dilemel
         ar video-mañ'
 
-      This playlist is already being used for quick bookmark.: ''
-      This playlist is now used for quick bookmark: ''
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: ''
-      Reverted to use {oldPlaylistName} for quick bookmark: ''
+      This playlist is already being used for quick bookmark.: 'Implijet e vez dija
+        ar roll-videoioù-mañ evit enrollañ ar sinedoù prim.'
+      This playlist is now used for quick bookmark: 'Implijet e vo ar roll-videoioù-mañ
+        evit enrollañ ar sinedoù prim'
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'Implijet
+        e vo ar roll-videoioù-mañ evit enrollañ ar sinedoù prim e-lec''h {oldPlaylistName}.
+        Klikit amañ evit nullañ'
+      Reverted to use {oldPlaylistName} for quick bookmark: 'Adlakaat ar roll-videoioù
+        {oldPlaylistName} evit enrollañ ar sinedoù prim'
 
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: ''
-      Playlist name cannot be empty. Please input a name.: ''
+      Playlist name cannot be empty. Please input a name.: 'N''hall ket anv ar roll-videoioù
+        bezañ goullo. Lakait unan mar-plij.'
       Playlist has been updated.: 'Kemmet eo bet ar roll-videoioù.'
-      There was an issue with updating this playlist.: ''
-      "{videoCount} video(s) have been removed": ""
-      There were no videos to remove.: ''
-      This playlist is protected and cannot be removed.: ''
-      Playlist {playlistName} has been deleted.: ''
-      Playlist {playlistName} is the new quick bookmark playlist.: ''
+      There was an issue with updating this playlist.: 'C''hoarvezet ez eus ur gudenn
+        en ur cheñch ar roll-videoioù-mañ.'
+      "{videoCount} video(s) have been removed": "Dilamet ez eus bet 1 video | Dilamet
+        ez eus bet {videoCount} video"
+      There were no videos to remove.: 'Ne oa video ebet da zilemel.'
+      This playlist is protected and cannot be removed.: 'Gwarezet eo ar roll-videoioù-mañ
+        ha ne c''hall ket bezañ dilamet.'
+      Playlist {playlistName} has been deleted.: 'Dilamet eo bet ar roll-videoioù
+        {playlistName}.'
+      Playlist {playlistName} is the new quick bookmark playlist.: 'Ar roll-videoioù
+        {playlistName} a zo bremañ roll-videoioù nevez ar sinedoù prim.'
 
-      This playlist does not exist: ''
+      This playlist does not exist: 'N''eus ket eus ar roll-videoioù-mañ'
 
       This playlist has a video with a duration error: ''
   AddVideoPrompt:
@@ -290,17 +308,17 @@ Settings:
   Return to Settings Menu: ''
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
+    General Settings: 'Hollek'
+    Check for Updates: 'Klask Hizivadurioù'
     Check for Latest Blog Posts: 'Diskouez pennadoù diwezhañ ar Blog'
     Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
+    Enable Search Suggestions: 'Gweredekaat Kinnigoù klask'
     Auto Load Next Page:
       Label: ''
       Tooltip: ''
-    Default Landing Page: ''
-    Locale Preference: ''
-    System Default: ''
+    Default Landing Page: 'Pajenn degemer dre ziouer'
+    Locale Preference: 'Dibab lec''hel'
+    System Default: 'Reizhiad dre ziouer'
     Preferred API Backend:
       Preferred API Backend: ''
       Local API: ''
@@ -755,7 +773,7 @@ Video:
   More Options: 'Muioc''h a zibarzhioù'
   Mark As Watched: 'Lakaat evel lennet'
   Remove From History: 'Skarzhañ deus ar roll istor'
-  Video has been marked as watched: ''
+  Video has been marked as watched: 'Lakaet eo bet ar video evel lennet'
   Video has been removed from your history: ''
   Save Video: 'Enrollañ ar video'
   Video has been saved: 'Enrollet eo bet ar video'
@@ -779,7 +797,7 @@ Video:
   Play Next Video: ''
   Play Previous Video: ''
   Pause on Current Video: ''
-  Watched: ''
+  Watched: 'Lennet'
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
