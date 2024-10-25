@@ -22,23 +22,28 @@ export default defineComponent({
     FtProfileSelector
   },
   data: () => {
+    let isArrowBackwardDisabled = true
+    let isArrowForwardDisabled = true
+
+    // If the Navigation API isn't supported (Firefox and Safari)
+    // keep the back and forwards buttons always enabled
+    if (!('navigation' in window)) {
+      isArrowBackwardDisabled = false
+      isArrowForwardDisabled = false
+    }
+
     return {
-      component: this,
       showSearchContainer: true,
-      isForwardOrBack: false,
+      isArrowBackwardDisabled,
+      isArrowForwardDisabled,
+      /** @type {Electron.NavigationHistory | null} */
+      navigationHistory: null,
+      navigationHistoryCurrentIndex: -1,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
   },
   computed: {
-    arrowBackwardDisabled: function() {
-      return this.sessionNavigationHistoryCurrentIndex === 0
-    },
-
-    arrowForwardDisabled: function() {
-      return this.sessionNavigationHistoryCurrentIndex >= this.sessionNavigationHistory.length - 1
-    },
-
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
@@ -94,52 +99,62 @@ export default defineComponent({
       return this.$store.getters.getSearchFilterValueChanged
     },
 
+    navigationHistoryAddendum: function () {
+      if (this.navigationHistory == null) {
+        return ''
+      }
+
+      return '\n' + this.$t('Right-click or hold to see history')
+    },
+
     forwardText: function () {
-      return this.$t('Click to go forward, right-click or hold to see history')
+      return this.$t('Forward') + this.navigationHistoryAddendum
     },
 
     backwardText: function () {
-      return this.$t('Click to go back, right-click or hold to see history')
+      return this.$t('Back') + this.navigationHistoryAddendum
     },
 
     newWindowText: function () {
       return this.$t('Open New Window')
     },
 
-    sessionNavigationHistory: function () {
-      return this.$store.getters.getSessionNavigationHistory
-    },
-
-    sessionNavigationHistoryCurrentIndex: function () {
-      return this.$store.getters.getSessionNavigationHistoryCurrentIndex
-    },
-
-    sessionNavigationHistoryResultEndIndex: function () {
-      if (this.sessionNavigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
-        return Math.min(this.sessionNavigationHistory.length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
-      } else if (this.sessionNavigationHistory.length - this.sessionNavigationHistoryCurrentIndex - 1 < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
-        return this.sessionNavigationHistory.length - 1
+    navigationHistoryResultEndIndex: function () {
+      if (this.navigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return Math.min(this.navigationHistory.length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+      } else if (this.navigationHistory.length - this.navigationHistoryCurrentIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
+        return this.navigationHistory.length - 1
       } else {
-        return this.sessionNavigationHistoryCurrentIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
+        return this.navigationHistoryCurrentIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
       }
     },
 
-    sessionNavigationHistoryDropdownOptions: function () {
+    navigationHistoryDropdownOptions: function () {
       const dropdownOptions = []
-      const end = this.sessionNavigationHistoryResultEndIndex
+      const end = this.navigationHistoryResultEndIndex
       for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
-        const routeLabel = this.sessionNavigationHistory[index]
+        const routeLabel = this.navigationHistory.getEntryAtIndex(index).title
         dropdownOptions.push({
           // TODO: pass & show the more useful document.title instead
           // Difficult to do now because we update it asynchronously on some pages after an indeterminately long load
-          label: translateWindowTitle(routeLabel, this.$i18n) ?? routeLabel,
-          value: index - this.sessionNavigationHistoryCurrentIndex,
-          active: index === this.sessionNavigationHistoryCurrentIndex
+          // translateWindowTitle(routeLabel, this.$i18n) ?? routeLabel
+          label: routeLabel,
+          value: index - this.navigationHistoryCurrentIndex,
+          active: index === this.navigationHistoryCurrentIndex
         })
       }
       return dropdownOptions
     },
 
+  },
+  watch: {
+    $route: function () {
+      this.setNavigationHistory()
+      if ('navigation' in window) {
+        this.isArrowForwardDisabled = !window.navigation.canGoForward
+        this.isArrowBackwardDisabled = !window.navigation.canGoBack
+      }
+    }
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -340,32 +355,30 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    trackHistoryNavigation: function (toRoute) {
-      if (!this.isForwardOrBack) {
-        this.$store.commit('pushSessionNavigationHistoryState', toRoute)
-      } else {
-        this.isForwardOrBack = false
+    setNavigationHistory: function() {
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        this.navigationHistory = ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY)
+        this.navigationHistoryCurrentIndex = this.navigationHistory.getActiveIndex()
       }
     },
 
-    historyBack: function (option = -1) {
-      this.updateSessionNavigationIndexBy(option)
-      this.isForwardOrBack = true
-    },
-
-    historyForward: function (option = 1) {
-      this.updateSessionNavigationIndexBy(option)
-      this.isForwardOrBack = true
-    },
-
-    updateSessionNavigationIndexBy: function (n) {
-      // avoid reloading the page
-      if (n === 0) {
+    historyBack: function (index) {
+      if (!index) {
+        this.$router.back()
         return
       }
 
-      window.history.go(n)
-      this.$store.commit('setSessionNavigationHistoryCurrentIndex', n + this.sessionNavigationHistoryCurrentIndex)
+      this.navigationHistory.goToIndex(index)
+    },
+
+    historyForward: function (index) {
+      if (!index) {
+        this.$router.forward()
+        return
+      }
+
+      this.navigationHistory.goToIndex(index)
     },
 
     toggleSideNav: function () {

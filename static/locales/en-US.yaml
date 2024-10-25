@@ -27,8 +27,9 @@ Toggle fullscreen: Toggle fullscreen
 Window: Window
 Minimize: Minimize
 Close: Close
-Click to go back, right-click or hold to see history: Click to go back, right-click or hold to see history
-Click to go forward, right-click or hold to see history: Click to go forward, right-click or hold to see history
+Back: Back
+Forward: Forward
+Right-click or hold to see history: Right-click or hold to see history
 Open New Window: Open New Window
 Go to page: Go to {page}
 Close Banner: Close Banner
@@ -185,10 +186,12 @@ User Playlists:
   Cancel: Cancel
   Edit Playlist Info: Edit Playlist Info
   Copy Playlist: Copy Playlist
+  Remove Duplicate Videos: Remove Duplicate Videos
   Remove Watched Videos: Remove Watched Videos
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
   Quick Bookmark Enabled: Quick Bookmark Enabled
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are you sure you want to remove all watched videos from this playlist? This cannot be undone.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
   Delete Playlist: Delete Playlist
   Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark target playlist.
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
@@ -236,9 +239,12 @@ User Playlists:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
+    Allow Adding Duplicate Video(s): Allow Adding Duplicate Video(s)
     Save: Save
 
-    Added {count} Times: 'Added {count} Time | Added {count} Times'
+    Added {count} Times: 'Already Added | Added {count} Times'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videos Will Be Added'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videos Already Added'
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
@@ -468,6 +474,7 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
     Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
+    Avoid Accidental Unsubscription: Avoid Accidental Unsubscription
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Sections:
@@ -1081,6 +1088,7 @@ Age Restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL: "{url}".'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
