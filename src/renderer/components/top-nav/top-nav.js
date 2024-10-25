@@ -36,6 +36,7 @@ export default defineComponent({
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
+      navigationHistoryDropdownActiveEntry: null,
       navigationHistoryDropdownOptions: [],
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
@@ -119,6 +120,18 @@ export default defineComponent({
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
+
+      /*
+        We currently don't have a good system for computing the current document title,
+        which can update asynchronously
+      */
+      const updateActiveNavigationEntryTitle = () => {
+        if (this.navigationHistoryDropdownActiveEntry?.label && this.navigationHistoryDropdownActiveEntry.label !== document.title) {
+          this.navigationHistoryDropdownActiveEntry.label = document.title
+          clearInterval(awaitDocumentTitleUpdateInterval)
+        }
+      }
+      const awaitDocumentTitleUpdateInterval = setInterval(updateActiveNavigationEntryTitle, 500)
     }
   },
   mounted: function () {
@@ -357,11 +370,18 @@ export default defineComponent({
 
       for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
         const routeLabel = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, index)
-        dropdownOptions.push({
+        const isActiveIndex = index === navigationHistoryActiveIndex
+        const dropdownOption = {
           label: routeLabel,
           value: index - navigationHistoryActiveIndex,
-          active: index === navigationHistoryActiveIndex
-        })
+          active: isActiveIndex
+        }
+
+        dropdownOptions.push(dropdownOption)
+
+        if (isActiveIndex) {
+          this.navigationHistoryDropdownActiveEntry = dropdownOption
+        }
       }
       return dropdownOptions
     },
