@@ -136,9 +136,10 @@ Subscriptions:
     vevenn lakaet'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
-  Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
-  Empty Posts: ''
+  Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
+  'Getting Subscriptions. Please wait.': 'O kerc''hat ar c''houmanantoù. Gortozit
+    mar plij.'
+  Empty Posts: 'N''eus kemennadenn ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
   Load More Videos: 'Kargañ muioc''h a videoioù'
   Load More Posts: 'Kargañ muioc''h a bennadoù'
   Subscriptions Tabs: 'Ivinelloù ar c''houmanantoù'
@@ -149,7 +150,7 @@ Channels:
   Title: 'Roll ar chadennoù'
   Search bar placeholder: 'Klask chadennoù'
   Count: '{number} chadenn kavet.'
-  Empty: ''
+  Empty: 'Goullo eo ho roll chadennoù.'
   Unsubscribe: ''
   Unsubscribed: ''
   Unsubscribe Prompt: 'Ha sur oc''h e faot deoc''h digoumanantiñ deus "{channelName}" ?'
@@ -162,7 +163,7 @@ Trending:
   Trending Tabs: 'Ivinelloù ar re diouzh ar c''hiz'
 Most Popular: 'Ar muiañ a verzh ganto'
 Feed:
-  Feed Last Updated: ''
+  Feed Last Updated: '{feedName} hizivadenn diwezhañ ar wazh : {date}'
   Refresh Feed: 'Adkargañ {subscriptionName}'
 Playlists: 'Rolloù videoioù'
 User Playlists:
@@ -172,7 +173,8 @@ User Playlists:
   You have no playlists. Click on the create new playlist button to create a new one.: 'N''ho
     peus ket a roll videoioù. Klikit war ar bouton krouiñ ur roll-videoioù nevez evit
     krouiñ unan.'
-  Empty Search Message: ''
+  Empty Search Message: 'N''eus video ebet e-barzh ar roll-vidoeioù-mañ a glotfe gant
+    ho klask'
   Search bar placeholder: 'Klask rolloù-videoioù'
   Playlists with Matching Videos: 'Rolloù-videoioù gant videoioù a glot'
 
@@ -198,8 +200,8 @@ User Playlists:
   Copy Playlist: 'Eilañ ar roll-videoioù'
   Remove Duplicate Videos: 'Dilemel doublennoù ar videoioù'
   Remove Watched Videos: 'Dilemel ar videoioù bet gwelet'
-  Enable Quick Bookmark With This Playlist: ''
-  Quick Bookmark Enabled: ''
+  Enable Quick Bookmark With This Playlist: 'Gweredekaat ar sined prim evit ar roll-videoioù-mañ'
+  Quick Bookmark Enabled: 'Sined prim gweredekaet'
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ''
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ''
   Delete Playlist: 'Dilemel roll-videoioù'
@@ -965,20 +967,22 @@ Comments:
   View: ''
   Hide: ''
   Replies: ''
-  Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
-  There are no comments available for this video: ''
-  There are no comments available for this post: ''
-  Load More Comments: ''
-  No more comments available: ''
-  Pinned by: ''
-  Member: ''
-  Subscribed: ''
-  Hearted: ''
+  Show More Replies: 'Diskouez respontoù all'
+  Reply: 'Respont'
+  From {channelName}: 'deus {channelName}'
+  And others: 'ha reoù all'
+  There are no comments available for this video: 'N''eus evezhiadenn ebet evit ar
+    video-mañ'
+  There are no comments available for this post: 'N''eus evezhiadenn ebet evit ar
+    gemennadenn-mañ'
+  Load More Comments: 'Kargañ muioc''h a evezhiadennoù'
+  No more comments available: 'Evezhiadenn ouzhpenn ebet'
+  Pinned by: 'Spilhennet gant'
+  Member: 'Ezel'
+  Subscribed: 'Koumanantet'
+  Hearted: 'Karet'
 
-Up Next: ''
+Up Next: 'Da-heul'
 
 #Tooltips
 Tooltips:
@@ -1000,7 +1004,7 @@ Tooltips:
     Ignore Warnings: ''
     Ignore Default Arguments: ''
     Custom External Player Arguments: ''
-    DefaultCustomArgumentsTemplate: ""
+    DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
@@ -1015,34 +1019,43 @@ Tooltips:
     UseDeArrowThumbnails: ''
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to Local API: ''
+Local API Error (Click to copy): 'Fazi un API lec''hel (Klikit evit eilañ)'
+Invidious API Error (Click to copy): 'Fazi gant API Invidious (Klikit evit eilañ)'
+Falling back to Invidious API: 'Distreiñ da API Invidious'
+Falling back to Local API: 'Distreiñ d''an API lec''hel'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
 Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
 Hashtags have not yet been implemented, try again later: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playlist will not pause when current video is finished: ''
-Playlist will pause when current video is finished: ''
-Playing Next Video Interval: ''
-Canceled next video autoplay: ''
+Loop is now disabled: 'Diweredekaet eo ar rodell bremañ'
+Loop is now enabled: 'Gweredekaet eo ar rodell bremañ'
+Shuffle is now disabled: 'Diweredekaet eo ar Mesk-ha-mesk bremañ'
+Shuffle is now enabled: 'Gweredekaet eo ar Mesk-ha-mesk bremañ'
+The playlist has been reversed: 'Eilpennet eo bet ar roll-videoioù'
+Playing Next Video: 'Lenn ar video da-heul'
+Playing Previous Video: 'Lenn ar video a-raok'
+Playlist will not pause when current video is finished: 'Ne vo ket ehanet ar roll-videoioù
+  pa vo echu da lenn ar video-mañ'
+Playlist will pause when current video is finished: 'Ehanet e vo ar roll-videoioù
+  pa vo echu da lenn ar video-mañ'
+Playing Next Video Interval: 'Lenn ar video da-heul a-benn nebeud-tre. Klikit evit
+  nullañ. | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.
+  | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.'
+Canceled next video autoplay: 'Nullañ al lenn emgefreek da-heul'
 
-Default Invidious instance has been set to {instance}: ''
-Default Invidious instance has been cleared: ''
-'The playlist has ended. Enable loop to continue playing': ''
+Default Invidious instance has been set to {instance}: 'Eriol Invidious dre ziouer
+  a zo bet lakaet da {instance}'
+Default Invidious instance has been cleared: 'Diverket eo bet eriol Invidious dre
+  ziouer'
+'The playlist has ended. Enable loop to continue playing': 'Echu eo ar roll-videoioù.  Gweredekaat
+  ar rodell evit kenderc''hel da lenn'
 Age Restricted:
-  This channel is age restricted: ''
-  This video is age restricted: ''
-External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
+  This channel is age restricted: 'Ur vevenn oad a zo d''ar chadenn-mañ'
+  This video is age restricted: 'Ur vevenn oad a zo d''ar video-mañ'
+External link opening has been disabled in the general settings: 'Diweredekaet eo
+  al liammoù diavaez en arventennoù hollek'
+'Blocked opening potentially unsafe URL': 'Stanket eo an URL a c''hell bezañ arvarus :
+  "{url}".'
 Downloading has completed: '"{videoTitle}" a zo bet pellgarget'
 Starting download: 'Kregiñ da bellgargañ "{videoTitle}"'
 Downloading failed: 'C''hoarvezet ez eus ur gudenn en ur bellgargañ "{videoTitle}"'
@@ -1057,13 +1070,13 @@ Hashtag:
   Hashtag: 'Ger-klik'
   This hashtag does not currently have any videos: 'N''eus ket a video evit poent
     gant ar ger-klik-mañ'
-Moments Ago: ''
+Moments Ago: 'nevez ''zo'
 Yes: 'Ya'
 No: 'Ket'
 Ok: 'Mat eo'
 Yes, Delete: 'Ya, Dilemel'
 Yes, Restart: 'Ya, Adloc''hañ'
-Yes, Open Link: ''
+Yes, Open Link: 'Ya, digeriñ al liamm'
 Cancel: 'Nullañ'
 # symbol used to indicate that an item is correct
 checkmark: '✓'
