@@ -273,6 +273,7 @@ export function repairInvidiousManifest(periods) {
                   labelParts.push('original')
                   break
                 case 'dubbed':
+                case 'dubbed-auto':
                   role = 'dub'
                   break
                 case 'descriptive':

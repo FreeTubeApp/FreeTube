@@ -1387,7 +1387,7 @@ export default defineComponent({
           if (localFormat.has_audio) {
             audioFormats.push(localFormat)
 
-            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary) {
+            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary || localFormat.is_auto_dubbed) {
               hasMultipleAudioTracks = true
             }
           }
@@ -1435,6 +1435,9 @@ export default defineComponent({
       } else if (format.is_secondary) {
         type = ' secondary'
         idNumber = 6
+      } else if (format.is_auto_dubbed) {
+        type = ''
+        idNumber = 10
       } else {
         type = ' alternative'
         idNumber = -1
