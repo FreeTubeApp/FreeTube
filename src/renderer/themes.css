@@ -1423,18 +1423,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(101 119 0 / 24%);
 }
 
-.secGruvboxDarkRed {
-  --accent-color: #cc241d;
-  --accent-color-hover: #d23c2a;
-  --accent-color-active: #a61f1f;
-  --accent-color-light: #fb4934;
-  --accent-color-visited: #a61f1f;
-  --accent-color-opacity1: rgb(204 36 29 / 4%);
-  --accent-color-opacity2: rgb(204 36 29 / 12%);
-  --accent-color-opacity3: rgb(204 36 29 / 16%);
-  --accent-color-opacity4: rgb(204 36 29 / 24%);
-}
-
 .secGruvboxDarkGreen {
   --accent-color: #98971a;
   --accent-color-hover: #b9b93a;
@@ -1518,28 +1506,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity3: rgb(204 36 29 / 16%);
 }
 
-.secGruvboxLightGreen {
-  --accent-color: #98971a;
-  --accent-color-hover: #b9b93a;
-  --accent-color-active: #d9d95a;
-  --accent-color-light: #b8bb26;
-  --accent-color-visited: #98971a;
-  --accent-color-opacity1: rgb(152 151 26 / 4%);
-  --accent-color-opacity2: rgb(152 151 26 / 12%);
-  --accent-color-opacity3: rgb(152 151 26 / 16%);
-}
-
-.secGruvboxLightYellow {
-  --accent-color: #d79921;
-  --accent-color-hover: #f0b839;
-  --accent-color-active: #f0b839;
-  --accent-color-light: #fabd2f;
-  --accent-color-visited: #d79921;
-  --accent-color-opacity1: rgb(215 153 33 / 4%);
-  --accent-color-opacity2: rgb(215 153 33 / 12%);
-  --accent-color-opacity3: rgb(215 153 33 / 16%);
-}
-
 .secGruvboxLightBlue {
   --accent-color: #458588;
   --accent-color-hover: #68948a;
@@ -1560,17 +1526,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity1: rgb(177 98 134 / 4%);
   --accent-color-opacity2: rgb(177 98 134 / 12%);
   --accent-color-opacity3: rgb(177 98 134 / 16%);
-}
-
-.secGruvboxLightAqua {
-  --accent-color: #689d6a;
-  --accent-color-hover: #8ec07c;
-  --accent-color-active: #8ec07c;
-  --accent-color-light: #8ec07c;
-  --accent-color-visited: #689d6a;
-  --accent-color-opacity1: rgb(104 157 106 / 4%);
-  --accent-color-opacity2: rgb(104 157 106 / 12%);
-  --accent-color-opacity3: rgb(104 157 106 / 16%);
 }
 
 .secGruvboxLightOrange {
