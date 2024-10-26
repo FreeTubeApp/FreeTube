@@ -64,7 +64,8 @@ Global:
 Search / Go to URL: 'Klask / Mont betek un URL'
 Search Bar:
   Clear Input: 'Skarzhañ an enankad'
-Search character limit: ''
+Search character limit: 'Ar c''hlask a ya dreist an hirder brasañ aotreet : {searchCharacterLimit}
+  arouezenn'
 Search Listing:
   Label:
     4K: '4K'
