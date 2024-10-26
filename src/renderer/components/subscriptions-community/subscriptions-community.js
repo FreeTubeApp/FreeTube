@@ -235,9 +235,7 @@ export default defineComponent({
           this.errorChannels.push(channel)
           return []
         }
-        entries.forEach(post => {
-          post.authorId = channel.id
-        })
+
         return entries
       } catch (err) {
         console.error(err)
@@ -256,9 +254,6 @@ export default defineComponent({
     getChannelPostsInvidious: function (channel) {
       return new Promise((resolve, reject) => {
         invidiousGetCommunityPosts(channel.id).then(result => {
-          result.posts.forEach(post => {
-            post.authorId = channel.id
-          })
           resolve(result.posts)
         }).catch((err) => {
           console.error(err)

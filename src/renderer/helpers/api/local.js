@@ -1489,6 +1489,7 @@ function parseLocalCommunityPost(post) {
     voteCount: post.vote_count ? parseLocalSubscriberCount(post.vote_count.text) : 0,
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,
+    authorId: post.author.id,
     author: post.author.name,
     type: 'community'
   }
