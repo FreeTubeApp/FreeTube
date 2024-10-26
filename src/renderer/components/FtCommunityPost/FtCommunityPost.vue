@@ -57,7 +57,7 @@
     />
     <swiper-container
       v-if="postType === 'multiImage' && postContent.content.length > 0"
-      ref="swiperContainer"
+      ref="swiperContainerRef"
       init="false"
       class="sliderContainer"
     >
@@ -308,7 +308,7 @@ function getBestQualityImage(imageArray) {
   return imageArrayCopy[0]?.url?.replace(/-c-fcrop64=[^-]+/i, '') ?? ''
 }
 
-const swiperContainer = ref(null)
+const swiperContainerRef = ref(null)
 
 if (postType === 'multiImage' && postContent.content.length > 0) {
   onMounted(() => {
@@ -331,9 +331,9 @@ if (postType === 'multiImage' && postContent.content.length > 0) {
       slidesPerView: 1
     }
 
-    Object.assign(swiperContainer.value, swiperOptions)
+    Object.assign(swiperContainerRef.value, swiperOptions)
 
-    swiperContainer.value.initialize()
+    swiperContainerRef.value.initialize()
   })
 }
 </script>
