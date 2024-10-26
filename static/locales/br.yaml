@@ -58,7 +58,8 @@ Global:
     Comment Count: '1 evezhiadenn | {count} evezhiadenn'
     Watching Count: '1 den o sellet | {count} den o sellet'
   Input Tags:
-    Length Requirement: ''
+    Length Requirement: 'An dikedenn a rank an dikedenn bezañ {number} arouezenn enni
+      da nebeutañ'
 
 # Search Bar
 Search / Go to URL: 'Klask / Mont betek un URL'
@@ -497,10 +498,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Adtapout ar gwazhioù RSS'
     Manage Subscriptions: ''
-    Fetch Automatically: ''
-    Only Show Latest Video for Each Channel: ''
+    Fetch Automatically: 'Adtapout ar wazh ent emgefreek'
+    Only Show Latest Video for Each Channel: 'Diskouez ar video-diwezhañ hepken evit
+      pep chadenn'
     Confirm Before Unsubscribing: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
@@ -755,8 +757,8 @@ Channel:
     About: ''
     Channel Description: ''
     Tags:
-      Tags: ''
-      Search for: ''
+      Tags: 'Tikedennoù'
+      Search for: 'Klask evit "{tag}"'
     Details: ''
     Joined: ''
     Location: ''
