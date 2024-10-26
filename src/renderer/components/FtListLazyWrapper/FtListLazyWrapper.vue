@@ -60,10 +60,10 @@
 import { computed, ref } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
-import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
+import FtListChannel from '../FtListChannel/FtListChannel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
 import FtCommunityPost from '../ft-community-post/ft-community-post.vue'
-import FtListHashtag from '../ft-list-hashtag/ft-list-hashtag.vue'
+import FtListHashtag from '../FtListHashtag/FtListHashtag.vue'
 
 import store from '../../store/index'
 
