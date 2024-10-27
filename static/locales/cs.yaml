@@ -925,6 +925,10 @@ Video:
   IP block: YouTube zablokoval sledování videí z vaší IP adresy. Zkuste prosím přepnout
     na jinou VPN nebo proxy.
   Unlisted: Neveřejné
+  MembersOnly: Videa určená pouze pro členy nelze na FreeTube sledovat, protože vyžadují
+    přihlášení k účtu Google a placené členství v kanálu nahrávajícího.
+  AgeRestricted: Videa s věkovým omezením nelze na FreeTube sledovat, protože vyžadují
+    přihlášení ke službě Google a použití účtu YouTube s ověřeným věkem.
 Videos:
   #& Sort By
   Sort By:
