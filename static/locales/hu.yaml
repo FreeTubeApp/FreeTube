@@ -668,8 +668,7 @@ About:
   GitHub issues: GitHub hibajegyek
   Help: Súgó
   GitHub releases: GitHub kiadások
-  Downloads / Changelog: Letöltések/Változásnapló
-    általános nyilvános licenc) 3. verziója alatt licencelt
+  Downloads / Changelog: Letöltések / Változásnapló
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
   Beta: Béta
@@ -944,6 +943,7 @@ Video:
       automatikusan folytatódik, amikor a kapcsolat helyreáll.
   IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg
     másik VPN-re vagy proxyra váltani.
+  Unlisted: Listázatlan
 Videos:
   #& Sort By
   Sort By:
