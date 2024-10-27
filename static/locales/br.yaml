@@ -272,11 +272,13 @@ User Playlists:
 
       This playlist has a video with a duration error: ''
   AddVideoPrompt:
-    Select a playlist to add your N videos to: ''
-    N playlists selected: ''
-    Search in Playlists: ''
+    Select a playlist to add your N videos to: 'Choazit ur roll-videoioù evit ouzhpennañ
+      ho video e-barzh | Choazit ur roll-videoioù evit ouzhpennañ ho {videoCount}
+      video e-barzh'
+    N playlists selected: '{playlistCount} Diuzet'
+    Search in Playlists: 'Klask e-barzh ar rolloù-videoioù'
     Allow Adding Duplicate Video(s): ''
-    Save: ''
+    Save: 'Enrollañ'
 
     Added {count} Times: ''
     "{videoCount}/{totalVideoCount} Videos Will Be Added": ''
