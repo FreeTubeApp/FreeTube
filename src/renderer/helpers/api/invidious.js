@@ -373,22 +373,6 @@ function parseInvidiousCommunityAttachments(data) {
   console.error(data)
 }
 
-/**
- * Invidious doesn't include the correct height or width for all formats in their API response and are also missing the fps and qualityLabel for the AV1 formats.
- * When the local API is supported we generate our own manifest with the local API manifest generator, based on the Invidious API response and the height, width and fps extracted from Invidious' DASH manifest.
- * As Invidious only includes h264 and AV1 in their DASH manifest, we have to always filter out the VP9 formats, due to missing information.
- * @param {any[]} formats
- */
-export function filterInvidiousFormats(formats) {
-  return formats.filter(format => {
-    const mimeType = format.type
-
-    return mimeType.startsWith('audio/') ||
-      mimeType.startsWith('video/mp4; codecs="avc') ||
-      mimeType.startsWith('video/mp4; codecs="av01')
-  })
-}
-
 export async function getHashtagInvidious(hashtag, page = 1) {
   const payload = {
     resource: 'hashtag',
@@ -474,18 +458,9 @@ export function convertInvidiousToLocalFormat(format) {
 
 /**
  * @param {any} format
- * @param {boolean} trustApiResponse
  */
-export function mapInvidiousLegacyFormat(format, trustApiResponse) {
-  let width
-  let height
-
-  if (trustApiResponse) {
-    const [stringWidth, stringHeight] = format.size.split('x')
-
-    width = parseInt(stringWidth)
-    height = parseInt(stringHeight)
-  }
+export function mapInvidiousLegacyFormat(format) {
+  const [stringWidth, stringHeight] = format.size.split('x')
 
   return {
     itag: format.itag,
@@ -493,8 +468,8 @@ export function mapInvidiousLegacyFormat(format, trustApiResponse) {
     fps: format.fps,
     bitrate: parseInt(format.bitrate),
     mimeType: format.type,
-    height,
-    width,
+    height: parseInt(stringHeight),
+    width: parseInt(stringWidth),
     url: format.url
   }
 }
