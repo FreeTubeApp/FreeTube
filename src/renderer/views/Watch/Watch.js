@@ -1491,7 +1491,7 @@ export default defineComponent({
       // otherwise just fallback to the FreeTube display language and hope that YouTube will be able to handle it
       if (!translationLanguage) {
         translationName = this.$t('Locale Name')
-        translationCode = userLanguages.values().next()
+        translationCode = userLanguages.values().next().value
       } else {
         translationName = translationLanguage.language_name.text
         translationCode = translationLanguage.language_code
