@@ -810,8 +810,12 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #ef7a43;
 }
 
-.mainGruvboxGreen,
-.mainGruvboxYellow {
+.mainGruvboxDarkGreen,
+.mainGruvboxDarkYellow,
+.mainGruvboxDarkBlue,
+.mainGruvboxDarkAqua,
+.mainGruvboxDarkPurple,
+.mainGruvboxDarkOrange {
   --text-with-main-color: #3c3836;
 }
 
@@ -1539,8 +1543,12 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity3: rgb(214 93 14 / 16%);
 }
 
-.secGruvboxGreen,
-.secGruvboxYellow {
+.secGruvboxDarkGreen,
+.secGruvboxDarkYellow,
+.secGruvboxDarkBlue,
+.secGruvboxDarkPurple,
+.secGruvboxDarkAqua,
+.secGruvboxDarkOrange {
   --text-with-accent-color: #3c3836;
 }
 
