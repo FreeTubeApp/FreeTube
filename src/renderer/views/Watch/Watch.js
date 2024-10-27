@@ -76,6 +76,7 @@ export default defineComponent({
       isLiveContent: false,
       isUpcoming: false,
       isPostLiveDvr: false,
+      isUnlisted: false,
       upcomingTimestamp: null,
       upcomingTimeLeft: null,
       /** @type {'dash' | 'audio' | 'legacy'} */
@@ -438,6 +439,7 @@ export default defineComponent({
         this.isUpcoming = !!result.basic_info.is_upcoming
         this.isLiveContent = !!result.basic_info.is_live_content
         this.isPostLiveDvr = !!result.basic_info.is_post_live_dvr
+        this.isUnlisted = !!result.basic_info.is_unlisted
 
         const subCount = !result.secondary_info.owner.subscriber_count.isEmpty() ? parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text) : NaN
 
@@ -761,6 +763,7 @@ export default defineComponent({
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.isPostLiveDvr = !!result.isPostLiveDvr
+          this.isUnlisted = !result.isListed
 
           this.captions = result.captions.map(caption => {
             return {
