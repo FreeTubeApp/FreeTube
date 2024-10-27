@@ -119,8 +119,6 @@ Channels:
   Search bar placeholder: 'Chwilio Sianeli'
   Count: ''
   Empty: ''
-  Unsubscribe: 'Dad-danysgrifio'
-  Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: 'Llosg'
@@ -133,8 +131,6 @@ Most Popular: 'Mwyaf Poblogaidd'
 Playlists: 'Rhestrau Chwarae'
 User Playlists:
   Your Playlists: 'Eich Rhestrau Chwarae'
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
   Search bar placeholder: ''
 History:
@@ -147,7 +143,6 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Gosodiadau'
-  Expand All Settings Sections: ''
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
     General Settings: 'Gosodiadau Cyffredinol'
@@ -249,7 +244,6 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Gosodiadau Chwaraewr'
-    Force Local Backend for Legacy Formats: ''
     Play Next Video: ''
     Turn on Subtitles by Default: ''
     Autoplay Videos: 'Awto-chwarae Fideos'
@@ -284,7 +278,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Allow DASH AV1 formats: ''
     Screenshot:
       Enable: 'Galluogi Sgrinlun'
       Format Label: 'Fformat Sgrinluniau'
@@ -323,7 +316,6 @@ Settings:
     Subscription Settings: 'Gosodiadau Tanysgrifio'
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: 'Rheoli Tanysgrifiadau'
     Fetch Automatically: ''
     Only Show Latest Video for Each Channel: ''
   Distraction Free Settings:
@@ -376,7 +368,6 @@ Settings:
     Subscription File: 'Ffeil Tanysgrifio'
     History File: 'Ffeil Hanes'
     Playlist File: 'Ffeil Rhestr Chwarae'
-    Check for Legacy Subscriptions: ''
     Export Subscriptions: 'Allforio Tanysgrifiadau'
     Export FreeTube: 'Allforio FreeTube'
     Export YouTube: 'Allforio YouTube'
@@ -388,7 +379,6 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
     This might take a while, please wait: ''
     Invalid history file: ''
@@ -462,8 +452,6 @@ About:
   About: 'Ynghylch'
   Beta: 'Beta'
   Source code: 'Cod ffynhonnell'
-  Licensed under the AGPLv3: ''
-  View License: 'Gweld Trwydded'
   Downloads / Changelog: ''
   GitHub releases: ''
   Help: 'Cymorth'
@@ -631,11 +619,6 @@ Video:
   Download Video: 'Lawrlwytho Fideo'
   video only: 'fideo yn unig'
   audio only: 'sain yn unig'
-  Audio:
-    Low: 'Isel'
-    Medium: 'Canolig'
-    High: 'Uwch'
-    Best: 'Gorau'
   Published:
     Jan: 'Ion'
     Feb: 'Chw'
@@ -669,9 +652,7 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  translated from English: ''
   Publicationtemplate: ''
-  Skipped segment: ''
   Sponsor Block category:
     sponsor: 'Noddwr'
     intro: 'Cyflwyniad'
@@ -695,17 +676,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-  Stats:
-    Video statistics are not available for legacy videos: ''
-    Video ID: 'ID fideo'
-    Resolution: 'Eglurdeb'
-    Player Dimensions: ''
-    Bitrate: 'Cyfradd didau'
-    Volume: 'Sain'
-    Bandwidth: 'Lled band'
-    Buffered: ''
-    Dropped / Total Frames: ''
-    Mimetype: 'Math mime'
 #& Videos
 Videos:
   #& Sort By
@@ -718,15 +688,11 @@ Playlist:
   #& About
   Playlist: 'Rhestr chwarae'
   View Full Playlist: ''
-  Videos: 'Fideos'
-  View: 'Edrychiad'
-  Views: 'Edrychiadau'
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -798,10 +764,8 @@ Tooltips:
     Region for Trending: ''
     External Link Handling: |
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
-    Allow DASH AV1 formats: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:
@@ -827,9 +791,7 @@ Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to Local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''

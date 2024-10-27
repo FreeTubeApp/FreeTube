@@ -47,8 +47,8 @@ export default defineComponent({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     toBeAddedToPlaylistVideoList: function () {
       return this.$store.getters.getToBeAddedToPlaylistVideoList
@@ -129,7 +129,7 @@ export default defineComponent({
       if (this.playlist.videos.length > 0) {
         const thumbnailURL = `https://i.ytimg.com/vi/${this.playlist.videos[0].videoId}/mqdefault.jpg`
         if (this.backendPreference === 'invidious') {
-          this.thumbnail = thumbnailURL.replace('https://i.ytimg.com', this.currentInvidiousInstance)
+          this.thumbnail = thumbnailURL.replace('https://i.ytimg.com', this.currentInvidiousInstanceUrl)
         } else {
           this.thumbnail = thumbnailURL
         }

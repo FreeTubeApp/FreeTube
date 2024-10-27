@@ -11,8 +11,8 @@ const i18n = new VueI18n({
   fallbackLocale: {
     // https://kazupon.github.io/vue-i18n/guide/fallback.html#explicit-fallback-with-decision-maps
 
-    // es_AR -> es -> en-US
-    es_AR: ['es'],
+    // es-AR -> es -> en-US
+    'es-AR': ['es'],
     // es-MX -> es -> en-US
     'es-MX': ['es'],
     // pt-BR -> pt -> en-US
@@ -48,6 +48,26 @@ export async function loadLocale(locale) {
   const response = await fetch(url)
   const data = await response.json()
   i18n.setLocaleMessage(locale, data)
+}
+
+// Set by _scripts/ProcessLocalesPlugin.js
+if (process.env.HOT_RELOAD_LOCALES) {
+  const websocket = new WebSocket('ws://localhost:9080/ws')
+
+  websocket.onmessage = (event) => {
+    const message = JSON.parse(event.data)
+
+    if (message.type === 'freetube-locale-update') {
+      for (const [locale, data] of message.data) {
+        // Only update locale data if it was already loaded
+        if (i18n.availableLocales.includes(locale)) {
+          const localeData = JSON.parse(data)
+
+          i18n.setLocaleMessage(locale, localeData)
+        }
+      }
+    }
+  }
 }
 
 export default i18n

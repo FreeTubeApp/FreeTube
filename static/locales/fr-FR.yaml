@@ -42,6 +42,8 @@ Global:
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
+    Comment Count: 1 commentaire | {count} commentaires
+    Like Count: 1 j’aime | {count} j’aime
   Input Tags:
     Length Requirement: L'étiquette doit comporter au moins {number} caractères
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
@@ -80,7 +82,7 @@ Search Filters:
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Afficher plus de résultats'
 # Sidebar
-  There are no more results for this search: Il n'y a plus de résultats pour cette
+  There are no more results for this search: Il n’y a pas plus de résultats pour cette
     recherche
   Features:
     Creative Commons: Creative Commons
@@ -99,14 +101,15 @@ Subscriptions:
   Subscriptions: 'Abonnements'
   Latest Subscriptions: 'Derniers abonnements'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre
-    liste d''abonnements est vide. Ajoutez des abonnements pour les voir apparaître
-    ici.'
+    liste d’abonnements est actuellement vide. Si vous souhaitez importer vos abonnements,
+    vous pouvez aller dans Paramètres des données et sélectionner Importer des abonnements
+    ou vous pouvez rechercher une chaîne et vous y abonner.'
   'Getting Subscriptions.  Please wait.': 'Récupération des vidéos de vos abonnements,
     veuillez patienter.'
   Getting Subscriptions. Please wait.: Obtention des abonnements. Veuillez patienter.
   Refresh Subscriptions: Actualiser les abonnements
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ce
-    profil comporte un grand nombre d'abonnements.  Le flux RSS outrepassera la limite
+    profil comporte un grand nombre d'abonnements.  Le flux RSS dépassera la limite
     fixée
   Load More Videos: Charger plus de vidéos
   Error Channels: Chaînes avec des erreurs
@@ -131,25 +134,15 @@ Most Popular: 'Les plus populaires'
 Playlists: 'Listes de lecture'
 User Playlists:
   Your Playlists: 'Vos listes de lecture'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vous
-    n'avez enregistré aucune vidéo. Cliquez sur le bouton Enregistrer dans le coin
-    d'une vidéo pour l'afficher ici
-  Playlist Message: Cette page ne reflète pas les listes de lecture entièrement fonctionnelles.
-    Elle ne répertorie que les vidéos que vous avez enregistrées ou mises en favoris.
-    Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
-    migrées vers une liste de lecture « Favoris ».
   Search bar placeholder: Recherche de listes de lecture
   Empty Search Message: Il n'y a pas de vidéos dans cette liste de lecture qui correspondent
     à votre recherche
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Êtes-vous
-    sûr(e) de vouloir supprimer toutes les vidéos visionnées de cette liste de lecture ?
-    Cette opération ne peut pas être annulée.
   AddVideoPrompt:
     Search in Playlists: Recherche dans les listes de lecture
     Save: Sauvegarder
     Select a playlist to add your N videos to: Sélectionnez une liste de lecture à
       laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle
-      ajouter vos vidéos {videoCount}
+      ajouter vos {videoCount} vidéos
     Toast:
       "{videoCount} video(s) added to 1 playlist": 1 vidéo ajoutée à 1 liste de lecture
         | {videoCount} vidéos ajoutées à 1 liste de lecture
@@ -192,7 +185,6 @@ User Playlists:
         le bas.
       This playlist is now used for quick bookmark: Cette liste de lecture est maintenant
         utilisée comme marque-page rapide
-      Quick bookmark disabled: Marque-page rapide désactivé
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Cette
         liste de lecture est désormais utilisée comme marque-page rapide à la place
         de {oldPlaylistName}. Cliquez ici pour annuler
@@ -202,6 +194,9 @@ User Playlists:
         est déjà utilisée comme signet rapide.
       Playlist {playlistName} is the new quick bookmark playlist.: La liste de lecture
         {playlistName} est la nouvelle liste de lecture des signets rapides.
+      This playlist has a video with a duration error: Cette liste de lecture contient
+        au moins une vidéo qui n'a pas de durée, elle sera triée comme si la durée
+        était nulle.
     Search for Videos: Rechercher des vidéos
   Are you sure you want to delete this playlist? This cannot be undone: Êtes-vous
     sûr(e) de vouloir supprimer cette liste de lecture ? Cette opération ne peut pas
@@ -249,7 +244,6 @@ User Playlists:
   Remove from Favorites: Retirer de {playlistName}
   Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette
     liste de lecture
-  Disable Quick Bookmark: Désactiver le marque-page rapide
   Playlists with Matching Videos: Listes de lecture avec des vidéos correspondantes
   Quick Bookmark Enabled: Signet rapide activé
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la liste
@@ -271,11 +265,12 @@ History:
   Search bar placeholder: "Recherche dans l'historique"
   Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent
     à votre recherche
+  Case Sensitive Search: Recherche sensible à la casse
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
   General Settings:
-    General Settings: 'Paramètres généraux'
+    General Settings: 'Général'
     Fallback to Non-Preferred Backend on Failure: 'Revenir au Backend non préférentiel
       en cas d''échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
@@ -297,8 +292,6 @@ Settings:
       End: 'Fin'
       Hidden: Masqué
       Blur: Flou
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious
-      (https://invidious.snopyta.org par défaut)'
     Region for Trending: 'Pays pour les tendances'
         #! List countries
     Check for Latest Blog Posts: Consultez les derniers billets du blog
@@ -324,7 +317,7 @@ Settings:
       Label: Chargement automatique de la page suivante
       Tooltip: Chargement automatique des pages supplémentaires et des commentaires.
   Theme Settings:
-    Theme Settings: 'Paramètres du thème'
+    Theme Settings: 'Thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
       principale'
     Base Theme:
@@ -395,10 +388,7 @@ Settings:
     Hide Side Bar Labels: Masquer les étiquettes de la barre latérale
     Hide FreeTube Header Logo: Masquer le logo d'en-tête de FreeTube
   Player Settings:
-    Player Settings: 'Paramètres du lecteur'
-    Force Local Backend for Legacy Formats: 'Forcer le backend local pour le format
-      Legacy'
-    Remember History: 'Se souvenir de l''historique'
+    Player Settings: 'Lecteur'
     Play Next Video: 'Lire la vidéo suivante'
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
     Autoplay Videos: 'Lecture automatique des vidéos'
@@ -454,53 +444,17 @@ Settings:
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
-    Allow DASH AV1 formats: Autoriser les formats DASH AV1
   Subscription Settings:
-    Subscription Settings: 'Paramètres des abonnements'
+    Subscription Settings: 'Abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
-    Subscriptions Export Format:
-      Subscriptions Export Format: 'Format d''exportation des abonnements'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Gérer les abonnements'
-    Import Subscriptions: 'Importer vos abonnements'
-    Export Subscriptions: 'Exporter vos abonnements'
-    How do I import my subscriptions?: 'Comment importer mes abonnements ?'
     Fetch Feeds from RSS: Récupération de flux RSS
     Fetch Automatically: Récupération automatique des flux
     Only Show Latest Video for Each Channel: Afficher uniquement la dernière vidéo
       pour chaque chaîne
     Confirm Before Unsubscribing: Évitez les désabonnements accidentels
-  Advanced Settings:
-    Advanced Settings: 'Paramètres Avancés'
-    Enable Debug Mode (Prints data to the console): 'Activer le mode débug (afficher
-      les données dans la console)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresse Proxy (Exemple :
-      SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliquer
-      sur le bouton « TEST PROXY » enverra une demande à https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Utiliser Tor / Proxy pour les appels de l''API'
-    TEST PROXY: 'TESTER LE PROXY'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Voir les instances publiques'
-    Clear History:
-      Clear History: 'Effacer l’historique'
-      # On Click
-      Are you sure you want to delete your history?: 'Êtes-vous sûr(e) de vouloir
-        effacer votre historique ?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Effacer les abonnements'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Êtes-vous sûr(e) de vouloir
-        supprimer tous les abonnements ?'
-      #& Yes
-      #& No
 
   Privacy Settings:
-    Privacy Settings: Paramètres de confidentialité
+    Privacy Settings: Confidentialité
     Remember History: Enregistrer l'historique
     Watch history has been cleared: L'historique a été effacé
     Are you sure you want to remove your entire watch history?: Êtes-vous sûr(e) de
@@ -535,9 +489,6 @@ Settings:
     Export YouTube: Exporter YouTube
     Export FreeTube: Exporter FreeTube
     Export Subscriptions: Exporter vos abonnements
-    Import NewPipe: Importer NewPipe
-    Import YouTube: Importer YouTube
-    Import FreeTube: Importer FreeTube
     Import Subscriptions: Importer vos abonnements
     Select Export Type: Sélectionner le type d'exportation
     Select Import Type: Sélectionner le type d'importation
@@ -548,7 +499,7 @@ Settings:
     This might take a while, please wait: Cela pourrait prendre un certain temps,
       veuillez patienter
     Invalid subscriptions file: Fichier d'abonnements invalide
-    Data Settings: Paramètres des données
+    Data Settings: Données
     All watched history has been successfully exported: Tout votre historique de visionnage
       a été exporté avec succès
     All watched history has been successfully imported: Tout votre historique de visionnage
@@ -557,9 +508,6 @@ Settings:
       données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les
       données de profil sont insuffisantes
-    One or more subscriptions were unable to be imported: Un ou plusieurs abonnements
-      n'ont pas pu être importés
-    Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
     Import Playlists: Importer des listes de lecture
     Export Playlists: Exporter des listes de lecture
@@ -590,7 +538,7 @@ Settings:
     Hide Popular Videos: Masquer les vidéos populaires
     Hide Trending Videos: Masquer les tendances
     Hide Recommended Videos: Masquer les vidéos recommandées
-    Distraction Free Settings: Mode sans distraction
+    Distraction Free Settings: Sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
     Hide Playlists: Masquer les listes de lecture
     Hide Video Description: Masquer la description de la vidéo
@@ -618,7 +566,6 @@ Settings:
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
-    Blur Thumbnails: Flouter les miniatures
     Hide Profile Pictures in Comments: Masquer les photos de profil dans les commentaires
     Hide Subscriptions Community: Masquer les communautés abonnées
     Hide Channels Invalid: L'identifiant de la chaîne fourni n'est pas valide
@@ -651,14 +598,14 @@ Settings:
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
     Enable Tor / Proxy: Activer Tor / proxy
-    Proxy Settings: Paramètres du proxy
+    Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
       est ignoré
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API SponsorBlock
       (la valeur par défaut est https://sponsor.ajay.app)
     Enable SponsorBlock: Activer SponsorBlock
-    SponsorBlock Settings: Paramètres de SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Ignorer l'option
       Auto Skip: Ignorer automatiquement
@@ -674,7 +621,7 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
       actions non prises en charge
     External Player: Lecteur externe
-    External Player Settings: Paramètres du lecteur externe
+    External Player Settings: Lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
     Players:
@@ -682,7 +629,7 @@ Settings:
         Name: Aucun
     Ignore Default Arguments: Ignorer les arguments par défaut
   Download Settings:
-    Download Settings: 'Paramètres de téléchargement'
+    Download Settings: 'Téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
     Choose Path: 'Choisir l''emplacement'
     Download Behavior: Comportement de téléchargement
@@ -691,11 +638,11 @@ Settings:
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
-    Parental Control Settings: Paramètres du contrôle parental
+    Parental Control Settings: Contrôle parental
     Show Family Friendly Only: Afficher uniquement le contenu familial
   Experimental Settings:
     Replace HTTP Cache: Remplacer le cache HTTP
-    Experimental Settings: Paramètres expérimentaux
+    Experimental Settings: Expérimental
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages
       lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes.
       Utilisez-les à vos risques et périls !
@@ -709,66 +656,26 @@ Settings:
     Set Password To Prevent Access: Définir un mot de passe pour empêcher l'accès
       aux paramètres
     Set Password: Définir un mot de passe
-    Password Settings: Paramètres de mot de passe
-  Expand All Settings Sections: Développer toutes les sections des paramètres
+    Password Settings: Mot de passe
   Sort Settings Sections (A-Z): Trier les rubriques de paramètres (A-Z)
+  Return to Settings Menu: Revenir au Menu paramètres
 About:
   #On About page
   About: 'À propos'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ce
-    logiciel est sous licence AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Vous avez trouvé une erreur ? Vous souhaitez suggérer une nouvelle fonctionnalité
-    ? Vous voulez aider de façon générale ? Rendez-vous sur la page GitHub. Les pull
-    requests sont les bienvenues.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Un
-    grand merci à toutes les personnes et à tous les projets qui ont rendu FreeTube
-    possible !'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Envie
-    de discuter ? Rejoigner notre serveur Element / Matrix. Merci de lire les règles
-    avant de nous rejoindre.'
-
-  'Looking for help? Check out our Wiki page.': 'Vous cherchez de l''aide ? Consultez
-    notre page Wiki.'
-
-  Check out our Firefox extension!: 'Découvrez notre extension Firefox !'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Si
-    vous aimez utiliser FreeTube, envisagez de faire un don via Liberapay ou via notre
-    adresse Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Les dernières actualités FreeTube'
-
 #On Channel Page
-  Channel Rules: Règles du salon
   Website: Site web
-  Source Code: Code source
-  Release Notes: Notes de version
   Email: Courriel
-  License: Licence
   Help: Aide
-  Contact: Contacts
-  Translate via Weblate: Traduire via Weblate
   Blog: Blog
   Credits: Crédits
   FAQ: FAQ
-  Wiki: Wiki
-  Report an Issue: Signaler un problème
   Beta: Bêta
   Donate: Faire un don
-  Useful Links: Liens utiles
   Translate: Aidez-nous à traduire FreeTube
   Chat on Matrix: Discuter sur Matrix
   Mastodon: Mastodon
   Report a problem: Signaler un problème
-  View License: Voir la licence
-  Licensed under the AGPLv3: Sous licence AGPLv3
   Source code: Code source
   these people and projects: ces personnes et ces projets
   FreeTube is made possible by: FreeTube est rendu possible par
@@ -833,6 +740,10 @@ Channel:
     Reveal Answers: Afficher les réponses
     Hide Answers: Masquer les réponses
     Video hidden by FreeTube: Vidéo cachée par FreeTube
+    View Full Post: Voir le message complet
+    Viewing Posts Only Supported By Invidious: L'affichage des messages n'est possible
+      qu'avec Indivious. Allez dans l'onglet communauté de la chaîne pour visualiser
+      le contenu sans Indivious.
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement
@@ -917,11 +828,6 @@ Video:
   Loop Playlist: Liste de lecture en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez
     actualiser la page pour vérifier à nouveau
-  Audio:
-    Best: Meilleure
-    Medium: Normale
-    Low: Basse
-    High: Haute
   audio only: audio uniquement
   video only: vidéo uniquement
   Download Video: Télécharger la vidéo
@@ -935,7 +841,6 @@ Video:
     enregistrée
   Video has been saved: La vidéo a été enregistrée
   Save Video: Enregistrer la vidéo
-  translated from English: traduit de l'anglais
   Sponsor Block category:
     music offtopic: Musique hors sujet
     interaction: Interaction
@@ -945,7 +850,6 @@ Video:
     intro: Intro
     filler: Bouche-trou
     recap: Récap
-  Skipped segment: Segment ignoré
   External Player:
     playlist: liste de lecture
     video: vidéo
@@ -962,26 +866,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
     OpeningTemplate: Ouverture de {videoOrPlaylist} en {externalPlayer}…
     OpenInTemplate: Ouvrir avec {externalPlayer}
-  Stats:
-    video id: "Identifiant de la vidéo (YouTube)"
-    player resolution: "Résolution du lecteur"
-    volume: "Volume"
-    fps: "IPS"
-    frame drop: "Perte d'image"
-    bandwidth: "Vitesse de connexion"
-    buffered: "En tampon"
-    out of: "sur"
-    Player Dimensions: Dimensions du lecteur
-    Bitrate: Débit binaire
-    Volume: Volume
-    Mimetype: Type de médias
-    Video statistics are not available for legacy videos: Les statistiques vidéo ne
-      sont pas disponibles pour les anciennes vidéos
-    Resolution: Résolution
-    Bandwidth: Bande passante
-    Video ID: Identifiant vidéo
-    Buffered: En mémoire tampon
-    Dropped / Total Frames: Images perdues / Nombre total d'images
   Premieres on: Avant-première le
   Premieres in: Première dans
   Premieres: Avant-première
@@ -995,6 +879,37 @@ Video:
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
   More Options: Plus d'options
+  Player:
+    Audio Tracks: Pistes audio
+    Theatre Mode: Mode théâtre
+    Exit Theatre Mode: Quitter le mode théâtre
+    Full Window: Fenêtre pleine
+    Show Stats: Afficher les stats
+    Hide Stats: Masquer les stats
+    Stats:
+      Stats: Stats
+      Video ID: 'Identifiant de la vidéo : {videoId}'
+      Media Formats: 'Formats du média : {formats}'
+      Resolution: 'Résolution : {width}×{height}@{frameRate}'
+      Player Dimensions: 'Dimensions du lecteur : {width}×{height}'
+      Volume: 'Volume : {volumePercentage} %'
+      Bandwidth: 'Bande passante : {bandwidth} kb/s'
+      Bitrate: 'Débit binaire : {bitrate} kb/s'
+      Buffered: 'Mise en mémoire tampon : {bufferedPercentage} %'
+      CodecAudio: 'Codec : {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecs : {videoCodec} / {audioCodec}'
+      CodecsVideoAudio: 'Codecs : {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Images perdues : {droppedFrames} / Images totales :
+        {totalFrames}'
+    Skipped segment: Segment {segmentCategory} ignoré
+    TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
+    Exit Full Window: Quitter la fenêtre pleine
+    Take Screenshot: Prendre une capture d'écran
+    You appear to be offline: Vous semblez être hors ligne.
+    Playback will resume automatically when your connection comes back: La lecture
+      reprendra automatiquement quand votre connexion reviendra.
+  IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez
+    essayer de changer de VPN ou de proxy.
 Videos:
   #& Sort By
   Sort By:
@@ -1005,9 +920,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Afficher la liste de lecture complète'
-  Videos: 'Vidéos'
-  View: 'Vue'
-  Views: 'Vues'
   Last Updated On: 'Dernière mise à jour le'
 
 # On Video Watch Page
@@ -1023,7 +935,8 @@ Playlist:
     VideoTitleAscending: Titre (A-Z)
     VideoTitleDescending: Titre (Z-A)
     Custom: Personnalisé
-Toggle Theatre Mode: 'Mode Cinéma'
+    VideoDurationDescending: Durée (la plus longue en premier)
+    VideoDurationAscending: Durée (la plus courte en premier)
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
@@ -1033,6 +946,8 @@ Change Format:
     pour cette vidéo
   Dash formats are not available for this video: Le format DASH n'est pas disponible
     pour cette vidéo
+  Legacy formats are not available for this video: Les formats héritage ne sont pas
+    disponibles pour cette vidéo
 Share:
   Share Video: 'Partager la vidéo'
   Share Playlist: 'Partager la liste de lecture'
@@ -1082,6 +997,8 @@ Comments:
   Hearted: Aimé
   View {replyCount} replies: Voir les {replyCount} réponses
   Subscribed: Abonné(e)
+  There are no comments available for this post: Il n'y a pas de commentaire associé
+    à ce message
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -1089,8 +1006,6 @@ Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
 Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
 Falling back to Invidious API: 'Revenir à l''API Invidious'
 Falling back to Local API: 'Revenir à l''API locale'
-Subscriptions have not yet been implemented: 'Les abonnements n''ont pas encore été
-  implémentés'
 Loop is now disabled: 'La boucle est maintenant désactivée'
 Loop is now enabled: 'La boucle est maintenant activée'
 Shuffle is now disabled: 'Mode aléatoire désactivé'
@@ -1103,7 +1018,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français
+Locale Name: Français (France)
 Profile:
   '{profile} is now the active profile': '{profile} est maintenant le profil actif'
   Your default profile has been changed to your primary profile: Votre profil par
@@ -1147,7 +1062,7 @@ Profile:
   '{number} selected': '{number} sélectionné(s)'
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
-  Profile Settings: Paramètres du profil
+  Profile Settings: Profil
   Toggle Profile List: Afficher la liste des profils
   Open Profile Dropdown: Ouvrir la liste déroulante du profil
   Close Profile Dropdown: Fermer la liste déroulante du profil
@@ -1159,16 +1074,16 @@ A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet 
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
-  est maintenant disponible !  Cliquez pour plus de détails
+  est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera le RSS au lieu
-      de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
-      plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
-      comme la durée de la vidéo ou le statut en direct
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de
+      sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide
+      et empêche le blocage d'IP, mais ne fournit pas certaines informations comme
+      la durée de la vidéo, le statut en direct ou les commentaires
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement
       le flux de votre abonnement à l'ouverture d'une nouvelle fenêtre et lors du
       changement de profil.
@@ -1178,13 +1093,7 @@ Tooltips:
       sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
       formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
-      au lieu d'établir une connexion directe avec YouTube. Remplace les préférences
-      de l'API.
-    Force Local Backend for Legacy Formats: Ne fonctionne que lorsque l'API Invidious
-      est activée par défaut. Lorsqu'elle est activée, l'API locale s'exécute et utilise
-      les formats Legacy renvoyés par celle-ci au lieu de ceux renvoyés par Invidious.
-      Utile lorsque les vidéos renvoyées par Invidious ne sont pas lues en raison
-      de restrictions pays.
+      au lieu d'établir une connexion directe avec YouTube.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo,
       maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler
       la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse
@@ -1193,10 +1102,6 @@ Tooltips:
       de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer
       d'une vidéo à l'autre, en style MPV.
-    Allow DASH AV1 formats: Les formats DASH AV1 peuvent être plus beaux que les formats
-      DASH H.264. Les formats DASH AV1 nécessitent plus de puissance pour être lus !
-      Ils ne sont pas disponibles sur toutes les vidéos, dans ce cas le lecteur utilisera
-      les formats DASH H.264 à la place.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
@@ -1257,8 +1162,6 @@ Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps.
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
   Cliquer pour annuler. | Lecture de la vidéo suivante dans {nextVideoInterval} secondes.
   Cliquer pour annuler.
-Hashtags have not yet been implemented, try again later: Les hashtags n'ont pas encore
-  été implémentés, réessayez plus tard
 Unknown YouTube url type, cannot be opened in app: Type d'URL YouTube inconnu, ne
   peut pas être ouvert dans l'application
 Open New Window: Ouvrir une nouvelle fenêtre
@@ -1268,7 +1171,7 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
   a été définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
-Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
+Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
 Downloading has completed: '{videoTitle} a fini de se télécharger'
@@ -1284,10 +1187,8 @@ Channels:
   Channels: Chaînes
   Title: Liste des chaînes
   Empty: Votre liste de chaînes est actuellement vide.
-  Unsubscribe: Se désabonner
   Search bar placeholder: Rechercher des chaînes
   Count: '{number} chaîne(s) trouvée(s).'
-  Unsubscribed: '{channelName} a été supprimé de vos abonnements'
   Unsubscribe Prompt: Êtes-vous sûr(e) de vouloir vous désabonner de « {channelName} » ?
 Clipboard:
   Copy failed: La copie dans le presse-papiers a échoué
@@ -1330,11 +1231,16 @@ Yes, Delete: Oui, effacer
 Yes, Restart: Oui, redémarrer
 Yes, Open Link: Oui, ouvrir le lien
 Cancel: Annuler
-Search character limit: La recherche dépasse le nombre de caractères impartis
+Search character limit: La recherche dépasse le nombre de caractères impartis {searchCharacterLimit}
 Search Listing:
   Label:
     4K: 4K
     Subtitles: Sous-titres
     Closed Captions: Sous-titrage codé
+    8K: 8k
+    VR180: VR180
+    360 Video: 360°
+    New: Nouveau
+    3D: 3D
 'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
   dangereuse : « {url} »."

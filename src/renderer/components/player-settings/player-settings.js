@@ -33,13 +33,15 @@ export default defineComponent({
         'audio'
       ],
       qualityValues: [
-        'auto',
-        144,
-        240,
-        360,
-        480,
+        2160,
+        1440,
+        1080,
         720,
-        1080
+        480,
+        360,
+        240,
+        144,
+        'auto'
       ],
       playbackRateIntervalValues: [
         0.1,
@@ -65,6 +67,10 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+
     autoplayVideos: function () {
       return this.$store.getters.getAutoplayVideos
     },
@@ -81,12 +87,12 @@ export default defineComponent({
       return this.$store.getters.getEnableSubtitlesByDefault
     },
 
-    forceLocalBackendForLegacy: function () {
-      return this.$store.getters.getForceLocalBackendForLegacy
-    },
-
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+
+    showProxyVideosAsDisabled: function () {
+      return this.backendPreference !== 'invidious' && !this.backendFallback
     },
 
     defaultSkipInterval: function () {
@@ -111,10 +117,6 @@ export default defineComponent({
 
     defaultQuality: function () {
       return this.$store.getters.getDefaultQuality
-    },
-
-    allowDashAv1Formats: function () {
-      return this.$store.getters.getAllowDashAv1Formats
     },
 
     defaultTheatreMode: function () {
@@ -163,13 +165,15 @@ export default defineComponent({
 
     qualityNames: function () {
       return [
-        this.$t('Settings.Player Settings.Default Quality.Auto'),
-        this.$t('Settings.Player Settings.Default Quality.144p'),
-        this.$t('Settings.Player Settings.Default Quality.240p'),
-        this.$t('Settings.Player Settings.Default Quality.360p'),
-        this.$t('Settings.Player Settings.Default Quality.480p'),
+        this.$t('Settings.Player Settings.Default Quality.4k'),
+        this.$t('Settings.Player Settings.Default Quality.1440p'),
+        this.$t('Settings.Player Settings.Default Quality.1080p'),
         this.$t('Settings.Player Settings.Default Quality.720p'),
-        this.$t('Settings.Player Settings.Default Quality.1080p')
+        this.$t('Settings.Player Settings.Default Quality.480p'),
+        this.$t('Settings.Player Settings.Default Quality.360p'),
+        this.$t('Settings.Player Settings.Default Quality.240p'),
+        this.$t('Settings.Player Settings.Default Quality.144p'),
+        this.$t('Settings.Player Settings.Default Quality.Auto')
       ]
     },
 
@@ -284,7 +288,6 @@ export default defineComponent({
       'updateAutoplayPlaylists',
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
-      'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',
       'updateDefaultSkipInterval',
@@ -293,7 +296,6 @@ export default defineComponent({
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
-      'updateAllowDashAv1Formats',
       'updateVideoVolumeMouseScroll',
       'updateVideoPlaybackRateMouseScroll',
       'updateVideoSkipMouseScroll',

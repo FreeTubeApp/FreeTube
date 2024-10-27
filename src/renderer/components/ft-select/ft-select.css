@@ -50,7 +50,7 @@
   outline: none;
 }
 
-  /* Use custom arrow */
+/* Use custom arrow */
 .select .select-text {
   appearance: none;
   text-overflow: ellipsis;
@@ -71,7 +71,8 @@
   color: var(--tertiary-text-color);
 }
 
-.disabled, .disabled + .iconSelect {
+.disabled,
+.disabled + .iconSelect {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -102,7 +103,8 @@
 }
 
 /* active state */
-.select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
+.select-text:focus ~ .select-label,
+.select-text:valid ~ .select-label {
   color: var(--accent-color);
   inset-block-start: -20px;
   transition: 0.2s ease all;
@@ -115,7 +117,8 @@
   display: block;
 }
 
-.select-bar::before, .select-bar::after {
+.select-bar::before,
+.select-bar::after {
   content: '';
   block-size: 2px;
   inline-size: 0;
@@ -134,7 +137,8 @@
 }
 
 /* active state */
-.select-text:focus ~ .select-bar::before, .select-text:focus ~ .select-bar::after {
+.select-text:focus ~ .select-bar::before,
+.select-text:focus ~ .select-bar::after {
   inline-size: 50%;
 }
 

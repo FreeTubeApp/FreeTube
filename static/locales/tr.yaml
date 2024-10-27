@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 abone | {count} abone
     View Count: 1 izlenme | {count} izlenme
     Watching Count: 1 izliyor | {count} izliyor
+    Like Count: 1 beğenme | {count} beğenme
+    Comment Count: 1 yorum | {count} yorum
   Input Tags:
     Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
@@ -105,7 +107,8 @@ Subscriptions:
   Subscriptions: 'Abonelikler'
   Latest Subscriptions: 'En Yeni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
-    listeniz şu anda boş. Aboneliklerinizi görebilmek için abone olmaya başlayın.'
+    listeniz şu anda boş. Aboneliklerinizi içe aktarmak istiyorsanız Veri Ayarları''na
+    gidip Abonelikleri İçe Aktar''ı seçebilir veya bir kanal arayıp abone olabilirsiniz.'
   'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu
@@ -132,13 +135,6 @@ Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Kaydedilen
-    videolarınız boş. Kaydedilen videolarınızın burada listelenmesi için videonun
-    köşesindeki kaydet düğmesine tıklayın
-  Playlist Message: Bu sayfa, tam olarak çalışan oynatma listelerini yansıtmamaktadır.
-    Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
-    bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
-    taşınacaktır.
   Search bar placeholder: Oynatma Listesi Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
   This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
@@ -181,7 +177,6 @@ User Playlists:
         ve kaldırılamaz.
       There were no videos to remove.: Kaldırılacak video yok.
       This playlist does not exist: Bu oynatma listesi yok
-      Quick bookmark disabled: Hızlı yer imi devre dışı bırakıldı
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
         oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor.
         Geri almak için buraya tıklayın
@@ -193,6 +188,8 @@ User Playlists:
         oynatma listesi yeni hızlı yer imi oynatma listesi.'
       This playlist is already being used for quick bookmark.: Bu oynatma listesi
         zaten hızlı yer imi için kullanılıyor.
+      This playlist has a video with a duration error: Bu oynatma listesi süresi olmayan
+        en az bir video içeriyor, süreleri sıfırmış gibi sıralanacaktır.
     Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
@@ -234,15 +231,11 @@ User Playlists:
   Cancel: İptal
   Edit Playlist Info: Oynatma Listesi Bilgilerini Düzenle
   Copy Playlist: Oynatma Listesini Kopyala
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: İzlenen
-    tüm videoları bu oynatma listesinden kaldırmak istediğinizden emin misiniz? Bu
-    işlem geri alınamaz.
   Remove Watched Videos: İzlenen Videoları Kaldır
   Add to Favorites: '{playlistName} oynatma listesine ekle'
   Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
   Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini
     Etkinleştir
-  Disable Quick Bookmark: Hızlı Yer İşaretini Devre Dışı Bırak
   Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
   Quick Bookmark Enabled: Hızlı Yer İmi Etkin
   Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
@@ -263,11 +256,12 @@ History:
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
   Search bar placeholder: Geçmişte Ara
   Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
+  Case Sensitive Search: Büyük/Küçük Harfe Duyarlı Ara
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
   General Settings:
-    General Settings: 'Genel Ayarlar'
+    General Settings: 'Genel'
     Check for Updates: 'Güncellemeleri Denetle'
     Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
     Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen
@@ -291,8 +285,6 @@ Settings:
       End: 'Bitiş'
       Hidden: Gizli
       Blur: Bulanıklık
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
-      (Öntanımlı olarak https://invidious.snopyta.org)'
     Region for Trending: 'Öne Çıkanlar İçin Bölge Tercihi'
         #! List countries
     View all Invidious instance information: Tüm Invidious örnek bilgilerini görüntüle
@@ -314,7 +306,7 @@ Settings:
       Label: Sonraki Sayfayı Otomatik Yükle
       Tooltip: Sonraki sayfaları ve yorumları otomatik olarak yükle.
   Theme Settings:
-    Theme Settings: 'Tema Ayarları'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
     Base Theme:
       Base Theme: 'Uygulama Teması'
@@ -384,9 +376,7 @@ Settings:
     Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
     Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
-    Player Settings: 'Oynatıcı Ayarları'
-    Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
-      Zorla'
+    Player Settings: 'Oynatıcı'
     Play Next Video: 'Sonraki Videoyu Oynat'
     Turn on Subtitles by Default: 'Alt Yazıları Öntanımlı Olarak Aç'
     Autoplay Videos: 'Videoları Otomatik Başlat'
@@ -439,9 +429,8 @@ Settings:
         veya "/" kullanabilirsiniz.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
-    Allow DASH AV1 formats: DASH AV1 biçimlerine izin ver
   Privacy Settings:
-    Privacy Settings: 'Gizlilik Ayarları'
+    Privacy Settings: 'Gizlilik'
     Remember History: 'Geçmişi Hatırla'
     Save Watched Progress: 'Kaldığım Yeri Hatırla'
     Clear Search Cache: 'Arama Önbelleğini Temizle'
@@ -462,22 +451,18 @@ Settings:
     Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi
       kaldırmak istediğinizden emin misiniz?
   Subscription Settings:
-    Subscription Settings: 'Abonelik Ayarları'
+    Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
-    Manage Subscriptions: 'Abonelikleri Yönet'
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Only Show Latest Video for Each Channel: Her Kanal için Yalnızca En Son Videoyu
       Göster
     Confirm Before Unsubscribing: Abonelikten Çıkmadan Önce Onayla
   Data Settings:
-    Data Settings: 'Veri Ayarları'
+    Data Settings: 'Veri'
     Select Import Type: 'İçe Aktarma Türünü Seç'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
     Import Subscriptions: 'Abonelikleri İçe Aktar'
-    Import FreeTube: 'Freetube''dan İçe Aktar'
-    Import YouTube: 'YouTube''dan İçe Aktar'
-    Import NewPipe: 'NewPipe''dan İçe Aktar'
     Export Subscriptions: 'Abonelikleri Dışa Aktar'
     Export FreeTube: 'Freetube Biçiminde Dışa Aktar'
     Export YouTube: 'YouTube Biçiminde Dışa Aktar'
@@ -490,8 +475,6 @@ Settings:
       ve profiller başarılı bir şekilde içe aktarıldı'
     All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir
       şekilde içe aktarıldı'
-    One or more subscriptions were unable to be imported: 'Bir ya da daha fazla abonelik
-      içe aktarılamadı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
     This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
     Invalid history file: 'Geçersiz geçmiş dosyası'
@@ -507,7 +490,6 @@ Settings:
     Unable to write file: 'Dosya yazılamadı'
     Unknown data key: 'Bilinmeyen veri anahtarı'
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
-    Check for Legacy Subscriptions: Eski Abonelikleri Denetle
     Manage Subscriptions: Abonelikleri Yönet
     Export Playlists: Oynatma Listelerini Dışa Aktar
     All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
@@ -529,33 +511,6 @@ Settings:
         Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi
         silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini
         içe aktarın.\""
-  Advanced Settings:
-    Advanced Settings: 'Gelişmiş Ayarlar'
-    Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
-      (Veriyi Konsola Yazdırır)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Vekil Sunucu Adresi (Örneğin:
-      SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '"Vekil
-      Sunucuyu Test Et" Butonuna Tıklamak https://ipinfo.io/json Adresine bir Talep
-      Gönderecek'
-    Use Tor / Proxy for API calls: 'API çağrıları için Tor / Vekil Sunucu Kullan'
-    TEST PROXY: 'Vekil Sunucuyu Test Et'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Genel Oluşumları Göster'
-    Clear History:
-      Clear History: 'Geçmişi Temizle'
-      # On Click
-      Are you sure you want to delete your history?: 'Geçmişi silmek istediğinizden
-        emin misiniz?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Abonelikleri Temizle'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Abonelikleri temizlemek
-        istediğinizden emin misiniz?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
@@ -566,7 +521,7 @@ Settings:
     Hide Channel Subscribers: Kanal Abonelerini Gizle
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
     Hide Video Views: Video İzlenme Sayılarını Gizle
-    Distraction Free Settings: Dikkat Dağıtmama Ayarları
+    Distraction Free Settings: Dikkat Dağıtmama
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
     Hide Live Streams: Canlı Yayınları Gizle
@@ -595,7 +550,6 @@ Settings:
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
-    Blur Thumbnails: Küçük Resimleri Bulanıklaştır
     Hide Subscriptions Community: Abonelik Topluluğunu Gizle
     Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
     Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
@@ -625,13 +579,13 @@ Settings:
     Proxy Host: Vekil Sunucu Ana Makinesi
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
-    Proxy Settings: Vekil Sunucu Ayarları
+    Proxy Settings: Vekil Sunucu
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       URL'si (Öntanımlı olarak https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
-    SponsorBlock Settings: SponsorBlock Ayarları
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Atlama Seçeneği
       Auto Skip: Otomatik Atla
@@ -648,7 +602,7 @@ Settings:
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
-    External Player Settings: Harici Oynatıcı Ayarları
+    External Player Settings: Harici Oynatıcı
     Players:
       None:
         Name: Yok
@@ -656,12 +610,12 @@ Settings:
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
-    Download Settings: İndirme Ayarları
+    Download Settings: İndirme
     Download Behavior: İndirme Davranışı
     Download in app: Uygulamada indir
     Open in web browser: Web tarayıcısında aç
   Parental Control Settings:
-    Parental Control Settings: Ebeveyn Denetimi Ayarları
+    Parental Control Settings: Ebeveyn Denetimi
     Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
     Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
     Hide Search Bar: Arama Çubuğunu Gizle
@@ -670,66 +624,31 @@ Settings:
     Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler.
       Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
       aittir!
-    Experimental Settings: Deneysel Ayarlar
+    Experimental Settings: Deneysel
   Password Dialog:
     Password Incorrect: Parola Yanlış
     Unlock: Kilidi aç
     Password: Parola
     Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
   Password Settings:
-    Password Settings: Parola Ayarları
+    Password Settings: Parola
     Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
     Remove Password: Parolayı Kaldır
     Set Password: Parola Ayarla
-  Expand All Settings Sections: Tüm Ayarlar Bölümlerini Genişlet
   Sort Settings Sections (A-Z): Ayarlar Bölümlerini Sırala (A-Z)
+  Return to Settings Menu: Ayarlar Menüsüne Dön
 About:
   #On About page
   About: 'Hakkında'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Bu
-    copyleft yazılım, özgür bir şekilde AGPL-3.0 altında lisanslanmıştır.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Hata mı buldunuz? Yeni bir özellik mi önermek istiyorsunuz? Yardım etmek mi istiyorsunuz?
-    GitHub sayfamıza bakın. Çekme istekleri kabul edilir.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Freetube''yi
-    yapmamıza olanak veren herkese ve tüm projelere teşekkürler!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Sohbet
-    etmek mi istiyorsunuz? Element / Matrix sunucumuza katılın. Lütfen katılmadan
-    önce kuralları gözden geçirin.'
-
-  'Looking for help? Check out our Wiki page.': 'Yardım mı lazım? Wiki sayfamıza bakın.'
-
-  Check out our Firefox extension!: 'Firefox uzantımıza göz atın!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube''u
-    kullanmaktan hoşlanıyorsanız, Liberapay veya Bitcoin adresimiz aracılığıyla bağış
-    yapmayı düşünün.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'En Yeni FreeTube Haberleri'
-
-  Translate via Weblate: Weblate'de Çevir
   Website: İnternet Sitesi
-  Source Code: Kaynak Kodları
-  Release Notes: Sürüm Notları
   Blog: Blog
   Credits: Katkıda Bulunanlar
   FAQ: SSS
-  Wiki: Wiki
-  Report an Issue: Sorun Bildir
-  Channel Rules: Kanal Kuralları
   Email: E-posta
-  License: Lisans
   Beta: Beta
   Donate: Bağış Yap
-  Useful Links: Faydalı Bağlantılar
   Help: Yardım
-  Contact: İletişim
   these people and projects: bu kişiler ve projeler
   FreeTube is made possible by: FreeTube'e katkıda bulunanlar
   Translate: Çevir
@@ -744,8 +663,6 @@ About:
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub yayınları
   Downloads / Changelog: İndirmeler / Değişiklikler
-  View License: Lisansı Görüntüle
-  Licensed under the AGPLv3: AGPLv3 altında lisanslanmıştır
   Source code: Kaynak kodları
   Discussions: Tartışmalar
   Licensed under the: 'Lisans:'
@@ -793,7 +710,7 @@ Profile:
     silmez.'
 #On Channel Page
   Profile Filter: Profil Filtresi
-  Profile Settings: Profil Ayarları
+  Profile Settings: Profil
   Toggle Profile List: Profil Listesini Aç/Kapat
   Profile Name: Profil Adı
   Edit Profile Name: Profil Adını Düzenle
@@ -801,8 +718,6 @@ Profile:
   Open Profile Dropdown: Profil Açılır Menüsünü Aç
   Close Profile Dropdown: Profil Açılır Menüsünü Kapat
 Channel:
-  Subscriber: 'Abone'
-  Subscribers: 'Abone'
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
   Channel has been removed from your subscriptions: 'Kanal aboneliklerinizden kaldırıldı'
@@ -850,6 +765,10 @@ Channel:
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
     Video hidden by FreeTube: FreeTube tarafından gizlenen video
+    View Full Post: Gönderinin Tamamını Görüntüle
+    Viewing Posts Only Supported By Invidious: Gönderileri görüntüleme yalnızca Invidious
+      tarafından desteklenir. Invidious olmadan içeriği görüntülemek için bir kanalın
+      topluluk sekmesine gidin.
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
@@ -933,11 +852,6 @@ Video:
   Published on: 'Yayımlanma tarihi'
   Publicationtemplate: '{number} {unit} önce'
 #& Videos
-  Audio:
-    Best: En iyi
-    High: Yüksek
-    Medium: Orta
-    Low: Düşük
   audio only: yalnızca ses
   video only: yalnızca video
   Download Video: Video İndir
@@ -950,7 +864,6 @@ Video:
   Video has been removed from your saved list: Video, kaydedilen listenizden kaldırıldı
   Video has been saved: Video kaydedildi
   Save Video: Videoyu Kaydet
-  translated from English: İngilizceden çevrildi
   Sponsor Block category:
     music offtopic: Müzik Konu Dışı
     interaction: Etkileşim
@@ -960,7 +873,6 @@ Video:
     sponsor: Sponsor
     recap: Özet
     filler: Dolgu
-  Skipped segment: Atlanan bölüm
   External Player:
     Unsupported Actions:
       looping playlists: oynatma listelerini döngüye alma
@@ -977,26 +889,6 @@ Video:
     video: video
     OpenInTemplate: '{externalPlayer} içinde aç'
   Premieres on: İlk gösterim tarihi
-  Stats:
-    volume: Ses Seviyesi
-    out of: /
-    player resolution: Görüntü Penceresi
-    fps: FPS
-    frame drop: Çerçeve Kaybı
-    video id: Video Kimliği (YouTube)
-    bandwidth: Bağlantı Hızı
-    buffered: Arabelleğe Alınan
-    Video ID: Video Kimliği
-    Resolution: Çözünürlük
-    Player Dimensions: Oynatıcı Boyutları
-    Bitrate: Bit Hızı
-    Volume: Ses Seviyesi
-    Bandwidth: Bant Genişliği
-    Buffered: Arabelleğe Alınan
-    Dropped / Total Frames: Düşürülen / Toplam Çerçeve Sayısı
-    Mimetype: MIME Türü
-    Video statistics are not available for legacy videos: Video istatistikleri eski
-      videolar için kullanılabilir değil
   Premieres in: İlk gösterim
   Premieres: İlk gösterim
   Scroll to Bottom: Aşağıya Kaydır
@@ -1009,6 +901,38 @@ Video:
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
   More Options: Daha Fazla Seçenek
+  Player:
+    TranslatedCaptionTemplate: '{language} ("{originalLanguage}" dilinden çevrildi)'
+    Audio Tracks: Ses Parçaları
+    Stats:
+      Media Formats: 'Medya Biçimleri: {formats}'
+      Bitrate: 'Bit Hızı: {bitrate} kbps'
+      CodecsVideoAudioNoItags: 'Kod Çözücüler: {videoCodec} / {audioCodec}'
+      Stats: İstatistikler
+      Video ID: 'Video Kimliği: {videoId}'
+      Resolution: 'Çözünürlük: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Oynatıcı Boyutları: {width}x{height}'
+      Volume: 'Ses Düzeyi: {volumePercentage}%'
+      Bandwidth: 'Bant Genişliği: {bandwidth} kbps'
+      Buffered: 'Ara Belleğe Alınan: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Kaybedilen Çerçeve: {droppedFrames} / Toplam
+        Çerçeve: {totalFrames}'
+      CodecAudio: 'Kod Çözücü: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kod Çözücüler: {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+    Theatre Mode: Tiyatro Modu
+    Exit Theatre Mode: Tiyatro Modundan Çık
+    Full Window: Tam Pencere
+    Exit Full Window: Tam Pencereden Çık
+    Take Screenshot: Ekran Görüntüsü Al
+    Show Stats: İstatistikleri Göster
+    Hide Stats: İstatistikleri Gizle
+    You appear to be offline: Çevrim dışı görünüyorsunuz.
+    Playback will resume automatically when your connection comes back: Bağlantınız
+      geri geldiğinde oynatma otomatik olarak devam edecektir.
+    Skipped segment: '{segmentCategory} bölümü atlandı'
+  IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir
+    VPN veya vekil sunucuya geçmeyi deneyin.
 Videos:
   #& Sort By
   Sort By:
@@ -1018,11 +942,8 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Tüm Oynatma Listesini Görüntüle'
-  Videos: 'Videolar'
-  View: 'Görüntüle'
-  Views: 'İzlenme'
-  Last Updated On: 'Son Güncelleme Tarihi'
+  View Full Playlist: 'Tüm oynatma listesini görüntüle'
+  Last Updated On: 'Son güncelleme tarihi'
 
 # On Video Watch Page
 #* Published
@@ -1037,9 +958,10 @@ Playlist:
     Sort By: Sıralama ölçütü
     DateAddedOldest: İlk eklenen önce
     Custom: Özel
-Toggle Theatre Mode: 'Tiyatro Modunu Aç/Kapat'
+    VideoDurationAscending: Süre (Önce en kısa)
+    VideoDurationDescending: Süre (Önce en uzun)
 Change Format:
-  Change Media Formats: 'Video Biçimlerini Değiştir'
+  Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
   Use Legacy Formats: 'Eski Biçimleri Kullan'
   Use Audio Formats: 'Ses Biçimlerini Kullan'
@@ -1047,6 +969,8 @@ Change Format:
     değil'
   Audio formats are not available for this video: 'Ses biçimleri bu video için kullanılabilir
     değil'
+  Legacy formats are not available for this video: Eski biçimler bu video için kullanılabilir
+    değil
 Share:
   Share Video: 'Videoyu Paylaş'
   Share Playlist: 'Oynatma Listesini Paylaş'
@@ -1092,6 +1016,7 @@ Comments:
   View {replyCount} replies: '{replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
+  There are no comments available for this post: Bu gönderi için hiç yorum yok
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -1099,7 +1024,6 @@ Local API Error (Click to copy): 'Yerel API Hatası (Kopyalamak için tıklayın
 Invidious API Error (Click to copy): 'Invidious API Hatası (Kopyalamak için tıklayın)'
 Falling back to Invidious API: 'Invidious API''ye geri dönülüyor'
 Falling back to Local API: 'Yerel API''ye geri dönülüyor'
-Subscriptions have not yet been implemented: 'Abonelikler henüz uygulanmadı'
 Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
 Shuffle is now disabled: 'Karıştır artık devre dışı'
@@ -1120,8 +1044,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
       için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
-      önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
-      sağlamaz
+      önüne geçer, ancak video süresi, canlı yayın durumu veya topluluk gönderileri
+      gibi belirli bilgileri sağlamaz
     Fetch Automatically: Etkinleştirildiğinde, FreeTube yeni bir pencere açıldığında
       ve profil değiştirirken abonelik akışınızı otomatik olarak getirecektir.
   Player Settings:
@@ -1130,12 +1054,7 @@ Tooltips:
       sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
       akışlarıdır.
     Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
-      kurmak yerine Invidious'a bağlanılacak. API tercihini geçersiz kılar.
-    Force Local Backend for Legacy Formats: Yalnızca Invidious API'si öntanımlı seçeneğiniz
-      olduğunda çalışır. Etkinleştirildiğinde, yerel API çalışacak ve Invidious tarafından
-      döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
-      tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
-      yardımcı olur.
+      kurmak yerine Invidious'a bağlanılacak.
     Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
       videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
       hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı
@@ -1143,9 +1062,6 @@ Tooltips:
       için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
     Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma
       tekerleğini kullanın.
-    Allow DASH AV1 formats: DASH AV1 biçimleri, DASH H.264 biçimlerinden daha iyi
-      görünebilir. DASH AV1 biçimleri oynatmak daha fazla güç gerektirir! Tüm videolarda
-      bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme
@@ -1203,8 +1119,6 @@ Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek iç
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
   için tıklayın.
 More: Daha Fazla
-Hashtags have not yet been implemented, try again later: Hashtag'ler henüz uygulanmadı,
-  daha sonra tekrar deneyin
 Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü, uygulamada
   açılamıyor
 Open New Window: Yeni Pencere Aç
@@ -1232,8 +1146,6 @@ Channels:
   Title: Kanal Listesi
   Search bar placeholder: Kanalları Ara
   Count: '{number} kanal bulundu.'
-  Unsubscribe: Abonelikten çık
-  Unsubscribed: '{channelName} aboneliklerinizden kaldırıldı'
   Unsubscribe Prompt: '"{channelName}" aboneliğinden çıkmak istediğinizden emin misiniz?'
 Clipboard:
   Copy failed: Panoya kopyalanamadı
@@ -1282,5 +1194,10 @@ Search Listing:
     Closed Captions: Kapalı Alt Yazılar
     4K: 4K
     Subtitles: Alt Yazılar
+    VR180: VR180
+    360 Video: 360°
+    New: Yeni
+    3D: 3B
+    8K: 8K
 'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
   \"{url}\"."

@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -7,7 +7,7 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/ft-list-video-numbered/ft-list-video-numbered.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import {
@@ -20,9 +20,10 @@ import {
   getIconForSortPreference,
   setPublishedTimestampsInvidious,
   showToast,
+  deepCopy,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
+import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
@@ -74,6 +75,7 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
       forceListView: false,
+      alreadyShownNotice: false,
 
       videoSearchQuery: '',
 
@@ -87,8 +89,8 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
     },
     userPlaylistSortOrder: function () {
       return this.$store.getters.getUserPlaylistSortOrder
@@ -97,7 +99,7 @@ export default defineComponent({
       return this.isUserPlaylistRequested ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
     currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
+      return this.$i18n.locale
     },
     playlistId: function() {
       return this.$route.params.id
@@ -180,6 +182,13 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
+      if (
+        this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
+        this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
+      ) {
+        const playlistItems = this.getPlaylistItemsWithDuration()
+        return getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
+      }
       return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
@@ -214,6 +223,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.AuthorAscending')
           case SORT_BY_VALUES.AuthorDescending:
             return this.$t('Playlist.Sort By.AuthorDescending')
+          case SORT_BY_VALUES.VideoDurationAscending:
+            return this.$t('Playlist.Sort By.VideoDurationAscending')
+          case SORT_BY_VALUES.VideoDurationDescending:
+            return this.$t('Playlist.Sort By.VideoDurationDescending')
           default:
             console.error(`Unknown sort: ${k}`)
             return k
@@ -305,9 +318,11 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
+        const playlistItems = result.items.map(parseLocalPlaylistVideo)
+
         this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
-        this.firstVideoId = result.items[0].id
+        this.firstVideoId = playlistItems[0].videoId
         this.playlistThumbnail = result.info.thumbnails[0].url
         this.viewCount = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
@@ -323,7 +338,7 @@ export default defineComponent({
           channelId: this.channelId
         })
 
-        this.playlistItems = result.items.map(parseLocalPlaylistVideo)
+        this.playlistItems = playlistItems
 
         let shouldGetNextPage = false
         if (result.has_continuation) {
@@ -356,7 +371,7 @@ export default defineComponent({
         this.viewCount = result.viewCount
         this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstanceUrl)
         this.channelId = result.authorId
         this.infoSource = 'invidious'
 
@@ -414,8 +429,38 @@ export default defineComponent({
 
       this.isLoading = false
     },
+
     showUserPlaylistNotFound() {
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
+    },
+
+    getPlaylistItemsWithDuration() {
+      const modifiedPlaylistItems = deepCopy(this.playlistItems)
+      let anyVideoMissingDuration = false
+      modifiedPlaylistItems.forEach(video => {
+        if (videoDurationPresent(video)) { return }
+
+        const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
+        if (typeof videoHistory !== 'undefined') {
+          const fetchedLengthSeconds = videoDurationWithFallback(videoHistory)
+          video.lengthSeconds = fetchedLengthSeconds
+          // if the video duration is 0, it will be the fallback value, so mark it as missing a duration
+          if (fetchedLengthSeconds === 0) { anyVideoMissingDuration = true }
+        } else {
+          // Mark at least one video have no duration, show notice later
+          // Also assign fallback duration here
+          anyVideoMissingDuration = true
+          video.lengthSeconds = 0
+        }
+      })
+
+      // Show notice if not already shown before returning playlist items
+      if (anyVideoMissingDuration && !this.alreadyShownNotice) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
+        this.alreadyShownNotice = true
+      }
+
+      return modifiedPlaylistItems
     },
 
     getNextPage: function () {
@@ -427,7 +472,7 @@ export default defineComponent({
           // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are renderered
           this.isLoadingMore = true
 
-          setTimeout(() => {
+          nextTick(() => {
             if (this.userPlaylistVisibleLimit + 100 < this.videoCount) {
               this.userPlaylistVisibleLimit += 100
             } else {

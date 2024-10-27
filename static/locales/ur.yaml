@@ -63,13 +63,7 @@ Channels:
   Search bar placeholder: 'چینلز تلاش کریں۔'
   Count: '{number}چینل ملا۔'
   Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
-  Unsubscribe: 'ان سبسکرائب کریں۔'
-  Unsubscribed: '{channelName} کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
 User Playlists:
-  Playlist Message: یہ صفحہ مکمل طور پر کام کرنے والی پلے لسٹس کا عکاس نہیں ہے۔ یہ
-    صرف ان ویڈیوز کی فہرست بناتا ہے جنہیں آپ نے محفوظ کیا ہے یا پسند کیا ہے۔ جب کام
-    ختم ہو جائے تو سب فی الحال یہاں موجود ویڈیوز کو 'پسندیدہ' پلے لسٹ میں منتقل کر
-    دیا جائے گا۔
   Empty Search Message: 'اس پلے لسٹ میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش سے
     مماثل ہوں۔'
   Search bar placeholder: 'پلے لسٹ میں تلاش کریں۔'
@@ -110,8 +104,6 @@ Settings:
       اور پروفائلز کو کامیابی کے ساتھ درآمد کیا گیا ہے۔'
     All subscriptions have been successfully imported: 'تمام سبسکرپشنز ہو چکی ہیں۔
       کامیابی سے درآمد کیا گیا۔'
-    One or more subscriptions were unable to be imported: 'ایک یا زیادہ سبسکرپشنز
-      درآمد کرنے کے قابل نہیں تھے'
     Subscriptions have been successfully exported: 'سبسکرپشنز کامیابی سے ہو گئی ہیں۔
       برآمد'
     History object has insufficient data, skipping item: 'تاریخ کا اعتراض ناکافی ہے۔
@@ -165,11 +157,6 @@ Tooltips:
       'جب کوئی لنک، جسے FreeTube میں نہیں کھولا جا سکتا، پر کلک کیا جاتا ہے تو پہلے سے طے شدہ طرز عمل کا انتخاب کریں۔
        بطور ڈیفالٹ FreeTube آپ کے ڈیفالٹ براؤزر میں کلک کردہ لنک کو کھول دے گا۔'
   Player Settings:
-    Force Local Backend for Legacy Formats: 'صرف اس وقت کام کرتا ہے جب Invidious API
-      آپ کا ہو۔ پہلے سے طے شدہ فعال ہونے پر، مقامی API چلائے گا اور لوٹے گئے لیگیسی
-      فارمیٹس کا استعمال کرے گا۔ اس کے بجائے Invidious کی طرف سے واپس آنے والوں کی
-      بجائے۔ ویڈیوز واپس آنے پر مدد کرتا ہے۔ ملک کی پابندیوں کی وجہ سے Invidious نہ
-      کھیلیں۔'
     Proxy Videos Through Invidious: 'اس کی بجائے ویڈیوز پیش کرنے کے لیے Invidious
       سے منسلک ہوں گے۔ یوٹیوب سے براہ راست کنکشن بنانے کا۔ API کی ترجیح کو اوور رائیڈ
       کرتا ہے۔'
@@ -204,12 +191,8 @@ Tooltips:
 # Toast Messages
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
   ویڈیو غائب فارمیٹس کی وجہ سے دستیاب نہیں ہے۔ یہ ملک کی وجہ سے ہوسکتا ہے۔ غیر دستیابی'
-Subscriptions have not yet been implemented: 'سبسکرپشنز کو ابھی تک نافذ نہیں کیا گیا
-  ہے۔'
 Unknown YouTube url type, cannot be opened in app: 'نامعلوم YouTube url قسم، ایپ میں
   نہیں کھولی جا سکتی'
-Hashtags have not yet been implemented, try again later: 'ہیش ٹیگز ابھی لاگو نہیں
-  ہوئے، بعد میں دوبارہ کوشش کریں۔'
 Loop is now disabled: 'لوپ اب غیر فعال ہے۔'
 Loop is now enabled: 'لوپ اب فعال ہے۔'
 Shuffle is now disabled: 'شفل اب غیر فعال ہے۔'

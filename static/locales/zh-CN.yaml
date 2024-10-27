@@ -41,6 +41,8 @@ Global:
     Subscriber Count: 1 位订阅者 | {count} 位订阅者
     View Count: 1 次观看 | {count} 次观看
     Watching Count: 1 人正在观看 | {count} 人正在观看
+    Like Count: 1 个赞 | {count} 个赞
+    Comment Count: 1 条评论 | {count} 条评论
   Input Tags:
     Length Requirement: 标签长度至少为 {number} 个字符
 Search / Go to URL: '搜索 / 前往URL'
@@ -96,7 +98,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
   Latest Subscriptions: '最新订阅'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的订阅列表目前是空的。在这里开始添加订阅。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的订阅列表目前是空的。如果想要导入订阅，可以转到“数据设置”并选择“导入订阅”，或者搜索频道并订阅。'
   'Getting Subscriptions.  Please wait.': '获取订阅中。 请稍等。'
   Refresh Subscriptions: 刷新订阅
   Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
@@ -122,18 +124,15 @@ Most Popular: '最流行'
 Playlists: '播放列表'
 User Playlists:
   Your Playlists: '您的播放列表'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您未保存视频。点击视频角落的“保存”按钮保存视频
-  Playlist Message: 本页面不代表功能完备的播放列表。它只列举您保存或喜爱的播放列表。当项目完成时，本页面的所有视频将会迁移到“最喜爱”播放列表。
   Search bar placeholder: 搜索播放列表
   Empty Search Message: 此播放列表中没有匹配你搜索的视频
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 你确定要从此播放列表删除所有已观看的视频吗？此操作无法撤销。
   AddVideoPrompt:
     Search in Playlists: 在播放列表中搜索
     Save: 保存
     Toast:
       "{videoCount} video(s) added to {playlistCount} playlists": 添加了 1 则视频到 {playlistCount}
         个播放列表 | 添加了 {videoCount} 则视频到 {playlistCount} 个播放列表
-      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {playlistCount}
+      "{videoCount} video(s) added to 1 playlist": 添加了1 则视频到 1 个播放列表 | 添加了 {videoCount}
         则视频到 1 个播放列表
       You haven't selected any playlist yet.: 你尚未选中任何播放列表。
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount}
@@ -161,7 +160,6 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 则视频已被删除 | {videoCount} 则视频已被删除
       This video cannot be moved down.: 无法下移此视频。
       This playlist is now used for quick bookmark: 此播放列表现用于快速添加书签
-      Quick bookmark disabled: 停用了快速添加书签
       Reverted to use {oldPlaylistName} for quick bookmark: 恢复到使用播放列表 {oldPlaylistName}
         进行快速添加书签操作
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放列表现用于快速添加书签，而非
@@ -169,6 +167,8 @@ User Playlists:
       This playlist is already being used for quick bookmark.: 此播放列表已被用于快速书签。
       Playlist {playlistName} is the new quick bookmark playlist.: 播放列表 {playlistName}
         是新的快速书签播放列表。
+      This playlist has a video with a duration error: 此播放列表包含至少一个没有持续时间的视频，排序时将按照持续时间为
+        0 对待此视频。
     Search for Videos: 搜索视频
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
@@ -206,7 +206,6 @@ User Playlists:
   Add to Favorites: 添加到播放列表 {playlistName}
   Enable Quick Bookmark With This Playlist: 开启使用此播放列表来快速添加书签
   Remove from Favorites: 从播放列表 {playlistName} 删除
-  Disable Quick Bookmark: 停用快速添加书签
   Playlists with Matching Videos: 有匹配视频的播放列表
   Quick Bookmark Enabled: 启用了快速书签
   Cannot delete the quick bookmark target playlist.: 无法删除快速书签目标播放列表。
@@ -222,11 +221,12 @@ History:
   Your history list is currently empty.: 您的历史记录列表目前是空的。
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
+  Case Sensitive Search: 区分大小写的搜索
 Settings:
   # On Settings Page
   Settings: '设置'
   General Settings:
-    General Settings: '常规设置'
+    General Settings: '常规'
     Fallback to Non-Preferred Backend on Failure: '失败时回撤到非首选后端'
     Enable Search Suggestions: '允许搜索建议'
     Default Landing Page: '默认加载页面'
@@ -247,7 +247,6 @@ Settings:
       End: '结尾'
       Hidden: 隐藏缩略图
       Blur: 模糊
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries
     Check for Updates: 检查更新
@@ -269,7 +268,7 @@ Settings:
       Label: 自动加载下一页
       Tooltip: 自动加载额外页面和评论。
   Theme Settings:
-    Theme Settings: '主题设置'
+    Theme Settings: '主题'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
     Base Theme:
       Base Theme: '基本主题'
@@ -339,9 +338,7 @@ Settings:
     Hide Side Bar Labels: 隐藏侧边栏标签
     Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
-    Player Settings: '播放器选项'
-    Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
-    Remember History: '记住历史'
+    Player Settings: '播放器'
     Play Next Video: '播放下一视频'
     Turn on Subtitles by Default: '默认开启字幕'
     Autoplay Videos: '自动播放视频'
@@ -390,51 +387,20 @@ Settings:
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
-    Allow DASH AV1 formats: 允许 DASH AV1 格式
   Subscription Settings:
-    Subscription Settings: '订阅设置'
+    Subscription Settings: '订阅'
     Hide Videos on Watch: '观看时隐藏视频'
-    Subscriptions Export Format:
-      Subscriptions Export Format: '导出订阅格式'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: '管理订阅'
-    Import Subscriptions: '导入订阅'
-    Export Subscriptions: '导出订阅'
-    How do I import my subscriptions?: '如何导入我的订阅？'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
     Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
     Confirm Before Unsubscribing: 避免意外取消订阅
-  Advanced Settings:
-    Advanced Settings: '高级设置'
-    Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': '代理地址（例如：SOCKS5://127.0.0.1:9050）'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '点击“测试代理”键将发送请求给https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: '用Tor / 代理给API呼叫'
-    TEST PROXY: '测试代理'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '显示公共实例'
-    Clear History:
-      Clear History: '清除历史记录'
-      # On Click
-      Are you sure you want to delete your history?: '您确认想删除您的历史记录？'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: '清除订阅'
-      # On Click
-      Are you sure you want to remove all subscriptions?: '您确定想移除所有订阅？'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史记录？
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
     Save Watched Progress: 保存观看进度
     Remember History: 记住历史记录
-    Privacy Settings: 隐私设置
+    Privacy Settings: 隐私
     Watch history has been cleared: 观看历史记录已清除
     Remove Watch History: 移除观看历史记录
     Search cache has been cleared: 搜索缓存已清除
@@ -466,15 +432,10 @@ Settings:
     Export YouTube: 导出YouTube
     Export FreeTube: 导出FreeTube
     Export Subscriptions: 导出订阅
-    Import NewPipe: 导入NewPipe
-    Import YouTube: 导入YouTube
-    Import FreeTube: 导入FreeTube
     Import Subscriptions: 导入订阅
     Select Export Type: 选择导出类型
     Select Import Type: 选择导入类型
-    Data Settings: 数据设置
-    One or more subscriptions were unable to be imported: 一个或者更多订阅无法被导入
-    Check for Legacy Subscriptions: 检查传统订阅
+    Data Settings: 数据
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表
     Export Playlists: 导出播放列表
@@ -498,7 +459,7 @@ Settings:
     Hide Channel Subscribers: 隐藏频道订阅者
     Hide Video Likes And Dislikes: 隐藏视频喜欢与不喜欢
     Hide Video Views: 隐藏视频观看数量
-    Distraction Free Settings: 零打扰设置
+    Distraction Free Settings: 零打扰
     Hide Active Subscriptions: 隐藏活跃的订阅
     Hide Playlists: 隐藏播放列表
     Hide Live Streams: 隐藏直播
@@ -526,7 +487,6 @@ Settings:
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
-    Blur Thumbnails: 模糊缩略图
     Hide Subscriptions Community: 隐藏订阅社区
     Hide Channels Invalid: 提供的频道 ID 无效
     Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
@@ -538,7 +498,7 @@ Settings:
   Proxy Settings:
     Proxy Protocol: 代理协议
     Enable Tor / Proxy: 使用Tor/代理
-    Proxy Settings: 代理设置
+    Proxy Settings: 代理
     Error getting network information. Is your proxy configured properly?: 获取网络信息错误。您的代理配置是否正确？
     City: 城市
     Region: 地区
@@ -554,7 +514,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 赞助商区域调用的API地址（默认是
       https://sponsor.ajay.app）
     Enable SponsorBlock: 开启赞助商区域
-    SponsorBlock Settings: 赞助商区域设置
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Auto Skip: 自动跳过
       Show In Seek Bar: 显示在查找栏中
@@ -571,25 +531,25 @@ Settings:
     Custom External Player Executable: 自定义外部播放器的可执行文件
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
-    External Player Settings: 外部播放器设置
+    External Player Settings: 外部播放器
     Players:
       None:
         Name: 无
     Ignore Default Arguments: 忽略默认变量
   Download Settings:
-    Download Settings: 下载设置
+    Download Settings: 下载
     Ask Download Path: 询问下载路径
     Choose Path: 选择路径
     Download in app: 应用内下载
     Open in web browser: 在网络浏览器内打开
     Download Behavior: 下载行为
   Parental Control Settings:
-    Parental Control Settings: 家长控制设置
+    Parental Control Settings: 家长控制
     Show Family Friendly Only: 仅显示“家庭友好”视频
     Hide Search Bar: 隐藏搜索栏
     Hide Unsubscribe Button: 隐藏“取消订阅”按钮
   Experimental Settings:
-    Experimental Settings: 实验性设置
+    Experimental Settings: 实验性
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
     Replace HTTP Cache: 替换 HTTP 缓存
   Password Dialog:
@@ -598,36 +558,16 @@ Settings:
     Password Incorrect: 密码不正确
     Unlock: 解锁
   Password Settings:
-    Password Settings: 密码设置
+    Password Settings: 密码
     Set Password To Prevent Access: 设置密码防止访问设置
     Set Password: 设置密码
     Remove Password: 删除密码
-  Expand All Settings Sections: 展开所有设置部分
   Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
+  Return to Settings Menu: 返回设置菜单
 About:
   #On About page
   About: '关于'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': '这个自由软件发布在AGPL-3.0自由许可证下。'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    发现bug？想建议新功能？想帮助？查看我们的GitHub页面。 欢迎pull requests。
-
-  Thank you very much to the People and Projects that make FreeTube possible!: '非常感谢让FreeTube变得有可能的人和项目！'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '想聊天？加入我们的Element
-    / Matrix服务器。加入前请检查规则。'
-
-  'Looking for help? Check out our Wiki page.': '寻求帮助？查看我们的Wiki页面。'
-
-  Check out our Firefox extension!: '查看我们的Firefox插件！'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': '如果您喜欢使用FreeTube，考虑通过Liberapay或者Bitcoin地址捐赠。'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: '最新FreeTube新闻'
-
 #On Channel Page
   Source code: 源代码
   Beta: 测试版
@@ -644,8 +584,6 @@ About:
   FreeTube Wiki: FreeTube维基
   Help: 说明
   GitHub releases: GitHub 版本
-  View License: 查看授权
-  Licensed under the AGPLv3: 以 AGPLv3 协议授权
   Please check for duplicates before posting: 请在发布前检查是否与现有问题重复
   GitHub issues: Github 问题
   Report a problem: 报告问题
@@ -657,8 +595,6 @@ About:
   Licensed under the: 许可依据
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: '订阅者'
-  Subscribers: '订阅者'
   Subscribe: '订阅'
   Unsubscribe: '取消订阅'
   Search Channel: '搜索频道'
@@ -702,6 +638,9 @@ Channel:
     Reveal Answers: 揭晓答案
     Hide Answers: 隐藏答案
     Video hidden by FreeTube: 视频被 FreeTube 隐藏
+    View Full Post: 查看完整帖子
+    Viewing Posts Only Supported By Invidious: 仅 Invidious 支持查看帖子。请转到频道的社区标签页在不用 Invidious
+      情况下查看内容。
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流
@@ -777,11 +716,6 @@ Video:
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
   Starting soon, please refresh the page to check again: 即将开始，请刷新页面再次检查
-  Audio:
-    Best: 最佳
-    High: 高
-    Medium: 中
-    Low: 低
   audio only: 仅音频
   video only: 仅视频
   Download Video: 下载视频
@@ -794,25 +728,6 @@ Video:
   Video has been removed from your saved list: 视频已从你的播放列表移除
   Video has been saved: 视频已保存
   Save Video: 保存视频到播放列表
-  Stats:
-    video id: 视频 ID (YouTube)
-    player resolution: 视区
-    volume: 音量
-    fps: 每秒帧数
-    out of: 中的
-    frame drop: 掉帧
-    bandwidth: 连接速度
-    buffered: 缓冲
-    Video ID: 视频 ID
-    Resolution: 分辨率
-    Player Dimensions: 播放器尺寸
-    Bitrate: 比特率
-    Volume: 音量
-    Buffered: 已缓冲
-    Dropped / Total Frames: 丢弃帧/总帧数
-    Mimetype: 互联网媒体类型
-    Bandwidth: 带宽
-    Video statistics are not available for legacy videos: 视频统计数据对于 legacy 视频不可用
   External Player:
     OpenInTemplate: 在 {externalPlayer} 中打开
     video: 视频
@@ -838,8 +753,6 @@ Video:
     sponsor: 赞助者
     recap: 回顾
     filler: 过滤器
-  translated from English: 从英语翻译
-  Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
   Scroll to Bottom: 滚动到底部
@@ -850,6 +763,34 @@ Video:
   Unhide Channel: 显示频道
   Hide Channel: 隐藏频道
   More Options: 更多选项
+  Player:
+    Audio Tracks: 音轨
+    Theatre Mode: 影院模式
+    Full Window: 全窗口
+    Exit Full Window: 退出全窗口
+    Take Screenshot: 截屏
+    Show Stats: 显示统计信息
+    Hide Stats: 隐藏统计信息
+    Stats:
+      Stats: 统计信息
+      Video ID: 视频 ID： {videoId}
+      Media Formats: 媒体格式：{formats}
+      Resolution: 分辨率：{width}x{height}@{frameRate}
+      Player Dimensions: 播放器尺寸： {width}x{height}
+      Bitrate: 比特率：{bitrate} kbps
+      Volume: 音量：{volumePercentage}%
+      Buffered: 已缓冲：{bufferedPercentage}%
+      Dropped Frames / Total Frames: 丢弃帧：{droppedFrames} / 总帧数： {totalFrames}
+      CodecAudio: 编解码器：{audioCodec} ({audioItag})
+      CodecsVideoAudioNoItags: 编解码器：{videoCodec} / {audioCodec}
+      Bandwidth: 带宽：{bandwidth} kbps
+      CodecsVideoAudio: 编解码器：{videoCodec} ({videoItag}) / {audioCodec} ({audioItag})
+    You appear to be offline: 你似乎处于离线状态。
+    Playback will resume automatically when your connection comes back: 网络连接恢复时，将自动继续播放。
+    TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
+    Exit Theatre Mode: 推出影院模式
+    Skipped segment: 跳过了 {segmentCategory} 部分
+  IP block: 你的 IP 地址被 Youtube 禁止观看视频。请试着切换到不同的 VPN 或代理。
 Videos:
   #& Sort By
   Sort By:
@@ -860,9 +801,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
-  Videos: '视频'
-  View: '观看'
-  Views: '观看'
   Last Updated On: '最后更新于'
 
 # On Video Watch Page
@@ -878,7 +816,8 @@ Playlist:
     VideoTitleDescending: 标题（Z-A)
     Custom: 自定义
     VideoTitleAscending: 标题（A-Z）
-Toggle Theatre Mode: '切换剧场模式'
+    VideoDurationAscending: 持续时间（最短的优先）
+    VideoDurationDescending: 持续时间（最长的优先）
 Change Format:
   Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
@@ -886,6 +825,7 @@ Change Format:
   Use Audio Formats: '使用音频格式'
   Audio formats are not available for this video: 这个视频没有音频格式
   Dash formats are not available for this video: 这个视频没有Dash格式
+  Legacy formats are not available for this video: 旧格式对这个视频不可用
 Share:
   Share Video: '分享视频'
   Share Playlist: '分享播放列表'
@@ -929,6 +869,7 @@ Comments:
   Hearted: 喜欢的
   View {replyCount} replies: 查看 {replyCount} 条回复
   Subscribed: 已订阅
+  There are no comments available for this post: 此帖子没有评论
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -936,7 +877,6 @@ Local API Error (Click to copy): '本地API错误（点击复制）'
 Invidious API Error (Click to copy): 'Invidious API错误（点击复制）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to Local API: '回退到本地API'
-Subscriptions have not yet been implemented: '订阅功能尚未被推行'
 Loop is now disabled: '循环播放现在被禁用'
 Loop is now enabled: '循环播放现在被允许'
 Shuffle is now disabled: '随机播放现在被禁用'
@@ -985,7 +925,7 @@ Profile:
   Select All: 全选
   Other Channels: 其他频道
   Subscription List: 订阅列表
-  Profile Settings: 个人资料设置
+  Profile Settings: 个人资料
   Profile Filter: 个人资料筛选器
   Toggle Profile List: 切换个人资料列表
   Open Profile Dropdown: 打开配置文件下拉菜单
@@ -1000,19 +940,15 @@ Version {versionNumber} is now available!  Click for more details: 版本{versio
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 启用后，FreeTube将使用RSS而非默认方式来取得您的订阅推送。RSS更快而且可避免IP封锁，但不提供某些信息，如影片长度与即时状态
+    Fetch Feeds from RSS: 启用后，FreeTube 将使用 RSS 而非默认方式来取得您的订阅推送。RSS 更快而且可避免 IP 封锁，但不提供某些信息，如视频长度，直播状态或社区帖子
     Fetch Automatically: 开启后，打开新窗口和切换配置文件时，FreeTube 会自动抓取你的订阅源。
   Player Settings:
     Default Video Format: 设置播放视频时使用的格式。DASH 格式可以播放更高质量的视频。 传统格式限制为最大 720p，但使用较少的带宽。
       音频格式是纯音频流。
-    Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。覆盖 API 偏好。
-    Force Local Backend for Legacy Formats: 仅当 Invidious API是您默认 API 时才有效。启用后，本地API
-      将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
+    Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
     Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
-    Allow DASH AV1 formats: DASH AV1 格式画质也许比 DASH H.264 格式要好。 但请注意 DASH AV1 格式耗电更多！不是所有视频都有
-      DASH AV1 格式，如果没有的话，播放器会使用 DASH H.264 格式。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。
@@ -1045,7 +981,6 @@ Search Bar:
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
-Hashtags have not yet been implemented, try again later: 话题标签功能尚未实现，请稍后再试
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
@@ -1061,11 +996,9 @@ New Window: 新窗口
 Channels:
   Search bar placeholder: 搜索频道
   Count: 找到了 {number} 个频道。
-  Unsubscribe: 取消订阅
   Channels: 频道
   Title: 频道列表
   Empty: 你的频道列表当前为空。
-  Unsubscribed: 从你的订阅里删除了 {channelName}
   Unsubscribe Prompt: 你确定你要取消订阅 "{channelName}" 吗？
 Clipboard:
   Copy failed: 未能复制到剪贴板
@@ -1107,4 +1040,9 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: 隐藏式字幕
+    New: 新的
+    3D: 3D
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
 'Blocked opening potentially unsafe URL': 阻止了打开潜在不安全的 URL： "{url}".

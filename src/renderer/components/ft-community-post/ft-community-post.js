@@ -7,7 +7,13 @@ import autolinker from 'autolinker'
 
 import { A11y, Navigation, Pagination } from 'swiper/modules'
 
-import { createWebURL, deepCopy, toLocalePublicationString } from '../../helpers/utils'
+import {
+  createWebURL,
+  deepCopy,
+  formatNumber,
+  getRelativeTimeFromDate,
+  toLocalePublicationString,
+} from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -29,7 +35,11 @@ export default defineComponent({
     hideForbiddenTitles: {
       type: Boolean,
       default: true
-    }
+    },
+    singlePost: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {
@@ -37,9 +47,11 @@ export default defineComponent({
       postId: '',
       authorThumbnails: null,
       publishedText: '',
-      voteCount: '',
+      voteCount: 0,
+      formattedVoteCount: '',
       postContent: '',
-      commentCount: '',
+      commentCount: null,
+      formattedCommentCount: '',
       author: '',
       authorId: '',
     }
@@ -56,6 +68,16 @@ export default defineComponent({
 
     hideVideo() {
       return this.forbiddenTitles.some((text) => this.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+    isInvidiousAllowed: function() {
+      return this.backendPreference === 'invidious' || this.backendFallback
     }
   },
   created: function () {
@@ -121,13 +143,15 @@ export default defineComponent({
       this.postContent = this.data.postContent
       this.postId = this.data.postId
       this.publishedText = toLocalePublicationString({
-        publishText: this.data.publishedText,
+        publishText: getRelativeTimeFromDate(this.data.publishedTime),
         isLive: this.isLive,
         isUpcoming: this.isUpcoming,
         isRSS: this.data.isRSS
       })
       this.voteCount = this.data.voteCount
+      this.formattedVoteCount = formatNumber(this.voteCount)
       this.commentCount = this.data.commentCount
+      this.formattedCommentCount = formatNumber(this.commentCount)
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
       this.author = this.data.author
       this.authorId = this.data.authorId

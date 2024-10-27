@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 tellija | {count} tellijat
     View Count: 1 vaatamine | {count} vaatamist
     Watching Count: 1 vaatamas | {count} vaatamas
+    Like Count: 1 meeldimine | {count} meeldimist
+    Comment Count: 1 kommentaar | {count} kommentaari
   Input Tags:
     Length Requirement: Silt peab olema vähemalt {number} tähemärki pikk
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
@@ -105,7 +107,9 @@ Subscriptions:
   Subscriptions: 'Tellimused'
   Latest Subscriptions: 'Viimased tellimused'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinu
-    tellimuste loend on hetkel tühi. Telli kanaleid ja sa näed neid siin loendis.'
+    tellimuste loend on hetkel tühi. Kui sa soovid importida oma tellimusi, siis ava
+    seadistustest „Andmehaldus“ ja vali „Impordi tellimused“, aga samuti võid kanaleid
+    lihtsalt otsida ning seejärel tellida.'
   'Getting Subscriptions. Please wait.': 'Laadin tellimusi, palun oota.'
   Refresh Subscriptions: 'Värskenda tellimusi'
   Load More Videos: Laadi veel videosid
@@ -132,17 +136,8 @@ Most Popular: 'Populaarseimad'
 Playlists: 'Esitusloendid'
 User Playlists:
   Your Playlists: 'Sinu esitusloendid'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Sa
-    pole veel videosid siia salvestanud. Selleks palun vajuta video nurgas asuvat
-    salvestusnuppu
-  Playlist Message: See leht ei kirjelda terviklikke ja toimivad esitusloendeid. Siin
-    on kirjas vaid videod, mida oled salvestanud või mille oled märkinud lemmikuks.
-    Kui kõik on valmis, siis siin nähtavad videod on leitavad esitusloendist „Lemmikud“.
   Search bar placeholder: Otsi esindusloendeid
   Empty Search Message: Selles esitusloendis pole sinu otsingule vastavaid videosid
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Kas
-    sa oled kindel, et soovid kõik vaadatud videod sellest esitusloendist eemaldada?
-    Seda tegevust ei saa tagasi pöörata.
   You have no playlists. Click on the create new playlist button to create a new one.: Sul
     pole esitusloendeid. Uue esitusloendi loomiseks vajuta nuppu „Uus esitusloend“.
   Remove from Playlist: Eemalda esitusloendist
@@ -204,13 +199,15 @@ User Playlists:
         tühistamiseks klõpsi siin'
       This playlist is now used for quick bookmark: See esitusloend on kasutusel kiirjärjehoidjate
         jaoks
-      Quick bookmark disabled: Kiirjärjehoidjad ei ole kasutusel
       Reverted to use {oldPlaylistName} for quick bookmark: Võtsime {oldPlaylistName}
         uuesti kasutusele kiirjärjehoidjate jaoks
       Playlist {playlistName} is the new quick bookmark playlist.: Esitusloend {playlistName}
         on uus kiirjärjehoidjate esitusloend.
       This playlist is already being used for quick bookmark.: See esitusloend juba
         on kasutusel kiirjärjehoidjate jaoks.
+      This playlist has a video with a duration error: Selles esitusloendis on vähemalt
+        üks video, millel puudub kestus. Järjestamisel me sel puhul arvestame kestuseks
+        nulli.
     Search for Videos: Otsi videoid
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
     kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
@@ -234,7 +231,6 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Sellise
         nimega esitusloend on juba olemas. Palun sisesta muu nimi.
     New Playlist Name: Esitusloendi uus nimi
-  Disable Quick Bookmark: Lülita kiirjärjehoidjate kasutamine välja
   Add to Favorites: Lisa esitusloendisse {playlistName}
   Remove from Favorites: Eemalda esitusloendist {playlistName}
   Enable Quick Bookmark With This Playlist: Võimalda kiirjärjehoidjate kasutamist
@@ -259,11 +255,12 @@ History:
   Your history list is currently empty.: 'Sinu ajalugu on hetkel tühi.'
   Search bar placeholder: Otsi ajaloost
   Empty Search Message: Sinu ajaloos pole sinu otsingule vastavaid videosid
+  Case Sensitive Search: Tõstutundlik otsing
 Settings:
   # On Settings Page
   Settings: 'Seadistused'
   General Settings:
-    General Settings: 'Üldised seadistused'
+    General Settings: 'Üldist'
     Check for Updates: 'Kontrolli uuendusi'
     Check for Latest Blog Posts: 'Vaata viimaseid blogipostitusi'
     Fallback to Non-Preferred Backend on Failure: 'Luba vigade korral kasutada teist
@@ -287,8 +284,6 @@ Settings:
       End: 'Lõpus'
       Hidden: Peidetud
       Blur: Hägusta pildid
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
-      veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
     Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
       koguvad videod'
         #! List countries
@@ -312,7 +307,7 @@ Settings:
       Label: Laadi järgmine leht automaatselt
       Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
   Theme Settings:
-    Theme Settings: 'Välimuse seadistused'
+    Theme Settings: 'Kujundus'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
     Base Theme:
       Base Theme: 'Põhiteema'
@@ -382,9 +377,7 @@ Settings:
     Hide Side Bar Labels: Peida külgriba sildid
     Hide FreeTube Header Logo: Peida FreeTube'i päise logo
   Player Settings:
-    Player Settings: 'Videomängija seadistused'
-    Force Local Backend for Legacy Formats: 'Pärandvormingute puhul kasuta sundkorras
-      kohalikku taustateenust'
+    Player Settings: 'Meediamängija'
     Play Next Video: 'Esita ka järgmist videot'
     Turn on Subtitles by Default: 'Vaikimisi näita subtiitreid'
     Autoplay Videos: 'Esita videod automaatselt'
@@ -434,10 +427,9 @@ Settings:
         %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
         Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
-    Allow DASH AV1 formats: Luba DASH AV1 vormingud
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
   Privacy Settings:
-    Privacy Settings: 'Privaatsuse seadistused'
+    Privacy Settings: 'Privaatsus'
     Remember History: 'Jäta ajalugu meelde'
     Save Watched Progress: 'Salvesta vaatamise olek'
     Clear Search Cache: 'Kustuta otsingute ajalugu'
@@ -459,10 +451,9 @@ Settings:
     Are you sure you want to remove all your playlists?: Kas sa oled kindel, et soovid
       kõik esitusloendid eemaldada?
   Subscription Settings:
-    Subscription Settings: 'Tellimuste seadistused'
+    Subscription Settings: 'Tellimused'
     Hide Videos on Watch: 'Vaatamisel peida videod'
     Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
-    Manage Subscriptions: 'Halda tellimusi'
     Fetch Automatically: Laadi tellimuste voog automaatselt
     Only Show Latest Video for Each Channel: Iga kanali puhul näita vaid viimast videot
     Confirm Before Unsubscribing: Väldi ekslikku ja juhuslikku tellimusest loobumist
@@ -471,9 +462,6 @@ Settings:
     Select Import Type: 'Vali imporditava faili vorming'
     Select Export Type: 'Vali eksporditava faili vorming'
     Import Subscriptions: 'Impordi tellimused'
-    Import FreeTube: 'Kasuta FreeTube vormingut'
-    Import YouTube: 'Kasuta YouTube vormingut'
-    Import NewPipe: 'Kasuta NewPipe vormingut'
     Export Subscriptions: 'Ekspordi tellimused'
     Export FreeTube: 'Ekspordi FreeTube vormingus'
     Export YouTube: 'Ekspordi YouTube vormingus'
@@ -486,8 +474,6 @@ Settings:
       ja profiilide import õnnestus'
     All subscriptions have been successfully imported: 'Kõikide tellimuste import
       õnnestus'
-    One or more subscriptions were unable to be imported: 'Ühte või enamat tellimust
-      ei õnnestunud importida'
     Invalid subscriptions file: 'Vigane tellimuste fail'
     This might take a while, please wait: 'Nüüd võib natuke aega kuluda, palun oota'
     Invalid history file: 'Vigane ajaloofail'
@@ -503,7 +489,6 @@ Settings:
     Unknown data key: 'Tundmatu andmevõti'
     How do I import my subscriptions?: 'Kuidas ma saan oma tellimusi importida?'
     Manage Subscriptions: Halda tellimusi
-    Check for Legacy Subscriptions: Kontrolli pärandvormingus tellimuste olemasolu
     Export Playlists: Ekspordi esitusloendeid
     All playlists has been successfully imported: Kõikide esitusloendite import õnnestus
     All playlists has been successfully exported: Kõikide esitusloendite eksport õnnestus
@@ -521,7 +506,6 @@ Settings:
         „Kustuta kõik esitusloendid“.\n3. Käivita vanem FreeTube'i versioon ja impordi
         esimeses sammus eksporditud esitusloendid."
       Label: Ekspordi esitusloendid vanemate FreeTube'i versioonide jaoks
-  Advanced Settings: {}
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -533,7 +517,7 @@ Settings:
     Hide Channel Subscribers: Peida kanalite tellijad
     Hide Video Likes And Dislikes: Peida videote meeldimiste ja mittemeeldimiste arvud
     Hide Video Views: Peida videote vaatamiskordade arv
-    Distraction Free Settings: Seadista endale võimalikult rahulik videote vaatamine
+    Distraction Free Settings: Rahulik vaade
     Hide Video Description: Peida video kirjeldus
     Hide Comments: Peida kommentaarid
     Hide Live Streams: Peida otseülekanded
@@ -560,7 +544,6 @@ Settings:
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
-    Blur Thumbnails: Hägusta pisipildid
     Hide Subscriptions Community: Peida tellijate loend
     Hide Channels Invalid: Sisestatud kanali tunnus on vigane
     Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel
@@ -587,7 +570,7 @@ Settings:
     Proxy Host: Puhverserveri aadress
     Proxy Protocol: Puhverserveri protokoll
     Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
-    Proxy Settings: Puhverserveri seadistused
+    Proxy Settings: Puhverserver
   The app needs to restart for changes to take effect. Restart and apply change?: See
     rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
@@ -595,7 +578,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Sponsorite blokeerija
       API URL (vaikimisi https://sponsor.ajay.app)
     Enable SponsorBlock: Kasuta sponsorite blokeerijat
-    SponsorBlock Settings: Sponsorite blokeerija seadistused
+    SponsorBlock Settings: Sponsorite blokeerija
     Skip Options:
       Auto Skip: Automaatne vahelejätmine
       Show In Seek Bar: Näita otsinguribal
@@ -609,7 +592,7 @@ Settings:
       pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Väline meediamängija
-    External Player Settings: Välise meediamängija seadistused
+    External Player Settings: Väline meediamängija
     Custom External Player Arguments: Välise meediamängija rakenduse argumendid
     Custom External Player Executable: Välise meediamängija rakenduse asukoht
     Ignore Unsupported Action Warnings: Eira mittetoetatud toimingute hoiatusi
@@ -618,19 +601,19 @@ Settings:
         Name: Puudub
     Ignore Default Arguments: Eira vaikimisi käsureaargumente
   Download Settings:
-    Download Settings: Allalaadimise seadistused
+    Download Settings: Allalaadimised
     Ask Download Path: Küsi kuhu kausta soovid faile alla laadida
     Choose Path: Vali asukoht
     Download Behavior: Tegevus allalaadimisel
     Open in web browser: Ava veebibrauseris
     Download in app: Laadi alla rakenduses
   Parental Control Settings:
-    Parental Control Settings: Vanemliku järelevalve seadistused
+    Parental Control Settings: Vanemlik järelevalve
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
     Show Family Friendly Only: Näita ainult peresõbralikku sisu
     Hide Search Bar: Peida otsinguriba
   Experimental Settings:
-    Experimental Settings: Katselised seadistused
+    Experimental Settings: Katsed
     Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada
       rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete varundamist. Jätka
       omal vastutusel!
@@ -641,12 +624,12 @@ Settings:
     Unlock: Võta lukust lahti
     Password: Salasõna
   Password Settings:
-    Password Settings: Salasõna seadistused
+    Password Settings: Salasõnad
     Remove Password: Eemalda salasõna
     Set Password: Määra salasõna
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
-  Expand All Settings Sections: Laienda kõik seadistuste lõigud
   Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
+  Return to Settings Menu: Tagasi seadistuste menüü juurde
 About:
   #On About page
   About: 'Teave'
@@ -672,8 +655,6 @@ About:
   Help: Abiteave
   GitHub releases: Avaldatud versioonid leiad GitHub'ist
   Downloads / Changelog: Allalaadimised ja muudatuste logi
-  View License: Vaata litsentsiteavet inglise keeles
-  Licensed under the AGPLv3: Avaldatud AGPLv3 litsentsi alusel
   Source code: Lähtekood
   Beta: beetaversioon
   Discussions: Arutelud
@@ -722,7 +703,7 @@ Profile:
     profiilidest.'
 #On Channel Page
   Profile Filter: Sirvi profiile
-  Profile Settings: Profiili seadistused
+  Profile Settings: Profiil
   Toggle Profile List: Lülita profiilide loend sisse/välja
   Profile Name: Profiili nimi
   Edit Profile Name: Muuda profiili nime
@@ -779,6 +760,9 @@ Channel:
     Hide Answers: Peida vastused
     votes: '{votes} häält'
     Video hidden by FreeTube: FreeTube'i poolt peidetud video
+    View Full Post: Vaata kogu postitust
+    Viewing Posts Only Supported By Invidious: Postituste vaatamine toimib vaid Invidiouse
+      liidestusega. Ilma selleta saad lugeda sisu, mida näed kanali kogukonna vaatest.
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
@@ -867,14 +851,8 @@ Video:
     videote loendist
   Video has been saved: Video on salvestatud
   Save Video: Salvesta video
-  translated from English: tõlgitud inglise keelest
   Started streaming on: Voogedastus algas
   Streamed on: Voogedastatud
-  Audio:
-    High: Kõrge kvaliteet
-    Medium: Keskmine kvaliteet
-    Low: Madal kvaliteet
-    Best: Parim kvaliteet
   audio only: vaid helivoog
   video only: vaid videovoog
   Download Video: Laadi video alla
@@ -887,7 +865,6 @@ Video:
     sponsor: Sponsor
     filler: Täitevideo
     recap: Kokkuvõte
-  Skipped segment: Vahelejäetud lõik
   External Player:
     UnsupportedActionTemplate: 'Rakenduses {externalPlayer} puudub tugi: {action}'
     OpeningTemplate: Avan {videoOrPlaylist} {externalPlayer} rakendusega...
@@ -904,26 +881,6 @@ Video:
       setting a playback rate: taasesituskiiruse määramine
       starting video at offset: video esitamine ajanihkega
   Premieres on: Esilinastub
-  Stats:
-    video id: YouTube video tunnus
-    player resolution: Vaate suurus
-    volume: Helivaljus
-    fps: FPS
-    frame drop: Vahelejäetud kaadreid
-    bandwidth: Võrguühenduse kiirus
-    buffered: Puhverdatud
-    out of: /
-    Bandwidth: Ribalaius
-    Bitrate: Bitikiirus
-    Volume: Helivaljus
-    Dropped / Total Frames: Vahele jäetud kaadreid / kaadreid kokku
-    Player Dimensions: Meediaesitaja mõõdud
-    Buffered: Puhverdatud
-    Video ID: Video tunnus
-    Mimetype: Meedia MIME-tüüp
-    Video statistics are not available for legacy videos: Vana tüüpi videote puhul
-      pole statistika saataval
-    Resolution: Resolutsioon
   Premieres: Esilinastus
   Show Super Chat Comment: Näita Super Chat'i kommentaare
   Scroll to Bottom: Keri alla
@@ -934,6 +891,37 @@ Video:
   Unhide Channel: Näita kanalit
   Hide Channel: Peida kanal
   More Options: Veel valikuid
+  Player:
+    Audio Tracks: Heliribad
+    Theatre Mode: Teatrivaade
+    Exit Theatre Mode: Välju teatrivaatest
+    Full Window: Täisekraanivaade
+    Take Screenshot: Tee ekraanitõmmis
+    Show Stats: Näita statistikat
+    Stats:
+      Video ID: 'Video tunnus: {videoId}'
+      Media Formats: 'Meediavormingud: {formats}'
+      Bitrate: 'Bitikiirus: {bitrate} kbps'
+      Volume: 'Valjus: {volumePercentage}%'
+      Bandwidth: 'Ribalaius: {bandwidth} kbps'
+      Buffered: 'Puhverdatud: {bufferedPercentage}%'
+      CodecAudio: 'Koodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Koodekid: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Koodekid: {videoCodec} / {audioCodec}'
+      Stats: Statistika
+      Resolution: 'Mõõdud ja kaadrisagedus: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Meediamängija mõõdud: {width}x{height}'
+      Dropped Frames / Total Frames: 'Vahelejäetud kaadreid: {droppedFrames} / Kaadreid
+        kokku: {totalFrames}'
+    Skipped segment: Vahelejäetud {segmentCategory} segment
+    TranslatedCaptionTemplate: '{language} (algne keel „{originalLanguage}“)'
+    Exit Full Window: Välju täisekraanivaatest
+    Hide Stats: Peida statistika
+    Playback will resume automatically when your connection comes back: Taasesitus
+      jätkub automaatselt niipea, kui sinu seadme võrguühendus taastub.
+    You appear to be offline: Sa ei tundu olema võrgus.
+  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise.
+    Palun kasuta mõnda muud VPN-teenust või puhverserverit.
 Videos:
   #& Sort By
   Sort By:
@@ -944,9 +932,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
-  Videos: 'Videod'
-  View: 'Vaata'
-  Views: 'vaatamist'
   Last Updated On: 'Viimati uuendatud'
 
 # On Video Watch Page
@@ -962,7 +947,8 @@ Playlist:
     AuthorDescending: Autori alusel (Z-A)
     VideoTitleAscending: Pealkirja alusel (A-Z)
     VideoTitleDescending: Pealkirja alusel (Z-A)
-Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
+    VideoDurationAscending: Kestuse alusel (esmalt lühemad)
+    VideoDurationDescending: Kestuse alusel (esmalt pikemad)
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
   Use Dash Formats: 'Kasuta DASH-vorminguid'
@@ -972,6 +958,8 @@ Change Format:
     jaoks saadaval'
   Audio formats are not available for this video: 'Helivormingud ei ole selle video
     jaoks saadaval'
+  Legacy formats are not available for this video: Pärandvormingud pole selle video
+    jaoks saadaval
 Share:
   Share Video: 'Jaga videot'
   Share Playlist: 'Jaga esitusloendit'
@@ -1017,6 +1005,7 @@ Comments:
   Hearted: Südamlik
   View {replyCount} replies: Näita {replyCount} vastust
   Subscribed: Tellitud
+  There are no comments available for this post: Sellel postitusel pole ühtegi kommentaari
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -1027,7 +1016,6 @@ Falling back to Local API: 'Varuvariandina kasutan kohalikku API''t'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Kuna
   vajalikke vorminguid ei leidu, siis see video pole saadaval. Niisugune viga võib
   juhtuda ka maapiirangute tõttu.'
-Subscriptions have not yet been implemented: 'Tellimuste kasutamine pole veel implementeeritud'
 Loop is now disabled: 'Esituse kordamine ei ole nüüd kasutusel'
 Loop is now enabled: 'Esituse kordamine on nüüd kasutusel'
 Shuffle is now disabled: 'Juhuslik esitus ei ole nüüd kasutusel'
@@ -1043,8 +1031,6 @@ Yes: 'Jah'
 No: 'Ei'
 More: Veel
 Open New Window: Ava uus aken
-Hashtags have not yet been implemented, try again later: Teemaviiteid ei saa veel
-  kasutada, palun proovi hiljem uuesti
 Unknown YouTube url type, cannot be opened in app: Tundmatu YouTube'i urli tüüp, mida
   ei saa rakenduses avada
 Tooltips:
@@ -1066,7 +1052,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
-      IP-aadressi blokeerimise, kuid ei sisalda video kestust ja otseesituse olekut
+      IP-aadressi blokeerimise, kuid ei sisalda video kestust, otseesituse olekut
+      ja kogukonna postitusi
     Fetch Automatically: Kui see valik on kasutusel, siis FreeTube automaatselt laadib
       uue akna avamisel ja profiili vahetamisel sinu tellimuste loendi.
   General Settings:
@@ -1087,21 +1074,12 @@ Tooltips:
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
       nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
     Proxy Videos Through Invidious: Kasutab videote esitamiseks Invidious'e teenust
-      ega tee päringuid otse YouTube serveri pihta. Asendab API eelistuse.
-    Force Local Backend for Legacy Formats: See lahendus toimib, kui Invidious'e API
-      on esimene eelistus. Kui see väärtus on sisselülitatud, siis toimib ka kohalik
-      API ning kasutab pärandvorminguid ning ei kasuta neid mida Invidious'e server
-      võimaldab kasutada. See seadistus on kasulik siis, kui Invidious'e API alusel
-      laaditud videote esitamine riigipiirangute tõttu ei toimi.
+      ega tee päringuid otse YouTube serveri pihta.
     Scroll Playback Rate Over Video Player: Kui kursor on video kohal, siis vajuta
       Ctrl klahvi (Mac'is ⌘ klahvi) ja taasesituse kiiruse muutmiseks keri hiireratast
       edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,
       siis on see 1x) hoia all Ctrl klahvi (Mac'is ⌘ klahvi) ja klõpsi hiire vasakut
       nuppu.
-    Allow DASH AV1 formats: DASH AV1 vormingu puhul pilt võib tunduda paremad kui
-      DASH H.264 puhul. DASH AV1 vormingu dekodeerimine kasutab esitamise ajal rohkem
-      energiat! See vorming ei ole saadaval kõikide videote puhul, mispuhul kasutab
-      videoesitaja selle asemel DASH H.264 vormingut.
     Skip by Scrolling Over Video Player: MPV-stiilis video läbilappamiseks kasuta
       hiire ratast.
   Distraction Free Settings:
@@ -1146,8 +1124,6 @@ Channels:
   Search bar placeholder: Otsi kanaleid
   Count: Leidsime {number} kanali(t).
   Empty: Sinu kanalite loend on praegu tühi.
-  Unsubscribe: Loobu tellimusest
-  Unsubscribed: '{channelName} on sinu tellimustest eemaldatud'
   Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
 Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
 Clipboard:
@@ -1197,5 +1173,10 @@ Search Listing:
     Subtitles: Subtiitrid
     Closed Captions: Subtiitrid
     4K: 4K
+    New: Uus
+    3D: 3D-sisu
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
   avamise: „{url}“.'

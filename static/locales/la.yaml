@@ -87,9 +87,6 @@ Most Popular: 'Maxime Popular'
 Playlists: 'Album ludere'
 User Playlists:
   Your Playlists: 'Album Ludere Vestra'
-  Playlist Message: Haec pagina est a plene reflective opus playlists. Is solum album
-    et conservi videos quod favorited. Ubi consummatum opus est, omnia hic Move Imaginibus
-    commodum migravit ad "Favorites" Album Ludere.
 History:
   # On History Page
   History: 'Historiam'
@@ -121,8 +118,6 @@ Settings:
       Beginning: 'Initium'
       Middle: 'Medium'
       End: 'Finis'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious nusquam
-      esset (Iusto est https://invidious.snopyta.org)'
     Region for Trending: 'ad usum inclinanatus regionem'
         #! List countries
   Theme Settings:
@@ -155,7 +150,6 @@ Settings:
       Dracula Red: 'Dracula Ruber'
       Dracula Yellow: 'Dracula Flavum'
   Player Settings: {}
-  Advanced Settings: {}
 Channel:
   Videos: {}
   Playlists: {}

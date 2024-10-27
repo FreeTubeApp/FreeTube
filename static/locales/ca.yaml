@@ -105,13 +105,6 @@ Most Popular: 'Més populars'
 Playlists: 'Llistes de reproducció'
 User Playlists:
   Your Playlists: 'Les teves llistes de reproducció'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Els
-    vostres vídeos desats són buits. Feu clic al botó de desar a la cantonada d'un
-    vídeo per tenir-lo llistat aquí
-  Playlist Message: Aquesta pàgina no reflecteix les llistes de reproducció plenament
-    actives. Només llista els vídeos que heu desat o preferit. Quan la tasca hagi
-    acabat, tots els vídeos que hi ha actualment es migraran a una llista de reproducció
-    de "favorites".
   Search bar placeholder: Cerca a la llista de reproducció
   Empty Search Message: No hi ha cap vídeo en aquesta llista de reproducció que coincideixi
     amb la teva cerca
@@ -148,8 +141,6 @@ Settings:
       Beginning: 'Inici'
       Middle: 'Mig'
       End: 'Final'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instància Invidious
-      (https://invidious.snopyta.org per defecte)'
     Region for Trending: 'Regió per a les tendències'
         #! List countries
     View all Invidious instance information: Mostra tota la informació de la instància
@@ -211,8 +202,6 @@ Settings:
     Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
     Player Settings: 'Configuració del reproductor'
-    Force Local Backend for Legacy Formats: 'Força el motor local per als formats
-      heretats'
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
     Autoplay Videos: 'Reprodueix automàticament els vídeos'
@@ -269,15 +258,11 @@ Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'
     Fetch Feeds from RSS: 'Recupera els canals de continguts des de l''RSS'
-    Manage Subscriptions: 'Gestiona les subscripcions'
   Data Settings:
     Data Settings: 'Configuració de les dades'
     Select Import Type: 'Selecciona tipus d''importació'
     Select Export Type: 'Selecciona tipus d''exportació'
     Import Subscriptions: 'Importa les subscripcions'
-    Import FreeTube: 'Importa FreeTube'
-    Import YouTube: 'Importa YouTube'
-    Import NewPipe: 'Importa NewPipe'
     Export Subscriptions: 'Exporta subscripcions'
     Export FreeTube: 'Exporta FreeTube'
     Export YouTube: 'Exporta YouTube'
@@ -290,8 +275,6 @@ Settings:
       i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han
       importat amb èxit'
-    One or more subscriptions were unable to be imported: 'Una o més subscripcions
-      no s''han pogut importar'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
     This might take a while, please wait: 'Això pot trigar una estona, si us plau,
       esperi'
@@ -317,8 +300,6 @@ Settings:
     Export Playlists: Exporta llistes de reproducció
     All playlists has been successfully imported: Totes les llistes de reproducció
       s'han importat amb èxit
-    Check for Legacy Subscriptions: Comprova les subscripcions antigues
-  Advanced Settings: {}
   The app needs to restart for changes to take effect. Restart and apply change?: Cal
     reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
     els canvis?
@@ -374,8 +355,6 @@ About:
   Website: Lloc web
   Email: Correu-e
   Help: Ajuda
-  Licensed under the AGPLv3: Llicència AGPLv3
-  View License: Veure la llicència
   Downloads / Changelog: Descàrregues / Registre de canvis
   Chat on Matrix: Xat a Matrix
   Please read the: Si us plau, llegeix les
@@ -536,11 +515,6 @@ Video:
   Published on: 'Publicat el'
   Publicationtemplate: '{number} {unit} fa'
 #& Videos
-  Audio:
-    High: Alta
-    Best: Millor
-    Low: Baixa
-    Medium: Mitjana
   Started streaming on: Retransmissió iniciada el
   Sponsor Block category:
     interaction: interacció
@@ -549,7 +523,6 @@ Video:
     intro: introducció
     outro: conclusió
     self-promotion: autopromoció
-  Skipped segment: Segment saltat
   External Player:
     Unsupported Actions:
       starting video at offset: començant el vídeo al punt donat
@@ -574,7 +547,6 @@ Video:
   Download Video: Descàrrega El Vídeo
   video only: només vídeo
   Streamed on: Retransmès en directe el
-  translated from English: traduït de l'anglès
 Videos:
   #& Sort By
   Sort By:
@@ -585,15 +557,11 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Visualitza la llista de reproducció sencera'
-  Videos: 'Vídeos'
-  View: 'Visualitza'
-  Views: 'Visualitzacions'
   Last Updated On: 'Última Actualització'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: 'Commuta el mode teatre'
 Change Format:
   Change Media Formats: 'Canvia Els Formats De Vídeo'
   Use Dash Formats: 'Utilitza Formats DASH'
