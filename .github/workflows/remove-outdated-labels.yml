@@ -48,7 +48,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
             PR: waiting for review
-            
+
   remove-ready-pr-labels:
     name: Remove labels when draft pr is marked ready for review
     if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
