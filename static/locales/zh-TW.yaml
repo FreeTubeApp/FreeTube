@@ -19,7 +19,7 @@ Toggle Developer Tools: '切換開發者工具'
 Actual size: '實際大小'
 Zoom in: '放大'
 Zoom out: '縮小'
-Toggle fullscreen: '切換至全螢幕'
+Toggle fullscreen: '切換全螢幕'
 Window: '視窗'
 Minimize: '最小化'
 Close: '關閉'
@@ -60,11 +60,11 @@ Search Filters:
     Any Time: '任何時間'
     Last Hour: '最近一小時'
     Today: '今天'
-    This Week: '本周'
+    This Week: '本週'
     This Month: '本月'
     This Year: '今年'
   Type:
-    Type: '類別'
+    Type: '類型'
     All Types: '所有類別'
     Videos: '影片'
     Channels: '頻道'
@@ -103,7 +103,7 @@ Subscriptions:
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
-    強制RSS已防止速率限制
+    強制使用 RSS 以防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
@@ -788,6 +788,9 @@ Video:
     Playback will resume automatically when your connection comes back: 當您的連線恢復時，將會自動繼續播放。
     Skipped segment: 已跳過 {segmentCategory} 段
   IP block: YouTube 已封鎖您的 IP 位址，因此無法觀看影片。請嘗試切換到其他 VPN 或代理伺服器。
+  MembersOnly: 會員專屬影片無法使用 FreeTube 觀看，因為這些影片需要 Google 登入並且必須訂閱上傳者的付費頻道。
+  AgeRestricted: 由於需要 Google 登入並使用經過年齡驗證的 YouTube 帳戶，FreeTube 無法觀看有限制年齡的影片。
+  Unlisted: 未公開
 Videos:
   #& Sort By
   Sort By:
@@ -933,8 +936,8 @@ Profile:
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
-Version {versionNumber} is now available!  Click for more details: 版本更新囉! 最新版本 {versionNumber}
-  ! 點擊以取得更多資訊
+Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber}
+  ！按此取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
@@ -978,7 +981,7 @@ Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播�
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
-Open New Window: 開啟新視窗
+Open New Window: 開新視窗
 Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
 Default Invidious instance has been set to {instance}: 預設 Invidious 站台已被設定為 {instance}
 Search Bar:
