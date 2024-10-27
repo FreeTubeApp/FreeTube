@@ -898,6 +898,11 @@ Video:
   IP block: YouTube hat Ihre IP-Adresse für die Videowiedergabe gesperrt. Bitte versuchen
     Sie, zu einem anderen VPN oder Proxy zu wechseln.
   Unlisted: Nicht gelistet
+  MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht
+    angesehen werden, da sie einen Google-Login und eine kostenpflichtige Mitgliedschaft
+    im Kanal des Hochladers erfordern.
+  AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
+    werden, da sie einen Google-Login und ein altersgeprüftes YouTube-Konto erfordern.
 Videos:
   #& Sort By
   Sort By:
