@@ -195,6 +195,9 @@ User Playlists:
         {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
       This playlist is already being used for quick bookmark.: Þessi spilunarlisti
         er nú þegar notaður undir flýtibókamerki.
+      This playlist has a video with a duration error: Spilunarlistinn inniheldur
+        a.m.k. eitt myndskeið sem er ekki með neina tímalengd; það verður flokkað
+        eins og tímalengdin sé núll.
     Search for Videos: Leita að myndskeiðum
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
@@ -769,6 +772,8 @@ Channel:
     votes: '{votes} atkvæði'
     Video hidden by FreeTube: Myndskeið falið af FreeTube
     View Full Post: Skoða alla færsluna
+    Viewing Posts Only Supported By Invidious: Einungis er hægt að skoða innsendar
+      færslur á Invidious. Farðu á samfélagsflipa rásar til að skoða efni þar án Invidious.
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
