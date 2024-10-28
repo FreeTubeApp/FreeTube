@@ -668,8 +668,7 @@ About:
   GitHub issues: GitHub hibajegyek
   Help: Súgó
   GitHub releases: GitHub kiadások
-  Downloads / Changelog: Letöltések/Változásnapló
-    általános nyilvános licenc) 3. verziója alatt licencelt
+  Downloads / Changelog: Letöltések / Változásnapló
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
   Beta: Béta
@@ -944,6 +943,11 @@ Video:
       automatikusan folytatódik, amikor a kapcsolat helyreáll.
   IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg
     másik VPN-re vagy proxyra váltani.
+  Unlisted: Listázatlan
+  AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez
+    Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
+  MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel
+    ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
 Videos:
   #& Sort By
   Sort By:

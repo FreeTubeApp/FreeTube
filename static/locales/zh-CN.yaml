@@ -791,6 +791,9 @@ Video:
     Exit Theatre Mode: 推出影院模式
     Skipped segment: 跳过了 {segmentCategory} 部分
   IP block: 你的 IP 地址被 Youtube 禁止观看视频。请试着切换到不同的 VPN 或代理。
+  MembersOnly: 无法用 FreeTube 观看仅供会员的视频，因这些视频需要 Google 登录以及上传者频道的付费会员身份。
+  AgeRestricted: 无法用 FreeTube 观看受限年龄的视频，因这些视频需要 Google 登录并使用验证过年龄的 YouTube 账户。
+  Unlisted: 不公开列出的视频
 Videos:
   #& Sort By
   Sort By:

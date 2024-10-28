@@ -117,6 +117,7 @@
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
+        :is-unlisted="isUnlisted"
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"

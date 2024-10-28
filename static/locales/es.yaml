@@ -2,8 +2,8 @@
 Locale Name: 'español (España)'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
-  hecho progresos.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando haya logrado
+  avances.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -943,6 +943,12 @@ Video:
     Full Window: Pantalla completa
   IP block: YouTube ha bloqueado tu dirección IP para ver vídeos. Por favor, intenta
     cambiar a otra VPN o proxy.
+  MembersOnly: Los videos solo para miembros no se pueden ver con FreeTube ya que
+    requieren un inicio de sesión en Google y una membresía pagada al canal del cargador.
+  Unlisted: No listado
+  AgeRestricted: Los vídeos con restricciones de edad no se pueden ver con FreeTube
+    ya que requieren iniciar sesión en Google y usar una cuenta de YouTube verificada
+    por edad.
 Videos:
   #& Sort By
   Sort By:
