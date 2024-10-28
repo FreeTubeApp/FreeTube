@@ -1,4 +1,5 @@
 import i18n from '../i18n/index'
+import packageDetails from '../../../package.json'
 
 /**
  * This will return true if a string is null, undefined or empty.
@@ -96,13 +97,12 @@ export function getIconForRoute(route) {
  * @returns {string}
  */
 export function defaultBookmarkNameForRoute(route) {
-  switch (route.meta.title) {
-    case 'Search Results':
-      // Use the inputted search query over 'Search Results - FreeTube'
-      return route.params.query
-    default:
-      return document.title
+  if (route.meta.title === 'Search Results') {
+    // Use the inputted search query over 'Search Results'
+    return route.params.query
   }
+  // Remove unnecessary " - FreeTube" appendage
+  return document.title.replace(` - ${packageDetails.productName}`, '')
 }
 
 /**
