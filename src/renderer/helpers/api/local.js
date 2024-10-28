@@ -1073,20 +1073,20 @@ function parseListItem(item) {
         handle = channel.subscriber_count.text
 
         if (!channel.video_count.isEmpty()) {
-          subscribers = channel.video_count.text
+          subscribers = parseLocalSubscriberCount(channel.video_count.text)
         }
       } else {
         videos = extractNumberFromString(channel.video_count.text)
 
         if (!channel.subscriber_count.isEmpty()) {
-          subscribers = channel.subscriber_count.text
+          subscribers = parseLocalSubscriberCount(channel.subscriber_count.text)
         }
       }
 
       return {
         type: 'channel',
         dataSource: 'local',
-        thumbnail: channel.author.best_thumbnail?.url,
+        thumbnail: channel.author.best_thumbnail?.url.replace(/^\/\//, 'https://'),
         name: channel.author.name,
         id: channel.author.id,
         subscribers,
