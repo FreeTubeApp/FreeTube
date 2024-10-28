@@ -124,7 +124,7 @@ export default defineComponent({
     'error',
     'loaded',
     'ended',
-    'reset-start-in-viewing-mode',
+    'player-destroyed',
     'timeupdate',
     'toggle-theatre-mode'
   ],
@@ -160,8 +160,6 @@ export default defineComponent({
     const startInFullwindow = props.startInFullwindow
     let startInFullscreen = props.startInFullscreen
     let startInPip = props.startInPip
-
-    emit('reset-start-in-viewing-mode')
 
     /**
      * @type {{
@@ -1061,8 +1059,7 @@ export default defineComponent({
         navigator.mediaSession.playbackState = 'none'
       }
 
-      const controls = ui.getControls()
-      emit('ended', controls.isFullScreenEnabled(), fullWindowEnabled.value, controls.isPiPEnabled())
+      emit('ended')
     }
 
     function handleCanPlay() {
@@ -2758,7 +2755,17 @@ export default defineComponent({
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      */
     async function destroyPlayer() {
+
+
+
       if (ui) {
+
+        if (ui.getControls()) {
+          // save the state of player settings to reinitialize them upon next creation
+          const controls = ui.getControls()
+          emit('player-destroyed', controls.isFullScreenEnabled(), fullWindowEnabled.value, controls.isPiPEnabled())
+        }
+
         // destroying the ui also destroys the player
         await ui.destroy()
         ui = null

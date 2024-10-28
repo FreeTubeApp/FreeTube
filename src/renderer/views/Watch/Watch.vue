@@ -41,9 +41,9 @@
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
+          @player-destroyed="handlePlayerDestroyed"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
-          @reset-start-in-viewing-mode="resetStartInViewingMode"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"

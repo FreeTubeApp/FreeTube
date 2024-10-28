@@ -1205,7 +1205,13 @@ export default defineComponent({
       this.activeFormat = 'audio'
     },
 
-    handleVideoEnded: function (startNextVideoInFullscreen = false, startNextVideoInFullwindow = false, startNextVideoInPip = false) {
+    handlePlayerDestroyed: function(startNextVideoInFullscreen = false, startNextVideoInFullwindow = false, startNextVideoInPip = false) {
+      this.startNextVideoInFullscreen = startNextVideoInFullscreen
+      this.startNextVideoInFullwindow = startNextVideoInFullwindow
+      this.startNextVideoInPip = startNextVideoInPip
+    },
+
+    handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
         return
       }
@@ -1232,10 +1238,6 @@ export default defineComponent({
           return
         }
       }
-
-      this.startNextVideoInFullscreen = startNextVideoInFullscreen
-      this.startNextVideoInFullwindow = startNextVideoInFullwindow
-      this.startNextVideoInPip = startNextVideoInPip
 
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(() => {
@@ -1645,12 +1647,6 @@ export default defineComponent({
 
       const playlist = this.selectedUserPlaylist
       this.updatePlaylistLastPlayedAt({ _id: playlist._id })
-    },
-
-    resetStartInViewingMode: function() {
-      this.startNextVideoInFullscreen = false
-      this.startNextVideoInFullwindow = false
-      this.startNextVideoInPip = false
     },
 
     ...mapActions([
