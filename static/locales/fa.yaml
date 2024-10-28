@@ -111,12 +111,6 @@ Most Popular: 'پر طرفدارترین ها'
 Playlists: 'لیست های پخش'
 User Playlists:
   Your Playlists: 'لیست های پخش شما'
-  Playlist Message: 'این صفحه، فهرست پخشی را نمایش میدهد که هنوز تکمیل نشده و در حال
-    کار میباشد. در اینجا فقط ویدیو هایی که ذخیره شده اند یا موردعلاقه اند را می بینید.
-    وقتی که عملیات تکمیل شد، این ویدیوها به بخش فهرت پخش «مورد علاقه ها» منتقل خواهند
-    شد.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'ویدیوی
-    ذخیره شده ای ندارید.بر روی دکمه ذخیره در گوشه ویدیو کلیک کنید تا اینجا لیست شوند'
   Search bar placeholder: جستجو برای فهرست های پخش
   Empty Search Message: هیچ ویدیویی در این فهرست پخش وجود ندارد که با جستجوی شما مطابق
     باشد
@@ -338,7 +332,6 @@ Settings:
     Subscription Settings: 'تنظیمات دنبال شوندگان'
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Fetch Feeds from RSS: 'دریافت feed ها از RSS'
-    Manage Subscriptions: 'سامان دهی دنبال شوندگان'
     Fetch Automatically: آوردن خودکار فید
   Distraction Free Settings:
     Distraction Free Settings: 'تنظیمات اضافی مفید'
@@ -377,16 +370,11 @@ Settings:
     Hide Channel Podcasts: پنهان کردن پادکست های کانال
     Hide Channel Releases: مخفی کردن انتشارات کانال
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
-    Blur Thumbnails: تار کردن ریز عکسها
   Data Settings:
     Data Settings: 'تنظیمات اطلاعات'
     Select Import Type: 'انتخاب روش وارد کردن فایل بک آپ'
     Select Export Type: 'انتخاب روش پشتیبان گیری'
     Import Subscriptions: 'وارد کردن بک آپ دنبال شوندگان'
-    Import FreeTube: 'وارد کردن از FreeTube'
-    Import YouTube: 'وارد کردن از YouTube'
-    Import NewPipe: 'وارد کردن از NewPipe'
-    Check for Legacy Subscriptions: 'بررسی برای دنبال‌شوندگان قدیمی'
     Export Subscriptions: 'ذخیره (پشتیبان گیری)دنبال شوندگان'
     Export FreeTube: 'استخراج FreeTube'
     Export YouTube: 'استخراج YouTube'
@@ -744,9 +732,7 @@ About:
   Translate: ترجمه
   Blog: وبلاگ
   Chat on Matrix: چت در ماتریکس
-  Licensed under the AGPLv3: تحت مجوز AGPLv3
   these people and projects: این افراد و پروژه ها
-  View License: مشاهده مجوز
   Report a problem: گزارش یک مشکل
   GitHub issues: مشکلات گیت هاب
   Donate: اهدا
@@ -761,8 +747,6 @@ A new blog is now available, {blogTitle}. Click to view more: یک مطلب جد
   است, {blogTitle}. برای مشاهده بیشتر کلیک کنید
 Channels:
   Channels: کانال ها
-  Unsubscribe: لغو اشتراک
-  Unsubscribed: '{channelName}از اشتراک های شما حذف شده است'
   Unsubscribe Prompt: آیا مطمئنید که می‌خواهید اشتراک «{channelName}» را لغو کنید؟
   Title: لیست کانال
   Search bar placeholder: جستجو در کانال ها
@@ -915,30 +899,23 @@ Falling back to Local API: بازگشت به API محلی
 This video is unavailable because of missing formats. This can happen due to country unavailability.: این
   ویدیو به دلیل عدم وجود قالب در دسترس نیست. این ممکن است به دلیل در دسترس نبودن کشور
   اتفاق بیفتد.
-Subscriptions have not yet been implemented: اشتراک ها هنوز اجرا نشده است
 Playing Previous Video: پخش ویدیوی قبلی
 Default Invidious instance has been set to {instance}: نمونه پیش‌فرض Invidious روی
   {instance} تنظیم شده است
 Starting download: شروع دانلود «{videoTitle}»
 Yes: بلی
 Invidious API Error (Click to copy): خطای Invidious API (برای کپی کلیک کنید)
-Hashtags have not yet been implemented, try again later: هشتگ ها هنوز پیاده سازی نشده
-  اند، بعداً دوباره امتحان کنید
 Downloading failed: مشکلی در بارگیری «{videoTitle}» وجود داشت
 No: خیر
 Playlist:
-  Views: مشاهدات
   Last Updated On: آخرین بروز رسانی در تاریخ
   View Full Playlist: مشاهده لیست پخش کامل
-  Videos: ویدیوها
-  View: مشاهده
   Playlist: فهرست پخش
 Mini Player: مینی پلیر
 Videos:
   Sort By:
     Newest: جدیدترین
     Oldest: قدیمی ترین
-Toggle Theatre Mode: حالت تئاتر را تغییر دهید
 Up Next: تا بعدی
 Feed:
   Refresh Feed: تازه‌سازی {subscriptionName}

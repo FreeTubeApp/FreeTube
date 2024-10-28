@@ -139,19 +139,9 @@ Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:
   Your Playlists: 'A lejátszási listáid'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
-    mentett videók üresek. Kattintson a videó sarkában található mentés gombra, hogy
-    itt szerepeljen
-  Playlist Message: Ez az oldal nem tükrözi a teljesen működő lejátszási listákat.
-    Csak azokat a videókat sorolja fel, amelyeket ön elmentett vagy a kedvencek közé
-    helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
-    lejátszási listára.
   Search bar placeholder: Lejátszási listák keresése
   Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
     megfelelnek a keresésnek
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Biztos,
-    hogy el akarja távolítani az összes megtekintett videót ebből a lejátszási listából?
-    Ezt nem lehet visszacsinálni.
   AddVideoPrompt:
     Search in Playlists: Keresés a lejátszási listában
     Save: Mentés
@@ -197,7 +187,6 @@ User Playlists:
       This video cannot be moved down.: Ez a videó nem mozgatható lejjebb.
       This playlist is now used for quick bookmark: Ez a lejátszási lista most gyors
         könyvjelzőként van használva
-      Quick bookmark disabled: Gyors könyvjelző letiltva
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: A(z)
         {oldPlaylistName} helyett mostantól ez a lejátszási lista szolgál gyors könyvjelzőként.
         Kattintson ide a visszavonáshoz
@@ -252,7 +241,6 @@ User Playlists:
   Copy Playlist: Lejátszási lista másolása
   Playlist Description: Lejátszási lista leírása
   Add to Favorites: Hozzáadás a(z) {playlistName} lejátszási listához
-  Disable Quick Bookmark: Gyors Könyvjelző Letiltása
   Remove from Favorites: Eltávolítás a(z) {playlistName} lejátszási listából
   Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a
     lejátszási listával
@@ -306,8 +294,6 @@ Settings:
       End: 'Vég'
       Hidden: Rejtett
       Blur: Elhomályosítás
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious példány
-      (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerűek innen'
         #! List countries
     View all Invidious instance information: Az Invidious-példányok listájának megtekintése
@@ -395,14 +381,14 @@ Settings:
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerinti oldalsáv megjelenítés
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
-    Hide Side Bar Labels: Oldalsáv címkék elrejtése
+    Hide Side Bar Labels: Gombfeliratok elrejtése az oldalsávról
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
     Player Settings: 'Lejátszó'
     Play Next Video: 'Következő videó lejátszása'
     Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
     Autoplay Videos: 'Videók automatikus lejátszása'
-    Proxy Videos Through Invidious: 'Meghatalmazás videók az Invidious révén'
+    Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
     Enable Theatre Mode by Default: 'Alapértelmezetten a mozi mód engedélyezése'
     Default Volume: 'Alapértelmezett hangerő'
@@ -436,7 +422,7 @@ Settings:
       File Name Label: Fájlnévminta
       Folder Label: Képernyőképek mappa
       Folder Button: Mappa kiválasztása
-      Enable: Képernyőkép engedélyezése
+      Enable: Képernyőkép készítésének engedélyezése
       Format Label: Képernyőkép formátuma
       Error:
         Forbidden Characters: Tiltott karakterek
@@ -478,7 +464,6 @@ Settings:
     Subscription Settings: 'Feliratkozás'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
-    Manage Subscriptions: 'Feliratkozások kezelése'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
       a csatornáktól
@@ -488,9 +473,6 @@ Settings:
     Select Import Type: 'Importálási típus kiválasztása'
     Select Export Type: 'Exportálási típus kiválasztása'
     Import Subscriptions: 'Feliratkozások importálása'
-    Import FreeTube: 'SzabadCső importálása'
-    Import YouTube: 'YouTube importálása'
-    Import NewPipe: 'NewPipe importálása'
     Export Subscriptions: 'Feliratkozások exportálása'
     Export FreeTube: 'FreeTube exportálása'
     Export YouTube: 'YouTube exportálása'
@@ -517,7 +499,6 @@ Settings:
     Unable to write file: 'Nem lehet írni a fájlt'
     Unknown data key: 'Ismeretlen adatkulcs'
     How do I import my subscriptions?: 'Hogyan importálhatom a feliratkozásaimat?'
-    Check for Legacy Subscriptions: Örökölt feliratkozások keresése
     Manage Subscriptions: Feliratkozások kezelése
     Playlist insufficient data: Nincs elegendő adat a(z) „{playlist}” lejátszási listához,
       elem kihagyása
@@ -539,33 +520,6 @@ Settings:
         lista eltávolítása opcióval.\n3. Indítsa el a FreeTube régebbi verzióját,
         és importálja az exportált lejátszási listákat."
       Label: Lejátszási listák exportálása régebbi FreeTube verziókhoz
-  Advanced Settings:
-    Advanced Settings: 'További beállítások'
-    Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
-      (Adatok nyomtatása a konzolra)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Meghatalmazás kiszolgáló
-      címe (Példa: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'A
-      „Meghatalmazás kiszolgáló ellenőrzése” gombra kattintva kérelmet küld a https://ipinfo.io/json
-      címre'
-    Use Tor / Proxy for API calls: 'Használja a Tor/meghatalmazás kiszolgálót az API
-      hívásokhoz'
-    TEST PROXY: 'Meghatalmazás kiszolgáló ellenőrzése'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Nyilvános példányok megjelenítése'
-    Clear History:
-      Clear History: 'Előzmények törlése'
-      # On Click
-      Are you sure you want to delete your history?: 'Biztosan törli az előzményeket?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Feliratkozások törlése'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Biztosan eltávolítja az
-        összes feliratkozást?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Live Chat: Élő csevegés elrejtése
@@ -574,7 +528,7 @@ Settings:
     Hide Recommended Videos: Ajánlott videók elrejtése
     Hide Comment Likes: Hozzászólás-kedvelések elrejtése
     Hide Channel Subscribers: Csatorna feliratkozók elrejtése
-    Hide Video Likes And Dislikes: Videó kedvelések és nemtetszések elrejtése
+    Hide Video Likes And Dislikes: Kedvelések és nemtetszések elrejtése a videóknál
     Hide Video Views: Videónézettség elrejtése
     Distraction Free Settings: Ne zavarjanak
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
@@ -604,7 +558,6 @@ Settings:
     Hide Subscriptions Shorts: Feliratkozásos rövidfilmek elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
-    Blur Thumbnails: Indexkép elhomályosítása
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
     Hide Subscriptions Community: Közösségi feliratkozások elrejtése
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
@@ -692,41 +645,12 @@ Settings:
       megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
-  Expand All Settings Sections: Beállítások kibontása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
   Return to Settings Menu: Vissza a „Beállítások” menübe
 About:
   #On About page
   About: 'Névjegy'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Ez
-    a másolással szállított szoftver szabadon licencelt az AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Talált egy hibát? Szeretne javaslatot tenni egy szolgáltatásra? Szeretne segíteni?
-    Nézze meg GitHub oldalunkat. Húzni kéréseket szívesen fogadjuk.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Nagyon
-    köszönöm azoknak az embereknek és projekteknek, amelyek lehetővé teszik a FreeTube
-    használatát!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Szeretnél
-    csevegni? Csatlakozzon az Element/Matrix kiszolgálóhoz. Kérjük, csatlakozás előtt
-    ellenőrizze a szabályokat.'
-
-  'Looking for help? Check out our Wiki page.': 'Segítséget keres? Nézze meg Wiki
-    oldalunkat.'
-
-  Check out our Firefox extension!: 'Nézze meg Firefox kiegészítőnket!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Ha
-    FreeTube-t használ, fontolja meg az adományozást a Liberapay-n keresztül vagy
-    a Bitcoin-címen keresztül.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Legfrissebb FreeTube hírek'
-
   these people and projects: az alábbi emberek és projektek
   FreeTube is made possible by: 'A FreeTube elkészítését lehetővé tették'
   Donate: Adományozás
@@ -744,10 +668,7 @@ About:
   GitHub issues: GitHub hibajegyek
   Help: Súgó
   GitHub releases: GitHub kiadások
-  Downloads / Changelog: Letöltések/Változásnapló
-  View License: Licenc megtekintése
-  Licensed under the AGPLv3: Az AGPL (GNU Affero General Public License - GNU Affero
-    általános nyilvános licenc) 3. verziója alatt licencelt
+  Downloads / Changelog: Letöltések / Változásnapló
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
   Beta: Béta
@@ -982,7 +903,7 @@ Video:
     OpenInTemplate: 'Megnyitás itt: {externalPlayer}'
   Premieres on: 'Bemutató dátuma'
   Premieres: Első előadások
-  Show Super Chat Comment: Haladó csevegési hozzászólás megjelenítése
+  Show Super Chat Comment: Super Chat hozzászólás megjelenítése
   Scroll to Bottom: Görgetés legalulra
   Upcoming: Közelgő
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
@@ -1022,6 +943,11 @@ Video:
       automatikusan folytatódik, amikor a kapcsolat helyreáll.
   IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg
     másik VPN-re vagy proxyra váltani.
+  Unlisted: Listázatlan
+  AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez
+    Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
+  MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel
+    ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
 Videos:
   #& Sort By
   Sort By:
@@ -1032,9 +958,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
-  Videos: 'Videók'
-  View: 'Megtekintés'
-  Views: 'Megtekintés'
   Last Updated On: 'Utoljára frissítve'
 
 # On Video Watch Page
@@ -1052,7 +975,6 @@ Playlist:
     Custom: Egyéni rendezés
     VideoDurationAscending: Időtartam (legrövidebb elöl)
     VideoDurationDescending: Időtartam (leghosszabb elöl)
-Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
   Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
@@ -1124,7 +1046,6 @@ Falling back to Local API: 'Helyi-API-ra visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez
   a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt
   következhet be.'
-Subscriptions have not yet been implemented: 'Feliratkozások még nincsenek implementálva'
 Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
 Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
 Shuffle is now disabled: 'Véletlen sorrendű lejátszás kikapcsolva'
@@ -1218,8 +1139,6 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
   Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval}
   másodperc múlva. Kattintson a megszakításhoz.
 More: Több
-Hashtags have not yet been implemented, try again later: A kettőskereszt címkék kezelése
-  még nincs implementálva, próbálkozzon újra később
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube webcímtípus,
   nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
@@ -1239,13 +1158,11 @@ Channels:
   Search bar placeholder: Csatornák keresése
   Count: '{number} csatorna találat.'
   Empty: A csatornalistája jelenleg üres.
-  Unsubscribe: Leiratkozás
-  Unsubscribed: 'A(z) {channelName} nevű csatorna el lett távolítva a feliratkozásáiból'
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltésekor
 Starting download: „{videoTitle}” letöltésének indítása
 Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
-Screenshot Success: Képernyőkép „{filePath}” néven mentve
+Screenshot Success: A képernyőkép „{filePath}” néven mentve
 Chapters:
   Chapters: Fejezetek
   'Chapters list visible, current chapter: {chapterName}': 'Fejezetlista látható,
@@ -1256,7 +1173,7 @@ Clipboard:
   Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
     nem lehet hozzáférni a vágólaphoz
   Copy failed: A vágólapra másolás nem sikerült
-Screenshot Error: A képernyőkép nem sikerült. {error}
+Screenshot Error: Nem sikerült képernyőképet készíteni. {error}
 Preferences: Beállítások
 Ok: OK
 Hashtag:
