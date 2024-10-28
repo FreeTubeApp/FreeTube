@@ -51,6 +51,11 @@ Search Filters:
     Duration: tenpo
   Features:
     Live: tenpo ni
+    3D: 3D
+    4K: 4K
+    HD: HD
+    HDR: HDR
+    VR180: VR180
   Time:
     Any Time: tenpo ali
     Time: tenpo
@@ -60,6 +65,8 @@ Settings:
   Theme Settings: {}
   Player Settings:
     Screenshot: {}
+    Default Quality:
+      4k: 4K
   SponsorBlock Settings: {}
 Video:
   External Player: {}
@@ -91,3 +98,4 @@ Search Listing:
 Channel:
   Live:
     Live: tenpo ni
+More: mute
