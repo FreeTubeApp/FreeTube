@@ -2725,11 +2725,7 @@ export default defineComponent({
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      */
     async function destroyPlayer() {
-
-
-
       if (ui) {
-
         if (ui.getControls()) {
           // save the state of player settings to reinitialize them upon next creation
           const controls = ui.getControls()

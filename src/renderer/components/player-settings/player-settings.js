@@ -199,7 +199,6 @@ export default defineComponent({
     },
 
     viewingModeNames: function () {
-
       const viewingModeNames = [
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen')] : []),

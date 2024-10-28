@@ -10,7 +10,7 @@
   >
     <div
       class="videoThumbnail"
-    > 
+    >
       <router-link
         class="thumbnailLink"
         tabindex="-1"
