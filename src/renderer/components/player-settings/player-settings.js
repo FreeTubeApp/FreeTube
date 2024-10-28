@@ -128,7 +128,8 @@ export default defineComponent({
 
     defaultViewingMode: function () {
       const defaultViewingMode = this.$store.getters.getDefaultViewingMode
-      if (defaultViewingMode === 'external_player' && this.externalPlayer === '') {
+      if ((defaultViewingMode === 'external_player' && this.externalPlayer === '') ||
+        (!process.env.IS_ELECTRON && (defaultViewingMode === 'fullscreen' || defaultViewingMode === 'pip'))) {
         return 'default'
       }
 
@@ -198,11 +199,12 @@ export default defineComponent({
     },
 
     viewingModeNames: function () {
+
       const viewingModeNames = [
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
-        this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+        ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen')] : []),
         this.$t('Video.Player.Full Window'),
-        this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture'),
+        ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')] : [])
       ]
 
       if (this.externalPlayer !== '') {
