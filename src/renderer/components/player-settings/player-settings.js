@@ -62,9 +62,9 @@ export default defineComponent({
       screenshotDefaultPattern: '%Y%M%D-%H%N%S',
       viewingModeValues: [
         'default',
-        'fullscreen',
+        ...(process.env.IS_ELECTRON ? ['fullscreen'] : []),
         'fullwindow',
-        'pip',
+        ...(process.env.IS_ELECTRON ? ['pip'] : []),
         'external_player'
       ]
     }
