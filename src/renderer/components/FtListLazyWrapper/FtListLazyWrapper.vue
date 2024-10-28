@@ -62,7 +62,7 @@ import { computed, ref } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../FtListChannel/FtListChannel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
-import FtCommunityPost from '../ft-community-post/ft-community-post.vue'
+import FtCommunityPost from '../FtCommunityPost/FtCommunityPost.vue'
 import FtListHashtag from '../FtListHashtag/FtListHashtag.vue'
 
 import store from '../../store/index'

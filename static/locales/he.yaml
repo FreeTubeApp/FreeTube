@@ -175,7 +175,7 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: רשימת
         הנגינה הזאת משמשת לסימניות מהירות במקום {oldPlaylistName}. לחיצה כאן תבטל
         את זה
-      This playlist does not exist: רשימת השידורים הזו לא קיימת.
+      This playlist does not exist: רשימת השידורים הזו לא קיימת
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: חלק
         מהסרטונים ברשימת השידורים עדיין לא הועלו. לחץ כאן כדי להעתיק בכל זאת.
       Playlist name cannot be empty. Please input a name.: שם רשימת השידורים לא יכול
@@ -193,6 +193,8 @@ User Playlists:
         הזו.
       Playlist {playlistName} is the new quick bookmark playlist.: רשימת השידורים
         {playlistName} היא רשימת הסימנייה המהירה החדשה.
+      This playlist has a video with a duration error: רשימת הנגינה הזאת מכילה סרטון
+        אחד לפחות שאין לו אורך, הם ימוינו כאילו המשך שלהם הוא אפס.
     Search for Videos: חיפוש סרטונים
   Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
     ביעד הסימניות הזריזות.
@@ -896,6 +898,11 @@ Video:
   More Options: אפשרויות נוספות
   IP block: YouTube חסמו את כתובת ה־IP לצפייה בסרטונים. נא לנסות לעבור ל־VPN או למתווך
     אחרים.
+  MembersOnly: אי אפשר לצפות בסרטונים לחברים בלבד עם FreeTube כיוון שהם דורשים כניסה
+    ל־Google וחברות בתשלום לערוץ של מי שהעלה.
+  AgeRestricted: אי אפשר לצפות בסרטונים שמוגבלים בגיל עם FreeTube כיוון שהם דורשים
+    כניסה עם Google ושימוש בחשבון YouTube עם גיל מאומת.
+  Unlisted: לא מופיע
 Videos:
   #& Sort By
   Sort By:

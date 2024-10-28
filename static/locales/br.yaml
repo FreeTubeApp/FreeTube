@@ -272,28 +272,38 @@ User Playlists:
 
       This playlist has a video with a duration error: ''
   AddVideoPrompt:
-    Select a playlist to add your N videos to: ''
-    N playlists selected: ''
-    Search in Playlists: ''
+    Select a playlist to add your N videos to: 'Choazit ur roll-videoioù evit ouzhpennañ
+      ho video e-barzh | Choazit ur roll-videoioù evit ouzhpennañ ho {videoCount}
+      video e-barzh'
+    N playlists selected: '{playlistCount} Diuzet'
+    Search in Playlists: 'Klask e-barzh ar rolloù-videoioù'
     Allow Adding Duplicate Video(s): ''
-    Save: ''
+    Save: 'Enrollañ'
 
     Added {count} Times: ''
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": ''
-    "{videoCount}/{totalVideoCount} Videos Already Added": ''
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      video a vo ouzhpennet'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      video bet ouzhpennet dija'
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      "{videoCount} video(s) added to 1 playlist": "1 video ouzhpennet d'1 roll-videoioù
+        | {videoCount} video ouzhpennet d'1 roll-videoioù"
+      "{videoCount} video(s) added to {playlistCount} playlists": "1 video ouzhpennet
+        da {playlistCount} roll-videoioù | {videoCount} video ouzhpennet da  {playlistCount}
+        roll-videoioù"
   CreatePlaylistPrompt:
-    New Playlist Name: ''
-    Create: ''
+    New Playlist Name: 'Anv nevez ar roll-videoioù'
+    Create: 'Krouiñ'
 
     Toast:
-      There is already a playlist with this name. Please pick a different name.: ''
-      Playlist {playlistName} has been successfully created.: ''
-      There was an issue with creating the playlist.: ''
+      There is already a playlist with this name. Please pick a different name.: 'Bez
+        ez eus dija ur roll-videoioù gant an anv-mañ. Choazit un anv disheñvel mar-plij.'
+      Playlist {playlistName} has been successfully created.: 'Krouet eo bet ar roll-videoioù
+        {playlistName} gant berzh.'
+      There was an issue with creating the playlist.: 'C''hoarvezet ez eus ur gudenn
+        en ur grouiñ ar roll-videoioù.'
 History:
   # On History Page
   History: ''
@@ -324,11 +334,11 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: ''
       Local API: ''
-      Invidious API: ''
+      Invidious API: 'API Invidious'
     Video View Type:
       Video View Type: ''
       Grid: ''
-      List: ''
+      List: 'Roll'
     Thumbnail Preference:
       Thumbnail Preference: ''
       Default: ''

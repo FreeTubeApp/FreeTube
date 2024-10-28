@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
-import FtCommunityPost from '../../components/ft-community-post/ft-community-post.vue'
+import FtCommunityPost from '../../components/FtCommunityPost/FtCommunityPost.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
 

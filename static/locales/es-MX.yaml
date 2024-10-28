@@ -33,6 +33,7 @@ Global:
 
 # Search Bar
   Community: Comunidad
+  Live: En vivo
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -68,6 +69,9 @@ Search Filters:
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para ésta búsqueda
+  Features:
+    Features: Características
+    Subtitles: Subtitulos
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -718,3 +722,8 @@ Channels:
   Channels: Canales
   Title: Lista de Canales
   Search bar placeholder: Buscar Canales
+Search Listing:
+  Label:
+    Subtitles: Subtítulos
+    New: Nuevo
+Go to page: Ir a {page}

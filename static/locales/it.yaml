@@ -894,6 +894,13 @@ Video:
     Skipped segment: Segmento {segmentCategory} saltato
   IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video.
     Prova a passare a una VPN o a un proxy diverso.
+  Unlisted: Non elencato
+  MembersOnly: I video riservati agli abbonati non possono essere guardati con FreeTube,
+    poiché richiedono l'accesso a Google e l'iscrizione a pagamento al canale dell'utente
+    che li ha caricati.
+  AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube
+    poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età
+    verificata.
 Videos:
   #& Sort By
   Sort By:
