@@ -21,16 +21,16 @@ Actual size: 'suli lon'
 Zoom in: 'lukin suli'
 Zoom out: 'lukin lili'
 Toggle fullscreen: 'ante e sitelin suli'
-Window: 'sitelin'
+Window: 'lupa'
 Minimize: 'kama lili'
 Close: 'pini'
 Back: 'tawa monsi'
 Forward: 'tawa sinpin'
-Open New Window: 'open lon sitelin sin'
+Open New Window: 'open lon lupa sin'
 
 Version {versionNumber} is now available!  Click for more details: 'ilo pi nanpa {versionNumber}
   li lon! open la, sina ken sona mute'
-Download From Site: 'poki e sitelin ni'
+Download From Site: 'kama jo tan lipu'
 A new blog is now available, {blogTitle}. Click to view more: 'lipu sin li lon. ona
   li {blogTitle}. open la, sina ken lukin mute.'
 Are you sure you want to open this link?: 'sina wile ala wile open e ni?'
@@ -64,3 +64,9 @@ Global:
   Counts:
     Video Count: 1 sitelen tawa | {count} sitelen tawa
 Close Banner: pini e sitelen esun
+New Window: lupa sin
+Preferences: wile
+Go to page: tawa lipu
+Search Listing:
+  Label:
+    New: sin
