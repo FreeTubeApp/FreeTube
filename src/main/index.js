@@ -888,7 +888,6 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
-
   // #region navigation history
 
   ipcMain.on(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, ({ sender }, offset) => {
@@ -908,7 +907,6 @@ function runApp() {
   })
 
   // #endregion navigation history
-
 
   ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') {

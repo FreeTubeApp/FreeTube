@@ -395,7 +395,7 @@ export default defineComponent({
       if (offset != null) {
         this.goToOffset(offset)
       } else {
-        this.$router.back() 
+        this.$router.back()
       }
     },
 
@@ -403,7 +403,7 @@ export default defineComponent({
       if (offset != null) {
         this.goToOffset(offset)
       } else {
-        this.$router.forward() 
+        this.$router.forward()
       }
     },
 
