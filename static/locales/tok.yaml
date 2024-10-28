@@ -46,6 +46,14 @@ Search Filters:
     Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
+  Duration:
+    All Durations: tenpo ali
+    Duration: tenpo
+  Features:
+    Live: tenpo ni
+  Time:
+    Any Time: tenpo ali
+    Time: tenpo
 Settings:
   # On Settings Page
   General Settings: {}
@@ -55,6 +63,7 @@ Settings:
   SponsorBlock Settings: {}
 Video:
   External Player: {}
+  Live: tenpo ni
 Tooltips: {}
 Global:
   Community: kulupu
@@ -63,6 +72,12 @@ Global:
   Live: tenpo ni
   Counts:
     Video Count: 1 sitelen tawa | {count} sitelen tawa
+    Subscriber Count: 1 jan li kama jo | {count} jan li kama jo
+    View Count: 1 lukin | {count} lukin
+    Watching Count: 1 jan li lukin | {count} jan li lukin
+    Channel Count: 1 toki nasin | {count} toki nasin
+    Like Count: 1 musi | {count} musi
+    Comment Count: 1 toki | {count} toki
 Close Banner: pini e sitelen esun
 New Window: lupa sin
 Preferences: wile
@@ -70,3 +85,9 @@ Go to page: tawa lipu
 Search Listing:
   Label:
     New: sin
+    4K: 4K
+    8K: 8K
+    360 Video: 360°
+Channel:
+  Live:
+    Live: tenpo ni
