@@ -314,7 +314,7 @@ History:
   Case Sensitive Search: ''
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Arventennoù'
   Expand All Settings Sections: ''
   Sort Settings Sections (A-Z): ''
   Return to Settings Menu: ''
@@ -358,7 +358,7 @@ Settings:
     #! List countries
     External Link Handling:
       External Link Handling: ''
-      Open Link: ''
+      Open Link: 'Digeriñ an ere'
       Ask Before Opening Link: ''
       No Action: ''
   Theme Settings:
@@ -373,7 +373,7 @@ Settings:
       Base Theme: ''
       Black: ''
       Dark: ''
-      System Default: ''
+      System Default: 'Yezh ar reizhiad'
       Light: ''
       Dracula: ''
       Catppuccin Mocha: ''
@@ -384,9 +384,9 @@ Settings:
       Solarized Light: ''
     Main Color Theme:
       Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
+      Red: 'Ruz'
+      Pink: 'Roz'
+      Purple: 'Mouk'
       Deep Purple: ''
       Indigo: ''
       Blue: ''
@@ -396,9 +396,9 @@ Settings:
       Green: ''
       Light Green: ''
       Lime: ''
-      Yellow: ''
+      Yellow: 'Melen'
       Amber: ''
-      Orange: ''
+      Orange: 'Orañjez'
       Deep Orange: ''
       Dracula Cyan: ''
       Dracula Green: ''
@@ -432,7 +432,7 @@ Settings:
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
-    Player Settings: ''
+    Player Settings: 'Lenner'
     Play Next Video: ''
     Turn on Subtitles by Default: ''
     Autoplay Videos: ''
@@ -473,7 +473,7 @@ Settings:
       Quality Label: ''
       Ask Path: ''
       Folder Label: ''
-      Folder Button: ''
+      Folder Button: 'Diuzañ un teuliad'
       File Name Label: ''
       File Name Tooltip: ''
       Error:
@@ -490,7 +490,7 @@ Settings:
       None:
         Name: ''
   Privacy Settings:
-    Privacy Settings: ''
+    Privacy Settings: 'Prevezded'
     Remember History: ''
     Save Watched Progress: ''
     Save Watched Videos With Last Viewed Playlist: ''
@@ -597,7 +597,7 @@ Settings:
     How do I import my subscriptions?: ''
     Manage Subscriptions: ''
   Proxy Settings:
-    Proxy Settings: ''
+    Proxy Settings: 'Proksi'
     Enable Tor / Proxy: ''
     Proxy Protocol: ''
     Proxy Host: ''
@@ -607,7 +607,7 @@ Settings:
     Your Info: ''
     Ip: ''
     Country: ''
-    Region: ''
+    Region: 'Rannvro'
     City: ''
     Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings:
@@ -636,7 +636,7 @@ Settings:
     Choose Path: ''
     Download Behavior: ''
     Download in app: ''
-    Open in web browser: ''
+    Open in web browser: 'Digeriñ er merdeer web'
   Experimental Settings:
     Experimental Settings: 'Arnodel'
     Warning: ''
@@ -672,7 +672,7 @@ About:
   Email: 'Chomlec’h postel'
   Mastodon: 'Mastodon'
   Chat on Matrix: ''
-  Please read the: ''
+  Please read the: 'Par-plij, lennit'
   room rules: ''
   Translate: 'Treiñ'
   Credits: 'Kreditoù'
@@ -751,14 +751,14 @@ Channel:
     Live: ''
     This channel does not currently have any live streams: ''
   Playlists:
-    Playlists: ''
+    Playlists: 'Rolloù-videoioù'
     This channel does not currently have any playlists: ''
     Sort Types:
       Last Video Added: ''
       Newest: ''
       Oldest: ''
   Podcasts:
-    Podcasts: ''
+    Podcasts: 'Podskignañ'
     This channel does not currently have any podcasts: ''
   Releases:
     Releases: ''
@@ -791,11 +791,11 @@ Video:
   Save Video: 'Enrollañ ar video'
   Video has been saved: 'Enrollet eo bet ar video'
   Video has been removed from your saved list: ''
-  Open in YouTube: 'Digeriñ war YouTube'
+  Open in YouTube: 'Digeriñ gant YouTube'
   Copy YouTube Link: 'Eilañ liamm YouTube'
   Open YouTube Embedded Player: 'Digeriñ lenner enkorfet YouTube'
   Copy YouTube Embedded Player Link: 'Eilañ liamm lenner enkorfet YouTube'
-  Open in Invidious: 'Digeriñ war Invidious'
+  Open in Invidious: 'Digeriñ gant Invidious'
   Copy Invidious Link: 'Eilañ liamm Invidious'
   Open Channel in YouTube: 'Digeriñ ar chadenn war YouTube'
   Copy YouTube Channel Link: 'Eilañ liamm YouTube ar chadenn'
@@ -816,7 +816,7 @@ Video:
   # As in a Live Video
   Premieres on: ''
   Premieres: ''
-  Upcoming: ''
+  Upcoming: 'A-benn nebeut'
   Live: ''
   Live Now: ''
   Live Chat: ''
@@ -866,7 +866,7 @@ Video:
   Started streaming on: ''
   Publicationtemplate: ''
   Sponsor Block category:
-    sponsor: ''
+    sponsor: 'Sponsor'
     intro: ''
     outro: ''
     self-promotion: ''
@@ -875,10 +875,10 @@ Video:
     recap: ''
     filler: ''
   External Player:
-    OpenInTemplate: ''
-    video: ''
+    OpenInTemplate: 'Digeriñ gant {externalPlayer}'
+    video: 'video'
     playlist: ''
-    OpeningTemplate: ''
+    OpeningTemplate: 'Digeriñ {videoOrPlaylist} gant {externalPlayer}…'
     UnsupportedActionTemplate: ''
     Unsupported Actions:
       starting video at offset: ''
@@ -916,6 +916,7 @@ Video:
     Playback will resume automatically when your connection comes back: ''
     Skipped segment: ''
 #& Videos
+  Unlisted: Anlistennet
 Videos:
   #& Sort By
   Sort By:
@@ -932,7 +933,7 @@ Playlist:
   Views: ''
   Last Updated On: ''
   Sort By:
-    Sort By: ''
+    Sort By: 'Rummañ dre'
     DateAddedNewest: ''
     DateAddedOldest: ''
     AuthorAscending: ''
@@ -988,16 +989,16 @@ Comments:
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
+  Show Comments: 'Diskouez an evezhiadennoù'
   Hide Comments: ''
-  Sort by: ''
+  Sort by: 'Rummañ dre'
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
+  View: 'Gwelet'
   Hide: ''
-  Replies: ''
+  Replies: 'Respontoù'
   Show More Replies: 'Diskouez respontoù all'
   Reply: 'Respont'
   From {channelName}: 'deus {channelName}'
