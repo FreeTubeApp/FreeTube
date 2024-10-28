@@ -252,7 +252,9 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: 'Adlakaat ar roll-videoioù
         {oldPlaylistName} evit enrollañ ar sinedoù prim'
 
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: ''
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 'Videoioù
+        ''zo e-barzh ar roll-videoioù n''int ket karget c''hoazh. Klikit amañ evit
+        eilañ anezho memestra.'
       Playlist name cannot be empty. Please input a name.: 'N''hall ket anv ar roll-videoioù
         bezañ goullo. Lakait unan mar-plij.'
       Playlist has been updated.: 'Kemmet eo bet ar roll-videoioù.'
@@ -277,17 +279,18 @@ User Playlists:
       video e-barzh'
     N playlists selected: '{playlistCount} Diuzet'
     Search in Playlists: 'Klask e-barzh ar rolloù-videoioù'
-    Allow Adding Duplicate Video(s): ''
+    Allow Adding Duplicate Video(s): 'Aotren ouzhpennañ doublennoù videoioù'
     Save: 'Enrollañ'
 
-    Added {count} Times: ''
+    Added {count} Times: 'Ouzhpennet dija | Ouzhpennet {count} gwech'
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
       video a vo ouzhpennet'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       video bet ouzhpennet dija'
 
     Toast:
-      You haven't selected any playlist yet.: ''
+      You haven't selected any playlist yet.: 'N''ho peus diuzet ur roll-videoioù
+        c''hoazh.'
       "{videoCount} video(s) added to 1 playlist": "1 video ouzhpennet d'1 roll-videoioù
         | {videoCount} video ouzhpennet d'1 roll-videoioù"
       "{videoCount} video(s) added to {playlistCount} playlists": "1 video ouzhpennet
@@ -329,7 +332,7 @@ Settings:
       Label: ''
       Tooltip: ''
     Default Landing Page: 'Pajenn degemer dre ziouer'
-    Locale Preference: 'Dibab lec''hel'
+    Locale Preference: 'Yezh'
     System Default: 'Reizhiad dre ziouer'
     Preferred API Backend:
       Preferred API Backend: ''
