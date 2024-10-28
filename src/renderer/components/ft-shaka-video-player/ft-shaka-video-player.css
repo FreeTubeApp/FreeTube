@@ -197,6 +197,14 @@
   opacity: 1;
 }
 
+:deep(.shaka-controls-container[shown='true'] > .shaka-play-button-container > .shaka-play-button) {
+  opacity: 0.75 !important;
+}
+
+:deep(.shaka-controls-container > .shaka-play-button-container > .shaka-play-button) {
+  padding: min(calc(15% / 2), 55px);
+}
+
 .ftVideoPlayer:fullscreen :deep(.theatre-button),
 .ftVideoPlayer:fullscreen :deep(.full-window-button),
 .fullWindow :deep(.theatre-button) {
