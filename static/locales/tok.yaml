@@ -29,7 +29,7 @@ Forward: 'tawa sinpin'
 Open New Window: 'open lon sitelin sin'
 
 Version {versionNumber} is now available!  Click for more details: 'ilo pi nanpa {versionNumber}
-  li lon! open la, sina ken sona mute.'
+  li lon! open la, sina ken sona mute'
 Download From Site: 'poki e sitelin ni'
 A new blog is now available, {blogTitle}. Click to view more: 'lipu sin li lon. ona
   li {blogTitle}. open la, sina ken lukin mute.'
@@ -56,3 +56,9 @@ Settings:
 Video:
   External Player: {}
 Tooltips: {}
+Global:
+  Community: kulupu
+  Videos: sitelen tawa
+  Shorts: lili
+  Live: tenpo ni
+Close Banner: pini e sitelen esun

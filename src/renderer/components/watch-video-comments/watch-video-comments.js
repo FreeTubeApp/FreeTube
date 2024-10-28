@@ -32,10 +32,6 @@ export default defineComponent({
       type: Boolean,
       required: true
     },
-    forceState: {
-      type: String,
-      default: null,
-    },
     isPostComments: {
       type: Boolean,
       default: false,
@@ -145,20 +141,6 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile.subscriptions
     }
   },
-  created: function () {
-    // region No comment detection
-    // For videos without any comment (comment disabled?)
-    // e.g. https://youtu.be/8NBSwDEf8a8
-    //
-    // `comments_entry_point_header` is null probably when comment disabled
-    if (this.forceState === 'noComment') {
-      this.commentData = []
-      this.nextPageToken = null
-      this.isLoading = false
-      this.showComments = true
-    }
-    // endregion No comment detection
-  },
   methods: {
     onTimestamp: function (timestamp) {
       this.$emit('timestamp-event', timestamp)
@@ -255,6 +237,19 @@ export default defineComponent({
         this.isLoading = false
         this.showComments = true
       } catch (err) {
+        // region No comment detection
+        // No comment related info when video info requested earlier in parent component
+        if (err.message.includes('Comments page did not have any content')) {
+          // For videos without any comment (comment disabled?)
+          // e.g. https://youtu.be/8NBSwDEf8a8
+          this.commentData = []
+          this.nextPageToken = null
+          this.isLoading = false
+          this.showComments = true
+          return
+        }
+        // endregion No comment detection
+
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {

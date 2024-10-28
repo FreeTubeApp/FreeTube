@@ -349,4 +349,3 @@ jobs:
 #        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64.zip
 #        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64-mac.zip
 #        asset_content_type: application/x-apple-diskimage
-

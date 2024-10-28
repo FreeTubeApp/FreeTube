@@ -5,7 +5,7 @@
     class="ftVideoPlayer"
     :class="{
       fullWindow: fullWindowEnabled,
-      sixteenByNine: forceAspectRatio
+      sixteenByNine: forceAspectRatio && !fullWindowEnabled
     }"
   >
     <!-- eslint-disable-next-line vuejs-accessibility/media-has-caption -->

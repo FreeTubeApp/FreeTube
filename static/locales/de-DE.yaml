@@ -132,13 +132,6 @@ Most Popular: Am beliebtesten
 Playlists: Wiedergabelisten
 User Playlists:
   Your Playlists: Deine Wiedergabelisten
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Deine
-    gespeicherten Videos sind leer. Klicke auf die Schaltfläche „Speichern“ in der
-    Ecke eines Videos, damit es hier aufgelistet wird
-  Playlist Message: Diese Seite spiegelt nicht die vollständig funktionierenden Wiedergabelisten
-    wider. Sie listet nur Videos auf, die du gespeichert oder favorisiert hast. Wenn
-    die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
-    in eine Wiedergabeliste „Favoriten“ migriert.
   Search bar placeholder: Nach Wiedergabelisten suchen
   Empty Search Message: Es gibt keine Videos in dieser Wiedergabeliste, die deiner
     Suche entsprechen
@@ -198,7 +191,6 @@ User Playlists:
       This playlist does not exist: Diese Wiedergabeliste existiert nicht
       This playlist is now used for quick bookmark: Diese Wiedergabeliste wird jetzt
         für Schnelles Merken genutzt
-      Quick bookmark disabled: 'Schnelles Merken deaktiviert'
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese
         Wiedergabeliste wird jetzt für Schnelles Merken genutzt, statt {oldPlaylistName}.
         Klicke hier zum zurücksetzen
@@ -245,14 +237,10 @@ User Playlists:
         wurde erfolgreich erstellt.
   Create New Playlist: Neue Wiedergabeliste erstellen
   Remove from Playlist: Aus der Wiedergabeliste entfernen
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Bist
-    du sicher, dass du alle angesehenen Videos aus dieser Wiedergabeliste entfernen
-    möchtest? Dies kann nicht rückgängig gemacht werden.
   Add to Favorites: Hinzufügen zu {playlistName}
   Remove from Favorites: Löschen aus {playlistName}
   Enable Quick Bookmark With This Playlist: Schnelles Merken für diese Wiedergabeliste
     aktivieren
-  Disable Quick Bookmark: Schnelles Merken deaktivieren
   Playlists with Matching Videos: Wiedergabelisten mit passenden Videos
   Quick Bookmark Enabled: Schnelles Lesezeichen aktiviert
   Cannot delete the quick bookmark target playlist.: Die Wiedergabeliste für das schnelle
@@ -303,8 +291,6 @@ Settings:
       End: Ende
       Hidden: Versteckt
       Blur: Unschärfe
-    'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
-      (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
         #! List countries
     Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
@@ -400,7 +386,6 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
     Player Settings: Videoabspieler
-    Remember History: Verlauf speichern
     Play Next Video: Nächstes Video abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
     Autoplay Videos: Videos automatisch abspielen
@@ -455,46 +440,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
-    Subscriptions Export Format:
-      Subscriptions Export Format: Abonnement Exportierformat
-      #& Freetube
-      Newpipe: Newpipe
-      OPML: OPML
-    Manage Subscriptions: Abos verwalten
-    Import Subscriptions: Importiere Abonnements
-    Export Subscriptions: Exportiere Abonnements
-    How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Fetch Feeds from RSS: Feeds von RSS abrufen
     Fetch Automatically: Feed automatisch abrufen
     Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
       anzeigen
     Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
-  Advanced Settings:
-    Advanced Settings: Erweiterte Einstellungen
-    Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
-      des Programmes)
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy-Adresse (Beispiel:
-      SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': >-
-      Den "TESTE PROXY"-Knopf zu drücken, sendet eine Anfrage an https://ipinfo.io/json
-    Use Tor / Proxy for API calls: Nutze Tor / Proxy für API Aufrufe
-    TEST PROXY: TESTE PROXY
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: Zeige öffentliche Instanzen
-    Clear History:
-      Clear History: Lösche Verlauf
-      # On Click
-      Are you sure you want to delete your history?: Bist du sicher, dass du deinen
-        Verlauf löschen möchtest?
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: Lösche Abonnements
-      # On Click
-      Are you sure you want to remove all subscriptions?: Bist du sicher, dass du
-        deine Abonnements löschen möchtest?
-      #& Yes
-      #& No
 
   Privacy Settings:
     Watch history has been cleared: Wiedergabeverlauf wurde gelöscht
@@ -545,14 +495,10 @@ Settings:
     Export YouTube: YouTube exportieren
     Export FreeTube: FreeTube exportieren
     Export Subscriptions: Abos exportieren
-    Import NewPipe: Importiere NewPipe
-    Import YouTube: Importiere YouTube
-    Import FreeTube: Importiere FreeTube
     Import Subscriptions: Abos importieren
     Select Export Type: Exporttyp auswählen
     Select Import Type: Importtyp auswählen
     Data Settings: Daten
-    Check for Legacy Subscriptions: Auf ältere Abos prüfen
     Manage Subscriptions: Abos verwalten
     Export Playlists: Wiedergabelisten exportieren
     Import Playlists: Wiedergabelisten importieren
@@ -611,7 +557,6 @@ Settings:
     Hide Subscriptions Shorts: Abo-Kurzvideos ausblenden
     Hide Channel Releases: Kanalveröffentlichungen ausblenden
     Hide Subscriptions Live: Live der Abos ausblenden
-    Blur Thumbnails: Vorschaubilder unscharf machen
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
     Hide Channels Invalid: Kanal-ID war ungültig
@@ -701,61 +646,21 @@ Settings:
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
-  Expand All Settings Sections: Alle Einstellungsabschnitte aufklappen
   Sort Settings Sections (A-Z): Einstellungsbereiche sortieren (A-Z)
   Return to Settings Menu: Zurück zum Einstellungsmenü
 About:
   #On About page
   About: Über
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0..': >-
-    Dieses Programm is unter der freien Lizent AGPL-3.0 veröffentlicht.
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Einen Programmfehler gefunden? Eine neue Funktion vorschlagen? Mithelfen? Schau
-    auf unserer GitHub-Seite vorbei. Änderungsvorschläge am Programmquelltext sind
-    dort willkommen.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: >-
-    Vielen Dank an all die Personen und Projekte die FreeTube möglich machen!
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': >-
-    Lust zu chatten? Tritt unserem Element- / Matrix-Server bei. Bitte lese zuvor
-    aber noch die Regeln.
-
-  'Looking for help? Check out our Wiki page.': Suchst Du nach Hilfe? Schaue auf unseren
-    Wiki vorbei.
-
-  Check out our Firefox extension!: Installiere auch unsere Firefox-Erweiterung!
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': >-
-    Falls du FreeTube gerne nutzt, erwäge doch das Spenden über Liberapay oder unsere
-    Bitcoinadresse.
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: Aktuellsten FreeTube-Neuigkeiten
-
 #On Channel Page
-  This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
-    freie Software ist unter der AGPL-3.0 lizenziert.
-  Translate via Weblate: Auf Weblate übersetzen
   Website: Website
-  Source Code: Quellcode
-  Release Notes: Versionshinweise
   Blog: Blog
   Credits: Danksagungen
   FAQ: Häufig gestellte Fragen
-  Wiki: Wiki
-  Report an Issue: Fehler melden
-  Channel Rules: Kanalregeln
   Email: E-Mail
-  License: Lizenz
   Beta: Beta
   Donate: Spenden
-  Useful Links: Nützliche Links
   Help: Hilfe
-  Contact: Kontakt
   these people and projects: diesen Menschen und Projekten
   FreeTube is made possible by: FreeTube wird ermöglicht von
   Translate: Übersetzen
@@ -770,8 +675,6 @@ About:
   FreeTube Wiki: FreeTube-Wiki
   GitHub releases: GitHub-Veröffentlichungen
   Downloads / Changelog: Downloads / Änderungsprotokoll
-  View License: Lizenz ansehen
-  Licensed under the AGPLv3: Lizenziert unter der AGPLv3
   Source code: Quellcode
   Discussions: Diskussionen
   Licensed under the: Lizenziert unter der
@@ -994,6 +897,12 @@ Video:
     Hide Stats: Statistiken ausblenden
   IP block: YouTube hat Ihre IP-Adresse für die Videowiedergabe gesperrt. Bitte versuchen
     Sie, zu einem anderen VPN oder Proxy zu wechseln.
+  Unlisted: Nicht gelistet
+  MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht
+    angesehen werden, da sie einen Google-Login und eine kostenpflichtige Mitgliedschaft
+    im Kanal des Hochladers erfordern.
+  AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
+    werden, da sie einen Google-Login und ein altersgeprüftes YouTube-Konto erfordern.
 Videos:
   #& Sort By
   Sort By:
@@ -1004,9 +913,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: Vollständige Wiedergabeliste ansehen
-  Videos: Videos
-  View: Aufruf
-  Views: Aufrufe
   Last Updated On: Zuletzt aktualisiert am
   Playlist: Wiedergabeliste
 
@@ -1024,7 +930,6 @@ Playlist:
     Custom: Benutzerdefiniert
     VideoDurationAscending: Dauer (Kürzeste zuerst)
     VideoDurationDescending: Dauer (Längste zuerst)
-Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -1097,7 +1002,6 @@ Falling back to Local API: Rückgriff auf lokale API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
-Subscriptions have not yet been implemented: Abos sind noch nicht implementiert
 Loop is now disabled: Wiederholung ist jetzt deaktiviert
 Loop is now enabled: Wiederholung ist jetzt aktiviert
 Shuffle is now disabled: Zufallswiedergabe ist jetzt deaktiviert
@@ -1249,8 +1153,6 @@ Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrech
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken.
 More: Mehr
-Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
-  implementiert, bitte versuche es später noch einmal
 Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann
   in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
@@ -1276,8 +1178,6 @@ Channels:
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
   Empty: Deine Kanal-Liste ist derzeit leer.
-  Unsubscribe: Abo entfernen
-  Unsubscribed: '{channelName} wurde aus deinen Abos entfernt'
   Unsubscribe Prompt: Bist du sicher, dass du dein Abo für „{channelName}“ entfernen
     willst?
 Clipboard:

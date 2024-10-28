@@ -875,9 +875,9 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
       }
     case 'live':
       if (sortBy === 'popular') {
-        return channelId.replace(/^UC/, 'UULV')
-      } else {
         return channelId.replace(/^UC/, 'UUPV')
+      } else {
+        return channelId.replace(/^UC/, 'UULV')
       }
     case 'shorts':
       if (sortBy === 'popular') {

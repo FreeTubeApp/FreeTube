@@ -100,13 +100,6 @@ Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tu
-    lista de videos guardados está vacía. Hacé clic en el botón de guardado en la
-    esquina de un video para que aparezca acá
-  Playlist Message: Esta página no refleja listas de reproducción completamente funcionales.
-    Solo lista los videos que guardaste o marcaste como favoritos. Cuando el trabajo
-    esté terminado, todos los videos que se encuentren acá serán migrados a una lista
-    de reproducción de 'Favoritos'.
   Search bar placeholder: Buscar en la Lista de Reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan
     con tu búsqueda
@@ -147,8 +140,6 @@ Settings:
       Middle: 'Medio'
       End: 'Final'
       Hidden: Oculto
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
-      Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región para Tendencias'
         #! List countries
     View all Invidious instance information: Ver toda la información sobre la instancia
@@ -301,7 +292,6 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Configuraciones de suscripción'
     Hide Videos on Watch: 'Ocultar videos vistos'
-    Manage Subscriptions: 'Administrar suscripciones'
     Fetch Automatically: Obtener feed automáticamente
     Fetch Feeds from RSS: Obtener feeds desde RSS
   Data Settings:
@@ -309,16 +299,12 @@ Settings:
     Select Import Type: 'Seleccionar tipo de importación'
     Select Export Type: 'Seleccionar tipo para exportar'
     Import Subscriptions: 'Importar suscripciones'
-    Import FreeTube: 'Importar FreeTube'
-    Import YouTube: 'Importar Youtube'
-    Import NewPipe: 'Importar NewPipe'
     Export Subscriptions: 'Exportar suscripciones'
     Export FreeTube: 'Exportar Freetube'
     Export YouTube: 'Exportar Youtube'
     Export NewPipe: 'Exportar NewPipe'
     Import History: 'Importar historial'
     Export History: 'Exportar historial'
-    Check for Legacy Subscriptions: Comprobar suscripciones de legado
     All playlists has been successfully exported: Todas las listas de reproducción
       se han exportado con éxito
     Playlist File: Archivo de lista de reproducción
@@ -351,7 +337,6 @@ Settings:
     Unknown data key: Clave de datos desconocida
     This might take a while, please wait: Esto puede tardar un rato. Por favor, esperá
     Invalid history file: Archivo de historial no válido
-  Advanced Settings: {}
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Live Chat: Ocultar chat en vivo
@@ -363,7 +348,6 @@ Settings:
     Hide Video Likes And Dislikes: Ocultar calificaciones del video
     Hide Video Views: Ocultar vistas del video
     Distraction Free Settings: Configuraciones para evitar distraerse
-    Blur Thumbnails: Desenfocar miniaturas
     Hide Channels Placeholder: Nombre o ID del canal
     Hide Video Description: Ocultar la descripción del vídeo
     Hide Chapters: Ocultar los capítulos
@@ -474,9 +458,7 @@ Channels:
   Channels: Canales
   Title: Lista de canales
   Empty: Tu lista de canales está actualmente vacía.
-  Unsubscribe: Desuscribirse
   Count: '{number} canal(es) encontrado(s).'
-  Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
 Preferences: Preferencias
 Tooltips:
   Distraction Free Settings:

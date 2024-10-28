@@ -129,13 +129,6 @@ Most Popular: 'Самые популярные'
 Playlists: 'Подборки'
 User Playlists:
   Your Playlists: 'Ваши подборки'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: У
-    вас нет сохранённых видео. Нажмите «Добавить видео в сохранённые», чтобы добавить
-    сюда
-  Playlist Message: Эта страница не отражает все возможности подборок. Она показывает
-    только те видео, которые вы сохранили или добавили в избранное. После переработки
-    этой страницы все видео, которые сейчас находятся здесь, переместятся в подборку
-    «Избранное».
   Search bar placeholder: Поиск подборок
   Empty Search Message: В этом плейлисте нет видео, соответствующих вашему запросу
   This playlist currently has no videos.: Пока в этой подборке нет видео.
@@ -225,9 +218,6 @@ User Playlists:
   Save Changes: Сохранить изменения
   Edit Playlist Info: Изменить сведения о подборке
   Remove Watched Videos: Удалить просмотренные видео
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ты
-    действительно хочешь удалить все просмотренные видео из этой подборки? Это действие
-    необратимо.
   Cancel: Отмена
   You have no playlists. Click on the create new playlist button to create a new one.: У
     тебя нет подборок. Нажми на кнопку создания новой подборки, чтобы создать новую.
@@ -283,8 +273,6 @@ Settings:
       End: 'В конце'
       Blur: Размытие
       Hidden: Скрыто
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
-      (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион подбора трендов'
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
@@ -379,7 +367,6 @@ Settings:
     Hide FreeTube Header Logo: Скрыть значок FreeTube
   Player Settings:
     Player Settings: 'Проигрыватель'
-    Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
     Autoplay Videos: 'Автовоспроизведение видео'
@@ -436,46 +423,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
-    Subscriptions Export Format:
-      Subscriptions Export Format: 'Формат экспорта подписок'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Управление подписками'
-    Import Subscriptions: 'Импорт подписок'
-    Export Subscriptions: 'Экспорт подписок'
-    How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
     Fetch Feeds from RSS: Получать ленты из RSS
     Fetch Automatically: Автоматически получать ленту
     Only Show Latest Video for Each Channel: Показывать только последние видео для
       каждого канала
     Confirm Before Unsubscribing: Подтвердить, прежде чем отписаться
-  Advanced Settings:
-    Advanced Settings: 'Расширенные настройки'
-    Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
-      данные на консоль)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Прокси-адрес (пример: SOCKS5://127.0.0.1:9050
-      )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Нажатие
-      кнопки "ТЕСТ ПРОКСИ" отправит запрос на https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Использовать Tor / Прокси для вызовов API'
-    TEST PROXY: 'ТЕСТ ПРОКСИ'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'См. общедоступные экземпляры'
-    Clear History:
-      Clear History: 'Очистить историю'
-      # On Click
-      Are you sure you want to delete your history?: 'Вы уверены, что хотите удалить
-        свою историю?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Очистить подписки'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Вы уверены, что хотите
-        удалить все подписки?'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Watch history has been cleared: История просмотров очищена
@@ -524,14 +476,10 @@ Settings:
     Export YouTube: Экспортировать YouTube
     Export FreeTube: Экспортировать FreeTube
     Export Subscriptions: Экспортировать подписки
-    Import NewPipe: Импортировать NewPipe
-    Import YouTube: Импортировать YouTube
-    Import FreeTube: Импортировать FreeTube
     Import Subscriptions: Импортировать подписки
     Select Export Type: Выбрать тип экспорта
     Select Import Type: Выбрать тип импорта
     Data Settings: Данные
-    Check for Legacy Subscriptions: Проверить устаревшие подписки
     Manage Subscriptions: Управление подписками
     Import Playlists: Импортировать подборки
     All playlists has been successfully exported: Все подборки успешно экспортированы
@@ -674,40 +622,12 @@ Settings:
       настройкам
     Set Password: Установить пароль
     Remove Password: Удалить пароль
-  Expand All Settings Sections: Расширить все разделы настроек
   Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
   Return to Settings Menu: Вернуться в Настройки
 About:
   #On About page
   About: 'О приложении'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Это
-    программное обеспечение с авторским левом распространяется под свободной лицензией
-    AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Нашли ошибку? Хотите предложить функцию? Хотите помочь? Посетите нашу страницу
-    GitHub. Запросы на объединение приветствуются.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Большое
-    спасибо людям и проектам, которые сделали FreeTube возможным!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Хотите
-    пообщаться? Присоединяйтесь к нашему серверу Element / Matrix. Пожалуйста, ознакомьтесь
-    с правилами перед тем, как присоединиться.'
-
-  'Looking for help? Check out our Wiki page.': 'Нужна помощь? Посетите нашу вики-страницу.'
-
-  Check out our Firefox extension!: 'Ознакомьтесь с нашим расширением для Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Если
-    вам нравится использовать FreeTube, рассмотрите возможность пожертвования через
-    Liberapay или через наш биткойн-адрес.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Последние новости FreeTube'
-
 #On Channel Page
   Donate: Пожертвовать
   these people and projects: этим людям и проектам
@@ -727,8 +647,6 @@ About:
   Help: Помощь
   GitHub releases: Выпуски на GitHub
   Downloads / Changelog: Скачать / Список изменений
-  View License: Посмотреть лицензию
-  Licensed under the AGPLv3: Лицензия AGPLv3
   Source code: Исходный код
   Beta: Бета
   Please check for duplicates before posting: Перед публикацией проблемы, проверьте
@@ -738,8 +656,6 @@ About:
   Licensed under the: Лицензия выдана под
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: 'Подписчик'
-  Subscribers: 'Подписчиков'
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'
   Search Channel: 'Поиск на канале'
@@ -965,9 +881,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Посмотреть всю подборку'
-  Videos: 'Видео'
-  View: 'Вид'
-  Views: 'Просмотров'
   Last Updated On: 'Последнее обновление'
 
 # On Video Watch Page
@@ -985,7 +898,6 @@ Playlist:
     Custom: Пользовательский
     VideoDurationAscending: Продолжительность (Сначала кратчайшие)
     VideoDurationDescending: Продолжительность (Сначала длиннейшие)
-Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
   Use Dash Formats: 'Использовать форматы DASH'
@@ -1055,7 +967,6 @@ Invidious API Error (Click to copy): 'Ошибка набора функций I
   скопировать)'
 Falling back to Invidious API: 'Возврат к набору функций Invidious'
 Falling back to Local API: 'Возврат к локальному набору функций'
-Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
 Loop is now disabled: 'Повторение теперь отключено'
 Loop is now enabled: 'Повторение теперь включено'
 Shuffle is now disabled: 'Перемешивание теперь отключено'
@@ -1203,8 +1114,6 @@ Playing Next Video Interval: Воспроизведение следующего
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены.
-Hashtags have not yet been implemented, try again later: Распределительные метки ещё
-  не сделаны, попробуйте позже
 Unknown YouTube url type, cannot be opened in app: Неизвестный тип адреса YouTube,
   невозможно открыть в приложении
 Open New Window: Открыть новое окно
@@ -1228,8 +1137,6 @@ Channels:
   Empty: Список каналов пуст.
   Channels: Каналы
   Search bar placeholder: Поиск каналов
-  Unsubscribe: Отписаться
-  Unsubscribed: '{channelName} был удалён из ваших подписок'
   Unsubscribe Prompt: Вы уверены, что хотите отписаться от «{channelName}»?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена

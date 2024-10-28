@@ -113,8 +113,6 @@ Channels:
   Search bar placeholder: ''
   Count: ''
   Empty: ''
-  Unsubscribe: ''
-  Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
@@ -127,8 +125,6 @@ Most Popular: ''
 Playlists: ''
 User Playlists:
   Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
   Search bar placeholder: ''
 History:
@@ -316,7 +312,6 @@ Settings:
     Subscription Settings: ''
     Hide Videos on Watch: 'Paslēpt video pēc skatīšanas'
     Fetch Feeds from RSS: 'Iegūt plūsmu no RSS'
-    Manage Subscriptions: ''
     Fetch Automatically: 'Iegūt plūsmu automātiski'
   Distraction Free Settings:
     Distraction Free Settings: 'Beztraucēšanas iestatījumi'
@@ -326,7 +321,6 @@ Settings:
       Channel Page: 'Kanāla lapa'
       Watch Page: 'Skatīšanās lapa'
       General: 'Galvenais'
-    Blur Thumbnails: 'Izpludināt sīktēlus'
     Hide Video Views: 'Paslēpt video skatījumus'
     Hide Video Likes And Dislikes: 'Paslēpt video novērtējuma atzīmes'
     Hide Channel Subscribers: 'Paslēpt kanāla abonentus'
@@ -366,7 +360,6 @@ Settings:
     Subscription File: ''
     History File: 'Vēstures datne'
     Playlist File: ''
-    Check for Legacy Subscriptions: ''
     Export Subscriptions: ''
     Export FreeTube: 'Eksportēt FreeTube'
     Export YouTube: 'Eksportēt YouTube'
@@ -457,8 +450,6 @@ About:
   About: 'Par'
   Beta: 'Beta'
   Source code: 'Pirmkods'
-  Licensed under the AGPLv3: ''
-  View License: ''
   Downloads / Changelog: 'Lejuplādes / izmaiņu žurnāls'
   GitHub releases: 'GitHub laidieni'
   Help: 'Palīdzība'
@@ -693,15 +684,11 @@ Playlist:
   #& About
   Playlist: ''
   View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -800,9 +787,7 @@ Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to Local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''

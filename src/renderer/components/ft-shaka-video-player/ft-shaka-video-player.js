@@ -18,7 +18,6 @@ import {
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
-  qualityLabelToDimension,
   repairInvidiousManifest,
   sortCaptions,
   translateSponsorBlockCategory
@@ -1284,8 +1283,6 @@ export default defineComponent({
       /** @type {object[]} */
       const legacyFormats = props.legacyFormats
 
-      // TODO: switch to using height and width when Invidious starts returning them, instead of parsing the quality label
-
       let previousQuality
       if (previousFormat === 'dash') {
         const previousTrack = player.getVariantTracks().find(track => track.active)
@@ -1297,13 +1294,15 @@ export default defineComponent({
         previousQuality = defaultQuality.value
       }
 
+      const isPortrait = legacyFormats[0].height > legacyFormats[0].width
+
       let matches = legacyFormats.filter(variant => {
-        return previousQuality === qualityLabelToDimension(variant.qualityLabel)
+        return previousQuality === isPortrait ? variant.width : variant.height
       })
 
       if (matches.length === 0) {
         matches = legacyFormats.filter(variant => {
-          return previousQuality > qualityLabelToDimension(variant.qualityLabel)
+          return previousQuality > isPortrait ? variant.width : variant.height
         })
 
         if (matches.length > 0) {
@@ -1433,26 +1432,8 @@ export default defineComponent({
 
       stats.bitrate = (bitrate / 1000).toFixed(2)
 
-      if (typeof width === 'undefined' || typeof height === 'undefined') {
-        // Invidious doesn't provide any height or width information for their legacy formats, so lets read it from the video instead
-        // they have a size property but it's hard-coded, so it reports false information for shorts for example
-        const video_ = video.value
-
-        if (hasLoaded.value) {
-          stats.resolution.width = video_.videoWidth
-          stats.resolution.height = video_.videoHeight
-        } else {
-          video_.addEventListener('loadeddata', () => {
-            stats.resolution.width = video_.videoWidth
-            stats.resolution.height = video_.videoHeight
-          }, {
-            once: true
-          })
-        }
-      } else {
-        stats.resolution.width = width
-        stats.resolution.height = height
-      }
+      stats.resolution.width = width
+      stats.resolution.height = height
     }
 
     function updateStats() {
@@ -2411,19 +2392,8 @@ export default defineComponent({
       } else {
         // force the player aspect ratio to 16:9 to avoid overflowing the layout, when the video is too tall
 
-        // Invidious doesn't provide any height or width information for their legacy formats, so lets read it from the video instead
-        // they have a size property but it's hard-coded, so it reports false information for shorts for example
-
         const firstFormat = props.legacyFormats[0]
-        if (typeof firstFormat.width === 'undefined' || typeof firstFormat.height === 'undefined') {
-          videoElement.addEventListener('loadeddata', () => {
-            forceAspectRatio.value = videoElement.videoWidth / videoElement.videoHeight < 1.5
-          }, {
-            once: true
-          })
-        } else {
-          forceAspectRatio.value = firstFormat.width / firstFormat.height < 1.5
-        }
+        forceAspectRatio.value = firstFormat.width / firstFormat.height < 1.5
       }
 
       if (useSponsorBlock.value && sponsorSkips.value.seekBar.length > 0) {
@@ -2627,7 +2597,7 @@ export default defineComponent({
             const legacyFormat = activeLegacyFormat.value
 
             if (!useAutoQuality) {
-              dimension = qualityLabelToDimension(legacyFormat.qualityLabel)
+              dimension = legacyFormat.height > legacyFormat.width ? legacyFormat.width : legacyFormat.height
             }
           } else if (oldFormat !== 'legacy') {
             const track = player.getVariantTracks().find(track => track.active)

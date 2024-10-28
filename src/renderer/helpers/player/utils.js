@@ -120,14 +120,6 @@ export function translateSponsorBlockCategory(category) {
 }
 
 /**
- * @param {string} qualityLabel
- * @returns {number}
- */
-export function qualityLabelToDimension(qualityLabel) {
-  return parseInt(qualityLabel.split('p')[0])
-}
-
-/**
  * Moves the captions that are the most similar to the display language to the top
  * and sorts the remaining ones alphabetically.
  * @param {{

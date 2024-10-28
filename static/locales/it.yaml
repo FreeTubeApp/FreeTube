@@ -133,18 +133,9 @@ Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue playlist'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Non
-    ci sono video salvati. Fai clic sulla stella in alto a destra di un video per
-    aggiungerlo qui
-  Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
-    Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
-    tutti i video che si trovano qui saranno spostati in una playlist preferiti.
   Search bar placeholder: Cerca nelle playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Sei
-    sicuro di voler rimuovere tutti i video guardati da questa playlist? Questa operazione
-    non può essere annullata.
   AddVideoPrompt:
     Search in Playlists: Cerca nelle playlist
     Save: Salva
@@ -190,7 +181,6 @@ User Playlists:
         il basso.
       This playlist is now used for quick bookmark: Questa playlist è ora usata per
         i segnalibri rapidi
-      Quick bookmark disabled: Segnalibro rapido disabilitato
       Reverted to use {oldPlaylistName} for quick bookmark: Ripristinato l'uso di
         {oldPlaylistName} per i segnalibri rapidi
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Questa
@@ -246,7 +236,6 @@ User Playlists:
   Add to Favorites: Aggiungi a {playlistName}
   Remove from Favorites: Rimuovi da {playlistName}
   Enable Quick Bookmark With This Playlist: Abilita segnalibro rapido con questa playlist
-  Disable Quick Bookmark: Disabilita segnalibro rapido
   Playlists with Matching Videos: Playlist con video correlati
   Cannot delete the quick bookmark target playlist.: Impossibile eliminare la playlist
     di destinazione dei segnalibri rapidi.
@@ -295,8 +284,6 @@ Settings:
       End: 'Fine'
       Hidden: Nascoste
       Blur: Sfocatura
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
-      (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'
         #! List countries
     Check for Latest Blog Posts: Controlla gli ultimi post del blog
@@ -469,44 +456,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Iscrizioni'
     Hide Videos on Watch: 'Nascondi i video visualizzati'
-    Subscriptions Export Format:
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Gestisci le iscrizioni'
-    Import Subscriptions: 'Importa Iscrizioni'
-    Export Subscriptions: 'Esporta Iscrizioni'
-    How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
     Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
     Fetch Automatically: Recupera i feed automaticamente
     Only Show Latest Video for Each Channel: Mostra solo il video più recente per
       ciascun canale
     Confirm Before Unsubscribing: Evita la cancellazione accidentale dell'iscrizione
-  Advanced Settings:
-    Advanced Settings: 'Impostazioni Avanzate'
-    Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
-      (log nella console)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Indirizzo Proxy (Esempio:
-      SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Cliccare
-      "PROVA PROXY" manderà una richiesta a https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Usa Tor / Proxy per chiamate API'
-    TEST PROXY: 'PROVA PROXY'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Vedi Istanze Pubbliche'
-    Clear History:
-      Clear History: 'Pulisci Cronologia'
-      # On Click
-      Are you sure you want to delete your history?: 'Sei sicuro di voler eliminare
-        la cronologia?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Pulisci Iscrizioni'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Sei sicuro di voler rimuovere
-        tutte le iscrizioni?'
-      #& Yes
-      #& No
 
   Data Settings:
     How do I import my subscriptions?: Come posso importare le mie iscrizioni?
@@ -538,13 +492,9 @@ Settings:
     Export YouTube: Esporta per YouTube
     Export FreeTube: Esporta per FreeTube
     Export Subscriptions: Esporta le iscrizioni
-    Import NewPipe: Importa da NewPipe
-    Import YouTube: Importa da YouTube
-    Import FreeTube: Importa da FreeTube
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni obsolete
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
@@ -603,7 +553,6 @@ Settings:
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
-    Blur Thumbnails: Miniature sfocate
     Hide Subscriptions Community: Nascondi la comunità di iscritti
     Hide Channels Invalid: L'ID canale fornito non è valido
     Hide Channels Disabled Message: Alcuni canali sono stati bloccati usando l'ID
@@ -692,40 +641,12 @@ Settings:
     Set Password To Prevent Access: Imposta una password per impedire l'accesso alle
       Impostazioni
     Remove Password: Rimuovi password
-  Expand All Settings Sections: Espandi tutte le sezioni delle Impostazioni
   Sort Settings Sections (A-Z): Ordina le sezioni delle Impostazioni (A-Z)
   Return to Settings Menu: Torna al menu Impostazioni
 About:
   #On About page
   About: 'Informazioni'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
-    software è rilasciato con licenza gratuita AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Hai trovato un problema? Vuoi suggerire nuove funzionalità? Vuoi dare una mano?
-    Controlla la nostra pagina GitHub. Accettiamo volentieri pull request.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Grazie
-    mille alle persone e ai progetti che rendono FreeTube possibile!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Vuoi
-    chattare? Entra nel nostro server Element / Matrix. Per favore, leggi il regolamento
-    prima di entrare.'
-
-  'Looking for help? Check out our Wiki page.': 'Cerchi aiuto? Dai un’occhiata alla
-    nostra pagina Wiki.'
-
-  Check out our Firefox extension!: 'Dai un’occhiata alla nostra estensione Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
-    ti piace FreeTube, prendi in considerazione di donare con Liberapay o al nostro
-    indirizzo Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Ultime Notizie di Freetube'
-
 #On Channel Page
   Donate: Dona
   Blog: Blog
@@ -748,8 +669,6 @@ About:
   Website: Sito web
   Please check for duplicates before posting: Controlla se ci sono duplicati prima
     di pubblicare
-  View License: Vedi licenza
-  Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
   Source code: Codice sorgente
   Beta: Beta
   Discussions: Discussioni
@@ -975,6 +894,13 @@ Video:
     Skipped segment: Segmento {segmentCategory} saltato
   IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video.
     Prova a passare a una VPN o a un proxy diverso.
+  Unlisted: Non elencato
+  MembersOnly: I video riservati agli abbonati non possono essere guardati con FreeTube,
+    poiché richiedono l'accesso a Google e l'iscrizione a pagamento al canale dell'utente
+    che li ha caricati.
+  AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube
+    poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età
+    verificata.
 Videos:
   #& Sort By
   Sort By:
@@ -985,9 +911,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
-  Videos: 'Video'
-  View: 'Visualizzazione'
-  Views: 'Visualizzazioni'
   Last Updated On: 'Ultimo aggiornamento il'
 
 # On Video Watch Page
@@ -1005,7 +928,6 @@ Playlist:
     VideoTitleAscending: Titolo (A-Z)
     VideoDurationAscending: Durata (prima la più breve)
     VideoDurationDescending: Durata (prima la più lunga)
-Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -1074,8 +996,6 @@ Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
 Invidious API Error (Click to copy): 'Errore API Invidious (Clicca per copiare)'
 Falling back to Invidious API: 'Torno alle API Invidious'
 Falling back to Local API: 'Torno alle API locali'
-Subscriptions have not yet been implemented: 'Le Iscrizioni non sono ancora state
-  implementate'
 Loop is now disabled: 'Il loop è ora disabilitato'
 Loop is now enabled: 'Il loop è ora abilitato'
 Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
@@ -1228,8 +1148,6 @@ Default Invidious instance has been cleared: L'istanza predefinita di Invidious 
   stata cancellata
 Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious
   è stata impostata a {instance}
-Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
-  stati implementati, riprova più tardi
 Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconosciuto,
   non può essere aperto nell'app
 Search Bar:
@@ -1244,14 +1162,12 @@ Screenshot Success: Screenshot salvato come "{filePath}"
 Screenshot Error: Screenshot non riuscito. {error}
 New Window: Nuova finestra
 Channels:
-  Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'
   Title: Elenco canali
   Channels: Canali
   Search bar placeholder: Cerca canali
   Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
-  Unsubscribe: Annulla l'iscrizione
 Clipboard:
   Cannot access clipboard without a secure connection: Impossibile accedere agli appunti
     senza una connessione sicura
