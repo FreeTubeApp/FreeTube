@@ -212,7 +212,11 @@ const hideVideo = computed(() => {
 })
 
 const backendPreference = computed(() => {
-  return store.getters.getBackendPreference
+  let preference = store.getters.getBackendPreference
+  if (preference === 'piped') {
+    preference = store.getters.getFallbackPreference
+  }
+  return preference
 })
 
 const backendFallback = computed(() => {
