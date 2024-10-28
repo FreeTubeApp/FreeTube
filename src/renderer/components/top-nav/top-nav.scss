@@ -60,7 +60,8 @@
   }
 
   &.arrowBackwardDisabled,
-  &.arrowForwardDisabled {
+  &.arrowForwardDisabled,
+  &.disabled {
     color: #808080;
     opacity: 0.5;
     pointer-events: none;

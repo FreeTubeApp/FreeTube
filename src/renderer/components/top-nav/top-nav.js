@@ -34,11 +34,20 @@ export default defineComponent({
     }
 
     return {
+      isRouteBookmarkable: false,
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
       currentRouteFullPath: '',
       searchSuggestionsDataList: [],
+      allowedPageBookmarkRouteMetaTitles: [
+        'Search Results',
+        'Playlist',
+        'Channel',
+        'Watch',
+        'Hashtag',
+        'Settings' // for linkable settings sections
+      ],
       lastSuggestionQuery: ''
     }
   },
@@ -129,6 +138,7 @@ export default defineComponent({
       }
 
       this.currentRouteFullPath = to.fullPath
+      this.isRouteBookmarkable = this.allowedPageBookmarkRouteMetaTitles.includes(to.meta.title)
     }
   },
   mounted: function () {
