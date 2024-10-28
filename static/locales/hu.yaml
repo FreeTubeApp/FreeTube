@@ -129,7 +129,7 @@ Subscriptions:
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
 Trending:
-  Trending: 'Népszerű'
+  Trending: 'Népszerűek'
   Trending Tabs: Népszerű lapok
   Movies: Filmek
   Gaming: Játék
@@ -527,7 +527,7 @@ Settings:
     Hide Trending Videos: Felkapott videók elrejtése
     Hide Recommended Videos: Ajánlott videók elrejtése
     Hide Comment Likes: Hozzászólás-kedvelések elrejtése
-    Hide Channel Subscribers: Csatorna feliratkozók elrejtése
+    Hide Channel Subscribers: Csatorna-feliratkozók elrejtése
     Hide Video Likes And Dislikes: Kedvelések és nemtetszések elrejtése a videóknál
     Hide Video Views: Videónézettség elrejtése
     Distraction Free Settings: Ne zavarjanak
@@ -582,7 +582,7 @@ Settings:
       kérést küld a következő címre'
     Test Proxy: Proxy tesztelés
     Proxy Port Number: Proxy port száma
-    Proxy Host: Proxy gazdaszámítógép
+    Proxy Host: Proxy-kiszolgáló
     Proxy Protocol: Proxy protokoll
     Enable Tor / Proxy: Tor/Proxy engedélyezése
     Proxy Settings: Proxy
