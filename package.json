@@ -103,7 +103,7 @@
     "lefthook": "^1.8.1",
     "mini-css-extract-plugin": "^2.9.1",
     "neostandard": "^0.11.7",
-    "npm-run-all2": "^6.2.4",
+    "npm-run-all2": "^7.0.1",
     "postcss": "^8.4.47",
     "postcss-scss": "^4.0.9",
     "rimraf": "^6.0.1",
