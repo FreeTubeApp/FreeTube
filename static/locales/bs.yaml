@@ -122,14 +122,11 @@ Settings:
       Beginning: 'Početak'
       Middle: 'Sredina'
       End: 'Kraj'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjer
-      (standard je https://invidious.snopyta.org)'
     Region for Trending: 'Regiona za trend'
         #! List countries
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
-  Advanced Settings: {}
 Channel:
   Videos: {}
 Tooltips: {}

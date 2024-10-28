@@ -118,11 +118,6 @@ Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
   Your Playlists: 'Daftar Putar Anda'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Penyimpanan
-    video Anda kosong. Klik tombol simpan pada pojok video untuk menyimpannya di sini
-  Playlist Message: Halaman ini tidak mencerminkan playlist yang berfungsi sepenuhnya.
-    Ini hanya mencantumkan video yang telah Anda simpan atau favorit. Setelah selesai,
-    semua video yang ada di sini akan dipindahkan ke daftar putar 'Favorit'.
   Search bar placeholder: Cari Daftar Putar
   Empty Search Message: Tidak ada video di dalam daftar putar ini yang cocok dengan
     pencarian Anda
@@ -216,8 +211,6 @@ Settings:
       End: 'Akhir'
       Hidden: Tersembunyi
       Blur: Buramkan
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Situs Invidious
-      (Bawaan: https://invidious.snopyta.org)'
     Region for Trending: 'Wilayah untuk Sedang Tren'
         #! List countries
     View all Invidious instance information: Tampilkan informasi semua peladen Invidious
@@ -353,7 +346,6 @@ Settings:
     Subscription Settings: 'Pengaturan Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
     Fetch Feeds from RSS: 'Ambil Umpan dari RSS'
-    Manage Subscriptions: 'Kelola Langganan'
     Fetch Automatically: Ambil Umpan Secara Otomatis
     Only Show Latest Video for Each Channel: Hanya Tampilkan Video Terbaru untuk Setiap
       Kanal
@@ -362,9 +354,6 @@ Settings:
     Select Import Type: 'Pilih Tipe Impor'
     Select Export Type: 'Pilih Tipe Ekspor'
     Import Subscriptions: 'Impor Langganan'
-    Import FreeTube: 'Impor FreeTube'
-    Import YouTube: 'Impor YouTube'
-    Import NewPipe: 'Impor NewPipe'
     Export Subscriptions: 'Ekspor Langganan'
     Export FreeTube: 'Ekspor FreeTube'
     Export YouTube: 'Ekspor YouTube'
@@ -392,7 +381,6 @@ Settings:
     Unable to write file: 'Tidak dapat menulis berkas'
     Unknown data key: 'Kunci data tidak diketahui'
     How do I import my subscriptions?: 'Bagaimana saya mengimpor langganan saya?'
-    Check for Legacy Subscriptions: Periksa Langganan Lawas
     Manage Subscriptions: Kelola Langganan
     Import Playlists: Impor Playlist
     Export Playlists: Ekspor Playlist
@@ -405,32 +393,6 @@ Settings:
     Playlist File: Berkas Daftar Putar
     Export Playlists For Older FreeTube Versions:
       Label: Ekspor Daftar Putar untuk Versi FreeTube yang Lebih Tua
-  Advanced Settings:
-    Advanced Settings: 'Pengaturan Lanjutan'
-    Enable Debug Mode (Prints data to the console): 'Aktifkan Mode Debug (Menampilkan
-      data ke konsol)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Alamat Proksi (Contoh: SOCKS5://127.0.0.1:9050
-      )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Meng-klik
-      tombol "TES PROKSI" akan mengirim permintaan ke https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Gunakan Tor / Proksi untuk panggilan API'
-    TEST PROXY: 'TES PROKSI'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Lihat Situs Publik'
-    Clear History:
-      Clear History: 'Bersihkan Riwayat'
-      # On Click
-      Are you sure you want to delete your history?: 'Apakah anda yakin ingin menghapus
-        riwayat anda?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Bersihkan Langganan'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Apakah anda yakin ingin
-        menghapus semua langganan?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Comment Likes: Sembunyikan Jumlah Suka pada Komentar
@@ -545,37 +507,10 @@ Settings:
     Hide Unsubscribe Button: Sembunyikan Tombol Berhenti Berlangganan
     Show Family Friendly Only: Tampilkan Hanya yang Ramah Keluarga
     Hide Search Bar: Sembunyikan Kotak Pencarian
-  Expand All Settings Sections: Buka Semua Bagian Pengaturan
 About:
   #On About page
   About: 'Tentang'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Perangkat
-    lunak copyleft ini berlisensi bebas AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Menemukan bug? Ingin mengajukan fitur? Ingin membantu? Kunjungi halaman Github
-    kami. Terbuka untuk pull request.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Terima
-    kasih banyak untuk orang-orang dan proyek-proyek yang membuat Freetube terwujud!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Ingin
-    mengobrol? Gabung Element / Server Matrix kami. Harap cek peraturannya sebelum
-    bergabung.'
-
-  'Looking for help? Check out our Wiki page.': 'Mencari bantuan? Cek laman Wiki kami.'
-
-  Check out our Firefox extension!: 'Cek ekstensi Firefox kami!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Jika
-    anda menyukai Freetube, pertimbangkan berdonasi via Liberapay atau melalui alamat
-    Bitcoin kami.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Berita FreeTube Terbaru'
-
   Donate: Donasi
   these people and projects: pengembang dan proyek berikut
   FreeTube is made possible by: FreeTube dikembangkan oleh
@@ -596,8 +531,6 @@ About:
   Help: Bantuan
   GitHub releases: Rilis GitHub
   Downloads / Changelog: Unduhan / Catatan Perubahan
-  View License: Lihat Lisensi
-  Licensed under the AGPLv3: Lisensi AGPLv3
   Source code: Kode sumber
   Beta: Beta
   Discussions: Diskusi
@@ -819,9 +752,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Tampilkan Daftar Putar Penuh'
-  Videos: 'Video'
-  View: 'Tampilan'
-  Views: 'Tampilan'
   Last Updated On: 'Terakhir Diperbarui Pada'
 
 # On Video Watch Page
@@ -830,7 +760,6 @@ Playlist:
   Playlist: Daftar Putar
   Sort By:
     Sort By: Urut Menurut
-Toggle Theatre Mode: 'Mode Teater'
 Change Format:
   Change Media Formats: 'Ubah Format Video'
   Use Dash Formats: 'Gunakan Format DASH'
@@ -893,7 +822,6 @@ Local API Error (Click to copy): 'API Lokal Galat (Klik untuk menyalin)'
 Invidious API Error (Click to copy): 'API Invidious Galat (Klik untuk menyalin)'
 Falling back to Invidious API: 'Kembali ke API Invidious'
 Falling back to Local API: 'Kembali ke API lokal'
-Subscriptions have not yet been implemented: 'Langganan masih belum diterapkan'
 Loop is now disabled: 'Putar-Ulang sekarang dimatikan'
 Loop is now enabled: 'Putar-Ulang sekarang diaktifkan'
 Shuffle is now disabled: 'Acak sekarang dimatikan'
@@ -974,8 +902,6 @@ Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk membata
   | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
   | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
 More: Lebih banyak
-Hashtags have not yet been implemented, try again later: Hashtag belum diimplementasikan,
-  silakan coba lagi nanti
 Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikenal,
   tidak bisa dibuka di aplikasi
 Open New Window: Buka Jendela Baru
@@ -999,8 +925,6 @@ Channels:
   Count: '{number} kanal ditemukan.'
   Unsubscribe Prompt: Apakah Anda yakin ingin berhenti berlangganan "{channelName}"?
   Empty: Daftar kanal Anda kosong.
-  Unsubscribe: Berhenti langganan
-  Unsubscribed: '{channelName} telah dihapus dari daftar langganan Anda'
 Preferences: Pengaturan
 Clipboard:
   Copy failed: Gagal menyalin ke papan klip

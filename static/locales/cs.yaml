@@ -137,17 +137,9 @@ Most Popular: 'Populární'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Vaše playlisty'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vaše
-    uložená videa jsou prázdná. Kliknutím na tlačítko Uložit v rohu videa jej zobrazíte
-    zde
-  Playlist Message: Tato stránka neodráží plně funkční playlisty. Uvádí pouze videa,
-    která jste si uložili nebo zařadili mezi oblíbená. Po dokončení práce budou všechna
-    aktuálně zde umístěná videa přenesena do seznamu „Oblíbené“.
   Search bar placeholder: Hledat playlisty
   Empty Search Message: V tomto playlistu nejsou žádná videa, která by odpovídala
     vašemu vyhledávání
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Opravdu
-    chcete z tohoto playlistu odstranit všechna zhlédnutá videa? Tato akce je nevratná.
   AddVideoPrompt:
     Search in Playlists: Hledat v playlistech
     Save: Uložit
@@ -195,7 +187,6 @@ User Playlists:
         byl navrácen pro rychlé uložení
       This playlist is now used for quick bookmark: Tento playlist bude nyní použit
         pro rychlé uložení
-      Quick bookmark disabled: Rychlé uložení vypnuto
       This playlist is already being used for quick bookmark.: Tento playlist je již
         používán pro rychlou záložku.
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
@@ -245,7 +236,6 @@ User Playlists:
   Playlist Description: Popis playlistu
   Add to Favorites: Přidat do playlistu {playlistName}
   Remove from Favorites: Odebrat z playlistu {playlistName}
-  Disable Quick Bookmark: Vypnout rychlé uložení
   Enable Quick Bookmark With This Playlist: Zapnout u tohoto playlistu rychlé uložení
   Playlists with Matching Videos: Playlisty s odpovídajícími videi
   Quick Bookmark Enabled: Rychlá záložka zapnuta
@@ -299,8 +289,6 @@ Settings:
       End: 'Konec'
       Hidden: Skryté
       Blur: Rozmazané
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
-      (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Oblast pro trendy'
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instancích
@@ -470,7 +458,6 @@ Settings:
     Subscription Settings: 'Odběry'
     Hide Videos on Watch: 'Skrýt přehraná videa'
     Fetch Feeds from RSS: 'Získávat odběry z RSS'
-    Manage Subscriptions: 'Spravovat odebírané kanály'
     Fetch Automatically: Automaticky načítat odběry
     Only Show Latest Video for Each Channel: U každého kanálu zobrazit pouze nejnovější
       video
@@ -513,7 +500,6 @@ Settings:
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
-    Blur Thumbnails: Rozmazat náhledy
     Hide Subscriptions Community: Skrýt komunitu odběratelů
     Hide Channels Invalid: Zadané ID kanálu je neplatné
     Hide Channels Disabled Message: Některé kanály byly zablokovány pomocí ID a nebyly
@@ -530,10 +516,6 @@ Settings:
     Select Import Type: 'Vybrat typ importu'
     Select Export Type: 'Vybrat typ exportu'
     Import Subscriptions: 'Importovat odběry'
-    Import FreeTube: 'Importovat FreeTube'
-    Import YouTube: 'Importovat YouTube'
-    Import NewPipe: 'Importovat NewPipe'
-    Check for Legacy Subscriptions: 'Zkontrolovat již odebírané kanály'
     Export Subscriptions: 'Exportovat odebírané kanály'
     Export FreeTube: 'Exportovat FreeTube'
     Export YouTube: 'Exportovat YouTube'
@@ -577,31 +559,6 @@ Settings:
         všechny své stávající playlisty možností Odstranit všechny playlisty v nastavení
         soukromí.\n3. Spusťte starší verzi FreeTube a importujte exportované playlisty."
       Label: Exportovat playlisty pro starší verze FreeTube
-  Advanced Settings:
-    Advanced Settings: 'Rozšířené nastavení'
-    Enable Debug Mode (Prints data to the console): 'Povolit režim ladění (výstup
-      se zobrazuje do terminálu)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Adresa proxy (příklad: SOCKS5://127.0.0.1:9050
-      )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Kliknutím
-      na tlačítko „OTESTOVAT PROXY“ odešlete požadavek na https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Použít Tor / Proxy pro volání API'
-    TEST PROXY: 'OTESTOVAT PROXY'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Veřejné instance'
-    Clear History:
-      Clear History: 'Vyčistit historii'
-      # On Click
-      Are you sure you want to delete your history?: 'Opravdu chcete smazat svou historii?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Vyčistit odebíraní kanálů'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Opravdu chcete smazat své
-        odebírané kanály?'
-      #& Yes
-      #& No
 
   Proxy Settings:
     Proxy Settings: Proxy
@@ -673,41 +630,12 @@ Settings:
     Set Password To Prevent Access: Nastavte heslo pro zabránění přístupu k nastavení
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
-  Expand All Settings Sections: Rozbalit všechny sekce nastavení
   Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
   Return to Settings Menu: Vrátit se do nastavení
 About:
   #On About page
   About: 'O aplikaci'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Tento
-    copyleftovaný software je zdarma licencován podle AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Našli jste chybu? Chcete navrhnout funkci? Chcete pomoci? Podívejte se na naši
-    stránku GitHub. Pull requesty jsou vítány.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Děkuji
-    moc lidem a projektům, které umožňují existenci FreeTube!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Chcete
-    si popovídat? Připojte se k našemu serveru Element / Matrix. Před připojením si
-    prosím zkontrolujte pravidla.'
-
-  'Looking for help? Check out our Wiki page.': 'Potřebujete pomoct? Podívejte se
-    na naši wiki stránku.'
-
-  Check out our Firefox extension!: 'Podívejte se na naše rozšíření pro Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Pokud
-    rádi používáte FreeTube, zvažte dar prostřednictvím Liberapay nebo prostřednictvím
-    naší bitcoinové adresy.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Nejnovější zprávy z FreeTube'
-
-  Licensed under the AGPLv3: Licencováno pod licencí AGPLv3
   Source code: Zdrojový kód
   Beta: Beta
   Donate: Přispět
@@ -722,7 +650,6 @@ About:
   FAQ: Často kladené dotazy
   FreeTube Wiki: Wiki FreeTube
   Downloads / Changelog: Ke stažení / Seznam změn
-  View License: Zobrazit licenci
   Translate: Překlady
   these people and projects: těmto lidem a projektům
   FreeTube is made possible by: FreeTube je možné dělat díky
@@ -997,6 +924,11 @@ Video:
       bude automaticky pokračovat, jakmile budete opět připojeni.
   IP block: YouTube zablokoval sledování videí z vaší IP adresy. Zkuste prosím přepnout
     na jinou VPN nebo proxy.
+  Unlisted: Neveřejné
+  MembersOnly: Videa určená pouze pro členy nelze na FreeTube sledovat, protože vyžadují
+    přihlášení k účtu Google a placené členství v kanálu nahrávajícího.
+  AgeRestricted: Videa s věkovým omezením nelze na FreeTube sledovat, protože vyžadují
+    přihlášení ke službě Google a použití účtu YouTube s ověřeným věkem.
 Videos:
   #& Sort By
   Sort By:
@@ -1007,9 +939,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
-  Videos: 'Videa'
-  View: 'Zobrazit'
-  Views: 'Zobrazení'
   Last Updated On: 'Naposledy upraveno'
 
 # On Video Watch Page
@@ -1027,7 +956,6 @@ Playlist:
     Custom: Vlastní
     VideoDurationAscending: Doba trvání (od nejkratších)
     VideoDurationDescending: Doba trvání (od nejdelších)
-Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
@@ -1171,7 +1099,6 @@ Falling back to Local API: 'Přepínám na lokální API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Toto
   video není k dispozici z důvodu chybějících formátů. K tomu může dojít z důvodu
   nedostupnosti země.'
-Subscriptions have not yet been implemented: 'Odběry kanálů nebyly ještě implementovány'
 Loop is now disabled: 'Smyčka je vypnuta'
 Loop is now enabled: 'Smyčka je zapnuta'
 Shuffle is now disabled: 'Zamíchání je vypnuto'
@@ -1189,8 +1116,6 @@ Playing Next Video Interval: Přehrávání dalšího videa bez prodlevy Kliknut
   | Přehrávání dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte. | Přehrávání
   dalšího videa za {nextVideoInterval} s. Kliknutím zrušíte.
 More: Více
-Hashtags have not yet been implemented, try again later: Hashtagy nebyly dosud implementovány,
-  zkuste to znovu později
 Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouTube,
   nelze v aplikaci otevřít
 Open New Window: Otevřít nové okno
@@ -1209,12 +1134,10 @@ New Window: Nové okno
 Channels:
   Channels: Kanály
   Title: Seznam kanálů
-  Unsubscribed: Kanál {channelName} byl odebrán z vašich odběrů
   Unsubscribe Prompt: Opavdu chcete zrušit odběr kanálu „{channelName}“?
   Empty: Seznam vašich kanálů je momentálně prázdný.
   Search bar placeholder: Hledat kanály
   Count: Nalezeno {number} kanálů.
-  Unsubscribe: Zrušit odběr
 Screenshot Success: Snímek uložen jako „{filePath}“
 Screenshot Error: Snímek selhal. {error}
 Clipboard:

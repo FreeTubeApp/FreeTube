@@ -19,6 +19,7 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: true,
+      alreadyLoadedRemotely: false,
       videoList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -105,7 +106,9 @@ export default defineComponent({
     },
 
     subscriptionCacheReady() {
-      this.loadVideosFromCacheSometimes()
+      if (!this.alreadyLoadedRemotely) {
+        this.loadVideosFromCacheSometimes()
+      }
     },
   },
   mounted: async function () {
@@ -123,6 +126,7 @@ export default defineComponent({
         return
       }
 
+      this.alreadyLoadedRemotely = true
       this.loadVideosForSubscriptionsFromRemote()
       this.$store.commit('setSubscriptionForShortsFirstAutoFetchRun')
     },
