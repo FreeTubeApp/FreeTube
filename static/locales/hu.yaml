@@ -33,7 +33,7 @@ Forward: 'Előre'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videók'
-  Shorts: Rövidfilmek
+  Shorts: Rövid videók
   Live: Élő
   Community: Közösség
 
@@ -138,7 +138,7 @@ Trending:
 Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:
-  Your Playlists: 'A lejátszási listáid'
+  Your Playlists: 'Az Ön lejátszási listái'
   Search bar placeholder: Lejátszási listák keresése
   Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
     megfelelnek a keresésnek
@@ -283,7 +283,7 @@ Settings:
       Local API: 'Helyi API'
       Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: 'Videó nézet típusa'
+      Video View Type: 'Videónézet típusa'
       Grid: 'Rács'
       List: 'Lista'
     Thumbnail Preference:
@@ -301,7 +301,8 @@ Settings:
     Current Invidious Instance: Jelenlegi Invidious-példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
     Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
-    Current instance will be randomized on startup: Jelenlegi példány indításkor véletlenszerűsített
+    Current instance will be randomized on startup: Véletlenszerű jelenlegi példány
+      használata indításkor
     No default instance has been set: Az alapértelmezett példány nincs beállítva
     The currently set default instance is {instance}: A jelenleg beállított alapértelmezett
       példány {instance}
@@ -386,11 +387,11 @@ Settings:
   Player Settings:
     Player Settings: 'Lejátszó'
     Play Next Video: 'Következő videó lejátszása'
-    Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
+    Turn on Subtitles by Default: 'Feliratok bekapcsolása alapértelemezetten'
     Autoplay Videos: 'Videók automatikus lejátszása'
     Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
-    Enable Theatre Mode by Default: 'Alapértelmezetten a mozi mód engedélyezése'
+    Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
     Default Video Format:
@@ -498,7 +499,7 @@ Settings:
     Unable to read file: 'Nem lehet olvasni a fájlt'
     Unable to write file: 'Nem lehet írni a fájlt'
     Unknown data key: 'Ismeretlen adatkulcs'
-    How do I import my subscriptions?: 'Hogyan importálhatom a feliratkozásaimat?'
+    How do I import my subscriptions?: 'Hogyan importálhatja a feliratkozásait?'
     Manage Subscriptions: Feliratkozások kezelése
     Playlist insufficient data: Nincs elegendő adat a(z) „{playlist}” lejátszási listához,
       elem kihagyása
@@ -533,7 +534,7 @@ Settings:
     Distraction Free Settings: Ne zavarjanak
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
-    Hide Video Description: Videó leírásának elrejtése
+    Hide Video Description: Videóleírás elrejtése
     Hide Comments: Hozzászólások elrejtése
     Hide Live Streams: Élő közvetítések elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
@@ -546,7 +547,7 @@ Settings:
     Hide Featured Channels: Kiemelt csatornák elrejtése
     Hide Channel Playlists: Csatorna lejátszási listák elrejtése
     Hide Channel Community: Csatornaközösség elrejtése
-    Hide Channel Shorts: Csatorna rövidfilmek elrejtése
+    Hide Channel Shorts: Csatorna rövid videóinak elrejtése
     Sections:
       Side Bar: Oldalsáv
       Channel Page: Csatornalap
@@ -555,7 +556,7 @@ Settings:
       Subscriptions Page: Feliratkozások oldal
     Hide Channel Podcasts: Csatornapodcastok elrejtése
     Hide Channel Releases: Csatornakiadások elrejtése
-    Hide Subscriptions Shorts: Feliratkozásos rövidfilmek elrejtése
+    Hide Subscriptions Shorts: Feliratkozások rövid videóinak elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
@@ -625,7 +626,7 @@ Settings:
     Download in app: Letöltés az alkalmazásban
   Parental Control Settings:
     Parental Control Settings: Szülői felügyelet
-    Show Family Friendly Only: Kizárólag családbarát megjelenítése
+    Show Family Friendly Only: Csak a családbarát videók megjelenítése
     Hide Search Bar: Keresősáv elrejtése
     Hide Unsubscribe Button: Leiratkozás gomb elrejtése
   Experimental Settings:
@@ -783,7 +784,7 @@ Channel:
       fülét.
   Shorts:
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
-      rövidfilmek
+      rövid videók
   This channel does not exist: Nem létezik ez a csatorna
   This channel does not allow searching: Keresés nem engedélyezett ezen a csatornán
   Releases:
