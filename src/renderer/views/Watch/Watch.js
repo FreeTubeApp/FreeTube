@@ -1397,7 +1397,7 @@ export default defineComponent({
 
         if (hasMultipleAudioTracks) {
           // match YouTube's local API response with English
-          const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+          const languageNames = new Intl.DisplayNames('en-US', { type: 'language', languageDisplay: 'standard' })
           for (const format of audioFormats) {
             this.generateAudioTrackFieldInvidious(format, languageNames)
           }

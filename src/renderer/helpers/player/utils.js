@@ -214,7 +214,7 @@ export function repairInvidiousManifest(periods) {
   }
 
   // match YouTube's local API response with English
-  const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+  const languageNames = new Intl.DisplayNames('en-US', { type: 'language', languageDisplay: 'standard' })
 
   for (const audioAdaptationSet of audioAdaptationSets) {
     // Invidious adds a label to every audio stream with it's bitrate
