@@ -12,11 +12,9 @@
  */
 
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'fs'
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
 import { Innertube, Misc } from 'youtubei.js'
 
-const STATIC_DIRECTORY = `${dirname(fileURLToPath(import.meta.url))}/../static`
+const STATIC_DIRECTORY = `${import.meta.dirname}/../static`
 
 const activeLanguagesPath = `${STATIC_DIRECTORY}/locales/activeLocales.json`
 /** @type {string[]} */

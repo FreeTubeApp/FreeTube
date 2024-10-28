@@ -6,12 +6,9 @@
  * to ensure that it cannot access other files on the disk, without the users permission (e.g. file picker).
  */
 import { closeSync, ftruncateSync, openSync, readFileSync, readdirSync, writeSync } from 'fs'
-import { dirname, join, relative, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { join, relative, resolve } from 'path'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
-const distDirectory = resolve(__dirname, '..', 'dist')
+const distDirectory = resolve(import.meta.dirname, '..', 'dist')
 const webDirectory = join(distDirectory, 'web')
 
 const paths = readdirSync(distDirectory, {
