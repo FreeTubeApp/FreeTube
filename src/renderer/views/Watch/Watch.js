@@ -848,6 +848,8 @@ export default defineComponent({
             // // https://github.com/iv-org/invidious/pull/4589
             // if (this.proxyVideos) {
 
+            this.streamingDataExpiryDate = this.extractExpiryDateFromStreamingUrl(result.adaptiveFormats[0].url)
+
             let hlsManifestUrl = result.hlsUrl
 
             if (this.proxyVideos) {
@@ -875,6 +877,8 @@ export default defineComponent({
             }
           } else {
             this.videoLengthSeconds = result.lengthSeconds
+
+            this.streamingDataExpiryDate = this.extractExpiryDateFromStreamingUrl(result.adaptiveFormats[0].url)
 
             this.legacyFormats = result.formatStreams.map(mapInvidiousLegacyFormat)
 
@@ -943,6 +947,12 @@ export default defineComponent({
             this.isLoading = false
           }
         })
+    },
+
+    extractExpiryDateFromStreamingUrl: function (url) {
+      const expireString = new URL(url).searchParams.get('expire')
+
+      return new Date(parseInt(expireString) * 1000)
     },
 
     /**
