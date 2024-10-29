@@ -3,12 +3,6 @@
     v-if="shownDescription.length > 0"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
-    <FtTimestampCatcher
-      ref="descriptionContainer"
-      class="description"
-      :input-html="shownDescription"
-      @timestamp-event="onTimestamp"
-    />
     <template v-if="showControls">
       <span
         v-if="showFullDescription"
@@ -39,6 +33,12 @@
         @keydown.enter.prevent="expandDescription"
       />
     </template>
+    <FtTimestampCatcher
+      ref="descriptionContainer"
+      class="description"
+      :input-html="shownDescription"
+      @timestamp-event="onTimestamp"
+    />
   </FtCard>
 </template>
 

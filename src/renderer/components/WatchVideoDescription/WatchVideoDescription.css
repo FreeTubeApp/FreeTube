@@ -1,5 +1,7 @@
 .videoDescription {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   max-block-size: 20lh;
 }
@@ -13,7 +15,6 @@
 
 .descriptionStatus {
   margin: 0;
-  text-align: center;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
@@ -29,9 +30,18 @@
   text-decoration: none;
 }
 
+.videoDescription:not(.short) .descriptionStatus {
+  position: relative;
+  order: 0;
+}
+
 .videoDescription.short .description {
   max-block-size: 4lh;
   overflow: hidden;
+}
+
+.videoDescription:not(.short) .description {
+  order: 1;
 }
 
 .videoDescription .overlay {
