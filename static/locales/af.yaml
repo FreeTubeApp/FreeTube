@@ -964,30 +964,40 @@ Tooltips:
     Hide Subscriptions Live: ''
     Hide Videos and Playlists Containing Text: ''
   Subscription Settings:
-    Fetch Feeds from RSS: ''
-    Fetch Automatically: ''
+    Fetch Feeds from RSS: 'Wanneer geaktiveer, sal FreeTube RSS i.p.v. sy verstek
+      metode gebruik om u intekenvoer op te haal. RSS is vinniger en voorkom IP-versperring,
+      maar bied nie sekere inligting soos videoduud, status of gemeenskapsplasings
+      nie'
+    Fetch Automatically: 'Wanneer geaktiveer, sal FreeTube u intekenvoer outomaties
+      ophaal wanneer ’n nuwe venster geopen word en u van profiel wissel.'
   Experimental Settings:
-    Replace HTTP Cache: ''
+    Replace HTTP Cache: 'Deaktiveer die skyfgebaseerde HTTP-kas van Electron en aktiveer
+      ’n aangepaste afbeeldingskas in die geheue in. Sal lei tot ’n verhoogde RAM-gebruik.'
   SponsorBlock Settings:
-    UseDeArrowTitles: ''
-    UseDeArrowThumbnails: ''
+    UseDeArrowTitles: 'Vervang videotitels met gebruiker ingediende titels vanaf DeArrow.'
+    UseDeArrowThumbnails: 'Vervang videoduimnaels met duimnaels vanaf DeArrow.'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to Local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Unknown YouTube url type, cannot be opened in app: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playlist will not pause when current video is finished: ''
-Playlist will pause when current video is finished: ''
+Local API Error (Click to copy): 'Lokale API-fout (Klik om te kopieer)'
+Invidious API Error (Click to copy): 'Invidious API-fout (Klik om te kopieer)'
+Falling back to Invidious API: 'Val terug op Invidious API'
+Falling back to Local API: 'Val terug op lokale API'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Hierdie
+  video is onbeskikbaar vanweë ontbrekende formate. Dit kan gebeur weens video-onbeskikbaarheid
+  in u land.'
+Unknown YouTube url type, cannot be opened in app: 'Onbekende YouTube-URL; die URL
+  kan nie in die toep geopen word nie'
+Loop is now disabled: 'Herhaling is nou gedeaktiveer'
+Loop is now enabled: 'Herhaling is nou geaktiveer'
+Shuffle is now disabled: 'Skommel is nou gedeaktiveer'
+Shuffle is now enabled: 'Skommel is nou geaktiveer'
+The playlist has been reversed: 'Die afspeellys speel van agter af'
+Playing Next Video: 'Speel volgende video af'
+Playing Previous Video: 'Speel vorige video af'
+Playlist will not pause when current video is finished: 'Afspeellys sal nie wag wanneer
+  huidige video klaar is nie'
+Playlist will pause when current video is finished: 'Afspeellys sal wag wanneer huidige
+  video klaar is'
 Playing Next Video Interval: 'Volgende video word afgespeel. Klik om te kanselleer.
   | Volgende video word oor {nextVideoInterval} sekond afgespeel. Klik om te kanselleer.
   | Volgende video word oor {nextVideoInterval} sekondes afgespeel. Klik om te kanselleer.'
