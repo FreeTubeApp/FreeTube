@@ -1,15 +1,17 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Afrikaans'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Hierdie gedeelte van die toep is nog nie gereed nie. Kom later terug wanneer vordering
+  gemaak is.
 
 # Webkit Menu Bar
-File: ''
-New Window: ''
-Preferences: ''
-Quit: ''
-Edit: ''
-Undo: ''
+File: 'Lêer'
+New Window: 'Nuwe venster'
+Preferences: 'Voorkeure'
+Quit: 'Sluit'
+Edit: 'Wysig'
+Undo: 'Ontdoen'
 Redo: ''
 Cut: ''
 Copy: ''
@@ -986,39 +988,47 @@ Playing Next Video: ''
 Playing Previous Video: ''
 Playlist will not pause when current video is finished: ''
 Playlist will pause when current video is finished: ''
-Playing Next Video Interval: ''
-Canceled next video autoplay: ''
+Playing Next Video Interval: 'Volgende video word afgespeel. Klik om te kanselleer.
+  | Volgende video word oor {nextVideoInterval} sekond afgespeel. Klik om te kanselleer.
+  | Volgende video word oor {nextVideoInterval} sekondes afgespeel. Klik om te kanselleer.'
+Canceled next video autoplay: 'Outomatiese afspeel is gekanselleer'
 
-Default Invidious instance has been set to {instance}: ''
-Default Invidious instance has been cleared: ''
-'The playlist has ended. Enable loop to continue playing': ''
+Default Invidious instance has been set to {instance}: 'Verstek Invidious-instansie
+  is ingestel op {instance}'
+Default Invidious instance has been cleared: 'Verstek Invidious-instansie is gewis'
+'The playlist has ended. Enable loop to continue playing': 'Die afspeellys is klaar.  Aktiveer
+  lusafspeel in te bly afspeel'
 Age Restricted:
-  This channel is age restricted: ''
-  This video is age restricted: ''
-External link opening has been disabled in the general settings: ''
+  This channel is age restricted: 'Hierdie kanaal het ’n ouderdomsperk'
+  This video is age restricted: 'Hierdie video het ’n ouderdomsperk'
+External link opening has been disabled in the general settings: 'Die open van eksterne
+  skakels is gedeaktiveer in die algemene instellings'
 'Blocked opening potentially unsafe URL': ''
 Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
-Screenshot Success: ''
-Screenshot Error: ''
-Channel Hidden: ''
-Channel Unhidden: ''
-Trimmed input must be at least N characters long: ''
-Tag already exists: ''
+Starting download: 'Begin aflaai van “{videoTitle}”'
+Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
+Screenshot Success: 'Skermkiekie bewaar as “{filePath}”'
+Screenshot Error: 'Skermkiekie het misluk. {error}'
+Channel Hidden: '{channel} tot kanaalfilter toegevoeg'
+Channel Unhidden: '{channel} verwyder uit kanaalfilter'
+Trimmed input must be at least N characters long: 'Bygesnyde invoer moet ten minste
+  1 karakter lank wees | Bygesnyde invoer moet ten minste {lentgh} karakters lank
+  wees'
+Tag already exists: 'Etiket “{tagName}” bestaan reeds'
 
 Hashtag:
-  Hashtag: ''
-  This hashtag does not currently have any videos: ''
-Moments Ago: ''
-Yes: ''
-No: ''
-Ok: ''
-Yes, Delete: ''
-Yes, Restart: ''
-Yes, Open Link: ''
-Cancel: ''
+  Hashtag: 'Hutsmerk'
+  This hashtag does not currently have any videos: 'Hierdie hutsmerk het tans geen
+    video’s'
+Moments Ago: 'oomblikke gelede'
+Yes: 'Ja'
+No: 'Nee'
+Ok: 'Goed'
+Yes, Delete: 'Ja, skrap'
+Yes, Restart: 'Ja, herbegin'
+Yes, Open Link: 'Ja, open skakel'
+Cancel: 'Kanselleer'
 # symbol used to indicate that an item is correct
-checkmark: ''
+checkmark: '✓'
 # French is the only language that should change this (they have a space before the colon)
-Display Label: ''
+Display Label: '{label}: {value}'
