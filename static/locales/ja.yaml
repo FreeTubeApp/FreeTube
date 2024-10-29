@@ -795,6 +795,9 @@ Video:
     Show Stats: 統計を表示
   IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
   Unlisted: 非公開
+  MembersOnly: メンバー限定ビデオはGoogleにログインし、投稿チャンネルに課金する必要があるのでFreeTubeから直接見ることはできません。
+  AgeRestricted: 
+    年齢制限がかかっているビデオはGoogleにログインしておりかつ年齢確認を済ましているYouTubeアカウントが必要なため、FreeTubeから直接見ることはできません。
 Videos:
   #& Sort By
   Sort By:
