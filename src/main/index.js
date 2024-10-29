@@ -38,7 +38,7 @@ function runApp() {
   if (process.env.NODE_ENV === 'production') {
     // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
     // eslint-disable-next-line no-undef
-    ALLOWED_RENDERER_FILES = new Set(__FREETUBE_ALLOWED_PATHS__)
+ALLOWED_RENDERER_FILES = new Set(typeof __FREETUBE_ALLOWED_PATHS__ !== 'undefined' ? __FREETUBE_ALLOWED_PATHS__ : []);
 
     protocol.registerSchemesAsPrivileged([{
       scheme: 'app',
