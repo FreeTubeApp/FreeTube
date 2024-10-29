@@ -1003,8 +1003,9 @@ Age Restricted:
   This video is age restricted: 'Hierdie video het ’n ouderdomsperk'
 External link opening has been disabled in the general settings: 'Die open van eksterne
   skakels is gedeaktiveer in die algemene instellings'
-'Blocked opening potentially unsafe URL': ''
-Downloading has completed: ''
+'Blocked opening potentially unsafe URL': 'Open van potensiële onveilige URL is versper:
+  “{url}”.'
+Downloading has completed: '“{videoTitle}” is afgelaai'
 Starting download: 'Begin aflaai van “{videoTitle}”'
 Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
 Screenshot Success: 'Skermkiekie bewaar as “{filePath}”'
