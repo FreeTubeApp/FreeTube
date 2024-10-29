@@ -98,9 +98,10 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
   Latest Subscriptions: 'Последние подписки'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
-    список подписок в настоящее время пуст. Начните добавлять подписки, чтобы увидеть
-    их здесь.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'В
+    настоящее время список подписок пуст. Если вы хотите импортировать свои подписки,
+    вы можете перейти в Настройки данных и выбрать Импорт подписок или найти канал
+    и подписаться на него.'
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
   Refresh Subscriptions: Обновить подписки
   Getting Subscriptions. Please wait.: Получение подписок, подождите.
@@ -128,13 +129,6 @@ Most Popular: 'Самые популярные'
 Playlists: 'Подборки'
 User Playlists:
   Your Playlists: 'Ваши подборки'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: У
-    вас нет сохранённых видео. Нажмите «Добавить видео в сохранённые», чтобы добавить
-    сюда
-  Playlist Message: Эта страница не отражает все возможности подборок. Она показывает
-    только те видео, которые вы сохранили или добавили в избранное. После переработки
-    этой страницы все видео, которые сейчас находятся здесь, переместятся в подборку
-    «Избранное».
   Search bar placeholder: Поиск подборок
   Empty Search Message: В этом плейлисте нет видео, соответствующих вашему запросу
   This playlist currently has no videos.: Пока в этой подборке нет видео.
@@ -188,6 +182,8 @@ User Playlists:
         для быстрого создания закладок.
       Playlist {playlistName} is the new quick bookmark playlist.: Плейлист {playlistName}
         - это новый плейлист быстрых закладок.
+      This playlist has a video with a duration error: Этот плейлист содержит хотя-бы
+        одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
@@ -222,9 +218,6 @@ User Playlists:
   Save Changes: Сохранить изменения
   Edit Playlist Info: Изменить сведения о подборке
   Remove Watched Videos: Удалить просмотренные видео
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ты
-    действительно хочешь удалить все просмотренные видео из этой подборки? Это действие
-    необратимо.
   Cancel: Отмена
   You have no playlists. Click on the create new playlist button to create a new one.: У
     тебя нет подборок. Нажми на кнопку создания новой подборки, чтобы создать новую.
@@ -258,18 +251,18 @@ Settings:
   # On Settings Page
   Settings: 'Настройки'
   General Settings:
-    General Settings: 'Общие настройки'
+    General Settings: 'Общие'
     Fallback to Non-Preferred Backend on Failure: 'Откатить к непредпочтительному
       движку при сбое'
     Enable Search Suggestions: 'Отображать поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
     Locale Preference: 'Язык приложения'
     Preferred API Backend:
-      Preferred API Backend: 'Предпочитаемый движок набора функций'
-      Local API: 'Локальный набор функций'
-      Invidious API: 'Набор функций Invidious'
+      Preferred API Backend: 'Предпочитаемый движок API'
+      Local API: 'Локальный API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Тип отображения видео'
+      Video View Type: 'Способ отображения видео'
       Grid: 'Сеткой'
       List: 'Списком'
     Thumbnail Preference:
@@ -280,14 +273,12 @@ Settings:
       End: 'В конце'
       Blur: Размытие
       Hidden: Скрыто
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
-      (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион подбора трендов'
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
     Check for Updates: Проверять обновления
     View all Invidious instance information: Просмотреть все экземпляры Invidious
-    System Default: Системные установки по умолчанию
+    System Default: Системные настройки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
     Set Current Instance as Default: Установить текущий экземпляр по умолчанию
     Current instance will be randomized on startup: Текущий экземпляр при запуске
@@ -302,7 +293,7 @@ Settings:
       Open Link: Открыть ссылку
       External Link Handling: Обработка внешних ссылок
     Auto Load Next Page:
-      Label: Автоматическая загрузка следующей страницы
+      Label: Автоматически загружать следующую страницу
       Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
   Theme Settings:
     Theme Settings: 'Внешний вид'
@@ -375,8 +366,7 @@ Settings:
     Hide Side Bar Labels: Скрыть надписи боковой панели
     Hide FreeTube Header Logo: Скрыть значок FreeTube
   Player Settings:
-    Player Settings: 'Настройки проигрывателя'
-    Remember History: 'Запоминать историю'
+    Player Settings: 'Проигрыватель'
     Play Next Video: 'Воспроизводить следующее видео'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
     Autoplay Videos: 'Автовоспроизведение видео'
@@ -433,46 +423,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
-    Subscriptions Export Format:
-      Subscriptions Export Format: 'Формат экспорта подписок'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: 'Управление подписками'
-    Import Subscriptions: 'Импорт подписок'
-    Export Subscriptions: 'Экспорт подписок'
-    How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
     Fetch Feeds from RSS: Получать ленты из RSS
     Fetch Automatically: Автоматически получать ленту
     Only Show Latest Video for Each Channel: Показывать только последние видео для
       каждого канала
     Confirm Before Unsubscribing: Подтвердить, прежде чем отписаться
-  Advanced Settings:
-    Advanced Settings: 'Расширенные настройки'
-    Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
-      данные на консоль)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Прокси-адрес (пример: SOCKS5://127.0.0.1:9050
-      )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Нажатие
-      кнопки "ТЕСТ ПРОКСИ" отправит запрос на https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Использовать Tor / Прокси для вызовов API'
-    TEST PROXY: 'ТЕСТ ПРОКСИ'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'См. общедоступные экземпляры'
-    Clear History:
-      Clear History: 'Очистить историю'
-      # On Click
-      Are you sure you want to delete your history?: 'Вы уверены, что хотите удалить
-        свою историю?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Очистить подписки'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Вы уверены, что хотите
-        удалить все подписки?'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Watch history has been cleared: История просмотров очищена
@@ -521,14 +476,10 @@ Settings:
     Export YouTube: Экспортировать YouTube
     Export FreeTube: Экспортировать FreeTube
     Export Subscriptions: Экспортировать подписки
-    Import NewPipe: Импортировать NewPipe
-    Import YouTube: Импортировать YouTube
-    Import FreeTube: Импортировать FreeTube
     Import Subscriptions: Импортировать подписки
     Select Export Type: Выбрать тип экспорта
     Select Import Type: Выбрать тип импорта
     Data Settings: Данные
-    Check for Legacy Subscriptions: Проверить устаревшие подписки
     Manage Subscriptions: Управление подписками
     Import Playlists: Импортировать подборки
     All playlists has been successfully exported: Все подборки успешно экспортированы
@@ -552,7 +503,7 @@ Settings:
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
-    Distraction Free Settings: Отвлекающие части интерфейса
+    Distraction Free Settings: Отвлекающие элементы
     Hide Comment Likes: Скрыть лайки в комментариях
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
@@ -620,7 +571,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
-    SponsorBlock Settings: Настройки SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
@@ -652,11 +603,11 @@ Settings:
     Open in web browser: Открыть в браузере
   Parental Control Settings:
     Show Family Friendly Only: Показать только семейный контент
-    Parental Control Settings: Настройки родительского контроля
+    Parental Control Settings: Родительский Контроль
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
   Experimental Settings:
-    Experimental Settings: Пробные настройки
+    Experimental Settings: Эксперементы
     Replace HTTP Cache: Заменить HTTP-кэш
     Warning: Эти настройки являются пробными, они могут привести к вылетам приложения
       при включении. Желательно сделать резервные копии. Используйте на своё усмотрение!
@@ -666,44 +617,17 @@ Settings:
     Unlock: Разблокировать
     Enter Password To Unlock: Введите пароль для разблокировки настроек
   Password Settings:
-    Password Settings: Настройка пароля
+    Password Settings: Пароль
     Set Password To Prevent Access: Установите пароль для предотвращения доступа к
       настройкам
     Set Password: Установить пароль
     Remove Password: Удалить пароль
-  Expand All Settings Sections: Расширить все разделы настроек
   Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
+  Return to Settings Menu: Вернуться в Настройки
 About:
   #On About page
   About: 'О приложении'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Это
-    программное обеспечение с авторским левом распространяется под свободной лицензией
-    AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Нашли ошибку? Хотите предложить функцию? Хотите помочь? Посетите нашу страницу
-    GitHub. Запросы на объединение приветствуются.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Большое
-    спасибо людям и проектам, которые сделали FreeTube возможным!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Хотите
-    пообщаться? Присоединяйтесь к нашему серверу Element / Matrix. Пожалуйста, ознакомьтесь
-    с правилами перед тем, как присоединиться.'
-
-  'Looking for help? Check out our Wiki page.': 'Нужна помощь? Посетите нашу вики-страницу.'
-
-  Check out our Firefox extension!: 'Ознакомьтесь с нашим расширением для Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Если
-    вам нравится использовать FreeTube, рассмотрите возможность пожертвования через
-    Liberapay или через наш биткойн-адрес.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Последние новости FreeTube'
-
 #On Channel Page
   Donate: Пожертвовать
   these people and projects: этим людям и проектам
@@ -723,8 +647,6 @@ About:
   Help: Помощь
   GitHub releases: Выпуски на GitHub
   Downloads / Changelog: Скачать / Список изменений
-  View License: Посмотреть лицензию
-  Licensed under the AGPLv3: Лицензия AGPLv3
   Source code: Исходный код
   Beta: Бета
   Please check for duplicates before posting: Перед публикацией проблемы, проверьте
@@ -734,8 +656,6 @@ About:
   Licensed under the: Лицензия выдана под
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: 'Подписчик'
-  Subscribers: 'Подписчиков'
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'
   Search Channel: 'Поиск на канале'
@@ -949,6 +869,8 @@ Video:
     Take Screenshot: Сделать Снимок Экрана
     Show Stats: Показать Статистику
     Hide Stats: Скрыть Статистику
+  IP block: YouTube заблокировал ваш IP-адрес для просмотра видео. Пожалуйста, попробуйте
+    переключиться на другой VPN или прокси.
 Videos:
   #& Sort By
   Sort By:
@@ -959,9 +881,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Посмотреть всю подборку'
-  Videos: 'Видео'
-  View: 'Вид'
-  Views: 'Просмотров'
   Last Updated On: 'Последнее обновление'
 
 # On Video Watch Page
@@ -977,7 +896,8 @@ Playlist:
     VideoTitleAscending: Название (от А до Я)
     VideoTitleDescending: Название (Z-A)
     Custom: Пользовательский
-Toggle Theatre Mode: 'Переключить режим широкого экрана'
+    VideoDurationAscending: Продолжительность (Сначала кратчайшие)
+    VideoDurationDescending: Продолжительность (Сначала длиннейшие)
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
   Use Dash Formats: 'Использовать форматы DASH'
@@ -1047,7 +967,6 @@ Invidious API Error (Click to copy): 'Ошибка набора функций I
   скопировать)'
 Falling back to Invidious API: 'Возврат к набору функций Invidious'
 Falling back to Local API: 'Возврат к локальному набору функций'
-Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
 Loop is now disabled: 'Повторение теперь отключено'
 Loop is now enabled: 'Повторение теперь включено'
 Shuffle is now disabled: 'Перемешивание теперь отключено'
@@ -1102,7 +1021,7 @@ Profile:
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
-  Profile Settings: Настройки профиля
+  Profile Settings: Профиль
   Toggle Profile List: Переключить список профилей
   Create Profile Name: Создать название учётки
   Profile Name: Название учётки
@@ -1137,9 +1056,10 @@ Tooltips:
       по умолчанию.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу
-      ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
-      блокировку IP, но не предоставляет определённую информацию, такую как продолжительность
-      видео или сведения о том, транслируется ли видео в настоящем времени
+      ленту подписок с помощью RSS, вместо метода по умолчанию. RSS работает быстрее
+      и предотвращает блокировку IP, но не предоставляет определённую информацию,
+      такую как продолжительность видео или сведения о том, транслируется ли видео
+      в настоящем времени
     Fetch Automatically: Если эта функция включена, FreeTube автоматически будет получать
       ленту ваших подписок как при открытии нового окна, так при переключении профиля.
   Player Settings:
@@ -1148,7 +1068,7 @@ Tooltips:
       ограничены пределом в 720p, но используют меньшую пропускную способность. Звуковые
       форматы — только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
-      вместо прямого подключения к YouTube. Переопределяет предпочтения набора функций.
+      вместо прямого подключения к YouTube.
     Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео,
       нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите
       колесо мыши вперед или назад, чтобы изменять скорость воспроизведения. Нажмите
@@ -1194,8 +1114,6 @@ Playing Next Video Interval: Воспроизведение следующего
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены.
-Hashtags have not yet been implemented, try again later: Распределительные метки ещё
-  не сделаны, попробуйте позже
 Unknown YouTube url type, cannot be opened in app: Неизвестный тип адреса YouTube,
   невозможно открыть в приложении
 Open New Window: Открыть новое окно
@@ -1219,8 +1137,6 @@ Channels:
   Empty: Список каналов пуст.
   Channels: Каналы
   Search bar placeholder: Поиск каналов
-  Unsubscribe: Отписаться
-  Unsubscribed: '{channelName} был удалён из ваших подписок'
   Unsubscribe Prompt: Вы уверены, что хотите отписаться от «{channelName}»?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена
@@ -1268,5 +1184,10 @@ Search Listing:
     4K: 4K
     Subtitles: Субтитры
     Closed Captions: Субтитры
+    8K: 8К
+    VR180: VR180
+    360 Video: 360°
+    New: Новинка
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
   URL: "{url}".'

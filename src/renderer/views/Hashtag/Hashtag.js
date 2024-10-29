@@ -43,13 +43,12 @@ export default defineComponent({
     },
   },
   watch: {
-    $route() {
+    '$route.params.hashtag'() {
       this.resetData()
       this.getHashtag()
     }
   },
   mounted: function() {
-    this.resetData()
     this.getHashtag()
   },
   methods: {
@@ -64,7 +63,7 @@ export default defineComponent({
 
     getHashtag: async function() {
       const hashtag = decodeURIComponent(this.$route.params.hashtag)
-      if (this.backendFallback || this.backendPreference === 'local') {
+      if (this.backendPreference === 'local') {
         await this.getLocalHashtag(hashtag)
       } else {
         await this.getInvidiousHashtag(hashtag)

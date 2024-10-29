@@ -45,7 +45,7 @@ class ProcessLocalesPlugin {
 
   /** @param {import('webpack').Compiler} compiler  */
   apply(compiler) {
-    const { CachedSource, RawSource } = compiler.webpack.sources;
+    const { CachedSource, RawSource } = compiler.webpack.sources
     const { Compilation, DefinePlugin } = compiler.webpack
 
     new DefinePlugin({
@@ -59,7 +59,6 @@ class ProcessLocalesPlugin {
         name: PLUGIN_NAME,
         stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
       }, async (_assets) => {
-
         // While running in the webpack dev server, this hook gets called for every incremental build.
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
@@ -72,6 +71,7 @@ class ProcessLocalesPlugin {
         }
 
         for (let [locale, data] of this.locales) {
+          // eslint-disable-next-line no-async-promise-executor
           promises.push(new Promise(async (resolve) => {
             if (IS_DEV_SERVER && compiler.fileTimestamps) {
               const filePath = join(this.inputDir, `${locale}.yaml`)
@@ -131,6 +131,7 @@ class ProcessLocalesPlugin {
     })
 
     compiler.hooks.afterCompile.tap(PLUGIN_NAME, (compilation) => {
+      // eslint-disable-next-line no-extra-boolean-cast
       if (!!compiler.watching) {
         // watch locale files for changes
         compilation.fileDependencies.addAll(this.filePaths)

@@ -59,7 +59,6 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 * Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
 * View channel community posts
-* View most age restricted videos
 
 ### Browser Extension
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. 

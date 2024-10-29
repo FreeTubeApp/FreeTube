@@ -97,7 +97,9 @@ Subscriptions:
     profilin çoxlu sayda abunəsi var. Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
     zorlanır'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik
-    siyahınız hazırda boşdur. Abunəlikləri burada görmək üçün əlavə etməyə başlayın.'
+    siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat
+    Parametrlərinə gedib ''Abunəlikləri İdxal Et'' seçimini edə bilərsiniz və ya bir
+    kanal axtarıb abunə ola bilərsiniz.'
   'Getting Subscriptions. Please wait.': 'Abunəliklərin əldə edilməsi. Zəhmət olmasa,
     gözləyin.'
   Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
@@ -123,12 +125,6 @@ Most Popular: 'Ən Tanınmış'
 Playlists: 'Pleylistlər'
 User Playlists:
   Your Playlists: 'Pleylistləriniz'
-  Playlist Message: 'Bu səhifə tam işləyən pleylistləri əks etdirmir. O, yalnız saxladığınız
-    və ya sevimli seçdiyiniz videoları sadalayır. İş bitəndə, hazırda buradakı bütün
-    videolar "Sevimlilər" pleylistinə köçürüləcək.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Saxladığınız
-    videolar yoxdur. Videonun burada qeyd edilməsi üçün video küncündəki "saxla" düyməsin
-    klikləyin'
   Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
   Search bar placeholder: 'Pleylist Axtar'
   Playlists with Matching Videos: Uyğun videolar olan pleylistlər
@@ -335,7 +331,6 @@ Settings:
   Player Settings:
     Screenshot: {}
   SponsorBlock Settings: {}
-  Expand All Settings Sections: Bütün Tənzimlər Bölmələrin Genişlət
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
 Channel:
   Videos: {}
@@ -352,6 +347,8 @@ Global:
     Video Count: 1 video | {count} video
     Watching Count: 1 baxır | {count} baxır
     Channel Count: 1 kanal | {count} kanal
+    Like Count: 1 bəyəni | {sayı} bəyənmələr
+    Comment Count: 1 şərh | {sayı} şərhlər
   Videos: Videolar
   Live: Canlı
   Input Tags:
@@ -363,10 +360,13 @@ Search Listing:
     Closed Captions: Titrlər Bağlandı
     4K: 4K
     Subtitles: Titrlər
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Yeni
+    3D: 3D
 Channels:
   Empty: Kanal siyahınız hazırda boşdur.
-  Unsubscribe: Abunə olma
-  Unsubscribed: '{channelName} abunəliyinizdən silindi'
   Unsubscribe Prompt: '"{channelName}" / abunəliyi ləğv etmək istədiyinizə əminsiniz?'
   Channels: Kanallar
   Count: '{number} kanal tapıldı.'

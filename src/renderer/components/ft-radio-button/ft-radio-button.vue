@@ -6,7 +6,6 @@
     <!--  eslint-disable vue/no-template-key -->
     <template
       v-for="(label, index) in labels"
-      class="radioButtonContainer"
     >
       <input
         :id="values[index] + id"

@@ -120,14 +120,6 @@ export function translateSponsorBlockCategory(category) {
 }
 
 /**
- * @param {string} qualityLabel
- * @returns {number}
- */
-export function qualityLabelToDimension(qualityLabel) {
-  return parseInt(qualityLabel.split('p')[0])
-}
-
-/**
  * Moves the captions that are the most similar to the display language to the top
  * and sorts the remaining ones alphabetically.
  * @param {{
@@ -222,7 +214,7 @@ export function repairInvidiousManifest(periods) {
   }
 
   // match YouTube's local API response with English
-  const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+  const languageNames = new Intl.DisplayNames('en-US', { type: 'language', languageDisplay: 'standard' })
 
   for (const audioAdaptationSet of audioAdaptationSets) {
     // Invidious adds a label to every audio stream with it's bitrate
@@ -281,6 +273,7 @@ export function repairInvidiousManifest(periods) {
                   labelParts.push('original')
                   break
                 case 'dubbed':
+                case 'dubbed-auto':
                   role = 'dub'
                   break
                 case 'descriptive':

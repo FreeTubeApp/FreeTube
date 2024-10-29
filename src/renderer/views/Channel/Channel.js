@@ -170,10 +170,7 @@ export default defineComponent({
     },
 
     isSubscribedInAnyProfile: function () {
-      const profileList = this.$store.getters.getProfileList
-
-      // check the all channels profile
-      return profileList[0].subscriptions.some((channel) => channel.id === this.id)
+      return this.$store.getters.getSubscribedChannelIdSet.has(this.id)
     },
 
     videoLiveShortSelectValues: function () {
@@ -1700,9 +1697,6 @@ export default defineComponent({
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
 
         if (this.latestCommunityPosts.length > 0) {
-          this.latestCommunityPosts.forEach(post => {
-            post.authorId = this.id
-          })
           this.updateSubscriptionPostsCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -1764,9 +1758,6 @@ export default defineComponent({
         this.communityContinuationData = continuation
 
         if (this.isSubscribedInAnyProfile && !more && this.latestCommunityPosts.length > 0) {
-          this.latestCommunityPosts.forEach(post => {
-            post.authorId = this.id
-          })
           this.updateSubscriptionPostsCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -2012,9 +2003,6 @@ export default defineComponent({
         })
       }
 
-      this.latestCommunityPosts.forEach(post => {
-        post.authorId = this.id
-      })
       this.updateSubscriptionPostsCacheByChannel({
         channelId: this.id,
         posts: [...this.latestCommunityPosts]

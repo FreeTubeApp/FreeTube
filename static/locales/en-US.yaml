@@ -66,7 +66,12 @@ Search character limit: Search query is over the {searchCharacterLimit} characte
 Search Listing:
   Label:
     4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
     Subtitles: Subtitles
+    New: New
+    3D: 3D
     # Aria labels
     Closed Captions: Closed Captions
   # In Filter Button
@@ -125,7 +130,7 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
@@ -141,8 +146,6 @@ Channels:
   Search bar placeholder: Search Channels
   Count: '{number} channel(s) found.'
   Empty: Your channel list is currently empty.
-  Unsubscribe: Unsubscribe
-  Unsubscribed: '{channelName} has been removed from your subscriptions'
   Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
 Trending:
   Trending: Trending
@@ -158,11 +161,6 @@ Feed:
 Playlists: Playlists
 User Playlists:
   Your Playlists: Your Playlists
-  Playlist Message: This page is not reflective of fully working playlists. It only
-    lists videos that you have saved or favorited. When the work has finished, all
-    videos currently here will be migrated to a 'Favorites' playlist.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
-    it listed here
   You have no playlists. Click on the create new playlist button to create a new one.: You have no playlists. Click on the create new playlist button to create a new one.
   Empty Search Message: There are no videos in this playlist that match your search
   Search bar placeholder: Search for Playlists
@@ -238,6 +236,8 @@ User Playlists:
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
+
+      This playlist has a video with a duration error: This playlist contains at least one video that doesn't have a duration, it will be sorted as if their duration is zero.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
@@ -272,12 +272,12 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
-  Expand All Settings Sections: Expand All Settings Sections
   Sort Settings Sections (A-Z): Sort Settings Sections (A-Z)
+  Return to Settings Menu: Return to Settings Menu
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
-    General Settings: General Settings
+    General Settings: General
     Check for Updates: Check for Updates
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
@@ -320,7 +320,7 @@ Settings:
       Ask Before Opening Link: Ask Before Opening Link
       No Action: No Action
   Theme Settings:
-    Theme Settings: Theme Settings
+    Theme Settings: Theme
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
     Disable Smooth Scrolling: Disable Smooth Scrolling
@@ -390,7 +390,7 @@ Settings:
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
-    Player Settings: Player Settings
+    Player Settings: Player
     Play Next Video: Play Next Video
     Turn on Subtitles by Default: Turn on Subtitles by Default
     Autoplay Videos: Autoplay Videos
@@ -440,7 +440,7 @@ Settings:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
   External Player Settings:
-    External Player Settings: External Player Settings
+    External Player Settings: External Player
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Ignore Default Arguments: Ignore Default Arguments
@@ -450,7 +450,7 @@ Settings:
       None:
         Name: None
   Privacy Settings:
-    Privacy Settings: Privacy Settings
+    Privacy Settings: Privacy
     Remember History: Remember History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
@@ -470,15 +470,14 @@ Settings:
     All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
   Subscription Settings:
-    Subscription Settings: Subscription Settings
+    Subscription Settings: Subscription
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
-    Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
     Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
     Confirm Before Unsubscribing: Confirm Before Unsubscribing
   Distraction Free Settings:
-    Distraction Free Settings: Distraction Free Settings
+    Distraction Free Settings: Distraction Free
     Sections:
       Side Bar: Side Bar
       Subscriptions Page: Subscriptions Page
@@ -522,14 +521,13 @@ Settings:
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Community: Hide Subscriptions Community
   Data Settings:
-    Data Settings: Data Settings
+    Data Settings: Data
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
     Subscription File: Subscription File
     History File: History File
     Playlist File: Playlist File
-    Check for Legacy Subscriptions: Check for Legacy Subscriptions
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
@@ -574,7 +572,7 @@ Settings:
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
-    Proxy Settings: Proxy Settings
+    Proxy Settings: Proxy
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -588,7 +586,7 @@ Settings:
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
   SponsorBlock Settings:
-    SponsorBlock Settings: SponsorBlock Settings
+    SponsorBlock Settings: SponsorBlock
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
@@ -603,19 +601,19 @@ Settings:
       Do Nothing: Do Nothing
     Category Color: Category Color
   Parental Control Settings:
-    Parental Control Settings: Parental Control Settings
+    Parental Control Settings: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
   Download Settings:
-    Download Settings: Download Settings
+    Download Settings: Download
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
     Download Behavior: Download Behavior
     Download in app: Download in app
     Open in web browser: Open in web browser
   Experimental Settings:
-    Experimental Settings: Experimental Settings
+    Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
   Password Dialog:
@@ -624,7 +622,7 @@ Settings:
     Password Incorrect: Password Incorrect
     Unlock: Unlock
   Password Settings:
-    Password Settings: Password Settings
+    Password Settings: Password
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
@@ -658,7 +656,7 @@ About:
   Donate: Donate
 
 Profile:
-  Profile Settings: Profile Settings
+  Profile Settings: Profile
   Toggle Profile List: Toggle Profile List
   Profile Select: Profile Select
   Profile Filter: Profile Filter
@@ -768,6 +766,9 @@ Channel:
     Video hidden by FreeTube: Video hidden by FreeTube
     Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
+  IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
+  MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel.
+  AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require Google login and using an age-verified YouTube account.
   More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
@@ -803,6 +804,7 @@ Video:
   Premieres on: Premieres on
   Premieres: Premieres
   Upcoming: Upcoming
+  Unlisted: Unlisted
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -918,9 +920,6 @@ Playlist:
   #& About
   Playlist: Playlist
   View Full Playlist: View Full Playlist
-  Videos: Videos
-  View: View
-  Views: Views
   Last Updated On: Last Updated On
   Sort By:
     Sort By: Sort By
@@ -930,12 +929,13 @@ Playlist:
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
+    VideoDurationAscending: Duration (Shortest first)
+    VideoDurationDescending: Duration (Longest first)
     Custom: Custom
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
   Change Media Formats: Change Media Formats
   Use Dash Formats: Use DASH Formats
@@ -1072,9 +1072,7 @@ Falling back to Local API: Falling back to Local API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen due to country
   unavailability.
-Subscriptions have not yet been implemented: Subscriptions have not yet been implemented
 Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot be opened in app
-Hashtags have not yet been implemented, try again later: Hashtags have not yet been implemented, try again later
 Loop is now disabled: Loop is now disabled
 Loop is now enabled: Loop is now enabled
 Shuffle is now disabled: Shuffle is now disabled

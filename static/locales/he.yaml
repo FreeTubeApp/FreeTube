@@ -107,7 +107,8 @@ Subscriptions:
   Subscriptions: 'מינויים'
   Latest Subscriptions: 'מינויים אחרונים'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת
-    המינויים שלך ריקה כרגע. יש להוסיף מינויים כדי לראות אותם כאן.'
+    המינויים שלך ריקה כרגע. כדי לייבא את המינויים שלך ניתן לגשת להגדרות הנתונים ולבחור
+    בייבוא מנויים או לחפש ערוצים ולהירשם אליהם.'
   'Getting Subscriptions. Please wait.': 'מינויים נאספים. נא להמתין.'
   Refresh Subscriptions: 'רענון מינויים'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל
@@ -133,11 +134,6 @@ Most Popular: 'הכי פופולרי'
 Playlists: 'רשימות נגינה'
 User Playlists:
   Your Playlists: 'רשימות הנגינה שלך'
-  Playlist Message: העמוד הזה אינו משקף רשימות נגינה תקינות לחלוטין. הוא מציג רק סרטונים
-    ששמרת או הוספת כמועדפים. עם סיום העבודה, כל הסרטונים שכאן ייובאו אל רשימת הנגינה
-    ‚מועדפים’.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
-    שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
   Search bar placeholder: חיפוש רשימות נגינה
   Empty Search Message: אין סרטונים ברשימת הנגינה הזו שעונים לחיפוש שלך
   You have no playlists. Click on the create new playlist button to create a new one.: אין
@@ -179,7 +175,7 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: רשימת
         הנגינה הזאת משמשת לסימניות מהירות במקום {oldPlaylistName}. לחיצה כאן תבטל
         את זה
-      This playlist does not exist: רשימת השידורים הזו לא קיימת.
+      This playlist does not exist: רשימת השידורים הזו לא קיימת
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: חלק
         מהסרטונים ברשימת השידורים עדיין לא הועלו. לחץ כאן כדי להעתיק בכל זאת.
       Playlist name cannot be empty. Please input a name.: שם רשימת השידורים לא יכול
@@ -197,6 +193,8 @@ User Playlists:
         הזו.
       Playlist {playlistName} is the new quick bookmark playlist.: רשימת השידורים
         {playlistName} היא רשימת הסימנייה המהירה החדשה.
+      This playlist has a video with a duration error: רשימת הנגינה הזאת מכילה סרטון
+        אחד לפחות שאין לו אורך, הם ימוינו כאילו המשך שלהם הוא אפס.
     Search for Videos: חיפוש סרטונים
   Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
     ביעד הסימניות הזריזות.
@@ -254,7 +252,7 @@ Settings:
   # On Settings Page
   Settings: 'הגדרות'
   General Settings:
-    General Settings: 'הגדרות כלליות'
+    General Settings: 'כללי'
     Check for Updates: 'לבדוק אם קיימים עדכונים'
     Check for Latest Blog Posts: 'לבדוק אם קיימים פוסטים חדשים בבלוג'
     Fallback to Non-Preferred Backend on Failure: 'נסיגה למנגנון שאינו מועדף בעת כשל'
@@ -277,8 +275,6 @@ Settings:
       End: 'סוף'
       Hidden: מוסתר
       Blur: טשטוש
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'שרת Invidious
-      (ברירת המחדל היא https://invidious.snopyta.org)'
     Region for Trending: 'אזור לסרטונים חמים'
         #! List countries
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
@@ -300,7 +296,7 @@ Settings:
       Label: טעינת העמוד הבא אוטומטית
       Tooltip: טען דפים ותגובות נוספים באופן אוטומטי.
   Theme Settings:
-    Theme Settings: 'הגדרת ערכת עיצוב'
+    Theme Settings: 'ערכת עיצוב'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
     Base Theme:
       Base Theme: 'ערכת עיצוב בסיסית'
@@ -370,7 +366,7 @@ Settings:
     Hide Side Bar Labels: הסתרת התוויות בסרגל הצד
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
-    Player Settings: 'הגדרת נגן'
+    Player Settings: 'נגן'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -422,7 +418,7 @@ Settings:
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
   Privacy Settings:
-    Privacy Settings: 'הגדרות פרטיות'
+    Privacy Settings: 'פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
     Save Watched Progress: 'שמירת משך הצפייה'
     Clear Search Cache: 'ניקוי מטמון החיפוש'
@@ -442,21 +438,17 @@ Settings:
     Are you sure you want to remove all your playlists?: האם אתה בטוח שברצונך למחוק
       את כל רשימות השידורים שלך?
   Subscription Settings:
-    Subscription Settings: 'הגדרות מינויים'
+    Subscription Settings: 'מינוי'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
-    Manage Subscriptions: 'ניהול מינויים'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
-    Confirm Before Unsubscribing: אשר לפני ביטול מנוי
-    Only Show Latest Video for Each Channel: הצג רק את הסרטון האחרון לכל ערוץ
+    Confirm Before Unsubscribing: אישור לפני ביטול מינוי
+    Only Show Latest Video for Each Channel: להציג רק את הסרטון האחרון לכל ערוץ
   Data Settings:
-    Data Settings: 'הגדרות נתונים'
+    Data Settings: 'נתונים'
     Select Import Type: 'נא לבחור את תסדיר הייבוא'
     Select Export Type: 'נא לבחור את תסדיר הייצוא'
     Import Subscriptions: 'ייבוא מינויים'
-    Import FreeTube: 'יבוא בפורמט FreeTube'
-    Import YouTube: 'יבוא בפורמט YouTube'
-    Import NewPipe: 'יבוא בפורמט NewPipe'
     Export Subscriptions: 'ייצוא מינויים'
     Export FreeTube: 'ייצוא בתסדיר של FreeTube'
     Export YouTube: 'ייצוא בתסדיר של YouTube'
@@ -482,7 +474,6 @@ Settings:
     Unable to write file: 'לא ניתן ליצור את הקובץ'
     Unknown data key: 'מפתח נתון לא ידוע'
     How do I import my subscriptions?: 'איך לייבא את המינויים שלי?'
-    Check for Legacy Subscriptions: איתור מינויים מיושנים
     Manage Subscriptions: ניהול מינויים
     All playlists has been successfully exported: כל רשימות הנגינה יוצאו בהצלחה
     All playlists has been successfully imported: כל רשימות הנגינה יובאו בהצלחה
@@ -500,32 +491,6 @@ Settings:
         הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא
         את הרשימות שיוצאו."
       Label: ייצוא רשימות לגרסאות ישנות של FreeTube
-  Advanced Settings:
-    Advanced Settings: 'הגדרות מתקדמות'
-    Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
-      בקונסול)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'כתובת פרוקסי (דוגמה: SOCKS5://127.0.0.1:9050
-      )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'לחיצה
-      על כפתור "בדיקת פרוקסי" תשלח בקשה לאתר https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'השתמש ב-Tor או פרוקסי לקריאות API'
-    TEST PROXY: 'בדוק פרוקסי'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'ראה שרתים פומביים'
-    Clear History:
-      Clear History: 'נקה היסטוריה'
-      # On Click
-      Are you sure you want to delete your history?: 'האם אתה בטוח שאתה רוצה למחוק
-        את ההיסטוריה שלך?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'נקה מנויים'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'האם אתה בטוח שאתה רוצה
-        למחוק את כל המנויים?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Live Chat: הסתרת צ׳אט חי
@@ -535,7 +500,7 @@ Settings:
     Hide Comment Likes: הסתרת לייקים על תגובות
     Hide Channel Subscribers: הסתרת מנויי הערוץ
     Hide Video Likes And Dislikes: הסתרת לייקים ודיסלייקים לסרטון
-    Distraction Free Settings: הגדרות להשבתת הסחות
+    Distraction Free Settings: השבתת הסחות
     Hide Video Views: הסתרת תצוגות סרטונים
     Hide Active Subscriptions: הסתרת מינויים פעילים
     Hide Playlists: הסתרת רשימות נגינה
@@ -564,7 +529,6 @@ Settings:
     Hide Subscriptions Live: הסתרת שידורים חיים של המינויים
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
-    Blur Thumbnails: טשטוש התמונות הממוזערות
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
     Hide Subscriptions Community: הסתרת קהילת המינויים
     Hide Videos and Playlists Containing Text Placeholder: מילה, חלק מילה או ביטוי
@@ -593,10 +557,10 @@ Settings:
     Proxy Host: מארח מתווך
     Proxy Protocol: פרוטוקול מתווך
     Enable Tor / Proxy: הפעלת Tor / מתווך
-    Proxy Settings: הגדרות מתווך (פרוקסי)
+    Proxy Settings: מתווך (פרוקסי)
   External Player Settings:
     External Player: נגן חיצוני
-    External Player Settings: הגדרות נגן חיצוני
+    External Player Settings: נגן חיצוני
     Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
     Ignore Unsupported Action Warnings: התעלמות מאזהרות על פעולות שאינן נתמכות
     Custom External Player Arguments: משתנים לנגן חיצוני בהתאמה אישית
@@ -606,7 +570,7 @@ Settings:
     Ignore Default Arguments: התעלם מפרמטרים ברירת מחדל
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
-    SponsorBlock Settings: הגדרות חוסם מממנים
+    SponsorBlock Settings: חוסם מממנים
     Enable SponsorBlock: הפעלת חוסם מממנים
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
       המממנים (ברירת המחדל היא https://sponsor.ajay.app)
@@ -622,19 +586,19 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת
       API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
   Download Settings:
-    Download Settings: הגדרות הורדה
+    Download Settings: הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
     Choose Path: בחירת נתיב
     Download Behavior: התנהגות הורדה
     Download in app: הורדה ביישומון
     Open in web browser: פתיחה בדפדפן
   Parental Control Settings:
-    Parental Control Settings: הגדרות בקרת הורים
+    Parental Control Settings: בקרת הורים
     Hide Search Bar: הסתרת סרגל החיפוש
     Hide Unsubscribe Button: הסתרת כפתור ביטול מינוי
     Show Family Friendly Only: הצגת דברים ידידותיים למשפחה בלבד
   Experimental Settings:
-    Experimental Settings: הגדרות ניסיוניות
+    Experimental Settings: ניסיוני
     Replace HTTP Cache: החלפת מטמון HTTP
     Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. מומלץ מאוד לבצע
       גיבויים. השימוש על אחריותך בלבד!
@@ -644,58 +608,24 @@ Settings:
     Password: סיסמה
     Enter Password To Unlock: נא למלא סיסמה כדי לשחרר את ההגדרות
   Password Settings:
-    Password Settings: הגדרות סיסמה
+    Password Settings: סיסמה
     Set Password: הגדרת סיסמה
     Remove Password: הסרת סיסמה
     Set Password To Prevent Access: יש להגדיר סיסמה כדי למנוע גישה להגדרות
-  Expand All Settings Sections: פתח את כל חלקי ההגדרות
-  Sort Settings Sections (A-Z): מיין חלקי הגדרות (א-ת)
+  Sort Settings Sections (A-Z): מיון אזורי הגדרות (א-ת)
+  Return to Settings Menu: חזרה לתפריט ההגדרות
 About:
   #On About page
   About: 'על אודות'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'תוכנה
-    זו היא Copyleft המופצת ברשיון החופשי AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    מצאתם באג? יש הצעות לשיפור? רוצים לעזור? בקרו את עמוד ה-GitHub שלנו. Pull requests
-    ייתקבלו בברכה.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'תודה
-    רבה לאנשים ולפרוייקטים שהופכים את FreeTube לאפשרי!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'רוצים
-    לדבר? הצטרפו לשרת ה- Element / Matrix שלנו. בבקשה לקרוא את החוקים לפני ההצטרפות.'
-
-  'Looking for help? Check out our Wiki page.': 'צריכים עזרה? בקרו את עמוד ה- Wiki
-    שלנו.'
-
-  Check out our Firefox extension!: 'יש לנו תוסף ל-Firefox !'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'במידה
-    ואתם נהנים מ-FreeTube, בבקשה תשקלו לתרום דרך Liberapay או דרך ארנק ה-Bitcoin שלנו.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'מה חדש ב-FreeTube'
-
-  Translate via Weblate: תרגום עם Weblate
   Website: אתר
-  Source Code: קוד מקור
-  Release Notes: הערות מהדורה
   Blog: בלוג
   Credits: תודות
   FAQ: שו״ת
-  Wiki: ויקי
-  Report an Issue: דיווח על תקלה
-  Channel Rules: כללי הערוץ
   Email: דוא״ל
-  License: רישיון
   Beta: בטא
   Donate: תרומה
-  Useful Links: קישורים שימושיים
   Help: עזרה
-  Contact: יצירת קשר
   these people and projects: האנשים והמיזמים האלו
   FreeTube is made possible by: FreeTube קיים בזכות
   Translate: תרגום
@@ -709,8 +639,6 @@ About:
   FreeTube Wiki: הוויקי של FreeTube
   GitHub releases: מהדורות ב־GitHub
   Downloads / Changelog: הורדות / יומן שינויים
-  View License: הצגת הרישיון
-  Licensed under the AGPLv3: בכפוף לרישיון AGPLv3
   Source code: קוד מקור
   Discussions: דיונים
   AGPLv3: AGPLv3
@@ -756,7 +684,7 @@ Profile:
     את הערוצים שבחרת? הערוצים לא יימחקו משאר הפרופילים.'
 #On Channel Page
   Profile Filter: מסנן פרופילים
-  Profile Settings: הגדרת הפרופיל
+  Profile Settings: הפרופיל
   Toggle Profile List: החלפת תצוגת רשימת פרופילים
   Edit Profile Name: ערוך שם הפרופיל
   Close Profile Dropdown: סגור תפריט הפרופיל
@@ -968,6 +896,13 @@ Video:
   Hide Channel: הסתר ערוץ
   Unhide Channel: הצג ערוץ
   More Options: אפשרויות נוספות
+  IP block: YouTube חסמו את כתובת ה־IP לצפייה בסרטונים. נא לנסות לעבור ל־VPN או למתווך
+    אחרים.
+  MembersOnly: אי אפשר לצפות בסרטונים לחברים בלבד עם FreeTube כיוון שהם דורשים כניסה
+    ל־Google וחברות בתשלום לערוץ של מי שהעלה.
+  AgeRestricted: אי אפשר לצפות בסרטונים שמוגבלים בגיל עם FreeTube כיוון שהם דורשים
+    כניסה עם Google ושימוש בחשבון YouTube עם גיל מאומת.
+  Unlisted: לא מופיע
 Videos:
   #& Sort By
   Sort By:
@@ -978,9 +913,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'צפייה ברשימת הנגינה המלאה'
-  Videos: 'סרטונים'
-  View: 'צפייה'
-  Views: 'צפיות'
   Last Updated On: 'עודכן לאחרונה ב־'
 
 # On Video Watch Page
@@ -996,7 +928,8 @@ Playlist:
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
     DateAddedNewest: האחרונים שנוספו ראשונים
-Toggle Theatre Mode: 'הפעלת / השבתת מצב קולנוע'
+    VideoDurationAscending: משך (קצרים בהתחלה)
+    VideoDurationDescending: משך (ארוכים בהתחלה)
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
   Use Dash Formats: 'שימוש בתסדירי DASH'
@@ -1059,7 +992,6 @@ Falling back to Invidious API: 'מתבצעת נסיגה ל־API של Invidious'
 Falling back to Local API: 'מתבצעת נסיגה ל־API המקומי'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות
   תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
-Subscriptions have not yet been implemented: 'מנגנון המינויים עדיין לא מוכן'
 Loop is now disabled: 'ניגון בלולאה מושבת'
 Loop is now enabled: 'ניגון בלולאה הופעל'
 Shuffle is now disabled: 'ערבוב מושבת'
@@ -1090,7 +1022,7 @@ Tooltips:
       שמעניין אותך לראות.
   Player Settings:
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
-      להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
+      להתחבר ישירות ל־YouTube.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
       באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־720 פיקסלים לכל היותר אך משתמשויםבפחות
       רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
@@ -1148,8 +1080,6 @@ Default Invidious instance has been set to {instance}: עותק Invidious שהו
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
 External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים
   מושבתת בהגדרות הכלליות
-Hashtags have not yet been implemented, try again later: עדיין לא הוטמעו תגיות הקבץ,
-  נא לנסות בהמשך
 Downloading failed: אירעה שגיאה בהורדת "{videoTitle}"
 Starting download: 'ההורדה של „{videoTitle}” החלה'
 Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
@@ -1162,8 +1092,6 @@ New Window: חלון חדש
 Channels:
   Search bar placeholder: חיפוש ערוצים
   Empty: רשימת הערוצים שלך ריקה כרגע.
-  Unsubscribe: ביטול מינוי
-  Unsubscribed: '{channelName} הוסר מרשימת המינויים שלך'
   Count: '{number} ערוצים נמצאו.'
   Channels: ערוצים
   Title: רשימת ערוצים
@@ -1194,6 +1122,11 @@ Search Listing:
     4K: 4K
     Subtitles: כתוביות
     Closed Captions: כתוביות לכבדי שמיעה
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: חדש
+    3D: תלת־ממד
 Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
 Feed:
   Feed Last Updated: 'הערוץ {feedName} התעדכן לאחרונה: {date}'

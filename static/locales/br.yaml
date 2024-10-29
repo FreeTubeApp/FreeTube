@@ -1,0 +1,1119 @@
+# Put the name of your locale in the same language
+Locale Name: 'Brezhoneg'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  N'eo ket prest lodenn-mañ an arload. Deuit en-dro diwezhatoc'h pa vo aet war-raok
+  an traoù.
+
+# Webkit Menu Bar
+File: 'Restr'
+New Window: 'Prenestr nevez'
+Preferences: 'Gwellvezioù'
+Quit: 'Kuitaat'
+Edit: 'Kemmañ'
+Undo: 'Dizober'
+Redo: 'Adober'
+Cut: 'Troc''hañ'
+Copy: 'Eilañ'
+Paste: 'Pegañ'
+Delete: 'Dilemel'
+Select all: 'Diuzañ pep tra'
+Reload: 'Adkargañ'
+Force Reload: 'Rediañ an adkargañ'
+Toggle Developer Tools: 'Enaouiñ/Lazhañ Ostilhoù diorren'
+Actual size: 'Ment a-vremañ'
+Zoom in: 'Zoum brassat'
+Zoom out: 'Zoum bihanaat'
+Toggle fullscreen: 'Tremen e skramm leun'
+Window: 'Prenestr'
+Minimize: 'Izekaat'
+Close: 'Seriñ'
+Back: 'Distreiñ'
+Forward: 'War-raok'
+Open New Window: 'Digeriñ ur prenestr nevez'
+Go to page: 'Mont d''ar bajenn {page}'
+Close Banner: 'Serriñ ar Giton'
+
+Version {versionNumber} is now available!  Click for more details: 'Stumm {versionNumber}
+  a zo hegerz !  Klikit amañ evit gouzout hiroc''h'
+Download From Site: 'Pellgargañ diwar al lec''hienn'
+A new blog is now available, {blogTitle}. Click to view more: 'Embannet ez eus bet
+  ur pennad nevez, {blogTitle}. Klikit amañ evit gouzout hiroc''h'
+Are you sure you want to open this link?: 'Ha sur oc''h e faot deoc''h digeriñ al
+  liamm-mañ ?'
+
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoioù'
+  Shorts: 'Videoioù berr (Shorts)'
+  Live: 'War-eeun'
+  Community: 'Kumuniezh'
+  Counts:
+    Video Count: '1 video | {count} video'
+    Channel Count: '1 chadenn | {count} chadenn'
+    Subscriber Count: '1 den koumanantet | {count} den koumanantet'
+    View Count: '1 sell | {count} sell'
+    Like Count: '1 like | {count} like'
+    Comment Count: '1 evezhiadenn | {count} evezhiadenn'
+    Watching Count: '1 den o sellet | {count} den o sellet'
+  Input Tags:
+    Length Requirement: 'An dikedenn a rank an dikedenn bezañ {number} arouezenn enni
+      da nebeutañ'
+
+# Search Bar
+Search / Go to URL: 'Klask / Mont betek un URL'
+Search Bar:
+  Clear Input: 'Skarzhañ an enankad'
+Search character limit: 'Ar c''hlask a ya dreist an hirder brasañ aotreet : {searchCharacterLimit}
+  arouezenn'
+Search Listing:
+  Label:
+    4K: '4K'
+    8K: '8K'
+    VR180: 'VR180'
+    360 Video: '360°'
+    Subtitles: 'Istitloù'
+    New: 'Nevez'
+    3D: '3D'
+    # Aria labels
+    Closed Captions: 'Teleteks'
+  # In Filter Button
+Search Filters:
+  Search Filters: 'Siloù evit Klask'
+  Sort By:
+    Sort By: 'Rummañ dre'
+    Most Relevant: 'Ar re wellañ'
+    Rating: 'Notenn'
+    Upload Date: 'Deiziad kargañ'
+    View Count: 'Niver a selloù'
+  Time:
+    Time: 'Padelezh'
+    Any Time: 'A-holl-viskoaz'
+    Last Hour: 'Eur diwezhañ'
+    Today: 'Hiziv'
+    This Week: 'Ar sizhun-mañ'
+    This Month: 'Ar miz-mañ'
+    This Year: 'Ar bloaz-mañ'
+  Type:
+    Type: 'Doare'
+    All Types: 'Holl zoareoù'
+    Videos: 'Videoioù'
+    Channels: 'Chadennoù'
+    Movies: 'Filmoù'
+    #& Playlists
+  Duration:
+    Duration: 'Padelezh'
+    All Durations: 'An holl badelezhioù'
+    Short (< 4 minutes): 'Berr (< 4 munud)'
+    Medium (4 - 20 minutes): 'Etre (4 - 20 munud)'
+    Long (> 20 minutes): 'Hir (> 20 munud)'
+  Features:
+    Features: 'Perzhioù'
+    HD: 'HD'
+    Subtitles: 'Istitloù'
+    Creative Commons: 'Creative Commons'
+    3D: '3D'
+    Live: 'War-eeun'
+    4K: '4K'
+    360 Video: 'Video 360'
+    Location: 'Lec’h'
+    HDR: 'HDR'
+    VR180: 'VR180'
+  # On Search Page
+  Search Results: 'Disoc''hoù ar c''hlask'
+  Fetching results. Please wait: 'O klask emañ. Gortozit mar-plij'
+  Fetch more results: 'Diskouez muioc''h a zisoc''hoù'
+  There are no more results for this search: 'N''eus ket mui netra da ziskouez evit
+    ar c''hlask-mañ'
+# Sidebar
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: 'Koumanantoù'
+  # channels that were likely deleted
+  Error Channels: 'Chadennoù gant fazioù'
+  Latest Subscriptions: 'Koumanantoù diwezhañ'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ur
+    bochad koumanantoù en deus ar profil-mañ.  Ar wazh RSS a yelo en tu all d''ar
+    vevenn lakaet'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
+  Disabled Automatic Fetching: ''
+  Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
+  'Getting Subscriptions. Please wait.': 'O kerc''hat ar c''houmanantoù. Gortozit
+    mar plij.'
+  Empty Posts: 'N''eus kemennadenn ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
+  Load More Videos: 'Kargañ muioc''h a videoioù'
+  Load More Posts: 'Kargañ muioc''h a bennadoù'
+  Subscriptions Tabs: 'Ivinelloù ar c''houmanantoù'
+  All Subscription Tabs Hidden: ''
+More: 'Muioc''h'
+Channels:
+  Channels: 'Chadennoù'
+  Title: 'Roll ar chadennoù'
+  Search bar placeholder: 'Klask chadennoù'
+  Count: '{number} chadenn kavet.'
+  Empty: 'Goullo eo ho roll chadennoù.'
+  Unsubscribe: ''
+  Unsubscribed: ''
+  Unsubscribe Prompt: 'Ha sur oc''h e faot deoc''h digoumanantiñ deus "{channelName}" ?'
+Trending:
+  Trending: 'Diouzh ar cʼhiz'
+  Default: 'Dre ziouer'
+  Music: 'Sonerezh'
+  Gaming: 'C''hoarioù video'
+  Movies: 'Filmoù'
+  Trending Tabs: 'Ivinelloù ar re diouzh ar c''hiz'
+Most Popular: 'Ar muiañ a verzh ganto'
+Feed:
+  Feed Last Updated: '{feedName} hizivadenn diwezhañ ar wazh : {date}'
+  Refresh Feed: 'Adkargañ {subscriptionName}'
+Playlists: 'Rolloù videoioù'
+User Playlists:
+  Your Playlists: 'Ho rolloù videoioù'
+  Playlist Message: ''
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
+  You have no playlists. Click on the create new playlist button to create a new one.: 'N''ho
+    peus ket a roll videoioù. Klikit war ar bouton krouiñ ur roll-videoioù nevez evit
+    krouiñ unan.'
+  Empty Search Message: 'N''eus video ebet e-barzh ar roll-vidoeioù-mañ a glotfe gant
+    ho klask'
+  Search bar placeholder: 'Klask rolloù-videoioù'
+  Playlists with Matching Videos: 'Rolloù-videoioù gant videoioù a glot'
+
+  This playlist currently has no videos.: 'Ar roll-videoioù-mañ n''en deus video ebet
+    evit poent.'
+
+  Create New Playlist: 'Krouiñ ur roll-videoioù nevez'
+
+  Add to Playlist: 'Ouzhpennañ d''ar roll-videoioù'
+  Add to Favorites: 'Ouzhpennañ da {playlistName}'
+  Remove from Favorites: 'Dilemel diwar {playlistName}'
+
+  Move Video Up: 'Kas ar video uheloc''h'
+  Move Video Down: 'Kas ar video izeloc’h'
+  Remove from Playlist: 'Tennañ kuit eus ar roll-videoioù'
+
+  Playlist Name: 'Anv ar roll-videoioù'
+  Playlist Description: 'Deskrivadur ar roll-videoioù'
+
+  Save Changes: 'Enrollañ ar c''hemmoù'
+  Cancel: 'Nullañ'
+  Edit Playlist Info: 'Kemmañ titouroù ar roll-videoioù'
+  Copy Playlist: 'Eilañ ar roll-videoioù'
+  Remove Duplicate Videos: 'Dilemel doublennoù ar videoioù'
+  Remove Watched Videos: 'Dilemel ar videoioù bet lennet'
+  Enable Quick Bookmark With This Playlist: 'Gweredekaat ar sined prim evit ar roll-videoioù-mañ'
+  Quick Bookmark Enabled: 'Sined prim gweredekaet'
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 'Ha
+    sur oc''h e faot deoc''h dilemel 1 doublenn video diouzh ar roll-videoioù-mañ ?
+    Ne c''hall ket bezañ nullet. | Ha sur oc''h e faot deoc''h dilemel {playlistItemCount}
+    doublenn video diouzh ar roll-videoioù-mañ ? Ne c''hall ket bezañ nullet.'
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 'Ha
+    sur oc''h e faot deoc''h dilemel 1 video bet lennet diouzh ar roll-videoioù-mañ ?
+    Ne c''hall ket bezañ nullet. | Ha sur oc''h e faot deoc''h dilemel {playlistItemCount}
+    video bet lennet diouzh ar roll-videoioù-mañ ? Ne c''hall ket bezañ nullet.'
+  Delete Playlist: 'Dilemel roll-videoioù'
+  Cannot delete the quick bookmark target playlist.: 'N''eo ket posupl dilemel ar
+    roll-videoioù e-lec''h ma vez enrollet ar sinedoù prim.'
+  Are you sure you want to delete this playlist? This cannot be undone: 'Ha sur oc''h
+    e faot deoc''h dilemel ar roll-videoioù-mañ ? Ne vo ket moaien da nullañ war-lerc''h.'
+
+  Sort By:
+    Sort By: 'Rummañ dre'
+
+    NameAscending: 'A-Z'
+    NameDescending: 'Z-A'
+
+    LatestCreatedFirst: 'Krouet nevez ''zo'
+    EarliestCreatedFirst: 'Krouet pell ''zo'
+
+    LatestUpdatedFirst: 'Kemmet nevez ''zo'
+    EarliestUpdatedFirst: 'Kemmet pell ''zo'
+
+    LatestPlayedFirst: 'Lennet nevez ''zo'
+    EarliestPlayedFirst: 'Lennet pell ''zo'
+  SinglePlaylistView:
+    Search for Videos: 'Klask Videoioù'
+
+    Toast:
+      This video cannot be moved up.: 'Ar video-mañ n''hall ket pignat er roll.'
+      This video cannot be moved down.: 'Ar video-mañ n''hall ket diskenn er roll.'
+      Video has been removed: 'Dilamet eo bet ar video'
+      There was a problem with removing this video: 'Ur gudenn a oa en ur glask dilemel
+        ar video-mañ'
+
+      This playlist is already being used for quick bookmark.: 'Implijet e vez dija
+        ar roll-videoioù-mañ evit enrollañ ar sinedoù prim.'
+      This playlist is now used for quick bookmark: 'Implijet e vo ar roll-videoioù-mañ
+        evit enrollañ ar sinedoù prim'
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'Implijet
+        e vo ar roll-videoioù-mañ evit enrollañ ar sinedoù prim e-lec''h {oldPlaylistName}.
+        Klikit amañ evit nullañ'
+      Reverted to use {oldPlaylistName} for quick bookmark: 'Adlakaat ar roll-videoioù
+        {oldPlaylistName} evit enrollañ ar sinedoù prim'
+
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 'Videoioù
+        ''zo e-barzh ar roll-videoioù n''int ket karget c''hoazh. Klikit amañ evit
+        eilañ anezho memestra.'
+      Playlist name cannot be empty. Please input a name.: 'N''hall ket anv ar roll-videoioù
+        bezañ goullo. Lakait unan mar-plij.'
+      Playlist has been updated.: 'Kemmet eo bet ar roll-videoioù.'
+      There was an issue with updating this playlist.: 'C''hoarvezet ez eus ur gudenn
+        en ur cheñch ar roll-videoioù-mañ.'
+      "{videoCount} video(s) have been removed": "Dilamet ez eus bet 1 video | Dilamet
+        ez eus bet {videoCount} video"
+      There were no videos to remove.: 'Ne oa video ebet da zilemel.'
+      This playlist is protected and cannot be removed.: 'Gwarezet eo ar roll-videoioù-mañ
+        ha ne c''hall ket bezañ dilamet.'
+      Playlist {playlistName} has been deleted.: 'Dilamet eo bet ar roll-videoioù
+        {playlistName}.'
+      Playlist {playlistName} is the new quick bookmark playlist.: 'Ar roll-videoioù
+        {playlistName} a zo bremañ roll-videoioù nevez ar sinedoù prim.'
+
+      This playlist does not exist: 'N''eus ket eus ar roll-videoioù-mañ'
+
+      This playlist has a video with a duration error: ''
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: 'Choazit ur roll-videoioù evit ouzhpennañ
+      ho video e-barzh | Choazit ur roll-videoioù evit ouzhpennañ ho {videoCount}
+      video e-barzh'
+    N playlists selected: '{playlistCount} Diuzet'
+    Search in Playlists: 'Klask e-barzh ar rolloù-videoioù'
+    Allow Adding Duplicate Video(s): 'Aotren ouzhpennañ doublennoù videoioù'
+    Save: 'Enrollañ'
+
+    Added {count} Times: 'Ouzhpennet dija | Ouzhpennet {count} gwech'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      video a vo ouzhpennet'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      video bet ouzhpennet dija'
+
+    Toast:
+      You haven't selected any playlist yet.: 'N''ho peus diuzet ur roll-videoioù
+        c''hoazh.'
+      "{videoCount} video(s) added to 1 playlist": "1 video ouzhpennet d'1 roll-videoioù
+        | {videoCount} video ouzhpennet d'1 roll-videoioù"
+      "{videoCount} video(s) added to {playlistCount} playlists": "1 video ouzhpennet
+        da {playlistCount} roll-videoioù | {videoCount} video ouzhpennet da  {playlistCount}
+        roll-videoioù"
+  CreatePlaylistPrompt:
+    New Playlist Name: 'Anv nevez ar roll-videoioù'
+    Create: 'Krouiñ'
+
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: 'Bez
+        ez eus dija ur roll-videoioù gant an anv-mañ. Choazit un anv disheñvel mar-plij.'
+      Playlist {playlistName} has been successfully created.: 'Krouet eo bet ar roll-videoioù
+        {playlistName} gant berzh.'
+      There was an issue with creating the playlist.: 'C''hoarvezet ez eus ur gudenn
+        en ur grouiñ ar roll-videoioù.'
+History:
+  # On History Page
+  History: 'Roll istor'
+  Watch History: ''
+  Your history list is currently empty.: ''
+  Empty Search Message: ''
+  Search bar placeholder: ""
+  Case Sensitive Search: ''
+Settings:
+  # On Settings Page
+  Settings: 'Arventennoù'
+  Expand All Settings Sections: ''
+  Sort Settings Sections (A-Z): ''
+  Return to Settings Menu: 'Distreiñ d''al lañser arventennoù'
+  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  General Settings:
+    General Settings: 'Hollek'
+    Check for Updates: 'Klask Hizivadurioù'
+    Check for Latest Blog Posts: 'Diskouez pennadoù diwezhañ ar Blog'
+    Fallback to Non-Preferred Backend on Failure: ''
+    Enable Search Suggestions: 'Gweredekaat Kinnigoù klask'
+    Auto Load Next Page:
+      Label: ''
+      Tooltip: ''
+    Default Landing Page: 'Pajenn degemer dre ziouer'
+    Locale Preference: 'Yezh'
+    System Default: 'Reizhiad dre ziouer'
+    Preferred API Backend:
+      Preferred API Backend: ''
+      Local API: ''
+      Invidious API: 'API Invidious'
+    Video View Type:
+      Video View Type: ''
+      Grid: 'Kael'
+      List: 'Roll'
+    Thumbnail Preference:
+      Thumbnail Preference: ''
+      Default: 'Dre ziouer'
+      Beginning: 'Derou'
+      Middle: 'Kreiz'
+      End: 'Fin'
+      Hidden: 'Kuzhet'
+      Blur: 'Ruzed'
+    Current Invidious Instance: ''
+    The currently set default instance is {instance}: ''
+    No default instance has been set: ''
+    Current instance will be randomized on startup: ''
+    Set Current Instance as Default: ''
+    Clear Default Instance: ''
+    View all Invidious instance information: ''
+    Region for Trending: ''
+    #! List countries
+    External Link Handling:
+      External Link Handling: ''
+      Open Link: 'Digeriñ an ere'
+      Ask Before Opening Link: 'Goulenn a-raok digeriñ ul liamm'
+      No Action: ''
+  Theme Settings:
+    Theme Settings: 'Tem'
+    Match Top Bar with Main Color: ''
+    Expand Side Bar by Default: ''
+    Disable Smooth Scrolling: ''
+    UI Scale: ''
+    Hide Side Bar Labels: ''
+    Hide FreeTube Header Logo: ''
+    Base Theme:
+      Base Theme: ''
+      Black: 'Du'
+      Dark: 'Teñval'
+      System Default: 'Yezh ar reizhiad'
+      Light: 'Sklaer'
+      Dracula: ''
+      Catppuccin Mocha: ''
+      Pastel Pink: ''
+      Hot Pink: ''
+      Nordic: 'Nordik'
+      Solarized Dark: ''
+      Solarized Light: ''
+    Main Color Theme:
+      Main Color Theme: ''
+      Red: 'Ruz'
+      Pink: 'Roz'
+      Purple: 'Mouk'
+      Deep Purple: ''
+      Indigo: 'Indigo'
+      Blue: 'Glas'
+      Light Blue: 'Glas sklaer'
+      Cyan: 'Siañ'
+      Teal: ''
+      Green: 'Gwer'
+      Light Green: 'Gwer sklaer'
+      Lime: 'Liv sitroñs'
+      Yellow: 'Melen'
+      Amber: 'Goularz'
+      Orange: 'Orañjez'
+      Deep Orange: ''
+      Dracula Cyan: ''
+      Dracula Green: ''
+      Dracula Orange: ''
+      Dracula Pink: ''
+      Dracula Purple: ''
+      Dracula Red: ''
+      Dracula Yellow: ''
+      Catppuccin Mocha Rosewater: ''
+      Catppuccin Mocha Flamingo: ''
+      Catppuccin Mocha Pink: ''
+      Catppuccin Mocha Mauve: ''
+      Catppuccin Mocha Red: ''
+      Catppuccin Mocha Maroon: ''
+      Catppuccin Mocha Peach: ''
+      Catppuccin Mocha Yellow: ''
+      Catppuccin Mocha Green: ''
+      Catppuccin Mocha Teal: ''
+      Catppuccin Mocha Sky: ''
+      Catppuccin Mocha Sapphire: ''
+      Catppuccin Mocha Blue: ''
+      Catppuccin Mocha Lavender: ''
+      Solarized Yellow: ''
+      Solarized Orange: ''
+      Solarized Red: ''
+      Solarized Magenta: ''
+      Solarized Violet: ''
+      Solarized Blue: ''
+      Solarized Cyan: ''
+      Solarized Green: ''
+    Secondary Color Theme: ''
+        #* Main Color Theme
+  Player Settings:
+    Player Settings: 'Lenner'
+    Play Next Video: ''
+    Turn on Subtitles by Default: ''
+    Autoplay Videos: ''
+    Proxy Videos Through Invidious: ''
+    Autoplay Playlists: 'Lenn emgefreek ar rolloù-videoioù'
+    Enable Theatre Mode by Default: ''
+    Scroll Volume Over Video Player: ''
+    Scroll Playback Rate Over Video Player: ''
+    Skip by Scrolling Over Video Player: ''
+    Display Play Button In Video Player: ''
+    Enter Fullscreen on Display Rotate: ''
+    Next Video Interval: ''
+    Fast-Forward / Rewind Interval: ''
+    Default Volume: 'Ment ar son dre ziouer'
+    Default Playback Rate: ''
+    Max Video Playback Rate: ''
+    Video Playback Rate Interval: ''
+    Default Video Format:
+      Default Video Format: ''
+      Dash Formats: ''
+      Legacy Formats: ''
+      Audio Formats: 'Furmadoù son'
+    Default Quality:
+      Default Quality: ''
+      Auto: 'Emgefreek'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Screenshot:
+      Enable: ''
+      Format Label: ''
+      Quality Label: ''
+      Ask Path: ''
+      Folder Label: ''
+      Folder Button: 'Diuzañ un teuliad'
+      File Name Label: ''
+      File Name Tooltip: ''
+      Error:
+        Forbidden Characters: 'Arouezennoù difennet'
+        Empty File Name: ''
+  External Player Settings:
+    External Player Settings: ''
+    External Player: ''
+    Ignore Unsupported Action Warnings: ''
+    Ignore Default Arguments: ''
+    Custom External Player Executable: ''
+    Custom External Player Arguments: ''
+    Players:
+      None:
+        Name: 'Hini ebet'
+  Privacy Settings:
+    Privacy Settings: 'Prevezded'
+    Remember History: ''
+    Save Watched Progress: ''
+    Save Watched Videos With Last Viewed Playlist: ''
+    Clear Search Cache: ''
+    Are you sure you want to clear out your search cache?: ''
+    Search cache has been cleared: ''
+    Remove Watch History: ''
+    Are you sure you want to remove your entire watch history?: ''
+    Watch history has been cleared: ''
+    Remove All Subscriptions / Profiles: ''
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Remove All Playlists: ''
+    All playlists have been removed: 'Lamet eo bet an holl rolloù-videoioù'
+    Are you sure you want to remove all your playlists?: ''
+  Subscription Settings:
+    Subscription Settings: 'Koumanant'
+    Hide Videos on Watch: ''
+    Fetch Feeds from RSS: 'Adtapout ar gwazhioù RSS'
+    Manage Subscriptions: ''
+    Fetch Automatically: 'Adtapout ar wazh ent emgefreek'
+    Only Show Latest Video for Each Channel: 'Diskouez ar video-diwezhañ hepken evit
+      pep chadenn'
+    Confirm Before Unsubscribing: 'Kadarnaat a-raok Digoumanantiñ'
+  Distraction Free Settings:
+    Distraction Free Settings: ''
+    Sections:
+      Side Bar: ''
+      Subscriptions Page: 'Pajenn ar c''houmanantoù'
+      Channel Page: ''
+      Watch Page: ''
+      General: 'Hollek'
+    Hide Video Views: ''
+    Hide Video Likes And Dislikes: ''
+    Hide Channel Subscribers: ''
+    Hide Comment Likes: ''
+    Hide Recommended Videos: ''
+    Hide Trending Videos: ''
+    Hide Popular Videos: ''
+    Hide Playlists: ''
+    Hide Live Chat: ''
+    Hide Active Subscriptions: 'Kuzhat ar c''houmanantoù oberiant'
+    Hide Video Description: ''
+    Hide Comments: 'Kuzhat an evezhiadennoù'
+    Hide Profile Pictures in Comments: ''
+    Display Titles Without Excessive Capitalisation: ''
+    Hide Live Streams: ''
+    Hide Upcoming Premieres: ''
+    Hide Sharing Actions: ''
+    Hide Chapters: ''
+    Hide Channels: ''
+    Hide Channels Disabled Message: ''
+    Hide Channels Placeholder: 'ID ar chadenn'
+    Hide Channels Invalid: ''
+    Hide Channels API Error: ''
+    Hide Channels Already Exists: 'ID ar chadenn a zo anezhañ dija'
+    Hide Featured Channels: ''
+    Hide Channel Playlists: ''
+    Hide Channel Community: ''
+    Hide Channel Shorts: ''
+    Hide Channel Podcasts: ''
+    Hide Channel Releases: ''
+    Hide Videos and Playlists Containing Text: ''
+    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Subscriptions Videos: ''
+    Hide Subscriptions Shorts: 'Kuzhat Shortoù ar c''houmanantoù'
+    Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
+    Hide Subscriptions Community: 'Kuzhat Kumuniezh ar c''houmanantoù'
+  Data Settings:
+    Data Settings: 'Roadennoù'
+    Select Import Type: ''
+    Select Export Type: ''
+    Import Subscriptions: 'Enporzhiañ ho koumanantoù'
+    Subscription File: 'Restr ar c''houmanant'
+    History File: ''
+    Playlist File: ''
+    Check for Legacy Subscriptions: ''
+    Export Subscriptions: 'Ezporzhiañ ar c''houmanantoù'
+    Export FreeTube: ''
+    Export YouTube: ''
+    Export NewPipe: ''
+    Import History: ''
+    Export History: ''
+    Import Playlists: ''
+    Export Playlists: ''
+    Export Playlists For Older FreeTube Versions:
+      Label: ''
+      # |- = Keep newlines, No newline at end
+      Tooltip: |
+    Profile object has insufficient data, skipping item: ''
+    All subscriptions and profiles have been successfully imported: ''
+    All subscriptions have been successfully imported: ''
+    Invalid subscriptions file: ''
+    Invalid history file: ''
+    Subscriptions have been successfully exported: ''
+    History object has insufficient data, skipping item: ''
+    All watched history has been successfully imported: ''
+    All watched history has been successfully exported: ''
+    Playlist insufficient data: ''
+    All playlists has been successfully imported: ''
+    All playlists has been successfully exported: ''
+    Unable to read file: 'Ne c''haller ket lenn ar restr'
+    Unable to write file: 'N''haller ket skrivañ ar restr'
+    Unknown data key: ''
+    How do I import my subscriptions?: ''
+    Manage Subscriptions: ''
+  Proxy Settings:
+    Proxy Settings: 'Proksi'
+    Enable Tor / Proxy: ''
+    Proxy Protocol: ''
+    Proxy Host: ''
+    Proxy Port Number: ''
+    Clicking on Test Proxy will send a request to: ''
+    Test Proxy: ''
+    Your Info: ''
+    Ip: 'IP'
+    Country: 'Bro'
+    Region: 'Rannvro'
+    City: 'Kêr'
+    Error getting network information. Is your proxy configured properly?: ''
+  SponsorBlock Settings:
+    SponsorBlock Settings: ''
+    Enable SponsorBlock: ''
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
+    Notify when sponsor segment is skipped: ''
+    UseDeArrowTitles: ''
+    UseDeArrowThumbnails: ''
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': ''
+    Skip Options:
+      Skip Option: ''
+      Auto Skip: 'Lamm emgefreek'
+      Show In Seek Bar: ''
+      Prompt To Skip: ''
+      Do Nothing: 'Ober netra'
+    Category Color: ''
+  Parental Control Settings:
+    Parental Control Settings: ''
+    Hide Unsubscribe Button: ''
+    Show Family Friendly Only: ''
+    Hide Search Bar: ''
+  Download Settings:
+    Download Settings: 'Pellgargañ'
+    Ask Download Path: ''
+    Choose Path: ''
+    Download Behavior: ''
+    Download in app: ''
+    Open in web browser: 'Digeriñ er merdeer web'
+  Experimental Settings:
+    Experimental Settings: 'Arnodel'
+    Warning: ''
+    Replace HTTP Cache: ''
+  Password Dialog:
+    Password: 'Ger-tremen'
+    Enter Password To Unlock: ''
+    Password Incorrect: 'Ger-tremen direizh'
+    Unlock: 'Dibrennañ'
+  Password Settings:
+    Password Settings: 'Ger-tremen'
+    Set Password To Prevent Access: ''
+    Set Password: 'Termeniñ ur ger-termen'
+    Remove Password: 'Dilemel ar ger-tremen'
+About:
+  #On About page
+  About: 'A-zivout'
+  Beta: 'Beta'
+  Source code: 'Kod mammenn'
+  Licensed under the: 'Dindan an aotre-implijout'
+  AGPLv3: 'AGPLv3'
+  Downloads / Changelog: ''
+  GitHub releases: ''
+  Help: 'Skoazell'
+  FreeTube Wiki: 'Wiki FreeTube'
+  FAQ: 'FAG'
+  Discussions: 'Kaozeadennoù'
+  Report a problem: 'Menegiñ ur gudenn'
+  GitHub issues: ''
+  Please check for duplicates before posting: ''
+  Website: 'Lec''hienn web'
+  Blog: 'Blog'
+  Email: 'Chomlec’h postel'
+  Mastodon: 'Mastodon'
+  Chat on Matrix: ''
+  Please read the: 'Par-plij, lennit'
+  room rules: ''
+  Translate: 'Treiñ'
+  Credits: 'Kreditoù'
+  FreeTube is made possible by: ''
+  these people and projects: ''
+  Donate: 'Ober un donezon'
+
+Profile:
+  Profile Settings: 'Profil'
+  Toggle Profile List: ''
+  Profile Select: ''
+  Profile Filter: ''
+  All Channels: 'An holl chadennoù'
+  Profile Manager: ''
+  Create New Profile: 'Krouiñ ur profil nevez'
+  Edit Profile: 'Kemmañ ar profil'
+  Edit Profile Name: 'Kemmañ anv ar profil'
+  Create Profile Name: 'Krouiñ anv ar profil'
+  Profile Name: 'Anv ar profil'
+  Color Picker: 'Garrennig livioù'
+  Custom Color: 'Liv personelaet'
+  Profile Preview: ''
+  Create Profile: 'Krouiñ ur profil'
+  Update Profile: 'Hizivaat ar profil'
+  Make Default Profile: ''
+  Delete Profile: 'Dilemel ar profil'
+  Are you sure you want to delete this profile?: 'Ha sur oc''h e faot deoc''h dilemel
+    ar profil-mañ ?'
+  All subscriptions will also be deleted.: 'An holl goumanantoù a vo ivez dilamet.'
+  Profile could not be found: ''
+  Your profile name cannot be empty: ''
+  Profile has been created: 'Krouet eo bet ar profil'
+  Profile has been updated: 'Hizivaet eo bet ar profil'
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: 'Dilamet eo bet {profile} deus ho profiloù'
+  Your default profile has been changed to your primary profile: ''
+  '{profile} is now the active profile': ''
+  Subscription List: 'Roll ar c''houmanantoù'
+  Other Channels: 'Chadennoù all'
+  '{number} selected': '{number} diuzet'
+  Select All: 'Diuzañ an holl'
+  Select None: 'Diuzañ hini ebet'
+  Delete Selected: 'Dilemel ar re ziuzet'
+  Add Selected To Profile: 'Ouzhpennañ ar re ziuzet d’ar profil'
+  No channel(s) have been selected: 'Chadenn ebet diuzet'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : ''
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  Close Profile Dropdown: ''
+  Open Profile Dropdown: ''
+#On Channel Page
+Channel:
+  Subscribe: 'Koumanantiñ'
+  Unsubscribe: 'Digoumanantiñ'
+  Channel has been removed from your subscriptions: ''
+  Removed subscription from {count} other channel(s): ''
+  Added channel to your subscriptions: ''
+  Search Channel: ''
+  Your search results have returned 0 results: ''
+  Sort By: 'Rummañ dre'
+  This channel does not exist: 'N''eus ket deus ar chadenn-mañ'
+  This channel does not allow searching: ''
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
+  Channel Tabs: ''
+  Videos:
+    Videos: 'Videoioù'
+    This channel does not currently have any videos: ''
+    Sort Types:
+      Newest: 'Nevesañ'
+      Oldest: 'Koshañ'
+      Most Popular: 'Ar muiañ a verzh ganto'
+  Shorts:
+    This channel does not currently have any shorts: ''
+  Live:
+    Live: 'End-eeun'
+    This channel does not currently have any live streams: ''
+  Playlists:
+    Playlists: 'Rolloù-videoioù'
+    This channel does not currently have any playlists: ''
+    Sort Types:
+      Last Video Added: ''
+      Newest: 'Nevesañ'
+      Oldest: 'Koshañ'
+  Podcasts:
+    Podcasts: 'Podskignañ'
+    This channel does not currently have any podcasts: ''
+  Releases:
+    Releases: ''
+    This channel does not currently have any releases: ''
+  About:
+    About: 'A-zivout'
+    Channel Description: ''
+    Tags:
+      Tags: 'Tikedennoù'
+      Search for: 'Klask evit "{tag}"'
+    Details: 'Munudoù'
+    Joined: ''
+    Location: 'Lec''hiadur'
+    Featured Channels: ''
+  Community:
+    This channel currently does not have any posts: ''
+    votes: '{votes} a vouezhioù'
+    View Full Post: ''
+    Reveal Answers: 'Diskouez ar respontoù'
+    Hide Answers: 'Kuzhat ar respontoù'
+    Video hidden by FreeTube: 'Video kuzhet gant FreeTube'
+    Viewing Posts Only Supported By Invidious: ''
+Video:
+  IP block: ''
+  More Options: 'Muioc''h a zibarzhioù'
+  Mark As Watched: 'Lakaat evel lennet'
+  Remove From History: 'Skarzhañ deus ar roll istor'
+  Video has been marked as watched: 'Lakaet eo bet ar video evel lennet'
+  Video has been removed from your history: ''
+  Save Video: 'Enrollañ ar video'
+  Video has been saved: 'Enrollet eo bet ar video'
+  Video has been removed from your saved list: ''
+  Open in YouTube: 'Digeriñ gant YouTube'
+  Copy YouTube Link: 'Eilañ liamm YouTube'
+  Open YouTube Embedded Player: 'Digeriñ lenner enkorfet YouTube'
+  Copy YouTube Embedded Player Link: 'Eilañ liamm lenner enkorfet YouTube'
+  Open in Invidious: 'Digeriñ gant Invidious'
+  Copy Invidious Link: 'Eilañ liamm Invidious'
+  Open Channel in YouTube: 'Digeriñ ar chadenn war YouTube'
+  Copy YouTube Channel Link: 'Eilañ liamm YouTube ar chadenn'
+  Open Channel in Invidious: 'Digeriñ ar chadenn war Invidious'
+  Copy Invidious Channel Link: 'Eilañ liamm Invidious ar chadenn'
+  Hide Channel: 'Kuzhat ar chadenn'
+  Unhide Channel: 'Diskouez ar chadenn'
+  Views: 'Sell'
+  Loop Playlist: ''
+  Shuffle Playlist: 'Meskañ ar roll-videoioù'
+  Reverse Playlist: ''
+  Play Next Video: ''
+  Play Previous Video: ''
+  Pause on Current Video: ''
+  Watched: 'Lennet'
+  Autoplay: 'Lenn emgefreek'
+  Starting soon, please refresh the page to check again: ''
+  # As in a Live Video
+  Premieres on: ''
+  Premieres: ''
+  Upcoming: 'A-benn nebeut'
+  Live: 'End-eeun'
+  Live Now: ''
+  Live Chat: 'Flapañ war-eeun'
+  Enable Live Chat: ''
+  Live Chat is currently not supported in this build.: ''
+  'Chat is disabled or the Live Stream has ended.': ''
+  Live chat is enabled. Chat messages will appear here once sent.: ''
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
+  Show Super Chat Comment: ''
+  Scroll to Bottom: ''
+  Download Video: 'Pellgargañ ar video'
+  video only: 'video hepken'
+  audio only: 'aodio hepken'
+  Published:
+    Jan: 'Gen'
+    Feb: 'C''hwe'
+    Mar: 'Meu'
+    Apr: 'Ebr'
+    May: 'Mae'
+    Jun: 'Mez'
+    Jul: 'Gou'
+    Aug: 'Eos'
+    Sep: 'Gwe'
+    Oct: 'Her'
+    Nov: 'Du'
+    Dec: 'Ker'
+    Second: 'Eilenn'
+    Seconds: 'Eilennoù'
+    Minute: 'Munut'
+    Minutes: 'Munutennoù'
+    Hour: 'Eur'
+    Hours: 'Eurvezhioù'
+    Day: 'Devezh'
+    Days: 'Devezhioù'
+    Week: 'Sizhun'
+    Weeks: 'Sizhunvezhioù'
+    Month: 'Miz'
+    Months: 'Mizioù'
+    Year: 'Bloaz'
+    Years: 'Bloavezhioù'
+    Ago: '''zo'
+    Upcoming: ''
+    In less than a minute: 'Nebeutoc''h eget ur vunutenn zo'
+  Published on: 'Embannet war'
+  Streamed on: ''
+  Started streaming on: ''
+  Publicationtemplate: '{number} {unit} ‘zo'
+  Sponsor Block category:
+    sponsor: 'Sponsor'
+    intro: 'Rakskrid'
+    outro: ''
+    self-promotion: ''
+    interaction: ''
+    music offtopic: ''
+    recap: ''
+    filler: ''
+  External Player:
+    OpenInTemplate: 'Digeriñ gant {externalPlayer}'
+    video: 'video'
+    playlist: 'roll-videoioù'
+    OpeningTemplate: 'Digeriñ {videoOrPlaylist} gant {externalPlayer}…'
+    UnsupportedActionTemplate: ''
+    Unsupported Actions:
+      starting video at offset: ''
+      setting a playback rate: ''
+      opening playlists: ''
+      opening specific video in a playlist (falling back to opening the video): ''
+      reversing playlists: ''
+      shuffling playlists: ''
+      looping playlists: ''
+  Player:
+    TranslatedCaptionTemplate: '{language} (troet diwar ar "{originalLanguage}")'
+    Audio Tracks: ''
+    Theatre Mode: ''
+    Exit Theatre Mode: ''
+    Full Window: ''
+    Exit Full Window: ''
+    Take Screenshot: ''
+    Show Stats: 'Diskouez Stadegoù'
+    Hide Stats: 'Kuzhat stadegoù'
+    Stats:
+      Stats: 'Stadegoù'
+      Video ID: 'ID ar Video : {videoId}'
+      Media Formats: ''
+      Resolution: 'Spisder : {width}x{height}@{frameRate}'
+      Player Dimensions: 'Ment al lenner : {width}x{height}'
+      Bitrate: 'Fonnder bit : {bitrate} kbps'
+      Volume: 'Live-son : {volumePercentage}%'
+      Bandwidth: 'Bann drafet : {bandwidth} kbps'
+      Buffered: ''
+      Dropped Frames / Total Frames: ''
+      CodecAudio: ''
+      CodecsVideoAudio: ''
+      CodecsVideoAudioNoItags: ''
+    You appear to be offline: ''
+    Playback will resume automatically when your connection comes back: ''
+    Skipped segment: ''
+#& Videos
+  Unlisted: Anlistennet
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: 'Nevesañ'
+    Oldest: 'Koshañ'
+    #& Most Popular
+#& Playlists
+Playlist:
+  #& About
+  Playlist: 'Roll-videoioù'
+  View Full Playlist: ''
+  Videos: ''
+  View: ''
+  Views: ''
+  Last Updated On: 'Hizivadenn ziwezhañ'
+  Sort By:
+    Sort By: 'Rummañ dre'
+    DateAddedNewest: ''
+    DateAddedOldest: ''
+    AuthorAscending: 'Aozer (A-Z)'
+    AuthorDescending: 'Aozer (Z-A)'
+    VideoTitleAscending: 'Titl (A-Z)'
+    VideoTitleDescending: 'Titl (Z-A)'
+    VideoDurationAscending: ''
+    VideoDurationDescending: ''
+    Custom: 'Personelaat'
+
+# On Video Watch Page
+#* Published
+#& Views
+Toggle Theatre Mode: ''
+Change Format:
+  Change Media Formats: ''
+  Use Dash Formats: ''
+  Use Legacy Formats: ''
+  Use Audio Formats: ''
+  Dash formats are not available for this video: ''
+  Audio formats are not available for this video: ''
+  Legacy formats are not available for this video: ''
+Share:
+  Share Video: ''
+  Share Channel: 'Rannañ ar chadenn'
+  Share Playlist: 'Rannañ ar roll-videoioù'
+  Include Timestamp: 'Adalek ar mare resis'
+  Copy Link: 'Eilañ al liamm'
+  Open Link: 'Digeriñ an ere'
+  Copy Embed: 'Eilañ kod al lenner video enkorfet'
+  Open Embed: 'Digeriñ kod al lenner video enkorfet'
+  # On Click
+  Invidious URL copied to clipboard: 'Liamm Invidious eilet er golver'
+  Invidious Embed URL copied to clipboard: 'Liamm lenner enkorfet Invidious eilet
+    er golver'
+  Invidious Channel URL copied to clipboard: 'Liamm Invidious ar chadenn eilet er
+    golver'
+  YouTube URL copied to clipboard: 'Liamm YouTube eilet er golver'
+  YouTube Embed URL copied to clipboard: 'Liamm lenner enkorfet YouTube eilet er golver'
+  YouTube Channel URL copied to clipboard: 'Liamm YouTube ar chadenn eilet er golver'
+Clipboard:
+  Copy failed: 'Eilañ er golver c''hwitet'
+  Cannot access clipboard without a secure connection: ''
+
+Chapters:
+  Chapters: 'Chabistroù'
+  'Chapters list visible, current chapter: {chapterName}': ''
+  'Chapters list hidden, current chapter: {chapterName}': ''
+
+Mini Player: ''
+Comments:
+  Comments: 'Evezhiadennoù'
+  Click to View Comments: ''
+  Getting comment replies, please wait: ''
+  There are no more comments for this video: ''
+  Show Comments: 'Diskouez an evezhiadennoù'
+  Hide Comments: 'Kuzhat an evezhiadennoù'
+  Sort by: 'Rummañ dre'
+  Top comments: ''
+  Newest first: 'Nevesañ da gentañ'
+  View {replyCount} replies: ''
+  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
+  View: 'Gwelet'
+  Hide: 'Kuzhat'
+  Replies: 'Respontoù'
+  Show More Replies: 'Diskouez respontoù all'
+  Reply: 'Respont'
+  From {channelName}: 'deus {channelName}'
+  And others: 'ha reoù all'
+  There are no comments available for this video: 'N''eus evezhiadenn ebet evit ar
+    video-mañ'
+  There are no comments available for this post: 'N''eus evezhiadenn ebet evit ar
+    gemennadenn-mañ'
+  Load More Comments: 'Kargañ muioc''h a evezhiadennoù'
+  No more comments available: 'Evezhiadenn ouzhpenn ebet'
+  Pinned by: 'Spilhennet gant'
+  Member: 'Ezel'
+  Subscribed: 'Koumanantet'
+  Hearted: 'Karet'
+
+Up Next: 'Da-heul'
+
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: ''
+    Fallback to Non-Preferred Backend on Failure: ''
+    Thumbnail Preference: ''
+    Invidious Instance: ''
+    Region for Trending: ''
+    External Link Handling: |
+  Player Settings:
+    Proxy Videos Through Invidious: ''
+    Default Video Format: ''
+    Scroll Playback Rate Over Video Player: ''
+    Skip by Scrolling Over Video Player: ''
+  External Player Settings:
+    External Player: ''
+    Custom External Player Executable: ''
+    Ignore Warnings: ''
+    Ignore Default Arguments: ''
+    Custom External Player Arguments: ''
+    DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: ''
+    Hide Subscriptions Live: ''
+    Hide Videos and Playlists Containing Text: ''
+  Subscription Settings:
+    Fetch Feeds from RSS: ''
+    Fetch Automatically: ''
+  Experimental Settings:
+    Replace HTTP Cache: ''
+  SponsorBlock Settings:
+    UseDeArrowTitles: ''
+    UseDeArrowThumbnails: ''
+
+# Toast Messages
+Local API Error (Click to copy): 'Fazi un API lec''hel (Klikit evit eilañ)'
+Invidious API Error (Click to copy): 'Fazi gant API Invidious (Klikit evit eilañ)'
+Falling back to Invidious API: 'Distreiñ da API Invidious'
+Falling back to Local API: 'Distreiñ d''an API lec''hel'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
+Subscriptions have not yet been implemented: ''
+Unknown YouTube url type, cannot be opened in app: ''
+Hashtags have not yet been implemented, try again later: ''
+Loop is now disabled: 'Diweredekaet eo ar rodell bremañ'
+Loop is now enabled: 'Gweredekaet eo ar rodell bremañ'
+Shuffle is now disabled: 'Diweredekaet eo ar Mesk-ha-mesk bremañ'
+Shuffle is now enabled: 'Gweredekaet eo ar Mesk-ha-mesk bremañ'
+The playlist has been reversed: 'Eilpennet eo bet ar roll-videoioù'
+Playing Next Video: 'Lenn ar video da-heul'
+Playing Previous Video: 'Lenn ar video a-raok'
+Playlist will not pause when current video is finished: 'Ne vo ket ehanet ar roll-videoioù
+  pa vo echu da lenn ar video-mañ'
+Playlist will pause when current video is finished: 'Ehanet e vo ar roll-videoioù
+  pa vo echu da lenn ar video-mañ'
+Playing Next Video Interval: 'Lenn ar video da-heul a-benn nebeud-tre. Klikit evit
+  nullañ. | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.
+  | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.'
+Canceled next video autoplay: 'Nullañ al lenn emgefreek da-heul'
+
+Default Invidious instance has been set to {instance}: 'Eriol Invidious dre ziouer
+  a zo bet lakaet da {instance}'
+Default Invidious instance has been cleared: 'Diverket eo bet eriol Invidious dre
+  ziouer'
+'The playlist has ended. Enable loop to continue playing': 'Echu eo ar roll-videoioù.  Gweredekaat
+  ar rodell evit kenderc''hel da lenn'
+Age Restricted:
+  This channel is age restricted: 'Ur vevenn oad a zo d''ar chadenn-mañ'
+  This video is age restricted: 'Ur vevenn oad a zo d''ar video-mañ'
+External link opening has been disabled in the general settings: 'Diweredekaet eo
+  al liammoù diavaez en arventennoù hollek'
+'Blocked opening potentially unsafe URL': 'Stanket eo an URL a c''hell bezañ arvarus :
+  "{url}".'
+Downloading has completed: '"{videoTitle}" a zo bet pellgarget'
+Starting download: 'Kregiñ da bellgargañ "{videoTitle}"'
+Downloading failed: 'C''hoarvezet ez eus ur gudenn en ur bellgargañ "{videoTitle}"'
+Screenshot Success: 'Enrollet eo bet an dapadenn-skramm evel "{filePath}"'
+Screenshot Error: 'Tapadenn skramm c''hwitet. {error}'
+Channel Hidden: '{channel} ouzhpennet da sil ar chadennoù'
+Channel Unhidden: '{channel} dilamet deus sil ar chadennoù'
+Trimmed input must be at least N characters long: ''
+Tag already exists: 'Bez ez eus dija deus an dikedenn "{tagName}"'
+
+Hashtag:
+  Hashtag: 'Ger-klik'
+  This hashtag does not currently have any videos: 'N''eus ket a video evit poent
+    gant ar ger-klik-mañ'
+Moments Ago: 'nevez ''zo'
+Yes: 'Ya'
+No: 'Ket'
+Ok: 'Mat eo'
+Yes, Delete: 'Ya, Dilemel'
+Yes, Restart: 'Ya, Adloc''hañ'
+Yes, Open Link: 'Ya, digeriñ al liamm'
+Cancel: 'Nullañ'
+# symbol used to indicate that an item is correct
+checkmark: '✓'
+# French is the only language that should change this (they have a space before the colon)
+Display Label: '{label} : {value}'

@@ -98,7 +98,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   Latest Subscriptions: '最新の登録'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは空です。チャンネル登録をするとこちらに表示されます。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは現在空です。登録チャンネルをインポートするには、設定からデータの設定に移動して登録チャンネルをインポートするか、チャンネルを検索して登録することができます。'
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
@@ -124,9 +124,6 @@ Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: 
-    このページは完全に機能する再生リストを反映していません。保存した動画やお気に入りの動画のみが表示されます。作業が完了すると、現在ここにあるすべての動画は「Favorites」の再生リストに移行されます。
   Search bar placeholder: 再生リストの検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
   This playlist currently has no videos.: 現在、この再生リストには動画がありません。
@@ -157,7 +154,6 @@ User Playlists:
       This video cannot be moved up.: この動画は上に移動できません.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: 再生リスト内のすべての動画が読み込まれていません。とにかくコピーするにはここをクリック。
       There was an issue with updating this playlist.: この再生リストの更新に問題が発生しました。
-      Quick bookmark disabled: クイックブックマークは無効です
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: この再生リストは、{oldPlaylistName}
         の代わりにクイックブックマークとして使用されるようになりました。元に戻すにはここをクリック
       Video has been removed: 動画は削除されました
@@ -174,6 +170,8 @@ User Playlists:
       This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
       Playlist {playlistName} is the new quick bookmark playlist.: 再生リスト {playlistName}
         が新しいクイックブックマーク再生リストです。
+      This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも
+        1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
     Search for Videos: 動画検索
   Save Changes: 変更の保存
   Move Video Up: 動画を上へ移動
@@ -182,9 +180,7 @@ User Playlists:
   Add to Playlist: 再生リストに追加
   Delete Playlist: 再生リストの削除
   Cancel: キャンセル
-  Disable Quick Bookmark: クイック ブックマークを無効にする
   Are you sure you want to delete this playlist? This cannot be undone: この再生リストを削除してもいいですか？復元は不可能です。
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 再生リストから再生済みの動画を削除してもいいですか？復元は不可能です。
   You have no playlists. Click on the create new playlist button to create a new one.: 再生リストがありません。新しい再生リストを作成するには、「新しい再生リストの作成」ボタンをクリックしてください。
   AddVideoPrompt:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
@@ -231,7 +227,7 @@ Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
-    General Settings: '一般設定'
+    General Settings: '一般'
     Fallback to Non-Preferred Backend on Failure: 'データ取得の問題発生時には取得方法を自動変更'
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '起動時の表示'
@@ -252,8 +248,6 @@ Settings:
       End: '最後'
       Hidden: 非表示
       Blur: ぼかし
-    'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
-      サーバー（初期値は https://invidious.snopyta.org）'
     Region for Trending: '急上昇の地域設定'
         #! List countries
     Check for Latest Blog Posts: 新着ブログの確認
@@ -276,7 +270,7 @@ Settings:
       Label: 次のページを自動で読み込む
       Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
   Theme Settings:
-    Theme Settings: 'テーマの設定'
+    Theme Settings: 'テーマ'
     Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
     Base Theme:
       Base Theme: 'テーマの選択'
@@ -346,8 +340,7 @@ Settings:
     Hide Side Bar Labels: サイドバー ラベルの非表示
     Hide FreeTube Header Logo: FreeTube ヘッダー ロゴの非表示
   Player Settings:
-    Player Settings: 'プレーヤーの設定'
-    Remember History: '履歴を記憶'
+    Player Settings: 'プレーヤー'
     Play Next Video: '次の動画の自動再生'
     Turn on Subtitles by Default: 'デフォルトで字幕を有効にする'
     Autoplay Videos: '動画の自動再生'
@@ -397,43 +390,12 @@ Settings:
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
     Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
   Subscription Settings:
-    Subscription Settings: '登録チャンネルの設定'
+    Subscription Settings: '登録チャンネル'
     Hide Videos on Watch: '視聴済みの動画を非表示にする'
-    Subscriptions Export Format:
-      Subscriptions Export Format: '登録のエクスポート形式'
-      #& Freetube
-      Newpipe: 'NewPipe'
-      OPML: 'OPML'
-    Manage Subscriptions: '登録の管理'
-    Import Subscriptions: '登録のインポート'
-    Export Subscriptions: '登録のエクスポート'
-    How do I import my subscriptions?: 'どうやってインポートするのですか？'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
     Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
     Only Show Latest Video for Each Channel: 各チャンネルの最新動画のみを表示する
-  Advanced Settings:
-    Advanced Settings: '詳細設定'
-    Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'プロキシーのアドレス（例：SOCKS5://127.0.0.1:9050）'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '「プロキシーのテスト」ボタンをクリックすると、https://ipinfo.io/json
-      へリクエストを送信します'
-    Use Tor / Proxy for API calls: 'API 呼び出しに Tor/Proxy を使用'
-    TEST PROXY: 'プロキシーのテスト'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '公開インスタンスを参照'
-    Clear History:
-      Clear History: '履歴の削除'
-      # On Click
-      Are you sure you want to delete your history?: '履歴を削除しますか？'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: '登録の削除'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'すべての登録チャンネルを削除しますか？'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
@@ -444,7 +406,7 @@ Settings:
     Search cache has been cleared: 検索キャッシュを削除しました
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
-    Privacy Settings: プライバシーの設定
+    Privacy Settings: プライバシー
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Save Watched Videos With Last Viewed Playlist: 視聴済み動画を最後に見た再生リストと共に保存する
@@ -471,15 +433,11 @@ Settings:
     Export NewPipe: NewPipe エクスポート
     Export YouTube: YouTube エクスポート
     Export FreeTube: FreeTube エクスポート
-    Import YouTube: YouTube インポート
-    Import NewPipe: NewPipe インポート
-    Import FreeTube: FreeTube インポート
     Export Subscriptions: 登録チャンネルのエクスポート
     Import Subscriptions: 登録チャンネルのインポート
     Select Export Type: エクスポート形式の選択
     Select Import Type: インポート形式の選択
-    Data Settings: データの設定
-    Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
+    Data Settings: データ
     Manage Subscriptions: 登録チャンネルの管理
     Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
     All playlists has been successfully imported: すべての再生リストが正常にインポートされました
@@ -503,7 +461,7 @@ Settings:
     Hide Channel Subscribers: チャンネル登録者数の非表示
     Hide Video Views: 再生数の非表示
     Hide Video Likes And Dislikes: 評価の非表示
-    Distraction Free Settings: 集中モードの設定
+    Distraction Free Settings: 集中モード
     Hide Active Subscriptions: 登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
     Hide Video Description: 動画概要欄の非表示
@@ -531,7 +489,6 @@ Settings:
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
     Hide Channel Releases: チャンネルの新着情報の非表示
     Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
-    Blur Thumbnails: サムネイルをぼかす
     Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
@@ -553,13 +510,13 @@ Settings:
     Proxy Host: プロキシのホスト
     Proxy Protocol: プロキシのプロトコル
     Enable Tor / Proxy: Tor / プロキシの有効化
-    Proxy Settings: プロキシの設定
+    Proxy Settings: プロキシ
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
       https://sponsor.ajay.app）
     Enable SponsorBlock: スポンサーブロックの有効化
-    SponsorBlock Settings: スポンサーブロックの設定
+    SponsorBlock Settings: スポンサーブロック
     Skip Options:
       Skip Option: スキップの設定
       Auto Skip: 自動スキップ
@@ -576,13 +533,13 @@ Settings:
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
     Ignore Unsupported Action Warnings: 未対応のアクションの警告を無視
     External Player: 外部プレーヤー
-    External Player Settings: 外部プレーヤーの設定
+    External Player Settings: 外部プレーヤー
     Players:
       None:
         Name: なし
     Ignore Default Arguments: デフォルト引数を無視する
   Download Settings:
-    Download Settings: ダウンロードの設定
+    Download Settings: ダウンロード
     Ask Download Path: ダウンロードパスを尋ねる
     Choose Path: パスの選択
     Download Behavior: ダウンロードの処理方法
@@ -590,16 +547,16 @@ Settings:
     Download in app: アプリでダウンロード
   Parental Control Settings:
     Hide Search Bar: 検索バーの非表示
-    Parental Control Settings: 制限付きモードの設定
+    Parental Control Settings: 制限付きモード
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
-    Experimental Settings: 実験中の設定
+    Experimental Settings: 試験的
     Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
-    Password Settings: パスワードの設定
+    Password Settings: パスワード
     Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
     Set Password: パスワードの設定
     Remove Password: パスワードの削除
@@ -609,34 +566,11 @@ Settings:
     Password: パスワード
     Unlock: ロック解除
   Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
-  Expand All Settings Sections: 全ての設定項目を展開する
+  Return to Settings Menu: 設定に戻る
 About:
   #On About page
   About: '概要'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
-    の自由なライセンスです。'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    バグの報告や機能要望、サポートが必要であれば、私たちの GitHub をご覧ください。プルリクエストも歓迎します。
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'FreeTube
-    の実現のために努力している人々とプロジェクトに感謝します！'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'チャットが必要であれば私たちの
-    Element / Matrix に参加してください。参加前にルールの確認をお願いします。'
-
-  'Looking for help? Check out our Wiki page.': 'ヘルプが必要なら私たちの Wiki をご覧ください。'
-
-  Check out our Firefox extension!: 'Firefox 拡張機能をご覧ください！'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'FreeTube
-    をお楽しみの方は、Liberapay か Bitcoin アドレスを通じて寄付をお願いします。'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'FreeTube 新着情報'
-
 #On Channel Page
   Donate: 寄付
   FreeTube is made possible by: FreeTube が実現できているのは
@@ -658,8 +592,6 @@ About:
   Help: ヘルプ
   GitHub releases: GitHub リリース
   Downloads / Changelog: ダウンロード / 変更ログ
-  View License: ライセンスの表示
-  Licensed under the AGPLv3: AGPLv3 の下でライセンス供与
   Source code: ソースコード
   Beta: ベータ
   Discussions: 議論
@@ -861,6 +793,8 @@ Video:
     Hide Stats: 統計を隠す
     Take Screenshot: スクリーンショットを撮る
     Show Stats: 統計を表示
+  IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
+  Unlisted: 非公開
 Videos:
   #& Sort By
   Sort By:
@@ -871,9 +805,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
-  Videos: '本の動画'
-  View: '回視聴'
-  Views: '回視聴'
   Last Updated On: '最終更新日'
 
 # On Video Watch Page
@@ -889,7 +820,8 @@ Playlist:
     AuthorDescending: 著者名（Z-A）
     VideoTitleAscending: タイトル（A-Z）
     Sort By: 並び替え
-Toggle Theatre Mode: 'シアターモードの切替'
+    VideoDurationAscending: 再生時間（短い順）
+    VideoDurationDescending: 再生時間（長い順）
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -949,7 +881,6 @@ Local API Error (Click to copy): '内部 API エラー（クリックしてコ�
 Invidious API Error (Click to copy): 'Invidious API エラー（クリックしてコピー）'
 Falling back to Invidious API: '代替の Invidious API に切替'
 Falling back to Local API: '代替の内部 API に切替'
-Subscriptions have not yet been implemented: '登録チャンネルは未実装です'
 Loop is now disabled: 'ループ再生を無効にしました'
 Loop is now enabled: 'ループ再生を有効にしました'
 Shuffle is now disabled: 'シャッフル再生を無効にしました'
@@ -998,7 +929,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : これはあなたのメインのプロファイルです。選択したチャンネルを本当に削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
-  Profile Settings: プロファイルの設定
+  Profile Settings: プロファイル
   Toggle Profile List: プロファイル一覧の切替
   Create Profile Name: プロファイル名を作成
   Profile Name: プロファイル名
@@ -1013,13 +944,13 @@ Version {versionNumber} is now available!  Click for more details: 最新バー�
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
-      は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は通常の方法の代わりに RSS を使用して購読フィードを取得します。RSS は高速で
+      IP ブロックを防ぎますが、動画の長さやライブ配信の情報、コミュニティ投稿などの情報は提供されません
     Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、登録チャンネル
       フィードを自動的に取得します。
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
-    Proxy Videos Through Invidious: YouTube に直接接続せず、Invidious に接続します。これによりAPIの設定が上書きされます。
+    Proxy Videos Through Invidious: YouTube に直接接続するのではなく、Invidious を通じて動画を提供します。
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: MPVスタイルでスクロールホイールを使って動画をスキップします。
@@ -1058,7 +989,6 @@ Tooltips:
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
-Hashtags have not yet been implemented, try again later: ハッシュタグは未実装です。実装後に実行してください
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL タイプのため、アプリで開くことができません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
@@ -1072,8 +1002,6 @@ Downloading has completed: '"{videoTitle}" のダウンロードが完了しま�
 Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
 Channels:
   Channels: チャンネル
-  Unsubscribe: 登録解除
-  Unsubscribed: '「{channelName} 」のチャンネル登録を解除しました'
   Title: チャンネル一覧
   Search bar placeholder: チャンネル検索
   Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
@@ -1112,6 +1040,11 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: クローズドキャプション
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: 最新
+    3D: 3D
 Yes, Delete: はい、削除します
 Yes, Restart: はい、再起動します
 Yes, Open Link: はい、リンクを開きます

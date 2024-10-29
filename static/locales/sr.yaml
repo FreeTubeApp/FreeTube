@@ -110,8 +110,9 @@ Subscriptions:
     профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничавање
     брзине'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваша
-    листа праћења је тренутно празна. Почните да додајете праћења да бисте их видели
-    овде.'
+    листа праћења је тренутно празна. Ако желите да увезете своја праћења, можете
+    отићи у Подешавања података и изабрати Увоз праћења или можете претражити канал
+    и запратити га.'
   'Getting Subscriptions. Please wait.': 'Набављање праћења. Сачекајте.'
   Refresh Subscriptions: 'Освежи праћења'
   Load More Videos: 'Учитај више видео снимака'
@@ -136,18 +137,9 @@ Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
 User Playlists:
   Your Playlists: 'Ваше плејлисте'
-  Playlist Message: 'Ова страница не одражава потпуно функционалне плејлисте. Наводи
-    само видео снимке које сте сачували или означили као фаворите. Када се посао заврши,
-    сви видео снимци који су тренутно овде биће пребачени на плејлисту „Омиљено“.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Немате
-    сачуване видео снимке. Кликните на дугме за чување у углу видео снимка да бисте
-    га додали на ову листу'
   Empty Search Message: На овој плејлисти нема видео снимака који одговарају вашој
     претрази
   Search bar placeholder: Претрага плејлиста
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Желите
-    ли заиста да уклоните све одгледане видео снимке са ове плејлисте? Ово се не може
-    поништити.
   AddVideoPrompt:
     Search in Playlists: Претрага у плејлистама
     Save: Сачувај
@@ -192,7 +184,6 @@ User Playlists:
       This video cannot be moved down.: Овај видео снимак се не може померити надоле.
       This playlist is now used for quick bookmark: Ова плејлиста се сада користи
         за брзо обележавање
-      Quick bookmark disabled: Брзо обележавање је онемогућено
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ова
         плејлиста се сада користи за брзо обележавање, уместо „{oldPlaylistName}“.
         Кликните овде да поништите
@@ -202,6 +193,9 @@ User Playlists:
         користи за брзо обележавање.
       Playlist {playlistName} is the new quick bookmark playlist.: Плејлиста {playlistName}
         је нова плејлиста за брзо обележавање.
+      This playlist has a video with a duration error: Ова плејлиста садржи најмање
+        један видео снимак који нема трајање, биће сортиран као да је његово трајање
+        нула.
     Search for Videos: Претрага видео снимака
   Are you sure you want to delete this playlist? This cannot be undone: Желите ли
     заиста да избришете ову плејлисту? Ово се не може поништити.
@@ -243,7 +237,6 @@ User Playlists:
   Copy Playlist: Копирај плејлисту
   Playlist Description: Опис плејлисте
   Enable Quick Bookmark With This Playlist: Омогући брзо обележавање помоћу ове плејлисте
-  Disable Quick Bookmark: Онемогући брзо обележавање
   Add to Favorites: Додај на плејлисту „{playlistName}“
   Remove from Favorites: Уклони са плејлисте „{playlistName}“
   Playlists with Matching Videos: Плејлисте с подударајућим видео снимцима
@@ -274,7 +267,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Апликација
     се мора рестартовати да би се примениле промене. Рестартовати и применити промене?'
   General Settings:
-    General Settings: 'Општа подешавања'
+    General Settings: 'Опште'
     Check for Updates: 'Провера ажурирања'
     Check for Latest Blog Posts: 'Провера најновијих објава на блогу'
     Fallback to Non-Preferred Backend on Failure: 'Повратак на непреферирани бек-енд
@@ -298,8 +291,6 @@ Settings:
       End: 'Крај'
       Hidden: Скривено
       Blur: Замагљено
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious инстанца
-      (Подразумевано је https://invidious.snopyta.org)'
     View all Invidious instance information: 'Погледај све информације о Invidious
       инстанци'
     Region for Trending: 'Регион за „У тренду“'
@@ -322,7 +313,7 @@ Settings:
       Label: Аутоматски учитај следећу страницу
       Tooltip: Аутоматско учитавање додатних страница и коментара.
   Theme Settings:
-    Theme Settings: 'Подешавања теме'
+    Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
     Expand Side Bar by Default: 'Подразумевано прошири бочну траку'
     Disable Smooth Scrolling: 'Онемогући глатко прелажење'
@@ -392,7 +383,7 @@ Settings:
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
     Hide Side Bar Labels: Сакриј ознаке бочне траке
   Player Settings:
-    Player Settings: 'Подешавања плејера'
+    Player Settings: 'Плејер'
     Play Next Video: 'Пусти следећи видео снимак'
     Turn on Subtitles by Default: 'Подразумевано укључи титлове'
     Autoplay Videos: 'Аутоматски пусти видео снимак'
@@ -448,7 +439,7 @@ Settings:
     Display Play Button In Video Player: Прикажи дугме за пуштање у плејеру видео
       снимка
   Privacy Settings:
-    Privacy Settings: 'Подешавања приватности'
+    Privacy Settings: 'Приватност'
     Remember History: 'Запамти историју'
     Save Watched Progress: 'Сачувај напредак одгледаног'
     Clear Search Cache: 'Очисти кеш претраге'
@@ -469,16 +460,15 @@ Settings:
     Are you sure you want to remove all your playlists?: Желите ли заиста да уклоните
       све своје плејлисте?
   Subscription Settings:
-    Subscription Settings: 'Подешавања праћења'
+    Subscription Settings: 'Праћење'
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
-    Manage Subscriptions: 'Управљање праћењима'
     Fetch Automatically: Аутоматски прикупи фид
     Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
       сваки канал
     Confirm Before Unsubscribing: Избегни случајно отпраћивање
   Distraction Free Settings:
-    Distraction Free Settings: 'Подешавања „Без ометања“'
+    Distraction Free Settings: 'Без ометања'
     Hide Video Views: 'Сакриј прегледе видео снимка'
     Hide Video Likes And Dislikes: 'Сакриј свиђања и несвиђања видео снимка'
     Hide Channel Subscribers: 'Сакриј праћења канала'
@@ -489,7 +479,6 @@ Settings:
     Hide Playlists: 'Сакриј плејлисте'
     Hide Live Chat: 'Сакриј ћаскање уживо'
     Hide Active Subscriptions: 'Сакриј активна праћења'
-    Blur Thumbnails: Замагли сличице
     Hide Channels Placeholder: ID канала
     Hide Video Description: Сакриј опис видео снимка
     Hide Chapters: Сакриј поглавља
@@ -527,14 +516,10 @@ Settings:
       садрже текст
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
   Data Settings:
-    Data Settings: 'Подешавања података'
+    Data Settings: 'Подаци'
     Select Import Type: 'Избор врсте увоза'
     Select Export Type: 'Избор врсте извоза'
     Import Subscriptions: 'Увоз праћења'
-    Import FreeTube: 'Увоз FreeTube'
-    Import YouTube: 'Увоз YouTube'
-    Import NewPipe: 'Увоз NewPipe'
-    Check for Legacy Subscriptions: 'Провера застарелих праћења'
     Export Subscriptions: 'Извоз праћења'
     Export FreeTube: 'Извоз FreeTube-а'
     Export YouTube: 'Извоз YouTube-а'
@@ -579,7 +564,7 @@ Settings:
         верзију FreeTube-а и увезите извезене плејлисте."
       Label: Извоз плејлиста за старије верзије FreeTube-а
   Proxy Settings:
-    Proxy Settings: 'Подешавања проксија'
+    Proxy Settings: 'Прокси'
     Enable Tor / Proxy: 'Омогући Tor / Прокси'
     Proxy Protocol: 'Протокол проксија'
     Proxy Host: 'Хост проксија'
@@ -596,7 +581,7 @@ Settings:
       при набављању информација о мрежи. Да ли је ваш прокси исправно конфигурисан?'
   Experimental Settings:
     Replace HTTP Cache: Замени HTTP кеш
-    Experimental Settings: Експериментална подешавања
+    Experimental Settings: Експериментално
     Warning: Ова подешавања су експериментална, могу да доведу до отказивања док су
       омогућена. Прављење резервних копија је веома препоручљиво. Користите на властиту
       одговорност!
@@ -612,14 +597,14 @@ Settings:
       Show In Seek Bar: Приказ у траци за прескакање
     UseDeArrowTitles: Користи DeArrow наслове видео снимака
     Enable SponsorBlock: Омогући SponsorBlock
-    SponsorBlock Settings: Подешавања SponsorBlock-а
+    SponsorBlock Settings: SponsorBlock
     Category Color: Боја категорије
     UseDeArrowThumbnails: Користи DeArrow за сличице
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
       API-ја DeArrow генератора сличица (Подразумевано је https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Спољни плејер
-    External Player Settings: Подешавања спољног плејера
+    External Player Settings: Спољни плејер
     Custom External Player Executable: Прилагођени извршни спољни плејер
     Ignore Unsupported Action Warnings: Игнориши упозорења о неподржаним радњама
     Custom External Player Arguments: Прилагођени аргументи спољног плејера
@@ -633,31 +618,29 @@ Settings:
     Ask Download Path: Питај за путању за преузимање
     Download Behavior: Понашање преузимања
     Download in app: Преузми у апликацији
-    Download Settings: Подешавања преузимања
+    Download Settings: Преузимање
   Password Settings:
     Remove Password: Уклони лозинку
     Set Password To Prevent Access: Подеси лозинку да спречиш приступ подешавањима
-    Password Settings: Подешавања лозинке
+    Password Settings: Лозинка
     Set Password: Подеси лозинку
   Parental Control Settings:
     Show Family Friendly Only: Прикажи само погодно за породицу
     Hide Unsubscribe Button: Сакриј дугме „Прекини праћење“
     Hide Search Bar: Сакриј траку за претрагу
-    Parental Control Settings: Подешавања родитељске контроле
+    Parental Control Settings: Родитељска контрола
   Password Dialog:
     Password Incorrect: Лозинка нетачна
     Password: Лозинка
     Enter Password To Unlock: Унесите лозинку да бисте откључали подешавања
     Unlock: Откључај
-  Expand All Settings Sections: Прошири све одељке подешавања
   Sort Settings Sections (A-Z): Сортирање одељка подешавања (A-Z)
+  Return to Settings Menu: Врати се у мени подешавања
 About:
   #On About page
   About: 'О апликацији'
   Beta: 'Бета'
   Source code: 'Изворни кôд'
-  Licensed under the AGPLv3: 'Лиценцирано под AGPLv3'
-  View License: 'Погледај лиценцу'
   Downloads / Changelog: 'Преузимања / Евиденција промена'
   GitHub releases: 'GitHub издања'
   Help: 'Помоћ'
@@ -725,7 +708,7 @@ Profile:
     ли заиста да избришете изабране канале?  Ово неће избрисати канал из било ког
     другог профила.'
 #On Channel Page
-  Profile Settings: Подешавања профила
+  Profile Settings: Профил
   Toggle Profile List: Укључи листу профила
   Open Profile Dropdown: Отвори падајући мени профила
   Close Profile Dropdown: Затвори падајући мени профила
@@ -733,8 +716,6 @@ Profile:
   Edit Profile Name: Измени име профила
   Create Profile Name: Направи име профила
 Channel:
-  Subscriber: 'Пратилац'
-  Subscribers: 'Пратиоци'
   Subscribe: 'Запрати'
   Unsubscribe: 'Прекини праћење'
   Channel has been removed from your subscriptions: 'Канал је уклоњен из ваших праћења'
@@ -944,12 +925,20 @@ Video:
     Playback will resume automatically when your connection comes back: Репродукција
       ће се аутоматски наставити када се ваша интернет веза врати.
     Skipped segment: Прескочен сегмент „{segmentCategory}“
+  IP block: YouTube је блокирао вашу IP адресу за гледање видео снимака. Покушајте
+    прећи на други VPN или прокси.
+  Unlisted: По позиву
+  MembersOnly: Видео снимци само за чланове не могу да се гледају на FreeTube-у јер
+    захтевају пријављивање на Google налог и плаћено чланство на каналу.
+  AgeRestricted: Видео снимци са старосним ограничењемне могу се гледати на FreeTube-у
+    јер захтевају пријаву на Google налог и коришћење YouTube налога који је старосно
+    верификован.
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
       подразумеваног метода за прикупљање вашег фида праћења. RSS је бржи и спречава
       блокирање IP адресе, али не пружа одређене информације као што су трајање видео
-      снимка или статус уживо'
+      снимка, статус уживо или објаве заједнице'
 
 # Toast Messages
     Fetch Automatically: Када је омогућено, FreeTube ће аутоматски прикупити ваш фид
@@ -1017,7 +1006,6 @@ Tooltips:
     UseDeArrowTitles: Замена наслова видео снимака насловима које су послали корисници
       DeArrow-a.
     UseDeArrowThumbnails: Замените сличице видео снимака сличицама из DeArrow-а.
-Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
 Open New Window: Отвори нови прозор
 Shuffle is now disabled: Мешање је сада онемогућено
 New Window: Нови прозор
@@ -1028,10 +1016,7 @@ Clipboard:
 Playlist:
   View Full Playlist: Погледај целу плејлисту
   Last Updated On: Последњи пут ажурирано
-  Videos: Видео снимци
-  View: Преглед
   Playlist: Плејлиста
-  Views: Прегледа
   Sort By:
     DateAddedOldest: Најраније додато прво
     AuthorAscending: Аутор (A-Z)
@@ -1041,6 +1026,8 @@ Playlist:
     Sort By: Сортирање по
     AuthorDescending: Аутор (Z-A)
     DateAddedNewest: Најновије додато прво
+    VideoDurationDescending: Трајање (прво најдуже)
+    VideoDurationAscending: Трајање (прво најкраће)
 Falling back to Invidious API: Повратак на Invidious API
 Change Format:
   Dash formats are not available for this video: DASH формати нису доступни за овај
@@ -1080,8 +1067,6 @@ Comments:
   And others: и осталих
   Newest first: Најновије прво
   There are no comments available for this post: Нема доступних коментара за ову објаву
-Hashtags have not yet been implemented, try again later: Хеш-ознаке још увек нису
-  имплементиране, покушајте поново касније
 Share:
   Invidious Embed URL copied to clipboard: Invidious уграђени URL је копиран у привремену
     меморију
@@ -1123,9 +1108,7 @@ Channels:
   Channels: Канали
   Title: Листа канала
   Empty: Ваша листа канала је тренутно празна.
-  Unsubscribe: Прекини праћење
   Count: 'Пронађено канала: {number}.'
-  Unsubscribed: '{channelName} је уклоњен из ваших праћења'
 External link opening has been disabled in the general settings: Отварање спољног
   линка је онемогућено у општим подешавањима
 Screenshot Success: Снимак екрана је сачуван као „{filePath}“
@@ -1155,7 +1138,6 @@ Preferences: Преференце
 Default Invidious instance has been cleared: Подразумевана инстанца Invidious-а је
   избрисана
 Mini Player: Мини плејер
-Toggle Theatre Mode: Укључи биоскопски режим
 'The playlist has ended. Enable loop to continue playing': Плејлиста је завршена.
   Омогућите понављање да бисте наставили пуштање
 Shuffle is now enabled: Мешање је сада омогућено
@@ -1196,5 +1178,10 @@ Search Listing:
     Closed Captions: Скривени титлови
     4K: 4K
     Subtitles: Титлови
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Ново
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
   URL адресе: „{url}“.'

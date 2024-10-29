@@ -19,7 +19,7 @@ Toggle Developer Tools: '切換開發者工具'
 Actual size: '實際大小'
 Zoom in: '放大'
 Zoom out: '縮小'
-Toggle fullscreen: '切換至全螢幕'
+Toggle fullscreen: '切換全螢幕'
 Window: '視窗'
 Minimize: '最小化'
 Close: '關閉'
@@ -60,11 +60,11 @@ Search Filters:
     Any Time: '任何時間'
     Last Hour: '最近一小時'
     Today: '今天'
-    This Week: '本周'
+    This Week: '本週'
     This Month: '本月'
     This Year: '今年'
   Type:
-    Type: '類別'
+    Type: '類型'
     All Types: '所有類別'
     Videos: '影片'
     Channels: '頻道'
@@ -98,12 +98,12 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   Latest Subscriptions: '最新訂閱'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始新增訂閱。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。如果您想要匯入您的訂閱，您可以前往「資料設定」，然後選取「匯入訂閱」，或者您也可以搜尋頻道並訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
-    強制RSS已防止速率限制
+    強制使用 RSS 以防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
@@ -123,8 +123,6 @@ Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
   Your Playlists: '您的播放清單'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
-  Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
   Search bar placeholder: 搜尋播放清單
   Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
   This playlist currently has no videos.: 此播放清單目前沒有影片。
@@ -166,7 +164,6 @@ User Playlists:
       Playlist {playlistName} has been deleted.: 播放清單 {playlistName} 已刪除。
       This playlist does not exist: 此播放清單不存在
       This playlist is now used for quick bookmark: 此播放清單現在用於快速書籤
-      Quick bookmark disabled: 快速書籤已停用
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放清單現在用於快速書籤，而非
         {oldPlaylistName}。點擊此處撤銷
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
@@ -174,6 +171,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
       Playlist {playlistName} is the new quick bookmark playlist.: 播放清單 {playlistName}
         是新的快速書籤播放清單。
+      This playlist has a video with a duration error: 此播放清單至少包含一個沒有時間長度的影片，則會以時間長度為零的方式排序。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
@@ -203,12 +201,9 @@ User Playlists:
   You have no playlists. Click on the create new playlist button to create a new one.: 您沒有播放清單。按一下建立新播放清單按鈕以建立新的。
   Save Changes: 儲存變更
   Remove Watched Videos: 移除已觀看的影片
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中移除所有觀看過的影片嗎？
-    這無法還原。
   Add to Favorites: 新增至 {playlistName}
   Remove from Favorites: 從 {playlistName} 移除
   Enable Quick Bookmark With This Playlist: 啟用此播放清單的快速書籤
-  Disable Quick Bookmark: 停用快速書籤
   Playlists with Matching Videos: 包含相符影片的播放清單
   Quick Bookmark Enabled: 已啟用快速書籤
   Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
@@ -229,7 +224,7 @@ Settings:
   # On Settings Page
   Settings: '設定'
   General Settings:
-    General Settings: '一般設定'
+    General Settings: '一般'
     Fallback to Non-Preferred Backend on Failure: '連線失敗時連線到非預設伺服器'
     Enable Search Suggestions: '啟用搜尋建議'
     Default Landing Page: '預設加載頁面'
@@ -250,8 +245,6 @@ Settings:
       End: '片尾'
       Hidden: 隱藏
       Blur: 模糊
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
-      https://invidious.snopyta.org )'
     Region for Trending: '發燒影片區域'
         #! List countries
     Check for Latest Blog Posts: 檢查最新的部落格貼文
@@ -273,7 +266,7 @@ Settings:
       Tooltip: 自動載入額外頁面與留言。
       Label: 自動載入下一頁
   Theme Settings:
-    Theme Settings: '主題設定'
+    Theme Settings: '主題'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
     Base Theme:
       Base Theme: '基本主題'
@@ -343,8 +336,7 @@ Settings:
     Hide Side Bar Labels: 隱藏側邊欄標籤
     Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
-    Player Settings: '播放器選項'
-    Remember History: '記住曆史'
+    Player Settings: '播放器'
     Play Next Video: '播放下一部影片'
     Turn on Subtitles by Default: '預設開啟字幕'
     Autoplay Videos: '自動播放影片'
@@ -395,42 +387,12 @@ Settings:
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
   Subscription Settings:
-    Subscription Settings: '訂閱設定'
+    Subscription Settings: '訂閱'
     Hide Videos on Watch: '觀看時隱藏影片'
-    Subscriptions Export Format:
-      Subscriptions Export Format: '導出訂閱格式'
-      #& Freetube
-      Newpipe: 'Newpipe'
-      OPML: 'OPML'
-    Manage Subscriptions: '管理訂閱'
-    Import Subscriptions: '導入訂閱'
-    Export Subscriptions: '導出訂閱'
-    How do I import my subscriptions?: '如何導入我的訂閱？'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Only Show Latest Video for Each Channel: 只顯示每個頻道的最新影片
     Confirm Before Unsubscribing: 避免意外取消訂閱
-  Advanced Settings:
-    Advanced Settings: '進階設定'
-    Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': '代理位址（例如：SOCKS5://127.0.0.1:9050）'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': '點擊“測試代理”健將傳送要求給https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: '用Tor / 代理給API呼叫'
-    TEST PROXY: '測試代理'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: '察看公用實例'
-    Clear History:
-      Clear History: '清除曆史紀錄'
-      # On Click
-      Are you sure you want to delete your history?: '您確認想刪除您的曆史紀錄？'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: '清除訂閱'
-      # On Click
-      Are you sure you want to remove all subscriptions?: '您確定想移除所有訂閱？'
-      #& Yes
-      #& No
 
   Privacy Settings:
     Watch history has been cleared: 已刪除觀看紀錄
@@ -441,7 +403,7 @@ Settings:
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
     Remember History: 儲存觀看紀錄
-    Privacy Settings: 隱私設定
+    Privacy Settings: 隱私
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
     Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
@@ -469,14 +431,10 @@ Settings:
     Export YouTube: 匯出YouTube
     Export FreeTube: 匯出FreeTube
     Export Subscriptions: 匯出訂閱
-    Import NewPipe: 匯入NewPipe
-    Import YouTube: 匯入YouTube
-    Import FreeTube: 匯入FreeTube
     Import Subscriptions: 匯入訂閱
     Select Export Type: 選取匯出類型
     Select Import Type: 選取匯入類型
-    Data Settings: 資料設定
-    Check for Legacy Subscriptions: 檢查舊版訂閱
+    Data Settings: 資料
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單
     All playlists has been successfully imported: 所有播放清單都已成功匯入
@@ -492,7 +450,7 @@ Settings:
         啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
-    Distraction Free Settings: 勿擾設定
+    Distraction Free Settings: 勿擾
     Hide Video Views: 隱藏影片觀看次數
     Hide Popular Videos: 隱藏流行影片
     Hide Trending Videos: 隱藏熱門影片
@@ -527,7 +485,6 @@ Settings:
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
     Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
-    Blur Thumbnails: 模糊縮圖
     Hide Subscriptions Community: 隱藏訂閱社群
     Hide Channels Invalid: 提供的頻道 ID 無效
     Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
@@ -549,13 +506,13 @@ Settings:
     Proxy Host: 代理伺服器主機
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
-    Proxy Settings: 代理伺服器設定
+    Proxy Settings: 代理伺服器
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
-    SponsorBlock Settings: SponsorBlock 設定
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: 略過選項
       Auto Skip: 自動略過
@@ -572,13 +529,13 @@ Settings:
     Custom External Player Executable: 自訂外部播放程式可執行檔
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
-    External Player Settings: 外部播放程式設定
+    External Player Settings: 外部播放程式
     Players:
       None:
         Name: 無
     Ignore Default Arguments: 忽略預設引數
   Download Settings:
-    Download Settings: 下載設定
+    Download Settings: 下載
     Ask Download Path: 詢問下載路徑
     Choose Path: 選擇路徑
     Download in app: 在應用程式中下載
@@ -588,65 +545,36 @@ Settings:
     Hide Unsubscribe Button: 隱藏取消訂閱按鈕
     Show Family Friendly Only: 僅顯示適合家庭觀看
     Hide Search Bar: 隱藏搜尋列
-    Parental Control Settings: 家長控制設定
+    Parental Control Settings: 家長控制
   Experimental Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
-    Experimental Settings: 實驗設定
+    Experimental Settings: 實驗
   Password Settings:
     Set Password To Prevent Access: 設定密碼以防止存取設定
     Remove Password: 移除密碼
-    Password Settings: 密碼設定
+    Password Settings: 密碼
     Set Password: 設定密碼
   Password Dialog:
     Password: 密碼
     Enter Password To Unlock: 輸入密碼以解鎖設定
     Password Incorrect: 密碼不正確
     Unlock: 解鎖
-  Expand All Settings Sections: 展開所有設定
   Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
+  Return to Settings Menu: 回到設定選單
 About:
   #On About page
   About: '關於'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': '這個自由軟體發布在AGPL-3.0自由許可證下。'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    發現bug？想建議新功能？想輔助說明？檢視我們的GitHub頁面。 歡迎pull requests。
-
-  Thank you very much to the People and Projects that make FreeTube possible!: '非常感謝讓FreeTube變得有可能的人和項目！'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '想聊天？加入我們的Element
-    / Matrix伺服器。加入前請檢查規則。'
-
-  'Looking for help? Check out our Wiki page.': '尋求輔助說明？檢視我們的Wiki頁面。'
-
-  Check out our Firefox extension!: '檢視我們的Firefox插件！'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': '如果您喜歡使用FreeTube，考慮通過Liberapay或者Bitcoin位址捐贈。'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: '最新FreeTube新聞'
-
 #On Channel Page
-  Translate via Weblate: 透過 Weblate 翻譯
   Website: 網站
-  Source Code: 原始碼
-  Release Notes: 版本註記
   Blog: 部落格
   Credits: 貢獻者
   FAQ: 常見問題
-  Wiki: Wiki
-  Report an Issue: 回報問題
-  Channel Rules: 頻道規則
   Email: 電子郵件
-  License: 授權條款
   Beta: 測試版
   Donate: 捐款
-  Useful Links: 有用連結
   Help: 說明
-  Contact: 聯絡
   these people and projects: 這些人與專案
   FreeTube is made possible by: FreeTube 誕生都要感謝這些人
   Translate: 翻譯
@@ -660,15 +588,11 @@ About:
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub 版本
   Downloads / Changelog: 下載 / 變更紀錄
-  View License: 檢視授權條款
-  Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
   Discussions: 討論
   Licensed under the: 授權以
   AGPLv3: AGPLv3
 Channel:
-  Subscriber: '訂閱者'
-  Subscribers: '訂閱者'
   Subscribe: '訂閱'
   Unsubscribe: '取消訂閱'
   Search Channel: '搜尋頻道'
@@ -863,6 +787,10 @@ Video:
     You appear to be offline: 您似乎已離線。
     Playback will resume automatically when your connection comes back: 當您的連線恢復時，將會自動繼續播放。
     Skipped segment: 已跳過 {segmentCategory} 段
+  IP block: YouTube 已封鎖您的 IP 位址，因此無法觀看影片。請嘗試切換到其他 VPN 或代理伺服器。
+  MembersOnly: 會員專屬影片無法使用 FreeTube 觀看，因為這些影片需要 Google 登入並且必須訂閱上傳者的付費頻道。
+  AgeRestricted: 由於需要 Google 登入並使用經過年齡驗證的 YouTube 帳戶，FreeTube 無法觀看有限制年齡的影片。
+  Unlisted: 未公開
 Videos:
   #& Sort By
   Sort By:
@@ -873,9 +801,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
-  Videos: '影片'
-  View: '觀看'
-  Views: '觀看'
   Last Updated On: '最後更新於'
 
 # On Video Watch Page
@@ -891,7 +816,8 @@ Playlist:
     VideoTitleAscending: 標題 (A-Z)
     VideoTitleDescending: 標題 (Z-A)
     Custom: 自訂
-Toggle Theatre Mode: '切換為劇院模式'
+    VideoDurationDescending: 持續時間（最長優先）
+    VideoDurationAscending: 持續時間（最短優先）
 Change Format:
   Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
@@ -951,7 +877,6 @@ Local API Error (Click to copy): '區域API錯誤（點擊複製）'
 Invidious API Error (Click to copy): 'Invidious API錯誤（點擊複製）'
 Falling back to Invidious API: '回退到Invidious API'
 Falling back to Local API: '回退到區域API'
-Subscriptions have not yet been implemented: '訂閱功能尚未被推行'
 Loop is now disabled: '循環播放現在被停用'
 Loop is now enabled: '循環播放現在被啟用'
 Shuffle is now disabled: '隨機播放現在被停用'
@@ -1001,7 +926,7 @@ Profile:
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
-  Profile Settings: 設定檔設定
+  Profile Settings: 設定檔
   Toggle Profile List: 切換個人檔案清單
   Open Profile Dropdown: 開啟個人資料下拉式選單
   Close Profile Dropdown: 關閉個人資料下拉式選單
@@ -1011,8 +936,8 @@ Profile:
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
-Version {versionNumber} is now available!  Click for more details: 版本更新囉! 最新版本 {versionNumber}
-  ! 點擊以取得更多資訊
+Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber}
+  ！按此取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
@@ -1055,9 +980,8 @@ Tooltips:
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
-Hashtags have not yet been implemented, try again later: 尚未實作主題標籤，請稍後再試
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
-Open New Window: 開啟新視窗
+Open New Window: 開新視窗
 Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
 Default Invidious instance has been set to {instance}: 預設 Invidious 站台已被設定為 {instance}
 Search Bar:
@@ -1074,11 +998,9 @@ Channels:
   Channels: 頻道
   Title: 頻道清單
   Search bar placeholder: 搜尋頻道
-  Unsubscribe: 取消訂閱
   Count: 找到 {number} 個頻道。
   Empty: 您的頻道清單目前為空。
   Unsubscribe Prompt: 您確定您想要從「{channelName}」取消訂閱嗎？
-  Unsubscribed: '{channelName} 已從您的訂閱移除'
 Clipboard:
   Copy failed: 複製到剪貼簿失敗
   Cannot access clipboard without a secure connection: 無法在沒有安全連線的情況下存取剪貼簿
@@ -1119,4 +1041,9 @@ Search Listing:
     4K: 4K
     Subtitles: 字幕
     Closed Captions: 隱藏式字幕
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: 新
+    3D: 3D
 'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。
