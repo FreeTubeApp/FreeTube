@@ -38,7 +38,7 @@ function runApp() {
   if (process.env.NODE_ENV === 'production') {
     // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
     // eslint-disable-next-line no-undef
-ALLOWED_RENDERER_FILES = new Set(typeof __FREETUBE_ALLOWED_PATHS__ !== 'undefined' ? __FREETUBE_ALLOWED_PATHS__ : []);
+    ALLOWED_RENDERER_FILES = new Set(__FREETUBE_ALLOWED_PATHS__)
 
     protocol.registerSchemesAsPrivileged([{
       scheme: 'app',
@@ -252,22 +252,19 @@ ALLOWED_RENDERER_FILES = new Set(typeof __FREETUBE_ALLOWED_PATHS__ !== 'undefine
       app.quit()
     }
 
-    app.on('second-instance', (_, commandLine, __) => {
-      // Someone tried to run a second instance, we should focus our window
-      if (mainWindow && typeof commandLine !== 'undefined') {
-        if (mainWindow.isMinimized()) mainWindow.restore()
-        mainWindow.focus()
-
-        const url = getLinkUrl(commandLine)
-        if (url) {
-          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
-        }
-      }
-    })
+    app.on('open-url', (event, url) => { 
+      event.preventDefault() 
+  
+      if (mainWindow && mainWindow.webContents) { 
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url)) 
+      } else { 
+          startupUrl = baseUrl(url) 
+      } 
+  })
   }
 
-  app.on('ready', async (_, __) => {
-    if (process.env.NODE_ENV === 'production') {
+  app.whenReady().then(() => {
+        if (process.env.NODE_ENV === 'production') {
       protocol.handle('app', async (request) => {
         if (request.method !== 'GET') {
           return new Response(null, {
@@ -1432,15 +1429,10 @@ ALLOWED_RENDERER_FILES = new Set(typeof __FREETUBE_ALLOWED_PATHS__ !== 'undefine
     app.on('will-quit', e => {
       // Let app quit when the cleanup is finished
 
-      if (resourcesCleanUpDone) { return }
-
-      e.preventDefault()
-      cleanUpResources().finally(() => {
-        // Quit AFTER the resources cleanup is finished
-        // Which calls the listener again, which is why we have the variable
-
-        app.quit()
-      })
+      if (!resourcesCleanUpDone) {
+        cleanUpResources().then(() => app.quit());
+      }
+      
     })
   }
 
