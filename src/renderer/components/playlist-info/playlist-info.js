@@ -265,6 +265,13 @@ export default defineComponent({
       return this.selectedUserPlaylist.videos.length - this.userPlaylistUniqueVideoIds.size
     },
 
+    exportPlaylistButtonVisible: function() {
+      // Only online playlists can be shared
+      if (!this.isUserPlaylist) { return false }
+
+      return this.videoCount > 0
+    },
+
     deletePlaylistButtonVisible: function() {
       if (!this.isUserPlaylist) { return false }
       // Cannot delete during edit
@@ -278,7 +285,6 @@ export default defineComponent({
       // Only online playlists can be shared
       if (this.isUserPlaylist) { return false }
 
-      // Cannot delete protected playlist
       return !this.hideSharingActions
     },
 
