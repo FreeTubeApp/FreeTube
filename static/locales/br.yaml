@@ -58,8 +58,7 @@ Global:
     Comment Count: '1 evezhiadenn | {count} evezhiadenn'
     Watching Count: '1 den o sellet | {count} den o sellet'
   Input Tags:
-    Length Requirement: 'An dikedenn a rank an dikedenn bezañ {number} arouezenn enni
-      da nebeutañ'
+    Length Requirement: 'An dikedenn a rank bezañ {number} arouezenn enni da nebeutañ'
 
 # Search Bar
 Search / Go to URL: 'Klask / Mont betek un URL'
@@ -134,8 +133,8 @@ Subscriptions:
   Error Channels: 'Chadennoù gant fazioù'
   Latest Subscriptions: 'Koumanantoù diwezhañ'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ur
-    bochad koumanantoù en deus ar profil-mañ.  Ar wazh RSS a yelo en tu all d''ar
-    vevenn lakaet'
+    bochad koumanantoù en deus ar profil-mañ. Ar wazh RSS a yelo en tu all d''ar vevenn
+    lakaet'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
@@ -145,7 +144,9 @@ Subscriptions:
   Load More Videos: 'Kargañ muioc''h a videoioù'
   Load More Posts: 'Kargañ muioc''h a bennadoù'
   Subscriptions Tabs: 'Ivinelloù ar c''houmanantoù'
-  All Subscription Tabs Hidden: ''
+  All Subscription Tabs Hidden: 'Kuzhet eo holl ivinelloù ar c''houmanantoù. Evit
+    gwelet traoù amañ, diguzhit un nebeud ivinelloù e lodenn "{subsection}" e-barzh
+    "{settingsSection}".'
 More: 'Muioc''h'
 Channels:
   Channels: 'Chadennoù'
@@ -310,11 +311,12 @@ User Playlists:
 History:
   # On History Page
   History: 'Roll istor'
-  Watch History: ''
-  Your history list is currently empty.: ''
-  Empty Search Message: ''
-  Search bar placeholder: ""
-  Case Sensitive Search: ''
+  Watch History: 'Roll istor ar videoioù lennet'
+  Your history list is currently empty.: 'Goullo eo ho roll istor.'
+  Empty Search Message: 'N''eus video ebet e-barzh ho roll istor o klotañ gant ho
+    klask'
+  Search bar placeholder: "Klask e-barzh ar roll istor"
+  Case Sensitive Search: 'Klask o toujañ d''ar pennlizherennoù'
 Settings:
   # On Settings Page
   Settings: 'Arventennoù'
@@ -494,15 +496,16 @@ Settings:
         Name: 'Hini ebet'
   Privacy Settings:
     Privacy Settings: 'Prevezded'
-    Remember History: ''
+    Remember History: 'Derc''hel soñj ar roll istor'
     Save Watched Progress: ''
     Save Watched Videos With Last Viewed Playlist: ''
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
+    Remove Watch History: 'Dilemel ar roll istor'
+    Are you sure you want to remove your entire watch history?: 'Ha sur oc''h e faot
+      deoc''h dilemel ho roll istor a-bezh ?'
+    Watch history has been cleared: 'Dilamet eo bet roll istor ar videoioù lennet'
     Remove All Subscriptions / Profiles: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
     Remove All Playlists: ''
@@ -567,15 +570,15 @@ Settings:
     Select Export Type: ''
     Import Subscriptions: 'Enporzhiañ ho koumanantoù'
     Subscription File: 'Restr ar c''houmanant'
-    History File: ''
+    History File: 'Rest ar roll istor'
     Playlist File: ''
     Check for Legacy Subscriptions: ''
     Export Subscriptions: 'Ezporzhiañ ar c''houmanantoù'
     Export FreeTube: ''
     Export YouTube: ''
     Export NewPipe: ''
-    Import History: ''
-    Export History: ''
+    Import History: 'Enporzhiañ ar roll istor'
+    Export History: 'Ezporzhiañ ar roll istor'
     Import Playlists: ''
     Export Playlists: ''
     Export Playlists For Older FreeTube Versions:
@@ -586,11 +589,14 @@ Settings:
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
     Invalid subscriptions file: ''
-    Invalid history file: ''
+    Invalid history file: 'Restr ar roll istor direizh'
     Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
+    History object has insufficient data, skipping item: 'Lezel a-gostez an elfenn-mañ
+      peogwir e vank titouroù e-barzh ar roll istor'
+    All watched history has been successfully imported: 'Enporzhiet eo bet roll istor
+      ar videoioù lennet gant berzh'
+    All watched history has been successfully exported: 'Ezporzhiet eo bet roll istor
+      ar videoioù lennet gant berzh'
     Playlist insufficient data: ''
     All playlists has been successfully imported: ''
     All playlists has been successfully exported: ''
@@ -630,7 +636,7 @@ Settings:
     Category Color: ''
   Parental Control Settings:
     Parental Control Settings: ''
-    Hide Unsubscribe Button: ''
+    Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
     Show Family Friendly Only: ''
     Hide Search Bar: ''
   Download Settings:
@@ -669,7 +675,8 @@ About:
   Discussions: 'Kaozeadennoù'
   Report a problem: 'Menegiñ ur gudenn'
   GitHub issues: ''
-  Please check for duplicates before posting: ''
+  Please check for duplicates before posting: 'Gwiriekait an doublennoù a-raok embann,
+    mar-plij'
   Website: 'Lec''hienn web'
   Blog: 'Blog'
   Email: 'Chomlec’h postel'
@@ -790,7 +797,8 @@ Video:
   Mark As Watched: 'Lakaat evel lennet'
   Remove From History: 'Skarzhañ deus ar roll istor'
   Video has been marked as watched: 'Lakaet eo bet ar video evel lennet'
-  Video has been removed from your history: ''
+  Video has been removed from your history: 'Skarzhet eo bet ar video deus ho roll
+    istor'
   Save Video: 'Enrollañ ar video'
   Video has been saved: 'Enrollet eo bet ar video'
   Video has been removed from your saved list: ''
