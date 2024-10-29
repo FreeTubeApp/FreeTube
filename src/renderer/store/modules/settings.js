@@ -181,7 +181,7 @@ const state = {
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
-  displayVideoPlayButton: true,
+  displayVideoPlayButton: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
