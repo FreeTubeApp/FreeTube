@@ -196,6 +196,15 @@ User Playlists:
       There was an issue with updating this playlist.: Radās problēma atjauninot šo
         atskaņošanas sarakstu.
       There was a problem with removing this video: Radās problēma noņemot video
+      This playlist is protected and cannot be removed.: Šis atskaņošanas saraksts
+        ir aizsargāts un nevar tikt noņemts.
+      There were no videos to remove.: Nebija video, ko noņemt.
+      Playlist {playlistName} has been deleted.: '{playlistName} atskaņošanas saraksts
+        tika dzēsts.'
+      "{videoCount} video(s) have been removed": 1 video tika noņemts | {videoCount}
+        video tika noņemti
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        atskaņošanas saraksts ir jaunais ātrās grāmatzīmes atskaņošanas saraksts.'
     Search for Videos: Meklē video
   You have no playlists. Click on the create new playlist button to create a new one.: Tev
     nav atskaņošanas sarakstu. Spied uz "Izveido jaunu atskaņošanas sarakstu", lai
