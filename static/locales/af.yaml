@@ -961,14 +961,24 @@ Tooltips:
     Custom External Player Executable: 'FreeTube neem by verstek aan dat die gekose
       eksterne videospeler d.m.v. die PATH-omgewingsveranderlike gevind kan word.
       Indien nodig kan ’n pasgemaakte pad hier ingevoer word.'
-    Ignore Warnings: ''
-    Ignore Default Arguments: ''
-    Custom External Player Arguments: ''
-    DefaultCustomArgumentsTemplate: ""
+    Ignore Warnings: 'Onderdruk waarskuwings wanneer die huidige eksterne videospeler
+      nie die huidige aksie ondersteun nie (bv. afspeellyste omkeer, ens.).'
+    Ignore Default Arguments: 'Moet geen verstek argumente na die eksterne videospeler
+      stuur buiten die video-URL nie (bv. afspeelsnelheid, afspeellys-URL, ens.).
+      Pasgemaakte argumente word steeds deurgestuur.'
+    Custom External Player Arguments: 'Enige pasgemaakte bevellynrgumente, geskei
+      deur kommapunte (‘;’), wat u aan die eksterne videospeler vir deurgee.'
+    DefaultCustomArgumentsTemplate: "(verstek: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
-    Hide Channels: ''
-    Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal
+      self te versteek sodat dit nie in soek, tendense, gewildste, en aanbeveel weergegee
+      word nie. Die ingevoerde kanaal-ID moet volledig ooreenstem en is hooflettergevoelig.'
+    Hide Subscriptions Live: 'Hierdie instelling woord oorheers deur die toepwye “{appWideSetting}”-instelling
+      in die “{subsection}” gedeelte van “{settingsSection}”'
+    Hide Videos and Playlists Containing Text: 'Voer ’n woord, woordfragment of woordgroep
+      in (nie hooflettergevoelig) om alle video’s en afspeellyste waarvan die oorspronklike
+      titel dit bevat, regoor FreeTube te versteek, met uitsondering van net geskiedenis,
+      u afspeellyste en video’s in afspeellyste.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Wanneer geaktiveer, sal FreeTube RSS i.p.v. sy verstek
       metode gebruik om u intekenvoer op te haal. RSS is vinniger en voorkom IP-versperring,
