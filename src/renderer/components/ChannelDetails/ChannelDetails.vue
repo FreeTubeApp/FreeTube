@@ -82,7 +82,7 @@
             :class="{ selectedTab: currentTab === 'home' }"
             role="tab"
             :aria-selected="String(currentTab === 'home')"
-            aria-controls="videoPanel"
+            aria-controls="homePanel"
             :tabindex="(currentTab === 'home' || currentTab === 'search') ? 0 : -1"
             @click="changeTab('home')"
             @keydown.left.right="focusTab('home', $event)"
