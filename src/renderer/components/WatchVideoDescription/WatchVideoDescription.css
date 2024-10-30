@@ -1,7 +1,7 @@
 .videoDescription {
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   overflow-y: auto;
   max-block-size: 20lh;
 }
@@ -33,6 +33,7 @@
 .videoDescription:not(.short) .descriptionStatus {
   position: relative;
   order: 0;
+  margin-block-start: 1em;
 }
 
 .videoDescription.short .description {
