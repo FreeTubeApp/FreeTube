@@ -99,6 +99,12 @@
           :default-value="hideChannelPodcasts"
           @change="updateHideChannelPodcasts"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Home')"
+          :compact="true"
+          :default-value="hideChannelHome"
+          @change="updateHideChannelHome"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

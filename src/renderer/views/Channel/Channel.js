@@ -261,6 +261,10 @@ export default defineComponent({
       return this.$store.getters.getHideChannelCommunity
     },
 
+    hideChannelHome: function() {
+      return this.$store.getters.getHideChannelHome
+    },
+
     tabInfoValues: function () {
       const values = [...this.channelTabs]
 
@@ -288,6 +292,10 @@ export default defineComponent({
 
       if (this.hideChannelReleases) {
         indexToRemove.push(values.indexOf('releases'))
+      }
+
+      if (this.hideChannelHome) {
+        indexToRemove.push(values.indexOf('home'))
       }
 
       indexToRemove.forEach(index => {
@@ -639,7 +647,7 @@ export default defineComponent({
         const tabs = ['about']
 
         // we'll count it as home page if it's not video. This will help us support some special channels
-        if (channel.has_home === 'home' || channel.tabs[0] !== 'Videos') {
+        if (!this.hideChannelHome && (channel.has_home === 'home' || channel.tabs[0] !== 'Videos')) {
           tabs.unshift('home')
           this.getChannelHomeLocal()
         }
