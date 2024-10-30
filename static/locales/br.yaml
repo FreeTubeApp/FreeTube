@@ -511,7 +511,7 @@ Settings:
     Watch history has been cleared: 'Dilamet eo bet roll istor ar videoioù lennet'
     Remove All Subscriptions / Profiles: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
-    Remove All Playlists: ''
+    Remove All Playlists: 'Dilemel an holl rolloù-videoioù'
     All playlists have been removed: 'Lamet eo bet an holl rolloù-videoioù'
     Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
@@ -587,7 +587,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: 'Ezporzhiañ rolloù-videoioù evit stummoù kozh FreeTube'
       # |- = Keep newlines, No newline at end
-      Tooltip: |
+      Tooltip: |-
+        An dibarzh-mañ a ezporzh videoioù an holl rolloù-videoioù e-barzh ur roll-videoioù anvet « Favorites ».
+        Penaos ezporzhiañ & enporzhiañ videoioù e-barzh rolloù-videoioù gant stummoù kozh FreeTube :
+        1. Ezporzhiañ ho rolloù-videoioù gant an dibarzh-mañ gweredekaet.
+        2. Dilemel an holl rolloù-videoioù en ur implijout an dibarzh Dilemel an holl rolloù-videoioù dindan Prevezded.
+        3. Loc'hañ stumm kozh FreeTube hag enporzhiañ ar rolloù-videoioù ezporzhiet."
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
