@@ -10,6 +10,7 @@ import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 import neostandard from 'neostandard'
+import eslintPluginFreeTube from './_scripts/eslint-rules/plugin.mjs'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
@@ -40,6 +41,7 @@ export default [
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
+      freetube: eslintPluginFreeTube
     },
 
     languageOptions: {
@@ -115,6 +117,8 @@ export default [
       '@intlify/vue-i18n/no-deprecated-tc': 'off',
       'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
+
+      'freetube/use-i18n-polyfill': 'error'
     },
   },
 
@@ -209,7 +213,7 @@ export default [
     }
   },
   {
-    files: ['_scripts/*.mjs'],
+    files: ['_scripts/**/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,
