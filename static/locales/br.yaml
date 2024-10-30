@@ -500,17 +500,21 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Prevezded'
     Remember History: 'Derc''hel soñj ar roll istor'
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Save Watched Progress: 'Mirout araokadur al lenn'
+    Save Watched Videos With Last Viewed Playlist: 'Enrollañ ar videoioù lennet e-barzh
+      roll-videoioù diwezhañ sellet'
+    Clear Search Cache: 'Skarzhañ roll-istor an enklaskoù'
+    Are you sure you want to clear out your search cache?: 'Ha sur oc''h e faot deoc''h
+      skarzhañ roll-istor an enklaskoù ?'
+    Search cache has been cleared: 'Skarzhet eo bet roll-istor an enklaskoù'
     Remove Watch History: 'Dilemel ar roll istor'
     Are you sure you want to remove your entire watch history?: 'Ha sur oc''h e faot
       deoc''h dilemel ho roll istor a-bezh ?'
     Watch history has been cleared: 'Dilamet eo bet roll istor ar videoioù lennet'
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Remove All Subscriptions / Profiles: 'Dilemel an holl goumanantoù / profiloù'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ha
+      sur oc''h e faot deoc''h dilemel an holl goumanantoù ha profiloù ? Ne c''hall
+      ket bezañ nullet.'
     Remove All Playlists: 'Dilemel an holl rolloù-videoioù'
     All playlists have been removed: 'Lamet eo bet an holl rolloù-videoioù'
     Are you sure you want to remove all your playlists?: ''
