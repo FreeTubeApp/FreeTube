@@ -936,21 +936,37 @@ Comments:
   Member: ''
   Subscribed: ''
   Hearted: ''
-Up Next: ''
+Up Next: 'Volgende'
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'Kies die agterpunt wat FreeTube gebruik om data te versamel.
+      Die lokale API is ’n ingeboude uithaler. Die Invidious API moet met ’n Invidious-bediener
+      gekoppel word.'
+    Fallback to Non-Preferred Backend on Failure: 'Wanneer u voorkeur-API probleme
+      gee sal FreeTube outomaties terugval op die alternatiewe nie-voorkeur-API wanneer
+      hierdie instelling geaktiveer is.'
+    Thumbnail Preference: 'Alle duimnaels in FreeTube sal vervang word met ’n beeld
+      uit die video i.p.v. die verstek duimnael.'
+    Invidious Instance: 'Die Invidious-instansie waarmee FreeTube sal verbind om API-oproepe
+      te maak.'
+    Region for Trending: 'Met streek van neigings kan u kies welke land se gewilde
+      videos aan u vertoon moet word.'
     External Link Handling: |
+      Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
+      FreeTube sal die geklikte skakel by verstek in u verstek blaaier open.
   Player Settings:
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
-    Scroll Playback Rate Over Video Player: ''
+    Proxy Videos Through Invidious: 'FreeTube sal verbind met Invidious en die video’s
+      van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
+    Default Video Format: 'Kies die formate wat gebruik word wanneer ’n video afspeel.
+      DASH-formate kan hoër kwaliteit afspeel. Legaat formate word beperk tot ’n maks
+      van 720p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
+    Scroll Playback Rate Over Video Player: 'Terwyl die muis oor die video is, druk
+      en hou die Control-toets (Command-toets op Mac) en rol met die muis om die afspeelsnelheid
+      te beheer. Druk en hou die Control-toets (Command-toets op Mac) en klik met
+      die linker muisknop om vinnig terug te keer na die verstek afspeelsnelheid (1x
+      tensy aangepas in die instellings).'
     Skip by Scrolling Over Video Player: 'Gebruik die rolwiel om deur die video te
       spoel, soos by MPV.'
   External Player Settings:
