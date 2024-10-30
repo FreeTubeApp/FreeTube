@@ -86,7 +86,7 @@
         v-if="currentTab !== 'about' && !isElementListLoading"
         class="elementList"
       >
-        <channel-home
+        <ChannelHome
           v-show="currentTab === 'home'"
           id="homePanel"
           :shelves="homeData"

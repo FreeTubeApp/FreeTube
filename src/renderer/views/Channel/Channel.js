@@ -9,7 +9,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
-import ChannelHome from '../../components/channel-home/channel-home.vue'
+import ChannelHome from '../../components/ChannelHome/ChannelHome.vue'
 
 import autolinker from 'autolinker'
 import {
@@ -58,7 +58,7 @@ export default defineComponent({
     'channel-about': ChannelAbout,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
     ChannelDetails,
-    'channel-home': ChannelHome
+    ChannelHome
   },
   data: function () {
     return {

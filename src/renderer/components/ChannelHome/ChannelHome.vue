@@ -11,7 +11,7 @@
           {{ shelf.title }}
           <hr class="shelfUnderline">
         </summary>
-        <ft-element-list
+        <FtElementList
           :data="shelf.content"
           :use-channels-hidden-preference="false"
           :display="shelf.isCommunity ? 'list' : null"
@@ -21,5 +21,15 @@
   </div>
 </template>
 
-<script lang="js" src="./channel-home.js"></script>
-<style scoped src="./channel-home.css" />
+<script setup>
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
+
+defineProps({
+  shelves: {
+    type: Array,
+    default: () => []
+  }
+})
+</script>
+
+<style scoped src="./ChannelHome.css" />
