@@ -232,41 +232,47 @@ User Playlists:
   Add to Playlist: Pievieno atskaņošanas sarakstam
   Remove from Playlist: Noņem no atskaņošanas saraksta
   Quick Bookmark Enabled: Atrā grāmatzīme iespējota
+  CreatePlaylistPrompt:
+    Toast:
+      There was an issue with creating the playlist.: Izveidojot atskaņošanas sarakstu
+        radās kļūda.
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Vēsture'
+  Watch History: 'Skatīšanās vēsture'
+  Your history list is currently empty.: 'Tava skatīšanās vēsture pašreiz ir tukša.'
   Empty Search Message: ''
-  Search bar placeholder: ""
+  Search bar placeholder: "Meklē vēsturē"
+  Case Sensitive Search: Reģistrjūtīga meklēšana
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Iestatījumi'
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: 'Galvenie iestatījumi'
+    General Settings: 'Galvenie'
     Check for Updates: 'Pārbaudīt atjauninājumus'
     Check for Latest Blog Posts: 'Skatīt jaunākos bloga ierakstus'
     Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
+    Enable Search Suggestions: 'Iespējo meklēšanas ieteikumus'
+    Default Landing Page: 'Noklusējuma sākumlapa'
     Locale Preference: 'Vietas iestatījums'
-    System Default: ''
+    System Default: 'Sistēmas noklusējums'
     Preferred API Backend:
-      Preferred API Backend: ''
+      Preferred API Backend: 'Vēlamā API aizmugure'
       Local API: 'Vietējais API'
-      Invidious API: ''
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Video skata veids'
       Grid: 'Režģis'
       List: 'Saraksts'
     Thumbnail Preference:
       Thumbnail Preference: 'Sīktēlu iestatījums'
-      Default: ''
+      Default: 'Noklusējums'
       Beginning: 'Sākums'
       Middle: 'Vidus'
       End: 'Beigas'
       Hidden: 'Paslēpts'
+      Blur: Aizmiglo
     Current Invidious Instance: 'Pašreizējais Invidious gadījums'
     The currently set default instance is {instance}: ''
     No default instance has been set: ''
@@ -282,10 +288,12 @@ Settings:
       Open Link: 'Atvērt saiti'
       Ask Before Opening Link: 'Jautāt pirms saites atvēršanas'
       No Action: 'Nedarīt neko'
+    Auto Load Next Page:
+      Label: Autoielādē nākamo lapu
   Theme Settings:
-    Theme Settings: 'Izskata iestatījumi'
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
+    Theme Settings: 'Izskats'
+    Match Top Bar with Main Color: 'Saskaņo augšmalu ar galveno krāsu'
+    Expand Side Bar by Default: 'Izvērs sānu malu pēc noklusējuma'
     Disable Smooth Scrolling: 'Atspējot plūdeno ritināšanu'
     UI Scale: 'Saskarnes izmērs'
     Hide Side Bar Labels: 'Paslēpt sānu paneļa etiķetes'
@@ -294,12 +302,13 @@ Settings:
       Base Theme: 'Pamata izskats'
       Black: 'Melns'
       Dark: 'Tumšs'
-      System Default: ''
+      System Default: 'Sistēmas noklusējums'
       Light: 'Gaišs'
       Dracula: 'Drakula'
       Catppuccin Mocha: 'Kaķpučīn moka'
       Pastel Pink: 'Pasteļu rozā'
       Hot Pink: 'Karsti rozā'
+      Nordic: Ziemeļvalsts
     Main Color Theme:
       Main Color Theme: 'Galvenās krāsas izskats'
       Red: 'Sarkans'
@@ -342,7 +351,7 @@ Settings:
     Secondary Color Theme: 'Otrās krāsas izskats'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Atskaņotāja iestatījumi'
+    Player Settings: 'Atskaņotāja'
     Play Next Video: 'Atskaņot nākamo video'
     Turn on Subtitles by Default: ''
     Autoplay Videos: 'Autoatskaņot video'
@@ -357,18 +366,18 @@ Settings:
     Enter Fullscreen on Display Rotate: 'Pagriežot ekrānu pārslēgt uz pilnekrānu'
     Next Video Interval: 'Nākošā video intervāls'
     Fast-Forward / Rewind Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Default Volume: 'Noklusējuma skaļums'
+    Default Playback Rate: 'Noklusējuma atskaņošanas ātrums'
     Max Video Playback Rate: 'Maksimālais video atskaņošanas ātrums'
     Video Playback Rate Interval: 'Video atskaņošanas ātruma intervāls'
     Default Video Format:
-      Default Video Format: ''
+      Default Video Format: 'Noklusējuma video formāts'
       Dash Formats: 'DASH formāti'
       Legacy Formats: 'Mantojuma formāti'
       Audio Formats: 'Audio formāti'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
+      Default Quality: 'Noklusējuma kvalitāte'
+      Auto: 'Auto'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -391,7 +400,7 @@ Settings:
         Forbidden Characters: 'Aizliegtās rakstzīmes'
         Empty File Name: 'Tukšs datnes nosaukums'
   External Player Settings:
-    External Player Settings: 'Ārējā atskaņotāja iestatījumi'
+    External Player Settings: 'Ārējā atskaņotāja'
     External Player: 'Ārējais atskaņotājs'
     Ignore Unsupported Action Warnings: 'Ignorēt neatbalstītas darbības brīdinājumus'
     Custom External Player Executable: 'Pielāgota ārējā atskaņotāja izpilddatne'
@@ -399,30 +408,33 @@ Settings:
     Players:
       None:
         Name: 'Nekas'
+    Ignore Default Arguments: Ignorēt noklusējuma argumentus
   Privacy Settings:
-    Privacy Settings: 'Privātuma iestatījumi'
+    Privacy Settings: 'Privātuma'
     Remember History: 'Atcerēties vēsturi'
     Save Watched Progress: 'Saglabāt skatīto attīstību'
     Save Watched Videos With Last Viewed Playlist: ''
-    Clear Search Cache: ''
+    Clear Search Cache: 'Iztīri meklēšanas kešatmiņu'
     Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Search cache has been cleared: 'Meklēšanas kešatmiņa tika iztīrīta'
     Remove Watch History: 'Noņemt skatīšanās vēsturi'
     Are you sure you want to remove your entire watch history?: 'Vai tu esi pārliecināts,
       ka vēlies noņemt visu skatīšanās vēsturi?'
     Watch history has been cleared: 'Skatīšanās vēsture tika noņemta'
-    Remove All Subscriptions / Profiles: ''
+    Remove All Subscriptions / Profiles: 'Noņemt visus abonementus / profilus'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    All playlists have been removed: Visi atskaņošanas saraksti tika noņemti
+    Remove All Playlists: Noņemt visus atskaņošanas sarakstus
   Subscription Settings:
-    Subscription Settings: ''
+    Subscription Settings: 'Abonementu'
     Hide Videos on Watch: 'Paslēpt video pēc skatīšanas'
     Fetch Feeds from RSS: 'Iegūt plūsmu no RSS'
     Fetch Automatically: 'Iegūt plūsmu automātiski'
   Distraction Free Settings:
-    Distraction Free Settings: 'Beztraucēšanas iestatījumi'
+    Distraction Free Settings: 'Beztraucēšanas'
     Sections:
       Side Bar: 'Sānu panelis'
-      Subscriptions Page: ''
+      Subscriptions Page: 'Abonementu lapa'
       Channel Page: 'Kanāla lapa'
       Watch Page: 'Skatīšanās lapa'
       General: 'Galvenais'
@@ -435,37 +447,40 @@ Settings:
     Hide Popular Videos: 'Paslēpt populāros video'
     Hide Playlists: 'Paslēpt sarakstus'
     Hide Live Chat: 'Paslēpt dzīvo čatu'
-    Hide Active Subscriptions: ''
+    Hide Active Subscriptions: 'Paslēp aktīvos abonementus'
     Hide Video Description: 'Paslēpt video aprakstu'
     Hide Comments: 'Paslēpt komentārus'
     Hide Profile Pictures in Comments: 'Paslēpt kontu atēlus komentāros'
     Display Titles Without Excessive Capitalisation: 'Attēlot nosaukumus nepārspīlējot
-      ar lielajiem burtiem'
+      ar lielajiem burtiem un interpunkciju'
     Hide Live Streams: 'Paslēpt dzīvās straumes'
     Hide Upcoming Premieres: 'Paslēpt tuvojošās pirmizrādes'
     Hide Sharing Actions: 'Paslēpt dalīšanās darbības'
     Hide Chapters: 'Paslēpt nodaļas'
     Hide Channels: 'Kanālos paslēpt video'
-    Hide Channels Placeholder: 'Kanāla vārds vai ID'
+    Hide Channels Placeholder: 'Kanāla ID'
     Hide Featured Channels: 'Paslēpt izceltos kanālus'
     Hide Channel Playlists: 'Kanālā paslēpt sarakstus'
     Hide Channel Community: 'Kanālā paslēpt kopienu'
     Hide Channel Shorts: 'Kanālā paslēpt īsos'
     Hide Channel Podcasts: 'Kanālā paslēpt podkāstus'
     Hide Channel Releases: 'Kanālā paslēpt relīzes'
-    Hide Subscriptions Videos: ''
-    Hide Subscriptions Shorts: ''
-    Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
+    Hide Subscriptions Videos: 'Paslēp abonementu video'
+    Hide Subscriptions Shorts: 'Paslēp abonementu īsos video'
+    Hide Subscriptions Live: 'Paslēp abonementu tiešraides'
+    Hide Subscriptions Community: 'Paslēp abonementu komūnu'
+    Hide Channels Already Exists: Kanāla ID jau eksistē
+    Hide Videos and Playlists Containing Text Placeholder: Vārds, vārda daļa, vai
+      frāze
   Data Settings:
-    Data Settings: 'Datu iestatījumi'
+    Data Settings: 'Datu'
     Select Import Type: 'Izvēlēties importa veidu'
     Select Export Type: 'Izvēlēties eksporta veidu'
-    Import Subscriptions: ''
-    Subscription File: ''
+    Import Subscriptions: 'Ievest abonementus'
+    Subscription File: 'Aboenementu datne'
     History File: 'Vēstures datne'
-    Playlist File: ''
-    Export Subscriptions: ''
+    Playlist File: 'Atskaņošanas saraksta datne'
+    Export Subscriptions: 'Izvest abonementus'
     Export FreeTube: 'Eksportēt FreeTube'
     Export YouTube: 'Eksportēt YouTube'
     Export NewPipe: 'Eksportēt NewPipe'
@@ -476,11 +491,13 @@ Settings:
     Profile object has insufficient data, skipping item: 'Profila objektam nav pietiekami
       datu, izlaiž vienumu'
     All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    Invalid subscriptions file: ''
+    All subscriptions have been successfully imported: 'Visi abonementi tika veiksmīgi
+      ievesti'
+    Invalid subscriptions file: 'Nederīga abonementu datne'
     This might take a while, please wait: 'Tas var aizņemt kādu laiku, lūdzu gaidiet'
     Invalid history file: 'Nederīga vēstures datne'
-    Subscriptions have been successfully exported: ''
+    Subscriptions have been successfully exported: 'Visi abonementi tika veiksmīgi
+      izvesti'
     History object has insufficient data, skipping item: 'Vēstures objektam nav pietiekami
       datu, izlaiž vienumu'
     All watched history has been successfully imported: 'Visa skatīšanās vēstures
@@ -494,9 +511,9 @@ Settings:
     Unable to write file: 'Nespēj ierakstīt datni'
     Unknown data key: 'Nezināma datu atslēga'
     How do I import my subscriptions?: ''
-    Manage Subscriptions: ''
+    Manage Subscriptions: 'Pārvaldīt abonementus'
   Proxy Settings:
-    Proxy Settings: 'Starpniekserveru iestatījumi'
+    Proxy Settings: 'Starpniekserveru'
     Enable Tor / Proxy: 'Iespējot Tor / starpniekserveri'
     Proxy Protocol: 'Starpniekservera protokols'
     Proxy Host: 'Starpniekservera saimnieks'
@@ -512,7 +529,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Kļūda
       saņemot tīkla informāciju. Vai jūsu starpniekserveris ir uzstādīts pareizi?'
   SponsorBlock Settings:
-    SponsorBlock Settings: 'SponsorBlock iestatījumi'
+    SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Iespējot SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Notify when sponsor segment is skipped: 'Ziņot, kad sponsora gabals tiek izlaists'
@@ -524,20 +541,21 @@ Settings:
       Prompt To Skip: 'Jautāt, lai izlaistu'
       Do Nothing: 'Nedarīt neko'
     Category Color: 'Iedalījuma krāsa'
+    UseDeArrowThumbnails: Izmanto DeArrow priekš sīktēliem
   Parental Control Settings:
-    Parental Control Settings: 'Vecāku vadības iestatījumi'
+    Parental Control Settings: 'Vecāku vadības'
     Hide Unsubscribe Button: 'Paslēpt Atabonēt pogu'
     Show Family Friendly Only: 'Rādīt tikai ģimenei draudzīgi'
-    Hide Search Bar: ''
+    Hide Search Bar: 'Paslēp meklēšanas joslu'
   Download Settings:
-    Download Settings: 'Lejuplādes iestatījumi'
+    Download Settings: 'Lejuplādes'
     Ask Download Path: 'Jautāt lejuplādes ceļu'
     Choose Path: 'Izvēlēties ceļu'
     Download Behavior: 'Lejuplādes uzvedība'
     Download in app: 'Lejuplādēt aplikācijā'
     Open in web browser: 'Atvērt tīkla pārlūkā'
   Experimental Settings:
-    Experimental Settings: 'Izmēģinājuma iestatījumi'
+    Experimental Settings: 'Izmēģinājuma'
     Warning: ''
     Replace HTTP Cache: 'Aizvietot HTTP kešatmiņu'
   Password Dialog:
@@ -546,10 +564,12 @@ Settings:
     Password Incorrect: 'Parole nepareiza'
     Unlock: 'Atslēgt'
   Password Settings:
-    Password Settings: 'Paroles iestatījumi'
+    Password Settings: 'Paroles'
     Set Password To Prevent Access: 'Uzstādi paroli, lai neļautu piekļūt uzstādījumiem'
     Set Password: 'Uzstādi paroli'
     Remove Password: 'Noņem paroli'
+  Return to Settings Menu: Atgriezies iestatījumu izvēlnē
+  Sort Settings Sections (A-Z): Kārto iestatījumu sadaļas (A-Z)
 About:
   #On About page
   About: 'Par'
@@ -577,8 +597,10 @@ About:
   these people and projects: 'šie cilvēki un apvienības'
   Donate: 'Ziedot'
 
+  Licensed under the: Licenzēts ar
+  AGPLv3: AGPLv3
 Profile:
-  Profile Settings: 'Profila iestatījumi'
+  Profile Settings: 'Profila'
   Toggle Profile List: 'Pārslēgt profilu sarakstu'
   Profile Select: 'Izvēlēties profilu'
   Profile Filter: 'Profilu filtrs'
@@ -591,11 +613,11 @@ Profile:
   Profile Preview: 'Profila priekšskatījums'
   Create Profile: 'Veidot profilu'
   Update Profile: 'Atjaunināt profilu'
-  Make Default Profile: ''
+  Make Default Profile: 'Izveido noklusējuma profilu'
   Delete Profile: 'Dzēst profilu'
   Are you sure you want to delete this profile?: 'Vai tu esi drošs, ka gribi dzēst
     šo profilu?'
-  All subscriptions will also be deleted.: ''
+  All subscriptions will also be deleted.: 'Arī visi abonementi tiks izdzēsti.'
   Profile could not be found: 'Profils netika atrasts'
   Your profile name cannot be empty: 'Tavs profila vārds nevar būt tukšs'
   Profile has been created: 'Profils tika izveidots'
@@ -603,10 +625,10 @@ Profile:
   Your default profile has been set to {profile}: ''
   Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  '{profile} is now the active profile': ''
-  Subscription List: ''
+  '{profile} is now the active profile': '{profile} tagad ir aktīvais profils'
+  Subscription List: 'Abonementu saraksts'
   Other Channels: 'Citi kanāli'
-  '{number} selected': ''
+  '{number} selected': '{number} izvēlēts'
   Select All: 'Izvēlēties visus'
   Select None: 'Neizvēlēties nevienu'
   Delete Selected: 'Dzēst izvēlētos'
@@ -617,6 +639,9 @@ Profile:
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
+  Create Profile Name: Izveido profila vārdu
+  Profile Name: Profila vārds
+  Edit Profile Name: Rediģē profila vārdu
 Channel:
   Subscribe: 'Abonē'
   Unsubscribe: 'Atabonē'
