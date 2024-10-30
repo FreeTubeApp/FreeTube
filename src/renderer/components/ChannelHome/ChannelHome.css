@@ -26,3 +26,8 @@
 .playAllLink:hover {
   background-color: var(--bg-color);
 }
+
+.shelfSubtitle {
+  font-style: italic;
+  color: var(--tertiary-text-color);
+}

@@ -16,7 +16,7 @@
       >
         <img
           :src="thumbnail"
-          class="channelImage"
+          :class="!isGame ? 'channelImage' : 'gameImage'"
           alt=""
         >
       </router-link>
@@ -116,6 +116,7 @@ let videoCount = null
 /** @type {string?} */
 let handle = null
 let description = ''
+let isGame = null
 
 if (process.env.SUPPORTS_LOCAL_API && props.data.dataSource === 'local') {
   parseLocalData()
@@ -157,6 +158,7 @@ function parseLocalData() {
   }
 
   description = props.data.descriptionShort
+  isGame = props.data.isGame
 }
 
 function parseInvidiousData() {

@@ -885,7 +885,8 @@ export function parseChannelHomeTab(homeTab) {
         shelves.push({
           title: shelf.title.text,
           content: shelf.content.items.map(parseListItem).filter(_ => _),
-          playlistId: shelf.play_all_button?.endpoint.payload.playlistId
+          playlistId: shelf.play_all_button?.endpoint.payload.playlistId,
+          subtitle: shelf.subtitle?.text
         })
       } else if (itemSection.contents.at(0).type === 'ReelShelf') {
         /** @type {import('youtubei.js').YTNodes.ReelShelf} */
@@ -899,13 +900,13 @@ export function parseChannelHomeTab(homeTab) {
         const shelf = itemSection.contents.at(0)
         shelves.push({
           title: shelf.header.title.text,
-          content: shelf.cards.map(parseListItem).filter(_ => _)
+          content: shelf.cards.map(parseListItem).filter(_ => _),
+          subtitle: shelf.header.subtitle.text
         })
       }
     } else if (section.type === 'RichSection') {
       /** @type {import('youtubei.js').YTNodes.RichShelf} */
       const shelf = section.content
-
       shelves.push({
         title: shelf.title.text,
         content: shelf.contents.map(e => parseListItem(e.content))
@@ -1197,7 +1198,8 @@ function parseListItem(item) {
         dataSource: 'local',
         thumbnail: game.box_art.at(0).url.replace(/^\/\//, 'https://'),
         name: game.title.text,
-        id: game.endpoint.payload.browseId
+        id: game.endpoint.payload.browseId,
+        isGame: true
       }
     }
     case 'GridChannel': {

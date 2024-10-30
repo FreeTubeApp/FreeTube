@@ -30,6 +30,12 @@
           </span>
           <hr class="shelfUnderline">
         </summary>
+        <p
+          v-if="shelf.subtitle"
+          class="shelfSubtitle"
+        >
+          {{ shelf.subtitle }}
+        </p>
         <FtElementList
           :data="shelf.content"
           :use-channels-hidden-preference="false"
