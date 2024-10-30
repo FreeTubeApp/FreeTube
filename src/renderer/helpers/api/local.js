@@ -1195,7 +1195,7 @@ function parseListItem(item) {
       return {
         type: 'channel',
         dataSource: 'local',
-        thumbnail: game.box_art.at(0).url,
+        thumbnail: game.box_art.at(0).url.replace(/^\/\//, 'https://'),
         name: game.title.text,
         id: game.endpoint.payload.browseId
       }

@@ -1,10 +1,12 @@
 <template>
   <div>
     <div
-      v-for="(shelf, index) in shelves"
+      v-for="(shelf, index) in filteredShelves"
       :key="index"
     >
-      <details>
+      <details
+        :open="index == 0"
+      >
         <summary
           class="shelfTitle"
         >
@@ -16,8 +18,7 @@
             <router-link
               class="playAllLink"
               :to="{
-                path: `/playlist/${shelf.playlistId}`,
-                query: searchSettings
+                path: `/playlist/${shelf.playlistId}`
               }"
             >
               <FontAwesomeIcon
@@ -40,13 +41,30 @@
 </template>
 
 <script setup>
-import FtElementList from '../../components/FtElementList/FtElementList.vue'
 
-defineProps({
+import { computed } from 'vue'
+import FtElementList from '../../components/FtElementList/FtElementList.vue'
+import store from '../../store/index'
+
+const props = defineProps({
   shelves: {
     type: Array,
     default: () => []
   }
+})
+
+/** @type {import('vue').ComputedRef<bool>} */
+const hideFeaturedChannels = computed(() => {
+  return store.getters.getHideFeaturedChannels
+})
+
+const filteredShelves = computed(() => {
+  let shelves = props.shelves
+  if (hideFeaturedChannels.value) {
+    shelves = shelves.filter(shelf => shelf.content[0].type !== 'channel')
+  }
+
+  return shelves.filter(shelf => shelf.content.length > 0)
 })
 </script>
 

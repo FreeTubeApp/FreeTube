@@ -594,45 +594,6 @@ export default defineComponent({
 
         this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
-        let relatedChannels = channel.channels.map(({ author }) => ({
-          name: author.name,
-          id: author.id,
-          thumbnailUrl: author.best_thumbnail.url
-        }))
-
-        if (channel.memo.has('GameDetails')) {
-          /** @type {import('youtubei.js').YTNodes.GameDetails[]} */
-          const games = channel.memo.get('GameDetails')
-
-          relatedChannels.push(...games.map(game => ({
-            id: game.endpoint.payload.browseId,
-            name: game.title.text,
-            thumbnailUrl: game.box_art[0].url
-          })))
-        }
-
-        if (relatedChannels.length > 0) {
-          /** @type {Set<string>} */
-          const knownChannelIds = new Set()
-
-          relatedChannels = relatedChannels.filter(channel => {
-            if (!knownChannelIds.has(channel.id)) {
-              knownChannelIds.add(channel.id)
-              return true
-            }
-
-            return false
-          })
-
-          relatedChannels.forEach(channel => {
-            if (channel.thumbnailUrl.startsWith('//')) {
-              channel.thumbnailUrl = `https:${channel.thumbnailUrl}`
-            }
-          })
-        }
-
-        this.relatedChannels = relatedChannels
-
         this.channelInstance = channel
 
         if (channel.has_about) {
@@ -647,8 +608,11 @@ export default defineComponent({
         const tabs = ['about']
 
         // we'll count it as home page if it's not video. This will help us support some special channels
-        if (!this.hideChannelHome && (channel.has_home === 'home' || channel.tabs[0] !== 'Videos')) {
-          tabs.unshift('home')
+        if ((channel.has_home === 'home' || channel.tabs[0] !== 'Videos')) {
+          if (!this.hideChannelHome) {
+            tabs.push('home')
+          }
+          // we still parse the home page so we can set related channels
           this.getChannelHomeLocal()
         }
 
@@ -765,7 +729,7 @@ export default defineComponent({
       }
     },
 
-    getChannelHomeLocal: async function () {
+    getChannelHomeLocal: function () {
       this.isElementListLoading = true
       const expectedId = this.id
 
@@ -780,7 +744,30 @@ export default defineComponent({
           return
         }
 
-        this.homeData = parseChannelHomeTab(homeTab)
+        const homeData = parseChannelHomeTab(homeTab)
+        if (!this.hideChannelHome) {
+          this.homeData = homeData
+        }
+
+        // parse related channels from home page data
+        const relatedChannels = []
+        /** @type {Set<string>} */
+        const knownChannelIds = new Set()
+
+        for (const shelf of homeData) {
+          for (const item of shelf.content) {
+            if (item.type === 'channel' && !knownChannelIds.has(item.id)) {
+              knownChannelIds.add(item)
+              relatedChannels.push({
+                name: item.name,
+                id: item.id,
+                thumbnailUrl: item.thumbnail
+              })
+            }
+          }
+        }
+        this.relatedChannels = relatedChannels
+
         this.isElementListLoading = false
       } catch (err) {
         console.error(err)
