@@ -884,7 +884,8 @@ export function parseChannelHomeTab(homeTab) {
         const shelf = itemSection.contents.at(0)
         shelves.push({
           title: shelf.title.text,
-          content: shelf.content.items.map(parseListItem).filter(_ => _)
+          content: shelf.content.items.map(parseListItem).filter(_ => _),
+          playlistId: shelf.play_all_button?.endpoint.payload.playlistId
         })
       } else if (itemSection.contents.at(0).type === 'ReelShelf') {
         /** @type {import('youtubei.js').YTNodes.ReelShelf} */
@@ -892,6 +893,13 @@ export function parseChannelHomeTab(homeTab) {
         shelves.push({
           title: shelf.title.text,
           content: shelf.items.map(parseListItem).filter(_ => _)
+        })
+      } else if (itemSection.contents.at(0).type === 'HorizontalCardList') {
+        /** @type {import('youtubei.js').YTNodes.HorizontalCardList} */
+        const shelf = itemSection.contents.at(0)
+        shelves.push({
+          title: shelf.header.title.text,
+          content: shelf.cards.map(parseListItem).filter(_ => _)
         })
       }
     } else if (section.type === 'RichSection') {
@@ -1053,6 +1061,20 @@ export function parseLocalListVideo(item) {
   } else if (item.type === 'GridVideo') {
     /** @type {import('youtubei.js').YTNodes.GridVideo} */
     const video = item
+
+    let publishedText
+
+    if (video.published != null && !video.published.isEmpty()) {
+      publishedText = video.published.text
+    }
+
+    const published = calculatePublishedDate(
+      publishedText,
+      video.is_live,
+      video.is_upcoming || video.is_premiere,
+      video.upcoming
+    )
+
     return {
       type: 'video',
       videoId: video.id,
@@ -1060,6 +1082,7 @@ export function parseLocalListVideo(item) {
       author: video.author?.name,
       authorId: video.author?.id,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
+      published,
       lengthSeconds: Number(timestampToDuration(video.duration.text)),
       isUpcoming: video.is_upcoming,
       premiereDate: video.upcoming
@@ -1101,7 +1124,7 @@ export function parseLocalListVideo(item) {
       author: video.author.name,
       authorId: video.author.id,
       description: video.description,
-      viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+      viewCount: isNaN(video.view_count) ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
@@ -1162,7 +1185,21 @@ function parseListItem(item) {
     case 'Video':
     case 'GridVideo':
     case 'GridMovie':
+    case 'VideoCard':
       return parseLocalListVideo(item)
+    case 'GameCard': {
+      /** @type {import('youtubei.js').YTNodes.GameCard} */
+      const channel = item
+      /** @type {import('youtubei.js').YTNodes.GameDetails} */
+      const game = channel.game
+      return {
+        type: 'channel',
+        dataSource: 'local',
+        thumbnail: game.box_art.at(0).url,
+        name: game.title.text,
+        id: game.endpoint.payload.browseId
+      }
+    }
     case 'GridChannel': {
       /** @type {import('youtubei.js').YTNodes.GridChannel} */
       const channel = item

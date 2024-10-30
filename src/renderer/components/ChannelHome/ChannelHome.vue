@@ -9,6 +9,24 @@
           class="shelfTitle"
         >
           {{ shelf.title }}
+          <span
+            v-if="shelf.playlistId"
+            class="playAllSpan"
+          >
+            <router-link
+              class="playAllLink"
+              :to="{
+                path: `/playlist/${shelf.playlistId}`,
+                query: searchSettings
+              }"
+            >
+              <FontAwesomeIcon
+                class="thumbnail"
+                :icon="['fas', 'play']"
+              />
+              {{ $t('Channel.Home.Play all') }}
+            </router-link>
+          </span>
           <hr class="shelfUnderline">
         </summary>
         <FtElementList

@@ -10,3 +10,19 @@
   border-color: var(--primary-color);
 }
 
+.playAllSpan {
+  font-size: large;
+  margin-inline-start: 10px;
+}
+
+.playAllLink {
+  font-style: italic;
+  padding-block: 5px;
+  padding-inline: 7px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.playAllLink:hover {
+  background-color: var(--bg-color);
+}
