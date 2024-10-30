@@ -471,14 +471,14 @@ export function formatDurationAsTimestamp(lengthSeconds) {
 
 export function timestampToDuration(timestamp) {
   const splitTimestamp = timestamp.split(':')
-  let seconds = timestamp.at(-1)
+  let seconds = Number(splitTimestamp.at(-1))
 
   if (splitTimestamp.length > 1) {
-    seconds += timestamp.at(-2) * 60
+    seconds += Number(splitTimestamp.at(-2) * 60)
   }
 
   if (splitTimestamp.length > 2) {
-    seconds += timestamp.at(-3) * 3600
+    seconds += Number(splitTimestamp.at(-3) * 3600)
   }
 
   return seconds
