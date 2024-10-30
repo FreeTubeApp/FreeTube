@@ -37,7 +37,6 @@ import {
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
-  parseLocalCompactStation,
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount,
@@ -674,20 +673,6 @@ export default defineComponent({
           if (channel.has_playlists) {
             tabs.push('playlists')
             this.getChannelPlaylistsLocal()
-          } else if (channelId === 'UC-9-kyTW8ZkZNDHQJ6FgpwQ') {
-            // Special handling for "The Music Channel" (https://youtube.com/music)
-            tabs.push('playlists')
-            const playlists = channel.playlists.map(playlist => parseLocalListPlaylist(playlist))
-
-            const compactStations = channel.memo.get('CompactStation')
-            if (compactStations) {
-              for (const compactStation of compactStations) {
-                playlists.push(parseLocalCompactStation(compactStation, channelId, channelName))
-              }
-            }
-
-            this.showPlaylistSortBy = false
-            this.latestPlaylists = playlists
           }
         }
 

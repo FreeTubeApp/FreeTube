@@ -782,7 +782,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
       type: 'playlist',
       dataSource: 'local',
       title: compactStation.title.text,
-      thumbnail: compactStation.thumbnail.at(0).url,
+      thumbnail: compactStation.thumbnail.at(1).url,
       playlistId: compactStation.endpoint.payload.playlistId,
       videoCount: extractNumberFromString(compactStation.video_count.text)
     }
@@ -837,24 +837,6 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
       playlistId: playlist.id,
       videoCount: extractNumberFromString(playlist.video_count.text)
     }
-  }
-}
-
-/**
- * @param {import('youtubei.js').YTNodes.CompactStation} compactStation
- * @param {string} channelId
- * @param {string} channelName
- */
-export function parseLocalCompactStation(compactStation, channelId, channelName) {
-  return {
-    type: 'playlist',
-    dataSource: 'local',
-    title: compactStation.title.text,
-    thumbnail: compactStation.thumbnail[1].url,
-    channelName,
-    channelId,
-    playlistId: compactStation.endpoint.payload.playlistId,
-    videoCount: extractNumberFromString(compactStation.video_count.text)
   }
 }
 
