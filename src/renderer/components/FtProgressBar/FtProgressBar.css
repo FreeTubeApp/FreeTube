@@ -4,6 +4,5 @@
   inset-block-end: 0;
   inset-inline-start: 0;
   background-color: var(--primary-color);
-  z-index: 1;
-  transition: inline-size 0.5s;
+  z-index: 4;
 }
