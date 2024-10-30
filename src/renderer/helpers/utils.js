@@ -611,7 +611,26 @@ export function getVideoParamsFromUrl(url) {
 
   function extractParams(videoId) {
     paramsObject.videoId = videoId
-    paramsObject.timestamp = urlObject.searchParams.get('t')
+    let timestamp = urlObject.searchParams.get('t')
+    if (timestamp && (timestamp.includes('h') || timestamp.includes('m') || timestamp.includes('s'))) {
+      const { seconds, minutes, hours } = timestamp.match(/(?:(?<hours>(\d+))h)?(?:(?<minutes>(\d+))m)?(?:(?<seconds>(\d+))s)?/).groups
+      let time = 0
+
+      if (seconds) {
+        time += Number(seconds)
+      }
+
+      if (minutes) {
+        time += 60 * Number(minutes)
+      }
+
+      if (hours) {
+        time += 3600 * Number(hours)
+      }
+
+      timestamp = time
+    }
+    paramsObject.timestamp = timestamp
   }
 
   const extractors = [
