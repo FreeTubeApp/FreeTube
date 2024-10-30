@@ -951,10 +951,16 @@ Tooltips:
     Proxy Videos Through Invidious: ''
     Default Video Format: ''
     Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
+    Skip by Scrolling Over Video Player: 'Gebruik die rolwiel om deur die video te
+      spoel, soos by MPV.'
   External Player Settings:
-    External Player: ''
-    Custom External Player Executable: ''
+    External Player: 'Deur die kies van ’n eksterne videospeler sal daar ’n ikoone
+      op die video se duimnael verskyn waarmee dit (of afspeellys indien ondersteun)
+      in die gekose eksterne videospeler geopen kan word. Let op: Invidious-instellings
+      beïnvloed nie eksterne videospelers nie.'
+    Custom External Player Executable: 'FreeTube neem by verstek aan dat die gekose
+      eksterne videospeler d.m.v. die PATH-omgewingsveranderlike gevind kan word.
+      Indien nodig kan ’n pasgemaakte pad hier ingevoer word.'
     Ignore Warnings: ''
     Ignore Default Arguments: ''
     Custom External Player Arguments: ''
