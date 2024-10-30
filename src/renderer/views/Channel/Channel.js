@@ -9,6 +9,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import ChannelHome from '../../components/channel-home/channel-home.vue'
 
 import autolinker from 'autolinker'
 import {
@@ -42,7 +43,8 @@ import {
   parseLocalSubscriberCount,
   getLocalArtistTopicChannelReleasesContinuation,
   getLocalPlaylist,
-  parseLocalPlaylistVideo
+  parseLocalPlaylistVideo,
+  parseChannelHomeTab
 } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -56,7 +58,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'channel-about': ChannelAbout,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
-    ChannelDetails
+    ChannelDetails,
+    'channel-home': ChannelHome
   },
   data: function () {
     return {
@@ -96,6 +99,7 @@ export default defineComponent({
       showPlaylistSortBy: true,
       lastSearchQuery: '',
       relatedChannels: [],
+      homeData: [],
       latestVideos: [],
       latestShorts: [],
       latestLive: [],
@@ -117,6 +121,7 @@ export default defineComponent({
 
       autoRefreshOnSortByChangeEnabled: false,
       supportedChannelTabs: [
+        'home',
         'videos',
         'shorts',
         'live',
@@ -634,6 +639,12 @@ export default defineComponent({
         }
         const tabs = ['about']
 
+        // we'll count it as home page if it's not video. This will help us support some special channels
+        if (channel.has_home === 'home' || channel.tabs[0] !== 'Videos') {
+          tabs.unshift('home')
+          this.getChannelHomeLocal()
+        }
+
         if (channel.has_videos || this.isArtistTopicChannel) {
           tabs.push('videos')
           this.getChannelVideosLocal()
@@ -758,6 +769,32 @@ export default defineComponent({
         } else {
           this.isLoading = false
         }
+      }
+    },
+
+    getChannelHomeLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+        */
+        const channel = this.channelInstance
+        const homeTab = channel //  await channel.getHome()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.homeData = parseChannelHomeTab(homeTab)
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
       }
     },
 

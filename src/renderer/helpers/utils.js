@@ -469,6 +469,21 @@ export function formatDurationAsTimestamp(lengthSeconds) {
   return timestamp
 }
 
+export function timestampToDuration(timestamp) {
+  const splitTimestamp = timestamp.split(':')
+  let seconds = timestamp.at(-1)
+
+  if (splitTimestamp.length > 1) {
+    seconds += timestamp.at(-2) * 60
+  }
+
+  if (splitTimestamp.length > 2) {
+    seconds += timestamp.at(-3) * 3600
+  }
+
+  return seconds
+}
+
 /**
  * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersA
  * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersB

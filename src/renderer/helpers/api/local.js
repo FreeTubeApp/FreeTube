@@ -11,6 +11,7 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
   randomArrayItem,
+  timestampToDuration,
 } from '../utils'
 
 const TRACKING_PARAM_NAMES = [
@@ -726,41 +727,43 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
   return parsedVideos
 }
 
+export function parseShort(short, channelId, channelName) {
+  if (short.type === 'ReelItem') {
+    /** @type {import('youtubei.js').YTNodes.ReelItem} */
+    const reelItem = short
+
+    return {
+      type: 'video',
+      videoId: reelItem.id,
+      title: reelItem.title.text,
+      author: channelName,
+      authorId: channelId,
+      viewCount: reelItem.views.isEmpty() ? null : parseLocalSubscriberCount(reelItem.views.text),
+      lengthSeconds: ''
+    }
+  } else {
+    /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
+    const shortsLockupView = short
+
+    return {
+      type: 'video',
+      videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
+      title: shortsLockupView.overlay_metadata.primary_text.text,
+      author: channelName,
+      authorId: channelId,
+      viewCount: shortsLockupView.overlay_metadata.secondary_text ? parseLocalSubscriberCount(shortsLockupView.overlay_metadata.secondary_text.text) : null,
+      lengthSeconds: ''
+    }
+  }
+}
+
 /**
  * @param {(import('youtubei.js').YTNodes.ReelItem | import('youtubei.js').YTNodes.ShortsLockupView)[]} shorts
  * @param {string} channelId
  * @param {string} channelName
  */
 export function parseLocalChannelShorts(shorts, channelId, channelName) {
-  return shorts.map(short => {
-    if (short.type === 'ReelItem') {
-      /** @type {import('youtubei.js').YTNodes.ReelItem} */
-      const reelItem = short
-
-      return {
-        type: 'video',
-        videoId: reelItem.id,
-        title: reelItem.title.text,
-        author: channelName,
-        authorId: channelId,
-        viewCount: reelItem.views.isEmpty() ? null : parseLocalSubscriberCount(reelItem.views.text),
-        lengthSeconds: ''
-      }
-    } else {
-      /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
-      const shortsLockupView = short
-
-      return {
-        type: 'video',
-        videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
-        title: shortsLockupView.overlay_metadata.primary_text.text,
-        author: channelName,
-        authorId: channelId,
-        viewCount: shortsLockupView.overlay_metadata.secondary_text ? parseLocalSubscriberCount(shortsLockupView.overlay_metadata.secondary_text.text) : null,
-        lengthSeconds: ''
-      }
-    }
-  })
+  return shorts.map(short => parseShort(short, channelId, channelName))
 }
 
 /**
@@ -771,6 +774,32 @@ export function parseLocalChannelShorts(shorts, channelId, channelName) {
 export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
   if (playlist.type === 'LockupView') {
     return parseLockupView(playlist, channelId, channelName)
+  } else if (playlist.type === 'CompactStation') {
+    /** @type {import('youtubei.js').YTNodes.CompactStation} */
+    const compactStation = playlist
+
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: compactStation.title.text,
+      thumbnail: compactStation.thumbnail.at(0).url,
+      playlistId: compactStation.endpoint.payload.playlistId,
+      videoCount: extractNumberFromString(compactStation.video_count.text)
+    }
+  } else if (playlist.type === 'GridPlaylist') {
+    /** @type {import('youtubei.js').YTNodes.GridPlaylist} */
+    const gridPlaylist = playlist
+
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: gridPlaylist.title.text,
+      thumbnail: gridPlaylist.thumbnails.at(0).url,
+      playlistId: gridPlaylist.id,
+      channelName: gridPlaylist.author?.name,
+      channelId: gridPlaylist.author?.id,
+      videoCount: extractNumberFromString(gridPlaylist.video_count.text)
+    }
   } else {
     let internalChannelName
     let internalChannelId = null
@@ -853,6 +882,52 @@ function handleSearchResponse(response) {
   }
 }
 
+/**
+ * @param {import('youtubei.js').YT.Channel} homeTab
+ */
+export function parseChannelHomeTab(homeTab) {
+  /**
+   * @type {import('youtubei.js').YTNodes.ItemSection | import('youtubei.js').YTNodes.RichSection}
+   */
+  let section
+  const shelves = []
+  for (section of homeTab.current_tab.content.contents) {
+    if (section.type === 'ItemSection') {
+      /**
+      * @type {import('youtubei.js').YTNodes.ItemSection}
+      */
+      const itemSection = section
+      if (itemSection.contents.at(0).type === 'Shelf') {
+        /** @type {import('youtubei.js').YTNodes.Shelf} */
+        const shelf = itemSection.contents.at(0)
+        shelves.push({
+          title: shelf.title.text,
+          content: shelf.content.items.map(parseListItem).filter(_ => _)
+        })
+      } else if (itemSection.contents.at(0).type === 'ReelShelf') {
+        /** @type {import('youtubei.js').YTNodes.ReelShelf} */
+        const shelf = itemSection.contents.at(0)
+        shelves.push({
+          title: shelf.title.text,
+          content: shelf.items.map(parseListItem).filter(_ => _)
+        })
+      }
+    } else if (section.type === 'RichSection') {
+      /** @type {import('youtubei.js').YTNodes.RichShelf} */
+      const shelf = section.content
+
+      shelves.push({
+        title: shelf.title.text,
+        content: shelf.contents.map(e => parseListItem(e.content))
+      })
+    }
+  }
+
+  shelves.forEach(e => {
+    e['isCommunity'] = e.content.at(0)?.type === 'community'
+  })
+  return shelves
+}
 /**
  * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem|import('youtubei.js').YTNodes.ShortsLockupView} video
  */
@@ -993,6 +1068,33 @@ export function parseLocalListVideo(item) {
       liveNow: false,
       isUpcoming: false,
     }
+  } else if (item.type === 'GridVideo') {
+    /** @type {import('youtubei.js').YTNodes.GridVideo} */
+    const video = item
+    return {
+      type: 'video',
+      videoId: video.id,
+      title: video.title.text,
+      author: video.author?.name,
+      authorId: video.author?.id,
+      viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
+      lengthSeconds: Number(timestampToDuration(video.duration.text)),
+      isUpcoming: video.is_upcoming,
+      premiereDate: video.upcoming
+    }
+  } else if (item.type === 'GridMovie') {
+    /** @type {import('youtubei.js').YTNodes.GridMovie} */
+    const movie = item
+    return {
+      type: 'video',
+      videoId: movie.id,
+      title: movie.title.text,
+      author: movie.author.name,
+      authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
+      lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
+      isUpcoming: movie.is_upcoming,
+      premiereDate: movie.upcoming
+    }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
@@ -1076,7 +1178,30 @@ function parseListItem(item) {
   switch (item.type) {
     case 'Movie':
     case 'Video':
+    case 'GridVideo':
+    case 'GridMovie':
       return parseLocalListVideo(item)
+    case 'GridChannel': {
+      /** @type {import('youtubei.js').YTNodes.GridChannel} */
+      const channel = item
+      let subscribers = null
+      let videos = null
+
+      subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      videos = extractNumberFromString(channel.video_count.text)
+
+      return {
+        type: 'channel',
+        dataSource: 'local',
+        thumbnail: channel.author.best_thumbnail?.url.replace(/^\/\//, 'https://'),
+        name: channel.author.name,
+        id: channel.author.id,
+        subscribers,
+        videos,
+        handle: null,
+        descriptionShort: channel.description_snippet?.text
+      }
+    }
     case 'Channel': {
       /** @type {import('youtubei.js').YTNodes.Channel} */
       const channel = item
@@ -1125,8 +1250,17 @@ function parseListItem(item) {
         channelCount: hashtag.hashtag_channel_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_channel_count.text)
       }
     }
+    case 'ReelItem':
+    case 'ShortsLockupView': {
+      return parseShort(item)
+    }
+    case 'CompactStation':
+    case 'GridPlaylist':
     case 'Playlist': {
       return parseLocalListPlaylist(item)
+    }
+    case 'Post': {
+      return parseLocalCommunityPost(item)
     }
     case 'LockupView':
       return parseLockupView(item)

@@ -1,0 +1,12 @@
+.shelfTitle {
+  font-size: x-large;
+}
+
+.shelfTitle::marker {
+  color: var(--accent-color);
+}
+
+.shelfUnderline {
+  border-color: var(--primary-color);
+}
+

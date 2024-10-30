@@ -86,6 +86,13 @@
         v-if="currentTab !== 'about' && !isElementListLoading"
         class="elementList"
       >
+        <channel-home
+          v-show="currentTab === 'home'"
+          id="homePanel"
+          :shelves="homeData"
+          role="tabpanel"
+          aria-labelledby="videosTab"
+        />
         <ft-element-list
           v-show="currentTab === 'videos'"
           id="videoPanel"
