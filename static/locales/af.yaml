@@ -927,15 +927,18 @@ Comments:
   Replies: ''
   Show More Replies: ''
   Reply: ''
-  From {channelName}: ''
-  And others: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-  Pinned by: ''
-  Member: ''
-  Subscribed: ''
-  Hearted: ''
+  From {channelName}: 'van {channelName}'
+  And others: 'en ander'
+  There are no comments available for this video: 'Daar is geen reaksies beskikbaar
+    vir hierdie video nie'
+  Load More Comments: 'Laai nog kommentare'
+  No more comments available: 'Geen kommentare meer beskikbaar'
+  Pinned by: 'Vasgemaak deur'
+  Member: 'Lid'
+  Subscribed: 'Ingeteken'
+  Hearted: 'Met hart'
+  There are no comments available for this post: Daar is geen kommentare beskikbaar
+    vir hierdie plasing nie
 Up Next: 'Volgende'
 
 #Tooltips
