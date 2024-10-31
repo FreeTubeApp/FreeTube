@@ -277,7 +277,9 @@ User Playlists:
 
       This playlist does not exist: 'N''eus ket eus ar roll-videoioù-mañ'
 
-      This playlist has a video with a duration error: ''
+      This playlist has a video with a duration error: 'Bez ez eus ur video d''an
+        nebeutañ hep padelezh e-barzh ar roll-videoioù, rummet e vo evel ma vije goullo
+        ar padelezh.'
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Choazit ur roll-videoioù evit ouzhpennañ
       ho video e-barzh | Choazit ur roll-videoioù evit ouzhpennañ ho {videoCount}
