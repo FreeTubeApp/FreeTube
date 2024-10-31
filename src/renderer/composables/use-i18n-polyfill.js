@@ -75,5 +75,9 @@ function t(key, arg1, arg2) {
     return i18n.tc(key, arg2, arg1)
   }
 
-  return i18n.t(key, arg1)
+  if (arg1 != null) {
+    return i18n.t(key, arg1)
+  }
+
+  return i18n.t(key)
 }
