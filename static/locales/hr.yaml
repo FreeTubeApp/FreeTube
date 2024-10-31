@@ -41,8 +41,10 @@ Global:
     Video Count: 1 video | {count} videa
     Subscriber Count: 1 pretplatnik | {count} pretplatnika
     View Count: 1 prikaz | {count} prikaza
-    Watching Count: 1 praćenje | {count} praćenja
+    Watching Count: 1 gledatelj | {count} gledatelja
     Channel Count: 1 kanal | {count} kanala
+    Comment Count: 1 komentar | {count} komentara
+    Like Count: 1 lajk | {count} lajkova
   Input Tags:
     Length Requirement: Oznaka mora imati barem {number} znakova
 Search / Go to URL: 'Pretraži / Idi na URL'
@@ -247,7 +249,7 @@ Settings:
   # On Settings Page
   Settings: 'Postavke'
   General Settings:
-    General Settings: 'Opće postavke'
+    General Settings: 'Opće'
     Fallback to Non-Preferred Backend on Failure: 'U slučaju problema koristi sekundarni
       pozadinski sustav'
     Enable Search Suggestions: 'Aktiviraj prijedloge pretrage'
@@ -292,7 +294,7 @@ Settings:
       Label: Automatski učitaj sljedeću stranicu
       Tooltip: Automatski učitaj dodatne stranice i komentare.
   Theme Settings:
-    Theme Settings: 'Postavke teme'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
     Base Theme:
       Base Theme: 'Osnova teme'
@@ -362,7 +364,7 @@ Settings:
     Hide Side Bar Labels: Sakrij oznake bočnih traka
     Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
   Player Settings:
-    Player Settings: 'Postavke playera'
+    Player Settings: 'Player'
     Play Next Video: 'Reproduciraj sljedeći video'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
     Autoplay Videos: 'Automatski reproduciraj videa'
@@ -379,15 +381,15 @@ Settings:
     Default Quality:
       Default Quality: 'Standardna kvaliteta'
       Auto: 'Automatski'
-      144p: '144 p'
-      240p: '240 p'
-      360p: '360 p'
-      480p: '480 p'
-      720p: '720 p'
-      1080p: '1080 p'
-      1440p: '1440 p'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
       4k: '4k'
-      8k: '8 k'
+      8k: '8k'
     Playlist Next Video Interval: Interval sljedećeg videa zbirke
     Next Video Interval: Interval za sljedeći video
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
@@ -416,7 +418,7 @@ Settings:
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
   Privacy Settings:
-    Privacy Settings: 'Postavke privatnosti'
+    Privacy Settings: 'Privatnost'
     Remember History: 'Zapamti povijest'
     Save Watched Progress: 'Spremi napredak gledanja'
     Clear Search Cache: 'Isprazni predmemoriju pretrage'
@@ -437,7 +439,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Stvarno želiš ukloniti sve
       tvoje zbirke?
   Subscription Settings:
-    Subscription Settings: 'Postavke pretplata'
+    Subscription Settings: 'Pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
     Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
     Fetch Automatically: Automatski dohvati feed
@@ -473,7 +475,7 @@ Settings:
     Import Subscriptions: Uvezi pretplate
     Select Export Type: Odaberi vrstu izvoza
     Select Import Type: Odaberi vrstu uvoza
-    Data Settings: Postavke podataka
+    Data Settings: Podaci
     How do I import my subscriptions?: Kako uvesti pretplate?
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
@@ -499,9 +501,9 @@ Settings:
     Hide Live Chat: Sakrij razgovor uživo
     Hide Popular Videos: Sakrij popularna videa
     Hide Comment Likes: Sakrij ocjene komentara
-    Hide Video Likes And Dislikes: Sakrij ocjenjivanje videa
+    Hide Video Likes And Dislikes: Sakrij broj sviđanja videa
     Hide Video Views: Sakrij broj gledanja videa
-    Distraction Free Settings: Postavke za nesmetan rad
+    Distraction Free Settings: Nesmetan rad
     Hide Active Subscriptions: Sakrij aktivne pretplate
     Hide Playlists: Sakrij zbirke
     Hide Comments: Sakrij komentare
@@ -557,13 +559,13 @@ Settings:
     Proxy Host: Računalo posrednika
     Proxy Protocol: Protokol posrednika
     Enable Tor / Proxy: Aktiviraj Tor/Posrednik
-    Proxy Settings: Postavke posrednika
+    Proxy Settings: Posrednik
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja
       sponzora (standardno je https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviraj blokiranja sponzora
-    SponsorBlock Settings: Postavke blokiranja sponzora
+    SponsorBlock Settings: Blokiranja sponzora
     Skip Options:
       Auto Skip: Automatsko preskakanje
       Show In Seek Bar: Prikaži u traci napretka
@@ -580,27 +582,27 @@ Settings:
     Custom External Player Executable: Izvršna datoteka prilagođenog eksternog playera
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
-    External Player Settings: Postavke vanjskog playera
+    External Player Settings: Eksterni player
     Players:
       None:
         Name: Bez
     Ignore Default Arguments: Zanemari zadane argumente
   Download Settings:
     Choose Path: Odaberi stazu
-    Download Settings: Postavke preuzimanja
-    Ask Download Path: Zatraži stazu preuzimanja
+    Download Settings: Preuzimanje
+    Ask Download Path: Zatraži stazu za preuzimanja
     Download in app: Preuzmi u aplikaciji
     Open in web browser: Otvori u web-pregledniku
     Download Behavior: Ponašanje preuzimanja
   Parental Control Settings:
-    Parental Control Settings: Postavke roditeljskog nadzora
+    Parental Control Settings: Roditeljski nadzor
     Hide Unsubscribe Button: Sakrij gumb za odjavu
     Hide Search Bar: Sakrij traku pretrage
     Show Family Friendly Only: Prikaži samo prikladne za obitelji
   Experimental Settings:
     Warning: Ovo su eksperimentalne postavke. Kad su aktivirane mogu prouzročiti prekid
       programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
-    Experimental Settings: Eksperimentalne postavke
+    Experimental Settings: Eksperimentalno
     Replace HTTP Cache: Zamijeni HTTP predmemoriju
   Password Dialog:
     Password Incorrect: Lozinka neispravna
@@ -608,11 +610,12 @@ Settings:
     Enter Password To Unlock: Za otključavanje postavki upiši lozinku
     Password: Lozinka
   Password Settings:
-    Password Settings: Lozinka za postavke
+    Password Settings: Lozinka
     Set Password: Postavi lozinku
     Remove Password: Ukloni lozinku
     Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
   Sort Settings Sections (A-Z): Razvrstaj odjeljke postavki (A-Z)
+  Return to Settings Menu: Vrati se na izbornik postavki
 About:
   #On About page
   About: 'Informacije'
@@ -684,7 +687,7 @@ Profile:
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
-  Profile Settings: Postavke profila
+  Profile Settings: Profil
   Toggle Profile List: Uključi/Isključi popis profila
   Profile Name: Ime profila
   Edit Profile Name: Uredi ime profila
@@ -742,6 +745,7 @@ Channel:
     Hide Answers: Sakrij odgovore
     votes: '{votes} glasa'
     Video hidden by FreeTube: Video skriven od FreeTubea
+    View Full Post: Pogledaj cijeli post
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
@@ -886,6 +890,7 @@ Video:
         broj kadrova: {totalFrames}'
       Bandwidth: 'Propusnost: {bandwidth} kbps'
       Player Dimensions: 'Veličina playera: {width}x{height}'
+      Buffered: 'Učitano: {bufferedPercentage}%'
     You appear to be offline: Čini se da ne postoji veza s internetom.
     Skipped segment: Preskočen segment „{segmentCategory}”
     Take Screenshot: Snimi snimku ekrana
@@ -893,6 +898,12 @@ Video:
     Hide Stats: Sakrij statistiku
     Playback will resume automatically when your connection comes back: Reprodukcija
       će se automatski nastaviti nakon što se veza ponovo uspostavi.
+    TranslatedCaptionTemplate: '{language} (izvorni jezik prijevoda: {originalLanguage})'
+    Exit Full Window: Zatvori cjeloekranski prikaz
+    Theatre Mode: Kazališni modus
+    Audio Tracks: Audio snimke
+    Exit Theatre Mode: Zatvori kazališni modus
+    Full Window: Cjeloekranski prikaz
 Videos:
   #& Sort By
   Sort By:
@@ -1147,5 +1158,10 @@ Search Listing:
     4K: 4K
     Subtitles: Titlovi
     Closed Captions: Titlovi za gluhe
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Novi
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Blokirano je otvaranje potencijalno nesigurnog
   URL-a: „{url}”.'
