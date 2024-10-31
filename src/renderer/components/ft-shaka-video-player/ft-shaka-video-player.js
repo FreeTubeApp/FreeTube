@@ -355,7 +355,7 @@ export default defineComponent({
        *     color: string,
        *     skip: 'autoSkip' | 'promptToSkip' | 'showInSeekBar' | 'doNothing'
        *   }
-       * }} */
+        }} */
       const categoryData = {}
 
       sponsorCategories.forEach(x => {
@@ -537,7 +537,7 @@ export default defineComponent({
      * @param {'dash'|'audio'|'legacy'} format
      * @param {boolean} useAutoQuality
      * @returns {shaka.extern.PlayerConfiguration}
-     **/
+     */
     function getPlayerConfig(format, useAutoQuality = false) {
       return {
         // YouTube uses these values and they seem to work well in FreeTube too,
@@ -1870,7 +1870,7 @@ export default defineComponent({
 
     /**
      * @param {WheelEvent} event
-     * */
+     */
     function mouseScrollVolume(event) {
       if (!event.ctrlKey && !event.metaKey) {
         event.preventDefault()

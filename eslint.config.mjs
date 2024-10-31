@@ -10,6 +10,7 @@ import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 import neostandard from 'neostandard'
+import jsdoc from 'eslint-plugin-jsdoc';
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
@@ -31,6 +32,16 @@ export default [
   ...eslintPluginVue.configs['flat/vue2-recommended'],
   ...vuejsAccessibility.configs["flat/recommended"],
   ...intlifyVueI18N.configs['flat/recommended'],
+  {
+    plugins: {
+      jsdoc
+    },
+    rules: {
+      'jsdoc/check-param-names': 'error',
+      'jsdoc/no-multi-asterisks': 'error',
+      'jsdoc/check-alignment': 'error'
+    }
+  },
   {
     files: [
       '**/*.{js,vue}',

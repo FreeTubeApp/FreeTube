@@ -46,6 +46,7 @@ defineProps({
   }
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const playNextVideo = computed(() => {
   return store.getters.getPlayNextVideo
 })

@@ -722,7 +722,8 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            let source = result.storyboards.boards
+            /** @type {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData[]} */
+            let source = result.storyboardSpec.boards
             if (window.innerWidth < 500) {
               source = source.filter((board) => board.thumbnail_height <= 90)
             }
@@ -1485,6 +1486,10 @@ export default defineComponent({
       return result.adaptiveFormats
     },
 
+    /**
+     * @param {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData} storyboardInfo
+     * @returns {string}
+     */
     createLocalStoryboardUrls: function (storyboardInfo) {
       const results = buildVTTFileLocally(storyboardInfo, this.videoLengthSeconds)
 

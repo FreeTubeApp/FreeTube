@@ -20,6 +20,8 @@ updates:
           - "@eslint/*"
           - "yaml-eslint-parser"
           - "vue-eslint-parser"
+          - "typescript-eslint"
+          - "neostandard"
       stylelint:
         patterns:
           - "stylelint"

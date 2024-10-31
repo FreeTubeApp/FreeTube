@@ -766,7 +766,7 @@ export function parseLocalChannelShorts(shorts, channelId, channelName) {
 /**
  * @param {import('youtubei.js').YTNodes.Playlist|import('youtubei.js').YTNodes.GridPlaylist|import('youtubei.js').YTNodes.LockupView} playlist
  * @param {string} channelId
- * @param {string} chanelName
+ * @param {string} channelName
  */
 export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
   if (playlist.type === 'LockupView') {
