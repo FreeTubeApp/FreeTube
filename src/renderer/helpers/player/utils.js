@@ -9,7 +9,7 @@ import { sponsorBlockSkipSegments } from '../sponsorblock'
  * @param {shaka.util.Error} error
  * @param {string} context
  * @param {string} videoId
- * @param {object=} details
+ * @param {object?} details
  */
 export function logShakaError(error, context, videoId, details) {
   const { Severity, Category, Code } = shaka.util.Error

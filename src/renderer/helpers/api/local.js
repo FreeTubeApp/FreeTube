@@ -550,15 +550,15 @@ export async function getLocalArtistTopicChannelReleasesContinuation(channel, co
  * @param {boolean} onlyIdNameThumbnail
  */
 export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
-  /** @type {string=} */
+  /** @type {string?} */
   let id
   /** @type {string} */
   let name
-  /** @type {string=} */
+  /** @type {string?} */
   let thumbnailUrl
-  /** @type {string=} */
+  /** @type {string?} */
   let bannerUrl
-  /** @type {string=} */
+  /** @type {string?} */
   let subscriberText
   /** @type {string[]} */
   const tags = []

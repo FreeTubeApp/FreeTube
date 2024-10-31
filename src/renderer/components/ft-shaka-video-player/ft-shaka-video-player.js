@@ -2145,7 +2145,7 @@ export default defineComponent({
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
-     * @param {object=} details
+     * @param {object?} details
      */
     function handleError(error, context, details) {
       logShakaError(error, context, props.videoId, details)

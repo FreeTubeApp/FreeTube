@@ -278,7 +278,7 @@ export function showToast(message, time = null, action = null) {
  * a toast with the error is shown. If the copy is successful and
  * there is a success message, a toast with that message is shown.
  * @param {string} content the content to be copied to the clipboard
- * @param {Object} [options] - Optional settings for the copy operation.
+ * @param {object} [options] - Optional settings for the copy operation.
  * @param {null|string} options.messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
  * @param {null|string} options.messageOnError the message to be displayed as a toast when the copy fails (optional)
  */
@@ -413,7 +413,7 @@ export function readFileFromDialog(response, index = 0) {
 
 /**
  * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
- * @returns { Promise<Electron.SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
+ * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
  */
 export async function showSaveDialog (options) {
   if (process.env.IS_ELECTRON) {
@@ -859,7 +859,8 @@ export function deepCopy(obj) {
  * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
  * @param {number} timeoutMs
  * @param {RequestInfo|URL} input
- * @param {RequestInit=} init
+ * @param {RequestInit?} init
+ * @returns {Promise<Response>}
  */
 export async function fetchWithTimeout(timeoutMs, input, init) {
   const timeoutSignal = AbortSignal.timeout(timeoutMs)

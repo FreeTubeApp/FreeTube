@@ -117,9 +117,15 @@ export default [
       '@intlify/vue-i18n/no-deprecated-tc': 'off',
       'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
+
+      'jsdoc/check-alignment': 'error',
+      'jsdoc/check-property-names': 'error',
       'jsdoc/check-param-names': 'error',
+      'jsdoc/check-syntax': 'error',
+      'jsdoc/check-template-names': 'error',
+      'jsdoc/check-types': 'error',
+      'jsdoc/no-bad-blocks': 'error',
       'jsdoc/no-multi-asterisks': 'error',
-      'jsdoc/check-alignment': 'error'
     },
   },
 
