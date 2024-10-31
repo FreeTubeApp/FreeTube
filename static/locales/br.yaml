@@ -139,7 +139,8 @@ Subscriptions:
     eo ho roll koumanantoù. Ma faot deoc''h enporzhiañ ho koumanantoù, e c''hellit
     mont da Arventennoù ar Roadennoù ha choaz Enporzhiañ ho koumanantoù, mod all e
     c''hellit klask chadennoù da goumanantiñ dezho.'
-  Disabled Automatic Fetching: ''
+  Disabled Automatic Fetching: 'Diweredekaet ho peus an adtapout koumanantoù ent emgefreek.
+    Hizivaat ar c''houmanantoù evit gwelet anezho.'
   Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
   'Getting Subscriptions. Please wait.': 'O kerc''hat ar c''houmanantoù. Gortozit
     mar plij.'
@@ -355,14 +356,16 @@ Settings:
       End: 'Fin'
       Hidden: 'Kuzhet'
       Blur: 'Ruzed'
-    Current Invidious Instance: ''
-    The currently set default instance is {instance}: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+    Current Invidious Instance: 'Istañs Invidious bremanel'
+    The currently set default instance is {instance}: 'An istañs dre ziouer a zo {instance}'
+    No default instance has been set: 'N''eus istañs dre ziouer ebet choazet'
+    Current instance will be randomized on startup: 'Dargouezheket e vo un istañs
+      dre ziouer pa vo adloc''het'
+    Set Current Instance as Default: 'Lakaat an istañs implijet bremañ evel an hini
+      dre ziouer'
+    Clear Default Instance: 'Diverkañ an istañs dre ziouer'
+    View all Invidious instance information: 'Gwelet titouroù an holl istañsoù Invidious'
+    Region for Trending: 'Bro evit ar videoioù diouzh ar c''hiz'
     #! List countries
     External Link Handling:
       External Link Handling: ''
@@ -544,7 +547,7 @@ Settings:
     Hide Channel Subscribers: ''
     Hide Comment Likes: ''
     Hide Recommended Videos: ''
-    Hide Trending Videos: ''
+    Hide Trending Videos: 'Kuzhat ar videoioù diouzh ar c''hiz'
     Hide Popular Videos: ''
     Hide Playlists: 'Kuzhat ar rolloù-videoioù'
     Hide Live Chat: ''
@@ -928,7 +931,7 @@ Video:
     Stats:
       Stats: 'Stadegoù'
       Video ID: 'ID ar Video : {videoId}'
-      Media Formats: ''
+      Media Formats: 'Furmadoù ar media : {formats}'
       Resolution: 'Spisder : {width}x{height}@{frameRate}'
       Player Dimensions: 'Ment al lenner : {width}x{height}'
       Bitrate: 'Fonnder bit : {bitrate} kbps'
@@ -976,13 +979,16 @@ Playlist:
 #& Views
 Toggle Theatre Mode: ''
 Change Format:
-  Change Media Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
-  Legacy formats are not available for this video: ''
+  Change Media Formats: 'Cheñch furmad ar video'
+  Use Dash Formats: 'Implijout ar furmad DASH'
+  Use Legacy Formats: 'Implijout ar furmad Legacy'
+  Use Audio Formats: 'Implijout ar furmad aodio'
+  Dash formats are not available for this video: 'N''haller ket implijout ar furmad
+    DASH evit ar video-mañ'
+  Audio formats are not available for this video: 'N''haller ket implijout ar furmad
+    aodio evit ar video-mañ'
+  Legacy formats are not available for this video: 'N''haller ket implijout ar furmad
+    Legacy evit ar video-mañ'
 Share:
   Share Video: 'Rannañ ar video'
   Share Channel: 'Rannañ ar chadenn'
@@ -1049,12 +1055,16 @@ Tooltips:
     Preferred API Backend: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API.'
+    Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù
+      diouzh ar c''hiz a faot deoc''h gwelet.'
     External Link Handling: |
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video.
+      Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet
+      eo ar furmadoù Legacy da 720p d''ar muiañ met nebeutoc''h a vann- drafet a vez
+      implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
     Scroll Playback Rate Over Video Player: 'Pa vez ar biz-red war ar video, dalc''hit
       pouezet war an douchenn Ctrl (Command war Mac) ha dibunit rodellig al logodenn
       war-raok pe war-gil evit cheñch ar feur lenn. Dalc''hit pouezet war an douchenn
@@ -1115,9 +1125,9 @@ Playing Next Video Interval: 'Lenn ar video da-heul a-benn nebeud-tre. Klikit ev
   | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.'
 Canceled next video autoplay: 'Nullañ al lenn emgefreek da-heul'
 
-Default Invidious instance has been set to {instance}: 'Eriol Invidious dre ziouer
+Default Invidious instance has been set to {instance}: 'Istañs Invidious dre ziouer
   a zo bet lakaet da {instance}'
-Default Invidious instance has been cleared: 'Diverket eo bet eriol Invidious dre
+Default Invidious instance has been cleared: 'Diverket eo bet Istañs Invidious dre
   ziouer'
 'The playlist has ended. Enable loop to continue playing': 'Echu eo ar roll-videoioù.  Gweredekaat
   ar rodell evit kenderc''hel da lenn'
