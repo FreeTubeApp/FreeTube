@@ -812,11 +812,14 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .mainGruvboxDarkGreen,
 .mainGruvboxDarkYellow,
-.mainGruvboxDarkBlue,
 .mainGruvboxDarkAqua,
-.mainGruvboxDarkPurple,
 .mainGruvboxDarkOrange {
   --text-with-main-color: #3c3836;
+}
+
+.mainGruvboxDarkBlue,
+.mainGruvboxDarkPurple {
+  --text-with-main-color: #1d2021;
 }
 
 
@@ -1543,7 +1546,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity3: rgb(214 93 14 / 16%);
 }
 
-.secGruvboxDarkGreen,
 .secGruvboxDarkYellow,
 .secGruvboxDarkBlue,
 .secGruvboxDarkPurple,
@@ -1552,6 +1554,16 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #3c3836;
 }
 
+.secGruvboxDarkGreen,
+.secGruvboxDarkAqua {
+  --text-with-accent-color: #1d2021;
+}
+
+.secGruvboxDarkOrange,
+.secGruvboxDarkPurple,
+.secGruvboxDarkBlue {
+  --text-with-accent-color: #0d1011;
+}
 
 
 /*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
