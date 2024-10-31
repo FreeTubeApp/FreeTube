@@ -189,13 +189,13 @@ export function sortCaptions(captions) {
  * This function cleans it up, so that we can use it.
  *
  * Here is a list of things this function does:
- * Removes bogus roles and labels
- * Extracts the languages from the audio URLs if available and adds it to the adapation sets
- * Adds roles and labels when possible to add support for multiple audio tracks
+ * - Removes bogus roles and labels
+ * - Extracts the languages from the audio URLs if available and adds it to the adapation sets
+ * - Adds roles and labels when possible to add support for multiple audio tracks
  *
  * Things this function does not do:
- * Separate DRC (Stable Volume) from their original counterparts
- * Tag HDR video streams (Invidious puts all video streams in the same adaptation set,
+ * - Separate DRC (Stable Volume) from their original counterparts
+ * - Tag HDR video streams (Invidious puts all video streams in the same adaptation set,
  * to tag HDR and SDR streams we would have to separate them out into multiple adaptation sets)
  * @param {shaka.extern.xml.Node[]} periods
  */
