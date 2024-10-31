@@ -33,16 +33,6 @@ export default [
   ...vuejsAccessibility.configs["flat/recommended"],
   ...intlifyVueI18N.configs['flat/recommended'],
   {
-    plugins: {
-      jsdoc
-    },
-    rules: {
-      'jsdoc/check-param-names': 'error',
-      'jsdoc/no-multi-asterisks': 'error',
-      'jsdoc/check-alignment': 'error'
-    }
-  },
-  {
     files: [
       '**/*.{js,vue}',
     ],
@@ -51,6 +41,7 @@ export default [
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
+      jsdoc
     },
 
     languageOptions: {
@@ -126,6 +117,9 @@ export default [
       '@intlify/vue-i18n/no-deprecated-tc': 'off',
       'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
+      'jsdoc/check-param-names': 'error',
+      'jsdoc/no-multi-asterisks': 'error',
+      'jsdoc/check-alignment': 'error'
     },
   },
 
