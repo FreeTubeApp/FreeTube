@@ -1069,11 +1069,20 @@ Tooltips:
     Custom External Player Arguments: ''
     DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: ''
+    Hide Channels: 'Lakait ID ur chadenn evit mirout ouzh an holl videoioù, rolloù-videoioù
+      hag ar chadenn hec''h-unan da vezañ gwelet en enklaskoù, e roll ar videoioù
+      brudetañ, ar re vuiañ karet, hag ar re aliet. Ret eo d''an ID bezañ klot ha
+      ret eo doujañ d''ar pennlizherennoù.'
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos and Playlists Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe
+      ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù
+      gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor,
+      e-barzh ho rolloù-videoioù hag ar videoioù e-barzh ar rolloù-videoioù.'
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Pa vez gweredekaet e vez implijet RSS gant FreeTube e-lec''h
+      e zoare dre ziouer evit adtapout ho kwazh koumanantiñ. Buanoc''h ez an traoù
+      gant an RSS ha ne vo ket stanket ar chomlec''h IP, met ne ginnig ket titouroù
+      ''zo evel padelezh ar video, statud ar video war-eeun, pe c''hoazh an evezhiadennoù'
     Fetch Automatically: ''
   Experimental Settings:
     Replace HTTP Cache: ''
