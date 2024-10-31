@@ -902,31 +902,35 @@ Share:
   YouTube Channel URL copied to clipboard: ''
 Clipboard:
   Copy failed: ''
-  Cannot access clipboard without a secure connection: ''
+  Cannot access clipboard without a secure connection: 'Geen toegang tot knipbord
+    sonder ’n beveiligde verbinding'
 
 Chapters:
-  Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  Chapters: 'Hoofstukke'
+  'Chapters list visible, current chapter: {chapterName}': 'Hoofstukke lys sigbare,
+    huidige hoofstuk: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Hoofstukke lys versteekte,
+    huidige hoofstuk: {chapterName}'
 
-Mini Player: ''
+Mini Player: 'Mini-speler'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  Comments: 'Kommentare'
+  Click to View Comments: 'Klik om kommentare te sien'
+  Getting comment replies, please wait: 'Kommentare word opgehaal, wag asb.'
+  There are no more comments for this video: 'Daar is geen verdere kommentare vir
+    hierdie video nie'
+  Show Comments: 'Toon kommentare'
+  Hide Comments: 'Versteek kommentare'
+  Sort by: 'Sorteer volgens'
+  Top comments: 'Topkommentare'
+  Newest first: 'Nuutste eerste'
+  View {replyCount} replies: 'Sien {replyCount} antwoorde'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
-  Show More Replies: ''
-  Reply: ''
+  View: 'Sien'
+  Hide: 'Versteek'
+  Replies: 'Antwoorde'
+  Show More Replies: 'Toon nog antwoorde'
+  Reply: 'Antwoord'
   From {channelName}: 'van {channelName}'
   And others: 'en ander'
   There are no comments available for this video: 'Daar is geen reaksies beskikbaar
