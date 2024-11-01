@@ -810,16 +810,30 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #ef7a43;
 }
 
+.mainGruvboxLightOrange,
+.mainGruvboxLightRed,
+.mainGruvboxLightBlue,
+.mainGruvboxLightPurple {
+  --text-with-main-color: #fbf1c7;
+  --logo-icon-bar-color: url('../../_icons/iconGruvboxLightSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textGruvboxLightSmall.svg');
+}
+
+
 .mainGruvboxDarkGreen,
 .mainGruvboxDarkYellow,
 .mainGruvboxDarkAqua,
 .mainGruvboxDarkOrange {
   --text-with-main-color: #3c3836;
+  --logo-icon-bar-color: url('../../_icons/iconGruvboxDarkSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
 }
 
 .mainGruvboxDarkBlue,
 .mainGruvboxDarkPurple {
   --text-with-main-color: #1d2021;
+  --logo-icon-bar-color: url('../../_icons/iconGruvboxDarkSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
 }
 
 
@@ -1503,6 +1517,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secGruvboxLightRed {
+  --text-with-accent-color: #fbf1c7;
   --accent-color: #cc241d;
   --accent-color-hover: #d23c2a;
   --accent-color-active: #a61f1f;
@@ -1561,7 +1576,10 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .secGruvboxDarkOrange,
 .secGruvboxDarkPurple,
-.secGruvboxDarkBlue {
+.secGruvboxDarkBlue,
+.secGruvboxLightOrange,
+.secGruvboxLightBlue,
+.secGruvboxLightPurple {
   --text-with-accent-color: #0d1011;
 }
 
