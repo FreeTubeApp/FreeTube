@@ -329,15 +329,18 @@ Settings:
   Expand All Settings Sections: ''
   Sort Settings Sections (A-Z): 'Rummañ lodennoù an arventennoù (A-Z)'
   Return to Settings Menu: 'Distreiñ d''al lañser arventennoù'
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Ezhomm
+    en deus an arload da vezañ adloc''het bremañ evit arloañ ar c''hemmoù. Adloc''hañ
+    hag arloañ ar c''hemmoù ?'
   General Settings:
     General Settings: 'Hollek'
     Check for Updates: 'Klask Hizivadurioù'
     Check for Latest Blog Posts: 'Diskouez pennadoù diwezhañ ar Blog'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Distreiñ d''ar Backend ha n''eo
+      ket hoc''h hini karetañ ma c''hoarvez ur gudenn'
     Enable Search Suggestions: 'Gweredekaat Kinnigoù klask'
     Auto Load Next Page:
-      Label: ''
+      Label: 'Kargañ ar bajenn da heul ent emgefreek'
       Tooltip: ''
     Default Landing Page: 'Pajenn degemer dre ziouer'
     Locale Preference: 'Yezh'
@@ -347,7 +350,7 @@ Settings:
       Local API: 'API lec''hel'
       Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: ''
+      Video View Type: 'Doare da ziskouez ar videoioù'
       Grid: 'Kael'
       List: 'Roll'
     Thumbnail Preference:
@@ -370,17 +373,18 @@ Settings:
     Region for Trending: 'Bro evit ar videoioù diouzh ar c''hiz'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
+      External Link Handling: 'Merañ al liammoù diavaez'
       Open Link: 'Digeriñ an ere'
       Ask Before Opening Link: 'Goulenn a-raok digeriñ ul liamm'
       No Action: 'Netra'
   Theme Settings:
     Theme Settings: 'Tem'
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
+    Match Top Bar with Main Color: 'Lakaat da glotañ liv ar varenn e-krec''h gant
+      al liv pennañ'
+    Expand Side Bar by Default: 'Astenn ar varenn gostez dre ziouer'
+    Disable Smooth Scrolling: 'Diweredekaat an dibunañ flour'
     UI Scale: 'Skeul an UI'
-    Hide Side Bar Labels: ''
+    Hide Side Bar Labels: 'Kuzhat tikedennoù ar varrenn gostez'
     Hide FreeTube Header Logo: ''
     Base Theme:
       Base Theme: 'Tem diazez'
@@ -396,7 +400,7 @@ Settings:
       Solarized Dark: 'Du luc''hahelet'
       Solarized Light: 'Sklaer luc''hahelet'
     Main Color Theme:
-      Main Color Theme: ''
+      Main Color Theme: 'Liv pennañ an tem'
       Red: 'Ruz'
       Pink: 'Roz'
       Purple: 'Mouk'
@@ -420,20 +424,20 @@ Settings:
       Dracula Purple: 'Drakula Mouk'
       Dracula Red: 'Drakula Ruz'
       Dracula Yellow: 'Drakula Melen'
-      Catppuccin Mocha Rosewater: ''
-      Catppuccin Mocha Flamingo: ''
-      Catppuccin Mocha Pink: ''
-      Catppuccin Mocha Mauve: ''
-      Catppuccin Mocha Red: ''
-      Catppuccin Mocha Maroon: ''
-      Catppuccin Mocha Peach: ''
-      Catppuccin Mocha Yellow: ''
-      Catppuccin Mocha Green: ''
-      Catppuccin Mocha Teal: ''
-      Catppuccin Mocha Sky: ''
-      Catppuccin Mocha Sapphire: ''
-      Catppuccin Mocha Blue: ''
-      Catppuccin Mocha Lavender: ''
+      Catppuccin Mocha Rosewater: 'Catppuccin Moka Roz sklaer'
+      Catppuccin Mocha Flamingo: 'Catppuccin Moka Flammeg boutin'
+      Catppuccin Mocha Pink: 'Catppuccin Moka Roz'
+      Catppuccin Mocha Mauve: 'Catppuccin Moka Mouk'
+      Catppuccin Mocha Red: 'Catppuccin Moka Ruz'
+      Catppuccin Mocha Maroon: 'Catppuccin Moka Gell'
+      Catppuccin Mocha Peach: 'Catppuccin Moka Pechez'
+      Catppuccin Mocha Yellow: 'Catppuccin Moka Melen'
+      Catppuccin Mocha Green: 'Catppuccin Moka Gwer'
+      Catppuccin Mocha Teal: 'Catppuccin Moka Glas-gwer'
+      Catppuccin Mocha Sky: 'Catppuccin Moka Glas oabl'
+      Catppuccin Mocha Sapphire: 'Catppuccin Moka Safir'
+      Catppuccin Mocha Blue: 'Catppuccin Moka Glas'
+      Catppuccin Mocha Lavender: 'Catppuccin Moka Lavand'
       Solarized Yellow: 'Melen luc''hahelet'
       Solarized Orange: 'Orañjez luc''hahelet'
       Solarized Red: 'Ruz luc''hahelet'
@@ -751,7 +755,8 @@ Profile:
   No channel(s) have been selected: 'Chadenn ebet diuzet'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
+  : 'Ho profil pennañ eo. Ha sur oc''h e faot deoc''h dilemel ar chadennoù diuzet ?
+    Ar memes chadennoù a vo dilamet deus ho profiloù all.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
   Close Profile Dropdown: ''
   Open Profile Dropdown: ''
@@ -1061,6 +1066,8 @@ Tooltips:
     Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù
       diouzh ar c''hiz a faot deoc''h gwelet.'
     External Link Handling: |
+      Choazit an emzalc'h dre ziouer pa vo kliket war ul liamm ha n'hall ket bezañ digoret gant FreeTube.
+      Dre ziouer, e vo digoret al liamm e-barzh ho merdeer web.
   Player Settings:
     Proxy Videos Through Invidious: ''
     Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video.
@@ -1077,7 +1084,9 @@ Tooltips:
     External Player: ''
     Custom External Player Executable: ''
     Ignore Warnings: ''
-    Ignore Default Arguments: ''
+    Ignore Default Arguments: 'Arabat kas arguzennoù dre ziouer d''al lenner diavaez
+      nemet URL ar video (d.s. feur lenn, URL ar roll-videoioù, etc.). Treuzkaset
+      e vo an arguzennoù personelaet.'
     Custom External Player Arguments: ''
     DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
   Distraction Free Settings:
