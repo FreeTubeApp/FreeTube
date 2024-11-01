@@ -2082,9 +2082,12 @@ export default defineComponent({
           break
         }
         case ',':
-          event.preventDefault()
-          // Return to previous frame
-          frameByFrame(-1)
+          // Toggle mute only if metakey is not pressed
+          if (!event.metaKey) {
+            event.preventDefault()
+            // Return to previous frame
+            frameByFrame(-1)
+          }
           break
         case '.':
           event.preventDefault()
