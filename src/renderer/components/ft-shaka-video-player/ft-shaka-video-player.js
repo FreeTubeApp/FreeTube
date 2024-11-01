@@ -2082,7 +2082,7 @@ export default defineComponent({
           break
         }
         case ',':
-          // Toggle mute only if metakey is not pressed
+          // `⌘+,` is for settings in MacOS
           if (!event.metaKey) {
             event.preventDefault()
             // Return to previous frame
