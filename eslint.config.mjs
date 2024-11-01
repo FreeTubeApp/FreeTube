@@ -10,7 +10,7 @@ import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 import neostandard from 'neostandard'
-import jsdoc from 'eslint-plugin-jsdoc';
+import jsdoc from 'eslint-plugin-jsdoc'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
@@ -41,7 +41,7 @@ export default [
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
-      jsdoc
+      jsdoc,
     },
 
     languageOptions: {
