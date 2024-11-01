@@ -847,38 +847,41 @@ Video:
       CodecAudio: ''
       CodecsVideoAudio: ''
       CodecsVideoAudioNoItags: ''
-    You appear to be offline: ''
-    Playback will resume automatically when your connection comes back: ''
-    Skipped segment: ''
+    You appear to be offline: 'U blyk vanlyn te wees.'
+    Playback will resume automatically when your connection comes back: 'Afspeel sal
+      outomaties hervat wanneer u verbinding terug kom.'
+    Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Nuutste'
+    Oldest: 'Oudste'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  Playlist: ''
-  View Full Playlist: ''
-  Last Updated On: ''
+  Playlist: 'Afspeellys'
+  View Full Playlist: 'Bekyk volledige afspeellys'
+  Last Updated On: 'Laas bygewerk op'
   Sort By:
-    Sort By: ''
-    DateAddedNewest: ''
-    DateAddedOldest: ''
-    AuthorAscending: ''
-    AuthorDescending: ''
-    VideoTitleAscending: ''
-    VideoTitleDescending: ''
-    Custom: ''
+    Sort By: 'Sorteer volgens'
+    DateAddedNewest: 'Laaste toegevoeg boaan'
+    DateAddedOldest: 'Eerste toegevoeg boaan'
+    AuthorAscending: 'Outeur (A-Z)'
+    AuthorDescending: 'Outeur (Z-A)'
+    VideoTitleAscending: 'Titel (A-Z)'
+    VideoTitleDescending: 'Titel (Z-A)'
+    Custom: 'Pasgemaak'
 
 # On Video Watch Page
 #* Published
 #& Views
+    VideoDurationAscending: Duur (korste eerste)
+    VideoDurationDescending: Duur (langste eerste)
 Change Format:
-  Change Media Formats: ''
-  Use Dash Formats: ''
+  Change Media Formats: 'Verander mediaformate'
+  Use Dash Formats: 'Gebruik DASH-formate'
   Use Legacy Formats: 'Gebruik legaatformate'
   Use Audio Formats: 'Gebruik oudioformate'
   Dash formats are not available for this video: 'DASH-formate is nie beskikbaar vir
