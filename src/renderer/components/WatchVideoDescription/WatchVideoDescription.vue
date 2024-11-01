@@ -15,7 +15,7 @@
 import autolinker from 'autolinker'
 
 import FtCard from '../ft-card/ft-card.vue'
-import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
+import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 const props = defineProps({
   description: {
