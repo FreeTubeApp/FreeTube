@@ -879,29 +879,33 @@ Playlist:
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
-  Legacy formats are not available for this video: ''
+  Use Legacy Formats: 'Gebruik legaatformate'
+  Use Audio Formats: 'Gebruik oudioformate'
+  Dash formats are not available for this video: 'DASH-formate is nie beskikbaar vir
+    hierdie video nie'
+  Audio formats are not available for this video: 'Oudioformate is nie beskikbaar
+    vir hierdie video nie'
+  Legacy formats are not available for this video: 'Legaatformate is nie beskikbaar
+    vir hierdie video nie'
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Deel video'
+  Share Channel: 'Deel kanaal'
+  Share Playlist: 'Deel afspeellys'
+  Include Timestamp: 'Sluit tydstempel in'
+  Copy Link: 'Kopieer skakel'
+  Open Link: 'Open skakel'
+  Copy Embed: 'Kopieer inbedskakel'
+  Open Embed: 'Open inbedskakel'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious-URL is na knipbod gekopieer'
+  Invidious Embed URL copied to clipboard: 'Invidious-inbedskakel is na knipbord gekopieer'
+  Invidious Channel URL copied to clipboard: 'Invidious-kanaalskakel is na knipbord
+    gekopieer'
+  YouTube URL copied to clipboard: 'YouTube-skakel is na knipbord gekopieer'
+  YouTube Embed URL copied to clipboard: 'YouTube-inbedskakel is na knipbord gekopieer'
+  YouTube Channel URL copied to clipboard: 'YouTube-kanaalskakel is na knipbord gekopieer'
 Clipboard:
-  Copy failed: ''
+  Copy failed: 'Kopiëring na knipbord het misluk'
   Cannot access clipboard without a secure connection: 'Geen toegang tot knipbord
     sonder ’n beveiligde verbinding'
 
