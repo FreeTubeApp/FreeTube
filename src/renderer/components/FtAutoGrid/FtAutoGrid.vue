@@ -1,8 +1,8 @@
 <template>
   <div
     :class="{
-      grid: grid,
-      list: !grid
+      autoGrid: grid,
+      autoList: !grid
     }"
   >
     <slot />
