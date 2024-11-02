@@ -565,9 +565,11 @@ export default defineComponent({
         },
         autoShowText: shaka.config.AutoShowText.NEVER,
 
-        // Only use variants that are predicted to play smoothly
+        // Prioritise variants that are predicted to play:
+        // - `smooth`: without dropping frames
+        // - `powerEfficient` the spec is quite vague but in Chromium it should prioritise hardware decoding when available
         // https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilities/decodingInfo
-        preferredDecodingAttributes: format === 'dash' ? ['smooth'] : [],
+        preferredDecodingAttributes: format === 'dash' ? ['smooth', 'powerEfficient'] : [],
 
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
