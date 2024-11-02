@@ -43,6 +43,11 @@
   flex-direction: column-reverse;
 }
 
+:deep(.shaka-overflow-menu),
+:deep(.shaka-settings-menu) {
+  max-height: 200px;
+}
+
 .sixteenByNine {
   aspect-ratio: 16 / 9;
 }

@@ -33,6 +33,8 @@
           :title="videoTitle"
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
+          :autoplay-possible="autoplayPossible"
+          :autoplay-enabled="autoplayEnabled"
           :vr-projection="vrProjection"
           class="videoPlayer"
           @error="handlePlayerError"
@@ -40,6 +42,7 @@
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @toggle-autoplay="toggleAutoplay"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -201,7 +204,6 @@
       />
       <watch-video-recommendations
         v-if="!isLoading && !hideRecommendedVideos"
-        :show-autoplay="!watchingPlaylist"
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{
