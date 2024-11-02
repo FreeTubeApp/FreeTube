@@ -12,6 +12,10 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
+/**
+ * @param {string} sortPreference
+ * @returns {string[]}
+ */
 export function getIconForSortPreference(sortPreference) {
   switch (sortPreference) {
     case 'name_descending':
@@ -192,6 +196,11 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   return i18n.t('Video.Publicationtemplate', { number: match[1], unit })
 }
 
+/**
+ * @param {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData} storyboard
+ * @param {number} videoLengthSeconds
+ * @returns {string}
+ */
 export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
@@ -249,6 +258,11 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
+/**
+ * @param {string} message
+ * @param {number} time
+ * @param {Function} action
+ */
 export function showToast(message, time = null, action = null) {
   FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
@@ -260,13 +274,14 @@ export function showToast(message, time = null, action = null) {
 }
 
 /**
-   * This writes to the clipboard. If an error occurs during the copy,
-   * a toast with the error is shown. If the copy is successful and
-   * there is a success message, a toast with that message is shown.
-   * @param {string} content the content to be copied to the clipboard
-   * @param {null|string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
-   * @param {null|string} messageOnError the message to be displayed as a toast when the copy fails (optional)
-   */
+ * This writes to the clipboard. If an error occurs during the copy,
+ * a toast with the error is shown. If the copy is successful and
+ * there is a success message, a toast with that message is shown.
+ * @param {string} content the content to be copied to the clipboard
+ * @param {object} [options] - Optional settings for the copy operation.
+ * @param {null|string} options.messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+ * @param {null|string} options.messageOnError the message to be displayed as a toast when the copy fails (optional)
+ */
 export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null } = {}) {
   if (navigator.clipboard !== undefined && window.isSecureContext) {
     try {
@@ -370,7 +385,7 @@ export async function showOpenDialog (options) {
 /**
  * @param {object} response the response from `showOpenDialog`
  * @param {number} index which file to read (defaults to the first in the response)
- * @returns the text contents of the selected file
+ * @returns {string} the text contents of the selected file
  */
 export function readFileFromDialog(response, index = 0) {
   return new Promise((resolve, reject) => {
@@ -396,6 +411,10 @@ export function readFileFromDialog(response, index = 0) {
   })
 }
 
+/**
+ * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
+ * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
+ */
 export async function showSaveDialog (options) {
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
@@ -423,10 +442,10 @@ export async function showSaveDialog (options) {
 }
 
 /**
-* Write to a file picked out from the `showSaveDialog` picker
-* @param {object} response the response from `showSaveDialog`
-* @param {string} content the content to be written to the file selected by the dialog
-*/
+ * Write to a file picked out from the `showSaveDialog` picker
+ * @param {object} response the response from `showSaveDialog`
+ * @param {string} content the content to be written to the file selected by the dialog
+ */
 export async function writeFileFromDialog (response, content) {
   if (process.env.IS_ELECTRON) {
     const { filePath } = response
@@ -475,7 +494,11 @@ export function createWebURL(path) {
   return `${origin}${windowPath}/${path}`
 }
 
-// strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
+/**
+ * strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
+ * @param {string} value
+ * @returns {string}
+ */
 export function stripHTML(value) {
   return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
 }
@@ -522,6 +545,11 @@ export function formatDurationAsTimestamp(lengthSeconds) {
   return timestamp
 }
 
+/**
+ * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersA
+ * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersB
+ * @returns {boolean}
+ */
 export function searchFiltersMatch(filtersA, filtersB) {
   return filtersA?.sortBy === filtersB?.sortBy &&
     filtersA?.time === filtersB?.time &&
@@ -530,6 +558,10 @@ export function searchFiltersMatch(filtersA, filtersB) {
     filtersA?.features?.length === filtersB?.features?.length && filtersA?.features?.every((val, index) => val === filtersB?.features[index])
 }
 
+/**
+ * @param {string} filenameOriginal
+ * @returns {string}
+ */
 export function replaceFilenameForbiddenChars(filenameOriginal) {
   let filenameNew = filenameOriginal
   let forbiddenChars = {}
@@ -563,6 +595,9 @@ export function replaceFilenameForbiddenChars(filenameOriginal) {
   return filenameNew
 }
 
+/**
+ * @returns {Promise<string>}
+ */
 export async function getSystemLocale() {
   let locale
   if (process.env.IS_ELECTRON) {
@@ -715,6 +750,11 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
     .replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
+/**
+ * @param {number} number
+ * @param {Intl.NumberFormatOptions?} options
+ * @returns {string}
+ */
 export function formatNumber(number, options = undefined) {
   return Intl.NumberFormat([i18n.locale, 'en'], options).format(number)
 }
@@ -730,6 +770,13 @@ export function getTodayDateStrLocalTimezone() {
   return timeNowStr.split('T')[0]
 }
 
+/**
+ *
+ * @param {number} date
+ * @param {boolean} hideSeconds
+ * @param {boolean} useThirtyDayMonths
+ * @returns {string}
+ */
 export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayMonths = true) {
   if (!date) {
     return ''
@@ -800,8 +847,9 @@ export function escapeHTML(untrusted) {
 
 /**
  * Performs a deep copy of a javascript object
- * @param {Object} obj
- * @returns {Object}
+ * @template T
+ * @param {T} obj
+ * @returns {T}
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
@@ -811,7 +859,8 @@ export function deepCopy(obj) {
  * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
  * @param {number} timeoutMs
  * @param {RequestInfo|URL} input
- * @param {RequestInit=} init
+ * @param {RequestInit?} init
+ * @returns {Promise<Response>}
  */
 export async function fetchWithTimeout(timeoutMs, input, init) {
   const timeoutSignal = AbortSignal.timeout(timeoutMs)
@@ -839,6 +888,10 @@ export async function fetchWithTimeout(timeoutMs, input, init) {
   }
 }
 
+/**
+ * @param {KeyboardEvent} event
+ * @param {HTMLInputElement} inputElement
+ */
 export function ctrlFHandler(event, inputElement) {
   switch (event.key) {
     case 'F':
@@ -879,11 +932,13 @@ export function base64EncodeUtf8(text) {
  * @param {string} channelId
  * @param {'all'} type
  * @returns {string}
-*
+ *
  * @param {string} channelId
  * @param {'all' | 'videos' | 'live' | 'shorts'} type
- * @param {'newest' | 'popular'} sortBy
+ * @param {('newest' | 'popular')?} [sortBy]
+ * @returns {string}
  */
+
 export function getChannelPlaylistId(channelId, type, sortBy) {
   switch (type) {
     case 'videos':

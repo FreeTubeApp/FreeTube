@@ -198,10 +198,12 @@ const props = defineProps({
   },
 })
 
+/** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => {
   return store.getters.getListType
 })
 
+/** @type {import('vue').ComputedRef<string[]>} */
 const forbiddenTitles = computed(() => {
   if (!props.hideForbiddenTitles) { return [] }
   return JSON.parse(store.getters.getForbiddenTitles)
@@ -211,10 +213,12 @@ const hideVideo = computed(() => {
   return forbiddenTitles.value.some((text) => props.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
 })
 
+/** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const backendFallback = computed(() => {
   return store.getters.getBackendFallback
 })
@@ -226,11 +230,13 @@ const isInvidiousAllowed = computed(() => {
 let postType = ''
 let postText = ''
 let postId = ''
+/** @type {string[]?} */
 let authorThumbnails = null
 let postContent = ''
 let author = ''
 let authorId = ''
 let voteCount = 0
+/** @type {number?} */
 let commentCount = null
 
 parseCommunityData()

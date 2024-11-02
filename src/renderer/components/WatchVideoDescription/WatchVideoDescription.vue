@@ -60,6 +60,7 @@ function onTimestamp(timestamp) {
 
 /**
  * @param {string} descriptionText
+ * @returns {string}
  */
 function parseDescriptionHtml(descriptionText) {
   return descriptionText
