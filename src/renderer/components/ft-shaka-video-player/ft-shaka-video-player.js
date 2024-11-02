@@ -2084,9 +2084,12 @@ export default defineComponent({
           break
         }
         case ',':
-          event.preventDefault()
-          // Return to previous frame
-          frameByFrame(-1)
+          // `⌘+,` is for settings in MacOS
+          if (!event.metaKey) {
+            event.preventDefault()
+            // Return to previous frame
+            frameByFrame(-1)
+          }
           break
         case '.':
           event.preventDefault()
