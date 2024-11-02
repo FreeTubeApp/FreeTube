@@ -42,6 +42,8 @@ Global:
     Channel Count: 1 kênh | {count} kênh
     Video Count: 1 video | {count} video
     Watching Count: 1 lượt xem | {count} lượt xem
+    Like Count: '{count} lượt thích'
+    Comment Count: '{count} bình luận'
   Input Tags:
     Length Requirement: 1 đang xem | {number} đang xem
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
@@ -81,6 +83,18 @@ Search Filters:
   Fetch more results: 'Lấy thêm kết quả'
 # Sidebar
   There are no more results for this search: Không còn kết quả nào cho tìm kiếm này
+  Features:
+    Features: Chức năng
+    Subtitles: Có phụ đề
+    3D: 3D
+    Creative Commons: Creative Commons
+    Location: Địa điểm
+    HD: HD
+    Live: Trực tiếp
+    4K: 4K
+    360 Video: Video 360 độ
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Đăng ký'
@@ -160,13 +174,14 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 video đã được xóa | {videoCount}
         video đã được xóa
       There were no videos to remove.: Không có video nào để xóa.
+    Search for Videos: Tìm kiếm video
   You have no playlists. Click on the create new playlist button to create a new one.: Bạn
     đang không có danh sách phát nào. Nhấn vào nút tạo danh sách phát mới để tạo một
     cái mới.
   This playlist currently has no videos.: Danh sách phát này hiện không có video nào.
   Edit Playlist Info: Chỉnh sửa thông tin danh sách phát
   Are you sure you want to delete this playlist? This cannot be undone: Bạn có chắc
-    muốn xóa danh sách phát này?Việc này không thể hoàn tác.
+    muốn xóa danh sách phát này? Việc này sẽ không thể được hoàn tác.
   CreatePlaylistPrompt:
     Create: Tạo mới
     Toast:
@@ -202,6 +217,16 @@ User Playlists:
   Move Video Down: Chuyển video xuống
   Move Video Up: Chuyển video lên
   Delete Playlist: Xóa danh sách phát
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bạn
+    có chắc muốn loại bỏ {playlistItemCount} video trùng lặp khỏi danh sách phát này
+    không? Việc này sẽ không thể được hoàn tác.
+  Cannot delete the quick bookmark target playlist.: Không thể xóa danh sách phát
+    vì nó được dùng cho dấu trang nhanh.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bạn
+    có chắc muốn loại bỏ {playlistItemCount} video đã xem khỏi danh sách phát này
+    không? Việc này sẽ không thể được hoàn tác.
+  Quick Bookmark Enabled: Dấu trang nhanh đã bật
+  Remove Duplicate Videos: Loại bỏ các video trùng lặp
 History:
   # On History Page
   History: 'Lịch sử'
@@ -1042,3 +1067,15 @@ Playlist will pause when current video is finished: Danh sách phát sẽ tạm 
   video hiện tại kết thúc
 Trimmed input must be at least N characters long: Dữ liệu nhập bị cắt bớt phải dài
   ít nhất 1 ký tự | Dữ liệu nhập bị cắt bớt phải dài ít nhất {length} ký tự
+Feed:
+  Refresh Feed: Tải lại {subscriptionName}
+  Feed Last Updated: 'Lần cuối cập nhật {feedName}: {date}'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Có phụ đề
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Mới
+    3D: 3D
