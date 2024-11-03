@@ -785,38 +785,8 @@ Video:
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
-    Jan: 'sij.'
-    Feb: 'velj.'
-    Mar: 'ožu.'
-    Apr: 'tra.'
-    May: 'svi.'
-    Jun: 'lip.'
-    Jul: 'srp.'
-    Aug: 'kol.'
-    Sep: 'ruj.'
-    Oct: 'lis.'
-    Nov: 'stu.'
-    Dec: 'pro.'
-    Second: 's'
-    Seconds: 's'
-    Minute: 'min'
-    Minutes: 'min'
-    Hour: 'h'
-    Hours: 'h'
-    Day: 'dan'
-    Days: 'dana'
-    Week: 'tj.'
-    Weeks: 'tj.'
-    Month: 'mj.'
-    Months: 'mj.'
-    Year: 'god.'
-    Years: 'god.'
-    Ago: 'Prije'
-    Upcoming: 'Premijera'
-    Less than a minute: Manje od jedne minute
     In less than a minute: Manje od jedne minute
   Published on: 'Objavljeno'
-  Publicationtemplate: 'prije {number} {unit}'
 #& Videos
   Autoplay: Automatska reprodukcija
   Play Previous Video: Reproduciraj prethodni video

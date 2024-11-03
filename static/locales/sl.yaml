@@ -506,37 +506,8 @@ Video:
     v živo trenutno ni podprt v Invidious APV.  Potrebna je neposredna povezava z
     YouTubom.'
   Published:
-    Jan: 'jan.'
-    Feb: 'feb.'
-    Mar: 'mar.'
-    Apr: 'apr.'
-    May: 'maj'
-    Jun: 'jun.'
-    Jul: 'jul.'
-    Aug: 'avg.'
-    Sep: 'sep.'
-    Oct: 'okt.'
-    Nov: 'nov.'
-    Dec: 'dec.'
-    Second: 'sekunda'
-    Seconds: 'sekunde'
-    Minute: 'minuta'
-    Minutes: 'minute'
-    Hour: 'h'
-    Hours: 'h'
-    Day: 'd'
-    Days: 'd'
-    Week: 'ted.'
-    Weeks: 'tedni'
-    Month: 'mesec'
-    Months: 'meseci'
-    Year: 'let.'
-    Years: 'leta'
-    Ago: 'Nazaj'
-    Upcoming: 'Kmalu bo objavljeno'
     In less than a minute: Manj kot minuti
   Published on: 'Objavljeno dne'
-  Publicationtemplate: '{number} {unit} nazaj'
 #& Videos
   audio only: Samo avdio
   video only: Samo video

@@ -9,8 +9,8 @@ import {
   escapeHTML,
   extractNumberFromString,
   getChannelPlaylistId,
+  getRelativeTimeFromDate,
   randomArrayItem,
-  toLocalePublicationString
 } from '../utils'
 
 const TRACKING_PARAM_NAMES = [
@@ -1355,7 +1355,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     const comment_ = comment
 
     parsed.memberIconUrl = comment_.is_member ? comment_.sponsor_comment_badge.custom_badge[0].url : ''
-    parsed.time = toLocalePublicationString({ publishText: comment_.published.text.replace('(edited)', '').trim() })
+    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(comment_.published.text.replace('(edited)', '').trim()), false)
     parsed.likes = comment_.vote_count
     parsed.numReplies = comment_.reply_count
   } else {
@@ -1363,7 +1363,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     const commentView = comment
 
     parsed.memberIconUrl = commentView.is_member ? commentView.member_badge.url : ''
-    parsed.time = toLocalePublicationString({ publishText: commentView.published_time.replace('(edited)', '').trim() })
+    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(commentView.published_time.replace('(edited)', '').trim()), false)
     parsed.likes = commentView.like_count
     parsed.numReplies = parseLocalSubscriberCount(commentView.reply_count)
   }

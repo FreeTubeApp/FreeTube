@@ -812,38 +812,8 @@ Video:
     conversa em direto não se encontra a funcionar com a API Invividious. É necessária
     uma ligação direta ao YouTube.'
   Published:
-    Jan: 'jan'
-    Feb: 'fev'
-    Mar: 'mar'
-    Apr: 'abr'
-    May: 'mai'
-    Jun: 'jun'
-    Jul: 'jul'
-    Aug: 'ago'
-    Sep: 'set'
-    Oct: 'out'
-    Nov: 'nov'
-    Dec: 'dez'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Minute: 'Minuto'
-    Minutes: 'Minutos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Dia'
-    Days: 'Dias'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mês'
-    Months: 'Meses'
-    Year: 'Ano'
-    Years: 'Anos'
-    Ago: 'Há'
-    Upcoming: 'Estreia em'
-    Less than a minute: Menos de um minuto
     In less than a minute: Em menos de um minuto
   Published on: 'Publicado a'
-  Publicationtemplate: 'Há {number} {unit}'
 #& Videos
   Starting soon, please refresh the page to check again: Irá começar brevemente. Recarregue
     a página para reanalisar

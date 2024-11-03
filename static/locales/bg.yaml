@@ -826,38 +826,8 @@ Video:
     на живо не се поддържа от интерфейса на Invidious. Изисква се директна връзка
     с YouTube.'
   Published:
-    Jan: 'Ян.'
-    Feb: 'Фев.'
-    Mar: 'Март'
-    Apr: 'Апр.'
-    May: 'Май'
-    Jun: 'Юни'
-    Jul: 'Юли'
-    Aug: 'Авг.'
-    Sep: 'Септ.'
-    Oct: 'Окт.'
-    Nov: 'Ное.'
-    Dec: 'Дек.'
-    Second: 'секунда'
-    Seconds: 'секунди'
-    Minute: 'минута'
-    Minutes: 'минути'
-    Hour: 'час'
-    Hours: 'часа'
-    Day: 'ден'
-    Days: 'дни'
-    Week: 'седмица'
-    Weeks: 'седмици'
-    Month: 'месец'
-    Months: 'месеца'
-    Year: 'година'
-    Years: 'години'
-    Ago: 'преди'
-    Upcoming: 'Премиера на'
-    Less than a minute: По-малко от минута
     In less than a minute: След по-малко от минута
   Published on: 'Публикувано на'
-  Publicationtemplate: 'Преди {number} {unit}'
 #& Videos
   audio only: само аудио
   video only: само видео

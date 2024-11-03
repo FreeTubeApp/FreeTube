@@ -774,38 +774,8 @@ Video:
     wird von der Invidious-API derzeit nicht unterstützt. Eine direkte Verbindung
     zu YouTube ist erforderlich.
   Published:
-    Jan: Jan
-    Feb: Feb
-    Mar: Mär
-    Apr: Apr
-    May: Mai
-    Jun: Jun
-    Jul: Jul
-    Aug: Aug
-    Sep: Sep
-    Oct: Okt
-    Nov: Nov
-    Dec: Dez
-    Second: Sekunde
-    Seconds: Sekunden
-    Hour: Stunde
-    Hours: Stunden
-    Day: Tag
-    Days: Tage
-    Week: Woche
-    Weeks: Wochen
-    Month: Monat
-    Months: Monate
-    Year: Jahr
-    Years: Jahre
-    Ago: vor
-    Upcoming: Premiere am
-    Minutes: Minuten
-    Minute: Minute
-    Less than a minute: Weniger als einer Minute
     In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
-  Publicationtemplate: vor {number} {unit}
 
 #& Videos
   Video has been removed from your history: Video wurde aus deinem Verlauf entfernt

@@ -427,37 +427,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
     chat en vivo no esta soportado actualmente con la API de Invidious. Es necesaria
     una conexión directa a YouTube.'
-  Published:
-    Jan: 'Ene'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Abr'
-    May: 'May'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Ago'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Dic'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Dia'
-    Days: 'Dias'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mes'
-    Months: 'Meses'
-    Year: 'Año'
-    Years: 'Años'
-    Ago: 'Hace'
-    Upcoming: 'Pronto en estreno'
-    Minutes: minutos
-    Minute: minuto
   Published on: 'Publicado en'
-  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Autoplay: Reproducción Automática
   Play Previous Video: Reproducir el video anterior

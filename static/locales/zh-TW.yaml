@@ -672,38 +672,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
   Published:
-    Jan: '一月'
-    Feb: '二月'
-    Mar: '三月'
-    Apr: '四月'
-    May: '五月'
-    Jun: '六月'
-    Jul: '七月'
-    Aug: '八月'
-    Sep: '九月'
-    Oct: '十月'
-    Nov: '十一月'
-    Dec: '十二月'
-    Second: '秒'
-    Seconds: '秒'
-    Hour: '小時'
-    Hours: '小時'
-    Day: '日'
-    Days: '日'
-    Week: '周'
-    Weeks: '周'
-    Month: '月'
-    Months: '月'
-    Year: '年'
-    Years: '年'
-    Ago: '前'
-    Upcoming: '首播於'
-    Minutes: 分鐘
-    Minute: 分鐘
-    Less than a minute: 少於一分鐘
     In less than a minute: 不到一分鐘內
   Published on: '發布於'
-  Publicationtemplate: '{number} {unit} 前'
 #& Videos
   Video has been removed from your history: 影片已從您的觀看紀錄中移除
   Video has been marked as watched: 影片標記為已觀看

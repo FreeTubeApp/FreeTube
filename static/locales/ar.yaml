@@ -790,38 +790,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'المحادثة
     المباشرة غير مدعومة حالياً مع Invidious API. يلزم الاتصال المباشر بيوتيوب.'
   Published:
-    Jan: 'يناير'
-    Feb: 'فبراير'
-    Mar: 'مارس'
-    Apr: 'أبريل'
-    May: 'مايو'
-    Jun: 'يونيو'
-    Jul: 'يوليو'
-    Aug: 'أغسطس'
-    Sep: 'سبتمبر'
-    Oct: 'أكتوبر'
-    Nov: 'نوفمبر'
-    Dec: 'ديسمبر'
-    Second: 'ثانية'
-    Seconds: 'ثواني'
-    Minute: 'دقيقة'
-    Minutes: 'دقائق'
-    Hour: 'ساعة'
-    Hours: 'ساعات'
-    Day: 'يوم'
-    Days: 'أيام'
-    Week: 'أسبوع'
-    Weeks: 'أسابيع'
-    Month: 'شهر'
-    Months: 'شهور'
-    Year: 'سنة'
-    Years: 'سنوات'
-    Ago: 'منذ'
-    Upcoming: 'يبدأ العرض'
-    Less than a minute: أقل من دقيقة
     In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
-  Publicationtemplate: 'قبل {number} {unit}'
 #& Videos
   Autoplay: تشغيل تلقائي
   Play Previous Video: شغل الفيديو السابق

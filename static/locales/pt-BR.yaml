@@ -761,38 +761,8 @@ Video:
     chat ao vivo não é suportado pela API do Invidious. Uma conexão com o YouTube
     é necessária.'
   Published:
-    Jan: 'jan'
-    Feb: 'fev'
-    Mar: 'mar'
-    Apr: 'abr'
-    May: 'mai'
-    Jun: 'jun'
-    Jul: 'jul'
-    Aug: 'ago'
-    Sep: 'set'
-    Oct: 'out'
-    Nov: 'nov'
-    Dec: 'dez'
-    Second: 'segundo'
-    Seconds: 'segundos'
-    Hour: 'hora'
-    Hours: 'horas'
-    Day: 'dia'
-    Days: 'dias'
-    Week: 'semana'
-    Weeks: 'semanas'
-    Month: 'mês'
-    Months: 'meses'
-    Year: 'ano'
-    Years: 'anos'
-    Ago: 'atrás'
-    Upcoming: 'Estreia em'
-    Minutes: minutos
-    Minute: minuto
-    Less than a minute: Menos de um minuto
     In less than a minute: Em menos de um minuto
   Published on: 'Publicado em'
-  Publicationtemplate: 'Há {number} {unit}'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em

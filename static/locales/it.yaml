@@ -774,38 +774,8 @@ Video:
     chat dal vivo non è attualmente supportata con le API di Invidious. È necessaria
     una connessione diretta a YouTube.'
   Published:
-    Jan: 'Gen'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mag'
-    Jun: 'Giu'
-    Jul: 'Lug'
-    Aug: 'Ago'
-    Sep: 'Set'
-    Oct: 'Ott'
-    Nov: 'Nov'
-    Dec: 'Dic'
-    Second: 'Secondo'
-    Seconds: 'Secondi'
-    Hour: 'Ora'
-    Hours: 'Ore'
-    Day: 'Giorno'
-    Days: 'Giorni'
-    Week: 'Settimana'
-    Weeks: 'Settimane'
-    Month: 'Mese'
-    Months: 'Mesi'
-    Year: 'Anno'
-    Years: 'Anni'
-    Ago: 'Fa'
-    Upcoming: 'Première il'
-    Minutes: Minuti
-    Minute: Minuto
-    Less than a minute: Meno di un minuto
     In less than a minute: In meno di un minuto
   Published on: 'Pubblicato il'
-  Publicationtemplate: '{number} {unit} fa'
 #& Videos
   Play Previous Video: Riproduci il video precedente
   Play Next Video: Riproduci il prossimo video

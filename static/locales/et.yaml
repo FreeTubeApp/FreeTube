@@ -813,37 +813,8 @@ Video:
     kasutad Invidious''e veebiteenuse-põhist API''t, siis reaalajas vestlus ei ole
     toetatud. Selleks on vajalik otseliidestus YouTube''ga.'
   Published:
-    Jan: 'Jaan'
-    Feb: 'Veeb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'Juuni'
-    Jul: 'Juuli'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dets'
-    Second: 'Sekund'
-    Seconds: 'Sekundit'
-    Minute: 'Minut'
-    Minutes: 'Minutit'
-    Hour: 'Tund'
-    Hours: 'Tundi'
-    Day: 'Päev'
-    Days: 'Päeva'
-    Week: 'Nädal'
-    Weeks: 'Nädalat'
-    Month: 'Kuu'
-    Months: 'Kuud'
-    Year: 'Aasta'
-    Years: 'Aastat'
-    Ago: 'tagasi'
-    Upcoming: 'Esilinastus'
     In less than a minute: Vähem kui minuti pärast
   Published on: 'Avaldatud'
-  Publicationtemplate: '{number} {unit} tagasi'
 #& Videos
   Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
   Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
