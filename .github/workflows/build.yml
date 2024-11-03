@@ -88,7 +88,7 @@ jobs:
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu')
-      run: sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(job) }} ${{ toJson(needs) }}"
+      run: sudo apt update; sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(job) }} ${{ toJson(needs) }}"
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
