@@ -34,34 +34,46 @@ export function useI18n() {
  * @overload
  * @param {string} key
  * @returns {string}
- *
+ */
+
+/**
  * @overload
  * @param {string} key
  * @param {number} plural
  * @returns {string}
- *
+ */
+
+/**
  * @overload
  * @param {string} key
  * @param {unknown[]} list
  * @returns {string}
- *
+ */
+
+/**
  * @overload
  * @param {string} key
  * @param {unknown[]} list
  * @param {number} plural
  * @returns {string}
- *
+ */
+
+/**
  * @overload
  * @param {string} key
  * @param {Record<string, unknown>} named
  * @returns {string}
- *
+ */
+
+/**
  * @overload
  * @param {string} key
  * @param {Record<string, unknown>} named
  * @param {number} plural
  * @returns {string}
- *
+ */
+
+/**
  * @param {string} key
  * @param {number | unknown[] | Record<string, unknown> | undefined} arg1
  * @param {number | undefined} arg2
