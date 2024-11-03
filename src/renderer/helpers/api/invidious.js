@@ -142,6 +142,11 @@ export async function invidiousGetCommentReplies({ id, replyToken }) {
   return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
 }
 
+/**
+ * @param {string} url
+ * @param {string?} currentInstance
+ * @returns {string}
+ */
 export function youtubeImageUrlToInvidious(url, currentInstance = null) {
   if (url == null) {
     return null

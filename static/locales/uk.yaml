@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 підписник | {count} підписників
     View Count: 1 перегляд | {count} переглядів
     Watching Count: 1 глядач | {count} глядачів
+    Like Count: 1 вподобання | {count} вподобань
+    Comment Count: 1 коментар | {count} коментарів
   Input Tags:
     Length Requirement: Тег повинен мати довжину не менше {number} символів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
@@ -88,6 +90,17 @@ Search Filters:
   Fetch more results: 'Завантажити більше результатів'
 # Sidebar
   There are no more results for this search: Більше результатів для цього пошуку немає
+  Features:
+    Features: Функції
+    HD: HD
+    Subtitles: Субтитри
+    Live: Наживо
+    4K: 4K
+    360 Video: 360 Відео
+    Location: Розташування
+    HDR: HDR
+    VR180: VR180
+    3D: 3D
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
@@ -96,7 +109,9 @@ Subscriptions:
     профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження
     швидкості'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
-    список Підписок на разі пустий. Почніть додавати підписки щоб побачити їх тут.'
+    список підписок наразі порожній. Якщо ви хочете імпортувати свої підписки, ви
+    можете перейти до Налаштувань Даних і вибрати Імпортувати Підписки або знайти
+    канал і підписатися на нього.'
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
@@ -954,3 +969,15 @@ Channel Hidden: '{channel} додано до фільтра каналу'
 Go to page: Перейти до {page}
 Channel Unhidden: '{channel} вилучено з фільтра каналу'
 Close Banner: Закрити банер
+Search character limit: Пошуковий запит перевищив ліміт у {searchCharacterLimit} символів
+Feed:
+  Refresh Feed: Оновити {subscriptionName}
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Субтитри
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: New
+    3D: 3D

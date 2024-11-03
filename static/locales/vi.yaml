@@ -42,6 +42,8 @@ Global:
     Channel Count: 1 kênh | {count} kênh
     Video Count: 1 video | {count} video
     Watching Count: 1 lượt xem | {count} lượt xem
+    Like Count: '{count} lượt thích'
+    Comment Count: '{count} bình luận'
   Input Tags:
     Length Requirement: 1 đang xem | {number} đang xem
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
@@ -81,12 +83,26 @@ Search Filters:
   Fetch more results: 'Lấy thêm kết quả'
 # Sidebar
   There are no more results for this search: Không còn kết quả nào cho tìm kiếm này
+  Features:
+    Features: Chức năng
+    Subtitles: Có phụ đề
+    3D: 3D
+    Creative Commons: Creative Commons
+    Location: Địa điểm
+    HD: HD
+    Live: Trực tiếp
+    4K: 4K
+    360 Video: Video 360 độ
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Đăng ký'
   Latest Subscriptions: 'Đăng ký mới nhất'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Danh
-    sách Đăng ký đang trống. Bắt đầu thêm đăng ký để xem chúng tại đây.'
+    sách Đăng ký đang trống. Bắt đầu bằng cách tìm kiếm và đăng ký các kênh hoặc nhập
+    các đăng ký hiện có của bạn bằng cách đi đến Cài đặt dữ liệu và nhấn vào Nhập
+    đăng ký.'
   'Getting Subscriptions.  Please wait.': 'Đang lấy Đăng ký. Vui lòng đợi.'
   'Getting Subscriptions. Please wait.': Đang lấy Đăng ký. Vui lòng chờ.
   Load More Videos: Tải thêm video
@@ -113,9 +129,9 @@ Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
 User Playlists:
   Your Playlists: 'Danh sách phát của bạn'
-  Search bar placeholder: Tìm kiếm trong danh sách phát
-  Empty Search Message: Không có video nào trong danh sách này trùng với những gì
-    bạn đang tìm
+  Search bar placeholder: Tìm kiếm danh sách phát
+  Empty Search Message: Không có video nào trong danh sách phát này trùng với những
+    gì bạn đang tìm
   Remove from Playlist: Xóa khỏi danh sách phát
   Playlist Name: Tên danh sách phát
   Save Changes: Lưu thay đổi
@@ -160,13 +176,21 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 video đã được xóa | {videoCount}
         video đã được xóa
       There were no videos to remove.: Không có video nào để xóa.
+      This playlist is already being used for quick bookmark.: Danh sách phát này
+        đã được dùng cho dấu trang nhanh rồi.
+      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
+        giờ đã là danh sách phát cho dấu trang nhanh.'
+      This playlist has a video with a duration error: Danh sách phát này có chứa
+        một video trở lên không có thông tin thời lượng và sẽ được coi như thời lượng
+        bằng không.
+    Search for Videos: Tìm kiếm video
   You have no playlists. Click on the create new playlist button to create a new one.: Bạn
     đang không có danh sách phát nào. Nhấn vào nút tạo danh sách phát mới để tạo một
     cái mới.
   This playlist currently has no videos.: Danh sách phát này hiện không có video nào.
   Edit Playlist Info: Chỉnh sửa thông tin danh sách phát
   Are you sure you want to delete this playlist? This cannot be undone: Bạn có chắc
-    muốn xóa danh sách phát này?Việc này không thể hoàn tác.
+    muốn xóa danh sách phát này? Việc này sẽ không thể được hoàn tác.
   CreatePlaylistPrompt:
     Create: Tạo mới
     Toast:
@@ -190,6 +214,12 @@ User Playlists:
       "{videoCount} video(s) added to 1 playlist": Đã thêm 1 video vào 1 danh sách
         phát | Đã thêm {videoCount} vào 1 danh sách phát
     Save: Lưu
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      đã có trong danh sách phát'
+    Added {count} Times: Đã được thêm | Đã được thêm {count} lần
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      video sẽ được thêm'
+    Allow Adding Duplicate Video(s): Cho phép thêm video trùng lặp
   Create New Playlist: Tạo danh sách phat mới
   Playlist Description: Mô tả danh sách phát
   Copy Playlist: Sao chép danh sách phát
@@ -202,6 +232,17 @@ User Playlists:
   Move Video Down: Chuyển video xuống
   Move Video Up: Chuyển video lên
   Delete Playlist: Xóa danh sách phát
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bạn
+    có chắc muốn loại bỏ {playlistItemCount} video trùng lặp khỏi danh sách phát này
+    không? Việc này sẽ không thể được hoàn tác.
+  Cannot delete the quick bookmark target playlist.: Không thể xóa danh sách phát
+    vì nó được dùng cho dấu trang nhanh.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bạn
+    có chắc muốn loại bỏ {playlistItemCount} video đã xem khỏi danh sách phát này
+    không? Việc này sẽ không thể được hoàn tác.
+  Quick Bookmark Enabled: Dấu trang nhanh đã bật
+  Remove Duplicate Videos: Loại bỏ các video trùng lặp
+  Playlists with Matching Videos: Bao gồm video trong danh sách phát
 History:
   # On History Page
   History: 'Lịch sử'
@@ -210,11 +251,12 @@ History:
   Search bar placeholder: Tìm trong lịch sử
   Empty Search Message: Không có video nào trong lịch sử của bạn trùng với những gì
     bạn đang tìm kiếm
+  Case Sensitive Search: Phân biệt hoa thường
 Settings:
   # On Settings Page
   Settings: 'Cài đặt'
   General Settings:
-    General Settings: 'Cài đặt chung'
+    General Settings: 'Chung'
     Fallback to Non-Preferred Backend on Failure: 'Trở về Backend không mong muốn
       khi có lỗi'
     Enable Search Suggestions: 'Bật gợi ý tìm kiếm'
@@ -255,8 +297,11 @@ Settings:
       External Link Handling: Xử lý liên kết bên ngoài
     View all Invidious instance information: Xem tất cả thông tin phiên bản Invidious
     System Default: Mặc định hệ thống
+    Auto Load Next Page:
+      Tooltip: Tự động tải các trang video và bình luận.
+      Label: Tự động nhấn tải thêm
   Theme Settings:
-    Theme Settings: 'Cài đặt chủ đề'
+    Theme Settings: 'Chủ đề'
     Match Top Bar with Main Color: 'Khớp thanh trên cùng với màu chính'
     Base Theme:
       Base Theme: 'Chủ đề mặc định'
@@ -269,6 +314,8 @@ Settings:
       Nordic: Nordic
       Pastel Pink: Hồng phấn tiên
       Hot Pink: Hồng nóng bỏng
+      Solarized Dark: Solarized Tối
+      Solarized Light: Solarized Sáng
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -308,6 +355,9 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire màu xanh
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender Màu tím nhạt
       Catppuccin Mocha Blue: Catppuccin Mocha Blue Màu xanh
+      Solarized Yellow: Solarized Vàng
+      Solarized Orange: Solarized Cam
+      Solarized Red: Solarized Đỏ
     Secondary Color Theme: 'Màu chủ đề phụ'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -316,7 +366,7 @@ Settings:
     Hide Side Bar Labels: Ẩn nhãn thanh bên
     Hide FreeTube Header Logo: Ẩn logo FreeTube trên thanh trên
   Player Settings:
-    Player Settings: 'Cài đặt trình phát'
+    Player Settings: 'Trình phát'
     Play Next Video: 'Phát video tiếp theo'
     Turn on Subtitles by Default: 'Bật phụ đề theo mặc định'
     Autoplay Videos: 'Tự phát video'
@@ -368,12 +418,13 @@ Settings:
     Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay
     Skip by Scrolling Over Video Player: Tua video bằng con lăn chuột
   Subscription Settings:
-    Subscription Settings: 'Cài đặt đăng ký'
+    Subscription Settings: 'Đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
     Fetch Feeds from RSS: Cập nhật bảng tin qua RSS
     Fetch Automatically: Tự động làm mới bảng tin
     Only Show Latest Video for Each Channel: Chỉ hiện video mới nhất cho mỗi kênh
 
+    Confirm Before Unsubscribing: Nhắc xác nhận trước khi hủy đăng ký
   Data Settings:
     How do I import my subscriptions?: Làm sao để tôi nhập đăng ký?
     Unknown data key: Key dữ liệu không xác định
@@ -404,7 +455,7 @@ Settings:
     Import Subscriptions: Nhập đăng ký
     Select Export Type: Chọn kiểu xuất ra
     Select Import Type: Chọn kiểu nhập vào
-    Data Settings: Cài đặt dữ liệu
+    Data Settings: Dữ liệu
     Manage Subscriptions: Quản lý đăng ký
     Import Playlists: Nhập danh sách phát
     All playlists has been successfully imported: Tất cả các danh sách phát đã được
@@ -434,7 +485,7 @@ Settings:
     Hide Channel Subscribers: Ẩn số người đăng ký
     Hide Video Likes And Dislikes: Ẩn lượt thích và không thích
     Hide Video Views: Ẩn lượt xem
-    Distraction Free Settings: Cài đặt không phân tâm
+    Distraction Free Settings: Giảm phân tâm
     Hide Active Subscriptions: Ẩn đăng ký hiện hoạt
     Hide Playlists: Ẩn danh sách phát
     Hide Comments: Ẩn bình luận
@@ -452,7 +503,7 @@ Settings:
     Hide Channels Placeholder: ID kênh
     Hide Profile Pictures in Comments: Ẩn ảnh đại diện trong bình luận
     Hide Chapters: Ẩn các chương
-    Hide Channels: Ẩn các video khỏi kênh
+    Hide Channels: Ẩn video từ các kênh
     Hide Channel Releases: Ẩn nhạc của kênh
     Hide Videos and Playlists Containing Text: Ẩn các video và danh sách phát có chứa
     Hide Channels Invalid: ID kênh không hợp lệ
@@ -482,7 +533,7 @@ Settings:
     Clear Search Cache: Xóa cache tìm kiếm
     Save Watched Progress: Lưu quá trình xem
     Remember History: Nhớ lịch sử
-    Privacy Settings: Cài đặt quyền riêng tư
+    Privacy Settings: Quyền riêng tư
     Remove All Playlists: Xóa tất cả danh sách phát
     Are you sure you want to remove all your playlists?: Bạn có chắc muốn xóa tất
       cả các danh sách phát không?
@@ -496,7 +547,7 @@ Settings:
     Proxy Host: Máy chủ proxy
     Region: Vùng
     Country: Quốc gia
-    Proxy Settings: Cài đặt proxy
+    Proxy Settings: Proxy
     Enable Tor / Proxy: Bật Tor / Proxy
     Proxy Protocol: Giao thức proxy
     Proxy Port Number: Số cổng proxy
@@ -520,13 +571,13 @@ Settings:
       Do Nothing: Không làm gì
     Notify when sponsor segment is skipped: Thông báo khi đoạn quảng cáo bị bỏ qua
     Category Color: Bản màu
-    SponsorBlock Settings: Cài đặt SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
       API ảnh xem trước DeArrow (Mặc định là https://dearrow-thumb.ajay.app)
     UseDeArrowTitles: Dùng tiêu đề video từ DeArrow
     UseDeArrowThumbnails: Dùng ảnh xem trước từ DeArrow
   External Player Settings:
-    External Player Settings: Cài đặt trình phát video bên ngoài
+    External Player Settings: Trình phát ngoại
     External Player: Trình phát video bên ngoài
     Custom External Player Arguments: Tham số trình phát bên ngoài tùy chỉnh
     Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
@@ -536,7 +587,7 @@ Settings:
         Name: Trống
     Ignore Default Arguments: Bỏ qua tham số mặc định
   Parental Control Settings:
-    Parental Control Settings: Cài đặt kiểm soát của phụ huynh
+    Parental Control Settings: Kiểm soát của phụ huynh
     Hide Unsubscribe Button: Ẩn nút huỷ đăng ký
     Show Family Friendly Only: Chỉ hiển thị nội dung thân thiện với gia đình
     Hide Search Bar: Ẩn thanh tìm kiếm
@@ -546,7 +597,7 @@ Settings:
     Open in web browser: Mở trên trình duyệt
     Ask Download Path: Yêu cầu đường dẫn tải xuống
     Choose Path: Chọn đường dẫn
-    Download Settings: Cài đặt tải xuống
+    Download Settings: Tải xuống
   Password Dialog:
     Password: Mật khẩu
     Password Incorrect: Mật khẩu sai
@@ -554,15 +605,17 @@ Settings:
     Unlock: Mở khoá
   Password Settings:
     Set Password To Prevent Access: Đặt mặt khẩu để ngăn truy cập cài đặt
-    Password Settings: Cài đặt mật khẩu
+    Password Settings: Mật khẩu
     Remove Password: Xoá mật khẩu
     Set Password: Đặt mật khẩu
   Experimental Settings:
     Warning: Những cài đặt này đều đang trong quá trình thử nghiệm, bật các tùy chọn
       cài đặt này có thể gây ra hoạt động bất ổn định. Hãy tạo phương án dự phòng
       trước khi bật!
-    Experimental Settings: Cài đặt thử nghiệm
+    Experimental Settings: Thử nghiệm
     Replace HTTP Cache: Thay thế bộ đệm HTTP
+  Return to Settings Menu: Quay lại menu Cài đặt
+  Sort Settings Sections (A-Z): Sắp xếp các mục cài đặt (A-Z)
 About:
   #On About page
   About: 'Giới thiệu'
@@ -592,6 +645,8 @@ About:
   these people and projects: những người và dự án này
   Please read the: Hãy đọc
   Discussions: Thảo luận
+  Licensed under the: Được cấp phép theo
+  AGPLv3: giấy phép AGPLv3
 Channel:
   Subscribe: 'Đăng ký'
   Unsubscribe: 'Hủy đăng ký'
@@ -643,6 +698,7 @@ Channel:
     Reveal Answers: Hiện Câu trả lời
     Hide Answers: Ẩn Câu trả lời
     Video hidden by FreeTube: FreeTube đã ẩn video này
+    View Full Post: Mở rộng bài đăng
   Releases:
     Releases: Xuất bản
     This channel does not currently have any releases: Kênh này hiện không có bất
@@ -775,6 +831,43 @@ Video:
   Upcoming: Sắp ra mắt
   Premieres: Công chiếu
   Unhide Channel: Hiển thị kênh này
+  Player:
+    Show Stats: Hiện thông tin nâng cao
+    Hide Stats: Ẩn thông tin nâng cao
+    Stats:
+      CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
+      Bandwidth: 'Băng thông: {bandwidth} kbps'
+      Resolution: 'Độ phân ảnh: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Kích thước trình xem: {width}x{height}'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      Bitrate: 'Tốc độ bit: {bitrate} kbps'
+      Volume: 'Âm lượng: {volumePercentage}%'
+      Buffered: 'Đã tải trước: {bufferedPercentage}%'
+      Video ID: 'ID video: {videoId}'
+      Stats: Thông tin nâng cao
+      Media Formats: 'Định dạng: {formats}'
+      Dropped Frames / Total Frames: 'Khung bị bỏ: {droppedFrames} / tổng số khung:
+        {totalFrames}'
+    Skipped segment: Đã bỏ qua phân đoạn {segmentCategory}
+    You appear to be offline: Bạn có vẻ đang offline.
+    Playback will resume automatically when your connection comes back: Trình phát
+      sẽ tự động tiếp tục khi bạn kết nối trở lại.
+    TranslatedCaptionTemplate: '{language} (được dịch từ "{originalLanguage}")'
+    Audio Tracks: Rãnh âm thanh
+    Theatre Mode: Chế độ rạp hát
+    Exit Theatre Mode: Thoát chế độ rạp hát
+    Full Window: Toàn màn hình
+    Exit Full Window: Thoát toàn màn hình
+    Take Screenshot: Chụp ảnh màn hình
+  MembersOnly: Các video trả phí không thể được xem qua FreeTube vì chúng yêu cầu
+    đăng nhập qua một tài khoản Google có đăng kí trả phí với kênh đã đăng các video
+    đó.
+  AgeRestricted: Các video giới hạn độ tuổi không thể được xem qua FreeTube vì chúng
+    yêu cầu đăng nhập qua Google và sử dụng một tài khoản YouTube đã được xác minh
+    độ tuổi.
+  IP block: YouTube đang chặn địa chị IP của bạn khỏi việc xem video. Hãy thử sử dụng
+    một VPN hoặc proxy khác.
 Videos:
   #& Sort By
   Sort By:
@@ -791,6 +884,17 @@ Playlist:
 #* Published
 #& Views
   Playlist: Danh sách phát
+  Sort By:
+    VideoDurationAscending: Thời lượng (Ngắn nhất trước)
+    DateAddedOldest: Thêm vào cũ nhất
+    AuthorDescending: Tác giả (Z-A)
+    VideoTitleAscending: Tiêu đề (A-Z)
+    VideoDurationDescending: Thời lượng (Dài nhất trước)
+    Custom: Tùy chỉnh
+    AuthorAscending: Tác giả (A-Z)
+    Sort By: Sắp xếp theo
+    DateAddedNewest: Thêm vào gần đây nhất
+    VideoTitleDescending: Tiêu đề (Z-A)
 Change Format:
   Change Media Formats: 'Chuyển đổi định dạng video'
   Use Dash Formats: 'Sử dụng định dạng DASH'
@@ -800,6 +904,8 @@ Change Format:
     cho video này
   Dash formats are not available for this video: Định dạng DASH không có sẵn cho video
     này
+  Legacy formats are not available for this video: Định dạng legacy không có sẵn cho
+    video này
 Share:
   Share Video: 'Chia sẻ video'
   Share Playlist: 'Chia sẻ danh sách phát'
@@ -838,12 +944,14 @@ Comments:
   There are no more comments for this video: Không có bình luận cho video này
   Member: Thành viên
   From {channelName}: từ {channelName}
-  And others: Và những thứ khác
+  And others: và những người khác
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
   View {replyCount} replies: Hiển thị {replyCount} câu trả lời
-  Hearted: Thả Tim
+  Hearted: Đã thả tim
   Subscribed: Đã đăng ký
+  There are no comments available for this post: Không có bình luận nào cho bài đăng
+    này
 Up Next: 'Tiếp theo'
 
 # Toast Messages
@@ -907,7 +1015,7 @@ Profile:
   All Channels: Tất cả kênh
   Profile Select: Chọn hồ sơ
   Profile Filter: Bộ lọc hồ sơ
-  Profile Settings: Cài đặt hồ sơ
+  Profile Settings: Hồ sơ
   Toggle Profile List: Mở/đóng danh sách hồ sơ
   Edit Profile Name: Chỉnh sửa tên hồ sơ
   Profile Name: Tên hồ sơ
@@ -978,11 +1086,14 @@ Tooltips:
       video (danh sách phát nếu được hỗ trợ) trong trình phát bên ngoài, trên hình
       thu nhỏ của video. Cảnh báo, cài đặt Invidious không ảnh hưởng đến trình phát
       bên ngoài.
+    Ignore Default Arguments: Không gửi các tham số mặc định đến trình phát bên ngoài
+      ngoài URL của video (như tốc độ phát, URL danh sách phát, v.v.). Các tham số
+      tùy chỉnh vẫn sẽ được gửi.
   Subscription Settings:
     Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương
       thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh
-      việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video
-      hoặc trạng thái phát trực tiếp
+      việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video,
+      trạng thái phát trực tiếp hoặc các bài đăng cộng đồng
     Fetch Automatically: Khi được bật, FreeTube sẽ tự động tìm nạp nguồn cấp dữ liệu
       đăng ký của bạn khi cửa sổ mới được mở và khi chuyển đổi hồ sơ.
   Distraction Free Settings:
@@ -991,6 +1102,10 @@ Tooltips:
       đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
     Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}"
       trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Nhập một từ khóa hoặc cụm từ (không
+      phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các
+      mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát
+      của bạn, và video trong các danh sách phát.
   SponsorBlock Settings:
     UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.
     UseDeArrowTitles: Thay thế tiêu đề video bằng tiêu đề do người dùng gửi từ DeArrow.
@@ -1042,3 +1157,26 @@ Playlist will pause when current video is finished: Danh sách phát sẽ tạm 
   video hiện tại kết thúc
 Trimmed input must be at least N characters long: Dữ liệu nhập bị cắt bớt phải dài
   ít nhất 1 ký tự | Dữ liệu nhập bị cắt bớt phải dài ít nhất {length} ký tự
+Feed:
+  Refresh Feed: Tải lại {subscriptionName}
+  Feed Last Updated: 'Lần cuối cập nhật {feedName}: {date}'
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Có phụ đề
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Mới
+    3D: 3D
+    Closed Captions: Có phụ đề
+'Blocked opening potentially unsafe URL': 'Đã chặn mở URL tiềm ẩn không an toàn: "{url}".'
+Search character limit: Chuỗi tìm kiếm vượt quá độ dài {searchCharacterLimit} ký tự
+  cho phép
+Yes, Open Link: Có, mở liên kết
+Cancel: Hủy bỏ
+Moments Ago: vừa xong
+Yes, Delete: Có, xóa đi
+Display Label: '{label}: {value}'
+checkmark: ✓
+Yes, Restart: Có, khởi đông lại đi

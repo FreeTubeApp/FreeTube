@@ -139,7 +139,8 @@ Subscriptions:
     eo ho roll koumanantoù. Ma faot deoc''h enporzhiañ ho koumanantoù, e c''hellit
     mont da Arventennoù ar Roadennoù ha choaz Enporzhiañ ho koumanantoù, mod all e
     c''hellit klask chadennoù da goumanantiñ dezho.'
-  Disabled Automatic Fetching: ''
+  Disabled Automatic Fetching: 'Diweredekaet ho peus an adtapout koumanantoù ent emgefreek.
+    Hizivaat ar c''houmanantoù evit gwelet anezho.'
   Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
   'Getting Subscriptions. Please wait.': 'O kerc''hat ar c''houmanantoù. Gortozit
     mar plij.'
@@ -276,7 +277,9 @@ User Playlists:
 
       This playlist does not exist: 'N''eus ket eus ar roll-videoioù-mañ'
 
-      This playlist has a video with a duration error: ''
+      This playlist has a video with a duration error: 'Bez ez eus ur video d''an
+        nebeutañ hep padelezh e-barzh ar roll-videoioù, rummet e vo evel ma vije goullo
+        ar padelezh.'
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Choazit ur roll-videoioù evit ouzhpennañ
       ho video e-barzh | Choazit ur roll-videoioù evit ouzhpennañ ho {videoCount}
@@ -326,15 +329,18 @@ Settings:
   Expand All Settings Sections: ''
   Sort Settings Sections (A-Z): 'Rummañ lodennoù an arventennoù (A-Z)'
   Return to Settings Menu: 'Distreiñ d''al lañser arventennoù'
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Ezhomm
+    en deus an arload da vezañ adloc''het bremañ evit arloañ ar c''hemmoù. Adloc''hañ
+    hag arloañ ar c''hemmoù ?'
   General Settings:
     General Settings: 'Hollek'
     Check for Updates: 'Klask Hizivadurioù'
     Check for Latest Blog Posts: 'Diskouez pennadoù diwezhañ ar Blog'
-    Fallback to Non-Preferred Backend on Failure: ''
+    Fallback to Non-Preferred Backend on Failure: 'Distreiñ d''ar Backend ha n''eo
+      ket hoc''h hini karetañ ma c''hoarvez ur gudenn'
     Enable Search Suggestions: 'Gweredekaat Kinnigoù klask'
     Auto Load Next Page:
-      Label: ''
+      Label: 'Kargañ ar bajenn da heul ent emgefreek'
       Tooltip: ''
     Default Landing Page: 'Pajenn degemer dre ziouer'
     Locale Preference: 'Yezh'
@@ -344,7 +350,7 @@ Settings:
       Local API: 'API lec''hel'
       Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: ''
+      Video View Type: 'Doare da ziskouez ar videoioù'
       Grid: 'Kael'
       List: 'Roll'
     Thumbnail Preference:
@@ -355,27 +361,30 @@ Settings:
       End: 'Fin'
       Hidden: 'Kuzhet'
       Blur: 'Ruzed'
-    Current Invidious Instance: ''
-    The currently set default instance is {instance}: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+    Current Invidious Instance: 'Istañs Invidious bremanel'
+    The currently set default instance is {instance}: 'An istañs dre ziouer a zo {instance}'
+    No default instance has been set: 'N''eus istañs dre ziouer ebet choazet'
+    Current instance will be randomized on startup: 'Dargouezheket e vo un istañs
+      dre ziouer pa vo adloc''het'
+    Set Current Instance as Default: 'Lakaat an istañs implijet bremañ evel an hini
+      dre ziouer'
+    Clear Default Instance: 'Diverkañ an istañs dre ziouer'
+    View all Invidious instance information: 'Gwelet titouroù an holl istañsoù Invidious'
+    Region for Trending: 'Bro evit ar videoioù diouzh ar c''hiz'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
+      External Link Handling: 'Merañ al liammoù diavaez'
       Open Link: 'Digeriñ an ere'
       Ask Before Opening Link: 'Goulenn a-raok digeriñ ul liamm'
       No Action: 'Netra'
   Theme Settings:
     Theme Settings: 'Tem'
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
+    Match Top Bar with Main Color: 'Lakaat da glotañ liv ar varenn e-krec''h gant
+      al liv pennañ'
+    Expand Side Bar by Default: 'Astenn ar varenn gostez dre ziouer'
+    Disable Smooth Scrolling: 'Diweredekaat an dibunañ flour'
     UI Scale: 'Skeul an UI'
-    Hide Side Bar Labels: ''
+    Hide Side Bar Labels: 'Kuzhat tikedennoù ar varrenn gostez'
     Hide FreeTube Header Logo: ''
     Base Theme:
       Base Theme: 'Tem diazez'
@@ -391,7 +400,7 @@ Settings:
       Solarized Dark: 'Du luc''hahelet'
       Solarized Light: 'Sklaer luc''hahelet'
     Main Color Theme:
-      Main Color Theme: ''
+      Main Color Theme: 'Liv pennañ an tem'
       Red: 'Ruz'
       Pink: 'Roz'
       Purple: 'Mouk'
@@ -415,20 +424,20 @@ Settings:
       Dracula Purple: 'Drakula Mouk'
       Dracula Red: 'Drakula Ruz'
       Dracula Yellow: 'Drakula Melen'
-      Catppuccin Mocha Rosewater: ''
-      Catppuccin Mocha Flamingo: ''
-      Catppuccin Mocha Pink: ''
-      Catppuccin Mocha Mauve: ''
-      Catppuccin Mocha Red: ''
-      Catppuccin Mocha Maroon: ''
-      Catppuccin Mocha Peach: ''
-      Catppuccin Mocha Yellow: ''
-      Catppuccin Mocha Green: ''
-      Catppuccin Mocha Teal: ''
-      Catppuccin Mocha Sky: ''
-      Catppuccin Mocha Sapphire: ''
-      Catppuccin Mocha Blue: ''
-      Catppuccin Mocha Lavender: ''
+      Catppuccin Mocha Rosewater: 'Catppuccin Moka Roz sklaer'
+      Catppuccin Mocha Flamingo: 'Catppuccin Moka Flammeg boutin'
+      Catppuccin Mocha Pink: 'Catppuccin Moka Roz'
+      Catppuccin Mocha Mauve: 'Catppuccin Moka Mouk'
+      Catppuccin Mocha Red: 'Catppuccin Moka Ruz'
+      Catppuccin Mocha Maroon: 'Catppuccin Moka Gell'
+      Catppuccin Mocha Peach: 'Catppuccin Moka Pechez'
+      Catppuccin Mocha Yellow: 'Catppuccin Moka Melen'
+      Catppuccin Mocha Green: 'Catppuccin Moka Gwer'
+      Catppuccin Mocha Teal: 'Catppuccin Moka Glas-gwer'
+      Catppuccin Mocha Sky: 'Catppuccin Moka Glas oabl'
+      Catppuccin Mocha Sapphire: 'Catppuccin Moka Safir'
+      Catppuccin Mocha Blue: 'Catppuccin Moka Glas'
+      Catppuccin Mocha Lavender: 'Catppuccin Moka Lavand'
       Solarized Yellow: 'Melen luc''hahelet'
       Solarized Orange: 'Orañjez luc''hahelet'
       Solarized Red: 'Ruz luc''hahelet'
@@ -483,7 +492,11 @@ Settings:
       Folder Label: 'Teuliad an tapadennoù-skramm'
       Folder Button: 'Diuzañ un teuliad'
       File Name Label: 'Patrom anv restr'
-      File Name Tooltip: ''
+      File Name Tooltip: 'Gallout a rit implijout an argemmennoù da-heul. %Y Bloavezh
+        4 sifr. %M Miz 2 sifr. %D Devezh 2 sifr. %H Eur 2 sifr. %N Munutennoù 2 sifr.
+        %S Eilennoù 2 sifr. %T Mili-eilennoù 3 sifr. %s Eilennoù ar video. %t Mili-eilennoù
+        ar video 3 sifr. %i ID ar video. Gallout a rit implijout ivez \ pe / evit
+        krouiñ teuliadoù.'
       Error:
         Forbidden Characters: 'Arouezennoù difennet'
         Empty File Name: ''
@@ -500,18 +513,22 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Prevezded'
     Remember History: 'Derc''hel soñj ar roll istor'
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Save Watched Progress: 'Mirout araokadur al lenn'
+    Save Watched Videos With Last Viewed Playlist: 'Enrollañ ar videoioù lennet e-barzh
+      roll-videoioù diwezhañ sellet'
+    Clear Search Cache: 'Skarzhañ roll-istor an enklaskoù'
+    Are you sure you want to clear out your search cache?: 'Ha sur oc''h e faot deoc''h
+      skarzhañ roll-istor an enklaskoù ?'
+    Search cache has been cleared: 'Skarzhet eo bet roll-istor an enklaskoù'
     Remove Watch History: 'Dilemel ar roll istor'
     Are you sure you want to remove your entire watch history?: 'Ha sur oc''h e faot
       deoc''h dilemel ho roll istor a-bezh ?'
     Watch history has been cleared: 'Dilamet eo bet roll istor ar videoioù lennet'
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
-    Remove All Playlists: ''
+    Remove All Subscriptions / Profiles: 'Dilemel an holl goumanantoù / profiloù'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ha
+      sur oc''h e faot deoc''h dilemel an holl goumanantoù ha profiloù ? Ne c''hall
+      ket bezañ nullet.'
+    Remove All Playlists: 'Dilemel an holl rolloù-videoioù'
     All playlists have been removed: 'Lamet eo bet an holl rolloù-videoioù'
     Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
@@ -536,7 +553,7 @@ Settings:
     Hide Channel Subscribers: ''
     Hide Comment Likes: ''
     Hide Recommended Videos: ''
-    Hide Trending Videos: ''
+    Hide Trending Videos: 'Kuzhat ar videoioù diouzh ar c''hiz'
     Hide Popular Videos: ''
     Hide Playlists: 'Kuzhat ar rolloù-videoioù'
     Hide Live Chat: ''
@@ -587,7 +604,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: 'Ezporzhiañ rolloù-videoioù evit stummoù kozh FreeTube'
       # |- = Keep newlines, No newline at end
-      Tooltip: |
+      Tooltip: |-
+        An dibarzh-mañ a ezporzh videoioù an holl rolloù-videoioù e-barzh ur roll-videoioù anvet « Favorites ».
+        Penaos ezporzhiañ & enporzhiañ videoioù e-barzh rolloù-videoioù gant stummoù kozh FreeTube :
+        1. Ezporzhiañ ho rolloù-videoioù gant an dibarzh-mañ gweredekaet.
+        2. Dilemel an holl rolloù-videoioù en ur implijout an dibarzh Dilemel an holl rolloù-videoioù dindan Prevezded.
+        3. Loc'hañ stumm kozh FreeTube hag enporzhiañ ar rolloù-videoioù ezporzhiet."
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
@@ -733,7 +755,8 @@ Profile:
   No channel(s) have been selected: 'Chadenn ebet diuzet'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
+  : 'Ho profil pennañ eo. Ha sur oc''h e faot deoc''h dilemel ar chadennoù diuzet ?
+    Ar memes chadennoù a vo dilamet deus ho profiloù all.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
   Close Profile Dropdown: ''
   Open Profile Dropdown: ''
@@ -915,7 +938,7 @@ Video:
     Stats:
       Stats: 'Stadegoù'
       Video ID: 'ID ar Video : {videoId}'
-      Media Formats: ''
+      Media Formats: 'Furmadoù ar media : {formats}'
       Resolution: 'Spisder : {width}x{height}@{frameRate}'
       Player Dimensions: 'Ment al lenner : {width}x{height}'
       Bitrate: 'Fonnder bit : {bitrate} kbps'
@@ -963,13 +986,16 @@ Playlist:
 #& Views
 Toggle Theatre Mode: ''
 Change Format:
-  Change Media Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
-  Legacy formats are not available for this video: ''
+  Change Media Formats: 'Cheñch furmad ar video'
+  Use Dash Formats: 'Implijout ar furmad DASH'
+  Use Legacy Formats: 'Implijout ar furmad Legacy'
+  Use Audio Formats: 'Implijout ar furmad aodio'
+  Dash formats are not available for this video: 'N''haller ket implijout ar furmad
+    DASH evit ar video-mañ'
+  Audio formats are not available for this video: 'N''haller ket implijout ar furmad
+    aodio evit ar video-mañ'
+  Legacy formats are not available for this video: 'N''haller ket implijout ar furmad
+    Legacy evit ar video-mañ'
 Share:
   Share Video: 'Rannañ ar video'
   Share Channel: 'Rannañ ar chadenn'
@@ -1036,27 +1062,48 @@ Tooltips:
     Preferred API Backend: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API.'
+    Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù
+      diouzh ar c''hiz a faot deoc''h gwelet.'
     External Link Handling: |
+      Choazit an emzalc'h dre ziouer pa vo kliket war ul liamm ha n'hall ket bezañ digoret gant FreeTube.
+      Dre ziouer, e vo digoret al liamm e-barzh ho merdeer web.
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
-    Scroll Playback Rate Over Video Player: ''
+    Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video.
+      Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet
+      eo ar furmadoù Legacy da 720p d''ar muiañ met nebeutoc''h a vann- drafet a vez
+      implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
+    Scroll Playback Rate Over Video Player: 'Pa vez ar biz-red war ar video, dalc''hit
+      pouezet war an douchenn Ctrl (Command war Mac) ha dibunit rodellig al logodenn
+      war-raok pe war-gil evit cheñch ar feur lenn. Dalc''hit pouezet war an douchenn
+      Ctrl (Command war Mac) ha klikit war bouton kleiz al logodenn a-benn distreiñ
+      buan d''ar feur lenn dre ziouer (1x, nemet ma ''z eo bet kemmet en arventennoù).'
     Skip by Scrolling Over Video Player: ''
   External Player Settings:
     External Player: ''
     Custom External Player Executable: ''
     Ignore Warnings: ''
-    Ignore Default Arguments: ''
+    Ignore Default Arguments: 'Arabat kas arguzennoù dre ziouer d''al lenner diavaez
+      nemet URL ar video (d.s. feur lenn, URL ar roll-videoioù, etc.). Treuzkaset
+      e vo an arguzennoù personelaet.'
     Custom External Player Arguments: ''
     DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: ''
+    Hide Channels: 'Lakait ID ur chadenn evit mirout ouzh an holl videoioù, rolloù-videoioù
+      hag ar chadenn hec''h-unan da vezañ gwelet en enklaskoù, e roll ar videoioù
+      brudetañ, ar re vuiañ karet, hag ar re aliet. Ret eo d''an ID bezañ klot ha
+      ret eo doujañ d''ar pennlizherennoù.'
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos and Playlists Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe
+      ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù
+      gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor,
+      e-barzh ho rolloù-videoioù hag ar videoioù e-barzh ar rolloù-videoioù.'
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Pa vez gweredekaet e vez implijet RSS gant FreeTube e-lec''h
+      e zoare dre ziouer evit adtapout ho kwazh koumanantiñ. Buanoc''h ez an traoù
+      gant an RSS ha ne vo ket stanket ar chomlec''h IP, met ne ginnig ket titouroù
+      ''zo evel padelezh ar video, statud ar video war-eeun, pe c''hoazh an evezhiadennoù'
     Fetch Automatically: ''
   Experimental Settings:
     Replace HTTP Cache: ''
@@ -1089,9 +1136,9 @@ Playing Next Video Interval: 'Lenn ar video da-heul a-benn nebeud-tre. Klikit ev
   | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.'
 Canceled next video autoplay: 'Nullañ al lenn emgefreek da-heul'
 
-Default Invidious instance has been set to {instance}: 'Eriol Invidious dre ziouer
+Default Invidious instance has been set to {instance}: 'Istañs Invidious dre ziouer
   a zo bet lakaet da {instance}'
-Default Invidious instance has been cleared: 'Diverket eo bet eriol Invidious dre
+Default Invidious instance has been cleared: 'Diverket eo bet Istañs Invidious dre
   ziouer'
 'The playlist has ended. Enable loop to continue playing': 'Echu eo ar roll-videoioù.  Gweredekaat
   ar rodell evit kenderc''hel da lenn'

@@ -12,8 +12,9 @@
   /*
     Fixes the seek bar thumbnails causing a horizontal scroll bar
     to appear after exiting full screen and full window.
+    But also vertically in case context menu overflows.
   */
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .player {
@@ -42,6 +43,31 @@
   display: flex;
   flex-direction: column-reverse;
 }
+
+/*
+  Apply the active FreeTube base theme to shaka-player's menus.
+  Usually we go for classes and not element names,
+  however as we need to override shaka-player's CSS
+  we need to use the same selectors that they do.
+*/
+
+:deep(.shaka-overflow-menu),
+:deep(.shaka-settings-menu) {
+  background: var(--card-bg-color) !important;
+}
+
+:deep(.shaka-overflow-menu button),
+:deep(.shaka-settings-menu button) {
+  color: var(--primary-text-color) !important;
+}
+
+:deep(.shaka-overflow-menu button:hover),
+:deep(.shaka-settings-menu button:hover) {
+  background: var(--side-nav-hover-color) !important;
+  color: var(--side-nav-hover-text-color) !important;
+}
+
+/* End of theming code */
 
 .sixteenByNine {
   aspect-ratio: 16 / 9;

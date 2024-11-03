@@ -847,110 +847,140 @@ Video:
       CodecAudio: ''
       CodecsVideoAudio: ''
       CodecsVideoAudioNoItags: ''
-    You appear to be offline: ''
-    Playback will resume automatically when your connection comes back: ''
-    Skipped segment: ''
+    You appear to be offline: 'U blyk vanlyn te wees.'
+    Playback will resume automatically when your connection comes back: 'Afspeel sal
+      outomaties hervat wanneer u verbinding terug kom.'
+    Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Nuutste'
+    Oldest: 'Oudste'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  Playlist: ''
-  View Full Playlist: ''
-  Last Updated On: ''
+  Playlist: 'Afspeellys'
+  View Full Playlist: 'Bekyk volledige afspeellys'
+  Last Updated On: 'Laas bygewerk op'
   Sort By:
-    Sort By: ''
-    DateAddedNewest: ''
-    DateAddedOldest: ''
-    AuthorAscending: ''
-    AuthorDescending: ''
-    VideoTitleAscending: ''
-    VideoTitleDescending: ''
-    Custom: ''
+    Sort By: 'Sorteer volgens'
+    DateAddedNewest: 'Laaste toegevoeg boaan'
+    DateAddedOldest: 'Eerste toegevoeg boaan'
+    AuthorAscending: 'Outeur (A-Z)'
+    AuthorDescending: 'Outeur (Z-A)'
+    VideoTitleAscending: 'Titel (A-Z)'
+    VideoTitleDescending: 'Titel (Z-A)'
+    Custom: 'Pasgemaak'
 
 # On Video Watch Page
 #* Published
 #& Views
+    VideoDurationAscending: Duur (korste eerste)
+    VideoDurationDescending: Duur (langste eerste)
 Change Format:
-  Change Media Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
-  Legacy formats are not available for this video: ''
+  Change Media Formats: 'Verander mediaformate'
+  Use Dash Formats: 'Gebruik DASH-formate'
+  Use Legacy Formats: 'Gebruik legaatformate'
+  Use Audio Formats: 'Gebruik oudioformate'
+  Dash formats are not available for this video: 'DASH-formate is nie beskikbaar vir
+    hierdie video nie'
+  Audio formats are not available for this video: 'Oudioformate is nie beskikbaar
+    vir hierdie video nie'
+  Legacy formats are not available for this video: 'Legaatformate is nie beskikbaar
+    vir hierdie video nie'
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Deel video'
+  Share Channel: 'Deel kanaal'
+  Share Playlist: 'Deel afspeellys'
+  Include Timestamp: 'Sluit tydstempel in'
+  Copy Link: 'Kopieer skakel'
+  Open Link: 'Open skakel'
+  Copy Embed: 'Kopieer inbedskakel'
+  Open Embed: 'Open inbedskakel'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious-URL is na knipbod gekopieer'
+  Invidious Embed URL copied to clipboard: 'Invidious-inbedskakel is na knipbord gekopieer'
+  Invidious Channel URL copied to clipboard: 'Invidious-kanaalskakel is na knipbord
+    gekopieer'
+  YouTube URL copied to clipboard: 'YouTube-skakel is na knipbord gekopieer'
+  YouTube Embed URL copied to clipboard: 'YouTube-inbedskakel is na knipbord gekopieer'
+  YouTube Channel URL copied to clipboard: 'YouTube-kanaalskakel is na knipbord gekopieer'
 Clipboard:
-  Copy failed: ''
-  Cannot access clipboard without a secure connection: ''
+  Copy failed: 'Kopiëring na knipbord het misluk'
+  Cannot access clipboard without a secure connection: 'Geen toegang tot knipbord
+    sonder ’n beveiligde verbinding'
 
 Chapters:
-  Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  Chapters: 'Hoofstukke'
+  'Chapters list visible, current chapter: {chapterName}': 'Hoofstukke lys sigbare,
+    huidige hoofstuk: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Hoofstukke lys versteekte,
+    huidige hoofstuk: {chapterName}'
 
-Mini Player: ''
+Mini Player: 'Mini-speler'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  Comments: 'Kommentare'
+  Click to View Comments: 'Klik om kommentare te sien'
+  Getting comment replies, please wait: 'Kommentare word opgehaal, wag asb.'
+  There are no more comments for this video: 'Daar is geen verdere kommentare vir
+    hierdie video nie'
+  Show Comments: 'Toon kommentare'
+  Hide Comments: 'Versteek kommentare'
+  Sort by: 'Sorteer volgens'
+  Top comments: 'Topkommentare'
+  Newest first: 'Nuutste eerste'
+  View {replyCount} replies: 'Sien {replyCount} antwoorde'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
-  Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-  Pinned by: ''
-  Member: ''
-  Subscribed: ''
-  Hearted: ''
-Up Next: ''
+  View: 'Sien'
+  Hide: 'Versteek'
+  Replies: 'Antwoorde'
+  Show More Replies: 'Toon nog antwoorde'
+  Reply: 'Antwoord'
+  From {channelName}: 'van {channelName}'
+  And others: 'en ander'
+  There are no comments available for this video: 'Daar is geen reaksies beskikbaar
+    vir hierdie video nie'
+  Load More Comments: 'Laai nog kommentare'
+  No more comments available: 'Geen kommentare meer beskikbaar'
+  Pinned by: 'Vasgemaak deur'
+  Member: 'Lid'
+  Subscribed: 'Ingeteken'
+  Hearted: 'Met hart'
+  There are no comments available for this post: Daar is geen kommentare beskikbaar
+    vir hierdie plasing nie
+Up Next: 'Volgende'
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'Kies die agterpunt wat FreeTube gebruik om data te versamel.
+      Die lokale API is ’n ingeboude uithaler. Die Invidious API moet met ’n Invidious-bediener
+      gekoppel word.'
+    Fallback to Non-Preferred Backend on Failure: 'Wanneer u voorkeur-API probleme
+      gee sal FreeTube outomaties terugval op die alternatiewe nie-voorkeur-API wanneer
+      hierdie instelling geaktiveer is.'
+    Thumbnail Preference: 'Alle duimnaels in FreeTube sal vervang word met ’n beeld
+      uit die video i.p.v. die verstek duimnael.'
+    Invidious Instance: 'Die Invidious-instansie waarmee FreeTube sal verbind om API-oproepe
+      te maak.'
+    Region for Trending: 'Met streek van neigings kan u kies welke land se gewilde
+      videos aan u vertoon moet word.'
     External Link Handling: |
+      Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
+      FreeTube sal die geklikte skakel by verstek in u verstek blaaier open.
   Player Settings:
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
-    Scroll Playback Rate Over Video Player: ''
+    Proxy Videos Through Invidious: 'FreeTube sal verbind met Invidious en die video’s
+      van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
+    Default Video Format: 'Kies die formate wat gebruik word wanneer ’n video afspeel.
+      DASH-formate kan hoër kwaliteit afspeel. Legaat formate word beperk tot ’n maks
+      van 720p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
+    Scroll Playback Rate Over Video Player: 'Terwyl die muis oor die video is, druk
+      en hou die Control-toets (Command-toets op Mac) en rol met die muis om die afspeelsnelheid
+      te beheer. Druk en hou die Control-toets (Command-toets op Mac) en klik met
+      die linker muisknop om vinnig terug te keer na die verstek afspeelsnelheid (1x
+      tensy aangepas in die instellings).'
     Skip by Scrolling Over Video Player: 'Gebruik die rolwiel om deur die video te
       spoel, soos by MPV.'
   External Player Settings:
