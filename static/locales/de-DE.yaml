@@ -256,6 +256,9 @@ User Playlists:
     möchten? Dies kann nicht rückgängig gemacht werden. | Sind Sie sicher, dass Sie
     {playlistItemCount} angesehene Videos aus dieser Wiedergabeliste entfernen möchten?
     Dies kann nicht rückgängig gemacht werden.
+  Export Playlist: Diese Wiedergabeliste exportieren
+  The playlist has been successfully exported: Die Wiedergabeliste wurde erfolgreich
+    exportiert
 History:
   # On History Page
   History: Verlauf
