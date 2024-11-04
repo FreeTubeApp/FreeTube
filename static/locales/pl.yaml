@@ -883,6 +883,11 @@ Video:
     Full Window: Pełny ekran
   IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz
     spróbować przełączyć się na inny, korzystając z VPN lub proxy.
+  AgeRestricted: Filmy z ograniczeniem wiekowym nie mogą być odtwarzane przez FreeTube,
+    ponieważ wymagają danych logowania do konta Google z potwierdzonym wiekiem użytkownika.
+  MembersOnly: Filmy tylko dla wspierających nie mogą być odtwarzane przez FreeTube,
+    ponieważ wymagają danych logowania do konta Googla oraz płatną subskrypcje kanału.
+  Unlisted: Niepubliczny
 Videos:
   #& Sort By
   Sort By:
