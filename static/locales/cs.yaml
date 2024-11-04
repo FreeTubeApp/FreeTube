@@ -250,6 +250,8 @@ User Playlists:
     | Opravdu chcete odstranit {playlistItemCount} zhlédnutých videí z tohoto playlistu?
     Tato akce je nevratná.
   Remove Duplicate Videos: Odstranit duplicitní videa
+  Export Playlist: Exportovat tento playlist
+  The playlist has been successfully exported: Playlist byl úspěšně exportován
 History:
   # On History Page
   History: 'Historie'
