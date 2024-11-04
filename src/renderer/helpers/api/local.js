@@ -876,8 +876,8 @@ export function parseChannelHomeTab(homeTab) {
   for (section of homeTab.current_tab.content.contents) {
     if (section.type === 'ItemSection') {
       /**
-      * @type {import('youtubei.js').YTNodes.ItemSection}
-      */
+       * @type {import('youtubei.js').YTNodes.ItemSection}
+       */
       const itemSection = section
       if (itemSection.contents.at(0).type === 'Shelf') {
         /** @type {import('youtubei.js').YTNodes.Shelf} */

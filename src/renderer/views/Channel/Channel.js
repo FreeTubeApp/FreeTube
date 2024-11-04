@@ -736,7 +736,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const homeTab = channel //  await channel.getHome()
 
