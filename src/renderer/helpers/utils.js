@@ -469,6 +469,10 @@ export function formatDurationAsTimestamp(lengthSeconds) {
   return timestamp
 }
 
+/**
+ * @param {string} timestamp hh::mm:ss
+ * @returns {number} timestamp converted to seconds
+ */
 export function timestampToDuration(timestamp) {
   const splitTimestamp = timestamp.split(':')
   let seconds = Number(splitTimestamp.at(-1))
