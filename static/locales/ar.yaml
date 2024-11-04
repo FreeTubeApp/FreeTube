@@ -239,6 +239,8 @@ User Playlists:
     أنت متأكد أنك تريد إزالة مقطع فيديو مكرر واحد من قائمة التشغيل هذه؟ هذا لا يمكن
     التراجع عنها. | هل أنت متأكد أنك تريد إزالة {playlistItemCount} من مقاطع الفيديو
     المكررة من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
+  Export Playlist: تصدير قائمة التشغيل هذه
+  The playlist has been successfully exported: تم تصدير قائمة التشغيل بنجاح
 History:
   # On History Page
   History: 'السجلّ'
