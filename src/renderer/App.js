@@ -7,7 +7,7 @@ import FtNotificationBanner from './components/ft-notification-banner/ft-notific
 import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
-import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
+import FtProgressBar from './components/FtProgressBar/FtProgressBar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
 import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'

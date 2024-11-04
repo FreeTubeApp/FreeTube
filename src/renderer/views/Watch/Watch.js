@@ -726,7 +726,8 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            let source = result.storyboards.boards
+            /** @type {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData[]} */
+            let source = result.storyboardSpec.boards
             if (window.innerWidth < 500) {
               source = source.filter((board) => board.thumbnail_height <= 90)
             }
@@ -852,6 +853,8 @@ export default defineComponent({
             // // https://github.com/iv-org/invidious/pull/4589
             // if (this.proxyVideos) {
 
+            this.streamingDataExpiryDate = this.extractExpiryDateFromStreamingUrl(result.adaptiveFormats[0].url)
+
             let hlsManifestUrl = result.hlsUrl
 
             if (this.proxyVideos) {
@@ -879,6 +882,8 @@ export default defineComponent({
             }
           } else {
             this.videoLengthSeconds = result.lengthSeconds
+
+            this.streamingDataExpiryDate = this.extractExpiryDateFromStreamingUrl(result.adaptiveFormats[0].url)
 
             this.legacyFormats = result.formatStreams.map(mapInvidiousLegacyFormat)
 
@@ -947,6 +952,12 @@ export default defineComponent({
             this.isLoading = false
           }
         })
+    },
+
+    extractExpiryDateFromStreamingUrl: function (url) {
+      const expireString = new URL(url).searchParams.get('expire')
+
+      return new Date(parseInt(expireString) * 1000)
     },
 
     /**
@@ -1391,7 +1402,7 @@ export default defineComponent({
           if (localFormat.has_audio) {
             audioFormats.push(localFormat)
 
-            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary) {
+            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary || localFormat.is_auto_dubbed) {
               hasMultipleAudioTracks = true
             }
           }
@@ -1401,7 +1412,7 @@ export default defineComponent({
 
         if (hasMultipleAudioTracks) {
           // match YouTube's local API response with English
-          const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+          const languageNames = new Intl.DisplayNames('en-US', { type: 'language', languageDisplay: 'standard' })
           for (const format of audioFormats) {
             this.generateAudioTrackFieldInvidious(format, languageNames)
           }
@@ -1439,6 +1450,9 @@ export default defineComponent({
       } else if (format.is_secondary) {
         type = ' secondary'
         idNumber = 6
+      } else if (format.is_auto_dubbed) {
+        type = ''
+        idNumber = 10
       } else {
         type = ' alternative'
         idNumber = -1
@@ -1476,6 +1490,10 @@ export default defineComponent({
       return result.adaptiveFormats
     },
 
+    /**
+     * @param {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData} storyboardInfo
+     * @returns {string}
+     */
     createLocalStoryboardUrls: function (storyboardInfo) {
       const results = buildVTTFileLocally(storyboardInfo, this.videoLengthSeconds)
 

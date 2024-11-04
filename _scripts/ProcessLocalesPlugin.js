@@ -26,11 +26,11 @@ class ProcessLocalesPlugin {
     }
     this.outputDir = options.outputDir
 
-    /** @type {Map<str, any>} */
+    /** @type {Map<string, any>} */
     this.locales = new Map()
     this.localeNames = []
 
-    /** @type {Map<str, any>} */
+    /** @type {Map<string, any>} */
     this.cache = new Map()
 
     this.filePaths = []

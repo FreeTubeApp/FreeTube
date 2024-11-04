@@ -716,7 +716,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
@@ -788,7 +788,7 @@ export default defineComponent({
         } else {
           /**
            * @type {import('youtubei.js').YT.Channel}
-          */
+           */
           const channel = this.channelInstance
           let videosTab = await channel.getVideos()
 
@@ -938,7 +938,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         let liveTab = await channel.getLiveStreams()
 
@@ -1430,7 +1430,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
 
         if (this.isArtistTopicChannel) {
@@ -1565,7 +1565,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const podcastTab = await channel.getPodcasts()
 

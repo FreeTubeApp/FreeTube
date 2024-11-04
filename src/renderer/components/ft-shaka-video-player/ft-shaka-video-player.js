@@ -355,7 +355,7 @@ export default defineComponent({
        *     color: string,
        *     skip: 'autoSkip' | 'promptToSkip' | 'showInSeekBar' | 'doNothing'
        *   }
-       * }} */
+        }} */
       const categoryData = {}
 
       sponsorCategories.forEach(x => {
@@ -537,7 +537,7 @@ export default defineComponent({
      * @param {'dash'|'audio'|'legacy'} format
      * @param {boolean} useAutoQuality
      * @returns {shaka.extern.PlayerConfiguration}
-     **/
+     */
     function getPlayerConfig(format, useAutoQuality = false) {
       return {
         // YouTube uses these values and they seem to work well in FreeTube too,
@@ -565,9 +565,11 @@ export default defineComponent({
         },
         autoShowText: shaka.config.AutoShowText.NEVER,
 
-        // Only use variants that are predicted to play smoothly
+        // Prioritise variants that are predicted to play:
+        // - `smooth`: without dropping frames
+        // - `powerEfficient` the spec is quite vague but in Chromium it should prioritise hardware decoding when available
         // https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilities/decodingInfo
-        preferredDecodingAttributes: format === 'dash' ? ['smooth'] : [],
+        preferredDecodingAttributes: format === 'dash' ? ['smooth', 'powerEfficient'] : [],
 
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
@@ -1870,7 +1872,7 @@ export default defineComponent({
 
     /**
      * @param {WheelEvent} event
-     * */
+     */
     function mouseScrollVolume(event) {
       if (!event.ctrlKey && !event.metaKey) {
         event.preventDefault()
@@ -2082,9 +2084,12 @@ export default defineComponent({
           break
         }
         case ',':
-          event.preventDefault()
-          // Return to previous frame
-          frameByFrame(-1)
+          // `⌘+,` is for settings in MacOS
+          if (!event.metaKey) {
+            event.preventDefault()
+            // Return to previous frame
+            frameByFrame(-1)
+          }
           break
         case '.':
           event.preventDefault()
@@ -2145,7 +2150,7 @@ export default defineComponent({
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
-     * @param {object=} details
+     * @param {object?} details
      */
     function handleError(error, context, details) {
       logShakaError(error, context, props.videoId, details)

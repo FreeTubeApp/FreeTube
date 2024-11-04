@@ -176,6 +176,13 @@
             @click="toggleCopyVideosPrompt"
           />
           <ft-icon-button
+            v-if="exportPlaylistButtonVisible"
+            :title="$t('User Playlists.Export Playlist')"
+            :icon="['fas', 'file-arrow-down']"
+            theme="secondary"
+            @click="handlePlaylistExport"
+          />
+          <ft-icon-button
             v-if="!editMode && userPlaylistDuplicateItemCount > 0"
             :title="$t('User Playlists.Remove Duplicate Videos')"
             :icon="['fas', 'users-slash']"

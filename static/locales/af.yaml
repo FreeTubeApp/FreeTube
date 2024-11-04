@@ -1,15 +1,17 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Afrikaans'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Hierdie gedeelte van die toep is nog nie gereed nie. Kom later terug wanneer vordering
+  gemaak is.
 
 # Webkit Menu Bar
-File: ''
-New Window: ''
-Preferences: ''
-Quit: ''
-Edit: ''
-Undo: ''
+File: 'Lêer'
+New Window: 'Nuwe venster'
+Preferences: 'Voorkeure'
+Quit: 'Sluit'
+Edit: 'Wysig'
+Undo: 'Ontdoen'
 Redo: ''
 Cut: ''
 Copy: ''
@@ -845,180 +847,245 @@ Video:
       CodecAudio: ''
       CodecsVideoAudio: ''
       CodecsVideoAudioNoItags: ''
-    You appear to be offline: ''
-    Playback will resume automatically when your connection comes back: ''
-    Skipped segment: ''
+    You appear to be offline: 'U blyk vanlyn te wees.'
+    Playback will resume automatically when your connection comes back: 'Afspeel sal
+      outomaties hervat wanneer u verbinding terug kom.'
+    Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Nuutste'
+    Oldest: 'Oudste'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  Playlist: ''
-  View Full Playlist: ''
-  Last Updated On: ''
+  Playlist: 'Afspeellys'
+  View Full Playlist: 'Bekyk volledige afspeellys'
+  Last Updated On: 'Laas bygewerk op'
   Sort By:
-    Sort By: ''
-    DateAddedNewest: ''
-    DateAddedOldest: ''
-    AuthorAscending: ''
-    AuthorDescending: ''
-    VideoTitleAscending: ''
-    VideoTitleDescending: ''
-    Custom: ''
+    Sort By: 'Sorteer volgens'
+    DateAddedNewest: 'Laaste toegevoeg boaan'
+    DateAddedOldest: 'Eerste toegevoeg boaan'
+    AuthorAscending: 'Outeur (A-Z)'
+    AuthorDescending: 'Outeur (Z-A)'
+    VideoTitleAscending: 'Titel (A-Z)'
+    VideoTitleDescending: 'Titel (Z-A)'
+    Custom: 'Pasgemaak'
 
 # On Video Watch Page
 #* Published
 #& Views
+    VideoDurationAscending: Duur (korste eerste)
+    VideoDurationDescending: Duur (langste eerste)
 Change Format:
-  Change Media Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
-  Legacy formats are not available for this video: ''
+  Change Media Formats: 'Verander mediaformate'
+  Use Dash Formats: 'Gebruik DASH-formate'
+  Use Legacy Formats: 'Gebruik legaatformate'
+  Use Audio Formats: 'Gebruik oudioformate'
+  Dash formats are not available for this video: 'DASH-formate is nie beskikbaar vir
+    hierdie video nie'
+  Audio formats are not available for this video: 'Oudioformate is nie beskikbaar
+    vir hierdie video nie'
+  Legacy formats are not available for this video: 'Legaatformate is nie beskikbaar
+    vir hierdie video nie'
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Deel video'
+  Share Channel: 'Deel kanaal'
+  Share Playlist: 'Deel afspeellys'
+  Include Timestamp: 'Sluit tydstempel in'
+  Copy Link: 'Kopieer skakel'
+  Open Link: 'Open skakel'
+  Copy Embed: 'Kopieer inbedskakel'
+  Open Embed: 'Open inbedskakel'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious-URL is na knipbod gekopieer'
+  Invidious Embed URL copied to clipboard: 'Invidious-inbedskakel is na knipbord gekopieer'
+  Invidious Channel URL copied to clipboard: 'Invidious-kanaalskakel is na knipbord
+    gekopieer'
+  YouTube URL copied to clipboard: 'YouTube-skakel is na knipbord gekopieer'
+  YouTube Embed URL copied to clipboard: 'YouTube-inbedskakel is na knipbord gekopieer'
+  YouTube Channel URL copied to clipboard: 'YouTube-kanaalskakel is na knipbord gekopieer'
 Clipboard:
-  Copy failed: ''
-  Cannot access clipboard without a secure connection: ''
+  Copy failed: 'Kopiëring na knipbord het misluk'
+  Cannot access clipboard without a secure connection: 'Geen toegang tot knipbord
+    sonder ’n beveiligde verbinding'
 
 Chapters:
-  Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  Chapters: 'Hoofstukke'
+  'Chapters list visible, current chapter: {chapterName}': 'Hoofstukke lys sigbare,
+    huidige hoofstuk: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Hoofstukke lys versteekte,
+    huidige hoofstuk: {chapterName}'
 
-Mini Player: ''
+Mini Player: 'Mini-speler'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  Comments: 'Kommentare'
+  Click to View Comments: 'Klik om kommentare te sien'
+  Getting comment replies, please wait: 'Kommentare word opgehaal, wag asb.'
+  There are no more comments for this video: 'Daar is geen verdere kommentare vir
+    hierdie video nie'
+  Show Comments: 'Toon kommentare'
+  Hide Comments: 'Versteek kommentare'
+  Sort by: 'Sorteer volgens'
+  Top comments: 'Topkommentare'
+  Newest first: 'Nuutste eerste'
+  View {replyCount} replies: 'Sien {replyCount} antwoorde'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
-  Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-  Pinned by: ''
-  Member: ''
-  Subscribed: ''
-  Hearted: ''
-Up Next: ''
+  View: 'Sien'
+  Hide: 'Versteek'
+  Replies: 'Antwoorde'
+  Show More Replies: 'Toon nog antwoorde'
+  Reply: 'Antwoord'
+  From {channelName}: 'van {channelName}'
+  And others: 'en ander'
+  There are no comments available for this video: 'Daar is geen reaksies beskikbaar
+    vir hierdie video nie'
+  Load More Comments: 'Laai nog kommentare'
+  No more comments available: 'Geen kommentare meer beskikbaar'
+  Pinned by: 'Vasgemaak deur'
+  Member: 'Lid'
+  Subscribed: 'Ingeteken'
+  Hearted: 'Met hart'
+  There are no comments available for this post: Daar is geen kommentare beskikbaar
+    vir hierdie plasing nie
+Up Next: 'Volgende'
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'Kies die agterpunt wat FreeTube gebruik om data te versamel.
+      Die lokale API is ’n ingeboude uithaler. Die Invidious API moet met ’n Invidious-bediener
+      gekoppel word.'
+    Fallback to Non-Preferred Backend on Failure: 'Wanneer u voorkeur-API probleme
+      gee sal FreeTube outomaties terugval op die alternatiewe nie-voorkeur-API wanneer
+      hierdie instelling geaktiveer is.'
+    Thumbnail Preference: 'Alle duimnaels in FreeTube sal vervang word met ’n beeld
+      uit die video i.p.v. die verstek duimnael.'
+    Invidious Instance: 'Die Invidious-instansie waarmee FreeTube sal verbind om API-oproepe
+      te maak.'
+    Region for Trending: 'Met streek van neigings kan u kies welke land se gewilde
+      videos aan u vertoon moet word.'
     External Link Handling: |
+      Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
+      FreeTube sal die geklikte skakel by verstek in u verstek blaaier open.
   Player Settings:
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
-    Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
+    Proxy Videos Through Invidious: 'FreeTube sal verbind met Invidious en die video’s
+      van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
+    Default Video Format: 'Kies die formate wat gebruik word wanneer ’n video afspeel.
+      DASH-formate kan hoër kwaliteit afspeel. Legaat formate word beperk tot ’n maks
+      van 720p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
+    Scroll Playback Rate Over Video Player: 'Terwyl die muis oor die video is, druk
+      en hou die Control-toets (Command-toets op Mac) en rol met die muis om die afspeelsnelheid
+      te beheer. Druk en hou die Control-toets (Command-toets op Mac) en klik met
+      die linker muisknop om vinnig terug te keer na die verstek afspeelsnelheid (1x
+      tensy aangepas in die instellings).'
+    Skip by Scrolling Over Video Player: 'Gebruik die rolwiel om deur die video te
+      spoel, soos by MPV.'
   External Player Settings:
-    External Player: ''
-    Custom External Player Executable: ''
-    Ignore Warnings: ''
-    Ignore Default Arguments: ''
-    Custom External Player Arguments: ''
-    DefaultCustomArgumentsTemplate: ""
+    External Player: 'Deur die kies van ’n eksterne videospeler sal daar ’n ikoone
+      op die video se duimnael verskyn waarmee dit (of afspeellys indien ondersteun)
+      in die gekose eksterne videospeler geopen kan word. Let op: Invidious-instellings
+      beïnvloed nie eksterne videospelers nie.'
+    Custom External Player Executable: 'FreeTube neem by verstek aan dat die gekose
+      eksterne videospeler d.m.v. die PATH-omgewingsveranderlike gevind kan word.
+      Indien nodig kan ’n pasgemaakte pad hier ingevoer word.'
+    Ignore Warnings: 'Onderdruk waarskuwings wanneer die huidige eksterne videospeler
+      nie die huidige aksie ondersteun nie (bv. afspeellyste omkeer, ens.).'
+    Ignore Default Arguments: 'Moet geen verstek argumente na die eksterne videospeler
+      stuur buiten die video-URL nie (bv. afspeelsnelheid, afspeellys-URL, ens.).
+      Pasgemaakte argumente word steeds deurgestuur.'
+    Custom External Player Arguments: 'Enige pasgemaakte bevellynrgumente, geskei
+      deur kommapunte (‘;’), wat u aan die eksterne videospeler vir deurgee.'
+    DefaultCustomArgumentsTemplate: "(verstek: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
-    Hide Channels: ''
-    Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal
+      self te versteek sodat dit nie in soek, tendense, gewildste, en aanbeveel weergegee
+      word nie. Die ingevoerde kanaal-ID moet volledig ooreenstem en is hooflettergevoelig.'
+    Hide Subscriptions Live: 'Hierdie instelling woord oorheers deur die toepwye “{appWideSetting}”-instelling
+      in die “{subsection}” gedeelte van “{settingsSection}”'
+    Hide Videos and Playlists Containing Text: 'Voer ’n woord, woordfragment of woordgroep
+      in (nie hooflettergevoelig) om alle video’s en afspeellyste waarvan die oorspronklike
+      titel dit bevat, regoor FreeTube te versteek, met uitsondering van net geskiedenis,
+      u afspeellyste en video’s in afspeellyste.'
   Subscription Settings:
-    Fetch Feeds from RSS: ''
-    Fetch Automatically: ''
+    Fetch Feeds from RSS: 'Wanneer geaktiveer, sal FreeTube RSS i.p.v. sy verstek
+      metode gebruik om u intekenvoer op te haal. RSS is vinniger en voorkom IP-versperring,
+      maar bied nie sekere inligting soos videoduud, status of gemeenskapsplasings
+      nie'
+    Fetch Automatically: 'Wanneer geaktiveer, sal FreeTube u intekenvoer outomaties
+      ophaal wanneer ’n nuwe venster geopen word en u van profiel wissel.'
   Experimental Settings:
-    Replace HTTP Cache: ''
+    Replace HTTP Cache: 'Deaktiveer die skyfgebaseerde HTTP-kas van Electron en aktiveer
+      ’n aangepaste afbeeldingskas in die geheue in. Sal lei tot ’n verhoogde RAM-gebruik.'
   SponsorBlock Settings:
-    UseDeArrowTitles: ''
-    UseDeArrowThumbnails: ''
+    UseDeArrowTitles: 'Vervang videotitels met gebruiker ingediende titels vanaf DeArrow.'
+    UseDeArrowThumbnails: 'Vervang videoduimnaels met duimnaels vanaf DeArrow.'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to Local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Unknown YouTube url type, cannot be opened in app: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playlist will not pause when current video is finished: ''
-Playlist will pause when current video is finished: ''
-Playing Next Video Interval: ''
-Canceled next video autoplay: ''
+Local API Error (Click to copy): 'Lokale API-fout (Klik om te kopieer)'
+Invidious API Error (Click to copy): 'Invidious API-fout (Klik om te kopieer)'
+Falling back to Invidious API: 'Val terug op Invidious API'
+Falling back to Local API: 'Val terug op lokale API'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Hierdie
+  video is onbeskikbaar vanweë ontbrekende formate. Dit kan gebeur weens video-onbeskikbaarheid
+  in u land.'
+Unknown YouTube url type, cannot be opened in app: 'Onbekende YouTube-URL; die URL
+  kan nie in die toep geopen word nie'
+Loop is now disabled: 'Herhaling is nou gedeaktiveer'
+Loop is now enabled: 'Herhaling is nou geaktiveer'
+Shuffle is now disabled: 'Skommel is nou gedeaktiveer'
+Shuffle is now enabled: 'Skommel is nou geaktiveer'
+The playlist has been reversed: 'Die afspeellys speel van agter af'
+Playing Next Video: 'Speel volgende video af'
+Playing Previous Video: 'Speel vorige video af'
+Playlist will not pause when current video is finished: 'Afspeellys sal nie wag wanneer
+  huidige video klaar is nie'
+Playlist will pause when current video is finished: 'Afspeellys sal wag wanneer huidige
+  video klaar is'
+Playing Next Video Interval: 'Volgende video word afgespeel. Klik om te kanselleer.
+  | Volgende video word oor {nextVideoInterval} sekond afgespeel. Klik om te kanselleer.
+  | Volgende video word oor {nextVideoInterval} sekondes afgespeel. Klik om te kanselleer.'
+Canceled next video autoplay: 'Outomatiese afspeel is gekanselleer'
 
-Default Invidious instance has been set to {instance}: ''
-Default Invidious instance has been cleared: ''
-'The playlist has ended. Enable loop to continue playing': ''
+Default Invidious instance has been set to {instance}: 'Verstek Invidious-instansie
+  is ingestel op {instance}'
+Default Invidious instance has been cleared: 'Verstek Invidious-instansie is gewis'
+'The playlist has ended. Enable loop to continue playing': 'Die afspeellys is klaar.  Aktiveer
+  lusafspeel in te bly afspeel'
 Age Restricted:
-  This channel is age restricted: ''
-  This video is age restricted: ''
-External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
-Screenshot Success: ''
-Screenshot Error: ''
-Channel Hidden: ''
-Channel Unhidden: ''
-Trimmed input must be at least N characters long: ''
-Tag already exists: ''
+  This channel is age restricted: 'Hierdie kanaal het ’n ouderdomsperk'
+  This video is age restricted: 'Hierdie video het ’n ouderdomsperk'
+External link opening has been disabled in the general settings: 'Die open van eksterne
+  skakels is gedeaktiveer in die algemene instellings'
+'Blocked opening potentially unsafe URL': 'Open van potensiële onveilige URL is versper:
+  “{url}”.'
+Downloading has completed: '“{videoTitle}” is afgelaai'
+Starting download: 'Begin aflaai van “{videoTitle}”'
+Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
+Screenshot Success: 'Skermkiekie bewaar as “{filePath}”'
+Screenshot Error: 'Skermkiekie het misluk. {error}'
+Channel Hidden: '{channel} tot kanaalfilter toegevoeg'
+Channel Unhidden: '{channel} verwyder uit kanaalfilter'
+Trimmed input must be at least N characters long: 'Bygesnyde invoer moet ten minste
+  1 karakter lank wees | Bygesnyde invoer moet ten minste {lentgh} karakters lank
+  wees'
+Tag already exists: 'Etiket “{tagName}” bestaan reeds'
 
 Hashtag:
-  Hashtag: ''
-  This hashtag does not currently have any videos: ''
-Moments Ago: ''
-Yes: ''
-No: ''
-Ok: ''
-Yes, Delete: ''
-Yes, Restart: ''
-Yes, Open Link: ''
-Cancel: ''
+  Hashtag: 'Hutsmerk'
+  This hashtag does not currently have any videos: 'Hierdie hutsmerk het tans geen
+    video’s'
+Moments Ago: 'oomblikke gelede'
+Yes: 'Ja'
+No: 'Nee'
+Ok: 'Goed'
+Yes, Delete: 'Ja, skrap'
+Yes, Restart: 'Ja, herbegin'
+Yes, Open Link: 'Ja, open skakel'
+Cancel: 'Kanselleer'
 # symbol used to indicate that an item is correct
-checkmark: ''
+checkmark: '✓'
 # French is the only language that should change this (they have a space before the colon)
-Display Label: ''
+Display Label: '{label}: {value}'

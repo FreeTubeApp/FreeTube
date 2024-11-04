@@ -91,14 +91,17 @@ const props = defineProps({
   }
 })
 
+/** @type {import('vue').ComputedRef<string>} */
 const currentInvidiousInstanceUrl = computed(() => {
   return store.getters.getCurrentInvidiousInstanceUrl
 })
 
+/** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => {
   return store.getters.getListType
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelSubscriptions = computed(() => {
   return store.getters.getHideChannelSubscriptions
 })
@@ -106,8 +109,11 @@ const hideChannelSubscriptions = computed(() => {
 let id = ''
 let thumbnail = ''
 let name = ''
+/** @type {number?} */
 let subscriberCount = null
+/** @type {number?} */
 let videoCount = null
+/** @type {string?} */
 let handle = null
 let description = ''
 
@@ -155,6 +161,7 @@ function parseLocalData() {
 
 function parseInvidiousData() {
   // Can be prefixed with `https://` or `//` (protocol relative)
+  /** @type {string} */
   const thumbnailUrl = props.data.authorThumbnails[2].url
 
   thumbnail = youtubeImageUrlToInvidious(thumbnailUrl, currentInvidiousInstanceUrl.value)

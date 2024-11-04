@@ -927,6 +927,12 @@ Video:
     Skipped segment: Прескочен сегмент „{segmentCategory}“
   IP block: YouTube је блокирао вашу IP адресу за гледање видео снимака. Покушајте
     прећи на други VPN или прокси.
+  Unlisted: По позиву
+  MembersOnly: Видео снимци само за чланове не могу да се гледају на FreeTube-у јер
+    захтевају пријављивање на Google налог и плаћено чланство на каналу.
+  AgeRestricted: Видео снимци са старосним ограничењемне могу се гледати на FreeTube-у
+    јер захтевају пријаву на Google налог и коришћење YouTube налога који је старосно
+    верификован.
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог

@@ -67,13 +67,18 @@ const props = defineProps({
   }
 })
 
+/** @type {import('vue').ComputedRef<'list'| 'grid'>} */
 const listType = computed(() => {
   return store.getters.getListType
 })
 
+/** @type {string} */
 const title = props.data.title
+/** @type {number} */
 const channelCount = props.data.channelCount
+/** @type {number} */
 const videoCount = props.data.videoCount
+/** @type {string} */
 const url = `/hashtag/${encodeURIComponent(title.substring(1))}`
 
 const formattedChannelCount = computed(() => {

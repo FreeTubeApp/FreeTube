@@ -10,6 +10,7 @@ import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 import neostandard from 'neostandard'
+import jsdoc from 'eslint-plugin-jsdoc'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
@@ -40,6 +41,7 @@ export default [
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
+      jsdoc,
     },
 
     languageOptions: {
@@ -115,6 +117,15 @@ export default [
       '@intlify/vue-i18n/no-deprecated-tc': 'off',
       'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
+
+      'jsdoc/check-alignment': 'error',
+      'jsdoc/check-property-names': 'error',
+      'jsdoc/check-param-names': 'error',
+      'jsdoc/check-syntax': 'error',
+      'jsdoc/check-template-names': 'error',
+      'jsdoc/check-types': 'error',
+      'jsdoc/no-bad-blocks': 'error',
+      'jsdoc/no-multi-asterisks': 'error',
     },
   },
 

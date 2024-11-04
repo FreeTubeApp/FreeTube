@@ -112,8 +112,9 @@ Subscriptions:
     notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
     takmarkanir á magni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Listi
-    með áskriftum er tómur í augnablikinu. Gerstu áskrifandi að rásum og þær munu
-    birtast hér.'
+    með áskriftum er tómur í augnablikinu. Ef þú vilt flytja inn áskriftirnar þínar,
+    geturðu farið í stillingar gagna og valið ''Flytja inn áskriftir'' eða leitað
+    að rás og gerst áskrifandi að henni.'
   'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
@@ -194,6 +195,9 @@ User Playlists:
         {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
       This playlist is already being used for quick bookmark.: Þessi spilunarlisti
         er nú þegar notaður undir flýtibókamerki.
+      This playlist has a video with a duration error: Spilunarlistinn inniheldur
+        a.m.k. eitt myndskeið sem er ekki með neina tímalengd; það verður flokkað
+        eins og tímalengdin sé núll.
     Search for Videos: Leita að myndskeiðum
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
@@ -768,6 +772,8 @@ Channel:
     votes: '{votes} atkvæði'
     Video hidden by FreeTube: Myndskeið falið af FreeTube
     View Full Post: Skoða alla færsluna
+    Viewing Posts Only Supported By Invidious: Einungis er hægt að skoða innsendar
+      færslur á Invidious. Farðu á samfélagsflipa rásar til að skoða efni þar án Invidious.
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
@@ -914,6 +920,8 @@ Video:
       Video ID: 'Auðkenni myndskeiðs: {videoId}'
       Media Formats: 'Snið efnis: {formats}'
       CodecAudio: 'Kóðunarlykill: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Römmum sleppt: {droppedFrames} / Rammar alls:
+        {totalFrames}'
     TranslatedCaptionTemplate: '{language} (þýtt úr "{originalLanguage}")'
     Take Screenshot: Taka skjámynd
     Hide Stats: Fela tölfræði
@@ -925,6 +933,15 @@ Video:
     Exit Full Window: Hætta í skjáfylli
     Playback will resume automatically when your connection comes back: Afspilun heldur
       sjálfkrafa áfram þegar tenging næst aftur.
+    Exit Theatre Mode: Fara út úr bíóham
+    Theatre Mode: Bíóhamur
+  Unlisted: Óskráð
+  MembersOnly: Ekki er hægt að horfa á myndskeið einungis fyrir meðlimi með FreeTube
+    þar sem þau krefjast innskráningar á Google og greiddu þátttökugjaldi á rás innsendandans.
+  AgeRestricted: Ekki er hægt að horfa á aldurstakmörkuð myndskeið með FreeTube þar
+    sem þau krefjast innskráningar á Google og notkunar á aldursvottuðum YouTube-reikningi.
+  IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið.
+    Prófaðu að skipta yfir á annan VPN eða milliþjón.
 Videos:
   #& Sort By
   Sort By:

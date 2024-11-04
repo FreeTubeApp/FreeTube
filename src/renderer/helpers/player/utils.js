@@ -9,7 +9,7 @@ import { sponsorBlockSkipSegments } from '../sponsorblock'
  * @param {shaka.util.Error} error
  * @param {string} context
  * @param {string} videoId
- * @param {object=} details
+ * @param {object?} details
  */
 export function logShakaError(error, context, videoId, details) {
   const { Severity, Category, Code } = shaka.util.Error
@@ -189,13 +189,13 @@ export function sortCaptions(captions) {
  * This function cleans it up, so that we can use it.
  *
  * Here is a list of things this function does:
- * * Removes bogus roles and labels
- * * Extracts the languages from the audio URLs if available and adds it to the adapation sets
- * * Adds roles and labels when possible to add support for multiple audio tracks
+ * - Removes bogus roles and labels
+ * - Extracts the languages from the audio URLs if available and adds it to the adapation sets
+ * - Adds roles and labels when possible to add support for multiple audio tracks
  *
  * Things this function does not do:
- * * Separate DRC (Stable Volume) from their original counterparts
- * * Tag HDR video streams (Invidious puts all video streams in the same adaptation set,
+ * - Separate DRC (Stable Volume) from their original counterparts
+ * - Tag HDR video streams (Invidious puts all video streams in the same adaptation set,
  * to tag HDR and SDR streams we would have to separate them out into multiple adaptation sets)
  * @param {shaka.extern.xml.Node[]} periods
  */
@@ -214,7 +214,7 @@ export function repairInvidiousManifest(periods) {
   }
 
   // match YouTube's local API response with English
-  const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+  const languageNames = new Intl.DisplayNames('en-US', { type: 'language', languageDisplay: 'standard' })
 
   for (const audioAdaptationSet of audioAdaptationSets) {
     // Invidious adds a label to every audio stream with it's bitrate
@@ -273,6 +273,7 @@ export function repairInvidiousManifest(periods) {
                   labelParts.push('original')
                   break
                 case 'dubbed':
+                case 'dubbed-auto':
                   role = 'dub'
                   break
                 case 'descriptive':

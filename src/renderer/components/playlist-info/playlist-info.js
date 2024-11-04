@@ -11,6 +11,9 @@ import {
   ctrlFHandler,
   formatNumber,
   showToast,
+  getTodayDateStrLocalTimezone,
+  writeFileFromDialog,
+  showSaveDialog,
 } from '../../helpers/utils'
 import debounce from 'lodash.debounce'
 
@@ -287,6 +290,13 @@ export default defineComponent({
       return this.selectedUserPlaylist.videos.length - this.userPlaylistUniqueVideoIds.size
     },
 
+    exportPlaylistButtonVisible: function() {
+      // Only online playlists can be shared
+      if (!this.isUserPlaylist) { return false }
+
+      return this.videoCount > 0
+    },
+
     deletePlaylistButtonVisible: function() {
       if (!this.isUserPlaylist) { return false }
       // Cannot delete during edit
@@ -300,7 +310,6 @@ export default defineComponent({
       // Only online playlists can be shared
       if (this.isUserPlaylist) { return false }
 
-      // Cannot delete protected playlist
       return !this.hideSharingActions
     },
 
@@ -435,6 +444,41 @@ export default defineComponent({
 
     handlePlaylistDeleteDisabledClick: function () {
       showToast(this.playlistDeletionDisabledLabel)
+    },
+
+    handlePlaylistExport: async function () {
+      const dateStr = getTodayDateStrLocalTimezone()
+      const title = this.selectedUserPlaylist.playlistName.replaceAll(' ', '_').replaceAll(/["%*/:<>?\\|]/g, '_')
+      const exportFileName = 'freetube-playlist-' + title + '-' + dateStr + '.db'
+
+      const options = {
+        defaultPath: exportFileName,
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['db']
+          }
+        ]
+      }
+
+      const data = JSON.stringify(this.selectedUserPlaylist) + '\n'
+
+      // See data-settings.js `promptAndWriteToFile`
+      const response = await showSaveDialog(options)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      try {
+        await writeFileFromDialog(response, data)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+
+      showToast(this.$t('User Playlists.The playlist has been successfully exported'))
     },
 
     exitEditMode: function () {

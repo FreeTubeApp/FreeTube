@@ -46,8 +46,8 @@ Global:
     Comment Count: 1 komentář | {count} komentářů
   Input Tags:
     Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
-Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
-  je k dispozici! Klikněte pro více informací'
+Version {versionNumber} is now available!  Click for more details: 'Je k dispozici
+  verze {versionNumber}! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
 A new blog is now available, {blogTitle}. Click to view more: 'Je dostupný nový článek
   na blogu: {blogTitle}. Kliknutím zobrazíte více'

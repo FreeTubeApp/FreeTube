@@ -347,8 +347,9 @@ export default defineComponent({
     getChannelVideosInvidiousScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
         const subscriptionsPayload = {
-          resource: 'channels/latest',
+          resource: 'channels',
           id: channel.id,
+          subResource: 'videos',
           params: {}
         }
 
