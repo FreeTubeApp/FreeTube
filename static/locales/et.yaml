@@ -248,6 +248,8 @@ User Playlists:
     sa oled kindel, et soovid sellest esitusloendist eemaldada 1 vaadatud video? Seda
     tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
     eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
+  Export Playlist: Ekspordi see esitusloend
+  The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
 History:
   # On History Page
   History: 'Ajalugu'
