@@ -105,10 +105,6 @@ Most Popular: '인기 동영상'
 Playlists: '재생 목록'
 User Playlists:
   Your Playlists: '나의 재생 목록'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 재생
-    목록이 없습니다. 영상의 오른쪽 아래에 있는 저장 버튼을 사용하여 재생 목록에 영상을 추가하세요
-  Playlist Message: 지금 보시는 페이지는 완전한 플레이 리스트가 아닙니다. 이곳에는 저장되었거나 즐겨 찾기 표시가 된 항목만 표시
-    됩니다. 작업이 끝나면, 여기에 표시된 영상들은 '즐겨 찾기' 항목으로 옮겨집니다.
   Search bar placeholder: 재생 목록에서 검색
   Empty Search Message: 이 재생 목록에 검색과 일치하는 동영상이 없습니다
 History:
@@ -145,8 +141,6 @@ Settings:
       Beginning: '시작장면'
       Middle: '중간장면'
       End: '마지막장면'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
-      (기본설정은 https://invidious.snopyta.org)'
     Region for Trending: '트렌드 국가'
         #! List countries
     View all Invidious instance information: Indivious 서버의 전체 목록 보기
@@ -287,7 +281,6 @@ Settings:
     Subscription Settings: '구독 설정'
     Hide Videos on Watch: '시청한 동영상 숨기기'
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
-    Manage Subscriptions: '구독 관리'
     Fetch Automatically: 자동으로 피드 수집하기
   Distraction Free Settings:
     Distraction Free Settings: '방해받지 않는 모드 설정'
@@ -315,10 +308,6 @@ Settings:
     Select Import Type: '가져오기 유형 선택'
     Select Export Type: '내보내기 유형 선택'
     Import Subscriptions: '구독 목록 가져오기'
-    Import FreeTube: 'FreeTube 가져오기'
-    Import YouTube: 'YouTube 가져오기'
-    Import NewPipe: 'NewPipe 가져오기'
-    Check for Legacy Subscriptions: '레거시 구독 확인'
     Export Subscriptions: '구독 목록 내보내기'
     Export FreeTube: 'FreeTube 내보내기'
     Export YouTube: 'YouTube 내보내기'
@@ -349,7 +338,6 @@ Settings:
     Subscription File: 구독 정보 파일
     Playlist File: 재생목록 파일
     History File: 시청기록 파일
-  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 네트워크 정보를
       가져오는 중 오류가 발생했습니다. 프록시가 올바르게 구성되어 있습니까?
@@ -438,8 +426,6 @@ About:
   Help: 도움말
   GitHub releases: GitHub 릴리스
   Downloads / Changelog: 다운로드 / 변경 로그
-  View License: 라이센스 보기
-  Licensed under the AGPLv3: AGPLv3에 따라 라이센스가 부여됨
   Source code: 소스 코드
   Beta: 베타
 Profile:
@@ -483,8 +469,6 @@ Profile:
   Profile Filter: 프로필 필터
   Profile Settings: 프로필 설정
 Channel:
-  Subscriber: '구독자'
-  Subscribers: '구독자'
   Subscribe: '구독'
   Unsubscribe: '구독 취소'
   Channel has been removed from your subscriptions: '채널이 구독에서 제거되었습니다'
@@ -626,16 +610,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: '전체 재생 목록 보기'
-  Videos: '비디오'
-  View: '보기'
-  Views: '보기'
   Last Updated On: '마지막 업데이트 날짜'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: 재생 목록
-Toggle Theatre Mode: '극장 모드 전환'
 Change Format:
   Change Media Formats: '비디오 형식 변경'
   Use Dash Formats: 'DASH 형식 사용'
@@ -732,7 +712,6 @@ Falling back to Invidious API: 'Invidious API로 대체'
 Falling back to Local API: '로컬 API로 대체'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: '이
   동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
-Subscriptions have not yet been implemented: '구독이 아직 구현되지 않았습니다'
 Loop is now disabled: '반복이 비활성화되었습니다'
 Loop is now enabled: '반복이 활성화되었습니다'
 Shuffle is now disabled: '셔플이 비활성화되었습니다'
@@ -749,8 +728,6 @@ No: '아니오'
 More: 더 보기
 Unknown YouTube url type, cannot be opened in app: 알 수 없는 YouTube URL 유형, 앱에서 열 수
   없음
-Hashtags have not yet been implemented, try again later: 해시태그가 아직 구현되지 않았습니다. 나중에
-  다시 시도하세요
 Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초
   후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
 Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로
@@ -768,10 +745,8 @@ Channels:
   Title: 채널 목록
   Search bar placeholder: 채널 검색
   Empty: 채널 목록이 비어 있습니다.
-  Unsubscribe: 구독 취소
   Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
   Count: '{number} 채널이 발견되었습니다.'
-  Unsubscribed: '{channelName} 구독에서 제거되었습니다'
 Downloading has completed: '"{videoTitle}" 다운로드가 완료되었습니다'
 Starting download: '"{videoTitle}" 다운로드를 시작하는 중'
 Downloading failed: '"{videoTitle}"를 다운로드하는 동안 문제가 발생했습니다'

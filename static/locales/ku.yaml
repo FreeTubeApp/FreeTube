@@ -89,11 +89,6 @@ Most Popular: 'بەناوبانگترین'
 Playlists: 'پلەیلیست'
 User Playlists:
   Your Playlists: 'پلیەلیستەکانت'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ڤیدیۆ
-    سەڤکراوەکانت بەتاڵن. کلیک لە دوگمەی سەیڤ کە لە سووچی ڤیدیۆیەک بۆ ئەوەی لێرە لیستکرێت
-  Playlist Message: ئەم پەیجە شێوەی کۆتایی پلەیلیستەکە دەرناخات. تەنها ڤیدیۆت پیشان
-    دەدات کە سیڤت کردووە یان فەیڤرتت کردووە. کاتێک کارەکە تەواو بووە، گشت ئەم ڤیدیۆیانەی
-    لێرەدان دەبرێنە لیستی 'فەیڤرتەکان'.
 History:
   # On History Page
   History: 'مێژوو'
@@ -117,7 +112,6 @@ Settings:
     Unknown data key: 'کلیلی داتای نەناسراو'
     How do I import my subscriptions?: 'چۆن بەشدارییەکانم داخڵ بکەم؟'
     Manage Subscriptions: بەشدارییەکانت رێکبخە
-  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: کێشە لە
       وەرگرتنی زانیاری نێتۆرک. ئایە پرۆکسێکەت بە رێکوپێکی رێکخراوە؟
@@ -160,8 +154,6 @@ About:
   Help: یارمەتی
   GitHub releases: GitHub دەرچونەکانی
   Downloads / Changelog: دابەزاندنەکان / لیستی گۆڕانکاری
-  View License: قەیدەکە پیشاندە
-  Licensed under the AGPLv3: AGPLv3 دەرکراوە لەژیر
   Source code: سەرچاوەی کۆد
   Beta: تاقیکارییە
 Profile:

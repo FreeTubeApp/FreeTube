@@ -139,8 +139,6 @@ Channels:
   Search bar placeholder: 'Пошук каналаў'
   Count: '{number} каналы(аў) знойдзена.'
   Empty: 'Ваш спіс каналаў зараз пусты.'
-  Unsubscribe: 'Адпісацца'
-  Unsubscribed: '{channelName} быў выдалены з вашых падпісак'
   Unsubscribe Prompt: 'Вы сапраўды хочаце адпісацца ад "{channelName}"?'
 Trending:
   Trending: 'У трэндзе'
@@ -153,12 +151,6 @@ Most Popular: 'Папулярныя'
 Playlists: 'Плэй-лісты'
 User Playlists:
   Your Playlists: 'Вашы плэй-лісты'
-  Playlist Message: 'Гэтая старонка не адлюстроўвае цалкам працоўныя плэй-лісты. Тут
-    пералічаны толькі відэа, якія вы захавалі або дадалі ў абранае. Калі праца будзе
-    завершана, усе відэа, якія знаходзяцца тут, будуць перанесены ў плэй-ліст «Выбранае».'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Вашы
-    захаваныя відэа пустыя. Націсніце на кнопку захавання ў куце відэа, каб яно з''явілася
-    тут'
   Empty Search Message: 'У гэтым плэй-лісце няма відэа, якія б адпавядалі вашаму пошуку'
   Search bar placeholder: 'Пошук плэй-лістоў'
   Create New Playlist: Стварыць новы плэй-ліст
@@ -227,6 +219,9 @@ User Playlists:
         гэтага відэа
       This playlist is already being used for quick bookmark.: Гэты плэй-ліст ужо
         выкарыстоўваецца для хуткай закладкі.
+      This playlist has a video with a duration error: Гэты плэй-ліст змяшчае прынамсі
+        адно відэа без працягласці. Яно будзе адсартаваны так, як быццам іх працягласць
+        роўная нулю.
     Search for Videos: Пошук відэа
   You have no playlists. Click on the create new playlist button to create a new one.: У
     вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць
@@ -282,7 +277,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'Праграму
     трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
   General Settings:
-    General Settings: 'Агульныя налады'
+    General Settings: 'Агульныя'
     Check for Updates: 'Праверыць наяўнасць абнаўленняў'
     Check for Latest Blog Posts: 'Праверыць апошнія паведамленні ў блогу'
     Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда
@@ -328,7 +323,7 @@ Settings:
       Label: Аўтаматычная загрузка наступнай старонкі
       Tooltip: Аўтаматычна загружаць дадатковыя старонкі і каментарыі.
   Theme Settings:
-    Theme Settings: 'Налады тэмы'
+    Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
     Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
     Disable Smooth Scrolling: 'Адключыць плыўную пракрутку'
@@ -398,7 +393,7 @@ Settings:
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Налады плэера'
+    Player Settings: 'Прайгравальнік'
     Play Next Video: 'Прайграваць наступнае відэа'
     Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
     Autoplay Videos: 'Аўтапрайграванне відэа'
@@ -452,7 +447,7 @@ Settings:
         Forbidden Characters: 'Забароненыя сімвалы'
         Empty File Name: 'Пустая назва файла'
   External Player Settings:
-    External Player Settings: 'Налады вонкавага прайгравальніка'
+    External Player Settings: 'Вонкавы прайгравальнік'
     External Player: 'Вонкавы прайгравальнік'
     Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
       не падтрымліваюцца'
@@ -463,7 +458,7 @@ Settings:
         Name: 'Ніякі'
     Ignore Default Arguments: Ігнараваць аргументы па змаўчанні
   Privacy Settings:
-    Privacy Settings: 'Налады прыватнасці'
+    Privacy Settings: 'Прыватнасць'
     Remember History: 'Памятаць гісторыю'
     Save Watched Progress: 'Захоўваць прагрэс прагляду'
     Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з
@@ -484,23 +479,21 @@ Settings:
     Remove All Playlists: Выдаліць усе плэй-лісты
     All playlists have been removed: Усе плэй-лісты былі выдалены
   Subscription Settings:
-    Subscription Settings: 'Налады падпіскі'
+    Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
-    Manage Subscriptions: 'Кіраванне падпіскамі'
     Fetch Automatically: 'Аўтаматычна атрымліваць стужку'
     Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
     Only Show Latest Video for Each Channel: Паказваць толькі апошняе відэа для кожнага
       канала
   Distraction Free Settings:
-    Distraction Free Settings: 'Налады засяроджвання'
+    Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:
       Side Bar: 'Бакавая панэль'
       Subscriptions Page: 'Старонка падпісак'
       Channel Page: 'Старонка каналу'
       Watch Page: 'Старонка прагляду'
       General: 'Агульныя'
-    Blur Thumbnails: ''
     Hide Video Views: 'Хаваць прагляды відэа'
     Hide Video Likes And Dislikes: 'Хаваць лайкі і дызлайкі да відэа'
     Hide Channel Subscribers: 'Хаваць падпісчыкаў каналу'
@@ -544,14 +537,13 @@ Settings:
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам.
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
   Data Settings:
-    Data Settings: 'Налады даных'
+    Data Settings: 'Даныя'
     Select Import Type: 'Выбраць тып імпарту'
     Select Export Type: 'Выбраць тып экспарту'
     Import Subscriptions: 'Імпарт падпісак'
     Subscription File: 'Файл падпіскі'
     History File: 'Файл гісторыі'
     Playlist File: 'Файл плэй-лісту'
-    Check for Legacy Subscriptions: 'Праверыць наяўнасць устарэлых падпісак'
     Export Subscriptions: 'Экспарт падпісак'
     Export FreeTube: 'Экспарт FreeTube'
     Export YouTube: 'Экспарт YouTube'
@@ -594,7 +586,7 @@ Settings:
         ў раздзеле «Налады прыватнасці».\n3. Запусціце старую версію FreeTube і імпартуйце
         экспартаваныя плэй-лісты.\""
   Proxy Settings:
-    Proxy Settings: 'Налады проксі'
+    Proxy Settings: 'Проксі'
     Enable Tor / Proxy: 'Уключыць Tor / Проксі'
     Proxy Protocol: 'Пратакол проксі'
     Proxy Host: 'Адрас проксі'
@@ -610,7 +602,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Памылка
       атрымання інфармацыі аб сетцы. Ці правільна наладжаны ваш проксі?'
   SponsorBlock Settings:
-    SponsorBlock Settings: 'Налады SponsorBlock'
+    SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Уключыць SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'URL-адрас SponsorBlock
       API (па змаўчанні https://sponsor.ajay.app)'
@@ -627,19 +619,19 @@ Settings:
       API генератара мініяцюр DeArrow (па змаўчанні https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Выкарыстоўваць DeArrow для мініяцюр
   Parental Control Settings:
-    Parental Control Settings: 'Налады бацькоўскага кантролю'
+    Parental Control Settings: 'Бацькоўскі кантроль'
     Hide Unsubscribe Button: 'Хаваць кнопку адпіскі'
     Show Family Friendly Only: 'Паказаць толькі для сямейнага прагляду'
     Hide Search Bar: 'Хаваць панэль пошуку'
   Download Settings:
-    Download Settings: 'Налады спампоўкі'
+    Download Settings: 'Спампоўка'
     Ask Download Path: 'Пытаць шлях спампоўкі'
     Choose Path: 'Выберыце шлях'
     Download Behavior: 'Паводзіны спампоўкі'
     Download in app: 'Спампоўваць у праграме'
     Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
-    Experimental Settings: 'Эксперыментальныя налады'
+    Experimental Settings: 'Эксперыменты'
     Warning: 'Гэтыя налады з''яўляюцца эксперыментальнымі, яны могуць выклікаць збоі,
       пакуль уключаны. Настойліва рэкамендуецца рабіць рэзервовыя копіі. Выкарыстоўвайце
       на свой страх і рызыку!'
@@ -650,19 +642,17 @@ Settings:
     Password Incorrect: 'Пароль няправільны'
     Unlock: 'Разблакіраваць'
   Password Settings:
-    Password Settings: 'Налады пароля'
+    Password Settings: 'Пароль'
     Set Password To Prevent Access: 'Задайце пароль, каб забараніць доступ да налад'
     Set Password: 'Задаць пароль'
     Remove Password: 'Выдаліць пароль'
   Sort Settings Sections (A-Z): Сартаваць раздзелы налад (А-Я)
-  Expand All Settings Sections: Разгарнуць усе раздзелы налад
+  Return to Settings Menu: Вярнуцца ў меню налад
 About:
   #On About page
   About: 'Пра FreeTube'
   Beta: 'Бэта-версія'
   Source code: 'Зыходны код'
-  Licensed under the AGPLv3: ''
-  View License: ''
   Downloads / Changelog: 'Спампоўкі / Журнал змяненняў'
   GitHub releases: 'Выпускі GitHub'
   Help: 'Даведка'
@@ -689,7 +679,7 @@ About:
   AGPLv3: AGPLv3
   Licensed under the: Пад ліцэнзіяй
 Profile:
-  Profile Settings: 'Налады профілю'
+  Profile Settings: 'Профіль'
   Toggle Profile List: 'Пераключыць спіс профіляў'
   Profile Select: 'Выбар профілю'
   Profile Filter: 'Фільтр профілю'
@@ -961,9 +951,6 @@ Playlist:
   #& About
   Playlist: 'Плэй-ліст'
   View Full Playlist: 'Праглядзець увесь плэй-ліст'
-  Videos: 'Відэа'
-  View: 'Прагляд'
-  Views: 'Прагляды'
   Last Updated On: 'Апошняе абнаўленне'
 
 # On Video Watch Page
@@ -978,7 +965,8 @@ Playlist:
     DateAddedOldest: Старыя спачатку
     VideoTitleAscending: Назва (А-Я)
     VideoTitleDescending: Назва (Я-А)
-Toggle Theatre Mode: 'Пераключыць рэжым тэатра'
+    VideoDurationAscending: Працягласць (спачатку кароткія)
+    VideoDurationDescending: Працягласць (спачатку доўгія)
 Change Format:
   Change Media Formats: 'Змяніць фарматы медыя'
   Use Dash Formats: 'Выкарыстоўваць фарматы DASH'
@@ -1134,11 +1122,8 @@ Falling back to Local API: 'Вяртанне да лакальнага API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Гэта
   відэа недаступнае з-за адсутнасці фарматаў. Гэта можа адбыцца з-за недаступнасці
   краіны.'
-Subscriptions have not yet been implemented: 'Падпіскі яшчэ не рэалізаваны'
 Unknown YouTube url type, cannot be opened in app: 'Невядомы тып URL-адраса YouTube,
   немагчыма адкрыць у праграме'
-Hashtags have not yet been implemented, try again later: 'Хэштэгі яшчэ не рэалізаваны,
-  паўтарыце спробу пазней'
 Loop is now disabled: 'Цыкл адключаны'
 Loop is now enabled: 'Цыкл уключаны'
 Shuffle is now disabled: 'Перамешванне выключана'
@@ -1157,7 +1142,7 @@ Playing Next Video Interval: 'Прайграванне наступнага ві
 Canceled next video autoplay: 'Аўтапрайграванне наступнага відэа адменена'
 
 Default Invidious instance has been set to {instance}: 'Экземпляр Invidious па змаўчанні
-  быў усталяваны ў {экзэмпляр}'
+  быў усталяваны ў {instance}'
 Default Invidious instance has been cleared: 'Экземпляр Invidious па змаўчанні быў
   выдалены'
 'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
@@ -1171,8 +1156,8 @@ Screenshot Success: 'Здымак захаваны як "{filePath}"'
 Screenshot Error: 'Здымак не ўдаўся. {error}'
 
 Hashtag:
-  Hashtag: 'Хэштэг'
-  This hashtag does not currently have any videos: 'Гэты хэштэг зараз не змяшчае відэа'
+  Hashtag: 'Цэтлік'
+  This hashtag does not currently have any videos: 'Гэты цэтлік зараз не змяшчае відэа'
 Yes: 'Так'
 No: 'Не'
 Ok: 'Ок'
@@ -1181,6 +1166,11 @@ Search Listing:
     Subtitles: Субцітры
     4K: 4K
     Closed Captions: Субцітры
+    360 Video: 360°
+    8K: 8K
+    VR180: VR180
+    New: Новае
+    3D: 3D
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}

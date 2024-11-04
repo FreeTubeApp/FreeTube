@@ -134,12 +134,6 @@ Most Popular: 'Ikusienak'
 Playlists: 'Erreprodukzio zerrendak'
 User Playlists:
   Your Playlists: 'Zure erreprodukzio zerrendak'
-  Playlist Message: 'Orrialde honek ez ditu guztiz funtzionatzen duten erreprodukzio-zerrendak
-    islatzen. Gorde dituzun edo gogoko dituzun bideoak bakarrik zerrendatzen ditu.
-    Lana amaitzen denean, hemen dauden bideo guztiak "Gogokoak" erreprodukzio-zerrenda
-    batera migratuko dira.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Gordetako
-    bideoak hutsik daude. Egin klik bideoaren izkinan den "gorde" botoian hemen zerrendatzeko'
   Search bar placeholder: Bilatu erreprodukzio-zerrendak
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
     bat datorren bideorik
@@ -174,7 +168,6 @@ User Playlists:
     Create: Sortu
   Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio-zerrenda
     honekin
-  Disable Quick Bookmark: Desgaitu laster-marka azkarra
   Sort By:
     NameDescending: Z-A
     LatestCreatedFirst: Sortu berria
@@ -199,7 +192,6 @@ User Playlists:
       There was a problem with removing this video: Arazo bat izan da bideoa kentzean
       This playlist is now used for quick bookmark: Erreprodukzio-zerrenda hau laster-markak
         egiteko erabiltzen da orain
-      Quick bookmark disabled: Laster-marka azkarra desgaituta dago
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Erreprodukzio-zerrenda
         hau laster-marketarako erabiltzen da orain {oldPlaylistName}-ren ordez. Egin
         klik hemen desegiteko
@@ -243,9 +235,6 @@ User Playlists:
       bideo gehituko dira'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       gehitu dira'
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ziur
-    ikusitako bideo guztiak erreprodukzio-zerrenda honetatik kendu nahi dituzula?
-    Hau ezin da desegin.
   Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio-zerrendak
   Remove Duplicate Videos: Kendu bideo bikoiztuak
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ziur
@@ -467,7 +456,6 @@ Settings:
     Subscription Settings: 'Harpidetzen ezarpenak'
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
-    Manage Subscriptions: 'Harpidetzak kudeatu'
     Fetch Automatically: Eskuratu jarioa automatikoki
     Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
       bideoa
@@ -525,10 +513,6 @@ Settings:
     Select Import Type: 'Hautatu Inportazio mota'
     Select Export Type: 'Hautatu esportazio mota'
     Import Subscriptions: 'Harpidetzak inportatu'
-    Import FreeTube: 'Freetube inportatu'
-    Import YouTube: 'Youtubetik inportatu'
-    Import NewPipe: 'Newpipetik inportatu'
-    Check for Legacy Subscriptions: 'Legacy harpidetzak bilatu'
     Export Subscriptions: 'Harpidetzak esportatu'
     Export FreeTube: 'Freetubera esportatu'
     Export YouTube: 'Youtubera esportatu'
@@ -650,15 +634,12 @@ Settings:
     Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
     Remove Password: Pasahitza ezabatu
     Set Password: Ezarri pasahitza
-  Expand All Settings Sections: Zabaldu ezarpen guztien atalak
   Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
 About:
   #On About page
   About: 'Honi buruz'
   Beta: 'Beta'
   Source code: 'Kode iturria'
-  Licensed under the AGPLv3: 'AGPLv3 lizentziapean'
-  View License: 'Lizentzia ikusi'
   Downloads / Changelog: 'Deskargak / Aldaketen erregistroa'
   GitHub releases: 'Github argitalpenak'
   Help: 'Laguntza'
@@ -958,9 +939,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
-  Videos: 'Bideoak'
-  View: 'Ikusi'
-  Views: 'Ikustaldiak'
   Last Updated On: 'Azkenengoz eguneratua'
 
 # On Video Watch Page
@@ -976,7 +954,6 @@ Playlist:
     VideoTitleDescending: Izenburua (Z-A)
     AuthorAscending: Egilea (A-Z)
     AuthorDescending: Egilea (Z-A)
-Toggle Theatre Mode: 'Aldatu Antzerki modura'
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'
@@ -1127,7 +1104,6 @@ Falling back to Local API: 'Tokiko APIra itzultzen'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo
   hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean
   erabilgarri ez dagoelako gerta daiteke.'
-Subscriptions have not yet been implemented: 'Harpidetzak ez dira oraindik aktibatu'
 Loop is now disabled: 'Etengabeko erreprodukzioa desaktibatu egin da'
 Loop is now enabled: 'Etengabeko ereprodukzioa aktibatu egin da'
 Shuffle is now disabled: 'Erreprodukzioen nahasketak desaktibatu egin dira'
@@ -1158,8 +1134,6 @@ External link opening has been disabled in the general settings: Kanpo estekak i
 Downloading has completed: '"{videoTitle}" deskargatu egin da'
 Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
   ezin da aplikazioan ireki
-Hashtags have not yet been implemented, try again later: Etiketak ez dira oraindik
-  aktibatu, berriz ere saiatu zaitez beranduago
 Downloading failed: Akats bat gertatu da "{videoTitle}" deskargatzerakoan
 Screenshot Success: Pantaila-argazkia gode da "{filePath}" gisa
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
@@ -1169,8 +1143,6 @@ Channels:
   Channels: Kanalak
   Title: Kanalen zerrenda
   Search bar placeholder: Kanalak bilatu
-  Unsubscribe: Harpidetza kendu
-  Unsubscribed: '{channelName} zure harpidetzen zerrendatik ezabatu da'
   Unsubscribe Prompt: Ziur al zaude "{channelName}"-ren harpidetza kendu nahi duzula?
   Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.

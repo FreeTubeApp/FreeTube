@@ -145,8 +145,6 @@ Channels:
   Search bar placeholder: ''
   Count: ''
   Empty: ''
-  Unsubscribe: ''
-  Unsubscribed: ''
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
@@ -162,8 +160,6 @@ Feed:
 Playlists: ''
 User Playlists:
   Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   You have no playlists. Click on the create new playlist button to create a new one.: ''
   Empty Search Message: ''
   Search bar placeholder: ''
@@ -271,7 +267,6 @@ History:
 Settings:
   # On Settings Page
   Settings: ''
-  Expand All Settings Sections: ''
   Sort Settings Sections (A-Z): ''
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
@@ -464,7 +459,6 @@ Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
     Fetch Automatically: ''
     Only Show Latest Video for Each Channel: ''
     Confirm Before Unsubscribing: ''
@@ -520,7 +514,6 @@ Settings:
     Subscription File: ''
     History File: ''
     Playlist File: ''
-    Check for Legacy Subscriptions: ''
     Export Subscriptions: ''
     Export FreeTube: ''
     Export YouTube: ''
@@ -879,9 +872,6 @@ Playlist:
   #& About
   Playlist: ''
   View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
   Last Updated On: ''
   Sort By:
     Sort By: ''
@@ -896,7 +886,6 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -1001,9 +990,7 @@ Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
 Falling back to Local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
-Hashtags have not yet been implemented, try again later: ''
 Loop is now disabled: ''
 Loop is now enabled: ''
 Shuffle is now disabled: ''

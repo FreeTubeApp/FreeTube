@@ -1,16 +1,20 @@
 .settingsSection {
-  background-color: var(--card-bg-color);
   margin-block: 0;
-  margin-inline: auto;
-  inline-size: 85%;
 
   @media only screen and (width <= 800px) {
     inline-size: 100%;
   }
+}
 
-  &[open] {
-    padding-block-end: 15px;
-  }
+.sectionHeader {
+  cursor: pointer;
+  display: block;
+  padding: 1px;
+}
+
+.sectionBody {
+  background-color: var(--card-bg-color);
+  padding-block: 10px;
 
   > div {
     box-sizing: border-box;
@@ -26,22 +30,9 @@
   }
 }
 
-.sectionLine {
-  border: 0;
-  border-block-start: 2px solid var(--primary-color);
-  margin-block-start: -1px;
-  inline-size: 100%;
-}
-
-.sectionHeader {
-  cursor: pointer;
-  display: block;
-  padding: 1px;
-}
-
 .sectionTitle {
   user-select: none;
-  margin-inline-start: 2%;
+  margin-inline-start: 20px;
   margin-block: 0.5em;
 }
 

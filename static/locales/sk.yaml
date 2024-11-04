@@ -126,11 +126,6 @@ Most Popular: 'Populárne'
 Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Tvoj playlist'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vaše
-    uložené videá sú prázdne. Kliknutím na tlačidlo uložiť v rohu videa ho tu zobrazíte
-  Playlist Message: Zatiaľ tu nie sú plne funkčné playlisty. Sú tu len videá, ktoré
-    ste uložili medzi obľúbené. Keď playlisty plne implementujeme do aplikácie, presunú
-    sa do „Obľúbené“.
   You have no playlists. Click on the create new playlist button to create a new one.: Nemáte
     žiadne playlisty. Kliknutím na tlačidlo playlistu vytvoríte nový.
   Empty Search Message: V tomto playliste nie sú žiadne videá, ktoré by zodpovedali
@@ -183,8 +178,6 @@ Settings:
       Beginning: 'Začiatok'
       Middle: 'Stred'
       End: 'Koniec'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Stránka
-      (Predvolená je https://invidious.snopyta.org)'
     Region for Trending: 'Región pre trendy'
         #! List countries
     Check for Latest Blog Posts: Kontrolovať najnovšie príspevky na blogu
@@ -283,33 +276,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Nastavenia Odberov'
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
-    Manage Subscriptions: 'Spravovať odbery'
     Fetch Feeds from RSS: Natiahnuť kanály z RSS
-  Advanced Settings:
-    Enable Debug Mode (Prints data to the console): 'Povoliť režim ladenia (Zaplní
-      konzolu údajmi)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy adresa (príklad: SOCKS5://127.0.0.1:9050
-      )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Kliknutím
-      na tlačidlo „VYSKÚŠAŤ PROXY“ odošlete žiadosť na adresu https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Používať Tor / Proxy pre volania API'
-    TEST PROXY: 'VYSKÚŠAŤ PROXY'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Zobraziť verejné inštancie'
-    Clear History:
-      Clear History: 'Vymazať históriu'
-      # On Click
-      Are you sure you want to delete your history?: 'Naozaj chcete odstrániť svoju
-        históriu?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Vymazať odbery'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Naozaj chcete odstrániť
-        všetky odbery?'
-      #& Yes
-      #& No
 
   Data Settings:
     How do I import my subscriptions?: Ako môžem importovať svoje odbery?
@@ -337,10 +304,6 @@ Settings:
     Export YouTube: Exportovať dáta vo formáte Youtube
     Export FreeTube: Exportovať dáta vo formáte FreeTube
     Export Subscriptions: Exportovať Odbery
-    Check for Legacy Subscriptions: Skontrolovať zastarané odbery
-    Import NewPipe: Importovať dáta z NewPipe
-    Import YouTube: Importovať dáta z Youtube
-    Import FreeTube: Importovať dáta z FreeTube
     Import Subscriptions: Importovať odbery
     Select Export Type: Vybrať typ exportu
     Select Import Type: Vybrať typ importu
@@ -407,40 +370,11 @@ About:
   #On About page
   About: 'O FreeTube'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Tento
-    softvér je voľne licencovaný pod AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Našli ste chybu? Chcete navrhnúť funkciu? Chcete pomôcť? Navštívte našu stránku
-    GitHub. PRka vítané.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Ďakujeme
-    veľmi pekne ľuďom a projektom, ktoré umožňujú, že FreeTube funguje!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Chcete
-    sa porozprávať? Pripojte sa k nášmu serveru Element / Matrix. Pred pripojením
-    si prečítajte pravidlá.'
-
-  'Looking for help? Check out our Wiki page.': 'Hľadáte pomoc? Navštívte našu stránku
-    Wiki.'
-
-  Check out our Firefox extension!: 'Vyskúšajte naše rozšírenie pre Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Ak
-    radi využívate FreeTube, zvážte donate skrz Liberapay alebo prostredníctvom našej
-    bitcoinovej adresy.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Najnovšie správy o FreeTube'
-
 #On Channel Page
   FreeTube Wiki: Wiki FreeTube
   Help: Pomoc
   GitHub releases: Vydania na GitHube
   Downloads / Changelog: Súbory na stiahnutie / Zoznam zmien
-  View License: Zobraziť licenciu
-  Licensed under the AGPLv3: Na základe licencie AGPLv3
   Beta: Testovacia verzia
   Source code: Zdrojový kód
   GitHub issues: Problémy z GitHubu
@@ -461,8 +395,6 @@ About:
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné
     otázky
 Channel:
-  Subscriber: 'Odberateľ'
-  Subscribers: 'Odberateľov'
   Subscribe: 'Odberať'
   Unsubscribe: 'Zrušiť odber'
   Search Channel: 'Vyhľadať v kanáli'
@@ -604,16 +536,12 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý zoznam videí'
-  Videos: 'Videá'
-  View: 'Pozrieť'
-  Views: 'Zhliadnutí'
   Last Updated On: 'Posledná aktualizácia'
 
 # On Video Watch Page
 #* Published
 #& Views
   Playlist: Zoznam videí
-Toggle Theatre Mode: 'Prepnúť na režim kino'
 Change Format:
   Change Media Formats: 'Zmena formátov videa'
   Use Dash Formats: 'Použitie formátov DASH'
@@ -674,7 +602,6 @@ Local API Error (Click to copy): 'Local API chyba (kliknutím skopírujete)'
 Invidious API Error (Click to copy): 'Invidious API chyba (kliknutím skopírujete)'
 Falling back to Invidious API: 'Návrat k Invidious API'
 Falling back to Local API: 'Návrat k local API'
-Subscriptions have not yet been implemented: 'Odbery ešte nie sú implementované'
 Loop is now disabled: 'Opakovanie je teraz deaktivované'
 Loop is now enabled: 'Opakovanie je teraz povolené'
 Shuffle is now disabled: 'Náhodné prehrávanie je teraz zakázané'
@@ -787,8 +714,6 @@ Playing Next Video Interval: Prehrávanie ďalšieho videa za chvíľu. Kliknut�
   | Prehráva sa ďalšie video o {nextVideoInterval} sekundu. Kliknutím zrušíte. | Prehráva
   sa ďalšie video o {nextVideoInterval} sekúnd. Kliknutím zrušíte.
 More: Viac
-Hashtags have not yet been implemented, try again later: Neznámy typ adresy URL YouTube,
-  v aplikácii sa nedá otvoriť
 Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube,
   v aplikácii sa nedá otvoriť
 Open New Window: Otvoriť nové okno
@@ -806,9 +731,7 @@ Channels:
   Title: Zoznam kanálov
   Count: 'Nájdených {number} kanálov.'
   Search bar placeholder: Vyhľadať kanály
-  Unsubscribed: '{channelName} bol odstránený z vašich odberov'
   Empty: Váš zoznam kanálov je momentálne prázdny.
-  Unsubscribe: Zrušiť odber
   Unsubscribe Prompt: Určite sa chcete odhlásiť z odberu "{channelName}"?
 Preferences: Predvoľby
 Close Banner: Zavrieť banner

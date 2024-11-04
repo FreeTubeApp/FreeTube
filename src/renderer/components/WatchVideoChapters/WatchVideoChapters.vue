@@ -106,10 +106,12 @@ const currentChapter = computed(() => {
   return props.chapters[currentIndex.value]
 })
 
+/** @type {import('vue').ComputedRef<string>} */
 const currentTitle = computed(() => {
   return currentChapter.value.title
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const compact = computed(() => {
   return !props.chapters[0].thumbnail
 })

@@ -184,18 +184,18 @@ config.plugins.push(
     'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
   }),
   new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-          to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
+    patterns: [
+      {
+        from: path.join(__dirname, '../static/pwabuilder-sw.js'),
+        to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
+      },
+      {
+        from: path.join(__dirname, '../static'),
+        to: path.join(__dirname, '../dist/web/static'),
+        globOptions: {
+          dot: true,
+          ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
         },
-        {
-          from: path.join(__dirname, '../static'),
-          to: path.join(__dirname, '../dist/web/static'),
-          globOptions: {
-            dot: true,
-            ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-          },
       },
       {
         from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
@@ -205,6 +205,5 @@ config.plugins.push(
     ]
   })
 )
-
 
 module.exports = config

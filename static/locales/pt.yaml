@@ -42,6 +42,8 @@ Global:
     Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
+    Like Count: 1 gosto | {count} gostos
+    Comment Count: 1 comentário | {count} comentários
   Input Tags:
     Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
@@ -105,7 +107,9 @@ Subscriptions:
   Subscriptions: 'Subscrições'
   Latest Subscriptions: 'Subscrições recentes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
-    sua lista de subscrições está vazia. Adicione algumas para as ver aqui.'
+    sua lista de subscrições está vazia. Se quiser importar subscrições, pode aceder
+    às definições de dados e selecionar Importar subscrições. Em alternativa, pode
+    procurar os canais e efetuar a subscrição.'
   'Getting Subscriptions. Please wait.': 'A carregar subscrições. Por favor aguarde.'
   Refresh Subscriptions: 'Recarregar subscrições'
   Load More Videos: Carregar mais vídeos
@@ -133,12 +137,6 @@ Most Popular: 'Mais populares'
 Playlists: 'Listas de reprodução'
 User Playlists:
   Your Playlists: 'As suas listas de reprodução'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
-    lista está vazia. Clique no botão Guardar no canto de um vídeo para o mostrar
-    aqui.
-  Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
-    os vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
-    todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
   Search bar placeholder: Procurar listas de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com
     a sua pesquisa
@@ -189,7 +187,6 @@ User Playlists:
       This playlist does not exist: Esta lista de reprodução não existe
       This playlist is now used for quick bookmark: Esta lista de reprodução é agora
         usada como marcador rápido
-      Quick bookmark disabled: Marcador rápido desativado
       This playlist is already being used for quick bookmark.: Esta lista de reprodução
         já está a ser usada como marcador rápido.
     Search for Videos: Procurar vídeos
@@ -229,15 +226,11 @@ User Playlists:
     para criar uma.
   Move Video Down: Mover vídeo para baixo
   Edit Playlist Info: Editar informação da lista de reprodução
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Tem
-    certeza que quer remover todos os vídeos vistos desta lista de reprodução? Isto
-    não pode ser revertido.
   Playlist Description: Descrição da lista de reprodução
   Add to Favorites: Adicionar a {playlistName}
   Remove from Favorites: Remover de {playlistName}
   Enable Quick Bookmark With This Playlist: Ativar marcador rápido para esta lista
     de reprodução
-  Disable Quick Bookmark: Desativar marcador rápido
   Playlists with Matching Videos: Listas de reprodução coincidentes
   Quick Bookmark Enabled: Marcador rápido ativado
   Remove Duplicate Videos: Remover duplicados
@@ -256,11 +249,12 @@ History:
   Your history list is currently empty.: 'O seu histórico está vazio.'
   Search bar placeholder: Procurar no histórico
   Empty Search Message: Não há vídeos no histórico que coincidam com a sua pesquisa
+  Case Sensitive Search: Diferenciar maiúsculas e minúsculas
 Settings:
   # On Settings Page
   Settings: 'Definições'
   General Settings:
-    General Settings: 'Definições gerais'
+    General Settings: 'Geral'
     Check for Updates: 'Procurar atualizações'
     Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
     Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário,
@@ -284,8 +278,6 @@ Settings:
       End: 'Final'
       Hidden: Oculta
       Blur: Desfocar
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância Invidious
-      (Por omissão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para as tendências'
         #! List countries
     View all Invidious instance information: Mostrar toda a informação sobre esta
@@ -307,7 +299,7 @@ Settings:
       Label: Carregar seguinte automaticamente
       Tooltip: Carrega as páginas e comentários automaticamente.
   Theme Settings:
-    Theme Settings: 'Definições de tema'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
@@ -377,7 +369,7 @@ Settings:
     Hide Side Bar Labels: Ocultar texto na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
-    Player Settings: 'Definições do reprodutor'
+    Player Settings: 'Reprodutor'
     Play Next Video: 'Reproduzir vídeo seguinte'
     Turn on Subtitles by Default: 'Ativar legendas automaticamente'
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
@@ -430,7 +422,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
   Privacy Settings:
-    Privacy Settings: 'Definições de privacidade'
+    Privacy Settings: 'Privacidade'
     Remember History: 'Memorizar histórico'
     Save Watched Progress: 'Guardar progresso de reprodução'
     Clear Search Cache: 'Limpar cache de pesquisas'
@@ -452,22 +444,18 @@ Settings:
     Are you sure you want to remove all your playlists?: Tem a certeza de que pretende
       remover todas as suas listas de reprodução?
   Subscription Settings:
-    Subscription Settings: 'Definições de subscrições'
+    Subscription Settings: 'Subscrição'
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
-    Manage Subscriptions: 'Gerir subscrições'
     Fetch Automatically: Obter fontes automaticamente
     Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
       canal
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
-    Data Settings: 'Definições de dados'
+    Data Settings: 'Dados'
     Select Import Type: 'Selecione o tipo de importação'
     Select Export Type: 'Selecione o tipo de exportação'
     Import Subscriptions: 'Importar subscrições'
-    Import FreeTube: 'Importar FreeTube'
-    Import YouTube: 'Importar YouTube'
-    Import NewPipe: 'Importar NewPipe'
     Export Subscriptions: 'Exportar subscrições'
     Export FreeTube: 'Exportar FreeTube'
     Export YouTube: 'Exportar YouTube'
@@ -496,7 +484,6 @@ Settings:
     Unknown data key: 'Chave de dados desconhecida'
     How do I import my subscriptions?: 'Como importar as minhas subscrições?'
     Manage Subscriptions: Gerir subscrições
-    Check for Legacy Subscriptions: Verificar se há subscrições no formato antigo
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
     Playlist insufficient data: Dados insuficientes para a lista de reprodução "{playlist}",
@@ -517,39 +504,13 @@ Settings:
         listas de reprodução existentes usando a opção \"Remover todas as listas de
         reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga
         do FreeTube e importe as listas de reprodução."
-  Advanced Settings:
-    Advanced Settings: 'Definições Avançadas'
-    Enable Debug Mode (Prints data to the console): 'Ligar Modo de Depuração (Escreve
-      dados à consola)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Endereço de intermediário
-      (Exemplo: SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Ao
-      Carregar "TESTAR INTERMEDIÁRIO" um pedido vai ser enviado a https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Usar Tor / Intermediário para Chamadas API'
-    TEST PROXY: 'TESTAR INTERMEDIÁRIO'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Ver Instâncias Públicas'
-    Clear History:
-      Clear History: 'Limpar Histórico'
-      # On Click
-      Are you sure you want to delete your history?: 'Tem a certeza de que quer apagar
-        o seu histórico?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Limpar Subscrições'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Tem a certeza de que quer
-        apagar as suas subscrições?'
-      #& Yes
-      #& No
 
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar se um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (padrão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ativar bloqueio da publicidade SponsorBlock
-    SponsorBlock Settings: Definições SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Opção para ignorar
       Auto Skip: Ignorar automaticamente
@@ -576,7 +537,7 @@ Settings:
     Proxy Host: Servidor do proxy
     Proxy Protocol: Protocolo do proxy
     Enable Tor / Proxy: Ativar Tor/Proxy
-    Proxy Settings: Definições de proxy
+    Proxy Settings: Proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar subscrições ativas
     Hide Live Chat: Ocultar conversas em direto
@@ -588,7 +549,7 @@ Settings:
     Hide Channel Subscribers: Ocultar número de subscritores
     Hide Video Likes And Dislikes: Ocultar "gostos" em vídeos
     Hide Video Views: Ocultar visualizações
-    Distraction Free Settings: Definições de distrações
+    Distraction Free Settings: Distrações
     Hide Video Description: Ocultar descrição dos vídeos
     Hide Sharing Actions: Ocultar ações de partilha
     Hide Live Streams: Ocultar transmissões em direto
@@ -615,7 +576,6 @@ Settings:
     Hide Subscriptions Shorts: Ocultar subscrições de curtos
     Hide Subscriptions Live: Ocultar subscrições de emissões em direto
     Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
-    Blur Thumbnails: Desfocar miniaturas
     Hide Subscriptions Community: Ocultar subscrições de comunidades
     Hide Channels Invalid: O ID do canal não é válido
     Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados.
@@ -633,7 +593,7 @@ Settings:
     Custom External Player Executable: Executável do reprodutor externo
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Reprodutor externo
-    External Player Settings: Definições para reprodutores externos
+    External Player Settings: Reprodutores externos
     Players:
       None:
         Name: Nenhum
@@ -641,7 +601,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Tem
     que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar alterações?
   Download Settings:
-    Download Settings: Definições para descargas
+    Download Settings: Descargas
     Ask Download Path: Perguntar local para guardar
     Choose Path: Escolher local
     Download in app: Descarregar na aplicação
@@ -651,10 +611,10 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Search Bar: Ocultar barra de pesquisa
-    Parental Control Settings: Definições de controlo parental
+    Parental Control Settings: Controlo parental
   Experimental Settings:
     Replace HTTP Cache: Substituir cache HTTP
-    Experimental Settings: Definições experimentais
+    Experimental Settings: Experimentais
     Warning: Estas definições são experimentais e podem provocar falhas se ativadas.
       É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
   Password Dialog:
@@ -663,43 +623,17 @@ Settings:
     Password: Palavra-passe
     Unlock: Desbloquear
   Password Settings:
-    Password Settings: Definições de palavra-passe
+    Password Settings: Palavra-passe
     Set Password To Prevent Access: Defina uma palavra-passe para impedir o acesso
       às definições
     Set Password: Definir palavra-passe
     Remove Password: Remover palavra-passe
-  Expand All Settings Sections: Expandir todas as secções de definições
   Sort Settings Sections (A-Z): Ordenar definições (A-Z)
+  Return to Settings Menu: Voltar para as definições
 About:
   #On About page
   About: 'Acerca'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
-    software é licenciado livremente via AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    Encontraste um bug? Queres sugerir uma funcionalidade? Queres ajudar-nos? Vai
-    á nossa página de GitHub. Pull requests são bem vindos.
-  Thank you very much to the People and Projects that make FreeTube possible!: 'Agradeço
-    imenso a todas as pessoas e projetos que façam com que o FreeTube seja possivel!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': 'Queres
-    conversar? Junta-te ao nosso servidor Element / Matrix. Por favor verifica as
-    regras antes de te juntares.'
-
-  'Looking for help? Check out our Wiki page.': 'Há procura de ajuda? Vê a nossa página
-    Wiki.'
-
-  Check out our Firefox extension!: 'Experimenta a nossa extensão Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Se
-    gostas de usar FreeTube, considera doar via Liberapay ou através do nosso endereço
-    Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Notícias recentes sobre FreeTube'
-
   FAQ: FAQ
   Blog: Blogue
   Website: Página web
@@ -721,8 +655,6 @@ About:
   Help: Ajuda
   GitHub releases: Versões no GitHub
   Downloads / Changelog: Descargas/Alterações
-  View License: Ver licença
-  Licensed under the AGPLv3: Licenciado nos termos da AGPLv3
   Source code: Código-fonte
   Beta: Beta
   Discussions: Discussões
@@ -773,7 +705,7 @@ Profile:
     os canais dos outros perfis.'
 #On Channel Page
   Profile Filter: Filtro de perfil
-  Profile Settings: Definições do perfil
+  Profile Settings: Perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
   Edit Profile Name: Editar nome do perfil
@@ -781,8 +713,6 @@ Profile:
   Open Profile Dropdown: Abrir menu do perfil
   Close Profile Dropdown: Fechar menu do perfil
 Channel:
-  Subscriber: 'Subscritor'
-  Subscribers: 'Subscritores'
   Subscribe: 'Subscrever'
   Unsubscribe: 'Cancelar subscrição'
   Channel has been removed from your subscriptions: 'O canal foi removido das suas
@@ -832,6 +762,7 @@ Channel:
     Reveal Answers: Mostrar respostas
     votes: '{votes} votos'
     Video hidden by FreeTube: Freetube ocultou este vídeo
+    View Full Post: Ver publicação na íntegra
   Live:
     Live: Em direto
     This channel does not currently have any live streams: Este canal não tem, atualmente,
@@ -970,6 +901,25 @@ Video:
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
   More Options: Mais opções
+  Player:
+    Theatre Mode: Modo teatro
+    Stats:
+      Media Formats: 'Formatos multimédia: {formats}'
+      Bitrate: Taxa de dados :{bitrate} kbps
+      Volume: 'Volume: {volumePercentage}%'
+      Bandwidth: 'Largura de banda: {bandwidth} kbps'
+      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensões do reprodutor: {width}x{height}'
+      Stats: Estatísticas
+      Video ID: 'ID do vídeo: {videoId}'
+    TranslatedCaptionTemplate: '{language} (traduzido de "{originalLanguage}")'
+    Audio Tracks: Faixas de áudio
+    Exit Theatre Mode: Sair do modo teatro
+    Full Window: Ecrã completo
+    Exit Full Window: Sair de ecrã completo
+    Take Screenshot: Captura de ecrã
+    Show Stats: Mostrar estatísticas
+    Hide Stats: Ocultar estatísticas
 Videos:
   #& Sort By
   Sort By:
@@ -980,9 +930,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Ver lista de reprodução completa'
-  Videos: 'Vídeos'
-  View: 'Visualização'
-  Views: 'Visualizações'
   Last Updated On: 'Última atualização'
 
 # On Video Watch Page
@@ -998,7 +945,6 @@ Playlist:
     VideoTitleAscending: Título (A-Z)
     VideoTitleDescending: Título (Z-A)
     Custom: Personalizado
-Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -1063,7 +1009,6 @@ Local API Error (Click to copy): 'Erro na API local (clique para copiar)'
 Invidious API Error (Click to copy): 'Erro na API Invidious (clique para copiar)'
 Falling back to Invidious API: 'Ocorreu um erro e a API Invidious será utilizada'
 Falling back to Local API: 'Ocorreu um erro e a API local será utilizada'
-Subscriptions have not yet been implemented: 'As subscrições ainda não foram implementadas'
 Loop is now disabled: 'Repetição desativada'
 Loop is now enabled: 'Repetição ativada'
 Shuffle is now disabled: 'Reprodução aleatória desativada'
@@ -1086,8 +1031,6 @@ Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Cliqu
   cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique
   para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos.
   Clique para cancelar.
-Hashtags have not yet been implemented, try again later: As 'hashtags' ainda não foram
-  implementadas, tente mais tarde
 Unknown YouTube url type, cannot be opened in app: O tipo de URL YouTube é desconhecido
   e não pode ser aberto na aplicação
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
@@ -1174,8 +1117,6 @@ New Window: Nova janela
 Channels:
   Count: '{number} canais encontrados.'
   Empty: A lista de canais está vazia.
-  Unsubscribe: Anular subscrição
-  Unsubscribed: '{channelName} foi removido das suas subscrições'
   Search bar placeholder: Procurar canais
   Channels: Canais
   Title: Lista de canais
@@ -1224,3 +1165,8 @@ Search Listing:
     4K: 4K
     Subtitles: Legendas
     Closed Captions: Legendas fechadas
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Nova
+    3D: 3D

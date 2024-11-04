@@ -146,9 +146,17 @@
         > • {{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
       </div>
       <div
-        v-if="is4k || hasCaptions"
+        v-if="is4k || hasCaptions || is8k || isNew || isVr180 || isVr360 || is3D"
         class="videoTagLine"
       >
+        <div
+          v-if="isNew"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.New')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.New') }}
+        </div>
         <div
           v-if="is4k"
           class="videoTag"
@@ -156,6 +164,38 @@
           role="img"
         >
           {{ $t('Search Listing.Label.4K') }}
+        </div>
+        <div
+          v-if="is8k"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.8K')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.8K') }}
+        </div>
+        <div
+          v-if="isVr180"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.VR180')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.VR180') }}
+        </div>
+        <div
+          v-if="isVr360"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.360 Video')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.360 Video') }}
+        </div>
+        <div
+          v-if="is3D"
+          class="videoTag"
+          :aria-label="$t('Search Listing.Label.3D')"
+          role="img"
+        >
+          {{ $t('Search Listing.Label.3D') }}
         </div>
         <div
           v-if="hasCaptions"

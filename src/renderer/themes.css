@@ -73,6 +73,10 @@ it can be safely elided. This looks quite pleasant on this theme. */
   text-decoration: underline;
 }
 
+.hotPink .shaka-range-container {
+  --primary-color: #fff;
+}
+
 
 /*************** DARK THEME ADJUSTMENTS ***************/
 

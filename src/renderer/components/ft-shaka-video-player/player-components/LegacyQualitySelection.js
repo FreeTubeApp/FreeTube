@@ -22,15 +22,8 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
     const sortedLegacyFormats = [...legacyFormats]
 
-    // Invidious doesn't return the height or width for the legacy formats, so we have to use the bitrate instead
-    if (typeof legacyFormats[0].width === 'undefined' || typeof legacyFormats[0].height === 'undefined') {
-      sortedLegacyFormats.sort((a, b) => {
-        return b.bitrate - a.bitrate
-      })
-    } else {
-      const isPortrait = legacyFormats[0].height > legacyFormats[0].width
-      sortedLegacyFormats.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
-    }
+    const isPortrait = legacyFormats[0].height > legacyFormats[0].width
+    sortedLegacyFormats.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
 
     /** @private */
     this.legacyFormats_ = sortedLegacyFormats

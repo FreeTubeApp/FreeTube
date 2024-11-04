@@ -5,6 +5,8 @@ export const SORT_BY_VALUES = {
   AuthorDescending: 'author_descending',
   VideoTitleAscending: 'video_title_ascending',
   VideoTitleDescending: 'video_title_descending',
+  VideoDurationAscending: 'video_duration_ascending',
+  VideoDurationDescending: 'video_duration_descending',
   Custom: 'custom'
 }
 
@@ -19,7 +21,9 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
     sortOrder === SORT_BY_VALUES.VideoTitleAscending ||
     sortOrder === SORT_BY_VALUES.VideoTitleDescending ||
     sortOrder === SORT_BY_VALUES.AuthorAscending ||
-    sortOrder === SORT_BY_VALUES.AuthorDescending
+    sortOrder === SORT_BY_VALUES.AuthorDescending ||
+    sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
+    sortOrder === SORT_BY_VALUES.VideoDurationDescending
   ) {
     collator = new Intl.Collator([locale, 'en'])
   }
@@ -29,6 +33,19 @@ export function getSortedPlaylistItems(playlistItems, sortOrder, locale, reverse
     const second = !reversed ? b : a
     return compareTwoPlaylistItems(first, second, sortOrder, collator)
   })
+}
+
+export function videoDurationPresent(video) {
+  if (typeof video.lengthSeconds !== 'number') { return false }
+
+  return !(isNaN(video.lengthSeconds) || video.lengthSeconds === 0)
+}
+
+export function videoDurationWithFallback(video) {
+  if (videoDurationPresent(video)) { return video.lengthSeconds }
+
+  // Fallback
+  return 0
 }
 
 function compareTwoPlaylistItems(a, b, sortOrder, collator) {
@@ -45,6 +62,12 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
       return collator.compare(a.author, b.author)
     case SORT_BY_VALUES.AuthorDescending:
       return collator.compare(b.author, a.author)
+    case SORT_BY_VALUES.VideoDurationAscending: {
+      return videoDurationWithFallback(a) - videoDurationWithFallback(b)
+    }
+    case SORT_BY_VALUES.VideoDurationDescending: {
+      return videoDurationWithFallback(b) - videoDurationWithFallback(a)
+    }
     default:
       console.error(`Unknown sortOrder: ${sortOrder}`)
       return 0

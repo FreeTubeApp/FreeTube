@@ -19,7 +19,7 @@ export default defineComponent({
        * Allows to render the dropdown conditionally
        * 'Channel' will exclude embed links
        * 'Video' (default) keeps the original behaviour
-       **/
+       */
       type: String,
       default: 'Video'
     },

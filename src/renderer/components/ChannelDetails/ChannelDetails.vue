@@ -280,14 +280,17 @@ const props = defineProps({
 
 const emit = defineEmits(['change-tab', 'search', 'subscribed'])
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelSubscriptions = computed(() => {
   return store.getters.getHideChannelSubscriptions
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => {
   return store.getters.getHideSharingActions
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideUnsubscribeButton = computed(() => {
   return store.getters.getHideUnsubscribeButton
 })
