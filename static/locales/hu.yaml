@@ -257,6 +257,9 @@ User Playlists:
     eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
     vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
     a lejátszási listából? Ez a művelet nem vonható vissza.
+  Export Playlist: Ezen lejátszási lista exportálása
+  The playlist has been successfully exported: A lejátszási lista sikeresen exportálva
+    lett
 History:
   # On History Page
   History: 'Előzmények'
