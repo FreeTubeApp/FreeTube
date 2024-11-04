@@ -257,6 +257,9 @@ User Playlists:
     opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
     vidéos regardées de cette liste de lecture ? Cette opération est irréversible.
   Remove Duplicate Videos: Supprimer les vidéos en double
+  The playlist has been successfully exported: La liste de lecture a été exportée
+    avec succès
+  Export Playlist: Exporter cette liste de lecture
 History:
   # On History Page
   History: 'Historique'
@@ -911,6 +914,12 @@ Video:
   IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez
     essayer de changer de VPN ou de proxy.
   Unlisted: Non répertorié
+  AgeRestricted: Les vidéos soumises à des restrictions d'âge ne peuvent pas être
+    regardées avec FreeTube car elles nécessitent une connexion Google et l'utilisation
+    d'un compte YouTube dont l'âge a été vérifié.
+  MembersOnly: Les vidéos réservées aux membres ne peuvent pas être visionnées avec
+    FreeTube, car elles nécessitent une connexion Google et une adhésion payante à
+    la chaîne du vidéaste.
 Videos:
   #& Sort By
   Sort By:
