@@ -961,8 +961,13 @@ export default defineComponent({
             this.addVideo(payload)
           }
         })
-        // Update playlist's `lastUpdatedAt`
-        this.updatePlaylist({ _id: existingPlaylist._id })
+        // Update playlist's `lastUpdatedAt` & other attributes
+        this.updatePlaylist({
+          _id: existingPlaylist._id,
+          // Only these attributes would be updated (besides videos)
+          playlistName: playlistObject.playlistName,
+          description: playlistObject.description,
+        })
       })
 
       showToast(this.$t('Settings.Data Settings.All playlists has been successfully imported'))
