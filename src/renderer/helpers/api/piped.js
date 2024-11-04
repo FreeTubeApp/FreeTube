@@ -1,5 +1,5 @@
 import store from '../../store/index'
-import { toLocalePublicationString } from '../utils'
+import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 
 function getCurrentInstance() {
@@ -80,9 +80,7 @@ function parsePipedComments(comments) {
       showReplies: false,
       replies: [],
       hasOwnerReplied: comment.creatorReplied,
-      time: toLocalePublicationString({
-        publishText: comment.commentedTime
-      })
+      time: getRelativeTimeFromDate(calculatePublishedDate(comment.commentedTime), false),
     }
   })
 }
