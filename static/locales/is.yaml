@@ -253,6 +253,8 @@ User Playlists:
     viss um að þú viljir fjarlægja 1 áhorft myndskeið af þessum spilunarlista? Þetta
     er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
     áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
+  Export Playlist: Flytja út þennan spilunarlista
+  The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
 History:
   # On History Page
   History: 'Áhorf'
