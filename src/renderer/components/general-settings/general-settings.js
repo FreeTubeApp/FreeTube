@@ -3,7 +3,7 @@ import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtInstanceSelector from '../ft-instance-selector/ft-instance-selector.vue'
+import FtInstanceSelector from '../FtInstanceSelector/FtInstanceSelector.vue'
 
 import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
@@ -16,7 +16,7 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-instance-selector': FtInstanceSelector
+    FtInstanceSelector
   },
   data: function () {
     return {

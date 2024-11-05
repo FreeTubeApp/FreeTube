@@ -117,7 +117,7 @@
     <template
       v-if="backendPreference === 'piped'"
     >
-      <ft-instance-selector
+      <FtInstanceSelector
         :backend-type="'piped'"
         :placeholder="$t('Settings.General Settings.Current Piped Instance')"
         :tooltip="$t('Tooltips.General Settings.Piped Instance')"
@@ -135,7 +135,7 @@
     <template
       v-if="(backendFallback && fallbackPreference === 'invidious') || backendPreference == 'invidious'"
     >
-      <ft-instance-selector
+      <FtInstanceSelector
         :backend-type="'invidious'"
         :placeholder="$t('Settings.General Settings.Current Invidious Instance')"
         :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
@@ -153,7 +153,7 @@
     <template
       v-if="backendFallback && fallbackPreference === 'piped'"
     >
-      <ft-instance-selector
+      <FtInstanceSelector
         :backend-type="'piped'"
         :placeholder="$t('Settings.General Settings.Current Piped Instance')"
         :tooltip="$t('Tooltips.General Settings.Piped Instance')"
