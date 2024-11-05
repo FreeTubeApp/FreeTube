@@ -3,11 +3,11 @@
 }
 
 .proxy-warning {
-  font-weight: bold;
+  padding-block: 12px;
   padding-inline: 4%;
   background-color: var(--accent-color);
   color: var(--text-with-accent-color);
-  padding-block: 3px;
+  font-weight: bold;
 }
 
 .warning-icon {
