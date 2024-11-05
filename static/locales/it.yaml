@@ -249,6 +249,8 @@ User Playlists:
     sicuro di voler rimuovere 1 video guardato da questa playlist? Questa operazione
     non può essere annullata. | Vuoi rimuovere {playlistItemCount} video guardati
     da questa playlist? Questa operazione non può essere annullata.
+  Export Playlist: Esporta questa playlist
+  The playlist has been successfully exported: La playlist è stata esportata correttamente
 History:
   # On History Page
   History: 'Cronologia'
