@@ -2,10 +2,16 @@ import store from '../../store/index'
 import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 
+/**
+ * @returns {string}
+ */
 function getCurrentInstance() {
   return store.getters.getCurrentPipedInstance
 }
 
+/**
+ * @returns {Promise<any> | Promise<{isError : boolean, error: string}>}
+ */
 export async function pipedRequest({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   const requestUrl = getCurrentInstance() + '/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
   return await fetch(requestUrl)
@@ -24,7 +30,18 @@ export async function pipedRequest({ resource, id = '', params = {}, doLogError 
     })
 }
 
+/**
+ * @typedef {{url: string, type: string, title: string, thumbnail: string, uploaderName: string, uploaderUrl: string, uploaderAvatar: string, uploadedDate: string, shortDescription: string, duration: number, views: number, uploaded: number, uploaderVerified: boolean, isShort: boolean}} PipedVideoType
+ * @typedef {{author: string, thumbnail: string, commentId: string, commentText: string, commentedTime: string, commentorUrl : string, repliesPage: string, likeCount: number, replyCount: number, hearted: boolean, pinned: boolean, verified: boolean, creatorReplied: boolean, channelOwner: boolean}} PipedCommentsType
+ * @typedef {{name: string, thumbnailUrl: string, description: string, bannerUrl: string, nextpage: string, uploader: string, uploaderUrl: string, uploaderAvatar: string, videos: number, relatedStreams: PipedVideoType[]}} PipedPlaylistType
+ * @typedef {{isError: true, error: string}} PipedError
+ */
+
+/**
+ * @param {string} videoId
+ */
 export async function getPipedComments(videoId) {
+  /** @type { PipedError | {nextpage: string?, commentCount: number?, disabled: boolean?, comments: PipedCommentsType[]?} } */
   const commentInfo = await pipedRequest({ resource: 'comments', id: videoId })
   if (commentInfo.isError) {
     throw commentInfo.error
@@ -37,7 +54,13 @@ export async function getPipedComments(videoId) {
   }
 }
 
+/**
+ * @param {object} params - The parameters for fetching comments.
+ * @param {string} params.videoId - The ID of the video for which to fetch comments.
+ * @param {string} params.continuation - The continuation token for paginated comments.
+ */
 export async function getPipedCommentsMore({ videoId, continuation }) {
+  /** @type {PipedError | {nextpage: string, commentCount: number, disabled: boolean, comments: PipedCommentsType[] }} */
   const commentInfo = await pipedRequest({
     resource: 'nextpage/comments',
     id: videoId,
@@ -56,6 +79,9 @@ export async function getPipedCommentsMore({ videoId, continuation }) {
     }
   }
 }
+/**
+ * @param {PipedCommentsType[]} comments
+ */
 function parsePipedComments(comments) {
   return comments.map(comment => {
     const authorId = comment.commentorUrl.replace('/channel/', '')
@@ -85,7 +111,11 @@ function parsePipedComments(comments) {
   })
 }
 
+/**
+ * @param {string} playlistId
+ */
 export async function getPipedPlaylist(playlistId) {
+  /** @type {{PipedError | PipedPlaylistType}} */
   const playlistInfo = await pipedRequest({ resource: 'playlists', id: playlistId })
   if (playlistInfo.isError) {
     throw playlistInfo.error
@@ -99,7 +129,13 @@ export async function getPipedPlaylist(playlistId) {
   }
 }
 
+/**
+ * @param {object} params - The parameters for fetching comments.
+ * @param {string} params.playlistId - The ID of the video for which to fetch comments.
+ * @param {string} params.continuation - The continuation token for paginated comments.
+ */
 export async function getPipedPlaylistMore({ playlistId, continuation }) {
+  /** @type {PipedError | {nextpage: string, relatedStreams: PipedVideoType[]}} */
   const playlistInfo = await pipedRequest({
     resource: 'nextpage/playlists',
     id: playlistId,
@@ -118,6 +154,10 @@ export async function getPipedPlaylistMore({ playlistId, continuation }) {
   }
 }
 
+/**
+ * @param {string} query
+ * @returns {[string, string[]]}
+ */
 export async function getPipedSearchSuggestions(query) {
   const searchInfo = await pipedRequest({
     resource: 'opensearch/suggestions',
@@ -129,11 +169,19 @@ export async function getPipedSearchSuggestions(query) {
   return searchInfo[1]
 }
 
+/**
+ * @param {string} url
+ * @returns {{host: string, imageProtocol : string, resource: string, baseUrl: string}?}
+ */
 export function getPipedUrlInfo(url) {
   const regex = /^(?<baseUrl>(https?:\/\/)[^/]*)\/((?<imageProtocol>vi|ytc)\/)?(?<resource>[^?]*).*host=(?<host>[^&]*)/
   return url.match(regex)?.groups
 }
 
+/**
+ * @param {string} url
+ * @returns {string}
+ */
 export function pipedImageToYouTube(url) {
   const urlInfo = getPipedUrlInfo(url)
   let newUrl = `https://${urlInfo.host}/`
@@ -144,6 +192,11 @@ export function pipedImageToYouTube(url) {
   return newUrl
 }
 
+/**
+ * @param {string} playlistId
+ * @param {PipedPlaylistType} result
+ * @param {ReturnType<typeof parsePipedVideos>} parsedVideos
+ */
 function parsePipedPlaylist(playlistId, result, parsedVideos) {
   return {
     id: playlistId,
@@ -161,6 +214,9 @@ function parsePipedPlaylist(playlistId, result, parsedVideos) {
   }
 }
 
+/**
+ * @param {PipedVideoType[]} videoList
+ */
 function parsePipedVideos(videoList) {
   return videoList.map(video => {
     return {
@@ -179,7 +235,11 @@ function parsePipedVideos(videoList) {
   })
 }
 
+/**
+ * @param {string} region
+ */
 export async function getPipedTrending(region) {
+  /** @type {{isError: boolean, error: string} | {PipedVideoType}[]} */
   const trendingInfo = await pipedRequest({ resource: 'trending', params: { region } })
   if (trendingInfo.isError) {
     throw trendingInfo.error
