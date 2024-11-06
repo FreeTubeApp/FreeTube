@@ -250,6 +250,8 @@ User Playlists:
     seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción?
     Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
     videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
+  Export Playlist: Exportar esta Playlist
+  The playlist has been successfully exported: La playlist se ha exportado correctamente
 History:
   # On History Page
   History: 'Historial'
