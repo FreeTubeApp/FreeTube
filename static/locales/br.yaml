@@ -314,6 +314,9 @@ User Playlists:
         {playlistName} gant berzh.'
       There was an issue with creating the playlist.: 'C''hoarvezet ez eus ur gudenn
         en ur grouiñ ar roll-videoioù.'
+  Export Playlist: Ezporzhiañ ar Roll-videoioù
+  The playlist has been successfully exported: Ezporzhiet eo bet ar roll-videoioù
+    gant berzh
 History:
   # On History Page
   History: 'Roll istor'
@@ -450,8 +453,8 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Lenner'
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
+    Play Next Video: 'Lenn ar video da-heul'
+    Turn on Subtitles by Default: 'Enaouiñ an istitloù dre ziouer'
     Autoplay Videos: 'Lenn emgefreek ar videoioù'
     Proxy Videos Through Invidious: ''
     Autoplay Playlists: 'Lenn emgefreek ar rolloù-videoioù'
