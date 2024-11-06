@@ -3,10 +3,9 @@ import path from 'path'
 
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
+import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import i18n from '../../i18n/index'
-
 import { IpcChannels } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
@@ -115,6 +114,8 @@ export default defineComponent({
     'toggle-theatre-mode'
   ],
   setup: function (props, { emit, expose }) {
+    const { locale, t } = useI18n()
+
     /** @type {shaka.Player|null} */
     let player = null
 
@@ -993,7 +994,7 @@ export default defineComponent({
       events.dispatchEvent(new CustomEvent('localeChanged'))
     }
 
-    watch(() => i18n.locale, setLocale)
+    watch(locale, setLocale)
 
     // #endregion player locales
 
@@ -1502,7 +1503,7 @@ export default defineComponent({
         })
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
-        showToast(i18n.t('Screenshot Error', { error: err.message }))
+        showToast(t('Screenshot Error', { error: err.message }))
         canvas.remove()
         return
       }
@@ -1567,7 +1568,7 @@ export default defineComponent({
             await fs.mkdir(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
-            showToast(i18n.t('Screenshot Error', { error: err }))
+            showToast(t('Screenshot Error', { error: err }))
             canvas.remove()
             return
           }
@@ -1581,11 +1582,11 @@ export default defineComponent({
 
           fs.writeFile(filePath, arr)
             .then(() => {
-              showToast(i18n.t('Screenshot Success', { filePath }))
+              showToast(t('Screenshot Success', { filePath }))
             })
             .catch((err) => {
               console.error(err)
-              showToast(i18n.t('Screenshot Error', { error: err }))
+              showToast(t('Screenshot Error', { error: err }))
             })
         })
       }, mimeType, imageQuality)
@@ -2319,7 +2320,7 @@ export default defineComponent({
         player.getNetworkingEngine().registerResponseFilter(responseFilter)
       }
 
-      await setLocale(i18n.locale)
+      await setLocale(locale.value)
 
       // check if the component is already getting destroyed
       // which is possible because this function runs asynchronously
