@@ -212,6 +212,8 @@ User Playlists:
     1 個重複的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除 {playlistItemCount} 個重複影片嗎？這無法還原。
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
     1 個觀看過的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除已觀看的 {playlistItemCount} 個影片嗎？這無法還原。
+  Export Playlist: 匯出此播放清單
+  The playlist has been successfully exported: 播放清單已成功匯出
 History:
   # On History Page
   History: '觀看紀錄'
