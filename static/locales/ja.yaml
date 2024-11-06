@@ -215,6 +215,8 @@ User Playlists:
   Remove Duplicate Videos: 重複した動画を削除
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1本削除してもよろしいですか？この操作は元に戻せません。
     | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
+  The playlist has been successfully exported: 再生リストのエクスポートに成功しました
+  Export Playlist: この再生リストをエクスポート
 History:
   # On History Page
   History: '履歴'
@@ -746,7 +748,7 @@ Video:
       looping playlists: 再生リストのループ
       shuffling playlists: シャッフル再生リスト
       reversing playlists: 再生リストを反転させる
-      opening specific video in a playlist (falling back to opening the video): 再生リストで特定のビデオを開く
+      opening specific video in a playlist (falling back to opening the video): 再生リストで特定の動画を開く
         (ビデオを開く前にフォールバック)
       opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
@@ -795,9 +797,9 @@ Video:
     Show Stats: 統計を表示
   IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
   Unlisted: 非公開
-  MembersOnly: メンバー限定ビデオはGoogleにログインし、投稿チャンネルに課金する必要があるのでFreeTubeから直接見ることはできません。
-  AgeRestricted: 
-    年齢制限がかかっているビデオはGoogleにログインしておりかつ年齢確認を済ましているYouTubeアカウントが必要なため、FreeTubeから直接見ることはできません。
+  MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
+  AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube
+    から直接見ることはできません。
 Videos:
   #& Sort By
   Sort By:
