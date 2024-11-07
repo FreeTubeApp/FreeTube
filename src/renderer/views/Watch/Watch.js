@@ -723,7 +723,7 @@ export default defineComponent({
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
             /** @type {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData[]} */
-            let source = result.storyboardSpec.boards
+            let source = result.storyboards.boards
             if (window.innerWidth < 500) {
               source = source.filter((board) => board.thumbnail_height <= 90)
             }
