@@ -11,8 +11,8 @@ import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
-import ParentControlSettings from '../../components/parental-control-settings/parental-control-settings.vue'
-import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
+import ParentalControlSettings from '../../components/ParentalControlSettings/ParentalControlSettings.vue'
+import ExperimentalSettings from '../../components/ExperimentalSettings/ExperimentalSettings.vue'
 import PasswordSettings from '../../components/PasswordSettings/PasswordSettings.vue'
 import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
@@ -32,7 +32,7 @@ export default defineComponent({
     'data-settings': DataSettings,
     'distraction-settings': DistractionSettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'parental-control-settings': ParentControlSettings,
+    'parental-control-settings': ParentalControlSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
     'ft-toggle-switch': FtToggleSwitch,
