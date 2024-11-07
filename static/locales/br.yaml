@@ -388,7 +388,7 @@ Settings:
     Disable Smooth Scrolling: 'Diweredekaat an dibunañ flour'
     UI Scale: 'Skeul an UI'
     Hide Side Bar Labels: 'Kuzhat tikedennoù ar varrenn gostez'
-    Hide FreeTube Header Logo: ''
+    Hide FreeTube Header Logo: 'Kuzhat logo FreeTube an talbenn'
     Base Theme:
       Base Theme: 'Tem diazez'
       Black: 'Du'
@@ -449,14 +449,14 @@ Settings:
       Solarized Blue: 'Glas luc''hahelet'
       Solarized Cyan: 'Siañ luc''hahelet'
       Solarized Green: 'Gwer luc''hahelet'
-    Secondary Color Theme: ''
+    Secondary Color Theme: 'Liv eilvedel an tem'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Lenner'
     Play Next Video: 'Lenn ar video da-heul'
     Turn on Subtitles by Default: 'Enaouiñ an istitloù dre ziouer'
     Autoplay Videos: 'Lenn emgefreek ar videoioù'
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'Proksi video dre Invidious'
     Autoplay Playlists: 'Lenn emgefreek ar rolloù-videoioù'
     Enable Theatre Mode by Default: ''
     Scroll Volume Over Video Player: ''
@@ -467,9 +467,9 @@ Settings:
     Next Video Interval: ''
     Fast-Forward / Rewind Interval: ''
     Default Volume: 'Ment ar son dre ziouer'
-    Default Playback Rate: ''
-    Max Video Playback Rate: ''
-    Video Playback Rate Interval: ''
+    Default Playback Rate: 'Feur lenn dre ziouer'
+    Max Video Playback Rate: 'Feur lenn uhelañ ar videoioù'
+    Video Playback Rate Interval: 'Esaouenn feur lenn ar videoioù'
     Default Video Format:
       Default Video Format: ''
       Dash Formats: 'Furmad DASH'
@@ -635,11 +635,12 @@ Settings:
     Manage Subscriptions: 'Merañ ar c''houmanantoù'
   Proxy Settings:
     Proxy Settings: 'Proksi'
-    Enable Tor / Proxy: ''
+    Enable Tor / Proxy: 'Gweredekaat Tor / Proksi'
     Proxy Protocol: 'Komenad ar Proksi'
     Proxy Host: 'Komenad Servijer'
-    Proxy Port Number: ''
-    Clicking on Test Proxy will send a request to: ''
+    Proxy Port Number: 'Niverenn borzh ar Proksi'
+    Clicking on Test Proxy will send a request to: 'En ur glikañ war Taol-esae Proksi
+      e vo kaset ur goulenn da'
     Test Proxy: 'Taol-esae Proksi'
     Your Info: 'Ho titouroù'
     Ip: 'IP'
@@ -922,7 +923,7 @@ Video:
     UnsupportedActionTemplate: ''
     Unsupported Actions:
       starting video at offset: ''
-      setting a playback rate: ''
+      setting a playback rate: 'termenañ ur feur lenn'
       opening playlists: 'digeriñ rolloù-videoioù'
       opening specific video in a playlist (falling back to opening the video): ''
       reversing playlists: 'cheñch tu ar rolloù-videoioù'
@@ -953,7 +954,8 @@ Video:
       CodecsVideoAudio: ''
       CodecsVideoAudioNoItags: ''
     You appear to be offline: ''
-    Playback will resume automatically when your connection comes back: ''
+    Playback will resume automatically when your connection comes back: 'Kendalc''het
+      e vo da lenn ent emgefreek pa viot kennasket endro.'
     Skipped segment: ''
 #& Videos
   Unlisted: Anlistennet
