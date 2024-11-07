@@ -242,6 +242,8 @@ User Playlists:
     certeza de que deseja remover 1 vídeo assistido desta playlist? Isso não pode
     ser desfeito. | Tem certeza de que deseja remover {playlistItemCount} vídeos assistidos
     desta playlist? Isso não pode ser desfeito.
+  The playlist has been successfully exported: Playlist exportada com sucesso
+  Export Playlist: Exportar esta playlist
 History:
   # On History Page
   History: 'Histórico'
