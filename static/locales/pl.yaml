@@ -244,6 +244,9 @@ User Playlists:
     na pewno chcesz usunąć 1 zduplikowany film z tej listy odtwarzania? Nie można
     tego cofnąć. | Czy na pewno chcesz usunąć {playlistItemCount} duplikatów wideo
     z tej listy odtwarzania? Nie można tego cofnąć.
+  Export Playlist: Eksportuj listę odtwarzania
+  The playlist has been successfully exported: Lista odtwarzania została pomyślnie
+    wyeksportowana
 History:
   # On History Page
   History: 'Historia'
