@@ -834,37 +834,8 @@ Video:
     élő csevegést jelenleg nem támogatja az Invidious API. Közvetlen kapcsolat szükséges
     a YouTube-hoz.'
   Published:
-    Jan: 'január'
-    Feb: 'február'
-    Mar: 'március'
-    Apr: 'április'
-    May: 'május'
-    Jun: 'június'
-    Jul: 'július'
-    Aug: 'augusztus'
-    Sep: 'szeptember'
-    Oct: 'október'
-    Nov: 'november'
-    Dec: 'december'
-    Second: 'másodperccel'
-    Seconds: 'másodperccel'
-    Minute: 'perccel'
-    Minutes: 'perccel'
-    Hour: 'órával'
-    Hours: 'órával'
-    Day: 'nappal'
-    Days: 'nappal'
-    Week: 'héttel'
-    Weeks: 'héttel'
-    Month: 'hónappal'
-    Months: 'hónappal'
-    Year: 'évvel'
-    Years: 'évvel'
-    Ago: 'ezelőtt'
-    Upcoming: 'Bemutató dátuma'
     In less than a minute: Kevesebb, mint egy perce
   Published on: 'Megjelent'
-  Publicationtemplate: '{number} {unit} ezelőtt'
 #& Videos
   audio only: csak hang
   video only: csak videó

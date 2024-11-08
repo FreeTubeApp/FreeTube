@@ -820,38 +820,8 @@ Video:
   video only: 'pouze video'
   audio only: 'pouze zvuk'
   Published:
-    Jan: 'Leden'
-    Feb: 'Únor'
-    Mar: 'Březen'
-    Apr: 'Duben'
-    May: 'Květen'
-    Jun: 'Červen'
-    Jul: 'Červenec'
-    Aug: 'Srpen'
-    Sep: 'Září'
-    Oct: 'Říjen'
-    Nov: 'Listopad'
-    Dec: 'Prosinec'
-    Second: 'sekundou'
-    Seconds: 'sekund'
-    Minute: 'minutou'
-    Minutes: 'minut'
-    Hour: 'hodina'
-    Hours: 'hodin'
-    Day: 'den'
-    Days: 'dnů'
-    Week: 'týden'
-    Weeks: 'týdny'
-    Month: 'měsíc'
-    Months: 'měsíci'
-    Year: 'rok'
-    Years: 'let'
-    Ago: 'Před'
-    Upcoming: 'Premiéra'
-    Less than a minute: Méně než minuta
     In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
-  Publicationtemplate: '{number} {unit}'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno

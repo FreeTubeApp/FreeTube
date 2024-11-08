@@ -786,38 +786,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון
     הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
   Published:
-    Jan: 'בינו׳'
-    Feb: 'בפבר׳'
-    Mar: 'במרץ'
-    Apr: 'באפר׳'
-    May: 'במאי'
-    Jun: 'ביונ׳'
-    Jul: 'ביול׳'
-    Aug: 'באוג׳'
-    Sep: 'בספט׳'
-    Oct: 'באוק׳'
-    Nov: 'בנוב׳'
-    Dec: 'בדצמ׳'
-    Second: 'שנייה'
-    Seconds: 'שניות'
-    Minute: 'דקה'
-    Minutes: 'דקות'
-    Hour: 'שעה'
-    Hours: 'שעות'
-    Day: 'יום'
-    Days: 'ימים'
-    Week: 'שבוע'
-    Weeks: 'שבועות'
-    Month: 'חודש'
-    Months: 'חודשים'
-    Year: 'שנה'
-    Years: 'שנים'
-    Ago: 'לפני'
-    Upcoming: 'שידור הבכורה ישודר ב־'
-    Less than a minute: פחות מדקה
     In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
-  Publicationtemplate: 'לפני {number} {unit}'
 #& Videos
   audio only: שמע בלבד
   video only: סרטון בלבד

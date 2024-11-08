@@ -819,38 +819,8 @@ Video:
     Sohbet şu anda Invidious API ile desteklenmemektedir. YouTube ile doğrudan bağlantı
     gerekli.'
   Published:
-    Jan: 'Oca'
-    Feb: 'Şub'
-    Mar: 'Mar'
-    Apr: 'Nis'
-    May: 'May'
-    Jun: 'Haz'
-    Jul: 'Tem'
-    Aug: 'Ağu'
-    Sep: 'Eyl'
-    Oct: 'Eki'
-    Nov: 'Kas'
-    Dec: 'Ara'
-    Second: 'Saniye'
-    Seconds: 'Saniye'
-    Minute: 'Dakika'
-    Minutes: 'Dakika'
-    Hour: 'Saat'
-    Hours: 'Saat'
-    Day: 'Gün'
-    Days: 'Gün'
-    Week: 'Hafta'
-    Weeks: 'Hafta'
-    Month: 'Ay'
-    Months: 'Ay'
-    Year: 'Yıl'
-    Years: 'Yıl'
-    Ago: 'Önce'
-    Upcoming: 'İlk gösterim tarihi'
-    Less than a minute: Bir dakikadan az
     In less than a minute: Bir dakikadan kısa sürede
   Published on: 'Yayımlanma tarihi'
-  Publicationtemplate: '{number} {unit} önce'
 #& Videos
   audio only: yalnızca ses
   video only: yalnızca video

@@ -774,38 +774,8 @@ Video:
     în direct nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
     directă la YouTube.'
   Published:
-    Jan: 'Ian'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'iun'
-    Jul: 'Iul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Noi'
-    Dec: 'Dec'
-    Second: 'Secundă'
-    Seconds: 'Secunde'
-    Minute: 'Minut'
-    Minutes: 'Minute'
-    Hour: 'Oră'
-    Hours: 'Ore'
-    Day: 'Zi'
-    Days: 'Zile'
-    Week: 'Săptămână'
-    Weeks: 'Săptămâni'
-    Month: 'Lună'
-    Months: 'Luni'
-    Year: 'An'
-    Years: 'Ani'
-    Ago: 'În urmă'
-    Upcoming: 'În premieră la'
-    Less than a minute: Mai putin de un minut
     In less than a minute: În mai puțin de un minut
   Published on: 'Publicat pe'
-  Publicationtemplate: 'acum {number} {unit}'
 #& Videos
   External Player:
     Unsupported Actions:

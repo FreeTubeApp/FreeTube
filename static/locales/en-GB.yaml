@@ -814,38 +814,8 @@ Video:
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'May'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Second'
-    Seconds: 'Seconds'
-    Minute: 'Minute'
-    Minutes: 'Minutes'
-    Hour: 'Hour'
-    Hours: 'Hours'
-    Day: 'Day'
-    Days: 'Days'
-    Week: 'Week'
-    Weeks: 'Weeks'
-    Month: 'Month'
-    Months: 'Months'
-    Year: 'Year'
-    Years: 'Years'
-    Ago: 'Ago'
-    Upcoming: 'Premieres on'
-    Less than a minute: Less than a minute
     In less than a minute: In less than a minute
   Published on: 'Published on'
-  Publicationtemplate: '{number} {unit} ago'
 #& Videos
   Started streaming on: Started streaming on
   Streamed on: Streamed on

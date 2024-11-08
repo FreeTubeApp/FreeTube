@@ -824,38 +824,8 @@ Video:
     el chat no funciona con la API de Invidious. Se requiere una conexión directa
     con YouTube.'
   Published:
-    Jan: 'ene'
-    Feb: 'feb'
-    Mar: 'mar'
-    Apr: 'abr'
-    May: 'mayo'
-    Jun: 'jun'
-    Jul: 'jul'
-    Aug: 'ago'
-    Sep: 'sep'
-    Oct: 'oct'
-    Nov: 'nov'
-    Dec: 'dic'
-    Second: 'segundo'
-    Seconds: 'segundos'
-    Minute: 'minuto'
-    Minutes: 'minutos'
-    Hour: 'hora'
-    Hours: 'horas'
-    Day: 'día'
-    Days: 'días'
-    Week: 'semana'
-    Weeks: 'semanas'
-    Month: 'mes'
-    Months: 'meses'
-    Year: 'año'
-    Years: 'años'
-    Ago: 'Hace'
-    Upcoming: 'Se estrenará el'
-    Less than a minute: Menos de un minuto
     In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
-  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Play Previous Video: Reproducir el vídeo anterior
   Play Next Video: Reproducir vídeo siguiente

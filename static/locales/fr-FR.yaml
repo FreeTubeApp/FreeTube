@@ -790,38 +790,8 @@ Video:
     tchat en direct n''est actuellement pas pris en charge avec l''API Invidious.
     Une connexion directe à YouTube est requise.'
   Published:
-    Jan: 'jan'
-    Feb: 'fév'
-    Mar: 'mar'
-    Apr: 'avr'
-    May: 'mai'
-    Jun: 'juin'
-    Jul: 'juil'
-    Aug: 'août'
-    Sep: 'sep'
-    Oct: 'oct'
-    Nov: 'nov'
-    Dec: 'déc'
-    Second: 'seconde'
-    Seconds: 'secondes'
-    Hour: 'heure'
-    Hours: 'heures'
-    Day: 'jour'
-    Days: 'jours'
-    Week: 'semaine'
-    Weeks: 'semaines'
-    Month: 'mois'
-    Months: 'mois'
-    Year: 'année'
-    Years: 'années'
-    Ago: 'Il y a'
-    Upcoming: 'Avant-première le'
-    Minutes: minutes
-    Minute: minute
-    Less than a minute: Moins d'une minute
     In less than a minute: En moins d'une minute
   Published on: 'Mise en ligne le'
-  Publicationtemplate: 'Il y a {number} {unit}'
 #& Videos
   Play Previous Video: Lire la vidéo précédente
   Play Next Video: Lire la vidéo suivante

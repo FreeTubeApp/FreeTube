@@ -825,39 +825,10 @@ Video:
   video only: video only
   audio only: audio only
   Published:
-    Jan: Jan
-    Feb: Feb
-    Mar: Mar
-    Apr: Apr
-    May: May
-    Jun: Jun
-    Jul: Jul
-    Aug: Aug
-    Sep: Sep
-    Oct: Oct
-    Nov: Nov
-    Dec: Dec
-    Second: Second
-    Seconds: Seconds
-    Minute: Minute
-    Minutes: Minutes
-    Hour: Hour
-    Hours: Hours
-    Day: Day
-    Days: Days
-    Week: Week
-    Weeks: Weeks
-    Month: Month
-    Months: Months
-    Year: Year
-    Years: Years
-    Ago: Ago
-    Upcoming: Premieres on
     In less than a minute: In less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
-  Publicationtemplate: '{number} {unit} ago'
   Sponsor Block category:
     sponsor: Sponsor
     intro: Intro
