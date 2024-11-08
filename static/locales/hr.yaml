@@ -236,6 +236,8 @@ User Playlists:
     želiš ukloniti 1 gledani video iz ove zbirke? To se ne može poništiti. | Stvarno
     želiš ukloniti {playlistItemCount} gledana/ih videa iz ove zbirke? To se ne može
     poništiti.
+  Export Playlist: Izvezi ovu zbirku
+  The playlist has been successfully exported: Zbirka je uspješno izvezena
 History:
   # On History Page
   History: 'Povijest'
