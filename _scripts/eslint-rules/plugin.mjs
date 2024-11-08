@@ -1,4 +1,4 @@
-import useI18nPolyfillRule from './use-i18n-polyfill-rule.mjs'
+import preferUseI18nPolyfillRule from './perfer-use-i18n-polyfill-rule.mjs'
 
 export default {
   meta: {
@@ -6,6 +6,6 @@ export default {
     version: '1.0'
   },
   rules: {
-    'use-i18n-polyfill': useI18nPolyfillRule
+    'prefer-use-i18n-polyfill': preferUseI18nPolyfillRule
   }
 }
