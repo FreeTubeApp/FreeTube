@@ -568,7 +568,7 @@ Settings:
     Display Titles Without Excessive Capitalisation: ''
     Hide Live Streams: 'Kuzhat ar skignañ war-eeun'
     Hide Upcoming Premieres: 'Kuzhat rakskignañ da zont'
-    Hide Sharing Actions: ''
+    Hide Sharing Actions: 'Kuzhat an doareoù da rannañ'
     Hide Chapters: 'Kuzhat ar chabistroù'
     Hide Channels: ''
     Hide Channels Disabled Message: ''
@@ -576,15 +576,15 @@ Settings:
     Hide Channels Invalid: ''
     Hide Channels API Error: ''
     Hide Channels Already Exists: 'ID ar chadenn a zo anezhañ dija'
-    Hide Featured Channels: ''
-    Hide Channel Playlists: ''
-    Hide Channel Community: ''
-    Hide Channel Shorts: ''
-    Hide Channel Podcasts: ''
+    Hide Featured Channels: 'Kuzhat ar chadennoù lakaet war-wel'
+    Hide Channel Playlists: 'Kuzhat rolloù-videoioù ar chadennoù'
+    Hide Channel Community: 'Kuzhat ivinell kumuniezh ar chadenn'
+    Hide Channel Shorts: 'Kuzhat Shortoù ar chadenn'
+    Hide Channel Podcasts: 'Kuzhat Podskignañ at chadenn'
     Hide Channel Releases: ''
     Hide Videos and Playlists Containing Text: ''
     Hide Videos and Playlists Containing Text Placeholder: ''
-    Hide Subscriptions Videos: ''
+    Hide Subscriptions Videos: 'Kuzhat videoioù ar c''houmanantoù'
     Hide Subscriptions Shorts: 'Kuzhat Shortoù ar c''houmanantoù'
     Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
     Hide Subscriptions Community: 'Kuzhat Kumuniezh ar c''houmanantoù'
@@ -776,35 +776,40 @@ Channel:
   Your search results have returned 0 results: ''
   Sort By: 'Rummañ dre'
   This channel does not exist: 'N''eus ket deus ar chadenn-mañ'
-  This channel does not allow searching: ''
+  This channel does not allow searching: 'Ne vez ket aotreet klask gant ar chadenn-mañ'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
   Channel Tabs: 'Ivinelloù ar chadenn'
   Videos:
     Videos: 'Videoioù'
-    This channel does not currently have any videos: ''
+    This channel does not currently have any videos: 'N''eus ket a video evit poent
+      gant ar chadenn-mañ'
     Sort Types:
       Newest: 'Nevesañ'
       Oldest: 'Koshañ'
       Most Popular: 'Ar muiañ a verzh ganto'
   Shorts:
-    This channel does not currently have any shorts: ''
+    This channel does not currently have any shorts: 'N''eus ket a video short evit
+      poent gant ar chadenn-mañ'
   Live:
     Live: 'End-eeun'
     This channel does not currently have any live streams: 'Ne vez ket skignet war-eeun
       gant ar chadenn-mañ evit poent'
   Playlists:
     Playlists: 'Rolloù-videoioù'
-    This channel does not currently have any playlists: ''
+    This channel does not currently have any playlists: 'N''eus ket a roll-videoioù
+      evit poent gant ar chadenn-mañ'
     Sort Types:
       Last Video Added: ''
       Newest: 'Nevesañ'
       Oldest: 'Koshañ'
   Podcasts:
     Podcasts: 'Podskignañ'
-    This channel does not currently have any podcasts: ''
+    This channel does not currently have any podcasts: 'N''eus ket a bodskignañ evit
+      poent gant ar chadenn-mañ'
   Releases:
     Releases: 'Ermaeziadennoù'
-    This channel does not currently have any releases: ''
+    This channel does not currently have any releases: 'N''eus ket a ermaeziadenn
+      evit poent gant ar chadenn-mañ'
   About:
     About: 'A-zivout'
     Channel Description: 'Deskrivadur ar chadenn'
@@ -816,7 +821,8 @@ Channel:
     Location: 'Lec''hiadur'
     Featured Channels: 'Chadennoù lakaet war-wel'
   Community:
-    This channel currently does not have any posts: ''
+    This channel currently does not have any posts: 'N''eus ket a gaozeadenn evit
+      poent gant ar chadenn-mañ'
     votes: '{votes} a vouezhioù'
     View Full Post: ''
     Reveal Answers: 'Diskouez ar respontoù'
@@ -824,7 +830,8 @@ Channel:
     Video hidden by FreeTube: 'Video kuzhet gant FreeTube'
     Viewing Posts Only Supported By Invidious: ''
 Video:
-  IP block: ''
+  IP block: 'Stanket eo bet ho chomlec''h IP gant YouTube. Klaskit cheñch VPN pe proksi
+    evit lenn ar videoioù.'
   More Options: 'Muioc''h a zibarzhioù'
   Mark As Watched: 'Lakaat evel lennet'
   Remove From History: 'Skarzhañ deus ar roll istor'
