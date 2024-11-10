@@ -678,7 +678,8 @@ Settings:
     Open in web browser: 'Digeriñ er merdeer web'
   Experimental Settings:
     Experimental Settings: 'Arnodel'
-    Warning: ''
+    Warning: 'Arventennoù arnodel eo, gallout a ra ar sistem chom bout pa vezont gweredekaet.
+      Aliet-tre eo ober enrolladennoù. Kendalc’hit en ho riskl hoc’h-unan !'
     Replace HTTP Cache: ''
   Password Dialog:
     Password: 'Ger-tremen'
@@ -762,7 +763,9 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : 'Ho profil pennañ eo. Ha sur oc''h e faot deoc''h dilemel ar chadennoù diuzet ?
     Ar memes chadennoù a vo dilamet deus ho profiloù all.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ha
+    sur oc''h hoc''h e faot deoc''h dilemel ar chadennoù diuzet ?  Gant-se ne vo ket
+    dilamet ar chadenn diouzh profil ebet all.'
   Close Profile Dropdown: 'Serriñ roll ar profil'
   Open Profile Dropdown: 'Digeriñ roll ar profil'
 #On Channel Page
@@ -828,7 +831,9 @@ Channel:
     Reveal Answers: 'Diskouez ar respontoù'
     Hide Answers: 'Kuzhat ar respontoù'
     Video hidden by FreeTube: 'Video kuzhet gant FreeTube'
-    Viewing Posts Only Supported By Invidious: ''
+    Viewing Posts Only Supported By Invidious: 'Posupl eo gwelet ar pennadoù gant
+      Invidious hepken. Kit war ivinell kumuniezh ur chadenn evit gwelet he fennadoù
+      hep Invidious.'
 Video:
   IP block: 'Stanket eo bet ho chomlec''h IP gant YouTube. Klaskit cheñch VPN pe proksi
     evit lenn ar videoioù.'
@@ -939,6 +944,8 @@ Video:
     Skipped segment: ''
 #& Videos
   Unlisted: Anlistennet
+  MembersOnly: N'haller ket sellet ouzh ar videoioù miret d'an izili hepken gant FreeTube,
+    peogwir eo ret bezañ luget gant ur gont Google ha paeañ ur c'houmanant d'ar chadenn.
 Videos:
   #& Sort By
   Sort By:
@@ -1047,8 +1054,11 @@ Tooltips:
     Preferred API Backend: 'Choazit ar backend implijet gant FreeTube evit tapout
       ar roadennoù. Un eztenner enkorfet eo an API lec''hel. Ezhomm en deus an API
       Invidious da gaout ur servijer Invidious evit kevreañ outañ.'
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
+    Fallback to Non-Preferred Backend on Failure: 'Pa c''hoarvezo ur gudenn gant hoc''h
+      API karetañ, e klasko FreeTube implijout an API ha n''eo ket hoc''h hini karetañ
+      evel doare sikour ma vez gweredekaet.'
+    Thumbnail Preference: 'Erlec''hiet e vo an holl skeudennoùigoù war FreeTube gant
+      ur skeudenn tennet eus ar video e-lec''h ar skeudennig dre ziouer.'
     Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API.'
     Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù
       diouzh ar c''hiz a faot deoc''h gwelet.'
@@ -1074,7 +1084,8 @@ Tooltips:
     Custom External Player Executable: 'Dre ziouer e soñjo FreeTube e c''hall mont
       da glask al lenner diavaez choazet dre an argemmenn endro PATH. Mar bez ezhomm
       e c''haller lakaat un hent personelaet amañ.'
-    Ignore Warnings: ''
+    Ignore Warnings: 'Diweredekaat ar c''hemennadennoù pa ne vez ket skoret un obererezh
+      bennak gant al lenner diavaez (da sk. cheñch tu ar rolloù-videoioù, etc.).'
     Ignore Default Arguments: 'Arabat kas arguzennoù dre ziouer d''al lenner diavaez
       nemet URL ar video (d.s. feur lenn, URL ar roll-videoioù, etc.). Treuzkaset
       e vo an arguzennoù personelaet.'
@@ -1095,9 +1106,12 @@ Tooltips:
       e zoare dre ziouer evit adtapout ho kwazh koumanantiñ. Buanoc''h ez an traoù
       gant an RSS ha ne vo ket stanket ar chomlec''h IP, met ne ginnig ket titouroù
       ''zo evel padelezh ar video, statud ar video war-eeun, pe c''hoazh an evezhiadennoù'
-    Fetch Automatically: ''
+    Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant
+      FreeTube ent emgefre pa vo digoret ur prenestr nevez ha pa vo cheñchet profil.'
   Experimental Settings:
-    Replace HTTP Cache: ''
+    Replace HTTP Cache: 'Diweredekaat ar grubuilh HTTP diazezet war ar bladenn Electron
+      ha gweredekaat krubuilh personelaet ar skeudennoù e-barzh ar memor. Implijet
+      e vo muioc''h a vemor RAM.'
   SponsorBlock Settings:
     UseDeArrowTitles: ''
     UseDeArrowThumbnails: ''
@@ -1147,7 +1161,9 @@ Screenshot Success: 'Enrollet eo bet an dapadenn-skramm evel "{filePath}"'
 Screenshot Error: 'Tapadenn skramm c''hwitet. {error}'
 Channel Hidden: '{channel} ouzhpennet da sil ar chadennoù'
 Channel Unhidden: '{channel} dilamet deus sil ar chadennoù'
-Trimmed input must be at least N characters long: ''
+Trimmed input must be at least N characters long: 'An destenn bevennet a rank bezañ
+  1 arouezenn enni da nebeutañ | An destenn bevennet a rank bezañ {number} arouezenn
+  enni da nebeutañ'
 Tag already exists: 'Bez ez eus dija deus an dikedenn "{tagName}"'
 
 Hashtag:
