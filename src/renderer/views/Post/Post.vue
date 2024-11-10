@@ -36,9 +36,10 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
 import store from '../../store/index'
 import { useRoute, useRouter } from 'vue-router/composables'
+import { getInvidiousCommunityPost } from '../../helpers/api/invidious'
+
 const router = useRouter()
 const route = useRoute()
-import { getInvidiousCommunityPost } from '../../helpers/api/invidious'
 
 const id = ref('')
 const authorId = ref('')
