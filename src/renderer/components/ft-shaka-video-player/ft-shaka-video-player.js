@@ -2382,6 +2382,8 @@ export default defineComponent({
 
       window.addEventListener('beforeunload', stopPowerSaveBlocker)
 
+      // shaka-player doesn't start with the cursor hidden, so hide it here for instances in which the
+      // cursor is in the video player area when the video first loads
       container.value.classList.add('no-cursor')
 
       await performFirstLoad()
