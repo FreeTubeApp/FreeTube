@@ -197,6 +197,10 @@
   opacity: 1;
 }
 
+:deep(.shaka-controls-container > .shaka-play-button-container > .shaka-play-button) {
+  padding: min(calc(15% / 2), 55px);
+}
+
 .ftVideoPlayer:fullscreen :deep(.theatre-button),
 .ftVideoPlayer:fullscreen :deep(.full-window-button),
 .fullWindow :deep(.theatre-button) {
@@ -245,6 +249,13 @@
   :deep(.playerFullscreenTitleOverlay),
   .skippedSegment {
     background-color: rgb(0 0 0 / 90%);
+  }
+}
+
+@media (prefers-reduced-transparency:no-preference) {
+  /* add transparency to big play button */
+  :deep(.shaka-controls-container[shown='true'] > .shaka-play-button-container > .shaka-play-button) {
+    opacity: 0.75 !important;
   }
 }
 
