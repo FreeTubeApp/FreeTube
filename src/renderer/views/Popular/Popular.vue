@@ -24,7 +24,7 @@
 
 <script setup>
 
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
 
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -39,7 +39,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 const { t } = useI18n()
 
 const isLoading = ref(false)
-const shownResults = ref([])
+const shownResults = shallowRef([])
 
 const lastPopularRefreshTimestamp = computed(() => {
   return getRelativeTimeFromDate(store.getters.getLastPopularRefreshTimestamp, true)
@@ -97,7 +97,6 @@ async function fetchPopularInfo() {
 }
 
 /**
- * This function `keyboardShortcutHandler` should always be at the bottom of this file
  * @param {KeyboardEvent} event the keyboard event
  */
 function keyboardShortcutHandler(event) {
