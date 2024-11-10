@@ -129,7 +129,7 @@ export default [
       'jsdoc/no-bad-blocks': 'error',
       'jsdoc/no-multi-asterisks': 'error',
 
-      'freetube/use-i18n-polyfill': 'error',
+      'freetube/prefer-use-i18n-polyfill': 'error',
     },
   },
 
