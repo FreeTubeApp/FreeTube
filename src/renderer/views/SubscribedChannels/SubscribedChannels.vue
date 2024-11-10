@@ -92,12 +92,12 @@ const re = {
   ivToYt: /^.+ggpht\/(.+)/
 }
 const ytBaseURL = 'https://yt3.ggpht.com'
+const thumbnailSize = 176
+let errorCount = 0
 
 const query = ref('')
 const subscribedChannels = ref([])
 const filteredChannels = ref([])
-const thumbnailSize = ref(176)
-const errorCount = ref(0)
 
 /** @type {import('vue').Ref<HTMLInputElement | null>} */
 const searchBarChannels = ref(null)
@@ -185,11 +185,11 @@ function thumbnailURL(originalURL) {
     }
   }
 
-  return newURL.replace(re.url, `$1${thumbnailSize.value}$2`)
+  return newURL.replace(re.url, `$1${thumbnailSize}$2`)
 }
 
 function updateThumbnail(channel) {
-  errorCount.value += 1
+  errorCount += 1
   if (backendPreference.value === 'local') {
     // avoid too many concurrent requests
     setTimeout(() => {
@@ -202,7 +202,7 @@ function updateThumbnail(channel) {
           })
         }
       })
-    }, errorCount.value * 500)
+    }, errorCount * 500)
   } else {
     setTimeout(() => {
       invidiousGetChannelInfo(channel.id).then(response => {
@@ -212,7 +212,7 @@ function updateThumbnail(channel) {
           channelId: channel.id
         })
       })
-    }, errorCount.value * 500)
+    }, errorCount * 500)
   }
 }
 
