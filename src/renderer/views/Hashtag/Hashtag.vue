@@ -1,19 +1,19 @@
 <template>
   <div>
-    <ft-loader
+    <FtLoader
       v-if="isLoading"
       :fullscreen="true"
     />
-    <ft-card
+    <FtCard
       v-else
       class="card"
     >
       <h2>{{ hashtag }}</h2>
-      <ft-element-list
+      <FtElementList
         v-if="videos.length > 0"
         :data="videos"
       />
-      <ft-flex-box
+      <FtFlexBox
         v-else
       >
         <p
@@ -21,9 +21,9 @@
         >
           {{ $t("Hashtag.This hashtag does not currently have any videos") }}
         </p>
-      </ft-flex-box>
+      </FtFlexBox>
 
-      <ft-auto-load-next-page-wrapper
+      <FtAutoLoadNextPageWrapper
         v-if="showFetchMoreButton"
         @load-next-page="handleFetchMore"
       >
@@ -35,14 +35,15 @@
           @keydown.space.prevent="handleFetchMore"
           @keydown.enter.prevent="handleFetchMore"
         >
-          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
+          <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
-      </ft-auto-load-next-page-wrapper>
-    </ft-card>
+      </FtAutoLoadNextPageWrapper>
+    </FtCard>
   </div>
 </template>
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
