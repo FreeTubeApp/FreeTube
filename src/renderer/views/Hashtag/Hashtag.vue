@@ -62,7 +62,7 @@ const { t } = useI18n()
 const route = useRoute()
 
 const hashtag = ref('')
-const hashtagContinuationData = ref(null)
+const hashtagContinuationData = shallowRef(null)
 const videos = shallowRef([])
 /** @type {import('vue').Ref<'local' | 'invidious'>} */
 const apiUsed = ref('local')
@@ -103,7 +103,7 @@ function resetData() {
 
 async function getHashtag() {
   const hashtagInRoute = decodeURIComponent(route.params.hashtag)
-  if (backendPreference.value === 'local') {
+  if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'local') {
     await getLocalHashtag(hashtagInRoute)
   } else {
     await getInvidiousHashtag(hashtagInRoute)
@@ -209,7 +209,7 @@ async function getLocalHashtagMore() {
 }
 
 function handleFetchMore() {
-  if (apiUsed.value === 'local') {
+  if (process.env.SUPPORTS_LOCAL_API && apiUsed.value === 'local') {
     getLocalHashtagMore()
   } else if (apiUsed.value === 'invidious') {
     getInvidiousHashtag(hashtag.value.substring(1), pageNumber.value)
