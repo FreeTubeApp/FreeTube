@@ -492,7 +492,7 @@ Settings:
       Enable: 'Gweredekaat Tapadennoù-skramm'
       Format Label: 'Furmad an tapadennoù-skramm'
       Quality Label: 'Kalite an tapadennoù-skramm'
-      Ask Path: ''
+      Ask Path: 'Goulenn war-lerc''h an teuliad enrollañ'
       Folder Label: 'Teuliad an tapadennoù-skramm'
       Folder Button: 'Diuzañ un teuliad'
       File Name Label: 'Patrom anv restr'
@@ -671,10 +671,10 @@ Settings:
     Hide Search Bar: 'Kuzhat ar varenn glask'
   Download Settings:
     Download Settings: 'Pellgargañ'
-    Ask Download Path: ''
+    Ask Download Path: 'Goulenn war-lerc''h an hent pellgargañ'
     Choose Path: 'Dibab an hent'
     Download Behavior: 'Emzalc''h ar pellgargañ'
-    Download in app: ''
+    Download in app: 'Pellgargañ en arload'
     Open in web browser: 'Digeriñ er merdeer web'
   Experimental Settings:
     Experimental Settings: 'Arnodel'
@@ -697,7 +697,7 @@ About:
   Source code: 'Kod mammenn'
   Licensed under the: 'Dindan an aotre-implijout'
   AGPLv3: 'AGPLv3'
-  Downloads / Changelog: ''
+  Downloads / Changelog: 'Pellgargañ / Deizlevr ar cheñchamantoù'
   GitHub releases: 'Ermaeziadennoù GitHub'
   Help: 'Skoazell'
   FreeTube Wiki: 'Wiki FreeTube'
@@ -711,13 +711,13 @@ About:
   Blog: 'Blog'
   Email: 'Chomlec’h postel'
   Mastodon: 'Mastodon'
-  Chat on Matrix: ''
+  Chat on Matrix: 'Flapañ war Matrix'
   Please read the: 'Par-plij, lennit'
   room rules: 'reolennoù ar sal'
   Translate: 'Treiñ'
   Credits: 'Kreditoù'
-  FreeTube is made possible by: ''
-  these people and projects: ''
+  FreeTube is made possible by: 'Bez ez eus deus FreeTube a-drugarez da'
+  these people and projects: 'an dud-se hag ar raktresoù-se'
   Donate: 'Ober un donezon'
 
 Profile:
@@ -737,7 +737,7 @@ Profile:
   Profile Preview: 'Rakwelet ar profil'
   Create Profile: 'Krouiñ ur profil'
   Update Profile: 'Hizivaat ar profil'
-  Make Default Profile: ''
+  Make Default Profile: 'Lakaat evel Profil dre ziouer'
   Delete Profile: 'Dilemel ar profil'
   Are you sure you want to delete this profile?: 'Ha sur oc''h e faot deoc''h dilemel
     ar profil-mañ ?'
@@ -763,8 +763,8 @@ Profile:
   : 'Ho profil pennañ eo. Ha sur oc''h e faot deoc''h dilemel ar chadennoù diuzet ?
     Ar memes chadennoù a vo dilamet deus ho profiloù all.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-  Close Profile Dropdown: ''
-  Open Profile Dropdown: ''
+  Close Profile Dropdown: 'Serriñ roll ar profil'
+  Open Profile Dropdown: 'Digeriñ roll ar profil'
 #On Channel Page
 Channel:
   Subscribe: 'Koumanantiñ'
@@ -799,7 +799,7 @@ Channel:
     This channel does not currently have any playlists: 'N''eus ket a roll-videoioù
       evit poent gant ar chadenn-mañ'
     Sort Types:
-      Last Video Added: ''
+      Last Video Added: 'Video diwezhañ ouzhpennet'
       Newest: 'Nevesañ'
       Oldest: 'Koshañ'
   Podcasts:
@@ -824,7 +824,7 @@ Channel:
     This channel currently does not have any posts: 'N''eus ket a gaozeadenn evit
       poent gant ar chadenn-mañ'
     votes: '{votes} a vouezhioù'
-    View Full Post: ''
+    View Full Post: 'Gwelet ar pennad a-bezh'
     Reveal Answers: 'Diskouez ar respontoù'
     Hide Answers: 'Kuzhat ar respontoù'
     Video hidden by FreeTube: 'Video kuzhet gant FreeTube'
@@ -857,8 +857,8 @@ Video:
   Loop Playlist: 'Rodell roll-videoioù'
   Shuffle Playlist: 'Meskañ ar roll-videoioù'
   Reverse Playlist: 'Cheñch tu ar roll-videoioù'
-  Play Next Video: ''
-  Play Previous Video: ''
+  Play Next Video: 'Lenn ar video da heul'
+  Play Previous Video: 'Lenn ar video a-raok'
   Pause on Current Video: ''
   Watched: 'Lennet'
   Autoplay: 'Lenn emgefreek'
@@ -870,7 +870,7 @@ Video:
   Live: 'End-eeun'
   Live Now: 'War-eeun bremañ'
   Live Chat: 'Flapañ war-eeun'
-  Enable Live Chat: ''
+  Enable Live Chat: 'Gweredekaat ar flapañ war-eeun'
   Live Chat is currently not supported in this build.: ''
   'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled. Chat messages will appear here once sent.: ''
@@ -1044,7 +1044,9 @@ Up Next: 'Da-heul'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
+    Preferred API Backend: 'Choazit ar backend implijet gant FreeTube evit tapout
+      ar roadennoù. Un eztenner enkorfet eo an API lec''hel. Ezhomm en deus an API
+      Invidious da gaout ur servijer Invidious evit kevreañ outañ.'
     Fallback to Non-Preferred Backend on Failure: ''
     Thumbnail Preference: ''
     Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API.'
@@ -1066,8 +1068,12 @@ Tooltips:
       buan d''ar feur lenn dre ziouer (1x, nemet ma ''z eo bet kemmet en arventennoù).'
     Skip by Scrolling Over Video Player: ''
   External Player Settings:
-    External Player: ''
-    Custom External Player Executable: ''
+    External Player: 'Dibab ul lenner diavaez a ziskouezo un ikon war ar skeudennig,
+      evit digeriñ ar video (pe ar roll-videoioù ma vez skoret) el lenner diavaez.
+      Diwallit, arventennoù Invidious n''o deus ket efed ebet war al lenner diavaez.'
+    Custom External Player Executable: 'Dre ziouer e soñjo FreeTube e c''hall mont
+      da glask al lenner diavaez choazet dre an argemmenn endro PATH. Mar bez ezhomm
+      e c''haller lakaat un hent personelaet amañ.'
     Ignore Warnings: ''
     Ignore Default Arguments: 'Arabat kas arguzennoù dre ziouer d''al lenner diavaez
       nemet URL ar video (d.s. feur lenn, URL ar roll-videoioù, etc.). Treuzkaset
