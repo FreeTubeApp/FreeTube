@@ -2382,6 +2382,8 @@ export default defineComponent({
 
       window.addEventListener('beforeunload', stopPowerSaveBlocker)
 
+      container.value.classList.add('no-cursor')
+
       await performFirstLoad()
     })
 
