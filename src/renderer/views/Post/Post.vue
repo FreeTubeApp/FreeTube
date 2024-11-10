@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../../components/FtCommunityPost/FtCommunityPost.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -84,4 +84,14 @@ async function loadDataInvidiousAsync() {
     })
   }
 }
+
+watch(() => route.params.id, async () => {
+  // react to route changes...
+  isLoading.value = true
+  if (isInvidiousAllowed.value) {
+    id.value = route.params.id
+    authorId.value = route.query.authorId
+    await loadDataInvidiousAsync()
+  }
+})
 </script>
