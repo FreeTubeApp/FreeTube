@@ -534,7 +534,8 @@ Settings:
       ket bezañ nullet.'
     Remove All Playlists: 'Dilemel an holl rolloù-videoioù'
     All playlists have been removed: 'Lamet eo bet an holl rolloù-videoioù'
-    Are you sure you want to remove all your playlists?: ''
+    Are you sure you want to remove all your playlists?: 'Ha sur oc''h e faot deoc''h
+      dilemel hoc''h holl rolloù-videoioù ?'
   Subscription Settings:
     Subscription Settings: 'Koumanant'
     Hide Videos on Watch: ''
@@ -571,7 +572,9 @@ Settings:
     Hide Sharing Actions: 'Kuzhat an doareoù da rannañ'
     Hide Chapters: 'Kuzhat ar chabistroù'
     Hide Channels: ''
-    Hide Channels Disabled Message: ''
+    Hide Channels Disabled Message: 'Stanket eo bet chadennadoù zo gant an ID ha n''int
+      ket evit bezañ diskouezet. Stanket eo an obererezh-mañ keit ma vez hizivaet
+      an IDoù-se'
     Hide Channels Placeholder: 'ID ar chadenn'
     Hide Channels Invalid: ''
     Hide Channels API Error: ''
@@ -648,7 +651,9 @@ Settings:
     Country: 'Bro'
     Region: 'Rannvro'
     City: 'Kêr'
-    Error getting network information. Is your proxy configured properly?: ''
+    Error getting network information. Is your proxy configured properly?: 'C''hoarvezet
+      ez eus bet ur gudenn en ur glask war-lerc''h titouroù ar rouedad. Ha kefluniet
+      mat eo ho proksi ?'
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Gweredekaat SponsorBlock'
@@ -749,7 +754,8 @@ Profile:
   Profile has been updated: 'Hizivaet eo bet ar profil'
   Your default profile has been set to {profile}: ''
   Removed {profile} from your profiles: 'Dilamet eo bet {profile} deus ho profiloù'
-  Your default profile has been changed to your primary profile: ''
+  Your default profile has been changed to your primary profile: 'Kemmet eo bet ho
+    profil dre ziouer d''ho profil pennañ'
   '{profile} is now the active profile': ''
   Subscription List: 'Roll ar c''houmanantoù'
   Other Channels: 'Chadennoù all'
@@ -780,7 +786,9 @@ Channel:
   Sort By: 'Rummañ dre'
   This channel does not exist: 'N''eus ket deus ar chadenn-mañ'
   This channel does not allow searching: 'Ne vez ket aotreet klask gant ar chadenn-mañ'
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Ur
+    vevenn oad a zo d''ar chadenn-mañ ha ne c''hall ket bezañ gwelet war FreeTube
+    evit poent.'
   Channel Tabs: 'Ivinelloù ar chadenn'
   Videos:
     Videos: 'Videoioù'
@@ -867,7 +875,8 @@ Video:
   Pause on Current Video: ''
   Watched: 'Lennet'
   Autoplay: 'Lenn emgefreek'
-  Starting soon, please refresh the page to check again: ''
+  Starting soon, please refresh the page to check again: 'Kregiñ a raio a-benn nebeut,
+    freskait ar bajenn evit gwiriañ en-dro'
   # As in a Live Video
   Premieres on: 'Rakskignañ war'
   Premieres: 'Rakskignañ'
@@ -876,10 +885,14 @@ Video:
   Live Now: 'War-eeun bremañ'
   Live Chat: 'Flapañ war-eeun'
   Enable Live Chat: 'Gweredekaat ar flapañ war-eeun'
-  Live Chat is currently not supported in this build.: ''
+  Live Chat is currently not supported in this build.: 'N''eo ket skoret ar flapañ
+    war-eeun gant ar stumm-añ evit poent.'
   'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled. Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
+  Live chat is enabled. Chat messages will appear here once sent.: 'Gweredekaet eo
+    ar flapañ war-eeun.  Diskouezet e vo ar c''hemennadennoù amañ ur wech kaset.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'N''eo
+    ket skoret ar flapañ war-eeun gant API Invidious evit poent.  Ret eo bezañ kennasket
+    war-eeun ouzh YouTube.'
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
@@ -905,12 +918,13 @@ Video:
     video: 'video'
     playlist: 'roll-videoioù'
     OpeningTemplate: 'Digeriñ {videoOrPlaylist} gant {externalPlayer}…'
-    UnsupportedActionTemplate: ''
+    UnsupportedActionTemplate: '{externalPlayer} ne skor ket : {action}'
     Unsupported Actions:
       starting video at offset: ''
       setting a playback rate: 'termenañ ur feur lenn'
       opening playlists: 'digeriñ rolloù-videoioù'
-      opening specific video in a playlist (falling back to opening the video): ''
+      opening specific video in a playlist (falling back to opening the video): 'digeriñ
+        ur video resis en ur roll-videoioù (distreiñ da zigeriñ ar video)'
       reversing playlists: 'cheñch tu ar rolloù-videoioù'
       shuffling playlists: 'meskañ ar rolloù-videoioù'
       looping playlists: 'rodell rolloù-videoioù'
@@ -946,6 +960,8 @@ Video:
   Unlisted: Anlistennet
   MembersOnly: N'haller ket sellet ouzh ar videoioù miret d'an izili hepken gant FreeTube,
     peogwir eo ret bezañ luget gant ur gont Google ha paeañ ur c'houmanant d'ar chadenn.
+  AgeRestricted: N'haller ket sellet ouzh ar videoioù gant ur vevenn oad war FreeTube,
+    peogwir eo ret bezañ luget gant ur gont Google kadarnaet gant hoc'h oad.
 Videos:
   #& Sort By
   Sort By:
@@ -1089,7 +1105,9 @@ Tooltips:
     Ignore Default Arguments: 'Arabat kas arguzennoù dre ziouer d''al lenner diavaez
       nemet URL ar video (d.s. feur lenn, URL ar roll-videoioù, etc.). Treuzkaset
       e vo an arguzennoù personelaet.'
-    Custom External Player Arguments: ''
+    Custom External Player Arguments: 'An holl arguzennoù personelaet el linennoù
+      urzhiañ, dispartiet gant poentoù-virgulenn ('';''), a faot deoc''h e vefe treuzkaset
+      d''al lenner diavaez.'
     DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
   Distraction Free Settings:
     Hide Channels: 'Lakait ID ur chadenn evit mirout ouzh an holl videoioù, rolloù-videoioù
@@ -1121,7 +1139,9 @@ Local API Error (Click to copy): 'Fazi un API lec''hel (Klikit evit eilañ)'
 Invidious API Error (Click to copy): 'Fazi gant API Invidious (Klikit evit eilañ)'
 Falling back to Invidious API: 'Distreiñ da API Invidious'
 Falling back to Local API: 'Distreiñ d''an API lec''hel'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Dihegerz
+  eo ar video-mañ abalamour da furmadoù a vank. Gallout a ra c''hoarvezout e-barzh
+  broioù ''zo.'
 Subscriptions have not yet been implemented: ''
 Unknown YouTube url type, cannot be opened in app: ''
 Hashtags have not yet been implemented, try again later: ''
