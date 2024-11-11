@@ -39,7 +39,6 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 const { t } = useI18n()
 
 const isLoading = ref(false)
-const shownResults = shallowRef([])
 
 const lastPopularRefreshTimestamp = computed(() => {
   return getRelativeTimeFromDate(store.getters.getLastPopularRefreshTimestamp, true)
@@ -50,11 +49,12 @@ const popularCache = computed(() => {
   return store.getters.getPopularCache
 })
 
+const shownResults = shallowRef(popularCache.value || [])
+
 onMounted(() => {
   document.addEventListener('keydown', keyboardShortcutHandler)
 
-  shownResults.value = popularCache.value || []
-  if (!shownResults.value || shownResults.value.length < 1) {
+  if (!shownResults.value.length === 0) {
     fetchPopularInfo()
   }
 })
