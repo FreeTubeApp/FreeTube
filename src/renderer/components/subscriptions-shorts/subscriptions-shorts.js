@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
+import SubscriptionsTabUI from '../SubscriptionsTabUi/SubscriptionsTabUi.vue'
 
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 import {
