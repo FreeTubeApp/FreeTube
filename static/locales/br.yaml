@@ -577,7 +577,8 @@ Settings:
       an IDoù-se'
     Hide Channels Placeholder: 'ID ar chadenn'
     Hide Channels Invalid: ''
-    Hide Channels API Error: ''
+    Hide Channels API Error: 'Fazi en ur adtapout an implijer gant an ID bet roet.
+      Gwiriit en-dro hag-eñ eo reizh an ID mar plij.'
     Hide Channels Already Exists: 'ID ar chadenn a zo anezhañ dija'
     Hide Featured Channels: 'Kuzhat ar chadennoù lakaet war-wel'
     Hide Channel Playlists: 'Kuzhat rolloù-videoioù ar chadennoù'
@@ -887,13 +888,16 @@ Video:
   Enable Live Chat: 'Gweredekaat ar flapañ war-eeun'
   Live Chat is currently not supported in this build.: 'N''eo ket skoret ar flapañ
     war-eeun gant ar stumm-añ evit poent.'
-  'Chat is disabled or the Live Stream has ended.': ''
+  'Chat is disabled or the Live Stream has ended.': 'Dihegerz eo ar flapañ war-eeun
+    pe ez eo echu ar skignañ war-eeun.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Gweredekaet eo
     ar flapañ war-eeun.  Diskouezet e vo ar c''hemennadennoù amañ ur wech kaset.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'N''eo
     ket skoret ar flapañ war-eeun gant API Invidious evit poent.  Ret eo bezañ kennasket
     war-eeun ouzh YouTube.'
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Dihegerz
+    eo ar flapañ war-eeun evit ar skignañ-mañ. Marteze eo bet diweredekaet gant perc''henn
+    ar chadenn.'
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
   Download Video: 'Pellgargañ ar video'
