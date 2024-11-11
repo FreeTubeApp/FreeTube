@@ -619,7 +619,8 @@ Settings:
         2. Dilemel an holl rolloù-videoioù en ur implijout an dibarzh Dilemel an holl rolloù-videoioù dindan Prevezded.
         3. Loc'hañ stumm kozh FreeTube hag enporzhiañ ar rolloù-videoioù ezporzhiet."
     Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
+    All subscriptions and profiles have been successfully imported: 'Enporzhiet eo
+      bet an holl goumanantoù ha profiloù gant berzh'
     All subscriptions have been successfully imported: ''
     Invalid subscriptions file: ''
     Invalid history file: 'Restr ar roll istor direizh'
@@ -1086,7 +1087,8 @@ Tooltips:
       Choazit an emzalc'h dre ziouer pa vo kliket war ul liamm ha n'hall ket bezañ digoret gant FreeTube.
       Dre ziouer, e vo digoret al liamm e-barzh ho merdeer web.
   Player Settings:
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'Kevreañ a raio ouzh Invidious evit mont da gerc''hat
+      ar videoioù e-lec''h kevreañ war-eeun ouzh YouTube.'
     Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video.
       Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet
       eo ar furmadoù Legacy da 720p d''ar muiañ met nebeutoc''h a vann- drafet a vez
@@ -1118,7 +1120,8 @@ Tooltips:
       hag ar chadenn hec''h-unan da vezañ gwelet en enklaskoù, e roll ar videoioù
       brudetañ, ar re vuiañ karet, hag ar re aliet. Ret eo d''an ID bezañ klot ha
       ret eo doujañ d''ar pennlizherennoù.'
-    Hide Subscriptions Live: ''
+    Hide Subscriptions Live: 'Erlec''hiet eo an arventenn-mañ gant an arventenn "{appWideSetting}"
+      evit an arload a-bezh, e lodenn "{subsection}" e-barzh "{settingsSection}"'
     Hide Videos and Playlists Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe
       ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù
       gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor,
@@ -1147,7 +1150,8 @@ This video is unavailable because of missing formats. This can happen due to cou
   eo ar video-mañ abalamour da furmadoù a vank. Gallout a ra c''hoarvezout e-barzh
   broioù ''zo.'
 Subscriptions have not yet been implemented: ''
-Unknown YouTube url type, cannot be opened in app: ''
+Unknown YouTube url type, cannot be opened in app: 'Seurt url YouTube dianav, n''hall
+  ket bezañ digoret en arload'
 Hashtags have not yet been implemented, try again later: ''
 Loop is now disabled: 'Diweredekaet eo ar rodell bremañ'
 Loop is now enabled: 'Gweredekaet eo ar rodell bremañ'
