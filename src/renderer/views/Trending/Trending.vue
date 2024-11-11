@@ -145,7 +145,7 @@ const region = computed(() => {
 
 /** @type {import('vue').ComputedRef<object>} */
 const trendingCache = computed(() => {
-  return store.getters.getRegion.toUpperCase()
+  return store.getters.getTrendingCache
 })
 
 onMounted(() => {
