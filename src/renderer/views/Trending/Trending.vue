@@ -133,7 +133,6 @@ const backendFallback = computed(() => {
   return store.getters.getBackendFallback
 })
 
-/** @type {import('vue').ComputedRef<boolean>} */
 const lastTrendingRefreshTimestamp = computed(() => {
   return getRelativeTimeFromDate(store.getters.getLastTrendingRefreshTimestamp, true)
 })
