@@ -484,6 +484,7 @@ Settings:
       Channel Page: Channel Page
       Watch Page: Watch Page
       General: General
+      Content Filter: Content Filter
     Hide Video Views: Hide Video Views
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Channel Subscribers: Hide Channel Subscribers
@@ -520,6 +521,8 @@ Settings:
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Community: Hide Subscriptions Community
+    Show hidden channels: Show hidden channels
+    Show hidden text: Show hidden text
   Data Settings:
     Data Settings: Data
     Select Import Type: Select Import Type

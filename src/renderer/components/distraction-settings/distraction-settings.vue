@@ -228,6 +228,25 @@
       </div>
     </div>
     <br class="hide-on-mobile">
+    <h4
+      class="groupTitle"
+    >
+      {{ $t('Settings.Distraction Free Settings.Sections.Content Filter') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <ft-toggle-switch
+        :label="$t('Settings.Distraction Free Settings.Show hidden channels')"
+        :compact="true"
+        :default-value="showHiddenChannels"
+        @change="updateShowHiddenChannels"
+      />
+      <ft-toggle-switch
+        :label="$t('Settings.Distraction Free Settings.Show hidden text')"
+        :compact="true"
+        :default-value="showHiddenText"
+        @change="updateShowHiddenText"
+      />
+    </div>
     <ft-flex-box>
       <ft-input-tags
         :disabled="channelHiderDisabled"
@@ -240,6 +259,7 @@
         :validate-tag-name="validateChannelId"
         :find-tag-info="findChannelTagInfo"
         :are-channel-tags="true"
+        :show-hidden-content="showHiddenChannels"
         @invalid-name="handleInvalidChannel"
         @error-find-tag-info="handleChannelAPIError"
         @change="handleChannelsHidden"
@@ -254,6 +274,7 @@
         :tag-list="forbiddenTitles"
         :min-input-length="3"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        :show-hidden-content="showHiddenText"
         @change="handleForbiddenTitles"
       />
     </ft-flex-box>

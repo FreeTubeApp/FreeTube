@@ -21,7 +21,10 @@
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
-    <div class="ft-tag-box">
+    <div
+      v-if="showHiddenContent"
+      class="ft-tag-box"
+    >
       <ul>
         <li
           v-for="tag in tagList"

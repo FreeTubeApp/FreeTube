@@ -28,6 +28,10 @@ export default defineComponent({
       type: String,
       required: true
     },
+    showHiddenContent: {
+      type: String,
+      required: true
+    },
     minInputLength: {
       type: Number,
       default: 1
