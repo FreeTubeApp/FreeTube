@@ -54,7 +54,7 @@ const shownResults = shallowRef(popularCache.value || [])
 onMounted(() => {
   document.addEventListener('keydown', keyboardShortcutHandler)
 
-  if (!shownResults.value.length === 0) {
+  if (shownResults.value.length === 0) {
     fetchPopularInfo()
   }
 })
