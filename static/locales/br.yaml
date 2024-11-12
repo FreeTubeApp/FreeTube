@@ -557,7 +557,7 @@ Settings:
       Watch Page: 'Pajenn evit lenn'
       General: 'Hollek'
     Hide Video Views: 'Kuzhat an niver a selloù'
-    Hide Video Likes And Dislikes: ''
+    Hide Video Likes And Dislikes: 'Kuzhat bizied-meud ar videoioù'
     Hide Channel Subscribers: 'Kuzhat an niver a dud koumanantet d''ar chadennoù'
     Hide Comment Likes: 'Kuzhat an niver a vizied-meud evit an evezhiadennoù'
     Hide Recommended Videos: 'Kuzhat ar videoioù aliet'
@@ -568,8 +568,9 @@ Settings:
     Hide Active Subscriptions: 'Kuzhat ar c''houmanantoù oberiant'
     Hide Video Description: 'Kuzhat deskrivadur ar video'
     Hide Comments: 'Kuzhat an evezhiadennoù'
-    Hide Profile Pictures in Comments: ''
-    Display Titles Without Excessive Capitalisation: ''
+    Hide Profile Pictures in Comments: 'Kuzhat ar skeudennoù profil e-barzh an evezhiadennoù'
+    Display Titles Without Excessive Capitalisation: 'Diskouez an titloù hep lizherennoù
+      bras hag hep re a boentadurioù'
     Hide Live Streams: 'Kuzhat ar skignañ war-eeun'
     Hide Upcoming Premieres: 'Kuzhat rakskignañ da zont'
     Hide Sharing Actions: 'Kuzhat an doareoù da rannañ'
@@ -579,7 +580,7 @@ Settings:
       ket evit bezañ diskouezet. Stanket eo an obererezh-mañ keit ma vez hizivaet
       an IDoù-se'
     Hide Channels Placeholder: 'ID ar chadenn'
-    Hide Channels Invalid: ''
+    Hide Channels Invalid: 'Direizh eo ID ar chadenn roet'
     Hide Channels API Error: 'Fazi en ur adtapout an implijer gant an ID bet roet.
       Gwiriit en-dro hag-eñ eo reizh an ID mar plij.'
     Hide Channels Already Exists: 'ID ar chadenn a zo anezhañ dija'
@@ -588,7 +589,7 @@ Settings:
     Hide Channel Community: 'Kuzhat ivinell kumuniezh ar chadenn'
     Hide Channel Shorts: 'Kuzhat Shortoù ar chadenn'
     Hide Channel Podcasts: 'Kuzhat Podskignañ at chadenn'
-    Hide Channel Releases: ''
+    Hide Channel Releases: 'Kuzhat ermaeziadennoù ar chadenn'
     Hide Videos and Playlists Containing Text: 'Kuzhat ar videoioù hag ar rolloù-videoioù
       gant testennoù'
     Hide Videos and Playlists Containing Text Placeholder: 'Ger, lodenn deus ur ger,
@@ -626,23 +627,28 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: 'Enporzhiet eo
       bet an holl goumanantoù ha profiloù gant berzh'
-    All subscriptions have been successfully imported: ''
-    Invalid subscriptions file: ''
+    All subscriptions have been successfully imported: 'Enporzhiet eo bet an holl
+      goumanantoù gant berzh'
+    Invalid subscriptions file: 'Direizh eo restr ar c''houmanantoù'
     Invalid history file: 'Restr ar roll istor direizh'
-    Subscriptions have been successfully exported: ''
+    Subscriptions have been successfully exported: 'Ezporzhiet eo bet ar c''houmanantoù
+      gant berzh'
     History object has insufficient data, skipping item: 'Lezel a-gostez an elfenn-mañ
       peogwir e vank titouroù e-barzh ar roll istor'
     All watched history has been successfully imported: 'Enporzhiet eo bet roll istor
       ar videoioù lennet gant berzh'
     All watched history has been successfully exported: 'Ezporzhiet eo bet roll istor
       ar videoioù lennet gant berzh'
-    Playlist insufficient data: ''
-    All playlists has been successfully imported: ''
-    All playlists has been successfully exported: ''
+    Playlist insufficient data: 'Diouer a roadennoù evit ar roll-videoioù "{playlist}",
+      o leuskel an elfenn a-gostez'
+    All playlists has been successfully imported: 'Enporzhiet eo bet an holl rolloù-videoioù
+      gant berzh'
+    All playlists has been successfully exported: 'Ezporzhiet eo bet an holl rolloù-videoioù
+      gant berzh'
     Unable to read file: 'Ne c''haller ket lenn ar restr'
     Unable to write file: 'N''haller ket skrivañ ar restr'
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
+    Unknown data key: 'Alc''hwez ar roadennoù dianav'
+    How do I import my subscriptions?: 'Penaos enporzhiañ ma c''houmanantoù ?'
     Manage Subscriptions: 'Merañ ar c''houmanantoù'
   Proxy Settings:
     Proxy Settings: 'Proksi'
@@ -664,17 +670,18 @@ Settings:
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Gweredekaat SponsorBlock'
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
-    Notify when sponsor segment is skipped: ''
-    UseDeArrowTitles: ''
-    UseDeArrowThumbnails: ''
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'URL API SponsorBlock
+      (Dre ziouer https://sponsor.ajay.app)'
+    Notify when sponsor segment is skipped: 'Kelaouiñ pa vez tremenet ul lodenn paeroniet'
+    UseDeArrowTitles: 'Implijout titloù video DeArrow'
+    UseDeArrowThumbnails: 'Implijout DeArrow evit ar skeudennoùigoù'
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
-      an API DeArrow evit krouiñ skeudennoùigoù (Dre ziouer https://dearrow-thumb.ajay.app)'
+      API DeArrow evit krouiñ skeudennoùigoù (Dre ziouer https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: 'Laoskel a-gostez an dibarzh'
       Auto Skip: 'Lamm emgefreek'
       Show In Seek Bar: 'Diskouez er varenn glask'
-      Prompt To Skip: ''
+      Prompt To Skip: 'Kinnig da laoskel a-gostez'
       Do Nothing: 'Ober netra'
     Category Color: 'Liv ar rummad'
   Parental Control Settings:
@@ -693,10 +700,10 @@ Settings:
     Experimental Settings: 'Arnodel'
     Warning: 'Arventennoù arnodel eo, gallout a ra ar sistem chom bout pa vezont gweredekaet.
       Aliet-tre eo ober enrolladennoù. Kendalc’hit en ho riskl hoc’h-unan !'
-    Replace HTTP Cache: ''
+    Replace HTTP Cache: 'Erlec''hiañ ar grubuilh HTTP'
   Password Dialog:
     Password: 'Ger-tremen'
-    Enter Password To Unlock: ''
+    Enter Password To Unlock: 'Enankit ar ger-tremen evit dibrennañ an arventennoù'
     Password Incorrect: 'Ger-tremen direizh'
     Unlock: 'Dibrennañ'
   Password Settings:
@@ -756,8 +763,8 @@ Profile:
   Are you sure you want to delete this profile?: 'Ha sur oc''h e faot deoc''h dilemel
     ar profil-mañ ?'
   All subscriptions will also be deleted.: 'An holl goumanantoù a vo ivez dilamet.'
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
+  Profile could not be found: 'N''eus ket bet gallet kavout ar profil'
+  Your profile name cannot be empty: 'Ne c''hall ket anv ar profil bezañ goullo'
   Profile has been created: 'Krouet eo bet ar profil'
   Profile has been updated: 'Hizivaet eo bet ar profil'
   Your default profile has been set to {profile}: 'Ho profil dre ziouer ''zo bet lakaet
@@ -765,7 +772,7 @@ Profile:
   Removed {profile} from your profiles: 'Dilamet eo bet {profile} deus ho profiloù'
   Your default profile has been changed to your primary profile: 'Kemmet eo bet ho
     profil dre ziouer d''ho profil pennañ'
-  '{profile} is now the active profile': ''
+  '{profile} is now the active profile': '{profile} a zo bremañ ar profil oberiant'
   Subscription List: 'Roll ar c''houmanantoù'
   Other Channels: 'Chadennoù all'
   '{number} selected': '{number} diuzet'
@@ -787,11 +794,13 @@ Profile:
 Channel:
   Subscribe: 'Koumanantiñ'
   Unsubscribe: 'Digoumanantiñ'
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from {count} other channel(s): ''
-  Added channel to your subscriptions: ''
+  Channel has been removed from your subscriptions: 'Dilamet eo bet ar chadenn diouzh
+    ho koumanantoù'
+  Removed subscription from {count} other channel(s): 'Dilamet eo bet ar c''houmanant
+    diouzh {count} chadenn all'
+  Added channel to your subscriptions: 'Chadenn ouzhpennet d''ho koumanantoù'
   Search Channel: 'Klask e-barzh ar chadenn'
-  Your search results have returned 0 results: ''
+  Your search results have returned 0 results: 'N''eus disoc''h ebet gant ho klask'
   Sort By: 'Rummañ dre'
   This channel does not exist: 'N''eus ket deus ar chadenn-mañ'
   This channel does not allow searching: 'Ne vez ket aotreet klask gant ar chadenn-mañ'
@@ -882,7 +891,7 @@ Video:
   Reverse Playlist: 'Cheñch tu ar roll-videoioù'
   Play Next Video: 'Lenn ar video da heul'
   Play Previous Video: 'Lenn ar video a-raok'
-  Pause on Current Video: ''
+  Pause on Current Video: 'Ehan war ar video bremanel'
   Watched: 'Lennet'
   Autoplay: 'Lenn emgefreek'
   Starting soon, please refresh the page to check again: 'Kregiñ a raio a-benn nebeut,
@@ -992,14 +1001,14 @@ Playlist:
   Last Updated On: 'Hizivadenn ziwezhañ'
   Sort By:
     Sort By: 'Rummañ dre'
-    DateAddedNewest: ''
-    DateAddedOldest: ''
+    DateAddedNewest: 'Ouzhpennet diwezhañ da gentañ'
+    DateAddedOldest: 'Ouzhpennet abretañ da gentañ'
     AuthorAscending: 'Aozer (A-Z)'
     AuthorDescending: 'Aozer (Z-A)'
     VideoTitleAscending: 'Titl (A-Z)'
     VideoTitleDescending: 'Titl (Z-A)'
-    VideoDurationAscending: ''
-    VideoDurationDescending: ''
+    VideoDurationAscending: 'Padelezh (Berrañ da gentañ)'
+    VideoDurationDescending: 'Padelezh (Hirañ da gentañ)'
     Custom: 'Personelaat'
 
 # On Video Watch Page
@@ -1037,17 +1046,20 @@ Share:
   YouTube Channel URL copied to clipboard: 'Liamm YouTube ar chadenn eilet er golver'
 Clipboard:
   Copy failed: 'Eilañ er golver c''hwitet'
-  Cannot access clipboard without a secure connection: ''
+  Cannot access clipboard without a secure connection: 'Ne c''haller ket adtapout
+    ar golver hep ur c''hennask suraet'
 
 Chapters:
   Chapters: 'Chabistroù'
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  'Chapters list visible, current chapter: {chapterName}': 'Roll ar chabistroù diskouezet,
+    chabistr bremanel : {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Roll ar chabistroù kuzhet,
+    chabistr bremanel : {chapterName}'
 
 Mini Player: 'Lenner bihan'
 Comments:
   Comments: 'Evezhiadennoù'
-  Click to View Comments: ''
+  Click to View Comments: 'Klikit amañ evit gwelet an evezhiadennoù'
   Getting comment replies, please wait: ''
   There are no more comments for this video: 'Evezhiadenn ouzhpenn ebet evit ar video-mañ'
   Show Comments: 'Diskouez an evezhiadennoù'
@@ -1055,7 +1067,7 @@ Comments:
   Sort by: 'Rummañ dre'
   Top comments: 'Evezhiadennoù gwellañ'
   Newest first: 'Nevesañ da gentañ'
-  View {replyCount} replies: ''
+  View {replyCount} replies: 'Diskouez {replyCount} respont'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   View: 'Gwelet'
   Hide: 'Kuzhat'
@@ -1146,8 +1158,10 @@ Tooltips:
       ha gweredekaat krubuilh personelaet ar skeudennoù e-barzh ar memor. Implijet
       e vo muioc''h a vemor RAM.'
   SponsorBlock Settings:
-    UseDeArrowTitles: ''
-    UseDeArrowThumbnails: ''
+    UseDeArrowTitles: 'Erlec''hiañ titloù ar videoioù gant titloù kinniget gant implijerien
+      DeArrow.'
+    UseDeArrowThumbnails: 'Erlec''hiañ skeudennoùigoù ar videoioù gant skeudennoùigoù
+      DeArrow.'
 
 # Toast Messages
 Local API Error (Click to copy): 'Fazi un API lec''hel (Klikit evit eilañ)'
