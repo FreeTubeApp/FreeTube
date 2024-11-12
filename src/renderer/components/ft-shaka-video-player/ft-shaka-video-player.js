@@ -556,7 +556,6 @@ export default defineComponent({
           dash: {
             manifestPreprocessorTXml: manifestPreprocessorTXml
           },
-          availabilityWindowOverride: seekingIsPossible.value ? NaN : 0
         },
         abr: {
           enabled: useAutoQuality,
@@ -1803,7 +1802,7 @@ export default defineComponent({
       const seekRange = player.seekRange()
 
       // Seeking not possible e.g. with HLS
-      if (seekRange.start === seekRange.end) {
+      if (seekRange.start === seekRange.end || !seekingIsPossible.value) {
         return false
       }
 
