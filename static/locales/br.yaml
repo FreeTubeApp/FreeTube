@@ -509,10 +509,11 @@ Settings:
   External Player Settings:
     External Player Settings: 'Lenner diavaez'
     External Player: 'Lenner diavaez'
-    Ignore Unsupported Action Warnings: ''
+    Ignore Unsupported Action Warnings: 'Lezel a-gostez ar c''hemennadennoù evit an
+      obererezhioù nann skoret'
     Ignore Default Arguments: 'Leuskel arguzennoù dre ziouer a-gostez'
-    Custom External Player Executable: ''
-    Custom External Player Arguments: ''
+    Custom External Player Executable: 'Lenner diavaez personelaet'
+    Custom External Player Arguments: 'Arguzennoù al lenner diavaez personelaet'
     Players:
       None:
         Name: 'Hini ebet'
@@ -540,7 +541,7 @@ Settings:
       dilemel hoc''h holl rolloù-videoioù ?'
   Subscription Settings:
     Subscription Settings: 'Koumanant'
-    Hide Videos on Watch: ''
+    Hide Videos on Watch: 'Kuzhat ar videoioù lennet'
     Fetch Feeds from RSS: 'Adtapout ar gwazhioù RSS'
     Manage Subscriptions: ''
     Fetch Automatically: 'Adtapout ar wazh ent emgefreek'
@@ -573,7 +574,7 @@ Settings:
     Hide Upcoming Premieres: 'Kuzhat rakskignañ da zont'
     Hide Sharing Actions: 'Kuzhat an doareoù da rannañ'
     Hide Chapters: 'Kuzhat ar chabistroù'
-    Hide Channels: ''
+    Hide Channels: 'Kuzhat videoioù ar chadennoù'
     Hide Channels Disabled Message: 'Stanket eo bet chadennadoù zo gant an ID ha n''int
       ket evit bezañ diskouezet. Stanket eo an obererezh-mañ keit ma vez hizivaet
       an IDoù-se'
@@ -588,8 +589,10 @@ Settings:
     Hide Channel Shorts: 'Kuzhat Shortoù ar chadenn'
     Hide Channel Podcasts: 'Kuzhat Podskignañ at chadenn'
     Hide Channel Releases: ''
-    Hide Videos and Playlists Containing Text: ''
-    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Videos and Playlists Containing Text: 'Kuzhat ar videoioù hag ar rolloù-videoioù
+      gant testennoù'
+    Hide Videos and Playlists Containing Text Placeholder: 'Ger, lodenn deus ur ger,
+      pe frazenn'
     Hide Subscriptions Videos: 'Kuzhat videoioù ar c''houmanantoù'
     Hide Subscriptions Shorts: 'Kuzhat Shortoù ar c''houmanantoù'
     Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
@@ -665,7 +668,8 @@ Settings:
     Notify when sponsor segment is skipped: ''
     UseDeArrowTitles: ''
     UseDeArrowThumbnails: ''
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': ''
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
+      an API DeArrow evit krouiñ skeudennoùigoù (Dre ziouer https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: 'Laoskel a-gostez an dibarzh'
       Auto Skip: 'Lamm emgefreek'
@@ -697,7 +701,7 @@ Settings:
     Unlock: 'Dibrennañ'
   Password Settings:
     Password Settings: 'Ger-tremen'
-    Set Password To Prevent Access: ''
+    Set Password To Prevent Access: 'Lakaat ur ger-tremen evit gwareziñ an arventennoù'
     Set Password: 'Termeniñ ur ger-termen'
     Remove Password: 'Dilemel ar ger-tremen'
 About:
@@ -756,7 +760,8 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: 'Krouet eo bet ar profil'
   Profile has been updated: 'Hizivaet eo bet ar profil'
-  Your default profile has been set to {profile}: ''
+  Your default profile has been set to {profile}: 'Ho profil dre ziouer ''zo bet lakaet
+    da {profile}'
   Removed {profile} from your profiles: 'Dilamet eo bet {profile} deus ho profiloù'
   Your default profile has been changed to your primary profile: 'Kemmet eo bet ho
     profil dre ziouer d''ho profil pennañ'
@@ -857,7 +862,8 @@ Video:
     istor'
   Save Video: 'Enrollañ ar video'
   Video has been saved: 'Enrollet eo bet ar video'
-  Video has been removed from your saved list: ''
+  Video has been removed from your saved list: 'Dilamet eo bet ar video diouzh ho
+    roll-videoioù enrollet'
   Open in YouTube: 'Digeriñ gant YouTube'
   Copy YouTube Link: 'Eilañ liamm YouTube'
   Open YouTube Embedded Player: 'Digeriñ lenner enkorfet YouTube'
@@ -1043,7 +1049,7 @@ Comments:
   Comments: 'Evezhiadennoù'
   Click to View Comments: ''
   Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
+  There are no more comments for this video: 'Evezhiadenn ouzhpenn ebet evit ar video-mañ'
   Show Comments: 'Diskouez an evezhiadennoù'
   Hide Comments: 'Kuzhat an evezhiadennoù'
   Sort by: 'Rummañ dre'
