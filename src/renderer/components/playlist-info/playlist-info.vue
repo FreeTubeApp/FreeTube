@@ -235,7 +235,7 @@
     </div>
 
     <div class="playlistOptionsWrapper">
-      <ft-flex-box>
+      <div class="playlistOptions">
         <router-link
           :to="watchFirstVideo"
         >
@@ -254,7 +254,7 @@
             :icon="['fas', 'random']"
           />
         </router-link>
-      </ft-flex-box>
+      </div>
       <div
         v-if="searchVideoModeAllowed"
         class="searchInputsRow"
