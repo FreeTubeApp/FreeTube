@@ -28,7 +28,7 @@ export default defineComponent({
       type: String,
       required: true
     },
-    showHiddenContent: {
+    showTags: {
       type: String,
       required: true
     },

@@ -255,11 +255,11 @@
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"
         :tag-list="channelsHidden"
+        :show-tags="showHiddenChannels"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
         :validate-tag-name="validateChannelId"
         :find-tag-info="findChannelTagInfo"
         :are-channel-tags="true"
-        :show-hidden-content="showHiddenChannels"
         @invalid-name="handleInvalidChannel"
         @error-find-tag-info="handleChannelAPIError"
         @change="handleChannelsHidden"
@@ -272,9 +272,9 @@
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
         :show-action-button="true"
         :tag-list="forbiddenTitles"
+        :show-tags="showHiddenText"
         :min-input-length="3"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
-        :show-hidden-content="showHiddenText"
         @change="handleForbiddenTitles"
       />
     </ft-flex-box>

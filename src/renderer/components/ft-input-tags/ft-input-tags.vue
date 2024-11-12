@@ -22,7 +22,7 @@
       @click="updateTags"
     />
     <div
-      v-if="showHiddenContent"
+      v-if="showTags"
       class="ft-tag-box"
     >
       <ul>
