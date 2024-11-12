@@ -73,6 +73,7 @@
   grid-auto-flow: column;
   column-gap: 8px;
   justify-content: flex-end;
+  margin-block: 5px;
 }
 
 .searchInputsRow {
@@ -111,7 +112,7 @@
     margin-block-start: 8px;
   }
 
-  .playlistOptionsAndSearch {
+  .playlistOptionsWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

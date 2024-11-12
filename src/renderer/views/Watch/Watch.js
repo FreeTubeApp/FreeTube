@@ -111,6 +111,7 @@ export default defineComponent({
       playlistId: '',
       playlistType: '',
       playlistItemId: null,
+      playlistEnableShuffle: false,
       /** @type {number|null} */
       timestamp: null,
       playNextTimeout: null,
@@ -1107,6 +1108,7 @@ export default defineComponent({
 
       this.playlistId = this.$route.query.playlistId
       this.playlistItemId = this.$route.query.playlistItemId
+      this.playlistEnableShuffle = this.$route.query.playlistEnableShuffle === 'true'
 
       if (this.playlistId == null || this.playlistId.length === 0) {
         this.playlistType = ''

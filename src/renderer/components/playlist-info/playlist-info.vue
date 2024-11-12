@@ -129,7 +129,7 @@
         </h3>
       </div>
 
-      <div class="playlistOptionsAndSearch">
+      <div class="playlistOptionsWrapper">
         <div class="playlistOptions">
           <ft-icon-button
             v-if="editMode"
@@ -207,22 +207,6 @@
             share-target-type="Playlist"
           />
         </div>
-        <div
-          v-if="searchVideoModeAllowed"
-          class="searchInputsRow"
-        >
-          <ft-input
-            ref="searchInput"
-            class="inputElement"
-            :placeholder="$t('User Playlists.SinglePlaylistView.Search for Videos')"
-            :show-clear-text-button="true"
-            :show-action-button="false"
-            :value="query"
-            :maxlength="255"
-            @input="(input) => updateQueryDebounce(input)"
-            @clear="updateQueryDebounce('')"
-          />
-        </div>
       </div>
       <ft-prompt
         v-if="showDeletePlaylistPrompt"
@@ -248,6 +232,45 @@
         :is-first-option-destructive="true"
         @click="handleRemoveDuplicateVideosPromptAnswer"
       />
+    </div>
+
+    <div class="playlistOptionsWrapper">
+      <ft-flex-box>
+        <router-link
+          :to="watchFirstVideo"
+        >
+          <ft-button
+            class="playlistPlayButton"
+            :label="$t('Playlist.Play all')"
+            :icon="['fas', 'play']"
+          />
+        </router-link>
+        <router-link
+          :to="watchRandomVideo"
+        >
+          <ft-button
+            class="playlistPlayButton"
+            :label="$t('Playlist.Shuffle')"
+            :icon="['fas', 'random']"
+          />
+        </router-link>
+      </ft-flex-box>
+      <div
+        v-if="searchVideoModeAllowed"
+        class="searchInputsRow"
+      >
+        <ft-input
+          ref="searchInput"
+          class="inputElement"
+          :placeholder="$t('User Playlists.SinglePlaylistView.Search for Videos')"
+          :show-clear-text-button="true"
+          :show-action-button="false"
+          :value="query"
+          :maxlength="255"
+          @input="(input) => updateQueryDebounce(input)"
+          @clear="updateQueryDebounce('')"
+        />
+      </div>
     </div>
   </div>
 </template>

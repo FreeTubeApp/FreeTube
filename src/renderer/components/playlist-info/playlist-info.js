@@ -123,6 +123,21 @@ export default defineComponent({
     }
   },
   computed: {
+    watchRandomVideo() {
+      const randomVideo = this.videos[Math.floor(Math.random() * this.videos.length)]
+      return {
+        path: `/watch/${randomVideo.videoId}`,
+        query: this.watchPageLinkQuery(randomVideo.playlistItemId, true),
+      }
+    },
+    watchFirstVideo() {
+      const firstVideo = this.videos[0]
+      return {
+        path: `/watch/${firstVideo.videoId}`,
+        query: this.watchPageLinkQuery(firstVideo.playlistItemId),
+      }
+    },
+
     hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
@@ -352,6 +367,15 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    watchPageLinkQuery(playlistItemId, shuffle = false) {
+      return {
+        playlistId: this.id,
+        playlistType: this.videoPlaylistType,
+        playlistItemId: playlistItemId,
+        playlistEnableShuffle: shuffle,
+      }
+    },
+
     handlePlaylistNameInput(input) {
       if (input.trim() === '') {
         // Need to show message for blank input

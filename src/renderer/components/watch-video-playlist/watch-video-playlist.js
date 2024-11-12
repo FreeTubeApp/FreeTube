@@ -40,12 +40,16 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    playlistEnableShuffle: {
+      type: Boolean,
+      default: false,
+    }
   },
   emits: ['pause-player'],
   data: function () {
     return {
       isLoading: true,
-      shuffleEnabled: false,
+      shuffleEnabled: this.playlistEnableShuffle,
       loopEnabled: false,
       reversePlaylist: false,
       pauseOnCurrentVideo: false,
@@ -211,6 +215,10 @@ export default defineComponent({
       this.loadCachedPlaylistInformation(cachedPlaylist)
     } else {
       this.getPlaylistInfoWithDelay()
+    }
+
+    if (this.shuffleEnabled) {
+      this.shufflePlaylistItems()
     }
 
     if ('mediaSession' in navigator) {
@@ -529,7 +537,6 @@ export default defineComponent({
         items.push(remainingItems[randomInt])
         remainingItems.splice(randomInt, 1)
       }
-
       this.randomizedPlaylistItems = items
     },
 

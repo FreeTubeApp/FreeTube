@@ -195,6 +195,7 @@
         :playlist-type="playlistType"
         :video-id="videoId"
         :playlist-item-id="playlistItemId"
+        :playlist-enable-shuffle="playlistEnableShuffle"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
         @pause-player="pausePlayer"
