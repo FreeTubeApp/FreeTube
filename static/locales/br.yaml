@@ -459,9 +459,11 @@ Settings:
     Proxy Videos Through Invidious: 'Proksi video dre Invidious'
     Autoplay Playlists: 'Lenn emgefreek ar rolloù-videoioù'
     Enable Theatre Mode by Default: 'Gweredekaat ar mod sinema dre ziouer'
-    Scroll Volume Over Video Player: ''
+    Scroll Volume Over Video Player: 'Kontrol al live-son en ur zibunañ rodellig al
+      logodenn war al lenner video'
     Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
+    Skip by Scrolling Over Video Player: 'Tremen en ur zibunañ rodellig al logodenn
+      war al lenner video'
     Display Play Button In Video Player: 'Diskouez ar bouton Lenn e-barzh al lenner
       video'
     Enter Fullscreen on Display Rotate: 'Tremen e skramm leun pa vez troet ar skramm'
@@ -900,7 +902,7 @@ Video:
     eo ar flapañ war-eeun evit ar skignañ-mañ. Marteze eo bet diweredekaet gant perc''henn
     ar chadenn.'
   Show Super Chat Comment: ''
-  Scroll to Bottom: ''
+  Scroll to Bottom: 'Dibunañ d''an traoñ'
   Download Video: 'Pellgargañ ar video'
   video only: 'video hepken'
   audio only: 'aodio hepken'
