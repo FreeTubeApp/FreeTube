@@ -502,9 +502,19 @@ export default defineComponent({
     globalUseDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
-
     globalUseDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
+    },
+
+    deArrowToggleStyle() {
+      let defaultStyle = { size: 12, padding: 4 }
+
+      if (this.globalUseDeArrowTitles && this.deArrowCache?.title &&
+        this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0) {
+        defaultStyle = { size: 16, padding: 2 }
+      }
+
+      return defaultStyle
     },
 
     deArrowCache: function () {
