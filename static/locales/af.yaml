@@ -750,26 +750,32 @@ Video:
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
   Premieres on: ''
-  Premieres: ''
-  Upcoming: ''
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled. Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
-  Show Super Chat Comment: ''
-  Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
+  Premieres: 'Première'
+  Upcoming: 'Komend'
+  Live: 'Regstreeks'
+  Live Now: 'Nou regstreeks'
+  Live Chat: 'Regstreekse klets'
+  Enable Live Chat: 'Aktiveer regstreekse klets'
+  Live Chat is currently not supported in this build.: 'Regstreekse klets word nie
+    in hierdie bou gesteun nie.'
+  'Chat is disabled or the Live Stream has ended.': 'Klets is gedeaktiveer of die
+    regstreekse klets is beëindig.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Regstreekse klets
+    is geaktiveer.  Kletsboodskappe sal hier verskyn.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Regstreekse
+    klets word nie met die Invidious-API ondersteun nie.  ’n Direkte verbinding na
+    YouTube word vereis.'
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Regstreekse
+    klets is nie vir hierdie stroom beskikbaar nie. Die oplaaier het dit gedeaktiveer.'
+  Show Super Chat Comment: 'Toon superkletskommentaar'
+  Scroll to Bottom: 'Rol na onderent'
+  Download Video: 'Laai video af'
+  video only: 'slegs video'
+  audio only: 'slegs oudio'
   Published:
-    In less than a minute: ''
-  Published on: ''
-  Streamed on: ''
+    In less than a minute: 'Oor minder as een minuut'
+  Published on: 'Gepubliseer op'
+  Streamed on: 'Gestroom op'
   Started streaming on: 'Het begin met stroming op'
   Sponsor Block category:
     sponsor: 'Borg'
@@ -825,6 +831,7 @@ Video:
       outomaties hervat wanneer u verbinding terug kom.'
     Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
+  Unlisted: Ongelys
 Videos:
   #& Sort By
   Sort By:
