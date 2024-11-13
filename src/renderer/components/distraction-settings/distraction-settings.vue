@@ -235,13 +235,13 @@
     </h4>
     <div class="switchColumnGrid">
       <ft-toggle-switch
-        :label="$t('Settings.Distraction Free Settings.Show hidden channels')"
+        :label="$t('Settings.Distraction Free Settings.Show Hidden Channels')"
         :compact="true"
         :default-value="showHiddenChannels"
         @change="updateShowHiddenChannels"
       />
       <ft-toggle-switch
-        :label="$t('Settings.Distraction Free Settings.Show hidden text')"
+        :label="$t('Settings.Distraction Free Settings.Show Hidden Text')"
         :compact="true"
         :default-value="showHiddenText"
         @change="updateShowHiddenText"
