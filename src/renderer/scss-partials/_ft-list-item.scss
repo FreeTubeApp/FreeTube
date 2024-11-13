@@ -227,6 +227,8 @@ $watched-transition-duration: 0.5s;
     }
 
     .title {
+      display: flex;
+      justify-content: space-between;
       font-size: 20px;
       grid-area: title;
       text-decoration: none;
@@ -366,6 +368,10 @@ $watched-transition-duration: 0.5s;
     &:has(:focus-visible) .optionsButton,
     // Keep visible when the drop down is open
     :deep(.optionsButton:has(> .iconDropdown:focus-within)) {
+      opacity: 1;
+    }
+
+    .optionsButton.alwaysVisible {
       opacity: 1;
     }
 

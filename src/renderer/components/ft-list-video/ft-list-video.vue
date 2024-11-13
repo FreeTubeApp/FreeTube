@@ -109,15 +109,35 @@
         :style="{inlineSize: progressPercentage + '%'}"
       />
     </div>
-    <div class="info">
-      <router-link
-        class="title"
-        :to="watchPageLinkTo"
-      >
-        <h3 class="h3Title">
-          {{ displayTitle }}
-        </h3>
-      </router-link>
+    <div
+      class="info"
+      @mouseover="isHovered = true"
+      @mouseleave="isHovered = false"
+      @focusin="isHovered = true"
+      @blur="isHovered = false"
+    >
+      <div class="title">
+        <router-link
+          class="title"
+          :to="watchPageLinkTo"
+        >
+          <h3 class="h3Title">
+            {{ displayTitle }}
+          </h3>
+        </router-link>
+        <ft-icon-button
+          v-if="(showDeArrowToggle && isHovered) || deArrowToggleAlwaysVisible"
+          class="optionsButton"
+          :class="{alwaysVisible: deArrowToggleAlwaysVisible}"
+          :icon="['fas', 'times-circle']"
+          :title="deArrowToggleTitle"
+          theme="base-no-default"
+          :size="16"
+          :use-shadow="false"
+          role="button"
+          @click="toggleDeArrow"
+        />
+      </div>
       <div class="infoLine">
         <router-link
           v-if="channelId !== null"

@@ -112,6 +112,12 @@ export default defineComponent({
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
+      deArrowToggleTitle: this.$t('Video.Sponsor Block category.Show Original Details'),
+      showDeArrowToggle: false,
+      deArrowToggleAlwaysVisible: false,
+      useDeArrowTitles: null,
+      useDeArrowThumbnails: null,
+      isHovered: false,
     }
   },
   computed: {
@@ -493,11 +499,11 @@ export default defineComponent({
       return query
     },
 
-    useDeArrowTitles: function () {
+    globalUseDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
 
-    useDeArrowThumbnails: function () {
+    globalUseDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
 
@@ -516,6 +522,12 @@ export default defineComponent({
   },
   created: function () {
     this.parseVideoData()
+
+    this.useDeArrowTitles = this.globalUseDeArrowTitles
+    this.useDeArrowThumbnails = this.globalUseDeArrowThumbnails
+    if (this.useDeArrowTitles || this.useDeArrowThumbnails) {
+      this.showDeArrowToggle = true
+    }
 
     if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
       this.fetchDeArrowData()
@@ -565,6 +577,18 @@ export default defineComponent({
         }
 
         this.debounceGetDeArrowThumbnail()
+      }
+    },
+    toggleDeArrow() {
+      this.deArrowToggleAlwaysVisible = !this.deArrowToggleAlwaysVisible
+      this.deArrowToggleTitle = this.showDeArrowToggle
+        ? this.$t('Video.Sponsor Block category.Show Original Details')
+        : this.$t('Video.Sponsor Block category.Show Modified Details')
+      if (this.globalUseDeArrowTitles) {
+        this.useDeArrowTitles = !this.useDeArrowTitles
+      }
+      if (this.globalUseDeArrowThumbnails) {
+        this.useDeArrowThumbnails = !this.useDeArrowThumbnails
       }
     },
 
