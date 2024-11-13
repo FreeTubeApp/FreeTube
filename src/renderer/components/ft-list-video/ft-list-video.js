@@ -112,7 +112,7 @@ export default defineComponent({
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
-      deArrowToggleTitle: this.$t('Video.Sponsor Block category.Show Original Details'),
+      deArrowToggleTitle: '',
       showDeArrowToggle: false,
       deArrowToggleAlwaysVisible: false,
       useDeArrowTitles: null,
@@ -527,6 +527,7 @@ export default defineComponent({
     this.useDeArrowThumbnails = this.globalUseDeArrowThumbnails
     if (this.useDeArrowTitles || this.useDeArrowThumbnails) {
       this.showDeArrowToggle = true
+      this.deArrowToggleTitle = this.$t('Video.Sponsor Block category.Show Original Details')
     }
 
     if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
@@ -581,9 +582,10 @@ export default defineComponent({
     },
     toggleDeArrow() {
       this.deArrowToggleAlwaysVisible = !this.deArrowToggleAlwaysVisible
-      this.deArrowToggleTitle = this.showDeArrowToggle
-        ? this.$t('Video.Sponsor Block category.Show Original Details')
-        : this.$t('Video.Sponsor Block category.Show Modified Details')
+      this.deArrowToggleTitle = this.deArrowToggleAlwaysVisible
+        ? this.$t('Video.Sponsor Block category.Show Modified Details')
+        : this.$t('Video.Sponsor Block category.Show Original Details')
+
       if (this.globalUseDeArrowTitles) {
         this.useDeArrowTitles = !this.useDeArrowTitles
       }
