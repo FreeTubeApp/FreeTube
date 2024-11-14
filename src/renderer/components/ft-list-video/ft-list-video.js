@@ -506,9 +506,8 @@ export default defineComponent({
       return this.$store.getters.getUseDeArrowThumbnails
     },
 
-    deArrowToggleStyle() {
+    deArrowToggleStyle: function () {
       let defaultStyle = { size: 12, padding: 4 }
-
       if (this.globalUseDeArrowTitles && this.deArrowCache?.title &&
         this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0) {
         defaultStyle = { size: 16, padding: 2 }
@@ -591,6 +590,10 @@ export default defineComponent({
       }
     },
     toggleDeArrow() {
+      if (this.deArrowCache?.thumbnail === null && this.deArrowCache?.title == null) {
+        return
+      }
+
       this.deArrowToggleAlwaysVisible = !this.deArrowToggleAlwaysVisible
       this.deArrowToggleTitle = this.deArrowToggleAlwaysVisible
         ? this.$t('Video.Sponsor Block category.Show Modified Details')
