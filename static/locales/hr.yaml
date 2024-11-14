@@ -101,8 +101,9 @@ Subscriptions:
   Subscriptions: 'Pretplate'
   Latest Subscriptions: 'Najnovije pretplate'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tvoj
-    popis pretplata je trenutačno prazan. Za prikaz pretplata na ovom mjestu, dodaj
-    neke pretplate.'
+    popis pretplata je trenutačno prazan. Ako želiš uvesti tvoje pretplate, idi u
+    postavke podataka i odaberi „Uvezi pretplate” ili traži kanale i pretplati se
+    na njih.'
   'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
   Refresh Subscriptions: 'Aktualiziraj pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ovaj
