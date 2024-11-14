@@ -461,14 +461,15 @@ Settings:
     Enable Theatre Mode by Default: 'Gweredekaat ar mod sinema dre ziouer'
     Scroll Volume Over Video Player: 'Kontrol al live-son en ur zibunañ rodellig al
       logodenn war al lenner video'
-    Scroll Playback Rate Over Video Player: ''
+    Scroll Playback Rate Over Video Player: 'Kontrol ar feur lenn en ur zibunañ rodellig
+      al logodenn war al lenner video'
     Skip by Scrolling Over Video Player: 'Tremen en ur zibunañ rodellig al logodenn
       war al lenner video'
     Display Play Button In Video Player: 'Diskouez ar bouton Lenn e-barzh al lenner
       video'
     Enter Fullscreen on Display Rotate: 'Tremen e skramm leun pa vez troet ar skramm'
-    Next Video Interval: ''
-    Fast-Forward / Rewind Interval: ''
+    Next Video Interval: 'Esaouenn a-raok ar video da heul'
+    Fast-Forward / Rewind Interval: 'Esaouenn evit mont War-raok / War-gil'
     Default Volume: 'Ment ar son dre ziouer'
     Default Playback Rate: 'Feur lenn dre ziouer'
     Max Video Playback Rate: 'Feur lenn uhelañ ar videoioù'
@@ -624,7 +625,8 @@ Settings:
         1. Ezporzhiañ ho rolloù-videoioù gant an dibarzh-mañ gweredekaet.
         2. Dilemel an holl rolloù-videoioù en ur implijout an dibarzh Dilemel an holl rolloù-videoioù dindan Prevezded.
         3. Loc'hañ stumm kozh FreeTube hag enporzhiañ ar rolloù-videoioù ezporzhiet."
-    Profile object has insufficient data, skipping item: ''
+    Profile object has insufficient data, skipping item: 'Diouer a roadennoù evit
+      profil an elfenn-mañ, o leuskel an elfenn a-gostez'
     All subscriptions and profiles have been successfully imported: 'Enporzhiet eo
       bet an holl goumanantoù ha profiloù gant berzh'
     All subscriptions have been successfully imported: 'Enporzhiet eo bet an holl
@@ -743,7 +745,7 @@ About:
 
 Profile:
   Profile Settings: 'Profil'
-  Toggle Profile List: ''
+  Toggle Profile List: 'Diskouez roll ar profiloù'
   Profile Select: 'Dibab ar profil'
   Profile Filter: 'Silañ ar profil'
   All Channels: 'An holl chadennoù'
@@ -916,7 +918,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Dihegerz
     eo ar flapañ war-eeun evit ar skignañ-mañ. Marteze eo bet diweredekaet gant perc''henn
     ar chadenn.'
-  Show Super Chat Comment: ''
+  Show Super Chat Comment: 'Diskouez evezhiadennoù ar flapañ-meur'
   Scroll to Bottom: 'Dibunañ d''an traoñ'
   Download Video: 'Pellgargañ ar video'
   video only: 'video hepken'
@@ -925,7 +927,7 @@ Video:
     In less than a minute: 'Nebeutoc''h eget ur vunutenn zo'
   Published on: 'Embannet war'
   Streamed on: 'Skignet d''ar'
-  Started streaming on: ''
+  Started streaming on: 'Kroget da skignañ'
   Sponsor Block category:
     sponsor: 'Sponsor'
     intro: 'Rakskrid'
@@ -942,7 +944,7 @@ Video:
     OpeningTemplate: 'Digeriñ {videoOrPlaylist} gant {externalPlayer}…'
     UnsupportedActionTemplate: '{externalPlayer} ne skor ket : {action}'
     Unsupported Actions:
-      starting video at offset: ''
+      starting video at offset: 'kregiñ gant ar video gant dale'
       setting a playback rate: 'termenañ ur feur lenn'
       opening playlists: 'digeriñ rolloù-videoioù'
       opening specific video in a playlist (falling back to opening the video): 'digeriñ
@@ -952,11 +954,11 @@ Video:
       looping playlists: 'rodell rolloù-videoioù'
   Player:
     TranslatedCaptionTemplate: '{language} (troet diwar ar "{originalLanguage}")'
-    Audio Tracks: ''
+    Audio Tracks: 'Tonioù aodio'
     Theatre Mode: 'Mod c''hoariva'
-    Exit Theatre Mode: ''
+    Exit Theatre Mode: 'Kuitaat ar mod c''hoariva'
     Full Window: 'Skramm a-bezh'
-    Exit Full Window: ''
+    Exit Full Window: 'Kuitaat ar skramm a-bezh'
     Take Screenshot: 'Kemer un dapadenn-skramm'
     Show Stats: 'Diskouez Stadegoù'
     Hide Stats: 'Kuzhat stadegoù'
@@ -970,14 +972,16 @@ Video:
       Volume: 'Live-son : {volumePercentage}%'
       Bandwidth: 'Bann drafet : {bandwidth} kbps'
       Buffered: 'Karget e memor : {bufferedPercentage}%'
-      Dropped Frames / Total Frames: ''
-      CodecAudio: ''
-      CodecsVideoAudio: ''
-      CodecsVideoAudioNoItags: ''
-    You appear to be offline: ''
+      Dropped Frames / Total Frames: 'Frammadoù dilamet : {droppedFrames} / Frammadoù
+        hollek : {totalFrames}'
+      CodecAudio: 'Enboneger-ezvoneger : {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Enboneger-ezvoneger : {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+      CodecsVideoAudioNoItags: 'Enboneger-ezvoneger : {videoCodec} / {audioCodec}'
+    You appear to be offline: 'Emaoc''h ezlinenn war a seblant.'
     Playback will resume automatically when your connection comes back: 'Kendalc''het
       e vo da lenn ent emgefreek pa viot kennasket endro.'
-    Skipped segment: ''
+    Skipped segment: 'Lodenn {segmentCategory} tremenet'
 #& Videos
   Unlisted: Anlistennet
   MembersOnly: N'haller ket sellet ouzh ar videoioù miret d'an izili hepken gant FreeTube,
@@ -1060,7 +1064,8 @@ Mini Player: 'Lenner bihan'
 Comments:
   Comments: 'Evezhiadennoù'
   Click to View Comments: 'Klikit amañ evit gwelet an evezhiadennoù'
-  Getting comment replies, please wait: ''
+  Getting comment replies, please wait: 'O kerc''hat respontoù an evezhiadennoù, gortozit
+    mar plij'
   There are no more comments for this video: 'Evezhiadenn ouzhpenn ebet evit ar video-mañ'
   Show Comments: 'Diskouez an evezhiadennoù'
   Hide Comments: 'Kuzhat an evezhiadennoù'
@@ -1118,7 +1123,8 @@ Tooltips:
       war-raok pe war-gil evit cheñch ar feur lenn. Dalc''hit pouezet war an douchenn
       Ctrl (Command war Mac) ha klikit war bouton kleiz al logodenn a-benn distreiñ
       buan d''ar feur lenn dre ziouer (1x, nemet ma ''z eo bet kemmet en arventennoù).'
-    Skip by Scrolling Over Video Player: ''
+    Skip by Scrolling Over Video Player: 'Tremen d''ur video d''egile en ur zibunañ
+      rodellig al logodenn war al lenner video, doare MPV.'
   External Player Settings:
     External Player: 'Dibab ul lenner diavaez a ziskouezo un ikon war ar skeudennig,
       evit digeriñ ar video (pe ar roll-videoioù ma vez skoret) el lenner diavaez.
