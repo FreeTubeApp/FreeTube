@@ -248,6 +248,9 @@ User Playlists:
     you sure you want to remove 1 watched video from this playlist? This cannot be
     undone. | Are you sure you want to remove {playlistItemCount} watched videos from
     this playlist? This cannot be undone.
+  Export Playlist: Export This Playlist
+  The playlist has been successfully exported: The playlist has been successfully
+    exported
 History:
   # On History Page
   History: 'History'
@@ -260,7 +263,7 @@ Settings:
   # On Settings Page
   Settings: 'Settings'
   General Settings:
-    General Settings: 'General settings'
+    General Settings: 'General'
     Check for Updates: 'Check for updates'
     Check for Latest Blog Posts: 'Check for latest blog posts'
     Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend
@@ -305,7 +308,7 @@ Settings:
       Label: Auto load next page
       Tooltip: Load additional pages and comments automatically.
   Theme Settings:
-    Theme Settings: 'Theme settings'
+    Theme Settings: 'Theme'
     Match Top Bar with Main Color: 'Match top bar with main colour'
     Base Theme:
       Base Theme: 'Base theme'
@@ -375,7 +378,7 @@ Settings:
     Hide Side Bar Labels: Hide side bar labels
     Hide FreeTube Header Logo: Hide FreeTube header logo
   Player Settings:
-    Player Settings: 'Player settings'
+    Player Settings: 'Player'
     Play Next Video: 'Play next video'
     Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
@@ -427,7 +430,7 @@ Settings:
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
   External Player Settings:
-    External Player Settings: External Player Settings
+    External Player Settings: External Player
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Ignore Default Arguments: Ignore Default Arguments
@@ -437,7 +440,7 @@ Settings:
       None:
         Name: None
   Privacy Settings:
-    Privacy Settings: 'Privacy Settings'
+    Privacy Settings: 'Privacy'
     Remember History: 'Remember History'
     Save Watched Progress: 'Save Watched Progress'
     Clear Search Cache: 'Clear Search Cache'
@@ -459,14 +462,14 @@ Settings:
     Are you sure you want to remove all your playlists?: Are you sure you want to
       remove all your playlists?
   Subscription Settings:
-    Subscription Settings: 'Subscription Settings'
+    Subscription Settings: 'Subscription'
     Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch feeds from RSS'
     Fetch Automatically: Fetch feed automatically
     Only Show Latest Video for Each Channel: Only show latest video for each channel
     Confirm Before Unsubscribing: Confirm before unsubscribing
   Data Settings:
-    Data Settings: 'Data settings'
+    Data Settings: 'Data'
     Select Import Type: 'Select import type'
     Select Export Type: 'Select export type'
     Import Subscriptions: 'Import subscriptions'
@@ -528,7 +531,7 @@ Settings:
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Video Views: Hide Video Views
     Hide Active Subscriptions: Hide Active Subscriptions
-    Distraction Free Settings: Distraction Free Settings
+    Distraction Free Settings: Distraction Free
     Hide Playlists: Hide Playlists
     Hide Comments: Hide comments
     Hide Video Description: Hide video description
@@ -585,13 +588,13 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Enable Tor / Proxy
-    Proxy Settings: Proxy Settings
+    Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Enable SponsorBlock
-    SponsorBlock Settings: SponsorBlock Settings
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Skip option
       Auto Skip: Auto skip
@@ -604,7 +607,7 @@ Settings:
       Thumbnail Generator API URL (Default is https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Use DeArrow for thumbnails
   Download Settings:
-    Download Settings: Download Settings
+    Download Settings: Download
     Ask Download Path: Ask for download path
     Choose Path: Choose path
     Download Behavior: Download behaviour
@@ -612,12 +615,12 @@ Settings:
     Download in app: Download in app
   Parental Control Settings:
     Hide Unsubscribe Button: Hide Unsubscribe button
-    Parental Control Settings: Parental control settings
+    Parental Control Settings: Parental Control
     Show Family Friendly Only: Show family-friendly only
     Hide Search Bar: Hide search bar
   Experimental Settings:
     Replace HTTP Cache: Replace HTTP cache
-    Experimental Settings: Experimental settings
+    Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled.
       Making backups is highly recommended. Use at your own risk!
   Password Dialog:
@@ -628,9 +631,10 @@ Settings:
   Password Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Remove Password: Remove password
-    Password Settings: Password settings
+    Password Settings: Password
     Set Password: Set password
   Sort Settings Sections (A-Z): Sort settings sections (A-Z)
+  Return to Settings Menu: Return to Settings Menu
 About:
   #On About page
   About: About
@@ -661,7 +665,7 @@ About:
   Licensed under the: Licensed under the
   AGPLv3: AGPLv3
 Profile:
-  Profile Settings: Profile Settings
+  Profile Settings: Profile
   Profile Select: 'Profile Select'
   All Channels: 'All Channels'
   Profile Manager: 'Profile Manager'
@@ -897,6 +901,11 @@ Video:
     Skipped segment: 'Skipped {segmentCategory} segment'
   IP block: YouTube has blocked your IP address from watching videos. Please try switching
     to a different VPN or proxy.
+  Unlisted: Unlisted
+  MembersOnly: Members-only videos cannot be watched with FreeTube as they require
+    Google login and paid membership to the uploader's channel.
+  AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require
+    Google login and using an age-verified YouTube account.
 Videos:
   #& Sort By
   Sort By:
