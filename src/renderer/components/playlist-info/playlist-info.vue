@@ -235,7 +235,10 @@
     </div>
 
     <div class="playlistOptionsWrapper">
-      <div class="playlistOptions">
+      <div
+        v-if="firstVideoIdExists"
+        class="playlistOptions"
+      >
         <router-link
           :to="watchFirstVideo"
         >

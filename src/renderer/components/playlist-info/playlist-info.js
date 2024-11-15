@@ -124,6 +124,10 @@ export default defineComponent({
   },
   computed: {
     watchRandomVideo() {
+      if (!this.firstVideoIdExists) {
+        return ''
+      }
+
       const randomVideo = this.videos[Math.floor(Math.random() * this.videos.length)]
       return {
         path: `/watch/${randomVideo.videoId}`,
@@ -131,6 +135,10 @@ export default defineComponent({
       }
     },
     watchFirstVideo() {
+      if (!this.firstVideoIdExists) {
+        return ''
+      }
+
       const firstVideo = this.videos[0]
       return {
         path: `/watch/${firstVideo.videoId}`,
