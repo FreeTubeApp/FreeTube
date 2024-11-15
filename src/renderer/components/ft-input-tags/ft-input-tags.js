@@ -29,7 +29,7 @@ export default defineComponent({
       required: true
     },
     showTags: {
-      type: String,
+      type: Boolean,
       required: true
     },
     minInputLength: {
