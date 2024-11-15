@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../../components/FtCommunityPost/FtCommunityPost.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
