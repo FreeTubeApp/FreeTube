@@ -239,6 +239,8 @@ User Playlists:
     уверены, что хотите удалить 1 просмотренное видео из этого плейлиста? Это нельзя
     отменить. | Вы уверены, что хотите удалить {playlistItemCount} просмотренных видео
     из этого плейлиста? Это нельзя отменить.
+  Export Playlist: Экспортировать этот плейлист
+  The playlist has been successfully exported: Плейлист успешно экспортирован
 History:
   # On History Page
   History: 'История'
