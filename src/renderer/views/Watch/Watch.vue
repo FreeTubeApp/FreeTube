@@ -151,6 +151,7 @@
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
+        :kind="videoChaptersKind"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"

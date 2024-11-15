@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import shaka from 'shaka-player'
+import { Utils, YTNodes } from 'youtubei.js'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtShakaVideoPlayer from '../../components/ft-shaka-video-player/ft-shaka-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
@@ -91,6 +92,8 @@ export default defineComponent({
       videoLengthSeconds: 0,
       videoChapters: [],
       videoCurrentChapterIndex: 0,
+      /** @type {'chapters' | 'keyMoments'} */
+      videoChaptersKind: 'chapters',
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -450,7 +453,26 @@ export default defineComponent({
               })
             }
           } else {
-            chapters = this.extractChaptersFromDescription(result.basic_info.short_description ?? result.secondary_info.description.text)
+            /** @type {import('youtubei.js').YTNodes.MacroMarkersList | null | undefined} */
+            const macroMarkersList = result.page[1]?.engagement_panels
+              ?.find(pannel => pannel.panel_identifier === 'engagement-panel-macro-markers-auto-chapters')?.content
+
+            if (macroMarkersList) {
+              for (const item of macroMarkersList.contents) {
+                if (item instanceof YTNodes.MacroMarkersListItem) {
+                  chapters.push({
+                    title: item.title.text,
+                    timestamp: item.time_description.text,
+                    startSeconds: Utils.timeToSeconds(item.time_description.text),
+                    endSeconds: 0,
+                    thumbnail: item.thumbnail[0]
+                  })
+                }
+              }
+              this.videoChaptersKind = 'keyMoments'
+            } else {
+              chapters = this.extractChaptersFromDescription(result.basic_info.short_description ?? result.secondary_info.description.text)
+            }
           }
 
           if (chapters.length > 0) {
@@ -1280,6 +1302,7 @@ export default defineComponent({
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
       this.videoChapters = []
+      this.videoChaptersKind = 'chapters'
 
       this.handleWatchProgress()
     },
