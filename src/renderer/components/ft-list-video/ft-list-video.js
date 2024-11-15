@@ -506,14 +506,14 @@ export default defineComponent({
       return this.$store.getters.getUseDeArrowThumbnails
     },
 
-    deArrowToggleStyle: function () {
-      let defaultStyle = { size: 12, padding: 4 }
+    deArrowToggleSize: function () {
+      let defaultSize = 12
       if (this.globalUseDeArrowTitles && this.deArrowCache?.title &&
         this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0) {
-        defaultStyle = { size: 16, padding: 2 }
+        defaultSize = 16
       }
 
-      return defaultStyle
+      return defaultSize
     },
 
     deArrowCache: function () {
