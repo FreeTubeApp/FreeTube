@@ -252,6 +252,8 @@ User Playlists:
     ли заиста да уклоните 1 одгледани видео с ове плејлисте? Ово не може бити опозвано.
     | Желите ли заиста да уклоните {playlistItemCount} одледаних видео снимака с ове
     плејлисте? Ово не може бити опозвано.
+  Export Playlist: Извези ову плејлисту
+  The playlist has been successfully exported: Плејлиста је успешно извезена
 History:
   # On History Page
   History: 'Историја'
