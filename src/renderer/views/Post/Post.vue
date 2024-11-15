@@ -43,7 +43,7 @@ const route = useRoute()
 
 const id = ref('')
 const authorId = ref('')
-const post = ref(null)
+const post = shallowRef(null)
 const isLoading = ref(true)
 
 /** @type {import('vue').ComputedRef<'invidious' | 'local'>} */
