@@ -489,8 +489,8 @@ Settings:
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Fetch Automatically: Fetch Feed Automatically
-    Limit the number of videos displayed for each channel: Limit the number of videos displayed for each channel
-    Limit the number of videos displayed for each channel to: Limit the number of videos displayed for each channel to
+    'Limit the number of videos displayed for each channel': 'Limit the number of videos displayed for each channel'
+    To: To
     Confirm Before Unsubscribing: Confirm Before Unsubscribing
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free

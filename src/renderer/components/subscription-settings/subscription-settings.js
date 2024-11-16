@@ -2,14 +2,14 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtSlider from '../ft-slider/ft-slider.vue'
 
 export default defineComponent({
   name: 'SubscriptionSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-input': FtInput,
+    'ft-slider': FtSlider,
   },
   computed: {
     hideWatchedSubs: function () {

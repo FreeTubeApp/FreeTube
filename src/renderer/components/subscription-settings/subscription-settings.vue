@@ -32,22 +32,21 @@
           :compact="true"
           @change="updateHideWatchedSubs"
         />
-        <div class="onlyShowLatestFromChannel">
-          <ft-toggle-switch
-            :id="'onlyShowLatestFromChannel'"
-            :label="onlyShowLatestFromChannel ? $t('Settings.Subscription Settings.Limit the number of videos displayed for each channel to') : $t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
-            :default-value="onlyShowLatestFromChannel"
-            :compact="true"
-            @change="updateOnlyShowLatestFromChannel"
-          />
-          <ft-input
-            v-if="onlyShowLatestFromChannel"
-            :placeholder="'1'"
-            :show-action-button="false"
-            input-type="number"
-            :value="onlyShowLatestFromChannelNumber"
-            :aria-labelledby="'onlyShowLatestFromChannel'"
-            @input="updateOnlyShowLatestFromChannelNumber"
+        <ft-toggle-switch
+          :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
+          :default-value="onlyShowLatestFromChannel"
+          :compact="true"
+          @change="updateOnlyShowLatestFromChannel"
+        />
+        <div class="onlyShowLatestFromChannelNumber">
+          <ft-slider
+            :label="$t('Settings.Subscription Settings.To')"
+            :default-value="onlyShowLatestFromChannelNumber"
+            :disabled="!onlyShowLatestFromChannel"
+            :min-value="1"
+            :max-value="30"
+            :step="1"
+            @change="updateOnlyShowLatestFromChannelNumber"
           />
         </div>
       </div>
@@ -56,4 +55,4 @@
 </template>
 
 <script src="./subscription-settings.js" />
-<style lang="scss" src="./subscription-settings.scss"  />
+<style src="./subscription-settings.css" scoped />
