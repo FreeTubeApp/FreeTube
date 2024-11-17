@@ -2147,17 +2147,28 @@ export default defineComponent({
 
     // #endregion keyboard shortcuts
 
+    let ignoreErrors = false
+
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
      * @param {object?} details
      */
     function handleError(error, context, details) {
+      // These two errors are just wrappers around another error, so use the original error instead
+      // As they can be nested (e.g. multiple googlevideo redirects because the Invidious server was far away from the user) we should pick the inner most one
+      while (error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR || error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR) {
+        error = error.data[0]
+      }
+
       logShakaError(error, context, props.videoId, details)
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (error.category !== shaka.util.Error.Category.TEXT) {
+      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+        // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
+        ignoreErrors = true
+
         emit('error', error)
 
         stopPowerSaveBlocker()
@@ -2532,6 +2543,14 @@ export default defineComponent({
        * @param {'dash'|'audio'|'legacy'} oldFormat
        */
       async (newFormat, oldFormat) => {
+        ignoreErrors = true
+
+        try {
+          await player.unload()
+        } catch { }
+
+        ignoreErrors = false
+
         // format switch happened before the player loaded, probably because of an error
         // as there are no previous player settings to restore, we should treat it like this was the original format
         if (!hasLoaded.value) {
@@ -2702,6 +2721,8 @@ export default defineComponent({
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      */
     async function destroyPlayer() {
+      ignoreErrors = true
+
       if (ui) {
         // destroying the ui also destroys the player
         await ui.destroy()
