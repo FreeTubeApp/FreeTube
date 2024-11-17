@@ -908,7 +908,9 @@ export function parseChannelHomeTab(homeTab) {
       const shelf = section.content
       shelves.push({
         title: shelf.title.text,
-        content: shelf.contents.map(e => parseListItem(e.content))
+        content: shelf.contents.map(e => parseListItem(e.content)),
+        subtitle: shelf.subtitle?.text,
+        playlistId: shelf.endpoint?.metadata.url.replace('/playlist?list=', '')
       })
     }
   }
