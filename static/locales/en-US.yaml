@@ -509,12 +509,12 @@ Settings:
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
     Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
-    Hide Channel Playlists: Hide Channel Playlists
-    Hide Channel Community: Hide Channel Community
-    Hide Channel Home: Hide Channel Home
-    Hide Channel Shorts: Hide Channel Shorts
-    Hide Channel Podcasts: Hide Channel Podcasts
-    Hide Channel Releases: Hide Channel Releases
+    Hide Channel Playlists: Hide Channel "Playlists" Tab
+    Hide Channel Community: Hide Channel "Community" Tab
+    Hide Channel Home: Hide Channel "Home" Tab
+    Hide Channel Shorts: Hide Channel "Shorts" Tab
+    Hide Channel Podcasts: Hide Channel "Podcasts" Tab
+    Hide Channel Releases: Hide Channel "Releases" Tab
     Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
     Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos

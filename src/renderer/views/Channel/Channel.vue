@@ -91,7 +91,7 @@
           id="homePanel"
           :shelves="homeData"
           role="tabpanel"
-          aria-labelledby="videosTab"
+          aria-labelledby="homeTab"
         />
         <ft-element-list
           v-show="currentTab === 'videos'"

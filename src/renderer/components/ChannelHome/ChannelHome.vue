@@ -49,7 +49,7 @@
 <script setup>
 
 import { computed } from 'vue'
-import FtElementList from '../../components/FtElementList/FtElementList.vue'
+import FtElementList from '../FtElementList/FtElementList.vue'
 import store from '../../store/index'
 
 const props = defineProps({

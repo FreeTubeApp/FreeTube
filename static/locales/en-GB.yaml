@@ -544,17 +544,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Display titles without excessive
       capitalisation and punctuation
     Hide Featured Channels: Hide featured channels
-    Hide Channel Playlists: Hide channel playlists
-    Hide Channel Community: Hide channel community
-    Hide Channel Shorts: Hide channel shorts
+    Hide Channel Playlists: Hide channel "playlists" tab
+    Hide Channel Community: Hide channel "community" tab
+    Hide Channel Shorts: Hide channel "shorts" tab
     Sections:
       Side Bar: Side bar
       General: General
       Channel Page: Channel Page
       Watch Page: Watch Page
       Subscriptions Page: Subscriptions page
-    Hide Channel Podcasts: Hide channel podcasts
-    Hide Channel Releases: Hide channel releases
+    Hide Channel Podcasts: Hide channel "podcasts" tab
+    Hide Channel Releases: Hide channel "releases" tab
     Hide Subscriptions Shorts: Hide subscriptions shorts
     Hide Subscriptions Live: Hide subscriptions live
     Hide Subscriptions Videos: Hide subscriptions videos

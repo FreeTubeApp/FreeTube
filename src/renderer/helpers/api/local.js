@@ -11,7 +11,6 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
   randomArrayItem,
-  timestampToDuration,
 } from '../utils'
 
 const TRACKING_PARAM_NAMES = [
@@ -782,7 +781,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
       type: 'playlist',
       dataSource: 'local',
       title: compactStation.title.text,
-      thumbnail: compactStation.thumbnail.at(1).url,
+      thumbnail: compactStation.thumbnail[1].url,
       playlistId: compactStation.endpoint.payload.playlistId,
       videoCount: extractNumberFromString(compactStation.video_count.text)
     }
@@ -1084,7 +1083,7 @@ export function parseLocalListVideo(item) {
       authorId: video.author?.id,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
-      lengthSeconds: Number(timestampToDuration(video.duration.text)),
+      lengthSeconds: Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
       premiereDate: video.upcoming
     }
@@ -1276,6 +1275,7 @@ function parseListItem(item) {
       return parseShort(item)
     }
     case 'CompactStation':
+    case 'LockupView':
     case 'GridPlaylist':
     case 'Playlist': {
       return parseLocalListPlaylist(item)
