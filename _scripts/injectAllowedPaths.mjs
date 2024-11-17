@@ -22,10 +22,10 @@ const paths = readdirSync(distDirectory, {
       dirent.name !== 'main.js' &&
       dirent.name !== 'main.js.LICENSE.txt' &&
       // filter out any web build files, in case the dist directory contains a web build
-      !dirent.path.startsWith(webDirectory)
+      !dirent.parentPath.startsWith(webDirectory)
   })
   .map(dirent => {
-    const joined = join(dirent.path, dirent.name)
+    const joined = join(dirent.parentPath, dirent.name)
     return '/' + relative(distDirectory, joined).replaceAll('\\', '/')
   })
 
