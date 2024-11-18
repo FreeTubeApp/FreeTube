@@ -713,10 +713,13 @@ Channel:
     Featured Channels: ''
   Community:
     This channel currently does not have any posts: ''
-    votes: ''
-    Reveal Answers: ''
-    Hide Answers: ''
-    Video hidden by FreeTube: ''
+    votes: '{votes} stemme'
+    Reveal Answers: 'Onthul antwoorde'
+    Hide Answers: 'Versteek antwoorde'
+    Video hidden by FreeTube: 'Video is deur FreeTube versteek'
+    View Full Post: Bekyk volle plasing
+    Viewing Posts Only Supported By Invidious: Bekyk van plasings word slegs vir Invidious
+      ondersteun. Gaan na ’n kanaal se gemeenskapsblad om inhoud te sien sonder Invidious.
 Video:
   More Options: ''
   Mark As Watched: 'Markeer as gekyk'
@@ -834,6 +837,8 @@ Video:
     Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
   Unlisted: Ongelys
+  IP block: YouTube het u IP-adres versper en u kan nie video’s kyk nie. Verander
+    u VPN of instaanbediener.
 Videos:
   #& Sort By
   Sort By:
