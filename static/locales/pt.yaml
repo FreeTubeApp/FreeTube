@@ -189,6 +189,9 @@ User Playlists:
         usada como marcador rápido
       This playlist is already being used for quick bookmark.: Esta lista de reprodução
         já está a ser usada como marcador rápido.
+      This playlist has a video with a duration error: A lista de reprodução contém,
+        pelo menos, um vídeo sem informação de duração. Será organizado como se tivesse
+        0 segundos.
     Search for Videos: Procurar vídeos
   AddVideoPrompt:
     Search in Playlists: Procurar nas listas de reprodução
@@ -242,6 +245,8 @@ User Playlists:
     a certeza de que pretende remover 1 vídeo duplicado desta lista de reprodução?
     Esta remoção não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount}
     vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
+  Export Playlist: Exportar lista de reprodução
+  The playlist has been successfully exported: Lista de reprodução exportada com sucesso
 History:
   # On History Page
   History: 'Histórico'
@@ -763,6 +768,9 @@ Channel:
     votes: '{votes} votos'
     Video hidden by FreeTube: Freetube ocultou este vídeo
     View Full Post: Ver publicação na íntegra
+    Viewing Posts Only Supported By Invidious: A visualização de comentários apenas
+      é suportada por Indivious. Aceda ao separador Comunidade de um canal para ver
+      o seu conteúdo sem Indivious.
   Live:
     Live: Em direto
     This channel does not currently have any live streams: Este canal não tem, atualmente,
@@ -882,6 +890,11 @@ Video:
       Player Dimensions: 'Dimensões do reprodutor: {width}x{height}'
       Stats: Estatísticas
       Video ID: 'ID do vídeo: {videoId}'
+      CodecAudio: 'Codificador: {audioCodec} ({audioItag})'
+      Buffered: 'A processar: {bufferedPercentage}%'
+      CodecsVideoAudio: 'Codificadores: {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codificadores: {videoCodec} / {audioCodec}'
     TranslatedCaptionTemplate: '{language} (traduzido de "{originalLanguage}")'
     Audio Tracks: Faixas de áudio
     Exit Theatre Mode: Sair do modo teatro
@@ -890,6 +903,19 @@ Video:
     Take Screenshot: Captura de ecrã
     Show Stats: Mostrar estatísticas
     Hide Stats: Ocultar estatísticas
+    You appear to be offline: Parece que está offline.
+    Playback will resume automatically when your connection comes back: A reprodução
+      será retomada assim que se estabeleça uma nova ligação.
+    Skipped segment: Segmento {segmentCategory} ignorado
+  MembersOnly: Os vídeos apenas disponíveis para membros não podem ser vistos nesta
+    aplicação pois requerem que o utilizador inicie sessão e que tenha uma subscrição
+    paga.
+  IP block: O YouTube está a impedir o seu IP de ver vídeos. Experimente utilizar
+    outra VPN ou proxy.
+  AgeRestricted: Os vídeos com restrição de idade não podem ser vistos nesta aplicação
+    pois requerem que o utilizador inicie sessão com uma conta que tenha confirmação
+    da sua idade..
+  Unlisted: Não listado
 Videos:
   #& Sort By
   Sort By:
@@ -915,6 +941,8 @@ Playlist:
     VideoTitleAscending: Título (A-Z)
     VideoTitleDescending: Título (Z-A)
     Custom: Personalizado
+    VideoDurationDescending: Duração (longos primeiro)
+    VideoDurationAscending: Duração (curtos primeiro)
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -924,6 +952,8 @@ Change Format:
     para este vídeo'
   Audio formats are not available for this video: 'Os formatos de áudio não estão
     disponíveis para este vídeo'
+  Legacy formats are not available for this video: Este vídeo não permite formatos
+    antigos
 Share:
   Share Video: 'Partilhar vídeo'
   Share Playlist: 'Partilhar lista'
@@ -972,6 +1002,8 @@ Comments:
   Hearted: Favorito
   View {replyCount} replies: Ver {replyCount} respostas
   Subscribed: Subscrito
+  There are no comments available for this post: Não existem comentários para esta
+    publicação
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -1011,7 +1043,7 @@ Tooltips:
     Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
       em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
       YouTube, mas não disponibiliza certas informações como, por exemplo, a duração
-      dos vídeos ou se são emissões em direto.
+      dos vídeos, se são emissões em direto e as publicações da comunidade
     Fetch Automatically: Se ativa, FreeTube irá obter automaticamente as subscrições
       ao abrir uma nova janela e/ou quando mudar de perfil.
   External Player Settings:
