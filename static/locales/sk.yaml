@@ -451,37 +451,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
     Chat momentálne nie je podporovaný pomocou API Invidious. Vyžaduje sa priame pripojenie
     k službe YouTube.'
-  Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Máj'
-    Jun: 'Jún'
-    Jul: 'Júl'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Sekunda'
-    Seconds: 'Sekúnd'
-    Hour: 'Hodina'
-    Hours: 'Hodín'
-    Day: 'Deň'
-    Days: 'Dni'
-    Week: 'Týždeň'
-    Weeks: 'Týždne'
-    Month: 'Mesiac'
-    Months: 'Mesiace'
-    Year: 'Rok'
-    Years: 'Rokov'
-    Ago: 'Pred'
-    Upcoming: 'Premiéra o'
-    Minute: Minúta
-    Minutes: Minút
   Published on: 'Publikované dňa'
-  Publicationtemplate: 'pred {number} {unit}'
 #& Videos
   Autoplay: Automatické prehrávanie
   Starting soon, please refresh the page to check again: Čoskoro začína, obnovte stránku

@@ -1,6 +1,5 @@
 <template>
   <svg
-    class="ft-logo-full"
     viewBox="0 0 640 200"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
@@ -63,4 +62,4 @@
   </svg>
 </template>
 
-<style scoped src="./ft-logo-full.css" />
+<style scoped src="./FtLogoFull.css" />

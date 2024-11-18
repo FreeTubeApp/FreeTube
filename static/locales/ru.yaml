@@ -239,6 +239,8 @@ User Playlists:
     уверены, что хотите удалить 1 просмотренное видео из этого плейлиста? Это нельзя
     отменить. | Вы уверены, что хотите удалить {playlistItemCount} просмотренных видео
     из этого плейлиста? Это нельзя отменить.
+  Export Playlist: Экспортировать этот плейлист
+  The playlist has been successfully exported: Плейлист успешно экспортирован
 History:
   # On History Page
   History: 'История'
@@ -751,38 +753,8 @@ Video:
     трансляции в настоящее время не поддерживается Invidious API. Требуется прямое
     подключение к YouTube.'
   Published:
-    Jan: 'Янв'
-    Feb: 'Фев'
-    Mar: 'Мар'
-    Apr: 'Апр'
-    May: 'Май'
-    Jun: 'Июн'
-    Jul: 'Июл'
-    Aug: 'Авг'
-    Sep: 'Сен'
-    Oct: 'Окт'
-    Nov: 'Ноя'
-    Dec: 'Дек'
-    Second: 'Секунда'
-    Seconds: 'Секунд'
-    Hour: 'Час'
-    Hours: 'Часов'
-    Day: 'День'
-    Days: 'Дней'
-    Week: 'Неделя'
-    Weeks: 'Недель'
-    Month: 'Месяц'
-    Months: 'Месяцев'
-    Year: 'Год'
-    Years: 'Лет'
-    Ago: 'Назад'
-    Upcoming: 'Премьера'
-    Minutes: Минут
-    Minute: Минута
-    Less than a minute: Менее минуты
     In less than a minute: Меньше чем через минуту
   Published on: 'Размещено'
-  Publicationtemplate: '{number} {unit} назад'
 #& Videos
   Autoplay: Автовоспроизведение
   Play Previous Video: Воспроизвести предыдущее видео

@@ -715,37 +715,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direkte
     Chat understøttes i øjeblikket ikke med Invidious-APIen.  Direkte forbindelse
     til YouTube kræves.'
-  Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Maj'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Sekund'
-    Seconds: 'Sekunder'
-    Minute: 'Minut'
-    Minutes: 'Minutter'
-    Hour: 'Time'
-    Hours: 'Timer'
-    Day: 'Dag'
-    Days: 'Dage'
-    Week: 'Uge'
-    Weeks: 'Uger'
-    Month: 'Måned'
-    Months: 'Måneder'
-    Year: 'År'
-    Years: 'År'
-    Ago: 'Siden'
-    Upcoming: 'Har premiere'
   Published on: 'Udgivet'
-  Publicationtemplate: '{number} {unit} siden'
 #& Videos
   Copy Invidious Channel Link: Kopiér Invidious Kanal-Link
   Open Channel in Invidious: Åbn Kanal i Invidious

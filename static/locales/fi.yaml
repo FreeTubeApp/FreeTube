@@ -649,38 +649,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live-keskustelua
     ei tueta nykyisessä Invidious API:ssa. Suora yhteys Youtubeen vaaditaan.'
   Published:
-    Jan: 'Tam'
-    Feb: 'Hel'
-    Mar: 'Maa'
-    Apr: 'Huh'
-    May: 'Tou'
-    Jun: 'Kes'
-    Jul: 'Hei'
-    Aug: 'Elo'
-    Sep: 'Syy'
-    Oct: 'Lok'
-    Nov: 'Mar'
-    Dec: 'Jou'
-    Second: 'Sekunti'
-    Seconds: 'Sekuntia'
-    Hour: 'Tunti'
-    Hours: 'Tuntia'
-    Day: 'Päivä'
-    Days: 'Päivää'
-    Week: 'Viikko'
-    Weeks: 'Viikkoa'
-    Month: 'Kuukausi'
-    Months: 'Kuukautta'
-    Year: 'Vuosi'
-    Years: 'Vuotta'
-    Ago: 'sitten'
-    Upcoming: 'Ensiesitys'
-    Minutes: Minuuttia
-    Minute: Minuutti
-    Less than a minute: Vähemmän kuin minuutti
     In less than a minute: Alle minuutin kuluessa
   Published on: 'Julkaistu'
-  Publicationtemplate: '{number} {unit} sitten'
 #& Videos
   Video has been removed from your history: Video on poistettu historiastasi
   Video has been marked as watched: Video on merkitty katsotuksi

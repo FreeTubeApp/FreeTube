@@ -100,10 +100,6 @@ export default defineComponent({
       return this.isSearch && this.barColor
     },
 
-    idDataList: function () {
-      return `${this.id}_datalist`
-    },
-
     inputDataPresent: function () {
       return this.inputData.length > 0
     },

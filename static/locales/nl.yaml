@@ -757,37 +757,8 @@ Video:
     wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
     met YouTube is nodig.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mrt'
-    Apr: 'Apr'
-    May: 'Mei'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Seconde'
-    Seconds: 'Seconden'
-    Hour: 'Uur'
-    Hours: 'Uur'
-    Day: 'Dag'
-    Days: 'Dagen'
-    Week: 'Week'
-    Weeks: 'Weken'
-    Month: 'Maand'
-    Months: 'Maanden'
-    Year: 'Jaar'
-    Years: 'Jaar'
-    Ago: 'Geleden'
-    Upcoming: 'Première start op'
-    Minutes: Minuten
-    Minute: Minuut
     In less than a minute: In minder dan één minuut
   Published on: 'Gepubliceerd op'
-  Publicationtemplate: '{number} {unit} geleden'
 #& Videos
   Autoplay: Automatisch afspelen
   Play Previous Video: Vorige video afspelen

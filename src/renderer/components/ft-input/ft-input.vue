@@ -43,7 +43,6 @@
         :id="id"
         ref="input"
         :value="inputDataDisplayed"
-        :list="idDataList"
         class="ft-input"
         :maxlength="maxlength"
         :type="inputType"
@@ -70,7 +69,6 @@
     <div class="options">
       <ul
         v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
-        :id="idDataList"
         class="list"
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"

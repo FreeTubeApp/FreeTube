@@ -680,38 +680,8 @@ Video:
   video only: 'лише відео'
   audio only: 'лише звук'
   Published:
-    Jan: 'Ян'
-    Feb: 'Лют'
-    Mar: 'Бер'
-    Apr: 'Кві'
-    May: 'Тра'
-    Jun: 'Чер'
-    Jul: 'Лип'
-    Aug: 'Сер'
-    Sep: 'Вер'
-    Oct: 'Жов'
-    Nov: 'Лис'
-    Dec: 'Гру'
-    Second: 'Секунда'
-    Seconds: 'Секунд'
-    Minute: 'Хвилина'
-    Minutes: 'Хвилин'
-    Hour: 'Година'
-    Hours: 'Годин'
-    Day: 'День'
-    Days: 'Днів'
-    Week: 'Тиждень'
-    Weeks: 'Тижнів'
-    Month: 'Місяць'
-    Months: 'Місяців'
-    Year: 'Рік'
-    Years: 'Років'
-    Ago: 'Тому'
-    Upcoming: 'Прем''єри'
-    Less than a minute: Менш як за хвилину
     In less than a minute: Менше ніж за хвилину
   Published on: 'Опубліковано'
-  Publicationtemplate: '{number} {unit} тому'
 #& Videos
   Started streaming on: Почато трансляцію
   Streamed on: Потокове передавання

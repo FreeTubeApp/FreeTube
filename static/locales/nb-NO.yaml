@@ -548,37 +548,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Sanntidssludring
     støttes for tiden ikke med Invidious-API-et. Direkte tilkobling til YouTube kreves.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Des'
-    Second: 'Sekund'
-    Seconds: 'Sekunder'
-    Hour: 'Time'
-    Hours: 'Timer'
-    Day: 'Dag'
-    Days: 'Dager'
-    Week: 'Uke'
-    Weeks: 'Uker'
-    Month: 'Måned'
-    Months: 'Måneder'
-    Year: 'År'
-    Years: 'År'
-    Ago: 'Siden'
-    Upcoming: 'Har premiere'
-    Minutes: Minutter
-    Minute: Minutt
     In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
-  Publicationtemplate: '{number} {unit} siden'
 #& Videos
   audio only: Bare lyd
   video only: Bare video

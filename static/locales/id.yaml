@@ -669,37 +669,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Obrolan
     Langsung belum didukung dengan API Invidious. Koneksi langsung dengan YouTube
     dibutuhkan.'
-  Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mei'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Agu'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Des'
-    Second: 'Detik'
-    Seconds: 'Detik'
-    Minute: 'Menit'
-    Minutes: 'Menit'
-    Hour: 'Jam'
-    Hours: 'Jam'
-    Day: 'Hari'
-    Days: 'Hari'
-    Week: 'Pekan'
-    Weeks: 'Pekan'
-    Month: 'Bulan'
-    Months: 'Bulan'
-    Year: 'Tahun'
-    Years: 'Tahun'
-    Ago: 'Lalu'
-    Upcoming: 'Segera tayang di'
   Published on: 'Dipublikasi pada'
-  Publicationtemplate: '{number} {unit} yang lalu'
 #& Videos
   audio only: hanya audio
   video only: hanya video
