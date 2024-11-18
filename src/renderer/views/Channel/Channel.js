@@ -1074,7 +1074,7 @@ export default defineComponent({
         })
 
         this.channelTabs = this.supportedChannelTabs.filter(tab => {
-          return tabs.includes(tab)
+          return tabs.includes(tab) && tab !== 'home'
         })
 
         this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
