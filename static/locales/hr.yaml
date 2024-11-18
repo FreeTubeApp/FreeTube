@@ -192,6 +192,9 @@ User Playlists:
         je nova zbirka za brze zabilješke.
       This playlist is already being used for quick bookmark.: Ova se zbirka već koristi
         za brze zabilješke.
+      This playlist has a video with a duration error: Ova zbirka sadrži barem jedan
+        video koji nema trajanje. Video će se svrstati kao da je njegovo trajanje
+        nula.
     Search for Videos: Traži videa
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
@@ -298,7 +301,7 @@ Settings:
       Tooltip: Automatski učitaj dodatne stranice i komentare.
   Theme Settings:
     Theme Settings: 'Tema'
-    Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
+    Match Top Bar with Main Color: 'Uskladi gornju traku s glavnom bojom'
     Base Theme:
       Base Theme: 'Osnova teme'
       Black: 'Crna'
@@ -330,27 +333,27 @@ Settings:
       Amber: 'Žutosmeđa'
       Orange: 'Narančasta'
       Deep Orange: 'Tamnonarančasta'
-      Dracula Cyan: 'Drakula Cijan'
-      Dracula Green: 'Drakula Zelena'
-      Dracula Orange: 'Drakula Narančasta'
-      Dracula Pink: 'Drakula Ružičasta'
-      Dracula Purple: 'Drakula Ljubičasta'
-      Dracula Red: 'Drakula Crvena'
-      Dracula Yellow: 'Drakula Žuta'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Ružičasta
-      Catppuccin Mocha Mauve: Catppuccin Mocha Ljubičasta
-      Catppuccin Mocha Red: Catppuccin Mocha Crvena
-      Catppuccin Mocha Maroon: Catppuccin Mocha Kestenjasta
-      Catppuccin Mocha Peach: Catppuccin Mocha Breskva
-      Catppuccin Mocha Yellow: Catppuccin Mocha Žuta
-      Catppuccin Mocha Teal: Catppuccin Mocha Plavozelena
-      Catppuccin Mocha Sky: Catppuccin Mocha Nebo
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
-      Catppuccin Mocha Blue: Catppuccin Mocha Plava
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
-      Catppuccin Mocha Green: Catppuccin Mocha Zelena
+      Dracula Cyan: 'Drakula cijan'
+      Dracula Green: 'Drakula zelena'
+      Dracula Orange: 'Drakula narančasta'
+      Dracula Pink: 'Drakula ružičasta'
+      Dracula Purple: 'Drakula ljubičasta'
+      Dracula Red: 'Drakula crvena'
+      Dracula Yellow: 'Drakula žuta'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ruža
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha ružičasta
+      Catppuccin Mocha Mauve: Catppuccin Mocha ljubičasta
+      Catppuccin Mocha Red: Catppuccin Mocha crvena
+      Catppuccin Mocha Maroon: Catppuccin Mocha kestenjasta
+      Catppuccin Mocha Peach: Catppuccin Mocha breskva
+      Catppuccin Mocha Yellow: Catppuccin Mocha žuta
+      Catppuccin Mocha Teal: Catppuccin Mocha plavozelena
+      Catppuccin Mocha Sky: Catppuccin Mocha nebo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safir
+      Catppuccin Mocha Blue: Catppuccin Mocha plava
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavanda
+      Catppuccin Mocha Green: Catppuccin Mocha zelena
       Solarized Blue: Solarna plava
       Solarized Green: Solarna zelena
       Solarized Yellow: Solarna žuta
@@ -749,6 +752,8 @@ Channel:
     votes: '{votes} glasa'
     Video hidden by FreeTube: Video skriven od FreeTubea
     View Full Post: Pogledaj cijeli post
+    Viewing Posts Only Supported By Invidious: Prikazivanje postova podržava samo
+      Invidious. Idi na karticu zajednice kanala za prikaz sadržaja bez Invidiousa.
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
@@ -877,6 +882,13 @@ Video:
     Audio Tracks: Audio snimke
     Exit Theatre Mode: Zatvori kazališni modus
     Full Window: Cjeloekranski prikaz
+  MembersOnly: Videa koja su namijenjena samo za članove ne mogu se gledati putem
+    FreeTubea jer zahtijevaju prijavu na Google i plaćeno članstvo na kanalu prenositelja.
+  Unlisted: Skriveni za javnost
+  IP block: YouTube je blokirao tvoju IP adresu za gledanje videa. Pokušaj se prebaciti
+    na jedan drugi VPN ili proxy.
+  AgeRestricted: Videa s dobnim ograničenjem se ne mogu gledati s FreeTubeom jer zahtijevaju
+    prijavu na Google i korištenje YouTube računa s dobnom provjerom.
 Videos:
   #& Sort By
   Sort By:
