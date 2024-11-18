@@ -42,7 +42,7 @@ Are you sure you want to open this link?: 'دڵنیایت دەتەوێت ئەم 
 # Anything shared among components / views should be put here
 Global:
   Videos: 'ڤیدیۆکان'
-  Shorts: ''
+  Shorts: 'کورتەڤیدیۆکان'
   Live: 'ڕاستەوخۆ'
   Community: 'کۆمەڵگە'
   Counts:
@@ -53,15 +53,16 @@ Global:
     Watching Count: '١ تەمەشاکردن | {count} تەمەشاکردن'
 
 # Search Bar
+    Comment Count: ١ توانج | {count} توانج
 Search / Go to URL: 'گەڕان/ بڕۆ بۆ ئرڵ'
 Search Bar:
-  Clear Input: ''
+  Clear Input: 'سڕینەوەی نووسراو'
   # In Filter Button
 Search Filters:
   Search Filters: 'پاڵفتەکردنی گەڕان'
   Sort By:
     Sort By: 'ڕیزکردن بە'
-    Most Relevant: ''
+    Most Relevant: 'پەیوەندیدار'
     Rating: 'هەڵسەنگاندن'
     Upload Date: 'ڕێکەوتی بارکردن'
     View Count: 'ژمارەی بینین'
@@ -92,6 +93,13 @@ Search Filters:
   Fetch more results: ''
   There are no more results for this search: 'ئەنجامەکی تر نییە بۆ ئەم گەڕانە'
 # Sidebar
+  Features:
+    Location: شوێن
+    3D: ٣ ڕەهەندی
+    Subtitles: ژێرنووس
+    Live: ڕاستەوخۆ
+    4K: ٤ک
+    360 Video: ڤیدیۆی ٣٦٠°
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: ''
@@ -105,7 +113,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': ''
   Empty Posts: ''
   Refresh Subscriptions: ''
-  Load More Videos: 'بارکردنی ڤیدیۆی زۆرتر'
+  Load More Videos: 'ڤیدیۆی زۆرتر بار بکە'
   Load More Posts: ''
   Subscriptions Tabs: ''
   All Subscription Tabs Hidden: ''
@@ -113,12 +121,12 @@ More: 'زۆرتر'
 Channels:
   Channels: 'کەناڵەکان'
   Title: 'پێڕستی کەناڵەکان'
-  Search bar placeholder: ''
+  Search bar placeholder: 'گەڕان لە کەناڵەکان'
   Count: '{number} کەناڵ دۆزرانەوە.'
   Empty: 'ئێستا پێڕستی کەناڵەکانت بەتاڵە.'
   Unsubscribe Prompt: ''
 Trending:
-  Trending: ''
+  Trending: 'باو'
   Default: 'بنەڕەت'
   Music: 'مۆسیقا'
   Gaming: 'یاری'
@@ -130,6 +138,31 @@ User Playlists:
   Your Playlists: 'پێڕستی لێدانەکانت'
   Empty Search Message: ''
   Search bar placeholder: 'لەناو پێڕستی لێدان بگەڕێ'
+  Move Video Up: ڤیدیۆکە ببە سەرتر
+  Move Video Down: ڤیدیۆکە ببە خوارتر
+  Add to Favorites: بۆ {playlistName}، زیاد بکە
+  Remove from Favorites: لە {playlistName}، لایببە
+  Cancel: هەڵوەشاندنەوە
+  Save Changes: دەستکارییەکان پاشەکەوت بکە
+  Remove Watched Videos: ڤیدیۆ بینراوەکان دەرکە
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved down.: ئەم ڤیدیۆیە نابرێتە خوارتر.
+      There was a problem with removing this video: گرفتێک لە لابردنی ڤیدیۆکە هەیە
+      This video cannot be moved up.: ئەم ڤیدیۆیە نابرێتە سەرتر.
+      Video has been removed: ڤیدیۆکە لابرا
+    Search for Videos: لە ڤیدیۆ بگەڕێ
+  Sort By:
+    Sort By: ڕیزکردن بە
+    NameAscending: ئ-ێ
+    NameDescending: ێ-ئ
+    EarliestCreatedFirst: زوو درووستکراو
+    LatestUpdatedFirst: دوایین نوێ کراوە
+    LatestPlayedFirst: دوایین لێدراو
+    EarliestPlayedFirst: زوو لێدراو
+    LatestCreatedFirst: دوایین درووستکراو
+    EarliestUpdatedFirst: زوو نوێ کراوە
+  Remove Duplicate Videos: ڤیدیۆی پاتە دەرکە
 History:
   # On History Page
   History: 'مێژوو'
@@ -791,3 +824,11 @@ Yes: 'بەڵێ'
 No: 'نەخێر'
 Ok: 'باشە'
 Go to page: بڕۆ بۆ {page}
+Search Listing:
+  Label:
+    4K: ٤ک
+    Subtitles: ژێرنووس
+    8K: ٨ک
+    360 Video: ٣٦٠°
+    New: نوێ
+    3D: ٣ ڕەهەندی
