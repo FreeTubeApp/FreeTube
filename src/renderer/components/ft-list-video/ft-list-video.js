@@ -13,6 +13,7 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import debounce from 'lodash.debounce'
+import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -334,7 +335,7 @@ export default defineComponent({
 
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden') {
-        return require('../../assets/img/thumbnail_placeholder.svg')
+        return thumbnailPlaceholder
       }
 
       if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail != null) {

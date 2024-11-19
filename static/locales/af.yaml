@@ -713,12 +713,15 @@ Channel:
     Featured Channels: ''
   Community:
     This channel currently does not have any posts: ''
-    votes: ''
-    Reveal Answers: ''
-    Hide Answers: ''
-    Video hidden by FreeTube: ''
+    votes: '{votes} stemme'
+    Reveal Answers: 'Onthul antwoorde'
+    Hide Answers: 'Versteek antwoorde'
+    Video hidden by FreeTube: 'Video is deur FreeTube versteek'
+    View Full Post: Bekyk volle plasing
+    Viewing Posts Only Supported By Invidious: Bekyk van plasings word slegs vir Invidious
+      ondersteun. Gaan na ’n kanaal se gemeenskapsblad om inhoud te sien sonder Invidious.
 Video:
-  More Options: ''
+  More Options: 'Nog opsies'
   Mark As Watched: 'Markeer as gekyk'
   Remove From History: 'Verwyder uit geskiedenis'
   Video has been marked as watched: 'Video is gemarkeer as gekyk'
@@ -834,6 +837,12 @@ Video:
     Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
   Unlisted: Ongelys
+  IP block: YouTube het u IP-adres versper en u kan nie video’s kyk nie. Verander
+    u VPN of instaanbediener.
+  MembersOnly: Videos slegs vir lede kan nie met FreeTube gekyk word nie omdat dit
+    ’n Google-aantekening en betaalde lidmaatskap op die oplaaier se kanaal vereis.
+  AgeRestricted: Video’s met ’n ouderdomsperk kan nie met FreeTube gekyk word nie
+    omdat dit ’n Google-aantekening en ouderdomvebestigde YouTube-rekening vereis.
 Videos:
   #& Sort By
   Sort By:

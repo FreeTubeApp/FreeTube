@@ -940,6 +940,7 @@ Clipboard:
 
 Chapters:
   Chapters: Chapters
+  Key Moments: Key Moments
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
