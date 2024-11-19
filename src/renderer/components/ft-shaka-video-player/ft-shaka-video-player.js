@@ -2545,15 +2545,15 @@ export default defineComponent({
       async (newFormat, oldFormat) => {
         ignoreErrors = true
 
-        try {
-          await player.unload()
-        } catch { }
-
-        ignoreErrors = false
-
         // format switch happened before the player loaded, probably because of an error
         // as there are no previous player settings to restore, we should treat it like this was the original format
         if (!hasLoaded.value) {
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, defaultQuality.value === 'auto'))
 
           await performFirstLoad()
@@ -2616,6 +2616,12 @@ export default defineComponent({
             }
           }
 
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
 
           try {
@@ -2653,6 +2659,12 @@ export default defineComponent({
           }
           activeLegacyFormat.value = null
         } else {
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           await setLegacyQuality(oldFormat, playbackPosition)
         }
 
