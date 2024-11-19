@@ -1144,6 +1144,7 @@ Chapters:
     jelenlegi fejezet: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Fejezetlista elrejtve,
     jelenlegi fejezet: {chapterName}'
+  Key Moments: Fontos pillanatok
 Clipboard:
   Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
     nem lehet hozzáférni a vágólaphoz
