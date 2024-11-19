@@ -67,7 +67,7 @@
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
-    "shaka-player": "^4.11.11",
+    "shaka-player": "^4.12.1",
     "swiper": "^11.1.14",
     "vue": "^2.7.16",
     "vue-i18n": "^8.28.2",
