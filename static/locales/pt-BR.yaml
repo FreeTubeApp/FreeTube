@@ -278,7 +278,7 @@ Settings:
       End: 'No fim'
       Hidden: Escondido
       Blur: Desfocar
-    Region for Trending: 'Região'
+    Region for Trending: 'Região de Tendências'
         #! List countries
     Check for Updates: Buscar por atualizações
     Check for Latest Blog Posts: Verificar se há novas postagens no blog
@@ -1137,6 +1137,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos,
     capítulo atual: {chapterName}'
   Chapters: Capítulos
+  Key Moments: Melhores momentos
 Ok: OK
 Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
