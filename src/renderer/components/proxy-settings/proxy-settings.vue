@@ -4,6 +4,7 @@
   >
     <ft-flex-box class="settingsFlexStart500px">
       <p
+        v-if="useProxy"
         class="proxy-warning"
       >
         <font-awesome-icon
