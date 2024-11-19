@@ -23,9 +23,9 @@
             >
               <FontAwesomeIcon
                 class="thumbnail"
-                :icon="['fas', 'play']"
+                :icon="['fas', 'bookmark']"
               />
-              {{ $t('Channel.Home.Play all') }}
+              {{ $t('Channel.Home.View playlist') }}
             </router-link>
           </span>
           <hr class="shelfUnderline">
