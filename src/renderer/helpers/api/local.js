@@ -1277,7 +1277,6 @@ function parseListItem(item) {
       return parseShort(item)
     }
     case 'CompactStation':
-    case 'LockupView':
     case 'GridPlaylist':
     case 'Playlist': {
       return parseLocalListPlaylist(item)
