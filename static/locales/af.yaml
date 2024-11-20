@@ -700,19 +700,21 @@ Channel:
     This channel does not currently have any podcasts: ''
   Releases:
     Releases: ''
-    This channel does not currently have any releases: ''
+    This channel does not currently have any releases: 'Hierdie kanaal het nie tans
+      enige vrystellings nie'
   About:
-    About: ''
-    Channel Description: ''
+    About: 'Oor'
+    Channel Description: 'Kanaalbeskrywing'
     Tags:
-      Tags: ''
-      Search for: ''
-    Details: ''
-    Joined: ''
-    Location: ''
-    Featured Channels: ''
+      Tags: 'Etikette'
+      Search for: 'Soek na ‘{tag}’'
+    Details: 'Details'
+    Joined: 'Lid sedert'
+    Location: 'Ligging'
+    Featured Channels: 'Uitgeligte kanale'
   Community:
-    This channel currently does not have any posts: ''
+    This channel currently does not have any posts: 'Hierdie kanaal het nie tans enige
+      plasings nie'
     votes: '{votes} stemme'
     Reveal Answers: 'Onthul antwoorde'
     Hide Answers: 'Versteek antwoorde'
@@ -910,6 +912,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Hoofstukke lys versteekte,
     huidige hoofstuk: {chapterName}'
 
+  Key Moments: Sleuteloomblikke
 Mini Player: 'Mini-speler'
 Comments:
   Comments: 'Kommentare'
