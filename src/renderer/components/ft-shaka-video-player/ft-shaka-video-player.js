@@ -1252,23 +1252,20 @@ export default defineComponent({
     }
 
     /**
-     * @param {'dash'|'audio'|null} previousFormat
      * @param {number|null} playbackPosition
+     * @param {number|undefined} previousQuality
      */
-    async function setLegacyQuality(previousFormat = null, playbackPosition = null) {
+    async function setLegacyQuality(playbackPosition = null, previousQuality = undefined) {
+      if (typeof previousQuality === 'undefined') {
+        if (defaultQuality.value === 'auto') {
+          previousQuality = Infinity
+        } else {
+          previousQuality = defaultQuality.value
+        }
+      }
+
       /** @type {object[]} */
       const legacyFormats = props.legacyFormats
-
-      let previousQuality
-      if (previousFormat === 'dash') {
-        const previousTrack = player.getVariantTracks().find(track => track.active)
-
-        previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
-      } else if (defaultQuality.value === 'auto') {
-        previousQuality = Infinity
-      } else {
-        previousQuality = defaultQuality.value
-      }
 
       const isPortrait = legacyFormats[0].height > legacyFormats[0].width
 
@@ -2425,7 +2422,7 @@ export default defineComponent({
           handleError(error, 'loading dash/audio manifest and setting default quality in mounted')
         }
       } else {
-        await setLegacyQuality(null, props.startTime)
+        await setLegacyQuality(props.startTime)
       }
     }
 
@@ -2659,13 +2656,21 @@ export default defineComponent({
           }
           activeLegacyFormat.value = null
         } else {
+          let previousQuality
+
+          if (oldFormat === 'dash') {
+            const previousTrack = player.getVariantTracks().find(track => track.active)
+
+            previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
+          }
+
           try {
             await player.unload()
           } catch { }
 
           ignoreErrors = false
 
-          await setLegacyQuality(oldFormat, playbackPosition)
+          await setLegacyQuality(playbackPosition, previousQuality)
         }
 
         if (wasPaused) {
