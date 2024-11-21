@@ -1,7 +1,7 @@
 <template>
   <div
     ref="container"
-    class="ftVideoPlayer"
+    class="ftVideoPlayer shaka-video-container"
     :class="{
       fullWindow: fullWindowEnabled,
       sixteenByNine: forceAspectRatio && !fullWindowEnabled

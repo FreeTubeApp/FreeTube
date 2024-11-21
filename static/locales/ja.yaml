@@ -215,6 +215,8 @@ User Playlists:
   Remove Duplicate Videos: 重複した動画を削除
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1本削除してもよろしいですか？この操作は元に戻せません。
     | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
+  The playlist has been successfully exported: 再生リストのエクスポートに成功しました
+  Export Playlist: この再生リストをエクスポート
 History:
   # On History Page
   History: '履歴'
@@ -675,38 +677,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
   Published:
-    Jan: '1 月'
-    Feb: '2 月'
-    Mar: '3 月'
-    Apr: '4 月'
-    May: '5 月'
-    Jun: '6 月'
-    Jul: '7 月'
-    Aug: '8 月'
-    Sep: '9 月'
-    Oct: '10 月'
-    Nov: '11 月'
-    Dec: '12 月'
-    Second: '秒'
-    Seconds: '秒'
-    Hour: '時間'
-    Hours: '時間'
-    Day: '日'
-    Days: '日'
-    Week: '週間'
-    Weeks: '週間'
-    Month: 'ヶ月'
-    Months: 'ヶ月'
-    Year: '年'
-    Years: '年'
-    Ago: '前'
-    Upcoming: 'プレミア公開'
-    Minutes: 分
-    Minute: 分
-    Less than a minute: 1分以内
-    In less than a minute: 1 分以内に
+    In less than a minute: 1 分以内
   Published on: '公開日'
-  Publicationtemplate: '{number} {unit} 前'
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
@@ -746,7 +718,7 @@ Video:
       looping playlists: 再生リストのループ
       shuffling playlists: シャッフル再生リスト
       reversing playlists: 再生リストを反転させる
-      opening specific video in a playlist (falling back to opening the video): 再生リストで特定のビデオを開く
+      opening specific video in a playlist (falling back to opening the video): 再生リストで特定の動画を開く
         (ビデオを開く前にフォールバック)
       opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
@@ -794,10 +766,10 @@ Video:
     Take Screenshot: スクリーンショットを撮る
     Show Stats: 統計を表示
   IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
-  Unlisted: 非公開
-  MembersOnly: メンバー限定ビデオはGoogleにログインし、投稿チャンネルに課金する必要があるのでFreeTubeから直接見ることはできません。
-  AgeRestricted: 
-    年齢制限がかかっているビデオはGoogleにログインしておりかつ年齢確認を済ましているYouTubeアカウントが必要なため、FreeTubeから直接見ることはできません。
+  Unlisted: 限定公開
+  MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
+  AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube
+    から直接見ることはできません。
 Videos:
   #& Sort By
   Sort By:

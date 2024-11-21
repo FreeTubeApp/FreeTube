@@ -16,6 +16,7 @@ import {
   showSaveDialog,
 } from '../../helpers/utils'
 import debounce from 'lodash.debounce'
+import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -207,7 +208,7 @@ export default defineComponent({
 
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden' || !this.firstVideoIdExists) {
-        return require('../../assets/img/thumbnail_placeholder.svg')
+        return thumbnailPlaceholder
       }
 
       if (this.backendPreference === 'local' && typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {

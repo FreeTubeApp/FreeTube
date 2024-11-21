@@ -252,6 +252,8 @@ User Playlists:
     ли заиста да уклоните 1 одгледани видео с ове плејлисте? Ово не може бити опозвано.
     | Желите ли заиста да уклоните {playlistItemCount} одледаних видео снимака с ове
     плејлисте? Ово не може бити опозвано.
+  Export Playlist: Извези ову плејлисту
+  The playlist has been successfully exported: Плејлиста је успешно извезена
 History:
   # On History Page
   History: 'Историја'
@@ -820,35 +822,7 @@ Video:
   'Chat is disabled or the Live Stream has ended.': 'Ћаскање је онемогућено или је
     стрим уживо завршен.'
   Published:
-    Month: Месец
-    Sep: Сеп.
-    Seconds: Секунди
     In less than a minute: За мање од једног минута
-    Week: Недеља
-    Upcoming: Премијера за
-    Dec: Дец.
-    Jan: Јан.
-    Weeks: Недеља
-    Days: Дана
-    Years: Године
-    May: Мај
-    Mar: Мар.
-    Hours: Сати
-    Oct: Окт.
-    Months: Месеци
-    Apr: Апр.
-    Feb: Феб.
-    Jul: Јул
-    Minutes: Минути
-    Minute: Минут
-    Day: Дан
-    Hour: Сат
-    Jun: Јун
-    Second: Секунда
-    Year: Година
-    Nov: Нов.
-    Ago: Пре
-    Aug: Авг.
   Upcoming: Предстојеће
   Sponsor Block category:
     interaction: Интеракција
@@ -884,7 +858,6 @@ Video:
   Show Super Chat Comment: Прикажи Super Chat коментар
   Scroll to Bottom: Превуци до дна
   Started streaming on: Започето стримовање
-  Publicationtemplate: пре {number} {unit}
   Premieres: Премијера
   Download Video: Преузми видео снимак
   Published on: Објављено
@@ -1126,6 +1099,7 @@ Chapters:
   Chapters: Поглавља
   'Chapters list hidden, current chapter: {chapterName}': 'Листа поглавља је скривена,
     тренутно поглавље: {chapterName}'
+  Key Moments: Кључни тренуци
 Hashtag:
   This hashtag does not currently have any videos: Ова хеш-ознака тренутно нема ниједан
     видео снимак

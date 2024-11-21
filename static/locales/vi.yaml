@@ -738,37 +738,8 @@ Video:
     trực tiếp hiện tại không hỗ trợ với Invidious API. Một đường truyền trực tiếp
     đến Youtube là cần thiết.'
   Published:
-    Jan: 'Tháng 1'
-    Feb: 'Tháng 2'
-    Mar: 'Tháng 3'
-    Apr: 'Tháng 4'
-    May: 'Tháng 5'
-    Jun: 'Tháng 6'
-    Jul: 'Tháng 7'
-    Aug: 'Tháng 8'
-    Sep: 'Tháng 9'
-    Oct: 'Tháng 10'
-    Nov: 'Tháng 11'
-    Dec: 'Tháng 12'
-    Second: 'Giây'
-    Seconds: 'Giây'
-    Hour: 'Giờ'
-    Hours: 'Giờ'
-    Day: 'Ngày'
-    Days: 'Ngày'
-    Week: 'Tuần'
-    Weeks: 'Tuần'
-    Month: 'Tháng'
-    Months: 'Tháng'
-    Year: 'Năm'
-    Years: 'Năm'
-    Ago: 'Vừa qua'
-    Upcoming: 'Công chiếu vào'
-    Minutes: Phút
-    Minute: Phút
     In less than a minute: Trong khoảng ít hơn 1 phút
   Published on: 'Phát hành vào'
-  Publicationtemplate: '{number} {unit} trước'
 #& Videos
   Video has been removed from your history: Video đã được xóa khỏi lịch sử của bạn
   Video has been marked as watched: Video đánh dấu đã xem

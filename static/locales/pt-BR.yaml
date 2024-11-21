@@ -242,6 +242,8 @@ User Playlists:
     certeza de que deseja remover 1 vídeo assistido desta playlist? Isso não pode
     ser desfeito. | Tem certeza de que deseja remover {playlistItemCount} vídeos assistidos
     desta playlist? Isso não pode ser desfeito.
+  The playlist has been successfully exported: Playlist exportada com sucesso
+  Export Playlist: Exportar esta playlist
 History:
   # On History Page
   History: 'Histórico'
@@ -276,7 +278,7 @@ Settings:
       End: 'No fim'
       Hidden: Escondido
       Blur: Desfocar
-    Region for Trending: 'Região'
+    Region for Trending: 'Região de Tendências'
         #! List countries
     Check for Updates: Buscar por atualizações
     Check for Latest Blog Posts: Verificar se há novas postagens no blog
@@ -759,38 +761,8 @@ Video:
     chat ao vivo não é suportado pela API do Invidious. Uma conexão com o YouTube
     é necessária.'
   Published:
-    Jan: 'jan'
-    Feb: 'fev'
-    Mar: 'mar'
-    Apr: 'abr'
-    May: 'mai'
-    Jun: 'jun'
-    Jul: 'jul'
-    Aug: 'ago'
-    Sep: 'set'
-    Oct: 'out'
-    Nov: 'nov'
-    Dec: 'dez'
-    Second: 'segundo'
-    Seconds: 'segundos'
-    Hour: 'hora'
-    Hours: 'horas'
-    Day: 'dia'
-    Days: 'dias'
-    Week: 'semana'
-    Weeks: 'semanas'
-    Month: 'mês'
-    Months: 'meses'
-    Year: 'ano'
-    Years: 'anos'
-    Ago: 'atrás'
-    Upcoming: 'Estreia em'
-    Minutes: minutos
-    Minute: minuto
-    Less than a minute: Menos de um minuto
     In less than a minute: Em menos de um minuto
   Published on: 'Publicado em'
-  Publicationtemplate: 'Há {number} {unit}'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
@@ -1165,6 +1137,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos,
     capítulo atual: {chapterName}'
   Chapters: Capítulos
+  Key Moments: Melhores momentos
 Ok: OK
 Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente

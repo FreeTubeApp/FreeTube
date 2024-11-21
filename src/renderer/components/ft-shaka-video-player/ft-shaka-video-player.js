@@ -3,10 +3,9 @@ import path from 'path'
 
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
+import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import i18n from '../../i18n/index'
-
 import { IpcChannels } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
@@ -115,6 +114,8 @@ export default defineComponent({
     'toggle-theatre-mode'
   ],
   setup: function (props, { emit, expose }) {
+    const { locale, t } = useI18n()
+
     /** @type {shaka.Player|null} */
     let player = null
 
@@ -555,7 +556,6 @@ export default defineComponent({
           dash: {
             manifestPreprocessorTXml: manifestPreprocessorTXml
           },
-          availabilityWindowOverride: seekingIsPossible.value ? NaN : 0
         },
         abr: {
           enabled: useAutoQuality,
@@ -993,7 +993,7 @@ export default defineComponent({
       events.dispatchEvent(new CustomEvent('localeChanged'))
     }
 
-    watch(() => i18n.locale, setLocale)
+    watch(locale, setLocale)
 
     // #endregion player locales
 
@@ -1252,23 +1252,20 @@ export default defineComponent({
     }
 
     /**
-     * @param {'dash'|'audio'|null} previousFormat
      * @param {number|null} playbackPosition
+     * @param {number|undefined} previousQuality
      */
-    async function setLegacyQuality(previousFormat = null, playbackPosition = null) {
+    async function setLegacyQuality(playbackPosition = null, previousQuality = undefined) {
+      if (typeof previousQuality === 'undefined') {
+        if (defaultQuality.value === 'auto') {
+          previousQuality = Infinity
+        } else {
+          previousQuality = defaultQuality.value
+        }
+      }
+
       /** @type {object[]} */
       const legacyFormats = props.legacyFormats
-
-      let previousQuality
-      if (previousFormat === 'dash') {
-        const previousTrack = player.getVariantTracks().find(track => track.active)
-
-        previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
-      } else if (defaultQuality.value === 'auto') {
-        previousQuality = Infinity
-      } else {
-        previousQuality = defaultQuality.value
-      }
 
       const isPortrait = legacyFormats[0].height > legacyFormats[0].width
 
@@ -1502,7 +1499,7 @@ export default defineComponent({
         })
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
-        showToast(i18n.t('Screenshot Error', { error: err.message }))
+        showToast(t('Screenshot Error', { error: err.message }))
         canvas.remove()
         return
       }
@@ -1567,7 +1564,7 @@ export default defineComponent({
             await fs.mkdir(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
-            showToast(i18n.t('Screenshot Error', { error: err }))
+            showToast(t('Screenshot Error', { error: err }))
             canvas.remove()
             return
           }
@@ -1581,11 +1578,11 @@ export default defineComponent({
 
           fs.writeFile(filePath, arr)
             .then(() => {
-              showToast(i18n.t('Screenshot Success', { filePath }))
+              showToast(t('Screenshot Success', { filePath }))
             })
             .catch((err) => {
               console.error(err)
-              showToast(i18n.t('Screenshot Error', { error: err }))
+              showToast(t('Screenshot Error', { error: err }))
             })
         })
       }, mimeType, imageQuality)
@@ -1802,7 +1799,7 @@ export default defineComponent({
       const seekRange = player.seekRange()
 
       // Seeking not possible e.g. with HLS
-      if (seekRange.start === seekRange.end) {
+      if (seekRange.start === seekRange.end || !seekingIsPossible.value) {
         return false
       }
 
@@ -2147,17 +2144,28 @@ export default defineComponent({
 
     // #endregion keyboard shortcuts
 
+    let ignoreErrors = false
+
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
      * @param {object?} details
      */
     function handleError(error, context, details) {
+      // These two errors are just wrappers around another error, so use the original error instead
+      // As they can be nested (e.g. multiple googlevideo redirects because the Invidious server was far away from the user) we should pick the inner most one
+      while (error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR || error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR) {
+        error = error.data[0]
+      }
+
       logShakaError(error, context, props.videoId, details)
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (error.category !== shaka.util.Error.Category.TEXT) {
+      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+        // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
+        ignoreErrors = true
+
         emit('error', error)
 
         stopPowerSaveBlocker()
@@ -2319,7 +2327,7 @@ export default defineComponent({
         player.getNetworkingEngine().registerResponseFilter(responseFilter)
       }
 
-      await setLocale(i18n.locale)
+      await setLocale(locale.value)
 
       // check if the component is already getting destroyed
       // which is possible because this function runs asynchronously
@@ -2381,6 +2389,10 @@ export default defineComponent({
 
       window.addEventListener('beforeunload', stopPowerSaveBlocker)
 
+      // shaka-player doesn't start with the cursor hidden, so hide it here for instances in which the
+      // cursor is in the video player area when the video first loads
+      container.value.classList.add('no-cursor')
+
       await performFirstLoad()
     })
 
@@ -2410,7 +2422,7 @@ export default defineComponent({
           handleError(error, 'loading dash/audio manifest and setting default quality in mounted')
         }
       } else {
-        await setLegacyQuality(null, props.startTime)
+        await setLegacyQuality(props.startTime)
       }
     }
 
@@ -2528,9 +2540,17 @@ export default defineComponent({
        * @param {'dash'|'audio'|'legacy'} oldFormat
        */
       async (newFormat, oldFormat) => {
+        ignoreErrors = true
+
         // format switch happened before the player loaded, probably because of an error
         // as there are no previous player settings to restore, we should treat it like this was the original format
         if (!hasLoaded.value) {
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, defaultQuality.value === 'auto'))
 
           await performFirstLoad()
@@ -2593,6 +2613,12 @@ export default defineComponent({
             }
           }
 
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
 
           try {
@@ -2630,7 +2656,21 @@ export default defineComponent({
           }
           activeLegacyFormat.value = null
         } else {
-          await setLegacyQuality(oldFormat, playbackPosition)
+          let previousQuality
+
+          if (oldFormat === 'dash') {
+            const previousTrack = player.getVariantTracks().find(track => track.active)
+
+            previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
+          }
+
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
+          await setLegacyQuality(playbackPosition, previousQuality)
         }
 
         if (wasPaused) {
@@ -2698,6 +2738,8 @@ export default defineComponent({
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      */
     async function destroyPlayer() {
+      ignoreErrors = true
+
       if (ui) {
         // destroying the ui also destroys the player
         await ui.destroy()

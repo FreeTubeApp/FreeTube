@@ -731,37 +731,8 @@ Video:
     stöds för närvarande inte med Invidious API. En direktanslutning till YouTube
     krävs.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Maj'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Sekund'
-    Seconds: 'Sekunder'
-    Minute: 'Minut'
-    Minutes: 'Minuter'
-    Hour: 'Timme'
-    Hours: 'Timmar'
-    Day: 'Dag'
-    Days: 'Dagar'
-    Week: 'Vecka'
-    Weeks: 'Veckor'
-    Month: 'Månad'
-    Months: 'Månader'
-    Year: 'År'
-    Years: 'År'
-    Ago: 'Sedan'
-    Upcoming: 'Premiärer på'
     In less than a minute: Mindre än en minut
   Published on: 'Publicerad den'
-  Publicationtemplate: 'för {number} {unit} sedan'
 #& Videos
   audio only: endast ljud
   video only: endast video

@@ -248,6 +248,8 @@ User Playlists:
     sa oled kindel, et soovid sellest esitusloendist eemaldada 1 vaadatud video? Seda
     tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
     eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
+  Export Playlist: Ekspordi see esitusloend
+  The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
 History:
   # On History Page
   History: 'Ajalugu'
@@ -811,37 +813,8 @@ Video:
     kasutad Invidious''e veebiteenuse-põhist API''t, siis reaalajas vestlus ei ole
     toetatud. Selleks on vajalik otseliidestus YouTube''ga.'
   Published:
-    Jan: 'Jaan'
-    Feb: 'Veeb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'Juuni'
-    Jul: 'Juuli'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dets'
-    Second: 'Sekund'
-    Seconds: 'Sekundit'
-    Minute: 'Minut'
-    Minutes: 'Minutit'
-    Hour: 'Tund'
-    Hours: 'Tundi'
-    Day: 'Päev'
-    Days: 'Päeva'
-    Week: 'Nädal'
-    Weeks: 'Nädalat'
-    Month: 'Kuu'
-    Months: 'Kuud'
-    Year: 'Aasta'
-    Years: 'Aastat'
-    Ago: 'tagasi'
-    Upcoming: 'Esilinastus'
     In less than a minute: Vähem kui minuti pärast
   Published on: 'Avaldatud'
-  Publicationtemplate: '{number} {unit} tagasi'
 #& Videos
   Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
   Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
@@ -1142,6 +1115,7 @@ Chapters:
     praegune peatükk: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Peatükkide loend on peidetud,
     praegune peatükk: {chapterName}'
+  Key Moments: Olulised hetked
 Ok: Sobib
 Preferences: Eelistused
 Hashtag:

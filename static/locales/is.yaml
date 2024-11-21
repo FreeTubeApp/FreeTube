@@ -253,6 +253,8 @@ User Playlists:
     viss um að þú viljir fjarlægja 1 áhorft myndskeið af þessum spilunarlista? Þetta
     er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
     áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
+  Export Playlist: Flytja út þennan spilunarlista
+  The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
 History:
   # On History Page
   History: 'Áhorf'
@@ -833,40 +835,10 @@ Video:
   video only: 'einungis myndmerki'
   audio only: 'einungis hljóð'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Maí'
-    Jun: 'Jún'
-    Jul: 'Júl'
-    Aug: 'Ágú'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nóv'
-    Dec: 'Des'
-    Second: 'sekúndu'
-    Seconds: 'sekúndum'
-    Minute: 'mínútu'
-    Minutes: 'mínútum'
-    Hour: 'klukkustund'
-    Hours: 'klukkustundum'
-    Day: 'degi'
-    Days: 'dögum'
-    Week: 'viku'
-    Weeks: 'vikum'
-    Month: 'mánuði'
-    Months: 'mánuðum'
-    Year: 'ári'
-    Years: 'árum'
-    Ago: 'síðan'
-    Upcoming: 'Frumsýnt'
-    Less than a minute: Minna en mínútu
     In less than a minute: eftir minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
-  Publicationtemplate: 'Fyrir {number} {unit} síðan'
 #& Videos
   Sponsor Block category:
     music offtopic: Tónlist óskyld efni
@@ -1167,6 +1139,7 @@ Chapters:
     núverandi kafli: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
     núverandi kafli: {chapterName}'
+  Key Moments: Helstu augnablik
 Preferences: Kjörstillingar
 Ok: Í lagi
 Hashtag:

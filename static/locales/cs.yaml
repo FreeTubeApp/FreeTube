@@ -250,6 +250,8 @@ User Playlists:
     | Opravdu chcete odstranit {playlistItemCount} zhlédnutých videí z tohoto playlistu?
     Tato akce je nevratná.
   Remove Duplicate Videos: Odstranit duplicitní videa
+  Export Playlist: Exportovat tento playlist
+  The playlist has been successfully exported: Playlist byl úspěšně exportován
 History:
   # On History Page
   History: 'Historie'
@@ -818,38 +820,8 @@ Video:
   video only: 'pouze video'
   audio only: 'pouze zvuk'
   Published:
-    Jan: 'Leden'
-    Feb: 'Únor'
-    Mar: 'Březen'
-    Apr: 'Duben'
-    May: 'Květen'
-    Jun: 'Červen'
-    Jul: 'Červenec'
-    Aug: 'Srpen'
-    Sep: 'Září'
-    Oct: 'Říjen'
-    Nov: 'Listopad'
-    Dec: 'Prosinec'
-    Second: 'sekundou'
-    Seconds: 'sekund'
-    Minute: 'minutou'
-    Minutes: 'minut'
-    Hour: 'hodina'
-    Hours: 'hodin'
-    Day: 'den'
-    Days: 'dnů'
-    Week: 'týden'
-    Weeks: 'týdny'
-    Month: 'měsíc'
-    Months: 'měsíci'
-    Year: 'rok'
-    Years: 'let'
-    Ago: 'Před'
-    Upcoming: 'Premiéra'
-    Less than a minute: Méně než minuta
     In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
-  Publicationtemplate: '{number} {unit}'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
@@ -1150,6 +1122,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Seznam kapitol je skrytý,
     současná kapitola: {chapterName}'
   Chapters: Kapitoly
+  Key Moments: Klíčové momenty
 Preferences: Předvolby
 Ok: Ok
 Hashtag:
