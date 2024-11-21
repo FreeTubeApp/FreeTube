@@ -686,20 +686,23 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: ''
   Live:
-    Live: ''
-    This channel does not currently have any live streams: ''
+    Live: 'Regstreeks'
+    This channel does not currently have any live streams: 'Hierdie kanaal het tans
+      geen rekstreekse stromings nie'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Afspeellyste'
+    This channel does not currently have any playlists: 'Hierdie kanaal het tans geen
+      afspeellyste nie'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Laaste toegevoegde video'
+      Newest: 'Nuutste'
+      Oldest: 'Oudste'
   Podcasts:
-    Podcasts: ''
-    This channel does not currently have any podcasts: ''
+    Podcasts: 'Podsendings'
+    This channel does not currently have any podcasts: 'Hierdie kanaal het tans geen
+      podsendings nie'
   Releases:
-    Releases: ''
+    Releases: 'Vrystellings'
     This channel does not currently have any releases: 'Hierdie kanaal het nie tans
       enige vrystellings nie'
   About:
