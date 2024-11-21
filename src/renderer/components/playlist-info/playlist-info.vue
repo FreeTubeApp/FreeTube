@@ -236,7 +236,7 @@
 
     <div class="playlistOptionsWrapper">
       <div
-        v-if="firstVideoIdExists"
+        v-if="firstVideoIdExists && !editMode"
         class="playlistOptions"
       >
         <router-link
