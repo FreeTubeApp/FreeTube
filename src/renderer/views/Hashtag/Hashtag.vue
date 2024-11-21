@@ -71,12 +71,16 @@ const isLoading = ref(true)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
-  return store.getters.getBackendPreference
+  let preference = store.getters.getBackendPreference
+  if (preference === 'piped') {
+    preference = store.getters.getFallbackPreference
+  }
+  return preference
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const backendFallback = computed(() => {
-  return store.getters.getBackendFallback
+  return store.getters.getBackendFallback && store.getters.getBackendPreference !== 'piped'
 })
 
 const showFetchMoreButton = computed(() => {
