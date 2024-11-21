@@ -792,4 +792,4 @@ async function getPostCommentRepliesInvidious(index) {
 }
 </script>
 
-<style scoped src="./WatchVideoComments.css" />
+<style scoped src="./CommentSection.css" />
