@@ -7,7 +7,7 @@ import FtShakaVideoPlayer from '../../components/ft-shaka-video-player/ft-shaka-
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoChapters from '../../components/WatchVideoChapters/WatchVideoChapters.vue'
 import WatchVideoDescription from '../../components/WatchVideoDescription/WatchVideoDescription.vue'
-import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
+import WatchVideoComments from '../../components/WatchVideoComments/WatchVideoComments.vue'
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
