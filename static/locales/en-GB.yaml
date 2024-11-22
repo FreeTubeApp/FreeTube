@@ -1119,6 +1119,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current
     chapter: {chapterName}'
   Chapters: Chapters
+  Key Moments: Key Moments
 Clipboard:
   Copy failed: Copy to clipboard failed
   Cannot access clipboard without a secure connection: Cannot access clipboard without
