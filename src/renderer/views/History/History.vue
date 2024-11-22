@@ -31,7 +31,7 @@
         />
         <ft-toggle-switch
           v-if="fullData.length > 1"
-          :label="$t('History.history sort by date ascending/descending')"
+          :label="$t('History.Sort By Date ASC')"
           :compact="true"
           :default-value="ascending"
           @change="ascending = !ascending"
