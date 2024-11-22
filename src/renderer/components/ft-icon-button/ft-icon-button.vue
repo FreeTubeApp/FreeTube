@@ -12,7 +12,8 @@
       }"
       :style="{
         padding: padding + 'px',
-        fontSize: size + 'px'
+        fontSize: size + 'px',
+        ...(color ? { color: color } : {})
       }"
       tabindex="0"
       role="button"

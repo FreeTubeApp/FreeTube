@@ -46,6 +46,12 @@ export default defineComponent({
     useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
+    deArrowShowOriginal: function () {
+      return this.$store.getters.getDeArrowShowOriginal
+    },
+    deArrowShowOriginalAlwaysOn: function () {
+      return this.$store.getters.getDeArrowShowOriginalAlwaysOn
+    },
     deArrowThumbnailGeneratorUrl: function () {
       return this.$store.getters.getDeArrowThumbnailGeneratorUrl
     },
@@ -85,6 +91,8 @@ export default defineComponent({
       'updateSponsorBlockShowSkippedToast',
       'updateUseDeArrowTitles',
       'updateUseDeArrowThumbnails',
+      'updateDeArrowShowOriginal',
+      'updateDeArrowShowOriginalAlwaysOn',
       'updateDeArrowThumbnailGeneratorUrl'
     ])
   }

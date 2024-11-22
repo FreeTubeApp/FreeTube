@@ -2,25 +2,39 @@
   <ft-settings-section
     :title="$t('Settings.SponsorBlock Settings.SponsorBlock Settings')"
   >
-    <ft-flex-box class="settingsFlexStart500px">
-      <ft-toggle-switch
-        :label="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
-        :default-value="useSponsorBlock"
-        @change="handleUpdateSponsorBlock"
-      />
-      <ft-toggle-switch
-        :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
-        :default-value="useDeArrowTitles"
-        :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
-        @change="handleUpdateUseDeArrowTitles"
-      />
-      <ft-toggle-switch
-        :label="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
-        :default-value="useDeArrowThumbnails"
-        :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
-        @change="handleUpdateUseDeArrowThumbnails"
-      />
-    </ft-flex-box>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
+          :default-value="useSponsorBlock"
+          :compact="true"
+          @change="handleUpdateSponsorBlock"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
+          :default-value="useDeArrowThumbnails"
+          :compact="true"
+          :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
+          @change="handleUpdateUseDeArrowThumbnails"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
+          :default-value="useDeArrowTitles"
+          :compact="true"
+          :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
+          @change="handleUpdateUseDeArrowTitles"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.SponsorBlock Settings.Show Show Original Button')"
+          :default-value="deArrowShowOriginal"
+          :compact="true"
+          :tooltip="$t('Tooltips.SponsorBlock Settings.Show Show Original Button')"
+          @change="updateDeArrowShowOriginal"
+        />
+      </div>
+    </div>
     <template
       v-if="useSponsorBlock || useDeArrowTitles || useDeArrowThumbnails"
     >

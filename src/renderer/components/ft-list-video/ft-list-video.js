@@ -114,7 +114,7 @@ export default defineComponent({
       debounceGetDeArrowThumbnail: null,
       deArrowToggleTitle: '',
       showDeArrowToggle: false,
-      deArrowToggleAlwaysVisible: false,
+      deArrowTogglePinned: false,
       useDeArrowTitles: null,
       useDeArrowThumbnails: null,
       isHovered: false,
@@ -499,21 +499,19 @@ export default defineComponent({
       return query
     },
 
+    deArrowChangedContent: function () {
+      return (this.globalUseDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
+        (this.globalUseDeArrowTitles && this.deArrowCache?.title &&
+        this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
+    },
     globalUseDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
     globalUseDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
-
-    deArrowToggleSize: function () {
-      let defaultSize = 12
-      if (this.globalUseDeArrowTitles && this.deArrowCache?.title &&
-        this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0) {
-        defaultSize = 16
-      }
-
-      return defaultSize
+    deArrowShowOriginal: function () {
+      return this.$store.getters.getDeArrowShowOriginal
     },
 
     deArrowCache: function () {
@@ -534,7 +532,7 @@ export default defineComponent({
 
     this.useDeArrowTitles = this.globalUseDeArrowTitles
     this.useDeArrowThumbnails = this.globalUseDeArrowThumbnails
-    if (this.useDeArrowTitles || this.useDeArrowThumbnails) {
+    if (this.deArrowShowOriginal && (this.useDeArrowTitles || this.useDeArrowThumbnails)) {
       this.showDeArrowToggle = true
       this.deArrowToggleTitle = this.$t('Video.Sponsor Block category.Show Original Details')
     }
@@ -590,12 +588,12 @@ export default defineComponent({
       }
     },
     toggleDeArrow() {
-      if (this.deArrowCache?.thumbnail === null && this.deArrowCache?.title == null) {
+      if (!this.deArrowChangedContent) {
         return
       }
 
-      this.deArrowToggleAlwaysVisible = !this.deArrowToggleAlwaysVisible
-      this.deArrowToggleTitle = this.deArrowToggleAlwaysVisible
+      this.deArrowTogglePinned = !this.deArrowTogglePinned
+      this.deArrowToggleTitle = this.deArrowTogglePinned
         ? this.$t('Video.Sponsor Block category.Show Modified Details')
         : this.$t('Video.Sponsor Block category.Show Original Details')
 

@@ -125,18 +125,6 @@
             {{ displayTitle }}
           </h3>
         </router-link>
-        <ft-icon-button
-          v-if="(showDeArrowToggle && isHovered) || deArrowToggleAlwaysVisible"
-          class="optionsButton"
-          :class="{alwaysVisible: deArrowToggleAlwaysVisible}"
-          :icon="['fas', 'times-circle']"
-          :title="deArrowToggleTitle"
-          theme="base-no-default"
-          :size="deArrowToggleSize"
-          :use-shadow="false"
-          role="button"
-          @click="toggleDeArrow"
-        />
       </div>
       <div class="infoLine">
         <router-link
@@ -226,6 +214,21 @@
           {{ $t('Search Listing.Label.Subtitles') }}
         </div>
       </div>
+
+      <ft-icon-button
+        v-if="(showDeArrowToggle && isHovered) || deArrowTogglePinned"
+        class="deArrowToggleButton"
+        :class="{alwaysVisible: deArrowTogglePinned}"
+        :icon="['fas', 'dot-circle']"
+        :color="deArrowChangedContent ? 'var(--primary-color)' : ''"
+        :padding="deArrowChangedContent ? 10 : 12"
+        :title="deArrowToggleTitle"
+        theme="base-no-default"
+        :size="deArrowChangedContent ? 16 : 12"
+        :use-shadow="false"
+        role="button"
+        @click="toggleDeArrow"
+      />
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
