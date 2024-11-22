@@ -29,6 +29,13 @@
           :default-value="doCaseSensitiveSearch"
           @change="doCaseSensitiveSearch = !doCaseSensitiveSearch"
         />
+        <ft-toggle-switch
+          v-if="fullData.length > 1"
+          :label="$t('History.history sort by date ascending/descending')"
+          :compact="true"
+          :default-value="ascending"
+          @change="ascending = !ascending"
+        />
       </div>
       <ft-flex-box
         v-show="fullData.length === 0"

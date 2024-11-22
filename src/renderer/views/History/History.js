@@ -19,10 +19,7 @@ function filterVideosWithQuery(videos, query, attrProcessor = identity) {
     } else if (typeof (video.author) === 'string' && attrProcessor(video.author).includes(query)) {
       return true
     }
-
     return false
-  }).sort((a, b) => {
-    return b.timeWatched - a.timeWatched
   })
 }
 
@@ -44,6 +41,7 @@ export default defineComponent({
       dataLimit: 100,
       searchDataLimit: 100,
       doCaseSensitiveSearch: false,
+      ascending: false,
       showLoadMoreButton: false,
       query: '',
       activeData: [],
@@ -51,7 +49,7 @@ export default defineComponent({
   },
   computed: {
     historyCacheSorted: function () {
-      return this.$store.getters.getHistoryCacheSorted
+      return this.ascending ? [...this.$store.getters.getHistoryCacheSorted].reverse() : this.$store.getters.getHistoryCacheSorted
     },
 
     fullData: function () {
