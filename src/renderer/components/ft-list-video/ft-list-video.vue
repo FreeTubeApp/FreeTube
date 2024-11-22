@@ -220,7 +220,7 @@
         class="deArrowToggleButton"
         :class="{alwaysVisible: deArrowTogglePinned}"
         :icon="['fas', 'dot-circle']"
-        :color="deArrowChangedContent ? 'var(--primary-color)' : ''"
+        :color="deArrowChangedContent ? 'var(--primary-color)' : '#808080'"
         :padding="deArrowChangedContent ? 10 : 12"
         :title="deArrowToggleTitle"
         theme="base-no-default"
