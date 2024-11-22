@@ -672,19 +672,22 @@ Channel:
   Search Channel: ''
   Your search results have returned 0 results: ''
   Sort By: ''
-  This channel does not exist: ''
-  This channel does not allow searching: ''
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
-  Channel Tabs: ''
+  This channel does not exist: 'Hierdie kanaal bestaan nie'
+  This channel does not allow searching: 'Hierdie kanaal laat nie soektogte toe nie'
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Hierdie
+    kanaal is ouderdomsbeperk en kan nie tans in FreeTube bekyk word nie.'
+  Channel Tabs: 'Kanaaloortjies'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Video’s'
+    This channel does not currently have any videos: 'Hierdie kanaal het tans geen
+      video’s'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Nuutste'
+      Oldest: 'Oudste'
+      Most Popular: 'Gewildste'
   Shorts:
-    This channel does not currently have any shorts: ''
+    This channel does not currently have any shorts: 'Hierdie kanaal het tans geen
+      kortvideo’s nie'
   Live:
     Live: 'Regstreeks'
     This channel does not currently have any live streams: 'Hierdie kanaal het tans
