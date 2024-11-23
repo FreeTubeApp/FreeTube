@@ -504,16 +504,10 @@ export default defineComponent({
     useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
-    deArrowShowOriginal: function () {
-      return this.$store.getters.getDeArrowShowOriginal
-    },
     deArrowChangedContent: function () {
       return (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
         (this.useDeArrowTitles && this.deArrowCache?.title &&
           this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
-    },
-    showDeArrowToggle: function () {
-      return this.deArrowShowOriginal && this.deArrowChangedContent
     },
 
     deArrowCache: function () {

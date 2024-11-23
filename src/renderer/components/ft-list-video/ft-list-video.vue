@@ -207,16 +207,6 @@
         </div>
       </div>
       <div class="buttonStack">
-        <font-awesome-icon
-          v-if="showDeArrowToggle || deArrowTogglePinned"
-          :title="deArrowToggleTitle"
-          :icon="['far', 'dot-circle']"
-          class="optionsButton deArrowToggleButton"
-          :class="{ alwaysVisible: deArrowTogglePinned }"
-          tabindex="0"
-          role="button"
-          @click="toggleDeArrow"
-        />
         <ft-icon-button
           class="optionsButton"
           :icon="['fas', 'ellipsis-v']"
@@ -227,6 +217,16 @@
           dropdown-position-x="left"
           :dropdown-options="dropdownOptions"
           @click="handleOptionsClick"
+        />
+        <font-awesome-icon
+          v-if="deArrowChangedContent || deArrowTogglePinned"
+          :title="deArrowToggleTitle"
+          :icon="['far', 'dot-circle']"
+          class="optionsButton deArrowToggleButton"
+          :class="{ alwaysVisible: deArrowTogglePinned }"
+          tabindex="0"
+          role="button"
+          @click="toggleDeArrow"
         />
       </div>
       <p
