@@ -798,6 +798,7 @@ const actions = {
     }
   },
 
+  // Use this to set the app title / document.title
   setAppTitle({ commit }, title) {
     commit('setAppTitle', title)
   }
