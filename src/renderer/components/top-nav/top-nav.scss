@@ -46,9 +46,9 @@
 }
 
 .arrowDisabled :deep(.iconButton) {
-  color: #808080;
+  filter: grayscale(1);
   background-color: inherit;
-  opacity: 0.5;
+  opacity: 0.4;
   pointer-events: auto;
   cursor: default;
   user-select: none;
