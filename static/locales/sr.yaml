@@ -581,6 +581,11 @@ Settings:
     City: 'Град'
     Error getting network information. Is your proxy configured properly?: 'Грешка
       при набављању информација о мрежи. Да ли је ваш прокси исправно конфигурисан?'
+    Proxy Warning: FreeTube нема уграђени прокси, али може да се повеже са спољним
+      проксијем, као што је онај који ради на вашој машини као што је Tor или спољни
+      прокси као што је SOCKS5 прокси који пружају неки VPN-ови. Ако је омогућено,
+      уверите се да је ваш прокси/Tor исправно конфигурисан или FreeTube неће моћи
+      да прикупи никакве податке.
   Experimental Settings:
     Replace HTTP Cache: Замени HTTP кеш
     Experimental Settings: Експериментално
