@@ -213,10 +213,6 @@
           :icon="['far', 'dot-circle']"
           class="optionsButton deArrowToggleButton"
           :class="{ alwaysVisible: deArrowTogglePinned }"
-          :style="{
-            padding: 10 + 'px',
-            fontSize: 16 + 'px'
-          }"
           tabindex="0"
           role="button"
           @click="toggleDeArrow"

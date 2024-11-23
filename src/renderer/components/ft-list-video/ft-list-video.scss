@@ -32,8 +32,10 @@
   border-radius: 50%;
   cursor: pointer;
   block-size: 1em;
-  transition: background 0.15s ease-out;
   inline-size: 1em;
+  padding: 10px;
+  font-size: 16px;
+  transition: background 0.15s ease-out;
   color: var(--primary-color);
 
   &:not(.disabled) {
