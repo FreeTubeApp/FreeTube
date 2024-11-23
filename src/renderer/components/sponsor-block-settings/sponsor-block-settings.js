@@ -49,9 +49,6 @@ export default defineComponent({
     deArrowShowOriginal: function () {
       return this.$store.getters.getDeArrowShowOriginal
     },
-    deArrowShowOriginalAlwaysOn: function () {
-      return this.$store.getters.getDeArrowShowOriginalAlwaysOn
-    },
     deArrowThumbnailGeneratorUrl: function () {
       return this.$store.getters.getDeArrowThumbnailGeneratorUrl
     },
@@ -92,7 +89,6 @@ export default defineComponent({
       'updateUseDeArrowTitles',
       'updateUseDeArrowThumbnails',
       'updateDeArrowShowOriginal',
-      'updateDeArrowShowOriginalAlwaysOn',
       'updateDeArrowThumbnailGeneratorUrl'
     ])
   }

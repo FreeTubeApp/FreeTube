@@ -112,11 +112,10 @@ export default defineComponent({
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
-      deArrowToggleTitle: '',
-      showDeArrowToggle: false,
+      deArrowToggleTitle: this.$t('Video.Sponsor Block category.Show Original Details'),
       deArrowTogglePinned: false,
-      useDeArrowTitles: null,
-      useDeArrowThumbnails: null,
+      showDeArrowTitle: false,
+      showDeArrowThumbnail: false,
       isHovered: false,
     }
   },
@@ -343,7 +342,7 @@ export default defineComponent({
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
-      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail != null) {
+      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail != null) {
         return this.deArrowCache.thumbnail
       }
 
@@ -400,7 +399,7 @@ export default defineComponent({
 
     displayTitle: function () {
       let title
-      if (this.useDeArrowTitles && this.deArrowCache?.title) {
+      if (this.showDeArrowTitle && this.deArrowCache?.title) {
         title = this.deArrowCache.title
       } else {
         title = this.title
@@ -414,7 +413,7 @@ export default defineComponent({
     },
 
     displayDuration: function () {
-      if (this.useDeArrowTitles && (this.duration === '' || this.duration === '0:00') && this.deArrowCache?.videoDuration) {
+      if (this.showDeArrowTitle && (this.duration === '' || this.duration === '0:00') && this.deArrowCache?.videoDuration) {
         return formatDurationAsTimestamp(this.deArrowCache.videoDuration)
       }
       return this.duration
@@ -499,19 +498,22 @@ export default defineComponent({
       return query
     },
 
-    deArrowChangedContent: function () {
-      return (this.globalUseDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
-        (this.globalUseDeArrowTitles && this.deArrowCache?.title &&
-        this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
-    },
-    globalUseDeArrowTitles: function () {
+    useDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
-    globalUseDeArrowThumbnails: function () {
+    useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
     deArrowShowOriginal: function () {
       return this.$store.getters.getDeArrowShowOriginal
+    },
+    deArrowChangedContent: function () {
+      return (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
+        (this.useDeArrowTitles && this.deArrowCache?.title &&
+          this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
+    },
+    showDeArrowToggle: function () {
+      return this.deArrowShowOriginal && this.deArrowChangedContent
     },
 
     deArrowCache: function () {
@@ -530,18 +532,14 @@ export default defineComponent({
   created: function () {
     this.parseVideoData()
 
-    this.useDeArrowTitles = this.globalUseDeArrowTitles
-    this.useDeArrowThumbnails = this.globalUseDeArrowThumbnails
-    if (this.deArrowShowOriginal && (this.useDeArrowTitles || this.useDeArrowThumbnails)) {
-      this.showDeArrowToggle = true
-      this.deArrowToggleTitle = this.$t('Video.Sponsor Block category.Show Original Details')
-    }
+    this.showDeArrowTitle = this.useDeArrowTitles
+    this.showDeArrowThumbnail = this.useDeArrowThumbnails
 
-    if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
+    if ((this.showDeArrowTitle || this.showDeArrowThumbnail) && !this.deArrowCache) {
       this.fetchDeArrowData()
     }
 
-    if (this.useDeArrowThumbnails && this.deArrowCache && this.deArrowCache.thumbnail == null) {
+    if (this.showDeArrowThumbnail && this.deArrowCache && this.deArrowCache.thumbnail == null) {
       if (this.debounceGetDeArrowThumbnail == null) {
         this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
       }
@@ -579,7 +577,7 @@ export default defineComponent({
       this.$store.commit('addVideoToDeArrowCache', cacheData)
 
       // fetch dearrow thumbnails if enabled
-      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail === null) {
+      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail === null) {
         if (this.debounceGetDeArrowThumbnail == null) {
           this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
         }
@@ -597,11 +595,11 @@ export default defineComponent({
         ? this.$t('Video.Sponsor Block category.Show Modified Details')
         : this.$t('Video.Sponsor Block category.Show Original Details')
 
-      if (this.globalUseDeArrowTitles) {
-        this.useDeArrowTitles = !this.useDeArrowTitles
+      if (this.useDeArrowTitles) {
+        this.showDeArrowTitle = !this.showDeArrowTitle
       }
-      if (this.globalUseDeArrowThumbnails) {
-        this.useDeArrowThumbnails = !this.useDeArrowThumbnails
+      if (this.useDeArrowThumbnails) {
+        this.showDeArrowThumbnail = !this.showDeArrowThumbnail
       }
     },
 

@@ -24,11 +24,6 @@ export default defineComponent({
       type: String,
       default: 'base'
     },
-    color: {
-      type: String,
-      required: false,
-      default: ''
-    },
     useShadow: {
       type: Boolean,
       default: true

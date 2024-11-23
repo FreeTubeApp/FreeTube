@@ -31,6 +31,7 @@
           :default-value="deArrowShowOriginal"
           :compact="true"
           :tooltip="$t('Tooltips.SponsorBlock Settings.Show Show Original Button')"
+          :disabled="!(useDeArrowTitles || useDeArrowThumbnails)"
           @change="updateDeArrowShowOriginal"
         />
       </div>

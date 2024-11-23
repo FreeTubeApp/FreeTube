@@ -109,23 +109,15 @@
         :style="{inlineSize: progressPercentage + '%'}"
       />
     </div>
-    <div
-      class="info"
-      @mouseover="isHovered = true"
-      @mouseleave="isHovered = false"
-      @focusin="isHovered = true"
-      @blur="isHovered = false"
-    >
-      <div class="title">
-        <router-link
-          class="title"
-          :to="watchPageLinkTo"
-        >
-          <h3 class="h3Title">
-            {{ displayTitle }}
-          </h3>
-        </router-link>
-      </div>
+    <div class="info">
+      <router-link
+        class="title"
+        :to="watchPageLinkTo"
+      >
+        <h3 class="h3Title">
+          {{ displayTitle }}
+        </h3>
+      </router-link>
       <div class="infoLine">
         <router-link
           v-if="channelId !== null"
@@ -214,32 +206,33 @@
           {{ $t('Search Listing.Label.Subtitles') }}
         </div>
       </div>
-
-      <ft-icon-button
-        v-if="(showDeArrowToggle && isHovered) || deArrowTogglePinned"
-        class="deArrowToggleButton"
-        :class="{alwaysVisible: deArrowTogglePinned}"
-        :icon="['fas', 'dot-circle']"
-        :color="deArrowChangedContent ? 'var(--primary-color)' : '#808080'"
-        :padding="deArrowChangedContent ? 10 : 12"
-        :title="deArrowToggleTitle"
-        theme="base-no-default"
-        :size="deArrowChangedContent ? 16 : 12"
-        :use-shadow="false"
-        role="button"
-        @click="toggleDeArrow"
-      />
-      <ft-icon-button
-        class="optionsButton"
-        :icon="['fas', 'ellipsis-v']"
-        :title="$t('Video.More Options')"
-        theme="base-no-default"
-        :size="16"
-        :use-shadow="false"
-        dropdown-position-x="left"
-        :dropdown-options="dropdownOptions"
-        @click="handleOptionsClick"
-      />
+      <div class="buttonStack">
+        <font-awesome-icon
+          v-if="showDeArrowToggle || deArrowTogglePinned"
+          :title="deArrowToggleTitle"
+          :icon="['far', 'dot-circle']"
+          class="optionsButton deArrowToggleButton"
+          :class="{ alwaysVisible: deArrowTogglePinned }"
+          :style="{
+            padding: 10 + 'px',
+            fontSize: 16 + 'px'
+          }"
+          tabindex="0"
+          role="button"
+          @click="toggleDeArrow"
+        />
+        <ft-icon-button
+          class="optionsButton"
+          :icon="['fas', 'ellipsis-v']"
+          :title="$t('Video.More Options')"
+          theme="base-no-default"
+          :size="16"
+          :use-shadow="false"
+          dropdown-position-x="left"
+          :dropdown-options="dropdownOptions"
+          @click="handleOptionsClick"
+        />
+      </div>
       <p
         v-if="description && effectiveListTypeIsList && appearance === 'result'"
         class="description"
