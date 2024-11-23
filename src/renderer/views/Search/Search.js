@@ -78,12 +78,13 @@ export default defineComponent({
 
       this.query = query
 
-      this.setAppTitle(`${this.query}  - ${packageDetails.productName}`)
+      this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
       this.checkSearchCache(payload)
     }
   },
   mounted: function () {
     this.query = this.$route.params.query
+    this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
 
     let features = this.$route.query.features
     // if page gets refreshed and there's only one feature then it will be a string
