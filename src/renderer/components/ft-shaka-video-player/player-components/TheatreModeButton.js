@@ -69,15 +69,13 @@ export class TheatreModeButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Player.Theatre Mode')
-
     this.icon_.textContent = this.theatreModeEnabled_ ? 'monitor' : 'tv'
 
     this.currentState_.textContent = this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF')
 
     const baseAriaLabel = this.theatreModeEnabled_ ? i18n.t('Video.Player.Exit Theatre Mode') : i18n.t('Video.Player.Theatre Mode')
 
-    this.button_.ariaLabel = addKeyboardShortcutToActionTitle(
+    this.nameSpan_.textContent = this.button_.ariaLabel = addKeyboardShortcutToActionTitle(
       baseAriaLabel,
       KeyboardShortcuts.VIDEO_PLAYER.THEATRE_MODE
     )

@@ -55,7 +55,6 @@ export class ScreenshotButton extends shaka.ui.Element {
       i18n.t('Video.Player.Take Screenshot'),
       KeyboardShortcuts.VIDEO_PLAYER.TAKE_SCREENSHOT
     )
-    this.nameSpan_.textContent = label
-    this.button_.ariaLabel = label
+    this.nameSpan_.textContent = this.button_.ariaLabel = label
   }
 }
