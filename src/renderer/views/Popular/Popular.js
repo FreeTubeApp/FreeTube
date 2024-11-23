@@ -93,7 +93,7 @@ export default defineComponent({
 
       switch (event.key.toLowerCase()) {
         case 'f5':
-        case KeyboardShortcuts.FEED.REFRESH:
+        case KeyboardShortcuts.APP.SITUATIONAL.REFRESH:
           if (!this.isLoading) {
             this.fetchPopularInfo()
           }

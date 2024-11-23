@@ -116,41 +116,44 @@ const SyncEvents = {
 // note: the multi-key shortcut values are currently just for display use in action titles
 const KeyboardShortcuts = {
   APP: {
-    HISTORY_BACKWARD: 'alt+arrowleft',
-    HISTORY_FORWARD: 'alt+arrowright',
-    NEW_WINDOW: 'ctrl+N',
-    NAVIGATE_TO_SETTINGS: 'ctrl+,',
-    NAVIGATE_TO_HISTORY: 'ctrl+H',
-    NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
-  },
-  FEED: {
-    REFRESH: 'r'
+    GENERAL: {
+      HISTORY_BACKWARD: 'alt+arrowleft',
+      HISTORY_FORWARD: 'alt+arrowright',
+      NEW_WINDOW: 'ctrl+N',
+      NAVIGATE_TO_SETTINGS: 'ctrl+,',
+      NAVIGATE_TO_HISTORY: 'ctrl+H',
+      NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+    },
+    SITUATIONAL: {
+      REFRESH: 'r'
+    },
   },
   VIDEO_PLAYER: {
-    CAPTIONS: 'c',
-    STATS: 'd',
-    FULLSCREEN: 'f',
-    PICTURE_IN_PICTURE: 'i',
-    LARGE_REWIND: 'j',
-    PLAY: 'k',
-    LARGE_FAST_FORWARD: 'l',
-    MUTE: 'm',
-    DECREASE_VIDEO_SPEED: 'o',
-    INCREASE_VIDEO_SPEED: 'p',
-    FULLWINDOW: 's',
-    THEATRE_MODE: 't',
-    TAKE_SCREENSHOT: 'u',
-    LAST_FRAME: ',',
-    NEXT_FRAME: '.',
-    VOLUME_UP: 'arrowup',
-    VOLUME_DOWN: 'arrowdown',
-    SMALL_REWIND: 'arrowleft',
-    SMALL_FAST_FORWARD: 'arrowright',
-
-    /* For future use
+    GENERAL: {
+      CAPTIONS: 'c',
+      THEATRE_MODE: 't',
+      FULLSCREEN: 'f',
+      FULLWINDOW: 's',
+      PICTURE_IN_PICTURE: 'i',
+      MUTE: 'm',
+      VOLUME_UP: 'arrowup',
+      VOLUME_DOWN: 'arrowdown',
+      STATS: 'd',
+      TAKE_SCREENSHOT: 'u',
+    },
+    PLAYBACK: {
+      PLAY: 'k',
+      LARGE_REWIND: 'j',
+      LARGE_FAST_FORWARD: 'l',
+      SMALL_REWIND: 'arrowleft',
+      SMALL_FAST_FORWARD: 'arrowright',
+      DECREASE_VIDEO_SPEED: 'o',
+      INCREASE_VIDEO_SPEED: 'p',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
-    */
+    }
   },
 }
 

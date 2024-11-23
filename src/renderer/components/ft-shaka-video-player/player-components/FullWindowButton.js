@@ -75,7 +75,7 @@ export class FullWindowButton extends shaka.ui.Element {
     const baseAriaLabel = this.fullWindowEnabled_ ? i18n.t('Video.Player.Exit Full Window') : i18n.t('Video.Player.Full Window')
     const newLabel = addKeyboardShortcutToActionTitle(
       baseAriaLabel,
-      KeyboardShortcuts.VIDEO_PLAYER.FULLWINDOW
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW
     )
     this.nameSpan_.textContent = this.button_.ariaLabel = newLabel
   }

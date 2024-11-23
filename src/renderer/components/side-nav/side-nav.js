@@ -84,8 +84,8 @@ export default defineComponent({
     },
     historyTitle: function() {
       const shortcut = process.platform === 'darwin'
-        ? KeyboardShortcuts.APP.NAVIGATE_TO_HISTORY_MAC
-        : KeyboardShortcuts.APP.NAVIGATE_TO_HISTORY
+        ? KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_HISTORY_MAC
+        : KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_HISTORY
 
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('History.History'),
@@ -95,7 +95,7 @@ export default defineComponent({
     settingsTitle: function() {
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Settings.Settings'),
-        KeyboardShortcuts.APP.NAVIGATE_TO_SETTINGS
+        KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_SETTINGS
       )
     }
   }

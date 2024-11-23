@@ -72,7 +72,7 @@ export class StatsButton extends shaka.ui.Element {
     const baseLabel = this.showStats_ ? i18n.t('Video.Player.Hide Stats') : i18n.t('Video.Player.Show Stats')
     const label = addKeyboardShortcutToActionTitle(
       baseLabel,
-      KeyboardShortcuts.VIDEO_PLAYER.STATS
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS
     )
 
     this.currentState_.textContent = label

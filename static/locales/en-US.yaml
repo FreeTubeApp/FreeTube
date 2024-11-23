@@ -1096,7 +1096,6 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:
   alt: Alt
-  cmd: Cmd
   ctrl: Ctrl
   arrowdown: Down Arrow
   arrowleft: Left Arrow
