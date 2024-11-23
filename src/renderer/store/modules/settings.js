@@ -300,7 +300,6 @@ const state = {
   settingsPassword: '',
   useDeArrowTitles: false,
   useDeArrowThumbnails: false,
-  deArrowShowOriginal: false,
   deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
   // This makes the `favorites` playlist uses as quick bookmark target
   // If the playlist is removed quick bookmark is disabled

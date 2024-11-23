@@ -116,7 +116,6 @@ export default defineComponent({
       deArrowTogglePinned: false,
       showDeArrowTitle: false,
       showDeArrowThumbnail: false,
-      isHovered: false,
     }
   },
   computed: {
