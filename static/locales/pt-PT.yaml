@@ -800,39 +800,10 @@ Video:
   video only: apenas vídeo
   audio only: apenas áudio
   Published:
-    Jan: jan
-    Feb: fev
-    Mar: mar
-    Apr: abr
-    May: mai
-    Jun: jun
-    Jul: jul
-    Aug: ago
-    Sep: set
-    Oct: out
-    Nov: nov
-    Dec: dez
-    Second: Segundo
-    Seconds: Segundos
-    Minute: Minuto
-    Minutes: Minutos
-    Hour: Hora
-    Hours: Horas
-    Day: Dia
-    Days: Dias
-    Week: Semana
-    Weeks: Semanas
-    Month: Mês
-    Months: Meses
-    Year: Ano
-    Years: Anos
-    Ago: Há
-    Upcoming: Estreia em
     In less than a minute: Em menos de um minuto
   Published on: Publicado a
   Streamed on: Transmitido a
   Started streaming on: Transmissão iniciada em
-  Publicationtemplate: Há {number} {unit}
 #& Videos
   Play Previous Video: Reproduzir vídeo anterior
   Play Next Video: Reproduzir vídeo seguinte

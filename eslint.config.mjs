@@ -10,6 +10,8 @@ import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
 import neostandard from 'neostandard'
+import jsdoc from 'eslint-plugin-jsdoc'
+import freetube from './_scripts/eslint-rules/plugin.mjs'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
@@ -40,6 +42,8 @@ export default [
     ],
     plugins: {
       unicorn: eslintPluginUnicorn,
+      jsdoc,
+      freetube,
     },
 
     languageOptions: {
@@ -115,6 +119,17 @@ export default [
       '@intlify/vue-i18n/no-deprecated-tc': 'off',
       'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
+
+      'jsdoc/check-alignment': 'error',
+      'jsdoc/check-property-names': 'error',
+      'jsdoc/check-param-names': 'error',
+      'jsdoc/check-syntax': 'error',
+      'jsdoc/check-template-names': 'error',
+      'jsdoc/check-types': 'error',
+      'jsdoc/no-bad-blocks': 'error',
+      'jsdoc/no-multi-asterisks': 'error',
+
+      'freetube/prefer-use-i18n-polyfill': 'error',
     },
   },
 
@@ -209,7 +224,7 @@ export default [
     }
   },
   {
-    files: ['_scripts/*.mjs'],
+    files: ['_scripts/**/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.node,

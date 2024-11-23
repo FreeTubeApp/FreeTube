@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT } from 'youtubei.js'
+import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -9,8 +9,8 @@ import {
   escapeHTML,
   extractNumberFromString,
   getChannelPlaylistId,
+  getRelativeTimeFromDate,
   randomArrayItem,
-  toLocalePublicationString
 } from '../utils'
 
 const TRACKING_PARAM_NAMES = [
@@ -550,15 +550,15 @@ export async function getLocalArtistTopicChannelReleasesContinuation(channel, co
  * @param {boolean} onlyIdNameThumbnail
  */
 export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
-  /** @type {string=} */
+  /** @type {string?} */
   let id
   /** @type {string} */
   let name
-  /** @type {string=} */
+  /** @type {string?} */
   let thumbnailUrl
-  /** @type {string=} */
+  /** @type {string?} */
   let bannerUrl
-  /** @type {string=} */
+  /** @type {string?} */
   let subscriberText
   /** @type {string[]} */
   const tags = []
@@ -766,27 +766,11 @@ export function parseLocalChannelShorts(shorts, channelId, channelName) {
 /**
  * @param {import('youtubei.js').YTNodes.Playlist|import('youtubei.js').YTNodes.GridPlaylist|import('youtubei.js').YTNodes.LockupView} playlist
  * @param {string} channelId
- * @param {string} chanelName
+ * @param {string} channelName
  */
 export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
   if (playlist.type === 'LockupView') {
-    /** @type {import('youtubei.js').YTNodes.LockupView} */
-    const lockupView = playlist
-
-    /** @type {import('youtubei.js').YTNodes.ThumbnailOverlayBadgeView} */
-    const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
-      .find(overlay => overlay.type === 'ThumbnailOverlayBadgeView')
-
-    return {
-      type: 'playlist',
-      dataSource: 'local',
-      title: lockupView.metadata.title.text,
-      thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
-      channelName,
-      channelId,
-      playlistId: lockupView.content_id,
-      videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
-    }
+    return parseLockupView(playlist, channelId, channelName)
   } else {
     let internalChannelName
     let internalChannelId = null
@@ -858,7 +842,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie' || item.type === 'LockupView'
     })
     .map((item) => parseListItem(item))
 
@@ -1051,6 +1035,41 @@ export function parseLocalListVideo(item) {
 }
 
 /**
+ * @param {import('youtubei.js').YTNodes.LockupView} lockupView
+ * @param {string | undefined} channelId
+ * @param {string | undefined} channelName
+ */
+function parseLockupView(lockupView, channelId = undefined, channelName = undefined) {
+  switch (lockupView.content_type) {
+    case 'PLAYLIST':
+    case 'PODCAST': {
+      const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
+        .find(overlay => overlay.is(YTNodes.ThumbnailOverlayBadgeView))
+
+      const maybeChannelText = lockupView.metadata?.metadata?.metadata_rows?.[0]?.metadata_parts?.[0]?.text
+
+      if (maybeChannelText && maybeChannelText.endpoint?.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
+        channelName = maybeChannelText.text
+        channelId = maybeChannelText.endpoint.payload.browseId
+      }
+
+      return {
+        type: 'playlist',
+        dataSource: 'local',
+        playlistId: lockupView.content_id,
+        title: lockupView.metadata.title.text,
+        thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
+        channelName,
+        channelId,
+        videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
+      }
+    }
+    default:
+      console.warn(`Unknown lockup content type: ${lockupView.content_type}`, lockupView)
+  }
+}
+
+/**
  * @param {import('youtubei.js').Helpers.YTNode} item
  */
 function parseListItem(item) {
@@ -1073,20 +1092,20 @@ function parseListItem(item) {
         handle = channel.subscriber_count.text
 
         if (!channel.video_count.isEmpty()) {
-          subscribers = channel.video_count.text
+          subscribers = parseLocalSubscriberCount(channel.video_count.text)
         }
       } else {
         videos = extractNumberFromString(channel.video_count.text)
 
         if (!channel.subscriber_count.isEmpty()) {
-          subscribers = channel.subscriber_count.text
+          subscribers = parseLocalSubscriberCount(channel.subscriber_count.text)
         }
       }
 
       return {
         type: 'channel',
         dataSource: 'local',
-        thumbnail: channel.author.best_thumbnail?.url,
+        thumbnail: channel.author.best_thumbnail?.url.replace(/^\/\//, 'https://'),
         name: channel.author.name,
         id: channel.author.id,
         subscribers,
@@ -1109,6 +1128,8 @@ function parseListItem(item) {
     case 'Playlist': {
       return parseLocalListPlaylist(item)
     }
+    case 'LockupView':
+      return parseLockupView(item)
   }
 }
 
@@ -1355,7 +1376,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     const comment_ = comment
 
     parsed.memberIconUrl = comment_.is_member ? comment_.sponsor_comment_badge.custom_badge[0].url : ''
-    parsed.time = toLocalePublicationString({ publishText: comment_.published.text.replace('(edited)', '').trim() })
+    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(comment_.published.text.replace('(edited)', '').trim()), false)
     parsed.likes = comment_.vote_count
     parsed.numReplies = comment_.reply_count
   } else {
@@ -1363,7 +1384,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     const commentView = comment
 
     parsed.memberIconUrl = commentView.is_member ? commentView.member_badge.url : ''
-    parsed.time = toLocalePublicationString({ publishText: commentView.published_time.replace('(edited)', '').trim() })
+    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(commentView.published_time.replace('(edited)', '').trim()), false)
     parsed.likes = commentView.like_count
     parsed.numReplies = parseLocalSubscriberCount(commentView.reply_count)
   }

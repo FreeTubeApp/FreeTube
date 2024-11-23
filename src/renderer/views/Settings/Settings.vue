@@ -47,7 +47,7 @@
     </template>
     <password-dialog
       v-else
-      @unlocked="unlocked = true"
+      @unlocked="handleUnlock"
     />
   </div>
 </template>

@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import shaka from 'shaka-player'
+import { Utils, YTNodes } from 'youtubei.js'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtShakaVideoPlayer from '../../components/ft-shaka-video-player/ft-shaka-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
@@ -91,6 +92,8 @@ export default defineComponent({
       videoLengthSeconds: 0,
       videoChapters: [],
       videoCurrentChapterIndex: 0,
+      /** @type {'chapters' | 'keyMoments'} */
+      videoChaptersKind: 'chapters',
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -450,7 +453,26 @@ export default defineComponent({
               })
             }
           } else {
-            chapters = this.extractChaptersFromDescription(result.basic_info.short_description ?? result.secondary_info.description.text)
+            /** @type {import('youtubei.js').YTNodes.MacroMarkersList | null | undefined} */
+            const macroMarkersList = result.page[1]?.engagement_panels
+              ?.find(pannel => pannel.panel_identifier === 'engagement-panel-macro-markers-auto-chapters')?.content
+
+            if (macroMarkersList) {
+              for (const item of macroMarkersList.contents) {
+                if (item instanceof YTNodes.MacroMarkersListItem) {
+                  chapters.push({
+                    title: item.title.text,
+                    timestamp: item.time_description.text,
+                    startSeconds: Utils.timeToSeconds(item.time_description.text),
+                    endSeconds: 0,
+                    thumbnail: item.thumbnail[0]
+                  })
+                }
+              }
+              this.videoChaptersKind = 'keyMoments'
+            } else {
+              chapters = this.extractChaptersFromDescription(result.basic_info.short_description ?? result.secondary_info.description.text)
+            }
           }
 
           if (chapters.length > 0) {
@@ -722,6 +744,7 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
+            /** @type {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData[]} */
             let source = result.storyboards.boards
             if (window.innerWidth < 500) {
               source = source.filter((board) => board.thumbnail_height <= 90)
@@ -848,6 +871,8 @@ export default defineComponent({
             // // https://github.com/iv-org/invidious/pull/4589
             // if (this.proxyVideos) {
 
+            this.streamingDataExpiryDate = this.extractExpiryDateFromStreamingUrl(result.adaptiveFormats[0].url)
+
             let hlsManifestUrl = result.hlsUrl
 
             if (this.proxyVideos) {
@@ -875,6 +900,8 @@ export default defineComponent({
             }
           } else {
             this.videoLengthSeconds = result.lengthSeconds
+
+            this.streamingDataExpiryDate = this.extractExpiryDateFromStreamingUrl(result.adaptiveFormats[0].url)
 
             this.legacyFormats = result.formatStreams.map(mapInvidiousLegacyFormat)
 
@@ -943,6 +970,12 @@ export default defineComponent({
             this.isLoading = false
           }
         })
+    },
+
+    extractExpiryDateFromStreamingUrl: function (url) {
+      const expireString = new URL(url).searchParams.get('expire')
+
+      return new Date(parseInt(expireString) * 1000)
     },
 
     /**
@@ -1269,6 +1302,7 @@ export default defineComponent({
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
       this.videoChapters = []
+      this.videoChaptersKind = 'chapters'
 
       this.handleWatchProgress()
     },
@@ -1387,7 +1421,7 @@ export default defineComponent({
           if (localFormat.has_audio) {
             audioFormats.push(localFormat)
 
-            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary) {
+            if (localFormat.is_dubbed || localFormat.is_descriptive || localFormat.is_secondary || localFormat.is_auto_dubbed) {
               hasMultipleAudioTracks = true
             }
           }
@@ -1397,7 +1431,7 @@ export default defineComponent({
 
         if (hasMultipleAudioTracks) {
           // match YouTube's local API response with English
-          const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+          const languageNames = new Intl.DisplayNames('en-US', { type: 'language', languageDisplay: 'standard' })
           for (const format of audioFormats) {
             this.generateAudioTrackFieldInvidious(format, languageNames)
           }
@@ -1435,6 +1469,9 @@ export default defineComponent({
       } else if (format.is_secondary) {
         type = ' secondary'
         idNumber = 6
+      } else if (format.is_auto_dubbed) {
+        type = ''
+        idNumber = 10
       } else {
         type = ' alternative'
         idNumber = -1
@@ -1472,6 +1509,10 @@ export default defineComponent({
       return result.adaptiveFormats
     },
 
+    /**
+     * @param {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData} storyboardInfo
+     * @returns {string}
+     */
     createLocalStoryboardUrls: function (storyboardInfo) {
       const results = buildVTTFileLocally(storyboardInfo, this.videoLengthSeconds)
 
@@ -1491,7 +1532,7 @@ export default defineComponent({
       // otherwise just fallback to the FreeTube display language and hope that YouTube will be able to handle it
       if (!translationLanguage) {
         translationName = this.$t('Locale Name')
-        translationCode = userLanguages.values().next()
+        translationCode = userLanguages.values().next().value
       } else {
         translationName = translationLanguage.language_name.text
         translationCode = translationLanguage.language_code

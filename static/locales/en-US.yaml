@@ -190,6 +190,8 @@ User Playlists:
   Remove Watched Videos: Remove Watched Videos
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
   Quick Bookmark Enabled: Quick Bookmark Enabled
+  Export Playlist: Export This Playlist
+  The playlist has been successfully exported: The playlist has been successfully exported
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
   Delete Playlist: Delete Playlist
@@ -572,6 +574,7 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or FreeTube won't be able to fetch any data.
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -824,39 +827,10 @@ Video:
   video only: video only
   audio only: audio only
   Published:
-    Jan: Jan
-    Feb: Feb
-    Mar: Mar
-    Apr: Apr
-    May: May
-    Jun: Jun
-    Jul: Jul
-    Aug: Aug
-    Sep: Sep
-    Oct: Oct
-    Nov: Nov
-    Dec: Dec
-    Second: Second
-    Seconds: Seconds
-    Minute: Minute
-    Minutes: Minutes
-    Hour: Hour
-    Hours: Hours
-    Day: Day
-    Days: Days
-    Week: Week
-    Weeks: Weeks
-    Month: Month
-    Months: Months
-    Year: Year
-    Years: Years
-    Ago: Ago
-    Upcoming: Premieres on
     In less than a minute: In less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
-  Publicationtemplate: '{number} {unit} ago'
   Sponsor Block category:
     sponsor: Sponsor
     intro: Intro
@@ -968,6 +942,7 @@ Clipboard:
 
 Chapters:
   Chapters: Chapters
+  Key Moments: Key Moments
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 

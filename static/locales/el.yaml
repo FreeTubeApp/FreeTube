@@ -666,37 +666,8 @@ Video:
     ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
     άμεση σύνδεση με το YouTube.'
   Published:
-    Jan: 'Ιαν'
-    Feb: 'Φεβ'
-    Mar: 'Μαρ'
-    Apr: 'Απρ'
-    May: 'Μάιος'
-    Jun: 'Ιουν'
-    Jul: 'Ιουλ'
-    Aug: 'Αυγ'
-    Sep: 'Σεπ'
-    Oct: 'Οκτ'
-    Nov: 'Νοε'
-    Dec: 'Δεκ'
-    Second: 'Δευτερόλεπτο'
-    Seconds: 'Δευτερόλεπτα'
-    Minute: 'Λεπτό'
-    Minutes: 'Λεπτά'
-    Hour: 'Ώρα'
-    Hours: 'Ώρες'
-    Day: 'Ημέρα'
-    Days: 'Ημέρες'
-    Week: 'Εβδομάδα'
-    Weeks: 'Εβδομάδες'
-    Month: 'Μήνας'
-    Months: 'Μήνες'
-    Year: 'Έτος'
-    Years: 'Χρόνια'
-    Ago: 'Πριν'
-    Upcoming: 'Κάνει πρεμιέρα στις'
     In less than a minute: Σε λιγότερο από ένα λεπτό
   Published on: 'Δημοσιεύθηκε στις'
-  Publicationtemplate: 'δημοσιεύθηκε πριν από {number} {unit}'
 #& Videos
   Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε
     κάντε ανανέωση της σελίδας για επανέλεγχο
