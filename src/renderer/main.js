@@ -38,7 +38,6 @@ import {
   faCopy,
   faDatabase,
   faDisplay,
-  faDotCircle,
   faDownload,
   faEdit,
   faEllipsisH,

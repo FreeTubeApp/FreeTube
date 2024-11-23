@@ -12,6 +12,7 @@
       }"
       :style="{
         padding: padding + 'px',
+        fontSize: size + 'px'
       }"
       tabindex="0"
       role="button"
