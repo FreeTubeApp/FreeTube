@@ -573,6 +573,7 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or FreeTube won't be able to fetch any data.
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
