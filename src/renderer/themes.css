@@ -1561,26 +1561,23 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity3: rgb(214 93 14 / 16%);
 }
 
+.secGruvboxLightOrange,
+.secGruvboxLightRed,
+.secGruvboxLightBlue,
+.secGruvboxLightPurple {
+  --text-with-accent-color: #fbf1c7;
+}
+
+.secGruvboxDarkGreen,
 .secGruvboxDarkYellow,
-.secGruvboxDarkBlue,
-.secGruvboxDarkPurple,
 .secGruvboxDarkAqua,
 .secGruvboxDarkOrange {
   --text-with-accent-color: #3c3836;
 }
 
-.secGruvboxDarkGreen,
-.secGruvboxDarkAqua {
-  --text-with-accent-color: #1d2021;
-}
-
-.secGruvboxDarkOrange,
-.secGruvboxDarkPurple,
 .secGruvboxDarkBlue,
-.secGruvboxLightOrange,
-.secGruvboxLightBlue,
-.secGruvboxLightPurple {
-  --text-with-accent-color: #0d1011;
+.secGruvboxDarkPurple {
+  --text-with-accent-color: #1d2021;
 }
 
 
