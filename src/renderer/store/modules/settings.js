@@ -182,7 +182,7 @@ const state = {
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
-  displayVideoPlayButton: true,
+  displayVideoPlayButton: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
@@ -310,9 +310,9 @@ const state = {
 
 const stateWithSideEffects = {
   currentLocale: {
-    defaultValue: 'en-US',
+    defaultValue: 'system',
     sideEffectsHandler: async function ({ dispatch }, value) {
-      const defaultLocale = 'en-US'
+      const fallbackLocale = 'en-US'
 
       let targetLocale = value
       if (value === 'system') {
@@ -343,20 +343,20 @@ const stateWithSideEffects = {
           targetLocale = targetLocaleOptions[0]
         } else {
           // Go back to default value if locale is unavailable
-          targetLocale = defaultLocale
+          targetLocale = fallbackLocale
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
           // (in this case, English (US))
-          showToast(`Locale not found, defaulting to ${defaultLocale}`)
+          showToast(`Locale not found, defaulting to ${fallbackLocale}`)
         }
       }
 
       const loadPromises = []
 
-      if (targetLocale !== defaultLocale) {
+      if (targetLocale !== fallbackLocale) {
         // "en-US" is used as a fallback for missing strings in other locales
         loadPromises.push(
-          loadLocale(defaultLocale)
+          loadLocale(fallbackLocale)
         )
       }
 
