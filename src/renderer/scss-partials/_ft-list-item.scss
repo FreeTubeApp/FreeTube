@@ -216,7 +216,7 @@ $watched-transition-duration: 0.5s;
     grid-template:
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
-      'description description' auto / 1fr auto;
+      'description optionsExternalButton' auto / 1fr auto;
 
     .buttonStack {
       grid-area: optionsExternalButton;
