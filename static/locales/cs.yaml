@@ -578,6 +578,12 @@ Settings:
     Proxy Protocol: Protokol proxy
     Error getting network information. Is your proxy configured properly?: Chyba při
       získávání informací o síti. Je vaše proxy správně nakonfigurována?
+    Proxy Warning: FreeTube nemá vestavěný proxy server, ale může se připojit k externímu
+      proxy serveru, například k proxy serveru běžícímu na vašem počítači, jako je
+      Tor, nebo k externímu proxy serveru, jako je proxy server SOCKS5 poskytovaný
+      některými sítěmi VPN. Pokud je tato funkce povolena, ujistěte se, že je proxy
+      server/Tor správně nakonfigurován, jinak FreeTube nebude moci načítat žádná
+      data.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
