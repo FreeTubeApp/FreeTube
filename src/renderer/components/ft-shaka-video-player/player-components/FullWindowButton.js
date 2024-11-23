@@ -71,7 +71,6 @@ export class FullWindowButton extends shaka.ui.Element {
   updateLocalisedStrings_() {
     this.nameSpan_.textContent = i18n.t('Video.Player.Full Window')
 
-
     this.icon_.textContent = this.fullWindowEnabled_ ? 'close_fullscreen' : 'open_in_full'
 
     this.currentState_.textContent = this.localization.resolve(this.fullWindowEnabled_ ? 'ON' : 'OFF')

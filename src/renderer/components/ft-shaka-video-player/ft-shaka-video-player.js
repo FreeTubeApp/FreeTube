@@ -3,10 +3,9 @@ import path from 'path'
 
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
+import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import i18n from '../../i18n/index'
-
 import { IpcChannels, KeyboardShortcuts } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
@@ -18,7 +17,6 @@ import {
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
-  qualityLabelToDimension,
   repairInvidiousManifest,
   sortCaptions,
   translateSponsorBlockCategory
@@ -130,6 +128,8 @@ export default defineComponent({
     'toggle-theatre-mode'
   ],
   setup: function (props, { emit, expose }) {
+    const { locale, t } = useI18n()
+
     /** @type {shaka.Player|null} */
     let player = null
 
@@ -370,7 +370,7 @@ export default defineComponent({
        *     color: string,
        *     skip: 'autoSkip' | 'promptToSkip' | 'showInSeekBar' | 'doNothing'
        *   }
-       * }} */
+        }} */
       const categoryData = {}
 
       sponsorCategories.forEach(x => {
@@ -552,7 +552,7 @@ export default defineComponent({
      * @param {'dash'|'audio'|'legacy'} format
      * @param {boolean} useAutoQuality
      * @returns {shaka.extern.PlayerConfiguration}
-     **/
+     */
     function getPlayerConfig(format, useAutoQuality = false) {
       return {
         // YouTube uses these values and they seem to work well in FreeTube too,
@@ -570,7 +570,6 @@ export default defineComponent({
           dash: {
             manifestPreprocessorTXml: manifestPreprocessorTXml
           },
-          availabilityWindowOverride: seekingIsPossible.value ? NaN : 0
         },
         abr: {
           enabled: useAutoQuality,
@@ -580,9 +579,11 @@ export default defineComponent({
         },
         autoShowText: shaka.config.AutoShowText.NEVER,
 
-        // Only use variants that are predicted to play smoothly
+        // Prioritise variants that are predicted to play:
+        // - `smooth`: without dropping frames
+        // - `powerEfficient` the spec is quite vague but in Chromium it should prioritise hardware decoding when available
         // https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilities/decodingInfo
-        preferredDecodingAttributes: format === 'dash' ? ['smooth'] : [],
+        preferredDecodingAttributes: format === 'dash' ? ['smooth', 'powerEfficient'] : [],
 
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
@@ -1027,7 +1028,7 @@ export default defineComponent({
       events.dispatchEvent(new CustomEvent('localeChanged'))
     }
 
-    watch(() => i18n.locale, setLocale)
+    watch(locale, setLocale)
 
     // #endregion player locales
 
@@ -1286,33 +1287,30 @@ export default defineComponent({
     }
 
     /**
-     * @param {'dash'|'audio'|null} previousFormat
      * @param {number|null} playbackPosition
+     * @param {number|undefined} previousQuality
      */
-    async function setLegacyQuality(previousFormat = null, playbackPosition = null) {
+    async function setLegacyQuality(playbackPosition = null, previousQuality = undefined) {
+      if (typeof previousQuality === 'undefined') {
+        if (defaultQuality.value === 'auto') {
+          previousQuality = Infinity
+        } else {
+          previousQuality = defaultQuality.value
+        }
+      }
+
       /** @type {object[]} */
       const legacyFormats = props.legacyFormats
 
-      // TODO: switch to using height and width when Invidious starts returning them, instead of parsing the quality label
-
-      let previousQuality
-      if (previousFormat === 'dash') {
-        const previousTrack = player.getVariantTracks().find(track => track.active)
-
-        previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
-      } else if (defaultQuality.value === 'auto') {
-        previousQuality = Infinity
-      } else {
-        previousQuality = defaultQuality.value
-      }
+      const isPortrait = legacyFormats[0].height > legacyFormats[0].width
 
       let matches = legacyFormats.filter(variant => {
-        return previousQuality === qualityLabelToDimension(variant.qualityLabel)
+        return previousQuality === isPortrait ? variant.width : variant.height
       })
 
       if (matches.length === 0) {
         matches = legacyFormats.filter(variant => {
-          return previousQuality > qualityLabelToDimension(variant.qualityLabel)
+          return previousQuality > isPortrait ? variant.width : variant.height
         })
 
         if (matches.length > 0) {
@@ -1442,26 +1440,8 @@ export default defineComponent({
 
       stats.bitrate = (bitrate / 1000).toFixed(2)
 
-      if (typeof width === 'undefined' || typeof height === 'undefined') {
-        // Invidious doesn't provide any height or width information for their legacy formats, so lets read it from the video instead
-        // they have a size property but it's hard-coded, so it reports false information for shorts for example
-        const video_ = video.value
-
-        if (hasLoaded.value) {
-          stats.resolution.width = video_.videoWidth
-          stats.resolution.height = video_.videoHeight
-        } else {
-          video_.addEventListener('loadeddata', () => {
-            stats.resolution.width = video_.videoWidth
-            stats.resolution.height = video_.videoHeight
-          }, {
-            once: true
-          })
-        }
-      } else {
-        stats.resolution.width = width
-        stats.resolution.height = height
-      }
+      stats.resolution.width = width
+      stats.resolution.height = height
     }
 
     function updateStats() {
@@ -1554,7 +1534,7 @@ export default defineComponent({
         })
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
-        showToast(i18n.t('Screenshot Error', { error: err.message }))
+        showToast(t('Screenshot Error', { error: err.message }))
         canvas.remove()
         return
       }
@@ -1619,7 +1599,7 @@ export default defineComponent({
             await fs.mkdir(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
-            showToast(i18n.t('Screenshot Error', { error: err }))
+            showToast(t('Screenshot Error', { error: err }))
             canvas.remove()
             return
           }
@@ -1633,11 +1613,11 @@ export default defineComponent({
 
           fs.writeFile(filePath, arr)
             .then(() => {
-              showToast(i18n.t('Screenshot Success', { filePath }))
+              showToast(t('Screenshot Success', { filePath }))
             })
             .catch((err) => {
               console.error(err)
-              showToast(i18n.t('Screenshot Error', { error: err }))
+              showToast(t('Screenshot Error', { error: err }))
             })
         })
       }, mimeType, imageQuality)
@@ -1854,7 +1834,7 @@ export default defineComponent({
       const seekRange = player.seekRange()
 
       // Seeking not possible e.g. with HLS
-      if (seekRange.start === seekRange.end) {
+      if (seekRange.start === seekRange.end || !seekingIsPossible.value) {
         return false
       }
 
@@ -1924,7 +1904,7 @@ export default defineComponent({
 
     /**
      * @param {WheelEvent} event
-     * */
+     */
     function mouseScrollVolume(event) {
       if (!event.ctrlKey && !event.metaKey) {
         event.preventDefault()
@@ -2127,9 +2107,12 @@ export default defineComponent({
           break
         }
         case KeyboardShortcuts.VIDEO_PLAYER.LAST_FRAME:
-          event.preventDefault()
-          // Return to previous frame
-          frameByFrame(-1)
+          // `⌘+,` is for settings in MacOS
+          if (!event.metaKey) {
+            event.preventDefault()
+            // Return to previous frame
+            frameByFrame(-1)
+          }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.NEXT_FRAME:
           event.preventDefault()
@@ -2183,17 +2166,28 @@ export default defineComponent({
 
     // #endregion keyboard shortcuts
 
+    let ignoreErrors = false
+
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
-     * @param {object=} details
+     * @param {object?} details
      */
     function handleError(error, context, details) {
+      // These two errors are just wrappers around another error, so use the original error instead
+      // As they can be nested (e.g. multiple googlevideo redirects because the Invidious server was far away from the user) we should pick the inner most one
+      while (error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR || error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR) {
+        error = error.data[0]
+      }
+
       logShakaError(error, context, props.videoId, details)
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (error.category !== shaka.util.Error.Category.TEXT) {
+      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+        // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
+        ignoreErrors = true
+
         emit('error', error)
 
         stopPowerSaveBlocker()
@@ -2355,7 +2349,7 @@ export default defineComponent({
         player.getNetworkingEngine().registerResponseFilter(responseFilter)
       }
 
-      await setLocale(i18n.locale)
+      await setLocale(locale.value)
 
       // check if the component is already getting destroyed
       // which is possible because this function runs asynchronously
@@ -2407,19 +2401,8 @@ export default defineComponent({
       } else {
         // force the player aspect ratio to 16:9 to avoid overflowing the layout, when the video is too tall
 
-        // Invidious doesn't provide any height or width information for their legacy formats, so lets read it from the video instead
-        // they have a size property but it's hard-coded, so it reports false information for shorts for example
-
         const firstFormat = props.legacyFormats[0]
-        if (typeof firstFormat.width === 'undefined' || typeof firstFormat.height === 'undefined') {
-          videoElement.addEventListener('loadeddata', () => {
-            forceAspectRatio.value = videoElement.videoWidth / videoElement.videoHeight < 1.5
-          }, {
-            once: true
-          })
-        } else {
-          forceAspectRatio.value = firstFormat.width / firstFormat.height < 1.5
-        }
+        forceAspectRatio.value = firstFormat.width / firstFormat.height < 1.5
       }
 
       if (useSponsorBlock.value && sponsorSkips.value.seekBar.length > 0) {
@@ -2427,6 +2410,10 @@ export default defineComponent({
       }
 
       window.addEventListener('beforeunload', stopPowerSaveBlocker)
+
+      // shaka-player doesn't start with the cursor hidden, so hide it here for instances in which the
+      // cursor is in the video player area when the video first loads
+      container.value.classList.add('no-cursor')
 
       await performFirstLoad()
     })
@@ -2457,7 +2444,7 @@ export default defineComponent({
           handleError(error, 'loading dash/audio manifest and setting default quality in mounted')
         }
       } else {
-        await setLegacyQuality(null, props.startTime)
+        await setLegacyQuality(props.startTime)
       }
     }
 
@@ -2575,9 +2562,17 @@ export default defineComponent({
        * @param {'dash'|'audio'|'legacy'} oldFormat
        */
       async (newFormat, oldFormat) => {
+        ignoreErrors = true
+
         // format switch happened before the player loaded, probably because of an error
         // as there are no previous player settings to restore, we should treat it like this was the original format
         if (!hasLoaded.value) {
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, defaultQuality.value === 'auto'))
 
           await performFirstLoad()
@@ -2617,7 +2612,7 @@ export default defineComponent({
             const legacyFormat = activeLegacyFormat.value
 
             if (!useAutoQuality) {
-              dimension = qualityLabelToDimension(legacyFormat.qualityLabel)
+              dimension = legacyFormat.height > legacyFormat.width ? legacyFormat.width : legacyFormat.height
             }
           } else if (oldFormat !== 'legacy') {
             const track = player.getVariantTracks().find(track => track.active)
@@ -2639,6 +2634,12 @@ export default defineComponent({
               useAutoQuality = true
             }
           }
+
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
 
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
 
@@ -2677,7 +2678,21 @@ export default defineComponent({
           }
           activeLegacyFormat.value = null
         } else {
-          await setLegacyQuality(oldFormat, playbackPosition)
+          let previousQuality
+
+          if (oldFormat === 'dash') {
+            const previousTrack = player.getVariantTracks().find(track => track.active)
+
+            previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
+          }
+
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
+          await setLegacyQuality(playbackPosition, previousQuality)
         }
 
         if (wasPaused) {
@@ -2745,6 +2760,8 @@ export default defineComponent({
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      */
     async function destroyPlayer() {
+      ignoreErrors = true
+
       if (ui) {
         // destroying the ui also destroys the player
         await ui.destroy()

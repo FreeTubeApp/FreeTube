@@ -32,7 +32,7 @@ function getMappings(shakaLocales, freeTubeLocales) {
    * @type {[string, string][]}
    * Using this structure as it gets passed to `new Map()` in the player component
    * The first element is the FreeTube locale, the second one is the shaka-player one
-   **/
+   */
   const mappings = []
 
   for (const locale of freeTubeLocales) {
