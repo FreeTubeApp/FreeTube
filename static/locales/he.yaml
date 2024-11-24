@@ -560,6 +560,10 @@ Settings:
     Proxy Protocol: פרוטוקול מתווך
     Enable Tor / Proxy: הפעלת Tor / מתווך
     Proxy Settings: מתווך (פרוקסי)
+    Proxy Warning: ל־FreeTube אין מתווך מובנה אבל הוא יכול להתחבר למתווך חיצוני, כמו
+      למשל כזה שרץ על המחשב שלך כמו Tor או מתווך חיצוני כגון מתווך SOCKS5 שמסופק על
+      ידי איזשהו ספק VPN. אם האפשרות פעילה, נא לוודא שהמתווך/Tor שלך מוגדרים כראוי,
+      או ש־FreeTube לא יוכל למשוך נתונים כלל.
   External Player Settings:
     External Player: נגן חיצוני
     External Player Settings: נגן חיצוני
@@ -1074,6 +1078,7 @@ Chapters:
   Chapters: פרקים
   'Chapters list visible, current chapter: {chapterName}': 'רשימת הפרקים גלויה, הפרק
     הנוכחי: {chapterName}'
+  Key Moments: רגעי שיא
 Clipboard:
   Copy failed: ההעתקה ללוח הגזירים נכשלה
   Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא
