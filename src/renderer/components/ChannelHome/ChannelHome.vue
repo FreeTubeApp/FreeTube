@@ -5,7 +5,7 @@
       :key="index"
     >
       <details
-        :open="index == 0"
+        open
       >
         <summary
           class="shelfTitle"
