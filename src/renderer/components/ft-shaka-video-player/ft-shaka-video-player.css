@@ -256,6 +256,11 @@
   :deep(.shaka-controls-container[shown='true']~.shaka-text-container) {
     bottom: 12.5%;
   }
+
+  :deep(.shaka-controls-button-panel>button) {
+    height: 40px;
+    line-height: 0.5;
+  }
 }
 
 @media only screen and (width <=1350px) {
