@@ -272,67 +272,88 @@ export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQu
   }
 }
 
-export async function showOpenDialog (options) {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.SHOW_OPEN_DIALOG, options)
+/**
+ * @param {string} fileTypeDescription
+ * @param {{[key: string]: string | string[]}} acceptedTypes
+ * @param {string} [rememberDirectoryId]
+ * @param {'desktop' | 'documents' | 'downloads' | 'music' | 'pictures' | 'videos'} [startInDirectory]
+ * @returns {Promise<{ content: string, filename: string } | null>}
+ */
+export async function readFileWithPicker(
+  fileTypeDescription,
+  acceptedTypes,
+  rememberDirectoryId,
+  startInDirectory
+) {
+  let file
+
+  // Only supported in Electron and desktop Chromium browsers
+  // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
+  // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
+  // and allow terser to remove the unused else block
+  if (process.env.IS_ELECTRON || 'showOpenFilePicker' in window) {
+    try {
+      /** @type {FileSystemFileHandle[]} */
+      const [handle] = await window.showOpenFilePicker({
+        excludeAcceptAllOption: true,
+        multiple: false,
+        id: rememberDirectoryId,
+        startIn: startInDirectory,
+        types: [{
+          description: fileTypeDescription,
+          accept: acceptedTypes
+        }],
+      })
+
+      file = await handle.getFile()
+    } catch (error) {
+      // user pressed cancel in the file picker
+      if (error.name === 'AbortError') {
+        return null
+      }
+
+      throw error
+    }
   } else {
-    return await new Promise((resolve) => {
+    /** @type {File|null} */
+    const fallbackFile = await new Promise((resolve) => {
+      const joinedExtensions = Object.values(acceptedTypes)
+        .flat()
+        .join(',')
+
       const fileInput = document.createElement('input')
       fileInput.setAttribute('type', 'file')
-      if (options?.filters[0]?.extensions !== undefined) {
-        // this will map the given extensions from the options to the accept attribute of the input
-        fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
-      }
+      fileInput.setAttribute('accept', joinedExtensions)
       fileInput.onchange = () => {
-        const files = Array.from(fileInput.files)
-        resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
-        delete fileInput.onchange
+        resolve(fileInput.files[0])
+        fileInput.onchange = null
       }
+
       const listenForEnd = () => {
-        window.removeEventListener('focus', listenForEnd)
         // 1 second timeout on the response from the file picker to prevent awaiting forever
         setTimeout(() => {
           if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
             // if there are no files and the onchange has not been triggered, the file-picker was canceled
-            resolve({ canceled: true })
-            delete fileInput.onchange
+            resolve(null)
+            fileInput.onchange = null
           }
         }, 1000)
       }
-      window.addEventListener('focus', listenForEnd)
+      window.addEventListener('focus', listenForEnd, { once: true })
       fileInput.click()
     })
-  }
-}
 
-/**
- * @param {object} response the response from `showOpenDialog`
- * @param {number} index which file to read (defaults to the first in the response)
- * @returns {string} the text contents of the selected file
- */
-export function readFileFromDialog(response, index = 0) {
-  return new Promise((resolve, reject) => {
-    if (process.env.IS_ELECTRON) {
-      // if this is Electron, use fs
-      fs.readFile(response.filePaths[index])
-        .then(data => {
-          resolve(new TextDecoder('utf-8').decode(data))
-        })
-        .catch(reject)
-    } else {
-      // if this is web, use FileReader
-      try {
-        const reader = new FileReader()
-        reader.onload = function (file) {
-          resolve(file.currentTarget.result)
-        }
-        reader.readAsText(response.files[index])
-      } catch (exception) {
-        reject(exception)
-      }
+    if (fallbackFile === null) {
+      return null
     }
-  })
+
+    file = fallbackFile
+  }
+
+  return {
+    content: await file.text(),
+    filename: file.name
+  }
 }
 
 /**
