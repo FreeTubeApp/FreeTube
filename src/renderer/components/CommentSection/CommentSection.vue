@@ -764,12 +764,12 @@ async function getPostCommentRepliesInvidious(index) {
   const replyToken = replyTokens.get(comment.id)
 
   try {
-    const { commentData, continuation } = getInvidiousCommunityPostCommentReplies({
+    const { commentData: comments, continuation } = await getInvidiousCommunityPostCommentReplies({
       postId: props.id,
       replyToken: replyToken,
       authorId: props.postAuthorId
     })
-    comment.replies = comment.replies.concat(commentData)
+    comment.replies = comment.replies.concat(comments)
     comment.showReplies = true
 
     if (continuation) {
