@@ -1017,7 +1017,7 @@ Tooltips:
     Ignore Default Arguments: Do not send any default arguments to the external player
       aside from the video URL (e.g. playback rate, playlist URL, etc.).
       Custom arguments will still be passed on.
-    Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
+    Custom External Player Arguments: Any custom command line arguments,
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
   Distraction Free Settings:

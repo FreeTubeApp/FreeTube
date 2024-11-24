@@ -190,7 +190,7 @@ const state = {
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
   externalPlayerIgnoreDefaultArgs: false,
-  externalPlayerCustomArgs: '',
+  externalPlayerCustomArgs: '[]',
   expandSideBar: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,

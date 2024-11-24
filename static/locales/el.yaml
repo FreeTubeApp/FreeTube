@@ -879,7 +879,7 @@ Tooltips:
       ρυθμίσεις δεν επηρεάζουν τις εξωτερικές συσκευές αναπαραγωγής.
     DefaultCustomArgumentsTemplate: "(Προεπιλογή: '{defaultCustomArguments}')"
     Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών,
-      διαχωρισμένα με ερωτηματικά (';'), που θέλετε να μεταβιβαστούν στο εξωτερικό
+      που θέλετε να μεταβιβαστούν στο εξωτερικό
       πρόγραμμα αναπαραγωγής.
   Experimental Settings:
     Replace HTTP Cache: Απενεργοποιεί το Electron's disk-based HTTP cache και ενεργοποιεί
