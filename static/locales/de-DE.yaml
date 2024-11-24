@@ -592,8 +592,10 @@ Settings:
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
     Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen
-      Proxy wie Tor oder einem VPN verbunden werden. Stell sicher, dass dein Proxy/Tor
-      eingerichtet ist, sonst kann FreeTube keine Daten abrufen.
+      Proxy verbunden werden, wie z.B. einem, der auf deinem Rechner läuft wie Tor,
+      oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt
+      wird. Stell sicher, dass dein Proxy/Tor eingerichtet ist, sonst kann FreeTube
+      keine Daten abrufen.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Sponsorsegment
       übersprungen wird
