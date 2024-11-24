@@ -734,7 +734,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
@@ -806,7 +806,7 @@ export default defineComponent({
         } else {
           /**
            * @type {import('youtubei.js').YT.Channel}
-          */
+           */
           const channel = this.channelInstance
           let videosTab = await channel.getVideos()
 
@@ -956,7 +956,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         let liveTab = await channel.getLiveStreams()
 
@@ -1448,7 +1448,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
 
         if (this.isArtistTopicChannel) {
@@ -1583,7 +1583,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const podcastTab = await channel.getPodcasts()
 
@@ -1719,9 +1719,6 @@ export default defineComponent({
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
 
         if (this.latestCommunityPosts.length > 0) {
-          this.latestCommunityPosts.forEach(post => {
-            post.authorId = this.id
-          })
           this.updateSubscriptionPostsCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -1783,9 +1780,6 @@ export default defineComponent({
         this.communityContinuationData = continuation
 
         if (this.isSubscribedInAnyProfile && !more && this.latestCommunityPosts.length > 0) {
-          this.latestCommunityPosts.forEach(post => {
-            post.authorId = this.id
-          })
           this.updateSubscriptionPostsCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -2036,9 +2030,6 @@ export default defineComponent({
         })
       }
 
-      this.latestCommunityPosts.forEach(post => {
-        post.authorId = this.id
-      })
       this.updateSubscriptionPostsCacheByChannel({
         channelId: this.id,
         posts: [...this.latestCommunityPosts]

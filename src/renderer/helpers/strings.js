@@ -26,6 +26,9 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
   return false
 }
 
+/**
+ * @param {string} title
+ */
 export function translateWindowTitle(title) {
   switch (title) {
     case 'Subscriptions':
