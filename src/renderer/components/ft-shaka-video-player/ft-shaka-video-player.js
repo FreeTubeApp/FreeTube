@@ -40,6 +40,10 @@ const RequestType = shaka.net.NetworkingEngine.RequestType
 const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
 
+/*
+  Mapping of Shaka localization keys for control labels to FreeTube shortcuts.
+  See: https://github.com/shaka-project/shaka-player/blob/main/ui/locales/en.json
+*/
 const shakaControlKeysToShortcuts = {
   MUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
   UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
