@@ -592,6 +592,11 @@ Settings:
     Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
+    Proxy Warning: A FreeTube nem rendelkezik beépített proxyval, de képes csatlakozni
+      egy külső proxyhoz, például egy olyanhoz, amely az Ön gépén fut, mint a Tor,
+      vagy egy külső proxyhoz, például egy SOCKS5 proxyhoz, amelyet egyes VPN-ek biztosítanak.
+      Ha engedélyezve van, győződjön meg róla, hogy a proxy/Tor megfelelően van beállítva,
+      különben a FreeTube nem fog tudni adatokat lekérni.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Értesítés a szponzorált szakasz kihagyásáról
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
