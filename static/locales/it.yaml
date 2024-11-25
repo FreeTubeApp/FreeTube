@@ -587,6 +587,11 @@ Settings:
       inviata una richiesta a
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
+    Proxy Warning: FreeTube non ha un proxy integrato ma può connettersi a un proxy
+      esterno, come uno in esecuzione sul tuo computer come Tor o un proxy esterno
+      come un proxy SOCKS5 fornito da alcune VPN. Se abilitato, assicurati che il
+      tuo proxy/Tor sia configurato correttamente, altrimenti FreeTube non sarà in
+      grado di recuperare alcun dato.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato

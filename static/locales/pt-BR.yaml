@@ -577,6 +577,11 @@ Settings:
       obter informações da rede. Seu proxy está configurado corretamente?
     City: Cidade
     Region: Região
+    Proxy Warning: FreeTube não tem um proxy integrado, mas pode se conectar a um
+      proxy externo, como um proxy em execução no seu computador, como o Tor, ou um
+      proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver ativado,
+      certifique-se de que seu proxy/Tor esteja configurado corretamente, ou o FreeTube
+      não conseguirá obter nenhum dado.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar quando vídeos publicitários
       for ignorado

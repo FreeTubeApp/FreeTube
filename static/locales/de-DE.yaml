@@ -592,8 +592,10 @@ Settings:
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
     Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen
-      Proxy wie Tor oder einem VPN verbunden werden. Stell sicher, dass dein Proxy/Tor
-      eingerichtet ist, sonst kann FreeTube keine Daten abrufen.
+      Proxy verbunden werden, wie z. B. einem, der auf deinem Rechner läuft wie Tor,
+      oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt
+      wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert
+      ist, oder FreeTube wird keine Daten abrufen können.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Sponsorsegment
       übersprungen wird
@@ -878,7 +880,8 @@ Video:
     angesehen werden, da sie einen Google-Login und eine kostenpflichtige Mitgliedschaft
     im Kanal des Hochladers erfordern.
   AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
-    werden, da sie einen Google-Login und ein altersgeprüftes YouTube-Konto erfordern.
+    werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften
+    YouTube-Kontos erfordern.
 Videos:
   #& Sort By
   Sort By:
