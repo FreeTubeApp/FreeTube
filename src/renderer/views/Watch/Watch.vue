@@ -164,7 +164,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
       />
-      <watch-video-comments
+      <CommentSection
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"

@@ -287,6 +287,10 @@ export async function getLocalVideoInfo(id) {
   return info
 }
 
+/**
+ * @param {string} id
+ * @param {boolean | undefined} sortByNewest
+ */
 export async function getLocalComments(id, sortByNewest = false) {
   const innertube = await createInnertube()
   return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
