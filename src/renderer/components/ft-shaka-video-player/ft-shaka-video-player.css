@@ -261,6 +261,12 @@
     height: 40px;
     line-height: 0.5;
   }
+
+  :deep(.shaka-tooltips-on button:active::after),
+  :deep(.shaka-tooltips-on button:focus-visible::after),
+  :deep(.shaka-tooltips-on button:hover::after) {
+    margin-bottom: 8px;
+  }
 }
 
 @media only screen and (width <=1350px) {
