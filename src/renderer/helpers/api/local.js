@@ -1150,6 +1150,7 @@ export function parseLocalListVideo(item) {
  */
 function parseLockupView(lockupView, channelId = undefined, channelName = undefined) {
   switch (lockupView.content_type) {
+    case 'ALBUM':
     case 'PLAYLIST':
     case 'PODCAST': {
       const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
