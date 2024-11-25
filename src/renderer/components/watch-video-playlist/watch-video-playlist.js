@@ -44,7 +44,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    getPlaylists
   },
   emits: ['pause-player'],
   data: function () {
