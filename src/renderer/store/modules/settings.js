@@ -296,6 +296,8 @@ const state = {
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
   settingsSectionSortEnabled: false,
+  hideAddedChannels: false,
+  hideAddedKeywords: false,
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
   useDeArrowTitles: false,

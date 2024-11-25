@@ -111,6 +111,12 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+    hideAddedChannels: function () {
+      return this.$store.getters.getHideAddedChannels
+    },
+    hideAddedKeywords: function () {
+      return this.$store.getters.getHideAddedKeywords
+    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
         // Legacy support
@@ -224,6 +230,8 @@ export default defineComponent({
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
+      'updateHideAddedChannels',
+      'updateHideAddedKeywords',
     ])
   }
 })

@@ -36,6 +36,10 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
+    hideTags: {
+      type: Boolean,
+      default: false
+    },
     tagList: {
       type: Array,
       default: () => { return [] }
@@ -53,12 +57,7 @@ export default defineComponent({
       default: (_) => ({ preferredName: '', icon: '' }),
     }
   },
-  emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name'],
-  data: function () {
-    return {
-      showTags: false,
-    }
-  },
+  emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name', 'toggle-hide-tags'],
   methods: {
     updateTags: async function (text, _e) {
       if (this.areChannelTags) {
@@ -132,8 +131,8 @@ export default defineComponent({
         this.$emit('change', newList)
       }
     },
-    toggleShowTags: function () {
-      this.showTags = !this.showTags
+    toggleHideTags: function () {
+      this.$emit('toggle-hide-tags', !this.hideTags)
     },
   }
 })
