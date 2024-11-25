@@ -38,6 +38,12 @@
   user-select: text;
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
 .tag-icon {
   border-radius: 50%;
   vertical-align: middle;

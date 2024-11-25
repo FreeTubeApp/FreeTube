@@ -21,6 +21,19 @@
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
+    <div class="checkbox-container">
+      <input
+        :id="label"
+        type="checkbox"
+        :checked="showTags"
+        @change="toggleShowTags"
+        @keydown.enter.prevent="toggleShowTags"
+        @keydown.space.prevent="toggleShowTags"
+      >
+      <label :for="label">
+        {{ showTagsCheckboxTitle }}
+      </label>
+    </div>
     <div
       v-if="showTags"
       class="ft-tag-box"

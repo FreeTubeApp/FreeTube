@@ -228,25 +228,6 @@
       </div>
     </div>
     <br class="hide-on-mobile">
-    <h4
-      class="groupTitle"
-    >
-      {{ $t('Settings.Distraction Free Settings.Sections.Content Filter') }}
-    </h4>
-    <div class="switchColumnGrid">
-      <ft-toggle-switch
-        :label="$t('Settings.Distraction Free Settings.Show Added Channels')"
-        :compact="true"
-        :default-value="showAddedChannels"
-        @change="updateShowAddedChannels"
-      />
-      <ft-toggle-switch
-        :label="$t('Settings.Distraction Free Settings.Show Added Keywords')"
-        :compact="true"
-        :default-value="showAddedKeywords"
-        @change="updateShowAddedKeywords"
-      />
-    </div>
     <ft-flex-box>
       <ft-input-tags
         :disabled="channelHiderDisabled"
@@ -255,7 +236,6 @@
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"
         :tag-list="channelsHidden"
-        :show-tags="showAddedChannels"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
         :validate-tag-name="validateChannelId"
         :find-tag-info="findChannelTagInfo"
@@ -272,7 +252,6 @@
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
         :show-action-button="true"
         :tag-list="forbiddenTitles"
-        :show-tags="showAddedKeywords"
         :min-input-length="3"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         @change="handleForbiddenTitles"

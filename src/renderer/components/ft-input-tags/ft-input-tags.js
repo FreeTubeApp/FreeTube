@@ -28,10 +28,6 @@ export default defineComponent({
       type: String,
       required: true
     },
-    showTags: {
-      type: Boolean,
-      required: true
-    },
     minInputLength: {
       type: Number,
       default: 1
@@ -58,6 +54,12 @@ export default defineComponent({
     }
   },
   emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name'],
+  data: function () {
+    return {
+      showTags: false,
+      showTagsCheckboxTitle: this.$t('Settings.Distraction Free Settings.Show Added Items')
+    }
+  },
   methods: {
     updateTags: async function (text, _e) {
       if (this.areChannelTags) {
@@ -130,6 +132,12 @@ export default defineComponent({
         const newList = this.tagList.filter((tmpTag) => tmpTag.name !== tag.name)
         this.$emit('change', newList)
       }
-    }
+    },
+    toggleShowTags: function () {
+      this.showTags = !this.showTags
+      this.showTagsCheckboxTitle = this.showTags
+        ? this.$t('Settings.Distraction Free Settings.Hide Added Items')
+        : this.$t('Settings.Distraction Free Settings.Show Added Items')
+    },
   }
 })
