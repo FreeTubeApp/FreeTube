@@ -43,7 +43,8 @@ export default defineComponent({
     playlistEnableShuffle: {
       type: Boolean,
       default: false,
-    }
+    },
+    getPlaylists
   },
   emits: ['pause-player'],
   data: function () {
@@ -537,6 +538,7 @@ export default defineComponent({
         items.push(remainingItems[randomInt])
         remainingItems.splice(randomInt, 1)
       }
+
       this.randomizedPlaylistItems = items
     },
 
