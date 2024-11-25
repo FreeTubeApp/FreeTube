@@ -227,6 +227,8 @@
           tabindex="0"
           role="button"
           @click="toggleDeArrow"
+          @keydown.enter.prevent="toggleDeArrow"
+          @keydown.space.prevent="toggleDeArrow"
         />
       </div>
       <p
