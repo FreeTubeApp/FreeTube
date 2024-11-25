@@ -4,7 +4,7 @@
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
-Available for Windows (10 and later), Mac (macOS 10.15 and later) & Linux thanks to Electron.
+Available for Windows (10 and later), Mac (macOS 11 and later) & Linux thanks to Electron.
 
 <p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
 <p align="center">
@@ -79,7 +79,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 ### Official Downloads
 
 > [!CAUTION]
-> FreeTube is only supported on Windows 10 and later, macOS 10.15 and above, and various Linux distributions. Installing it on unsupported systems may result in unexpected issues.
+> FreeTube is only supported on Windows 10 and later, macOS 11 and above, and various Linux distributions. Installing it on unsupported systems may result in unexpected issues.
 
 * [GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
 
