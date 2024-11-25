@@ -223,7 +223,7 @@ export default defineComponent({
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
-      'updateHideSubscriptionsCommunity'
+      'updateHideSubscriptionsCommunity',
     ])
   }
 })
