@@ -57,7 +57,6 @@ export default defineComponent({
   data: function () {
     return {
       showTags: false,
-      showTagsCheckboxTitle: this.$t('Settings.Distraction Free Settings.Show Added Items')
     }
   },
   methods: {
@@ -135,9 +134,6 @@ export default defineComponent({
     },
     toggleShowTags: function () {
       this.showTags = !this.showTags
-      this.showTagsCheckboxTitle = this.showTags
-        ? this.$t('Settings.Distraction Free Settings.Hide Added Items')
-        : this.$t('Settings.Distraction Free Settings.Show Added Items')
     },
   }
 })

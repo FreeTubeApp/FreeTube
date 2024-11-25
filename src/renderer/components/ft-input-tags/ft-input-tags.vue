@@ -31,7 +31,7 @@
         @keydown.space.prevent="toggleShowTags"
       >
       <label :for="label">
-        {{ showTagsCheckboxTitle }}
+        {{ $t('Settings.Distraction Free Settings.Show Added Items') }}
       </label>
     </div>
     <div
