@@ -111,11 +111,11 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
-    hideAddedChannels: function () {
-      return this.$store.getters.getHideAddedChannels
+    showAddedChannels: function () {
+      return this.$store.getters.getShowAddedChannels
     },
-    hideAddedKeywords: function () {
-      return this.$store.getters.getHideAddedKeywords
+    showAddedKeywords: function () {
+      return this.$store.getters.getShowAddedKeywords
     },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
@@ -230,8 +230,8 @@ export default defineComponent({
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
-      'updateHideAddedChannels',
-      'updateHideAddedKeywords',
+      'updateShowAddedChannels',
+      'updateShowAddedKeywords',
     ])
   }
 })

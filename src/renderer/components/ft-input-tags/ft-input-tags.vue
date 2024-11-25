@@ -25,17 +25,17 @@
       <input
         :id="label"
         type="checkbox"
-        :checked="hideTags"
-        @change="toggleHideTags"
-        @keydown.enter.prevent="toggleHideTags"
-        @keydown.space.prevent="toggleHideTags"
+        :checked="showTags"
+        @change="toggleShowTags"
+        @keydown.enter.prevent="toggleShowTags"
+        @keydown.space.prevent="toggleShowTags"
       >
       <label :for="label">
-        {{ $t('Settings.Distraction Free Settings.Hide Added Items') }}
+        {{ $t('Settings.Distraction Free Settings.Show Added Items') }}
       </label>
     </div>
     <div
-      v-if="!hideTags"
+      v-if="showTags"
       class="ft-tag-box"
     >
       <ul>

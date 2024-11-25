@@ -240,12 +240,12 @@
         :validate-tag-name="validateChannelId"
         :find-tag-info="findChannelTagInfo"
         :are-channel-tags="true"
-        :hide-tags="hideAddedChannels"
+        :show-tags="showAddedChannels"
         @invalid-name="handleInvalidChannel"
         @error-find-tag-info="handleChannelAPIError"
         @change="handleChannelsHidden"
         @already-exists="handleChannelsExists"
-        @toggle-hide-tags="updateHideAddedChannels"
+        @toggle-show-tags="updateShowAddedChannels"
       />
     </ft-flex-box>
     <ft-flex-box>
@@ -253,12 +253,12 @@
         :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
         :show-action-button="true"
-        :hide-tags="hideAddedKeywords"
+        :show-tags="showAddedKeywords"
         :tag-list="forbiddenTitles"
         :min-input-length="3"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         @change="handleForbiddenTitles"
-        @toggle-hide-tags="updateHideAddedKeywords"
+        @toggle-show-tags="updateShowAddedKeywords"
       />
     </ft-flex-box>
   </ft-settings-section>
