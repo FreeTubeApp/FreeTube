@@ -112,11 +112,16 @@
     margin-block-start: 8px;
   }
 
-  .playlistOptionsWrapper {
+  .playlistOptionsAndSearch {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
+  }
+
+  .searchWrapper {
+    flex-basis: 100%;
   }
 
   .channelShareWrapper,
