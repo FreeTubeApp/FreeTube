@@ -112,7 +112,6 @@ export default defineComponent({
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
-      deArrowToggleTitle: this.$t('Video.DeArrow.Show Original Details'),
       deArrowTogglePinned: false,
       showDeArrowTitle: false,
       showDeArrowThumbnail: false,
@@ -412,7 +411,7 @@ export default defineComponent({
     },
 
     displayDuration: function () {
-      if (this.showDeArrowTitle && (this.duration === '' || this.duration === '0:00') && this.deArrowCache?.videoDuration) {
+      if (this.useDeArrowTitles && (this.duration === '' || this.duration === '0:00') && this.deArrowCache?.videoDuration) {
         return formatDurationAsTimestamp(this.deArrowCache.videoDuration)
       }
       return this.duration
@@ -509,6 +508,12 @@ export default defineComponent({
           this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
     },
 
+    deArrowToggleTitle: function() {
+      return this.deArrowTogglePinned
+        ? this.$t('Video.DeArrow.Show Modified Details')
+        : this.$t('Video.DeArrow.Show Original Details')
+    },
+
     deArrowCache: function () {
       return this.$store.getters.getDeArrowCache[this.id]
     },
@@ -584,9 +589,6 @@ export default defineComponent({
       }
 
       this.deArrowTogglePinned = !this.deArrowTogglePinned
-      this.deArrowToggleTitle = this.deArrowTogglePinned
-        ? this.$t('Video.DeArrow.Show Modified Details')
-        : this.$t('Video.DeArrow.Show Original Details')
 
       if (this.useDeArrowTitles) {
         this.showDeArrowTitle = !this.showDeArrowTitle
