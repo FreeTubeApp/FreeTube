@@ -325,6 +325,8 @@ Settings:
       Nordic: Nordico
       Solarized Dark: Solarizzato scuro
       Solarized Light: Solarizzato chiaro
+      Gruvbox Light: Gruvbox chiaro
+      Gruvbox Dark: Gruvbox scuro
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -333,7 +335,7 @@ Settings:
       Deep Purple: 'Viola scuro'
       Indigo: 'Indaco'
       Blue: 'Blu'
-      Light Blue: 'Azzurro'
+      Light Blue: 'Blu chiaro'
       Cyan: 'Ciano'
       Teal: 'Verde acqua'
       Green: 'Verde'
@@ -372,6 +374,16 @@ Settings:
       Solarized Cyan: Solarizzato ciano
       Solarized Green: Solarizzato verde
       Solarized Blue: Solarizzato blu
+      Gruvbox Dark Yellow: Gruvbox giallo scuro
+      Gruvbox Dark Purple: Gruvbox viola scuro
+      Gruvbox Light Blue: Gruvbox blu chiaro
+      Gruvbox Light Purple: Gruvbox viola chiaro
+      Gruvbox Light Orange: Gruvbox arancione chiaro
+      Gruvbox Dark Aqua: Gruvbox acqua marina scuro
+      Gruvbox Dark Green: Gruvbox verde scuro
+      Gruvbox Dark Blue: Gruvbox blu scuro
+      Gruvbox Light Red: Gruvbox rosso chiaro
+      Gruvbox Dark Orange: Gruvbox arancione scuro
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni dell'interfaccia utente
