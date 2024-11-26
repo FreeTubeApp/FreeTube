@@ -481,7 +481,7 @@ Settings:
       bideoa
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
   Distraction Free Settings:
-    Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
+    Distraction Free Settings: 'Oharkabetasunik ez'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
     Hide Video Likes And Dislikes: 'Bideoen atsegiteak eta desatsegiteak ezkutatu'
     Hide Channel Subscribers: 'Kanalaren harpidedun kopurua ezkutatu'
@@ -529,7 +529,7 @@ Settings:
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
   Data Settings:
-    Data Settings: 'Datuen ezarpenak'
+    Data Settings: 'Datuak'
     Select Import Type: 'Hautatu Inportazio mota'
     Select Export Type: 'Hautatu esportazio mota'
     Import Subscriptions: 'Harpidetzak inportatu'
@@ -582,7 +582,7 @@ Settings:
         bertsio zaharra eta inportatu esportatutako erreprodukzio-zerrendak.\""
     Subscription File: Harpidetza Fitxategia
   Proxy Settings:
-    Proxy Settings: 'Proxy-aren ezarpenak'
+    Proxy Settings: 'Proxy-a'
     Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
     Proxy Protocol: 'Proxy protokoloa'
     Proxy Host: 'Proxy ostalaria'
@@ -598,6 +598,10 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Errore
       bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta
       al dago?'
+    Proxy Warning: FreeTube-k ez du proxy-rik, baina kanpoko proxy batera konekta
+      daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy
+      bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor
+      behar bezala konfiguratuta dagoela, edo FreeTube-k ezingo du daturik lortu.
   External Player Settings:
     Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena
       egin
@@ -610,7 +614,7 @@ Settings:
       None:
         Name: Bat ere ez
   Download Settings:
-    Download Settings: Deskargen ezarpenak
+    Download Settings: Deskargak
     Ask Download Path: Deskargaren ibilbidea galdetu
     Choose Path: Ibilbidea hautatu
     Download Behavior: Deskargen portaera
@@ -629,7 +633,7 @@ Settings:
     Enable SponsorBlock: Babesleak blokeatzea ahalbidetu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko
       API Url (lehenetsia https://sponsor.ajay.app da)
-    SponsorBlock Settings: Babesleak blokeatzeko ezarpenak
+    SponsorBlock Settings: Babesleak blokeatu
     UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
     UseDeArrowThumbnails: Erabili DeArrow irudi txikietarako
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
@@ -637,7 +641,7 @@ Settings:
   Parental Control Settings:
     Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
     Hide Unsubscribe Button: Harpidetza kendu botoia ezkutatu
-    Parental Control Settings: Gurasoen kontrolaren ezarpenak
+    Parental Control Settings: Gurasoen kontrola
     Hide Search Bar: Bilaketa barra ezkutatu
   Password Dialog:
     Password: Pasahitza
@@ -646,11 +650,11 @@ Settings:
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
   Experimental Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
-    Experimental Settings: Ezarpen esperimentalak
+    Experimental Settings: Esperimentalak
     Warning: Ezarpen hauek esperimentalak dira, aktibatuta dauden bitartean hutsegiteak
       eragin ditzakete. Oso gomendagarria da babeskopiak egitea. Erabili zure ardurapean!
   Password Settings:
-    Password Settings: Pasahitz ezarpenak
+    Password Settings: Pasahitza
     Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
     Remove Password: Pasahitza ezabatu
     Set Password: Ezarri pasahitza
@@ -729,7 +733,7 @@ Profile:
     al zaude hautatutako kanalak ezabatu nahi dituzula? Honek ez du kanala beste profil
     batetik ezabatuko.'
 #On Channel Page
-  Profile Settings: Profilaren ezarpenak
+  Profile Settings: Profila
   Close Profile Dropdown: Itxi goitibeherako profila
   Open Profile Dropdown: Ireki goitibeherako profila
   Toggle Profile List: Aldatu profilen zerrenda
@@ -921,6 +925,14 @@ Video:
     Playback will resume automatically when your connection comes back: Erreprodukzioa
       automatikoki berrekingo da konexioa itzultzen denean.
     Full Window: Pantaila osoa
+  MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTube-rekin ikusi, Googleren
+    saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen
+    baitute.
+  Unlisted: Zerrendatugabeak
+  AgeRestricted: Adin muga duten bideoak ezin dira FreeTube-rekin ikusi, Googlen saioa
+    hasi eta adinak egiaztatutako YouTube-ko kontu bat erabili behar delako.
+  IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu
+    VPN edo proxy desberdin batera aldatzen.
 Videos:
   #& Sort By
   Sort By:
@@ -946,6 +958,8 @@ Playlist:
     VideoTitleDescending: Izenburua (Z-A)
     AuthorAscending: Egilea (A-Z)
     AuthorDescending: Egilea (Z-A)
+    VideoDurationDescending: Iraupena (luzeenetik laburrenera)
+    VideoDurationAscending: Iraupena (laburrenetik luzeenera)
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'
@@ -1045,10 +1059,9 @@ Tooltips:
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko,
       MPV estiloa.
   Subscription Settings:
-    Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
-      beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
-      izateaz gain, IP-en blokeoak saihesten ditu. Aldiz, zuzenekoaren egoeraren edo
-      bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
+    Fetch Feeds from RSS: 'Gaituta dagoenean, FreeTube-k RSS erabiliko du zure harpidetza-elikadurari
+      eusteko. RSSa azkarragoa da eta IP blokeoa saihesten du, baina ez du informaziorik
+      ematen, hala nola bideoaren iraupena, zuzeneko egoera edo komunitateko mezuak'
     Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure
       harpidetza-jarioa leiho berri bat irekitzen denean eta profila aldatzean.
 
@@ -1163,6 +1176,7 @@ Chapters:
   Chapters: Kapituluak
   'Chapters list visible, current chapter: {chapterName}': 'Kapituluen zerrenda ikusgai,
     uneko kapitulua: {chapterName}'
+  Key Moments: Une garrantzitsuenak
 Hashtag:
   Hashtag: Traola
   This hashtag does not currently have any videos: Traola honek ez du bideorik une
