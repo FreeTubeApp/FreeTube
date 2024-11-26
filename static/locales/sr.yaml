@@ -329,10 +329,12 @@ Settings:
       Pastel Pink: Пастелно розе
       Hot Pink: Врућа розе
       Catppuccin Mocha: Catppuccin Mocha
-      System Default: Системски подразумевано
+      System Default: Системски подразумевана
       Nordic: Нордичка
       Solarized Dark: Соларизована тамна
       Solarized Light: Соларизована светла
+      Gruvbox Dark: Gruvbox тамна
+      Gruvbox Light: Gruvbox светла
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -380,6 +382,16 @@ Settings:
       Solarized Magenta: Соларизована магента
       Solarized Blue: Соларизована плава
       Solarized Violet: Соларизована љубичаста
+      Gruvbox Dark Green: Gruvbox тамнозелена
+      Gruvbox Dark Purple: Gruvbox тамнољубичаста
+      Gruvbox Dark Yellow: Gruvbox тамножута
+      Gruvbox Dark Blue: Gruvbox тамноплава
+      Gruvbox Dark Aqua: Gruvbox тамноаква
+      Gruvbox Dark Orange: Gruvbox тамнонаранџаста
+      Gruvbox Light Red: Gruvbox светлоцрвена
+      Gruvbox Light Blue: Gruvbox светлоплава
+      Gruvbox Light Purple: Gruvbox светлољубичаста
+      Gruvbox Light Orange: Gruvbox светлонаранџаста
     Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
