@@ -285,6 +285,8 @@ Settings:
       Nordic: Nordic
       Solarized Light: 日照白
       Solarized Dark: 日照黑
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -332,6 +334,16 @@ Settings:
       Solarized Red: 日照红
       Solarized Blue: 日照蓝
       Solarized Violet: 日照紫
+      Gruvbox Dark Aqua: Gruvbox 深蓝绿
+      Gruvbox Light Red: Gruvbox 浅红
+      Gruvbox Light Blue: Gruvbox 浅蓝
+      Gruvbox Light Purple: Gruvbox 浅紫
+      Gruvbox Dark Yellow: Gruvbox 深黄
+      Gruvbox Dark Blue: Gruvbox 深蓝
+      Gruvbox Dark Purple: Gruvbox 深紫
+      Gruvbox Light Orange: Gruvbox 浅橙
+      Gruvbox Dark Green: Gruvbox 深绿
+      Gruvbox Dark Orange: Gruvbox 深橙
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
