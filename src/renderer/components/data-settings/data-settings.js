@@ -12,12 +12,14 @@ import {
   deepCopy,
   escapeHTML,
   getTodayDateStrLocalTimezone,
-  readFileFromDialog,
-  showOpenDialog,
+  readFileWithPicker,
   showSaveDialog,
   showToast,
   writeFileFromDialog,
 } from '../../helpers/utils'
+
+const IMPORT_DIRECTORY_ID = 'data-settings-import'
+const IMPORT_START_IN_DIRECTORY = 'downloads'
 
 export default defineComponent({
   name: 'DataSettings',
@@ -81,44 +83,45 @@ export default defineComponent({
     },
 
     importSubscriptions: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: this.$t('Settings.Data Settings.Subscription File'),
-            extensions: ['db', 'csv', 'json', 'opml', 'xml']
-          }
-        ]
-      }
-
-      const response = await showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-      let textDecode
+      let response
       try {
-        textDecode = await readFileFromDialog(response)
+        response = await readFileWithPicker(
+          this.$t('Settings.Data Settings.Subscription File'),
+          {
+            'application/x-freetube-db': '.db',
+            'text/csv': '.csv',
+            'application/json': '.json',
+            'application/xml': ['.xml', '.opml']
+          },
+          IMPORT_DIRECTORY_ID,
+          IMPORT_START_IN_DIRECTORY
+        )
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${err}`)
         return
       }
-      response.filePaths.forEach(filePath => {
-        if (filePath.endsWith('.csv')) {
-          this.importCsvYouTubeSubscriptions(textDecode)
-        } else if (filePath.endsWith('.db')) {
-          this.importFreeTubeSubscriptions(textDecode)
-        } else if (filePath.endsWith('.opml') || filePath.endsWith('.xml')) {
-          this.importOpmlYouTubeSubscriptions(textDecode)
-        } else if (filePath.endsWith('.json')) {
-          textDecode = JSON.parse(textDecode)
-          if (textDecode.subscriptions) {
-            this.importNewPipeSubscriptions(textDecode)
-          } else {
-            this.importYouTubeSubscriptions(textDecode)
-          }
+
+      if (response === null) {
+        return
+      }
+
+      const { filename, content } = response
+
+      if (filename.endsWith('.csv')) {
+        this.importCsvYouTubeSubscriptions(content)
+      } else if (filename.endsWith('.db')) {
+        this.importFreeTubeSubscriptions(content)
+      } else if (filename.endsWith('.opml') || filename.endsWith('.xml')) {
+        this.importOpmlYouTubeSubscriptions(content)
+      } else if (filename.endsWith('.json')) {
+        const jsonContent = JSON.parse(content)
+        if (jsonContent.subscriptions) {
+          this.importNewPipeSubscriptions(jsonContent)
+        } else {
+          this.importYouTubeSubscriptions(jsonContent)
         }
-      })
+      }
     },
 
     importFreeTubeSubscriptions: function (textDecode) {
@@ -587,36 +590,34 @@ export default defineComponent({
     },
 
     importHistory: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: this.$t('Settings.Data Settings.History File'),
-            extensions: ['db', 'json']
-          }
-        ]
-      }
-
-      const response = await showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-      let textDecode
+      let response
       try {
-        textDecode = await readFileFromDialog(response)
+        response = await readFileWithPicker(
+          this.$t('Settings.Data Settings.History File'),
+          {
+            'application/x-freetube-db': '.db',
+            'application/json': '.json'
+          },
+          IMPORT_DIRECTORY_ID,
+          IMPORT_START_IN_DIRECTORY
+        )
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${err}`)
         return
       }
 
-      response.filePaths.forEach(filePath => {
-        if (filePath.endsWith('.db')) {
-          this.importFreeTubeHistory(textDecode.split('\n'))
-        } else if (filePath.endsWith('.json')) {
-          this.importYouTubeHistory(JSON.parse(textDecode))
-        }
-      })
+      if (response === null) {
+        return
+      }
+
+      const { filename, content } = response
+
+      if (filename.endsWith('.db')) {
+        this.importFreeTubeHistory(content.split('\n'))
+      } else if (filename.endsWith('.json')) {
+        this.importYouTubeHistory(JSON.parse(content))
+      }
     },
 
     async importFreeTubeHistory(textDecode) {
@@ -791,28 +792,28 @@ export default defineComponent({
     },
 
     importPlaylists: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: this.$t('Settings.Data Settings.Playlist File'),
-            extensions: ['db']
-          }
-        ]
-      }
-
-      const response = await showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-      let data
+      let response
       try {
-        data = await readFileFromDialog(response)
+        response = await readFileWithPicker(
+          this.$t('Settings.Data Settings.Playlist File'),
+          {
+            'application/x-freetube-db': '.db'
+          },
+          IMPORT_DIRECTORY_ID,
+          IMPORT_START_IN_DIRECTORY
+        )
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${err}`)
         return
       }
+
+      if (response === null) {
+        return
+      }
+
+      let data = response.content
+
       let playlists = null
 
       // for the sake of backwards compatibility,

@@ -333,6 +333,8 @@ Settings:
       Nordic: Skandináv
       Solarized Light: Szolarizált világos
       Solarized Dark: Szolarizált sötét
+      Gruvbox Light: Világos Gruvbox
+      Gruvbox Dark: Sötét Gruvbox
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -380,6 +382,16 @@ Settings:
       Solarized Green: Szolarizált zöld
       Solarized Magenta: Szolarizált magenta
       Solarized Violet: Szolarizált ibolya
+      Gruvbox Dark Yellow: Sötétsárga Gruvbox
+      Gruvbox Dark Blue: Sötétkék Gruvbox
+      Gruvbox Dark Aqua: Sötét-vízkék Gruvbox
+      Gruvbox Dark Orange: Sötétnarancssárga Gruvbox
+      Gruvbox Light Red: Világospiros Gruvbox
+      Gruvbox Light Blue: Világoskék Gruvbox
+      Gruvbox Dark Green: Sötétzöld Gruvbox
+      Gruvbox Dark Purple: Sötétlila Gruvbox
+      Gruvbox Light Orange: Világosnarancssárga Gruvbox
+      Gruvbox Light Purple: Világoslila Gruvbox
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése

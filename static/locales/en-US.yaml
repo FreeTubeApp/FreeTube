@@ -338,6 +338,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
       Solarized Dark: Solarized Dark
       Solarized Light: Solarized Light
     Main Color Theme:
@@ -379,6 +381,16 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Gruvbox Dark Green: Gruvbox Dark Green
+      Gruvbox Dark Yellow: Gruvbox Dark Yellow
+      Gruvbox Dark Blue: Gruvbox Dark Blue
+      Gruvbox Dark Purple: Gruvbox Dark Purple
+      Gruvbox Dark Aqua: Gruvbox Dark Aqua
+      Gruvbox Dark Orange: Gruvbox Dark Orange
+      Gruvbox Light Red: Gruvbox Light Red
+      Gruvbox Light Blue: Gruvbox Light Blue
+      Gruvbox Light Purple: Gruvbox Light Purple
+      Gruvbox Light Orange: Gruvbox Light Orange
       Solarized Yellow: Solarized Yellow
       Solarized Orange: Solarized Orange
       Solarized Red: Solarized Red

@@ -324,6 +324,8 @@ Settings:
       Nordic: Põhjala
       Solarized Dark: Tume päikesekuma
       Solarized Light: Hele päikesekuma
+      Gruvbox Dark: Gruuvimasina tume
+      Gruvbox Light: Gruuvimasina hele
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -371,6 +373,16 @@ Settings:
       Solarized Cyan: Rohekassinine päikesekuma
       Solarized Green: Roheline päikesekuma
       Solarized Yellow: Kollane päikesekuma
+      Gruvbox Dark Blue: Gruuvimasina tumesinine
+      Gruvbox Light Blue: Gruuvimasina helesinine
+      Gruvbox Dark Green: Gruuvimasina tumeroheline
+      Gruvbox Light Red: Gruuvimasina helepunane
+      Gruvbox Dark Purple: Gruuvimasina tumepurpur
+      Gruvbox Dark Orange: Gruuvimasina tumeoranž
+      Gruvbox Dark Yellow: Gruuvimasina kollane
+      Gruvbox Dark Aqua: Gruuvimasina tume vesi
+      Gruvbox Light Purple: Gruuvimasina helepurpur
+      Gruvbox Light Orange: Gruuvimasina heleoranž
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus

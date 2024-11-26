@@ -333,6 +333,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarisiert Dunkel
       Solarized Light: Solarisiert Hell
+      Gruvbox Light: Gruvbox Hell
+      Gruvbox Dark: Gruvbox Dunkel
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -380,6 +382,16 @@ Settings:
       Solarized Cyan: Solarisiertes Cyan
       Solarized Violet: Solarisiertes Violett
       Solarized Green: Solarisiertes Grün
+      Gruvbox Dark Green: Gruvbox Dunkelgrün
+      Gruvbox Dark Yellow: Gruvbox Dunkelgelb
+      Gruvbox Dark Purple: Gruvbox Dunkellila
+      Gruvbox Light Red: Gruvbox Hellrot
+      Gruvbox Light Blue: Gruvbox Hellblau
+      Gruvbox Light Purple: Gruvbox Helllila
+      Gruvbox Dark Orange: Gruvbox Dunkelorange
+      Gruvbox Dark Aqua: Gruvbox dunkles Wasser
+      Gruvbox Light Orange: Gruvbox Hellorange
+      Gruvbox Dark Blue: Gruvbox Dunkelblau
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche

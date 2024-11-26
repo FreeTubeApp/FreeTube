@@ -334,6 +334,8 @@ Settings:
       Nordic: Norrænt
       Solarized Dark: Sólaríserað dökkt
       Solarized Light: Sólaríserað ljóst
+      Gruvbox Dark: Gruvbox dökkt
+      Gruvbox Light: Gruvbox ljóst
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -381,6 +383,16 @@ Settings:
       Solarized Magenta: Sólaríserað blárautt
       Solarized Red: Sólaríserað rautt
       Solarized Green: Sólaríserað grænt
+      Gruvbox Dark Green: Gruvbox dökkgrænt
+      Gruvbox Dark Yellow: Gruvbox dökkgult
+      Gruvbox Dark Aqua: Gruvbox dökksægrænt
+      Gruvbox Light Red: Gruvbox ljósrautt
+      Gruvbox Light Blue: Gruvbox ljósblátt
+      Gruvbox Light Purple: Gruvbox ljósfjólublátt
+      Gruvbox Light Orange: Gruvbox ljósappelsínugult
+      Gruvbox Dark Orange: Gruvbox dökkappelsínugult
+      Gruvbox Dark Blue: Gruvbox dökkblátt
+      Gruvbox Dark Purple: Gruvbox dökkfjólublátt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -585,6 +597,11 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
+    Proxy Warning: FreeTube er ekki með innbyggðan milliþjón en getur tengst við utanaðkomandi
+      milliþjóna, til dæmis einhvern sem keyrir á vélinni þinni eins og Tor eða fjartengdan
+      milliþjón á borð við SOCKS5-milliþjóna sem sumar VPN-þjónustur bjóða. Ef þetta
+      er virkt skaltu ganga úr skugga um að milliþjónninn/Tor sé rétt stillt, annars
+      mun FreeTube ekki geta sótt nein gögn.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
