@@ -109,7 +109,9 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako
     profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
-    harpidetzen zerrenda hutsik da. Has zaitez harpidetzak gehitzen hemen ikusteko'
+    harpidetza-zerrenda hutsik dago. Zure harpidetzak inportatu nahi badituzu, Datuen
+    konfigurazioa atalera joan eta Inportaziorako harpidetzak aukera ditzakezu, edo
+    kanal bat bilatu eta harpidetza egin dezakezu.'
   'Getting Subscriptions. Please wait.': 'Harpidetzak eskuratzen. Itxaron mesedez.'
   Refresh Subscriptions: 'Harpidetzak freskatu'
   Load More Videos: 'Bideo gehiago kargatu'
@@ -213,6 +215,9 @@ User Playlists:
         hau laster-markak egiteko erabiltzen ari da dagoeneko.
       Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
         erreprodukzio-zerrenda laster-marken erreprodukzio-zerrenda azkarra da.'
+      This playlist has a video with a duration error: Erreprodukzio-zerrenda honek
+        iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko
+        da.
     Search for Videos: Bilatu bideoak
   AddVideoPrompt:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
@@ -248,6 +253,9 @@ User Playlists:
     honetatik kendu nahi dituzula? Hau ezin da desegin.
   Cannot delete the quick bookmark target playlist.: Ezin da laster-marken helburuko
     erreprodukzio zerrenda azkarra ezabatu.
+  Export Playlist: Erreprodukzio-zerrenda hau esportatu
+  The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu
+    da
 History:
   # On History Page
   History: 'Historikoa'
@@ -263,7 +271,7 @@ Settings:
     berrabiarazi behar da aldaketek eragina izan dezaten. Berrabiarazi eta aldaketa
     aplikatu?'
   General Settings:
-    General Settings: 'Ezarpen orokorrak'
+    General Settings: 'Orokorra'
     Check for Updates: 'Eguneraketak bilatu'
     Check for Latest Blog Posts: 'Egiaztatu blogeko azken argitalpenak'
     Fallback to Non-Preferred Backend on Failure: 'Hutsegitean, hobetsi gabeko backend-era
@@ -309,7 +317,7 @@ Settings:
       Tooltip: Kargatu orrialde eta iruzkin gehigarriak automatikoki.
       Label: Kargatu automatikoki hurrengo orria
   Theme Settings:
-    Theme Settings: 'Gaien ezarpenak'
+    Theme Settings: 'Gaia'
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
     Expand Side Bar by Default: 'Zabaldu alboko barra lehenespenez'
     Disable Smooth Scrolling: 'Desgaitu korritze leuna'
@@ -327,6 +335,8 @@ Settings:
       Hot Pink: Arrosa beroa
       Solarized Dark: Solarizatu iluna
       Solarized Light: Solarizatu argia
+      Gruvbox Dark: Gruvbox Iluna
+      Gruvbox Light: Gruvbox Argia
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -374,12 +384,22 @@ Settings:
       Solarized Cyan: Zian solarizatua
       Solarized Violet: Violeta solarizatua
       Solarized Green: Berde solarizatua
+      Gruvbox Dark Yellow: Gruvbox Hori Iluna
+      Gruvbox Dark Purple: gruvbox Ubel Iluna
+      Gruvbox Dark Orange: gruvbox Laranja Iluna
+      Gruvbox Light Red: Gruvbox Gorri Argia
+      Gruvbox Light Blue: Gruvbox Urdin Argia
+      Gruvbox Light Orange: Gruvbox Laranja Argia
+      Gruvbox Dark Aqua: Gruvbox Aqua Iluna
+      Gruvbox Light Purple: Gruvbox Ubel Argia
+      Gruvbox Dark Blue: Gruvbox Urdin Iluna
+      Gruvbox Dark Green: Gruvbox Berde Iluna
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
     Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
-    Player Settings: 'Erreprodukzioaren ezarpenak'
+    Player Settings: 'Erreproduzitzailea'
     Play Next Video: 'Hurrengo bideoa erreproduzitu'
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
     Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
@@ -431,7 +451,7 @@ Settings:
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
   Privacy Settings:
-    Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
+    Privacy Settings: 'Pribatutasuna'
     Remember History: 'Historikoa oroitu'
     Save Watched Progress: 'Ikusitakoaren progresioa gorde'
     Clear Search Cache: 'Bilaketen cachea ezabatu'
@@ -453,7 +473,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Ziur erreprodukzio-zerrenda
       guztiak kendu nahi dituzula?
   Subscription Settings:
-    Subscription Settings: 'Harpidetzen ezarpenak'
+    Subscription Settings: 'Harpidetzak'
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
@@ -581,7 +601,7 @@ Settings:
   External Player Settings:
     Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena
       egin
-    External Player Settings: Kanpoko erreproduzitzailearen ezarpenak
+    External Player Settings: Kanpoko erreproduzitzailea
     External Player: Kanpoko erreproduzitzailea
     Custom External Player Executable: Lehenetsitako kanpo erreproduzitzailea exekutagarria
     Custom External Player Arguments: Lehenetsitako kanpo erreproduzitzailea argudioak
@@ -635,6 +655,7 @@ Settings:
     Remove Password: Pasahitza ezabatu
     Set Password: Ezarri pasahitza
   Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
+  Return to Settings Menu: Ezarpenen menura itzuli
 About:
   #On About page
   About: 'Honi buruz'
@@ -1165,5 +1186,10 @@ Search Listing:
     4K: 4K
     Subtitles: Azpitituluak
     Closed Captions: Azpititulu deskriptiboak
+    8K: 8K
+    VR180: VR180
+    360 Video: 360º
+    New: Berria
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Insegurua izan daitekeen URLa irekitzea
   blokeatu da: "{url}".'
