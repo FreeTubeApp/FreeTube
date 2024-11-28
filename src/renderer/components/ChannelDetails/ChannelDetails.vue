@@ -207,7 +207,7 @@
           v-if="showSearchBar"
           ref="searchBar"
           :placeholder="$t('Channel.Search Channel')"
-          :value="props.query"
+          :value="query"
           :show-clear-text-button="true"
           class="channelSearch"
           :maxlength="255"

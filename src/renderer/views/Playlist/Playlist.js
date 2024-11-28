@@ -624,16 +624,18 @@ export default defineComponent({
         routeQuery.searchQueryText = query
       }
 
-      await this.$router.replace({
-        path: `/playlist/${this.playlistId}`,
-        query: routeQuery,
-      }).catch(failure => {
+      try {
+        await this.$router.replace({
+          path: `/playlist/${this.playlistId}`,
+          query: routeQuery,
+        })
+      } catch (failure) {
         if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
           return
         }
 
         throw failure
-      })
+      }
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),

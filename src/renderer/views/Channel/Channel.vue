@@ -20,7 +20,7 @@
       :query="lastSearchQuery"
       class="card channelDetails"
       @change-tab="changeTab"
-      @search="(v) => newSearchWithStatePersist(v)"
+      @search="newSearchWithStatePersist"
       @subscribed="handleSubscription"
     />
     <ft-card

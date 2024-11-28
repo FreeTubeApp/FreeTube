@@ -2039,31 +2039,35 @@ export default defineComponent({
     async saveStateInRouter(query) {
       this.skipRouteChangeWatcherOnce = true
       if (query === '') {
-        await this.$router.replace({ path: `/channel/${this.id}` }).catch(failure => {
+        try {
+          await this.$router.replace({ path: `/channel/${this.id}` })
+        } catch (failure) {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
             return
           }
 
           throw failure
-        })
+        }
         return
       }
 
-      await this.$router.replace({
-        path: `/channel/${this.id}`,
-        params: {
-          currentTab: 'search',
-        },
-        query: {
-          searchQueryText: query,
-        },
-      }).catch(failure => {
+      try {
+        await this.$router.replace({
+          path: `/channel/${this.id}`,
+          params: {
+            currentTab: 'search',
+          },
+          query: {
+            searchQueryText: query,
+          },
+        })
+      } catch (failure) {
         if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
           return
         }
 
         throw failure
-      })
+      }
       this.skipRouteChangeWatcherOnce = false
     },
 

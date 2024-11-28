@@ -281,13 +281,15 @@ export default defineComponent({
 
     async saveStateInRouter({ query = this.query, searchDataLimit = this.searchDataLimit, doSearchPlaylistsWithMatchingVideos = this.doSearchPlaylistsWithMatchingVideos } = {}) {
       if (this.query === '') {
-        await this.$router.replace({ name: 'userPlaylists' }).catch(failure => {
+        try {
+          await this.$router.replace({ name: 'userPlaylists' })
+        } catch (failure) {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
             return
           }
 
           throw failure
-        })
+        }
         return
       }
 
@@ -296,16 +298,18 @@ export default defineComponent({
         searchDataLimit: searchDataLimit,
       }
       if (doSearchPlaylistsWithMatchingVideos) { routerQuery.doSearchPlaylistsWithMatchingVideos = 'true' }
-      await this.$router.replace({
-        name: 'userPlaylists',
-        query: routerQuery,
-      }).catch(failure => {
+      try {
+        await this.$router.replace({
+          name: 'userPlaylists',
+          query: routerQuery,
+        })
+      } catch (failure) {
         if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
           return
         }
 
         throw failure
-      })
+      }
     },
 
     keyboardShortcutHandler: function (event) {

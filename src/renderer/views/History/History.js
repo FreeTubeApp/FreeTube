@@ -152,13 +152,15 @@ export default defineComponent({
 
     async saveStateInRouter({ query = this.query, searchDataLimit = this.searchDataLimit, doCaseSensitiveSearch = this.doCaseSensitiveSearch } = {}) {
       if (query === '') {
-        await this.$router.replace({ name: 'history' }).catch(failure => {
+        try {
+          await this.$router.replace({ name: 'history' })
+        } catch (failure) {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
             return
           }
 
           throw failure
-        })
+        }
         return
       }
 
@@ -167,16 +169,18 @@ export default defineComponent({
         searchDataLimit: searchDataLimit,
       }
       if (doCaseSensitiveSearch) { routerQuery.doCaseSensitiveSearch = 'true' }
-      await this.$router.replace({
-        name: 'history',
-        query: routerQuery,
-      }).catch(failure => {
+      try {
+        await this.$router.replace({
+          name: 'history',
+          query: routerQuery,
+        })
+      } catch (failure) {
         if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
           return
         }
 
         throw failure
-      })
+      }
     },
 
     keyboardShortcutHandler: function (event) {
