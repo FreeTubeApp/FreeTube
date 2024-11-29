@@ -331,6 +331,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarizovaná tmavá
       Solarized Light: Solarizovaná světlá
+      Gruvbox Dark: Gruvbox tmavý
+      Gruvbox Light: Gruvbox světlý
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -378,6 +380,16 @@ Settings:
       Solarized Blue: Solarizovaná modrá
       Solarized Cyan: Solarizovaná azurová
       Solarized Green: Solarizovaná zelená
+      Gruvbox Dark Green: Gruvbox tmavě zelený
+      Gruvbox Dark Yellow: Gruvbox tmavě žlutý
+      Gruvbox Dark Blue: Gruvbox tmavě modrý
+      Gruvbox Dark Purple: Gruvbox tmavě fialový
+      Gruvbox Dark Orange: Gruvbox tmavě oranžový
+      Gruvbox Light Red: Gruvbox světle červený
+      Gruvbox Light Purple: Gruvbox světle fialový
+      Gruvbox Dark Aqua: Gruvbox tmavě azurový
+      Gruvbox Light Blue: Gruvbox světle modrý
+      Gruvbox Light Orange: Gruvbox světle oranžový
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu

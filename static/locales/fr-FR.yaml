@@ -336,6 +336,8 @@ Settings:
       Nordic: Nordic
       Solarized Light: Clair polarisé
       Solarized Dark: Noir polarisé
+      Gruvbox Light: Gruvbox Clair
+      Gruvbox Dark: Gruvbox Sombre
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -383,6 +385,16 @@ Settings:
       Solarized Yellow: Jaune polarisé
       Solarized Orange: Orange polarisé
       Solarized Red: Rouge polarisé
+      Gruvbox Dark Yellow: Gruvbox Jaune Sombre
+      Gruvbox Dark Purple: Gruvbox Violet Sombre
+      Gruvbox Dark Aqua: Gruvbox Eau Sombre
+      Gruvbox Dark Orange: Gruvbox Orange Sombre
+      Gruvbox Light Red: Gruvbox Rouge Sombre
+      Gruvbox Light Blue: Gruvbox Bleu Clair
+      Gruvbox Light Purple: Gruvbox Violet Clair
+      Gruvbox Light Orange: Gruvbox Orange Clair
+      Gruvbox Dark Green: Gruvbox Vert Sombre
+      Gruvbox Dark Blue: Gruvbox Bleu Sombre
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur

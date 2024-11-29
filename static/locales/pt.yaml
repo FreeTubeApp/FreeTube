@@ -192,6 +192,10 @@ User Playlists:
       This playlist has a video with a duration error: A lista de reprodução contém,
         pelo menos, um vídeo sem informação de duração. Será organizado como se tivesse
         0 segundos.
+      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
+        para favoritos rápidos
+      Playlist {playlistName} is the new quick bookmark playlist.: Revertido para
+        usar {oldPlaylistName} para favoritos rápidos
     Search for Videos: Procurar vídeos
   AddVideoPrompt:
     Search in Playlists: Procurar nas listas de reprodução
@@ -247,6 +251,8 @@ User Playlists:
     vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
   Export Playlist: Exportar lista de reprodução
   The playlist has been successfully exported: Lista de reprodução exportada com sucesso
+  Cannot delete the quick bookmark target playlist.: Não é possível excluir a lista
+    de reprodução de destino dos favoritos rápidos.
 History:
   # On History Page
   History: 'Histórico'
@@ -319,6 +325,8 @@ Settings:
       Nordic: Nórdico
       Solarized Dark: Escuro solar
       Solarized Light: Claro solar
+      Gruvbox Dark: Gruvbox Escuro
+      Gruvbox Light: Luz Gruvbox
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
