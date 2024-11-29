@@ -38,6 +38,12 @@
           :compact="true"
           @change="updateEnableSearchSuggestions"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Open Links In New Window')"
+          :default-value="openLinksInNewWindow"
+          :compact="true"
+          @change="updateOpenLinksInNewWindow"
+        />
       </div>
     </div>
     <div class="switchGrid">

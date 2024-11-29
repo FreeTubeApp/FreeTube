@@ -142,6 +142,10 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
+    },
+
+    openLinksInNewWindow: function () {
+      return this.$store.getters.getOpenLinksInNewWindow
     }
   },
   watch: {
@@ -514,7 +518,7 @@ export default defineComponent({
     enableOpenUrl: function () {
       ipcRenderer.on(IpcChannels.OPEN_URL, (event, url) => {
         if (url) {
-          this.handleYoutubeLink(url, { doCreateNewWindow: true })
+          this.handleYoutubeLink(url, { doCreateNewWindow: this.openLinksInNewWindow })
         }
       })
 

@@ -232,6 +232,7 @@ const state = {
   listType: 'grid',
   maxVideoPlaybackRate: 3,
   onlyShowLatestFromChannel: false,
+  openLinksInNewWindow: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',

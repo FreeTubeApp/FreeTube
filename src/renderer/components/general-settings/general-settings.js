@@ -200,6 +200,10 @@ export default defineComponent({
         this.$t('Settings.General Settings.External Link Handling.Ask Before Opening Link'),
         this.$t('Settings.General Settings.External Link Handling.No Action')
       ]
+    },
+
+    openLinksInNewWindow: function () {
+      return this.$store.getters.getOpenLinksInNewWindow
     }
   },
   created: function () {
@@ -269,6 +273,7 @@ export default defineComponent({
       'updateCurrentLocale',
       'updateExternalLinkHandling',
       'updateGeneralAutoLoadMorePaginatedItemsEnabled',
+      'updateOpenLinksInNewWindow',
     ])
   }
 })

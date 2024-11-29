@@ -283,6 +283,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Open Links In New Window: Open freetube:// Links in a New Window
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
