@@ -514,7 +514,7 @@ export default defineComponent({
     enableOpenUrl: function () {
       ipcRenderer.on(IpcChannels.OPEN_URL, (event, url) => {
         if (url) {
-          this.handleYoutubeLink(url)
+          this.handleYoutubeLink(url, { doCreateNewWindow: true })
         }
       })
 
