@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router/composables'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -265,16 +265,21 @@ watch(activeSubscriptionList, () => {
   filterChannels()
 })
 
-;(() => {
-  document.addEventListener('keydown', keyboardShortcutHandler)
-  getSubscription()
+// region created
 
-  const oldQuery = route.query.searchQueryText ?? ''
-  if (oldQuery !== null && oldQuery !== '') {
-    // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
-    handleQueryChange(oldQuery, true)
-  }
-})()
+getSubscription()
+
+const oldQuery = route.query.searchQueryText ?? ''
+if (oldQuery !== null && oldQuery !== '') {
+  // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+  handleQueryChange(oldQuery, true)
+}
+
+// endregion created
+
+onMounted(() => {
+  document.addEventListener('keydown', keyboardShortcutHandler)
+})
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', keyboardShortcutHandler)
