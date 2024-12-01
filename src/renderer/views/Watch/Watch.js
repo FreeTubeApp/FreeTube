@@ -11,7 +11,7 @@ import CommentSection from '../../components/CommentSection/CommentSection.vue'
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
-import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
 import packageDetails from '../../../../package.json'
 import {
   buildVTTFileLocally,
