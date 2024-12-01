@@ -260,7 +260,7 @@ function runApp() {
 
         const url = getLinkUrl(commandLine)
         if (url) {
-          mainWindow.webContents.send(IpcChannels.OPEN_URL, { url: url, isLaunchLink: false })
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
         }
       }
     })
@@ -831,7 +831,7 @@ function runApp() {
 
   ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, { url: startupUrl, isLaunchLink: true })
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
   })
 
@@ -1488,7 +1488,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, { url: baseUrl(url), isLaunchLink: false })
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
     }
