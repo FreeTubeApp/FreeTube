@@ -849,6 +849,7 @@ function handleSearchResponse(response) {
       return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie' || item.type === 'LockupView'
     })
     .map((item) => parseListItem(item))
+    .filter((item) => item)
 
   return {
     results,
@@ -1050,6 +1051,14 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
         .find(overlay => overlay.is(YTNodes.ThumbnailOverlayBadgeView))
 
+      const playlistId = lockupView.content_id
+
+      // Filter out mixes without playlist pages (we don't support watch page-only mixes)
+      // https://wiki.archiveteam.org/index.php/YouTube/Technical_details#Playlists
+      if (playlistId.startsWith('RD') && !playlistId.startsWith('RDCL')) {
+        return null
+      }
+
       const maybeChannelText = lockupView.metadata?.metadata?.metadata_rows?.[0]?.metadata_parts?.[0]?.text
 
       if (maybeChannelText && maybeChannelText.endpoint?.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
@@ -1060,7 +1069,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       return {
         type: 'playlist',
         dataSource: 'local',
-        playlistId: lockupView.content_id,
+        playlistId,
         title: lockupView.metadata.title.text,
         thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
         channelName,
@@ -1070,6 +1079,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
     }
     default:
       console.warn(`Unknown lockup content type: ${lockupView.content_type}`, lockupView)
+      return null
   }
 }
 
