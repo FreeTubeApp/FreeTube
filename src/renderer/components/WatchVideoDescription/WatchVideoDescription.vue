@@ -112,8 +112,8 @@ function collapseDescription() {
  * Useful for hiding description expansion/contraction controls
  */
 function isShortDescription() {
-  const descriptionElem = descriptionContainer.value.$el
-  return descriptionElem.clientHeight >= descriptionElem.scrollHeight
+  const descriptionElem = descriptionContainer.value?.$el
+  return descriptionElem?.clientHeight >= descriptionElem?.scrollHeight
 }
 
 onMounted(() => {
