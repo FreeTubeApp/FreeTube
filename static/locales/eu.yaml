@@ -109,7 +109,9 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako
     profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
-    harpidetzen zerrenda hutsik da. Has zaitez harpidetzak gehitzen hemen ikusteko'
+    harpidetza-zerrenda hutsik dago. Zure harpidetzak inportatu nahi badituzu, Datuen
+    konfigurazioa atalera joan eta Inportaziorako harpidetzak aukera ditzakezu, edo
+    kanal bat bilatu eta harpidetza egin dezakezu.'
   'Getting Subscriptions. Please wait.': 'Harpidetzak eskuratzen. Itxaron mesedez.'
   Refresh Subscriptions: 'Harpidetzak freskatu'
   Load More Videos: 'Bideo gehiago kargatu'
@@ -134,12 +136,6 @@ Most Popular: 'Ikusienak'
 Playlists: 'Erreprodukzio zerrendak'
 User Playlists:
   Your Playlists: 'Zure erreprodukzio zerrendak'
-  Playlist Message: 'Orrialde honek ez ditu guztiz funtzionatzen duten erreprodukzio-zerrendak
-    islatzen. Gorde dituzun edo gogoko dituzun bideoak bakarrik zerrendatzen ditu.
-    Lana amaitzen denean, hemen dauden bideo guztiak "Gogokoak" erreprodukzio-zerrenda
-    batera migratuko dira.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Gordetako
-    bideoak hutsik daude. Egin klik bideoaren izkinan den "gorde" botoian hemen zerrendatzeko'
   Search bar placeholder: Bilatu erreprodukzio-zerrendak
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
     bat datorren bideorik
@@ -174,7 +170,6 @@ User Playlists:
     Create: Sortu
   Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio-zerrenda
     honekin
-  Disable Quick Bookmark: Desgaitu laster-marka azkarra
   Sort By:
     NameDescending: Z-A
     LatestCreatedFirst: Sortu berria
@@ -199,7 +194,6 @@ User Playlists:
       There was a problem with removing this video: Arazo bat izan da bideoa kentzean
       This playlist is now used for quick bookmark: Erreprodukzio-zerrenda hau laster-markak
         egiteko erabiltzen da orain
-      Quick bookmark disabled: Laster-marka azkarra desgaituta dago
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Erreprodukzio-zerrenda
         hau laster-marketarako erabiltzen da orain {oldPlaylistName}-ren ordez. Egin
         klik hemen desegiteko
@@ -221,6 +215,9 @@ User Playlists:
         hau laster-markak egiteko erabiltzen ari da dagoeneko.
       Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
         erreprodukzio-zerrenda laster-marken erreprodukzio-zerrenda azkarra da.'
+      This playlist has a video with a duration error: Erreprodukzio-zerrenda honek
+        iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko
+        da.
     Search for Videos: Bilatu bideoak
   AddVideoPrompt:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
@@ -243,9 +240,6 @@ User Playlists:
       bideo gehituko dira'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       gehitu dira'
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ziur
-    ikusitako bideo guztiak erreprodukzio-zerrenda honetatik kendu nahi dituzula?
-    Hau ezin da desegin.
   Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio-zerrendak
   Remove Duplicate Videos: Kendu bideo bikoiztuak
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ziur
@@ -259,6 +253,9 @@ User Playlists:
     honetatik kendu nahi dituzula? Hau ezin da desegin.
   Cannot delete the quick bookmark target playlist.: Ezin da laster-marken helburuko
     erreprodukzio zerrenda azkarra ezabatu.
+  Export Playlist: Erreprodukzio-zerrenda hau esportatu
+  The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu
+    da
 History:
   # On History Page
   History: 'Historikoa'
@@ -274,7 +271,7 @@ Settings:
     berrabiarazi behar da aldaketek eragina izan dezaten. Berrabiarazi eta aldaketa
     aplikatu?'
   General Settings:
-    General Settings: 'Ezarpen orokorrak'
+    General Settings: 'Orokorra'
     Check for Updates: 'Eguneraketak bilatu'
     Check for Latest Blog Posts: 'Egiaztatu blogeko azken argitalpenak'
     Fallback to Non-Preferred Backend on Failure: 'Hutsegitean, hobetsi gabeko backend-era
@@ -320,7 +317,7 @@ Settings:
       Tooltip: Kargatu orrialde eta iruzkin gehigarriak automatikoki.
       Label: Kargatu automatikoki hurrengo orria
   Theme Settings:
-    Theme Settings: 'Gaien ezarpenak'
+    Theme Settings: 'Gaia'
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
     Expand Side Bar by Default: 'Zabaldu alboko barra lehenespenez'
     Disable Smooth Scrolling: 'Desgaitu korritze leuna'
@@ -338,6 +335,8 @@ Settings:
       Hot Pink: Arrosa beroa
       Solarized Dark: Solarizatu iluna
       Solarized Light: Solarizatu argia
+      Gruvbox Dark: Gruvbox Iluna
+      Gruvbox Light: Gruvbox Argia
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -385,12 +384,22 @@ Settings:
       Solarized Cyan: Zian solarizatua
       Solarized Violet: Violeta solarizatua
       Solarized Green: Berde solarizatua
+      Gruvbox Dark Yellow: Gruvbox Hori Iluna
+      Gruvbox Dark Purple: gruvbox Ubel Iluna
+      Gruvbox Dark Orange: gruvbox Laranja Iluna
+      Gruvbox Light Red: Gruvbox Gorri Argia
+      Gruvbox Light Blue: Gruvbox Urdin Argia
+      Gruvbox Light Orange: Gruvbox Laranja Argia
+      Gruvbox Dark Aqua: Gruvbox Aqua Iluna
+      Gruvbox Light Purple: Gruvbox Ubel Argia
+      Gruvbox Dark Blue: Gruvbox Urdin Iluna
+      Gruvbox Dark Green: Gruvbox Berde Iluna
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
     Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
-    Player Settings: 'Erreprodukzioaren ezarpenak'
+    Player Settings: 'Erreproduzitzailea'
     Play Next Video: 'Hurrengo bideoa erreproduzitu'
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
     Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
@@ -442,7 +451,7 @@ Settings:
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
   Privacy Settings:
-    Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
+    Privacy Settings: 'Pribatutasuna'
     Remember History: 'Historikoa oroitu'
     Save Watched Progress: 'Ikusitakoaren progresioa gorde'
     Clear Search Cache: 'Bilaketen cachea ezabatu'
@@ -464,16 +473,15 @@ Settings:
     Are you sure you want to remove all your playlists?: Ziur erreprodukzio-zerrenda
       guztiak kendu nahi dituzula?
   Subscription Settings:
-    Subscription Settings: 'Harpidetzen ezarpenak'
+    Subscription Settings: 'Harpidetza'
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
-    Manage Subscriptions: 'Harpidetzak kudeatu'
     Fetch Automatically: Eskuratu jarioa automatikoki
     Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
       bideoa
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
   Distraction Free Settings:
-    Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
+    Distraction Free Settings: 'Oharkabetasunik ez'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
     Hide Video Likes And Dislikes: 'Bideoen atsegiteak eta desatsegiteak ezkutatu'
     Hide Channel Subscribers: 'Kanalaren harpidedun kopurua ezkutatu'
@@ -521,14 +529,10 @@ Settings:
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
   Data Settings:
-    Data Settings: 'Datuen ezarpenak'
+    Data Settings: 'Datuak'
     Select Import Type: 'Hautatu Inportazio mota'
     Select Export Type: 'Hautatu esportazio mota'
     Import Subscriptions: 'Harpidetzak inportatu'
-    Import FreeTube: 'Freetube inportatu'
-    Import YouTube: 'Youtubetik inportatu'
-    Import NewPipe: 'Newpipetik inportatu'
-    Check for Legacy Subscriptions: 'Legacy harpidetzak bilatu'
     Export Subscriptions: 'Harpidetzak esportatu'
     Export FreeTube: 'Freetubera esportatu'
     Export YouTube: 'Youtubera esportatu'
@@ -578,7 +582,7 @@ Settings:
         bertsio zaharra eta inportatu esportatutako erreprodukzio-zerrendak.\""
     Subscription File: Harpidetza Fitxategia
   Proxy Settings:
-    Proxy Settings: 'Proxy-aren ezarpenak'
+    Proxy Settings: 'Proxy-a'
     Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
     Proxy Protocol: 'Proxy protokoloa'
     Proxy Host: 'Proxy ostalaria'
@@ -594,10 +598,14 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Errore
       bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta
       al dago?'
+    Proxy Warning: FreeTube-k ez du proxy-rik, baina kanpoko proxy batera konekta
+      daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy
+      bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor
+      behar bezala konfiguratuta dagoela, edo FreeTube-k ezingo du daturik lortu.
   External Player Settings:
     Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena
       egin
-    External Player Settings: Kanpoko erreproduzitzailearen ezarpenak
+    External Player Settings: Kanpoko erreproduzitzailea
     External Player: Kanpoko erreproduzitzailea
     Custom External Player Executable: Lehenetsitako kanpo erreproduzitzailea exekutagarria
     Custom External Player Arguments: Lehenetsitako kanpo erreproduzitzailea argudioak
@@ -606,7 +614,7 @@ Settings:
       None:
         Name: Bat ere ez
   Download Settings:
-    Download Settings: Deskargen ezarpenak
+    Download Settings: Deskargak
     Ask Download Path: Deskargaren ibilbidea galdetu
     Choose Path: Ibilbidea hautatu
     Download Behavior: Deskargen portaera
@@ -625,7 +633,7 @@ Settings:
     Enable SponsorBlock: Babesleak blokeatzea ahalbidetu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko
       API Url (lehenetsia https://sponsor.ajay.app da)
-    SponsorBlock Settings: Babesleak blokeatzeko ezarpenak
+    SponsorBlock Settings: Babesleak blokeatu
     UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
     UseDeArrowThumbnails: Erabili DeArrow irudi txikietarako
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
@@ -633,7 +641,7 @@ Settings:
   Parental Control Settings:
     Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
     Hide Unsubscribe Button: Harpidetza kendu botoia ezkutatu
-    Parental Control Settings: Gurasoen kontrolaren ezarpenak
+    Parental Control Settings: Gurasoen kontrola
     Hide Search Bar: Bilaketa barra ezkutatu
   Password Dialog:
     Password: Pasahitza
@@ -642,23 +650,21 @@ Settings:
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
   Experimental Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
-    Experimental Settings: Ezarpen esperimentalak
+    Experimental Settings: Esperimentalak
     Warning: Ezarpen hauek esperimentalak dira, aktibatuta dauden bitartean hutsegiteak
       eragin ditzakete. Oso gomendagarria da babeskopiak egitea. Erabili zure ardurapean!
   Password Settings:
-    Password Settings: Pasahitz ezarpenak
+    Password Settings: Pasahitza
     Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
     Remove Password: Pasahitza ezabatu
     Set Password: Ezarri pasahitza
-  Expand All Settings Sections: Zabaldu ezarpen guztien atalak
   Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
+  Return to Settings Menu: Ezarpenen menura itzuli
 About:
   #On About page
   About: 'Honi buruz'
   Beta: 'Beta'
   Source code: 'Kode iturria'
-  Licensed under the AGPLv3: 'AGPLv3 lizentziapean'
-  View License: 'Lizentzia ikusi'
   Downloads / Changelog: 'Deskargak / Aldaketen erregistroa'
   GitHub releases: 'Github argitalpenak'
   Help: 'Laguntza'
@@ -727,7 +733,7 @@ Profile:
     al zaude hautatutako kanalak ezabatu nahi dituzula? Honek ez du kanala beste profil
     batetik ezabatuko.'
 #On Channel Page
-  Profile Settings: Profilaren ezarpenak
+  Profile Settings: Profila
   Close Profile Dropdown: Itxi goitibeherako profila
   Open Profile Dropdown: Ireki goitibeherako profila
   Toggle Profile List: Aldatu profilen zerrenda
@@ -850,39 +856,10 @@ Video:
   video only: 'Bideoa soilik'
   audio only: 'Audioa soilik'
   Published:
-    Jan: 'Urtarrila'
-    Feb: 'Otsaila'
-    Mar: 'Martxoa'
-    Apr: 'Apirila'
-    May: 'Maiatza'
-    Jun: 'Ekaina'
-    Jul: 'Uztaila'
-    Aug: 'Abuztua'
-    Sep: 'Iraila'
-    Oct: 'Urria'
-    Nov: 'Azaroa'
-    Dec: 'Abendua'
-    Second: 'Segundua'
-    Seconds: 'Segundoak'
-    Minute: 'Minutua'
-    Minutes: 'Minutuak'
-    Hour: 'Ordua'
-    Hours: 'Orduak'
-    Day: 'Eguna'
-    Days: 'Egunak'
-    Week: 'Astea'
-    Weeks: 'Asteak'
-    Month: 'Hilabetea'
-    Months: 'Hilabeteak'
-    Year: 'Urtea'
-    Years: 'Urteak'
-    Ago: 'Duela'
-    Upcoming: 'Estreinaldiak'
     In less than a minute: Minutu bat baino gutxiagoan
   Published on: 'Noiz argitaratua'
   Streamed on: 'Noiz zuzenean emana'
   Started streaming on: 'Noiz hasi zen zuzenekoa'
-  Publicationtemplate: 'Duela {number} {unit}'
 #& Videos
   External Player:
     Unsupported Actions:
@@ -948,6 +925,14 @@ Video:
     Playback will resume automatically when your connection comes back: Erreprodukzioa
       automatikoki berrekingo da konexioa itzultzen denean.
     Full Window: Pantaila osoa
+  MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTube-rekin ikusi, Googleren
+    saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen
+    baitute.
+  Unlisted: Zerrendatugabeak
+  AgeRestricted: Adin muga duten bideoak ezin dira FreeTube-rekin ikusi, Googlen saioa
+    hasi eta adinak egiaztatutako YouTube-ko kontu bat erabili behar delako.
+  IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu
+    VPN edo proxy desberdin batera aldatzen.
 Videos:
   #& Sort By
   Sort By:
@@ -958,9 +943,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
-  Videos: 'Bideoak'
-  View: 'Ikusi'
-  Views: 'Ikustaldiak'
   Last Updated On: 'Azkenengoz eguneratua'
 
 # On Video Watch Page
@@ -976,7 +958,8 @@ Playlist:
     VideoTitleDescending: Izenburua (Z-A)
     AuthorAscending: Egilea (A-Z)
     AuthorDescending: Egilea (Z-A)
-Toggle Theatre Mode: 'Aldatu Antzerki modura'
+    VideoDurationDescending: Iraupena (luzeenetik laburrenera)
+    VideoDurationAscending: Iraupena (laburrenetik luzeenera)
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'
@@ -1076,10 +1059,9 @@ Tooltips:
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko,
       MPV estiloa.
   Subscription Settings:
-    Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
-      beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
-      izateaz gain, IP-en blokeoak saihesten ditu. Aldiz, zuzenekoaren egoeraren edo
-      bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
+    Fetch Feeds from RSS: 'Gaituta dagoenean, FreeTube-k RSS erabiliko du zure harpidetza-elikadurari
+      eusteko. RSSa azkarragoa da eta IP blokeoa saihesten du, baina ez du informaziorik
+      ematen, hala nola bideoaren iraupena, zuzeneko egoera edo komunitateko mezuak'
     Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure
       harpidetza-jarioa leiho berri bat irekitzen denean eta profila aldatzean.
 
@@ -1127,7 +1109,6 @@ Falling back to Local API: 'Tokiko APIra itzultzen'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo
   hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean
   erabilgarri ez dagoelako gerta daiteke.'
-Subscriptions have not yet been implemented: 'Harpidetzak ez dira oraindik aktibatu'
 Loop is now disabled: 'Etengabeko erreprodukzioa desaktibatu egin da'
 Loop is now enabled: 'Etengabeko ereprodukzioa aktibatu egin da'
 Shuffle is now disabled: 'Erreprodukzioen nahasketak desaktibatu egin dira'
@@ -1158,8 +1139,6 @@ External link opening has been disabled in the general settings: Kanpo estekak i
 Downloading has completed: '"{videoTitle}" deskargatu egin da'
 Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
   ezin da aplikazioan ireki
-Hashtags have not yet been implemented, try again later: Etiketak ez dira oraindik
-  aktibatu, berriz ere saiatu zaitez beranduago
 Downloading failed: Akats bat gertatu da "{videoTitle}" deskargatzerakoan
 Screenshot Success: Pantaila-argazkia gode da "{filePath}" gisa
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
@@ -1169,8 +1148,6 @@ Channels:
   Channels: Kanalak
   Title: Kanalen zerrenda
   Search bar placeholder: Kanalak bilatu
-  Unsubscribe: Harpidetza kendu
-  Unsubscribed: '{channelName} zure harpidetzen zerrendatik ezabatu da'
   Unsubscribe Prompt: Ziur al zaude "{channelName}"-ren harpidetza kendu nahi duzula?
   Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.
@@ -1199,6 +1176,7 @@ Chapters:
   Chapters: Kapituluak
   'Chapters list visible, current chapter: {chapterName}': 'Kapituluen zerrenda ikusgai,
     uneko kapitulua: {chapterName}'
+  Key Moments: Une garrantzitsuenak
 Hashtag:
   Hashtag: Traola
   This hashtag does not currently have any videos: Traola honek ez du bideorik une
@@ -1222,5 +1200,10 @@ Search Listing:
     4K: 4K
     Subtitles: Azpitituluak
     Closed Captions: Azpititulu deskriptiboak
+    8K: 8K
+    VR180: VR180
+    360 Video: 360º
+    New: Berria
+    3D: 3D
 'Blocked opening potentially unsafe URL': 'Insegurua izan daitekeen URLa irekitzea
   blokeatu da: "{url}".'

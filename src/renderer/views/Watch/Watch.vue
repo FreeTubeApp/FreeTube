@@ -117,6 +117,7 @@
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
+        :is-unlisted="isUnlisted"
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"
@@ -150,6 +151,7 @@
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
+        :kind="videoChaptersKind"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
@@ -162,7 +164,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
       />
-      <watch-video-comments
+      <CommentSection
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
@@ -170,7 +172,6 @@
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
         :video-player-ready="videoPlayerLoaded"
-        :force-state="commentsEnabled ? null : 'noComment'"
         @timestamp-event="changeTimestamp"
       />
     </div>

@@ -112,8 +112,9 @@ Subscriptions:
     notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
     takmarkanir á magni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Listi
-    með áskriftum er tómur í augnablikinu. Gerstu áskrifandi að rásum og þær munu
-    birtast hér.'
+    með áskriftum er tómur í augnablikinu. Ef þú vilt flytja inn áskriftirnar þínar,
+    geturðu farið í stillingar gagna og valið ''Flytja inn áskriftir'' eða leitað
+    að rás og gerst áskrifandi að henni.'
   'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
@@ -138,12 +139,6 @@ Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
   Your Playlists: 'Spilunarlistarnir þínir'
-  Playlist Message: 'Þessi síða endurspeglar ekki alveg fullvirka spilunarlista. Hún
-    telur aðeins upp þau myndskeið sem þú hefur vistað eða sett í eftirlæti. Þegar
-    verkinu er lokið munu öll þessi myndskeið færast yfir í ''Eftirlæti''-spilunarlista.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Listinn
-    þinn yfir vistuð myndskeið er tómur. Smelltu á vistunarhnapp myndskeiðs til að
-    það birtist hér'
   Search bar placeholder: Leita að spilunarlistum
   Empty Search Message: Það eru engin myndskeið í þessum spilunarlista sem samsvara
     leitinni þinni
@@ -191,7 +186,6 @@ User Playlists:
         afrita samt.
       This playlist is now used for quick bookmark: Þessi spilunarlisti er núna notaður
         undir flýtibókamerki
-      Quick bookmark disabled: Flýtibókamerki óvirk
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Þessi
         spilunarlisti er núna notaður undir flýtibókamerki í stað {oldPlaylistName}.
         Smelltu hér til að afturkalla
@@ -201,6 +195,9 @@ User Playlists:
         {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
       This playlist is already being used for quick bookmark.: Þessi spilunarlisti
         er nú þegar notaður undir flýtibókamerki.
+      This playlist has a video with a duration error: Spilunarlistinn inniheldur
+        a.m.k. eitt myndskeið sem er ekki með neina tímalengd; það verður flokkað
+        eins og tímalengdin sé núll.
     Search for Videos: Leita að myndskeiðum
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
@@ -237,16 +234,12 @@ User Playlists:
   Move Video Down: Færa myndskeið niður
   Copy Playlist: Afrita spilunarlista
   Remove Watched Videos: Fjarlægja áhorfð myndskeið
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Ertu
-    viss um að þú viljir eyða öllum myndskeiðum sem búið er að horfa á af þessum spilunarlista?
-    Aðgerðin er ekki afturkallanleg.
   Delete Playlist: Eyða spilunarlista
   Are you sure you want to delete this playlist? This cannot be undone: Ertu viss
     um að þú viljir eyða þessum spilunarlista? Aðgerðin er ekki afturkallanleg.
   Add to Favorites: Bæta í {playlistName}
   Remove from Favorites: Fjarlægja af {playlistName}
   Enable Quick Bookmark With This Playlist: Virkja flýtibókamerki með þessum spilunarlista
-  Disable Quick Bookmark: Eyða flýtibókamerki
   Playlists with Matching Videos: Spilunarlistar með samsvarandi myndskeiðum
   Quick Bookmark Enabled: Flýtibókamerki virkjuð
   Remove Duplicate Videos: Fjarlægja tvítekin Myndskeið
@@ -260,6 +253,8 @@ User Playlists:
     viss um að þú viljir fjarlægja 1 áhorft myndskeið af þessum spilunarlista? Þetta
     er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
     áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
+  Export Playlist: Flytja út þennan spilunarlista
+  The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
 History:
   # On History Page
   History: 'Áhorf'
@@ -300,8 +295,6 @@ Settings:
       End: 'Endir'
       Hidden: Falið
       Blur: Móska
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-tilvik
-      (sjálfgefið er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við'
         #! List countries
@@ -341,6 +334,8 @@ Settings:
       Nordic: Norrænt
       Solarized Dark: Sólaríserað dökkt
       Solarized Light: Sólaríserað ljóst
+      Gruvbox Dark: Gruvbox dökkt
+      Gruvbox Light: Gruvbox ljóst
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -388,6 +383,16 @@ Settings:
       Solarized Magenta: Sólaríserað blárautt
       Solarized Red: Sólaríserað rautt
       Solarized Green: Sólaríserað grænt
+      Gruvbox Dark Green: Gruvbox dökkgrænt
+      Gruvbox Dark Yellow: Gruvbox dökkgult
+      Gruvbox Dark Aqua: Gruvbox dökksægrænt
+      Gruvbox Light Red: Gruvbox ljósrautt
+      Gruvbox Light Blue: Gruvbox ljósblátt
+      Gruvbox Light Purple: Gruvbox ljósfjólublátt
+      Gruvbox Light Orange: Gruvbox ljósappelsínugult
+      Gruvbox Dark Orange: Gruvbox dökkappelsínugult
+      Gruvbox Dark Blue: Gruvbox dökkblátt
+      Gruvbox Dark Purple: Gruvbox dökkfjólublátt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -471,7 +476,6 @@ Settings:
     Subscription Settings: 'Áskrift'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
-    Manage Subscriptions: 'Sýsla með áskriftir'
     Fetch Automatically: Sækja streymi sjálfvirkt
     Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
       hverja myndskeiðarás
@@ -513,7 +517,6 @@ Settings:
     Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
-    Blur Thumbnails: Móska smámyndir
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
     Hide Subscriptions Community: Fela samfélag áskrifenda
     Hide Channels Invalid: Uppgefið auðkenni rásar er ógilt
@@ -531,10 +534,6 @@ Settings:
     Select Import Type: 'Veldu tegund innflutnings'
     Select Export Type: 'Veldu tegund útflutnings'
     Import Subscriptions: 'Flytja inn áskriftir'
-    Import FreeTube: 'Flytja inn FreeTube'
-    Import YouTube: 'Flytja inn YouTube'
-    Import NewPipe: 'Flytja inn NewPipe'
-    Check for Legacy Subscriptions: 'Athuga með eldri áskriftir'
     Export Subscriptions: 'Flytja út áskriftir'
     Export FreeTube: 'Flytja út FreeTube'
     Export YouTube: 'Flytja út YouTube'
@@ -598,6 +597,11 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
+    Proxy Warning: FreeTube er ekki með innbyggðan milliþjón en getur tengst við utanaðkomandi
+      milliþjóna, til dæmis einhvern sem keyrir á vélinni þinni eins og Tor eða fjartengdan
+      milliþjón á borð við SOCKS5-milliþjóna sem sumar VPN-þjónustur bjóða. Ef þetta
+      er virkt skaltu ganga úr skugga um að milliþjónninn/Tor sé rétt stillt, annars
+      mun FreeTube ekki geta sótt nein gögn.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
@@ -653,7 +657,6 @@ Settings:
     Set Password: Setja lykilorð
     Remove Password: Fjarlægja lykilorð
     Password Settings: Lykilorð
-  Expand All Settings Sections: Fletta út öllum stillingahlutum
   Sort Settings Sections (A-Z): Röðun stillingahluta (A-Ö)
   Return to Settings Menu: Fara aftur í stillingavalmynd
 About:
@@ -661,8 +664,6 @@ About:
   About: 'Um hugbúnaðinn'
   Beta: 'Beta-prófunarútgáfa'
   Source code: 'Grunnkóði'
-  Licensed under the AGPLv3: 'Gefið út með AGPLv3-notkunarleyfi'
-  View License: 'Skoða notkunarleyfi'
   Downloads / Changelog: 'Sóttar skrár / Breytingaskrá'
   GitHub releases: 'Útgáfur af GitHub'
   Help: 'Hjálp'
@@ -790,6 +791,8 @@ Channel:
     votes: '{votes} atkvæði'
     Video hidden by FreeTube: Myndskeið falið af FreeTube
     View Full Post: Skoða alla færsluna
+    Viewing Posts Only Supported By Invidious: Einungis er hægt að skoða innsendar
+      færslur á Invidious. Farðu á samfélagsflipa rásar til að skoða efni þar án Invidious.
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
@@ -849,40 +852,10 @@ Video:
   video only: 'einungis myndmerki'
   audio only: 'einungis hljóð'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Maí'
-    Jun: 'Jún'
-    Jul: 'Júl'
-    Aug: 'Ágú'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nóv'
-    Dec: 'Des'
-    Second: 'sekúndu'
-    Seconds: 'sekúndum'
-    Minute: 'mínútu'
-    Minutes: 'mínútum'
-    Hour: 'klukkustund'
-    Hours: 'klukkustundum'
-    Day: 'degi'
-    Days: 'dögum'
-    Week: 'viku'
-    Weeks: 'vikum'
-    Month: 'mánuði'
-    Months: 'mánuðum'
-    Year: 'ári'
-    Years: 'árum'
-    Ago: 'síðan'
-    Upcoming: 'Frumsýnt'
-    Less than a minute: Minna en mínútu
     In less than a minute: eftir minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
-  Publicationtemplate: 'Fyrir {number} {unit} síðan'
 #& Videos
   Sponsor Block category:
     music offtopic: Tónlist óskyld efni
@@ -936,6 +909,8 @@ Video:
       Video ID: 'Auðkenni myndskeiðs: {videoId}'
       Media Formats: 'Snið efnis: {formats}'
       CodecAudio: 'Kóðunarlykill: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Römmum sleppt: {droppedFrames} / Rammar alls:
+        {totalFrames}'
     TranslatedCaptionTemplate: '{language} (þýtt úr "{originalLanguage}")'
     Take Screenshot: Taka skjámynd
     Hide Stats: Fela tölfræði
@@ -947,6 +922,15 @@ Video:
     Exit Full Window: Hætta í skjáfylli
     Playback will resume automatically when your connection comes back: Afspilun heldur
       sjálfkrafa áfram þegar tenging næst aftur.
+    Exit Theatre Mode: Fara út úr bíóham
+    Theatre Mode: Bíóhamur
+  Unlisted: Óskráð
+  MembersOnly: Ekki er hægt að horfa á myndskeið einungis fyrir meðlimi með FreeTube
+    þar sem þau krefjast innskráningar á Google og greiddu þátttökugjaldi á rás innsendandans.
+  AgeRestricted: Ekki er hægt að horfa á aldurstakmörkuð myndskeið með FreeTube þar
+    sem þau krefjast innskráningar á Google og notkunar á aldursvottuðum YouTube-reikningi.
+  IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið.
+    Prófaðu að skipta yfir á annan VPN eða milliþjón.
 Videos:
   #& Sort By
   Sort By:
@@ -957,9 +941,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Sjá allan spilunarlistann'
-  Videos: 'Myndskeið'
-  View: 'Áhorf'
-  Views: 'Áhorf'
   Last Updated On: 'Síðast uppfært'
 
 # On Video Watch Page
@@ -977,7 +958,6 @@ Playlist:
     DateAddedOldest: Elsta bætt við fyrst
     VideoDurationAscending: Tímalengd (stysta fyrst)
     VideoDurationDescending: Tímalengd (lengsta fyrst)
-Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
@@ -1124,7 +1104,6 @@ Falling back to Local API: 'Nota til vara staðvært API-kerfisviðmót'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Þetta
   myndskeiðer ekki tiltækt vegna þess að það vantar skráasnið. Þetta getur gest ef
   þau eru ekki tiltæk í viðkomandi landi.'
-Subscriptions have not yet been implemented: 'Áskriftir eru enn ekki frágengnar'
 Loop is now disabled: 'Endurtekning er núna óvirk'
 Loop is now enabled: 'Endurtekning er núna virk'
 Shuffle is now disabled: 'Stokkun er núna óvirk'
@@ -1142,8 +1121,6 @@ Canceled next video autoplay: 'Hætti við sjálfvirka afspilun næsta myndskei�
 
 Yes: 'Já'
 No: 'Nei'
-Hashtags have not yet been implemented, try again later: Ekki er ennþá stuðningur
-  við myllumerki (hashtags), prófaðu aftur síðar
 Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóðar, er
   ekki hægt að opna í forritinu
 Open New Window: Opna í nýjum glugga
@@ -1166,11 +1143,9 @@ Channels:
   Search bar placeholder: Leita í rásum
   Count: '{number} rás/rásir fundust.'
   Empty: Rásalistinn þinn er tómur.
-  Unsubscribed: '{channelName} hefur verið fjarlægð úr áskriftunum þínum'
   Unsubscribe Prompt: Ertu viss um að þú viljir hætta áskrift að "{channelName}"?
   Channels: Rásir
   Title: Rásalisti
-  Unsubscribe: Segja upp áskrift
 Clipboard:
   Copy failed: Afritun á klippispjald mistókst
   Cannot access clipboard without a secure connection: Get ekki tengst klippispjaldi
@@ -1181,6 +1156,7 @@ Chapters:
     núverandi kafli: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
     núverandi kafli: {chapterName}'
+  Key Moments: Helstu augnablik
 Preferences: Kjörstillingar
 Ok: Í lagi
 Hashtag:

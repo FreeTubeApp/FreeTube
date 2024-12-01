@@ -135,12 +135,6 @@ Most Popular: 'Most Popular'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Your playlists'
-  Playlist Message: This page is not reflective of fully working playlists. It only
-    lists videos that you have saved or made a Favourite. When the work has finished,
-    all videos currently here will be migrated to a ‘Favourites’ playlist.
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your
-    saved videos are empty. Click on the save button on the corner of a video to have
-    it listed here
   Search bar placeholder: Search for playlists
   Empty Search Message: There are no videos in this playlist that match your search
   Create New Playlist: Create new Playlist
@@ -195,7 +189,6 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This
         playlist is now used for quick bookmark instead of {oldPlaylistName}. Click
         here to undo
-      Quick bookmark disabled: Quick bookmark disabled
       Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
         is the new quick bookmark playlist.
       This playlist is already being used for quick bookmark.: This playlist is already
@@ -237,15 +230,11 @@ User Playlists:
   Remove from Playlist: Remove from playlist
   Copy Playlist: Copy playlist
   Remove Watched Videos: Remove watched videos
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: Are
-    you sure you want to remove all watched videos from this playlist? This cannot
-    be undone.
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure
     you want to delete this playlist? This cannot be undone.
   Add to Favorites: Add to {playlistName}
   Remove from Favorites: Remove from {playlistName}
   Enable Quick Bookmark With This Playlist: Enable quick bookmark with this playlist
-  Disable Quick Bookmark: Disable quick bookmark
   Playlists with Matching Videos: Playlists with matching videos
   Quick Bookmark Enabled: Quick bookmark enabled
   Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark
@@ -259,6 +248,9 @@ User Playlists:
     you sure you want to remove 1 watched video from this playlist? This cannot be
     undone. | Are you sure you want to remove {playlistItemCount} watched videos from
     this playlist? This cannot be undone.
+  Export Playlist: Export This Playlist
+  The playlist has been successfully exported: The playlist has been successfully
+    exported
 History:
   # On History Page
   History: 'History'
@@ -271,7 +263,7 @@ Settings:
   # On Settings Page
   Settings: 'Settings'
   General Settings:
-    General Settings: 'General settings'
+    General Settings: 'General'
     Check for Updates: 'Check for updates'
     Check for Latest Blog Posts: 'Check for latest blog posts'
     Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend
@@ -295,14 +287,10 @@ Settings:
       End: 'End'
       Blur: Blur
       Hidden: Hidden
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
-      (Default is https://invidious.snopyta.org)'
     Region for Trending: 'Region for trending'
         #! List countries
     View all Invidious instance information: View all Invidious instance information
     System Default: System default
-    External Player: External Player
-    External Player Executable: Custom External Player Executable
     Clear Default Instance: Clear default instance
     Set Current Instance as Default: Set current instance as default
     Current instance will be randomized on startup: Current instance will be randomised
@@ -320,7 +308,7 @@ Settings:
       Label: Auto load next page
       Tooltip: Load additional pages and comments automatically.
   Theme Settings:
-    Theme Settings: 'Theme settings'
+    Theme Settings: 'Theme'
     Match Top Bar with Main Color: 'Match top bar with main colour'
     Base Theme:
       Base Theme: 'Base theme'
@@ -390,7 +378,7 @@ Settings:
     Hide Side Bar Labels: Hide side bar labels
     Hide FreeTube Header Logo: Hide FreeTube header logo
   Player Settings:
-    Player Settings: 'Player settings'
+    Player Settings: 'Player'
     Play Next Video: 'Play next video'
     Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
@@ -442,7 +430,7 @@ Settings:
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
   External Player Settings:
-    External Player Settings: External Player Settings
+    External Player Settings: External Player
     External Player: External Player
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Ignore Default Arguments: Ignore Default Arguments
@@ -452,7 +440,7 @@ Settings:
       None:
         Name: None
   Privacy Settings:
-    Privacy Settings: 'Privacy Settings'
+    Privacy Settings: 'Privacy'
     Remember History: 'Remember History'
     Save Watched Progress: 'Save Watched Progress'
     Clear Search Cache: 'Clear Search Cache'
@@ -474,21 +462,17 @@ Settings:
     Are you sure you want to remove all your playlists?: Are you sure you want to
       remove all your playlists?
   Subscription Settings:
-    Subscription Settings: 'Subscription Settings'
+    Subscription Settings: 'Subscription'
     Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch feeds from RSS'
-    Manage Subscriptions: 'Manage subscriptions'
     Fetch Automatically: Fetch feed automatically
     Only Show Latest Video for Each Channel: Only show latest video for each channel
     Confirm Before Unsubscribing: Confirm before unsubscribing
   Data Settings:
-    Data Settings: 'Data settings'
+    Data Settings: 'Data'
     Select Import Type: 'Select import type'
     Select Export Type: 'Select export type'
     Import Subscriptions: 'Import subscriptions'
-    Import FreeTube: 'Import FreeTube'
-    Import YouTube: 'Import YouTube'
-    Import NewPipe: 'Import NewPipe'
     Export Subscriptions: 'Export Subscriptions'
     Export FreeTube: 'Export FreeTube'
     Export YouTube: 'Export YouTube'
@@ -516,7 +500,6 @@ Settings:
     Unable to write file: 'Unable to write file'
     Unknown data key: 'Unknown data key'
     How do I import my subscriptions?: 'How do I import my subscriptions?'
-    Check for Legacy Subscriptions: Check for Legacy subscriptions
     Manage Subscriptions: Manage Subscriptions
     Import Playlists: Import playlists
     Export Playlists: Export playlists
@@ -537,32 +520,6 @@ Settings:
         all of your existing playlists using the Remove All playlists option under
         Privacy settings.\n3. Launch the older version of FreeTube and import the
         exported playlists.’"
-  Advanced Settings:
-    Advanced Settings: 'Advanced Settings'
-    Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
-      to the console)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy Address (Example:
-      SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Clicking
-      ‘TEST PROXY’ button will send a request to https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Use Tor / Proxy for API calls'
-    TEST PROXY: 'TEST PROXY'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'See Public Instances'
-    Clear History:
-      Clear History: 'Clear History'
-      # On Click
-      Are you sure you want to delete your history?: 'Are you sure you want to delete
-        your history?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Clear Subscriptions'
-      # On Click
-      Are you sure you want to remove all subscriptions?: 'Are you sure you want to
-        remove all subscriptions?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Live Chat: Hide Live Chat
@@ -574,7 +531,7 @@ Settings:
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Video Views: Hide Video Views
     Hide Active Subscriptions: Hide Active Subscriptions
-    Distraction Free Settings: Distraction Free Settings
+    Distraction Free Settings: Distraction Free
     Hide Playlists: Hide Playlists
     Hide Comments: Hide comments
     Hide Video Description: Hide video description
@@ -631,13 +588,13 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Enable Tor / Proxy
-    Proxy Settings: Proxy Settings
+    Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Enable SponsorBlock
-    SponsorBlock Settings: SponsorBlock Settings
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Skip option
       Auto Skip: Auto skip
@@ -650,7 +607,7 @@ Settings:
       Thumbnail Generator API URL (Default is https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Use DeArrow for thumbnails
   Download Settings:
-    Download Settings: Download Settings
+    Download Settings: Download
     Ask Download Path: Ask for download path
     Choose Path: Choose path
     Download Behavior: Download behaviour
@@ -658,12 +615,12 @@ Settings:
     Download in app: Download in app
   Parental Control Settings:
     Hide Unsubscribe Button: Hide Unsubscribe button
-    Parental Control Settings: Parental control settings
+    Parental Control Settings: Parental Control
     Show Family Friendly Only: Show family-friendly only
     Hide Search Bar: Hide search bar
   Experimental Settings:
     Replace HTTP Cache: Replace HTTP cache
-    Experimental Settings: Experimental settings
+    Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled.
       Making backups is highly recommended. Use at your own risk!
   Password Dialog:
@@ -674,30 +631,21 @@ Settings:
   Password Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Remove Password: Remove password
-    Password Settings: Password settings
+    Password Settings: Password
     Set Password: Set password
-  Expand All Settings Sections: Expand all settings sections
   Sort Settings Sections (A-Z): Sort settings sections (A-Z)
+  Return to Settings Menu: Return to Settings Menu
 About:
   #On About page
   About: About
-  Contact: Contact
   Help: Help
-  Useful Links: Useful Links
   Donate: Donate
   Beta: Beta
-  License: License
   Email: E-mail
-  Channel Rules: Channel Rules
-  Report an Issue: Report an Issue
-  Wiki: Wiki
   FAQ: FAQ
   Credits: Credits
   Blog: Blog
-  Release Notes: Release Notes
-  Source Code: Source Code
   Website: Website
-  Translate via Weblate: Translate via Weblate
 
   these people and projects: these people and projects
   FreeTube is made possible by: FreeTube is made possible by
@@ -712,14 +660,12 @@ About:
   FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub releases
   Downloads / Changelog: Downloads / Changelog
-  View License: View Licence
-  Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
   Discussions: Discussions
   Licensed under the: Licensed under the
   AGPLv3: AGPLv3
 Profile:
-  Profile Settings: Profile Settings
+  Profile Settings: Profile
   Profile Select: 'Profile Select'
   All Channels: 'All Channels'
   Profile Manager: 'Profile Manager'
@@ -747,7 +693,6 @@ Profile:
   '{profile} is now the active profile': '{profile} is now the active profile'
   Subscription List: 'Subscription List'
   Other Channels: 'Other Channels'
-  '{count} selected': '{count} selected'
   Select All: 'Select All'
   Select None: 'Select None'
   Delete Selected: 'Delete Selected'
@@ -873,38 +818,8 @@ Video:
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'May'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Second'
-    Seconds: 'Seconds'
-    Minute: 'Minute'
-    Minutes: 'Minutes'
-    Hour: 'Hour'
-    Hours: 'Hours'
-    Day: 'Day'
-    Days: 'Days'
-    Week: 'Week'
-    Weeks: 'Weeks'
-    Month: 'Month'
-    Months: 'Months'
-    Year: 'Year'
-    Years: 'Years'
-    Ago: 'Ago'
-    Upcoming: 'Premieres on'
-    Less than a minute: Less than a minute
     In less than a minute: In less than a minute
   Published on: 'Published on'
-  Publicationtemplate: '{number} {unit} ago'
 #& Videos
   Started streaming on: Started streaming on
   Streamed on: Streamed on
@@ -986,6 +901,11 @@ Video:
     Skipped segment: 'Skipped {segmentCategory} segment'
   IP block: YouTube has blocked your IP address from watching videos. Please try switching
     to a different VPN or proxy.
+  Unlisted: Unlisted
+  MembersOnly: Members-only videos cannot be watched with FreeTube as they require
+    Google login and paid membership to the uploader's channel.
+  AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require
+    Google login and using an age-verified YouTube account.
 Videos:
   #& Sort By
   Sort By:
@@ -997,9 +917,6 @@ Playlist:
   #& About
   Playlist: Playlist
   View Full Playlist: 'View full playlist'
-  Videos: 'Videos'
-  View: 'View'
-  Views: 'Views'
   Last Updated On: 'Last updated on'
 
 # On Video Watch Page
@@ -1016,7 +933,6 @@ Playlist:
     VideoTitleAscending: Title (A-Z)
     VideoDurationAscending: Duration (Shortest first)
     VideoDurationDescending: Duration (Longest first)
-Toggle Theatre Mode: 'Toggle Theatre Mode'
 Change Format:
   Change Media Formats: 'Change Media Formats'
   Use Dash Formats: 'Use DASH Formats'
@@ -1085,7 +1001,6 @@ Local API Error (Click to copy): 'Local API Error (Click to copy)'
 Invidious API Error (Click to copy): 'Invidious API Error (Click to copy)'
 Falling back to Invidious API: 'Falling back to Invidious API'
 Falling back to Local API: 'Falling back to Local API'
-Subscriptions have not yet been implemented: 'Subscriptions have not yet been implemented'
 Loop is now disabled: 'Loop is now disabled'
 Loop is now enabled: 'Loop is now enabled'
 Shuffle is now disabled: 'Shuffle is now disabled'
@@ -1174,8 +1089,6 @@ Playing Next Video Interval: Playing next video in no time. Click to cancel. | P
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
 More: More
-Hashtags have not yet been implemented, try again later: Hashtags have not yet been
-  implemented, try again later
 Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot
   be opened in app
 Open New Window: Open New Window
@@ -1195,8 +1108,6 @@ Screenshot Success: Saved screenshot as ‘{filePath}’
 New Window: New window
 Channels:
   Empty: Your channel list is currently empty.
-  Unsubscribe: Unsubscribe
-  Unsubscribed: '{channelName} has been removed from your Subscriptions'
   Unsubscribe Prompt: Are you sure you want to Unsubscribe from ‘{channelName}’?
   Title: Channel list
   Search bar placeholder: Search channels
@@ -1211,6 +1122,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current
     chapter: {chapterName}'
   Chapters: Chapters
+  Key Moments: Key Moments
 Clipboard:
   Copy failed: Copy to clipboard failed
   Cannot access clipboard without a secure connection: Cannot access clipboard without

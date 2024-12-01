@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT } from 'youtubei.js'
+import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -9,8 +9,8 @@ import {
   escapeHTML,
   extractNumberFromString,
   getChannelPlaylistId,
+  getRelativeTimeFromDate,
   randomArrayItem,
-  toLocalePublicationString
 } from '../utils'
 
 const TRACKING_PARAM_NAMES = [
@@ -253,54 +253,44 @@ export async function getLocalVideoInfo(id) {
     id = trailerScreen.video_id
   }
 
-  // try to bypass the age restriction
-  if (info.playability_status.status === 'LOGIN_REQUIRED' || (hasTrailer && trailerIsAgeRestricted)) {
-    const tvInnertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
+  if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
+    info.playability_status.status === 'LOGIN_REQUIRED') {
+    return info
+  }
 
-    const tvInfo = await tvInnertube.getBasicInfo(id, 'TV_EMBEDDED')
+  const iosInnertube = await createInnertube({ clientType: ClientType.IOS })
 
-    if (tvInfo.streaming_data) {
-      decipherFormats(tvInfo.streaming_data.adaptive_formats, tvInnertube.actions.session.player)
-      decipherFormats(tvInfo.streaming_data.formats, tvInnertube.actions.session.player)
+  const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
+
+  if (hasTrailer) {
+    info.playability_status = iosInfo.playability_status
+    info.streaming_data = iosInfo.streaming_data
+    info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
+    info.basic_info.duration = iosInfo.basic_info.duration
+    info.captions = iosInfo.captions
+    info.storyboards = iosInfo.storyboards
+  } else if (iosInfo.streaming_data) {
+    info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
+    info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
+
+    // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
+
+    for (const format of info.streaming_data.adaptive_formats) {
+      format.freeTubeUrl = format.url
     }
+  }
 
-    info.playability_status = tvInfo.playability_status
-    info.streaming_data = tvInfo.streaming_data
-    info.basic_info.start_timestamp = tvInfo.basic_info.start_timestamp
-    info.basic_info.duration = tvInfo.basic_info.duration
-    info.captions = tvInfo.captions
-    info.storyboards = tvInfo.storyboards
-  } else {
-    const iosInnertube = await createInnertube({ clientType: ClientType.IOS })
-
-    const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
-
-    if (hasTrailer) {
-      info.playability_status = iosInfo.playability_status
-      info.streaming_data = iosInfo.streaming_data
-      info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
-      info.basic_info.duration = iosInfo.basic_info.duration
-      info.captions = iosInfo.captions
-      info.storyboards = iosInfo.storyboards
-    } else if (iosInfo.streaming_data) {
-      info.streaming_data.adaptive_formats = iosInfo.streaming_data.adaptive_formats
-      info.streaming_data.hls_manifest_url = iosInfo.streaming_data.hls_manifest_url
-
-      // Use the legacy formats from the original web response as the iOS client doesn't have any legacy formats
-
-      for (const format of info.streaming_data.adaptive_formats) {
-        format.freeTubeUrl = format.url
-      }
-    }
-
-    if (info.streaming_data) {
-      decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
-    }
+  if (info.streaming_data) {
+    decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
   }
 
   return info
 }
 
+/**
+ * @param {string} id
+ * @param {boolean | undefined} sortByNewest
+ */
 export async function getLocalComments(id, sortByNewest = false) {
   const innertube = await createInnertube()
   return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
@@ -379,12 +369,12 @@ export async function getLocalChannelVideos(id) {
   const innertube = await createInnertube()
 
   try {
-    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browse_id: id,
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
       params: 'EgZ2aWRlb3PyBgQKAjoA'
       // protobuf for the videos tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
-    }))
+    })
 
     const videosTab = new YT.Channel(null, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(videosTab, true)
@@ -436,12 +426,12 @@ export async function getLocalChannelLiveStreams(id) {
   const innertube = await createInnertube()
 
   try {
-    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browse_id: id,
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
       params: 'EgdzdHJlYW1z8gYECgJ6AA%3D%3D'
       // protobuf for the live tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
-    }))
+    })
 
     let liveStreamsTab = new YT.Channel(innertube.actions, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab, true)
@@ -484,12 +474,12 @@ export async function getLocalChannelCommunity(id) {
   const innertube = await createInnertube()
 
   try {
-    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browse_id: id,
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
       params: 'Egljb21tdW5pdHnyBgQKAkoA'
       // protobuf for the community tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
-    }))
+    })
 
     const communityTab = new YT.Channel(null, response)
 
@@ -564,15 +554,15 @@ export async function getLocalArtistTopicChannelReleasesContinuation(channel, co
  * @param {boolean} onlyIdNameThumbnail
  */
 export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
-  /** @type {string=} */
+  /** @type {string?} */
   let id
   /** @type {string} */
   let name
-  /** @type {string=} */
+  /** @type {string?} */
   let thumbnailUrl
-  /** @type {string=} */
+  /** @type {string?} */
   let bannerUrl
-  /** @type {string=} */
+  /** @type {string?} */
   let subscriberText
   /** @type {string[]} */
   const tags = []
@@ -780,27 +770,11 @@ export function parseLocalChannelShorts(shorts, channelId, channelName) {
 /**
  * @param {import('youtubei.js').YTNodes.Playlist|import('youtubei.js').YTNodes.GridPlaylist|import('youtubei.js').YTNodes.LockupView} playlist
  * @param {string} channelId
- * @param {string} chanelName
+ * @param {string} channelName
  */
 export function parseLocalListPlaylist(playlist, channelId = undefined, channelName = undefined) {
   if (playlist.type === 'LockupView') {
-    /** @type {import('youtubei.js').YTNodes.LockupView} */
-    const lockupView = playlist
-
-    /** @type {import('youtubei.js').YTNodes.ThumbnailOverlayBadgeView} */
-    const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
-      .find(overlay => overlay.type === 'ThumbnailOverlayBadgeView')
-
-    return {
-      type: 'playlist',
-      dataSource: 'local',
-      title: lockupView.metadata.title.text,
-      thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
-      channelName,
-      channelId,
-      playlistId: lockupView.content_id,
-      videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
-    }
+    return parseLockupView(playlist, channelId, channelName)
   } else {
     let internalChannelName
     let internalChannelId = null
@@ -872,7 +846,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie' || item.type === 'LockupView'
     })
     .map((item) => parseListItem(item))
 
@@ -1022,8 +996,6 @@ export function parseLocalListVideo(item) {
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       liveNow: false,
       isUpcoming: false,
-      is4k: movie.is_4k,
-      hasCaptions: movie.has_captions
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
@@ -1056,8 +1028,48 @@ export function parseLocalListVideo(item) {
       isUpcoming: video.is_upcoming || video.is_premiere,
       premiereDate: video.upcoming,
       is4k: video.is_4k,
+      is8k: video.badges.some(badge => badge.label === '8K'),
+      isNew: video.badges.some(badge => badge.label === 'New'),
+      isVr180: video.badges.some(badge => badge.label === 'VR180'),
+      isVr360: video.badges.some(badge => badge.label === '360°'),
+      is3d: video.badges.some(badge => badge.label === '3D'),
       hasCaptions: video.has_captions
     }
+  }
+}
+
+/**
+ * @param {import('youtubei.js').YTNodes.LockupView} lockupView
+ * @param {string | undefined} channelId
+ * @param {string | undefined} channelName
+ */
+function parseLockupView(lockupView, channelId = undefined, channelName = undefined) {
+  switch (lockupView.content_type) {
+    case 'PLAYLIST':
+    case 'PODCAST': {
+      const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
+        .find(overlay => overlay.is(YTNodes.ThumbnailOverlayBadgeView))
+
+      const maybeChannelText = lockupView.metadata?.metadata?.metadata_rows?.[0]?.metadata_parts?.[0]?.text
+
+      if (maybeChannelText && maybeChannelText.endpoint?.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
+        channelName = maybeChannelText.text
+        channelId = maybeChannelText.endpoint.payload.browseId
+      }
+
+      return {
+        type: 'playlist',
+        dataSource: 'local',
+        playlistId: lockupView.content_id,
+        title: lockupView.metadata.title.text,
+        thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
+        channelName,
+        channelId,
+        videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
+      }
+    }
+    default:
+      console.warn(`Unknown lockup content type: ${lockupView.content_type}`, lockupView)
   }
 }
 
@@ -1084,20 +1096,20 @@ function parseListItem(item) {
         handle = channel.subscriber_count.text
 
         if (!channel.video_count.isEmpty()) {
-          subscribers = channel.video_count.text
+          subscribers = parseLocalSubscriberCount(channel.video_count.text)
         }
       } else {
         videos = extractNumberFromString(channel.video_count.text)
 
         if (!channel.subscriber_count.isEmpty()) {
-          subscribers = channel.subscriber_count.text
+          subscribers = parseLocalSubscriberCount(channel.subscriber_count.text)
         }
       }
 
       return {
         type: 'channel',
         dataSource: 'local',
-        thumbnail: channel.author.best_thumbnail?.url,
+        thumbnail: channel.author.best_thumbnail?.url.replace(/^\/\//, 'https://'),
         name: channel.author.name,
         id: channel.author.id,
         subscribers,
@@ -1120,6 +1132,8 @@ function parseListItem(item) {
     case 'Playlist': {
       return parseLocalListPlaylist(item)
     }
+    case 'LockupView':
+      return parseLockupView(item)
   }
 }
 
@@ -1366,7 +1380,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     const comment_ = comment
 
     parsed.memberIconUrl = comment_.is_member ? comment_.sponsor_comment_badge.custom_badge[0].url : ''
-    parsed.time = toLocalePublicationString({ publishText: comment_.published.text.replace('(edited)', '').trim() })
+    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(comment_.published.text.replace('(edited)', '').trim()), false)
     parsed.likes = comment_.vote_count
     parsed.numReplies = comment_.reply_count
   } else {
@@ -1374,7 +1388,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     const commentView = comment
 
     parsed.memberIconUrl = commentView.is_member ? commentView.member_badge.url : ''
-    parsed.time = toLocalePublicationString({ publishText: commentView.published_time.replace('(edited)', '').trim() })
+    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(commentView.published_time.replace('(edited)', '').trim()), false)
     parsed.likes = commentView.like_count
     parsed.numReplies = parseLocalSubscriberCount(commentView.reply_count)
   }
@@ -1489,6 +1503,7 @@ function parseLocalCommunityPost(post) {
     voteCount: post.vote_count ? parseLocalSubscriberCount(post.vote_count.text) : 0,
     postContent: parseLocalAttachment(post.attachment),
     commentCount: replyCount,
+    authorId: post.author.id,
     author: post.author.name,
     type: 'community'
   }

@@ -47,7 +47,7 @@ import autolinker from 'autolinker'
 
 import { onMounted, ref } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
+import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 const props = defineProps({
   description: {
@@ -126,6 +126,7 @@ onMounted(() => {
 
 /**
  * @param {string} descriptionText
+ * @returns {string}
  */
 function parseDescriptionHtml(descriptionText) {
   return descriptionText

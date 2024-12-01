@@ -99,13 +99,6 @@ Most Popular: 'सबसे लोकप्रिय'
 Playlists: 'प्लेलिस्ट'
 User Playlists:
   Your Playlists: 'आपकी प्लेलिस्ट'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: आपके
-    सहेजे गए वीडियो खाली हैं। किसी वीडियो को यहां सूचीबद्ध करने के लिए उसके कोने पर
-    सहेजें बटन पर क्लिक करें
-  Playlist Message: यह पृष्ठ पूरी तरह से काम करने वाली प्लेलिस्ट को प्रतिबिंबित नहीं
-    करता है। यह केवल उन वीडियो को सूचीबद्ध करता है जिन्हें आपने सहेजा है या पसंदीदा
-    है। जब काम समाप्त हो जाता है, तो वर्तमान में यहां सभी वीडियो 'पसंदीदा' प्लेलिस्ट
-    में स्थानांतरित हो जाएंगे।
   Empty Search Message: इस प्लेलिस्ट में आपकी खोज से मेल खाने वाला कोई वीडियो नहीं
     है
   Search bar placeholder: प्लेलिस्ट में खोजें
@@ -168,7 +161,6 @@ Settings:
     Match Top Bar with Main Color: 'टॉप बार को मेन कलर से मैच करें'
   Player Settings:
     Proxy Videos Through Invidious: 'इनविडियस के माध्यम से प्रॉक्सी वीडियो'
-  Advanced Settings: {}
 About:
   #On About page
   Email: ईमेल करें
@@ -213,8 +205,6 @@ Channels:
   Count: '{number} चैनल मिला(मिले)।'
   Title: चैनल सूची
   Empty: आपकी चैनल सूची वर्तमान में खाली है।
-  Unsubscribe: अनसब्सक्राईब करें
-  Unsubscribed: '{channelName} को आपकी सब्सक्रिप्शन से हटा दिया गया है'
   Unsubscribe Prompt: क्या आप वाकई "{channelName}" की सदस्यता छोड़ना चाहते हैं?
 Are you sure you want to open this link?: क्या आप वाकई इस लिंक को खोलना चाहते हैं?
 Search Bar:
