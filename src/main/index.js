@@ -928,10 +928,14 @@ function runApp() {
     return app.getPath('pictures')
   })
 
+  // Allows programmatic toggling of fullscreen without accompanying user interaction.
+  // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
   ipcMain.on(IpcChannels.REQUEST_FULLSCREEN, ({ sender }) => {
     sender.executeJavaScript('document.getElementById("videoContainer").requestFullscreen({navigationUI: "hide"})', true)
   })
 
+  // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.
+  // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
   ipcMain.on(IpcChannels.REQUEST_PIP, ({ sender }) => {
     sender.executeJavaScript('document.getElementById("video").requestPictureInPicture()', true)
   })
