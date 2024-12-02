@@ -557,9 +557,9 @@ Settings:
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       und Zeichensetzung anzeigen
-    Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
-    Hide Channel Community: Kanal-Gemeinschaft ausblenden
-    Hide Channel Shorts: Kanal-Kurzvideos ausblenden
+    Hide Channel Playlists: '"Wiedergabelisten"-Tab des Kanals ausblenden'
+    Hide Channel Community: '"Community"-Tab des Kanals ausblenden'
+    Hide Channel Shorts: '"Shorts"-Tab des Kanals ausblenden'
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
       Side Bar: Seitenleiste
@@ -567,10 +567,10 @@ Settings:
       General: Allgemein
       Watch Page: Seite beobachten
       Subscriptions Page: Abos-Seite
-    Hide Channel Podcasts: Kanal-Podcasts ausblenden
+    Hide Channel Podcasts: '"Podcasts"-Tab des Kanals ausblenden'
     Hide Subscriptions Videos: Abo-Videos ausblenden
     Hide Subscriptions Shorts: Abo-Kurzvideos ausblenden
-    Hide Channel Releases: Kanalveröffentlichungen ausblenden
+    Hide Channel Releases: '"Releases"-Tab des Kanals ausblenden'
     Hide Subscriptions Live: Live der Abos ausblenden
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
@@ -584,7 +584,7 @@ Settings:
       Text enthalten
     Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
       oder Satz
-    Hide Channel Home: Kanal-Startseite ausblenden
+    Hide Channel Home: '"Startseite"-Tab des Kanals ausblenden'
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
