@@ -32,10 +32,10 @@
 <script setup>
 import { computed } from 'vue'
 
-import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtSettingsSection from './ft-settings-section/ft-settings-section.vue'
+import FtToggleSwitch from './ft-toggle-switch/ft-toggle-switch.vue'
 
-import store from '../../store/index'
+import store from '../store/index'
 
 const hideSearchBar = computed(() => {
   return store.getters.getHideSearchBar
