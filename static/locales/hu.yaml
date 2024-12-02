@@ -333,6 +333,8 @@ Settings:
       Nordic: Skandináv
       Solarized Light: Szolarizált világos
       Solarized Dark: Szolarizált sötét
+      Gruvbox Light: Világos Gruvbox
+      Gruvbox Dark: Sötét Gruvbox
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -380,6 +382,16 @@ Settings:
       Solarized Green: Szolarizált zöld
       Solarized Magenta: Szolarizált magenta
       Solarized Violet: Szolarizált ibolya
+      Gruvbox Dark Yellow: Sötétsárga Gruvbox
+      Gruvbox Dark Blue: Sötétkék Gruvbox
+      Gruvbox Dark Aqua: Sötét-vízkék Gruvbox
+      Gruvbox Dark Orange: Sötétnarancssárga Gruvbox
+      Gruvbox Light Red: Világospiros Gruvbox
+      Gruvbox Light Blue: Világoskék Gruvbox
+      Gruvbox Dark Green: Sötétzöld Gruvbox
+      Gruvbox Dark Purple: Sötétlila Gruvbox
+      Gruvbox Light Orange: Világosnarancssárga Gruvbox
+      Gruvbox Light Purple: Világoslila Gruvbox
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -592,6 +604,11 @@ Settings:
     Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
+    Proxy Warning: A FreeTube nem rendelkezik beépített proxyval, de képes csatlakozni
+      egy külső proxyhoz, például egy olyanhoz, amely az Ön gépén fut, mint a Tor,
+      vagy egy külső proxyhoz, például egy SOCKS5 proxyhoz, amelyet egyes VPN-ek biztosítanak.
+      Ha engedélyezve van, győződjön meg róla, hogy a proxy/Tor megfelelően van beállítva,
+      különben a FreeTube nem fog tudni adatokat lekérni.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Értesítés a szponzorált szakasz kihagyásáról
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API

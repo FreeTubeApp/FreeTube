@@ -251,6 +251,8 @@ User Playlists:
     ли сте, че искате да премахнете 1 гледано видео от този плейлист? Това не може
     да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount}
     гледани видеа от този плейлист? Това не може да бъде отменено.
+  Export Playlist: Изнасяне на плейлиста
+  The playlist has been successfully exported: Плейлистът е изнесен успешно
 History:
   # On History Page
   History: 'История'
@@ -325,6 +327,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarized тъмна
       Solarized Light: Solarized светла
+      Gruvbox Dark: Gruvbox тъмна
+      Gruvbox Light: Gruvbox светла
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -372,6 +376,16 @@ Settings:
       Solarized Blue: Solarized Синьо
       Solarized Cyan: Solarized Синьозелено
       Solarized Green: Solarized Зелено
+      Gruvbox Dark Yellow: Gruvbox тъмножълто
+      Gruvbox Dark Blue: Gruvbox Тъмносиньо
+      Gruvbox Dark Purple: Gruvbox Тъмнолилаво
+      Gruvbox Dark Aqua: Gruvbox Тъмна вода
+      Gruvbox Light Blue: Gruvbox Светлосиньо
+      Gruvbox Light Purple: Gruvbox Светлолилаво
+      Gruvbox Light Orange: Gruvbox Светлооранжево
+      Gruvbox Dark Green: Gruvbox тъмнозелено
+      Gruvbox Dark Orange: Gruvbox Тъмнооранжево
+      Gruvbox Light Red: Gruvbox Светлочервено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -583,6 +597,11 @@ Settings:
     Proxy Protocol: Прокси протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Прокси
+    Proxy Warning: FreeTube не разполага с вграден прокси сървър, но може да се свърже
+      с външен, например такъв, който работи на вашата машина, като Tor или SOCKS5
+      прокси сървър, предоставян от някои VPN услуги. Ако е активирано, уверете се,
+      че прокси сървърът/Tor е конфигуриран правилно, тъй като FreeTube няма да може
+      да извлича данни.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Известие при пропускане на спонсориран
       сегмент
@@ -909,6 +928,11 @@ Video:
     Hide Stats: Скриване на статистиката
   IP block: YouTube е блокирал вашия IP адрес за гледане на видеа. Опитайте да преминете
     към друга VPN услуга или прокси сървър.
+  AgeRestricted: Видеата с възрастови ограничения не могат да се гледат с FreeTube,
+    тъй като изискват вход в Google и използване на проверен по възраст акаунт в YouTube.
+  Unlisted: Непосочен в списъка
+  MembersOnly: Видеата, предназначени само за членове, не могат да се гледат с FreeTube,
+    тъй като изискват вход в Google и платено членство в канала на качващия.
 Videos:
   #& Sort By
   Sort By:
@@ -1128,6 +1152,7 @@ Chapters:
     текуща глава: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
     текуща глава: {chapterName}'
+  Key Moments: Основни моменти
 Preferences: Предпочитания
 Ok: Добре
 Hashtag:

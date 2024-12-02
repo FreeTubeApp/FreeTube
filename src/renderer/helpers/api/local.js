@@ -1,4 +1,4 @@
-import { ClientType, Endpoints, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -287,6 +287,10 @@ export async function getLocalVideoInfo(id) {
   return info
 }
 
+/**
+ * @param {string} id
+ * @param {boolean | undefined} sortByNewest
+ */
 export async function getLocalComments(id, sortByNewest = false) {
   const innertube = await createInnertube()
   return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
@@ -365,12 +369,12 @@ export async function getLocalChannelVideos(id) {
   const innertube = await createInnertube()
 
   try {
-    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browse_id: id,
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
       params: 'EgZ2aWRlb3PyBgQKAjoA'
       // protobuf for the videos tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
-    }))
+    })
 
     const videosTab = new YT.Channel(null, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(videosTab, true)
@@ -422,12 +426,12 @@ export async function getLocalChannelLiveStreams(id) {
   const innertube = await createInnertube()
 
   try {
-    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browse_id: id,
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
       params: 'EgdzdHJlYW1z8gYECgJ6AA%3D%3D'
       // protobuf for the live tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
-    }))
+    })
 
     let liveStreamsTab = new YT.Channel(innertube.actions, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab, true)
@@ -470,12 +474,12 @@ export async function getLocalChannelCommunity(id) {
   const innertube = await createInnertube()
 
   try {
-    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browse_id: id,
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
       params: 'Egljb21tdW5pdHnyBgQKAkoA'
       // protobuf for the community tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
-    }))
+    })
 
     const communityTab = new YT.Channel(null, response)
 

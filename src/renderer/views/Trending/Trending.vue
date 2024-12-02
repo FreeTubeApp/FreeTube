@@ -8,7 +8,14 @@
       v-else
       class="card"
     >
-      <h2>{{ $t("Trending.Trending") }}</h2>
+      <h2>
+        <font-awesome-icon
+          :icon="['fas', 'fire']"
+          class="trendingIcon"
+          fixed-width
+        />
+        {{ $t("Trending.Trending") }}
+      </h2>
       <ft-flex-box
         v-if="!hideTabs"
         class="trendingInfoTabs"
@@ -29,6 +36,11 @@
           @keydown.left="focusTab($event, 'movies')"
           @keydown.right="focusTab($event, 'music')"
         >
+          <font-awesome-icon
+            :icon="['fas', 'fire']"
+            class="trendingIcon"
+            fixed-width
+          />
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -45,6 +57,11 @@
           @keydown.left="focusTab($event, 'default')"
           @keydown.right="focusTab($event, 'gaming')"
         >
+          <font-awesome-icon
+            :icon="['fas', 'music']"
+            class="trendingIcon"
+            fixed-width
+          />
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -61,6 +78,11 @@
           @keydown.left="focusTab($event, 'music')"
           @keydown.right="focusTab($event, 'movies')"
         >
+          <font-awesome-icon
+            :icon="['fas', 'gamepad']"
+            class="trendingIcon"
+            fixed-width
+          />
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -77,6 +99,11 @@
           @keydown.left="focusTab($event, 'gaming')"
           @keydown.right="focusTab($event, 'default')"
         >
+          <font-awesome-icon
+            :icon="['fas', 'film']"
+            class="trendingIcon"
+            fixed-width
+          />
           {{ $t("Trending.Movies").toUpperCase() }}
         </div>
       </ft-flex-box>

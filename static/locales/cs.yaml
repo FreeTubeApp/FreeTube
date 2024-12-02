@@ -331,6 +331,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarizovaná tmavá
       Solarized Light: Solarizovaná světlá
+      Gruvbox Dark: Gruvbox tmavý
+      Gruvbox Light: Gruvbox světlý
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -378,6 +380,16 @@ Settings:
       Solarized Blue: Solarizovaná modrá
       Solarized Cyan: Solarizovaná azurová
       Solarized Green: Solarizovaná zelená
+      Gruvbox Dark Green: Gruvbox tmavě zelený
+      Gruvbox Dark Yellow: Gruvbox tmavě žlutý
+      Gruvbox Dark Blue: Gruvbox tmavě modrý
+      Gruvbox Dark Purple: Gruvbox tmavě fialový
+      Gruvbox Dark Orange: Gruvbox tmavě oranžový
+      Gruvbox Light Red: Gruvbox světle červený
+      Gruvbox Light Purple: Gruvbox světle fialový
+      Gruvbox Dark Aqua: Gruvbox tmavě azurový
+      Gruvbox Light Blue: Gruvbox světle modrý
+      Gruvbox Light Orange: Gruvbox světle oranžový
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
@@ -578,6 +590,12 @@ Settings:
     Proxy Protocol: Protokol proxy
     Error getting network information. Is your proxy configured properly?: Chyba při
       získávání informací o síti. Je vaše proxy správně nakonfigurována?
+    Proxy Warning: FreeTube nemá vestavěný proxy server, ale může se připojit k externímu
+      proxy serveru, například k proxy serveru běžícímu na vašem počítači, jako je
+      Tor, nebo k externímu proxy serveru, jako je proxy server SOCKS5 poskytovaný
+      některými sítěmi VPN. Pokud je tato funkce povolena, ujistěte se, že je proxy
+      server/Tor správně nakonfigurován, jinak FreeTube nebude moci načítat žádná
+      data.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock

@@ -326,6 +326,8 @@ Settings:
       Nordic: Nórdico
       Solarized Light: Solarized claro
       Solarized Dark: Solarized oscuro
+      Gruvbox Dark: Gruvbox oscuro
+      Gruvbox Light: Gruvbox claro
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -373,6 +375,16 @@ Settings:
       Solarized Blue: Azul Solarized
       Solarized Cyan: Cian Solarized
       Solarized Green: Verde Solarized
+      Gruvbox Dark Green: Gruvbox verde oscuro
+      Gruvbox Dark Yellow: Gruvbox amarillo oscuro
+      Gruvbox Dark Blue: Gruvbox azul oscuro
+      Gruvbox Dark Purple: Gruvbox púrpura
+      Gruvbox Dark Aqua: Gruvbox aguamarina oscuro
+      Gruvbox Light Purple: Gruvbox violeta claro
+      Gruvbox Dark Orange: Gruvbox naranja oscuro
+      Gruvbox Light Red: Gruvbox rojo claro
+      Gruvbox Light Blue: Gruvbox azul claro
+      Gruvbox Light Orange: Gruvbox naranja claro
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -586,6 +598,11 @@ Settings:
     Proxy Protocol: Protocolo del proxy
     Enable Tor / Proxy: Activar Tor o «proxy»
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube no tiene un proxy incorporado, pero puede conectarse a
+      un proxy externo, como uno que se ejecuta en su máquina como Tor o un proxy
+      externo como un proxy SOCKS5 proporcionado por algunas VPN. Si está habilitado,
+      asegúrese de que su proxy/Tor esté configurado correctamente, o FreeTube no
+      podrá recuperar ningún dato.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
       de patrocinio

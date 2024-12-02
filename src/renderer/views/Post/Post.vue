@@ -14,7 +14,7 @@
           appearance="result"
         />
       </FtCard>
-      <WatchVideoComments
+      <CommentSection
         :id="post.postId"
         :channel-name="post.author"
         :post-author-id="authorId"
@@ -33,7 +33,7 @@ import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../../components/FtCommunityPost/FtCommunityPost.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
+import CommentSection from '../../components/CommentSection/CommentSection.vue'
 import store from '../../store/index'
 import { useRoute, useRouter } from 'vue-router/composables'
 import { getInvidiousCommunityPost } from '../../helpers/api/invidious'
