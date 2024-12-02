@@ -1226,3 +1226,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
   URL wurde blockiert: „{url}“.'
+Keys:
+  arrowdown: Pfeil nach unten
+  arrowleft: Pfeil nach links
+  arrowup: Pfeil nach oben
+  ctrl: Strg
+  alt: Alt
+  arrowright: Pfeil nach rechts
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
