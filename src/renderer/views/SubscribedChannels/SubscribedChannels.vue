@@ -133,7 +133,11 @@ const hideUnsubscribeButton = computed(() => {
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
-  return store.getters.getBackendPreference
+  let preference = store.getters.getBackendPreference
+  if (preference === 'piped') {
+    preference = store.getters.getFallbackPreference
+  }
+  return preference
 })
 
 /** @type {import('vue').ComputedRef<string>} */
