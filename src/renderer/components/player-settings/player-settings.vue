@@ -182,7 +182,7 @@
           :max-value="100"
           :step="1"
           value-extension="%"
-          :disabled="screenshotFormat !== 'jpg'"
+          :disabled="screenshotFormat === 'png'"
           @change="updateScreenshotQuality"
         />
       </ft-flex-box>

@@ -1488,7 +1488,7 @@ export default defineComponent({
 
       const format = screenshotFormat.value
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? screenshotQuality.value / 100 : 1
+      const imageQuality = format !== 'png' ? screenshotQuality.value / 100 : 1
 
       let filename
       try {
