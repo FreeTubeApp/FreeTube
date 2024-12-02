@@ -194,6 +194,7 @@ const state = {
   expandSideBar: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
+  hideChannelHome: false,
   hideChannelPlaylists: false,
   hideChannelReleases: false,
   hideChannelPodcasts: false,

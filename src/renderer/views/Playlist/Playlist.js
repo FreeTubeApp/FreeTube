@@ -312,10 +312,13 @@ export default defineComponent({
         if (result.info.author) {
           channelName = result.info.author.name
         } else {
-          const subtitle = result.info.subtitle.toString()
-
-          const index = subtitle.lastIndexOf('•')
-          channelName = subtitle.substring(0, index).trim()
+          const subtitle = result.info.subtitle?.toString()
+          if (subtitle) {
+            const index = subtitle.lastIndexOf('•')
+            channelName = subtitle.substring(0, index).trim()
+          } else {
+            channelName = ''
+          }
         }
 
         const playlistItems = result.items.map(parseLocalPlaylistVideo)

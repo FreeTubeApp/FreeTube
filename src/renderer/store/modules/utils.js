@@ -410,7 +410,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ state }, urlStr) {
+  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -630,8 +630,11 @@ const actions = {
             }
             subPath = 'community'
             break
-          default:
+          case 'videos':
             subPath = 'videos'
+            break
+          default:
+            subPath = rootState.settings.backendPreference === 'local' && !rootState.settings.hideChannelHome ? 'home' : 'videos'
             break
         }
         return {
