@@ -48,7 +48,7 @@ Global:
     Like Count: 1 mi piace | {count} mi piace
   Input Tags:
     Length Requirement: Il tag deve essere lungo almeno {number} caratteri
-Search / Go to URL: 'Cerca o aggiungi URL YouTube'
+Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -133,11 +133,11 @@ Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue playlist'
-  Search bar placeholder: Cerca nelle playlist
+  Search bar placeholder: Ricerca nelle playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
   AddVideoPrompt:
-    Search in Playlists: Cerca nelle playlist
+    Search in Playlists: Ricerca nelle playlist
     Save: Salva
     Toast:
       "{videoCount} video(s) added to {playlistCount} playlists": 1 video aggiunto
@@ -193,7 +193,7 @@ User Playlists:
       This playlist has a video with a duration error: Questa playlist contiene almeno
         un video che non ha durata; verranno ordinati come se la loro durata fosse
         zero.
-    Search for Videos: Cerca video
+    Search for Videos: Ricerca nei video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
   Sort By:
@@ -256,7 +256,7 @@ History:
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
   Your history list is currently empty.: 'La tua cronologia è attualmente vuota.'
-  Search bar placeholder: Cerca nella cronologia
+  Search bar placeholder: Ricerca nella cronologia
   Empty Search Message: Non ci sono video nella tua cronologia che corrispondono alla
     tua ricerca
   Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
@@ -696,7 +696,7 @@ About:
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
-  Search Channel: 'Cerca nel canale'
+  Search Channel: 'Ricerca nel canale'
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Sort By: 'Ordina per'
   Videos:
@@ -720,7 +720,7 @@ Channel:
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali in evidenza'
     Tags:
-      Search for: Cerca "{tag}"
+      Search for: Ricerca "{tag}"
       Tags: Etichette
     Details: Dettagli
     Joined: Iscrizione
@@ -1153,7 +1153,7 @@ New Window: Nuova finestra
 Channels:
   Title: Elenco canali
   Channels: Canali
-  Search bar placeholder: Cerca canali
+  Search bar placeholder: Ricerca canali
   Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
