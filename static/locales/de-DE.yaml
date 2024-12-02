@@ -584,6 +584,7 @@ Settings:
       Text enthalten
     Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
       oder Satz
+    Hide Channel Home: Kanal-Startseite ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -767,6 +768,9 @@ Channel:
     Releases: Veröffentlichungen
     This channel does not currently have any releases: Dieser Kanal hat derzeit keine
       Veröffentlichungen
+  Home:
+    Home: Startseite
+    View Playlist: Wiedergabeliste anzeigen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
