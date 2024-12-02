@@ -12,7 +12,7 @@ import yamlEslintParser from 'yaml-eslint-parser'
 // Faster than importing the default import,
 // because the default import imports a lot of other dependencies
 // for the `resolveIgnoresFromGitignore` function that we don't use
-import { neostandard } from 'neostandard/lib/main.js'
+import { neostandard } from 'neostandard/lib/main'
 import jsdoc from 'eslint-plugin-jsdoc'
 import freetube from './_scripts/eslint-rules/plugin.mjs'
 
