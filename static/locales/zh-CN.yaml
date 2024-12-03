@@ -486,17 +486,17 @@ Settings:
     Hide Channels Placeholder: 频道ID
     Display Titles Without Excessive Capitalisation: 去除标题中对字母大写和标点符号的过度使用
     Hide Featured Channels: 隐藏精选频道
-    Hide Channel Playlists: 隐藏频道播放列表
-    Hide Channel Community: 隐藏频道社区
-    Hide Channel Shorts: 隐藏频道短视频
+    Hide Channel Playlists: 隐藏频道“播放列表”标签
+    Hide Channel Community: 隐藏频道“社区”标签
+    Hide Channel Shorts: 隐藏频道“短视频”标签
     Sections:
       Side Bar: 侧边栏
       Channel Page: 频道页
       Watch Page: 观看页
       General: 常规
       Subscriptions Page: 订阅页
-    Hide Channel Podcasts: 隐藏频道播客
-    Hide Channel Releases: 隐藏频道发布
+    Hide Channel Podcasts: 隐藏频道“播客”标签
+    Hide Channel Releases: 隐藏频道“发布”标签
     Hide Subscriptions Shorts: 隐藏订阅短视频
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
@@ -508,6 +508,7 @@ Settings:
     Hide Channels API Error: 获取 ID 为所提供值的用户出错。请再次检查 ID 是否正确。
     Hide Videos and Playlists Containing Text: 隐藏包含文本的视频和播放列表
     Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
+    Hide Channel Home: 隐藏频道“主页”标签
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -668,6 +669,9 @@ Channel:
   Releases:
     Releases: 发布
     This channel does not currently have any releases: 此频道当前无任何发布
+  Home:
+    Home: 主页
+    View Playlist: 查看播放列表
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
@@ -951,7 +955,7 @@ Tooltips:
     Custom External Player Executable: 默认情况下，FreeTube 假设选择的外部播放器可以通过 PATH 环境变量找到。如果需要，可以在这里设置自定义路径。
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
     DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
-    Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
+    Custom External Player Arguments: 任何你希望传递给外部播放器的自定义命令行参数。
     Ignore Default Arguments: 不要向外部播放器发送除视频 URL 外的任何默认变量（如播放速度、播放列表 URL 等）。自定义变量仍将被传递。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
@@ -1036,3 +1040,12 @@ Search Listing:
     VR180: VR180
     360 Video: 360°
 'Blocked opening potentially unsafe URL': 阻止了打开潜在不安全的 URL： "{url}".
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: 向下箭头 (↓)
+  arrowleft: 向左箭头(←)
+  arrowright: 向右箭头(→)
+  arrowup: 向上箭头 (↑)
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +

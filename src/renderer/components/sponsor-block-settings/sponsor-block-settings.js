@@ -4,7 +4,7 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtSponsorBlockCategory from '../ft-sponsor-block-category/ft-sponsor-block-category.vue'
+import FtSponsorBlockCategory from '../FtSponsorBlockCategory/FtSponsorBlockCategory.vue'
 
 export default defineComponent({
   name: 'SponsorBlockSettings',

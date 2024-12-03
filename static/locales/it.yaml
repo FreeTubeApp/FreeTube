@@ -552,17 +552,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole
       e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
-    Hide Channel Playlists: Nascondi le playlist del canale
-    Hide Channel Community: Nascondi la comunità del canale
-    Hide Channel Shorts: Nascondi i video brevi del canale
+    Hide Channel Playlists: Nascondi la scheda "Playlist" del canale
+    Hide Channel Community: Nascondi la scheda "Comunità" del canale
+    Hide Channel Shorts: Nascondi i "Video brevi" del canale
     Sections:
       General: Generale
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
       Subscriptions Page: Pagina delle iscrizioni
-    Hide Channel Podcasts: Nascondi i podcast del canale
-    Hide Channel Releases: Nascondi i rilasci del canale
+    Hide Channel Podcasts: Nascondi la scheda "Podcast" del canale
+    Hide Channel Releases: Nascondi la scheda "Rilasci" del canale
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
@@ -579,6 +579,7 @@ Settings:
       il testo
     Hide Videos and Playlists Containing Text Placeholder: Parola, frammento di parola
       o frase
+    Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -762,6 +763,9 @@ Channel:
     Releases: Rilasci
     This channel does not currently have any releases: Questo canale non ha attualmente
       alcun rilascio
+  Home:
+    Home: Pagina iniziale
+    View Playlist: Visualizza la playlist
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla cronologia'
@@ -1097,7 +1101,7 @@ Tooltips:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
     Custom External Player Arguments: Invia al lettore esterno qualsiasi argomento
-      personalizzato dalla linea di comando, separato da punto e virgola (';').
+      personalizzato dalla linea di comando.
     Custom External Player Executable: Per impostazione predefinita, FreeTube imposta
       il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
       un percorso personalizzato può essere impostato qui.
@@ -1211,3 +1215,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
   bloccata: "{url}".'
+shortcutJoinOperator: +
+Keys:
+  ctrl: Ctrl
+  arrowdown: Freccia giù
+  arrowleft: Freccia sinistra
+  arrowright: Freccia destra
+  arrowup: Freccia su
+  alt: Alt
+KeyboardShortcutTemplate: '{label} ({shortcut})'

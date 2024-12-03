@@ -1,7 +1,7 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
-import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
+import ThemeSettings from '../../components/ThemeSettings.vue'
 import PlayerSettings from '../../components/player-settings/player-settings.vue'
 import ExternalPlayerSettings from '../../components/external-player-settings/external-player-settings.vue'
 import SubscriptionSettings from '../../components/subscription-settings/subscription-settings.vue'

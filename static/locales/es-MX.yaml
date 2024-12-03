@@ -635,8 +635,7 @@ Tooltips:
       problema, FreeTube intentará usar automáticamente otra API como método de respaldo
       al activar esta opción.
   External Player Settings:
-    Custom External Player Arguments: Cualquier argumento, con separaciones de punto
-      y coma (';'), que deseé anticipar al reproductor externo.
+    Custom External Player Arguments: Cualquier argumento, que deseé anticipar al reproductor externo.
     DefaultCustomArgumentsTemplate: "(Por defecto: '{defaultCustomArguments}')"
     External Player: Elegir un reproductor externo mostrará un ícono, para abrir el
       video (o lista, si es compatible) en el reproductor externo, sobre la miniatura

@@ -849,8 +849,8 @@ Tooltips:
       dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang
       diklik dengan browser default Anda.\n"
   External Player Settings:
-    Custom External Player Arguments: Semua argumen perintah khusus, dipisahkan dengan
-      titik koma (';'), yang Anda ingin gunakan dengan pemutar eksternal.
+    Custom External Player Arguments: Semua argumen perintah khusus,
+      yang Anda ingin gunakan dengan pemutar eksternal.
     Ignore Warnings: Jangan tampilkan peringatan saat pemutar eksternal saat ini tidak
       mendukung tindakan yang ada (mis. membalik urutan daftar putar, dsb.).
     Custom External Player Executable: Secara bawaan, FreeTube akan berasumsi bahwa

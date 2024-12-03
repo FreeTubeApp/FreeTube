@@ -316,6 +316,8 @@ Settings:
     Auto Load Next Page:
       Tooltip: Kargatu orrialde eta iruzkin gehigarriak automatikoki.
       Label: Kargatu automatikoki hurrengo orria
+    Open Deep Links In New Window: Ireki FreeTube-ra pasatu diren URLak leiho berri
+      batean
   Theme Settings:
     Theme Settings: 'Gaia'
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
@@ -506,21 +508,21 @@ Settings:
     Display Titles Without Excessive Capitalisation: Bistaratu izenburuak gehiegizko
       letra larriz eta puntuaziorik gabe
     Hide Channels Placeholder: Kanalaren IDa
-    Hide Channel Playlists: Ezkutatu kanaleko erreprodukzio-zerrendak
-    Hide Channel Community: Ezkutatu kanalaren komunitatea
-    Hide Channel Podcasts: Ezkutatu kanaleko podcastak
+    Hide Channel Playlists: Ezkutatu kanaleko "erreprodukzio-zerrendak" fitxa
+    Hide Channel Community: Ezkutatu kanalaren "komunitatea" fitxa
+    Hide Channel Podcasts: Ezkutatu kanaleko "podcastak" fitxa
     Hide Videos and Playlists Containing Text: Ezkutatu testua duten bideoak eta erreprodukzio-zerrendak
     Hide Channels: Ezkutatu bideoak kanaletatik
     Hide Upcoming Premieres: Ezkutatu datozen estreinaldiak
     Hide Subscriptions Videos: Ezkutatu harpidetza-bideoak
     Hide Subscriptions Shorts: Ezkutatu bideo laburren harpidetzak
-    Hide Channel Releases: Ezkutatu kanalen kaleratzeak
+    Hide Channel Releases: Ezkutatu kanalen "Argitalpenak" fitxa
     Hide Chapters: Ezkutatu kapituluak
     Hide Channels Invalid: Emandako kanalaren IDa baliogabea da
     Hide Channels API Error: Errore bat gertatu da emandako IDa duen erabiltzailea
       berreskuratzean. Mesedez, egiaztatu berriro IDa zuzena den.
     Hide Channels Already Exists: Kanalaren IDa badago jada
-    Hide Channel Shorts: Ezkutatu kanalaren bideo laburrak
+    Hide Channel Shorts: Ezkutatu kanalaren "bideo laburrak" fitxa
     Hide Videos and Playlists Containing Text Placeholder: Hitza, Hitzaren zatia edo
       esaldia
     Hide Subscriptions Live: Ezkutatu zuzenekoen harpidetzak
@@ -528,6 +530,7 @@ Settings:
     Hide Featured Channels: Ezkutatu nabarmendutako kanalak
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
+    Hide Channel Home: Ezkutatu kanala "Hasierako" fitxa
   Data Settings:
     Data Settings: 'Datuak'
     Select Import Type: 'Hautatu Inportazio mota'
@@ -807,6 +810,9 @@ Channel:
     Podcasts: Podcastak
     This channel does not currently have any podcasts: Une honetan kanal honek ez
       du podcastik
+  Home:
+    Home: Menu nagusia
+    View Playlist: Ikusi Erreprodukzio zerrenda
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Historikotik ezabatu'
@@ -1043,6 +1049,9 @@ Tooltips:
     External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin
       den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako
       nabigatazailean irekiko du klikatutako esteka.\n"
+    Open Deep Links In New Window: FreeTube-ra pasatzen diren URLak, birbideratzeko
+      arakatzailearen luzapenek edo komando-lerroko argumentuek, leiho berri batean
+      irekiko dira.
   Player Settings:
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
       da, YouTube-ra zuzeneko konexioa egin beharrean.'
@@ -1077,7 +1086,7 @@ Tooltips:
       zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan. Kontuz,
       Individious-en ezarpenek ez dituzte kanpo erreproduzitzaileak trabatzen.
     Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak,
-      puntu eta komaz bereizita (';'), kanpoko erreproduzitzailera pasatzea nahi duzu.
+      kanpoko erreproduzitzailera pasatzea nahi duzu.
     Ignore Default Arguments: Ez bidali argumentu lehenetsirik kanpoko erreproduzitzaileari
       bideoaren URLaz gain (adibidez, erreprodukzio-tasa, erreprodukzio-zerrendaren
       URLa, etab.). Argumentu pertsonalizatuak transmitituko dira oraindik.
@@ -1207,3 +1216,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Insegurua izan daitekeen URLa irekitzea
   blokeatu da: "{url}".'
+Keys:
+  arrowleft: Gezia ezkerrera
+  arrowright: Gezia eskuinera
+  arrowup: Gezia gora
+  arrowdown: Gezia behera
+  alt: Alt
+  ctrl: Ctrl
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'

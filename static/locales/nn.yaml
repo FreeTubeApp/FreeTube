@@ -740,7 +740,7 @@ Tooltips:
       ekstern videoavspelar. Ver merksam på at Invidious-innstillingar ikkje påverker
       den eksterne videoavspelaren.
     Custom External Player Arguments: Eventuelle eigendefinerte kommandolinjeargument,
-      åtskilt med semikolon (";"), du vil at skal bli sendt til den eksterne videoavspelaren.
+      du vil at skal bli sendt til den eksterne videoavspelaren.
   Experimental Settings:
     Replace HTTP Cache: Deaktiver Electrons diskbaserte HTTP-hurtiglager og aktiver
       eit eigendefinert biletehurtiglager i minnet. Dette vil føre til ei auking i

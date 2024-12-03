@@ -729,8 +729,7 @@ Tooltips:
     Ignore Warnings: 'Neatvaizduoti įspėjimų, kai dabartinis išorinis grotuvas nepalaiko
       dabartinio veiksmo (pvz., grojaraščių atkūrimas ir kt.).'
     Custom External Player Arguments: 'Bet kokius pasirinktinius komandinės eilutės
-      argumentus, atskirtus kabliataškiais ('';''), kuriuos norite perduoti išoriniam
-      grotuvui.'
+      argumentus, kuriuos norite perduoti išoriniam grotuvui.'
     DefaultCustomArgumentsTemplate: '(Numatytasis: „{defaultCustomArguments}“)'
   Subscription Settings:
     Fetch Feeds from RSS: 'Kai bus įgalinta, „FreeTube“ naudos RSS, o ne numatytąjį

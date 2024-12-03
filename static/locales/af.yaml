@@ -643,8 +643,9 @@ Profile:
   Profile could not be found: ''
   Your profile name cannot be empty: ''
   Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to {profile}: ''
+  Profile has been updated: 'Profiel is bygewerk'
+  Your default profile has been set to {profile}: 'U verstekprofiel is ingestel op
+    {profile}'
   Removed {profile} from your profiles: 'Verwyder {profile} uit u profiele'
   Your default profile has been changed to your primary profile: 'U verstekprofiel
     is na u hoofprofiel verander'
@@ -733,6 +734,9 @@ Channel:
     View Full Post: Bekyk volle plasing
     Viewing Posts Only Supported By Invidious: Bekyk van plasings word slegs vir Invidious
       ondersteun. Gaan na ’n kanaal se gemeenskapsblad om inhoud te sien sonder Invidious.
+  Home:
+    Home: Tuis
+    View Playlist: Bekyk afspeellys
 Video:
   More Options: 'Nog opsies'
   Mark As Watched: 'Markeer as gekyk'
@@ -975,6 +979,9 @@ Tooltips:
     External Link Handling: |
       Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
       FreeTube sal die geklikte skakel by verstek in u verstek blaaier open.
+    Open Deep Links In New Window: Bronadresse wat aan FreeTube gegee word, soos wat
+      deur blaaieruitbreidings of bevellynargumente gestuur word, word in ’n nuwe
+      venster geopen.
   Player Settings:
     Proxy Videos Through Invidious: 'FreeTube sal verbind met Invidious en die video’s
       van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
@@ -1001,8 +1008,8 @@ Tooltips:
     Ignore Default Arguments: 'Moet geen verstek argumente na die eksterne videospeler
       stuur buiten die video-URL nie (bv. afspeelsnelheid, afspeellys-URL, ens.).
       Pasgemaakte argumente word steeds deurgestuur.'
-    Custom External Player Arguments: 'Enige pasgemaakte bevellynrgumente, geskei
-      deur kommapunte (‘;’), wat u aan die eksterne videospeler vir deurgee.'
+    Custom External Player Arguments: 'Enige pasgemaakte bevellynrgumente, wat u aan
+      die eksterne videospeler vir deurgee.'
     DefaultCustomArgumentsTemplate: "(verstek: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
     Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal
@@ -1094,3 +1101,12 @@ Cancel: 'Kanselleer'
 checkmark: '✓'
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  arrowright: Regspyltjie
+  arrowup: Oppyltjie
+  alt: Alt
+  arrowdown: Afpyltjie
+  ctrl: Ctrl
+  arrowleft: Linkspyltjie

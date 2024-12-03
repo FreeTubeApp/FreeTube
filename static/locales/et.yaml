@@ -308,6 +308,7 @@ Settings:
     Auto Load Next Page:
       Label: Laadi järgmine leht automaatselt
       Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
+    Open Deep Links In New Window: Ava FreeTube'ile antud võrguaadressid uues aknas
   Theme Settings:
     Theme Settings: 'Kujundus'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -549,11 +550,11 @@ Settings:
       Watch Page: Videovaade
       Subscriptions Page: Tellimuste vaade
     Hide Featured Channels: Peaida soovitatud kanalid
-    Hide Channel Playlists: Peida kanali esitusloendid
-    Hide Channel Shorts: Peida kanali lühivideod
-    Hide Channel Community: Peida kanali kogukond
-    Hide Channel Podcasts: Peida kanali taskuhäälingud
-    Hide Channel Releases: Peida kanali väljalasked
+    Hide Channel Playlists: Peida kanalite vahekaart „Esitusloendid“
+    Hide Channel Shorts: Peida kanalite vahekaart „Lühivideod“
+    Hide Channel Community: Peida kanalite vahekaart „Kogukond“
+    Hide Channel Podcasts: Peida kanalite vahekaart „Taskuhäälingud“
+    Hide Channel Releases: Peida kanalite vahekaart „Väljalasked“
     Hide Subscriptions Videos: Peida tellimuste videod
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
@@ -569,6 +570,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Sõna, sõnaosa või fraas
     Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus
       leidub sellist teksti
+    Hide Channel Home: Peida kanalite vahekaart „Avaleht“
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -795,6 +797,9 @@ Channel:
     This channel does not currently have any releases: Sellel kanalil pole hetkel
       ühtegi väljalaset
     Releases: Väljalasked
+  Home:
+    Home: Avaleht
+    View Playlist: Vaata esitusloendit
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
@@ -1037,8 +1042,8 @@ Tooltips:
       muu asukoha.
     Ignore Warnings: Kui väline meediamängija antud funktsionaalsust (näiteks esitusloendi
       järjekorra pööramine) ei toeta, siis ära näita hoiatusi.
-    Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
-      mida sa soovid välisele meediamängijale saata.
+    Custom External Player Arguments: Misiganes käsurea argumendid, mida sa soovid
+      välisele meediamängijale saata.
     External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video
       (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e
       seadistused ei mõjuta välise meediamängija kasutamist."
@@ -1066,6 +1071,8 @@ Tooltips:
       tegemisel.
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa
       avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
+    Open Deep Links In New Window: FreeTube'ile brauseritest või käsurealt antud võrguaadressid
+      avatakse uues aknas.
   Player Settings:
     Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
@@ -1178,3 +1185,12 @@ Search Listing:
     360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
   avamise: „{url}“.'
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Keys:
+  arrowup: Nool üles
+  alt: Alt
+  ctrl: Ctrl
+  arrowleft: Nool vasakule
+  arrowright: Nool paremale
+  arrowdown: Nool alla

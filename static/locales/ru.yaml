@@ -313,6 +313,8 @@ Settings:
       Nordic: Северный
       Solarized Dark: Соляризованная темнота
       Solarized Light: Солнечное освещение
+      Gruvbox Dark: Gruvbox Темный
+      Gruvbox Light: Gruvbox Светлый
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -360,6 +362,16 @@ Settings:
       Solarized Cyan: Соляризованный голубой
       Solarized Violet: Соляризованный фиолетовый
       Solarized Green: Соляризованный зеленый
+      Gruvbox Dark Green: Gruvbox Темно-зеленый
+      Gruvbox Dark Blue: Gruvbox Темно-синий
+      Gruvbox Dark Purple: Gruvbox Темно-фиолетовый
+      Gruvbox Dark Aqua: Грувбокс темный аква
+      Gruvbox Light Red: Gruvbox Светло-красный
+      Gruvbox Light Blue: Gruvbox Светло-голубой
+      Gruvbox Light Purple: Gruvbox Светло-фиолетовый
+      Gruvbox Light Orange: Gruvbox Светло-оранжевый
+      Gruvbox Dark Yellow: Gruvbox Темно-желтый
+      Gruvbox Dark Orange: Gruvbox Темно-оранжевый
     Secondary Color Theme: 'Вторичный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
@@ -523,19 +535,19 @@ Settings:
     Display Titles Without Excessive Capitalisation: Отображать заголовки без сплошных
       заглавных букв и знаков препинания
     Hide Featured Channels: Скрыть избранные каналы
-    Hide Channel Playlists: Скрыть подборки канала
-    Hide Channel Community: Скрыть сообщество канала
-    Hide Channel Shorts: Скрыть короткие видео канала
+    Hide Channel Playlists: Скрыть вкладку "Списки воспроизведения" канала
+    Hide Channel Community: Скрыть вкладку "Сообщество" канала
+    Hide Channel Shorts: Скрыть вкладку "Шорты" канала
     Sections:
       Side Bar: Боковая полоса
       Channel Page: Страница канала
       Watch Page: Страница просмотра
       General: Основные
       Subscriptions Page: Страница подписок
-    Hide Channel Releases: Скрыть выпуски канала
+    Hide Channel Releases: Скрыть вкладку "Релизы" канала
     Hide Subscriptions Videos: Скрыть видео из подписок
     Hide Subscriptions Live: Скрыть трансляции из подписок
-    Hide Channel Podcasts: Скрыть звукопередачи канала
+    Hide Channel Podcasts: Скрыть вкладку "Подкасты" канала
     Hide Subscriptions Shorts: Скрыть короткие видео из подписок
     Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
     Hide Channels Invalid: Указанный идентификатор канала недействителен
@@ -549,6 +561,7 @@ Settings:
       текст
     Hide Videos and Playlists Containing Text Placeholder: Слово, часть слова, или
       выражение
+    Hide Channel Home: Скрыть вкладку "Главная" канала
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -568,6 +581,10 @@ Settings:
     Ip: Ip
     Enable Tor / Proxy: Включить Tor/Прокси
     Proxy Settings: Прокси
+    Proxy Warning: FreeTube не имеет встроенного прокси, но может подключаться к внешнему
+      прокси, например, к запущенному на вашей машине Tor или к внешнему прокси, например,
+      SOCKS5, предоставляемому некоторыми VPN. Если прокси включен, убедитесь, что
+      ваш прокси/Tor настроен правильно, иначе FreeTube не сможет получать данные.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Уведомлять о пропущенном сегменте
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
@@ -724,6 +741,9 @@ Channel:
     Releases: Выпуски
     This channel does not currently have any releases: На этом канале пока нет ни
       одного выпуска
+  Home:
+    Home: Дом
+    View Playlist: Просмотреть плейлист
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
@@ -1058,7 +1078,7 @@ Tooltips:
       видео в стиле MPV.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
-      разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
+      которые вы хотите передать внешнему проигрывателю.
     Ignore Warnings: Скрыть предупреждения, когда текущий внешний проигрыватель не
       поддерживает текущее действие (например, обратный порядок подборок и другие).
     Custom External Player Executable: По умолчанию FreeTube будет считать, что выбранный
@@ -1171,3 +1191,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
   URL: "{url}".'
+KeyboardShortcutTemplate: '{метка} ({короткое нажатие})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Стрелка вниз
+  arrowleft: Стрелка влево
+  arrowright: Стрелка вправо
+  arrowup: Стрелка вверх

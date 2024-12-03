@@ -1055,8 +1055,8 @@ Tooltips:
     Fetch Automatically: Se ativa, FreeTube irá obter automaticamente as subscrições
       ao abrir uma nova janela e/ou quando mudar de perfil.
   External Player Settings:
-    Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
-      por ponto e vírgula (';'), que quiser passar ao reprodutor externo.
+    Custom External Player Arguments: Quaisquer argumentos de linha de comando,
+      que quiser passar ao reprodutor externo.
     Ignore Warnings: Ignorar avisos quando o reprodutor externo escolhido não suporte
       uma ação (por exemplo, inverter listas de reprodução).
     Custom External Player Executable: Por omissão, FreeTube assume que o reprodutor

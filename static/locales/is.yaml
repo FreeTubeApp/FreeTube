@@ -1062,8 +1062,8 @@ Tooltips:
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
       þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
   External Player Settings:
-    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, aðskilin
-      með semíkommum (';'), sem beina á til utanaðkomandi spilarans.
+    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar,
+      sem beina á til utanaðkomandi spilarans.
     Ignore Warnings: Hunsa aðvarinir þegar valinn utanaðkomandi spilari styður ekki
       viðkomandi aðgerð (t.d. að snúa við spilunarlista, o.s.frv.).
     Custom External Player Executable: Sjálfgefið gengur FreeTube út frá því að valinn
