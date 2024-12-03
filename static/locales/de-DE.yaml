@@ -317,6 +317,8 @@ Settings:
     Auto Load Next Page:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
+    Open Deep Links In New Window: Öffne URLs, die an FreeTube übergeben werden, in
+      einem neuen Fenster
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -898,6 +900,9 @@ Video:
   AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
     werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften
     YouTube-Kontos erfordern.
+  DeArrow:
+    Show Modified Details: Zeige geänderte Details
+    Show Original Details: Zeige die Originaldetails
 Videos:
   #& Sort By
   Sort By:
@@ -1083,6 +1088,9 @@ Tooltips:
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
       wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
       den angeklickten Link in deinem Standardbrowser öffnen.\n"
+    Open Deep Links In New Window: URLs die an FreeTube übergeben werden, z. B. durch
+      Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem
+      neuen Fenster geöffnet.
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
