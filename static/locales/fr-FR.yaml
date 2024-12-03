@@ -571,7 +571,7 @@ Settings:
     Hide Channel Playlists: Masquer l'onglet de la chaîne "Listes de lecture"
     Hide Featured Channels: Masquer les chaînes en vedette
     Hide Channel Community: Masquer l'onglet de la chaîne "Communauté"
-    Hide Channel Shorts: Masquer l'onglet de la chaîne "Courts"
+    Hide Channel Shorts: Masquer l'onglet "Shorts" de la chaîne
     Sections:
       Channel Page: Page de la chaîne
       Side Bar: Barre latérale
@@ -596,7 +596,7 @@ Settings:
       lecture contenant du texte
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
       phrase
-    Hide Channel Home: Masquer l'onglet de la chaîne "Home"
+    Hide Channel Home: Masquer l'onglet "Accueil" de la chaîne
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -783,7 +783,7 @@ Channel:
     This channel does not currently have any podcasts: Cette chaîne n'a pas encore
       de podcasts
   Home:
-    Home: Home
+    Home: Accueil
     View Playlist: Afficher la liste de lecture
 Video:
   Mark As Watched: 'Marquer comme vu'
