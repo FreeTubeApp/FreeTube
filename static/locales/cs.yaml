@@ -925,6 +925,9 @@ Video:
     přihlášení k účtu Google a placené členství v kanálu nahrávajícího.
   AgeRestricted: Videa s věkovým omezením nelze na FreeTube sledovat, protože vyžadují
     přihlášení ke službě Google a použití účtu YouTube s ověřeným věkem.
+  DeArrow:
+    Show Modified Details: Zobrazit upravené podrobnosti
+    Show Original Details: Zobrazit původní podrobnosti
 Videos:
   #& Sort By
   Sort By:
