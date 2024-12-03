@@ -94,21 +94,6 @@ export function getIconForRoute(route) {
 }
 
 /**
- * Returns an appropriate default bookmark name
- * for a given route.
- * @param {import('vue-router').Route} route
- * @returns {string}
- */
-export function defaultBookmarkNameForRoute(route) {
-  if (route.meta.title === 'Search Results') {
-    // Use the inputted search query over 'Search Results'
-    return route.params.query
-  }
-  // Remove unnecessary " - FreeTube" appendage
-  return document.title.replace(` - ${packageDetails.productName}`, '')
-}
-
-/**
  * Returns the first user-perceived character,
  * respecting language specific rules and
  * emojis made up of multiple codepoints

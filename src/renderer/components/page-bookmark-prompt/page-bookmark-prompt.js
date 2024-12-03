@@ -4,8 +4,8 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
+import packageDetails from '../../../../package.json'
 import { showToast } from '../../helpers/utils'
-import { defaultBookmarkNameForRoute } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'PageBookmarkPrompt',
@@ -21,6 +21,9 @@ export default defineComponent({
     }
   },
   computed: {
+    appTitle: function () {
+      return document.title.replace(` - ${packageDetails.productName}`, '')
+    },
     isBookmarkBeingCreated: function () {
       return this.pageBookmark == null
     },
@@ -43,7 +46,7 @@ export default defineComponent({
   },
   mounted: function () {
     nextTick(() => {
-      this.name = this.pageBookmark?.name ?? defaultBookmarkNameForRoute(this.$router.currentRoute)
+      this.name = this.pageBookmark?.name ?? this.appTitle
       this.$refs.pageBookmarkNameInput?.focus()
     })
   },
