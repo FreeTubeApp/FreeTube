@@ -106,7 +106,6 @@
     <ft-age-restricted
       v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :is-video="true"
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
@@ -164,7 +163,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
       />
-      <watch-video-comments
+      <CommentSection
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"

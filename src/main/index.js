@@ -662,6 +662,10 @@ function runApp() {
           return '#002B36'
         case 'solarized-light':
           return '#fdf6e3'
+        case 'gruvbox-dark':
+          return '#282828'
+        case 'gruvbox-light':
+          return '#fbf1c7'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

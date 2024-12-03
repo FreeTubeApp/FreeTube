@@ -5,8 +5,8 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
-import { openInternalPath } from '../../helpers/utils'
+import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+import { localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
@@ -102,16 +102,25 @@ export default defineComponent({
     },
 
     forwardText: function () {
-      return this.$t('Forward') + this.navigationHistoryAddendum
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Forward'),
+        KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD
+      ) + this.navigationHistoryAddendum
     },
 
     backwardText: function () {
-      return this.$t('Back') + this.navigationHistoryAddendum
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Back'),
+        KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD
+      ) + this.navigationHistoryAddendum
     },
 
     newWindowText: function () {
-      return this.$t('Open New Window')
-    },
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Open New Window'),
+        KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
+      )
+    }
   },
   watch: {
     $route: function () {

@@ -324,6 +324,8 @@ Settings:
       Nordic: Põhjala
       Solarized Dark: Tume päikesekuma
       Solarized Light: Hele päikesekuma
+      Gruvbox Dark: Gruuvimasina tume
+      Gruvbox Light: Gruuvimasina hele
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -371,6 +373,16 @@ Settings:
       Solarized Cyan: Rohekassinine päikesekuma
       Solarized Green: Roheline päikesekuma
       Solarized Yellow: Kollane päikesekuma
+      Gruvbox Dark Blue: Gruuvimasina tumesinine
+      Gruvbox Light Blue: Gruuvimasina helesinine
+      Gruvbox Dark Green: Gruuvimasina tumeroheline
+      Gruvbox Light Red: Gruuvimasina helepunane
+      Gruvbox Dark Purple: Gruuvimasina tumepurpur
+      Gruvbox Dark Orange: Gruuvimasina tumeoranž
+      Gruvbox Dark Yellow: Gruuvimasina kollane
+      Gruvbox Dark Aqua: Gruuvimasina tume vesi
+      Gruvbox Light Purple: Gruuvimasina helepurpur
+      Gruvbox Light Orange: Gruuvimasina heleoranž
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -573,6 +585,12 @@ Settings:
     Proxy Protocol: Puhverserveri protokoll
     Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
     Proxy Settings: Puhverserver
+    Proxy Warning: FreeTube'is pole sisseehitatud proksilahendust, kuid ta võib luua
+      ühenduse välise proksi kaudu. Näiteks kasutades sellist, mis töötab sinu arvutis
+      või nutiseadmes, olgu selleks Tor või mõne VPNi poolt pakutav SOCKS5. Kui sa
+      selle eelistuse sisse lülitad, palun jälgi et selline väline proksi on korralikult
+      seadistatud. Vastasel juhul võrguühendus ei toimi ja FreeTube ei saa andmeid
+      laadida.
   The app needs to restart for changes to take effect. Restart and apply change?: See
     rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:

@@ -339,6 +339,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
       Solarized Dark: Solarized Dark
       Solarized Light: Solarized Light
     Main Color Theme:
@@ -380,6 +382,16 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Gruvbox Dark Green: Gruvbox Dark Green
+      Gruvbox Dark Yellow: Gruvbox Dark Yellow
+      Gruvbox Dark Blue: Gruvbox Dark Blue
+      Gruvbox Dark Purple: Gruvbox Dark Purple
+      Gruvbox Dark Aqua: Gruvbox Dark Aqua
+      Gruvbox Dark Orange: Gruvbox Dark Orange
+      Gruvbox Light Red: Gruvbox Light Red
+      Gruvbox Light Blue: Gruvbox Light Blue
+      Gruvbox Light Purple: Gruvbox Light Purple
+      Gruvbox Light Orange: Gruvbox Light Orange
       Solarized Yellow: Solarized Yellow
       Solarized Orange: Solarized Orange
       Solarized Red: Solarized Red
@@ -510,11 +522,12 @@ Settings:
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
     Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
-    Hide Channel Playlists: Hide Channel Playlists
-    Hide Channel Community: Hide Channel Community
-    Hide Channel Shorts: Hide Channel Shorts
-    Hide Channel Podcasts: Hide Channel Podcasts
-    Hide Channel Releases: Hide Channel Releases
+    Hide Channel Playlists: Hide Channel "Playlists" Tab
+    Hide Channel Community: Hide Channel "Community" Tab
+    Hide Channel Home: Hide Channel "Home" Tab
+    Hide Channel Shorts: Hide Channel "Shorts" Tab
+    Hide Channel Podcasts: Hide Channel "Podcasts" Tab
+    Hide Channel Releases: Hide Channel "Releases" Tab
     Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
     Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
@@ -743,6 +756,9 @@ Channel:
       Last Video Added: Last Video Added
       Newest: Newest
       Oldest: Oldest
+  Home:
+    Home: Home
+    View Playlist: View Playlist
   Podcasts:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: This channel does not currently have any podcasts
@@ -1094,3 +1110,12 @@ Cancel: Cancel
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Down Arrow
+  arrowleft: Left Arrow
+  arrowright: Right Arrow
+  arrowup: Up Arrow

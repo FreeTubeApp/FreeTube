@@ -34,6 +34,15 @@ Forward: 'Framover'
 Global:
   Videos: 'Videoar'
 
+  Counts:
+    Comment Count: 1 kommentar | {count} kommentarar
+    Video Count: 1 video | {count} videoar
+    Channel Count: 1 kanal | {count} kanalar
+    Subscriber Count: 1 abonnent | {count} abonnentar
+    View Count: 1 visning | {count} visningar
+  Shorts: Shorts
+  Live: Direkte
+  Community: Fellesskap
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
   er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
@@ -801,3 +810,12 @@ Default Invidious instance has been set to {instance}: Standard-Invidious-førek
   har blitt satt til {instance}
 External link opening has been disabled in the general settings: Opening av eksterne
   lenker har blitt deaktivert i innstillingane
+Go to page: Gå til {page}
+Search Listing:
+  Label:
+    8K: 8K
+    New: Ny
+    3D: 3D
+    4K: 4K
+    Subtitles: Undertekstar
+    Closed Captions: Undertekstar

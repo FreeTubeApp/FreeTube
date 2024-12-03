@@ -256,8 +256,8 @@ Settings:
     General Settings: 'Общие'
     Fallback to Non-Preferred Backend on Failure: 'Откатить к непредпочтительному
       движку при сбое'
-    Enable Search Suggestions: 'Отображать поисковые предложения'
-    Default Landing Page: 'Целевая страница по умолчанию'
+    Enable Search Suggestions: 'Включить поисковые предложения'
+    Default Landing Page: 'Страница по умолчанию'
     Locale Preference: 'Язык приложения'
     Preferred API Backend:
       Preferred API Backend: 'Предпочитаемый движок API'
@@ -271,14 +271,14 @@ Settings:
       Thumbnail Preference: 'Настройка заставок'
       Default: 'По умолчанию'
       Beginning: 'В начале'
-      Middle: 'В середине'
+      Middle: 'По середине'
       End: 'В конце'
       Blur: Размытие
       Hidden: Скрыто
     Region for Trending: 'Регион подбора трендов'
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
-    Check for Updates: Проверять обновления
+    Check for Updates: Проверить на наличие новых версий
     View all Invidious instance information: Просмотреть все экземпляры Invidious
     System Default: Системные настройки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
@@ -295,7 +295,7 @@ Settings:
       Open Link: Открыть ссылку
       External Link Handling: Обработка внешних ссылок
     Auto Load Next Page:
-      Label: Автоматически загружать следующую страницу
+      Label: Авто-загрузка следующей страницы
       Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
   Theme Settings:
     Theme Settings: 'Внешний вид'
@@ -1127,6 +1127,7 @@ Chapters:
     текущий раздел: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Список разделов скрыт,
     текущий раздел: {chapterName}'
+  Key Moments: Основные моменты
 Preferences: Настройки
 Ok: Хорошо
 Hashtag:

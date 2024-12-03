@@ -320,6 +320,8 @@ Settings:
       Nordic: Nordycki
       Solarized Light: Nasłoneczniony jasny
       Solarized Dark: Nasłoneczniony ciemny
+      Gruvbox Dark: Gruvbox ciemny
+      Gruvbox Light: Gruvbox jasny
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -367,6 +369,16 @@ Settings:
       Solarized Cyan: Nasłoneczniony cyjan
       Solarized Green: Nasłoneczniony zielony
       Solarized Yellow: Nasłoneczniony żółty
+      Gruvbox Dark Green: Gruvbox ciemnozielony
+      Gruvbox Dark Yellow: Gruvbox żółty
+      Gruvbox Dark Blue: Gruvbox niebieski
+      Gruvbox Dark Purple: Gruvbox ciemnopurpurowy
+      Gruvbox Dark Aqua: Gruvbox ciemny wodny
+      Gruvbox Dark Orange: Gruvbox ciemnopomarańczowy
+      Gruvbox Light Red: Gruvbox jasnoczerwony
+      Gruvbox Light Blue: Gruvbox jasnoniebieski
+      Gruvbox Light Purple: Gruvbox jasnopurpurowy
+      Gruvbox Light Orange: Gruvbox jasnopomarańczowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -581,6 +593,11 @@ Settings:
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube nie ma wbudowanego proxy, ale może połączyć z zewnętrznym
+      proxy. Na przykład z uruchomionym na Twoim komputerze, jak Tor, albo z uruchomionym
+      na zewnętrznym serwerze, takim jak SOCKS5 proxy, oferowanym przez niektórych
+      dostawców VPN. Po włączeniu upewnij się, że twoje proxy lub Tor są skonfigurowane
+      poprawnie, by FreeTube był w stanie wymieniać jakiekolwiek dane.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany
       zostanie pominięty
@@ -1140,6 +1157,7 @@ Chapters:
     obecny rozdział: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
     rozdział: {chapterName}'
+  Key Moments: Kluczowe momenty
 Preferences: Preferencje
 Ok: Ok
 Hashtag:

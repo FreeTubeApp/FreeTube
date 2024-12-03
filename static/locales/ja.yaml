@@ -513,6 +513,9 @@ Settings:
     Proxy Protocol: プロキシのプロトコル
     Enable Tor / Proxy: Tor / プロキシの有効化
     Proxy Settings: プロキシ
+    Proxy Warning: FreeTube にはプロキシは内蔵されていませんが、Tor のようなご使用のマシン上で動作するものや、一部の VPN が提供する
+      SOCKS5 プロキシのような外部プロキシに接続することができます。有効にした場合は、プロキシ/Tor が適切に設定されていることを確認してください。そうでないと、FreeTube
+      はデータを取得できなくなります。
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
@@ -994,6 +997,7 @@ Chapters:
     {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター：
     {chapterName}'
+  Key Moments: ハイライト
 Preferences: 環境設定
 Ok: オーケー
 Hashtag:

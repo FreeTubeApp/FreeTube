@@ -5,10 +5,11 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
-import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import ChannelHome from '../../components/ChannelHome/ChannelHome.vue'
 
 import autolinker from 'autolinker'
 import {
@@ -36,13 +37,13 @@ import {
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
-  parseLocalCompactStation,
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount,
   getLocalArtistTopicChannelReleasesContinuation,
   getLocalPlaylist,
-  parseLocalPlaylistVideo
+  parseLocalPlaylistVideo,
+  parseChannelHomeTab
 } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -56,7 +57,8 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'channel-about': ChannelAbout,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
-    ChannelDetails
+    ChannelDetails,
+    ChannelHome
   },
   data: function () {
     return {
@@ -96,6 +98,7 @@ export default defineComponent({
       showPlaylistSortBy: true,
       lastSearchQuery: '',
       relatedChannels: [],
+      homeData: [],
       latestVideos: [],
       latestShorts: [],
       latestLive: [],
@@ -117,6 +120,7 @@ export default defineComponent({
 
       autoRefreshOnSortByChangeEnabled: false,
       supportedChannelTabs: [
+        'home',
         'videos',
         'shorts',
         'live',
@@ -257,6 +261,10 @@ export default defineComponent({
       return this.$store.getters.getHideChannelCommunity
     },
 
+    hideChannelHome: function() {
+      return this.$store.getters.getHideChannelHome
+    },
+
     tabInfoValues: function () {
       const values = [...this.channelTabs]
 
@@ -284,6 +292,10 @@ export default defineComponent({
 
       if (this.hideChannelReleases) {
         indexToRemove.push(values.indexOf('releases'))
+      }
+
+      if (this.hideChannelHome) {
+        indexToRemove.push(values.indexOf('home'))
       }
 
       indexToRemove.forEach(index => {
@@ -582,45 +594,6 @@ export default defineComponent({
 
         this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
-        let relatedChannels = channel.channels.map(({ author }) => ({
-          name: author.name,
-          id: author.id,
-          thumbnailUrl: author.best_thumbnail.url
-        }))
-
-        if (channel.memo.has('GameDetails')) {
-          /** @type {import('youtubei.js').YTNodes.GameDetails[]} */
-          const games = channel.memo.get('GameDetails')
-
-          relatedChannels.push(...games.map(game => ({
-            id: game.endpoint.payload.browseId,
-            name: game.title.text,
-            thumbnailUrl: game.box_art[0].url
-          })))
-        }
-
-        if (relatedChannels.length > 0) {
-          /** @type {Set<string>} */
-          const knownChannelIds = new Set()
-
-          relatedChannels = relatedChannels.filter(channel => {
-            if (!knownChannelIds.has(channel.id)) {
-              knownChannelIds.add(channel.id)
-              return true
-            }
-
-            return false
-          })
-
-          relatedChannels.forEach(channel => {
-            if (channel.thumbnailUrl.startsWith('//')) {
-              channel.thumbnailUrl = `https:${channel.thumbnailUrl}`
-            }
-          })
-        }
-
-        this.relatedChannels = relatedChannels
-
         this.channelInstance = channel
 
         if (channel.has_about) {
@@ -633,6 +606,15 @@ export default defineComponent({
           this.location = null
         }
         const tabs = ['about']
+
+        // we'll count it as home page if it's not video. This will help us support some special channels
+        if ((channel.has_home === 'home' || channel.tabs[0] !== 'Videos')) {
+          if (!this.hideChannelHome) {
+            tabs.push('home')
+          }
+          // we still parse the home page so we can set related channels
+          this.getChannelHomeLocal()
+        }
 
         if (channel.has_videos || this.isArtistTopicChannel) {
           tabs.push('videos')
@@ -663,20 +645,6 @@ export default defineComponent({
           if (channel.has_playlists) {
             tabs.push('playlists')
             this.getChannelPlaylistsLocal()
-          } else if (channelId === 'UC-9-kyTW8ZkZNDHQJ6FgpwQ') {
-            // Special handling for "The Music Channel" (https://youtube.com/music)
-            tabs.push('playlists')
-            const playlists = channel.playlists.map(playlist => parseLocalListPlaylist(playlist))
-
-            const compactStations = channel.memo.get('CompactStation')
-            if (compactStations) {
-              for (const compactStation of compactStations) {
-                playlists.push(parseLocalCompactStation(compactStation, channelId, channelName))
-              }
-            }
-
-            this.showPlaylistSortBy = false
-            this.latestPlaylists = playlists
           }
         }
 
@@ -758,6 +726,55 @@ export default defineComponent({
         } else {
           this.isLoading = false
         }
+      }
+    },
+
+    getChannelHomeLocal: function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+         */
+        const channel = this.channelInstance
+        const homeTab = channel //  await channel.getHome()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        const homeData = parseChannelHomeTab(homeTab)
+        if (!this.hideChannelHome) {
+          this.homeData = homeData
+        }
+
+        // parse related channels from home page data
+        const relatedChannels = []
+        /** @type {Set<string>} */
+        const knownChannelIds = new Set()
+
+        for (const shelf of homeData) {
+          for (const item of shelf.content) {
+            if (item.type === 'channel' && !knownChannelIds.has(item.id)) {
+              knownChannelIds.add(item)
+              relatedChannels.push({
+                name: item.name,
+                id: item.id,
+                thumbnailUrl: item.thumbnail
+              })
+            }
+          }
+        }
+        this.relatedChannels = relatedChannels
+
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
       }
     },
 
@@ -1057,7 +1074,7 @@ export default defineComponent({
         })
 
         this.channelTabs = this.supportedChannelTabs.filter(tab => {
-          return tabs.includes(tab)
+          return tabs.includes(tab) && tab !== 'home'
         })
 
         this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
