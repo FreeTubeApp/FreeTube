@@ -144,8 +144,8 @@ export default defineComponent({
       return this.$store.getters.getExternalLinkHandling
     },
 
-    openLinksInNewWindow: function () {
-      return this.$store.getters.getOpenLinksInNewWindow
+    openDeepLinksInNewWindow: function () {
+      return this.$store.getters.getOpenDeepLinksInNewWindow
     }
   },
   watch: {
@@ -518,7 +518,7 @@ export default defineComponent({
     enableOpenUrl: function () {
       ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
         if (url) {
-          this.handleYoutubeLink(url, { doCreateNewWindow: this.openLinksInNewWindow && !isLaunchLink })
+          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
         }
       })
 

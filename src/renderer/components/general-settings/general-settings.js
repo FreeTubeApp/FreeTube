@@ -202,8 +202,8 @@ export default defineComponent({
       ]
     },
 
-    openLinksInNewWindow: function () {
-      return this.$store.getters.getOpenLinksInNewWindow
+    openDeepLinksInNewWindow: function () {
+      return this.$store.getters.getOpenDeepLinksInNewWindow
     }
   },
   created: function () {
@@ -273,7 +273,7 @@ export default defineComponent({
       'updateCurrentLocale',
       'updateExternalLinkHandling',
       'updateGeneralAutoLoadMorePaginatedItemsEnabled',
-      'updateOpenLinksInNewWindow',
+      'updateOpenDeepLinksInNewWindow',
     ])
   }
 })

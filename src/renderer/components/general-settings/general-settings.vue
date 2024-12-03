@@ -39,10 +39,11 @@
           @change="updateEnableSearchSuggestions"
         />
         <ft-toggle-switch
-          :label="$t('Settings.General Settings.Open Links In New Window')"
-          :default-value="openLinksInNewWindow"
+          :label="$t('Settings.General Settings.Open Deep Links In New Window')"
+          :default-value="openDeepLinksInNewWindow"
           :compact="true"
-          @change="updateOpenLinksInNewWindow"
+          :tooltip="$t('Tooltips.General Settings.Open Deep Links In New Window')"
+          @change="updateOpenDeepLinksInNewWindow"
         />
       </div>
     </div>

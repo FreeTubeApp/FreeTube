@@ -283,7 +283,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
-    Open Links In New Window: Open freetube:// Links in a New Window
+    Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -1008,6 +1008,9 @@ Tooltips:
     External Link Handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
+    Open Deep Links In New Window: Choose whether links passed to FreeTube, such as by
+      redirect browser extensions or command line arguments, are opened in a new window
+      or replace the contents of the main window.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
