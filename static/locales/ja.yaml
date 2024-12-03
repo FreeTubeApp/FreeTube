@@ -487,8 +487,8 @@ Settings:
     Hide Channels: チャンネルから動画を非表示にする
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
-    Hide Channel Playlists: チャンネル再生リストの非表示
-    Hide Channel Community: チャンネルコミュニティの非表示
+    Hide Channel Playlists: チャンネルの「再生リスト」タブを隠す
+    Hide Channel Community: チャンネルの「コミュニティ」タブを隠す
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
@@ -496,12 +496,12 @@ Settings:
       General: 一般
       Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
-    Hide Channel Shorts: ショート動画チャンネルの非表示
-    Hide Channel Podcasts: ポッドキャスト チャンネルの非表示
+    Hide Channel Shorts: チャンネルの「ショート動画」タブを隠す
+    Hide Channel Podcasts: チャンネルの「ポッドキャスト」タブを隠す
     Hide Subscriptions Shorts: 登録チャンネルのショート動画の非表示
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
-    Hide Channel Releases: チャンネルの新着情報の非表示
+    Hide Channel Releases: チャンネルの「新着情報」タブを隠す
     Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
     Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
