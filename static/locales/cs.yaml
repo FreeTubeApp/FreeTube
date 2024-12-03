@@ -312,6 +312,8 @@ Settings:
     Auto Load Next Page:
       Label: Automaticky načíst další stránku
       Tooltip: Automaticky načítat další stránky a komentáře.
+    Open Deep Links In New Window: Otevírat adresy předané aplikaci FreeTube v novém
+      okně
   Theme Settings:
     Theme Settings: 'Motiv'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -499,17 +501,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
       použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
-    Hide Channel Playlists: Skrýt playlisty kanálu
-    Hide Channel Community: Skrýt komunitu kanálu
-    Hide Channel Shorts: Skrýt Shorts kanálu
+    Hide Channel Playlists: Skrýt kartu „Playlisty“ u kanálů
+    Hide Channel Community: Skrýt kartu „Komunita“ u kanálů
+    Hide Channel Shorts: Skrýt kartu „Shorts“ u kanálů
     Sections:
       Side Bar: Postranní lišta
       Channel Page: Stránka kanálu
       Watch Page: Stránka sledování
       General: Obecné
       Subscriptions Page: Stránka s odběry
-    Hide Channel Podcasts: Skrýt podcasty kanálu
-    Hide Channel Releases: Skrýt vydání kanálu
+    Hide Channel Podcasts: Skrýt kartu „Podcasty“ u kanálů
+    Hide Channel Releases: Skrýt kartu „Vydání“ u kanálů
     Hide Subscriptions Shorts: Skrýt Shorts odběrů
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
@@ -525,6 +527,7 @@ Settings:
       text
     Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo
       fráze
+    Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
   Data Settings:
     Data Settings: 'Data'
     Select Import Type: 'Vybrat typ importu'
@@ -795,6 +798,9 @@ Channel:
     This channel does not currently have any podcasts: Tento kanál momentálně nemá
       žádné podcasty
     Podcasts: Podcasty
+  Home:
+    Home: Domovská stránka
+    View Playlist: Zobrazit playlist
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
