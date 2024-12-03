@@ -287,6 +287,8 @@ Settings:
       Nordic: ノルディック
       Solarized Dark: ソラライズド・ダーク
       Solarized Light: ソラライズド・ライト
+      Gruvbox Dark: Gruvbox ダーク
+      Gruvbox Light: Gruvbox ライト
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -334,6 +336,16 @@ Settings:
       Solarized Cyan: ソラライズド・シアン
       Solarized Green: ソラライズド・グリーン
       Solarized Blue: ソラライズド・ブルー
+      Gruvbox Dark Green: Gruvbox ダークグリーン
+      Gruvbox Dark Blue: Gruvbox ダークブルー
+      Gruvbox Dark Aqua: Gruvbox ダークアクア
+      Gruvbox Light Red: Gruvbox ライトレッド
+      Gruvbox Light Blue: Gruvbox ライトブルー
+      Gruvbox Light Purple: Gruvbox ライトパープル
+      Gruvbox Dark Orange: Gruvbox ダークオレンジ
+      Gruvbox Dark Yellow: Gruvbox ダークイエロー
+      Gruvbox Dark Purple: Gruvbox ダークパープル
+      Gruvbox Light Orange: Gruvbox ライトオレンジ
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -498,6 +510,7 @@ Settings:
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
+    Hide Channel Home: チャンネルの「ホーム」タブを隠す
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -660,6 +673,9 @@ Channel:
   Podcasts:
     This channel does not currently have any podcasts: このチャンネルにはポッドキャストがありません
     Podcasts: ポッドキャスト
+  Home:
+    View Playlist: 再生リストを表示
+    Home: ホーム
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -1037,3 +1053,12 @@ Trimmed input must be at least N characters long: トリミングされた入力
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました： "{url}"。'
 Display Label: '{label}：{value}'
+KeyboardShortcutTemplate: '{label} （{shortcut}）'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: 下矢印
+  arrowleft: 左矢印
+  arrowright: 右矢印
+  arrowup: 上矢印
