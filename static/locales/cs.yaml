@@ -1034,6 +1034,8 @@ Tooltips:
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
+    Open Deep Links In New Window: Adresy předané aplikaci FreeTube, například rozšířením
+      pro prohlížeč nebo argumenty v příkazovém řádku, budou otevřeny v novém okně.
   Player Settings:
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube.'
@@ -1190,3 +1192,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
   adresy URL: „{url}“.'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Šipka dolů
+  arrowup: Šipka nahoru
+  arrowright: Šipka vpravo
+  arrowleft: Šipka vlevo
