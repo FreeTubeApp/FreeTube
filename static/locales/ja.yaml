@@ -119,7 +119,7 @@ Trending:
   Movies: 映画
   Gaming: ゲーム
   Music: 音楽
-  Default: 既定
+  Default: デフォルト
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -959,7 +959,7 @@ Tooltips:
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   External Player Settings:
-    Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
+    Custom External Player Arguments: '外部プレイヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
