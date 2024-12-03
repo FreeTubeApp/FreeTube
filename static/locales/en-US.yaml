@@ -1008,9 +1008,8 @@ Tooltips:
     External Link Handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
-    Open Deep Links In New Window: Choose whether URLs passed to FreeTube, such as by
-      redirect browser extensions or command line arguments, are opened in a new window
-      or replace the contents of the main window.
+    Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect
+      browser extensions or command line arguments, are opened in a new window.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
