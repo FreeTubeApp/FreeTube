@@ -272,8 +272,8 @@ Settings:
   Settings: Einstellungen
   General Settings:
     General Settings: Allgemein
-    Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
-      bei Fehlschlag zurück
+    Fallback to Non-Preferred Backend on Failure: Zum nicht bevorzugten Backend System
+      bei Fehlschlag zurückkehren
     Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standard Startseite
 
@@ -296,7 +296,7 @@ Settings:
       Blur: Unschärfe
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
+    Check for Latest Blog Posts: Nach neuesten Blogeinträgen suchen
     Check for Updates: Auf Aktualisierungen prüfen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
@@ -639,7 +639,7 @@ Settings:
     Players:
       None:
         Name: Keine
-    Ignore Default Arguments: Ignoriere Standardargument
+    Ignore Default Arguments: Standardargument ignorieren
   Download Settings:
     Download Settings: Herunterladen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -1223,7 +1223,7 @@ Feed:
 Yes, Delete: Ja, löschen
 Cancel: Abbrechen
 Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
-Yes, Restart: Ja, neustarten
+Yes, Restart: Ja, neu starten
 Yes, Open Link: Ja, Link öffnen
 Search Listing:
   Label:
