@@ -1,5 +1,4 @@
 import i18n from '../i18n/index'
-import packageDetails from '../../../package.json'
 
 /**
  * This will return true if a string is null, undefined or empty.
@@ -59,6 +58,9 @@ export function translateWindowTitle(title) {
   }
 }
 
+/**
+ * @param {string} route
+ */
 export function getIconForRoute(route) {
   const routeSlashIndex = route.indexOf('/', 2)
   const truncatedRoute = (routeSlashIndex === -1) ? route : route.substring(0, routeSlashIndex)
@@ -81,8 +83,11 @@ export function getIconForRoute(route) {
     case '/about':
       return ['fas', 'info-circle']
     case '/search':
-    case '/hashtag':
       return ['fas', 'magnifying-glass']
+    case '/hashtag':
+      return ['fas', 'hashtag']
+    case '/post':
+      return ['fas', 'message']
     case '/playlist': {
       const solidOrRegular = route.includes('?playlistType=user') ? 'fas' : 'far'
       return [solidOrRegular, 'bookmark']

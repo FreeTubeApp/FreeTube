@@ -18,13 +18,17 @@ import Post from '../views/Post.vue'
 
 Vue.use(Router)
 
+/*
+  For new routes, add a corresponding
+  icon in src/renderer/helpers/strings.js > getIconForRoute()
+*/
 const router = new Router({
   routes: [
     {
       path: '/',
       name: 'default',
       meta: {
-        title: 'Subscriptions'
+        title: 'Subscriptions',
       },
       component: Subscriptions
     },
