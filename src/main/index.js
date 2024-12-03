@@ -831,7 +831,7 @@ function runApp() {
 
   ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
   })
 
