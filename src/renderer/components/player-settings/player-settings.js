@@ -95,8 +95,8 @@ export default defineComponent({
       return this.backendPreference !== 'invidious' && !this.backendFallback
     },
 
-    defaultAutoplayInterruptionInterval: function () {
-      return parseInt(this.$store.getters.getDefaultAutoplayInterruptionInterval)
+    defaultAutoplayInterruptionIntervalHours: function () {
+      return parseInt(this.$store.getters.getDefaultAutoplayInterruptionIntervalHours)
     },
 
     defaultSkipInterval: function () {
@@ -290,7 +290,7 @@ export default defineComponent({
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
-      'updateDefaultAutoplayInterruptionInterval',
+      'updateDefaultAutoplayInterruptionIntervalHours',
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
       'updateProxyVideos',

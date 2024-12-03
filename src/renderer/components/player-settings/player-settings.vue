@@ -93,12 +93,12 @@
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Autoplay Interruption Timer')"
-        :default-value="defaultAutoplayInterruptionInterval"
+        :default-value="defaultAutoplayInterruptionIntervalHours"
         :min-value="1"
         :max-value="12"
         :step="1"
         value-extension="h"
-        @change="updateDefaultAutoplayInterruptionInterval"
+        @change="updateDefaultAutoplayInterruptionIntervalHours"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"

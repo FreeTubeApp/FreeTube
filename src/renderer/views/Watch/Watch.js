@@ -57,6 +57,7 @@ export default defineComponent({
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+    document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
     document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
     if (this.$refs.player) {
@@ -163,8 +164,8 @@ export default defineComponent({
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
     },
-    defaultAutoplayInterruptionInterval: function () {
-      return this.$store.getters.getDefaultAutoplayInterruptionInterval
+    defaultAutoplayInterruptionIntervalHours: function () {
+      return this.$store.getters.getDefaultAutoplayInterruptionIntervalHours
     },
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
@@ -327,7 +328,9 @@ export default defineComponent({
         this.getVideoInformationLocal()
       }
 
+      document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
       document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('keydown', this.resetAutoplayInterruptionTimeout)
       document.addEventListener('click', this.resetAutoplayInterruptionTimeout)
 
       window.addEventListener('beforeunload', this.handleWatchProgress)
@@ -1657,7 +1660,7 @@ export default defineComponent({
 
     resetAutoplayInterruptionTimeout() {
       clearTimeout(this.autoplayInterruptionTimeout)
-      this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionInterval * 3_600_000)
+      this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionIntervalHours * 3_600_000)
       this.blockVideoAutoplay = false
     },
 
