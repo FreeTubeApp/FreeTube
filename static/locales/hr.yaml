@@ -1043,7 +1043,7 @@ Tooltips:
       videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,
       Invidious postavke ne utječu na vanjske playere.
     Custom External Player Arguments: Svi prilagođeni argumenti naredbenog retka,
-      odvojene točka-zarezom (;), koje želiš da se proslijede vanjskom playeru.
+      koje želiš da se proslijede vanjskom playeru.
     Ignore Warnings: Nemoj prikazati upozorenja kad trenutačni vanjski player ne podržava
       trenutačnu radnju (npr. preokretanje redoslijeda zbirke itd.).
     Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti

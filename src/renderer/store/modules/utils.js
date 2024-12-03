@@ -692,20 +692,19 @@ const actions = {
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
     if (ignoreDefaultArgs) {
-      if (typeof customArgs === 'string' && customArgs !== '') {
-        const custom = customArgs.split(';')
+      if (typeof customArgs === 'string' && customArgs !== '[]') {
+        const custom = JSON.parse(customArgs)
         args.push(...custom)
       }
       if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     } else {
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
-      if (typeof customArgs === 'string' && customArgs !== '') {
-        const custom = customArgs.split(';')
+      if (typeof customArgs === 'string' && customArgs !== '[]') {
+        const custom = JSON.parse(customArgs)
         args.push(...custom)
-      } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-        const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
-        args.push(...defaultCustomArguments)
+      } else if (Array.isArray(cmdArgs.defaultCustomArguments)) {
+        args.push(...cmdArgs.defaultCustomArguments)
       }
 
       if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {

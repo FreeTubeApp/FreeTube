@@ -1107,8 +1107,7 @@ Tooltips:
       zu springen, MPV-Stil.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
-      getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
-      sollen.
+      die an den externen Abspieler übergeben werden sollen.
     Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Abspieler die
       aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Wiedergabelisten usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass

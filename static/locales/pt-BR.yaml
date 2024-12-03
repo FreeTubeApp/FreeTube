@@ -1082,7 +1082,7 @@ Tooltips:
       clicado em seu navegador padrão.\n"
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
-      separados por ponto e vírgula (';'), você deseja que seja passado para o player
+      você deseja que seja passado para o player
       externo.
     Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
       a ação atual (por exemplo, reverter playlist, etc.).

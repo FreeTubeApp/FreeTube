@@ -1015,8 +1015,8 @@ Tooltips:
       kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
       link openen in je standaardbrowser.\n"
   External Player Settings:
-    Custom External Player Arguments: Aangepaste opdrachtregelargumenten, gescheiden
-      door puntkomma's (';'), die je wil doorgeven aan de externe videospeler.
+    Custom External Player Arguments: Aangepaste opdrachtregelargumenten,
+      die je wil doorgeven aan de externe videospeler.
     Ignore Warnings: Onderdruk waarschuwingen wanneer de geselecteerde videospeler
       een opgegeven actie niet ondersteund (bijv. afspeellijsten omkeren, etc.).
     Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen
