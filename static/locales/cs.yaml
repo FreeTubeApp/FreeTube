@@ -46,8 +46,8 @@ Global:
     Comment Count: 1 komentář | {count} komentářů
   Input Tags:
     Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
-Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
-  je k dispozici! Klikněte pro více informací'
+Version {versionNumber} is now available!  Click for more details: 'Je k dispozici
+  verze {versionNumber}! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
 A new blog is now available, {blogTitle}. Click to view more: 'Je dostupný nový článek
   na blogu: {blogTitle}. Kliknutím zobrazíte více'
@@ -250,6 +250,8 @@ User Playlists:
     | Opravdu chcete odstranit {playlistItemCount} zhlédnutých videí z tohoto playlistu?
     Tato akce je nevratná.
   Remove Duplicate Videos: Odstranit duplicitní videa
+  Export Playlist: Exportovat tento playlist
+  The playlist has been successfully exported: Playlist byl úspěšně exportován
 History:
   # On History Page
   History: 'Historie'
@@ -310,6 +312,8 @@ Settings:
     Auto Load Next Page:
       Label: Automaticky načíst další stránku
       Tooltip: Automaticky načítat další stránky a komentáře.
+    Open Deep Links In New Window: Otevírat adresy předané aplikaci FreeTube v novém
+      okně
   Theme Settings:
     Theme Settings: 'Motiv'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -329,6 +333,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarizovaná tmavá
       Solarized Light: Solarizovaná světlá
+      Gruvbox Dark: Gruvbox tmavý
+      Gruvbox Light: Gruvbox světlý
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -376,6 +382,16 @@ Settings:
       Solarized Blue: Solarizovaná modrá
       Solarized Cyan: Solarizovaná azurová
       Solarized Green: Solarizovaná zelená
+      Gruvbox Dark Green: Gruvbox tmavě zelený
+      Gruvbox Dark Yellow: Gruvbox tmavě žlutý
+      Gruvbox Dark Blue: Gruvbox tmavě modrý
+      Gruvbox Dark Purple: Gruvbox tmavě fialový
+      Gruvbox Dark Orange: Gruvbox tmavě oranžový
+      Gruvbox Light Red: Gruvbox světle červený
+      Gruvbox Light Purple: Gruvbox světle fialový
+      Gruvbox Dark Aqua: Gruvbox tmavě azurový
+      Gruvbox Light Blue: Gruvbox světle modrý
+      Gruvbox Light Orange: Gruvbox světle oranžový
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
@@ -485,17 +501,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
       použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
-    Hide Channel Playlists: Skrýt playlisty kanálu
-    Hide Channel Community: Skrýt komunitu kanálu
-    Hide Channel Shorts: Skrýt Shorts kanálu
+    Hide Channel Playlists: Skrýt kartu „Playlisty“ u kanálů
+    Hide Channel Community: Skrýt kartu „Komunita“ u kanálů
+    Hide Channel Shorts: Skrýt kartu „Shorts“ u kanálů
     Sections:
       Side Bar: Postranní lišta
       Channel Page: Stránka kanálu
       Watch Page: Stránka sledování
       General: Obecné
       Subscriptions Page: Stránka s odběry
-    Hide Channel Podcasts: Skrýt podcasty kanálu
-    Hide Channel Releases: Skrýt vydání kanálu
+    Hide Channel Podcasts: Skrýt kartu „Podcasty“ u kanálů
+    Hide Channel Releases: Skrýt kartu „Vydání“ u kanálů
     Hide Subscriptions Shorts: Skrýt Shorts odběrů
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
@@ -511,6 +527,7 @@ Settings:
       text
     Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo
       fráze
+    Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
   Data Settings:
     Data Settings: 'Data'
     Select Import Type: 'Vybrat typ importu'
@@ -576,6 +593,12 @@ Settings:
     Proxy Protocol: Protokol proxy
     Error getting network information. Is your proxy configured properly?: Chyba při
       získávání informací o síti. Je vaše proxy správně nakonfigurována?
+    Proxy Warning: FreeTube nemá vestavěný proxy server, ale může se připojit k externímu
+      proxy serveru, například k proxy serveru běžícímu na vašem počítači, jako je
+      Tor, nebo k externímu proxy serveru, jako je proxy server SOCKS5 poskytovaný
+      některými sítěmi VPN. Pokud je tato funkce povolena, ujistěte se, že je proxy
+      server/Tor správně nakonfigurován, jinak FreeTube nebude moci načítat žádná
+      data.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
@@ -775,6 +798,9 @@ Channel:
     This channel does not currently have any podcasts: Tento kanál momentálně nemá
       žádné podcasty
     Podcasts: Podcasty
+  Home:
+    Home: Domovská stránka
+    View Playlist: Zobrazit playlist
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
@@ -818,38 +844,8 @@ Video:
   video only: 'pouze video'
   audio only: 'pouze zvuk'
   Published:
-    Jan: 'Leden'
-    Feb: 'Únor'
-    Mar: 'Březen'
-    Apr: 'Duben'
-    May: 'Květen'
-    Jun: 'Červen'
-    Jul: 'Červenec'
-    Aug: 'Srpen'
-    Sep: 'Září'
-    Oct: 'Říjen'
-    Nov: 'Listopad'
-    Dec: 'Prosinec'
-    Second: 'sekundou'
-    Seconds: 'sekund'
-    Minute: 'minutou'
-    Minutes: 'minut'
-    Hour: 'hodina'
-    Hours: 'hodin'
-    Day: 'den'
-    Days: 'dnů'
-    Week: 'týden'
-    Weeks: 'týdny'
-    Month: 'měsíc'
-    Months: 'měsíci'
-    Year: 'rok'
-    Years: 'let'
-    Ago: 'Před'
-    Upcoming: 'Premiéra'
-    Less than a minute: Méně než minuta
     In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
-  Publicationtemplate: '{number} {unit}'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
@@ -929,6 +925,9 @@ Video:
     přihlášení k účtu Google a placené členství v kanálu nahrávajícího.
   AgeRestricted: Videa s věkovým omezením nelze na FreeTube sledovat, protože vyžadují
     přihlášení ke službě Google a použití účtu YouTube s ověřeným věkem.
+  DeArrow:
+    Show Modified Details: Zobrazit upravené podrobnosti
+    Show Original Details: Zobrazit původní podrobnosti
 Videos:
   #& Sort By
   Sort By:
@@ -1038,6 +1037,8 @@ Tooltips:
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
+    Open Deep Links In New Window: Adresy předané aplikaci FreeTube, například rozšířením
+      pro prohlížeč nebo argumenty v příkazovém řádku, budou otevřeny v novém okně.
   Player Settings:
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube.'
@@ -1068,7 +1069,7 @@ Tooltips:
       seznamu skladeb, pokud je podporován) v externím přehrávači, na náhledu. Varování,
       nastavení Invidious neovlivňují externí přehrávače.
     Custom External Player Arguments: Jakékoliv vlastní argumenty příkazové řádky,
-      oddělené středníkem (';'), které chcete předávat externímu přehrávač.
+      které chcete předávat externímu přehrávač.
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
@@ -1150,6 +1151,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Seznam kapitol je skrytý,
     současná kapitola: {chapterName}'
   Chapters: Kapitoly
+  Key Moments: Klíčové momenty
 Preferences: Předvolby
 Ok: Ok
 Hashtag:
@@ -1193,3 +1195,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
   adresy URL: „{url}“.'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Šipka dolů
+  arrowup: Šipka nahoru
+  arrowright: Šipka vpravo
+  arrowleft: Šipka vlevo

@@ -483,37 +483,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
     xat en directe no està actualment suportat per l''API d''Invidious.  Es requereix
     una connexió directa a YouTube.'
-  Published:
-    Jan: 'Gen'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Abr'
-    May: 'Maig'
-    Jun: 'Juny'
-    Jul: 'Jul'
-    Aug: 'Ag.'
-    Sep: 'Set'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Des'
-    Second: 'Segon'
-    Seconds: 'Segons'
-    Minute: 'Minut'
-    Minutes: 'Minuts'
-    Hour: 'Hora'
-    Hours: 'Hores'
-    Day: 'Dia'
-    Days: 'Dies'
-    Week: 'Setmana'
-    Weeks: 'Setmanes'
-    Month: 'Mes'
-    Months: 'Mesos'
-    Year: 'Any'
-    Years: 'Anys'
-    Ago: 'Fa'
-    Upcoming: 'S''estrena el'
   Published on: 'Publicat el'
-  Publicationtemplate: '{number} {unit} fa'
 #& Videos
   Started streaming on: Retransmissió iniciada el
   Sponsor Block category:

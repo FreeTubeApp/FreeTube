@@ -427,37 +427,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
     chat en vivo no esta soportado actualmente con la API de Invidious. Es necesaria
     una conexión directa a YouTube.'
-  Published:
-    Jan: 'Ene'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Abr'
-    May: 'May'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Ago'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Dic'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Dia'
-    Days: 'Dias'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mes'
-    Months: 'Meses'
-    Year: 'Año'
-    Years: 'Años'
-    Ago: 'Hace'
-    Upcoming: 'Pronto en estreno'
-    Minutes: minutos
-    Minute: minuto
   Published on: 'Publicado en'
-  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Autoplay: Reproducción Automática
   Play Previous Video: Reproducir el video anterior
@@ -665,8 +635,7 @@ Tooltips:
       problema, FreeTube intentará usar automáticamente otra API como método de respaldo
       al activar esta opción.
   External Player Settings:
-    Custom External Player Arguments: Cualquier argumento, con separaciones de punto
-      y coma (';'), que deseé anticipar al reproductor externo.
+    Custom External Player Arguments: Cualquier argumento, que deseé anticipar al reproductor externo.
     DefaultCustomArgumentsTemplate: "(Por defecto: '{defaultCustomArguments}')"
     External Player: Elegir un reproductor externo mostrará un ícono, para abrir el
       video (o lista, si es compatible) en el reproductor externo, sobre la miniatura

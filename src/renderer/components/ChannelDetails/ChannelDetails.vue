@@ -76,6 +76,22 @@
         >
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
+            v-if="visibleTabs.includes('home')"
+            id="homeTab"
+            class="tab"
+            :class="{ selectedTab: currentTab === 'home' }"
+            role="tab"
+            :aria-selected="String(currentTab === 'home')"
+            aria-controls="homePanel"
+            :tabindex="(currentTab === 'home' || currentTab === 'search') ? 0 : -1"
+            @click="changeTab('home')"
+            @keydown.left.right="focusTab('home', $event)"
+            @keydown.enter.space.prevent="changeTab('home')"
+          >
+            {{ $t("Channel.Home.Home").toUpperCase() }}
+          </div>
+          <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+          <div
             v-if="visibleTabs.includes('videos')"
             id="videosTab"
             class="tab"
@@ -280,14 +296,17 @@ const props = defineProps({
 
 const emit = defineEmits(['change-tab', 'search', 'subscribed'])
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelSubscriptions = computed(() => {
   return store.getters.getHideChannelSubscriptions
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => {
   return store.getters.getHideSharingActions
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideUnsubscribeButton = computed(() => {
   return store.getters.getHideUnsubscribeButton
 })

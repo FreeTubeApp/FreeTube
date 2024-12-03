@@ -33,7 +33,7 @@ Forward: 'Előre'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videók'
-  Shorts: Rövidfilmek
+  Shorts: Rövid videók
   Live: Élő
   Community: Közösség
 
@@ -129,7 +129,7 @@ Subscriptions:
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
 Trending:
-  Trending: 'Népszerű'
+  Trending: 'Népszerűek'
   Trending Tabs: Népszerű lapok
   Movies: Filmek
   Gaming: Játék
@@ -138,7 +138,7 @@ Trending:
 Most Popular: 'Legnépszerűbbek'
 Playlists: 'Lejátszási listák'
 User Playlists:
-  Your Playlists: 'A lejátszási listáid'
+  Your Playlists: 'Az Ön lejátszási listái'
   Search bar placeholder: Lejátszási listák keresése
   Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
     megfelelnek a keresésnek
@@ -257,6 +257,9 @@ User Playlists:
     eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
     vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
     a lejátszási listából? Ez a művelet nem vonható vissza.
+  Export Playlist: Ezen lejátszási lista exportálása
+  The playlist has been successfully exported: A lejátszási lista sikeresen exportálva
+    lett
 History:
   # On History Page
   History: 'Előzmények'
@@ -283,7 +286,7 @@ Settings:
       Local API: 'Helyi API'
       Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: 'Videó nézet típusa'
+      Video View Type: 'Videónézet típusa'
       Grid: 'Rács'
       List: 'Lista'
     Thumbnail Preference:
@@ -301,7 +304,8 @@ Settings:
     Current Invidious Instance: Jelenlegi Invidious-példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
     Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
-    Current instance will be randomized on startup: Jelenlegi példány indításkor véletlenszerűsített
+    Current instance will be randomized on startup: Véletlenszerű jelenlegi példány
+      használata indításkor
     No default instance has been set: Az alapértelmezett példány nincs beállítva
     The currently set default instance is {instance}: A jelenleg beállított alapértelmezett
       példány {instance}
@@ -313,6 +317,7 @@ Settings:
     Auto Load Next Page:
       Label: Következő oldal automatikus betöltése
       Tooltip: További oldalak és a hozzászólások automatikus betöltése.
+    Open Deep Links In New Window: A FreeTube-nak átadott webcímek megnyitása új ablakban
   Theme Settings:
     Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -329,6 +334,8 @@ Settings:
       Nordic: Skandináv
       Solarized Light: Szolarizált világos
       Solarized Dark: Szolarizált sötét
+      Gruvbox Light: Világos Gruvbox
+      Gruvbox Dark: Sötét Gruvbox
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -376,6 +383,16 @@ Settings:
       Solarized Green: Szolarizált zöld
       Solarized Magenta: Szolarizált magenta
       Solarized Violet: Szolarizált ibolya
+      Gruvbox Dark Yellow: Sötétsárga Gruvbox
+      Gruvbox Dark Blue: Sötétkék Gruvbox
+      Gruvbox Dark Aqua: Sötét-vízkék Gruvbox
+      Gruvbox Dark Orange: Sötétnarancssárga Gruvbox
+      Gruvbox Light Red: Világospiros Gruvbox
+      Gruvbox Light Blue: Világoskék Gruvbox
+      Gruvbox Dark Green: Sötétzöld Gruvbox
+      Gruvbox Dark Purple: Sötétlila Gruvbox
+      Gruvbox Light Orange: Világosnarancssárga Gruvbox
+      Gruvbox Light Purple: Világoslila Gruvbox
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -386,11 +403,11 @@ Settings:
   Player Settings:
     Player Settings: 'Lejátszó'
     Play Next Video: 'Következő videó lejátszása'
-    Turn on Subtitles by Default: 'Alapértelmezetten a feliratok megjelenítése'
+    Turn on Subtitles by Default: 'Feliratok bekapcsolása alapértelemezetten'
     Autoplay Videos: 'Videók automatikus lejátszása'
     Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
-    Enable Theatre Mode by Default: 'Alapértelmezetten a mozi mód engedélyezése'
+    Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
     Default Video Format:
@@ -498,7 +515,7 @@ Settings:
     Unable to read file: 'Nem lehet olvasni a fájlt'
     Unable to write file: 'Nem lehet írni a fájlt'
     Unknown data key: 'Ismeretlen adatkulcs'
-    How do I import my subscriptions?: 'Hogyan importálhatom a feliratkozásaimat?'
+    How do I import my subscriptions?: 'Hogyan importálhatja a feliratkozásait?'
     Manage Subscriptions: Feliratkozások kezelése
     Playlist insufficient data: Nincs elegendő adat a(z) „{playlist}” lejátszási listához,
       elem kihagyása
@@ -527,13 +544,13 @@ Settings:
     Hide Trending Videos: Felkapott videók elrejtése
     Hide Recommended Videos: Ajánlott videók elrejtése
     Hide Comment Likes: Hozzászólás-kedvelések elrejtése
-    Hide Channel Subscribers: Csatorna feliratkozók elrejtése
+    Hide Channel Subscribers: Csatorna-feliratkozók elrejtése
     Hide Video Likes And Dislikes: Kedvelések és nemtetszések elrejtése a videóknál
     Hide Video Views: Videónézettség elrejtése
     Distraction Free Settings: Ne zavarjanak
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
-    Hide Video Description: Videó leírásának elrejtése
+    Hide Video Description: Videóleírás elrejtése
     Hide Comments: Hozzászólások elrejtése
     Hide Live Streams: Élő közvetítések elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
@@ -544,18 +561,18 @@ Settings:
     Display Titles Without Excessive Capitalisation: Címek túlzott nagybetűs írás
       és írásjelek nélkül való megjelenítése
     Hide Featured Channels: Kiemelt csatornák elrejtése
-    Hide Channel Playlists: Csatorna lejátszási listák elrejtése
-    Hide Channel Community: Csatornaközösség elrejtése
-    Hide Channel Shorts: Csatorna rövidfilmek elrejtése
+    Hide Channel Playlists: Csatorna „lejátszási listák” lap elrejtése
+    Hide Channel Community: Csatorna „közösség” lap elrejtése
+    Hide Channel Shorts: Csatorna „rövid videók” lap elrejtése
     Sections:
       Side Bar: Oldalsáv
       Channel Page: Csatornalap
       Watch Page: Nézőlap
       General: Általános
       Subscriptions Page: Feliratkozások oldal
-    Hide Channel Podcasts: Csatornapodcastok elrejtése
-    Hide Channel Releases: Csatornakiadások elrejtése
-    Hide Subscriptions Shorts: Feliratkozásos rövidfilmek elrejtése
+    Hide Channel Podcasts: Csatorna „podcastok” lap elrejtése
+    Hide Channel Releases: Csatorna „kiadások” lap elrejtése
+    Hide Subscriptions Shorts: Feliratkozások rövid videóinak elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
@@ -569,6 +586,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
     Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási
       listák elrejtése
+    Hide Channel Home: Csatorna „főoldal” lap elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
     újra és alkalmazza a módosítást?
@@ -582,12 +600,17 @@ Settings:
       kérést küld a következő címre'
     Test Proxy: Proxy tesztelés
     Proxy Port Number: Proxy port száma
-    Proxy Host: Proxy gazdaszámítógép
+    Proxy Host: Proxy-kiszolgáló
     Proxy Protocol: Proxy protokoll
     Enable Tor / Proxy: Tor/Proxy engedélyezése
     Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Hiba a
       hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
+    Proxy Warning: A FreeTube nem rendelkezik beépített proxyval, de képes csatlakozni
+      egy külső proxyhoz, például egy olyanhoz, amely az Ön gépén fut, mint a Tor,
+      vagy egy külső proxyhoz, például egy SOCKS5 proxyhoz, amelyet egyes VPN-ek biztosítanak.
+      Ha engedélyezve van, győződjön meg róla, hogy a proxy/Tor megfelelően van beállítva,
+      különben a FreeTube nem fog tudni adatokat lekérni.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Értesítés a szponzorált szakasz kihagyásáról
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
@@ -625,7 +648,7 @@ Settings:
     Download in app: Letöltés az alkalmazásban
   Parental Control Settings:
     Parental Control Settings: Szülői felügyelet
-    Show Family Friendly Only: Kizárólag családbarát megjelenítése
+    Show Family Friendly Only: Csak a családbarát videók megjelenítése
     Hide Search Bar: Keresősáv elrejtése
     Hide Unsubscribe Button: Leiratkozás gomb elrejtése
   Experimental Settings:
@@ -668,7 +691,7 @@ About:
   GitHub issues: GitHub hibajegyek
   Help: Súgó
   GitHub releases: GitHub kiadások
-  Downloads / Changelog: Letöltések / Változásnapló
+  Downloads / Changelog: Letöltések / Változáslista
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
   Beta: Béta
@@ -783,7 +806,7 @@ Channel:
       fülét.
   Shorts:
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
-      rövidfilmek
+      rövid videók
   This channel does not exist: Nem létezik ez a csatorna
   This channel does not allow searching: Keresés nem engedélyezett ezen a csatornán
   Releases:
@@ -794,6 +817,9 @@ Channel:
     Podcasts: Podcastok
     This channel does not currently have any podcasts: Ez a csatorna jelenleg nem
       rendelkezik podcastokkal
+  Home:
+    View Playlist: Lejátszási listák megtekintése
+    Home: Főoldal
 Video:
   Mark As Watched: 'Megjelölés megnézettként'
   Remove From History: 'Eltávolítás az előzményekből'
@@ -830,37 +856,8 @@ Video:
     élő csevegést jelenleg nem támogatja az Invidious API. Közvetlen kapcsolat szükséges
     a YouTube-hoz.'
   Published:
-    Jan: 'január'
-    Feb: 'február'
-    Mar: 'március'
-    Apr: 'április'
-    May: 'május'
-    Jun: 'június'
-    Jul: 'július'
-    Aug: 'augusztus'
-    Sep: 'szeptember'
-    Oct: 'október'
-    Nov: 'november'
-    Dec: 'december'
-    Second: 'másodperccel'
-    Seconds: 'másodperccel'
-    Minute: 'perccel'
-    Minutes: 'perccel'
-    Hour: 'órával'
-    Hours: 'órával'
-    Day: 'nappal'
-    Days: 'nappal'
-    Week: 'héttel'
-    Weeks: 'héttel'
-    Month: 'hónappal'
-    Months: 'hónappal'
-    Year: 'évvel'
-    Years: 'évvel'
-    Ago: 'ezelőtt'
-    Upcoming: 'Bemutató dátuma'
     In less than a minute: Kevesebb, mint egy perce
   Published on: 'Megjelent'
-  Publicationtemplate: '{number} {unit} ezelőtt'
 #& Videos
   audio only: csak hang
   video only: csak videó
@@ -948,6 +945,9 @@ Video:
     Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
   MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel
     ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
+  DeArrow:
+    Show Modified Details: Módosított részletek megjelenítése
+    Show Original Details: Eredeti részletek megjelenítése
 Videos:
   #& Sort By
   Sort By:
@@ -1076,6 +1076,8 @@ Tooltips:
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy
       hivatkozásra kattint, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés
       szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
+    Open Deep Links In New Window: A FreeTube-nak átadott webcímek, például a böngészőbővítmények
+      vagy parancssori argumentumok átirányításával, új ablakban nyílnak meg.
   Subscription Settings:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni
       az alapértelmezett módszer helyett az előfizetéses hírcsatorna lekérdezéséhez.
@@ -1106,8 +1108,8 @@ Tooltips:
       változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
     Ignore Warnings: A figyelmeztetések mellőzése, amikor a jelenlegi külső lejátszó
       nem támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
-    Custom External Player Arguments: Bármely egyéni parancssori pontosvesszővel (;)
-      elválasztott argumentumot át kell adni a külső lejátszónak.
+    Custom External Player Arguments: A külső lejátszónak átadni kívánt egyéni parancssori
+      argumentumok.
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
       Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
@@ -1169,6 +1171,7 @@ Chapters:
     jelenlegi fejezet: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Fejezetlista elrejtve,
     jelenlegi fejezet: {chapterName}'
+  Key Moments: Fontos pillanatok
 Clipboard:
   Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
     nem lehet hozzáférni a vágólaphoz
@@ -1218,3 +1221,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos webcím megnyitása
   letiltva: „{url}”.'
+Keys:
+  arrowup: Felfele nyíl
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Lefele nyíl
+  arrowleft: Balra nyíl
+  arrowright: Jobbra nyíl
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +

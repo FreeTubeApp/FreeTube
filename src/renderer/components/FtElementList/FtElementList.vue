@@ -104,10 +104,12 @@ const props = defineProps({
 
 const emit = defineEmits(['move-video-down', 'move-video-up', 'remove-from-playlist'])
 
+/** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => {
   return store.getters.getListType
 })
 
+/** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const displayValue = computed(() => {
   return props.display === '' ? listType.value : props.display
 })

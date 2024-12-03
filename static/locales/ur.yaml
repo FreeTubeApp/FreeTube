@@ -2,91 +2,92 @@
 Locale Name: 'اردو'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  'ایپ کا یہ حصہ ابھی تک تیار نہیں ہے۔ جب پیش رفت ہو جائے تو بعد میں واپس آئیں۔'
+  ایپ کا یہ حصہ ابھی تک تیار نہیں ہے۔ جب پیش رفت ہو جائے تو بعد میں واپس آئیں۔
 
 # Webkit Menu Bar
 File: 'فائل'
-New Window: 'نئی کھڑکی'
-Quit: 'چھوڑو'
+New Window: 'نئی ونڈو'
+Quit: 'چھوڑیں'
 Edit: 'ترمیم'
 Undo: 'کالعدم'
-Redo: 'دوبارہ کریں۔'
+Redo: 'دوبارہ کریں'
 Cut: 'کاٹنا'
 Copy: 'کاپی'
-Paste: 'چسپاں کریں۔'
-Delete: 'حذف کریں۔'
+Paste: 'چسپاں کریں'
+Delete: 'حذف کریں'
 Select all: 'تمام منتخب کریں'
-Reload: 'دوبارہ لوڈ کریں۔'
-Force Reload: 'زبردستی دوبارہ لوڈ کریں۔'
-Toggle Developer Tools: 'ڈویلپر ٹولز کو ٹوگل کریں۔'
+Reload: 'دوبارہ لوڈ کریں'
+Force Reload: 'زبردستی دوبارہ لوڈ کریں'
+Toggle Developer Tools: 'ڈویلپر ٹولز کو ٹوگل کریں'
 Actual size: 'اصل سائز'
-Zoom in: 'زوم ان کریں۔'
-Zoom out: 'دور کرنا'
-Toggle fullscreen: 'پوری اسکرین کو ٹوگل کریں۔'
-Window: 'کھڑکی'
+Zoom in: 'زوم ان'
+Zoom out: 'زوم آؤٹ'
+Toggle fullscreen: 'پوری اسکرین کو ٹوگل کریں'
+Window: 'ونڈو'
 Minimize: 'کم سے کم کرنا'
 Close: 'بند کریں'
 Back: 'پیچھے'
 Forward: 'آگے'
-Open New Window: 'نئی ونڈو کھولیں۔'
+Open New Window: 'نئی ونڈو کھولیں'
 
-Download From Site: 'سائٹ سے ڈاؤن لوڈ کریں۔'
+Download From Site: 'سائٹ سے ڈاؤن لوڈ کریں'
 A new blog is now available, {blogTitle}. Click to view more: 'ایک نیا بلاگ اب دستیاب
-  ہے، {blogTitle}. مزید دیکھنے کے لیے کلک کریں۔'
-Are you sure you want to open this link?: 'کیا آپ واقعی اس لنک کو کھولنا چاہتے ہیں؟'
+  ہے، {blogTitle}۔ مزید دیکھنے کے لیے کلک کریں'
+Are you sure you want to open this link?: 'کیا واقعی آپ اس لنک کو کھولنا چاہتے ہیں؟'
 
 # Search Bar
-Search / Go to URL: 'تلاش کریں / یو آر ایل پر جائیں۔'
+Search / Go to URL: 'تلاش کریں / یو آر ایل پر جائیں'
 Search Bar:
-  Clear Input: 'ان پٹ صاف کریں۔'
+  Clear Input: 'ان پٹ صاف کریں'
   # In Filter Button
 Search Filters:
-  Search Filters: 'فلٹرز تلاش کریں۔'
-  There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں۔'
+  Search Filters: 'فلٹرز تلاش کریں'
+  There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'یہ
-    پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ شرح کو محدود کرنے سے بچنے کے لیے آر
-    ایس ایس کو مجبور کرنا'
+    پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ . .شرح کو محدود کرنے سے بچنے کے لیے
+    آر ایس ایس کو مجبور کر رہے ہیں'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'آپ
-    کا رکنیت کی فہرست فی الحال خالی ہے۔ انہیں یہاں دیکھنے کے لیے سبسکرپشنز شامل کرنا
-    شروع کریں۔'
+    کی سبسکرپشن کی فہرست فی الحال خالی ہے۔ اگر آپ اپنی سبسکرپشنز امپورٹ کرنا چاہتے
+    ہیں تو آپ ڈیٹا سیٹنگز میں جا کر امپورٹ سبسکرپشنز کو منتخب کر سکتے ہیں یا آپ کوئی
+    چینل تلاش کر کے سبسکرائب کر سکتے ہیں۔'
   'Getting Subscriptions. Please wait.': 'سبسکرپشنز حاصل کرنا۔ برائے مہربانی انتظار
     کریں.'
   Refresh Subscriptions: 'سبسکرپشنز کو ریفریش کریں۔'
-  Load More Videos: 'مزید ویڈیوز لوڈ کریں۔'
+  Load More Videos: 'مزید ویڈیوز لوڈ کریں'
 More: 'مزید'
 Channels:
   Channels: 'چینلز'
   Title: 'چینل کی فہرست'
-  Search bar placeholder: 'چینلز تلاش کریں۔'
+  Search bar placeholder: 'چینلز تلاش کریں'
   Count: '{number}چینل ملا۔'
   Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
 User Playlists:
   Empty Search Message: 'اس پلے لسٹ میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش سے
-    مماثل ہوں۔'
-  Search bar placeholder: 'پلے لسٹ میں تلاش کریں۔'
+    مماثل ہوں'
+  Search bar placeholder: 'پلے لسٹ کی تلاش'
 History:
   # On History Page
   History: 'تاریخ'
   Watch History: 'تاریخ دیکھیں'
   Your history list is currently empty.: 'آپ کی تاریخ کی فہرست فی الحال خالی ہے۔'
   Empty Search Message: 'آپ کی سرگزشت میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش
-    سے مماثل ہوں۔'
-  Search bar placeholder: "تاریخ میں تلاش کریں۔"
+    سے مماثل ہوں'
+  Search bar placeholder: "سرگزشت میں تلاش کریں"
 Settings:
   # On Settings Page
   The app needs to restart for changes to take effect. Restart and apply change?: 'دی
     تبدیلیاں اثر انداز ہونے کے لیے ایپ کو دوبارہ شروع کرنے کی ضرورت ہے۔ دوبارہ شروع
     کریں اور تبدیلی کا اطلاق کریں؟'
   General Settings:
-    General Settings: 'عام ترتیبات'
+    General Settings: 'عام'
     Check for Updates: 'اپ ڈیٹ کے لیے چیک کریں'
-    Check for Latest Blog Posts: 'تازہ ترین بلاگ پوسٹس چیک کریں۔'
+    Check for Latest Blog Posts: 'تازہ ترین بلاگ پوسٹس چیک کریں'
     Fallback to Non-Preferred Backend on Failure: 'غیر ترجیحی بیک اینڈ پر فال بیک
       ناکامی پر'
-    Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں۔'
+    Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں'
     Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
   Theme Settings: {}
   Player Settings:
@@ -101,36 +102,36 @@ Settings:
     Profile object has insufficient data, skipping item: 'پروفائل آبجیکٹ ناکافی ہے۔
       ڈیٹا، آئٹم کو چھوڑنا'
     All subscriptions and profiles have been successfully imported: 'تمام سبسکرپشنز
-      اور پروفائلز کو کامیابی کے ساتھ درآمد کیا گیا ہے۔'
-    All subscriptions have been successfully imported: 'تمام سبسکرپشنز ہو چکی ہیں۔
-      کامیابی سے درآمد کیا گیا۔'
+      اور پروفائلز کو کامیابی کے ساتھ درآمد کیا گیا ہے'
+    All subscriptions have been successfully imported: 'تمام سبسکرپشنز کو کامیابی
+      کے ساتھ درآمد کر لیا گیا'
     Subscriptions have been successfully exported: 'سبسکرپشنز کامیابی سے ہو گئی ہیں۔
       برآمد'
     History object has insufficient data, skipping item: 'تاریخ کا اعتراض ناکافی ہے۔
       ڈیٹا، آئٹم کو چھوڑنا'
-    All watched history has been successfully imported: 'تمام دیکھی گئی تاریخ رہی
-      ہے۔ کامیابی سے درآمد کیا گیا۔'
+    All watched history has been successfully imported: 'تمام دیکھی گئی سرگزشت کامیابی
+      سے درآمد کیا گیا'
     All watched history has been successfully exported: 'تمام دیکھی گئی تاریخ رہی
       ہے۔ کامیابی سے برآمد'
     Playlist insufficient data: '"{playlist}" پلے لسٹ کے لیے ناکافی ڈیٹا، آئٹم کو
       چھوڑنا'
-    All playlists has been successfully imported: 'تمام پلے لسٹ ہو چکی ہیں۔ کامیابی
-      سے درآمد کیا گیا۔'
+    All playlists has been successfully imported: 'تمام پلے لسٹ کامیابی سے درآمد کی
+      گئی'
     All playlists has been successfully exported: 'تمام پلے لسٹ ہو چکی ہیں۔ کامیابی
       سے برآمد'
   SponsorBlock Settings: {}
 About:
   #On About page
   Please check for duplicates before posting: 'براہ کرم پوسٹ کرنے سے پہلے ڈپلیکیٹس
-    کی جانچ کریں۔'
+    کی جانچ کریں'
 Profile:
   Are you sure you want to delete this profile?: 'کیا آپ واقعی اسے حذف کرنا چاہتے
     ہیں۔ پروفائل؟'
   All subscriptions will also be deleted.: 'تمام سبسکرپشنز بھی حذف کر دی جائیں گی۔'
   Profile could not be found: 'پروفائل نہیں مل سکا'
   Your profile name cannot be empty: 'آپ کا پروفائل نام خالی نہیں ہو سکتا'
-  Profile has been created: 'پروفائل بن گیا ہے۔'
-  Profile has been updated: 'پروفائل کو اپ ڈیٹ کر دیا گیا ہے۔'
+  Profile has been created: 'پروفائل بن گیا ہے'
+  Profile has been updated: 'پروفائل اپ ڈیٹ کر دیا گیا'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 'یہ آپ کا بنیادی پروفائل ہے۔ کیا آپ واقعی منتخب چینلز کو حذف کرنا چاہتے ہیں؟ دی
@@ -152,14 +153,13 @@ Tooltips:
       کی کوشش کرے گا۔ فعال ہونے پر طریقہ۔'
     Thumbnail Preference: 'FreeTube کے تمام تھمب نیلز کو اس سے بدل دیا جائے گا۔ پہلے
       سے طے شدہ تھمب نیل کے بجائے ویڈیو کا ایک فریم۔'
-    Invidious Instance: 'Invidious مثال جس سے FreeTube API کے لیے جڑے گا۔ کالز'
+    Invidious Instance: 'Invidious Instance جس سے فری ٹیوب API کالز کے لیے جڑے گا۔'
     External Link Handling: |
       'جب کوئی لنک، جسے FreeTube میں نہیں کھولا جا سکتا، پر کلک کیا جاتا ہے تو پہلے سے طے شدہ طرز عمل کا انتخاب کریں۔
        بطور ڈیفالٹ FreeTube آپ کے ڈیفالٹ براؤزر میں کلک کردہ لنک کو کھول دے گا۔'
   Player Settings:
-    Proxy Videos Through Invidious: 'اس کی بجائے ویڈیوز پیش کرنے کے لیے Invidious
-      سے منسلک ہوں گے۔ یوٹیوب سے براہ راست کنکشن بنانے کا۔ API کی ترجیح کو اوور رائیڈ
-      کرتا ہے۔'
+    Proxy Videos Through Invidious: 'یوٹیوب سے براہ راست کنکشن بنانے کے بجائے ویڈیوز
+      پیش کرنے کے لیے Invidious سے جڑے گا۔'
     Default Video Format: 'ویڈیو چلتے وقت استعمال ہونے والے فارمیٹس کو سیٹ کریں۔ DASH
       فارمیٹس کر سکتے ہیں۔ اعلی خصوصیات کو کھیلیں. لیگیسی فارمیٹس زیادہ سے زیادہ 720p
       تک محدود ہیں لیکن کم استعمال کرتے ہیں۔ بینڈوڈتھ. آڈیو فارمیٹس صرف آڈیو سلسلے
@@ -183,35 +183,54 @@ Tooltips:
       (';') سے الگ کیے گئے ہیں، آپ بیرونی کھلاڑی کو منتقل کرنا چاہتے ہیں۔
     DefaultCustomArgumentsTemplate: '(پہلے سے طے شدہ: ''{defaultCustomArguments}'')'
   Subscription Settings:
-    Fetch Feeds from RSS: 'فعال ہونے پر، FreeTube اپنے ڈیفالٹ کے بجائے RSS کا استعمال
-      کرے گا۔ آپ کی سبسکرپشن فیڈ حاصل کرنے کا طریقہ۔ آر ایس ایس تیز ہے اور آئی پی
-      کو بلاک کرنے سے روکتا ہے، لیکن کچھ معلومات فراہم نہیں کرتا ہے جیسے ویڈیو کا
-      دورانیہ یا لائیو اسٹیٹس'
+    Fetch Feeds from RSS: 'فعال ہونے پر، FreeTube آپ کے سبسکرپشن فیڈ کو حاصل کرنے
+      کے لیے اپنے پہلے سے طے شدہ طریقہ کے بجائے RSS کا استعمال کرے گا۔ RSS تیز ہے
+      اور آئی پی کو بلاک کرنے سے روکتا ہے، لیکن کچھ معلومات فراہم نہیں کرتا ہے جیسے
+      ویڈیو کا دورانیہ، لائیو اسٹیٹس یا کمیونٹی پوسٹس'
 
 # Toast Messages
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
-  ویڈیو غائب فارمیٹس کی وجہ سے دستیاب نہیں ہے۔ یہ ملک کی وجہ سے ہوسکتا ہے۔ غیر دستیابی'
+  ویڈیو غائب فارمیٹس کی وجہ سے دستیاب نہیں ہے۔ یہ ملک کی عدم دستیابی کی وجہ سے ہوسکتا
+  ہے۔'
 Unknown YouTube url type, cannot be opened in app: 'نامعلوم YouTube url قسم، ایپ میں
   نہیں کھولی جا سکتی'
-Loop is now disabled: 'لوپ اب غیر فعال ہے۔'
-Loop is now enabled: 'لوپ اب فعال ہے۔'
-Shuffle is now disabled: 'شفل اب غیر فعال ہے۔'
-Shuffle is now enabled: 'شفل اب فعال ہے۔'
-The playlist has been reversed: 'پلے لسٹ کو الٹ دیا گیا ہے۔'
-Playing Next Video: 'اگلا ویڈیو چل رہا ہے۔'
-Playing Previous Video: 'پچھلا ویڈیو چل رہا ہے۔'
+Loop is now disabled: 'بار بار چلانا اب غیر فعال ہے'
+Loop is now enabled: 'بار بار چلانا اب فعال ہے'
+Shuffle is now disabled: 'شفل اب غیر فعال ہے'
+Shuffle is now enabled: 'شفل اب فعال ہے'
+The playlist has been reversed: 'پلے لسٹ کو الٹ دیا گیا ہے'
+Playing Next Video: 'اگلا ویڈیو چل رہا ہے'
+Playing Previous Video: 'پچھلا ویڈیو چل رہا ہے'
 Playing Next Video Interval: 'اگلی ویڈیو بغیر کسی وقت چلائی جا رہی ہے۔ منسوخ کرنے
   کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ
   کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔
   منسوخ کرنے کے لیے کلک کریں۔'
-Canceled next video autoplay: 'اگلی ویڈیو آٹو پلے منسوخ کر دی گئی۔'
-Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال کو صاف کر دیا
-  گیا ہے۔'
+Canceled next video autoplay: 'اگلا ویڈیو آٹو پلے منسوخ کر دی گئی'
+Default Invidious instance has been cleared: 'طے شدہ Invidious instance کو صاف کر
+  دیا گیا ہے'
 'The playlist has ended. Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔
   فعال کھیل جاری رکھنے کے لیے لوپ'
 External link opening has been disabled in the general settings: 'عام ترتیبات میں
-  بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے۔'
-Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'
+  بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے'
+Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے'
 Starting download: '"{videoTitle}" کا ڈاؤن لوڈ شروع ہو رہا ہے'
 Downloading failed: '"{videoTitle}" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
 Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ {error}'
+Version {versionNumber} is now available!  Click for more details: ورژن {versionNumber}
+  اب دستیاب ہے! . . مزید تفصیلات کے لیے کلک کریں
+Global:
+  Counts:
+    Video Count: 1 ویڈیو | {count} ویڈیوز
+    Channel Count: 1 چینل | {count} چینلز
+    Subscriber Count: 1 سبسکرائبر | {count} سبسکرائبرس
+    Watching Count: 1 دیکھ رہا ہے | {count} دیکھ رہے ہیں
+    View Count: 1 نظر | {count} نظریں
+    Like Count: 1 لائک | {count} لائکس
+    Comment Count: 1 تبصرہ | {count} تبصرے
+  Videos: ویڈیوز
+  Shorts: شورٹس
+  Live: لاؤو
+  Community: کمیونٹی
+Close Banner: بینر بندکریں
+Preferences: ترجیحات
+Go to page: '{page} میں جائیں'

@@ -193,6 +193,8 @@ User Playlists:
   Remove Watched Videos: Remove Watched Videos
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
   Quick Bookmark Enabled: Quick Bookmark Enabled
+  Export Playlist: Export This Playlist
+  The playlist has been successfully exported: The playlist has been successfully exported
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
   Delete Playlist: Delete Playlist
@@ -285,6 +287,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -340,6 +343,8 @@ Settings:
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
       Nordic: Nordic
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
       Solarized Dark: Solarized Dark
       Solarized Light: Solarized Light
     Main Color Theme:
@@ -381,6 +386,16 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Gruvbox Dark Green: Gruvbox Dark Green
+      Gruvbox Dark Yellow: Gruvbox Dark Yellow
+      Gruvbox Dark Blue: Gruvbox Dark Blue
+      Gruvbox Dark Purple: Gruvbox Dark Purple
+      Gruvbox Dark Aqua: Gruvbox Dark Aqua
+      Gruvbox Dark Orange: Gruvbox Dark Orange
+      Gruvbox Light Red: Gruvbox Light Red
+      Gruvbox Light Blue: Gruvbox Light Blue
+      Gruvbox Light Purple: Gruvbox Light Purple
+      Gruvbox Light Orange: Gruvbox Light Orange
       Solarized Yellow: Solarized Yellow
       Solarized Orange: Solarized Orange
       Solarized Red: Solarized Red
@@ -515,11 +530,12 @@ Settings:
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
     Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
-    Hide Channel Playlists: Hide Channel Playlists
-    Hide Channel Community: Hide Channel Community
-    Hide Channel Shorts: Hide Channel Shorts
-    Hide Channel Podcasts: Hide Channel Podcasts
-    Hide Channel Releases: Hide Channel Releases
+    Hide Channel Playlists: Hide Channel "Playlists" Tab
+    Hide Channel Community: Hide Channel "Community" Tab
+    Hide Channel Home: Hide Channel "Home" Tab
+    Hide Channel Shorts: Hide Channel "Shorts" Tab
+    Hide Channel Podcasts: Hide Channel "Podcasts" Tab
+    Hide Channel Releases: Hide Channel "Releases" Tab
     Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
     Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
@@ -579,6 +595,7 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or FreeTube won't be able to fetch any data.
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -747,6 +764,9 @@ Channel:
       Last Video Added: Last Video Added
       Newest: Newest
       Oldest: Oldest
+  Home:
+    Home: Home
+    View Playlist: View Playlist
   Podcasts:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: This channel does not currently have any podcasts
@@ -831,39 +851,13 @@ Video:
   video only: video only
   audio only: audio only
   Published:
-    Jan: Jan
-    Feb: Feb
-    Mar: Mar
-    Apr: Apr
-    May: May
-    Jun: Jun
-    Jul: Jul
-    Aug: Aug
-    Sep: Sep
-    Oct: Oct
-    Nov: Nov
-    Dec: Dec
-    Second: Second
-    Seconds: Seconds
-    Minute: Minute
-    Minutes: Minutes
-    Hour: Hour
-    Hours: Hours
-    Day: Day
-    Days: Days
-    Week: Week
-    Weeks: Weeks
-    Month: Month
-    Months: Months
-    Year: Year
-    Years: Years
-    Ago: Ago
-    Upcoming: Premieres on
     In less than a minute: In less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
-  Publicationtemplate: '{number} {unit} ago'
+  DeArrow:
+    Show Original Details: Show Original Details
+    Show Modified Details: Show Modified Details
   Sponsor Block category:
     sponsor: Sponsor
     intro: Intro
@@ -975,6 +969,7 @@ Clipboard:
 
 Chapters:
   Chapters: Chapters
+  Key Moments: Key Moments
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
@@ -1028,6 +1023,8 @@ Tooltips:
     External Link Handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
+    Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect
+      browser extensions or command line arguments, are opened in a new window.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
@@ -1050,8 +1047,7 @@ Tooltips:
     Ignore Default Arguments: Do not send any default arguments to the external player
       aside from the video URL (e.g. playback rate, playlist URL, etc.).
       Custom arguments will still be passed on.
-    Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
-      you want to be passed to the external player.
+    Custom External Player Arguments: Any custom command line arguments you want to be passed on to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
   Distraction Free Settings:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
@@ -1138,3 +1134,12 @@ Cancel: Cancel
 checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Down Arrow
+  arrowleft: Left Arrow
+  arrowright: Right Arrow
+  arrowup: Up Arrow

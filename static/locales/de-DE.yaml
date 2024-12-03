@@ -256,6 +256,9 @@ User Playlists:
     möchten? Dies kann nicht rückgängig gemacht werden. | Sind Sie sicher, dass Sie
     {playlistItemCount} angesehene Videos aus dieser Wiedergabeliste entfernen möchten?
     Dies kann nicht rückgängig gemacht werden.
+  Export Playlist: Diese Wiedergabeliste exportieren
+  The playlist has been successfully exported: Die Wiedergabeliste wurde erfolgreich
+    exportiert
 History:
   # On History Page
   History: Verlauf
@@ -314,6 +317,8 @@ Settings:
     Auto Load Next Page:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
+    Open Deep Links In New Window: Öffne URLs, die an FreeTube übergeben werden, in
+      einem neuen Fenster
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -330,6 +335,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarisiert Dunkel
       Solarized Light: Solarisiert Hell
+      Gruvbox Light: Gruvbox Hell
+      Gruvbox Dark: Gruvbox Dunkel
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -377,6 +384,16 @@ Settings:
       Solarized Cyan: Solarisiertes Cyan
       Solarized Violet: Solarisiertes Violett
       Solarized Green: Solarisiertes Grün
+      Gruvbox Dark Green: Gruvbox Dunkelgrün
+      Gruvbox Dark Yellow: Gruvbox Dunkelgelb
+      Gruvbox Dark Purple: Gruvbox Dunkellila
+      Gruvbox Light Red: Gruvbox Hellrot
+      Gruvbox Light Blue: Gruvbox Hellblau
+      Gruvbox Light Purple: Gruvbox Helllila
+      Gruvbox Dark Orange: Gruvbox Dunkelorange
+      Gruvbox Dark Aqua: Gruvbox dunkles Wasser
+      Gruvbox Light Orange: Gruvbox Hellorange
+      Gruvbox Dark Blue: Gruvbox Dunkelblau
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -542,9 +559,9 @@ Settings:
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       und Zeichensetzung anzeigen
-    Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
-    Hide Channel Community: Kanal-Gemeinschaft ausblenden
-    Hide Channel Shorts: Kanal-Kurzvideos ausblenden
+    Hide Channel Playlists: 'Tab „Wiedergabelisten“ des Kanals ausblenden'
+    Hide Channel Community: 'Tab „Gemeinschaft“ des Kanals ausblenden'
+    Hide Channel Shorts: 'Tab „Kurzvideos“ des Kanals ausblenden'
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
       Side Bar: Seitenleiste
@@ -552,11 +569,11 @@ Settings:
       General: Allgemein
       Watch Page: Seite beobachten
       Subscriptions Page: Abos-Seite
-    Hide Channel Podcasts: Kanal-Podcasts ausblenden
+    Hide Channel Podcasts: 'Tab „Podcasts“ des Kanals ausblenden'
     Hide Subscriptions Videos: Abo-Videos ausblenden
     Hide Subscriptions Shorts: Abo-Kurzvideos ausblenden
-    Hide Channel Releases: Kanalveröffentlichungen ausblenden
-    Hide Subscriptions Live: Live der Abos ausblenden
+    Hide Channel Releases: 'Tab „Veröffentlichungen“ des Kanals ausblenden'
+    Hide Subscriptions Live: Abo-Live ausblenden
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
     Hide Channels Invalid: Kanal-ID war ungültig
@@ -565,10 +582,11 @@ Settings:
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
       ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
-    Hide Videos and Playlists Containing Text: Videos und Playlisten verstecken, die
-      Text enthalten
-    Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
-      oder Satz
+    Hide Videos and Playlists Containing Text: Videos und Wiedergabelisten, die Text
+      enthalten, ausblenden
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Wortfragment oder
+      Phrase
+    Hide Channel Home: 'Tab „Startseite“ des Kanals ausblenden'
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -588,6 +606,11 @@ Settings:
     Proxy Protocol: Proxy-Protokoll
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen
+      Proxy verbunden werden, wie z. B. einem, der auf deinem Rechner läuft wie Tor,
+      oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt
+      wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert
+      ist, oder FreeTube wird keine Daten abrufen können.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Sponsorsegment
       übersprungen wird
@@ -747,6 +770,9 @@ Channel:
     Releases: Veröffentlichungen
     This channel does not currently have any releases: Dieser Kanal hat derzeit keine
       Veröffentlichungen
+  Home:
+    Home: Startseite
+    View Playlist: Wiedergabeliste anzeigen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
@@ -771,38 +797,8 @@ Video:
     wird von der Invidious-API derzeit nicht unterstützt. Eine direkte Verbindung
     zu YouTube ist erforderlich.
   Published:
-    Jan: Jan
-    Feb: Feb
-    Mar: Mär
-    Apr: Apr
-    May: Mai
-    Jun: Jun
-    Jul: Jul
-    Aug: Aug
-    Sep: Sep
-    Oct: Okt
-    Nov: Nov
-    Dec: Dez
-    Second: Sekunde
-    Seconds: Sekunden
-    Hour: Stunde
-    Hours: Stunden
-    Day: Tag
-    Days: Tage
-    Week: Woche
-    Weeks: Wochen
-    Month: Monat
-    Months: Monate
-    Year: Jahr
-    Years: Jahre
-    Ago: vor
-    Upcoming: Premiere am
-    Minutes: Minuten
-    Minute: Minute
-    Less than a minute: Weniger als einer Minute
     In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
-  Publicationtemplate: vor {number} {unit}
 
 #& Videos
   Video has been removed from your history: Video wurde aus deinem Verlauf entfernt
@@ -902,7 +898,11 @@ Video:
     angesehen werden, da sie einen Google-Login und eine kostenpflichtige Mitgliedschaft
     im Kanal des Hochladers erfordern.
   AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
-    werden, da sie einen Google-Login und ein altersgeprüftes YouTube-Konto erfordern.
+    werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften
+    YouTube-Kontos erfordern.
+  DeArrow:
+    Show Modified Details: Zeige geänderte Details
+    Show Original Details: Zeige die Originaldetails
 Videos:
   #& Sort By
   Sort By:
@@ -1088,6 +1088,9 @@ Tooltips:
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
       wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
       den angeklickten Link in deinem Standardbrowser öffnen.\n"
+    Open Deep Links In New Window: URLs die an FreeTube übergeben werden, z. B. durch
+      Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem
+      neuen Fenster geöffnet.
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
@@ -1112,8 +1115,7 @@ Tooltips:
       zu springen, MPV-Stil.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
-      getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
-      sollen.
+      die an den externen Abspieler übergeben werden sollen.
     Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Abspieler die
       aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Wiedergabelisten usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
@@ -1190,6 +1192,7 @@ Chapters:
     aktuelles Kapitel: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
     aktuelles Kapitel: {chapterName}'
+  Key Moments: Schlüsselmomente
 Preferences: Einstellungen
 Ok: OK
 Hashtag:
@@ -1234,3 +1237,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
   URL wurde blockiert: „{url}“.'
+Keys:
+  arrowdown: Pfeil nach unten
+  arrowleft: Pfeil nach links
+  arrowup: Pfeil nach oben
+  ctrl: Strg
+  alt: Alt
+  arrowright: Pfeil nach rechts
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +

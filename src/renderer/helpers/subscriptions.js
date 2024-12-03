@@ -65,7 +65,7 @@ export function updateVideoListAfterProcessing(videos) {
 /**
  * @param {string} rssString
  * @param {string} channelId
-*/
+ */
 export async function parseYouTubeRSSFeed(rssString, channelId) {
   // doesn't need to be asynchronous, but doing it allows us to do the relatively slow DOM querying in parallel
   try {
