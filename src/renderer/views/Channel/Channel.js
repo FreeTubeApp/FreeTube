@@ -45,6 +45,7 @@ import {
   parseLocalPlaylistVideo,
   parseChannelHomeTab
 } from '../../helpers/api/local'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 export default defineComponent({
   name: 'Channel',
@@ -62,8 +63,10 @@ export default defineComponent({
   },
   data: function () {
     return {
+      skipRouteChangeWatcherOnce: false,
       isLoading: true,
       isElementListLoading: false,
+      isSearchTabLoading: false,
       currentTab: 'videos',
       id: '',
       /** @type {import('youtubei.js').YT.Channel|null} */
@@ -306,10 +309,22 @@ export default defineComponent({
 
       return values
     },
+
+    isCurrentTabLoading() {
+      if (this.currentTab === 'search') {
+        return this.isSearchTabLoading
+      }
+
+      return this.isElementListLoading
+    },
   },
   watch: {
     $route() {
       // react to route changes...
+      if (this.skipRouteChangeWatcherOnce) {
+        this.skipRouteChangeWatcherOnce = false
+        return
+      }
       this.isLoading = true
 
       if (this.$route.query.url) {
@@ -366,8 +381,9 @@ export default defineComponent({
 
       // Re-enable auto refresh on sort value change AFTER update done
       if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-        this.getChannelInfoInvidious()
-        this.autoRefreshOnSortByChangeEnabled = true
+        this.getChannelInfoInvidious().finally(() => {
+          this.autoRefreshOnSortByChangeEnabled = true
+        })
       } else {
         this.getChannelLocal().finally(() => {
           this.autoRefreshOnSortByChangeEnabled = true
@@ -444,9 +460,9 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  mounted: async function () {
     if (this.$route.query.url) {
-      this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
+      await this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
       return
     }
 
@@ -462,12 +478,18 @@ export default defineComponent({
 
     // Enable auto refresh on sort value change AFTER initial update done
     if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-      this.getChannelInfoInvidious()
-      this.autoRefreshOnSortByChangeEnabled = true
-    } else {
-      this.getChannelLocal().finally(() => {
+      await this.getChannelInfoInvidious().finally(() => {
         this.autoRefreshOnSortByChangeEnabled = true
       })
+    } else {
+      await this.getChannelLocal().finally(() => {
+        this.autoRefreshOnSortByChangeEnabled = true
+      })
+    }
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      this.newSearch(oldQuery)
     }
   },
   methods: {
@@ -1027,7 +1049,7 @@ export default defineComponent({
       this.channelInstance = null
 
       const expectedId = this.id
-      invidiousGetChannelInfo(this.id).then((response) => {
+      return invidiousGetChannelInfo(this.id).then((response) => {
         if (expectedId !== this.id) {
           return
         }
@@ -1889,13 +1911,14 @@ export default defineComponent({
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
       newTabNode?.focus()
-      this.showOutlines()
+      // Prevents outline shown in strange places
+      if (newTabNode != null) { this.showOutlines() }
     },
 
     newSearch: function (query) {
       this.lastSearchQuery = query
       this.searchContinuationData = null
-      this.isElementListLoading = true
+      this.isSearchTabLoading = true
       this.searchPage = 1
       this.searchResults = []
       this.changeTab('search')
@@ -1907,6 +1930,10 @@ export default defineComponent({
           this.searchChannelInvidious()
           break
       }
+    },
+    newSearchWithStatePersist(query) {
+      this.saveStateInRouter(query)
+      this.newSearch(query)
     },
 
     searchChannelLocal: async function () {
@@ -1946,7 +1973,7 @@ export default defineComponent({
         }
 
         this.searchContinuationData = result.has_continuation ? result : null
-        this.isElementListLoading = false
+        this.isSearchTabLoading = false
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1982,7 +2009,7 @@ export default defineComponent({
         } else {
           this.searchResults = this.searchResults.concat(response)
         }
-        this.isElementListLoading = false
+        this.isSearchTabLoading = false
         this.searchPage++
       }).catch((err) => {
         console.error(err)
@@ -2024,6 +2051,41 @@ export default defineComponent({
         channelId: this.id,
         posts: [...this.latestCommunityPosts]
       })
+    },
+
+    async saveStateInRouter(query) {
+      this.skipRouteChangeWatcherOnce = true
+      if (query === '') {
+        try {
+          await this.$router.replace({ path: `/channel/${this.id}` })
+        } catch (failure) {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        }
+        return
+      }
+
+      try {
+        await this.$router.replace({
+          path: `/channel/${this.id}`,
+          params: {
+            currentTab: 'search',
+          },
+          query: {
+            searchQueryText: query,
+          },
+        })
+      } catch (failure) {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      }
+      this.skipRouteChangeWatcherOnce = false
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
