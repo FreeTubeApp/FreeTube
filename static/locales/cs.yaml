@@ -1058,7 +1058,7 @@ Tooltips:
       seznamu skladeb, pokud je podporován) v externím přehrávači, na náhledu. Varování,
       nastavení Invidious neovlivňují externí přehrávače.
     Custom External Player Arguments: Jakékoliv vlastní argumenty příkazové řádky,
-      oddělené středníkem (';'), které chcete předávat externímu přehrávač.
+      které chcete předávat externímu přehrávač.
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.

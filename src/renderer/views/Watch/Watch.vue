@@ -106,7 +106,6 @@
     <ft-age-restricted
       v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :is-video="true"
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"

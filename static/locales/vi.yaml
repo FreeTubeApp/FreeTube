@@ -1044,9 +1044,8 @@ Tooltips:
     Skip by Scrolling Over Video Player: Sử dụng con lăn chuột để bỏ qua video, kiểu
       MPV.
   External Player Settings:
-    Custom External Player Arguments: Bất kỳ tham số dòng lệnh tùy chỉnh nào, được
-      phân tách bằng dấu chấm phẩy (';'), bạn muốn được chuyển đến trình phát bên
-      ngoài.
+    Custom External Player Arguments: Bất kỳ tham số dòng lệnh tùy chỉnh nào,
+      bạn muốn được chuyển đến trình phát bên ngoài.
     Custom External Player Executable: Theo mặc định, FreeTube sẽ giả định rằng trình
       phát bên ngoài đã chọn có thể được tìm thấy thông qua biến môi trường PATH.
       Nếu cần, bạn có thể đặt một đường dẫn tuỳ chọn ở đây.

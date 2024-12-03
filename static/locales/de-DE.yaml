@@ -557,9 +557,9 @@ Settings:
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       und Zeichensetzung anzeigen
-    Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
-    Hide Channel Community: Kanal-Gemeinschaft ausblenden
-    Hide Channel Shorts: Kanal-Kurzvideos ausblenden
+    Hide Channel Playlists: 'Tab „Wiedergabelisten“ des Kanals ausblenden'
+    Hide Channel Community: 'Tab „Gemeinschaft“ des Kanals ausblenden'
+    Hide Channel Shorts: 'Tab „Kurzvideos“ des Kanals ausblenden'
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
       Side Bar: Seitenleiste
@@ -567,11 +567,11 @@ Settings:
       General: Allgemein
       Watch Page: Seite beobachten
       Subscriptions Page: Abos-Seite
-    Hide Channel Podcasts: Kanal-Podcasts ausblenden
+    Hide Channel Podcasts: 'Tab „Podcasts“ des Kanals ausblenden'
     Hide Subscriptions Videos: Abo-Videos ausblenden
     Hide Subscriptions Shorts: Abo-Kurzvideos ausblenden
-    Hide Channel Releases: Kanalveröffentlichungen ausblenden
-    Hide Subscriptions Live: Live der Abos ausblenden
+    Hide Channel Releases: 'Tab „Veröffentlichungen“ des Kanals ausblenden'
+    Hide Subscriptions Live: Abo-Live ausblenden
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
     Hide Channels Invalid: Kanal-ID war ungültig
@@ -580,10 +580,11 @@ Settings:
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
       ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
-    Hide Videos and Playlists Containing Text: Videos und Playlisten verstecken, die
-      Text enthalten
-    Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
-      oder Satz
+    Hide Videos and Playlists Containing Text: Videos und Wiedergabelisten, die Text
+      enthalten, ausblenden
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Wortfragment oder
+      Phrase
+    Hide Channel Home: 'Tab „Startseite“ des Kanals ausblenden'
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -767,6 +768,9 @@ Channel:
     Releases: Veröffentlichungen
     This channel does not currently have any releases: Dieser Kanal hat derzeit keine
       Veröffentlichungen
+  Home:
+    Home: Startseite
+    View Playlist: Wiedergabeliste anzeigen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
@@ -1103,8 +1107,7 @@ Tooltips:
       zu springen, MPV-Stil.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
-      getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
-      sollen.
+      die an den externen Abspieler übergeben werden sollen.
     Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Abspieler die
       aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Wiedergabelisten usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
@@ -1226,3 +1229,12 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
   URL wurde blockiert: „{url}“.'
+Keys:
+  arrowdown: Pfeil nach unten
+  arrowleft: Pfeil nach links
+  arrowup: Pfeil nach oben
+  ctrl: Strg
+  alt: Alt
+  arrowright: Pfeil nach rechts
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +

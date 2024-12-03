@@ -544,17 +544,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Display titles without excessive
       capitalisation and punctuation
     Hide Featured Channels: Hide featured channels
-    Hide Channel Playlists: Hide channel playlists
-    Hide Channel Community: Hide channel community
-    Hide Channel Shorts: Hide channel shorts
+    Hide Channel Playlists: Hide channel "playlists" tab
+    Hide Channel Community: Hide channel "community" tab
+    Hide Channel Shorts: Hide channel "shorts" tab
     Sections:
       Side Bar: Side bar
       General: General
       Channel Page: Channel Page
       Watch Page: Watch Page
       Subscriptions Page: Subscriptions page
-    Hide Channel Podcasts: Hide channel podcasts
-    Hide Channel Releases: Hide channel releases
+    Hide Channel Podcasts: Hide channel "podcasts" tab
+    Hide Channel Releases: Hide channel "releases" tab
     Hide Subscriptions Shorts: Hide subscriptions shorts
     Hide Subscriptions Live: Hide subscriptions live
     Hide Subscriptions Videos: Hide subscriptions videos
@@ -1063,8 +1063,7 @@ Tooltips:
     Ignore Default Arguments: Do not send any default arguments to the external player
       aside from the video URL (e.g. playback rate, playlist URL, etc.). Custom arguments
       will still be passed on.
-    Custom External Player Arguments: Any custom command line arguments, separated
-      by semicolons (';'), you want to be passed to the external player.
+    Custom External Player Arguments: Any custom command line arguments you want to be passed on to the external player.
     DefaultCustomArgumentsTemplate: '(Default: ‘{defaultCustomArguments}’)'
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom

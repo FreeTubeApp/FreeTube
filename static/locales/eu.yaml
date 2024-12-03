@@ -1077,7 +1077,7 @@ Tooltips:
       zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan. Kontuz,
       Individious-en ezarpenek ez dituzte kanpo erreproduzitzaileak trabatzen.
     Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak,
-      puntu eta komaz bereizita (';'), kanpoko erreproduzitzailera pasatzea nahi duzu.
+      kanpoko erreproduzitzailera pasatzea nahi duzu.
     Ignore Default Arguments: Ez bidali argumentu lehenetsirik kanpoko erreproduzitzaileari
       bideoaren URLaz gain (adibidez, erreprodukzio-tasa, erreprodukzio-zerrendaren
       URLa, etab.). Argumentu pertsonalizatuak transmitituko dira oraindik.

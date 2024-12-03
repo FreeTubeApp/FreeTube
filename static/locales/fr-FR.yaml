@@ -1117,8 +1117,7 @@ Tooltips:
       le lien dans votre navigateur par défaut.\n"
   External Player Settings:
     Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés,
-      séparés par des points-virgules (';'), que vous souhaitez transmettre au lecteur
-      externe.
+      que vous souhaitez transmettre au lecteur externe.
     Ignore Warnings: Suppression des avertissements lorsque le lecteur externe actuel
       ne prend pas en charge l'action en cours (par exemple, inversion des listes
       de lecture, etc.).

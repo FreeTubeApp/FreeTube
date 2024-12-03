@@ -113,6 +113,50 @@ const SyncEvents = {
   },
 }
 
+// note: the multi-key shortcut values are currently just for display use in action titles
+const KeyboardShortcuts = {
+  APP: {
+    GENERAL: {
+      HISTORY_BACKWARD: 'alt+arrowleft',
+      HISTORY_FORWARD: 'alt+arrowright',
+      NEW_WINDOW: 'ctrl+N',
+      NAVIGATE_TO_SETTINGS: 'ctrl+,',
+      NAVIGATE_TO_HISTORY: 'ctrl+H',
+      NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+    },
+    SITUATIONAL: {
+      REFRESH: 'r'
+    },
+  },
+  VIDEO_PLAYER: {
+    GENERAL: {
+      CAPTIONS: 'c',
+      THEATRE_MODE: 't',
+      FULLSCREEN: 'f',
+      FULLWINDOW: 's',
+      PICTURE_IN_PICTURE: 'i',
+      MUTE: 'm',
+      VOLUME_UP: 'arrowup',
+      VOLUME_DOWN: 'arrowdown',
+      STATS: 'd',
+      TAKE_SCREENSHOT: 'u',
+    },
+    PLAYBACK: {
+      PLAY: 'k',
+      LARGE_REWIND: 'j',
+      LARGE_FAST_FORWARD: 'l',
+      SMALL_REWIND: 'arrowleft',
+      SMALL_FAST_FORWARD: 'arrowright',
+      DECREASE_VIDEO_SPEED: 'o',
+      INCREASE_VIDEO_SPEED: 'p',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
+      LAST_CHAPTER: 'ctrl+arrowleft',
+      NEXT_CHAPTER: 'ctrl+arrowright',
+    }
+  },
+}
+
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -132,6 +176,7 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  KeyboardShortcuts,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,

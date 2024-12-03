@@ -947,8 +947,7 @@ Tooltips:
       când se deschide o fereastră nouă și când schimbați profilul.
   External Player Settings:
     Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
-      separate prin punct și virgulă (";"), pe care doriți să le transmiteți playerului
-      extern.
+      pe care doriți să le transmiteți playerului extern.
     Ignore Warnings: Suprimarea avertismentelor în cazul în care playerul extern curent
       nu acceptă acțiunea curentă (de exemplu, inversarea listelor de redare etc.).
     Custom External Player Executable: În mod implicit, FreeTube va presupune că playerul

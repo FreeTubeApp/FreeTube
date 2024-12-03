@@ -30,13 +30,16 @@
 
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtCommunityPost from '../../components/FtCommunityPost/FtCommunityPost.vue'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import CommentSection from '../../components/CommentSection/CommentSection.vue'
-import store from '../../store/index'
 import { useRoute, useRouter } from 'vue-router/composables'
-import { getInvidiousCommunityPost } from '../../helpers/api/invidious'
+
+import FtCard from '../components/ft-card/ft-card.vue'
+import FtCommunityPost from '../components/FtCommunityPost/FtCommunityPost.vue'
+import FtLoader from '../components/ft-loader/ft-loader.vue'
+import CommentSection from '../components/CommentSection/CommentSection.vue'
+
+import store from '../store/index'
+
+import { getInvidiousCommunityPost } from '../helpers/api/invidious'
 
 const router = useRouter()
 const route = useRoute()

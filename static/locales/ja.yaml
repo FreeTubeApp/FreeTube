@@ -119,7 +119,7 @@ Trending:
   Movies: 映画
   Gaming: ゲーム
   Music: 音楽
-  Default: 既定
+  Default: デフォルト
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -287,6 +287,8 @@ Settings:
       Nordic: ノルディック
       Solarized Dark: ソラライズド・ダーク
       Solarized Light: ソラライズド・ライト
+      Gruvbox Dark: Gruvbox ダーク
+      Gruvbox Light: Gruvbox ライト
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -334,6 +336,16 @@ Settings:
       Solarized Cyan: ソラライズド・シアン
       Solarized Green: ソラライズド・グリーン
       Solarized Blue: ソラライズド・ブルー
+      Gruvbox Dark Green: Gruvbox ダークグリーン
+      Gruvbox Dark Blue: Gruvbox ダークブルー
+      Gruvbox Dark Aqua: Gruvbox ダークアクア
+      Gruvbox Light Red: Gruvbox ライトレッド
+      Gruvbox Light Blue: Gruvbox ライトブルー
+      Gruvbox Light Purple: Gruvbox ライトパープル
+      Gruvbox Dark Orange: Gruvbox ダークオレンジ
+      Gruvbox Dark Yellow: Gruvbox ダークイエロー
+      Gruvbox Dark Purple: Gruvbox ダークパープル
+      Gruvbox Light Orange: Gruvbox ライトオレンジ
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -475,8 +487,8 @@ Settings:
     Hide Channels: チャンネルから動画を非表示にする
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
-    Hide Channel Playlists: チャンネル再生リストの非表示
-    Hide Channel Community: チャンネルコミュニティの非表示
+    Hide Channel Playlists: チャンネルの「再生リスト」タブを隠す
+    Hide Channel Community: チャンネルの「コミュニティ」タブを隠す
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
@@ -484,12 +496,12 @@ Settings:
       General: 一般
       Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
-    Hide Channel Shorts: ショート動画チャンネルの非表示
-    Hide Channel Podcasts: ポッドキャスト チャンネルの非表示
+    Hide Channel Shorts: チャンネルの「ショート動画」タブを隠す
+    Hide Channel Podcasts: チャンネルの「ポッドキャスト」タブを隠す
     Hide Subscriptions Shorts: 登録チャンネルのショート動画の非表示
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
-    Hide Channel Releases: チャンネルの新着情報の非表示
+    Hide Channel Releases: チャンネルの「新着情報」タブを隠す
     Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
     Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
@@ -498,6 +510,7 @@ Settings:
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
+    Hide Channel Home: チャンネルの「ホーム」タブを隠す
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -660,6 +673,9 @@ Channel:
   Podcasts:
     This channel does not currently have any podcasts: このチャンネルにはポッドキャストがありません
     Podcasts: ポッドキャスト
+  Home:
+    View Playlist: 再生リストを表示
+    Home: ホーム
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -943,7 +959,7 @@ Tooltips:
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   External Player Settings:
-    Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
+    Custom External Player Arguments: '外部プレイヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
@@ -1037,3 +1053,12 @@ Trimmed input must be at least N characters long: トリミングされた入力
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました： "{url}"。'
 Display Label: '{label}：{value}'
+KeyboardShortcutTemplate: '{label} （{shortcut}）'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: 下矢印
+  arrowleft: 左矢印
+  arrowright: 右矢印
+  arrowup: 上矢印
