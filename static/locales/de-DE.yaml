@@ -1246,3 +1246,4 @@ Keys:
   arrowright: Pfeil nach rechts
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+Right-click or hold to see history: Rechtsklicken oder halten um den Verlauf zu sehen
