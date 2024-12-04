@@ -155,17 +155,14 @@ export default defineComponent({
     }
   },
   watch: {
-    $route: function (to, from) {
+    $route: function (to) {
       this.setNavigationHistoryDropdownOptions()
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
 
-      this.currentRouteFullPath = to.fullPath
-
-      // only allow page bookmarking on routes where it can be relevant to do so
-      this.isRouteBookmarkable = this.allowedPageBookmarkRouteMetaTitles.includes(to.meta.title)
+      this.setCurrentRoute(to)
     }
   },
   mounted: function () {
@@ -173,7 +170,9 @@ export default defineComponent({
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
-    this.currentRouteFullPath = this.$router.currentRoute.fullPath
+
+    this.$router.onReady(() => this.setCurrentRoute(this.$router.currentRoute))
+
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
       if (this.expandSideBar) {
@@ -193,6 +192,11 @@ export default defineComponent({
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
+    setCurrentRoute: function (route) {
+      this.currentRouteFullPath = route.fullPath
+      // only allow page bookmarking on routes where it can be relevant to do so
+      this.isRouteBookmarkable = this.allowedPageBookmarkRouteMetaTitles.includes(route.meta.title)
+    },
     goToSearch: async function (queryText, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
