@@ -1511,7 +1511,9 @@ function runApp() {
     if (mainWindow === 'all-windows-closed') {
       app.once('browser-window-created', (_, mainWindow) => {
         mainWindow.webContents.once('did-finish-load', () => {
-          setTimeout(function() { mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url), { isLaunchLink: true }) }, 1000)
+          // A timeout here is necessary or the new window won't receive the URL
+          setTimeout(function() { mainWindow.webContents.send(
+            IpcChannels.OPEN_URL, baseUrl(url), { isLaunchLink: true }) }, 1000)
         })
       })
       createWindow()
