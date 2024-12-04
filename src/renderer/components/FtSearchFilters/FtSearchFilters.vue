@@ -58,7 +58,14 @@
           @change="updateFeatures"
         />
       </FtFlexBox>
-      <div class="searchFilterCloseButtonContainer">
+      <div class="searchFilterButtonsContainer">
+        <FtButton
+          v-if="showSearchButton"
+          :label="$t('Search Filters.Search')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="searchFromFilters"
+        />
         <FtButton
           :label="$t('Close')"
           background-color="var(--primary-color)"
@@ -206,6 +213,13 @@ const searchTimeStartIndex = TIME_VALUES.indexOf(searchSettings.value.time)
 const searchTypeStartIndex = TYPE_VALUES.indexOf(searchSettings.value.type)
 const searchDurationStartIndex = DURATION_VALUES.indexOf(searchSettings.value.duration)
 const searchDefaultFeatures = [...searchSettings.value.features]
+
+const showSearchButton = computed(() => store.getters.getShowSearchButton)
+
+function searchFromFilters() {
+  hideSearchFilters()
+  store.dispatch('triggerSearchFromFilters')
+}
 
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')

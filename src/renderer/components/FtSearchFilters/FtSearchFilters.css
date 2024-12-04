@@ -13,9 +13,10 @@
   margin-inline: auto;
 }
 
-.searchFilterCloseButtonContainer {
+.searchFilterButtonsContainer {
   display: flex;
   justify-content: center;
+  gap: 10px;
 }
 
 @media only screen and (width <= 680px) {
