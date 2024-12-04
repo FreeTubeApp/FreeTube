@@ -45,7 +45,7 @@
   }
 }
 
-.disabled :deep(.iconButton) {
+:deep(.iconButton.disabled) {
   filter: grayscale(1);
   background-color: inherit;
   opacity: 0.4;
@@ -57,7 +57,6 @@
 .navIcon,
 :deep(.ftIconButton:not(.disabled) .iconButton) {
   border-radius: 50%;
-  color: var(--primary-text-color);
   cursor: pointer;
   font-size: 20px;
   block-size: 1em;
@@ -67,13 +66,24 @@
 
   &:hover {
     background-color: var(--side-nav-hover-color);
-    color: var(--side-nav-hover-text-color);
-    transition: background 0.2s ease-in;
-
   }
 
   &:active {
     background-color: var(--tertiary-text-color);
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.navIcon,
+:deep(:not(.active) .ftIconButton:not(.disabled) .iconButton) {
+  color: var(--primary-text-color);
+
+  &:hover {
+    color: var(--side-nav-hover-text-color);
+    transition: background 0.2s ease-in;
+  }
+
+  &:active {
     color: var(--side-nav-active-text-color);
     transition: background 0.2s ease-in;
   }
@@ -81,8 +91,6 @@
 
 .topNavBarColor .navIcon,
 .topNavBarColor :deep(.ftIconButton:not(.disabled) .iconButton) {
-  color: var(--text-with-main-color);
-
   &:hover {
     background-color: var(--primary-color-hover);
   }
@@ -90,6 +98,13 @@
   &:active {
     background-color: var(--primary-color-active);
   }
+}
+
+
+/* stylelint-disable-next-line no-descending-specificity */
+.topNavBarColor .navIcon,
+.topNavBarColor :deep(.ftIconButton:not(.disabled) .iconButton:not(.favorite)) {
+  color: var(--text-with-main-color);
 }
 
 
@@ -109,13 +124,9 @@
   }
 }
 
-.pageBookmarkIcon {
-  &.favorite {
-    color: var(--favorite-icon-color);
-
-    @include top-nav-is-colored {
-      color: var(--accent-color);
-    }
+.pageBookmarkIcon.favorite {
+  @include top-nav-is-colored {
+    color: var(--accent-color);
   }
 }
 

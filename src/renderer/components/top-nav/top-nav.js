@@ -151,7 +151,7 @@ export default defineComponent({
     },
 
     pageBookmarkIconTheme: function () {
-      return this.isPageBookmarked ? 'base favorite' : 'base'
+      return this.isPageBookmarked ? 'favorite' : null
     }
   },
   watch: {

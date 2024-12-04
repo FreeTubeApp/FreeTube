@@ -26,7 +26,6 @@
         :open-on-right-or-long-click="true"
         :title="backwardText"
         @click="historyBack"
-        @keydown.enter.prevent="historyBack"
       />
       <ft-icon-button
         class="navIconButton"
@@ -41,7 +40,6 @@
         :open-on-right-or-long-click="true"
         :title="forwardText"
         @click="historyForward"
-        @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
         v-if="!hideSearchBar"
@@ -110,16 +108,16 @@
         />
       </div>
     </div>
-    <font-awesome-icon
-      class="pageBookmarkIcon navIcon"
+    <ft-icon-button
+      class="pageBookmarkIcon navIconButton"
       :icon="['fas', 'star']"
       :title="pageBookmarkIconTitle"
-      :class="{ [pageBookmarkIconTheme]: true, disabled: !pageBookmarksAvailable || !isRouteBookmarkable }"
-      :aria-disabled="!pageBookmarksAvailable || !isRouteBookmarkable"
-      role="button"
-      tabindex="0"
+      :theme="pageBookmarkIconTheme"
+      :class="{ disabled: !pageBookmarksAvailable || !isRouteBookmarkable, active: isPageBookmarked }"
+      :disabled="!pageBookmarksAvailable || !isRouteBookmarkable"
+      :size="20"
+      :use-shadow="false"
       @click="showPageBookmarkPrompt"
-      @keydown.enter.prevent="showPageBookmarkPrompt"
     />
     <ft-profile-selector class="side profiles" />
   </div>
