@@ -1200,3 +1200,4 @@ Keys:
   arrowdown: Down Arrow
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+Right-click or hold to see history: Right-click or hold to see history
