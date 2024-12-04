@@ -267,6 +267,8 @@ export default defineComponent({
     },
 
     exportPlaylistButtonVisible: function() {
+      // Most UI should be invisible in edit mode
+      if (this.editMode) { return false }
       // Only online playlists can be shared
       if (!this.isUserPlaylist) { return false }
 
