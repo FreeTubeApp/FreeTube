@@ -254,13 +254,18 @@ function runApp() {
 
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance, we should focus our window
-      if (mainWindow && typeof commandLine !== 'undefined') {
-        if (mainWindow.isMinimized()) mainWindow.restore()
-        mainWindow.focus()
-
+      if (typeof commandLine !== 'undefined') {
         const url = getLinkUrl(commandLine)
-        if (url) {
-          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        if (mainWindow === 'all-windows-closed') {
+          if (url) macOSnewURLWindow(url)
+          createWindow()
+        } else if (mainWindow && mainWindow.webContents) {
+          if (mainWindow.isMinimized()) mainWindow.restore()
+          mainWindow.focus()
+
+          if (url) {
+            mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+          }
         }
       }
     })
@@ -1509,13 +1514,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow === 'all-windows-closed') {
-      app.once('browser-window-created', (_, mainWindow) => {
-        mainWindow.webContents.once('did-finish-load', () => {
-          // A timeout here is necessary or the new window won't receive the URL
-          setTimeout(function() { mainWindow.webContents.send(
-            IpcChannels.OPEN_URL, baseUrl(url), { isLaunchLink: true }) }, 1000)
-        })
-      })
+      macOSnewURLWindow(baseUrl(url))
       createWindow()
     } else if (mainWindow && mainWindow.webContents) {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
@@ -1558,6 +1557,15 @@ function runApp() {
     } else {
       return null
     }
+  }
+
+  function macOSnewURLWindow(url) {
+    app.once('browser-window-created', (_, mainWindow) => {
+      mainWindow.webContents.once('did-finish-load', () => {
+        // A timeout here is necessary or the new window won't receive the URL
+        setTimeout(function() { mainWindow.webContents.send(IpcChannels.OPEN_URL, url, { isLaunchLink: true }) }, 1000)
+      })
+    })
   }
 
   /*
