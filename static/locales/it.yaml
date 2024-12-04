@@ -168,7 +168,7 @@ User Playlists:
       Playlist {playlistName} has been deleted.: La playlist {playlistName} è stata
         eliminata.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alcuni
-        video nella playlist non sono ancora stati caricati. Clicca qui per copiare
+        video nella playlist non sono ancora stati caricati. Fai clic qui per copiare
         comunque.
       This playlist does not exist: Questa playlist non esiste
       Playlist name cannot be empty. Please input a name.: Il nome della playlist
@@ -309,6 +309,7 @@ Settings:
     Auto Load Next Page:
       Label: Carica automaticamente la pagina successiva
       Tooltip: Carica automaticamente pagine e commenti aggiuntivi.
+    Open Deep Links In New Window: Apri URL passati a FreeTube in una nuova finestra
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -596,7 +597,7 @@ Settings:
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
-    Clicking on Test Proxy will send a request to: Cliccando su Testa proxy verrà
+    Clicking on Test Proxy will send a request to: Facendo clic su Testa proxy verrà
       inviata una richiesta a
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
@@ -894,6 +895,9 @@ Video:
   AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube
     poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età
     verificata.
+  DeArrow:
+    Show Original Details: Mostra dettagli originali
+    Show Modified Details: Mostra dettagli modificati
 Videos:
   #& Sort By
   Sort By:
@@ -954,7 +958,7 @@ Share:
 Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
-  Click to View Comments: 'Clicca per vedere i commenti'
+  Click to View Comments: 'Fai clic per vedere i commenti'
   Getting comment replies, please wait: 'Sto scaricando le risposte ai commenti, per
     favore attendi'
   Show Comments: 'Mostra i commenti'
@@ -985,8 +989,8 @@ Comments:
 Up Next: 'Prossimi video'
 
 # Toast Messages
-Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
-Invidious API Error (Click to copy): 'Errore API Invidious (Clicca per copiare)'
+Local API Error (Click to copy): 'Errore API locale (fai clic per copiare)'
+Invidious API Error (Click to copy): 'Errore API Invidious (fai clic per copiare)'
 Falling back to Invidious API: 'Torno alle API Invidious'
 Falling back to Local API: 'Torno alle API locali'
 Loop is now disabled: 'Il loop è ora disabilitato'
@@ -1002,9 +1006,9 @@ Canceled next video autoplay: 'Riproduzione automatica del prossimo video annull
 Yes: 'Sì'
 No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora
-  disponibile, {blogTitle}. Clicca per saperne di più'
+  disponibile, {blogTitle}. Fai clic per saperne di più'
 Version {versionNumber} is now available!  Click for more details: La versione {versionNumber}
-  è ora disponibile! Clicca per maggiori dettagli
+  è ora disponibile! Fai clic per maggiori dettagli
 Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
@@ -1070,9 +1074,9 @@ Tooltips:
     Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
       premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
-      CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
-      alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
-      nelle Impostazioni).
+      CTRL (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare
+      rapidamente alla velocità di riproduzione predefinita (1x a meno che non sia
+      stata cambiata nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
   Subscription Settings:
@@ -1097,6 +1101,9 @@ Tooltips:
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic
       su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita,
       FreeTube aprirà il link cliccato nel browser predefinito.\n"
+    Open Deep Links In New Window: Gli URL passati a FreeTube, ad esempio tramite
+      estensioni del browser di reindirizzamento o argomenti della riga di comando,
+      vengono aperti in una nuova finestra.
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
@@ -1131,10 +1138,10 @@ Tooltips:
     UseDeArrowTitles: Sostituisci i titoli dei video coi titoli inviati dagli utenti
       di DeArrow.
     UseDeArrowThumbnails: Sostituisci le miniature dei video con le miniature di DeArrow.
-Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
-  per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
-  Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
-  secondi. Clicca per annullare.
+Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Fai
+  clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
+  secondi. Fai clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
+  secondi. Fai clic per annullare.
 More: Altro
 Open New Window: Apri una nuova finestra
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è
@@ -1224,3 +1231,5 @@ Keys:
   arrowup: Freccia su
   alt: Alt
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Fai clic con il tasto destro o tieni premuto per
+  visualizzare la cronologia
