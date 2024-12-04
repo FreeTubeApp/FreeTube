@@ -924,6 +924,9 @@ Video:
   AgeRestricted: Kuna vajalik on sisselogimine Google'i kontoga, kus vanus on kontrollitud,
     siis vanusepiiranguga videoid ei saa FreeTube'is vaadata.
   Unlisted: Registriväline
+  DeArrow:
+    Show Original Details: Näita algseid üksikasju
+    Show Modified Details: Näita muudetud üksikasju
 Videos:
   #& Sort By
   Sort By:
@@ -1194,3 +1197,5 @@ Keys:
   arrowleft: Nool vasakule
   arrowright: Nool paremale
   arrowdown: Nool alla
+Right-click or hold to see history: Ajaloo nägemiseks klõpsa parema hiireklahviga
+  ja hoia klahvi all
