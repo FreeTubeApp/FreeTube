@@ -53,6 +53,7 @@ export default defineComponent({
         'Channel',
         'Watch',
         'Hashtag',
+        'Post',
         'Settings' // for linkable settings sections
       ],
       lastSuggestionQuery: ''

@@ -24,8 +24,8 @@
         <p>{{ duplicateNameMessage }}</p>
       </ft-flex-box>
     </div>
-    <div class="actions-container">
-      <ft-flex-box>
+    <div>
+      <ft-flex-box class="actions-container">
         <ft-button
           v-if="!isBookmarkBeingCreated"
           :label="$t('Page Bookmark.Remove Bookmark')"

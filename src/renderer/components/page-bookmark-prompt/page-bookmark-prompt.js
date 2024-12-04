@@ -63,6 +63,10 @@ export default defineComponent({
     },
 
     save: function () {
+      if (this.name === '') {
+        return
+      }
+
       const pageBookmark = {
         route: this.$router.currentRoute.fullPath,
         name: this.name,

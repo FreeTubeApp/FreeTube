@@ -7,3 +7,8 @@
   max-inline-size: 600px;
   margin-inline: auto;
 }
+
+.actions-container {
+  justify-content: center;
+  column-gap: 10px;
+}

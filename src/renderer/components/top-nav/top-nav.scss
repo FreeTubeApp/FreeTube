@@ -23,7 +23,7 @@
 
   @media only screen and (width >= 1162px) {
     display: grid;
-    grid-template-columns: 1fr 720px 0.5fr 0.5fr;
+    grid-template-columns: 1fr 440px 0.5fr 0.5fr;
   }
 
   @include top-nav-is-colored {
@@ -124,9 +124,14 @@
   }
 }
 
-.pageBookmarkIcon.favorite {
-  @include top-nav-is-colored {
-    color: var(--accent-color);
+.pageBookmarkIcon {
+  inline-size: fit-content;
+  padding: 10px;
+
+  &.favorite {
+    @include top-nav-is-colored {
+      color: var(--accent-color);
+    }
   }
 }
 
