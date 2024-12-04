@@ -1247,7 +1247,13 @@ export default defineComponent({
       }
 
       if (this.blockVideoAutoplay) {
-        showToast(this.$t('Canceled next video autoplay due to inactivity'))
+        showToast(this.$t('Autoplay Interruption Timer',
+          this.defaultAutoplayInterruptionIntervalHours,
+          {
+            autoplayInterruptionIntervalHours: this.defaultAutoplayInterruptionIntervalHours
+          }),
+        3_600_000
+        )
         this.resetAutoplayInterruptionTimeout()
         return
       }
