@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
@@ -10,9 +11,13 @@ import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
+const NAV_HISTORY_DISPLAY_LIMIT = 15
+const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = Math.floor(NAV_HISTORY_DISPLAY_LIMIT / 2)
+
 export default defineComponent({
   name: 'TopNav',
   components: {
+    FtIconButton,
     FtInput,
     FtProfileSelector
   },
@@ -31,6 +36,8 @@ export default defineComponent({
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
+      navigationHistoryDropdownActiveEntry: null,
+      navigationHistoryDropdownOptions: [],
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -86,18 +93,26 @@ export default defineComponent({
       return this.$store.getters.getSearchFilterValueChanged
     },
 
+    navigationHistoryAddendum: function () {
+      if (this.navigationHistoryDropdownOptions.length === 0) {
+        return ''
+      }
+
+      return '\n' + this.$t('Right-click or hold to see history')
+    },
+
     forwardText: function () {
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Forward'),
         KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD
-      )
+      ) + this.navigationHistoryAddendum
     },
 
     backwardText: function () {
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Back'),
         KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD
-      )
+      ) + this.navigationHistoryAddendum
     },
 
     newWindowText: function () {
@@ -109,11 +124,12 @@ export default defineComponent({
   },
   watch: {
     $route: function () {
+      this.setNavigationHistoryDropdownOptions()
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
-    }
+    },
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -335,12 +351,69 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    historyBack: function () {
-      this.$router.back()
+    getNavigationHistoryResultEndIndex: function (navigationHistoryActiveIndex, navigationHistoryLength) {
+      if (navigationHistoryActiveIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+        return Math.min(navigationHistoryLength - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+      } else if (navigationHistoryLength - navigationHistoryActiveIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
+        return navigationHistoryLength - 1
+      } else {
+        return navigationHistoryActiveIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
+      }
     },
 
-    historyForward: function () {
-      this.$router.forward()
+    getNavigationHistoryDropdownOptions: async function (ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength) {
+      const dropdownOptions = []
+      const end = this.getNavigationHistoryResultEndIndex(navigationHistoryActiveIndex, navigationHistoryLength)
+
+      for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+        const routeLabel = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, index)
+        const isActiveIndex = index === navigationHistoryActiveIndex
+        const dropdownOption = {
+          label: routeLabel,
+          value: index - navigationHistoryActiveIndex,
+          active: isActiveIndex
+        }
+
+        dropdownOptions.push(dropdownOption)
+
+        if (isActiveIndex) {
+          this.navigationHistoryDropdownActiveEntry = dropdownOption
+        }
+      }
+      return dropdownOptions
+    },
+
+    setNavigationHistoryDropdownOptions: async function() {
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        const navigationHistoryLength = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_LENGTH)
+        const navigationHistoryActiveIndex = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX)
+
+        this.navigationHistoryDropdownOptions = await this.getNavigationHistoryDropdownOptions(ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength)
+      }
+    },
+
+    goToOffset: function (offset) {
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, offset)
+      }
+    },
+
+    historyBack: function (offset) {
+      if (offset != null) {
+        this.goToOffset(offset)
+      } else {
+        this.$router.back()
+      }
+    },
+
+    historyForward: function (offset) {
+      if (offset != null) {
+        this.goToOffset(offset)
+      } else {
+        this.$router.forward()
+      }
     },
 
     toggleSideNav: function () {
@@ -361,6 +434,14 @@ export default defineComponent({
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
+    setActiveNavigationHistoryEntryTitle(value) {
+      this.$nextTick(() => {
+        if (this.navigationHistoryDropdownActiveEntry?.label) {
+          this.navigationHistoryDropdownActiveEntry.label = value
+        }
+      })
+    },
+
     ...mapActions([
       'getYoutubeUrlInfo',
       'showSearchFilters'

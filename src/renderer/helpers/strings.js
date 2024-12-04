@@ -49,8 +49,6 @@ export function translateWindowTitle(title) {
       return i18n.t('About.About')
     case 'Profile Settings':
       return i18n.t('Profile.Profile Settings')
-    case 'Search Results':
-      return i18n.t('Search Filters.Search Results')
     case 'Playlist':
       return i18n.t('Playlist.Playlist')
     default:
