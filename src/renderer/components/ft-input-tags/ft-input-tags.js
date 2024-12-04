@@ -132,7 +132,7 @@ export default defineComponent({
       }
     },
     toggleShowTags: function () {
-      this.$emit('toggle-show-tags', !this.showTags)
+      this.$emit('toggle-show-tags')
     },
   }
 })

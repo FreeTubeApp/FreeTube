@@ -163,6 +163,12 @@ export default defineComponent({
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
+    handleShowAddedChannels: function () {
+      this.updateShowAddedChannels(!this.showAddedChannels)
+    },
+    handleShowAddedKeywords: function () {
+      this.updateShowAddedKeywords(!this.showAddedKeywords)
+    },
     validateChannelId: function (text) {
       return checkYoutubeChannelId(text)
     },

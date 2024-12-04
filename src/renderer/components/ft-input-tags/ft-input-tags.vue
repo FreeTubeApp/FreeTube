@@ -21,7 +21,10 @@
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
-    <div class="checkbox-container">
+    <div
+      v-if="tagList.length >= 1"
+      class="checkbox-container"
+    >
       <input
         :id="label"
         type="checkbox"
