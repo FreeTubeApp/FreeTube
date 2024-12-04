@@ -310,6 +310,7 @@ Settings:
     Auto Load Next Page:
       Label: Carga automática de la página siguiente
       Tooltip: Cargar automáticamente páginas adicionales y comentarios.
+    Open Deep Links In New Window: Abrir URL pasadas a FreeTube en una nueva ventana
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -555,17 +556,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Mostrar títulos sin mayúsculas
       ni signos de puntuación excesivos
     Hide Featured Channels: Ocultar canales recomendados
-    Hide Channel Playlists: Ocultar las listas de reproducción de los canales
-    Hide Channel Community: Ocultar canales de la comunidad
-    Hide Channel Shorts: Ocultar canales de shorts
+    Hide Channel Playlists: Ocultar la pestaña "Listas de reproducción" del canal
+    Hide Channel Community: Ocultar la pestaña "Comunidad" del canal
+    Hide Channel Shorts: Ocultar la pestaña "Vídeos cortos" del canal
     Sections:
       Side Bar: Barra lateral
       Channel Page: Página del canal
       Watch Page: Ver la página
       General: General
       Subscriptions Page: Página de suscripciones
-    Hide Channel Releases: Ocultar las nuevas publicaciones de los canales
-    Hide Channel Podcasts: Ocultar canales de podcasts
+    Hide Channel Releases: Ocultar la pestaña "Lanzamientos" del canal
+    Hide Channel Podcasts: Ocultar la pestaña "Podcasts" del canal
     Hide Subscriptions Shorts: Ocultar las suscripciones para shorts
     Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
@@ -580,6 +581,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Ocultar vídeos y listas de reproducción
       que contengan texto
     Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
+    Hide Channel Home: Ocultar la pestaña "Inicio" del canal
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -811,6 +813,9 @@ Channel:
     Releases: Publicaciones
     This channel does not currently have any releases: Este canal no tiene actualmente
       ninguna publicación
+  Home:
+    Home: Inicio
+    View Playlist: Ver lista de reproducción
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -938,6 +943,9 @@ Video:
   AgeRestricted: Los vídeos con restricciones de edad no se pueden ver con FreeTube
     ya que requieren iniciar sesión en Google y usar una cuenta de YouTube verificada
     por edad.
+  DeArrow:
+    Show Original Details: Mostrar detalles originales
+    Show Modified Details: Mostrar detalles modificados
 Videos:
   #& Sort By
   Sort By:
@@ -1092,12 +1100,15 @@ Tooltips:
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic
       en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá
       el enlace en el que se hizo clic en su navegador predeterminado.\n"
+    Open Deep Links In New Window: Las URL que se pasan a FreeTube, por ejemplo mediante
+      la redirección de extensiones del navegador o argumentos de la línea de comandos,
+      se abren en una ventana nueva.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
       externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
       podrás especificar una ruta personalizada aquí.
-    Custom External Player Arguments: Depara cada argumento mediante un punto y coma
-      (;) cada argumento será enviado al reproductor externo.
+    Custom External Player Arguments: Cualquier argumento personalizado de la línea
+      de comandos que desee pasar al reproductor externo.
     Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
       (ej. invertir listas de reproducción, etc.).
     External Player: La elección de un reproductor externo mostrará un icono, para
@@ -1215,3 +1226,14 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
   insegura: «{url}».'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Clic con el botón derecho del ratón o mantén presionado
+  para ver el historial
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Flecha hacia abajo
+  arrowleft: Flecha hacia la izquierda
+  arrowright: Flecha hacía la derecha
+  arrowup: Flecha hacia arriba
