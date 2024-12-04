@@ -6,12 +6,13 @@
         v-show="subscribedChannels.length > 0"
         ref="searchBarChannels"
         :placeholder="$t('Channels.Search bar placeholder')"
+        :value="query"
         :show-clear-text-button="true"
         :show-action-button="false"
         :spellcheck="false"
         :maxlength="255"
-        @input="handleInput"
-        @clear="query = ''"
+        @input="(input) => handleQueryChange(input)"
+        @clear="() => handleQueryChange('')"
       />
       <ft-flex-box
         v-if="activeSubscriptionList.length === 0"
@@ -75,6 +76,8 @@
 
 <script setup>
 import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router/composables'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
@@ -84,7 +87,10 @@ import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/loca
 import { ctrlFHandler } from '../../helpers/utils'
 import { useI18n } from '../../composables/use-i18n-polyfill.js'
 import store from '../../store/index'
+import debounce from 'lodash.debounce'
 
+const route = useRoute()
+const router = useRouter()
 const { locale } = useI18n()
 
 const re = {
@@ -147,11 +153,6 @@ function getSubscription() {
   })
 }
 
-function handleInput(input) {
-  query.value = input
-  filterChannels()
-}
-
 function filterChannels() {
   if (query.value === '') {
     filteredChannels.value = []
@@ -164,6 +165,8 @@ function filterChannels() {
     return re.test(channel.name)
   })
 }
+
+const filterChannelsDebounce = debounce(filterChannels, 500)
 
 function thumbnailURL(originalURL) {
   if (originalURL == null) { return null }
@@ -216,6 +219,38 @@ function updateThumbnail(channel) {
   }
 }
 
+function handleQueryChange(val, filterNow = false) {
+  query.value = val
+
+  saveStateInRouter(val)
+
+  filterNow ? filterChannels() : filterChannelsDebounce()
+}
+
+async function saveStateInRouter(query) {
+  if (query.value === '') {
+    await router.replace({ name: 'subscribedChannels' }).catch(failure => {
+      if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+        return
+      }
+
+      throw failure
+    })
+    return
+  }
+
+  await router.replace({
+    name: 'subscribedChannels',
+    query: { searchQueryText: query },
+  }).catch(failure => {
+    if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+      return
+    }
+
+    throw failure
+  })
+}
+
 function keyboardShortcutHandler(event) {
   ctrlFHandler(event, searchBarChannels.value)
 }
@@ -230,9 +265,20 @@ watch(activeSubscriptionList, () => {
   filterChannels()
 })
 
+// region created
+
+getSubscription()
+
+const oldQuery = route.query.searchQueryText ?? ''
+if (oldQuery !== null && oldQuery !== '') {
+  // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+  handleQueryChange(oldQuery, true)
+}
+
+// endregion created
+
 onMounted(() => {
   document.addEventListener('keydown', keyboardShortcutHandler)
-  getSubscription()
 })
 
 onBeforeUnmount(() => {

@@ -272,8 +272,8 @@ Settings:
   Settings: Einstellungen
   General Settings:
     General Settings: Allgemein
-    Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
-      bei Fehlschlag zurück
+    Fallback to Non-Preferred Backend on Failure: Zum nicht bevorzugten Backend System
+      bei Fehlschlag zurückkehren
     Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standard Startseite
 
@@ -296,7 +296,7 @@ Settings:
       Blur: Unschärfe
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
+    Check for Latest Blog Posts: Nach neuesten Blogeinträgen suchen
     Check for Updates: Auf Aktualisierungen prüfen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
@@ -317,8 +317,8 @@ Settings:
     Auto Load Next Page:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
-    Open Deep Links In New Window: Öffne URLs, die an FreeTube übergeben werden, in
-      einem neuen Fenster
+    Open Deep Links In New Window: URLs die an FreeTube übergeben werden in einem
+      neuen Fenster öffnen
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -626,7 +626,7 @@ Settings:
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
-    UseDeArrowThumbnails: Nutze DeArrow für Thumbnails
+    UseDeArrowThumbnails: DeArrow für Thumbnails verwenden
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
       Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
@@ -639,7 +639,7 @@ Settings:
     Players:
       None:
         Name: Keine
-    Ignore Default Arguments: Ignoriere Standardargument
+    Ignore Default Arguments: Standardargument ignorieren
   Download Settings:
     Download Settings: Herunterladen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -669,7 +669,7 @@ Settings:
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
-  Sort Settings Sections (A-Z): Einstellungsbereiche sortieren (A-Z)
+  Sort Settings Sections (A-Z): Die Einstellungen von A bis Z sortieren
   Return to Settings Menu: Zurück zum Einstellungsmenü
 About:
   #On About page
@@ -886,7 +886,7 @@ Video:
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Sie scheinen offline zu sein.
     Playback will resume automatically when your connection comes back: Die Wiedergabe
-      wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
+      startet automatisch, sobald deine Verbindung wieder da ist.
     Skipped segment: 'Segment {segmentCategory} übersprungen'
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
@@ -901,8 +901,8 @@ Video:
     werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften
     YouTube-Kontos erfordern.
   DeArrow:
-    Show Modified Details: Zeige geänderte Details
-    Show Original Details: Zeige die Originaldetails
+    Show Modified Details: Geänderte Details anzeigen
+    Show Original Details: Originaldetails anzeigen
 Videos:
   #& Sort By
   Sort By:
@@ -1149,7 +1149,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
-    UseDeArrowThumbnails: Ersetze Video-Thumbnails mit Thumbnails von DeArrow.
+    UseDeArrowThumbnails: Video-Thumbnails durch Thumbnails von DeArrow ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1223,7 +1223,7 @@ Feed:
 Yes, Delete: Ja, löschen
 Cancel: Abbrechen
 Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
-Yes, Restart: Ja, neustarten
+Yes, Restart: Ja, neu starten
 Yes, Open Link: Ja, Link öffnen
 Search Listing:
   Label:

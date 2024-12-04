@@ -31,6 +31,7 @@
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router/composables'
+import packageDetails from '../../../package.json'
 
 import FtCard from '../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../components/FtCommunityPost/FtCommunityPost.vue'
@@ -74,6 +75,8 @@ onMounted(async () => {
 async function loadDataInvidiousAsync() {
   post.value = await getInvidiousCommunityPost(id.value, authorId.value)
   authorId.value = post.value.authorId
+
+  store.dispatch('setAppTitle', `${post.value.author} - ${packageDetails.productName}`)
   isLoading.value = false
 
   // If the authorId is missing from the URL we should add it,

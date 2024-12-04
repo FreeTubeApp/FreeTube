@@ -913,6 +913,9 @@ Video:
   MembersOnly: Les vidéos réservées aux membres ne peuvent pas être visionnées avec
     FreeTube, car elles nécessitent une connexion Google et une adhésion payante à
     la chaîne du vidéaste.
+  DeArrow:
+    Show Original Details: Afficher les détails originaux
+    Show Modified Details: Afficher les détails modifiés
 Videos:
   #& Sort By
   Sort By:
