@@ -30,8 +30,6 @@
         type="checkbox"
         :checked="showTags"
         @change="toggleShowTags"
-        @keydown.enter.prevent="toggleShowTags"
-        @keydown.space.prevent="toggleShowTags"
       >
       <label :for="label">
         {{ $t('Settings.Distraction Free Settings.Show Added Items') }}
