@@ -1230,3 +1230,5 @@ Keys:
   arrowright: Jobbra nyíl
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
+  az előzmények megtekintéséhez
