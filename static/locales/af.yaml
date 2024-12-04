@@ -632,17 +632,18 @@ Profile:
   Create Profile Name: ''
   Profile Name: ''
   Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
+  Custom Color: 'Pasgemaakte kleur'
+  Profile Preview: 'Profielvoorskou'
+  Create Profile: 'Skep profiel'
+  Update Profile: 'Werk profiel by'
+  Make Default Profile: 'Maak verstekprofiel'
+  Delete Profile: 'Skrap profiel'
+  Are you sure you want to delete this profile?: 'Is u seker u wil hierdie profiel
+    skrap?'
+  All subscriptions will also be deleted.: 'Alle intekeninge sal ook geskrap word.'
+  Profile could not be found: 'Profiel kon nie gevind word nie'
+  Your profile name cannot be empty: 'U profielnaam kan nie leeg wees nie'
+  Profile has been created: 'Profiel is geskep'
   Profile has been updated: 'Profiel is bygewerk'
   Your default profile has been set to {profile}: 'U verstekprofiel is ingestel op
     {profile}'
@@ -860,6 +861,9 @@ Video:
     ’n Google-aantekening en betaalde lidmaatskap op die oplaaier se kanaal vereis.
   AgeRestricted: Video’s met ’n ouderdomsperk kan nie met FreeTube gekyk word nie
     omdat dit ’n Google-aantekening en ouderdomvebestigde YouTube-rekening vereis.
+  DeArrow:
+    Show Original Details: Toon oorspronklike details
+    Show Modified Details: Toon gewysigde details
 Videos:
   #& Sort By
   Sort By:
