@@ -304,6 +304,8 @@ Settings:
     Auto Load Next Page:
       Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
       Label: Automatycznie wczytaj kolejną stronę
+    Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube otwieraj w
+      nowym oknie
   Theme Settings:
     Theme Settings: 'Wygląd'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -546,18 +548,18 @@ Settings:
     Hide Channels Placeholder: ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
       wielkich liter i interpunkcji
-    Hide Channel Community: Schowaj społeczność kanału
-    Hide Channel Shorts: Schowaj filmy Short kanału
+    Hide Channel Community: Schowaj kartę kanału „Społeczność”
+    Hide Channel Shorts: Schowaj kartę kanału „Filmy Short”
     Hide Featured Channels: Schowaj polecane kanały
-    Hide Channel Playlists: Schowaj playlisty kanału
+    Hide Channel Playlists: Schowaj kartę kanału „Playlisty”
     Sections:
       Side Bar: Pasek boczny
       Channel Page: Strona kanału
       General: Ogólne
       Watch Page: Strona odtwarzacza
       Subscriptions Page: Strona subskrypcji
-    Hide Channel Releases: Schowaj wydawnictwa kanału
-    Hide Channel Podcasts: Schowaj podkasty kanału
+    Hide Channel Releases: Schowaj kartę kanału „Wydawnictwa”
+    Hide Channel Podcasts: Schowaj kartę kanału „Podkasty”
     Hide Subscriptions Videos: Schowaj filmy z subskrypcji
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
@@ -574,6 +576,7 @@ Settings:
       poniższy tekst
     Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
       lub wyrażenie
+    Hide Channel Home: Schowaj kartę kanału „Główna”
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -738,7 +741,7 @@ Channel:
     View Full Post: Zobacz całe posty
     Viewing Posts Only Supported By Invidious: Wyświetlanie postów jest wspierane
       tylko przez Invidious. Możesz zobaczyć zawartość nie korzystając z Invidious,
-      przechodząc do zakładki „Społeczność” danego kanału.
+      przechodząc do karty „Społeczność” danego kanału.
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -753,6 +756,9 @@ Channel:
   Podcasts:
     Podcasts: Podkasty
     This channel does not currently have any podcasts: Ten kanał nie ma żadnych podkastów
+  Home:
+    Home: Główna
+    View Playlist: Zobacz playlistę
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -1067,6 +1073,9 @@ Tooltips:
     External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
+    Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube (np. przez
+      rozszerzenie przeglądarki, albo argumenty linii komend) są otwierane w nowym
+      oknie.
   Player Settings:
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
@@ -1201,3 +1210,9 @@ Search Listing:
     360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
   URL: "{url}".'
+Keys:
+  arrowup: Strzałka do góry
+  arrowright: Strzałka w prawo
+  arrowleft: Strzałka w lewo
+  arrowdown: Strzałka w dół
+Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
