@@ -348,6 +348,7 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
+        published: this.published,
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
@@ -372,6 +373,7 @@ export default defineComponent({
         author: this.channelName,
         authorId: this.channelId,
         lengthSeconds: this.lengthSeconds,
+        published: this.published,
       }
 
       this.addVideo({
