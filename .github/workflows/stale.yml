@@ -24,4 +24,4 @@ jobs:
           stale-issue-label: 'U: stale'
           stale-pr-label: 'PR: stale'
           exempt-pr-labels: 'PR: WIP'
-          exempt-issue-labels: 'enhancement'
+          exempt-issue-labels: 'enhancement, U: reproduced'
