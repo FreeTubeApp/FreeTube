@@ -1262,3 +1262,4 @@ Keys:
   arrowup: Flèche haut
   alt: Alt
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
