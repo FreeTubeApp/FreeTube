@@ -256,16 +256,14 @@ function runApp() {
       // Someone tried to run a second instance, we should focus our window
       if (typeof commandLine !== 'undefined') {
         const url = getLinkUrl(commandLine)
-        if (url) {
-          if (mainWindow && mainWindow.webContents) {
-            if (mainWindow.isMinimized()) mainWindow.restore()
-            mainWindow.focus()
+        if (mainWindow && mainWindow.webContents) {
+          if (mainWindow.isMinimized()) mainWindow.restore()
+          mainWindow.focus()
 
-            mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
-          } else {
-            startupUrl = url
-            createWindow()
-          }
+          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        } else {
+          if (url) startupUrl = url
+          createWindow()
         }
       }
     })
