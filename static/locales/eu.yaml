@@ -939,6 +939,9 @@ Video:
     hasi eta adinak egiaztatutako YouTube-ko kontu bat erabili behar delako.
   IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu
     VPN edo proxy desberdin batera aldatzen.
+  DeArrow:
+    Show Original Details: Erakutsi jatorrizko xehetasunak
+    Show Modified Details: Erakutsi aldatutako xehetasunak
 Videos:
   #& Sort By
   Sort By:
@@ -1225,3 +1228,5 @@ Keys:
   ctrl: Ctrl
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu sakatuta
+  historia ikusteko
