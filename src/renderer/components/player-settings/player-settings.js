@@ -51,11 +51,13 @@ export default defineComponent({
       ],
       screenshotFormatNames: [
         'PNG',
-        'JPEG'
+        'JPEG',
+        'WebP'
       ],
       screenshotFormatValues: [
         'png',
-        'jpg'
+        'jpg',
+        'webp'
       ],
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
