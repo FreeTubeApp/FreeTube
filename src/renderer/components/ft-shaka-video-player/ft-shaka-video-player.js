@@ -122,7 +122,7 @@ export default defineComponent({
     vrProjection: {
       type: String,
       default: null
-    }
+    },
   },
   emits: [
     'error',

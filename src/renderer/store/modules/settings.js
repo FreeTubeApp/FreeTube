@@ -172,6 +172,7 @@ const state = {
   baseTheme: 'system',
   mainColor: 'Red',
   secColor: 'Blue',
+  defaultAutoplayInterruptionIntervalHours: 3,
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
