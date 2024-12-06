@@ -910,7 +910,8 @@ Tooltips:
       kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din
       standardwebbläsare.\n"
   External Player Settings:
-    Custom External Player Arguments: Alla anpassade kommandoradsargument, ska skickas till den externa spelaren.
+    Custom External Player Arguments: Alla anpassade kommandoradsargument, ska skickas
+      till den externa spelaren.
     Ignore Warnings: Dämpa varningar för när den aktuella externa spelaren inte stöder
       den aktuella åtgärden (t.ex. backning av spellistor, etc.).
     Custom External Player Executable: Som standard antar FreeTube att den valda externa
