@@ -71,6 +71,19 @@ jobs:
       if: contains(matrix.runtime, 'arm64')
       run: yarn run build:arm64
 
+    - name: Convert X64 AppImage to static runtime
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      run: |
+        sudo apt install desktop-file-utils
+        cd build
+        appimage="FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage"
+        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
+        chmod +x ./"$appimage" ./appimagetool.AppImage
+        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
+        ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
+          -n ./squashfs-root ./"$appimage"
+        rm -rf ./squashfs-root ./appimagetool.AppImage
+
     - name: Upload AppImage x64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
