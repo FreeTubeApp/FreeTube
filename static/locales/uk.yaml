@@ -425,7 +425,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Інтервал відтворення наступного відео
-    Next Video Interval: Інтервал до наступного відео
+    Next Video Interval: Таймер автозапуску
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
     Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
@@ -452,6 +452,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Переходити в повноекранний режим за обертання
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
+    Autoplay Interruption Timer: Таймер переривання автозапуску
   Privacy Settings:
     Privacy Settings: 'Конфіденційність'
     Remember History: 'Збрігати історію'
@@ -1210,3 +1211,5 @@ Yes, Restart: Так, перезавантажити
 Yes, Open Link: Так, відкрити посилання
 Yes, Delete: Так, видалити
 Cancel: Скасувати
+Autoplay Interruption Timer: Автозапуск скасовано через {autoplayInterruptionIntervalHours}
+  годин бездіяльності
