@@ -272,8 +272,8 @@ Settings:
   Settings: Einstellungen
   General Settings:
     General Settings: Allgemein
-    Fallback to Non-Preferred Backend on Failure: Zum nicht bevorzugten Backend System
-      bei Fehlschlag zurückkehren
+    Fallback to Non-Preferred Backend on Failure: Bei Ausfall auf nicht bevorzugtes
+      Backend zurückgreifen
     Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standard Startseite
 
@@ -317,8 +317,8 @@ Settings:
     Auto Load Next Page:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
-    Open Deep Links In New Window: URLs die an FreeTube übergeben werden in einem
-      neuen Fenster öffnen
+    Open Deep Links In New Window: An FreeTube übergebene URLs in einem neuen Fenster
+      öffnen
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -626,7 +626,7 @@ Settings:
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
-    UseDeArrowThumbnails: DeArrow für Thumbnails verwenden
+    UseDeArrowThumbnails: DeArrow für Miniaturansichten verwenden
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
       Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
@@ -639,7 +639,7 @@ Settings:
     Players:
       None:
         Name: Keine
-    Ignore Default Arguments: Standardargument ignorieren
+    Ignore Default Arguments: Standardargumente ignorieren
   Download Settings:
     Download Settings: Herunterladen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -669,7 +669,7 @@ Settings:
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
-  Sort Settings Sections (A-Z): Die Einstellungen von A bis Z sortieren
+  Sort Settings Sections (A-Z): Einstellungsabschnitte sortieren (A-Z)
   Return to Settings Menu: Zurück zum Einstellungsmenü
 About:
   #On About page
@@ -886,7 +886,7 @@ Video:
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Sie scheinen offline zu sein.
     Playback will resume automatically when your connection comes back: Die Wiedergabe
-      startet automatisch, sobald deine Verbindung wieder da ist.
+      wird automatisch fortgesetzt, wenn deine Verbindung wiederhergestellt ist.
     Skipped segment: 'Segment {segmentCategory} übersprungen'
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
@@ -1149,7 +1149,8 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
-    UseDeArrowThumbnails: Video-Thumbnails durch Thumbnails von DeArrow ersetzen.
+    UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow
+      ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1246,4 +1247,5 @@ Keys:
   arrowright: Pfeil nach rechts
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
-Right-click or hold to see history: Rechtsklicken oder halten um den Verlauf zu sehen
+Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
+  um den Verlauf zu sehen
