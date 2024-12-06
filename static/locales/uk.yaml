@@ -183,7 +183,26 @@ User Playlists:
       There was a problem with removing this video: Сталася помилка під час видалення
         цього відео
       Reverted to use {oldPlaylistName} for quick bookmark: Повернуто до використання
-        {oldPlaylistName} для швидких закладок.
+        {oldPlaylistName} для швидких закладок
+      This playlist is protected and cannot be removed.: Цю добірку захищено, тому
+        її не можна видалити.
+      "{videoCount} video(s) have been removed": 1 відео було видалено | {videoCount}
+        відео було видалено
+      Playlist {playlistName} has been deleted.: Добірку {playlistName} було видалено.
+      This playlist does not exist: Ця добірка не існує
+      This playlist has a video with a duration error: Ця добірка містить принаймні
+        одне відео, яке не має тривалості, тому воно буде відсортоване так, ніби його
+        тривалість дорівнює нулю.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Деякі
+        відео в добірці ще не завантажено. Натисніть тут, щоб все одно скопіювати.
+      Playlist name cannot be empty. Please input a name.: Назва добірки не може бути
+        порожньою. Будь ласка, введіть назву.
+      Playlist has been updated.: Добірка була оновлена.
+      There was an issue with updating this playlist.: Сталася помилка при оновленні
+        цієї добірки.
+      There were no videos to remove.: Відео для видалення не знайдено.
+      Playlist {playlistName} is the new quick bookmark playlist.: Добірка {playlistName}
+        тепер є новою швидкою закладкою.
     Search for Videos: Пошук відео
   The playlist has been successfully exported: Добірку успішно експортовано
   Export Playlist: Експортувати цю добірку
@@ -204,13 +223,43 @@ User Playlists:
     закладок.
   Playlists with Matching Videos: Добірки з відповідними відео
   Remove Duplicate Videos: Видалити дублікати відео
+  AddVideoPrompt:
+    Save: Зберегти
+    Search in Playlists: Пошук в добірках
+    Allow Adding Duplicate Video(s): Дозволити додавати дублікатів відео
+    Added {count} Times: Вже додано | Додано {count} разів
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Відео буде додано'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Відео вже додано'
+    Toast:
+      "{videoCount} video(s) added to 1 playlist": 1 відео додано до 1 добірки | {videoCount}
+        відео додано до 1 добірки
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 відео додано до
+        {playlistCount} добірок | {videoCount} відео додано до {playlistCount} добірок
+      You haven't selected any playlist yet.: Ви ще не вибрали жодної добірки.
+    N playlists selected: '{playlistCount} вибрано'
+    Select a playlist to add your N videos to: Виберіть добірку, до якої ви хочете
+      додати своє відео | Виберіть добірку, до якої ви хочете додати свої {videoCount}
+      відео
+  CreatePlaylistPrompt:
+    Create: Створити
+    Toast:
+      Playlist {playlistName} has been successfully created.: Добірку {playlistName}
+        успішно створено.
+      There was an issue with creating the playlist.: Сталася помилка під час створення
+        добірки.
+      There is already a playlist with this name. Please pick a different name.: Вже
+        існує добірка з такою назвою. Будь ласка, виберіть іншу назву.
+    New Playlist Name: Нова назва добірки
 History:
   # On History Page
   History: 'Історія'
   Watch History: 'Історія переглядів'
   Your history list is currently empty.: 'Ваша історія переглядів на разі порожня.'
   Search bar placeholder: Шукати в історії
-  Empty Search Message: Немає відео в історії, які відповідають вашому запиту
+  Empty Search Message: У вашій історії немає відео, що відповідають вашому пошуку
+  Case Sensitive Search: Пошук з урахуванням регістру
 Settings:
   # On Settings Page
   Settings: 'Налаштування'
@@ -218,7 +267,7 @@ Settings:
     зміни набули чинності, необхідно перезавантижити застосунок. Перезавантажити та
     застосувати зміни?'
   General Settings:
-    General Settings: 'Загальні налаштування'
+    General Settings: 'Загальні'
     Check for Updates: 'Перевірити наявність оновлень'
     Check for Latest Blog Posts: 'Перевірити останні повідомлення в блозі'
     Fallback to Non-Preferred Backend on Failure: 'Коли у вашого головного API виникає
@@ -261,8 +310,13 @@ Settings:
       Ask Before Opening Link: Запитувати, перш ніж відкрити посилання
       Open Link: Відкрити посилання
       External Link Handling: Обробка зовнішніх посилань
+    Auto Load Next Page:
+      Label: Автозавантаження наступної сторінки
+      Tooltip: Автоматично завантажувати додаткові сторінки та коментарі.
+    Open Deep Links In New Window: Відкривати URL-адреси, передані в FreeTube, в новому
+      вікні
   Theme Settings:
-    Theme Settings: 'Налаштування теми'
+    Theme Settings: 'Теми'
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
     Expand Side Bar by Default: 'Усталено розгортати бічну панель'
     Disable Smooth Scrolling: 'Відключити плавну прокрутку'
@@ -277,6 +331,11 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Гарячий рожевий
       Pastel Pink: Пастельний рожевий
+      Gruvbox Dark: Gruvbox Темний
+      Solarized Light: Solarized Світлий
+      Nordic: Нордичний
+      Gruvbox Light: Gruvbox Світлий
+      Solarized Dark: Solarized Темна
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -316,12 +375,30 @@ Settings:
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Gruvbox Dark Purple: Gruvbox Темно Фіолетовий
+      Gruvbox Light Blue: Gruvbox Світло Голубий
+      Solarized Cyan: Solarized Голубий
+      Solarized Green: Solarized Зелений
+      Gruvbox Light Orange: Gruvbox Світло Оранжевий
+      Solarized Yellow: Solarized Жовтий
+      Gruvbox Dark Green: Gruvbox Темно Зелений
+      Gruvbox Dark Blue: Gruvbox Темно Синій
+      Gruvbox Dark Aqua: Gruvbox Темна Аква
+      Gruvbox Dark Orange: Gruvbox Темно Оранжевий
+      Gruvbox Light Red: Gruvbox Світло Червоний
+      Gruvbox Light Purple: Gruvbox Світло Фіолетовий
+      Solarized Magenta: Solarized Пурпурний
+      Solarized Violet: Solarized Фіолетовий
+      Solarized Orange: Solarized Оранжевий
+      Solarized Red: Solarized Червоний
+      Gruvbox Dark Yellow: Gruvbox Темно Жовтий
+      Solarized Blue: Solarized Голубий
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
     Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
   Player Settings:
-    Player Settings: 'Налаштування програвача'
+    Player Settings: 'Плеєр'
     Play Next Video: 'Грати наступне відео'
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
     Autoplay Videos: 'Автоматичне відтворення відео'
@@ -376,7 +453,7 @@ Settings:
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
   Privacy Settings:
-    Privacy Settings: 'Налаштування приватності'
+    Privacy Settings: 'Конфіденційність'
     Remember History: 'Збрігати історію'
     Save Watched Progress: 'Зберігати прогрес перегляду'
     Clear Search Cache: 'Очистити пошуковий кеш'
@@ -392,15 +469,20 @@ Settings:
       хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
     Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео у список
       відтворення, який ви переглядали останнім часом
+    All playlists have been removed: Усі добірки були видалені
+    Remove All Playlists: Видалити всі добірки
+    Are you sure you want to remove all your playlists?: Ви впевнені, що хочете видалити
+      всі свої добірки?
   Subscription Settings:
-    Subscription Settings: 'Налаштування підписки'
+    Subscription Settings: 'Підписка'
     Hide Videos on Watch: 'Ховати відео при перегляді'
     Fetch Feeds from RSS: 'Отримати канали з RSS'
     Fetch Automatically: Автоматично отримувати стрічку
     Only Show Latest Video for Each Channel: Показувати лише останні відео для кожного
       каналу
+    Confirm Before Unsubscribing: Підтвердити перед скасуванням підписки
   Distraction Free Settings:
-    Distraction Free Settings: 'Налаштування зосередження'
+    Distraction Free Settings: 'Без відволікань'
     Hide Video Views: 'Сховати перегляди відео'
     Hide Video Likes And Dislikes: 'Приховати вподобайки до відео'
     Hide Channel Subscribers: 'Не показувати підписників каналу'
@@ -419,12 +501,12 @@ Settings:
     Hide Upcoming Premieres: Сховати майбутні прем'єри
     Hide Channels: Сховати відео з каналів
     Hide Channels Placeholder: ID каналу
-    Display Titles Without Excessive Capitalisation: Показувати заголовки без надмірно
-      великих літер
+    Display Titles Without Excessive Capitalisation: Відображати заголовки без зайвої
+      капіталізації та пунктуації
     Hide Featured Channels: Сховати пропоновані канали
     Hide Channel Playlists: Сховати добірки каналу
-    Hide Channel Community: Сховати спільноту каналу
-    Hide Channel Shorts: Сховати Shorts каналу
+    Hide Channel Community: Сховати вкладку "Спільнота" каналу
+    Hide Channel Shorts: Сховати вкладку "Shorts" каналу
     Sections:
       Side Bar: Бічна панель
       Channel Page: Сторінка каналу
@@ -432,8 +514,8 @@ Settings:
       General: Загальні
       Subscriptions Page: Сторінка підписок
     Hide Subscriptions Videos: Сховати відео з підписок
-    Hide Channel Podcasts: Сховати канали подкастів
-    Hide Channel Releases: Сховати канали випусків
+    Hide Channel Podcasts: Сховати вкладку "Подкасти" каналу
+    Hide Channel Releases: Сховати вкладку "Випуски" каналу
     Hide Subscriptions Shorts: Сховати Shorts із підписок
     Hide Subscriptions Live: Сховати трансляції з підписок
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
@@ -444,8 +526,13 @@ Settings:
     Hide Channels Already Exists: ID каналу вже існує
     Hide Channels API Error: Помилка під час пошуку користувача з наданим ID. Перевірте
       ще раз, чи правильний ID.
+    Hide Channel Home: Сховати вкладку "Головна" каналу
+    Hide Videos and Playlists Containing Text Placeholder: Слово, фрагмент слова або
+      фраза
+    Hide Videos and Playlists Containing Text: Сховати відео та добірки, що містять
+      текст
   Data Settings:
-    Data Settings: 'Налаштування даних'
+    Data Settings: 'Дані'
     Select Import Type: 'Оберіть тип імпорту'
     Select Export Type: 'Оберіть тип експорту'
     Import Subscriptions: 'Імпортувати підписки'
@@ -484,6 +571,14 @@ Settings:
     Playlist File: Файл списку відтворення
     Subscription File: Файл підписки
     History File: Файл історії
+    Export Playlists For Older FreeTube Versions:
+      Label: Експортувати добірки для старих версій FreeTube
+      Tooltip: "Ця опція експортує відео з усіх добірок в одну добірку під назвою
+        \"Улюблені\".\nЯк експортувати та імпортувати відео з добірок для старої версії
+        FreeTube:\n1. Експортуйте свої добірки з увімкненою цією опцією.\n2. Видаліть
+        усі свої наявні добірки за допомогою опції \"Видалити всі добірки\" в налаштуваннях
+        конфіденційності.\n3. Запустіть стару версію FreeTube та імпортуйте експортовані
+        добірки."
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Помилка
       отримання відомостей про мережу. Чи правильно налаштовано ваш проксі?
@@ -499,13 +594,18 @@ Settings:
     Proxy Host: Проксі-вузол
     Proxy Protocol: Проксі-протокол
     Enable Tor / Proxy: Увімкнути Tor / Проксі
-    Proxy Settings: Налаштування проксі
+    Proxy Settings: Проксі
+    Proxy Warning: FreeTube не має вбудованого проксі, але може підключатися до зовнішнього
+      проксі, такого як Tor, що працює на вашому комп'ютері, або зовнішній проксі,
+      наприклад, SOCKS5 проксі, який надають деякі VPN-сервіси. Якщо ця опція увімкнена,
+      переконайтеся, що ваш проксі/Tor налаштовані правильно, інакше FreeTube не зможе
+      завантажувати дані.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Сповіщати про пропуск спонсорованого відтинка
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-адреса API SponsorBlock
       (типово https://sponsor.ajay.app)
     Enable SponsorBlock: Увімкнути SponsorBlock
-    SponsorBlock Settings: Налаштування SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Опція пропуску
       Auto Skip: Автопропуск
@@ -514,25 +614,29 @@ Settings:
       Do Nothing: Нічого не робити
     Category Color: Колір категорії
     UseDeArrowTitles: Використовувати назви для відео DeArrow
+    UseDeArrowThumbnails: Використовувати DeArrow для ескізів
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL
+      API генератора ескізів DeArrow (за замовчуванням: https://dearrow-thumb.ajay.app)'
   External Player Settings:
     Custom External Player Arguments: Власні аргументи зовнішнього програвача
     Custom External Player Executable: Власний виконуваний зовнішній програвач
     Ignore Unsupported Action Warnings: Нехтувати попередженнями про непідтримувані
       дії
     External Player: Зовнішній програвач
-    External Player Settings: Параметри зовнішнього програвача
+    External Player Settings: Зовнішній плеєр
     Players:
       None:
         Name: Немає
+    Ignore Default Arguments: Ігнорувати стандартні аргументи
   Download Settings:
-    Download Settings: Налаштування завантаження
+    Download Settings: Завантаження
     Choose Path: Вибрати шлях
     Ask Download Path: Запитувати шлях завантаження
     Download Behavior: Поведінка завантаження
     Download in app: Завантажити в застосунку
     Open in web browser: Відкрити у переглядачі
   Parental Control Settings:
-    Parental Control Settings: Налаштування батьківського контролю
+    Parental Control Settings: Батьківський контроль
     Hide Unsubscribe Button: Сховати кнопку скасування підписки
     Show Family Friendly Only: Показати лише для сімейного перегляду
     Hide Search Bar: Сховати панель пошуку
@@ -551,6 +655,8 @@ Settings:
     Set Password: Установити пароль
     Remove Password: Вилучити пароль
     Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
+  Return to Settings Menu: Повернутися до налаштувань
+  Sort Settings Sections (A-Z): Сортувати розділи налаштувань (А-Я)
 About:
   #On About page
   About: 'Про додаток'
