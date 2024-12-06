@@ -99,6 +99,7 @@ export default defineComponent({
       channelId: '',
       channelSubscriptionCountText: '',
       videoPublished: 0,
+      premiere: 0,
       videoStoryboardSrc: '',
       /** @type {string|null} */
       manifestSrc: null,
@@ -582,6 +583,7 @@ export default defineComponent({
           }
         } else if (this.isUpcoming) {
           const upcomingTimestamp = result.basic_info.start_timestamp
+          this.premiere = upcomingTimestamp.getTime()
 
           if (upcomingTimestamp) {
             const timestampOptions = {
@@ -628,6 +630,7 @@ export default defineComponent({
               this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
             }
           } else {
+            this.premiere = 0
             this.upcomingTimestamp = null
             this.upcomingTimeLeft = null
           }

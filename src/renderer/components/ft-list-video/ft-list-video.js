@@ -679,6 +679,8 @@ export default defineComponent({
     },
 
     parseVideoData: function () {
+      const currentTime = new Date().getTime()
+
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
@@ -722,8 +724,14 @@ export default defineComponent({
       } else if (typeof this.data.published === 'number' && !this.isLive) {
         this.published = this.data.published
 
+        if (this.published > currentTime) {
+          this.isUpcoming = true
+        }
+
         if (this.inHistory) {
           this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
+        } else if (this.isUpcoming) {
+          this.uploadedTime = new Date(this.data.published).toLocaleString([this.currentLocale, 'en'])
         } else {
           // Use 30 days per month, just like calculatePublishedDate
           this.uploadedTime = getRelativeTimeFromDate(this.data.published, false)
