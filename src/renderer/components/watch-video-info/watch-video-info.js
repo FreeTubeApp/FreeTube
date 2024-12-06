@@ -39,9 +39,9 @@ export default defineComponent({
       type: Number,
       required: true
     },
-    premiere: {
-      type: Number,
-      required: true
+    premiereDate: {
+      type: Date,
+      default: undefined
     },
     viewCount: {
       type: Number,
@@ -352,7 +352,8 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
-        published: this.isUpcoming ? this.premiere : this.published,
+        published: this.published,
+        premiereDate: this.premiereDate,
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
@@ -377,7 +378,8 @@ export default defineComponent({
         author: this.channelName,
         authorId: this.channelId,
         lengthSeconds: this.lengthSeconds,
-        published: this.isUpcoming ? this.premiere : this.published,
+        published: this.published,
+        premiereDate: this.premiereDate,
       }
 
       this.addVideo({

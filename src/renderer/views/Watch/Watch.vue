@@ -122,7 +122,7 @@
         :channel-name="channelName"
         :channel-thumbnail="channelThumbnail"
         :published="videoPublished"
-        :premiere="premiere"
+        :premiere-date="premiereDate"
         :subscription-count-text="channelSubscriptionCountText"
         :like-count="videoLikeCount"
         :dislike-count="videoDislikeCount"
