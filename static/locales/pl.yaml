@@ -884,6 +884,9 @@ Video:
   MembersOnly: Filmy tylko dla wspierających nie mogą być odtwarzane przez FreeTube,
     ponieważ wymagają danych logowania do konta Googla oraz płatną subskrypcje kanału.
   Unlisted: Niepubliczny
+  DeArrow:
+    Show Original Details: Pokaż szczegóły oryginału
+    Show Modified Details: Pokaż zmodyfikowane szczegóły
 Videos:
   #& Sort By
   Sort By:
@@ -1215,4 +1218,8 @@ Keys:
   arrowright: Strzałka w prawo
   arrowleft: Strzałka w lewo
   arrowdown: Strzałka w dół
+  alt: Alt
+  ctrl: Ctrl
 Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'
