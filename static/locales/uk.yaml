@@ -642,7 +642,7 @@ Settings:
     Hide Search Bar: Сховати панель пошуку
   Experimental Settings:
     Replace HTTP Cache: Заміна кешу HTTP
-    Experimental Settings: Експериментальні налаштування
+    Experimental Settings: Експериментальні
     Warning: Ці налаштування експериментальні, їхнє ввімкнення може призводити до
       збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
   Password Dialog:
@@ -651,7 +651,7 @@ Settings:
     Password Incorrect: Пароль неправильний
     Password: Пароль
   Password Settings:
-    Password Settings: Налаштування пароля
+    Password Settings: Пароль
     Set Password: Установити пароль
     Remove Password: Вилучити пароль
     Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
@@ -685,6 +685,8 @@ About:
   Source code: Джерельний код
   Beta: Бета
   Discussions: Обговорення
+  Licensed under the: Ліцензовано за умовами
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Вибір профілю'
   All Channels: 'Усі канали'
@@ -725,7 +727,7 @@ Profile:
     бажаєте видалити вибрані канали?  Канал не буде видалено з будь-якого іншого профілю.'
 #On Channel Page
   Profile Filter: Фільтр профілю
-  Profile Settings: Налаштування профілю
+  Profile Settings: Профіль
   Toggle Profile List: Перемкнути список профілів
   Profile Name: Назва профілю
   Edit Profile Name: Змінити назву профілю
@@ -777,6 +779,11 @@ Channel:
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді
     Hide Answers: Сховати відповіді
+    Video hidden by FreeTube: Відео приховане FreeTube
+    View Full Post: Переглянути повний пост
+    Viewing Posts Only Supported By Invidious: Перегляд постів підтримується лише
+      через Invidious. Перейдіть до вкладки спільноти каналу, щоб переглядати контент
+      без Invidious.
   Live:
     This channel does not currently have any live streams: Наразі на цьому каналі
       немає прямих трансляцій
@@ -791,6 +798,9 @@ Channel:
     This channel does not currently have any releases: Наразі на цьому каналі немає
       випусків
     Releases: Випуски
+  Home:
+    Home: Головна
+    View Playlist: Переглянути добірку
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
@@ -877,6 +887,48 @@ Video:
   Pause on Current Video: Призупинити на поточному відео
   Unhide Channel: Показати канал
   Hide Channel: Сховати канал
+  Player:
+    TranslatedCaptionTemplate: '{language} (перекладено з "{originalLanguage}")'
+    Stats:
+      Bandwidth: 'Пропускна здатність: {bandwidth} кбіт/с'
+      CodecsVideoAudio: 'Кодеки: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Bitrate: 'Бітрейт: {bitrate} кбіт/с'
+      Volume: 'Гучність: {volumePercentage}%'
+      Buffered: 'Буферизація: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Втрачені кадри: {droppedFrames} / Загальні кадри:
+        {totalFrames}'
+      Player Dimensions: 'Розміри плеєра: {width}x{height}'
+      CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
+      Stats: Статистика
+      Video ID: 'ID відео: {videoId}'
+      Media Formats: 'Медійні формати: {formats}'
+      Resolution: 'Роздільна здатність: {width}x{height}@{frameRate}'
+      CodecsVideoAudioNoItags: 'Кодеки: {videoCodec} / {audioCodec}'
+    Show Stats: Показати статистику
+    Full Window: Повний екран
+    Take Screenshot: Зробити скріншот
+    You appear to be offline: Виглядає, що ви не в мережі.
+    Playback will resume automatically when your connection comes back: Відтворення
+      відновиться автоматично, коли ваше підключення відновиться.
+    Exit Theatre Mode: Вийти з режиму кінотеатру
+    Exit Full Window: Вийти з повного екрану
+    Audio Tracks: Аудіотреки
+    Theatre Mode: Режим кінотеатру
+    Hide Stats: Сховати статистику
+    Skipped segment: Пропущено сегмент {segmentCategory}
+  IP block: YouTube заблокував вашу IP-адресу для перегляду відео. Будь ласка, спробуйте
+    змінити VPN або проксі.
+  Unlisted: Не в списку
+  AgeRestricted: Відео з віковими обмеженнями не можна переглядати за допомогою FreeTube,
+    оскільки вони вимагають входу через Google та використання відео-аккаунту YouTube
+    з підтвердженням віку.
+  More Options: Більше опцій
+  DeArrow:
+    Show Original Details: Показати оригінальні деталі
+    Show Modified Details: Показати змінені деталі
+  MembersOnly: Відео, доступні лише для учасників, не можна переглядати за допомогою
+    FreeTube, оскільки вони вимагають входу через Google та платної підписки на канал
+    завантажувача.
 Videos:
   #& Sort By
   Sort By:
@@ -893,6 +945,17 @@ Playlist:
 #* Published
 #& Views
   Playlist: Список відтворення
+  Sort By:
+    VideoDurationDescending: Тривалість (спочатку найдовші)
+    Custom: Користувацький
+    VideoTitleDescending: Заголовок (Я-А)
+    VideoTitleAscending: Заголовок (А-Я)
+    DateAddedOldest: Спочатку найстаріші добавлені
+    AuthorAscending: Автор (А-Я)
+    AuthorDescending: Автор (Я-А)
+    VideoDurationAscending: Тривалість (спочатку найкоротші)
+    Sort By: Сортувати за
+    DateAddedNewest: Спочатку новіші добавлені
 Change Format:
   Change Media Formats: 'Зміна форматів відео'
   Use Dash Formats: 'Використовувати формати DASH'
@@ -902,6 +965,8 @@ Change Format:
     відео'
   Audio formats are not available for this video: 'Аудіоформати недоступні для цього
     відео'
+  Legacy formats are not available for this video: Застарілі формати недоступні для
+    цього відео
 Share:
   Share Video: 'Поділитися відео'
   Share Playlist: 'Поділитися списком відтворення'
@@ -950,7 +1015,8 @@ Comments:
   Hearted: З сердечком
   View {replyCount} replies: Переглянути {replyCount} відповідей
   Subscribed: Слідкують
-Up Next: 'Далі вгору'
+  There are no comments available for this post: Коментарі для цього поста відсутні
+Up Next: 'Далі'
 
 #Tooltips
 Tooltips:
@@ -970,6 +1036,9 @@ Tooltips:
     External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,
       яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання
       у вашому типовому переглядачі.\n"
+    Open Deep Links In New Window: URL-адреси, передані в FreeTube, наприклад через
+      розширення для браузера або аргументи командного рядка, відкриваються в новому
+      вікні.
   Player Settings:
     Proxy Videos Through Invidious: 'Під’єднається до Invidious, щоб дивитися відео,
       а не встановлювати пряме з’єднання з YouTube.'
@@ -986,17 +1055,17 @@ Tooltips:
     Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування
       відео в стилі MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
-      стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню
-      ІР, але не надає дані, як-от тривалість відео або стан трансляції'
+    Fetch Feeds from RSS: 'При увімкненні FreeTube буде використовувати RSS замість
+      стандартного методу для отримання підписок. RSS є швидшим і запобігає блокуванню
+      IP-адрес, але не надає певної інформації, такої як тривалість відео, статус
+      в прямому ефірі або пости в спільноті'
 
 # Toast Messages
     Fetch Automatically: Якщо увімкнено, FreeTube автоматично отримуватиме вашу стрічку
       підписок під час відкриття нового вікна та за перемикання профілю.
   External Player Settings:
-    Custom External Player Arguments: Будь-які нетипові аргументи командного рядка
-      розділяються (';') крапкою з комою, ви бажаєте, щоб вас було перенаправлено
-      до зовнішнього програвача.
+    Custom External Player Arguments: Будь-які користувацькі аргументи командного
+      рядка, які ви хочете передати зовнішньому плеєру.
     Ignore Warnings: Заборонити попередження, якщо поточний зовнішній програвач не
       підтримує поточну дію (наприклад, зворотна почерговість відтворення добірок
       тощо).
@@ -1007,6 +1076,9 @@ Tooltips:
       відео (список відтворення, якщо підтримується) у зовнішньому програвачі, на
       мініатюрі. Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
     DefaultCustomArgumentsTemplate: "(Типово: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Не надсилати жодних стандартних аргументів зовнішньому
+      плеєру, окрім URL-адреси відео (наприклад, швидкість відтворення, URL-адреса
+      добірки тощо). Користувацькі аргументи все одно будуть передаватися.
   Experimental Settings:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
@@ -1016,8 +1088,13 @@ Tooltips:
       повністю збігатися і чутливий до регістру.
     Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням
       "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Введіть слово, фрагмент слова або фразу
+      (незалежно від регістру), щоб приховати всі відео та добірки, у заголовках яких
+      вона міститься, по всьому FreeTube, за винятком Історії, Ваших Добірок і відео
+      в межах добірок.
   SponsorBlock Settings:
     UseDeArrowTitles: Замінити назви відео на надіслані користувачем назви з DeArrow.
+    UseDeArrowThumbnails: Замінити ескізи відео на ескізи з DeArrow.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
@@ -1080,6 +1157,7 @@ Chapters:
     поточний розділ: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований,
     поточний розділ: {chapterName}'
+  Key Moments: Ключові моменти
 Preferences: Налаштування
 Ok: Гаразд
 Hashtag:
@@ -1108,3 +1186,27 @@ Search Listing:
     3D: 3D
     Closed Captions: Закриті субтитри
 Right-click or hold to see history: ПКМ або утримуйте для перегляду історії
+Display Label: '{label}: {value}'
+Tag already exists: Тег "{tagName}" вже існує
+'Blocked opening potentially unsafe URL': 'Блоковано відкриття потенційно небезпечної
+  URL-адреси: "{url}".'
+shortcutJoinOperator: +
+Keys:
+  arrowright: Стрілка вправо
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Стрілка вниз
+  arrowleft: Стрілка вліво
+  arrowup: Стрілка вгору
+checkmark: ✓
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Age Restricted:
+  This channel is age restricted: Цей канал має вікові обмеження
+  This video is age restricted: Це відео має вікові обмеження
+Trimmed input must be at least N characters long: Обрізаний ввід повинен бути хоча
+  б 1 символ довжиною | Обрізаний ввід повинен бути хоча б {length} символів довжиною
+Moments Ago: щойно
+Yes, Restart: Так, перезавантажити
+Yes, Open Link: Так, відкрити посилання
+Yes, Delete: Так, видалити
+Cancel: Скасувати
