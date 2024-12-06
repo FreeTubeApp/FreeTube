@@ -101,6 +101,7 @@ Search Filters:
     HDR: HDR
     VR180: VR180
     3D: 3D
+    Creative Commons: Творчі Спільноти
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
@@ -109,9 +110,9 @@ Subscriptions:
     профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження
     швидкості'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
-    список підписок наразі порожній. Якщо ви хочете імпортувати свої підписки, ви
-    можете перейти до Налаштувань Даних і вибрати Імпортувати Підписки або знайти
-    канал і підписатися на нього.'
+    список підписок наразі порожній. Якщо ви хочете імпортувати свої підписки, перейдіть
+    до налаштувань даних і виберіть "Імпортувати підписки", або ви можете знайти канал
+    і підписатися на нього.'
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
@@ -132,10 +133,10 @@ Trending:
   Music: Музика
   Default: Типово
 Most Popular: 'Найпопулярніші'
-Playlists: 'Списки відтворення'
+Playlists: 'Добірки'
 User Playlists:
-  Your Playlists: 'Ваші списки відтворення'
-  Search bar placeholder: Шукати у добірці
+  Your Playlists: 'Ваші добірки'
+  Search bar placeholder: Шукати добірки
   Empty Search Message: Немає відео в цій добірці, які відповідають вашому запиту
   Create New Playlist: Створити новий список відтворення
   Add to Playlist: Додати список відтворення
@@ -156,6 +157,53 @@ User Playlists:
   Playlist Name: Назва списку відтворення
   Edit Playlist Info: Змінити інформацію списку відтворення
   Remove Watched Videos: Вилучити з переглянутих відео
+  Delete Playlist: Видалити добірку
+  Sort By:
+    Sort By: Сортувати за
+    LatestPlayedFirst: Нещодавно переглянуті
+    EarliestPlayedFirst: Найдавніше переглянуті
+    NameAscending: А-Я
+    LatestCreatedFirst: Нещодавно створено
+    EarliestCreatedFirst: Створено найраніше
+    NameDescending: Я-А
+    EarliestUpdatedFirst: Найстаріші оновлення
+    LatestUpdatedFirst: Останні оновлення
+  SinglePlaylistView:
+    Toast:
+      This playlist is now used for quick bookmark: Ця добірка тепер використовується
+        для швидких закладок
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ця
+        добірка тепер використовується для швидких закладок замість {oldPlaylistName}.
+        Натисніть тут, щоб скасувати
+      This video cannot be moved up.: Це відео не можна перемістити вгору.
+      This video cannot be moved down.: Це відео не можна перемістити вниз.
+      Video has been removed: Відео було видалено
+      This playlist is already being used for quick bookmark.: Ця добірка вже використовується
+        для швидких закладок.
+      There was a problem with removing this video: Сталася помилка під час видалення
+        цього відео
+      Reverted to use {oldPlaylistName} for quick bookmark: Повернуто до використання
+        {oldPlaylistName} для швидких закладок.
+    Search for Videos: Пошук відео
+  The playlist has been successfully exported: Добірку успішно експортовано
+  Export Playlist: Експортувати цю добірку
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ви
+    впевнені, що хочете видалити 1 переглянуте відео з цієї добірки? Цю дію не можна
+    скасувати. | Ви впевнені, що хочете видалити {playlistItemCount} переглянутих
+    відео з цієї добірки? Цю дію не можна скасувати.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ви
+    впевнені, що хочете видалити 1 дубльоване відео з цієї добірки? Цю дію не можна
+    скасувати. | Ви впевнені, що хочете видалити {playlistItemCount} дубльованих відео
+    з цієї добірки? Цю дію не можна скасувати.
+  Are you sure you want to delete this playlist? This cannot be undone: Ви впевнені,
+    що хочете видалити цю добірку? Це неможливо скасувати.
+  Enable Quick Bookmark With This Playlist: Увімкнути швидке додавання в закладки
+    для цієї добірки
+  Quick Bookmark Enabled: Швидке додавання в закладки увімкнено
+  Cannot delete the quick bookmark target playlist.: Неможливо видалити добірку швидких
+    закладок.
+  Playlists with Matching Videos: Добірки з відповідними відео
+  Remove Duplicate Videos: Видалити дублікати відео
 History:
   # On History Page
   History: 'Історія'
@@ -362,7 +410,7 @@ Settings:
     Hide Popular Videos: 'Не показувати популярні відео'
     Hide Live Chat: 'Не показувати живий чат'
     Hide Active Subscriptions: Сховати активні підписки
-    Hide Playlists: Сховати списки відтворення
+    Hide Playlists: Сховати добірки
     Hide Video Description: Сховати опис відео
     Hide Comments: Сховати коментарі
     Hide Sharing Actions: Сховати дії поширення
@@ -374,7 +422,7 @@ Settings:
     Display Titles Without Excessive Capitalisation: Показувати заголовки без надмірно
       великих літер
     Hide Featured Channels: Сховати пропоновані канали
-    Hide Channel Playlists: Сховати списки відтворення каналу
+    Hide Channel Playlists: Сховати добірки каналу
     Hide Channel Community: Сховати спільноту каналу
     Hide Channel Shorts: Сховати Shorts каналу
     Sections:
@@ -429,10 +477,10 @@ Settings:
     Manage Subscriptions: Керування підписками
     Playlist insufficient data: Недостатньо даних для списку відтворення "{playlist}",
       пропуск елемента
-    All playlists has been successfully exported: Усі списки відтворення успішно експортовано
+    All playlists has been successfully exported: Усі добірки успішно експортовано
     Import Playlists: Імпорт добірок
     Export Playlists: Експорт добірок
-    All playlists has been successfully imported: Усі списки відтворення успішно імпортовано
+    All playlists has been successfully imported: Усі добірки успішно імпортовано
     Playlist File: Файл списку відтворення
     Subscription File: Файл підписки
     History File: Файл історії
@@ -505,7 +553,7 @@ Settings:
     Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
 About:
   #On About page
-  About: 'Про'
+  About: 'Про додаток'
   #& About
   Donate: Підтримати
   these people and projects: цим людям та проєктам
@@ -597,14 +645,14 @@ Channel:
       Oldest: 'Найдавніші'
       Most Popular: 'Найпопулярніші'
   Playlists:
-    Playlists: 'Списки відтворення'
+    Playlists: 'Добірки'
     This channel does not currently have any playlists: 'Цей канал наразі не має добірок'
     Sort Types:
       Last Video Added: 'Останнє додане відео'
       Newest: 'Найновіші'
       Oldest: 'Найдавніші'
   About:
-    About: 'Про'
+    About: 'Про канал'
     Channel Description: 'Опис каналу'
     Featured Channels: 'Рекомендовані канали'
     Tags:
@@ -857,9 +905,9 @@ Tooltips:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
   Distraction Free Settings:
-    Hide Channels: Введіть ID, щоб сховати всі відео, списки відтворення та сам канал
-      від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введений ID каналу
-      повинен повністю збігатися і чутливий до регістру.
+    Hide Channels: Введіть ID, щоб сховати всі відео, добірки та сам канал від появи
+      в пошуку, тренді, найпопулярніших і рекомендованих. Введений ID каналу повинен
+      повністю збігатися і чутливий до регістру.
     Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням
       "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
   SponsorBlock Settings:
@@ -939,9 +987,10 @@ Channel Hidden: '{channel} додано до фільтра каналу'
 Go to page: Перейти до {page}
 Channel Unhidden: '{channel} вилучено з фільтра каналу'
 Close Banner: Закрити банер
-Search character limit: Пошуковий запит перевищив ліміт у {searchCharacterLimit} символів
+Search character limit: Запит перевищує ліміт у {searchCharacterLimit} символів
 Feed:
   Refresh Feed: Оновити {subscriptionName}
+  Feed Last Updated: 'Останнє оновлення фіда {feedName}: {date}'
 Search Listing:
   Label:
     4K: 4K
@@ -949,5 +998,7 @@ Search Listing:
     8K: 8K
     VR180: VR180
     360 Video: 360°
-    New: New
+    New: Новинка
     3D: 3D
+    Closed Captions: Закриті субтитри
+Right-click or hold to see history: ПКМ або утримуйте для перегляду історії
