@@ -662,6 +662,10 @@ function runApp() {
           return '#002B36'
         case 'solarized-light':
           return '#fdf6e3'
+        case 'gruvbox-dark':
+          return '#282828'
+        case 'gruvbox-light':
+          return '#fbf1c7'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -827,7 +831,7 @@ function runApp() {
 
   ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
   })
 
@@ -887,6 +891,26 @@ function runApp() {
     session.defaultSession.setProxy({})
     session.defaultSession.closeAllConnections()
   })
+
+  // #region navigation history
+
+  ipcMain.on(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, ({ sender }, offset) => {
+    sender.navigationHistory.goToOffset(offset)
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, async ({ sender }, index) => {
+    return sender.navigationHistory.getEntryAtIndex(index)?.title
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX, async ({ sender }) => {
+    return sender.navigationHistory.getActiveIndex()
+  })
+
+  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_LENGTH, async ({ sender }) => {
+    return sender.navigationHistory.length()
+  })
+
+  // #endregion navigation history
 
   ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') {

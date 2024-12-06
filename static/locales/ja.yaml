@@ -119,7 +119,7 @@ Trending:
   Movies: 映画
   Gaming: ゲーム
   Music: 音楽
-  Default: 既定
+  Default: デフォルト
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -215,6 +215,8 @@ User Playlists:
   Remove Duplicate Videos: 重複した動画を削除
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1本削除してもよろしいですか？この操作は元に戻せません。
     | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
+  The playlist has been successfully exported: 再生リストのエクスポートに成功しました
+  Export Playlist: この再生リストをエクスポート
 History:
   # On History Page
   History: '履歴'
@@ -285,6 +287,8 @@ Settings:
       Nordic: ノルディック
       Solarized Dark: ソラライズド・ダーク
       Solarized Light: ソラライズド・ライト
+      Gruvbox Dark: Gruvbox ダーク
+      Gruvbox Light: Gruvbox ライト
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -332,6 +336,16 @@ Settings:
       Solarized Cyan: ソラライズド・シアン
       Solarized Green: ソラライズド・グリーン
       Solarized Blue: ソラライズド・ブルー
+      Gruvbox Dark Green: Gruvbox ダークグリーン
+      Gruvbox Dark Blue: Gruvbox ダークブルー
+      Gruvbox Dark Aqua: Gruvbox ダークアクア
+      Gruvbox Light Red: Gruvbox ライトレッド
+      Gruvbox Light Blue: Gruvbox ライトブルー
+      Gruvbox Light Purple: Gruvbox ライトパープル
+      Gruvbox Dark Orange: Gruvbox ダークオレンジ
+      Gruvbox Dark Yellow: Gruvbox ダークイエロー
+      Gruvbox Dark Purple: Gruvbox ダークパープル
+      Gruvbox Light Orange: Gruvbox ライトオレンジ
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -473,8 +487,8 @@ Settings:
     Hide Channels: チャンネルから動画を非表示にする
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
-    Hide Channel Playlists: チャンネル再生リストの非表示
-    Hide Channel Community: チャンネルコミュニティの非表示
+    Hide Channel Playlists: チャンネルの「再生リスト」タブを隠す
+    Hide Channel Community: チャンネルの「コミュニティ」タブを隠す
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
@@ -482,12 +496,12 @@ Settings:
       General: 一般
       Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
-    Hide Channel Shorts: ショート動画チャンネルの非表示
-    Hide Channel Podcasts: ポッドキャスト チャンネルの非表示
+    Hide Channel Shorts: チャンネルの「ショート動画」タブを隠す
+    Hide Channel Podcasts: チャンネルの「ポッドキャスト」タブを隠す
     Hide Subscriptions Shorts: 登録チャンネルのショート動画の非表示
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
-    Hide Channel Releases: チャンネルの新着情報の非表示
+    Hide Channel Releases: チャンネルの「新着情報」タブを隠す
     Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
     Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
@@ -496,6 +510,7 @@ Settings:
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
+    Hide Channel Home: チャンネルの「ホーム」タブを隠す
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -511,6 +526,9 @@ Settings:
     Proxy Protocol: プロキシのプロトコル
     Enable Tor / Proxy: Tor / プロキシの有効化
     Proxy Settings: プロキシ
+    Proxy Warning: FreeTube にはプロキシは内蔵されていませんが、Tor のようなご使用のマシン上で動作するものや、一部の VPN が提供する
+      SOCKS5 プロキシのような外部プロキシに接続することができます。有効にした場合は、プロキシ/Tor が適切に設定されていることを確認してください。そうでないと、FreeTube
+      はデータを取得できなくなります。
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
@@ -655,6 +673,9 @@ Channel:
   Podcasts:
     This channel does not currently have any podcasts: このチャンネルにはポッドキャストがありません
     Podcasts: ポッドキャスト
+  Home:
+    View Playlist: 再生リストを表示
+    Home: ホーム
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -675,38 +696,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
   Published:
-    Jan: '1 月'
-    Feb: '2 月'
-    Mar: '3 月'
-    Apr: '4 月'
-    May: '5 月'
-    Jun: '6 月'
-    Jul: '7 月'
-    Aug: '8 月'
-    Sep: '9 月'
-    Oct: '10 月'
-    Nov: '11 月'
-    Dec: '12 月'
-    Second: '秒'
-    Seconds: '秒'
-    Hour: '時間'
-    Hours: '時間'
-    Day: '日'
-    Days: '日'
-    Week: '週間'
-    Weeks: '週間'
-    Month: 'ヶ月'
-    Months: 'ヶ月'
-    Year: '年'
-    Years: '年'
-    Ago: '前'
-    Upcoming: 'プレミア公開'
-    Minutes: 分
-    Minute: 分
-    Less than a minute: 1分以内
-    In less than a minute: 1 分以内に
+    In less than a minute: 1 分以内
   Published on: '公開日'
-  Publicationtemplate: '{number} {unit} 前'
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
@@ -746,7 +737,7 @@ Video:
       looping playlists: 再生リストのループ
       shuffling playlists: シャッフル再生リスト
       reversing playlists: 再生リストを反転させる
-      opening specific video in a playlist (falling back to opening the video): 再生リストで特定のビデオを開く
+      opening specific video in a playlist (falling back to opening the video): 再生リストで特定の動画を開く
         (ビデオを開く前にフォールバック)
       opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
@@ -794,7 +785,10 @@ Video:
     Take Screenshot: スクリーンショットを撮る
     Show Stats: 統計を表示
   IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
-  Unlisted: 非公開
+  Unlisted: 限定公開
+  MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
+  AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube
+    から直接見ることはできません。
 Videos:
   #& Sort By
   Sort By:
@@ -965,7 +959,7 @@ Tooltips:
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   External Player Settings:
-    Custom External Player Arguments: '";"、セミコロンで区切られたカスタム コマンド ライン引数を外部プレーヤーに渡します。'
+    Custom External Player Arguments: '外部プレイヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
@@ -1019,6 +1013,7 @@ Chapters:
     {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター：
     {chapterName}'
+  Key Moments: ハイライト
 Preferences: 環境設定
 Ok: オーケー
 Hashtag:
@@ -1058,3 +1053,12 @@ Trimmed input must be at least N characters long: トリミングされた入力
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました： "{url}"。'
 Display Label: '{label}：{value}'
+KeyboardShortcutTemplate: '{label} （{shortcut}）'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: 下矢印
+  arrowleft: 左矢印
+  arrowright: 右矢印
+  arrowup: 上矢印

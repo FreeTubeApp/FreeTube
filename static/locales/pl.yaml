@@ -244,6 +244,9 @@ User Playlists:
     na pewno chcesz usunąć 1 zduplikowany film z tej listy odtwarzania? Nie można
     tego cofnąć. | Czy na pewno chcesz usunąć {playlistItemCount} duplikatów wideo
     z tej listy odtwarzania? Nie można tego cofnąć.
+  Export Playlist: Eksportuj listę odtwarzania
+  The playlist has been successfully exported: Lista odtwarzania została pomyślnie
+    wyeksportowana
 History:
   # On History Page
   History: 'Historia'
@@ -301,6 +304,8 @@ Settings:
     Auto Load Next Page:
       Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
       Label: Automatycznie wczytaj kolejną stronę
+    Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube otwieraj w
+      nowym oknie
   Theme Settings:
     Theme Settings: 'Wygląd'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -317,6 +322,8 @@ Settings:
       Nordic: Nordycki
       Solarized Light: Nasłoneczniony jasny
       Solarized Dark: Nasłoneczniony ciemny
+      Gruvbox Dark: Gruvbox ciemny
+      Gruvbox Light: Gruvbox jasny
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -364,6 +371,16 @@ Settings:
       Solarized Cyan: Nasłoneczniony cyjan
       Solarized Green: Nasłoneczniony zielony
       Solarized Yellow: Nasłoneczniony żółty
+      Gruvbox Dark Green: Gruvbox ciemnozielony
+      Gruvbox Dark Yellow: Gruvbox żółty
+      Gruvbox Dark Blue: Gruvbox niebieski
+      Gruvbox Dark Purple: Gruvbox ciemnopurpurowy
+      Gruvbox Dark Aqua: Gruvbox ciemny wodny
+      Gruvbox Dark Orange: Gruvbox ciemnopomarańczowy
+      Gruvbox Light Red: Gruvbox jasnoczerwony
+      Gruvbox Light Blue: Gruvbox jasnoniebieski
+      Gruvbox Light Purple: Gruvbox jasnopurpurowy
+      Gruvbox Light Orange: Gruvbox jasnopomarańczowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -531,18 +548,18 @@ Settings:
     Hide Channels Placeholder: ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
       wielkich liter i interpunkcji
-    Hide Channel Community: Schowaj społeczność kanału
-    Hide Channel Shorts: Schowaj filmy Short kanału
+    Hide Channel Community: Schowaj kartę kanału „Społeczność”
+    Hide Channel Shorts: Schowaj kartę kanału „Filmy Short”
     Hide Featured Channels: Schowaj polecane kanały
-    Hide Channel Playlists: Schowaj playlisty kanału
+    Hide Channel Playlists: Schowaj kartę kanału „Playlisty”
     Sections:
       Side Bar: Pasek boczny
       Channel Page: Strona kanału
       General: Ogólne
       Watch Page: Strona odtwarzacza
       Subscriptions Page: Strona subskrypcji
-    Hide Channel Releases: Schowaj wydawnictwa kanału
-    Hide Channel Podcasts: Schowaj podkasty kanału
+    Hide Channel Releases: Schowaj kartę kanału „Wydawnictwa”
+    Hide Channel Podcasts: Schowaj kartę kanału „Podkasty”
     Hide Subscriptions Videos: Schowaj filmy z subskrypcji
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
@@ -559,6 +576,7 @@ Settings:
       poniższy tekst
     Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
       lub wyrażenie
+    Hide Channel Home: Schowaj kartę kanału „Główna”
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -578,6 +596,11 @@ Settings:
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube nie ma wbudowanego proxy, ale może połączyć z zewnętrznym
+      proxy. Na przykład z uruchomionym na Twoim komputerze, jak Tor, albo z uruchomionym
+      na zewnętrznym serwerze, takim jak SOCKS5 proxy, oferowanym przez niektórych
+      dostawców VPN. Po włączeniu upewnij się, że twoje proxy lub Tor są skonfigurowane
+      poprawnie, by FreeTube był w stanie wymieniać jakiekolwiek dane.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany
       zostanie pominięty
@@ -718,7 +741,7 @@ Channel:
     View Full Post: Zobacz całe posty
     Viewing Posts Only Supported By Invidious: Wyświetlanie postów jest wspierane
       tylko przez Invidious. Możesz zobaczyć zawartość nie korzystając z Invidious,
-      przechodząc do zakładki „Społeczność” danego kanału.
+      przechodząc do karty „Społeczność” danego kanału.
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -733,6 +756,9 @@ Channel:
   Podcasts:
     Podcasts: Podkasty
     This channel does not currently have any podcasts: Ten kanał nie ma żadnych podkastów
+  Home:
+    Home: Główna
+    View Playlist: Zobacz playlistę
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -761,38 +787,8 @@ Video:
     na żywo nie wspiera obecnie API Invidious. Konieczne jest połączenie bezpośrednie
     z YouTube.'
   Published:
-    Jan: 'sty.'
-    Feb: 'lut.'
-    Mar: 'mar.'
-    Apr: 'kwi.'
-    May: 'maj'
-    Jun: 'cze.'
-    Jul: 'lip.'
-    Aug: 'sie.'
-    Sep: 'wrz.'
-    Oct: 'paź.'
-    Nov: 'lis.'
-    Dec: 'gru.'
-    Second: 'sekundę'
-    Seconds: 'sekund/y'
-    Hour: 'godzinę'
-    Hours: 'godzin/y'
-    Day: 'dzień'
-    Days: 'dni'
-    Week: 'tydzień'
-    Weeks: 'tygodni/e'
-    Month: 'miesiąc'
-    Months: 'miesiące/y'
-    Year: 'rok'
-    Years: 'lat/a'
-    Ago: 'temu'
-    Upcoming: 'Premiera'
-    Minutes: minut/y
-    Minute: minutę
-    Less than a minute: mniej niż minutę
     In less than a minute: Za mniej niż minutę
   Published on: 'Opublikowano'
-  Publicationtemplate: '{number} {unit} temu'
 #& Videos
   Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
@@ -883,6 +879,14 @@ Video:
     Full Window: Pełny ekran
   IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz
     spróbować przełączyć się na inny, korzystając z VPN lub proxy.
+  AgeRestricted: Filmy z ograniczeniem wiekowym nie mogą być odtwarzane przez FreeTube,
+    ponieważ wymagają danych logowania do konta Google z potwierdzonym wiekiem użytkownika.
+  MembersOnly: Filmy tylko dla wspierających nie mogą być odtwarzane przez FreeTube,
+    ponieważ wymagają danych logowania do konta Googla oraz płatną subskrypcje kanału.
+  Unlisted: Niepubliczny
+  DeArrow:
+    Show Original Details: Pokaż szczegóły oryginału
+    Show Modified Details: Pokaż zmodyfikowane szczegóły
 Videos:
   #& Sort By
   Sort By:
@@ -1072,6 +1076,9 @@ Tooltips:
     External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
+    Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube (np. przez
+      rozszerzenie przeglądarki, albo argumenty linii komend) są otwierane w nowym
+      oknie.
   Player Settings:
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
@@ -1092,7 +1099,7 @@ Tooltips:
       ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
       Uwaga! Ustawienia Invidious nie mają wpływu na zewnętrzny odtwarzacz.
     Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
-      oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
+      które chcesz przekazać do zewnętrznego odtwarzacza.
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
@@ -1162,6 +1169,7 @@ Chapters:
     obecny rozdział: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
     rozdział: {chapterName}'
+  Key Moments: Kluczowe momenty
 Preferences: Preferencje
 Ok: Ok
 Hashtag:
@@ -1205,3 +1213,13 @@ Search Listing:
     360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
   URL: "{url}".'
+Keys:
+  arrowup: Strzałka do góry
+  arrowright: Strzałka w prawo
+  arrowleft: Strzałka w lewo
+  arrowdown: Strzałka w dół
+  alt: Alt
+  ctrl: Ctrl
+Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'

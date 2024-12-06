@@ -110,7 +110,6 @@
     <ft-age-restricted
       v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :is-video="true"
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
@@ -155,6 +154,7 @@
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
+        :kind="videoChaptersKind"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
@@ -167,7 +167,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
       />
-      <watch-video-comments
+      <CommentSection
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"

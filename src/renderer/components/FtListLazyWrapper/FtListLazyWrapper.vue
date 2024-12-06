@@ -141,18 +141,22 @@ const props = defineProps({
 
 const emit = defineEmits(['move-video-down', 'move-video-up', 'remove-from-playlist'])
 
+/** @type {import('vue').ComputedRef<'video' | 'shortVideo' | 'channel' | 'playlist' | 'community'>} */
 const finalDataType = computed(() => {
   return props.data.type ?? props.dataType
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideLiveStreams = computed(() => {
   return store.getters.getHideLiveStreams
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideUpcomingPremieres = computed(() => {
   return store.getters.getHideUpcomingPremieres
 })
 
+/** @type {import('vue').ComputedRef<{name : string, preferredName: string, icon: string}[]>} */
 const channelsHidden = computed(() => {
   // Some component users like channel view will have this disabled
   if (!props.useChannelsHiddenPreference) { return [] }
@@ -166,6 +170,7 @@ const channelsHidden = computed(() => {
   })
 })
 
+/** @type {string[]} */
 const forbiddenTitles = computed(() => {
   if (!props.hideForbiddenTitles) { return [] }
   return JSON.parse(store.getters.getForbiddenTitles)

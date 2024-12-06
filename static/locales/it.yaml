@@ -48,7 +48,7 @@ Global:
     Like Count: 1 mi piace | {count} mi piace
   Input Tags:
     Length Requirement: Il tag deve essere lungo almeno {number} caratteri
-Search / Go to URL: 'Cerca o aggiungi URL YouTube'
+Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -133,11 +133,11 @@ Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Le tue playlist'
-  Search bar placeholder: Cerca nelle playlist
+  Search bar placeholder: Ricerca nelle playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
   AddVideoPrompt:
-    Search in Playlists: Cerca nelle playlist
+    Search in Playlists: Ricerca nelle playlist
     Save: Salva
     Toast:
       "{videoCount} video(s) added to {playlistCount} playlists": 1 video aggiunto
@@ -168,7 +168,7 @@ User Playlists:
       Playlist {playlistName} has been deleted.: La playlist {playlistName} è stata
         eliminata.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alcuni
-        video nella playlist non sono ancora stati caricati. Clicca qui per copiare
+        video nella playlist non sono ancora stati caricati. Fai clic qui per copiare
         comunque.
       This playlist does not exist: Questa playlist non esiste
       Playlist name cannot be empty. Please input a name.: Il nome della playlist
@@ -193,7 +193,7 @@ User Playlists:
       This playlist has a video with a duration error: Questa playlist contiene almeno
         un video che non ha durata; verranno ordinati come se la loro durata fosse
         zero.
-    Search for Videos: Cerca video
+    Search for Videos: Ricerca nei video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
   Sort By:
@@ -249,12 +249,14 @@ User Playlists:
     sicuro di voler rimuovere 1 video guardato da questa playlist? Questa operazione
     non può essere annullata. | Vuoi rimuovere {playlistItemCount} video guardati
     da questa playlist? Questa operazione non può essere annullata.
+  Export Playlist: Esporta questa playlist
+  The playlist has been successfully exported: La playlist è stata esportata correttamente
 History:
   # On History Page
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
   Your history list is currently empty.: 'La tua cronologia è attualmente vuota.'
-  Search bar placeholder: Cerca nella cronologia
+  Search bar placeholder: Ricerca nella cronologia
   Empty Search Message: Non ci sono video nella tua cronologia che corrispondono alla
     tua ricerca
   Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
@@ -307,6 +309,7 @@ Settings:
     Auto Load Next Page:
       Label: Carica automaticamente la pagina successiva
       Tooltip: Carica automaticamente pagine e commenti aggiuntivi.
+    Open Deep Links In New Window: Apri URL passati a FreeTube in una nuova finestra
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -323,6 +326,8 @@ Settings:
       Nordic: Nordico
       Solarized Dark: Solarizzato scuro
       Solarized Light: Solarizzato chiaro
+      Gruvbox Light: Gruvbox chiaro
+      Gruvbox Dark: Gruvbox scuro
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -331,7 +336,7 @@ Settings:
       Deep Purple: 'Viola scuro'
       Indigo: 'Indaco'
       Blue: 'Blu'
-      Light Blue: 'Azzurro'
+      Light Blue: 'Blu chiaro'
       Cyan: 'Ciano'
       Teal: 'Verde acqua'
       Green: 'Verde'
@@ -370,6 +375,16 @@ Settings:
       Solarized Cyan: Solarizzato ciano
       Solarized Green: Solarizzato verde
       Solarized Blue: Solarizzato blu
+      Gruvbox Dark Yellow: Gruvbox giallo scuro
+      Gruvbox Dark Purple: Gruvbox viola scuro
+      Gruvbox Light Blue: Gruvbox blu chiaro
+      Gruvbox Light Purple: Gruvbox viola chiaro
+      Gruvbox Light Orange: Gruvbox arancione chiaro
+      Gruvbox Dark Aqua: Gruvbox acqua marina scuro
+      Gruvbox Dark Green: Gruvbox verde scuro
+      Gruvbox Dark Blue: Gruvbox blu scuro
+      Gruvbox Light Red: Gruvbox rosso chiaro
+      Gruvbox Dark Orange: Gruvbox arancione scuro
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni dell'interfaccia utente
@@ -538,17 +553,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole
       e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
-    Hide Channel Playlists: Nascondi le playlist del canale
-    Hide Channel Community: Nascondi la comunità del canale
-    Hide Channel Shorts: Nascondi i video brevi del canale
+    Hide Channel Playlists: Nascondi la scheda "Playlist" del canale
+    Hide Channel Community: Nascondi la scheda "Comunità" del canale
+    Hide Channel Shorts: Nascondi i "Video brevi" del canale
     Sections:
       General: Generale
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
       Subscriptions Page: Pagina delle iscrizioni
-    Hide Channel Podcasts: Nascondi i podcast del canale
-    Hide Channel Releases: Nascondi i rilasci del canale
+    Hide Channel Podcasts: Nascondi la scheda "Podcast" del canale
+    Hide Channel Releases: Nascondi la scheda "Rilasci" del canale
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
@@ -565,6 +580,7 @@ Settings:
       il testo
     Hide Videos and Playlists Containing Text Placeholder: Parola, frammento di parola
       o frase
+    Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -581,10 +597,15 @@ Settings:
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
-    Clicking on Test Proxy will send a request to: Cliccando su Testa proxy verrà
+    Clicking on Test Proxy will send a request to: Facendo clic su Testa proxy verrà
       inviata una richiesta a
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
+    Proxy Warning: FreeTube non ha un proxy integrato ma può connettersi a un proxy
+      esterno, come uno in esecuzione sul tuo computer come Tor o un proxy esterno
+      come un proxy SOCKS5 fornito da alcune VPN. Se abilitato, assicurati che il
+      tuo proxy/Tor sia configurato correttamente, altrimenti FreeTube non sarà in
+      grado di recuperare alcun dato.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato
@@ -677,7 +698,7 @@ About:
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
-  Search Channel: 'Cerca nel canale'
+  Search Channel: 'Ricerca nel canale'
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Sort By: 'Ordina per'
   Videos:
@@ -701,7 +722,7 @@ Channel:
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali in evidenza'
     Tags:
-      Search for: Cerca "{tag}"
+      Search for: Ricerca "{tag}"
       Tags: Etichette
     Details: Dettagli
     Joined: Iscrizione
@@ -743,6 +764,9 @@ Channel:
     Releases: Rilasci
     This channel does not currently have any releases: Questo canale non ha attualmente
       alcun rilascio
+  Home:
+    Home: Pagina iniziale
+    View Playlist: Visualizza la playlist
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla cronologia'
@@ -772,38 +796,8 @@ Video:
     chat dal vivo non è attualmente supportata con le API di Invidious. È necessaria
     una connessione diretta a YouTube.'
   Published:
-    Jan: 'Gen'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mag'
-    Jun: 'Giu'
-    Jul: 'Lug'
-    Aug: 'Ago'
-    Sep: 'Set'
-    Oct: 'Ott'
-    Nov: 'Nov'
-    Dec: 'Dic'
-    Second: 'Secondo'
-    Seconds: 'Secondi'
-    Hour: 'Ora'
-    Hours: 'Ore'
-    Day: 'Giorno'
-    Days: 'Giorni'
-    Week: 'Settimana'
-    Weeks: 'Settimane'
-    Month: 'Mese'
-    Months: 'Mesi'
-    Year: 'Anno'
-    Years: 'Anni'
-    Ago: 'Fa'
-    Upcoming: 'Première il'
-    Minutes: Minuti
-    Minute: Minuto
-    Less than a minute: Meno di un minuto
     In less than a minute: In meno di un minuto
   Published on: 'Pubblicato il'
-  Publicationtemplate: '{number} {unit} fa'
 #& Videos
   Play Previous Video: Riproduci il video precedente
   Play Next Video: Riproduci il prossimo video
@@ -901,6 +895,9 @@ Video:
   AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube
     poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età
     verificata.
+  DeArrow:
+    Show Original Details: Mostra dettagli originali
+    Show Modified Details: Mostra dettagli modificati
 Videos:
   #& Sort By
   Sort By:
@@ -961,7 +958,7 @@ Share:
 Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
-  Click to View Comments: 'Clicca per vedere i commenti'
+  Click to View Comments: 'Fai clic per vedere i commenti'
   Getting comment replies, please wait: 'Sto scaricando le risposte ai commenti, per
     favore attendi'
   Show Comments: 'Mostra i commenti'
@@ -992,8 +989,8 @@ Comments:
 Up Next: 'Prossimi video'
 
 # Toast Messages
-Local API Error (Click to copy): 'Errore API Locale (Clicca per copiare)'
-Invidious API Error (Click to copy): 'Errore API Invidious (Clicca per copiare)'
+Local API Error (Click to copy): 'Errore API locale (fai clic per copiare)'
+Invidious API Error (Click to copy): 'Errore API Invidious (fai clic per copiare)'
 Falling back to Invidious API: 'Torno alle API Invidious'
 Falling back to Local API: 'Torno alle API locali'
 Loop is now disabled: 'Il loop è ora disabilitato'
@@ -1009,9 +1006,9 @@ Canceled next video autoplay: 'Riproduzione automatica del prossimo video annull
 Yes: 'Sì'
 No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora
-  disponibile, {blogTitle}. Clicca per saperne di più'
+  disponibile, {blogTitle}. Fai clic per saperne di più'
 Version {versionNumber} is now available!  Click for more details: La versione {versionNumber}
-  è ora disponibile! Clicca per maggiori dettagli
+  è ora disponibile! Fai clic per maggiori dettagli
 Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
@@ -1077,9 +1074,9 @@ Tooltips:
     Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
       premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
-      CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
-      alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
-      nelle Impostazioni).
+      CTRL (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare
+      rapidamente alla velocità di riproduzione predefinita (1x a meno che non sia
+      stata cambiata nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
   Subscription Settings:
@@ -1104,11 +1101,14 @@ Tooltips:
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic
       su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita,
       FreeTube aprirà il link cliccato nel browser predefinito.\n"
+    Open Deep Links In New Window: Gli URL passati a FreeTube, ad esempio tramite
+      estensioni del browser di reindirizzamento o argomenti della riga di comando,
+      vengono aperti in una nuova finestra.
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
     Custom External Player Arguments: Invia al lettore esterno qualsiasi argomento
-      personalizzato dalla linea di comando, separato da punto e virgola (';').
+      personalizzato dalla linea di comando.
     Custom External Player Executable: Per impostazione predefinita, FreeTube imposta
       il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
       un percorso personalizzato può essere impostato qui.
@@ -1138,10 +1138,10 @@ Tooltips:
     UseDeArrowTitles: Sostituisci i titoli dei video coi titoli inviati dagli utenti
       di DeArrow.
     UseDeArrowThumbnails: Sostituisci le miniature dei video con le miniature di DeArrow.
-Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
-  per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
-  Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
-  secondi. Clicca per annullare.
+Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Fai
+  clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
+  secondi. Fai clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
+  secondi. Fai clic per annullare.
 More: Altro
 Open New Window: Apri una nuova finestra
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è
@@ -1164,7 +1164,7 @@ New Window: Nuova finestra
 Channels:
   Title: Elenco canali
   Channels: Canali
-  Search bar placeholder: Cerca canali
+  Search bar placeholder: Ricerca canali
   Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
@@ -1178,6 +1178,7 @@ Chapters:
     capitolo corrente: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Elenco capitoli nascosto,
     capitolo corrente: {chapterName}'
+  Key Moments: Momenti chiave
 Preferences: Preferenze
 Ok: OK
 Hashtag:
@@ -1221,3 +1222,14 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
   bloccata: "{url}".'
+shortcutJoinOperator: +
+Keys:
+  ctrl: Ctrl
+  arrowdown: Freccia giù
+  arrowleft: Freccia sinistra
+  arrowright: Freccia destra
+  arrowup: Freccia su
+  alt: Alt
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Fai clic con il tasto destro o tieni premuto per
+  visualizzare la cronologia

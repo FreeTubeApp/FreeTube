@@ -252,6 +252,8 @@ User Playlists:
     ли заиста да уклоните 1 одгледани видео с ове плејлисте? Ово не може бити опозвано.
     | Желите ли заиста да уклоните {playlistItemCount} одледаних видео снимака с ове
     плејлисте? Ово не може бити опозвано.
+  Export Playlist: Извези ову плејлисту
+  The playlist has been successfully exported: Плејлиста је успешно извезена
 History:
   # On History Page
   History: 'Историја'
@@ -312,6 +314,8 @@ Settings:
     Auto Load Next Page:
       Label: Аутоматски учитај следећу страницу
       Tooltip: Аутоматско учитавање додатних страница и коментара.
+    Open Deep Links In New Window: Отворите URL адресе прослеђене FreeTube-у у новом
+      прозору
   Theme Settings:
     Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
@@ -327,10 +331,12 @@ Settings:
       Pastel Pink: Пастелно розе
       Hot Pink: Врућа розе
       Catppuccin Mocha: Catppuccin Mocha
-      System Default: Системски подразумевано
+      System Default: Системски подразумевана
       Nordic: Нордичка
       Solarized Dark: Соларизована тамна
       Solarized Light: Соларизована светла
+      Gruvbox Dark: Gruvbox тамна
+      Gruvbox Light: Gruvbox светла
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -378,6 +384,16 @@ Settings:
       Solarized Magenta: Соларизована магента
       Solarized Blue: Соларизована плава
       Solarized Violet: Соларизована љубичаста
+      Gruvbox Dark Green: Gruvbox тамнозелена
+      Gruvbox Dark Purple: Gruvbox тамнољубичаста
+      Gruvbox Dark Yellow: Gruvbox тамножута
+      Gruvbox Dark Blue: Gruvbox тамноплава
+      Gruvbox Dark Aqua: Gruvbox тамноаква
+      Gruvbox Dark Orange: Gruvbox тамнонаранџаста
+      Gruvbox Light Red: Gruvbox светлоцрвена
+      Gruvbox Light Blue: Gruvbox светлоплава
+      Gruvbox Light Purple: Gruvbox светлољубичаста
+      Gruvbox Light Orange: Gruvbox светлонаранџаста
     Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
@@ -488,14 +504,14 @@ Settings:
       Channel Page: Страница канала
       Subscriptions Page: Страница праћења
       General: Опште
-    Hide Channel Community: Сакриј заједницу канала
+    Hide Channel Community: Сакриј картицу „Заједница“ канала
     Hide Subscriptions Videos: Сакриј видео снимке канала које пратите
     Hide Comments: Сакриј коментаре
-    Hide Channel Shorts: Сакриј Shorts снимке канала
+    Hide Channel Shorts: Сакриј картицу „Shorts“ канала
     Hide Sharing Actions: Сакриј радње дељења
-    Hide Channel Podcasts: Сакриј подкасте канала
+    Hide Channel Podcasts: Сакриј картицу „Подкасти“ канала
     Hide Live Streams: Сакриј стримове уживо
-    Hide Channel Playlists: Сакриј плејлисте канала
+    Hide Channel Playlists: Сакриј картицу „Плејлисте“ канала
     Hide Subscriptions Community: Сакриј заједницу канала које пратите
     Hide Channels: Сакриј видео снимке са канала
     Hide Subscriptions Live: Сакриј стримове уживо канала које пратите
@@ -505,7 +521,7 @@ Settings:
     Hide Featured Channels: Сакриј истакнуте канале
     Hide Profile Pictures in Comments: Сакриј слике профила у коментарима
     Hide Upcoming Premieres: Сакриј предстојеће премијере
-    Hide Channel Releases: Сакриј издања канала
+    Hide Channel Releases: Сакриј картицу „Издања“ канала
     Hide Channels Invalid: Наведени ID канала је неважећи
     Hide Channels Disabled Message: Неки канали су блокирани помоћу ID-а и нису обрађени.
       Функција је блокирана док се ти ID-ови ажурирају
@@ -515,6 +531,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Сакриј видео снимке и плејлисте које
       садрже текст
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
+    Hide Channel Home: Сакриј картицу „Почетна“ канала
   Data Settings:
     Data Settings: 'Подаци'
     Select Import Type: 'Избор врсте увоза'
@@ -579,6 +596,11 @@ Settings:
     City: 'Град'
     Error getting network information. Is your proxy configured properly?: 'Грешка
       при набављању информација о мрежи. Да ли је ваш прокси исправно конфигурисан?'
+    Proxy Warning: FreeTube нема уграђени прокси, али може да се повеже са спољним
+      проксијем, као што је онај који ради на вашој машини као што је Tor или спољни
+      прокси као што је SOCKS5 прокси који пружају неки VPN-ови. Ако је омогућено,
+      уверите се да је ваш прокси/Tor исправно конфигурисан или FreeTube неће моћи
+      да прикупи никакве податке.
   Experimental Settings:
     Replace HTTP Cache: Замени HTTP кеш
     Experimental Settings: Експериментално
@@ -781,6 +803,9 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Овај
     канал је старосно ограничен и тренутно се не може гледати на FreeTube-у.
   This channel does not exist: Овај канал не постоји
+  Home:
+    Home: Почетна
+    View Playlist: Погледај плејлисту
 Video:
   Mark As Watched: 'Означи као одгледано'
   Remove From History: 'Уклони из историје'
@@ -820,35 +845,7 @@ Video:
   'Chat is disabled or the Live Stream has ended.': 'Ћаскање је онемогућено или је
     стрим уживо завршен.'
   Published:
-    Month: Месец
-    Sep: Сеп.
-    Seconds: Секунди
     In less than a minute: За мање од једног минута
-    Week: Недеља
-    Upcoming: Премијера за
-    Dec: Дец.
-    Jan: Јан.
-    Weeks: Недеља
-    Days: Дана
-    Years: Године
-    May: Мај
-    Mar: Мар.
-    Hours: Сати
-    Oct: Окт.
-    Months: Месеци
-    Apr: Апр.
-    Feb: Феб.
-    Jul: Јул
-    Minutes: Минути
-    Minute: Минут
-    Day: Дан
-    Hour: Сат
-    Jun: Јун
-    Second: Секунда
-    Year: Година
-    Nov: Нов.
-    Ago: Пре
-    Aug: Авг.
   Upcoming: Предстојеће
   Sponsor Block category:
     interaction: Интеракција
@@ -884,7 +881,6 @@ Video:
   Show Super Chat Comment: Прикажи Super Chat коментар
   Scroll to Bottom: Превуци до дна
   Started streaming on: Започето стримовање
-  Publicationtemplate: пре {number} {unit}
   Premieres: Премијера
   Download Video: Преузми видео снимак
   Published on: Објављено
@@ -927,6 +923,15 @@ Video:
     Skipped segment: Прескочен сегмент „{segmentCategory}“
   IP block: YouTube је блокирао вашу IP адресу за гледање видео снимака. Покушајте
     прећи на други VPN или прокси.
+  Unlisted: По позиву
+  MembersOnly: Видео снимци само за чланове не могу да се гледају на FreeTube-у јер
+    захтевају пријављивање на Google налог и плаћено чланство на каналу.
+  AgeRestricted: Видео снимци са старосним ограничењемне могу се гледати на FreeTube-у
+    јер захтевају пријаву на Google налог и коришћење YouTube налога који је старосно
+    верификован.
+  DeArrow:
+    Show Modified Details: Прикажи измењене детаље
+    Show Original Details: Прикажи оригиналне детаље
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -953,9 +958,12 @@ Tooltips:
       снимке у тренду коју желите да се приказује.
     Invidious Instance: Invidious инстанца на коју ће се FreeTube повезати за API
       позиве.
+    Open Deep Links In New Window: URL адресе прослеђене FreeTube-у, као што су додаци
+      прегледача за преусмеравање или аргументи командне линије, отварају се у новом
+      прозору.
   External Player Settings:
-    Custom External Player Arguments: Сви прилагођени аргументи командне линије, раздвојени
-      тачком и зарезом („;“), желите да буду прослеђени спољном плејеру.
+    Custom External Player Arguments: Сви прилагођени аргументи командне линије, желите
+      да буду прослеђени спољном плејеру.
     External Player: Избором спољног плејера ће приказати иконицу, за отварање видео
       снимка (плејлисте, ако је подржана) у спољном плејеру, на сличици. Упозорење,
       подешавања Invidious-а не утичу на спољне плејере.
@@ -1120,6 +1128,7 @@ Chapters:
   Chapters: Поглавља
   'Chapters list hidden, current chapter: {chapterName}': 'Листа поглавља је скривена,
     тренутно поглавље: {chapterName}'
+  Key Moments: Кључни тренуци
 Hashtag:
   This hashtag does not currently have any videos: Ова хеш-ознака тренутно нема ниједан
     видео снимак
@@ -1179,3 +1188,14 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
   URL адресе: „{url}“.'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Keys:
+  alt: Alt
+  arrowdown: Стрелица доле
+  arrowleft: Стрелица лево
+  ctrl: Ctrl
+  arrowup: Стрелица горе
+  arrowright: Стрелица десно
+shortcutJoinOperator: +
+Right-click or hold to see history: Кликните десним тастером миша или задржите да
+  бисте видели историју

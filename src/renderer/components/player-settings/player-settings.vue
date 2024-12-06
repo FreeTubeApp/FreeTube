@@ -118,15 +118,6 @@
     </ft-flex-box>
     <ft-flex-box>
       <ft-slider
-        :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
-        :default-value="defaultSkipInterval"
-        :min-value="1"
-        :max-value="70"
-        :step="1"
-        value-extension="s"
-        @change="updateDefaultSkipInterval"
-      />
-      <ft-slider
         :label="$t('Settings.Player Settings.Next Video Interval')"
         :default-value="defaultInterval"
         :min-value="0"
@@ -134,6 +125,24 @@
         :step="1"
         value-extension="s"
         @change="updateDefaultInterval"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Autoplay Interruption Timer')"
+        :default-value="defaultAutoplayInterruptionIntervalHours"
+        :min-value="1"
+        :max-value="12"
+        :step="1"
+        value-extension="h"
+        @change="updateDefaultAutoplayInterruptionIntervalHours"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
+        :default-value="defaultSkipInterval"
+        :min-value="1"
+        :max-value="70"
+        :step="1"
+        value-extension="s"
+        @change="updateDefaultSkipInterval"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Default Volume')"

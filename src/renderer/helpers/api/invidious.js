@@ -1,8 +1,8 @@
 import store from '../../store/index'
 import {
   calculatePublishedDate,
+  getRelativeTimeFromDate,
   stripHTML,
-  toLocalePublicationString,
 } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
@@ -142,6 +142,11 @@ export async function invidiousGetCommentReplies({ id, replyToken }) {
   return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
 }
 
+/**
+ * @param {string} url
+ * @param {string?} currentInstance
+ * @returns {string}
+ */
 export function youtubeImageUrlToInvidious(url, currentInstance = null) {
   if (url == null) {
     return null
@@ -181,9 +186,7 @@ function parseInvidiousCommentData(response) {
     comment.isMember = comment.isSponsor
     comment.memberIconUrl = youtubeImageUrlToInvidious(comment.sponsorIconUrl)
     comment.replies = []
-    comment.time = toLocalePublicationString({
-      publishText: comment.publishedText
-    })
+    comment.time = getRelativeTimeFromDate(comment.published * 1000, false)
 
     return comment
   })

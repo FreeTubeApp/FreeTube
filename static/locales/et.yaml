@@ -248,6 +248,8 @@ User Playlists:
     sa oled kindel, et soovid sellest esitusloendist eemaldada 1 vaadatud video? Seda
     tegevust ei saa tagasi pöörata. | Kas sa oled kindel, et soovid sellest esitusloendist
     eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
+  Export Playlist: Ekspordi see esitusloend
+  The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
 History:
   # On History Page
   History: 'Ajalugu'
@@ -306,6 +308,7 @@ Settings:
     Auto Load Next Page:
       Label: Laadi järgmine leht automaatselt
       Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
+    Open Deep Links In New Window: Ava FreeTube'ile antud võrguaadressid uues aknas
   Theme Settings:
     Theme Settings: 'Kujundus'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -322,6 +325,8 @@ Settings:
       Nordic: Põhjala
       Solarized Dark: Tume päikesekuma
       Solarized Light: Hele päikesekuma
+      Gruvbox Dark: Gruuvimasina tume
+      Gruvbox Light: Gruuvimasina hele
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -369,6 +374,16 @@ Settings:
       Solarized Cyan: Rohekassinine päikesekuma
       Solarized Green: Roheline päikesekuma
       Solarized Yellow: Kollane päikesekuma
+      Gruvbox Dark Blue: Gruuvimasina tumesinine
+      Gruvbox Light Blue: Gruuvimasina helesinine
+      Gruvbox Dark Green: Gruuvimasina tumeroheline
+      Gruvbox Light Red: Gruuvimasina helepunane
+      Gruvbox Dark Purple: Gruuvimasina tumepurpur
+      Gruvbox Dark Orange: Gruuvimasina tumeoranž
+      Gruvbox Dark Yellow: Gruuvimasina kollane
+      Gruvbox Dark Aqua: Gruuvimasina tume vesi
+      Gruvbox Light Purple: Gruuvimasina helepurpur
+      Gruvbox Light Orange: Gruuvimasina heleoranž
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -535,11 +550,11 @@ Settings:
       Watch Page: Videovaade
       Subscriptions Page: Tellimuste vaade
     Hide Featured Channels: Peaida soovitatud kanalid
-    Hide Channel Playlists: Peida kanali esitusloendid
-    Hide Channel Shorts: Peida kanali lühivideod
-    Hide Channel Community: Peida kanali kogukond
-    Hide Channel Podcasts: Peida kanali taskuhäälingud
-    Hide Channel Releases: Peida kanali väljalasked
+    Hide Channel Playlists: Peida kanalite vahekaart „Esitusloendid“
+    Hide Channel Shorts: Peida kanalite vahekaart „Lühivideod“
+    Hide Channel Community: Peida kanalite vahekaart „Kogukond“
+    Hide Channel Podcasts: Peida kanalite vahekaart „Taskuhäälingud“
+    Hide Channel Releases: Peida kanalite vahekaart „Väljalasked“
     Hide Subscriptions Videos: Peida tellimuste videod
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
@@ -555,6 +570,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Sõna, sõnaosa või fraas
     Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus
       leidub sellist teksti
+    Hide Channel Home: Peida kanalite vahekaart „Avaleht“
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -571,6 +587,12 @@ Settings:
     Proxy Protocol: Puhverserveri protokoll
     Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
     Proxy Settings: Puhverserver
+    Proxy Warning: FreeTube'is pole sisseehitatud proksilahendust, kuid ta võib luua
+      ühenduse välise proksi kaudu. Näiteks kasutades sellist, mis töötab sinu arvutis
+      või nutiseadmes, olgu selleks Tor või mõne VPNi poolt pakutav SOCKS5. Kui sa
+      selle eelistuse sisse lülitad, palun jälgi et selline väline proksi on korralikult
+      seadistatud. Vastasel juhul võrguühendus ei toimi ja FreeTube ei saa andmeid
+      laadida.
   The app needs to restart for changes to take effect. Restart and apply change?: See
     rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
@@ -775,6 +797,9 @@ Channel:
     This channel does not currently have any releases: Sellel kanalil pole hetkel
       ühtegi väljalaset
     Releases: Väljalasked
+  Home:
+    Home: Avaleht
+    View Playlist: Vaata esitusloendit
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
@@ -811,37 +836,8 @@ Video:
     kasutad Invidious''e veebiteenuse-põhist API''t, siis reaalajas vestlus ei ole
     toetatud. Selleks on vajalik otseliidestus YouTube''ga.'
   Published:
-    Jan: 'Jaan'
-    Feb: 'Veeb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'Juuni'
-    Jul: 'Juuli'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Dets'
-    Second: 'Sekund'
-    Seconds: 'Sekundit'
-    Minute: 'Minut'
-    Minutes: 'Minutit'
-    Hour: 'Tund'
-    Hours: 'Tundi'
-    Day: 'Päev'
-    Days: 'Päeva'
-    Week: 'Nädal'
-    Weeks: 'Nädalat'
-    Month: 'Kuu'
-    Months: 'Kuud'
-    Year: 'Aasta'
-    Years: 'Aastat'
-    Ago: 'tagasi'
-    Upcoming: 'Esilinastus'
     In less than a minute: Vähem kui minuti pärast
   Published on: 'Avaldatud'
-  Publicationtemplate: '{number} {unit} tagasi'
 #& Videos
   Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
   Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
@@ -928,6 +924,9 @@ Video:
   AgeRestricted: Kuna vajalik on sisselogimine Google'i kontoga, kus vanus on kontrollitud,
     siis vanusepiiranguga videoid ei saa FreeTube'is vaadata.
   Unlisted: Registriväline
+  DeArrow:
+    Show Original Details: Näita algseid üksikasju
+    Show Modified Details: Näita muudetud üksikasju
 Videos:
   #& Sort By
   Sort By:
@@ -1046,8 +1045,8 @@ Tooltips:
       muu asukoha.
     Ignore Warnings: Kui väline meediamängija antud funktsionaalsust (näiteks esitusloendi
       järjekorra pööramine) ei toeta, siis ära näita hoiatusi.
-    Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
-      mida sa soovid välisele meediamängijale saata.
+    Custom External Player Arguments: Misiganes käsurea argumendid, mida sa soovid
+      välisele meediamängijale saata.
     External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video
       (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e
       seadistused ei mõjuta välise meediamängija kasutamist."
@@ -1075,6 +1074,8 @@ Tooltips:
       tegemisel.
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa
       avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
+    Open Deep Links In New Window: FreeTube'ile brauseritest või käsurealt antud võrguaadressid
+      avatakse uues aknas.
   Player Settings:
     Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
@@ -1142,6 +1143,7 @@ Chapters:
     praegune peatükk: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Peatükkide loend on peidetud,
     praegune peatükk: {chapterName}'
+  Key Moments: Olulised hetked
 Ok: Sobib
 Preferences: Eelistused
 Hashtag:
@@ -1186,3 +1188,14 @@ Search Listing:
     360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
   avamise: „{url}“.'
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Keys:
+  arrowup: Nool üles
+  alt: Alt
+  ctrl: Ctrl
+  arrowleft: Nool vasakule
+  arrowright: Nool paremale
+  arrowdown: Nool alla
+Right-click or hold to see history: Ajaloo nägemiseks klõpsa parema hiireklahviga
+  ja hoia klahvi all

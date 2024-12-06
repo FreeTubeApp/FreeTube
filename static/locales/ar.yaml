@@ -239,6 +239,8 @@ User Playlists:
     أنت متأكد أنك تريد إزالة مقطع فيديو مكرر واحد من قائمة التشغيل هذه؟ هذا لا يمكن
     التراجع عنها. | هل أنت متأكد أنك تريد إزالة {playlistItemCount} من مقاطع الفيديو
     المكررة من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
+  Export Playlist: تصدير قائمة التشغيل هذه
+  The playlist has been successfully exported: تم تصدير قائمة التشغيل بنجاح
 History:
   # On History Page
   History: 'السجلّ'
@@ -560,6 +562,10 @@ Settings:
       في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
     Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي
       إلى إرسال طلب إلى
+    Proxy Warning: لا يحتوي FreeTube على وكيل مدمج ولكن يمكنه الاتصال بوكيل خارجي،
+      مثل وكيل يعمل على جهازك مثل Tor أو وكيل خارجي مثل وكيل SOCKS5 الذي توفره بعض
+      شبكات VPN. إذا تم التمكين، فتأكد من تكوين الوكيل/الاختصاص الخاص بك بشكل صحيح،
+      وإلا فلن يتمكن FreeTube من جلب أي بيانات.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: تنبيه عندما يتم تخطي شريحة الراعي
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
@@ -788,38 +794,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'المحادثة
     المباشرة غير مدعومة حالياً مع Invidious API. يلزم الاتصال المباشر بيوتيوب.'
   Published:
-    Jan: 'يناير'
-    Feb: 'فبراير'
-    Mar: 'مارس'
-    Apr: 'أبريل'
-    May: 'مايو'
-    Jun: 'يونيو'
-    Jul: 'يوليو'
-    Aug: 'أغسطس'
-    Sep: 'سبتمبر'
-    Oct: 'أكتوبر'
-    Nov: 'نوفمبر'
-    Dec: 'ديسمبر'
-    Second: 'ثانية'
-    Seconds: 'ثواني'
-    Minute: 'دقيقة'
-    Minutes: 'دقائق'
-    Hour: 'ساعة'
-    Hours: 'ساعات'
-    Day: 'يوم'
-    Days: 'أيام'
-    Week: 'أسبوع'
-    Weeks: 'أسابيع'
-    Month: 'شهر'
-    Months: 'شهور'
-    Year: 'سنة'
-    Years: 'سنوات'
-    Ago: 'منذ'
-    Upcoming: 'يبدأ العرض'
-    Less than a minute: أقل من دقيقة
     In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
-  Publicationtemplate: 'قبل {number} {unit}'
 #& Videos
   Autoplay: تشغيل تلقائي
   Play Previous Video: شغل الفيديو السابق
@@ -1127,6 +1103,7 @@ Chapters:
     الحالي: {chapterName}'
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {chapterName}'
+  Key Moments: ‌العناصر الرئيسية
 Preferences: التفضيلات
 Ok: موافق
 Hashtag:

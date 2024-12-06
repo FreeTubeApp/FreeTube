@@ -554,34 +554,6 @@ Video:
     playlist: فهرست پخش
     OpeningTemplate: باز کردن {videoOrPlaylist} در {externalPlayer}...
   Published:
-    Sep: سپتامبر
-    Month: ماه
-    Months: ماه ها
-    Year: سال
-    May: می
-    Minute: دقیقه
-    Hours: ساعت ها
-    Day: روز
-    Weeks: هفته ها
-    Feb: فوریه
-    Hour: ساعت
-    Mar: مارس
-    Jul: ژوئیه
-    Jan: جان
-    Apr: آپریل
-    Jun: ژوئن
-    Aug: اوت
-    Oct: اکتبر
-    Nov: نوامبر
-    Dec: دسامبر
-    Second: دوم
-    Seconds: ثانیه ها
-    Minutes: دقیقه ها
-    Days: روزها
-    Week: هفته
-    Years: سالها
-    Ago: پیش
-    Upcoming: اولین نمایش در
     In less than a minute: در کمتر از یک دقیقه
   Copy Invidious Link: لینک Invidious را کپی کنید
   Play Previous Video: پخش ویدیوی قبلی
@@ -628,7 +600,6 @@ Video:
   Streamed on: پخش جریانی
   Published on: منتشر شده در
   audio only: فقط صدا
-  Publicationtemplate: '{number} {unit} پیش'
   Video has been saved: ویدیو ذخیره شده است
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': گفتگوی
     زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به YouTube مورد

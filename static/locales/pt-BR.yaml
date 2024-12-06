@@ -242,6 +242,8 @@ User Playlists:
     certeza de que deseja remover 1 vídeo assistido desta playlist? Isso não pode
     ser desfeito. | Tem certeza de que deseja remover {playlistItemCount} vídeos assistidos
     desta playlist? Isso não pode ser desfeito.
+  The playlist has been successfully exported: Playlist exportada com sucesso
+  Export Playlist: Exportar esta playlist
 History:
   # On History Page
   History: 'Histórico'
@@ -276,7 +278,7 @@ Settings:
       End: 'No fim'
       Hidden: Escondido
       Blur: Desfocar
-    Region for Trending: 'Região'
+    Region for Trending: 'Região de Tendências'
         #! List countries
     Check for Updates: Buscar por atualizações
     Check for Latest Blog Posts: Verificar se há novas postagens no blog
@@ -315,6 +317,8 @@ Settings:
       Nordic: Nordico
       Solarized Light: Claro Solarizado
       Solarized Dark: Escuro Solarizado
+      Gruvbox Light: Gruvbox modo claro
+      Gruvbox Dark: Gruvbox modo escuro
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -362,6 +366,16 @@ Settings:
       Solarized Cyan: Ciano Solarizado
       Solarized Green: Verde Solarizado
       Solarized Orange: Laranja Solarizada
+      Gruvbox Dark Blue: Gruvbox modo azul escuro
+      Gruvbox Dark Purple: Gruvbox modo roxo escuro
+      Gruvbox Dark Aqua: Gruvbox modo água escura
+      Gruvbox Light Red: Gruvbox modo vermelho claro
+      Gruvbox Light Blue: Gruvbox modo azul claro
+      Gruvbox Light Purple: Gruvbox modo roxo claro
+      Gruvbox Light Orange: Gruvbox modo laranja claro
+      Gruvbox Dark Green: Gruvbox modo verde escuro
+      Gruvbox Dark Yellow: Gruvbox modo amarelo escuro
+      Gruvbox Dark Orange: Gruvbox modo laranja escuro
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -575,6 +589,11 @@ Settings:
       obter informações da rede. Seu proxy está configurado corretamente?
     City: Cidade
     Region: Região
+    Proxy Warning: FreeTube não tem um proxy integrado, mas pode se conectar a um
+      proxy externo, como um proxy em execução no seu computador, como o Tor, ou um
+      proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver ativado,
+      certifique-se de que seu proxy/Tor esteja configurado corretamente, ou o FreeTube
+      não conseguirá obter nenhum dado.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar quando vídeos publicitários
       for ignorado
@@ -759,38 +778,8 @@ Video:
     chat ao vivo não é suportado pela API do Invidious. Uma conexão com o YouTube
     é necessária.'
   Published:
-    Jan: 'jan'
-    Feb: 'fev'
-    Mar: 'mar'
-    Apr: 'abr'
-    May: 'mai'
-    Jun: 'jun'
-    Jul: 'jul'
-    Aug: 'ago'
-    Sep: 'set'
-    Oct: 'out'
-    Nov: 'nov'
-    Dec: 'dez'
-    Second: 'segundo'
-    Seconds: 'segundos'
-    Hour: 'hora'
-    Hours: 'horas'
-    Day: 'dia'
-    Days: 'dias'
-    Week: 'semana'
-    Weeks: 'semanas'
-    Month: 'mês'
-    Months: 'meses'
-    Year: 'ano'
-    Years: 'anos'
-    Ago: 'atrás'
-    Upcoming: 'Estreia em'
-    Minutes: minutos
-    Minute: minuto
-    Less than a minute: Menos de um minuto
     In less than a minute: Em menos de um minuto
   Published on: 'Publicado em'
-  Publicationtemplate: 'Há {number} {unit}'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
@@ -881,6 +870,11 @@ Video:
     Exit Full Window: Sair do preenchimento de janela
   IP block: O YouTube bloqueou seu endereço IP para assistir a vídeos. Tente mudar
     para uma VPN ou proxy diferente.
+  Unlisted: Não listado
+  MembersOnly: Vídeos exclusivos para membros não podem ser assistidos com o FreeTube,
+    pois exigem login do Google e assinatura paga do canal do remetente.
+  AgeRestricted: Vídeos com restrição de idade não podem ser assistidos com o FreeTube,
+    pois exigem login do Google e uso de uma conta do YouTube com verificação de idade.
 Videos:
   #& Sort By
   Sort By:
@@ -1088,8 +1082,7 @@ Tooltips:
       clicado em seu navegador padrão.\n"
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
-      separados por ponto e vírgula (';'), você deseja que seja passado para o player
-      externo.
+      você deseja que seja passado para o player externo.
     Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta
       a ação atual (por exemplo, reverter playlist, etc.).
     Custom External Player Executable: Por padrão, o FreeTube assumirá que o player
@@ -1160,6 +1153,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos,
     capítulo atual: {chapterName}'
   Chapters: Capítulos
+  Key Moments: Melhores momentos
 Ok: OK
 Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
