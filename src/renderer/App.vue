@@ -49,6 +49,7 @@
     />
     <ft-search-filters
       v-if="showSearchFilters"
+      :search-query-text="searchQueryText"
     />
     <ft-playlist-add-video-prompt
       v-if="showAddToPlaylistPrompt"
@@ -63,6 +64,7 @@
     <top-nav
       ref="topNav"
       :inert="isPromptOpen"
+      @search-query-text="updateSearchQueryText"
     />
     <side-nav
       ref="sideNav"

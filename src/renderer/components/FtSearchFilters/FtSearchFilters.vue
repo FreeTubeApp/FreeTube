@@ -88,6 +88,14 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtCheckboxList from '../ft-checkbox-list/ft-checkbox-list.vue'
 
 import store from '../../store/index'
+import { clearLocalSearchSuggestionsSession } from '../../helpers/api/local'
+
+const props = defineProps({
+  searchQueryText: {
+    type: String,
+    required: true
+  }
+})
 
 const { t } = useI18n()
 
@@ -207,6 +215,8 @@ const searchFilterValueChanged = computed(() => {
 })
 
 const searchSettings = computed(() => store.getters.getSearchSettings)
+
+const showSearchButton = computed(() => props.searchQueryText !== '')
 
 const searchSortByStartIndex = SORT_BY_VALUES.indexOf(searchSettings.value.sortBy)
 const searchTimeStartIndex = TIME_VALUES.indexOf(searchSettings.value.time)

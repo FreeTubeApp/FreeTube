@@ -9,7 +9,7 @@ import {
   CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
-  openExternalLink,
+  openExternalLink, openInternalPath,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
   showExternalPlayerUnsupportedActionToast,
@@ -678,6 +678,110 @@ const actions = {
         return {
           urlType: 'unknown'
         }
+      }
+    }
+  },
+
+  async search({ dispatch }, { queryText, doCreateNewWindow }) {
+    const searchSettings = state.searchSettings
+    const result = await dispatch('getYoutubeUrlInfo', queryText)
+
+    switch (result.urlType) {
+      case 'video': {
+        const { videoId, timestamp, playlistId } = result
+
+        const query = {}
+        if (timestamp) {
+          query.timestamp = timestamp
+        }
+        if (playlistId && playlistId.length > 0) {
+          query.playlistId = playlistId
+        }
+
+        openInternalPath({
+          path: `/watch/${videoId}`,
+          query,
+          doCreateNewWindow,
+          searchQueryText: queryText,
+        })
+        break
+      }
+
+      case 'playlist': {
+        const { playlistId, query } = result
+
+        openInternalPath({
+          path: `/playlist/${playlistId}`,
+          query,
+          doCreateNewWindow,
+          searchQueryText: queryText,
+        })
+        break
+      }
+
+      case 'search': {
+        const { searchQuery, query } = result
+
+        openInternalPath({
+          path: `/search/${encodeURIComponent(searchQuery)}`,
+          query,
+          doCreateNewWindow,
+          searchQueryText: searchQuery,
+        })
+        break
+      }
+
+      case 'hashtag': {
+        const { hashtag } = result
+        openInternalPath({
+          path: `/hashtag/${encodeURIComponent(hashtag)}`,
+          doCreateNewWindow,
+          searchQueryText: `#${hashtag}`,
+        })
+
+        break
+      }
+
+      case 'post': {
+        const { postId, query } = result
+
+        openInternalPath({
+          path: `/post/${postId}`,
+          query,
+          doCreateNewWindow,
+          searchQueryText: queryText,
+        })
+        break
+      }
+
+      case 'channel': {
+        const { channelId, subPath, url } = result
+
+        openInternalPath({
+          path: `/channel/${channelId}/${subPath}`,
+          doCreateNewWindow,
+          query: {
+            url,
+          },
+          searchQueryText: queryText,
+        })
+        break
+      }
+
+      case 'invalid_url':
+      default: {
+        openInternalPath({
+          path: `/search/${encodeURIComponent(queryText)}`,
+          query: {
+            sortBy: searchSettings.sortBy,
+            time: searchSettings.time,
+            type: searchSettings.type,
+            duration: searchSettings.duration,
+            features: searchSettings.features,
+          },
+          doCreateNewWindow,
+          searchQueryText: queryText,
+        })
       }
     }
   },
