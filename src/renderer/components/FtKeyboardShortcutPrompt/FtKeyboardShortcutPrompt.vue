@@ -114,6 +114,7 @@ const closeButtonTitle = computed(() => i18n.t('Close'))
 
 const localizedShortcutNameDictionary = computed(() => {
   return new Map([
+    ['SHOW_SHORTCUTS', i18n.t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')],
     ['HISTORY_BACKWARD', i18n.t('KeyboardShortcutPrompt.History Backward')],
     ['HISTORY_FORWARD', i18n.t('KeyboardShortcutPrompt.History Forward')],
     ['FULLSCREEN', i18n.t('KeyboardShortcutPrompt.Fullscreen')],
@@ -127,8 +128,8 @@ const localizedShortcutNameDictionary = computed(() => {
     ['MINIMIZE_WINDOW', i18n.t('KeyboardShortcutPrompt.Minimize Window')],
     ['CLOSE_WINDOW', i18n.t('KeyboardShortcutPrompt.Close Window')],
     (isMac
-      ? ['QUIT', i18n.t('KeyboardShortcutPrompt.Quit')]
-      : ['QUIT_MAC', i18n.t('KeyboardShortcutPrompt.Quit')]
+      ? ['QUIT_MAC', i18n.t('KeyboardShortcutPrompt.Quit')]
+      : ['QUIT', i18n.t('KeyboardShortcutPrompt.Quit')]
     ),
     ['RELOAD', i18n.t('KeyboardShortcutPrompt.Reload')],
     ['FORCE_RELOAD', i18n.t('KeyboardShortcutPrompt.Force Reload')],

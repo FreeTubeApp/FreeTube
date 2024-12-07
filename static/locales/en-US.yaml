@@ -1124,6 +1124,7 @@ Keys:
   alt: Alt
   ctrl: Ctrl
   shift: Shift
+  enter: Enter
   arrowdown: Down Arrow
   arrowleft: Left Arrow
   arrowright: Right Arrow
@@ -1137,6 +1138,7 @@ KeyboardShortcutPrompt:
     App:
       Situational: 'App: Situational'
       General: App: General
+  Show Keyboard Shortcuts: Show keyboard shortcuts
   History Backward: Go back one page
   History Forward: Go forward one page
   New Window: Create a new window

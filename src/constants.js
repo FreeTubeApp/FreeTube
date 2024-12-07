@@ -121,15 +121,31 @@ const SyncEvents = {
 const KeyboardShortcuts = {
   APP: {
     GENERAL: {
+      SHOW_SHORTCUTS: 'ctrl+Z',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
-      NEW_WINDOW: 'ctrl+N',
+      FULLSCREEN: 'f11',
       NAVIGATE_TO_SETTINGS: 'ctrl+,',
       NAVIGATE_TO_HISTORY: 'ctrl+H',
       NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+      NEW_WINDOW: 'ctrl+N',
+      MINIMIZE_WINDOW: 'ctrl+M',
+      CLOSE_WINDOW: 'ctrl+W',
+      QUIT: 'alt+f4',
+      QUIT_MAC: 'cmd+Q',
+      RELOAD: 'ctrl+R',
+      FORCE_RELOAD: 'ctrl+shift+R',
+      TOGGLE_DEVTOOLS: 'ctrl+shift+I',
+      FOCUS_SEARCH: 'alt+D',
+      SEARCH_IN_NEW_WINDOW: 'shift+enter',
+      RESET_ZOOM: 'ctrl+0',
+      ZOOM_IN: 'ctrl+=',
+      ZOOM_OUT: 'ctrl+-'
+
     },
     SITUATIONAL: {
-      REFRESH: 'r'
+      REFRESH: 'r',
+      FOCUS_SECONDARY_SEARCH: 'ctrl+F'
     },
   },
   VIDEO_PLAYER: {
@@ -153,10 +169,11 @@ const KeyboardShortcuts = {
       SMALL_FAST_FORWARD: 'arrowright',
       DECREASE_VIDEO_SPEED: 'o',
       INCREASE_VIDEO_SPEED: 'p',
-      LAST_FRAME: ',',
-      NEXT_FRAME: '.',
+      SKIP_N_TENTHS: '0..9',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
     }
   },
 }

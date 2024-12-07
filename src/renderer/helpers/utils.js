@@ -915,6 +915,10 @@ function getIndividualLocalizedShortcut(shortcut) {
       return i18n.t('Keys.alt')
     case 'ctrl':
       return i18n.t('Keys.ctrl')
+    case 'shift':
+      return i18n.t('Keys.shift')
+    case 'enter':
+      return i18n.t('Keys.enter')
     case 'arrowleft':
       return i18n.t('Keys.arrowleft')
     case 'arrowright':
@@ -924,7 +928,7 @@ function getIndividualLocalizedShortcut(shortcut) {
     case 'arrowdown':
       return i18n.t('Keys.arrowdown')
     default:
-      return shortcut
+      return shortcut.toUpperCase()
   }
 }
 
@@ -936,6 +940,10 @@ function getMacIconForShortcut(shortcut) {
     case 'cmd':
     case 'ctrl':
       return '⌘'
+    case 'shift':
+      return '⇧'
+    case 'enter':
+      return '⌤'
     case 'arrowleft':
       return '←'
     case 'arrowright':
@@ -945,7 +953,7 @@ function getMacIconForShortcut(shortcut) {
     case 'arrowdown':
       return '↓'
     default:
-      return shortcut
+      return shortcut.toUpperCase()
   }
 }
 
