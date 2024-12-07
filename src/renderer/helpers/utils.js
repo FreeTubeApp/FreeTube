@@ -1,5 +1,3 @@
-import fs from 'fs/promises'
-
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
@@ -357,6 +355,85 @@ export async function readFileWithPicker(
 }
 
 /**
+ * @param {string} fileName
+ * @param {string | Blob} content
+ * @param {string} fileTypeDescription
+ * @param {string} mimeType
+ * @param {string} fileExtension
+ * @param {string} [rememberDirectoryId]
+ * @param {'desktop' | 'documents' | 'downloads' | 'music' | 'pictures' | 'videos'} [startInDirectory]
+ * @returns {Promise<boolean>}
+ */
+export async function writeFileWithPicker(
+  fileName,
+  content,
+  fileTypeDescription,
+  mimeType,
+  fileExtension,
+  rememberDirectoryId,
+  startInDirectory
+) {
+  // Only supported in Electron and desktop Chromium browsers
+  // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
+  // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
+  // and allow terser to remove the unused else block
+  if (process.env.IS_ELECTRON || 'showSaveFilePicker' in window) {
+    let writableFileStream
+
+    try {
+      /** @type {FileSystemFileHandle} */
+      const handle = await window.showSaveFilePicker({
+        suggestedName: fileName,
+        excludeAcceptAllOption: true,
+        multiple: false,
+        id: rememberDirectoryId,
+        startIn: startInDirectory,
+        types: [{
+          description: fileTypeDescription,
+          accept: {
+            [mimeType]: [fileExtension]
+          }
+        }],
+      })
+
+      writableFileStream = await handle.createWritable()
+      await writableFileStream.write(content)
+    } catch (error) {
+      // user pressed cancel in the file picker
+      if (error.name === 'AbortError') {
+        return false
+      }
+
+      throw error
+    } finally {
+      if (writableFileStream) {
+        await writableFileStream.close()
+      }
+    }
+
+    return true
+  } else {
+    if (typeof content === 'string') {
+      content = new Blob([content], { type: mimeType })
+    }
+
+    const url = URL.createObjectURL(content)
+
+    const downloadLink = document.createElement('a')
+    downloadLink.setAttribute('download', encodeURIComponent(fileName))
+    downloadLink.setAttribute('href', url)
+    downloadLink.click()
+
+    // Small timeout to give the browser time to react to the click on the link
+    setTimeout(() => {
+      URL.revokeObjectURL(url)
+    }, 1000)
+
+    return true
+  }
+}
+
+/**
  * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
  * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
  */
@@ -382,34 +459,6 @@ export async function showSaveDialog (options) {
       }
     } else {
       return { canceled: false, filePath: options.defaultPath }
-    }
-  }
-}
-
-/**
- * Write to a file picked out from the `showSaveDialog` picker
- * @param {object} response the response from `showSaveDialog`
- * @param {string} content the content to be written to the file selected by the dialog
- */
-export async function writeFileFromDialog (response, content) {
-  if (process.env.IS_ELECTRON) {
-    const { filePath } = response
-    return await fs.writeFile(filePath, content)
-  } else {
-    if ('showOpenFilePicker' in window) {
-      const { handle } = response
-      const writableStream = await handle.createWritable()
-      await writableStream.write(content)
-      await writableStream.close()
-    } else {
-      // If the native filesystem api is not available,
-      const { filePath } = response
-      const filename = filePath.split('/').at(-1)
-      const a = document.createElement('a')
-      const url = URL.createObjectURL(new Blob([content], { type: 'application/octet-stream' }))
-      a.setAttribute('href', url)
-      a.setAttribute('download', encodeURI(filename))
-      a.click()
     }
   }
 }
