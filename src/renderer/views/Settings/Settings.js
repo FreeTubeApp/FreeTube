@@ -1,7 +1,7 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
-import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
+import ThemeSettings from '../../components/ThemeSettings.vue'
 import PlayerSettings from '../../components/player-settings/player-settings.vue'
 import ExternalPlayerSettings from '../../components/external-player-settings/external-player-settings.vue'
 import SubscriptionSettings from '../../components/subscription-settings/subscription-settings.vue'
@@ -11,10 +11,10 @@ import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
-import ParentControlSettings from '../../components/parental-control-settings/parental-control-settings.vue'
-import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
-import PasswordSettings from '../../components/password-settings/password-settings.vue'
-import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
+import ParentalControlSettings from '../../components/ParentalControlSettings.vue'
+import ExperimentalSettings from '../../components/ExperimentalSettings/ExperimentalSettings.vue'
+import PasswordSettings from '../../components/PasswordSettings/PasswordSettings.vue'
+import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSettingsMenu from '../../components/ft-settings-menu/ft-settings-menu.vue'
@@ -33,7 +33,7 @@ export default defineComponent({
     'data-settings': DataSettings,
     'distraction-settings': DistractionSettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'parental-control-settings': ParentControlSettings,
+    'parental-control-settings': ParentalControlSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
     'ft-button': FtButton,
@@ -172,14 +172,8 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.handleResize()
-    window.addEventListener('resize', this.handleResize)
-    document.addEventListener('scroll', this.markScrolledToSectionAsActive)
-
-    // mark first section as active before any scrolling has taken place
-    if (this.settingsSectionComponents.length > 0) {
-      const firstSection = document.getElementById(this.settingsSectionComponents[0].type)
-      firstSection.classList.add(ACTIVE_CLASS_NAME)
+    if (this.unlocked) {
+      this.handleMounted()
     }
   },
   beforeDestroy: function () {
@@ -187,6 +181,26 @@ export default defineComponent({
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    handleMounted: function () {
+      this.handleResize()
+      window.addEventListener('resize', this.handleResize)
+      document.addEventListener('scroll', this.markScrolledToSectionAsActive)
+
+      // mark first section as active before any scrolling has taken place
+      if (this.settingsSectionComponents.length > 0) {
+        const firstSection = document.getElementById(this.settingsSectionComponents[0].type)
+        firstSection.classList.add(ACTIVE_CLASS_NAME)
+      }
+    },
+
+    handleUnlock: function () {
+      this.unlocked = true
+
+      nextTick(() => {
+        this.handleMounted()
+      })
+    },
+
     navigateToSection: function(sectionType) {
       if (this.isInDesktopView) {
         nextTick(() => {

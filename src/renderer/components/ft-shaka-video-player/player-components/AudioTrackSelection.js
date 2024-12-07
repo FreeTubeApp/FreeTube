@@ -42,7 +42,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
   /**
    * @private
-   * @param {shaka.extern.TrackList=} tracks
+   * @param {shaka.extern.TrackList?} tracks
    */
   updateAudioTracks_(tracks) {
     if (!tracks) {

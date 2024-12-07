@@ -28,6 +28,7 @@ import {
   faBookmark,
   faCheck,
   faChevronRight,
+  faCircleExclamation,
   faCirclePlay,
   faCircleUser,
   faClapperboard,
@@ -51,10 +52,12 @@ import {
   faFileDownload,
   faFileImage,
   faFileVideo,
+  faFilm,
   faFilter,
   faFlask,
   faFire,
   faForward,
+  faGamepad,
   faGauge,
   faGlobe,
   faGrip,
@@ -70,6 +73,8 @@ import {
   faList,
   faLocationDot,
   faLock,
+  faMoneyCheckDollar,
+  faMusic,
   faNetworkWired,
   faNewspaper,
   faPalette,
@@ -109,7 +114,8 @@ import {
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
-  faBookmark as farBookmark
+  faBookmark as farBookmark,
+  faDotCircle as farDotCircle
 } from '@fortawesome/free-regular-svg-icons'
 import {
   faBitcoin,
@@ -141,6 +147,7 @@ library.add(
   faBookmark,
   faCheck,
   faChevronRight,
+  faCircleExclamation,
   faCirclePlay,
   faCircleUser,
   faClapperboard,
@@ -164,10 +171,12 @@ library.add(
   faFileDownload,
   faFileImage,
   faFileVideo,
+  faFilm,
   faFilter,
   faFlask,
   faFire,
   faForward,
+  faGamepad,
   faGauge,
   faGlobe,
   faGrip,
@@ -183,6 +192,8 @@ library.add(
   faList,
   faLocationDot,
   faLock,
+  faMoneyCheckDollar,
+  faMusic,
   faNetworkWired,
   faNewspaper,
   faPalette,
@@ -223,6 +234,7 @@ library.add(
 
   // solid icons
   farBookmark,
+  farDotCircle,
 
   // brand icons
   faGithub,

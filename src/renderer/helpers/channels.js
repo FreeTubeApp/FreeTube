@@ -4,11 +4,11 @@ import { getLocalChannel, parseLocalChannelHeader } from './api/local'
 /**
  * @param {string} id
  * @param {{
-*   preference: string,
-*   fallback: boolean,
-*   invalid: boolean,
-* }} backendOptions
-*/
+ *   preference: string,
+ *   fallback: boolean,
+ *   invalid: boolean,
+ * }} backendOptions
+ */
 async function findChannelById(id, backendOptions) {
   try {
     if (!process.env.SUPPORTS_LOCAL_API || backendOptions.preference === 'invidious') {
@@ -37,11 +37,11 @@ async function findChannelById(id, backendOptions) {
 /**
  * @param {string} id
  * @param {{
-*   preference: string,
-*   fallback: boolean,
-* }} backendOptions
-* @returns {Promise<{icon: string, iconHref: string, preferredName: string} | { invalidId: boolean }>}
-*/
+ *   preference: string,
+ *   fallback: boolean,
+ * }} backendOptions
+ * @returns {Promise<{icon: string, iconHref: string, preferredName: string} | { invalidId: boolean }>}
+ */
 export async function findChannelTagInfo(id, backendOptions) {
   if (!checkYoutubeChannelId(id)) return { invalidId: true }
   try {

@@ -5,6 +5,10 @@ const IpcChannels = {
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_PICTURES_PATH: 'get-pictures-path',
+  GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX: 'get-navigation-history-entry-at-index',
+  GET_NAV_HISTORY_ACTIVE_INDEX: 'get-navigation-history-active-index',
+  GET_NAV_HISTORY_LENGTH: 'get-navigation-history-length',
+  GO_TO_NAV_HISTORY_OFFSET: 'go-to-navigation-history-index',
   SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
@@ -113,6 +117,50 @@ const SyncEvents = {
   },
 }
 
+// note: the multi-key shortcut values are currently just for display use in action titles
+const KeyboardShortcuts = {
+  APP: {
+    GENERAL: {
+      HISTORY_BACKWARD: 'alt+arrowleft',
+      HISTORY_FORWARD: 'alt+arrowright',
+      NEW_WINDOW: 'ctrl+N',
+      NAVIGATE_TO_SETTINGS: 'ctrl+,',
+      NAVIGATE_TO_HISTORY: 'ctrl+H',
+      NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+    },
+    SITUATIONAL: {
+      REFRESH: 'r'
+    },
+  },
+  VIDEO_PLAYER: {
+    GENERAL: {
+      CAPTIONS: 'c',
+      THEATRE_MODE: 't',
+      FULLSCREEN: 'f',
+      FULLWINDOW: 's',
+      PICTURE_IN_PICTURE: 'i',
+      MUTE: 'm',
+      VOLUME_UP: 'arrowup',
+      VOLUME_DOWN: 'arrowdown',
+      STATS: 'd',
+      TAKE_SCREENSHOT: 'u',
+    },
+    PLAYBACK: {
+      PLAY: 'k',
+      LARGE_REWIND: 'j',
+      LARGE_FAST_FORWARD: 'l',
+      SMALL_REWIND: 'arrowleft',
+      SMALL_FAST_FORWARD: 'arrowright',
+      DECREASE_VIDEO_SPEED: 'o',
+      INCREASE_VIDEO_SPEED: 'p',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
+      LAST_CHAPTER: 'ctrl+arrowleft',
+      NEXT_CHAPTER: 'ctrl+arrowright',
+    }
+  },
+}
+
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -132,6 +180,7 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  KeyboardShortcuts,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,

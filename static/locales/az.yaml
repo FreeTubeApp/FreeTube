@@ -125,12 +125,6 @@ Most Popular: 'Ən Tanınmış'
 Playlists: 'Pleylistlər'
 User Playlists:
   Your Playlists: 'Pleylistləriniz'
-  Playlist Message: 'Bu səhifə tam işləyən pleylistləri əks etdirmir. O, yalnız saxladığınız
-    və ya sevimli seçdiyiniz videoları sadalayır. İş bitəndə, hazırda buradakı bütün
-    videolar "Sevimlilər" pleylistinə köçürüləcək.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Saxladığınız
-    videolar yoxdur. Videonun burada qeyd edilməsi üçün video küncündəki "saxla" düyməsin
-    klikləyin'
   Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
   Search bar placeholder: 'Pleylist Axtar'
   Playlists with Matching Videos: Uyğun videolar olan pleylistlər
@@ -337,7 +331,6 @@ Settings:
   Player Settings:
     Screenshot: {}
   SponsorBlock Settings: {}
-  Expand All Settings Sections: Bütün Tənzimlər Bölmələrin Genişlət
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
 Channel:
   Videos: {}
@@ -374,8 +367,6 @@ Search Listing:
     3D: 3D
 Channels:
   Empty: Kanal siyahınız hazırda boşdur.
-  Unsubscribe: Abunə olma
-  Unsubscribed: '{channelName} abunəliyinizdən silindi'
   Unsubscribe Prompt: '"{channelName}" / abunəliyi ləğv etmək istədiyinizə əminsiniz?'
   Channels: Kanallar
   Count: '{number} kanal tapıldı.'

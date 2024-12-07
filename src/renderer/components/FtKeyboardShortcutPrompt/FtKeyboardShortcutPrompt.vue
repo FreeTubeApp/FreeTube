@@ -56,87 +56,26 @@
 <script setup>
 
 import { computed } from 'vue'
-// import { KeyboardShortcuts } from '../../constants'
-// import { getLocalizedShortcut } from '../../store/modules/utils'
+import { KeyboardShortcuts } from '../../../constants'
+import { getLocalizedShortcut } from '../../helpers/utils'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import store from '../../store/index'
 import i18n from '../../i18n/index'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
-
-// temp
-const KeyboardShortcuts = {
-  APP: {
-    GENERAL: {
-      HISTORY_BACKWARD: 'alt+arrowleft',
-      HISTORY_FORWARD: 'alt+arrowright',
-      FULLSCREEN: 'f11',
-      NAVIGATE_TO_SETTINGS: 'ctrl+,',
-      NAVIGATE_TO_HISTORY: 'ctrl+H',
-      NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
-      NEW_WINDOW: 'ctrl+N',
-      MINIMIZE_WINDOW: 'ctrl+M',
-      CLOSE_WINDOW: 'ctrl+W',
-      QUIT: 'alt+f4',
-      QUIT_MAC: 'cmd+Q',
-      RELOAD: 'ctrl+R',
-      FORCE_RELOAD: 'ctrl+shift+R',
-      TOGGLE_DEVTOOLS: 'ctrl+shift+I',
-      FOCUS_SEARCH: 'alt+D',
-      SEARCH_IN_NEW_WINDOW: 'shift+enter',
-      RESET_ZOOM: 'ctrl+0',
-      ZOOM_IN: 'ctrl+=',
-      ZOOM_OUT: 'ctrl+-'
-
-    },
-    SITUATIONAL: {
-      REFRESH: 'r',
-      FOCUS_SECONDARY_SEARCH: 'ctrl+F'
-    },
-  },
-  VIDEO_PLAYER: {
-    GENERAL: {
-      CAPTIONS: 'c',
-      THEATRE_MODE: 't',
-      FULLSCREEN: 'f',
-      FULLWINDOW: 's',
-      PICTURE_IN_PICTURE: 'i',
-      MUTE: 'm',
-      VOLUME_UP: 'arrowup',
-      VOLUME_DOWN: 'arrowdown',
-      STATS: 'd',
-      TAKE_SCREENSHOT: 'u',
-    },
-    PLAYBACK: {
-      PLAY: 'k',
-      LARGE_REWIND: 'j',
-      LARGE_FAST_FORWARD: 'l',
-      SMALL_REWIND: 'arrowleft',
-      SMALL_FAST_FORWARD: 'arrowright',
-      DECREASE_VIDEO_SPEED: 'o',
-      INCREASE_VIDEO_SPEED: 'p',
-      SKIP_N_TENTHS: '0..9',
-      LAST_CHAPTER: 'ctrl+arrowleft',
-      NEXT_CHAPTER: 'ctrl+arrowright',
-      LAST_FRAME: ',',
-      NEXT_FRAME: '.',
-    }
-  },
-}
-
-const generalPlayerShortcuts = computed(() => 
+const generalPlayerShortcuts = computed(() =>
   getLocalizedShortcutNamesAndValues(KeyboardShortcuts.VIDEO_PLAYER.GENERAL)
 )
 
-const playbackPlayerShortcuts = computed(() => 
+const playbackPlayerShortcuts = computed(() =>
   getLocalizedShortcutNamesAndValues(KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK)
 )
 
-const generalAppShortcuts = computed(() => 
+const generalAppShortcuts = computed(() =>
   getLocalizedShortcutNamesAndValues(KeyboardShortcuts.APP.GENERAL)
 )
 
-const situationalAppShortcuts = computed(() => 
+const situationalAppShortcuts = computed(() =>
   getLocalizedShortcutNamesAndValues(KeyboardShortcuts.APP.SITUATIONAL)
 )
 
@@ -181,8 +120,8 @@ const localizedShortcutNameDictionary = computed(() => {
     ['NAVIGATE_TO_SETTINGS', i18n.t('KeyboardShortcutPrompt.Navigate to Settings')],
     (
       isMac
-      ? ['NAVIGATE_TO_HISTORY_MAC', i18n.t('KeyboardShortcutPrompt.Navigate to History')]
-      : ['NAVIGATE_TO_HISTORY', i18n.t('KeyboardShortcutPrompt.Navigate to History')]
+        ? ['NAVIGATE_TO_HISTORY_MAC', i18n.t('KeyboardShortcutPrompt.Navigate to History')]
+        : ['NAVIGATE_TO_HISTORY', i18n.t('KeyboardShortcutPrompt.Navigate to History')]
     ),
     ['NEW_WINDOW', i18n.t('KeyboardShortcutPrompt.New Window')],
     ['MINIMIZE_WINDOW', i18n.t('KeyboardShortcutPrompt.Minimize Window')],
@@ -235,7 +174,7 @@ function hideKeyboardShortcutPrompt() {
 
 function getLocalizedShortcutNamesAndValues(dictionary) {
   return Object.entries(dictionary)
-    .filter(([key]) => 
+    .filter(([key]) =>
       localizedShortcutNameDictionary.value.has(key)
     )
     .map(([shortcutNameKey, shortcut]) => {
@@ -243,10 +182,6 @@ function getLocalizedShortcutNamesAndValues(dictionary) {
       const localizedShortcut = getLocalizedShortcut(shortcut)
       return [localizedShortcutName, localizedShortcut]
     })
-}
-
-function getLocalizedShortcut(x) {
-  return x
 }
 
 </script>
