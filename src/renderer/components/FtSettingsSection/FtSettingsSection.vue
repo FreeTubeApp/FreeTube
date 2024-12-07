@@ -11,5 +11,13 @@
   </div>
 </template>
 
-<script src="./ft-settings-section.js" />
-<style scoped src="./ft-settings-section.scss" lang="scss" />
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    required: true
+  }
+})
+</script>
+
+<style scoped src="./FtSettingsSection.scss" lang="scss" />
