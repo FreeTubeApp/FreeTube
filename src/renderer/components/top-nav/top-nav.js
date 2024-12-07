@@ -191,7 +191,7 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
-      this.$emit('search-query-text', query)
+      this.emitSearchInputText(query)
 
       if (this.enableSearchSuggestions) {
         const trimmedQuery = query.trim()
@@ -336,7 +336,7 @@ export default defineComponent({
       this.$router.push('/' + route)
     },
     updateSearchInputText: function (text) {
-      this.$emit('search-query-text', text)
+      this.emitSearchInputText(text)
       this.$refs.searchInput.updateInputData(text)
     },
     setActiveNavigationHistoryEntryTitle(value) {
@@ -345,6 +345,10 @@ export default defineComponent({
           this.navigationHistoryDropdownActiveEntry.label = value
         }
       })
+    },
+
+    emitSearchInputText: function (text) {
+      this.$emit('search-query-text', text)
     },
 
     ...mapActions([
