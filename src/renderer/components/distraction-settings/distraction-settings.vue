@@ -82,6 +82,12 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Home')"
+          :compact="true"
+          :default-value="hideChannelHome"
+          @change="updateHideChannelHome"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Channel Shorts')"
           :compact="true"
           :default-value="hideChannelShorts"

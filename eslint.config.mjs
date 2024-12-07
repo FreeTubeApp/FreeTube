@@ -9,7 +9,10 @@ import jsoncEslintParser from 'jsonc-eslint-parser'
 import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import yamlEslintParser from 'yaml-eslint-parser'
-import neostandard from 'neostandard'
+// Faster than importing the default import,
+// because the default import imports a lot of other dependencies
+// for the `resolveIgnoresFromGitignore` function that we don't use
+import { neostandard } from 'neostandard/lib/main.js'
 import jsdoc from 'eslint-plugin-jsdoc'
 import freetube from './_scripts/eslint-rules/plugin.mjs'
 
@@ -78,7 +81,6 @@ export default [
       'object-shorthand': 'off',
       'vue/no-template-key': 'warn',
       'vue/multi-word-component-names': 'off',
-      'vuejs-accessibility/no-onchange': 'off',
 
       'vuejs-accessibility/label-has-for': ['error', {
         required: {
@@ -205,10 +207,9 @@ export default [
   {
     files: ['_scripts/*.js'],
     languageOptions: {
-      globals: {
-        ...globals.node
-      },
+      globals: globals.node,
       ecmaVersion: 'latest',
+      sourceType: 'commonjs'
     },
 
     plugins: {
@@ -226,9 +227,7 @@ export default [
   {
     files: ['_scripts/**/*.mjs'],
     languageOptions: {
-      globals: {
-        ...globals.node,
-      },
+      globals: globals.node,
       ecmaVersion: 'latest',
       sourceType: 'module',
     },

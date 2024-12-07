@@ -20,9 +20,7 @@ jobs:
           - win-x64
           - win-arm64
           - osx-x64
-          # `osx-arm64` disabled due to "macOS gatekeeper"
-          # See details in https://github.com/FreeTubeApp/FreeTube/pull/2113
-          # - osx-arm64
+          - osx-arm64
         include:
         - runtime: linux-x64
           os: ubuntu-latest
@@ -36,8 +34,8 @@ jobs:
         - runtime: osx-x64
           os: macOS-latest
 
-#        - runtime: osx-arm64
-#          os: macOS-latest
+        - runtime: osx-arm64
+          os: macOS-latest
 
         - runtime: win-x64
           os: windows-latest
@@ -101,6 +99,19 @@ jobs:
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
       run: yarn run build:arm64
+
+    - name: Convert X64 AppImage to static runtime
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      run: |
+        sudo apt install desktop-file-utils
+        cd build
+        appimage="FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage"
+        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
+        chmod +x ./"$appimage" ./appimagetool.AppImage
+        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
+        ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
+          -n ./squashfs-root ./"$appimage"
+        rm -rf ./squashfs-root ./appimagetool.AppImage
 
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@v4
@@ -300,12 +311,12 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.dmg
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.dmg
 
-#    - name: Upload Mac arm64 .dmg Artifact
-#      uses: actions/upload-artifact@v4
-#      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
-#      with:
-#        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.dmg
-#        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.dmg
+    - name: Upload Mac arm64 .dmg Artifact
+      uses: actions/upload-artifact@v4
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.dmg
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.dmg
 
     - name: Upload Mac x64 .zip Artifact
       uses: actions/upload-artifact@v4
@@ -321,9 +332,16 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.7z
 
-#    - name: Upload Mac arm64 .zip Artifact
-#      uses: actions/upload-artifact@v4
-#      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
-#      with:
-#        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
-#        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
+    - name: Upload Mac arm64 .zip Artifact
+      uses: actions/upload-artifact@v4
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
+
+    - name: Upload Mac arm64 .7z Artifact
+      uses: actions/upload-artifact@v4
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.7z
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.7z

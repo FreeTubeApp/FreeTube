@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -63,42 +64,68 @@ export default defineComponent({
     },
   },
   watch: {
-    query() {
-      this.searchDataLimit = 100
-      this.filterHistoryAsync()
-    },
     fullData() {
       this.filterHistory()
     },
     doCaseSensitiveSearch() {
       this.filterHistory()
+      this.saveStateInRouter()
     },
   },
-  mounted: function () {
+  created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
-    const limit = sessionStorage.getItem('historyLimit')
 
-    if (limit !== null) {
-      this.dataLimit = limit
+    const oldDataLimit = sessionStorage.getItem('History/dataLimit')
+    if (oldDataLimit !== null) {
+      this.dataLimit = oldDataLimit
     }
 
-    this.activeData = this.fullData
-
-    this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
-
     this.filterHistoryDebounce = debounce(this.filterHistory, 500)
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+      this.handleQueryChange(
+        oldQuery,
+        {
+          limit: this.$route.query.searchDataLimit,
+          doCaseSensitiveSearch: this.$route.query.doCaseSensitiveSearch === 'true',
+          filterNow: true,
+        },
+      )
+    } else {
+      // Only display unfiltered data when no query used last time
+      this.filterHistory()
+    }
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    handleQueryChange(query, { limit = null, doCaseSensitiveSearch = null, filterNow = false } = {}) {
+      this.query = query
+
+      const newLimit = limit ?? 100
+      this.searchDataLimit = newLimit
+      const newDoCaseSensitiveSearch = doCaseSensitiveSearch ?? this.doCaseSensitiveSearch
+      this.doCaseSensitiveSearch = newDoCaseSensitiveSearch
+
+      this.saveStateInRouter({
+        query: query,
+        searchDataLimit: newLimit,
+        doCaseSensitiveSearch: newDoCaseSensitiveSearch,
+      })
+
+      filterNow ? this.filterHistory() : this.filterHistoryAsync()
+    },
+
     increaseLimit: function () {
       if (this.query !== '') {
         this.searchDataLimit += 100
         this.filterHistory()
       } else {
         this.dataLimit += 100
-        sessionStorage.setItem('historyLimit', this.dataLimit)
+        sessionStorage.setItem('History/dataLimit', this.dataLimit)
       }
     },
     filterHistoryAsync: function() {
@@ -122,6 +149,40 @@ export default defineComponent({
       this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       this.showLoadMoreButton = this.activeData.length > this.searchDataLimit
     },
+
+    async saveStateInRouter({ query = this.query, searchDataLimit = this.searchDataLimit, doCaseSensitiveSearch = this.doCaseSensitiveSearch } = {}) {
+      if (query === '') {
+        try {
+          await this.$router.replace({ name: 'history' })
+        } catch (failure) {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        }
+        return
+      }
+
+      const routerQuery = {
+        searchQueryText: query,
+        searchDataLimit: searchDataLimit,
+      }
+      if (doCaseSensitiveSearch) { routerQuery.doCaseSensitiveSearch = 'true' }
+      try {
+        await this.$router.replace({
+          name: 'history',
+          query: routerQuery,
+        })
+      } catch (failure) {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      }
+    },
+
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
     },

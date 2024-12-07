@@ -6,7 +6,7 @@ import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import { IpcChannels } from '../../../constants'
+import { IpcChannels, KeyboardShortcuts } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
@@ -22,6 +22,7 @@ import {
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
 import {
+  addKeyboardShortcutToActionTitle,
   getPicturesPath,
   showSaveDialog,
   showToast
@@ -38,6 +39,23 @@ const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 600
 const RequestType = shaka.net.NetworkingEngine.RequestType
 const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
+
+/*
+  Mapping of Shaka localization keys for control labels to FreeTube shortcuts.
+  See: https://github.com/shaka-project/shaka-player/blob/main/ui/locales/en.json
+*/
+const shakaControlKeysToShortcuts = {
+  MUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
+  UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
+  PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
+  PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
+  PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS,
+  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
+  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN
+}
 
 /** @type {Map<string, string>} */
 const LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
@@ -104,7 +122,7 @@ export default defineComponent({
     vrProjection: {
       type: String,
       default: null
-    }
+    },
   },
   emits: [
     'error',
@@ -225,6 +243,12 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<number>} */
     const defaultSkipInterval = computed(() => {
       return store.getters.getDefaultSkipInterval
+    })
+
+    watch(defaultSkipInterval, (newValue) => {
+      ui.configure({
+        tapSeekDistance: newValue
+      })
     })
 
     /** @type {import('vue').ComputedRef<number | 'auto'>} */
@@ -821,6 +845,7 @@ export default defineComponent({
           addBigPlayButton: displayVideoPlayButton.value,
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
           playbackRates: playbackRates.value,
+          tapSeekDistance: defaultSkipInterval.value,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
@@ -969,7 +994,7 @@ export default defineComponent({
      * @param {string} locale
      */
     async function setLocale(locale) {
-      // For most of FreeTube's locales their is an equivalent one in shaka-player,
+      // For most of FreeTube's locales, there is an equivalent one in shaka-player,
       // however if there isn't one we should fall back to US English.
       // At the time of writing "et", "eu", "gl", "is" don't have any translations
       const shakaLocale = LOCALE_MAPPINGS.get(locale) ?? 'en'
@@ -989,6 +1014,27 @@ export default defineComponent({
       }
 
       localization.changeLocale([shakaLocale])
+
+      // Add the keyboard shortcut to the label for the default Shaka controls
+
+      const shakaControlKeysToShortcutLocalizations = new Map()
+      Object.entries(shakaControlKeysToShortcuts).forEach(([shakaControlKey, shortcut]) => {
+        const originalLocalization = localization.resolve(shakaControlKey)
+        if (originalLocalization === '') {
+          // e.g., A Shaka localization key in shakaControlKeysToShortcuts has fallen out of date and need to be updated
+          console.error('Mising Shaka localization key "%s"', shakaControlKey)
+          return
+        }
+
+        const localizationWithShortcut = addKeyboardShortcutToActionTitle(
+          originalLocalization,
+          shortcut
+        )
+
+        shakaControlKeysToShortcutLocalizations.set(shakaControlKey, localizationWithShortcut)
+      })
+
+      localization.insert(shakaLocale, shakaControlKeysToShortcutLocalizations)
 
       events.dispatchEvent(new CustomEvent('localeChanged'))
     }
@@ -1252,23 +1298,20 @@ export default defineComponent({
     }
 
     /**
-     * @param {'dash'|'audio'|null} previousFormat
      * @param {number|null} playbackPosition
+     * @param {number|undefined} previousQuality
      */
-    async function setLegacyQuality(previousFormat = null, playbackPosition = null) {
+    async function setLegacyQuality(playbackPosition = null, previousQuality = undefined) {
+      if (typeof previousQuality === 'undefined') {
+        if (defaultQuality.value === 'auto') {
+          previousQuality = Infinity
+        } else {
+          previousQuality = defaultQuality.value
+        }
+      }
+
       /** @type {object[]} */
       const legacyFormats = props.legacyFormats
-
-      let previousQuality
-      if (previousFormat === 'dash') {
-        const previousTrack = player.getVariantTracks().find(track => track.active)
-
-        previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
-      } else if (defaultQuality.value === 'auto') {
-        previousQuality = Infinity
-      } else {
-        previousQuality = defaultQuality.value
-      }
 
       const isPortrait = legacyFormats[0].height > legacyFormats[0].width
 
@@ -1491,7 +1534,8 @@ export default defineComponent({
 
       const format = screenshotFormat.value
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? screenshotQuality.value / 100 : 1
+      // imageQuality is ignored for pngs, so it is still okay to pass the quality value
+      const imageQuality = screenshotQuality.value / 100
 
       let filename
       try {
@@ -1962,55 +2006,47 @@ export default defineComponent({
 
       const video_ = video.value
 
-      switch (event.key) {
+      switch (event.key.toLowerCase()) {
         case ' ':
-        case 'Spacebar': // older browsers might return spacebar instead of a space character
-        case 'K':
-        case 'k':
+        case 'spacebar': // older browsers might return spacebar instead of a space character
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY:
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
           break
-        case 'J':
-        case 'j':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
           seekBySeconds(-defaultSkipInterval.value * video_.playbackRate * 2)
           break
-        case 'L':
-        case 'l':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
           seekBySeconds(defaultSkipInterval.value * video_.playbackRate * 2)
           break
-        case 'O':
-        case 'o':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
           // Decrease playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(-videoPlaybackRateInterval.value)
           break
-        case 'P':
-        case 'p':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED:
           // Increase playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
           break
-        case 'F':
-        case 'f':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN:
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
           break
-        case 'M':
-        case 'm':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
           if (!event.metaKey) {
             event.preventDefault()
             video_.muted = !video_.muted
           }
           break
-        case 'C':
-        case 'c':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS:
           // Toggle caption/subtitles
           if (player.getTextTracks().length > 0) {
             event.preventDefault()
@@ -2019,17 +2055,17 @@ export default defineComponent({
             player.setTextTrackVisibility(!currentlyVisible)
           }
           break
-        case 'ArrowUp':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_UP:
           // Increase volume
           event.preventDefault()
           changeVolume(0.05)
           break
-        case 'ArrowDown':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_DOWN:
           // Decrease Volume
           event.preventDefault()
           changeVolume(-0.05)
           break
-        case 'ArrowLeft':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_REWIND:
           event.preventDefault()
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
@@ -2039,7 +2075,7 @@ export default defineComponent({
             seekBySeconds(-defaultSkipInterval.value * video_.playbackRate)
           }
           break
-        case 'ArrowRight':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
           event.preventDefault()
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
@@ -2049,8 +2085,7 @@ export default defineComponent({
             seekBySeconds(defaultSkipInterval.value * video_.playbackRate)
           }
           break
-        case 'I':
-        case 'i':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
           // Toggle picture in picture
           if (props.format !== 'audio') {
             const controls = ui.getControls()
@@ -2083,7 +2118,7 @@ export default defineComponent({
           }
           break
         }
-        case ',':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LAST_FRAME:
           // `⌘+,` is for settings in MacOS
           if (!event.metaKey) {
             event.preventDefault()
@@ -2091,13 +2126,12 @@ export default defineComponent({
             frameByFrame(-1)
           }
           break
-        case '.':
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.NEXT_FRAME:
           event.preventDefault()
           // Advance to next frame
           frameByFrame(1)
           break
-        case 'D':
-        case 'd':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS:
           // Toggle stats display
           event.preventDefault()
 
@@ -2105,7 +2139,7 @@ export default defineComponent({
             detail: !showStats.value
           }))
           break
-        case 'Escape':
+        case 'escape':
           // Exit full window
           if (fullWindowEnabled.value) {
             event.preventDefault()
@@ -2115,16 +2149,14 @@ export default defineComponent({
             }))
           }
           break
-        case 'S':
-        case 's':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW:
           // Toggle full window mode
           event.preventDefault()
           events.dispatchEvent(new CustomEvent('setFullWindow', {
             detail: !fullWindowEnabled.value
           }))
           break
-        case 'T':
-        case 't':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
           // Toggle theatre mode
           if (props.theatrePossible) {
             event.preventDefault()
@@ -2134,8 +2166,7 @@ export default defineComponent({
             }))
           }
           break
-        case 'U':
-        case 'u':
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
           if (process.env.IS_ELECTRON && enableScreenshot.value && props.format !== 'audio') {
             event.preventDefault()
             // Take screenshot
@@ -2147,17 +2178,28 @@ export default defineComponent({
 
     // #endregion keyboard shortcuts
 
+    let ignoreErrors = false
+
     /**
      * @param {shaka.util.Error} error
      * @param {string} context
      * @param {object?} details
      */
     function handleError(error, context, details) {
+      // These two errors are just wrappers around another error, so use the original error instead
+      // As they can be nested (e.g. multiple googlevideo redirects because the Invidious server was far away from the user) we should pick the inner most one
+      while (error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR || error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR) {
+        error = error.data[0]
+      }
+
       logShakaError(error, context, props.videoId, details)
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (error.category !== shaka.util.Error.Category.TEXT) {
+      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+        // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
+        ignoreErrors = true
+
         emit('error', error)
 
         stopPowerSaveBlocker()
@@ -2414,7 +2456,7 @@ export default defineComponent({
           handleError(error, 'loading dash/audio manifest and setting default quality in mounted')
         }
       } else {
-        await setLegacyQuality(null, props.startTime)
+        await setLegacyQuality(props.startTime)
       }
     }
 
@@ -2532,9 +2574,17 @@ export default defineComponent({
        * @param {'dash'|'audio'|'legacy'} oldFormat
        */
       async (newFormat, oldFormat) => {
+        ignoreErrors = true
+
         // format switch happened before the player loaded, probably because of an error
         // as there are no previous player settings to restore, we should treat it like this was the original format
         if (!hasLoaded.value) {
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, defaultQuality.value === 'auto'))
 
           await performFirstLoad()
@@ -2597,6 +2647,12 @@ export default defineComponent({
             }
           }
 
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
 
           try {
@@ -2634,7 +2690,21 @@ export default defineComponent({
           }
           activeLegacyFormat.value = null
         } else {
-          await setLegacyQuality(oldFormat, playbackPosition)
+          let previousQuality
+
+          if (oldFormat === 'dash') {
+            const previousTrack = player.getVariantTracks().find(track => track.active)
+
+            previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
+          }
+
+          try {
+            await player.unload()
+          } catch { }
+
+          ignoreErrors = false
+
+          await setLegacyQuality(playbackPosition, previousQuality)
         }
 
         if (wasPaused) {
@@ -2702,6 +2772,8 @@ export default defineComponent({
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      */
     async function destroyPlayer() {
+      ignoreErrors = true
+
       if (ui) {
         // destroying the ui also destroys the player
         await ui.destroy()

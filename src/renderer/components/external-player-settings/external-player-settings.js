@@ -5,6 +5,7 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtInputTags from '../ft-input-tags/ft-input-tags.vue'
 
 export default defineComponent({
   name: 'ExternalPlayerSettings',
@@ -13,7 +14,8 @@ export default defineComponent({
     'ft-select': FtSelect,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-input-tags': FtInputTags
   },
   computed: {
     externalPlayerNames: function () {
@@ -44,7 +46,7 @@ export default defineComponent({
       return this.$store.getters.getExternalPlayerIgnoreDefaultArgs
     },
     externalPlayerCustomArgs: function () {
-      return this.$store.getters.getExternalPlayerCustomArgs
+      return JSON.parse(this.$store.getters.getExternalPlayerCustomArgs)
     },
     externalPlayerCustomArgsTooltip: function () {
       const tooltip = this.$t('Tooltips.External Player Settings.Custom External Player Arguments')
@@ -60,6 +62,10 @@ export default defineComponent({
     }
   },
   methods: {
+    handleExternalPlayerCustomArgs(value) {
+      this.updateExternalPlayerCustomArgs(JSON.stringify(value))
+    },
+
     ...mapActions([
       'updateExternalPlayer',
       'updateExternalPlayerExecutable',

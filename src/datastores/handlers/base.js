@@ -10,6 +10,21 @@ class Settings {
       await this.upsert('currentLocale', currentLocale.value.replace('_', '-'))
     }
 
+    // In FreeTube 0.22.0 and earlier the external player arguments were displayed in a text box,
+    // with the user manually entering `;` to separate the different arguments.
+    // This is a one time migration that converts the old string to a JSON array
+    const externalPlayerCustomArgs = await db.settings.findOneAsync({ _id: 'externalPlayerCustomArgs' })
+
+    if (externalPlayerCustomArgs && !externalPlayerCustomArgs.value.startsWith('[')) {
+      let newValue = '[]'
+
+      if (externalPlayerCustomArgs.value.length > 0) {
+        newValue = JSON.stringify(externalPlayerCustomArgs.value.split(';'))
+      }
+
+      await this.upsert('externalPlayerCustomArgs', newValue)
+    }
+
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
   }
 

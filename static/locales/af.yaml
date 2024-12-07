@@ -632,93 +632,114 @@ Profile:
   Create Profile Name: ''
   Profile Name: ''
   Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to {profile}: ''
-  Removed {profile} from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  '{profile} is now the active profile': ''
-  Subscription List: ''
-  Other Channels: ''
-  '{number} selected': ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Custom Color: 'Pasgemaakte kleur'
+  Profile Preview: 'Profielvoorskou'
+  Create Profile: 'Skep profiel'
+  Update Profile: 'Werk profiel by'
+  Make Default Profile: 'Maak verstekprofiel'
+  Delete Profile: 'Skrap profiel'
+  Are you sure you want to delete this profile?: 'Is u seker u wil hierdie profiel
+    skrap?'
+  All subscriptions will also be deleted.: 'Alle intekeninge sal ook geskrap word.'
+  Profile could not be found: 'Profiel kon nie gevind word nie'
+  Your profile name cannot be empty: 'U profielnaam kan nie leeg wees nie'
+  Profile has been created: 'Profiel is geskep'
+  Profile has been updated: 'Profiel is bygewerk'
+  Your default profile has been set to {profile}: 'U verstekprofiel is ingestel op
+    {profile}'
+  Removed {profile} from your profiles: 'Verwyder {profile} uit u profiele'
+  Your default profile has been changed to your primary profile: 'U verstekprofiel
+    is na u hoofprofiel verander'
+  '{profile} is now the active profile': '{profile} is nou die aktiewe profiel'
+  Subscription List: 'Intekenlys'
+  Other Channels: 'Ander kanale'
+  '{number} selected': '{number} gekies'
+  Select All: 'Kies alles'
+  Select None: 'Kies geen'
+  Delete Selected: 'Skrap gekose'
+  Add Selected To Profile: 'Voeg gekose toe tot profiel'
+  No channel(s) have been selected: 'Geen kanaal(e) is gekies nie'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-  Close Profile Dropdown: ''
-  Open Profile Dropdown: ''
+  : 'Dit is u primêre profiel.  Is u seker u wil die gekose kanale skrap?  Dieselfde
+    kanale sal geskrap word in enige ander profiel waarin dit voorkom.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Is
+    u seker u wil die gekose kanale skrap?  Dit sal nie die kanaal uit enige ander
+    profiel skrap nie.'
+  Close Profile Dropdown: 'Sluit profielkieslys'
+  Open Profile Dropdown: 'Open profielkieslys'
 #On Channel Page
 Channel:
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from {count} other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
-  This channel does not exist: ''
-  This channel does not allow searching: ''
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
-  Channel Tabs: ''
+  Subscribe: 'Teken in'
+  Unsubscribe: 'Teken uit'
+  Channel has been removed from your subscriptions: 'Kanaal is uit u intekeninge verwyder'
+  Removed subscription from {count} other channel(s): 'Intekening van {count} ander
+    kanaal(e) is verwyder'
+  Added channel to your subscriptions: 'Kanaal is tot u intekeninge toegevoeg'
+  Search Channel: 'Deursoek kanaal'
+  Your search results have returned 0 results: 'U soekaksie het 0 resultate gelewer'
+  Sort By: 'Sorteer volgens'
+  This channel does not exist: 'Hierdie kanaal bestaan nie'
+  This channel does not allow searching: 'Hierdie kanaal laat nie soektogte toe nie'
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Hierdie
+    kanaal is ouderdomsbeperk en kan nie tans in FreeTube bekyk word nie.'
+  Channel Tabs: 'Kanaaloortjies'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Video’s'
+    This channel does not currently have any videos: 'Hierdie kanaal het tans geen
+      video’s'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Nuutste'
+      Oldest: 'Oudste'
+      Most Popular: 'Gewildste'
   Shorts:
-    This channel does not currently have any shorts: ''
+    This channel does not currently have any shorts: 'Hierdie kanaal het tans geen
+      kortvideo’s nie'
   Live:
-    Live: ''
-    This channel does not currently have any live streams: ''
+    Live: 'Regstreeks'
+    This channel does not currently have any live streams: 'Hierdie kanaal het tans
+      geen rekstreekse stromings nie'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Afspeellyste'
+    This channel does not currently have any playlists: 'Hierdie kanaal het tans geen
+      afspeellyste nie'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Laaste toegevoegde video'
+      Newest: 'Nuutste'
+      Oldest: 'Oudste'
   Podcasts:
-    Podcasts: ''
-    This channel does not currently have any podcasts: ''
+    Podcasts: 'Podsendings'
+    This channel does not currently have any podcasts: 'Hierdie kanaal het tans geen
+      podsendings nie'
   Releases:
-    Releases: ''
-    This channel does not currently have any releases: ''
+    Releases: 'Vrystellings'
+    This channel does not currently have any releases: 'Hierdie kanaal het nie tans
+      enige vrystellings nie'
   About:
-    About: ''
-    Channel Description: ''
+    About: 'Oor'
+    Channel Description: 'Kanaalbeskrywing'
     Tags:
-      Tags: ''
-      Search for: ''
-    Details: ''
-    Joined: ''
-    Location: ''
-    Featured Channels: ''
+      Tags: 'Etikette'
+      Search for: 'Soek na ‘{tag}’'
+    Details: 'Details'
+    Joined: 'Lid sedert'
+    Location: 'Ligging'
+    Featured Channels: 'Uitgeligte kanale'
   Community:
-    This channel currently does not have any posts: ''
-    votes: ''
-    Reveal Answers: ''
-    Hide Answers: ''
-    Video hidden by FreeTube: ''
+    This channel currently does not have any posts: 'Hierdie kanaal het nie tans enige
+      plasings nie'
+    votes: '{votes} stemme'
+    Reveal Answers: 'Onthul antwoorde'
+    Hide Answers: 'Versteek antwoorde'
+    Video hidden by FreeTube: 'Video is deur FreeTube versteek'
+    View Full Post: Bekyk volle plasing
+    Viewing Posts Only Supported By Invidious: Bekyk van plasings word slegs vir Invidious
+      ondersteun. Gaan na ’n kanaal se gemeenskapsblad om inhoud te sien sonder Invidious.
+  Home:
+    Home: Tuis
+    View Playlist: Bekyk afspeellys
 Video:
-  More Options: ''
+  More Options: 'Nog opsies'
   Mark As Watched: 'Markeer as gekyk'
   Remove From History: 'Verwyder uit geskiedenis'
   Video has been marked as watched: 'Video is gemarkeer as gekyk'
@@ -834,6 +855,15 @@ Video:
     Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
   Unlisted: Ongelys
+  IP block: YouTube het u IP-adres versper en u kan nie video’s kyk nie. Verander
+    u VPN of instaanbediener.
+  MembersOnly: Videos slegs vir lede kan nie met FreeTube gekyk word nie omdat dit
+    ’n Google-aantekening en betaalde lidmaatskap op die oplaaier se kanaal vereis.
+  AgeRestricted: Video’s met ’n ouderdomsperk kan nie met FreeTube gekyk word nie
+    omdat dit ’n Google-aantekening en ouderdomvebestigde YouTube-rekening vereis.
+  DeArrow:
+    Show Original Details: Toon oorspronklike details
+    Show Modified Details: Toon gewysigde details
 Videos:
   #& Sort By
   Sort By:
@@ -901,6 +931,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Hoofstukke lys versteekte,
     huidige hoofstuk: {chapterName}'
 
+  Key Moments: Sleuteloomblikke
 Mini Player: 'Mini-speler'
 Comments:
   Comments: 'Kommentare'
@@ -952,6 +983,9 @@ Tooltips:
     External Link Handling: |
       Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
       FreeTube sal die geklikte skakel by verstek in u verstek blaaier open.
+    Open Deep Links In New Window: Bronadresse wat aan FreeTube gegee word, soos wat
+      deur blaaieruitbreidings of bevellynargumente gestuur word, word in ’n nuwe
+      venster geopen.
   Player Settings:
     Proxy Videos Through Invidious: 'FreeTube sal verbind met Invidious en die video’s
       van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
@@ -978,8 +1012,8 @@ Tooltips:
     Ignore Default Arguments: 'Moet geen verstek argumente na die eksterne videospeler
       stuur buiten die video-URL nie (bv. afspeelsnelheid, afspeellys-URL, ens.).
       Pasgemaakte argumente word steeds deurgestuur.'
-    Custom External Player Arguments: 'Enige pasgemaakte bevellynrgumente, geskei
-      deur kommapunte (‘;’), wat u aan die eksterne videospeler vir deurgee.'
+    Custom External Player Arguments: 'Enige pasgemaakte bevellynrgumente, wat u aan
+      die eksterne videospeler vir deurgee.'
     DefaultCustomArgumentsTemplate: "(verstek: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
     Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal
@@ -1071,3 +1105,12 @@ Cancel: 'Kanselleer'
 checkmark: '✓'
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  arrowright: Regspyltjie
+  arrowup: Oppyltjie
+  alt: Alt
+  arrowdown: Afpyltjie
+  ctrl: Ctrl
+  arrowleft: Linkspyltjie

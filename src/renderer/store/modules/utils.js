@@ -60,6 +60,7 @@ const state = {
     shorts: false,
     communityPosts: false,
   },
+  appTitle: ''
 }
 
 const getters = {
@@ -175,6 +176,9 @@ const getters = {
   getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
     return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
+  getAppTitle (state) {
+    return state.appTitle
+  }
 }
 
 const actions = {
@@ -410,7 +414,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ state }, urlStr) {
+  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -630,8 +634,11 @@ const actions = {
             }
             subPath = 'community'
             break
-          default:
+          case 'videos':
             subPath = 'videos'
+            break
+          default:
+            subPath = rootState.settings.backendPreference === 'local' && !rootState.settings.hideChannelHome ? 'home' : 'videos'
             break
         }
         return {
@@ -689,20 +696,19 @@ const actions = {
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
     if (ignoreDefaultArgs) {
-      if (typeof customArgs === 'string' && customArgs !== '') {
-        const custom = customArgs.split(';')
+      if (typeof customArgs === 'string' && customArgs !== '[]') {
+        const custom = JSON.parse(customArgs)
         args.push(...custom)
       }
       if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     } else {
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
-      if (typeof customArgs === 'string' && customArgs !== '') {
-        const custom = customArgs.split(';')
+      if (typeof customArgs === 'string' && customArgs !== '[]') {
+        const custom = JSON.parse(customArgs)
         args.push(...custom)
-      } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-        const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
-        args.push(...defaultCustomArguments)
+      } else if (Array.isArray(cmdArgs.defaultCustomArguments)) {
+        args.push(...cmdArgs.defaultCustomArguments)
       }
 
       if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
@@ -793,6 +799,11 @@ const actions = {
       ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
     }
   },
+
+  // Use this to set the app title / document.title
+  setAppTitle({ commit }, title) {
+    commit('setAppTitle', title)
+  }
 }
 
 const mutations = {
@@ -957,6 +968,10 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
+  setAppTitle (state, value) {
+    state.appTitle = value
+  },
+
   setSubscriptionForVideosFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
@@ -968,7 +983,7 @@ const mutations = {
   },
   setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.communityPosts = true
-  },
+  }
 }
 
 export default {

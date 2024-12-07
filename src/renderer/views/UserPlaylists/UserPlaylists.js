@@ -13,6 +13,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import { ctrlFHandler, getIconForSortPreference } from '../../helpers/utils'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 const SORT_BY_VALUES = {
   NameAscending: 'name_ascending',
@@ -174,6 +175,7 @@ export default defineComponent({
     doSearchPlaylistsWithMatchingVideos() {
       this.searchDataLimit = 100
       this.filterPlaylistAsync()
+      this.saveStateInRouter()
     },
     fullData() {
       this.activeData = this.fullData
@@ -183,9 +185,9 @@ export default defineComponent({
       sessionStorage.setItem('UserPlaylists/sortBy', this.sortBy)
     },
   },
-  mounted: function () {
+  created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
-    const limit = sessionStorage.getItem('favoritesLimit')
+    const limit = sessionStorage.getItem('UserPlaylists/dataLimit')
     if (limit !== null) {
       this.dataLimit = limit
     }
@@ -195,23 +197,53 @@ export default defineComponent({
       this.sortBy = sortBy
     }
 
-    this.activeData = this.fullData
-
-    this.showLoadMoreButton = this.activeData.length < this.allPlaylists.length
-
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
+      this.handleQueryChange(
+        oldQuery,
+        {
+          limit: this.$route.query.searchDataLimit,
+          doSearchPlaylistsWithMatchingVideos: this.$route.query.doSearchPlaylistsWithMatchingVideos === 'true',
+          filterNow: true,
+        },
+      )
+    } else {
+      // Only display unfiltered data when no query used last time
+      this.filterPlaylist()
+    }
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    handleQueryChange(query, { limit = null, doSearchPlaylistsWithMatchingVideos = null, filterNow = false } = {}) {
+      this.query = query
+
+      const newLimit = limit ?? 100
+      this.searchDataLimit = newLimit
+      const newDoSearchPlaylistsWithMatchingVideos = doSearchPlaylistsWithMatchingVideos ?? this.doSearchPlaylistsWithMatchingVideos
+      this.doSearchPlaylistsWithMatchingVideos = newDoSearchPlaylistsWithMatchingVideos
+
+      this.saveStateInRouter({
+        query: query,
+        searchDataLimit: newLimit,
+        doSearchPlaylistsWithMatchingVideos: newDoSearchPlaylistsWithMatchingVideos,
+      })
+
+      filterNow ? this.filterPlaylist() : this.filterPlaylistAsync()
+    },
+
     increaseLimit: function () {
       if (this.query !== '') {
         this.searchDataLimit += 100
+        this.saveStateInRouter()
         this.filterPlaylist()
       } else {
         this.dataLimit += 100
-        sessionStorage.setItem('favoritesLimit', this.dataLimit)
+        sessionStorage.setItem('UserPlaylists/dataLimit', this.dataLimit)
       }
     },
     filterPlaylistAsync: function() {
@@ -245,6 +277,39 @@ export default defineComponent({
       this.showCreatePlaylistPrompt({
         title: '',
       })
+    },
+
+    async saveStateInRouter({ query = this.query, searchDataLimit = this.searchDataLimit, doSearchPlaylistsWithMatchingVideos = this.doSearchPlaylistsWithMatchingVideos } = {}) {
+      if (this.query === '') {
+        try {
+          await this.$router.replace({ name: 'userPlaylists' })
+        } catch (failure) {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        }
+        return
+      }
+
+      const routerQuery = {
+        searchQueryText: query,
+        searchDataLimit: searchDataLimit,
+      }
+      if (doSearchPlaylistsWithMatchingVideos) { routerQuery.doSearchPlaylistsWithMatchingVideos = 'true' }
+      try {
+        await this.$router.replace({
+          name: 'userPlaylists',
+          query: routerQuery,
+        })
+      } catch (failure) {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      }
     },
 
     keyboardShortcutHandler: function (event) {

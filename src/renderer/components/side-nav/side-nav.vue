@@ -132,7 +132,7 @@
         class="navOption mobileShow"
         role="button"
         to="/history"
-        :title="$t('History.History')"
+        :title="historyTitle"
       >
         <div
           class="thumbnailContainer"
@@ -156,7 +156,7 @@
         class="navOption mobileShow"
         role="button"
         to="/settings"
-        :title="$t('Settings.Settings')"
+        :title="settingsTitle"
       >
         <div
           class="thumbnailContainer"

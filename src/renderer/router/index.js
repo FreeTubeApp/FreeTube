@@ -14,7 +14,7 @@ import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 import Hashtag from '../views/Hashtag/Hashtag.vue'
-import Post from '../views/Post/Post.vue'
+import Post from '../views/Post.vue'
 
 Vue.use(Router)
 

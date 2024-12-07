@@ -23,13 +23,17 @@
 .tab {
   text-align: center;
   padding: 15px;
-  font-size: 15px;
+  font-size: 1.1em;
   cursor: pointer;
   align-self: flex-end;
 }
 
 .tab:hover {
   font-weight: bold;
+}
+
+.trendingIcon {
+  color: var(--primary-color);
 }
 
 @media only screen and (width <= 680px) {

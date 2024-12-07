@@ -749,7 +749,7 @@ Tooltips:
       teu feed da subscrición, cando se abra unha nova ventá e cando cambies de perfil.
   External Player Settings:
     Custom External Player Arguments: Calquera argumento de liña de comandos personalizado,
-      separado por puntos e coma (';'), que desexa que se pase ao reprodutor externo.
+      que desexa que se pase ao reprodutor externo.
     Ignore Warnings: Suprime avisos para cando os reprodutores externos actuais non
       apoian a acción actual (e.g. Invertendo listas de reprodución, etc.).
     Custom External Player Executable: Por defecto, FreeTube asumirá que o reprodutor

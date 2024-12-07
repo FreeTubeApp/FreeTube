@@ -43,7 +43,7 @@
         "value": "iina",
         "cmdArguments": {
             "defaultExecutable": "iina",
-            "defaultCustomArguments": "--no-stdin",
+            "defaultCustomArguments": ["--no-stdin"],
             "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",

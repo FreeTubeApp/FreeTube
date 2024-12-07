@@ -89,7 +89,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .catppuccinMocha,
 .hotPink,
 .nordic,
-.solarizedDark {
+.solarizedDark,
+.gruvboxDark {
   --primary-shadow-color: rgb(0 0 0 / 75%);
 
   .invidiousLogo {
@@ -355,6 +356,45 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #c9c8b5;
   --logo-icon: url('../../_icons/iconSolarizedDarkSmall.svg');
   --logo-text: url('../../_icons/textSolarizedDarkSmall.svg');
+}
+
+.gruvboxDark {
+  --primary-text-color: #ebdbb2;
+  --secondary-text-color: #d5c4a1;
+  --tertiary-text-color: #d5c4a1;
+  --title-color: #ebdbb2;
+  --bg-color: #282828;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #504945;
+  --secondary-card-bg-color: #3c3836;
+  --scrollbar-color: #665c54;
+  --scrollbar-color-hover: #282828;
+  --side-nav-color: #504945;
+  --side-nav-hover-color: #665c54;
+  --side-nav-active-color: #504945;
+  --search-bar-color: #1d2021;
+  --logo-icon: url('../../_icons/iconGruvboxLightSmall.svg');
+  --logo-text: url('../../_icons/textGruvboxLightSmall.svg');
+}
+
+.gruvboxLight {
+  --primary-shadow-color: rgb(255 241 199 / 100%);
+  --primary-text-color: #3c3836;
+  --secondary-text-color: #282828;
+  --tertiary-text-color: #282828;
+  --title-color: #3c3836;
+  --bg-color: #fbf1c7;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #ebdbb2;
+  --secondary-card-bg-color: #d5c4a1;
+  --scrollbar-color: #bdae93;
+  --scrollbar-color-hover: #fbf1c7;
+  --side-nav-color: #ebdbb2;
+  --side-nav-hover-color: #bdae93;
+  --side-nav-active-color: #ebdbb2;
+  --search-bar-color: #a89984;
+  --logo-icon: url('../../_icons/iconGruvboxDarkSmall.svg');
+  --logo-text: url('../../_icons/textGruvboxDarkSmall.svg');
 }
 
 
@@ -712,6 +752,92 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #859900;
   --primary-color-hover: #a5b920;
   --primary-color-active: #c5d940;
+}
+
+.mainGruvboxDarkGreen {
+  --primary-color: #b8bb26;
+  --primary-color-hover: #d8db46;
+  --primary-color-active: #f8fb66;
+}
+
+.mainGruvboxDarkYellow {
+  --primary-color: #fabd2f;
+  --primary-color-hover: #fcd54f;
+  --primary-color-active: #fed76f;
+}
+
+.mainGruvboxDarkBlue {
+  --primary-color: #83a598;
+  --primary-color-hover: #a3c5b8;
+  --primary-color-active: #c3e2d8;
+}
+
+.mainGruvboxDarkPurple {
+  --primary-color: #d3869b;
+  --primary-color-hover: #f3a6b8;
+  --primary-color-active: #f3a6b8;
+}
+
+.mainGruvboxDarkAqua {
+  --primary-color: #8ec07c;
+  --primary-color-hover: #aec29c;
+  --primary-color-active: #cec59c;
+}
+
+.mainGruvboxDarkOrange {
+  --primary-color: #fe8019;
+  --primary-color-hover: #fe9a39;
+  --primary-color-active: #feb259;
+}
+
+.mainGruvboxLightRed {
+  --primary-color: #9d0006;
+  --primary-color-hover: #bd2026;
+  --primary-color-active: #dd4046;
+}
+
+.mainGruvboxLightBlue {
+  --primary-color: #076678;
+  --primary-color-hover: #276898;
+  --primary-color-active: #476ab8;
+}
+
+.mainGruvboxLightPurple {
+  --primary-color: #8f3f71;
+  --primary-color-hover: #af5f91;
+  --primary-color-active: #cf7fb1;
+}
+
+.mainGruvboxLightOrange {
+  --primary-color: #af3a03;
+  --primary-color-hover: #cf5a23;
+  --primary-color-active: #ef7a43;
+}
+
+.mainGruvboxLightOrange,
+.mainGruvboxLightRed,
+.mainGruvboxLightBlue,
+.mainGruvboxLightPurple {
+  --text-with-main-color: #fbf1c7;
+  --logo-icon-bar-color: url('../../_icons/iconGruvboxLightSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textGruvboxLightSmall.svg');
+}
+
+
+.mainGruvboxDarkGreen,
+.mainGruvboxDarkYellow,
+.mainGruvboxDarkAqua,
+.mainGruvboxDarkOrange {
+  --text-with-main-color: #3c3836;
+  --logo-icon-bar-color: url('../../_icons/iconGruvboxDarkSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
+}
+
+.mainGruvboxDarkBlue,
+.mainGruvboxDarkPurple {
+  --text-with-main-color: #1d2021;
+  --logo-icon-bar-color: url('../../_icons/iconGruvboxDarkSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
 }
 
 
@@ -1320,6 +1446,146 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity2: rgb(101 119 0 / 12%);
   --accent-color-opacity3: rgb(101 119 0 / 16%);
   --accent-color-opacity4: rgb(101 119 0 / 24%);
+}
+
+.secGruvboxDarkGreen {
+  --accent-color: #98971a;
+  --accent-color-hover: #b9b93a;
+  --accent-color-active: #d9d95a;
+  --accent-color-light: #b8bb26;
+  --accent-color-visited: #98971a;
+  --accent-color-opacity1: rgb(152 151 26 / 4%);
+  --accent-color-opacity2: rgb(152 151 26 / 12%);
+  --accent-color-opacity3: rgb(152 151 26 / 16%);
+  --accent-color-opacity4: rgb(152 151 26 / 24%);
+}
+
+.secGruvboxDarkYellow {
+  --accent-color: #d79921;
+  --accent-color-hover: #f0b839;
+  --accent-color-active: #f0b839;
+  --accent-color-light: #fabd2f;
+  --accent-color-visited: #d79921;
+  --accent-color-opacity1: rgb(215 153 33 / 4%);
+  --accent-color-opacity2: rgb(215 153 33 / 12%);
+  --accent-color-opacity3: rgb(215 153 33 / 16%);
+  --accent-color-opacity4: rgb(215 153 33 / 24%);
+}
+
+.secGruvboxDarkBlue {
+  --accent-color: #458588;
+  --accent-color-hover: #68948a;
+  --accent-color-active: #68948a;
+  --accent-color-light: #83a598;
+  --accent-color-visited: #458588;
+  --accent-color-opacity1: rgb(69 133 136 / 4%);
+  --accent-color-opacity2: rgb(69 133 136 / 12%);
+  --accent-color-opacity3: rgb(69 133 136 / 16%);
+  --accent-color-opacity4: rgb(69 133 136 / 24%);
+}
+
+.secGruvboxDarkPurple {
+  --accent-color: #b16286;
+  --accent-color-hover: #d3869b;
+  --accent-color-active: #d3869b;
+  --accent-color-light: #d3869b;
+  --accent-color-visited: #b16286;
+  --accent-color-opacity1: rgb(177 98 134 / 4%);
+  --accent-color-opacity2: rgb(177 98 134 / 12%);
+  --accent-color-opacity3: rgb(177 98 134 / 16%);
+  --accent-color-opacity4: rgb(177 98 134 / 24%);
+}
+
+.secGruvboxDarkAqua {
+  --accent-color: #689d6a;
+  --accent-color-hover: #8ec07c;
+  --accent-color-active: #8ec07c;
+  --accent-color-light: #8ec07c;
+  --accent-color-visited: #689d6a;
+  --accent-color-opacity1: rgb(104 157 106 / 4%);
+  --accent-color-opacity2: rgb(104 157 106 / 12%);
+  --accent-color-opacity3: rgb(104 157 106 / 16%);
+  --accent-color-opacity4: rgb(104 157 106 / 24%);
+}
+
+.secGruvboxDarkOrange {
+  --accent-color: #d65d0e;
+  --accent-color-hover: #f2804f;
+  --accent-color-active: #f2804f;
+  --accent-color-light: #fe8019;
+  --accent-color-visited: #d65d0e;
+  --accent-color-opacity1: rgb(214 93 14 / 4%);
+  --accent-color-opacity2: rgb(214 93 14 / 12%);
+  --accent-color-opacity3: rgb(214 93 14 / 16%);
+  --accent-color-opacity4: rgb(214 93 14 / 24%);
+}
+
+.secGruvboxLightRed {
+  --text-with-accent-color: #fbf1c7;
+  --accent-color: #cc241d;
+  --accent-color-hover: #d23c2a;
+  --accent-color-active: #a61f1f;
+  --accent-color-light: #fb4934;
+  --accent-color-visited: #a61f1f;
+  --accent-color-opacity1: rgb(204 36 29 / 4%);
+  --accent-color-opacity2: rgb(204 36 29 / 12%);
+  --accent-color-opacity3: rgb(204 36 29 / 16%);
+  --accent-color-opacity4: rgb(204 36 29 / 24%);
+}
+
+.secGruvboxLightBlue {
+  --accent-color: #458588;
+  --accent-color-hover: #68948a;
+  --accent-color-active: #68948a;
+  --accent-color-light: #83a598;
+  --accent-color-visited: #458588;
+  --accent-color-opacity1: rgb(69 133 136 / 4%);
+  --accent-color-opacity2: rgb(69 133 136 / 12%);
+  --accent-color-opacity3: rgb(69 133 136 / 16%);
+  --accent-color-opacity4: rgb(69 133 136 / 24%);
+}
+
+.secGruvboxLightPurple {
+  --accent-color: #b16286;
+  --accent-color-hover: #d3869b;
+  --accent-color-active: #d3869b;
+  --accent-color-light: #d3869b;
+  --accent-color-visited: #b16286;
+  --accent-color-opacity1: rgb(177 98 134 / 4%);
+  --accent-color-opacity2: rgb(177 98 134 / 12%);
+  --accent-color-opacity3: rgb(177 98 134 / 16%);
+  --accent-color-opacity4: rgb(177 98 134 / 24%);
+}
+
+.secGruvboxLightOrange {
+  --accent-color: #d65d0e;
+  --accent-color-hover: #f2804f;
+  --accent-color-active: #f2804f;
+  --accent-color-light: #fe8019;
+  --accent-color-visited: #d65d0e;
+  --accent-color-opacity1: rgb(214 93 14 / 4%);
+  --accent-color-opacity2: rgb(214 93 14 / 12%);
+  --accent-color-opacity3: rgb(214 93 14 / 16%);
+  --accent-color-opacity4: rgb(214 93 14 / 24%);
+}
+
+.secGruvboxLightOrange,
+.secGruvboxLightRed,
+.secGruvboxLightBlue,
+.secGruvboxLightPurple {
+  --text-with-accent-color: #fbf1c7;
+}
+
+.secGruvboxDarkGreen,
+.secGruvboxDarkYellow,
+.secGruvboxDarkAqua,
+.secGruvboxDarkOrange {
+  --text-with-accent-color: #3c3836;
+}
+
+.secGruvboxDarkBlue,
+.secGruvboxDarkPurple {
+  --text-with-accent-color: #1d2021;
 }
 
 

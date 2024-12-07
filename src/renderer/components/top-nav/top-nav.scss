@@ -45,7 +45,17 @@
   }
 }
 
-.navIcon {
+.arrowDisabled :deep(.iconButton) {
+  filter: grayscale(1);
+  background-color: inherit;
+  opacity: 0.4;
+  pointer-events: auto;
+  cursor: default;
+  user-select: none;
+}
+
+.navIcon,
+:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   border-radius: 50%;
   color: var(--primary-text-color);
   cursor: pointer;
@@ -55,38 +65,33 @@
   transition: background 0.2s ease-out;
   inline-size: 1em;
 
-  @include top-nav-is-colored {
-    color: var(--text-with-main-color);
-  }
-
-  &.arrowBackwardDisabled,
-  &.arrowForwardDisabled {
-    color: #808080;
-    opacity: 0.5;
-    pointer-events: none;
-    user-select: none;
-  }
-
   &:hover {
     background-color: var(--side-nav-hover-color);
     color: var(--side-nav-hover-text-color);
     transition: background 0.2s ease-in;
 
-    @include top-nav-is-colored {
-      background-color: var(--primary-color-hover);
-    }
   }
 
   &:active {
     background-color: var(--tertiary-text-color);
     color: var(--side-nav-active-text-color);
     transition: background 0.2s ease-in;
-
-    @include top-nav-is-colored {
-      background-color: var(--primary-color-active);
-    }
   }
 }
+
+.topNavBarColor .navIcon,
+.topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+  color: var(--text-with-main-color);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+
+  &:active {
+    background-color: var(--primary-color-active);
+  }
+}
+
 
 .navFilterIcon {
   $effect-distance: 20px;

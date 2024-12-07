@@ -67,6 +67,10 @@
   color: var(--side-nav-hover-text-color) !important;
 }
 
+:deep(.shaka-current-selection-span) {
+  color: var(--tertiary-text-color) !important;
+}
+
 /* End of theming code */
 
 .sixteenByNine {

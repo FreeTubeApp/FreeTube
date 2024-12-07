@@ -1,16 +1,17 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import shaka from 'shaka-player'
+import { Utils, YTNodes } from 'youtubei.js'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtShakaVideoPlayer from '../../components/ft-shaka-video-player/ft-shaka-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoChapters from '../../components/WatchVideoChapters/WatchVideoChapters.vue'
 import WatchVideoDescription from '../../components/WatchVideoDescription/WatchVideoDescription.vue'
-import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
+import CommentSection from '../../components/CommentSection/CommentSection.vue'
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
-import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
 import packageDetails from '../../../../package.json'
 import {
   buildVTTFileLocally,
@@ -47,7 +48,7 @@ export default defineComponent({
     'watch-video-info': WatchVideoInfo,
     'watch-video-chapters': WatchVideoChapters,
     'watch-video-description': WatchVideoDescription,
-    'watch-video-comments': WatchVideoComments,
+    CommentSection,
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations,
@@ -56,6 +57,8 @@ export default defineComponent({
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+    document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+    document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
     if (this.$refs.player) {
       await this.$refs.player.destroyPlayer()
@@ -91,6 +94,8 @@ export default defineComponent({
       videoLengthSeconds: 0,
       videoChapters: [],
       videoCurrentChapterIndex: 0,
+      /** @type {'chapters' | 'keyMoments'} */
+      videoChaptersKind: 'chapters',
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -116,6 +121,8 @@ export default defineComponent({
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
+      blockVideoAutoplay: false,
+      autoplayInterruptionTimeout: null,
 
       onMountedRun: false,
 
@@ -156,6 +163,9 @@ export default defineComponent({
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+    defaultAutoplayInterruptionIntervalHours: function () {
+      return this.$store.getters.getDefaultAutoplayInterruptionIntervalHours
     },
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
@@ -318,7 +328,13 @@ export default defineComponent({
         this.getVideoInformationLocal()
       }
 
+      document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+      document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('click', this.resetAutoplayInterruptionTimeout)
+
       window.addEventListener('beforeunload', this.handleWatchProgress)
+      this.resetAutoplayInterruptionTimeout()
     },
 
     changeTimestamp: function (timestamp) {
@@ -450,7 +466,26 @@ export default defineComponent({
               })
             }
           } else {
-            chapters = this.extractChaptersFromDescription(result.basic_info.short_description ?? result.secondary_info.description.text)
+            /** @type {import('youtubei.js').YTNodes.MacroMarkersList | null | undefined} */
+            const macroMarkersList = result.page[1]?.engagement_panels
+              ?.find(pannel => pannel.panel_identifier === 'engagement-panel-macro-markers-auto-chapters')?.content
+
+            if (macroMarkersList) {
+              for (const item of macroMarkersList.contents) {
+                if (item instanceof YTNodes.MacroMarkersListItem) {
+                  chapters.push({
+                    title: item.title.text,
+                    timestamp: item.time_description.text,
+                    startSeconds: Utils.timeToSeconds(item.time_description.text),
+                    endSeconds: 0,
+                    thumbnail: item.thumbnail[0]
+                  })
+                }
+              }
+              this.videoChaptersKind = 'keyMoments'
+            } else {
+              chapters = this.extractChaptersFromDescription(result.basic_info.short_description ?? result.secondary_info.description.text)
+            }
           }
 
           if (chapters.length > 0) {
@@ -1211,6 +1246,18 @@ export default defineComponent({
         return
       }
 
+      if (this.blockVideoAutoplay) {
+        showToast(this.$t('Autoplay Interruption Timer',
+          this.defaultAutoplayInterruptionIntervalHours,
+          {
+            autoplayInterruptionIntervalHours: this.defaultAutoplayInterruptionIntervalHours
+          }),
+        3_600_000
+        )
+        this.resetAutoplayInterruptionTimeout()
+        return
+      }
+
       if (this.watchingPlaylist && this.getPlaylistPauseOnCurrent()) {
         this.disablePlaylistPauseOnCurrent()
         return
@@ -1280,6 +1327,7 @@ export default defineComponent({
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
       this.videoChapters = []
+      this.videoChaptersKind = 'chapters'
 
       this.handleWatchProgress()
     },
@@ -1600,7 +1648,7 @@ export default defineComponent({
     },
 
     updateTitle: function () {
-      document.title = `${this.videoTitle} - ${packageDetails.productName}`
+      this.setAppTitle(`${this.videoTitle} - ${packageDetails.productName}`)
     },
 
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
@@ -1616,7 +1664,14 @@ export default defineComponent({
       this.updatePlaylistLastPlayedAt({ _id: playlist._id })
     },
 
+    resetAutoplayInterruptionTimeout() {
+      clearTimeout(this.autoplayInterruptionTimeout)
+      this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionIntervalHours * 3_600_000)
+      this.blockVideoAutoplay = false
+    },
+
     ...mapActions([
+      'setAppTitle',
       'updateHistory',
       'updateWatchProgress',
       'updateLastViewedPlaylist',

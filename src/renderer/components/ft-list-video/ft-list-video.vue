@@ -206,17 +206,31 @@
           {{ $t('Search Listing.Label.Subtitles') }}
         </div>
       </div>
-      <ft-icon-button
-        class="optionsButton"
-        :icon="['fas', 'ellipsis-v']"
-        :title="$t('Video.More Options')"
-        theme="base-no-default"
-        :size="16"
-        :use-shadow="false"
-        dropdown-position-x="left"
-        :dropdown-options="dropdownOptions"
-        @click="handleOptionsClick"
-      />
+      <div class="buttonStack">
+        <ft-icon-button
+          class="optionsButton"
+          :icon="['fas', 'ellipsis-v']"
+          :title="$t('Video.More Options')"
+          theme="base-no-default"
+          :size="16"
+          :use-shadow="false"
+          dropdown-position-x="left"
+          :dropdown-options="dropdownOptions"
+          @click="handleOptionsClick"
+        />
+        <font-awesome-icon
+          v-if="deArrowChangedContent || deArrowTogglePinned"
+          :title="deArrowToggleTitle"
+          :icon="['far', 'dot-circle']"
+          class="optionsButton deArrowToggleButton"
+          :class="{ alwaysVisible: deArrowTogglePinned }"
+          tabindex="0"
+          role="button"
+          @click="toggleDeArrow"
+          @keydown.enter.prevent="toggleDeArrow"
+          @keydown.space.prevent="toggleDeArrow"
+        />
+      </div>
       <p
         v-if="description && effectiveListTypeIsList && appearance === 'result'"
         class="description"

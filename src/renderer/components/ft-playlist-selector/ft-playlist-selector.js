@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'FtPlaylistSelector',
@@ -37,7 +38,7 @@ export default defineComponent({
   data: function () {
     return {
       title: '',
-      thumbnail: require('../../assets/img/thumbnail_placeholder.svg'),
+      thumbnail: thumbnailPlaceholder,
       videoCount: 0,
 
       videoPresenceCountInPlaylistTextShouldBeVisible: false,

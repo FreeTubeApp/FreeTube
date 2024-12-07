@@ -1,6 +1,8 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { KeyboardShortcuts } from '../../../../constants'
+import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class FullWindowButton extends shaka.ui.Element {
   /**
@@ -67,12 +69,14 @@ export class FullWindowButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Player.Full Window')
-
     this.icon_.textContent = this.fullWindowEnabled_ ? 'close_fullscreen' : 'open_in_full'
-
     this.currentState_.textContent = this.localization.resolve(this.fullWindowEnabled_ ? 'ON' : 'OFF')
 
-    this.button_.ariaLabel = this.fullWindowEnabled_ ? i18n.t('Video.Player.Exit Full Window') : i18n.t('Video.Player.Full Window')
+    const baseAriaLabel = this.fullWindowEnabled_ ? i18n.t('Video.Player.Exit Full Window') : i18n.t('Video.Player.Full Window')
+    const newLabel = addKeyboardShortcutToActionTitle(
+      baseAriaLabel,
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW
+    )
+    this.nameSpan_.textContent = this.button_.ariaLabel = newLabel
   }
 }

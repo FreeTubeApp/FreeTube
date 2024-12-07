@@ -35,6 +35,7 @@ import store from '../../store/index'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
 import { useI18n } from '../../composables/use-i18n-polyfill'
+import { KeyboardShortcuts } from '../../../constants'
 
 const { t } = useI18n()
 
@@ -107,10 +108,9 @@ function keyboardShortcutHandler(event) {
   // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
   if (event.repeat) { return }
 
-  switch (event.key) {
-    case 'r':
-    case 'R':
-    case 'F5':
+  switch (event.key.toLowerCase()) {
+    case 'f5':
+    case KeyboardShortcuts.APP.SITUATIONAL.REFRESH:
       if (!isLoading.value) {
         fetchPopularInfo()
       }

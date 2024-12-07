@@ -7,6 +7,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../FtElementList/FtElementList.vue'
 import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
 import FtAutoLoadNextPageWrapper from '../ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import { KeyboardShortcuts } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscriptionsTabUI',
@@ -113,10 +114,9 @@ export default defineComponent({
       // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
       if (event.repeat) { return }
 
-      switch (event.key) {
-        case 'r':
-        case 'R':
-        case 'F5':
+      switch (event.key.toLowerCase()) {
+        case 'f5':
+        case KeyboardShortcuts.APP.SITUATIONAL.REFRESH:
           if (!this.isLoading && this.activeSubscriptionList.length > 0) {
             this.$emit('refresh')
           }
