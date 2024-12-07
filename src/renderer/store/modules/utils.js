@@ -42,8 +42,6 @@ const state = {
   regionNames: [],
   regionValues: [],
   recentBlogPosts: [],
-  searchFromFilters: false,
-  showSearchButton: false,
   searchSettings: {
     sortBy: 'relevance',
     time: '',
@@ -92,10 +90,6 @@ const getters = {
 
   getCachedPlaylist(state) {
     return state.cachedPlaylist
-  },
-
-  getSearchFromFilters(state) {
-    return state.searchFromFilters
   },
 
   getShowSearchButton(state) {
@@ -404,18 +398,6 @@ const actions = {
 
   hideSearchFilters ({ commit }) {
     commit('setShowSearchFilters', false)
-  },
-
-  triggerSearchFromFilters ({ commit }) {
-    commit('setSearchFromFilters', true)
-  },
-
-  resetSearchFromFilters ({ commit }) {
-    commit('setSearchFromFilters', false)
-  },
-
-  updateShowSearchButton ({ commit }, value) {
-    commit('setShowSearchButton', value)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -1000,14 +982,6 @@ const mutations = {
 
   setShowSearchFilters (state, payload) {
     state.showSearchFilters = payload
-  },
-
-  setSearchFromFilters (state, value) {
-    state.searchFromFilters = value
-  },
-
-  setShowSearchButton (state, value) {
-    state.showSearchButton = value
   },
 
   setToBeAddedToPlaylistVideoList (state, payload) {

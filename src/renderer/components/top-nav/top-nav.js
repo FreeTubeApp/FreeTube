@@ -40,8 +40,7 @@ export default defineComponent({
       navigationHistoryDropdownActiveEntry: null,
       navigationHistoryDropdownOptions: [],
       searchSuggestionsDataList: [],
-      lastSuggestionQuery: '',
-      query: ''
+      lastSuggestionQuery: ''
     }
   },
   computed: {
@@ -69,10 +68,6 @@ export default defineComponent({
 
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
-    },
-
-    searchFromFilters: function() {
-      return this.$store.getters.getSearchFromFilters
     },
 
     searchSettings: function () {
@@ -136,13 +131,6 @@ export default defineComponent({
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
     },
-
-    searchFromFilters: function(val) {
-      if (val) {
-        this.goToSearch(this.query, {})
-        this.$store.dispatch('resetSearchFromFilters')
-      }
-    }
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -202,18 +190,15 @@ export default defineComponent({
       }
     },
 
-    processInput: function (query) {
-      const trimmedQuery = query.trim()
-      this.query = trimmedQuery
-
-      this.updateShowSearchButton(trimmedQuery !== '')
-      this.getSearchSuggestionsDebounce(trimmedQuery)
-    },
-
     getSearchSuggestionsDebounce: function (query) {
-      if (this.enableSearchSuggestions && query !== this.lastSuggestionQuery) {
-        this.lastSuggestionQuery = query
-        this.debounceSearchResults(query)
+      this.$emit('search-query-text', query)
+
+      if (this.enableSearchSuggestions) {
+        const trimmedQuery = query.trim()
+        if (trimmedQuery !== this.lastSuggestionQuery) {
+          this.lastSuggestionQuery = trimmedQuery
+          this.debounceSearchResults(trimmedQuery)
+        }
       }
     },
 
@@ -363,9 +348,8 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'getYoutubeUrlInfo',
-      'showSearchFilters',
-      'updateShowSearchButton'
+      'search',
+      'showSearchFilters'
     ])
   }
 })

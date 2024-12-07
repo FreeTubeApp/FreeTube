@@ -95,7 +95,7 @@
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
-          @input="processInput"
+          @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
         />
         <font-awesome-icon

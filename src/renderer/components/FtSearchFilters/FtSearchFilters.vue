@@ -224,8 +224,6 @@ const searchTypeStartIndex = TYPE_VALUES.indexOf(searchSettings.value.type)
 const searchDurationStartIndex = DURATION_VALUES.indexOf(searchSettings.value.duration)
 const searchDefaultFeatures = [...searchSettings.value.features]
 
-const showSearchButton = computed(() => store.getters.getShowSearchButton)
-
 function searchFromFilters() {
   hideSearchFilters()
   store.dispatch('triggerSearchFromFilters')
