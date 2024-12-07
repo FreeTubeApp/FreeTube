@@ -64,18 +64,23 @@ async function restartElectron() {
 
   electronProcess = spawn(electron, [
     path.join(__dirname, '../dist/main.js'),
-    // '--enable-logging', // Enable to show logs from all electron processes
+    '--enable-logging', // Enable to show logs from all electron processes
     remoteDebugging ? '--inspect=9222' : '',
-    remoteDebugging ? '--remote-debugging-port=9223' : ''
+    remoteDebugging ? '--remote-debugging-port=9223' : '',
+    // fix for "The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /.../FreeTube/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755."
+    // '--no-sandbox',
   ],
-    // { stdio: 'inherit' } // required for logs to actually appear in the stdout
+  { stdio: 'inherit' } // required for logs to actually appear in the stdout
   )
 
-  electronProcess.on('exit', (code, _) => {
+  electronProcess.on('exit', (code, signal) => {
     if (code === relaunchExitCode) {
       electronProcess = null
       restartElectron()
       return
+    }
+    if (!code || signal) {
+      console.log('\x1b[31mElectron exited with code:', code, ' on receiving signal:', signal, '\x1b[0m')
     }
 
     if (!manualRestart) process.exit(0)
