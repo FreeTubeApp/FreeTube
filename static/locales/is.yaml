@@ -508,12 +508,12 @@ Settings:
       Watch Page: Áhorfssíða
       General: Almennt
       Subscriptions Page: Áskriftasíða
-    Hide Channel Shorts: Fela stuttmyndir rása
-    Hide Channel Playlists: Fela spilunarlista rása
-    Hide Channel Community: Fela samfélag rása
+    Hide Channel Shorts: Fela stuttmyndaflipa rása
+    Hide Channel Playlists: Fela spilunarlistaflipa rása
+    Hide Channel Community: Fela samfélagsflipa rása
     Hide Featured Channels: Fela rásir í deiglunni
-    Hide Channel Podcasts: Fela hlaðvörp rása
-    Hide Channel Releases: Fela útgáfur rása
+    Hide Channel Podcasts: Fela hlaðvarpsflipa rása
+    Hide Channel Releases: Fela útgáfuflipa rása
     Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
@@ -529,6 +529,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem
       innihalda texta
     Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
+    Hide Channel Home: Fela "Heim"-flipa rása
   Data Settings:
     Data Settings: 'Gögn'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -804,6 +805,9 @@ Channel:
     Podcasts: Hlaðvörp
     This channel does not currently have any podcasts: Þessi rás er ekki með nein
       hlaðvörp í augnablikinu
+  Home:
+    Home: Heim
+    View Playlist: Skoða spilunarlista
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
@@ -1062,8 +1066,8 @@ Tooltips:
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
       þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
   External Player Settings:
-    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar,
-      sem beina á til utanaðkomandi spilarans.
+    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, sem beina
+      á til utanaðkomandi spilarans.
     Ignore Warnings: Hunsa aðvarinir þegar valinn utanaðkomandi spilari styður ekki
       viðkomandi aðgerð (t.d. að snúa við spilunarlista, o.s.frv.).
     Custom External Player Executable: Sjálfgefið gengur FreeTube út frá því að valinn
@@ -1202,3 +1206,13 @@ Search Listing:
     360 Video: 360°
     New: Nýtt
     3D: 3D
+Keys:
+  arrowright: Hægri-ör
+  arrowleft: Vinstri-ör
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Niður-ör
+  arrowup: Upp-ör
+Right-click or hold to see history: Hægri-smelltu til að sjá feril
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +

@@ -51,11 +51,13 @@ export default defineComponent({
       ],
       screenshotFormatNames: [
         'PNG',
-        'JPEG'
+        'JPEG',
+        'WebP'
       ],
       screenshotFormatValues: [
         'png',
-        'jpg'
+        'jpg',
+        'webp'
       ],
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
@@ -97,6 +99,10 @@ export default defineComponent({
 
     showProxyVideosAsDisabled: function () {
       return this.backendPreference !== 'invidious' && !this.backendFallback
+    },
+
+    defaultAutoplayInterruptionIntervalHours: function () {
+      return parseInt(this.$store.getters.getDefaultAutoplayInterruptionIntervalHours)
     },
 
     defaultSkipInterval: function () {
@@ -290,6 +296,7 @@ export default defineComponent({
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
+      'updateDefaultAutoplayInterruptionIntervalHours',
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
       'updateProxyVideos',

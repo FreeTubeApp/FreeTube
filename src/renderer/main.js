@@ -113,7 +113,8 @@ import {
   faWifi
 } from '@fortawesome/free-solid-svg-icons'
 import {
-  faBookmark as farBookmark
+  faBookmark as farBookmark,
+  faDotCircle as farDotCircle
 } from '@fortawesome/free-regular-svg-icons'
 import {
   faBitcoin,
@@ -231,6 +232,7 @@ library.add(
 
   // solid icons
   farBookmark,
+  farDotCircle,
 
   // brand icons
   faGithub,

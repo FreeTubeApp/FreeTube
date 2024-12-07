@@ -267,6 +267,7 @@ Settings:
     Auto Load Next Page:
       Tooltip: 自動載入額外頁面與留言。
       Label: 自動載入下一頁
+    Open Deep Links In New Window: 在新視窗中開啟傳遞給 FreeTube 的 URL
   Theme Settings:
     Theme Settings: '主題'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -484,17 +485,17 @@ Settings:
     Hide Channels: 隱藏頻道中的影片
     Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫與標點符號的標題
     Hide Featured Channels: 隱藏精選頻道
-    Hide Channel Playlists: 隱藏頻道播放清單
-    Hide Channel Community: 隱藏頻道社群
-    Hide Channel Shorts: 隱藏頻道短片
+    Hide Channel Playlists: 隱藏頻道「播放清單」分頁
+    Hide Channel Community: 隱藏頻道「社群」分頁
+    Hide Channel Shorts: 隱藏頻道「短片」分頁
     Sections:
       Side Bar: 側邊欄
       Watch Page: 觀看頁面
       General: 一般
       Channel Page: 頻道頁面
       Subscriptions Page: 訂閱頁面
-    Hide Channel Podcasts: 隱藏頻道 Podcast
-    Hide Channel Releases: 隱藏頻道發布
+    Hide Channel Podcasts: 隱藏頻道「Podcast」分頁
+    Hide Channel Releases: 隱藏頻道「發布」分頁
     Hide Subscriptions Shorts: 隱藏訂閱短片
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
@@ -506,6 +507,7 @@ Settings:
     Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
     Hide Videos and Playlists Containing Text: 隱藏包含文字的影片與播放清單
     Hide Videos and Playlists Containing Text Placeholder: 單字、單字片段或片語
+    Hide Channel Home: 隱藏頻道「首頁」分頁
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -666,6 +668,9 @@ Channel:
   Releases:
     Releases: 發布
     This channel does not currently have any releases: 此頻道目前沒有任何發布
+  Home:
+    Home: 首頁
+    View Playlist: 檢視播放清單
 Video:
   Open in YouTube: '在 YouTube 中開啟'
   Copy YouTube Link: '複製 YouTube 連結'
@@ -777,6 +782,9 @@ Video:
   MembersOnly: 會員專屬影片無法使用 FreeTube 觀看，因為這些影片需要 Google 登入並且必須訂閱上傳者的付費頻道。
   AgeRestricted: 由於需要 Google 登入並使用經過年齡驗證的 YouTube 帳戶，FreeTube 無法觀看有限制年齡的影片。
   Unlisted: 未公開
+  DeArrow:
+    Show Original Details: 顯示原始詳細資訊
+    Show Modified Details: 顯示修改後的詳細資訊
 Videos:
   #& Sort By
   Sort By:
@@ -945,8 +953,9 @@ Tooltips:
       API 需要 Invidious 伺服器才能連線。
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
+    Open Deep Links In New Window: 傳遞給 FreeTube 的 URL，例如透過重定向瀏覽器擴充套件或命令列引數，會在新視窗中開啟。
   External Player Settings:
-    Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
+    Custom External Player Arguments: 要傳給外部播放器的任何自訂命令列引數。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
     External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
@@ -1034,3 +1043,13 @@ Search Listing:
     New: 新
     3D: 3D
 'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: 向下方向鍵
+  arrowleft: 向左方向鍵
+  arrowright: 向右方向鍵
+  arrowup: 向上方向鍵
+Right-click or hold to see history: 右鍵點選或按住不放可以檢視歷史紀錄

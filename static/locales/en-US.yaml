@@ -29,6 +29,7 @@ Minimize: Minimize
 Close: Close
 Back: Back
 Forward: Forward
+Right-click or hold to see history: Right-click or hold to see history
 Open New Window: Open New Window
 Go to page: Go to {page}
 Close Banner: Close Banner
@@ -283,6 +284,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -418,7 +420,8 @@ Settings:
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
-    Next Video Interval: Next Video Interval
+    Next Video Interval: Autoplay Countdown Timer
+    Autoplay Interruption Timer: Autoplay Interruption Timer
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
@@ -850,6 +853,9 @@ Video:
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
+  DeArrow:
+    Show Original Details: Show Original Details
+    Show Modified Details: Show Modified Details
   Sponsor Block category:
     sponsor: Sponsor
     intro: Intro
@@ -1018,6 +1024,8 @@ Tooltips:
     External Link Handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
+    Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect
+      browser extensions or command line arguments, are opened in a new window.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
@@ -1083,6 +1091,8 @@ Playing Next Video Interval: Playing next video in no time. Click to cancel. | P
 Canceled next video autoplay: Canceled next video autoplay
 Default Piped instance has been set to {instance}: Default Piped instance has been set to {instance}
 Default Piped instance has been cleared: Default Piped instance has been cleared
+Autoplay Interruption Timer: Autoplay canceled due to {autoplayInterruptionIntervalHours} hours of inactivity
+
 Default Invidious instance has been set to {instance}: Default Invidious instance has been set to {instance}
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable

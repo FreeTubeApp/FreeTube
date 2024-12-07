@@ -319,6 +319,8 @@ Settings:
     Auto Load Next Page:
       Label: Chargement automatique de la page suivante
       Tooltip: Chargement automatique des pages supplémentaires et des commentaires.
+    Open Deep Links In New Window: Les URL ouvertes ont été transmises à FreeTube
+      dans une nouvelle fenêtre
   Theme Settings:
     Theme Settings: 'Thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -566,18 +568,18 @@ Settings:
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
       ni ponctuation excessives
-    Hide Channel Playlists: Masquer les listes de lecture des chaînes
+    Hide Channel Playlists: Masquer l'onglet de la chaîne "Listes de lecture"
     Hide Featured Channels: Masquer les chaînes en vedette
-    Hide Channel Community: Masquer la communauté de la chaîne
-    Hide Channel Shorts: Masquer les shorts de la chaîne
+    Hide Channel Community: Masquer l'onglet de la chaîne "Communauté"
+    Hide Channel Shorts: Masquer l'onglet "Shorts" de la chaîne
     Sections:
       Channel Page: Page de la chaîne
       Side Bar: Barre latérale
       Watch Page: Page de lecture
       General: Général
       Subscriptions Page: Page Abonnements
-    Hide Channel Podcasts: Masquer les podcasts de la chaîne
-    Hide Channel Releases: Masquer les publications de la chaîne
+    Hide Channel Podcasts: Masquer l'onglet de la chaîne "Podcasts"
+    Hide Channel Releases: Masquer l'onglet de la chaîne "Publications"
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
@@ -594,6 +596,7 @@ Settings:
       lecture contenant du texte
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
       phrase
+    Hide Channel Home: Masquer l'onglet "Accueil" de la chaîne
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -779,6 +782,9 @@ Channel:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: Cette chaîne n'a pas encore
       de podcasts
+  Home:
+    Home: Accueil
+    View Playlist: Afficher la liste de lecture
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Supprimer de l''historique'
@@ -907,6 +913,9 @@ Video:
   MembersOnly: Les vidéos réservées aux membres ne peuvent pas être visionnées avec
     FreeTube, car elles nécessitent une connexion Google et une adhésion payante à
     la chaîne du vidéaste.
+  DeArrow:
+    Show Original Details: Afficher les détails originaux
+    Show Modified Details: Afficher les détails modifiés
 Videos:
   #& Sort By
   Sort By:
@@ -1115,6 +1124,9 @@ Tooltips:
     External Link Handling: "Choisissez le comportement par défaut quand on clique
       sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira
       le lien dans votre navigateur par défaut.\n"
+    Open Deep Links In New Window: Les URL transmises à FreeTube, par des extensions
+      de redirection d'un navigateur ou par les arguments de la ligne de commande,
+      sont ouvertes dans une nouvelle fenêtre.
   External Player Settings:
     Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés,
       que vous souhaitez transmettre au lecteur externe.
@@ -1241,3 +1253,13 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
   dangereuse : « {url} »."
+shortcutJoinOperator: +
+Keys:
+  ctrl: Ctrl
+  arrowdown: Flèche bas
+  arrowleft: Flèche gauche
+  arrowright: Flèche droite
+  arrowup: Flèche haut
+  alt: Alt
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique

@@ -297,6 +297,7 @@ Settings:
     Auto Load Next Page:
       Label: טעינת העמוד הבא אוטומטית
       Tooltip: טען דפים ותגובות נוספים באופן אוטומטי.
+    Open Deep Links In New Window: פתיחת כתובות שהועברו ל־FreeTube בחלון חדש
   Theme Settings:
     Theme Settings: 'ערכת עיצוב'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -313,6 +314,8 @@ Settings:
       Nordic: נורדית
       Solarized Dark: חשוך זוהר
       Solarized Light: בהיר זוהר
+      Gruvbox Dark: תיבת גרוב כהה
+      Gruvbox Light: תיבת גרוב בהירה
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -360,6 +363,16 @@ Settings:
       Solarized Blue: כחול זוהר
       Solarized Violet: ויולט מואר בשמש
       Solarized Cyan: סולרייזד כחול-ירוק
+      Gruvbox Light Orange: תיבת גרוב כתומה בהירה
+      Gruvbox Dark Green: תיבת גרוב ירוקה כהה
+      Gruvbox Dark Purple: תיבת גרוב סגולה כהה
+      Gruvbox Light Purple: תיבת גרוב סגולה בהירה
+      Gruvbox Dark Blue: תיבת גרוב כחולה כהה
+      Gruvbox Light Red: תיבת גרוב אדומה בהירה
+      Gruvbox Dark Yellow: תיבת גרוב צהובה כהה
+      Gruvbox Dark Orange: תיבת גרוב כתומה כהה
+      Gruvbox Dark Aqua: תיבת גרוב מים כהים
+      Gruvbox Light Blue: תיבת גרוב כחולה בהירה
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -517,17 +530,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: הצג כותרות ללא אותיות גדולות
       וסימני פיסוק מיותרים
     Hide Featured Channels: הסתרת ערוצים מומלצים
-    Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
-    Hide Channel Community: הסתרת קהילת הערוץ
-    Hide Channel Shorts: הסתרת ה־Shorts של הערוץ
+    Hide Channel Playlists: הסתרת לשונית „רשימות נגינה” של ערוץ
+    Hide Channel Community: הסתרת לשונית ה„קהילת” הערוץ
+    Hide Channel Shorts: הסתרת לשונית ה־„Shorts” של הערוץ
     Sections:
       Watch Page: עמוד הצפייה
       Channel Page: עמוד ערוץ
       Side Bar: סרגל צד
       General: כללי
       Subscriptions Page: עמוד מינויים
-    Hide Channel Podcasts: הסתרת הסכתים של הערוץ
-    Hide Channel Releases: הסתרת שחרורים של הערוץ
+    Hide Channel Podcasts: הסתרת לשונית ה„הסכתים” של הערוץ
+    Hide Channel Releases: הסתרת לשונית ה„שחרורים” של הערוץ
     Hide Subscriptions Live: הסתרת שידורים חיים של המינויים
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
@@ -540,8 +553,9 @@ Settings:
     Hide Channels Already Exists: ID הערוץ כבר קיים
     Hide Channels API Error: אירעה שגיאה באיחזור משתמש עם ה-ID שסופק. נא לבדוק שוב
       אם ה-ID נכון.
-    Hide Videos and Playlists Containing Text: הסתר סרטונים ורשימות שידורים המכילים
+    Hide Videos and Playlists Containing Text: הסתרת סרטונים ורשימות שידורים המכילים
       טקסט
+    Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -758,6 +772,9 @@ Channel:
   Releases:
     Releases: שחרורים
     This channel does not currently have any releases: בערוץ הזה אין שחרורים כרגע
+  Home:
+    Home: בית
+    View Playlist: הצגת רשימת נגינה
 Video:
   Mark As Watched: 'סימון כנצפה'
   Remove From History: 'הסרה מהיסטוריית הצפייה'
@@ -879,6 +896,9 @@ Video:
   AgeRestricted: אי אפשר לצפות בסרטונים שמוגבלים בגיל עם FreeTube כיוון שהם דורשים
     כניסה עם Google ושימוש בחשבון YouTube עם גיל מאומת.
   Unlisted: לא מופיע
+  DeArrow:
+    Show Modified Details: הצגת פרטים לאחר שינוי
+    Show Original Details: הצגת פרטים מקוריים
 Videos:
   #& Sort By
   Sort By:
@@ -996,6 +1016,8 @@ Tooltips:
       שלך.\n"
     Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
       שמעניין אותך לראות.
+    Open Deep Links In New Window: כתובות שמועברות ל־FreeTube, כגון העברת הרחבות דפדפן
+      או ארגומנטים בשורת הפקודה, תיפתחנה בחלון חדש.
   Player Settings:
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube.
@@ -1024,8 +1046,8 @@ Tooltips:
       על נגנים חיצוניים.
     Custom External Player Executable: כברירת מחדל FreeTube יניח שהנגן החיצוני הנבחר
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
-    Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
-      מופרדים בפסיקים (‚;’).
+    Custom External Player Arguments: ארגומנטים כלשהם משלך לשורת הפקודה להעברה הלאה
+      לנגן החיצוני.
     Ignore Default Arguments: אל תשלח אף ארגומנט סטנדרטי לנגן החיצוני, מלבד כתובת
       הסרטון (למשל, קצב הפלייבק, כתובת הרשימה, וכו'). ארגומנטים מותאמים ימשיכו להיות
       מועברים.
@@ -1124,3 +1146,13 @@ Channel Unhidden: '{channel} הוסר ממסנן ערוצים'
 Channel Hidden: '{channel} נוסף למסנן ערוצים'
 Trimmed input must be at least N characters long: הקלט המקוצץ חייב להיות באורך של
   לפחות תו אחד | הקלט המקוצץ חייב להיות באורך של לפחות {length} תווים
+Keys:
+  arrowright: חץ ימינה
+  arrowup: חץ למעלה
+  arrowdown: חץ למטה
+  arrowleft: חץ שמאלה
+  ctrl: Ctrl
+  alt: Alt
+Right-click or hold to see history: לחיצה ימנית או החזקה כדי לראות היסטוריה
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'

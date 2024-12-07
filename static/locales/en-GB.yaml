@@ -307,6 +307,7 @@ Settings:
     Auto Load Next Page:
       Label: Auto load next page
       Tooltip: Load additional pages and comments automatically.
+    Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
   Theme Settings:
     Theme Settings: 'Theme'
     Match Top Bar with Main Color: 'Match top bar with main colour'
@@ -323,6 +324,8 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarised Dark
       Solarized Light: Solarised Light
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -370,6 +373,16 @@ Settings:
       Solarized Orange: Solarised Orange
       Solarized Blue: Solarised Blue
       Solarized Green: Solarised Green
+      Gruvbox Dark Green: Gruvbox Dark Green
+      Gruvbox Dark Yellow: Gruvbox Dark Yellow
+      Gruvbox Dark Blue: Gruvbox Dark Blue
+      Gruvbox Light Red: Gruvbox Light Red
+      Gruvbox Light Blue: Gruvbox Light Blue
+      Gruvbox Light Purple: Gruvbox Light Purple
+      Gruvbox Dark Purple: Gruvbox Dark Purple
+      Gruvbox Dark Aqua: Gruvbox Dark Aqua
+      Gruvbox Light Orange: Gruvbox Light Orange
+      Gruvbox Dark Orange: Gruvbox Dark Orange
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -570,6 +583,7 @@ Settings:
       phrase
     Hide Videos and Playlists Containing Text: Hide videos and playlists containing
       text
+    Hide Channel Home: Hide Channel "Home" Tab
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -589,6 +603,10 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube doesn't have a built-in proxy but can connect to an external
+      proxy, such as one running on your machine like Tor or an external proxy such-as
+      a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is
+      configured properly, or FreeTube won't be able to fetch any data.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
@@ -782,6 +800,9 @@ Channel:
     Releases: Releases
     This channel does not currently have any releases: This channel does not currently
       have any releases
+  Home:
+    Home: Home
+    View Playlist: View Playlist
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -906,6 +927,9 @@ Video:
     Google login and paid membership to the uploader's channel.
   AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require
     Google login and using an age-verified YouTube account.
+  DeArrow:
+    Show Original Details: Show Original Details
+    Show Modified Details: Show Modified Details
 Videos:
   #& Sort By
   Sort By:
@@ -1051,6 +1075,8 @@ Tooltips:
     External Link Handling: "Choose the default behaviour when a link, which cannot
       be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked
       link in your default browser.\n"
+    Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect browser
+      extensions or command line arguments, are opened in a new window.
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening
       the video (playlist if supported) in the external player, on the thumbnail.
@@ -1063,7 +1089,8 @@ Tooltips:
     Ignore Default Arguments: Do not send any default arguments to the external player
       aside from the video URL (e.g. playback rate, playlist URL, etc.). Custom arguments
       will still be passed on.
-    Custom External Player Arguments: Any custom command line arguments you want to be passed on to the external player.
+    Custom External Player Arguments: Any custom command line arguments you want to
+      be passed on to the external player.
     DefaultCustomArgumentsTemplate: '(Default: ‘{defaultCustomArguments}’)'
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
@@ -1164,3 +1191,13 @@ Cancel: Cancel
 checkmark: ✓
 Display Label: '{label}: {value}'
 Moments Ago: moments ago
+Keys:
+  arrowup: Up Arrow
+  arrowleft: Left Arrow
+  arrowright: Right Arrow
+  ctrl: Ctrl
+  alt: Alt
+  arrowdown: Down Arrow
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Right-click or hold to see history: Right-click or hold to see history

@@ -317,6 +317,7 @@ Settings:
     Auto Load Next Page:
       Label: Következő oldal automatikus betöltése
       Tooltip: További oldalak és a hozzászólások automatikus betöltése.
+    Open Deep Links In New Window: A FreeTube-nak átadott webcímek megnyitása új ablakban
   Theme Settings:
     Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -560,17 +561,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Címek túlzott nagybetűs írás
       és írásjelek nélkül való megjelenítése
     Hide Featured Channels: Kiemelt csatornák elrejtése
-    Hide Channel Playlists: Csatorna lejátszási listák elrejtése
-    Hide Channel Community: Csatornaközösség elrejtése
-    Hide Channel Shorts: Csatorna rövid videóinak elrejtése
+    Hide Channel Playlists: Csatorna „lejátszási listák” lap elrejtése
+    Hide Channel Community: Csatorna „közösség” lap elrejtése
+    Hide Channel Shorts: Csatorna „rövid videók” lap elrejtése
     Sections:
       Side Bar: Oldalsáv
       Channel Page: Csatornalap
       Watch Page: Nézőlap
       General: Általános
       Subscriptions Page: Feliratkozások oldal
-    Hide Channel Podcasts: Csatornapodcastok elrejtése
-    Hide Channel Releases: Csatornakiadások elrejtése
+    Hide Channel Podcasts: Csatorna „podcastok” lap elrejtése
+    Hide Channel Releases: Csatorna „kiadások” lap elrejtése
     Hide Subscriptions Shorts: Feliratkozások rövid videóinak elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
@@ -585,6 +586,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
     Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási
       listák elrejtése
+    Hide Channel Home: Csatorna „főoldal” lap elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
     újra és alkalmazza a módosítást?
@@ -815,6 +817,9 @@ Channel:
     Podcasts: Podcastok
     This channel does not currently have any podcasts: Ez a csatorna jelenleg nem
       rendelkezik podcastokkal
+  Home:
+    View Playlist: Lejátszási listák megtekintése
+    Home: Főoldal
 Video:
   Mark As Watched: 'Megjelölés megnézettként'
   Remove From History: 'Eltávolítás az előzményekből'
@@ -940,6 +945,9 @@ Video:
     Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
   MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel
     ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
+  DeArrow:
+    Show Modified Details: Módosított részletek megjelenítése
+    Show Original Details: Eredeti részletek megjelenítése
 Videos:
   #& Sort By
   Sort By:
@@ -1068,6 +1076,8 @@ Tooltips:
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy
       hivatkozásra kattint, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés
       szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
+    Open Deep Links In New Window: A FreeTube-nak átadott webcímek, például a böngészőbővítmények
+      vagy parancssori argumentumok átirányításával, új ablakban nyílnak meg.
   Subscription Settings:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni
       az alapértelmezett módszer helyett az előfizetéses hírcsatorna lekérdezéséhez.
@@ -1098,8 +1108,8 @@ Tooltips:
       változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
     Ignore Warnings: A figyelmeztetések mellőzése, amikor a jelenlegi külső lejátszó
       nem támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
-    Custom External Player Arguments: Bármely egyéni parancssori pontosvesszővel (;)
-      elválasztott argumentumot át kell adni a külső lejátszónak.
+    Custom External Player Arguments: A külső lejátszónak átadni kívánt egyéni parancssori
+      argumentumok.
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
       Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
@@ -1211,3 +1221,14 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos webcím megnyitása
   letiltva: „{url}”.'
+Keys:
+  arrowup: Felfele nyíl
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Lefele nyíl
+  arrowleft: Balra nyíl
+  arrowright: Jobbra nyíl
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
+  az előzmények megtekintéséhez

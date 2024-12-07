@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
@@ -11,6 +12,7 @@ import {
 } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import packageDetails from '../../../../package.json'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 export default defineComponent({
@@ -80,11 +82,13 @@ export default defineComponent({
 
       this.query = query
 
+      this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
       this.checkSearchCache(payload)
     }
   },
   mounted: function () {
     this.query = this.$route.params.query
+    this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
 
     let features = this.$route.query.features
     // if page gets refreshed and there's only one feature then it will be a string
@@ -364,6 +368,10 @@ export default defineComponent({
       } else if (channels.length > 1) {
         this.$store.dispatch('batchUpdateSubscriptionDetails', channels)
       }
-    }
+    },
+
+    ...mapActions([
+      'setAppTitle',
+    ]),
   }
 })

@@ -314,6 +314,8 @@ Settings:
     Auto Load Next Page:
       Label: Аутоматски учитај следећу страницу
       Tooltip: Аутоматско учитавање додатних страница и коментара.
+    Open Deep Links In New Window: Отворите URL адресе прослеђене FreeTube-у у новом
+      прозору
   Theme Settings:
     Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
@@ -502,14 +504,14 @@ Settings:
       Channel Page: Страница канала
       Subscriptions Page: Страница праћења
       General: Опште
-    Hide Channel Community: Сакриј заједницу канала
+    Hide Channel Community: Сакриј картицу „Заједница“ канала
     Hide Subscriptions Videos: Сакриј видео снимке канала које пратите
     Hide Comments: Сакриј коментаре
-    Hide Channel Shorts: Сакриј Shorts снимке канала
+    Hide Channel Shorts: Сакриј картицу „Shorts“ канала
     Hide Sharing Actions: Сакриј радње дељења
-    Hide Channel Podcasts: Сакриј подкасте канала
+    Hide Channel Podcasts: Сакриј картицу „Подкасти“ канала
     Hide Live Streams: Сакриј стримове уживо
-    Hide Channel Playlists: Сакриј плејлисте канала
+    Hide Channel Playlists: Сакриј картицу „Плејлисте“ канала
     Hide Subscriptions Community: Сакриј заједницу канала које пратите
     Hide Channels: Сакриј видео снимке са канала
     Hide Subscriptions Live: Сакриј стримове уживо канала које пратите
@@ -519,7 +521,7 @@ Settings:
     Hide Featured Channels: Сакриј истакнуте канале
     Hide Profile Pictures in Comments: Сакриј слике профила у коментарима
     Hide Upcoming Premieres: Сакриј предстојеће премијере
-    Hide Channel Releases: Сакриј издања канала
+    Hide Channel Releases: Сакриј картицу „Издања“ канала
     Hide Channels Invalid: Наведени ID канала је неважећи
     Hide Channels Disabled Message: Неки канали су блокирани помоћу ID-а и нису обрађени.
       Функција је блокирана док се ти ID-ови ажурирају
@@ -529,6 +531,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Сакриј видео снимке и плејлисте које
       садрже текст
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
+    Hide Channel Home: Сакриј картицу „Почетна“ канала
   Data Settings:
     Data Settings: 'Подаци'
     Select Import Type: 'Избор врсте увоза'
@@ -800,6 +803,9 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Овај
     канал је старосно ограничен и тренутно се не може гледати на FreeTube-у.
   This channel does not exist: Овај канал не постоји
+  Home:
+    Home: Почетна
+    View Playlist: Погледај плејлисту
 Video:
   Mark As Watched: 'Означи као одгледано'
   Remove From History: 'Уклони из историје'
@@ -923,6 +929,9 @@ Video:
   AgeRestricted: Видео снимци са старосним ограничењемне могу се гледати на FreeTube-у
     јер захтевају пријаву на Google налог и коришћење YouTube налога који је старосно
     верификован.
+  DeArrow:
+    Show Modified Details: Прикажи измењене детаље
+    Show Original Details: Прикажи оригиналне детаље
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -949,9 +958,12 @@ Tooltips:
       снимке у тренду коју желите да се приказује.
     Invidious Instance: Invidious инстанца на коју ће се FreeTube повезати за API
       позиве.
+    Open Deep Links In New Window: URL адресе прослеђене FreeTube-у, као што су додаци
+      прегледача за преусмеравање или аргументи командне линије, отварају се у новом
+      прозору.
   External Player Settings:
-    Custom External Player Arguments: Сви прилагођени аргументи командне линије,
-      желите да буду прослеђени спољном плејеру.
+    Custom External Player Arguments: Сви прилагођени аргументи командне линије, желите
+      да буду прослеђени спољном плејеру.
     External Player: Избором спољног плејера ће приказати иконицу, за отварање видео
       снимка (плејлисте, ако је подржана) у спољном плејеру, на сличици. Упозорење,
       подешавања Invidious-а не утичу на спољне плејере.
@@ -1176,3 +1188,14 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
   URL адресе: „{url}“.'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Keys:
+  alt: Alt
+  arrowdown: Стрелица доле
+  arrowleft: Стрелица лево
+  ctrl: Ctrl
+  arrowup: Стрелица горе
+  arrowright: Стрелица десно
+shortcutJoinOperator: +
+Right-click or hold to see history: Кликните десним тастером миша или задржите да
+  бисте видели историју

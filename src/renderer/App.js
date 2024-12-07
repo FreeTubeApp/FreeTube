@@ -97,6 +97,7 @@ export default defineComponent({
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
+
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
@@ -145,6 +146,14 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
+    },
+
+    appTitle: function () {
+      return this.$store.getters.getAppTitle
+    },
+
+    openDeepLinksInNewWindow: function () {
+      return this.$store.getters.getOpenDeepLinksInNewWindow
     }
   },
   watch: {
@@ -157,10 +166,11 @@ export default defineComponent({
     secColor: 'checkThemeSettings',
 
     locale: 'setLocale',
+
+    appTitle: 'setDocumentTitle'
   },
   created () {
     this.checkThemeSettings()
-    this.setWindowTitle()
     this.setLocale()
   },
   mounted: function () {
@@ -218,10 +228,16 @@ export default defineComponent({
         if (this.$router.currentRoute.path === '/') {
           this.$router.replace({ path: this.landingPage })
         }
+
+        this.setWindowTitle()
       })
     })
   },
   methods: {
+    setDocumentTitle: function(value) {
+      document.title = value
+      this.$nextTick(() => this.$refs.topNav?.setActiveNavigationHistoryEntryTitle(value))
+    },
     checkThemeSettings: function () {
       const theme = {
         baseTheme: this.baseTheme || 'dark',
@@ -527,9 +543,9 @@ export default defineComponent({
     },
 
     enableOpenUrl: function () {
-      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url) => {
+      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
         if (url) {
-          this.handleYoutubeLink(url)
+          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
         }
       })
 
@@ -550,7 +566,7 @@ export default defineComponent({
 
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
-        document.title = this.windowTitle
+        this.setAppTitle(this.windowTitle)
       }
     },
 
@@ -573,6 +589,7 @@ export default defineComponent({
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'fetchInvidiousInstancesFromFile',
+      'setAppTitle',
       'setRandomCurrentInvidiousInstance',
       'fetchPipedInstances',
       'fetchPipedInstancesFromFile',

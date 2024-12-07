@@ -122,7 +122,7 @@ export default defineComponent({
     vrProjection: {
       type: String,
       default: null
-    }
+    },
   },
   emits: [
     'error',
@@ -243,6 +243,12 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<number>} */
     const defaultSkipInterval = computed(() => {
       return store.getters.getDefaultSkipInterval
+    })
+
+    watch(defaultSkipInterval, (newValue) => {
+      ui.configure({
+        tapSeekDistance: newValue
+      })
     })
 
     /** @type {import('vue').ComputedRef<number | 'auto'>} */
@@ -839,6 +845,7 @@ export default defineComponent({
           addBigPlayButton: displayVideoPlayButton.value,
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
           playbackRates: playbackRates.value,
+          tapSeekDistance: defaultSkipInterval.value,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
@@ -1527,7 +1534,8 @@ export default defineComponent({
 
       const format = screenshotFormat.value
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? screenshotQuality.value / 100 : 1
+      // imageQuality is ignored for pngs, so it is still okay to pass the quality value
+      const imageQuality = screenshotQuality.value / 100
 
       let filename
       try {

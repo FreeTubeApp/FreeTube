@@ -312,6 +312,8 @@ Settings:
     Auto Load Next Page:
       Label: Automaticky načíst další stránku
       Tooltip: Automaticky načítat další stránky a komentáře.
+    Open Deep Links In New Window: Otevírat adresy předané aplikaci FreeTube v novém
+      okně
   Theme Settings:
     Theme Settings: 'Motiv'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -499,17 +501,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
       použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
-    Hide Channel Playlists: Skrýt playlisty kanálu
-    Hide Channel Community: Skrýt komunitu kanálu
-    Hide Channel Shorts: Skrýt Shorts kanálu
+    Hide Channel Playlists: Skrýt kartu „Playlisty“ u kanálů
+    Hide Channel Community: Skrýt kartu „Komunita“ u kanálů
+    Hide Channel Shorts: Skrýt kartu „Shorts“ u kanálů
     Sections:
       Side Bar: Postranní lišta
       Channel Page: Stránka kanálu
       Watch Page: Stránka sledování
       General: Obecné
       Subscriptions Page: Stránka s odběry
-    Hide Channel Podcasts: Skrýt podcasty kanálu
-    Hide Channel Releases: Skrýt vydání kanálu
+    Hide Channel Podcasts: Skrýt kartu „Podcasty“ u kanálů
+    Hide Channel Releases: Skrýt kartu „Vydání“ u kanálů
     Hide Subscriptions Shorts: Skrýt Shorts odběrů
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
@@ -525,6 +527,7 @@ Settings:
       text
     Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo
       fráze
+    Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
   Data Settings:
     Data Settings: 'Data'
     Select Import Type: 'Vybrat typ importu'
@@ -795,6 +798,9 @@ Channel:
     This channel does not currently have any podcasts: Tento kanál momentálně nemá
       žádné podcasty
     Podcasts: Podcasty
+  Home:
+    Home: Domovská stránka
+    View Playlist: Zobrazit playlist
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
@@ -919,6 +925,9 @@ Video:
     přihlášení k účtu Google a placené členství v kanálu nahrávajícího.
   AgeRestricted: Videa s věkovým omezením nelze na FreeTube sledovat, protože vyžadují
     přihlášení ke službě Google a použití účtu YouTube s ověřeným věkem.
+  DeArrow:
+    Show Modified Details: Zobrazit upravené podrobnosti
+    Show Original Details: Zobrazit původní podrobnosti
 Videos:
   #& Sort By
   Sort By:
@@ -1028,6 +1037,8 @@ Tooltips:
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
+    Open Deep Links In New Window: Adresy předané aplikaci FreeTube, například rozšířením
+      pro prohlížeč nebo argumenty v příkazovém řádku, budou otevřeny v novém okně.
   Player Settings:
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa
       namísto přímého připojení k YouTube.'
@@ -1184,3 +1195,13 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
   adresy URL: „{url}“.'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Šipka dolů
+  arrowup: Šipka nahoru
+  arrowright: Šipka vpravo
+  arrowleft: Šipka vlevo
+Right-click or hold to see history: Klikněte pravým pro zobrazení historie

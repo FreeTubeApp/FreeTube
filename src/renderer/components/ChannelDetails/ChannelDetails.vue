@@ -223,6 +223,7 @@
           v-if="showSearchBar"
           ref="searchBar"
           :placeholder="$t('Channel.Search Channel')"
+          :value="query"
           :show-clear-text-button="true"
           class="channelSearch"
           :maxlength="255"
@@ -291,7 +292,11 @@ const props = defineProps({
   currentTab: {
     type: String,
     default: 'videos'
-  }
+  },
+  query: {
+    type: String,
+    default: ''
+  },
 })
 
 const emit = defineEmits(['change-tab', 'search', 'subscribed'])
