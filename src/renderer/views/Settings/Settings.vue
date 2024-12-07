@@ -22,17 +22,16 @@
         class="settingsContent"
       >
         <div class="switchRow">
+          <ft-button
+            :label="$t('Settings.Show Keyboard Shortcuts')"
+            @click="showKeyboardShortcutPrompt"
+          />
           <ft-toggle-switch
             class="settingsToggle"
             :label="$t('Settings.Sort Settings Sections (A-Z)')"
             :default-value="settingsSectionSortEnabled"
             :compact="false"
             @change="updateSettingsSectionSortEnabled"
-          />
-          <!-- ZZZ: TODO: REMOVE -->
-          <ft-button
-            :label="$t('Settings.Show Keyboard Shortcuts')"
-            @click="showKeyboardShortcutPrompt"
           />
         </div>
         <div class="settingsSections">
