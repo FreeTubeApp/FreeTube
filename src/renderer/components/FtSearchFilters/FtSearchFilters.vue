@@ -226,7 +226,12 @@ const searchDefaultFeatures = [...searchSettings.value.features]
 
 function searchFromFilters() {
   hideSearchFilters()
-  store.dispatch('triggerSearchFromFilters')
+  clearLocalSearchSuggestionsSession()
+
+  const queryText = props.searchQueryText
+  const doCreateNewWindow = false
+
+  store.dispatch('search', { queryText, doCreateNewWindow })
 }
 
 function hideSearchFilters() {
