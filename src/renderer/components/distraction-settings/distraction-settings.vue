@@ -245,7 +245,7 @@
         @error-find-tag-info="handleChannelAPIError"
         @change="handleChannelsHidden"
         @already-exists="handleChannelsExists"
-        @toggle-show-tags="handleShowAddedChannelsHidden"
+        @toggle-show-tags="handleAddedChannelsHidden"
       />
     </ft-flex-box>
     <ft-flex-box>
@@ -258,7 +258,7 @@
         :min-input-length="3"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         @change="handleForbiddenTitles"
-        @toggle-show-tags="handleShowAddedForbiddenTitles"
+        @toggle-show-tags="handleAddedForbiddenTitles"
       />
     </ft-flex-box>
   </ft-settings-section>

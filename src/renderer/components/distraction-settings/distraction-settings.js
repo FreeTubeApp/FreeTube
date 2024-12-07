@@ -163,10 +163,10 @@ export default defineComponent({
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
-    handleShowAddedChannelsHidden: function () {
+    handleAddedChannelsHidden: function () {
       this.updateShowAddedChannelsHidden(!this.showAddedChannelsHidden)
     },
-    handleShowAddedForbiddenTitles: function () {
+    handleAddedForbiddenTitles: function () {
       this.updateShowAddedForbiddenTitles(!this.showAddedForbiddenTitles)
     },
     validateChannelId: function (text) {
