@@ -111,11 +111,11 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
-    showAddedChannels: function () {
-      return this.$store.getters.getShowAddedChannels
+    showAddedChannelsHidden: function () {
+      return this.$store.getters.getShowAddedChannelsHidden
     },
-    showAddedKeywords: function () {
-      return this.$store.getters.getShowAddedKeywords
+    showAddedForbiddenTitles: function () {
+      return this.$store.getters.getShowAddedForbiddenTitles
     },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
@@ -163,11 +163,11 @@ export default defineComponent({
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
-    handleShowAddedChannels: function () {
-      this.updateShowAddedChannels(!this.showAddedChannels)
+    handleShowAddedChannelsHidden: function () {
+      this.updateShowAddedChannelsHidden(!this.showAddedChannelsHidden)
     },
-    handleShowAddedKeywords: function () {
-      this.updateShowAddedKeywords(!this.showAddedKeywords)
+    handleShowAddedForbiddenTitles: function () {
+      this.updateShowAddedForbiddenTitles(!this.showAddedForbiddenTitles)
     },
     validateChannelId: function (text) {
       return checkYoutubeChannelId(text)
@@ -236,8 +236,8 @@ export default defineComponent({
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
-      'updateShowAddedChannels',
-      'updateShowAddedKeywords',
+      'updateShowAddedChannelsHidden',
+      'updateShowAddedForbiddenTitles',
     ])
   }
 })
