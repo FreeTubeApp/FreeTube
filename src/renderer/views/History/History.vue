@@ -22,19 +22,23 @@
       <div
         class="optionsRow"
       >
+        <ft-select
+          v-if="fullData.length > 1"
+          class="sortSelect"
+          :placeholder="$t('History.Sort By.Sort By')"
+          :value="sortOrder"
+          :select-names="sortByNames"
+          :select-values="sortByValues"
+          :icon="getIconForSortPreference(sortOrder)"
+          @change="selectSort"
+        />
+
         <ft-toggle-switch
           v-if="fullData.length > 1"
           :label="$t('History.Case Sensitive Search')"
           :compact="true"
           :default-value="doCaseSensitiveSearch"
           @change="doCaseSensitiveSearch = !doCaseSensitiveSearch"
-        />
-        <ft-toggle-switch
-          v-if="fullData.length > 1"
-          :label="$t('History.Sort By Date ASC')"
-          :compact="true"
-          :default-value="ascending"
-          @change="ascending = !ascending"
         />
       </div>
       <ft-flex-box

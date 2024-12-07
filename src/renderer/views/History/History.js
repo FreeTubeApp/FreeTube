@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
@@ -10,6 +11,9 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import { ctrlFHandler } from '../../helpers/utils'
+import { mapActions } from 'vuex'
+import { getIconForSortPreference } from '../../helpers/utils'
+import { SORT_BY_VALUES } from '../../helpers/history'
 
 const identity = (v) => v
 
@@ -35,6 +39,7 @@ export default defineComponent({
     'ft-input': FtInput,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-select': FtSelect,
   },
   data: function () {
     return {
@@ -42,17 +47,24 @@ export default defineComponent({
       dataLimit: 100,
       searchDataLimit: 100,
       doCaseSensitiveSearch: false,
-      ascending: false,
       showLoadMoreButton: false,
       query: '',
       activeData: [],
     }
   },
   computed: {
-    historyCacheSorted: function () {
-      return this.ascending ? [...this.$store.getters.getHistoryCacheSorted].reverse() : this.$store.getters.getHistoryCacheSorted
+    sortByNames: function () {
+      return [
+        this.$t('History.Sort By.DateWatchedNewest'),
+        this.$t('History.Sort By.DateWatchedOldest'),
+      ]
     },
-
+    sortOrder: function() {
+      return this.$store.getters.getSortOrder
+    },
+    historyCacheSorted: function () {
+      return this.sortOrder === SORT_BY_VALUES['DateAddedNewest'] ? this.$store.getters.getHistoryCacheSorted : this.$store.getters.getHistoryCacheSorted.toReversed()
+    },
     fullData: function () {
       if (this.historyCacheSorted.length < this.dataLimit) {
         return this.historyCacheSorted
@@ -60,6 +72,9 @@ export default defineComponent({
         return this.historyCacheSorted.slice(0, this.dataLimit)
       }
     },
+    sortByValues() {
+      return Object.values(SORT_BY_VALUES)
+    }
   },
   watch: {
     fullData() {
@@ -184,5 +199,9 @@ export default defineComponent({
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
     },
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
+    ...mapActions([
+      'selectSort'
+    ])
   }
 })
