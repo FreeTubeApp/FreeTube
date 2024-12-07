@@ -1,7 +1,7 @@
 .videoDescription {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   overflow-y: auto;
   max-block-size: 20lh;
 }
