@@ -224,14 +224,14 @@ const searchTypeStartIndex = TYPE_VALUES.indexOf(searchSettings.value.type)
 const searchDurationStartIndex = DURATION_VALUES.indexOf(searchSettings.value.duration)
 const searchDefaultFeatures = [...searchSettings.value.features]
 
-function searchFromFilters() {
+async function searchFromFilters() {
   hideSearchFilters()
   clearLocalSearchSuggestionsSession()
 
   const queryText = props.searchQueryText
   const doCreateNewWindow = false
 
-  store.dispatch('search', { queryText, doCreateNewWindow })
+  await store.dispatch('search', { queryText, doCreateNewWindow })
 }
 
 function hideSearchFilters() {
