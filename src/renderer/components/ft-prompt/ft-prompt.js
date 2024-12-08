@@ -62,7 +62,7 @@ export default defineComponent({
     this.lastActiveElement = document.activeElement
     nextTick(() => {
       document.addEventListener('keydown', this.closeEventFunction, true)
-      this.promptButtons = Array.from(this.$refs.promptCard.$el.querySelectorAll('.btn.ripple'))
+      this.promptButtons = Array.from(this.$refs.promptCard.$el.querySelectorAll('.btn.ripple, .iconButton'))
       this.focusItem(0)
     })
   },
