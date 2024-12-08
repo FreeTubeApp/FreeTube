@@ -5,10 +5,10 @@
   >
     <div class="titleAndCloseButton">
       <h2>
-        {{ title }}
+        {{ $t('KeyboardShortcutPrompt.Keyboard Shortcuts') }}
       </h2>
       <FtIconButton
-        :title="closeButtonTitle"
+        :title="$t('Close')"
         :icon="['fas', 'xmark']"
         theme="destructive"
         @click="hideKeyboardShortcutPrompt"
@@ -110,9 +110,6 @@ const primarySections = computed(() => [
 
 const isMac = process.platform === 'darwin'
 
-const title = computed(() => t('KeyboardShortcutPrompt.Keyboard Shortcuts'))
-
-const closeButtonTitle = computed(() => t('Close'))
 
 const localizedShortcutNameDictionary = computed(() => {
   return new Map([

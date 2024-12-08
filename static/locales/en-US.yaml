@@ -1165,7 +1165,7 @@ KeyboardShortcutPrompt:
   Reload: Reload FreeTube
   Force Reload: Force reload FreeTube (avoids caching)
   Toggle Developer Tools: Toggle developer tools
-  Reset Zoom: Reset zoom level / ui scale
+  Reset Zoom: Reset zoom level / UI scale
   Zoom In: Zoom in
   Zoom Out: Zoom out
   Focus Search: Focus on the search bar
