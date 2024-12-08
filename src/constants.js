@@ -121,7 +121,7 @@ const SyncEvents = {
 const KeyboardShortcuts = {
   APP: {
     GENERAL: {
-      SHOW_SHORTCUTS: 'ctrl+Z',
+      SHOW_SHORTCUTS: 'shift+?',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
       FULLSCREEN: 'f11',

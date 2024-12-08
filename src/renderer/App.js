@@ -174,11 +174,6 @@ export default defineComponent({
   created () {
     this.checkThemeSettings()
     this.setLocale()
-    document.addEventListener('keydown', (event) => {
-      if (event.key.toUpperCase() === 'Z' && ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))) {
-        this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
-      }
-    })
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -357,6 +352,10 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
+      if (event.shiftKey && event.key === '?') {
+        this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
+      }
+
       if (event.altKey) {
         switch (event.key) {
           case 'D':
