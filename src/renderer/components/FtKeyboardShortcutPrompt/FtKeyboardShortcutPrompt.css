@@ -30,10 +30,6 @@ h3 {
   text-align: center;
 }
 
-.primarySections {
-  justify-content: flex-start;
-}
-
 .primarySection {
   inline-size: 100%;
 }
@@ -91,5 +87,13 @@ h3 {
   .label {
     min-inline-size: 200px;
     inline-size: 200px;
+  }
+
+  .secondarySection {
+    flex: 0;
+  }
+
+  .primarySection {
+    justify-content: flex-start;
   }
 }
