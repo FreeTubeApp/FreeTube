@@ -129,12 +129,8 @@ const localizedShortcutNameDictionary = computed(() => {
     ['NEW_WINDOW', t('KeyboardShortcutPrompt.New Window')],
     ['MINIMIZE_WINDOW', t('KeyboardShortcutPrompt.Minimize Window')],
     ['CLOSE_WINDOW', t('KeyboardShortcutPrompt.Close Window')],
-    (isMac
-      ? ['QUIT_MAC', t('KeyboardShortcutPrompt.Quit')]
-      : ['QUIT', t('KeyboardShortcutPrompt.Quit')]
-    ),
     ['RELOAD', t('KeyboardShortcutPrompt.Reload')],
-    ['FORCE_RELOAD', t('KeyboardShortcutPrompt.Force Reload')],
+    ['RESTART_WINDOW', t('KeyboardShortcutPrompt.Restart Window')],
     ['TOGGLE_DEVTOOLS', t('KeyboardShortcutPrompt.Toggle Developer Tools')],
     ['RESET_ZOOM', t('KeyboardShortcutPrompt.Reset Zoom')],
     ['ZOOM_IN', t('KeyboardShortcutPrompt.Zoom In')],

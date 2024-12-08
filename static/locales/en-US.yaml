@@ -1125,6 +1125,7 @@ Keys:
   ctrl: Ctrl
   shift: Shift
   enter: Enter
+  plus: Plus
   arrowdown: Down Arrow
   arrowleft: Left Arrow
   arrowright: Right Arrow
@@ -1161,9 +1162,8 @@ KeyboardShortcutPrompt:
   Take Screenshot: Take screenshot
   Minimize Window: Miminize window
   Close Window: Close window
-  Quit: Quit FreeTube
   Reload: Reload FreeTube
-  Force Reload: Force reload FreeTube (avoids caching)
+  Restart Window: Restart window
   Toggle Developer Tools: Toggle developer tools
   Reset Zoom: Reset zoom level / ui scale
   Zoom In: Zoom in

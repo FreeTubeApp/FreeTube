@@ -131,15 +131,13 @@ const KeyboardShortcuts = {
       NEW_WINDOW: 'ctrl+N',
       MINIMIZE_WINDOW: 'ctrl+M',
       CLOSE_WINDOW: 'ctrl+W',
-      QUIT: 'alt+f4',
-      QUIT_MAC: 'cmd+Q',
       RELOAD: 'ctrl+R',
-      FORCE_RELOAD: 'ctrl+shift+R',
+      RESTART_WINDOW: 'ctrl+shift+R',
       TOGGLE_DEVTOOLS: 'ctrl+shift+I',
       FOCUS_SEARCH: 'alt+D',
       SEARCH_IN_NEW_WINDOW: 'shift+enter',
       RESET_ZOOM: 'ctrl+0',
-      ZOOM_IN: 'ctrl+=',
+      ZOOM_IN: 'ctrl+plus',
       ZOOM_OUT: 'ctrl+-'
 
     },
