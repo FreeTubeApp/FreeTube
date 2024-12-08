@@ -469,6 +469,9 @@ Settings:
     Fetch Automatically: Récupération automatique des flux
     Confirm Before Unsubscribing: Évitez les désabonnements accidentels
 
+    'Limit the number of videos displayed for each channel': Limiter le nombre de
+      vidéos affichées pour chaque chaîne
+    To: Pour
   Privacy Settings:
     Privacy Settings: Confidentialité
     Remember History: Enregistrer l'historique
