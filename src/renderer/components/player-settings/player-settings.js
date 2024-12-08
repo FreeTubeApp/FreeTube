@@ -202,7 +202,7 @@ export default defineComponent({
     viewingModeNames: function () {
       const viewingModeNames = [
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
-        this.$t('Video.Player.Theatre Mode'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.Theater'),
         ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen')] : []),
         this.$t('Video.Player.Full Window'),
         ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')] : [])
