@@ -477,6 +477,9 @@ Settings:
     Fetch Feeds from RSS: 'Získávat odběry z RSS'
     Fetch Automatically: Automaticky načítat odběry
     Confirm Before Unsubscribing: Zamezit nechtěným odběrům
+    To: Do
+    'Limit the number of videos displayed for each channel': Omezit počet videí zobrazených
+      u každého kanálu
   Distraction Free Settings:
     Distraction Free Settings: 'Rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
