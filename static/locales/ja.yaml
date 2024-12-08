@@ -409,8 +409,6 @@ Settings:
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
     Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
-    Only Show Latest Video for Each Channel: 各チャンネルの最新動画のみを表示する
-
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
     Remember History: 履歴の保存
