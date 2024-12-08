@@ -416,7 +416,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
-    Next Video Interval: Czas do następnego filmu
+    Next Video Interval: Czas do następnego autoodtwarzania
     Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
@@ -1223,3 +1223,5 @@ Keys:
 Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Autoplay Interruption Timer: Automatyczne odtwarzanie zostało anulowane, z powodu
+  {autoplayInterruptionIntervalHours} godzin(y) braku aktywności
