@@ -1161,8 +1161,8 @@ KeyboardShortcutPrompt:
   Take Screenshot: Take screenshot
   Minimize Window: Miminize window
   Close Window: Close window
-  Reload: Reload FreeTube
   Restart Window: Restart window
+  Force Restart Window: Force restart window
   Toggle Developer Tools: Toggle developer tools
   Reset Zoom: Reset zoom level / UI scale
   Zoom In: Zoom in
