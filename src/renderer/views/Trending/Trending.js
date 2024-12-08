@@ -7,9 +7,9 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 
-import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
-import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getInvidiousTrending } from '../../helpers/api/invidious'
 import { KeyboardShortcuts } from '../../../constants'
 
 export default defineComponent({
@@ -135,30 +135,14 @@ export default defineComponent({
     getTrendingInfoInvidious: function () {
       this.isLoading = true
 
-      const trendingPayload = {
-        resource: 'trending',
-        id: '',
-        params: { region: this.region }
-      }
-
-      if (this.currentTab !== 'default') {
-        trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
-      }
-
-      invidiousAPICall(trendingPayload).then((result) => {
-        if (!result) {
+      getInvidiousTrending(this.currentTab, this.region).then((items) => {
+        if (!items) {
           return
         }
 
-        const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
-        })
-
-        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
-
-        this.shownResults = returnData
+        this.shownResults = items
         this.isLoading = false
-        this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
+        this.$store.commit('setTrendingCache', { value: items, page: this.currentTab })
         nextTick(() => {
           this.$refs[this.currentTab]?.focus()
         })
