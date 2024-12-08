@@ -23,7 +23,9 @@
       >
         <div class="switchRow">
           <ft-button
-            :label="$t('Settings.Show Keyboard Shortcuts')"
+            v-if="usingElectron"
+            :label="$t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')"
+            :icon="['fas', 'keyboard']"
             @click="showKeyboardShortcutPrompt"
           />
           <ft-toggle-switch

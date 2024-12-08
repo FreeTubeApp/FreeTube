@@ -50,6 +50,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      usingElectron: process.env.IS_ELECTRON,
       isInDesktopView: true,
       settingsSectionTypeOpenInMobile: null,
       unlocked: false
