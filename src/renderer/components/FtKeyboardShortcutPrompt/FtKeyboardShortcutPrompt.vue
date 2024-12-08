@@ -19,8 +19,8 @@
       class="primarySections"
     >
       <div
-        v-for="primarySection of primarySections"
-        :key="primarySection.title"
+        v-for="(primarySection, index) of primarySections"
+        :key="index"
         class="primarySection"
       >
         <div
