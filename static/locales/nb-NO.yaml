@@ -32,8 +32,8 @@ Forward: 'Framover'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videoer'
-  Shorts: Shorts
-  Live: Direkte
+  Shorts: Shorts-videoer
+  Live: Direktesendinger
   Community: Fellesskap
 
 # Search Bar
@@ -44,6 +44,9 @@ Global:
     Comment Count: 1 kommentar | {count} kommentarer
     Video Count: 1 video | {count} videoer
     View Count: 1 visning | {count} visninger
+    Like Count: 1 liker | {count} liker
+  Input Tags:
+    Length Requirement: Etiketten må minst være {number} tegn lang.
 Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
 Search Filters:
@@ -91,6 +94,8 @@ Search Filters:
     4K: 4K
     Location: Sted
     HDR: HDR
+    Features: Egenskaper
+    360 Video: 360 Video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
@@ -141,11 +146,26 @@ User Playlists:
       This video cannot be moved up.: Denne videoen kan ikke bli flyttet opp.
       Playlist {playlistName} has been deleted.: Spillelisten {playlistName} har blitt
         fjernet.
+      This playlist is protected and cannot be removed.: Denne spillelisten er beskyttet,
+        og kan derfor ikke bli fjernet.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Noen
+        av videoene i spillelisten har ikke blitt lastet inn skikkelig, enda. Trykk
+        her for å kopiere, uansett.
+      Playlist name cannot be empty. Please input a name.: Spillelisten må ha et navn.
+        Vennligst gi den et navn.
     Search for Videos: Søk etter videoer
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Tillat å legge til dupliserte videoer
     Search in Playlists: Søk i spillelister
     Save: Lagre
+    N playlists selected: '{playlistCount} valgt'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      videoer vil bli lagt til'
+    Toast:
+      You haven't selected any playlist yet.: Du har ikke valgt noen spillelister
+        enda.
+      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste
+        | {videoCount} videoer lagt til 1 spilleliste
   Cancel: Avbryt
   Add to Playlist: Legg til spilleliste
   This playlist currently has no videos.: Denne spillelisten har ikke noen videoer
@@ -176,9 +196,29 @@ User Playlists:
   Delete Playlist: Fjern spilleliste
   CreatePlaylistPrompt:
     Create: Opprett
+    New Playlist Name: Nytt navn på spilleliste
+    Toast:
+      There was an issue with creating the playlist.: Det oppstod et problem ved opprettelsen
+        av spillelisten.
+      There is already a playlist with this name. Please pick a different name.: Det
+        finnes allerede en spilleliste med det navnet. Vennligst velg et annet navn.
+      Playlist {playlistName} has been successfully created.: Spillelisten {playlistName}
+        har blitt opprettet.
   Edit Playlist Info: Endre informasjon til spilleliste
   Remove Duplicate Videos: Fjern duplikatvideoer
   Remove from Playlist: Fjern fra spilleliste
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    har ingen spillelister. Trykk på plusstegnet for å opprette en ny en.
+  Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
+    på at du vil fjerne denne spillelisten? Dette kan ikke bli omgjort.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er
+    du sikker på at du vil fjerne en duplikatvideo fra denne spillelisten? Dette kan
+    ikke bli omgjort. Er du sikker på at du vil fjerne {playlistItemCount} duplikate
+    videoer fra denne spillelisten? Denne kan ikke bli omgjort.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er
+    du sikker på at du vil fjerne 1 sett video fra denne spillelisten? Dette kan ikke
+    bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} sette videoer
+    fra denne spillelisten? Dette kan ikke bli omgjort.
 History:
   # On History Page
   History: 'Historikk'
@@ -981,3 +1021,4 @@ shortcutJoinOperator: +
 Yes, Open Link: Ja, åpne lenke
 Display Label: '{label}: {value}'
 Go to page: Gå til {page}
+Search character limit: Spørringen er over tegngrensen på {searchCharacterLimit}
