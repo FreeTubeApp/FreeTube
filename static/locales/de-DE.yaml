@@ -429,7 +429,7 @@ Settings:
       4k: 4k
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
-    Next Video Interval: Intervall bis zum nächsten Video
+    Next Video Interval: Automatischer Wiedergabe-Timer
     Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
@@ -454,6 +454,7 @@ Settings:
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
+    Autoplay Interruption Timer: Automatische Wiedergabe Unterbrechungs-Timer
   Subscription Settings:
     Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -461,6 +462,9 @@ Settings:
     Fetch Automatically: Feed automatisch abrufen
     Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
 
+    'Limit the number of videos displayed for each channel': Die Anzahl der für jeden
+      Kanal angezeigten Videos begrenzen
+    To: Limitieren auf
   Privacy Settings:
     Watch history has been cleared: Wiedergabeverlauf wurde gelöscht
     Are you sure you want to remove your entire watch history?: Bist du sicher, dass
@@ -1247,3 +1251,8 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
   um den Verlauf zu sehen
+Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autoplayInterruptionIntervalHours}
+  Stunden Inaktivität abgebrochen
+Description:
+  Collapse Description: Weniger anzeigen
+  Expand Description: '...mehr'
