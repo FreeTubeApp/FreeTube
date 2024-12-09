@@ -410,6 +410,8 @@ Settings:
     Fetch Automatically: 自动抓取订阅源
     Confirm Before Unsubscribing: 避免意外取消订阅
 
+    'Limit the number of videos displayed for each channel': 限制每个频道展示的视频数
+    To: 到
   Privacy Settings:
     Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史记录？
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
