@@ -1267,3 +1267,6 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
 Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterruptionIntervalHours}
   heures d'inactivité
+Description:
+  Expand Description: '...plus'
+  Collapse Description: Montrer moins
