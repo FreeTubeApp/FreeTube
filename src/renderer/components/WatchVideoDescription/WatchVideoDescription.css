@@ -1,6 +1,9 @@
 .videoDescription {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
   overflow-y: auto;
-  max-block-size: 300px;
+  max-block-size: 20lh;
 }
 
 .description {
@@ -8,4 +11,47 @@
   font-size: 17px;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.descriptionStatus {
+  margin: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--title-color);
+}
+
+.videoDescription.short .descriptionStatus {
+  position: absolute;
+  inset-block-end: calc(1lh + 12px);
+  padding-block: 2px;
+  inset-inline-end: 16px;
+  padding-inline-start: 40px;
+  background: linear-gradient(270deg, var(--card-bg-color) 75%, transparent 100%);
+  text-decoration: none;
+}
+
+.videoDescription:not(.short) .descriptionStatus {
+  position: relative;
+  order: 0;
+  margin-block-start: 1em;
+}
+
+.videoDescription.short .description {
+  max-block-size: 4lh;
+  overflow: hidden;
+}
+
+.videoDescription:not(.short) .description {
+  order: 1;
+}
+
+.videoDescription .overlay {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  transition: background-color 200ms ease;
+}
+
+.videoDescription .overlay:hover {
+  background-color: var(--accent-color-opacity1);
 }
