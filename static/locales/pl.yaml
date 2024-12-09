@@ -416,7 +416,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
-    Next Video Interval: Czas do następnego filmu
+    Next Video Interval: Czas do następnego autoodtwarzania
     Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
@@ -445,15 +445,17 @@ Settings:
       orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
+    Autoplay Interruption Timer: Czas do przerwania autoodtwarzania
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
-    Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
-      kanału
     Confirm Before Unsubscribing: Uniknij przypadkowego usunięcia subskrypcji
 
+    To: do
+    'Limit the number of videos displayed for each channel': Ogranicz liczbę filmów
+      wyświetlanych dla każdego z kanałów
   Privacy Settings:
     Watch history has been cleared: Historia oglądania została wyczyszczona
     Are you sure you want to remove your entire watch history?: Jesteś pewny/a, że
@@ -1223,3 +1225,5 @@ Keys:
 Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Autoplay Interruption Timer: Automatyczne odtwarzanie zostało anulowane, z powodu
+  {autoplayInterruptionIntervalHours} godzin(y) braku aktywności

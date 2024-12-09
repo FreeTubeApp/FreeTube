@@ -42,13 +42,22 @@ export function updateVideoListAfterProcessing(videos) {
   // ordered last to show first eligible video from channel
   // if the first one incidentally failed one of the above checks
   if (store.getters.getOnlyShowLatestFromChannel) {
-    const authors = new Set()
+    const authors = new Map()
     videoList = videoList.filter((video) => {
       if (!video.authorId) {
         return true
-      } else if (!authors.has(video.authorId)) {
-        authors.add(video.authorId)
+      }
+
+      if (!authors.has(video.authorId)) {
+        authors.set(video.authorId, 1)
         return true
+      } else {
+        const currentVideos = authors.get(video.authorId)
+
+        if (currentVideos < store.getters.getOnlyShowLatestFromChannelNumber) {
+          authors.set(video.authorId, currentVideos + 1)
+          return true
+        }
       }
 
       return false

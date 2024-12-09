@@ -425,7 +425,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Bil í næsta myndskeið
+    Next Video Interval: Niðurtalning í sjálfvirka spilun
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
     Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
@@ -450,6 +450,7 @@ Settings:
       File Name Label: Mynstur skráaheita
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
+    Autoplay Interruption Timer: Niðurtalning í stöðvun á sjálfvirkri spilun
   Privacy Settings:
     Privacy Settings: 'Gagnaleynd'
     Remember History: 'Muna áhorfsferil'
@@ -477,8 +478,6 @@ Settings:
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Fetch Automatically: Sækja streymi sjálfvirkt
-    Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
-      hverja myndskeiðarás
     Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi'
@@ -935,6 +934,9 @@ Video:
     sem þau krefjast innskráningar á Google og notkunar á aldursvottuðum YouTube-reikningi.
   IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið.
     Prófaðu að skipta yfir á annan VPN eða milliþjón.
+  DeArrow:
+    Show Original Details: Birta upprunalegar nánari upplýsingar
+    Show Modified Details: Birta breyttar nánari upplýsingar
 Videos:
   #& Sort By
   Sort By:
@@ -1216,3 +1218,5 @@ Keys:
 Right-click or hold to see history: Hægri-smelltu til að sjá feril
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+Autoplay Interruption Timer: Hætt sjálfvirkri spilun vegna {autoplayInterruptionIntervalHours}
+  klst án aðgerða

@@ -479,7 +479,6 @@ Settings:
     Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch feeds from RSS'
     Fetch Automatically: Fetch feed automatically
-    Only Show Latest Video for Each Channel: Only show latest video for each channel
     Confirm Before Unsubscribing: Confirm before unsubscribing
   Data Settings:
     Data Settings: 'Data'
@@ -1016,6 +1015,9 @@ Comments:
   There are no comments available for this post: There are no comments available for
     this post
 Up Next: 'Up Next'
+Description:
+  Expand Description: ...more
+  Collapse Description: Show less
 
 # Toast Messages
 Local API Error (Click to copy): 'Local API Error (Click to copy)'

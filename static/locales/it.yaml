@@ -421,7 +421,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervallo video successivo nella playlist
     Fast-Forward / Rewind Interval: Avanzamento veloce o riavvolgimento video
-    Next Video Interval: Prossimo intervallo video
+    Next Video Interval: Timer di conto alla rovescia per la riproduzione automatica
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
       lettore video
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
@@ -446,6 +446,7 @@ Settings:
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
+    Autoplay Interruption Timer: Timer di interruzione della riproduzione automatica
   Privacy Settings:
     Privacy Settings: 'Privacy'
     Remember History: 'Salva la cronologia'
@@ -473,10 +474,11 @@ Settings:
     Hide Videos on Watch: 'Nascondi i video visualizzati'
     Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
     Fetch Automatically: Recupera i feed automaticamente
-    Only Show Latest Video for Each Channel: Mostra solo il video più recente per
-      ciascun canale
     Confirm Before Unsubscribing: Evita la cancellazione accidentale dell'iscrizione
 
+    'Limit the number of videos displayed for each channel': Limita il numero di video
+      visualizzati per ogni canale
+    To: A
   Data Settings:
     How do I import my subscriptions?: Come posso importare le mie iscrizioni?
     Unknown data key: Chiave dati sconosciuta
@@ -1233,3 +1235,5 @@ Keys:
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Fai clic con il tasto destro o tieni premuto per
   visualizzare la cronologia
+Autoplay Interruption Timer: Riproduzione automatica annullata a causa di {autoplayInterruptionIntervalHours}
+  ore di inattività

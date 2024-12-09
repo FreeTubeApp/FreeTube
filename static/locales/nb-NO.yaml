@@ -32,11 +32,21 @@ Forward: 'Framover'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videoer'
-  Shorts: Kortvideoer
-  Live: Direkte
-  Community: Gemenskap
+  Shorts: Shorts-videoer
+  Live: Direktesendinger
+  Community: Fellesskap
 
 # Search Bar
+  Counts:
+    Subscriber Count: 1 abonnent | {count} abonnenter
+    Watching Count: 1 seer | {count] seere
+    Channel Count: 1 kanal | {count} kanaler
+    Comment Count: 1 kommentar | {count} kommentarer
+    Video Count: 1 video | {count} videoer
+    View Count: 1 visning | {count} visninger
+    Like Count: 1 liker | {count} liker
+  Input Tags:
+    Length Requirement: Etiketten må minst være {number} tegn lang.
 Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
 Search Filters:
@@ -74,6 +84,18 @@ Search Filters:
   Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Søket ga ingen flere resultater
+  Features:
+    HD: HD
+    VR180: VR180
+    Subtitles: Underskrifter
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Direktesendt
+    4K: 4K
+    Location: Sted
+    HDR: HDR
+    Features: Egenskaper
+    360 Video: 360 Video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
@@ -83,7 +105,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
   Refresh Subscriptions: Oppdater abonnementer
   Getting Subscriptions. Please wait.: Henter abonnementer. Vennligst vent.
-  Load More Videos: Last flere videoer
+  Load More Videos: Last inn flere videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
   Error Channels: Kanaler med feil
@@ -93,6 +115,8 @@ Subscriptions:
   Subscriptions Tabs: Abonnementsfaner
   All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. Opphev skjuling av
     noen faner i «{subsection}»-delen av «{settingsSection}» for å vise innhold her.
+  Empty Posts: Kanalene du abonnerer på, har ikke noen innlegg for øyeblikket.
+  Load More Posts: Last inn flere poster
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -106,6 +130,95 @@ User Playlists:
   Your Playlists: 'Dine spillelister'
   Empty Search Message: Ingen videoer i denne spillelisten samsvarer med søket ditt
   Search bar placeholder: Søk i spilleliste
+  SinglePlaylistView:
+    Toast:
+      This playlist does not exist: Denne spillelisten finnes ikke
+      This video cannot be moved down.: Denne videoen kan ikke bli flyttet ned.
+      Video has been removed: Videoen har blitt fjernet
+      There were no videos to remove.: Det var ingen videoer å fjerne
+      There was an issue with updating this playlist.: Det oppstod et problem ved
+        oppdateringen av denne spillelisten.
+      "{videoCount} video(s) have been removed": 1 video har blitt fjernet | {videoCount}
+        videoer har blitt fjernet
+      Playlist has been updated.: Spilleliste har blitt endret
+      There was a problem with removing this video: Det oppstod et problem ved fjerningen
+        av denne videoen
+      This video cannot be moved up.: Denne videoen kan ikke bli flyttet opp.
+      Playlist {playlistName} has been deleted.: Spillelisten {playlistName} har blitt
+        fjernet.
+      This playlist is protected and cannot be removed.: Denne spillelisten er beskyttet,
+        og kan derfor ikke bli fjernet.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Noen
+        av videoene i spillelisten har ikke blitt lastet inn skikkelig, enda. Trykk
+        her for å kopiere, uansett.
+      Playlist name cannot be empty. Please input a name.: Spillelisten må ha et navn.
+        Vennligst gi den et navn.
+    Search for Videos: Søk etter videoer
+  AddVideoPrompt:
+    Allow Adding Duplicate Video(s): Tillat å legge til dupliserte videoer
+    Search in Playlists: Søk i spillelister
+    Save: Lagre
+    N playlists selected: '{playlistCount} valgt'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      videoer vil bli lagt til'
+    Toast:
+      You haven't selected any playlist yet.: Du har ikke valgt noen spillelister
+        enda.
+      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste
+        | {videoCount} videoer lagt til 1 spilleliste
+  Cancel: Avbryt
+  Add to Playlist: Legg til spilleliste
+  This playlist currently has no videos.: Denne spillelisten har ikke noen videoer
+    for øyeblikket.
+  Export Playlist: Eksporter denne spillelisten
+  Sort By:
+    EarliestCreatedFirst: Tidligst opprettet
+    Sort By: Sorter etter
+    EarliestUpdatedFirst: Tidligst endret
+    LatestPlayedFirst: Sist spilt av
+    EarliestPlayedFirst: Tidligst spilt av
+    LatestUpdatedFirst: Nylig endret
+    NameAscending: A-Å
+    NameDescending: Å-A
+    LatestCreatedFirst: Nylig opprettet
+  Add to Favorites: Legg til {playlistName}
+  Move Video Up: Flytt video opp
+  Move Video Down: Flytt video ned
+  Playlist Description: Beskrivelse på spilleliste
+  Save Changes: Lagre endringer
+  Copy Playlist: Kopier spilleliste
+  Playlist Name: Navn på spilleliste
+  Remove Watched Videos: Fjern sette videoer
+  Playlists with Matching Videos: Spillelister med like videoer
+  Create New Playlist: Opprett ny spilleliste
+  Remove from Favorites: Fjern fra {playlistName}
+  The playlist has been successfully exported: Spillelisten ble eksportert
+  Delete Playlist: Fjern spilleliste
+  CreatePlaylistPrompt:
+    Create: Opprett
+    New Playlist Name: Nytt navn på spilleliste
+    Toast:
+      There was an issue with creating the playlist.: Det oppstod et problem ved opprettelsen
+        av spillelisten.
+      There is already a playlist with this name. Please pick a different name.: Det
+        finnes allerede en spilleliste med det navnet. Vennligst velg et annet navn.
+      Playlist {playlistName} has been successfully created.: Spillelisten {playlistName}
+        har blitt opprettet.
+  Edit Playlist Info: Endre informasjon til spilleliste
+  Remove Duplicate Videos: Fjern duplikatvideoer
+  Remove from Playlist: Fjern fra spilleliste
+  You have no playlists. Click on the create new playlist button to create a new one.: Du
+    har ingen spillelister. Trykk på plusstegnet for å opprette en ny en.
+  Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
+    på at du vil fjerne denne spillelisten? Dette kan ikke bli omgjort.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er
+    du sikker på at du vil fjerne en duplikatvideo fra denne spillelisten? Dette kan
+    ikke bli omgjort. Er du sikker på at du vil fjerne {playlistItemCount} duplikate
+    videoer fra denne spillelisten? Denne kan ikke bli omgjort.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er
+    du sikker på at du vil fjerne 1 sett video fra denne spillelisten? Dette kan ikke
+    bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} sette videoer
+    fra denne spillelisten? Dette kan ikke bli omgjort.
 History:
   # On History Page
   History: 'Historikk'
@@ -122,7 +235,7 @@ Settings:
       bakende ved feil'
     Enable Search Suggestions: 'Slå på søkeforslag'
     Default Landing Page: 'Forvalgt landingsside'
-    Locale Preference: 'Språkinnstilling'
+    Locale Preference: 'Innstillinger for språk'
     Preferred API Backend:
       Preferred API Backend: 'Foretrukket API-bakende'
       Local API: 'Lokalt API'
@@ -132,11 +245,12 @@ Settings:
       Grid: 'Rutenett'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatyrbilde-innstilling'
+      Thumbnail Preference: 'Innstillinger for miniatyrbilder'
       Default: 'Forvalg'
       Beginning: 'Begynnelsen'
       Middle: 'Midten'
       End: 'Slutten'
+      Hidden: Skjult
     Region for Trending: 'Region for "På vei opp"'
         #! List countries
     Check for Updates: Se etter oppdateringer
@@ -155,8 +269,11 @@ Settings:
       Ask Before Opening Link: Spør før åpning av lenke
       Open Link: Åpne lenke
       External Link Handling: Håndtering av eksterne lenker
+    Auto Load Next Page:
+      Label: Last inn den neste siden automatisk
+      Tooltip: Last inn flere sider og kommentarer automatisk.
   Theme Settings:
-    Theme Settings: 'Draktvalg'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge
       som hovedfargen'
     Base Theme:
@@ -167,6 +284,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Systemforvalg
       Catppuccin Mocha: Catppuccin-mokka
+      Pastel Pink: Pastellrosa
+      Nordic: Nordisk
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -212,9 +331,9 @@ Settings:
     Disable Smooth Scrolling: Slå av myk rulling
     Expand Side Bar by Default: Utvidet sidefelt som forvalg
     Hide Side Bar Labels: Skjul sidefeltsetiketter
-    Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
+    Hide FreeTube Header Logo: Skjul FreeTubes tittel og logo
   Player Settings:
-    Player Settings: 'Videoavspillingsinnstillinger'
+    Player Settings: 'Innstillinger for avspilling av video'
     Play Next Video: 'Spill av neste video'
     Turn on Subtitles by Default: 'Undertekster som forvalg'
     Autoplay Videos: 'Spill av videoer automatisk'
@@ -229,7 +348,7 @@ Settings:
       Legacy Formats: 'Gamle formater'
       Audio Formats: 'Lydformater'
     Default Quality:
-      Default Quality: 'Kvalitetsinnstilling'
+      Default Quality: 'Forvalt kvalitet'
       Auto: 'Automatisk'
       144p: '144p'
       240p: '240p'
@@ -250,30 +369,31 @@ Settings:
       Error:
         Forbidden Characters: Forbudte tegn
         Empty File Name: Tomt filnavn
-      Enable: Skru på skjermavbildninger
+      Enable: Aktiver skjermbilde
       Folder Label: Skjermavbildningsmappe
       Folder Button: Velg mappe
-      Format Label: Skjermavbildningsformat
-      Quality Label: Skjermavbildningskvalitet
+      Format Label: Format for skjermbilde
+      Quality Label: Kvalitet for skjermbilde
       Ask Path: Spør om hvor ting skal lagres
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
         i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
         %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t
         videomillisekunder, i tre siffer. %i video-ID. Du kan også bruke «\», eller
         «/» for å lage undermapper.
-    Max Video Playback Rate: Maks. videoavspillingshastighet
+    Max Video Playback Rate: Maksimal hastighet for videoavspilling
     Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
       videoavspiller
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
     Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
   Privacy Settings:
-    Privacy Settings: 'Personvernsinnstillinger'
+    Privacy Settings: 'Innstillinger for personvern'
     Remember History: 'Husk historikk'
     Save Watched Progress: 'Husk avspillingsposisjon'
-    Clear Search Cache: 'Tøm søkehurtiglager'
-    Are you sure you want to clear out your search cache?: 'Tøm søkehurtiglager?'
-    Search cache has been cleared: 'Søkehurtiglager tømt'
+    Clear Search Cache: 'Tøm hurtiglager for søk'
+    Are you sure you want to clear out your search cache?: 'Er du sikker på at du
+      vil tømme hurtiglageret for søk?'
+    Search cache has been cleared: 'Hurtiglageret for søk har blitt tømt'
     Remove Watch History: 'Fjern visningshistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
       du vil fjerne hele visningshistorikken din?'
@@ -281,15 +401,23 @@ Settings:
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er
       du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
-      angres.
+      bli omgjort.
     Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette
       spilleliste
+    Remove All Playlists: Fjern alle spillelister
+    Are you sure you want to remove all your playlists?: Er du sikker på at du vil
+      fjerne alle spillelistene dine?
+    All playlists have been removed: Alle spillelister har blitt fjernet
   Subscription Settings:
-    Subscription Settings: 'Abonnementsinnstillinger'
+    Subscription Settings: 'Innstillinger for abonnementer'
     Hide Videos on Watch: 'Skjul sette videoer'
     Fetch Feeds from RSS: Hent informasjonskanaler fra RSS
     Fetch Automatically: Hent informasjonskanaler automatisk
 
+    Confirm Before Unsubscribing: Bekreft avslutning av abonnement
+    'Limit the number of videos displayed for each channel': Begrens antallet videoer
+      vist for hver kanal
+    To: Til
   Data Settings:
     How do I import my subscriptions?: Hvordan importerer jeg abonnementene mine?
     Unknown data key: Ukjent datanøkkel
@@ -321,7 +449,7 @@ Settings:
     Import Subscriptions: Importer abonnementer
     Select Export Type: Velg eksporttype
     Select Import Type: Velg importtype
-    Data Settings: Datainnstillinger
+    Data Settings: Innstillinger for data
     All playlists has been successfully imported: Importerte alle spillelister
     Subscription File: Abonnementsfil
     History File: Historikkfil
@@ -346,44 +474,51 @@ Settings:
     Proxy Host: Mellomtjenervert
     Proxy Protocol: Mellomtjenerprotokoll
     Enable Tor / Proxy: Skru på Tor/mellomtjener
-    Proxy Settings: Mellomtjenerinnstillinger
+    Proxy Settings: Innstillinger for mellomtjenere
   Distraction Free Settings:
     Hide Trending Videos: Skjul "På vei opp"
     Hide Video Likes And Dislikes: Skjul videogunst
-    Distraction Free Settings: Distraksjonsfri-innstillinger
+    Distraction Free Settings: Innstillinger for andre tilpasninger
     Hide Active Subscriptions: Skjul aktive abonnementer
     Hide Recommended Videos: Skjul anbefalte videoer
     Hide Comment Likes: Skjul kommentargunst
     Hide Channel Subscribers: Skjul kanalabonnementer
     Hide Popular Videos: Skjul "Mest populært"
     Hide Video Views: Skjul videovisninger
-    Hide Live Chat: Skjul sanntidssludring
+    Hide Live Chat: Skjul direktechat
     Hide Playlists: Skjul spillelister
     Hide Comments: Skjul kommentarer
-    Hide Live Streams: "Skjul direktestrømmer"
+    Hide Live Streams: "Skjul direktesendinger"
     Hide Chapters: Skjul kapitler
-    Hide Channels Placeholder: Kanalnavn eller ID
+    Hide Channels Placeholder: Kanal-ID
     Hide Channels: Skjul videoer fra kanaler
     Hide Sharing Actions: Skjul delingshandlinger
     Hide Upcoming Premieres: Skjul kommende premièrer
     Hide Video Description: Skjul videobeskrivelse
     Display Titles Without Excessive Capitalisation: Vis titler uten overdrevet bruk
       av store bokstaver
-    Hide Featured Channels: Skjult framhevede kanaler
-    Hide Channel Community: Skjul kanalgemenskap
-    Hide Channel Shorts: Skjul kanal-kortvideoer
+    Hide Featured Channels: Skjul fremhevede kanaler
+    Hide Channel Community: Skjul fane for "fellesskap" i kanaler
+    Hide Channel Shorts: Skjul fane for "Shorts-videoer" i kanaler
     Sections:
       Side Bar: Sidefelt
       Channel Page: Kanalside
       General: Generelt
       Watch Page: Seerlogg
       Subscriptions Page: Abonnementsside
-    Hide Channel Playlists: Skjul kanalspilleliste
+    Hide Channel Playlists: Skjul fane for "spillelister" i kanalar
     Hide Channel Releases: Skjul kanalpubliseringer
-    Hide Channel Podcasts: Skjul kanal-nettradioopptak
+    Hide Channel Podcasts: Skjul fane for "podcaster" i kanaler
     Hide Subscriptions Videos: Skjul abonnementsvideoer
-    Hide Subscriptions Shorts: Skjul abonnements-kortvideoer
+    Hide Subscriptions Shorts: Skjul Shorts
     Hide Subscriptions Live: Skjul abonnement det sendes direkte fra
+    Hide Profile Pictures in Comments: Skjul profilbilder i kommentarfeltet
+    Hide Channel Home: Skjule fane for "start" i kanaler
+    Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder
+      tekst
+    Hide Channels Already Exists: Kanal-ID-en finnes allerede
+    Hide Videos and Playlists Containing Text Placeholder: Ord, del av ord eller setning
+    Hide Channels Invalid: Kanal-ID-en var ugyldig
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -392,7 +527,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
       (forvalget er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
-    SponsorBlock Settings: SponsorBlock-innstillinger
+    SponsorBlock Settings: Innstillinger for SponsorBlock
     Skip Options:
       Do Nothing: Ikke gjør noe
       Prompt To Skip: Spør om å hoppe over
@@ -401,10 +536,12 @@ Settings:
       Show In Seek Bar: Vis i blafringsfelt
     Category Color: Kategorifarge
     UseDeArrowTitles: Bruk DeArrow-videonavn
+    UseDeArrowThumbnails: Bruk DeArrow for miniatyrbilder
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
-    Ignore Unsupported Action Warnings: Ignorer advarsler om ustøttede handlinger
+    Ignore Unsupported Action Warnings: Ignorer advarsler om handlinger som ikke er
+      støttet
     External Player Settings: Innstillinger for ekstern avspiller
     External Player: Ekstern avspiller
     Players:
@@ -412,7 +549,7 @@ Settings:
         Name: Ingen
   Download Settings:
     Choose Path: Velg sti
-    Download Settings: Nedlastingsinnstillinger
+    Download Settings: Innstillinger for nedlastninger
     Download in app: Last ned i programmet
     Open in web browser: Åpne i nettleser
     Download Behavior: Nedlastingsadferd
@@ -420,7 +557,7 @@ Settings:
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
     Hide Search Bar: Skjul søkefelt
-    Show Family Friendly Only: Kun vis familievennlige
+    Show Family Friendly Only: Vis kun familievennlig innhold
     Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
   Experimental Settings:
     Experimental Settings: Eksperimentelle innstillinger
@@ -429,7 +566,7 @@ Settings:
       anbefales. Bruk på egen risiko.
   Password Settings:
     Remove Password: Fjern passord
-    Password Settings: Passordinnstillinger
+    Password Settings: Innstillinger for passord
     Set Password To Prevent Access: Sett et passord for å forhindre tilgang til innstillingene
     Set Password: Sett passord
   Password Dialog:
@@ -437,6 +574,7 @@ Settings:
     Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
     Password Incorrect: Feil passord
     Password: Passord
+  Return to Settings Menu: Gå tilbake til menyen for innstillinger
 About:
   #On About page
   About: 'Om'
@@ -449,7 +587,7 @@ About:
   Website: Nettsted
   Report a problem: Rapporter et problem
   Source code: Kildekode
-  Please read the: Les
+  Please read the: Vennligst les
   Mastodon: Mastodon
   Email: E-post
   Blog: Blogg
@@ -458,13 +596,15 @@ About:
   these people and projects: disse folkene og prosjektene
   FreeTube is made possible by: FreeTube er gjort mulig av
   Credits: Bidragsytere
-  room rules: romregler
+  room rules: reglene for rommet
   GitHub issues: GitHub-problemsporer
   FreeTube Wiki: FreeTube-wiki
   GitHub releases: GitHub-utgivelser
   Beta: Beta
   Chat on Matrix: Snakk med oss på Matrix
   Discussions: Diskusjoner
+  Licensed under the: Lisensiert under
+  AGPLv3: AGPLv3
 Channel:
   Subscribe: 'Abonner'
   Unsubscribe: 'Opphev abonnement'
@@ -509,11 +649,11 @@ Channel:
   Community:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
   Shorts:
-    This channel does not currently have any shorts: Denne kanalen har ingen kortvideoer
+    This channel does not currently have any shorts: Denne kanalen har ingen Shorts-videoer
   Live:
     Live: Direkte
     This channel does not currently have any live streams: Denne kanalen har ikke
-      noen direktestrømmer
+      noen direktesendinger
   Podcasts:
     Podcasts: Nettradioopptak
     This channel does not currently have any podcasts: Denne kanalen har ingen nettradioopptak
@@ -537,15 +677,15 @@ Video:
   # As in a Live Video
   Live: 'Direkte'
   Live Now: 'Direkte'
-  Live Chat: 'Sanntidssludring'
-  Enable Live Chat: 'Slå på sanntidssludring'
-  Live Chat is currently not supported in this build.: 'Sanntidssludring støttes ikke
-    i denne versjonen.'
+  Live Chat: 'Direktechat'
+  Enable Live Chat: 'Slå på direktechat'
+  Live Chat is currently not supported in this build.: 'Direktechat støttes ikke i
+    denne versjonen.'
   'Chat is disabled or the Live Stream has ended.': 'Sludringen er slått av, eller
     så er direktesendingen avsluttet.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Sanntidssludring
-    er påslått. Meldinger vil vises her når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Sanntidssludring
+  Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
+    påslått. Meldinger vil vises her når de er sendt.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
     støttes for tiden ikke med Invidious-API-et. Direkte tilkobling til YouTube kreves.'
   Published:
     In less than a minute: Om mindre enn ett minutt
@@ -601,7 +741,7 @@ Video:
   Premieres on: Har première
   Premieres: Première
   Upcoming: Kommende
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Sanntidssludring
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Direktechat
     er ikke tilgjengelig for denne strømmen. Opplasteren kan ha skrudd det av.
 Videos:
   #& Sort By
@@ -700,8 +840,8 @@ Profile:
   Removed {profile} from your profiles: Fjernet {profile} fra dine profiler
   Your default profile has been set to {profile}: 'Din forvalgte profil har blitt
     satt til {profile}'
-  Profile has been updated: Profil oppdatert
-  Profile has been created: Profil opprettet
+  Profile has been updated: Profilen har blitt oppdatert
+  Profile has been created: Profilen har blitt opprettet
   Your profile name cannot be empty: Profilnavnet ditt kan ikke stå tomt
   Profile could not be found: Fant ikke profilen
   All subscriptions will also be deleted.: Alle abonnementer vil også bli slettet.
@@ -730,13 +870,16 @@ Profile:
     De samme kanalene vil bli slettet i enhver profil de finnes i.
   Select None: Velg ingen
   Delete Selected: Slett valgte
-  Add Selected To Profile: Legg til valgt i profil
+  Add Selected To Profile: Legg til de valgte kanalene til profilen
   Subscription List: Abonnementsliste
   Profile Preview: Profilforhåndsvisning
   Custom Color: Egendefinert farge
   Profile Filter: Profilfilter
   Profile Settings: Profilinnstillinger
   Toggle Profile List: Slå av/på profilliste
+  Profile Name: Profilnavn
+  Create Profile Name: Lag profilnavn
+  Edit Profile Name: Endre profilnavn
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
   videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
   i ditt land.
@@ -848,3 +991,34 @@ Hashtag:
   This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer
     enda
 checkmark: ✓
+Cancel: Avbryt
+Yes, Restart: Ja, start på nytt
+Search Listing:
+  Label:
+    Subtitles: Undertekster
+    4K: 4K
+    Closed Captions: Undertekster
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Ny
+    3D: 3D
+Feed:
+  Refresh Feed: Oppdater {subscriptionName}
+Yes, Delete: Ja, slett
+Keys:
+  alt: Alt
+  arrowup: Piltast opp
+  arrowleft: Venstre piltast
+  arrowright: Høyre piltast
+  ctrl: Ctrl
+  arrowdown: Piltast ned
+Right-click or hold to see history: Høyreklikk eller hold musepekeren over for å se
+  historikk
+Close Banner: Lukk banner
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Yes, Open Link: Ja, åpne lenke
+Display Label: '{label}: {value}'
+Go to page: Gå til {page}
+Search character limit: Spørringen er over tegngrensen på {searchCharacterLimit}

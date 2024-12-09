@@ -429,7 +429,7 @@ Settings:
       8k: '8k'
     Fast-Forward / Rewind Interval: Aurrera / atzera egiteko tartea
     Scroll Volume Over Video Player: Aldatu bolumena bideo erreproduzitzailean
-    Next Video Interval: Hurrengo bideo tartea
+    Next Video Interval: Erreproduzitu automatikoki atzerako kontaketaren tenporizadorea
     Screenshot:
       Enable: Bidea eman pantaila argazkiei
       Error:
@@ -452,6 +452,7 @@ Settings:
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
+    Autoplay Interruption Timer: Erreprodukzio automatikoa eteteko tenporizadorea
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
     Remember History: 'Historikoa oroitu'
@@ -479,8 +480,6 @@ Settings:
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
-    Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
-      bideoa
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunik ez'
@@ -1230,3 +1229,5 @@ shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu sakatuta
   historia ikusteko
+Autoplay Interruption Timer: Erreprodukzio automatikoa bertan behera utzi da {autoplayInterruptionIntervalHours}
+  orduz geldirik egon delako

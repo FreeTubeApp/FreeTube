@@ -408,7 +408,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
-    Next Video Interval: משך הסרטון הבא
+    Next Video Interval: מתזמן ספירה לאחור של נגינה אוטומטית
     Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עוצמת השמע
     Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
@@ -458,7 +458,6 @@ Settings:
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
     Confirm Before Unsubscribing: אישור לפני ביטול מינוי
-    Only Show Latest Video for Each Channel: להציג רק את הסרטון האחרון לכל ערוץ
   Data Settings:
     Data Settings: 'נתונים'
     Select Import Type: 'נא לבחור את תסדיר הייבוא'

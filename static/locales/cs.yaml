@@ -424,7 +424,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval pro další video na playlistu
-    Next Video Interval: Další interval videa
+    Next Video Interval: Čas do automatického přehrání
     Display Play Button In Video Player: Zobrazit tlačítko Přehrát v přehrávači videa
     Scroll Volume Over Video Player: Měnit hlasitost posuvem kolečka myši na přehrávači
     Fast-Forward / Rewind Interval: Interval rychlého přetáčení vpřed / vzad
@@ -449,6 +449,7 @@ Settings:
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
+    Autoplay Interruption Timer: Čas přerušení automatického přehrávání
   Privacy Settings:
     Privacy Settings: 'Soukromí'
     Remember History: 'Zapamatovat historii'
@@ -475,9 +476,10 @@ Settings:
     Hide Videos on Watch: 'Skrýt přehraná videa'
     Fetch Feeds from RSS: 'Získávat odběry z RSS'
     Fetch Automatically: Automaticky načítat odběry
-    Only Show Latest Video for Each Channel: U každého kanálu zobrazit pouze nejnovější
-      video
     Confirm Before Unsubscribing: Zamezit nechtěným odběrům
+    To: Do
+    'Limit the number of videos displayed for each channel': Omezit počet videí zobrazených
+      u každého kanálu
   Distraction Free Settings:
     Distraction Free Settings: 'Rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
@@ -1205,3 +1207,5 @@ Keys:
   arrowright: Šipka vpravo
   arrowleft: Šipka vlevo
 Right-click or hold to see history: Klikněte pravým pro zobrazení historie
+Autoplay Interruption Timer: Automatické přehrávání zrušeno kvůli {autoplayInterruptionIntervalHours}
+  hodinám nečinnosti

@@ -418,7 +418,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Viivitus järgmise video esitamisel
+    Next Video Interval: Viivituse taimer järgmise video esitamisel
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
     Fast-Forward / Rewind Interval: Kiirkerimise välp
@@ -443,6 +443,7 @@ Settings:
         Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
+    Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
   Privacy Settings:
     Privacy Settings: 'Privaatsus'
     Remember History: 'Jäta ajalugu meelde'
@@ -470,8 +471,10 @@ Settings:
     Hide Videos on Watch: 'Vaatamisel peida videod'
     Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
     Fetch Automatically: Laadi tellimuste voog automaatselt
-    Only Show Latest Video for Each Channel: Iga kanali puhul näita vaid viimast videot
     Confirm Before Unsubscribing: Väldi ekslikku ja juhuslikku tellimusest loobumist
+    To: Kuni
+    'Limit the number of videos displayed for each channel': Piira igas kanalis näidatavate
+      videote arvu
   Data Settings:
     Data Settings: 'Andmehaldus'
     Select Import Type: 'Vali imporditava faili vorming'
@@ -1199,3 +1202,5 @@ Keys:
   arrowdown: Nool alla
 Right-click or hold to see history: Ajaloo nägemiseks klõpsa parema hiireklahviga
   ja hoia klahvi all
+Autoplay Interruption Timer: Automaatne esitamine katkes peale {autoplayInterruptionIntervalHours}
+  tundi jõudeolekut

@@ -451,9 +451,10 @@ Settings:
     Video Playback Rate Interval: Интервал брзине репродукције видео снимка
     Max Video Playback Rate: Максимална брзина репродукције видео снимка
     Enter Fullscreen on Display Rotate: Уђи у цео екран при окретању екрана
-    Next Video Interval: Интервал следећег видео снимка
+    Next Video Interval: Тајмер за одбројавање аутоплеја
     Display Play Button In Video Player: Прикажи дугме за пуштање у плејеру видео
       снимка
+    Autoplay Interruption Timer: Тајмер за прекид аутоплеја
   Privacy Settings:
     Privacy Settings: 'Приватност'
     Remember History: 'Запамти историју'
@@ -480,9 +481,10 @@ Settings:
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
     Fetch Automatically: Аутоматски прикупи фид
-    Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
-      сваки канал
     Confirm Before Unsubscribing: Избегни случајно отпраћивање
+    To: На
+    'Limit the number of videos displayed for each channel': Ограничи број приказаних
+      видео снимака за сваки канал
   Distraction Free Settings:
     Distraction Free Settings: 'Без ометања'
     Hide Video Views: 'Сакриј прегледе видео снимка'
@@ -1199,3 +1201,5 @@ Keys:
 shortcutJoinOperator: +
 Right-click or hold to see history: Кликните десним тастером миша или задржите да
   бисте видели историју
+Autoplay Interruption Timer: Аутоплеј је отказан због {autoplayInterruptionIntervalHours}
+  сати неактивности
