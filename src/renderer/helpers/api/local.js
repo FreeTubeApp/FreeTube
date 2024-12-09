@@ -658,6 +658,10 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
           const image = header.content.image
           thumbnailUrl = image.avatar?.image[0].url
         }
+      } else if (header.content.animated_image) {
+        /** @type {import('youtubei.js').YTNodes.ContentPreviewImageView} */
+        const image = header.content.animated_image
+        thumbnailUrl = image.image[0].url
       }
 
       if (!thumbnailUrl && channel.metadata.thumbnail) {
@@ -1131,7 +1135,7 @@ export function parseLocalListVideo(item) {
       author: video.author.name,
       authorId: video.author.id,
       description: video.description,
-      viewCount: video.view_count == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
+      viewCount: video.view_count?.text == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
