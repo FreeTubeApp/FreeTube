@@ -80,7 +80,7 @@
         </p>
       </router-link>
       <router-link
-        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
+        v-if="!hidePopularVideos && ((backendFallback && fallbackPreference === 'invidious') || backendPreference === 'invidious')"
         class="navOption mobileHidden"
         role="button"
         to="/popular"
@@ -266,9 +266,14 @@ const backendFallback = computed(() => {
   return store.getters.getBackendFallback
 })
 
-/** @type {import('vue').ComputedRef<string>} */
+/** @type {import('vue').ComputedRef<'local' | 'invidious' | 'piped'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
+})
+
+/** @type {import('vue').ComputedRef<'local' | 'invidious' | 'piped'>} */
+const fallbackPreference = computed(() => {
+  return store.getters.getFallbackPreference
 })
 
 /** @type {import('vue').ComputedRef<string>} */
