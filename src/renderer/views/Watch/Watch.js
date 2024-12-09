@@ -267,12 +267,6 @@ export default defineComponent({
       return null
     },
 
-    useDeArrowTitles: function () {
-      return this.$store.getters.getUseDeArrowTitles
-    },
-    useDeArrowThumbnails: function () {
-      return this.$store.getters.getUseDeArrowThumbnails
-    },
     displayTitle: function () {
       let title
       if (this.showDeArrowTitle && this.deArrowCache?.title) {
@@ -313,6 +307,13 @@ export default defineComponent({
         default:
           return `${baseUrl}/vi/${this.videoId}/maxresdefault.jpg`
       }
+    },
+
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
+    },
+    useDeArrowThumbnails: function () {
+      return this.$store.getters.getUseDeArrowThumbnails
     },
     deArrowToggleTitle: function() {
       return this.deArrowToggleActivated
@@ -1075,16 +1076,6 @@ export default defineComponent({
         this.fetchDeArrowData()
       }
     },
-    fetchDeArrowThumbnail: async function() {
-      if (this.thumbnailPreference === 'hidden') { return }
-      const videoId = this.videoId
-      const thumbnail = await deArrowThumbnail(videoId, this.deArrowCache.thumbnailTimestamp)
-      if (thumbnail) {
-        const deArrowCacheClone = deepCopy(this.deArrowCache)
-        deArrowCacheClone.thumbnail = thumbnail
-        this.$store.commit('addThumbnailToDeArrowCache', deArrowCacheClone)
-      }
-    },
     fetchDeArrowData: async function() {
       const videoId = this.videoId
       const data = await deArrowData(this.videoId)
@@ -1112,6 +1103,17 @@ export default defineComponent({
         this.debounceGetDeArrowThumbnail()
       }
     },
+    fetchDeArrowThumbnail: async function() {
+      if (this.thumbnailPreference === 'hidden') { return }
+      const videoId = this.videoId
+      const thumbnail = await deArrowThumbnail(videoId, this.deArrowCache.thumbnailTimestamp)
+      if (thumbnail) {
+        const deArrowCacheClone = deepCopy(this.deArrowCache)
+        deArrowCacheClone.thumbnail = thumbnail
+        this.$store.commit('addThumbnailToDeArrowCache', deArrowCacheClone)
+      }
+    },
+
     toggleDeArrow() {
       this.deArrowToggleActivated = !this.deArrowToggleActivated
 
