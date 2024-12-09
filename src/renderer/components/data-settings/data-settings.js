@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
