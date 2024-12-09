@@ -429,7 +429,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
-    Next Video Interval: Következő videó időköze
+    Next Video Interval: Automatikus lejátszás időköze
     Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
@@ -456,6 +456,7 @@ Settings:
     Video Playback Rate Interval: Videó lejátszási sebesség léptetési köze
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
+    Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
   Privacy Settings:
     Privacy Settings: 'Adatvédelem'
     Remember History: 'Előzmények megjegyzése'
@@ -482,9 +483,10 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
-      a csatornáktól
     Confirm Before Unsubscribing: Kerülje el a véletlen leiratkozást
+    'Limit the number of videos displayed for each channel': Az egyes csatornákon
+      megjelenített videók számának korlátozása
+    To: 'Ennyire'
   Data Settings:
     Data Settings: 'Adat'
     Select Import Type: 'Importálási típus kiválasztása'
@@ -1232,3 +1234,5 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
   az előzmények megtekintéséhez
+Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours}
+  óra inaktivitás miatt visszavonásra került

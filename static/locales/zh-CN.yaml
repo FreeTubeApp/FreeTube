@@ -380,7 +380,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放列表 下一个影片时间间隔
-    Next Video Interval: 下个视频的间隔时间
+    Next Video Interval: 自动播放倒计时器
     Display Play Button In Video Player: 在视频播放器上显示播放按钮
     Scroll Volume Over Video Player: 在视频播放器上滑动音量
     Fast-Forward / Rewind Interval: 快进/快退间隔
@@ -402,14 +402,16 @@ Settings:
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
+    Autoplay Interruption Timer: 自动播放中断计时器
   Subscription Settings:
     Subscription Settings: '订阅'
     Hide Videos on Watch: '观看时隐藏视频'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
-    Only Show Latest Video for Each Channel: 只显示每个频道的最新视频
     Confirm Before Unsubscribing: 避免意外取消订阅
 
+    'Limit the number of videos displayed for each channel': 限制每个频道展示的视频数
+    To: 到
   Privacy Settings:
     Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史记录？
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
@@ -1055,3 +1057,4 @@ Keys:
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: 右键单击或静止不动查看历史记录
+Autoplay Interruption Timer: 由于 {autoplayInterruptionIntervalHours} 小时不活跃，自动播放被取消

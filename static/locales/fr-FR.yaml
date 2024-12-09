@@ -433,7 +433,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
-    Next Video Interval: Intervalle vidéo suivante
+    Next Video Interval: Minuteur de lecture automatique
     Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
       au dessus du lecteur vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
@@ -461,15 +461,17 @@ Settings:
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
+    Autoplay Interruption Timer: Minuteur d'arrêt de la lecture automatique
   Subscription Settings:
     Subscription Settings: 'Abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
     Fetch Feeds from RSS: Récupération de flux RSS
     Fetch Automatically: Récupération automatique des flux
-    Only Show Latest Video for Each Channel: Afficher uniquement la dernière vidéo
-      pour chaque chaîne
     Confirm Before Unsubscribing: Évitez les désabonnements accidentels
 
+    'Limit the number of videos displayed for each channel': Limiter le nombre de
+      vidéos affichées pour chaque chaîne
+    To: Pour
   Privacy Settings:
     Privacy Settings: Confidentialité
     Remember History: Enregistrer l'historique
@@ -1263,3 +1265,5 @@ Keys:
   alt: Alt
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
+Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterruptionIntervalHours}
+  heures d'inactivité

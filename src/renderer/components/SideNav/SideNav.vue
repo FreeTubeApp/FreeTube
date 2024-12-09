@@ -1,5 +1,5 @@
 <template>
-  <ft-flex-box
+  <FtFlexBox
     ref="sideNav"
     class="sideNav"
     :class="[{closed: !isOpen}, applyHiddenLabels]"
@@ -18,7 +18,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'rss']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -41,7 +41,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'user-check']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -65,7 +65,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'fire']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -89,7 +89,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'users']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -113,7 +113,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'bookmark']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -127,7 +127,7 @@
           {{ $t("Playlists") }}
         </p>
       </router-link>
-      <side-nav-more-options />
+      <SideNavMoreOptions />
       <router-link
         class="navOption mobileShow"
         role="button"
@@ -137,7 +137,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'history']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -161,7 +161,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'sliders-h']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -184,7 +184,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'info-circle']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -222,7 +222,7 @@
               :src="channel.thumbnail"
               :alt="isOpen ? '' : channel.name"
             >
-            <font-awesome-icon
+            <FontAwesomeIcon
               v-else
               class="channelThumbnail noThumbnail"
               :icon="['fas', 'circle-user']"
@@ -237,8 +237,130 @@
         </router-link>
       </div>
     </div>
-  </ft-flex-box>
+  </FtFlexBox>
 </template>
 
-<script src="./side-nav.js" />
-<style scoped src="./side-nav.css" />
+<script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { computed } from 'vue'
+import { useI18n } from '../../composables/use-i18n-polyfill'
+
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import SideNavMoreOptions from '../SideNavMoreOptions/SideNavMoreOptions.vue'
+
+import store from '../../store/index'
+
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { deepCopy, localizeAndAddKeyboardShortcutToActionTitle } from '../../helpers/utils'
+import { KeyboardShortcuts } from '../../../constants'
+
+const { locale, t } = useI18n()
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const isOpen = computed(() => {
+  return store.getters.getIsSideNavOpen
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const backendFallback = computed(() => {
+  return store.getters.getBackendFallback
+})
+
+/** @type {import('vue').ComputedRef<string>} */
+const backendPreference = computed(() => {
+  return store.getters.getBackendPreference
+})
+
+/** @type {import('vue').ComputedRef<string>} */
+const currentInvidiousInstanceUrl = computed(() => {
+  return store.getters.getCurrentInvidiousInstanceUrl
+})
+
+/** @type {import('vue').ComputedRef<object>} */
+const activeProfile = computed(() => {
+  return store.getters.getActiveProfile
+})
+
+const activeSubscriptions = computed(() => {
+  /** @type {any[]} */
+  const subscriptions = deepCopy(activeProfile.value.subscriptions)
+
+  subscriptions.forEach(channel => {
+    // Change thumbnail size to 35x35, as that's the size we display it
+    // so we don't need to download a bigger image (the default is 176x176)
+    channel.thumbnail = channel.thumbnail?.replace(/=s\d+/, '=s35')
+  })
+
+  const locale_ = locale.value
+  subscriptions.sort((a, b) => {
+    return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), locale_)
+  })
+
+  if (backendPreference.value === 'invidious') {
+    const instanceUrl = currentInvidiousInstanceUrl.value
+
+    subscriptions.forEach((channel) => {
+      channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, instanceUrl)
+    })
+  }
+
+  return subscriptions
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hidePopularVideos = computed(() => {
+  return store.getters.getHidePopularVideos
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hidePlaylists = computed(() => {
+  return store.getters.getHidePlaylists
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideTrendingVideos = computed(() => {
+  return store.getters.getHideTrendingVideos
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideActiveSubscriptions = computed(() => {
+  return store.getters.getHideActiveSubscriptions
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideText = computed(() => {
+  return !isOpen.value && store.getters.getHideLabelsSideBar
+})
+
+const applyNavIconExpand = computed(() => {
+  return {
+    navIconExpand: hideText.value
+  }
+})
+
+const applyHiddenLabels = computed(() => {
+  return {
+    hiddenLabels: hideText.value
+  }
+})
+
+const historyTitle = computed(() => {
+  const shortcut = process.platform === 'darwin'
+    ? KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_HISTORY_MAC
+    : KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_HISTORY
+
+  return localizeAndAddKeyboardShortcutToActionTitle(
+    t('History.History'),
+    shortcut
+  )
+})
+
+const settingsTitle = computed(() => {
+  return localizeAndAddKeyboardShortcutToActionTitle(
+    t('Settings.Settings'),
+    KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_SETTINGS
+  )
+})
+</script>
+
+<style scoped src="./SideNav.css" />

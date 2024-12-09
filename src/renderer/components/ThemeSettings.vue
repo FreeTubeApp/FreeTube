@@ -95,7 +95,7 @@
 import { computed, ref } from 'vue'
 import { useI18n } from '../composables/use-i18n-polyfill'
 
-import FtSettingsSection from './ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from './ft-select/ft-select.vue'
 import FtToggleSwitch from './ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from './ft-slider/ft-slider.vue'

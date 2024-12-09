@@ -397,8 +397,6 @@ Settings:
     Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Fetch Automatically: Hämta flöde automatiskt
-    Only Show Latest Video for Each Channel: Visa endast den senaste videon för varje
-      kanal
   Data Settings:
     Data Settings: 'Datainställningar'
     Select Import Type: 'Välj import-typen'
