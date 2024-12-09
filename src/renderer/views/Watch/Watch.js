@@ -351,9 +351,9 @@ export default defineComponent({
       this.videoCurrentChapterIndex = 0
       this.videoGenreIsMusic = false
 
+      this.setupDeArrow()
       this.checkIfTimestamp()
       this.checkIfPlaylist()
-      this.setupDeArrow()
 
       switch (this.backendPreference) {
         case 'local':
@@ -372,8 +372,8 @@ export default defineComponent({
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
 
-    this.checkIfTimestamp()
     this.setupDeArrow()
+    this.checkIfTimestamp()
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
