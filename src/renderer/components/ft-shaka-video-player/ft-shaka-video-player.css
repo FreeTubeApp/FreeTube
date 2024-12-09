@@ -243,6 +243,32 @@
   }
 }
 
+@media only screen and (width >= 1000px) {
+  :deep(.shaka-bottom-controls) {
+    /* remove some bottom padding since the seek bar is above */
+    padding-bottom: 0;
+
+    /* make seekbar take full width on non-mobile devices */
+    width: 100%;
+  }
+
+  /* increase height of captions area since we remove the padding-bottom below the seekbar */
+  :deep(.shaka-controls-container[shown='true']~.shaka-text-container) {
+    bottom: 12.5%;
+  }
+
+  :deep(.shaka-controls-button-panel>button) {
+    height: 40px;
+    line-height: 0.5;
+  }
+
+  :deep(.shaka-tooltips-on button:active::after),
+  :deep(.shaka-tooltips-on button:focus-visible::after),
+  :deep(.shaka-tooltips-on button:hover::after) {
+    margin-bottom: 8px;
+  }
+}
+
 @media only screen and (width <=1350px) {
   :deep(.theatre-button) {
     display: none;
