@@ -349,7 +349,7 @@ export async function getInvidiousTrending(tab, region) {
 export async function getInvidiousSearchResults(query, page, searchSettings) {
   let results = await invidiousAPICall({
     resource: 'search',
-    id: 'string',
+    id: '',
     params: {
       q: query,
       page,
