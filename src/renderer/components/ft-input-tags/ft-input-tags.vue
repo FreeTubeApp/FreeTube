@@ -26,12 +26,12 @@
       class="checkbox-container"
     >
       <input
-        :id="label"
+        :id="sanitizedId"
         type="checkbox"
         :checked="showTags"
         @change="toggleShowTags"
       >
-      <label :for="label">
+      <label :for="sanitizedId">
         {{ $t('Settings.Distraction Free Settings.Show Added Items') }}
       </label>
     </div>

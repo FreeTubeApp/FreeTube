@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
 import { showToast } from '../../helpers/utils'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({
   name: 'FtInputTags',
@@ -58,6 +59,11 @@ export default defineComponent({
     }
   },
   emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name', 'toggle-show-tags'],
+  computed: {
+    sanitizedId: function() {
+      return sanitizeForHtmlId(`checkbox-${this.label}`)
+    },
+  },
   methods: {
     updateTags: async function (text, _e) {
       if (this.areChannelTags) {
