@@ -15,11 +15,11 @@ import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vu
 import packageDetails from '../../../../package.json'
 import {
   buildVTTFileLocally,
-  copyToClipboard,
+  copyToClipboard, deepCopy,
   extractNumberFromString,
   formatDurationAsTimestamp,
   formatNumber,
-  showToast
+  showToast, toDistractionFreeTitle
 } from '../../helpers/utils'
 import {
   getLocalVideoInfo,
@@ -36,6 +36,9 @@ import {
   mapInvidiousLegacyFormat,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
+import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
+import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
+import debounce from 'lodash.debounce'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
@@ -83,7 +86,6 @@ export default defineComponent({
       upcomingTimeLeft: null,
       /** @type {'dash' | 'audio' | 'legacy'} */
       activeFormat: 'legacy',
-      thumbnail: '',
       videoId: '',
       videoTitle: '',
       videoDescription: '',
@@ -133,7 +135,12 @@ export default defineComponent({
       customErrorIcon: null,
       videoGenreIsMusic: false,
       /** @type {Date|null} */
-      streamingDataExpiryDate: null
+      streamingDataExpiryDate: null,
+
+      showDeArrowTitle: false,
+      showDeArrowThumbnail: false,
+      deArrowToggleActivated: false,
+      debounceGetDeArrowThumbnail: null
     }
   },
   computed: {
@@ -258,7 +265,68 @@ export default defineComponent({
       }
 
       return null
-    }
+    },
+
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
+    },
+    useDeArrowThumbnails: function () {
+      return this.$store.getters.getUseDeArrowThumbnails
+    },
+    displayTitle: function () {
+      let title
+      if (this.showDeArrowTitle && this.deArrowCache?.title) {
+        title = this.deArrowCache.title
+      } else {
+        title = this.videoTitle
+      }
+
+      if (this.showDistractionFreeTitles) {
+        return toDistractionFreeTitle(title)
+      } else {
+        return title
+      }
+    },
+    thumbnail: function () {
+      if (this.thumbnailPreference === 'hidden') {
+        return thumbnailPlaceholder
+      }
+
+      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail != null) {
+        return this.deArrowCache.thumbnail
+      }
+
+      let baseUrl
+      if (this.backendPreference === 'invidious') {
+        baseUrl = this.currentInvidiousInstanceUrl
+      } else {
+        baseUrl = 'https://i.ytimg.com'
+      }
+
+      switch (this.thumbnailPreference) {
+        case 'start':
+          return `${baseUrl}/vi/${this.videoId}/maxres1.jpg`
+        case 'middle':
+          return `${baseUrl}/vi/${this.videoId}/maxres2.jpg`
+        case 'end':
+          return `${baseUrl}/vi/${this.videoId}/maxres3.jpg`
+        default:
+          return `${baseUrl}/vi/${this.videoId}/maxresdefault.jpg`
+      }
+    },
+    deArrowToggleTitle: function() {
+      return this.deArrowToggleActivated
+        ? this.$t('Video.DeArrow.Show Modified Details')
+        : this.$t('Video.DeArrow.Show Original Details')
+    },
+    deArrowChangedContent: function () {
+      return (this.useDeArrowThumbnails && !!this.deArrowCache?.thumbnail) ||
+        (this.useDeArrowTitles && !!this.deArrowCache?.title &&
+          this.videoTitle.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
+    },
+    deArrowCache: function () {
+      return this.$store.getters.getDeArrowCache[this.videoId]
+    },
   },
   watch: {
     async $route() {
@@ -285,6 +353,7 @@ export default defineComponent({
 
       this.checkIfTimestamp()
       this.checkIfPlaylist()
+      this.setupDeArrow()
 
       switch (this.backendPreference) {
         case 'local':
@@ -304,6 +373,7 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
+    this.setupDeArrow()
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -409,21 +479,6 @@ export default defineComponent({
           }
         } else {
           this.videoDescription = result.basic_info.short_description
-        }
-
-        switch (this.thumbnailPreference) {
-          case 'start':
-            this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres1.jpg`
-            break
-          case 'middle':
-            this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres2.jpg`
-            break
-          case 'end':
-            this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxres3.jpg`
-            break
-          default:
-            this.thumbnail = result.basic_info.thumbnail?.[0].url ?? `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`
-            break
         }
 
         if (this.hideVideoLikesAndDislikes) {
@@ -843,21 +898,6 @@ export default defineComponent({
             this.videoStoryboardSrc = `${this.currentInvidiousInstanceUrl}/api/v1/storyboards/${this.videoId}?height=90`
           }
 
-          switch (this.thumbnailPreference) {
-            case 'start':
-              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres1.jpg`
-              break
-            case 'middle':
-              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres2.jpg`
-              break
-            case 'end':
-              this.thumbnail = `${this.currentInvidiousInstanceUrl}/vi/${this.videoId}/maxres3.jpg`
-              break
-            default:
-              this.thumbnail = result.videoThumbnails[0].url
-              break
-          }
-
           let chapters = []
           if (!this.hideChapters) {
             chapters = this.extractChaptersFromDescription(result.description)
@@ -1025,6 +1065,62 @@ export default defineComponent({
       }
 
       return chapters
+    },
+
+    setupDeArrow: async function() {
+      this.deArrowToggleActivated = false
+      this.showDeArrowTitle = this.useDeArrowTitles
+      this.showDeArrowThumbnail = this.useDeArrowThumbnails
+      if ((this.showDeArrowTitle || this.showDeArrowThumbnail) && !this.deArrowCache) {
+        this.fetchDeArrowData()
+      }
+    },
+    fetchDeArrowThumbnail: async function() {
+      if (this.thumbnailPreference === 'hidden') { return }
+      const videoId = this.videoId
+      const thumbnail = await deArrowThumbnail(videoId, this.deArrowCache.thumbnailTimestamp)
+      if (thumbnail) {
+        const deArrowCacheClone = deepCopy(this.deArrowCache)
+        deArrowCacheClone.thumbnail = thumbnail
+        this.$store.commit('addThumbnailToDeArrowCache', deArrowCacheClone)
+      }
+    },
+    fetchDeArrowData: async function() {
+      const videoId = this.videoId
+      const data = await deArrowData(this.videoId)
+      const cacheData = { videoId, title: null, videoDuration: null, thumbnail: null, thumbnailTimestamp: null }
+      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes >= 0)) {
+        // remove dearrow formatting markers https://github.com/ajayyy/DeArrow/blob/0da266485be902fe54259214c3cd7c942f2357c5/src/titles/titleFormatter.ts#L460
+        cacheData.title = data.titles[0].title.replaceAll(/(^|\s)>(\S)/g, '$1$2').trim()
+      }
+      if (Array.isArray(data?.thumbnails) && data.thumbnails.length > 0 && (data.thumbnails[0].locked || data.thumbnails[0].votes >= 0)) {
+        cacheData.thumbnailTimestamp = data.thumbnails.at(0).timestamp
+      } else if (data?.videoDuration != null) {
+        cacheData.thumbnailTimestamp = data.videoDuration * data.randomTime
+      }
+      cacheData.videoDuration = data?.videoDuration ? Math.floor(data.videoDuration) : null
+
+      // Save data to cache whether data available or not to prevent duplicate requests
+      this.$store.commit('addVideoToDeArrowCache', cacheData)
+
+      // fetch dearrow thumbnails if enabled
+      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail === null) {
+        if (this.debounceGetDeArrowThumbnail == null) {
+          this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
+        }
+
+        this.debounceGetDeArrowThumbnail()
+      }
+    },
+    toggleDeArrow() {
+      this.deArrowToggleActivated = !this.deArrowToggleActivated
+
+      if (this.useDeArrowTitles) {
+        this.showDeArrowTitle = !this.showDeArrowTitle
+      }
+      if (this.useDeArrowThumbnails) {
+        this.showDeArrowThumbnail = !this.showDeArrowThumbnail
+      }
     },
 
     addChaptersEndSeconds: function (chapters, videoLengthSeconds) {

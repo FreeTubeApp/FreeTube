@@ -110,9 +110,21 @@ export default defineComponent({
     isUnlisted: {
       type: Boolean,
       required: false
+    },
+    showDeArrowToggle: {
+      type: Boolean,
+      default: false
+    },
+    deArrowToggleActivated: {
+      type: Boolean,
+      default: true
+    },
+    deArrowToggleTitle: {
+      type: String,
+      required: true
     }
   },
-  emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
+  emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area', 'toggle-dearrow'],
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
@@ -399,6 +411,10 @@ export default defineComponent({
 
     changeFormat: function(value) {
       this.$emit('change-format', value)
+    },
+
+    toggleDeArrow: function() {
+      this.$emit('toggle-dearrow')
     },
 
     ...mapActions([
