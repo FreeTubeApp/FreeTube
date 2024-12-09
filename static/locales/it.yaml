@@ -476,6 +476,9 @@ Settings:
     Fetch Automatically: Recupera i feed automaticamente
     Confirm Before Unsubscribing: Evita la cancellazione accidentale dell'iscrizione
 
+    'Limit the number of videos displayed for each channel': Limita il numero di video
+      visualizzati per ogni canale
+    To: A
   Data Settings:
     How do I import my subscriptions?: Come posso importare le mie iscrizioni?
     Unknown data key: Chiave dati sconosciuta
