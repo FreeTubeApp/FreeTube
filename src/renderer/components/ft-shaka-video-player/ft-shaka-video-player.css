@@ -266,6 +266,7 @@
   :deep(.shaka-tooltips-on button:focus-visible::after),
   :deep(.shaka-tooltips-on button:hover::after) {
     margin-bottom: 8px;
+    left: 1px;
   }
 }
 
