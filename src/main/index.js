@@ -254,13 +254,16 @@ function runApp() {
 
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance, we should focus our window
-      if (mainWindow && typeof commandLine !== 'undefined') {
-        if (mainWindow.isMinimized()) mainWindow.restore()
-        mainWindow.focus()
-
+      if (typeof commandLine !== 'undefined') {
         const url = getLinkUrl(commandLine)
-        if (url) {
-          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        if (mainWindow && mainWindow.webContents) {
+          if (mainWindow.isMinimized()) mainWindow.restore()
+          mainWindow.focus()
+
+          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        } else {
+          if (url) startupUrl = url
+          createWindow()
         }
       }
     })
@@ -829,10 +832,11 @@ function runApp() {
     })
   }
 
-  ipcMain.once(IpcChannels.APP_READY, () => {
+  ipcMain.on(IpcChannels.APP_READY, () => {
     if (startupUrl) {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
+    startupUrl = null
   })
 
   function relaunch() {
@@ -1442,6 +1446,7 @@ function runApp() {
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
+      mainWindow = null
       if (process.platform !== 'darwin') {
         app.quit()
       }
@@ -1511,6 +1516,7 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
+      if (app.isReady()) createWindow()
     }
   })
 
