@@ -1536,8 +1536,6 @@ export function parseLocalComment(comment, commentThread = undefined) {
     replyToken,
     showReplies: false,
     replies: [],
-
-    // default values for the properties set below
     memberIconUrl: comment.is_member ? comment.member_badge.url : '',
     time: getRelativeTimeFromDate(calculatePublishedDate(comment.published_time.replace('(edited)', '').trim()), false),
     likes: comment.like_count,
