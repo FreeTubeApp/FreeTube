@@ -34,6 +34,7 @@
   color: var(--tertiary-text-color);
   padding: 0;
   margin: 0;
+  word-break: break-word;
 }
 
 :deep(.liveChatEmoji) {
