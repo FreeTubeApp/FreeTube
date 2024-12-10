@@ -1237,3 +1237,6 @@ Right-click or hold to see history: Fai clic con il tasto destro o tieni premuto
   visualizzare la cronologia
 Autoplay Interruption Timer: Riproduzione automatica annullata a causa di {autoplayInterruptionIntervalHours}
   ore di inattività
+Description:
+  Expand Description: '...di più'
+  Collapse Description: Mostra meno
