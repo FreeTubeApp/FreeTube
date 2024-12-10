@@ -1203,3 +1203,6 @@ Right-click or hold to see history: Кликните десним тастеро
   бисте видели историју
 Autoplay Interruption Timer: Аутоплеј је отказан због {autoplayInterruptionIntervalHours}
   сати неактивности
+Description:
+  Expand Description: …више
+  Collapse Description: Прикажи мање
