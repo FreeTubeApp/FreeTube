@@ -271,6 +271,7 @@ Settings:
     Auto Load Next Page:
       Label: 次のページを自動で読み込む
       Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
+    Open Deep Links In New Window: FreeTube に渡された URL を新しいウィンドウで開く
   Theme Settings:
     Theme Settings: 'テーマ'
     Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
@@ -403,12 +404,15 @@ Settings:
       Folder Button: フォルダの選択
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
     Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
+    Autoplay Interruption Timer: 自動再生の停止タイマー
   Subscription Settings:
     Subscription Settings: '登録チャンネル'
     Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
     Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
+    'Limit the number of videos displayed for each channel': 各チャンネルに表示する動画の数を制限する
+    To: 上限
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
     Remember History: 履歴の保存
@@ -1060,3 +1064,4 @@ Keys:
   arrowleft: 左矢印
   arrowright: 右矢印
   arrowup: 上矢印
+Right-click or hold to see history: 右クリックまたは長押しで 履歴 を表示
