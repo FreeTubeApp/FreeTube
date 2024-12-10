@@ -479,6 +479,9 @@ Settings:
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Fetch Automatically: Sækja streymi sjálfvirkt
     Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
+    To: Við
+    'Limit the number of videos displayed for each channel': Takmarka fjölda myndskeiða
+      sem birt eru fyrir hverja rás
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -1220,3 +1223,6 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Autoplay Interruption Timer: Hætt sjálfvirkri spilun vegna {autoplayInterruptionIntervalHours}
   klst án aðgerða
+Description:
+  Expand Description: '...meira'
+  Collapse Description: Birta minna

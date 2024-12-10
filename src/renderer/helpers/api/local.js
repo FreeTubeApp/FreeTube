@@ -658,6 +658,8 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
           const image = header.content.image
           thumbnailUrl = image.avatar?.image[0].url
         }
+      } else if (header.content.animated_image) {
+        thumbnailUrl = header.content.animated_image.image[0].url
       }
 
       if (!thumbnailUrl && channel.metadata.thumbnail) {
@@ -1131,7 +1133,7 @@ export function parseLocalListVideo(item) {
       author: video.author.name,
       authorId: video.author.id,
       description: video.description,
-      viewCount: video.view_count == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
+      viewCount: video.view_count?.text == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
@@ -1503,7 +1505,7 @@ export function mapLocalLegacyFormat(format) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Comment|import('youtubei.js').YTNodes.CommentView} comment
+ * @param {import('youtubei.js').YTNodes.CommentView} comment
  * @param {import('youtubei.js').YTNodes.CommentThread} commentThread
  */
 export function parseLocalComment(comment, commentThread = undefined) {
@@ -1517,7 +1519,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasReplyToken = true
   }
 
-  const parsed = {
+  return {
     id: comment.comment_id,
     dataType: 'local',
     authorLink: comment.author.id,
@@ -1534,33 +1536,11 @@ export function parseLocalComment(comment, commentThread = undefined) {
     replyToken,
     showReplies: false,
     replies: [],
-
-    // default values for the properties set below
-    memberIconUrl: '',
-    time: '',
-    likes: 0,
-    numReplies: 0
+    memberIconUrl: comment.is_member ? comment.member_badge.url : '',
+    time: getRelativeTimeFromDate(calculatePublishedDate(comment.published_time.replace('(edited)', '').trim()), false),
+    likes: comment.like_count,
+    numReplies: parseLocalSubscriberCount(comment.reply_count)
   }
-
-  if (comment.type === 'Comment') {
-    /** @type {import('youtubei.js').YTNodes.Comment} */
-    const comment_ = comment
-
-    parsed.memberIconUrl = comment_.is_member ? comment_.sponsor_comment_badge.custom_badge[0].url : ''
-    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(comment_.published.text.replace('(edited)', '').trim()), false)
-    parsed.likes = comment_.vote_count
-    parsed.numReplies = comment_.reply_count
-  } else {
-    /** @type {import('youtubei.js').YTNodes.CommentView} */
-    const commentView = comment
-
-    parsed.memberIconUrl = commentView.is_member ? commentView.member_badge.url : ''
-    parsed.time = getRelativeTimeFromDate(calculatePublishedDate(commentView.published_time.replace('(edited)', '').trim()), false)
-    parsed.likes = commentView.like_count
-    parsed.numReplies = parseLocalSubscriberCount(commentView.reply_count)
-  }
-
-  return parsed
 }
 
 /**

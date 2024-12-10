@@ -13,7 +13,6 @@ import ChannelHome from '../../components/ChannelHome/ChannelHome.vue'
 
 import autolinker from 'autolinker'
 import {
-  setPublishedTimestampsInvidious,
   copyToClipboard,
   extractNumberFromString,
   showToast,
@@ -23,10 +22,16 @@ import {
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
-  invidiousAPICall,
+  getInvidiousChannelLive,
+  getInvidiousChannelPlaylists,
+  getInvidiousChannelPodcasts,
+  getInvidiousChannelReleases,
+  getInvidiousChannelShorts,
+  getInvidiousChannelVideos,
   invidiousGetChannelId,
   invidiousGetChannelInfo,
   invidiousGetCommunityPosts,
+  searchInvidiousChannel,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
 import {
@@ -1151,32 +1156,18 @@ export default defineComponent({
     },
 
     channelInvidiousVideos: function (sortByChanged) {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'videos',
-        params: {
-          sort_by: this.videoSortBy,
-        }
-      }
-
       if (sortByChanged) {
         this.videoContinuationData = null
       }
 
       let more = false
       if (this.videoContinuationData) {
-        payload.params.continuation = this.videoContinuationData
         more = true
-      }
-
-      if (!more) {
+      } else {
         this.isElementListLoading = true
       }
 
-      invidiousAPICall(payload).then((response) => {
-        setPublishedTimestampsInvidious(response.videos)
-
+      getInvidiousChannelVideos(this.id, this.videoSortBy, this.videoContinuationData).then((response) => {
         if (more) {
           this.latestVideos = this.latestVideos.concat(response.videos)
         } else {
@@ -1203,38 +1194,18 @@ export default defineComponent({
     },
 
     channelInvidiousShorts: function (sortByChanged) {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'shorts',
-        params: {
-          sort_by: this.shortSortBy,
-        }
-      }
-
       if (sortByChanged) {
         this.shortContinuationData = null
       }
 
       let more = false
       if (this.shortContinuationData) {
-        payload.params.continuation = this.shortContinuationData
         more = true
-      }
-
-      if (!more) {
+      } else {
         this.isElementListLoading = true
       }
 
-      invidiousAPICall(payload).then((response) => {
-        // workaround for Invidious sending incorrect information
-        // https://github.com/iv-org/invidious/issues/3801
-        response.videos.forEach(video => {
-          video.isUpcoming = false
-          delete video.published
-          delete video.premiereTimestamp
-        })
-
+      getInvidiousChannelShorts(this.id, this.shortSortBy, this.shortContinuationData).then((response) => {
         if (more) {
           this.latestShorts.push(...response.videos)
         } else {
@@ -1263,32 +1234,18 @@ export default defineComponent({
     },
 
     channelInvidiousLive: function (sortByChanged) {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'streams',
-        params: {
-          sort_by: this.liveSortBy,
-        }
-      }
-
       if (sortByChanged) {
         this.liveContinuationData = null
       }
 
       let more = false
       if (this.liveContinuationData) {
-        payload.params.continuation = this.liveContinuationData
         more = true
-      }
-
-      if (!more) {
+      } else {
         this.isElementListLoading = true
       }
 
-      invidiousAPICall(payload).then((response) => {
-        setPublishedTimestampsInvidious(response.videos)
-
+      getInvidiousChannelLive(this.id, this.liveSortBy, this.liveContinuationData).then((response) => {
         if (more) {
           this.latestLive.push(...response.videos)
         } else {
@@ -1393,16 +1350,8 @@ export default defineComponent({
 
     getPlaylistsInvidious: function () {
       this.isElementListLoading = true
-      const payload = {
-        resource: 'channels',
-        subResource: 'playlists',
-        id: this.id,
-        params: {
-          sort_by: this.playlistSortBy
-        }
-      }
 
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPlaylists(this.id, this.playlistSortBy).then((response) => {
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
@@ -1430,20 +1379,7 @@ export default defineComponent({
         return
       }
 
-      const payload = {
-        resource: 'channels',
-        subResource: 'playlists',
-        id: this.id,
-        params: {
-          sort_by: this.playlistSortBy
-        }
-      }
-
-      if (this.playlistContinuationData) {
-        payload.params.continuation = this.playlistContinuationData
-      }
-
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPlaylists(this.id, this.playlistSortBy, this.playlistContinuationData).then((response) => {
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
@@ -1538,13 +1474,8 @@ export default defineComponent({
 
     channelInvidiousReleases: function() {
       this.isElementListLoading = true
-      const payload = {
-        resource: 'channels',
-        subResource: 'releases',
-        id: this.id,
-      }
 
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelReleases(this.id).then((response) => {
         this.releaseContinuationData = response.continuation || null
         this.latestReleases = response.playlists
         this.isElementListLoading = false
@@ -1568,17 +1499,11 @@ export default defineComponent({
 
     channelInvidiousReleasesMore: function () {
       if (this.releaseContinuationData === null) {
-        console.warn('There are no more podcasts available for this channel')
+        console.warn('There are no more releases available for this channel')
         return
       }
 
-      const payload = {
-        resource: 'channels',
-        subResource: 'releases',
-        id: this.id
-      }
-
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelReleases(this.id, this.releaseContinuationData).then((response) => {
         this.releaseContinuationData = response.continuation || null
         this.latestReleases = this.latestReleases.concat(response.playlists)
         this.isElementListLoading = false
@@ -1651,13 +1576,8 @@ export default defineComponent({
 
     channelInvidiousPodcasts: function() {
       this.isElementListLoading = true
-      const payload = {
-        resource: 'channels',
-        subResource: 'podcasts',
-        id: this.id,
-      }
 
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPodcasts(this.id).then((response) => {
         this.podcastContinuationData = response.continuation || null
         this.latestPodcasts = response.playlists
         this.isElementListLoading = false
@@ -1685,13 +1605,7 @@ export default defineComponent({
         return
       }
 
-      const payload = {
-        resource: 'channels',
-        subResource: 'podcasts',
-        id: this.id
-      }
-
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPodcasts(this.id, this.podcastContinuationData).then((response) => {
         this.podcastContinuationData = response.continuation || null
         this.latestPodcasts = this.latestPodcasts.concat(response.playlists)
         this.isElementListLoading = false
@@ -1996,18 +1910,7 @@ export default defineComponent({
     },
 
     searchChannelInvidious: function () {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'search',
-        params: {
-          q: this.lastSearchQuery,
-          page: this.searchPage
-        }
-      }
-
-      invidiousAPICall(payload).then((response) => {
-        setPublishedTimestampsInvidious(response.filter(item => item.type === 'video'))
+      searchInvidiousChannel(this.id, this.lastSearchQuery, this.searchPage).then((response) => {
         if (this.hideChannelPlaylists) {
           this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {

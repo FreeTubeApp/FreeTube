@@ -1236,3 +1236,6 @@ Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyom
   az előzmények megtekintéséhez
 Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours}
   óra inaktivitás miatt visszavonásra került
+Description:
+  Collapse Description: Kevesebb megjelenítése
+  Expand Description: …továbbiak

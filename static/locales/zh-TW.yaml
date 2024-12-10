@@ -378,7 +378,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
-    Next Video Interval: 下一個影片區段
+    Next Video Interval: 自動播放倒數計時器
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
@@ -401,6 +401,7 @@ Settings:
         或 "/" 來建立子資料夾。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
+    Autoplay Interruption Timer: 自動播放中斷計時器
   Subscription Settings:
     Subscription Settings: '訂閱'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -408,6 +409,8 @@ Settings:
     Fetch Automatically: 自動擷取 Feed
     Confirm Before Unsubscribing: 避免意外取消訂閱
 
+    'Limit the number of videos displayed for each channel': 限制每個頻道顯示的影片數量
+    To: 到
   Privacy Settings:
     Watch history has been cleared: 已刪除觀看紀錄
     Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看紀錄嗎？
@@ -1052,3 +1055,7 @@ Keys:
   arrowright: 向右方向鍵
   arrowup: 向上方向鍵
 Right-click or hold to see history: 右鍵點選或按住不放可以檢視歷史紀錄
+Autoplay Interruption Timer: 自動播放因 {autoplayInterruptionIntervalHours} 小時未活動而取消
+Description:
+  Collapse Description: 顯示較少
+  Expand Description: ……更多

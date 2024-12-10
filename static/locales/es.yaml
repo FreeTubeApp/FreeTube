@@ -421,7 +421,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
-    Next Video Interval: Siguiente segmento de vídeo
+    Next Video Interval: Temporizador de cuenta atrás de reproducción automática
     Display Play Button In Video Player: Mostrar el botón de reproducción sobre el
       vídeo
     Scroll Volume Over Video Player: Cambiar el volumen con la rueda del ratón sobre
@@ -450,6 +450,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
+    Autoplay Interruption Timer: Temporizador de interrupción de reproducción automática
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -477,6 +478,9 @@ Settings:
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Fetch Automatically: Obtener los feed automáticamente
     Confirm Before Unsubscribing: Evitar bajas accidentales
+    'Limit the number of videos displayed for each channel': Limitar el número de
+      vídeos mostrados para cada canal
+    To: A
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -1235,3 +1239,8 @@ Keys:
   arrowleft: Flecha hacia la izquierda
   arrowright: Flecha hacía la derecha
   arrowup: Flecha hacia arriba
+Autoplay Interruption Timer: Reproducción automática cancelada debido a {autoplayInterruptionIntervalHours}
+  horas de inactividad
+Description:
+  Expand Description: '...más'
+  Collapse Description: Mostrar menos

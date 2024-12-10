@@ -481,6 +481,9 @@ Settings:
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
+    'Limit the number of videos displayed for each channel': Mugatu kanal bakoitzeko
+      bistaratzen diren bideo kopurua
+    To: Hona
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunik ez'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
@@ -1231,3 +1234,6 @@ Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu
   historia ikusteko
 Autoplay Interruption Timer: Erreprodukzio automatikoa bertan behera utzi da {autoplayInterruptionIntervalHours}
   orduz geldirik egon delako
+Description:
+  Collapse Description: Gutxiago erakutsi
+  Expand Description: '...gehiago'

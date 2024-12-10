@@ -1058,3 +1058,6 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: 右键单击或静止不动查看历史记录
 Autoplay Interruption Timer: 由于 {autoplayInterruptionIntervalHours} 小时不活跃，自动播放被取消
+Description:
+  Expand Description: '...更多'
+  Collapse Description: 显示较少

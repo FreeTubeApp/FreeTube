@@ -1204,3 +1204,6 @@ Right-click or hold to see history: Ajaloo nägemiseks klõpsa parema hiireklahv
   ja hoia klahvi all
 Autoplay Interruption Timer: Automaatne esitamine katkes peale {autoplayInterruptionIntervalHours}
   tundi jõudeolekut
+Description:
+  Expand Description: '...vaata lisaks'
+  Collapse Description: Näita vähem
