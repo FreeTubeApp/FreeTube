@@ -243,6 +243,8 @@ User Playlists:
   Quick Bookmark Enabled: Dấu trang nhanh đã bật
   Remove Duplicate Videos: Loại bỏ các video trùng lặp
   Playlists with Matching Videos: Bao gồm video trong danh sách phát
+  Export Playlist: Xuất danh sách phát này
+  The playlist has been successfully exported: Đã xuất thành công danh sách phát này
 History:
   # On History Page
   History: 'Lịch sử'
@@ -300,6 +302,8 @@ Settings:
     Auto Load Next Page:
       Tooltip: Tự động tải các trang video và bình luận.
       Label: Tự động nhấn tải thêm
+    Open Deep Links In New Window: Mở các URL được truyền đến FreeTube vào cửa sổ
+      mới
   Theme Settings:
     Theme Settings: 'Chủ đề'
     Match Top Bar with Main Color: 'Khớp thanh trên cùng với màu chính'
@@ -316,6 +320,8 @@ Settings:
       Hot Pink: Hồng nóng bỏng
       Solarized Dark: Solarized Tối
       Solarized Light: Solarized Sáng
+      Gruvbox Dark: Gruvbox Tối
+      Gruvbox Light: Gruvbox Sáng
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -371,7 +377,7 @@ Settings:
     Turn on Subtitles by Default: 'Bật phụ đề theo mặc định'
     Autoplay Videos: 'Tự phát video'
     Proxy Videos Through Invidious: 'Proxy video qua Invidious'
-    Autoplay Playlists: 'Danh sách tự động phát'
+    Autoplay Playlists: 'Tự phát video trong danh sách phát'
     Enable Theatre Mode by Default: 'Bật chế độ rạp hát theo mặc định'
     Default Volume: 'Âm lượng mặc định'
     Default Playback Rate: 'Tốc độ phát mặc định'
@@ -381,7 +387,7 @@ Settings:
       Legacy Formats: 'Định dạng Legacy'
       Audio Formats: 'Định dạng âm thanh'
     Default Quality:
-      Default Quality: 'Định dạng chất lượng'
+      Default Quality: 'Chất lượng mặc định'
       Auto: 'Tự động'
       144p: '144p'
       240p: '240p'
@@ -395,7 +401,7 @@ Settings:
     Scroll Playback Rate Over Video Player: Con lăn chuột điểu chỉnh tốc độ phát lại
     Scroll Volume Over Video Player: Con lăn chuột điểu chỉnh âm lượng
     Display Play Button In Video Player: Hiển thị nút phát trong trình phát video
-    Next Video Interval: Khoảng thời gian Video Tiếp theo
+    Next Video Interval: Quãng nghỉ giữa các video tự động phát
     Fast-Forward / Rewind Interval: Khoảng thời gian tua đi / tua lại
     Screenshot:
       Enable: Bật chức năng chụp màn hình
@@ -403,7 +409,7 @@ Settings:
       Quality Label: Chất lượng chụp màn hình
       File Name Label: Mẫu tên tệp
       Folder Label: Thư mục ảnh chụp màn hình
-      Ask Path: Yêu cầu thứ mục lưu
+      Ask Path: Yêu cầu thư mục lưu
       Folder Button: Chọn thư mục
       Error:
         Empty File Name: Tên tệp trống
@@ -423,6 +429,9 @@ Settings:
     Fetch Feeds from RSS: Cập nhật bảng tin qua RSS
     Fetch Automatically: Tự động làm mới bảng tin
     Confirm Before Unsubscribing: Nhắc xác nhận trước khi hủy đăng ký
+    'Limit the number of videos displayed for each channel': Giới hạn số video được
+      hiển thị cho mỗi kênh
+    To: Xuống
   Data Settings:
     How do I import my subscriptions?: Làm sao để tôi nhập đăng ký?
     Unknown data key: Key dữ liệu không xác định
@@ -557,6 +566,11 @@ Settings:
     Clicking on Test Proxy will send a request to: Nhấn vào Thử proxy sẽ gửi yêu cầu
       đến
     Test Proxy: Thử proxy
+    Proxy Warning: FreeTube không bao gồm proxy theo mặc định nhưng có thể kết nối
+      đến một proxy bên ngoài, bao gồm các proxy chạy cục bộ như Tor hoặc các proxy
+      SOCKS5 được cung cấp bởi một số các VPN. Nếu bạn sử dụng tính năng này, hãy
+      đảm bảo proxy/Tor của bạn được cấu hình đúng cách, nếu không FreeTube sẽ không
+      thể tải dữ liệu về được.
   SponsorBlock Settings:
     Enable SponsorBlock: Bật SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
@@ -711,6 +725,9 @@ Channel:
     Podcasts: Podcast
     This channel does not currently have any podcasts: Kênh này hiện không có podcast
       nào
+  Home:
+    Home: Trang chủ
+    View Playlist: Xem danh sách phát
 Video:
   Open in YouTube: 'Mở trong Youtube'
   Copy YouTube Link: 'Sao chép liên kết Youtube'
@@ -837,6 +854,9 @@ Video:
     độ tuổi.
   IP block: YouTube đang chặn địa chị IP của bạn khỏi việc xem video. Hãy thử sử dụng
     một VPN hoặc proxy khác.
+  DeArrow:
+    Show Modified Details: Hiện thông tin đã sửa đổi
+    Show Original Details: Hiện thông tin gốc
 Videos:
   #& Sort By
   Sort By:
@@ -1027,6 +1047,9 @@ Tooltips:
       lệnh API.
     Region for Trending: Xu hướng khu vực cho phép bạn chọn các video thịnh hành của
       quốc gia mà bạn muốn hiển thị.
+    Open Deep Links In New Window: Các URL được truyền đến FreeTube, chẳng hạn như
+      thông qua các trình mở rộng trình duyệt tự động chuyển hướng hay đối số khị
+      mở qua dòng lệnh, sẽ được mở trên một cửa sổ mới.
   Player Settings:
     Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay
       vì kết nối trực tiếp với YouTube.
@@ -1108,6 +1131,7 @@ Chapters:
   Chapters: Chương
   'Chapters list hidden, current chapter: {chapterName}': 'Danh sách các chương bị
     ẩn, chương hiện tại: {chapterName}'
+  Key Moments: Khoảnh khắc chính
 Channel Unhidden: '{channel} đã bị xóa khỏi bộ lọc kênh'
 Tag already exists: Thẻ "{tagName}" đã tồn tại
 Hashtag:
@@ -1148,3 +1172,18 @@ Yes, Delete: Có, xóa đi
 Display Label: '{label}: {value}'
 checkmark: ✓
 Yes, Restart: Có, khởi đông lại đi
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Mũi tên xuống
+  arrowleft: Mũi tên trái
+  arrowright: Mũi tên phải
+  arrowup: Mũi tên lên
+Right-click or hold to see history: Giữ hoặc nhấn chuột phải để xem lịch sử
+Autoplay Interruption Timer: Tự động phát bị hủy do không có hành động trong {autoplayInterruptionIntervalHours}
+  giờ
+Description:
+  Expand Description: '...thêm'
+  Collapse Description: Ẩn bớt
