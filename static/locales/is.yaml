@@ -315,6 +315,7 @@ Settings:
     Auto Load Next Page:
       Label: Hlaða næstu síðu sjálfvirkt
       Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
+    Open Deep Links In New Window: Opna slóðir sem beint er til FreeTube í nýjum glugga
   Theme Settings:
     Theme Settings: 'Þema'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -1046,6 +1047,9 @@ Tooltips:
     External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem
       ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil
       í sjálfgefna vafranum þínum.\n"
+    Open Deep Links In New Window: Slóðir sem beint er til FreeTube, til dæmis með
+      endurbeiningum vafraviðbóta eða skipanalínuviðföngum, verða opnaðar í nýjum
+      glugga.
   Player Settings:
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
       í stað þess að tengjast beint við YouTube.'
