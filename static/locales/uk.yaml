@@ -480,6 +480,9 @@ Settings:
     Fetch Feeds from RSS: 'Отримати канали з RSS'
     Fetch Automatically: Автоматично отримувати стрічку
     Confirm Before Unsubscribing: Підтвердити перед скасуванням підписки
+    'Limit the number of videos displayed for each channel': Обмежити кількість відео,
+      що відображаються для кожного каналу
+    To: До
   Distraction Free Settings:
     Distraction Free Settings: 'Без відволікань'
     Hide Video Views: 'Сховати перегляди відео'
@@ -1211,3 +1214,6 @@ Yes, Delete: Так, видалити
 Cancel: Скасувати
 Autoplay Interruption Timer: Автозапуск скасовано через {autoplayInterruptionIntervalHours}
   годин бездіяльності
+Description:
+  Expand Description: '...докладніше'
+  Collapse Description: Показати менше
