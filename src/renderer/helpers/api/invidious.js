@@ -38,7 +38,7 @@ export function invidiousFetch(url) {
   }
 }
 
-export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
+function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   return new Promise((resolve, reject) => {
     const requestUrl = getCurrentInstanceUrl() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     invidiousFetch(requestUrl)
@@ -100,11 +100,135 @@ export async function invidiousGetChannelInfo(channelId) {
   })
 }
 
-export async function invidiousGetPlaylistInfo(playlistId) {
+/**
+ * @param {string} tab
+ * @param {string} channelId
+ * @param {string | undefined | null} continuation
+ * @param {string | undefined} sortBy
+ */
+async function getInvidiousChannelTab(tab, channelId, continuation, sortBy) {
+  const params = {}
+
+  if (continuation) {
+    params.continuation = continuation
+  }
+
+  if (sortBy) {
+    params.sort_by = sortBy
+  }
+
   return await invidiousAPICall({
+    resource: 'channels',
+    id: channelId,
+    subResource: tab,
+    params
+  })
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined} sortBy
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelVideos(channelId, sortBy, continuation) {
+  const response = await getInvidiousChannelTab('videos', channelId, continuation, sortBy)
+
+  setMultiplePublishedTimestamps(response.videos)
+
+  return response
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined} sortBy
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelShorts(channelId, sortBy, continuation) {
+  const response = await getInvidiousChannelTab('shorts', channelId, continuation, sortBy)
+
+  // workaround for Invidious sending incorrect information
+  // https://github.com/iv-org/invidious/issues/3801
+  response.videos.forEach(video => {
+    video.isUpcoming = false
+    delete video.published
+    delete video.premiereTimestamp
+  })
+
+  return response
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined} sortBy
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelLive(channelId, sortBy, continuation) {
+  const response = await getInvidiousChannelTab('streams', channelId, continuation, sortBy)
+
+  setMultiplePublishedTimestamps(response.videos)
+
+  return response
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined} sortBy
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelPlaylists(channelId, sortBy, continuation) {
+  return await getInvidiousChannelTab('playlists', channelId, continuation, sortBy)
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelReleases(channelId, continuation) {
+  return await getInvidiousChannelTab('releases', channelId, continuation)
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelPodcasts(channelId, continuation) {
+  return await getInvidiousChannelTab('podcasts', channelId, continuation)
+}
+
+/**
+ * @param {string} channelId
+ * @param {string} query
+ * @param {number} page
+ */
+export async function searchInvidiousChannel(channelId, query, page) {
+  const response = await invidiousAPICall({
+    resource: 'channels',
+    id: channelId,
+    subResource: 'search',
+    params: {
+      q: query,
+      page
+    }
+  })
+
+  response.forEach((item) => {
+    if (item.type === 'video') {
+      setPublishedTimestamp(item)
+    }
+  })
+
+  return response
+}
+
+export async function invidiousGetPlaylistInfo(playlistId) {
+  const playlist = await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
   })
+
+  setMultiplePublishedTimestamps(playlist.videos)
+
+  return playlist
 }
 
 export async function invidiousGetVideoInformation(videoId) {
@@ -140,6 +264,118 @@ export async function invidiousGetCommentReplies({ id, replyToken }) {
 
   const response = await invidiousAPICall(payload)
   return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
+}
+
+/**
+ * @param {string} query
+ * @returns {Promise<string[]>}
+ */
+export async function getInvidiousSearchSuggestions(query) {
+  return await invidiousAPICall({
+    resource: 'search/suggestions',
+    id: '',
+    params: {
+      q: query
+    }
+  })
+}
+
+/**
+ * @returns {Promise<any[]>}
+ */
+export async function getInvidiousPopularFeed() {
+  const response = await invidiousAPICall({
+    resource: 'popular',
+    id: '',
+    params: {}
+  })
+
+  const items = response.filter((item) => {
+    return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
+  })
+
+  items.forEach((item) => {
+    if (item.type === 'video' || item.type === 'shortVideo') {
+      setPublishedTimestamp(item)
+    }
+  })
+
+  return items
+}
+
+/**
+ * @param {'default' | 'music' | 'gaming' | 'movies'} tab
+ * @param {string} region
+ * @returns {Promise<any[] | null>}
+ */
+export async function getInvidiousTrending(tab, region) {
+  const params = {
+    resource: 'trending',
+    id: '',
+    params: {
+      region
+    }
+  }
+
+  if (tab !== 'default') {
+    params.params.type = tab.charAt(0).toUpperCase() + tab.substring(1)
+  }
+
+  const response = await invidiousAPICall(params)
+
+  if (!response) {
+    return null
+  }
+
+  const items = response.filter((item) => {
+    return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+  })
+
+  items.forEach((item) => {
+    if (item.type === 'video') {
+      setPublishedTimestamp(item)
+    }
+  })
+
+  return items
+}
+
+/**
+ * @param {string} query
+ * @param {number} page
+ * @param {any} searchSettings
+ * @returns {Promise<any[] | null>}
+ */
+export async function getInvidiousSearchResults(query, page, searchSettings) {
+  let results = await invidiousAPICall({
+    resource: 'search',
+    id: '',
+    params: {
+      q: query,
+      page,
+      sort_by: searchSettings.sortBy,
+      date: searchSettings.time,
+      duration: searchSettings.duration,
+      type: searchSettings.type,
+      features: searchSettings.features.join(',')
+    }
+  })
+
+  if (!results) {
+    return null
+  }
+
+  results = results.filter((item) => {
+    return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
+  })
+
+  results.forEach((item) => {
+    if (item.type === 'video') {
+      setPublishedTimestamp(item)
+    }
+  })
+
+  return results
 }
 
 /**
@@ -377,14 +613,16 @@ function parseInvidiousCommunityAttachments(data) {
 }
 
 export async function getHashtagInvidious(hashtag, page = 1) {
-  const payload = {
+  const response = await invidiousAPICall({
     resource: 'hashtag',
     id: hashtag,
     params: {
       page
     }
-  }
-  const response = await invidiousAPICall(payload)
+  })
+
+  setMultiplePublishedTimestamps(response.results)
+
   return response.results
 }
 
@@ -474,5 +712,35 @@ export function mapInvidiousLegacyFormat(format) {
     height: parseInt(stringHeight),
     width: parseInt(stringWidth),
     url: format.url
+  }
+}
+
+/**
+ * @param {{
+ *  liveNow: boolean,
+ *  isUpcoming: boolean,
+ *  premiereTimestamp: number,
+ *  published: number
+ * }[]} videos
+ */
+function setMultiplePublishedTimestamps(videos) {
+  videos.forEach(setPublishedTimestamp)
+}
+
+/**
+ * @param {{
+ *  liveNow: boolean,
+ *  isUpcoming: boolean,
+ *  premiereTimestamp: number,
+ *  published: number
+ * }} video
+ */
+function setPublishedTimestamp(video) {
+  if (video.liveNow) {
+    video.published = new Date().getTime()
+  } else if (video.isUpcoming) {
+    video.published = video.premiereTimestamp * 1000
+  } else if (typeof video.published === 'number') {
+    video.published *= 1000
   }
 }

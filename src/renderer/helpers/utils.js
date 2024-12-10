@@ -99,26 +99,6 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
 }
 
 /**
- * @param {{
- *  liveNow: boolean,
- *  isUpcoming: boolean,
- *  premiereTimestamp: number,
- *  published: number
- * }[]} videos
- */
-export function setPublishedTimestampsInvidious(videos) {
-  videos.forEach(video => {
-    if (video.liveNow) {
-      video.published = new Date().getTime()
-    } else if (video.isUpcoming) {
-      video.published = video.premiereTimestamp * 1000
-    } else if (typeof video.published === 'number') {
-      video.published *= 1000
-    }
-  })
-}
-
-/**
  * @param {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData} storyboard
  * @param {number} videoLengthSeconds
  * @returns {string}
