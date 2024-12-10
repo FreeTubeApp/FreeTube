@@ -1209,3 +1209,6 @@ Keys:
 Right-click or hold to see history: Klikněte pravým pro zobrazení historie
 Autoplay Interruption Timer: Automatické přehrávání zrušeno kvůli {autoplayInterruptionIntervalHours}
   hodinám nečinnosti
+Description:
+  Expand Description: '...další'
+  Collapse Description: Zobrazit méně
