@@ -1227,3 +1227,6 @@ shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Autoplay Interruption Timer: Automatyczne odtwarzanie zostało anulowane, z powodu
   {autoplayInterruptionIntervalHours} godzin(y) braku aktywności
+Description:
+  Expand Description: '...więcej'
+  Collapse Description: Zwiń
