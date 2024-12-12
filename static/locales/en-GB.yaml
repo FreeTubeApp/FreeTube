@@ -419,7 +419,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Playlist Next Video Interval
-    Next Video Interval: Next video interval
+    Next Video Interval: Autoplay Countdown Timer
     Display Play Button In Video Player: Display play button in video player
     Enter Fullscreen on Display Rotate: Enter fullscreen on display rotate
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
@@ -442,6 +442,7 @@ Settings:
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
+    Autoplay Interruption Timer: Autoplay Interruption Timer
   External Player Settings:
     External Player Settings: External Player
     External Player: External Player
@@ -480,6 +481,9 @@ Settings:
     Fetch Feeds from RSS: 'Fetch feeds from RSS'
     Fetch Automatically: Fetch feed automatically
     Confirm Before Unsubscribing: Confirm before unsubscribing
+    'Limit the number of videos displayed for each channel': Limit the number of videos
+      displayed for each channel
+    To: To
   Data Settings:
     Data Settings: 'Data'
     Select Import Type: 'Select import type'
@@ -1016,7 +1020,7 @@ Comments:
     this post
 Up Next: 'Up Next'
 Description:
-  Expand Description: ...more
+  Expand Description: '...more'
   Collapse Description: Show less
 
 # Toast Messages
@@ -1203,3 +1207,5 @@ Keys:
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Right-click or hold to see history
+Autoplay Interruption Timer: Autoplay cancelled due to {autoplayInterruptionIntervalHours}
+  hours of inactivity
