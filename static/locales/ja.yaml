@@ -382,7 +382,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: 次の再生リストを再生する間隔
-    Next Video Interval: 次の動画までの間隔
+    Next Video Interval: 自動再生カウントダウンタイマー
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
     Scroll Volume Over Video Player: 動画プレーヤーをスクロールして音量を変更
@@ -791,6 +791,9 @@ Video:
   MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
   AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube
     から直接見ることはできません。
+  DeArrow:
+    Show Original Details: 元の情報を表示
+    Show Modified Details: 変更された詳細を表示
 Videos:
   #& Sort By
   Sort By:
@@ -960,6 +963,7 @@ Tooltips:
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
+    Open Deep Links In New Window: FreeTube に渡された URL は、ブラウザの拡張機能やコマンドライン引数などによって、新しいウィンドウで開かれます。
   External Player Settings:
     Custom External Player Arguments: '外部プレイヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
@@ -1065,3 +1069,7 @@ Keys:
   arrowright: 右矢印
   arrowup: 上矢印
 Right-click or hold to see history: 右クリックまたは長押しで 履歴 を表示
+Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} 時間の無操作状態が続いたため、自動再生をキャンセルしました'
+Description:
+  Expand Description: '...もっと見る'
+  Collapse Description: 表示を減らす
