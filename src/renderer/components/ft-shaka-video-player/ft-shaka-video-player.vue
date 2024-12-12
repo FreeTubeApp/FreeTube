@@ -1,6 +1,5 @@
 <template>
   <div
-    id="videoContainer"
     ref="container"
     class="ftVideoPlayer shaka-video-container"
     :class="{
@@ -10,7 +9,6 @@
   >
     <!-- eslint-disable-next-line vuejs-accessibility/media-has-caption -->
     <video
-      id="video"
       ref="video"
       class="player"
       preload="auto"
