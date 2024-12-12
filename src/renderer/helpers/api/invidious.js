@@ -363,13 +363,24 @@ export async function invidiousGetPlaylistInfo(playlistId) {
  *    container: string,
  *    encoding: string,
  *    qualityLabel: string?,
- *    resolution: string?
+ *    fps: number?,
+ *    size: string?,
+ *    resolution: string?,
+ *    targetDurationSec: int?,
+ *    maxDvrDurationSec: int?,
+ *    audioQuality: string?,
+ *    audioSampleRate: string?,
+ *    audioChannels: string?,
+ *    colorInfo: string?,
+ *    captionTrack: string?
  *  }[],
  *  formatStreams: {
  *    url: string,
  *    itag: string,
  *    type: string,
  *    quality: string,
+ *    bitrate: string?,
+ *    fps: int?,
  *    container: string,
  *    encoding: string,
  *    qualityLabel: string,
@@ -381,6 +392,12 @@ export async function invidiousGetPlaylistInfo(playlistId) {
  *    language_code: string,
  *    url: string
  *  }[],
+ *  musicTracks: {
+ *    song: string,
+ *    artist: string,
+ *    album: string,
+ *    license: string
+ *  }[]?,
  *  recommendedVideos: InvidiousVideoType[]
  * }>}
  */

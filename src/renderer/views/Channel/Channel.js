@@ -1048,7 +1048,7 @@ export default defineComponent({
       }
     },
 
-    getChannelInfoInvidious: async function () {
+    getChannelInfoInvidious: function () {
       this.isLoading = true
       this.apiUsed = 'invidious'
       this.channelInstance = null
