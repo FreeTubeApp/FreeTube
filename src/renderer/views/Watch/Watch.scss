@@ -21,6 +21,41 @@
   }
 }
 
+.premiereDate {
+  align-items: center;
+  background-color: rgb(0 0 0 / 80%);
+  border-radius: 5px;
+  inset-block-end: 12px;
+  color: #fff;
+  display: flex;
+  block-size: 60px;
+  inset-inline-start: 12px;
+  padding-block: 0;
+  padding-inline: 12px;
+
+  .premiereIcon {
+    float: inline-start;
+    font-size: 25px;
+    margin-block: 0;
+    margin-inline: 12px;
+  }
+
+  .premiereText {
+    margin-block: 0;
+    margin-inline: 12px;
+    min-inline-size: 200px;
+
+    .premiereTextTimestamp {
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+  }
+}
+
+.trailer.premiereDate {
+  margin-block-start: 8px;
+}
+
 .videoLayout {
   @include dual-column-template;
 
@@ -52,35 +87,7 @@
       }
 
       .premiereDate {
-        align-items: center;
-        background-color: rgb(0 0 0 / 80%);
-        border-radius: 5px;
-        inset-block-end: 12px;
-        color: #fff;
-        display: flex;
-        block-size: 60px;
-        inset-inline-start: 12px;
-        padding-block: 0;
-        padding-inline: 12px;
         position: absolute;
-
-        .premiereIcon {
-          float: inline-start;
-          font-size: 25px;
-          margin-block: 0;
-          margin-inline: 12px;
-        }
-
-        .premiereText {
-          margin-block: 0;
-          margin-inline: 12px;
-          min-inline-size: 200px;
-
-          .premiereTextTimestamp {
-            font-size: 0.85em;
-            font-weight: bold;
-          }
-        }
       }
 
       .errorContainer {
