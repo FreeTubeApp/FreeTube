@@ -264,15 +264,19 @@ export async function getLocalVideoInfo(id) {
     return info
   }
 
-  if (hasTrailer) {
-    /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer} */
+  if (hasTrailer && info.playability_status.status !== 'OK') {
+    /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer | import('youtubei.js').YTNodes.YpcTrailer} */
     const trailerScreen = info.playability_status.error_screen
 
     const trailerInfo = new Mixins.MediaInfo([{ data: trailerScreen.trailer.player_response }])
 
+    // don't override the timestamp of when the video will premiere for upcoming videos
+    if (info.playability_status.status !== 'LIVE_STREAM_OFFLINE') {
+      info.basic_info.start_timestamp = trailerInfo.basic_info.start_timestamp
+    }
+
     info.playability_status = trailerInfo.playability_status
     info.streaming_data = trailerInfo.streaming_data
-    info.basic_info.start_timestamp = trailerInfo.basic_info.start_timestamp
     info.basic_info.duration = trailerInfo.basic_info.duration
     info.captions = trailerInfo.captions
     info.storyboards = trailerInfo.storyboards
