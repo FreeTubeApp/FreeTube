@@ -127,6 +127,7 @@ export default defineComponent({
       infoAreaSticky: true,
       blockVideoAutoplay: false,
       autoplayInterruptionTimeout: null,
+      playabilityStatus: '',
 
       onMountedRun: false,
 
@@ -536,6 +537,7 @@ export default defineComponent({
         this.videoChapters = chapters
 
         const playabilityStatus = result.playability_status
+        this.playabilityStatus = playabilityStatus.status
 
         // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
         const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
@@ -677,7 +679,9 @@ export default defineComponent({
             this.upcomingTimeLeft = null
             this.premiereDate = undefined
           }
-        } else {
+        }
+
+        if (!this.isUpcoming || (this.isUpcoming && this.playabilityStatus === 'OK')) {
           this.videoLengthSeconds = result.basic_info.duration
           if (result.streaming_data) {
             this.streamingDataExpiryDate = result.streaming_data.expires
