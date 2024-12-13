@@ -17,7 +17,7 @@
     >
       <div class="videoAreaMargin">
         <ft-shaka-video-player
-          v-if="!isLoading && !isUpcoming && !errorMessage"
+          v-if="!isLoading && (!isUpcoming || playabilityStatus === 'OK') && !errorMessage"
           ref="player"
           :manifest-src="manifestSrc"
           :manifest-mime-type="manifestMimeType"
@@ -50,7 +50,38 @@
           @playback-rate-updated="updatePlaybackRate"
         />
         <div
-          v-if="!isLoading && (isUpcoming || errorMessage)"
+          v-if="!isLoading && isUpcoming && playabilityStatus === 'OK'"
+          class="trailer premiereDate"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'satellite-dish']"
+            class="premiereIcon"
+          />
+          <p
+            v-if="upcomingTimestamp !== null"
+            class="premiereText"
+          >
+            <span
+              class="premiereTextTimeLeft"
+            >
+              {{ $t("Video.Premieres") }} {{ upcomingTimeLeft }}
+            </span>
+            <br>
+            <span
+              class="premiereTextTimestamp"
+            >
+              {{ upcomingTimestamp }}
+            </span>
+          </p>
+          <p
+            v-else
+            class="premiereText"
+          >
+            {{ $t("Video.Starting soon, please refresh the page to check again") }}
+          </p>
+        </div>
+        <div
+          v-else-if="!isLoading && (isUpcoming || errorMessage)"
           class="videoPlayer"
         >
           <img
