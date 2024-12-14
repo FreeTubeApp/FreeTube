@@ -194,7 +194,7 @@ export default defineComponent({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
-        this.grabPageBookmarks().then(async () => {
+        this.grabPageBookmarks().then(() => {
           this.pageBookmarksAvailable = true
         })
         this.grabAllSubscriptions()

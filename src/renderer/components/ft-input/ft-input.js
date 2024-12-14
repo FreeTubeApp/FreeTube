@@ -85,7 +85,7 @@ export default defineComponent({
         isPointerInList: false,
         keyboardSelectedOptionIndex: -1,
       },
-      visibleDataList: this.dataList?.slice(0, MAX_VISIBLE_LIST_ITEMS),
+      visibleDataList: this.dataList.slice(0, MAX_VISIBLE_LIST_ITEMS),
       // This button should be invisible on app start
       // As the text input box should be empty
       clearTextButtonExisting: false,
@@ -310,13 +310,13 @@ export default defineComponent({
       this.searchState.selectedOption = -1
       this.searchState.keyboardSelectedOptionIndex = -1
       if (this.inputData === '') {
-        this.visibleDataList = this.dataList?.slice(0, MAX_VISIBLE_LIST_ITEMS)
+        this.visibleDataList = this.dataList.slice(0, MAX_VISIBLE_LIST_ITEMS)
         return
       }
       // get list of items that match input
       const lowerCaseInputData = this.inputData.toLowerCase()
 
-      this.visibleDataList = this.dataList?.slice(0, MAX_VISIBLE_LIST_ITEMS).filter(x => {
+      this.visibleDataList = this.dataList.slice(0, MAX_VISIBLE_LIST_ITEMS).filter(x => {
         if (x.name) {
           return x.name.toLowerCase().indexOf(lowerCaseInputData) !== -1
         }

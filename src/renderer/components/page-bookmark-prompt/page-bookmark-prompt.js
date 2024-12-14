@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
+import FtInput from '../ft-input/ft-input.vue'
 import packageDetails from '../../../../package.json'
 import { showToast } from '../../helpers/utils'
 

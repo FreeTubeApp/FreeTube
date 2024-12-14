@@ -54,7 +54,6 @@ export default defineComponent({
         'Watch',
         'Hashtag',
         'Post',
-        'Settings' // for linkable settings sections
       ],
       lastSuggestionQuery: ''
     }
