@@ -35,6 +35,8 @@ export default defineComponent({
       isArrowForwardDisabled,
       navigationHistoryDropdownActiveEntry: null,
       navigationHistoryDropdownOptions: [],
+      isLoadingNavigationHistory: false,
+      pendingNavigationHistoryLabel: null,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -342,12 +344,20 @@ export default defineComponent({
 
     setNavigationHistoryDropdownOptions: async function() {
       if (process.env.IS_ELECTRON) {
+        this.isLoadingNavigationHistory = true
         const { ipcRenderer } = require('electron')
 
         const dropdownOptions = await ipcRenderer.invoke(IpcChannels.GET_NAVIGATION_HISTORY)
 
+        const activeEntry = dropdownOptions.find(option => option.active)
+
+        if (this.pendingNavigationHistoryLabel) {
+          activeEntry.label = this.pendingNavigationHistoryLabel
+        }
+
         this.navigationHistoryDropdownOptions = dropdownOptions
-        this.navigationHistoryDropdownActiveEntry = dropdownOptions.find(option => option.active)
+        this.navigationHistoryDropdownActiveEntry = activeEntry
+        this.isLoadingNavigationHistory = false
       }
     },
 
@@ -393,11 +403,11 @@ export default defineComponent({
       this.$refs.searchInput.updateInputData(text)
     },
     setActiveNavigationHistoryEntryTitle(value) {
-      this.$nextTick(() => {
-        if (this.navigationHistoryDropdownActiveEntry?.label) {
-          this.navigationHistoryDropdownActiveEntry.label = value
-        }
-      })
+      if (this.isLoadingNavigationHistory) {
+        this.pendingNavigationHistoryLabel = value
+      } else if (this.navigationHistoryDropdownActiveEntry) {
+        this.navigationHistoryDropdownActiveEntry.label = value
+      }
     },
 
     ...mapActions([
