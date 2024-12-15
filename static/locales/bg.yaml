@@ -310,6 +310,8 @@ Settings:
     Auto Load Next Page:
       Label: Автоматично зареждане на следващата страница
       Tooltip: Автоматично зареждане на допълнителни страници и коментари.
+    Open Deep Links In New Window: Отваряне в нов прозорец на URL адреси, преминаващи
+      през FreeTube
   Theme Settings:
     Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
@@ -421,7 +423,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Интервал за следващо видео в плейлист
-    Next Video Interval: Интервал за следващо видео
+    Next Video Interval: Таймер за обратно броене при автоматично възпроизвеждане
     Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
       видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
@@ -448,6 +450,7 @@ Settings:
       Folder Button: Избор на папка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
+    Autoplay Interruption Timer: Таймер за прекъсване на автоматичното възпроизвеждане
   Privacy Settings:
     Privacy Settings: 'Поверителност'
     Remember History: 'Запазване на историята'
@@ -476,6 +479,9 @@ Settings:
     Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Fetch Automatically: Автоматично извличане на съдържание
     Confirm Before Unsubscribing: Избягване на случайно отписване
+    'Limit the number of videos displayed for each channel': Ограничаване на броя
+      на показваните видеа за всеки канал
+    To: на
   Data Settings:
     Data Settings: 'Данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -550,20 +556,20 @@ Settings:
     Display Titles Without Excessive Capitalisation: Показване на заглавията без излишни
       главни букви и препинателни знаци
     Hide Featured Channels: Скриване на препоръчаните канали
-    Hide Channel Playlists: Скриване на плейлистите на каналите
-    Hide Channel Community: Скриване на общността на каналите
-    Hide Channel Shorts: Скриване кратките видеа на канала
+    Hide Channel Playlists: Скриване на раздел "Плейлисти" на канала
+    Hide Channel Community: Скриване на раздел "Общност" на канала
+    Hide Channel Shorts: Скриване на раздел "Кратки видеа" на канала
     Sections:
       Channel Page: Страница на канала
       Side Bar: Странична лента
       Watch Page: Страница за гледане
       General: Общи
       Subscriptions Page: Страница с абонаменти
-    Hide Channel Releases: Скриване на изданията на канала
+    Hide Channel Releases: Скриване на раздел "Издания" на канала
     Hide Subscriptions Videos: Скриване на видеата в абонаментите
     Hide Subscriptions Shorts: Скриване на кратките видеа в абонаментите
     Hide Subscriptions Live: Скриване на абонаментите на живо
-    Hide Channel Podcasts: Скриване на подкастите на канала
+    Hide Channel Podcasts: Скриване на раздел "Подкасти" на канала
     Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
     Hide Subscriptions Community: Скриване на абонаментите Общност
     Hide Channels Disabled Message: Някои канали бяха блокирани с чрез идентификатор
@@ -576,6 +582,7 @@ Settings:
       текст
     Hide Videos and Playlists Containing Text Placeholder: Дума, част от дума или
       фраза
+    Hide Channel Home: Скриване на раздел "Начало" на канала
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -807,6 +814,9 @@ Channel:
     Releases: Издания
     This channel does not currently have any releases: В момента този канал няма никакви
       издания
+  Home:
+    Home: Начало
+    View Playlist: Преглед на плейлиста
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
@@ -931,6 +941,9 @@ Video:
   Unlisted: Непосочен в списъка
   MembersOnly: Видеата, предназначени само за членове, не могат да се гледат с FreeTube,
     тъй като изискват вход в Google и платено членство в канала на качващия.
+  DeArrow:
+    Show Original Details: Показване на оригинални данни
+    Show Modified Details: Показване на променени данни
 Videos:
   #& Sort By
   Sort By:
@@ -1074,6 +1087,9 @@ Tooltips:
     External Link Handling: "Избор на поведението по подразбиране, когато щракнете
       върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране
       FreeTube ще отвори връзката в браузъра по подразбиране.\n"
+    Open Deep Links In New Window: URL адресите, преминаващи през FreeTube, например
+      чрез разширения на браузъра или аргументи от командния ред, се отварят в нов
+      прозорец.
   External Player Settings:
     Custom External Player Arguments: Всички персонализирани аргументи от командния
       ред, които искате да бъдат предадени на външния плейър.
@@ -1193,3 +1209,19 @@ Search Listing:
     New: Нов
 'Blocked opening potentially unsafe URL': 'Блокирано отваряне на потенциално опасен
   URL адрес: "{url}".'
+Description:
+  Collapse Description: По-малко
+  Expand Description: '...още'
+Keys:
+  arrowleft: Стрелка наляво
+  arrowright: Стрелка надясно
+  arrowup: Стрелка нагоре
+  alt: Alt
+  arrowdown: Стрелка надолу
+  ctrl: Ctrl
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Right-click or hold to see history: Щракнете с десния бутон на мишката или задръжте,
+  за да видите историята
+Autoplay Interruption Timer: Автоматичното възпроизвеждане е отменено поради {autoplayInterruptionIntervalHours}
+  час(а) неактивност
