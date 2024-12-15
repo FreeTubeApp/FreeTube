@@ -2,10 +2,10 @@
 Locale Name: 'Português'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
+  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando já houver
   progresso.
 # Webkit Menu Bar
-File: 'Ficheiro'
+File: 'Arquivo'
 Quit: 'Sair'
 Edit: 'Editar'
 Undo: 'Desfazer'
