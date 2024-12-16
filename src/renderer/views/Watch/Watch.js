@@ -546,7 +546,7 @@ export default defineComponent({
           }
         }
 
-        if (!this.hideLiveChat && this.isLive && result.livechat) {
+        if (!this.hideLiveChat && (this.isLive || this.isUpcoming) && result.livechat) {
           this.liveChat = result.getLiveChat()
         } else {
           this.liveChat = null
