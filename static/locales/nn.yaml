@@ -273,8 +273,7 @@ Settings:
         %M for månad, med to siffer. %D for dag, med to siffer. %H for time, med to
         siffer. %N for minutt, med to siffer. %S for sekund, med to siffer. %T for
         millisekund, med tre siffer. %s for videosekund. %t for videomillisekund,
-        med tre siffer. %i for Video-ID. Du kan òg bruke "\" eller "/" for å lage
-        undermapper.
+        med tre siffer. %i for Video-ID.
     Fast-Forward / Rewind Interval: Intervall for framover- og bakoverspoling
     Skip by Scrolling Over Video Player: Hopp over ved å blad over videoavspelaren
     Scroll Playback Rate Over Video Player: Blaavspelingshastigheit over videoavspelar

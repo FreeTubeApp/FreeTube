@@ -444,8 +444,7 @@ Settings:
       File Name Tooltip: Hurrengo aldagaiak balia ditzakezu. %U Urtea 4 digitu. %H
         Hilabetea 2 digitu. %E Eguna 2 digitu. %O Ordua 2 digitu. %M Minutu 2 digitu.
         %S segundo 2 digitu. %T milisegundo 3 digitu. %s Bideoaren segundoa. %t Bideoaren
-        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea. "\" edo "/" baliatu
-        ahal dituzu azpikarpetak sortzeko.
+        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea.
     Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa

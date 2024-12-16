@@ -502,8 +502,7 @@ Settings:
       File Name Tooltip: 'Gallout a rit implijout an argemmennoù da-heul. %Y Bloavezh
         4 sifr. %M Miz 2 sifr. %D Devezh 2 sifr. %H Eur 2 sifr. %N Munutennoù 2 sifr.
         %S Eilennoù 2 sifr. %T Mili-eilennoù 3 sifr. %s Eilennoù ar video. %t Mili-eilennoù
-        ar video 3 sifr. %i ID ar video. Gallout a rit implijout ivez \ pe / evit
-        krouiñ teuliadoù.'
+        ar video 3 sifr. %i ID ar video.'
       Error:
         Forbidden Characters: 'Arouezennoù difennet'
         Empty File Name: 'Goullo eo anv ar restr'

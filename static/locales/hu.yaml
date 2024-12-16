@@ -447,8 +447,7 @@ Settings:
       File Name Tooltip: Az alábbi változókat használhatja. %Y 4-számjegyű év. %M
         2-számjegyű hónap. %D 2-számjegyű nap. %H 2-számjegyű óra. %N 2-számjegyű
         perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc.
-        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító. Almappák létrehozásához
-        használhatja a „\” vagy a „/” jelet is.
+        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító.
       Quality Label: Képernyőkép minősége
     Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó
       feletti kerékkel szabályozhatja
