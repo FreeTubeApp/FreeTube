@@ -322,6 +322,8 @@ import {
   invidiousGetComments
 } from '../../helpers/api/invidious'
 
+import { getPipedComments, getPipedCommentsMore } from '../../helpers/api/piped'
+
 const { t } = useI18n()
 
 const props = defineProps({
@@ -363,7 +365,7 @@ const nextPageToken = shallowRef(null)
 // we need to react to new replies and showReplies being toggled
 const commentData = ref([])
 
-/** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
+/** @type {import('vue').ComputedRef<'local' | 'invidious' | 'piped'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
 })
@@ -371,6 +373,11 @@ const backendPreference = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const backendFallback = computed(() => {
   return store.getters.getBackendFallback
+})
+
+/** @type {import('vue').ComputedRef<'local' | 'invidious' | 'piped'>} */
+const fallbackPreference = computed(() => {
+  return store.getters.getFallbackPreference
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -473,7 +480,9 @@ function isSubscribedToChannel(channelId) {
 function getCommentData() {
   isLoading.value = true
 
-  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || props.isPostComments) {
+  if (backendPreference.value === 'piped' && !props.isPostComments) {
+    getCommentDataPiped()
+  } else if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || props.isPostComments) {
     if (!props.isPostComments) {
       getCommentDataInvidious()
     } else {
@@ -488,7 +497,9 @@ function getMoreComments() {
   if (commentData.value.length === 0 || nextPageToken.value == null) {
     showToast(t('Comments.There are no more comments for this video'))
   } else {
-    if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || props.isPostComments) {
+    if (backendPreference.value === 'piped' && !props.isPostComments) {
+      getCommentDataPipedMore(nextPageToken.value)
+    } else if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || props.isPostComments) {
       if (!props.isPostComments) {
         getCommentDataInvidious()
       } else {
@@ -515,7 +526,9 @@ function toggleCommentReplies(index) {
  * @param {number} index
  */
 function getCommentReplies(index) {
-  if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious' || props.isPostComments) {
+  if (commentData.value[index].dataType === 'piped' && !props.isPostComments) {
+    getCommentDataPipedMore(replyTokens.get(commentData.value[index].id), index)
+  } else if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious' || props.isPostComments) {
     if (!props.isPostComments) {
       getCommentRepliesInvidious(index)
     } else {
@@ -585,8 +598,13 @@ async function getCommentDataLocal(more = false) {
       copyToClipboard(err)
     })
     if (backendFallback.value && backendPreference.value === 'local') {
-      showToast(t('Falling back to Invidious API'))
-      getCommentDataInvidious()
+      if (fallbackPreference.value === 'invidious') {
+        showToast(t('Falling back to Invidious API'))
+        getCommentDataInvidious()
+      } else if (fallbackPreference.value === 'piped') {
+        showToast(t('Falling back to Piped API'))
+        getCommentDataPiped()
+      }
     } else {
       isLoading.value = false
     }
@@ -634,8 +652,13 @@ async function getCommentRepliesLocal(index) {
       copyToClipboard(err)
     })
     if (backendFallback.value && backendPreference.value === 'local') {
-      showToast(t('Falling back to Invidious API'))
-      getCommentDataInvidious()
+      if (fallbackPreference.value === 'invidious') {
+        showToast(t('Falling back to Invidious API'))
+        getCommentDataInvidious()
+      } else if (fallbackPreference.value === 'piped') {
+        showToast(t('Falling back to Piped API'))
+        getCommentDataPiped()
+      }
     } else {
       isLoading.value = false
     }
@@ -684,9 +707,14 @@ async function getCommentDataInvidious() {
       copyToClipboard(err)
     })
 
-    if (process.env.SUPPORTS_LOCAL_API && backendFallback.value && backendPreference.value === 'invidious') {
-      showToast(t('Falling back to Local API'))
-      getCommentDataLocal()
+    if (backendFallback.value && backendPreference.value === 'invidious') {
+      if (fallbackPreference.value === 'piped') {
+        showToast(t('Falling back to Piped API'))
+        getCommentDataPiped()
+      } else if (process.env.SUPPORTS_LOCAL_API && fallbackPreference.value === 'local') {
+        showToast(t('Falling back to Local API'))
+        getCommentDataLocal()
+      }
     } else {
       isLoading.value = false
     }
@@ -788,6 +816,86 @@ async function getPostCommentRepliesInvidious(index) {
       copyToClipboard(error)
     })
     isLoading.value = false
+  }
+}
+
+async function getCommentDataPiped() {
+  try {
+    const { comments, continuation } = await getPipedComments(props.id)
+    comments.map((fullComment) => {
+      // Use destructuring to create a new object without the replyToken
+      const { replyToken, ...comment } = fullComment
+      if (comment.hasReplyToken) {
+        replyTokens.set(comment.id, replyToken)
+      } else {
+        replyTokens.delete(comment.id)
+      }
+      return comment
+    })
+
+    commentData.value = comments
+    nextPageToken.value = continuation
+    isLoading.value = false
+    showComments.value = true
+  } catch (err) {
+    console.error(err)
+    const errorMessage = t('Piped API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
+    if (backendFallback.value && backendPreference.value === 'piped') {
+      if (fallbackPreference.value === 'invidious') {
+        showToast(t('Falling back to Invidious API'))
+        getCommentDataInvidious()
+      } else if (process.env.SUPPORTS_LOCAL_API && fallbackPreference.value === 'local') {
+        showToast(t('Falling back to Local API'))
+        getCommentDataLocal()
+      }
+    } else {
+      isLoading.value = false
+    }
+  }
+}
+
+async function getCommentDataPipedMore(token, index = null) {
+  try {
+    const { comments, continuation } = await getPipedCommentsMore({
+      videoId: props.id,
+      continuation: token
+    })
+    if (index !== null) {
+      const comment = commentData.value[index]
+      comment.replies = comment.replies.concat(comments)
+      comment.showReplies = true
+      if (comment.hasReplyToken) {
+        replyTokens.set(comment.id, continuation)
+        comment.hasReplyToken = true
+      } else {
+        replyTokens.delete(comment.id)
+        comment.hasReplyToken = false
+      }
+    } else {
+      commentData.value = commentData.value.concat(comments)
+      nextPageToken.value = continuation
+    }
+    isLoading.value = false
+  } catch (err) {
+    console.error(err)
+    const errorMessage = t('Piped API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
+    if (backendFallback.value && backendPreference.value === 'piped') {
+      if (fallbackPreference.value === 'invidious') {
+        showToast(t('Falling back to Invidious API'))
+        getCommentDataInvidious()
+      } else if (process.env.SUPPORTS_LOCAL_API && fallbackPreference.value === 'local') {
+        showToast(t('Falling back to Local API'))
+        getCommentDataLocal()
+      }
+    } else {
+      isLoading.value = false
+    }
   }
 }
 </script>

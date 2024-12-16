@@ -190,7 +190,7 @@ const hideLabelsSideBar = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const popularVisible = computed(() => {
   return !store.getters.getHidePopularVideos &&
-    (store.getters.getBackendFallback || store.getters.getBackendPreference === 'invidious')
+    ((store.getters.getBackendFallback && store.getters.getFallbackPreference) || store.getters.getBackendPreference === 'invidious')
 })
 
 const applyNavIconExpand = computed(() => {

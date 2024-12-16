@@ -50,7 +50,7 @@ const authorId = ref('')
 const post = shallowRef(null)
 const isLoading = ref(true)
 
-/** @type {import('vue').ComputedRef<'invidious' | 'local'>} */
+/** @type {import('vue').ComputedRef<'invidious' | 'local' | 'piped'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
 })
@@ -60,8 +60,13 @@ const backendFallback = computed(() => {
   return store.getters.getBackendFallback
 })
 
+/** @type {import('vue').ComputedRef<'invidious' | 'local' | 'piped'>} */
+const fallbackPreference = computed(() => {
+  return store.getters.getFallbackPreference
+})
+
 const isInvidiousAllowed = computed(() => {
-  return backendPreference.value === 'invidious' || backendFallback.value
+  return backendPreference.value === 'invidious' || (backendFallback.value && fallbackPreference.value === 'invidious')
 })
 
 onMounted(async () => {
