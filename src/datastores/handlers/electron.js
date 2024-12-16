@@ -173,7 +173,7 @@ class Playlists {
     )
   }
 
-  static deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId }) {
+  static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
@@ -226,7 +226,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateVideosByChannelId({ channelId, entries, timestamp }) {
+  static updateVideosByChannelId(channelId, entries, timestamp) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
@@ -236,7 +236,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
+  static updateLiveStreamsByChannelId(channelId, entries, timestamp) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
@@ -246,7 +246,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateShortsByChannelId({ channelId, entries, timestamp }) {
+  static updateShortsByChannelId(channelId, entries, timestamp) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
@@ -256,7 +256,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+  static updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SUBSCRIPTION_CACHE,
       {
@@ -266,7 +266,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
+  static updateCommunityPostsByChannelId(channelId, entries, timestamp) {
     return ipcRenderer.invoke(
       IpcChannels.DB_SUBSCRIPTION_CACHE,
       {

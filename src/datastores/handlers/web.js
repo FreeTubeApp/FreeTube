@@ -101,8 +101,8 @@ class Playlists {
     return baseHandlers.playlists.delete(_id)
   }
 
-  static deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId }) {
-    return baseHandlers.playlists.deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId })
+  static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
+    return baseHandlers.playlists.deleteVideoIdByPlaylistId(_id, videoId, playlistItemId)
   }
 
   static deleteVideoIdsByPlaylistId(_id, videoIds) {
@@ -127,43 +127,24 @@ class SubscriptionCache {
     return baseHandlers.subscriptionCache.find()
   }
 
-  static updateVideosByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptionCache.updateVideosByChannelId({
-      channelId,
-      entries,
-      timestamp,
-    })
+  static updateVideosByChannelId(channelId, entries, timestamp) {
+    return baseHandlers.subscriptionCache.updateVideosByChannelId(channelId, entries, timestamp)
   }
 
-  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptionCache.updateLiveStreamsByChannelId({
-      channelId,
-      entries,
-      timestamp,
-    })
+  static updateLiveStreamsByChannelId(channelId, entries, timestamp) {
+    return baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(channelId, entries, timestamp)
   }
 
-  static updateShortsByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptionCache.updateShortsByChannelId({
-      channelId,
-      entries,
-      timestamp,
-    })
+  static updateShortsByChannelId(channelId, entries, timestamp) {
+    return baseHandlers.subscriptionCache.updateShortsByChannelId(channelId, entries, timestamp)
   }
 
-  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
-    return baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId({
-      channelId,
-      entries,
-    })
+  static updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
+    return baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(channelId, entries)
   }
 
-  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
-    return baseHandlers.subscriptionCache.updateCommunityPostsByChannelId({
-      channelId,
-      entries,
-      timestamp,
-    })
+  static updateCommunityPostsByChannelId(channelId, entries, timestamp) {
+    return baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(channelId, entries, timestamp)
   }
 
   static deleteMultipleChannels(channelIds) {
