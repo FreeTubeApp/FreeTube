@@ -6358,10 +6358,10 @@ make-fetch-happen@^10.0.3:
     socks-proxy-agent "^7.0.0"
     ssri "^9.0.0"
 
-marked@^15.0.3:
-  version "15.0.3"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-15.0.3.tgz#f75ae6ca71aeeaea0cfa2c2f120016ac8373aede"
-  integrity sha512-Ai0cepvl2NHnTcO9jYDtcOEtVBNVYR31XnEA3BndO7f5As1wzpcOceSUM8FDkNLJNIODcLpDTWay/qQhqbuMvg==
+marked@^15.0.4:
+  version "15.0.4"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-15.0.4.tgz#864dbf50227b6507646c771c2ef5f0de2924833e"
+  integrity sha512-TCHvDqmb3ZJ4PWG7VEGVgtefA5/euFmsIhxtD0XsBxI39gUSKL81mIRFdt0AiNQozUahd4ke98ZdirExd/vSEw==
 
 matcher@^3.0.0:
   version "3.0.0"
