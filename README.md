@@ -66,7 +66,9 @@ The following extensions open YouTube links directly in FreeTube:
 - [LibRedirect](https://libredirect.github.io/)
 - [RedirectTube](https://github.com/MStankiewiczOfficial/RedirectTube)
 
-LibRedirect automatically redirect YouTube links to FreeTube. **To ensure proper functionality, select FreeTube as Frontend in the Services settings of the extension.**
+LibRedirect automatically redirect YouTube links to FreeTube.
+> [!IMPORTANT]
+> To ensure proper functionality, select FreeTube as Frontend in the Services settings of the extension.
 
 RedirectTube, doesn’t automatically open YouTube links in FreeTube. Instead, it adds buttons to the toolbar and context menu, which you can click to open videos in FreeTube manually.
 
