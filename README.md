@@ -61,23 +61,24 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 * View channel community posts
 
 ### Browser Extensions
-FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to automatically open YouTube links in FreeTube. 
+You can use the following extensions to open YouTube links directly in FreeTube:
 
-> [!IMPORTANT]  
-> You must enable the option within the advanced settings of the extension for it to work.
+- LibRedirect
+- RedirectTube
 
-* Download Privacy Redirect for [Firefox](https://addons.mozilla.org/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
+[LibRedirect](https://libredirect.github.io/) automatically redirect YouTube links to FreeTube. To make it work, you’ll need to enable the relevant option in the advanced settings of extension.
 
-* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://libredirect.github.io/download_chromium.html).
+[RedirectTube](https://github.com/MStankiewiczOfficial/RedirectTube), doesn’t automatically open YouTube links in FreeTube. Instead, it adds buttons to the toolbar and context menu, which you can click to open videos in FreeTube manually.
 
-Also there is [RedirectTube](https://github.com/MStankiewiczOfficial/RedirectTube) extension, which doesn't automatically open FreeTube when you open YouTube, but adds buttons on the toolbar and in the context menu, which when clicked open the video in FreeTube. It works immediately after downloading and you don't have to change any settings.
+- Download LibRedirect from [Mozilla Add-ons](https://addons.mozilla.org/firefox/addon/libredirect/) (for Firefox based-browsers) or [Chrome Web Store](https://libredirect.github.io/download_chromium.html) (for Chrome and Chromium-based browsers).
 
-* Download for [Firefox](https://addons.mozilla.org/firefox/addon/redirecttube/).
+- Download RedirectTube from [Mozilla Add-ons](https://addons.mozilla.org/firefox/addon/redirecttube/) (for Firefox based-browsers).
 
 > [!NOTE]
-> These extensions do not work on Linux portable builds!
->
 > If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
+
+> [!WARNING]
+> These extensions do not work on Linux portable builds!
 
 ## Download Links
 ### Official Downloads
