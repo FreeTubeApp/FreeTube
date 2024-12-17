@@ -969,7 +969,7 @@ export function getLocalizedShortcut(shortcut) {
   const shortcuts = shortcut.split('+')
 
   if (process.platform === 'darwin') {
-    const shortcutsAsIcons = shortcuts.map(shortCut => getMacIconForShortcut(shortCut))
+    const shortcutsAsIcons = shortcuts.map(shortcut => getMacIconForShortcut(shortcut))
     return shortcutsAsIcons.join('')
   } else {
     const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
