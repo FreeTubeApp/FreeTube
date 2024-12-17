@@ -203,12 +203,14 @@
         v-if="!isLoading && !hideRecommendedVideos"
         :show-autoplay="!watchingPlaylist"
         :data="recommendedVideos"
+        :play-next-recommended-video="playNextRecommendedVideo"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{
           theatreRecommendations: useTheatreMode,
           watchVideoRecommendationsLowerCard: watchingPlaylist || isLive,
           watchVideoRecommendationsNoCard: !watchingPlaylist || !isLive
         }"
+        @play-next-recommended-video-update="updatePlayNextRecommendedVideoForThisSession"
       />
     </div>
   </div>
