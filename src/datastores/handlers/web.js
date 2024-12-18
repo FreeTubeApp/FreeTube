@@ -122,6 +122,32 @@ class Playlists {
   }
 }
 
+class SearchHistory {
+  static create(searchHistoryEntry) {
+    return baseHandlers.searchHistory.create(searchHistoryEntry)
+  }
+
+  static find() {
+    return baseHandlers.searchHistory.find()
+  }
+
+  static upsert(searchHistoryEntry) {
+    return baseHandlers.searchHistory.upsert(searchHistoryEntry)
+  }
+
+  static delete(_id) {
+    return baseHandlers.searchHistory.delete(_id)
+  }
+
+  static deleteMultiple(ids) {
+    return baseHandlers.searchHistory.deleteMultiple(ids)
+  }
+
+  static deleteAll() {
+    return baseHandlers.searchHistory.deleteAll()
+  }
+}
+
 class SubscriptionCache {
   static find() {
     return baseHandlers.subscriptionCache.find()
@@ -180,5 +206,6 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
+  SearchHistory as searchHistory,
   SubscriptionCache as subscriptionCache,
 }

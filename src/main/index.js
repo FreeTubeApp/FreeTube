@@ -254,16 +254,13 @@ function runApp() {
 
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance, we should focus our window
-      if (typeof commandLine !== 'undefined') {
-        const url = getLinkUrl(commandLine)
-        if (mainWindow && mainWindow.webContents) {
-          if (mainWindow.isMinimized()) mainWindow.restore()
-          mainWindow.focus()
+      if (mainWindow && typeof commandLine !== 'undefined') {
+        if (mainWindow.isMinimized()) mainWindow.restore()
+        mainWindow.focus()
 
-          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
-        } else {
-          if (url) startupUrl = url
-          createWindow()
+        const url = getLinkUrl(commandLine)
+        if (url) {
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
         }
       }
     })
@@ -832,11 +829,10 @@ function runApp() {
     })
   }
 
-  ipcMain.on(IpcChannels.APP_READY, () => {
+  ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
-    startupUrl = null
   })
 
   function relaunch() {
@@ -1344,6 +1340,64 @@ function runApp() {
     }
   })
 
+  // ************** //
+  // Search History
+  ipcMain.handle(IpcChannels.DB_SEARCH_HISTORY, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.CREATE: {
+          const searchHistoryEntry = await baseHandlers.searchHistory.create(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.CREATE, data }
+          )
+          return searchHistoryEntry
+        }
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.searchHistory.find()
+
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.searchHistory.upsert(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.searchHistory.delete(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.searchHistory.deleteMultiple(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.searchHistory.deleteAll()
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid search history db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
   // *********** //
 
   // *********** //
@@ -1446,7 +1500,6 @@ function runApp() {
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
-      mainWindow = null
       if (process.platform !== 'darwin') {
         app.quit()
       }
@@ -1516,7 +1569,6 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
-      if (app.isReady()) createWindow()
     }
   })
 
