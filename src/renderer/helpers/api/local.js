@@ -178,7 +178,7 @@ export async function untilEndOfLocalPlayList(playlist, callback, options = { ru
 /**
  * @param {string} location
  * @param {'default'|'music'|'gaming'|'movies'} tab
- * @param {import('youtubei.js').Mixins.TabbedFeed|null} instance
+ * @param {import('youtubei.js').Mixins.TabbedFeed<import('youtubei.js').IBrowseResponse> | null} instance
  */
 export async function getLocalTrending(location, tab, instance) {
   if (instance === null) {
