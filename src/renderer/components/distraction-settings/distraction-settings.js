@@ -206,7 +206,6 @@ export default defineComponent({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
-      'updateDefaultTheatreMode',
       'updateHideVideoDescription',
       'updateHideComments',
       'updateHideCommentPhotos',
