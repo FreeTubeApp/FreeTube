@@ -60,7 +60,8 @@ export default defineComponent({
       if (option !== 'delete') { return }
 
       this.clearSessionSearchHistory()
-      showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
+      this.removeAllSearchHistoryEntries()
+      showToast(this.$t('Settings.Privacy Settings.Search cache and history have been cleared'))
     },
 
     handleRememberHistory: function (value) {
@@ -121,6 +122,7 @@ export default defineComponent({
       'updateSaveWatchedProgress',
       'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',
+      'removeAllSearchHistoryEntries',
       'updateProfile',
       'removeProfile',
       'updateActiveProfile',
