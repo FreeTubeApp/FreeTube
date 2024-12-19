@@ -484,10 +484,10 @@ const mutations = {
     }
   },
 
-  removeVideos(state, { _id, videoId }) {
+  removeVideos(state, { _id, videoIds }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => videoId.indexOf(video) === -1)
+      playlist.videos = playlist.videos.filter(video => !videoIds.includes(video.videoId))
     }
   },
 
