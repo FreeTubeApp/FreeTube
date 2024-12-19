@@ -11,7 +11,7 @@
         class="autoPlayToggle"
         :label="$t('Video.Autoplay')"
         :compact="true"
-        :default-value="playNextVideo"
+        :default-value="playNextRecommendedVideo"
         @change="updatePlayNextVideo"
       />
     </div>
@@ -27,13 +27,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-
-import store from '../../store/index'
 
 defineProps({
   data: {
@@ -43,19 +39,20 @@ defineProps({
   showAutoplay: {
     type: Boolean,
     default: false
-  }
+  },
+  playNextRecommendedVideo: {
+    type: Boolean,
+    required: true
+  },
 })
 
-/** @type {import('vue').ComputedRef<boolean>} */
-const playNextVideo = computed(() => {
-  return store.getters.getPlayNextVideo
-})
+const emit = defineEmits(['play-next-recommended-video-update'])
 
 /**
  * @param {boolean} value
  */
 function updatePlayNextVideo(value) {
-  store.dispatch('updatePlayNextVideo', value)
+  emit('play-next-recommended-video-update', value)
 }
 </script>
 

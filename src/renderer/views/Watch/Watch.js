@@ -64,6 +64,9 @@ export default defineComponent({
       await this.$refs.player.destroyPlayer()
     }
 
+    // Leave page = no longer remember the value
+    sessionStorage.removeItem('Watch/playNextRecommendedVideo')
+
     next()
   },
   data: function () {
@@ -110,6 +113,7 @@ export default defineComponent({
       captions: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
       vrProjection: null,
+      playNextRecommendedVideo: false,
       recommendedVideos: [],
       downloadLinks: [],
       watchingPlaylist: false,
@@ -179,8 +183,16 @@ export default defineComponent({
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
-    playNextVideo: function () {
+    playNextRecommendedVideoByDefault: function () {
       return this.$store.getters.getPlayNextVideo
+    },
+    playNextRecommendedVideoForThisSession: function () {
+      const oldValue = sessionStorage.getItem('Watch/playNextRecommendedVideo')
+      if (oldValue !== null) {
+        return oldValue === 'true'
+      }
+
+      return this.playNextRecommendedVideoByDefault
     },
     autoplayPlaylists: function () {
       return this.$store.getters.getAutoplayPlaylists
@@ -302,6 +314,8 @@ export default defineComponent({
   created: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
+    // So that the value for this session remains unchanged even if setting changed
+    this.updatePlayNextRecommendedVideoForThisSession(this.playNextRecommendedVideoForThisSession)
 
     this.checkIfTimestamp()
   },
@@ -1242,7 +1256,7 @@ export default defineComponent({
     },
 
     handleVideoEnded: function () {
-      if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+      if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextRecommendedVideo) {
         return
       }
 
@@ -1668,6 +1682,11 @@ export default defineComponent({
       clearTimeout(this.autoplayInterruptionTimeout)
       this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionIntervalHours * 3_600_000)
       this.blockVideoAutoplay = false
+    },
+
+    updatePlayNextRecommendedVideoForThisSession(value) {
+      this.playNextRecommendedVideo = value
+      sessionStorage.setItem('Watch/playNextRecommendedVideo', value.toString())
     },
 
     ...mapActions([

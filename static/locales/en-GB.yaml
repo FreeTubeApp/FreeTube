@@ -392,7 +392,7 @@ Settings:
     Hide FreeTube Header Logo: Hide FreeTube header logo
   Player Settings:
     Player Settings: 'Player'
-    Play Next Video: 'Play next video'
+    Play Next Video: 'Autoplay Recommended Videos by Default'
     Turn on Subtitles by Default: 'Turn on subtitles by default'
     Autoplay Videos: 'Autoplay Videos'
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
