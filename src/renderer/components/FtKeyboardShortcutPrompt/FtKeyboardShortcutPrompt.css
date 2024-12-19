@@ -1,0 +1,100 @@
+
+
+.keyboardShortcutPrompt {
+  max-inline-size: 80%;
+}
+
+.titleAndCloseButton {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 20px;
+  margin-inline-start: 10px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h2,
+h3 {
+  margin-block: 0.25em;
+  inline-size: fit-content;
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.primarySection {
+  inline-size: 100%;
+}
+
+.primarySections,
+.primarySection {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 30px;
+  justify-content: space-evenly;
+}
+
+.secondarySection {
+  flex: 0 0 500px;
+}
+
+.labelsAndShortcuts {
+  display: table;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+.labelAndShortcut {
+  display: table-row;
+  font-size: 16px;
+}
+
+.labelAndShortcut + .labelAndShortcut {
+  border-block-start: 1px solid var(--primary-shadow-color);
+}
+
+.label,
+.shortcut {
+  padding-block: 0.25em;
+}
+
+.label {
+  display: table-cell;
+  padding-inline-end: 2em;
+  inline-size: 300px;
+  min-inline-size: 300px;
+}
+
+.shortcut {
+  font-family: monospace;
+  display: table-cell;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+
+:deep(.promptCard) {
+  overflow-x: hidden;
+}
+
+@media only screen and (width <= 600px) {
+  .label {
+    min-inline-size: 200px;
+    inline-size: 200px;
+  }
+
+  .secondarySection {
+    flex: 0;
+  }
+
+  .primarySection {
+    justify-content: flex-start;
+  }
+}
