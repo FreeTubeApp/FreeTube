@@ -212,7 +212,7 @@ function runApp() {
     // Enable hardware acceleration via VA-API with OpenGL if no other feature flags are found
     // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
     if (!app.commandLine.hasSwitch('enable-features')) {
-      app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
+      app.commandLine.appendSwitch('enable-features', 'AcceleratedVideoDecodeLinuxGL')
     }
   }
 
