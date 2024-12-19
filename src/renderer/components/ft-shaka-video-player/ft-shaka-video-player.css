@@ -19,6 +19,9 @@
 
 .player {
   width: 100%;
+
+  /* Forces DeArrow and original thumbnail to be of same size */
+  aspect-ratio: 16/9;
 }
 
 .vrCanvas {
