@@ -1,5 +1,8 @@
 import { DBSearchHistoryHandlers } from '../../../datastores/handlers/index'
 
+// matches # of results we show for search suggestions
+const SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 14
+
 const state = {
   searchHistoryEntries: []
 }
@@ -9,40 +12,22 @@ const getters = {
     return state.searchHistoryEntries
   },
 
+  getLatestUniqueSearchHistoryEntries: (state) => {
+    const nameSet = new Set()
+    return state.searchHistoryEntries.filter((entry) => {
+      if (nameSet.has(entry.name)) {
+        return false
+      }
+
+      nameSet.add(entry.name)
+      return true
+    }).slice(0, SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT)
+  },
+
   getSearchHistoryEntryWithRoute: (state) => (route) => {
     const searchHistoryEntry = state.searchHistoryEntries.find(p => p.route === route)
     return searchHistoryEntry
   },
-
-  getSearchHistoryEntriesMatchingQuery: (state) => (query, routeToExclude) => {
-    if (query === '') {
-      return []
-    }
-    const queryToLower = query.toLowerCase()
-    return state.searchHistoryEntries.filter((searchHistoryEntry) =>
-      searchHistoryEntry.name.toLowerCase().includes(queryToLower) && searchHistoryEntry.route !== routeToExclude
-    )
-  },
-
-  getSearchHistoryIdsForMatchingUserPlaylistIds: (state) => (playlistIds) => {
-    const searchHistoryIds = []
-    const allSearchHistoryEntries = state.searchHistoryEntries
-    const searchHistoryEntryLimitedRoutesMap = new Map()
-    allSearchHistoryEntries.forEach((searchHistoryEntry) => {
-      searchHistoryEntryLimitedRoutesMap.set(searchHistoryEntry.route, searchHistoryEntry._id)
-    })
-
-    playlistIds.forEach((playlistId) => {
-      const route = `/playlist/${playlistId}?playlistType=user&searchQueryText=`
-      if (!searchHistoryEntryLimitedRoutesMap.has(route)) {
-        return
-      }
-
-      searchHistoryIds.push(searchHistoryEntryLimitedRoutesMap.get(route))
-    })
-
-    return searchHistoryIds
-  }
 }
 const actions = {
   async grabSearchHistoryEntries({ commit }) {
@@ -90,15 +75,6 @@ const actions = {
     }
   },
 
-  async removeUserPlaylistSearchHistoryEntries({ dispatch, getters }, userPlaylistIds) {
-    const searchHistoryIds = getters.getSearchHistoryIdsForMatchingUserPlaylistIds(userPlaylistIds)
-    if (searchHistoryIds.length === 0) {
-      return
-    }
-
-    dispatch('removeSearchHistoryEntries', searchHistoryIds)
-  },
-
   async removeAllSearchHistoryEntries({ commit }) {
     try {
       await DBSearchHistoryHandlers.deleteAll()
@@ -111,7 +87,7 @@ const actions = {
 
 const mutations = {
   addSearchHistoryEntryToList(state, searchHistoryEntry) {
-    state.searchHistoryEntries.push(searchHistoryEntry)
+    state.searchHistoryEntries.unshift(searchHistoryEntry)
   },
 
   setSearchHistoryEntries(state, searchHistoryEntries) {
@@ -119,15 +95,11 @@ const mutations = {
   },
 
   upsertSearchHistoryEntryToList(state, updatedSearchHistoryEntry) {
-    const i = state.searchHistoryEntries.findIndex((p) => {
-      return p.route === updatedSearchHistoryEntry.route
+    state.searchHistoryEntries = state.searchHistoryEntries.filter((p) => {
+      return p.route !== updatedSearchHistoryEntry.route
     })
 
-    if (i === -1) {
-      state.searchHistoryEntries.push(updatedSearchHistoryEntry)
-    } else {
-      state.searchHistoryEntries.splice(i, 1, updatedSearchHistoryEntry)
-    }
+    state.searchHistoryEntries.unshift(updatedSearchHistoryEntry)
   },
 
   removeSearchHistoryEntryFromList(state, _id) {

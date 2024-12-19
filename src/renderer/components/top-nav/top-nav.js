@@ -120,7 +120,15 @@ export default defineComponent({
         this.$t('Open New Window'),
         KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
       )
-    }
+    },
+
+    // show latest search history when the search bar is empty
+    activeDataList: function () {
+      if (!this.enableSearchSuggestions) {
+        return
+      }
+      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries : this.searchSuggestionsDataList
+    },
   },
   watch: {
     $route: function () {
@@ -167,6 +175,17 @@ export default defineComponent({
       }
 
       clearLocalSearchSuggestionsSession()
+
+      if (queryText.startsWith('ft:')) {
+        this.$refs.searchInput.handleClearTextClick({ programmaticallyTriggered: true })
+        const adjustedQuery = queryText.substring(3)
+        openInternalPath({
+          path: adjustedQuery,
+          adjustedQuery,
+          doCreateNewWindow
+        })
+        return
+      }
 
       this.getYoutubeUrlInfo(queryText).then((result) => {
         switch (result.urlType) {
@@ -289,12 +308,15 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
+      const trimmedQuery = query.trim()
+      if (trimmedQuery === this.lastSuggestionQuery || trimmedQuery.startsWith('ft:')) {
+        return
+      }
+
+      this.lastSuggestionQuery = trimmedQuery
+
       if (this.enableSearchSuggestions) {
-        const trimmedQuery = query.trim()
-        if (trimmedQuery !== this.lastSuggestionQuery) {
-          this.lastSuggestionQuery = trimmedQuery
-          this.debounceSearchResults(trimmedQuery)
-        }
+        this.debounceSearchResults(trimmedQuery)
       }
     },
 

@@ -232,7 +232,7 @@ class SearchHistory {
   }
 
   static find() {
-    return db.searchHistory.findAsync({})
+    return db.searchHistory.findAsync({}).sort({ lastUpdatedAt: -1 })
   }
 
   static upsert(searchHistoryEntry) {

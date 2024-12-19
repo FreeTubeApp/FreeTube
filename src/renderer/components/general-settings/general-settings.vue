@@ -120,6 +120,7 @@
           :show-label="true"
           :value="currentInvidiousInstance"
           :data-list="invidiousInstancesList"
+          :show-data-when-empty="true"
           :tooltip="$t('Tooltips.General Settings.Invidious Instance')"
           @input="handleInvidiousInstanceInput"
         />
