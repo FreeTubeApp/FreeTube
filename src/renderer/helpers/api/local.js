@@ -247,10 +247,17 @@ export async function getLocalVideoInfo(id) {
   const hasTrailer = info.has_trailer
   const trailerIsAgeRestricted = info.getTrailerInfo() === null
 
-  if (hasTrailer) {
-    /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer} */
-    const trailerScreen = info.playability_status.error_screen
-    id = trailerScreen.video_id
+  // upcoming videos can have trailers so we wont fetch the trailer if the original video is playable
+  if (hasTrailer && info.playability_status.status !== 'OK') {
+    if (info.playability_status.error_screen.type === 'PlayerLegacyDesktopYpcTrailer') {
+      /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer} */
+      const trailerScreen = info.playability_status.error_screen
+      id = trailerScreen.video_id
+    } else {
+      /** @type {import('youtubei.js').YTNodes.YpcTrailer} */
+      const trailerScreen = info.playability_status.error_screen
+      id = trailerScreen.player_response.videoDetails.videoId
+    }
   }
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
@@ -263,9 +270,13 @@ export async function getLocalVideoInfo(id) {
   const iosInfo = await iosInnertube.getBasicInfo(id, 'iOS')
 
   if (hasTrailer) {
+    // don't override the timestamp of when the video will premiere for upcoming videos
+    if (info.playability_status.status !== 'LIVE_STREAM_OFFLINE') {
+      info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
+    }
+
     info.playability_status = iosInfo.playability_status
     info.streaming_data = iosInfo.streaming_data
-    info.basic_info.start_timestamp = iosInfo.basic_info.start_timestamp
     info.basic_info.duration = iosInfo.basic_info.duration
     info.captions = iosInfo.captions
     info.storyboards = iosInfo.storyboards
