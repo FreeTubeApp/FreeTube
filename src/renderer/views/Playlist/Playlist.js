@@ -215,6 +215,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.DateAddedNewest')
           case SORT_BY_VALUES.DateAddedOldest:
             return this.$t('Playlist.Sort By.DateAddedOldest')
+          case SORT_BY_VALUES.PublishedNewest:
+            return this.$t('Playlist.Sort By.PublishedNewest')
+          case SORT_BY_VALUES.PublishedOldest:
+            return this.$t('Playlist.Sort By.PublishedOldest')
           case SORT_BY_VALUES.VideoTitleAscending:
             return this.$t('Playlist.Sort By.VideoTitleAscending')
           case SORT_BY_VALUES.VideoTitleDescending:
