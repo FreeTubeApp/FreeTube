@@ -51,7 +51,8 @@ export default defineComponent({
       externalLinkOpeningPromptValues: [
         'yes',
         'no'
-      ]
+      ],
+      searchQueryText: ''
     }
   },
   computed: {
@@ -562,6 +563,10 @@ export default defineComponent({
       } else {
         document.body.dir = 'ltr'
       }
+    },
+
+    updateSearchQueryText: function(queryText) {
+      this.searchQueryText = queryText
     },
 
     ...mapActions([
