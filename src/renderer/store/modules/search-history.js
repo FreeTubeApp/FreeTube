@@ -12,10 +12,10 @@ const getters = {
     return state.searchHistoryEntries
   },
 
-  getLatestUniqueSearchHistoryEntries: (state) => {
+  getLatestUniqueSearchHistoryEntries: (state) => (routeToExclude) => {
     const nameSet = new Set()
     return state.searchHistoryEntries.filter((entry) => {
-      if (nameSet.has(entry.name)) {
+      if (nameSet.has(entry.name) || routeToExclude === entry.route) {
         return false
       }
 
@@ -28,6 +28,26 @@ const getters = {
     const searchHistoryEntry = state.searchHistoryEntries.find(p => p.route === route)
     return searchHistoryEntry
   },
+
+  getSearchHistoryIdsForMatchingUserPlaylistIds: (state) => (playlistIds) => {
+    const searchHistoryIds = []
+    const allSearchHistoryEntries = state.searchHistoryEntries
+    const searchHistoryEntryLimitedRoutesMap = new Map()
+    allSearchHistoryEntries.forEach((searchHistoryEntry) => {
+      searchHistoryEntryLimitedRoutesMap.set(searchHistoryEntry.route, searchHistoryEntry._id)
+    })
+
+    playlistIds.forEach((playlistId) => {
+      const route = `/playlist/${playlistId}?playlistType=user&searchQueryText=`
+      if (!searchHistoryEntryLimitedRoutesMap.has(route)) {
+        return
+      }
+
+      searchHistoryIds.push(searchHistoryEntryLimitedRoutesMap.get(route))
+    })
+
+    return searchHistoryIds
+  }
 }
 const actions = {
   async grabSearchHistoryEntries({ commit }) {
@@ -73,6 +93,15 @@ const actions = {
     } catch (errMessage) {
       console.error(errMessage)
     }
+  },
+
+  async removeUserPlaylistSearchHistoryEntries({ dispatch, getters }, userPlaylistIds) {
+    const searchHistoryIds = getters.getSearchHistoryIdsForMatchingUserPlaylistIds(userPlaylistIds)
+    if (searchHistoryIds.length === 0) {
+      return
+    }
+
+    dispatch('removeSearchHistoryEntries', searchHistoryIds)
   },
 
   async removeAllSearchHistoryEntries({ commit }) {

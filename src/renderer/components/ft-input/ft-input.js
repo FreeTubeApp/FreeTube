@@ -172,7 +172,7 @@ export default defineComponent({
       this.$emit('input', val)
     },
 
-    handleClearTextClick: function ({ programmaticallyTriggered = false }) {
+    handleClearTextClick: function () {
       // No action if no input text
       if (!this.inputDataPresent) { return }
 
@@ -183,9 +183,7 @@ export default defineComponent({
       this.$refs.input.value = ''
 
       // Focus on input element after text is clear for better UX
-      if (!programmaticallyTriggered) {
-        this.$refs.input.focus()
-      }
+      this.$refs.input.focus()
 
       this.$emit('clear')
     },
@@ -244,10 +242,12 @@ export default defineComponent({
       this.searchState.showOptions = false
       if (this.visibleDataList[index].route) {
         this.inputData = `ft:${this.visibleDataList[index].route}`
+        this.$emit('input', this.inputData)
+        this.inputData = this.$refs.input.value = this.visibleDataList[index].name
       } else {
         this.inputData = this.visibleDataList[index]
+        this.$emit('input', this.inputData)
       }
-      this.$emit('input', this.inputData)
       this.handleClick()
     },
 

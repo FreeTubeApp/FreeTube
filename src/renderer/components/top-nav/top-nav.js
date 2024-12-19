@@ -127,7 +127,7 @@ export default defineComponent({
       if (!this.enableSearchSuggestions) {
         return
       }
-      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries : this.searchSuggestionsDataList
+      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries(this.$router.currentRoute.fullPath) : this.searchSuggestionsDataList
     },
   },
   watch: {
@@ -177,7 +177,6 @@ export default defineComponent({
       clearLocalSearchSuggestionsSession()
 
       if (queryText.startsWith('ft:')) {
-        this.$refs.searchInput.handleClearTextClick({ programmaticallyTriggered: true })
         const adjustedQuery = queryText.substring(3)
         openInternalPath({
           path: adjustedQuery,

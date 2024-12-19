@@ -254,13 +254,16 @@ function runApp() {
 
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance, we should focus our window
-      if (mainWindow && typeof commandLine !== 'undefined') {
-        if (mainWindow.isMinimized()) mainWindow.restore()
-        mainWindow.focus()
-
+      if (typeof commandLine !== 'undefined') {
         const url = getLinkUrl(commandLine)
-        if (url) {
-          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        if (mainWindow && mainWindow.webContents) {
+          if (mainWindow.isMinimized()) mainWindow.restore()
+          mainWindow.focus()
+
+          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        } else {
+          if (url) startupUrl = url
+          createWindow()
         }
       }
     })
@@ -829,10 +832,11 @@ function runApp() {
     })
   }
 
-  ipcMain.once(IpcChannels.APP_READY, () => {
+  ipcMain.on(IpcChannels.APP_READY, () => {
     if (startupUrl) {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
+    startupUrl = null
   })
 
   function relaunch() {
@@ -1294,11 +1298,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
-            _id: data._id,
-            videoId: data.videoId,
-            playlistItemId: data.playlistItemId,
-          })
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.videoId, data.playlistItemId)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1339,6 +1339,8 @@ function runApp() {
       else throw err.toString()
     }
   })
+
+  // *********** //
 
   // ************** //
   // Search History
@@ -1399,8 +1401,6 @@ function runApp() {
   })
 
   // *********** //
-
-  // *********** //
   // Profiles
   ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_CACHE, async (event, { action, data }) => {
     try {
@@ -1409,7 +1409,7 @@ function runApp() {
           return await baseHandlers.subscriptionCache.find()
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateVideosByChannelId(data)
+          await baseHandlers.subscriptionCache.updateVideosByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1418,7 +1418,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1427,7 +1427,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateShortsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateShortsByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1436,7 +1436,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data.channelId, data.entries)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1445,7 +1445,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1500,6 +1500,7 @@ function runApp() {
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
+      mainWindow = null
       if (process.platform !== 'darwin') {
         app.quit()
       }
@@ -1569,6 +1570,7 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
+      if (app.isReady()) createWindow()
     }
   })
 
