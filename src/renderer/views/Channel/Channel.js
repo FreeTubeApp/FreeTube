@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -1994,13 +1994,16 @@ export default defineComponent({
     getIconForSortPreference: (s) => getIconForSortPreference(s),
 
     ...mapActions([
-      'setAppTitle',
       'showOutlines',
       'updateSubscriptionDetails',
       'updateSubscriptionVideosCacheByChannel',
       'updateSubscriptionLiveCacheByChannel',
       'updateSubscriptionShortsCacheWithChannelPageShorts',
       'updateSubscriptionPostsCacheByChannel'
+    ]),
+
+    ...mapMutations([
+      'setAppTitle'
     ])
   }
 })

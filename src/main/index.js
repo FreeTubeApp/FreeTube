@@ -898,20 +898,37 @@ function runApp() {
 
   // #region navigation history
 
-  ipcMain.on(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, ({ sender }, offset) => {
-    sender.navigationHistory.goToOffset(offset)
-  })
+  const NAV_HISTORY_DISPLAY_LIMIT = 15
+  // Math.trunc but with a bitwise OR so that it can be calcuated at build time and the number inlined
+  const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = (NAV_HISTORY_DISPLAY_LIMIT / 2) | 0
 
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, async ({ sender }, index) => {
-    return sender.navigationHistory.getEntryAtIndex(index)?.title
-  })
+  ipcMain.handle(IpcChannels.GET_NAVIGATION_HISTORY, ({ sender }) => {
+    const activeIndex = sender.navigationHistory.getActiveIndex()
+    const length = sender.navigationHistory.length()
 
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX, async ({ sender }) => {
-    return sender.navigationHistory.getActiveIndex()
-  })
+    let end
 
-  ipcMain.handle(IpcChannels.GET_NAV_HISTORY_LENGTH, async ({ sender }) => {
-    return sender.navigationHistory.length()
+    if (activeIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+      end = Math.min(length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+    } else if (length - activeIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
+      end = length - 1
+    } else {
+      end = activeIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
+    }
+
+    const dropdownOptions = []
+
+    for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+      const routeLabel = sender.navigationHistory.getEntryAtIndex(index)?.title
+
+      dropdownOptions.push({
+        label: routeLabel,
+        value: index - activeIndex,
+        active: index === activeIndex
+      })
+    }
+
+    return dropdownOptions
   })
 
   // #endregion navigation history

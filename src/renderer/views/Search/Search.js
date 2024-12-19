@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
@@ -345,7 +345,7 @@ export default defineComponent({
       }
     },
 
-    ...mapActions([
+    ...mapMutations([
       'setAppTitle',
     ]),
   }

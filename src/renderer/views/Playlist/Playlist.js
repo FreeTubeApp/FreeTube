@@ -645,10 +645,10 @@ export default defineComponent({
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
       'removeVideo',
-      'setAppTitle'
     ]),
 
     ...mapMutations([
+      'setAppTitle',
       'setCachedPlaylist'
     ])
   }
