@@ -21,7 +21,24 @@
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
-    <div class="ft-tag-box">
+    <div
+      v-if="tagList.length >= 1"
+      class="checkbox-container"
+    >
+      <input
+        :id="sanitizedId"
+        type="checkbox"
+        :checked="showTags"
+        @change="toggleShowTags"
+      >
+      <label :for="sanitizedId">
+        {{ $t('Settings.Distraction Free Settings.Show Added Items') }}
+      </label>
+    </div>
+    <div
+      v-if="showTags"
+      class="ft-tag-box"
+    >
       <ul>
         <li
           v-for="tag in tagList"
