@@ -378,8 +378,7 @@ Settings:
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
         i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
         %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t
-        videomillisekunder, i tre siffer. %i video-ID. Du kan også bruke «\», eller
-        «/» for å lage undermapper.
+        videomillisekunder, i tre siffer. %i video-ID.
     Max Video Playback Rate: Maksimal hastighet for videoavspilling
     Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
       videoavspiller

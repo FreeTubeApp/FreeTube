@@ -397,7 +397,7 @@ Settings:
         Empty File Name: 空文件名
       Folder Button: 选择文件夹
       File Name Tooltip: 你可以使用下面的变量。 %Y 年份 4 位数。 %M 月份 2 位数。 %D 天 2 位数。 %H 小时 2 位数。
-        %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。 你也可以使用“\”或“/”创建子文件夹。
+        %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。
       Enable: 启用截屏图标
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏

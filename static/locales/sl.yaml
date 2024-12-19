@@ -249,8 +249,7 @@ Settings:
       File Name Tooltip: Spodaj lahko uporabite spremenljivke. %Y leto 4 števke. %M
         mesec 2 števki. %D dan 2 števki. %H ura 2 števki. %N minuta 2 števki. %S sekunda
         2 števki. %T milisekunda 3 števke. %s video sekunda. %t Video milisekunda
-        3 števke. %i ID videa. Za ustvarjanje podmap lahko uporabite tudi "\" ali
-        "/".
+        3 števke. %i ID videa.
       Enable: Omogoči posnetek zaslona
       Format Label: Format posnetka zaslona
       Error:

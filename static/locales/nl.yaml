@@ -417,8 +417,7 @@ Settings:
         jaartal; %M tweecijferige maand; %D tweecijferige dagstelling; %H tweecijferig
         uur; %N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
-        video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
-        te maken.'
+        video; %i ID van de video.'
     Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm
   Privacy Settings:

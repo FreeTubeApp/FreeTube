@@ -453,8 +453,7 @@ Settings:
       File Name Tooltip: Vous pouvez utiliser les variables suivantes. %Y Année 4
         chiffres. %M Mois 2 chiffres. %D Jour 2 chiffres. %H Heure 2 chiffres. %N
         Minute 2 chiffres. %S Second 2 chiffres. %T Milliseconde 3 chiffres. %s Video
-        Second. %t Milliseconde vidéo 3 chiffres. %i Video ID. Vous pouvez également
-        utiliser \ ou / pour créer des sous-dossiers.
+        Second. %t Milliseconde vidéo 3 chiffres. %i Video ID.
       Quality Label: Qualité des captures d'écran
       Format Label: Format des captures d'écran
       File Name Label: Modèle de nom de fichier

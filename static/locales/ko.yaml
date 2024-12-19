@@ -260,8 +260,7 @@ Settings:
       Quality Label: 스크린샷 품질
       File Name Label: 파일 이름 패턴
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
-        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
-        "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
+        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID.
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:

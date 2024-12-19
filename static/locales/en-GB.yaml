@@ -430,7 +430,7 @@ Settings:
       File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2
         digits. %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2
         digits. %T Millisecond 3 digits. %s Video Second. %t Video Millisecond 3 digits.
-        %i Video ID. You can also use \ or / to create subfolders.
+        %i Video ID.
       Error:
         Forbidden Characters: Forbidden characters
         Empty File Name: Empty file name
@@ -1133,7 +1133,7 @@ Downloading has completed: '‘{videoTitle}’ has finished downloading'
 Starting download: Starting download of ‘{videoTitle}’
 Downloading failed: There was an issue downloading ‘{videoTitle}’
 Screenshot Error: Screenshot failed. {error}
-Screenshot Success: Saved screenshot as ‘{filePath}’
+Screenshot Success: Saved screenshot
 New Window: New window
 Channels:
   Empty: Your channel list is currently empty.
