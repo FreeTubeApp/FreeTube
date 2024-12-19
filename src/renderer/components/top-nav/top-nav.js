@@ -21,6 +21,12 @@ export default defineComponent({
     FtInput,
     FtProfileSelector
   },
+  props: {
+    pageBookmarksAvailable: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => {
     let isArrowBackwardDisabled = true
     let isArrowForwardDisabled = true
@@ -33,12 +39,22 @@ export default defineComponent({
     }
 
     return {
+      isRouteBookmarkable: false,
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
+      currentRouteFullPath: '',
       navigationHistoryDropdownActiveEntry: null,
       navigationHistoryDropdownOptions: [],
       searchSuggestionsDataList: [],
+      allowedPageBookmarkRouteMetaTitles: [
+        'Search Results',
+        'Playlist',
+        'Channel',
+        'Watch',
+        'Hashtag',
+        'Post',
+      ],
       lastSuggestionQuery: ''
     }
   },
@@ -120,22 +136,42 @@ export default defineComponent({
         this.$t('Open New Window'),
         KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
       )
+    },
+
+    isPageBookmarked: function () {
+      return this.pageBookmarksAvailable && this.$store.getters.getPageBookmarkWithRoute(this.currentRouteFullPath) != null
+    },
+
+    matchingBookmarksDataList: function () {
+      return this.$store.getters.getPageBookmarksMatchingQuery(this.lastSuggestionQuery, this.currentRouteFullPath)
+    },
+
+    pageBookmarkIconTitle: function () {
+      return this.isPageBookmarked ? this.$t('Edit bookmark for this page') : this.$t('Bookmark this page')
+    },
+
+    pageBookmarkIconTheme: function () {
+      return this.isPageBookmarked ? 'favorite' : null
     }
   },
   watch: {
-    $route: function () {
+    $route: function (to) {
       this.setNavigationHistoryDropdownOptions()
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
-    },
+
+      this.setCurrentRoute(to)
+    }
   },
   mounted: function () {
     let previousWidth = window.innerWidth
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
     }
+
+    this.$router.onReady(() => this.setCurrentRoute(this.$router.currentRoute))
 
     // Store is not up-to-date when the component mounts, so we use timeout.
     setTimeout(() => {
@@ -156,6 +192,11 @@ export default defineComponent({
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
+    setCurrentRoute: function (route) {
+      this.currentRouteFullPath = route.fullPath
+      // only allow page bookmarking on routes where it can be relevant to do so
+      this.isRouteBookmarkable = this.allowedPageBookmarkRouteMetaTitles.includes(route.meta.title)
+    },
     goToSearch: async function (queryText, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
@@ -167,6 +208,17 @@ export default defineComponent({
       }
 
       clearLocalSearchSuggestionsSession()
+
+      if (queryText.startsWith('ft:')) {
+        this.$refs.searchInput.handleClearTextClick()
+        const adjustedQuery = queryText.substring(3)
+        openInternalPath({
+          path: adjustedQuery,
+          adjustedQuery,
+          doCreateNewWindow
+        })
+        return
+      }
 
       this.getYoutubeUrlInfo(queryText).then((result) => {
         switch (result.urlType) {
@@ -289,12 +341,15 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
+      const trimmedQuery = query.trim()
+      if (trimmedQuery === this.lastSuggestionQuery) {
+        return
+      }
+
+      this.lastSuggestionQuery = trimmedQuery
+
       if (this.enableSearchSuggestions) {
-        const trimmedQuery = query.trim()
-        if (trimmedQuery !== this.lastSuggestionQuery) {
-          this.lastSuggestionQuery = trimmedQuery
-          this.debounceSearchResults(trimmedQuery)
-        }
+        this.debounceSearchResults(trimmedQuery)
       }
     },
 
@@ -436,6 +491,7 @@ export default defineComponent({
 
     ...mapActions([
       'getYoutubeUrlInfo',
+      'showPageBookmarkPrompt',
       'showSearchFilters'
     ])
   }

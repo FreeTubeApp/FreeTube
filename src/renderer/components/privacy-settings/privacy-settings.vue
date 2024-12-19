@@ -60,6 +60,13 @@
         :icon="['fas', 'trash']"
         @click="showRemovePlaylistsPrompt = true"
       />
+      <ft-button
+        :label="$t('Settings.Privacy Settings.Remove All Page Bookmarks')"
+        text-color="var(--destructive-text-color)"
+        background-color="var(--destructive-color)"
+        :icon="['fas', 'trash']"
+        @click="showRemovePageBookmarksPrompt = true"
+      />
     </ft-flex-box>
     <ft-prompt
       v-if="showSearchCachePrompt"
@@ -92,6 +99,14 @@
       :option-values="promptValues"
       :is-first-option-destructive="true"
       @click="handleRemovePlaylists"
+    />
+    <ft-prompt
+      v-if="showRemovePageBookmarksPrompt"
+      :label="removePageBookmarksPromptMessage"
+      :option-names="promptNames"
+      :option-values="promptValues"
+      :is-first-option-destructive="true"
+      @click="handleRemovePageBookmarks"
     />
   </ft-settings-section>
 </template>
