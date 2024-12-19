@@ -100,6 +100,7 @@
     <hr class="playlistInfoSeparator">
 
     <div
+      v-if="!isUserPlaylist"
       class="channelShareWrapper"
     >
       <router-link
@@ -128,89 +129,114 @@
           {{ channelName }}
         </h3>
       </div>
+    </div>
 
-      <div class="playlistOptionsAndSearch">
-        <div class="playlistOptions">
-          <ft-icon-button
-            v-if="editMode"
-            :title="$t('User Playlists.Save Changes')"
-            :disabled="playlistPersistenceDisabled"
-            :icon="['fas', 'save']"
-            theme="secondary"
-            @click="savePlaylistInfo"
-          />
-          <ft-icon-button
-            v-if="editMode"
-            :title="$t('User Playlists.Cancel')"
-            :icon="['fas', 'times']"
-            theme="secondary"
-            @click="exitEditMode"
-          />
-          <ft-icon-button
-            v-if="!editMode && isUserPlaylist"
-            :title="markedAsQuickBookmarkTarget ? $t('User Playlists.Quick Bookmark Enabled') : $t('User Playlists.Enable Quick Bookmark With This Playlist')"
-            :icon="markedAsQuickBookmarkTarget ? ['fas', 'bookmark'] : ['far', 'bookmark']"
-            :disabled="markedAsQuickBookmarkTarget"
-            :theme="markedAsQuickBookmarkTarget ? 'secondary' : 'base-no-default'"
-            @disabled-click="handleQuickBookmarkEnabledDisabledClick"
-            @click="enableQuickBookmarkForThisPlaylist"
-          />
-          <ft-icon-button
-            v-if="!editMode && isUserPlaylist"
-            :title="$t('User Playlists.Edit Playlist Info')"
-            :icon="['fas', 'edit']"
-            theme="secondary"
-            @click="enterEditMode"
-          />
-          <ft-icon-button
-            v-if="videoCount > 0 && showPlaylists && !editMode"
-            :title="$t('User Playlists.Copy Playlist')"
-            :icon="['fas', 'copy']"
-            theme="secondary"
-            @click="toggleCopyVideosPrompt"
-          />
-          <ft-icon-button
-            v-if="exportPlaylistButtonVisible"
-            :title="$t('User Playlists.Export Playlist')"
-            :icon="['fas', 'file-arrow-down']"
-            theme="secondary"
-            @click="handlePlaylistExport"
-          />
-          <ft-icon-button
-            v-if="!editMode && userPlaylistDuplicateItemCount > 0"
-            :title="$t('User Playlists.Remove Duplicate Videos')"
-            :icon="['fas', 'users-slash']"
-            theme="destructive"
-            @click="showRemoveDuplicateVideosPrompt = true"
-          />
-          <ft-icon-button
-            v-if="!editMode && userPlaylistAnyVideoWatched"
-            :title="$t('User Playlists.Remove Watched Videos')"
-            :icon="['fas', 'eye-slash']"
-            theme="destructive"
-            @click="showRemoveVideosOnWatchPrompt = true"
-          />
-          <ft-icon-button
-            v-if="deletePlaylistButtonVisible"
-            :disabled="markedAsQuickBookmarkTarget"
-            :title="!markedAsQuickBookmarkTarget ? $t('User Playlists.Delete Playlist') : playlistDeletionDisabledLabel"
-            :icon="['fas', 'trash']"
-            theme="destructive"
-            @disabled-click="handlePlaylistDeleteDisabledClick"
-            @click="showDeletePlaylistPrompt = true"
-          />
-          <ft-share-button
-            v-if="sharePlaylistButtonVisible"
-            :id="id"
-            class="sharePlaylistIcon"
-            :dropdown-position-y="description ? 'top' : 'bottom'"
-            share-target-type="Playlist"
-          />
-        </div>
-        <div
-          v-if="searchVideoModeAllowed"
-          class="searchInputsRow"
+    <div class="playlistOptionsAndSearch">
+      <div class="playlistOptions">
+        <ft-icon-button
+          v-if="editMode"
+          :title="$t('User Playlists.Save Changes')"
+          :disabled="playlistPersistenceDisabled"
+          :icon="['fas', 'save']"
+          theme="secondary"
+          @click="savePlaylistInfo"
+        />
+        <ft-icon-button
+          v-if="editMode"
+          :title="$t('User Playlists.Cancel')"
+          :icon="['fas', 'times']"
+          theme="secondary"
+          @click="exitEditMode"
+        />
+        <ft-icon-button
+          v-if="!editMode && isUserPlaylist"
+          :title="markedAsQuickBookmarkTarget ? $t('User Playlists.Quick Bookmark Enabled') : $t('User Playlists.Enable Quick Bookmark With This Playlist')"
+          :icon="markedAsQuickBookmarkTarget ? ['fas', 'bookmark'] : ['far', 'bookmark']"
+          :disabled="markedAsQuickBookmarkTarget"
+          :theme="markedAsQuickBookmarkTarget ? 'secondary' : 'base-no-default'"
+          @disabled-click="handleQuickBookmarkEnabledDisabledClick"
+          @click="enableQuickBookmarkForThisPlaylist"
+        />
+        <ft-icon-button
+          v-if="!editMode && isUserPlaylist"
+          :title="$t('User Playlists.Edit Playlist Info')"
+          :icon="['fas', 'edit']"
+          theme="secondary"
+          @click="enterEditMode"
+        />
+        <ft-icon-button
+          v-if="videoCount > 0 && showPlaylists && !editMode"
+          :title="$t('User Playlists.Copy Playlist')"
+          :icon="['fas', 'copy']"
+          theme="secondary"
+          @click="toggleCopyVideosPrompt"
+        />
+        <ft-icon-button
+          v-if="exportPlaylistButtonVisible"
+          :title="$t('User Playlists.Export Playlist')"
+          :icon="['fas', 'file-arrow-down']"
+          theme="secondary"
+          @click="handlePlaylistExport"
+        />
+        <ft-icon-button
+          v-if="!editMode && userPlaylistDuplicateItemCount > 0"
+          :title="$t('User Playlists.Remove Duplicate Videos')"
+          :icon="['fas', 'users-slash']"
+          theme="destructive"
+          @click="showRemoveDuplicateVideosPrompt = true"
+        />
+        <ft-icon-button
+          v-if="!editMode && userPlaylistAnyVideoWatched"
+          :title="$t('User Playlists.Remove Watched Videos')"
+          :icon="['fas', 'eye-slash']"
+          theme="destructive"
+          @click="showRemoveVideosOnWatchPrompt = true"
+        />
+        <ft-icon-button
+          v-if="deletePlaylistButtonVisible"
+          :disabled="markedAsQuickBookmarkTarget"
+          :title="!markedAsQuickBookmarkTarget ? $t('User Playlists.Delete Playlist') : playlistDeletionDisabledLabel"
+          :icon="['fas', 'trash']"
+          theme="destructive"
+          @disabled-click="handlePlaylistDeleteDisabledClick"
+          @click="showDeletePlaylistPrompt = true"
+        />
+        <ft-share-button
+          v-if="sharePlaylistButtonVisible"
+          :id="id"
+          class="sharePlaylistIcon"
+          :dropdown-position-y="description ? 'top' : 'bottom'"
+          share-target-type="Playlist"
+        />
+      </div>
+      <div
+        v-if="firstVideoIdExists && !editMode"
+        class="playlistOptions"
+      >
+        <router-link
+          :to="watchFirstVideo"
         >
+          <ft-button
+            class="playlistPlayButton"
+            :label="$t('Playlist.Play all')"
+            :icon="['fas', 'play']"
+          />
+        </router-link>
+        <router-link
+          :to="watchRandomVideo"
+        >
+          <ft-button
+            class="playlistPlayButton"
+            :label="$t('Playlist.Shuffle')"
+            :icon="['fas', 'random']"
+          />
+        </router-link>
+      </div>
+      <div
+        v-if="searchVideoModeAllowed"
+        class="searchInputsRow"
+      >
+        <div class="searchWrapper">
           <ft-input
             ref="searchInput"
             class="inputElement"
