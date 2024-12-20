@@ -61,7 +61,7 @@ export default defineComponent({
 
       this.clearSessionSearchHistory()
       this.removeAllSearchHistoryEntries()
-      showToast(this.$t('Settings.Privacy Settings.Search cache and history have been cleared'))
+      showToast(this.$t('Settings.Privacy Settings.Search history and cache have been cleared'))
     },
 
     handleRememberHistory: function (value) {

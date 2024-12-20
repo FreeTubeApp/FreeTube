@@ -33,7 +33,7 @@
     <br>
     <ft-flex-box>
       <ft-button
-        :label="$t('Settings.Privacy Settings.Clear Search Cache and History')"
+        :label="$t('Settings.Privacy Settings.Clear Search History and Cache')"
         text-color="var(--destructive-text-color)"
         background-color="var(--destructive-color)"
         :icon="['fas', 'trash']"
@@ -63,7 +63,7 @@
     </ft-flex-box>
     <ft-prompt
       v-if="showSearchCachePrompt"
-      :label="$t('Settings.Privacy Settings.Are you sure you want to clear out your search cache and history?')"
+      :label="$t('Settings.Privacy Settings.Are you sure you want to clear out your search history and cache?')"
       :option-names="promptNames"
       :option-values="promptValues"
       :is-first-option-destructive="true"
