@@ -12,38 +12,30 @@ const getters = {
     return state.searchHistoryEntries
   },
 
-  getLatestUniqueSearchHistoryEntries: (state) => {
-    const nameSet = new Set()
-    return state.searchHistoryEntries.filter((entry) => {
-      if (nameSet.has(entry.name)) {
-        return false
-      }
-
-      nameSet.add(entry.name)
-      return true
-    }).slice(0, SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT)
+  getLatestUniqueSearchHistoryNames: (state) => {
+    return state.searchHistoryEntries.slice(0, SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT).map((entry) => entry.name)
   },
 
-  getSearchHistoryEntryWithRoute: (state) => (route) => {
-    const searchHistoryEntry = state.searchHistoryEntries.find(p => p.route === route)
+  getSearchHistoryEntryWithId: (state) => (id) => {
+    const searchHistoryEntry = state.searchHistoryEntries.find(p => p._id === id)
     return searchHistoryEntry
   },
 
   getSearchHistoryIdsForMatchingUserPlaylistIds: (state) => (playlistIds) => {
     const searchHistoryIds = []
     const allSearchHistoryEntries = state.searchHistoryEntries
-    const searchHistoryEntryLimitedRoutesMap = new Map()
+    const searchHistoryEntryLimitedIdsMap = new Map()
     allSearchHistoryEntries.forEach((searchHistoryEntry) => {
-      searchHistoryEntryLimitedRoutesMap.set(searchHistoryEntry.route, searchHistoryEntry._id)
+      searchHistoryEntryLimitedIdsMap.set(searchHistoryEntry._id, searchHistoryEntry._id)
     })
 
     playlistIds.forEach((playlistId) => {
-      const route = `/playlist/${playlistId}?playlistType=user&searchQueryText=`
-      if (!searchHistoryEntryLimitedRoutesMap.has(route)) {
+      const id = `/playlist/${playlistId}?playlistType=user&searchQueryText=`
+      if (!searchHistoryEntryLimitedIdsMap.has(id)) {
         return
       }
 
-      searchHistoryIds.push(searchHistoryEntryLimitedRoutesMap.get(route))
+      searchHistoryIds.push(searchHistoryEntryLimitedIdsMap.get(id))
     })
 
     return searchHistoryIds
@@ -125,7 +117,7 @@ const mutations = {
 
   upsertSearchHistoryEntryToList(state, updatedSearchHistoryEntry) {
     state.searchHistoryEntries = state.searchHistoryEntries.filter((p) => {
-      return p.route !== updatedSearchHistoryEntry.route
+      return p.name !== updatedSearchHistoryEntry._id
     })
 
     state.searchHistoryEntries.unshift(updatedSearchHistoryEntry)

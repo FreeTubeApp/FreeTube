@@ -127,8 +127,12 @@ export default defineComponent({
       if (!this.enableSearchSuggestions) {
         return
       }
-      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries : this.searchSuggestionsDataList
+      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryNames : this.searchSuggestionsDataList
     },
+
+    searchResultIcon: function () {
+      return this.lastSuggestionQuery === '' ? ['fas', 'clock-rotate-left'] : ['fas', 'magnifying-glass']
+    }
   },
   watch: {
     $route: function () {
@@ -167,31 +171,14 @@ export default defineComponent({
     goToSearch: async function (queryText, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
-      const isFreeTubeInternalQuery = queryText.startsWith('ft:')
-
       if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
         this.$refs.searchContainer.blur()
         this.showSearchContainer = false
-      } else if (!isFreeTubeInternalQuery) {
+      } else {
         this.$refs.searchInput.blur()
       }
 
       clearLocalSearchSuggestionsSession()
-
-      if (isFreeTubeInternalQuery) {
-        const adjustedQuery = queryText.substring(3)
-        if (this.$router.currentRoute.fullPath !== adjustedQuery) {
-          openInternalPath({
-            path: adjustedQuery,
-            adjustedQuery,
-            doCreateNewWindow
-          })
-        }
-
-        // update in-use search query to the selected search history entry name
-        this.lastSuggestionQuery = this.$store.getters.getSearchHistoryEntryWithRoute(adjustedQuery)?.name ?? ''
-        return
-      }
 
       this.getYoutubeUrlInfo(queryText).then((result) => {
         switch (result.urlType) {
@@ -315,7 +302,7 @@ export default defineComponent({
 
     getSearchSuggestionsDebounce: function (query) {
       const trimmedQuery = query.trim()
-      if (trimmedQuery === this.lastSuggestionQuery || trimmedQuery.startsWith('ft:')) {
+      if (trimmedQuery === this.lastSuggestionQuery) {
         return
       }
 

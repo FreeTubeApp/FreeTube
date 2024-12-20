@@ -8,6 +8,7 @@
       showActionButton: showActionButton,
       showClearTextButton: showClearTextButton,
       clearTextButtonVisible: inputDataPresent || showOptions,
+      inputDataPresent: inputDataPresent,
       showOptions: showOptions,
       disabled: disabled
     }"
@@ -84,16 +85,11 @@
           @mouseleave="searchState.selectedOption = -1"
         >
           <font-awesome-icon
-            v-if="entry.name"
-            :icon="['fas', 'clock-rotate-left']"
-            class="searchResultIcon bookmarkStarIcon"
-          />
-          <font-awesome-icon
-            v-else-if="isSearch"
-            :icon="['fas', 'magnifying-glass']"
+            v-if="searchResultIcon"
+            :icon="searchResultIcon"
             class="searchResultIcon"
           />
-          {{ entry.name ?? entry }}
+          {{ entry }}
         </li>
         <!-- skipped -->
       </ul>

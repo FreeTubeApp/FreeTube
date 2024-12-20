@@ -63,6 +63,10 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
+    searchResultIcon: {
+      type: Array,
+      default: null
+    },
     showDataWhenEmpty: {
       type: Boolean,
       default: false
@@ -151,7 +155,7 @@ export default defineComponent({
   },
   methods: {
     getTextForArrayAtIndex: function (array, index) {
-      return array[index].name ?? array[index]
+      return array[index]
     },
     handleClick: function (e) {
       // No action if no input text
@@ -244,15 +248,9 @@ export default defineComponent({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      const isSearchHistoryClick = this.visibleDataList[index].route
-      this.inputData = isSearchHistoryClick ? `ft:${this.visibleDataList[index].route}` : this.visibleDataList[index]
+      this.inputData = this.visibleDataList[index]
       this.$emit('input', this.inputData)
       this.handleClick()
-
-      // update displayed label to match name of the search history entry
-      if (isSearchHistoryClick) {
-        this.inputData = this.$refs.input.value = this.visibleDataList[index].name
-      }
     },
 
     /**
@@ -325,10 +323,6 @@ export default defineComponent({
       const lowerCaseInputData = this.inputData.toLowerCase()
 
       this.visibleDataList = this.dataList.filter(x => {
-        if (x.name) {
-          return x.name.toLowerCase().indexOf(lowerCaseInputData) !== -1
-        }
-
         return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
       })
     },

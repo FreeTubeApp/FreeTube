@@ -107,11 +107,9 @@ export default defineComponent({
   },
   methods: {
     updateSearchHistoryEntry: function () {
-      const currentRoute = this.$router.currentRoute.fullPath
       const persistentSearchHistoryPayload = {
+        _id: this.query,
         name: this.query,
-        route: currentRoute,
-        _id: currentRoute,
         lastUpdatedAt: new Date()
       }
 

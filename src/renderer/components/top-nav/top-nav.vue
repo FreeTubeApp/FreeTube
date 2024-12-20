@@ -93,12 +93,12 @@
           class="searchInput"
           :is-search="true"
           :data-list="activeDataList"
+          :search-result-icon="searchResultIcon"
           :spellcheck="false"
           :show-clear-text-button="true"
           :show-data-when-empty="true"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
-          @clear="lastSuggestionQuery = ''"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"
