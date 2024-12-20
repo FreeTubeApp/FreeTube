@@ -16,7 +16,7 @@
       <ft-icon-button
         class="navIconButton"
         :disabled="isArrowBackwardDisabled"
-        :class="{ arrowDisabled: isArrowBackwardDisabled }"
+        :class="{ disabled: isArrowBackwardDisabled }"
         :icon="['fas', 'arrow-left']"
         :theme="null"
         :size="20"
@@ -26,12 +26,11 @@
         :open-on-right-or-long-click="true"
         :title="backwardText"
         @click="historyBack"
-        @keydown.enter.prevent="historyBack"
       />
       <ft-icon-button
         class="navIconButton"
         :disabled="isArrowForwardDisabled"
-        :class="{ arrowDisabled: isArrowForwardDisabled }"
+        :class="{ disabled: isArrowForwardDisabled }"
         :icon="['fas', 'arrow-right']"
         :theme="null"
         :size="20"
@@ -41,7 +40,6 @@
         :open-on-right-or-long-click="true"
         :title="forwardText"
         @click="historyForward"
-        @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
         v-if="!hideSearchBar"
@@ -92,7 +90,7 @@
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :data-list="searchSuggestionsDataList"
+          :data-list="[...matchingBookmarksDataList, ...searchSuggestionsDataList]"
           :spellcheck="false"
           :show-clear-text-button="true"
           @input="getSearchSuggestionsDebounce"
@@ -110,6 +108,17 @@
         />
       </div>
     </div>
+    <ft-icon-button
+      class="pageBookmarkIcon navIconButton"
+      :icon="['fas', 'star']"
+      :title="pageBookmarkIconTitle"
+      :theme="pageBookmarkIconTheme"
+      :class="{ disabled: !pageBookmarksAvailable || !isRouteBookmarkable, active: isPageBookmarked }"
+      :disabled="!pageBookmarksAvailable || !isRouteBookmarkable"
+      :size="20"
+      :use-shadow="false"
+      @click="showPageBookmarkPrompt"
+    />
     <ft-profile-selector class="side profiles" />
   </div>
 </template>

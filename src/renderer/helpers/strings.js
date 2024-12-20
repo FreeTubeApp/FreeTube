@@ -57,6 +57,46 @@ export function translateWindowTitle(title) {
 }
 
 /**
+ * @param {string} route
+ */
+export function getIconForRoute(route) {
+  const routeSlashIndex = route.indexOf('/', 2)
+  const truncatedRoute = (routeSlashIndex === -1) ? route : route.substring(0, routeSlashIndex)
+  switch (truncatedRoute) {
+    case '/subscriptions':
+      return ['fas', 'rss']
+    case '/subscribedchannels':
+    case '/channel':
+      return ['fas', 'list']
+    case '/trending':
+      return ['fas', 'fire']
+    case '/popular':
+      return ['fas', 'users']
+    case '/userplaylists':
+      return ['fas', 'bookmark']
+    case '/history':
+      return ['fas', 'history']
+    case '/settings':
+      return ['fas', 'sliders-h']
+    case '/about':
+      return ['fas', 'info-circle']
+    case '/search':
+      return ['fas', 'magnifying-glass']
+    case '/hashtag':
+      return ['fas', 'hashtag']
+    case '/post':
+      return ['fas', 'message']
+    case '/playlist': {
+      const solidOrRegular = route.includes('?playlistType=user') ? 'fas' : 'far'
+      return [solidOrRegular, 'bookmark']
+    } case '/watch':
+      return ['fas', 'play']
+    default:
+      return null
+  }
+}
+
+/**
  * Returns the first user-perceived character,
  * respecting language specific rules and
  * emojis made up of multiple codepoints
