@@ -58,7 +58,14 @@
           @change="updateFeatures"
         />
       </FtFlexBox>
-      <div class="searchFilterCloseButtonContainer">
+      <div class="searchFilterButtonsContainer">
+        <FtButton
+          v-if="showSearchButton"
+          :label="$t('Search Filters.Search')"
+          background-color="var(--primary-color)"
+          text-color="var(--text-with-main-color)"
+          @click="searchFromFilters"
+        />
         <FtButton
           :label="$t('Close')"
           background-color="var(--primary-color)"
@@ -81,6 +88,14 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtCheckboxList from '../ft-checkbox-list/ft-checkbox-list.vue'
 
 import store from '../../store/index'
+import { clearLocalSearchSuggestionsSession } from '../../helpers/api/local'
+
+const props = defineProps({
+  searchQueryText: {
+    type: String,
+    required: true
+  }
+})
 
 const { t } = useI18n()
 
@@ -201,11 +216,23 @@ const searchFilterValueChanged = computed(() => {
 
 const searchSettings = computed(() => store.getters.getSearchSettings)
 
+const showSearchButton = computed(() => props.searchQueryText !== '')
+
 const searchSortByStartIndex = SORT_BY_VALUES.indexOf(searchSettings.value.sortBy)
 const searchTimeStartIndex = TIME_VALUES.indexOf(searchSettings.value.time)
 const searchTypeStartIndex = TYPE_VALUES.indexOf(searchSettings.value.type)
 const searchDurationStartIndex = DURATION_VALUES.indexOf(searchSettings.value.duration)
 const searchDefaultFeatures = [...searchSettings.value.features]
+
+async function searchFromFilters() {
+  hideSearchFilters()
+  clearLocalSearchSuggestionsSession()
+
+  const queryText = props.searchQueryText
+  const doCreateNewWindow = false
+
+  await store.dispatch('search', { queryText, doCreateNewWindow })
+}
 
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')

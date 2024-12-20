@@ -97,6 +97,7 @@
           :show-clear-text-button="true"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
+          @clear="emitSearchInputText('')"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"

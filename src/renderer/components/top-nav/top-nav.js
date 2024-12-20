@@ -6,7 +6,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
-import { localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
+import { localizeAndAddKeyboardShortcutToActionTitle } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
@@ -18,6 +18,7 @@ export default defineComponent({
     FtInput,
     FtProfileSelector
   },
+  emits: ['search-query-text'],
   data: () => {
     let isArrowBackwardDisabled = true
     let isArrowForwardDisabled = true
@@ -167,111 +168,12 @@ export default defineComponent({
 
       clearLocalSearchSuggestionsSession()
 
-      this.getYoutubeUrlInfo(queryText).then((result) => {
-        switch (result.urlType) {
-          case 'video': {
-            const { videoId, timestamp, playlistId } = result
+      await this.search({ queryText, doCreateNewWindow })
 
-            const query = {}
-            if (timestamp) {
-              query.timestamp = timestamp
-            }
-            if (playlistId && playlistId.length > 0) {
-              query.playlistId = playlistId
-            }
-
-            openInternalPath({
-              path: `/watch/${videoId}`,
-              query,
-              doCreateNewWindow,
-              searchQueryText: queryText,
-            })
-            break
-          }
-
-          case 'playlist': {
-            const { playlistId, query } = result
-
-            openInternalPath({
-              path: `/playlist/${playlistId}`,
-              query,
-              doCreateNewWindow,
-              searchQueryText: queryText,
-            })
-            break
-          }
-
-          case 'search': {
-            const { searchQuery, query } = result
-
-            openInternalPath({
-              path: `/search/${encodeURIComponent(searchQuery)}`,
-              query,
-              doCreateNewWindow,
-              searchQueryText: searchQuery,
-            })
-            break
-          }
-
-          case 'hashtag': {
-            const { hashtag } = result
-            openInternalPath({
-              path: `/hashtag/${encodeURIComponent(hashtag)}`,
-              doCreateNewWindow,
-              searchQueryText: `#${hashtag}`,
-            })
-
-            break
-          }
-
-          case 'post': {
-            const { postId, query } = result
-
-            openInternalPath({
-              path: `/post/${postId}`,
-              query,
-              doCreateNewWindow,
-              searchQueryText: queryText,
-            })
-            break
-          }
-
-          case 'channel': {
-            const { channelId, subPath, url } = result
-
-            openInternalPath({
-              path: `/channel/${channelId}/${subPath}`,
-              doCreateNewWindow,
-              query: {
-                url,
-              },
-              searchQueryText: queryText,
-            })
-            break
-          }
-
-          case 'invalid_url':
-          default: {
-            openInternalPath({
-              path: `/search/${encodeURIComponent(queryText)}`,
-              query: {
-                sortBy: this.searchSettings.sortBy,
-                time: this.searchSettings.time,
-                type: this.searchSettings.type,
-                duration: this.searchSettings.duration,
-                features: this.searchSettings.features,
-              },
-              doCreateNewWindow,
-              searchQueryText: queryText,
-            })
-          }
-        }
-
-        if (doCreateNewWindow) {
-          // Query text copied to new window = can be removed from current window
-          this.updateSearchInputText('')
-        }
-      })
+      if (doCreateNewWindow) {
+        // Query text copied to new window = can be removed from current window
+        this.updateSearchInputText('')
+      }
     },
 
     focusSearch: function () {
@@ -288,6 +190,8 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
+      this.emitSearchInputText(query)
+
       if (this.enableSearchSuggestions) {
         const trimmedQuery = query.trim()
         if (trimmedQuery !== this.lastSuggestionQuery) {
@@ -400,6 +304,7 @@ export default defineComponent({
       this.$router.push('/' + route)
     },
     updateSearchInputText: function (text) {
+      this.emitSearchInputText(text)
       this.$refs.searchInput.updateInputData(text)
     },
     setActiveNavigationHistoryEntryTitle(value) {
@@ -410,8 +315,12 @@ export default defineComponent({
       }
     },
 
+    emitSearchInputText: function (text) {
+      this.$emit('search-query-text', text)
+    },
+
     ...mapActions([
-      'getYoutubeUrlInfo',
+      'search',
       'showSearchFilters'
     ])
   }
