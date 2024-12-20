@@ -510,6 +510,7 @@ Settings:
     Hide Videos and Playlists Containing Text: 隱藏包含文字的影片與播放清單
     Hide Videos and Playlists Containing Text Placeholder: 單字、單字片段或片語
     Hide Channel Home: 隱藏頻道「首頁」分頁
+    Show Added Items: 顯示新增的項目
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
