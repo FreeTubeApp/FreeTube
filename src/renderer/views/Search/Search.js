@@ -53,8 +53,6 @@ export default defineComponent({
   },
   watch: {
     $route () {
-      // react to route changes...
-
       const query = this.$route.params.query
       let features = this.$route.query.features
       // if page gets refreshed and there's only one feature then it will be a string
@@ -108,6 +106,18 @@ export default defineComponent({
     this.checkSearchCache(payload)
   },
   methods: {
+    updateSearchHistoryEntry: function () {
+      const currentRoute = this.$router.currentRoute.fullPath
+      const persistentSearchHistoryPayload = {
+        name: this.query,
+        route: currentRoute,
+        _id: currentRoute,
+        lastUpdatedAt: new Date()
+      }
+
+      this.$store.dispatch('updateSearchHistoryEntry', persistentSearchHistoryPayload)
+    },
+
     checkSearchCache: function (payload) {
       if (payload.query.length > SEARCH_CHAR_LIMIT) {
         console.warn(`Search character limit is: ${SEARCH_CHAR_LIMIT}`)
@@ -136,6 +146,8 @@ export default defineComponent({
             break
         }
       }
+
+      this.updateSearchHistoryEntry()
     },
 
     performSearchLocal: async function (payload) {

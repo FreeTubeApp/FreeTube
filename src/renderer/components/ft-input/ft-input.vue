@@ -68,21 +68,31 @@
     </span>
     <div class="options">
       <ul
-        v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
+        v-if="(inputData !== '' || showDataWhenEmpty) && visibleDataList.length > 0 && searchState.showOptions"
         class="list"
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"
       >
         <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
-          v-for="(list, index) in visibleDataList"
+          v-for="(entry, index) in visibleDataList"
           :key="index"
-          :class="searchState.selectedOption === index ? 'hover': ''"
+          :class="{ hover: searchState.selectedOption === index }"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1"
         >
-          {{ list }}
+          <font-awesome-icon
+            v-if="entry.name"
+            :icon="['fas', 'clock-rotate-left']"
+            class="searchResultIcon bookmarkStarIcon"
+          />
+          <font-awesome-icon
+            v-else-if="isSearch"
+            :icon="['fas', 'magnifying-glass']"
+            class="searchResultIcon"
+          />
+          {{ entry.name ?? entry }}
         </li>
         <!-- skipped -->
       </ul>

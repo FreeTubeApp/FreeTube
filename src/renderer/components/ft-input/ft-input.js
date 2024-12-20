@@ -63,6 +63,10 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
+    showDataWhenEmpty: {
+      type: Boolean,
+      default: false
+    },
     tooltip: {
       type: String,
       default: ''
@@ -116,8 +120,7 @@ export default defineComponent({
 
     searchStateKeyboardSelectedOptionValue() {
       if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
-
-      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+      return this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.keyboardSelectedOptionIndex)
     },
   },
   watch: {
@@ -143,6 +146,9 @@ export default defineComponent({
     this.updateVisibleDataList()
   },
   methods: {
+    getTextForArrayAtIndex: function (array, index) {
+      return array[index].name ?? array[index]
+    },
     handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) {
@@ -234,9 +240,15 @@ export default defineComponent({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      this.inputData = this.visibleDataList[index]
+      const isSearchHistoryClick = this.visibleDataList[index].route
+      this.inputData = isSearchHistoryClick ? `ft:${this.visibleDataList[index].route}` : this.visibleDataList[index]
       this.$emit('input', this.inputData)
       this.handleClick()
+
+      // update displayed label to match name of the search history entry
+      if (isSearchHistoryClick) {
+        this.inputData = this.$refs.input.value = this.visibleDataList[index].name
+      }
     },
 
     /**
@@ -248,9 +260,11 @@ export default defineComponent({
         if (this.searchState.selectedOption !== -1) {
           this.searchState.showOptions = false
           event.preventDefault()
-          this.inputData = this.visibleDataList[this.searchState.selectedOption]
+          this.inputData = this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.selectedOption)
+          this.handleOptionClick(this.searchState.selectedOption)
+        } else {
+          this.handleClick(event)
         }
-        this.handleClick(event)
         // Early return
         return
       }
@@ -291,12 +305,11 @@ export default defineComponent({
       if (!this.searchState.isPointerInList) { this.searchState.showOptions = false }
     },
 
-    handleFocus: function(e) {
+    handleFocus: function () {
       this.searchState.showOptions = true
     },
 
     updateVisibleDataList: function () {
-      if (this.dataList.length === 0) { return }
       // Reset selected option before it's updated
       this.searchState.selectedOption = -1
       this.searchState.keyboardSelectedOptionIndex = -1
@@ -308,6 +321,10 @@ export default defineComponent({
       const lowerCaseInputData = this.inputData.toLowerCase()
 
       this.visibleDataList = this.dataList.filter(x => {
+        if (x.name) {
+          return x.name.toLowerCase().indexOf(lowerCaseInputData) !== -1
+        }
+
         return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
       })
     },

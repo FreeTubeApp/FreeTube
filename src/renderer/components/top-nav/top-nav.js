@@ -119,7 +119,15 @@ export default defineComponent({
         this.$t('Open New Window'),
         KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
       )
-    }
+    },
+
+    // show latest search history when the search bar is empty
+    activeDataList: function () {
+      if (!this.enableSearchSuggestions) {
+        return
+      }
+      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries(this.$router.currentRoute.fullPath) : this.searchSuggestionsDataList
+    },
   },
   watch: {
     $route: function () {
@@ -158,14 +166,26 @@ export default defineComponent({
     goToSearch: async function (queryText, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
+      const isFreeTubeInternalQuery = queryText.startsWith('ft:')
+
       if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
         this.$refs.searchContainer.blur()
         this.showSearchContainer = false
-      } else {
+      } else if (!isFreeTubeInternalQuery) {
         this.$refs.searchInput.blur()
       }
 
       clearLocalSearchSuggestionsSession()
+
+      if (isFreeTubeInternalQuery) {
+        const adjustedQuery = queryText.substring(3)
+        openInternalPath({
+          path: adjustedQuery,
+          adjustedQuery,
+          doCreateNewWindow
+        })
+        return
+      }
 
       this.getYoutubeUrlInfo(queryText).then((result) => {
         switch (result.urlType) {
@@ -288,12 +308,15 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
+      const trimmedQuery = query.trim()
+      if (trimmedQuery === this.lastSuggestionQuery || trimmedQuery.startsWith('ft:')) {
+        return
+      }
+
+      this.lastSuggestionQuery = trimmedQuery
+
       if (this.enableSearchSuggestions) {
-        const trimmedQuery = query.trim()
-        if (trimmedQuery !== this.lastSuggestionQuery) {
-          this.lastSuggestionQuery = trimmedQuery
-          this.debounceSearchResults(trimmedQuery)
-        }
+        this.debounceSearchResults(trimmedQuery)
       }
     },
 
