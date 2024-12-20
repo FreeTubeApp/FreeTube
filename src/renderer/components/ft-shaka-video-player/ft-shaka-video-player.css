@@ -266,6 +266,9 @@
   :deep(.shaka-tooltips-on button:focus-visible::after),
   :deep(.shaka-tooltips-on button:hover::after) {
     margin-bottom: 8px;
+    
+    /* Fixes long tooltips on the right got cut off by adjusting their positioning */
+    left: 1px;
   }
 }
 
