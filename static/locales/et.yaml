@@ -574,6 +574,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus
       leidub sellist teksti
     Hide Channel Home: Peida kanalite vahekaart „Avaleht“
+    Show Added Items: Näita lisatud kirjeid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
