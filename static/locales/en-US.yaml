@@ -1127,7 +1127,59 @@ shortcutJoinOperator: +
 Keys:
   alt: Alt
   ctrl: Ctrl
+  shift: Shift
+  enter: Enter
+  plus: Plus
   arrowdown: Down Arrow
   arrowleft: Left Arrow
   arrowright: Right Arrow
   arrowup: Up Arrow
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Keyboard Shortcuts
+  Sections:
+    Video:
+      Playback: Video: Playback
+      General: Video: General
+    App:
+      Situational: 'App: Situational'
+      General: App: General
+  Show Keyboard Shortcuts: Show keyboard shortcuts
+  History Backward: Go back one page
+  History Forward: Go forward one page
+  New Window: Create a new window
+  Navigate to Settings: Navigate to the Settings page
+  Navigate to History: Navigate to the History page
+  Refresh: Refresh feed with latest content
+  Focus Secondary Search: Focus on the secondary search bar (if one is present)
+  Captions: Toggle captions ON/OFF
+  Stats: Show video statistics
+  Fullscreen: Toggle fullscreen
+  Picture in Picture: Toggle Picture-in-Picture mode
+  Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate'
+  Play: Toggle play/pause
+  Large Fast Forward: 'Forward 10 seconds / Fast-Forward video based on current Video Playback Rate'
+  Mute: Toggle mute
+  Decrease Video Speed: 'Decrease video speed based on Video Playback Rate Interval'
+  Increase Video Speed: 'Increase video speed based on Video Playback Rate Interval'
+  Full Window: Toggle full window
+  Theatre Mode: Toggle theater mode
+  Take Screenshot: Take screenshot
+  Minimize Window: Miminize window
+  Close Window: Close window
+  Restart Window: Restart window
+  Force Restart Window: Force restart window
+  Toggle Developer Tools: Toggle developer tools
+  Reset Zoom: Reset zoom level / UI scale
+  Zoom In: Zoom in
+  Zoom Out: Zoom out
+  Focus Search: Focus on the search bar
+  Search in New Window: Search in a new window
+  Last Frame: Previous frame (while paused)
+  Next Frame: Next frame (while paused)
+  Volume Up: Increase volume
+  Volume Down: Decrease volume
+  Small Rewind: 'Rewind X seconds based on the Rewind Interval and current Video Playback Rate'
+  Small Fast Forward: 'Fast-Forward X seconds based on the Fast-Forward Interval and current Video Playback Rate'
+  Last Chapter: Last Chapter
+  Next Chapter: Next Chapter
+  Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)

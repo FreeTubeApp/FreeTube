@@ -10,6 +10,7 @@ import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/FtProgressBar/FtProgressBar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
+import FtKeyboardShortcutPrompt from './components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue'
 import FtSearchFilters from './components/FtSearchFilters/FtSearchFilters.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
@@ -32,7 +33,8 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
-    FtSearchFilters
+    FtSearchFilters,
+    FtKeyboardShortcutPrompt,
   },
   data: function () {
     return {
@@ -70,6 +72,9 @@ export default defineComponent({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
+    },
+    isKeyboardShortcutPromptShown: function () {
+      return this.$store.getters.getIsKeyboardShortcutPromptShown
     },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
@@ -347,6 +352,10 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
+      if (event.shiftKey && event.key === '?') {
+        this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
+      }
+
       if (event.altKey) {
         switch (event.key) {
           case 'D':
@@ -576,6 +585,8 @@ export default defineComponent({
       'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
+      'hideKeyboardShortcutPrompt',
+      'showKeyboardShortcutPrompt',
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
