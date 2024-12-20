@@ -210,7 +210,11 @@ const actions = {
         }
         // Undesired attributes, even with `null` values
         [
+          'authorUrl',
           'description',
+          'index',
+          'liveNow',
+          'videoThumbnails',
           'viewCount',
         ].forEach(attrName => {
           if (typeof videoData[attrName] !== 'undefined') {
@@ -404,7 +408,7 @@ const actions = {
   async removeVideo({ commit }, payload) {
     try {
       const { _id, videoId, playlistItemId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId })
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, videoId, playlistItemId)
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)

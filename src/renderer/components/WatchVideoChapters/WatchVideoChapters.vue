@@ -12,7 +12,7 @@
       @keydown.space.stop.prevent="toggleShowChapters"
       @keydown.enter.stop.prevent="toggleShowChapters"
     >
-      {{ $t("Chapters.Chapters") }}
+      {{ kind === 'keyMoments' ? $t('Chapters.Key Moments') : $t("Chapters.Chapters") }}
 
       <span class="currentChapter">
         • {{ currentTitle }}
@@ -82,6 +82,10 @@ const props = defineProps({
   currentChapterIndex: {
     type: Number,
     required: true
+  },
+  kind: {
+    type: String,
+    default: 'chapters'
   }
 })
 
@@ -106,10 +110,12 @@ const currentChapter = computed(() => {
   return props.chapters[currentIndex.value]
 })
 
+/** @type {import('vue').ComputedRef<string>} */
 const currentTitle = computed(() => {
   return currentChapter.value.title
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const compact = computed(() => {
   return !props.chapters[0].thumbnail
 })

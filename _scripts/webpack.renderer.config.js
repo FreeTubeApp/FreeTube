@@ -153,18 +153,20 @@ const config = {
         },
         // Don't need to copy them in dev mode,
         // as we configure WebpackDevServer to serve them
-        ...(isDevMode ? [] : [
-          {
-            from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
-            to: path.join(__dirname, '../dist/static/shaka-player-locales'),
-            context: path.join(__dirname, '../node_modules/shaka-player/ui/locales'),
-            transform: {
-              transformer: (input) => {
-                return JSON.stringify(JSON.parse(input.toString('utf-8')))
+        ...(isDevMode
+          ? []
+          : [
+              {
+                from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
+                to: path.join(__dirname, '../dist/static/shaka-player-locales'),
+                context: path.join(__dirname, '../node_modules/shaka-player/ui/locales'),
+                transform: {
+                  transformer: (input) => {
+                    return JSON.stringify(JSON.parse(input.toString('utf-8')))
+                  }
+                }
               }
-            }
-          }
-        ])
+            ])
       ]
     })
   ],

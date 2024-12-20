@@ -1,0 +1,125 @@
+.settingsSection {
+  margin-block: 0;
+
+  @media only screen and (width <= 800px) {
+    inline-size: 100%;
+  }
+}
+
+.sectionHeader {
+  cursor: pointer;
+  display: block;
+  padding: 1px;
+}
+
+.sectionBody {
+  background-color: var(--card-bg-color);
+  padding-block: 10px;
+
+  > div {
+    box-sizing: border-box;
+    padding-block: 0;
+    padding-inline: 20px;
+    inline-size: 100%;
+  }
+
+  > div:not(:last-child, .ft-flex-box) {
+    @media only screen and (width <= 800px) {
+      margin-block-end: 20px;
+    }
+  }
+}
+
+.sectionTitle {
+  user-select: none;
+  margin-inline-start: 20px;
+  margin-block: 0.5em;
+}
+
+.dataSettingsBox {
+  justify-content: center;
+}
+
+:deep(.groupTitle) {
+  text-align: center;
+  margin-block: 0.5em;
+}
+
+%switch-grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-evenly;
+
+  @media only screen and (width <= 680px) {
+    grid-template-columns: auto;
+  }
+}
+
+:deep(.switchGrid) {
+  @extend %switch-grid;
+}
+
+:deep(.switchColumnGrid) {
+  @extend %switch-grid;
+
+  align-items: start;
+}
+
+:deep(.switchColumn) {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+:deep(.center) {
+  text-align: center;
+}
+
+@media only screen and (width <= 460px) {
+  :deep(.settingsFlexStart460px) {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (width <= 500px) {
+  :deep(.settingsFlexStart500px) {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (width <= 680px) {
+  .settingsSection {
+    > div {
+      :deep(.text.bottom) {
+        inset-inline-start: -85px;
+      }
+    }
+
+    :deep(.switch-ctn.containsTooltip) {
+      inset-inline-start: -10px;
+      margin-inline-end: 5px;
+      padding-block: 0;
+      padding-inline: 10px;
+    }
+
+    :not(.select, .selectLabel) {
+      > :deep(.tooltip) {
+        display: inline-block;
+        position: absolute;
+        inset-inline-end: -25px;
+        inset-block-start: 12px;
+      }
+    }
+
+    .settingsFlexStart460px :deep(.tooltip) {
+      inset-inline-end: 0;
+      inset-block-start: -2px;
+    }
+
+    :deep(.switch-ctn) {
+      margin-block: 10px;
+      margin-inline: 7px;
+    }
+  }
+}
