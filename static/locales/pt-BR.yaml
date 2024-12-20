@@ -435,7 +435,7 @@ Settings:
         %M (o mês com 2 dígitos). %D (o dia com 2 dígitos). %H (a hora com 2 dígitos).
         %N (o minuto com 2 dígitos). %S (o segundo com 2 dígitos). %T (o milissegundo
         com 3 dígitos). %s (segundo do vídeo. %t (milissegundo do vídeo com 3 dígitos).
-        %i (id do vídeo). Você também pode usar "\" ou "/" para criar subpastas.
+        %i (id do vídeo).
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar o dispositivo
       para o modo paisagem
     Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player

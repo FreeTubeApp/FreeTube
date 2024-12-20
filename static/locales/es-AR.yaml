@@ -258,8 +258,7 @@ Settings:
       File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos).
         %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2
         dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del
-        Video. %t Milisegundo del Video (3 dígitos). %i ID del Video. También podés
-        utilizar "" o "/" para crear subcarpetas.'
+        Video. %t Milisegundo del Video (3 dígitos). %i ID del Video.'
       File Name Label: Formato de Nombre de Archivo
     Scroll Volume Over Video Player: Barra de volumen en el reproductor
     Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de

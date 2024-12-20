@@ -420,8 +420,7 @@ Settings:
       File Name Tooltip: Bạn có thể dùng các biến số dưới đây. %Y Năm 4 chữ số. %M
         Tháng 2 chữ số. %D Ngày 2 chữ số. %H Giờ 2 chữ số. %N Phút 2 chữ số. %S Giây
         2 chữ số. %T Phầm trăm giây 3 chữ số. %s Giây Video. %t Phần trăm giây Video
-        3 chữ số. %i Video ID. Bạn cũng có thể dùng dấu "\" hoặc "/" để tạo các thư
-        mục con.
+        3 chữ số. %i Video ID.
     Max Video Playback Rate: Tốc độ phát lại tối đa
     Video Playback Rate Interval: Khoảng cách tốc độ phát
     Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay

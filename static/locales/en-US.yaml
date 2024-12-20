@@ -450,7 +450,7 @@ Settings:
       File Name Label: Filename Pattern
       File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2 digits.
         %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2 digits. %T Millisecond 3 digits.
-        %s Video Second. %t Video Millisecond 3 digits. %i Video ID. You can also use "\" or "/" to create subfolders.
+        %s Video Second. %t Video Millisecond 3 digits. %i Video ID.
       Error:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
@@ -1099,7 +1099,7 @@ External link opening has been disabled in the general settings: 'External link 
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
-Screenshot Success: Saved screenshot as "{filePath}"
+Screenshot Success: Saved screenshot
 Screenshot Error: Screenshot failed. {error}
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'

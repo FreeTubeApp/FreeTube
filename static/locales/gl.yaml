@@ -265,8 +265,7 @@ Settings:
       File Name Tooltip: Podes usalas variables a continuación. %Y 4 díxitos do ano.
         %M Mes 2 díxitos. %D Día 2 díxitos. %H Hora 2 díxitos. %N minutos 2 díxitos.
         %S Segundo 2 díxitos. %T Milisegundos 3 díxitos. %s segundo de vídeo. %t Video
-        Milisegundos 3 díxitos. ID de vídeo %i. Tamén podes usar "\" ou "/" para crear
-        subcartafoles.
+        Milisegundos 3 díxitos. ID de vídeo %i.
       Folder Button: Seleccione un cartafol
       File Name Label: Patrón do nome do fixeiro
       Enable: Activalas capturas da pantalla

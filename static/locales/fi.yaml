@@ -346,8 +346,7 @@ Settings:
       File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M
         Kuukausi 2 numeroa. %D Päivä 2 numeroa. %H Tunnit 2 numeroa. %N Minuutit 2
         numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit.
-        %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID. Voit myös käyttää
-        "\" tai "/" luodaksesi alikansioita.
+        %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID.
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
   Subscription Settings:

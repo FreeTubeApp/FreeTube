@@ -401,8 +401,7 @@ Settings:
       File Name Tooltip: 'Pode utilizar estas variáveis: %Y ano com 4 dígitos, %M
         mês com 2 dígitos, %D dia com 2 dígitos, %H hora com 2 dígitos, %N minuto
         com 2 dígitos, %S segundos com 2 dígitos, %T milissegundos com 3 dígitos,
-        %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.
-        Também pode usar "\" ou "/" para criar subpastas.'
+        %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.'
     Max Video Playback Rate: Velocidade máxima de reprodução
     Video Playback Rate Interval: Intervalo entre velocidades de reprodução
     Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao deslocar

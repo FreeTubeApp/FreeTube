@@ -276,44 +276,34 @@ const actions = {
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
-    return new Promise((resolve, reject) => {
-      const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
-      const keywords = [
-        ['%Y', date.getFullYear()], // year 4 digits
-        ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
-        ['%D', date.getDate().toString().padStart(2, '0')], // day 2 digits
-        ['%H', date.getHours().toString().padStart(2, '0')], // hour 2 digits
-        ['%N', date.getMinutes().toString().padStart(2, '0')], // minute 2 digits
-        ['%S', date.getSeconds().toString().padStart(2, '0')], // second 2 digits
-        ['%T', date.getMilliseconds().toString().padStart(3, '0')], // millisecond 3 digits
-        ['%s', parseInt(playerTime)], // video position second n digits
-        ['%t', (playerTime % 1).toString().slice(2, 5) || '000'], // video position millisecond 3 digits
-        ['%i', videoId] // video id
-      ]
+    const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
+    const keywords = [
+      ['%Y', date.getFullYear()], // year 4 digits
+      ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
+      ['%D', date.getDate().toString().padStart(2, '0')], // day 2 digits
+      ['%H', date.getHours().toString().padStart(2, '0')], // hour 2 digits
+      ['%N', date.getMinutes().toString().padStart(2, '0')], // minute 2 digits
+      ['%S', date.getSeconds().toString().padStart(2, '0')], // second 2 digits
+      ['%T', date.getMilliseconds().toString().padStart(3, '0')], // millisecond 3 digits
+      ['%s', parseInt(playerTime)], // video position second n digits
+      ['%t', (playerTime % 1).toString().slice(2, 5) || '000'], // video position millisecond 3 digits
+      ['%i', videoId] // video id
+    ]
 
-      let parsedString = pattern
-      for (const [key, value] of keywords) {
-        parsedString = parsedString.replaceAll(key, value)
-      }
+    let parsedString = pattern
+    for (const [key, value] of keywords) {
+      parsedString = parsedString.replaceAll(key, value)
+    }
 
-      if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters')))
-      }
+    if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
+      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
+    }
 
-      let filename
-      if (parsedString.indexOf(path.sep) !== -1) {
-        const lastIndex = parsedString.lastIndexOf(path.sep)
-        filename = parsedString.substring(lastIndex + 1)
-      } else {
-        filename = parsedString
-      }
+    if (!parsedString) {
+      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
+    }
 
-      if (!filename) {
-        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name')))
-      }
-
-      resolve(parsedString)
-    })
+    return parsedString
   },
 
   showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {

@@ -275,7 +275,6 @@ Settings:
         skaitmenys. %M Mėnuo 2 skaitmenys. %D Diena 2 skaitmenys. %H Valanda 2 skaitmenys.
         %N Minutė 2 skaitmenys. %S Sekundė 2 skaitmenys. %T Milisekundė 3 skaitmenys.
         %s Vaizdo sekundė. %t Vaizdo milisekundė 3 skaitmenys. %i Vaizdo įrašo ID.
-        Taip pat galite naudoti „\“ arba „/“, kad sukurtumėte pakatalogius.
       Error:
         Forbidden Characters: Draudžiami simboliai
         Empty File Name: Tuščias failo pavadinimas

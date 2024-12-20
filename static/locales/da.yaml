@@ -359,8 +359,7 @@ Settings:
         Empty File Name: Tomt Filnavn
       File Name Tooltip: Du kan bruge variabler nedenfor. %Y År 4 tal. %M Måned 2
         tal. %D Dag 2 tal. %H Time 2 tal. %N Minut 2 tal. %S Sekund 2 tal. %T Millisekund
-        3 tal. %s Video-sekund. %t Video-millisekund 3 tal. %i Video-ID. Du kan også
-        bruge "\" eller "/" til at oprette undermapper.
+        3 tal. %s Video-sekund. %t Video-millisekund 3 tal. %i Video-ID.
       Ask Path: Spørg efter Mappe til at Gemme
       Folder Label: Mappe til Skærmbilleder
     Next Video Interval: Næste Videointerval
