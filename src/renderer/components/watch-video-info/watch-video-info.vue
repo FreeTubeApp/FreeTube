@@ -1,11 +1,25 @@
 <template>
   <ft-card class="watchVideoInfo">
     <div>
-      <h1
-        class="videoTitle"
-      >
-        {{ title }}
-      </h1>
+      <div class="videoTitleWrapper">
+        <h1
+          class="videoTitle"
+        >
+          {{ title }}
+        </h1>
+        <font-awesome-icon
+          v-if="showDeArrowToggle"
+          :title="deArrowToggleTitle"
+          :icon="['far', 'dot-circle']"
+          class="deArrowToggleButton"
+          :class="{ activated: deArrowToggleActivated }"
+          tabindex="0"
+          role="button"
+          @click="toggleDeArrow"
+          @keydown.enter.prevent="toggleDeArrow"
+          @keydown.space.prevent="toggleDeArrow"
+        />
+      </div>
       <div
         v-if="isUnlisted"
         class="unlistedBadge"

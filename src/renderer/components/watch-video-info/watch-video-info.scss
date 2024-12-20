@@ -5,6 +5,11 @@
   gap: 8px;
 }
 
+.videoTitleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .videoTitle {
   display: block;
   font-size: 22px;
@@ -12,6 +17,33 @@
   margin-block: 0;
   margin-inline: 0;
   word-break: break-word;
+}
+
+.deArrowToggleButton {
+  border-radius: 50%;
+  cursor: pointer;
+  block-size: 1em;
+  inline-size: 1em;
+  padding: 5px;
+  font-size: 16px;
+  transition: background 0.15s ease-out;
+  color: var(--primary-color);
+
+  &:not(.disabled) {
+    &:hover,
+    &:focus-visible {
+      background-color: var(--side-nav-hover-color);
+    }
+
+    &:active {
+      background-color: var(--side-nav-active-color);
+    }
+
+    &.activated {
+      opacity: 1;
+      filter: grayscale(1);
+    }
+  }
 }
 
 .videoMetrics,
