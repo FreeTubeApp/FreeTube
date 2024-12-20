@@ -11,9 +11,6 @@ import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
 
-const NAV_HISTORY_DISPLAY_LIMIT = 15
-const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = Math.floor(NAV_HISTORY_DISPLAY_LIMIT / 2)
-
 export default defineComponent({
   name: 'TopNav',
   components: {
@@ -38,6 +35,8 @@ export default defineComponent({
       isArrowForwardDisabled,
       navigationHistoryDropdownActiveEntry: null,
       navigationHistoryDropdownOptions: [],
+      isLoadingNavigationHistory: false,
+      pendingNavigationHistoryLabel: null,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -343,52 +342,29 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    getNavigationHistoryResultEndIndex: function (navigationHistoryActiveIndex, navigationHistoryLength) {
-      if (navigationHistoryActiveIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
-        return Math.min(navigationHistoryLength - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
-      } else if (navigationHistoryLength - navigationHistoryActiveIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
-        return navigationHistoryLength - 1
-      } else {
-        return navigationHistoryActiveIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
-      }
-    },
-
-    getNavigationHistoryDropdownOptions: async function (ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength) {
-      const dropdownOptions = []
-      const end = this.getNavigationHistoryResultEndIndex(navigationHistoryActiveIndex, navigationHistoryLength)
-
-      for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
-        const routeLabel = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX, index)
-        const isActiveIndex = index === navigationHistoryActiveIndex
-        const dropdownOption = {
-          label: routeLabel,
-          value: index - navigationHistoryActiveIndex,
-          active: isActiveIndex
-        }
-
-        dropdownOptions.push(dropdownOption)
-
-        if (isActiveIndex) {
-          this.navigationHistoryDropdownActiveEntry = dropdownOption
-        }
-      }
-      return dropdownOptions
-    },
-
     setNavigationHistoryDropdownOptions: async function() {
       if (process.env.IS_ELECTRON) {
+        this.isLoadingNavigationHistory = true
         const { ipcRenderer } = require('electron')
-        const navigationHistoryLength = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_LENGTH)
-        const navigationHistoryActiveIndex = await ipcRenderer.invoke(IpcChannels.GET_NAV_HISTORY_ACTIVE_INDEX)
 
-        this.navigationHistoryDropdownOptions = await this.getNavigationHistoryDropdownOptions(ipcRenderer, navigationHistoryActiveIndex, navigationHistoryLength)
+        const dropdownOptions = await ipcRenderer.invoke(IpcChannels.GET_NAVIGATION_HISTORY)
+
+        const activeEntry = dropdownOptions.find(option => option.active)
+
+        if (this.pendingNavigationHistoryLabel) {
+          activeEntry.label = this.pendingNavigationHistoryLabel
+        }
+
+        this.navigationHistoryDropdownOptions = dropdownOptions
+        this.navigationHistoryDropdownActiveEntry = activeEntry
+        this.isLoadingNavigationHistory = false
       }
     },
 
     goToOffset: function (offset) {
-      if (process.env.IS_ELECTRON) {
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.GO_TO_NAV_HISTORY_OFFSET, offset)
+      // no point navigating to the current route
+      if (offset !== 0) {
+        this.$router.go(offset)
       }
     },
 
@@ -427,11 +403,11 @@ export default defineComponent({
       this.$refs.searchInput.updateInputData(text)
     },
     setActiveNavigationHistoryEntryTitle(value) {
-      this.$nextTick(() => {
-        if (this.navigationHistoryDropdownActiveEntry?.label) {
-          this.navigationHistoryDropdownActiveEntry.label = value
-        }
-      })
+      if (this.isLoadingNavigationHistory) {
+        this.pendingNavigationHistoryLabel = value
+      } else if (this.navigationHistoryDropdownActiveEntry) {
+        this.navigationHistoryDropdownActiveEntry.label = value
+      }
     },
 
     ...mapActions([

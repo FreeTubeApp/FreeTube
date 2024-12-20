@@ -534,6 +534,7 @@ Settings:
       садрже текст
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
     Hide Channel Home: Сакриј картицу „Почетна“ канала
+    Show Added Items: Прикажи додате предмете
   Data Settings:
     Data Settings: 'Подаци'
     Select Import Type: 'Избор врсте увоза'
@@ -630,12 +631,12 @@ Settings:
     External Player: Спољни плејер
     External Player Settings: Спољни плејер
     Custom External Player Executable: Прилагођени извршни спољни плејер
-    Ignore Unsupported Action Warnings: Игнориши упозорења о неподржаним радњама
+    Ignore Unsupported Action Warnings: Занемари упозорења о неподржаним радњама
     Custom External Player Arguments: Прилагођени аргументи спољног плејера
     Players:
       None:
         Name: Ниједно
-    Ignore Default Arguments: Игнориши подразумеване аргументе
+    Ignore Default Arguments: Занемари подразумеване аргументе
   Download Settings:
     Choose Path: Избор путање
     Open in web browser: Отвори у прегледачу
@@ -681,7 +682,7 @@ About:
   Please read the: 'Прочитајте'
   room rules: 'правила собе'
   Translate: 'Преведи'
-  Credits: 'Кредити'
+  Credits: 'Заслуге'
   FreeTube is made possible by: 'FreeTube су омогућили'
   these people and projects: 'ови људи и пројекти'
   Donate: 'Донација'
