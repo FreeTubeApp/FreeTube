@@ -127,7 +127,7 @@ export default defineComponent({
       if (!this.enableSearchSuggestions) {
         return
       }
-      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries(this.$router.currentRoute.fullPath) : this.searchSuggestionsDataList
+      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryEntries : this.searchSuggestionsDataList
     },
   },
   watch: {
@@ -180,11 +180,16 @@ export default defineComponent({
 
       if (isFreeTubeInternalQuery) {
         const adjustedQuery = queryText.substring(3)
-        openInternalPath({
-          path: adjustedQuery,
-          adjustedQuery,
-          doCreateNewWindow
-        })
+        if (this.$router.currentRoute.fullPath !== adjustedQuery) {
+          openInternalPath({
+            path: adjustedQuery,
+            adjustedQuery,
+            doCreateNewWindow
+          })
+        }
+
+        // update in-use search query to the selected search history entry name
+        this.lastSuggestionQuery = this.$store.getters.getSearchHistoryEntryWithRoute(adjustedQuery)?.name ?? ''
         return
       }
 

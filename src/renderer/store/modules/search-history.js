@@ -12,10 +12,10 @@ const getters = {
     return state.searchHistoryEntries
   },
 
-  getLatestUniqueSearchHistoryEntries: (state) => (routeToExclude) => {
+  getLatestUniqueSearchHistoryEntries: (state) => {
     const nameSet = new Set()
     return state.searchHistoryEntries.filter((entry) => {
-      if (nameSet.has(entry.name) || routeToExclude === entry.route) {
+      if (nameSet.has(entry.name)) {
         return false
       }
 

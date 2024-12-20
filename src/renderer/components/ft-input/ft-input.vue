@@ -7,7 +7,8 @@
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
       showClearTextButton: showClearTextButton,
-      clearTextButtonVisible: inputDataPresent,
+      clearTextButtonVisible: inputDataPresent || showOptions,
+      showOptions: showOptions,
       disabled: disabled
     }"
   >
@@ -29,7 +30,7 @@
       :icon="['fas', 'times-circle']"
       class="clearInputTextButton"
       :class="{
-        visible: inputDataPresent
+        visible: inputDataPresent || showOptions
       }"
       tabindex="0"
       role="button"
@@ -68,7 +69,7 @@
     </span>
     <div class="options">
       <ul
-        v-if="(inputData !== '' || showDataWhenEmpty) && visibleDataList.length > 0 && searchState.showOptions"
+        v-if="showOptions"
         class="list"
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"

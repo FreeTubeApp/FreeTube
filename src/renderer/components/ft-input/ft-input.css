@@ -31,12 +31,15 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   padding-inline-start: 46px;
 }
 
-.ft-input-component:focus-within .clearInputTextButton {
+.ft-input-component:focus-within .clearInputTextButton,
+.ft-input-component.showOptions .clearInputTextButton {
   opacity: 0.5;
 }
 
-.clearTextButtonVisible .clearInputTextButton.visible,
-.ft-input-component:focus-within .clearInputTextButton.visible {
+
+.ft-input-component.inputDataPresent .clearInputTextButton.visible,
+.clearTextButtonVisible:not(.showOptions) .clearInputTextButton.visible,
+.ft-input-component:focus-within:not(.showOptions) .clearInputTextButton.visible {
   cursor: pointer;
   opacity: 1;
 }
@@ -207,10 +210,6 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
-}
-
-.bookmarkStarIcon {
-  color: var(--favorite-icon-color);
 }
 
 .searchResultIcon {

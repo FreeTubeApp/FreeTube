@@ -96,6 +96,10 @@ export default defineComponent({
     }
   },
   computed: {
+    showOptions: function () {
+      return (this.inputData !== '' || this.showDataWhenEmpty) && this.visibleDataList.length > 0 && this.searchState.showOptions
+    },
+
     barColor: function () {
       return this.$store.getters.getBarColor
     },
@@ -313,7 +317,7 @@ export default defineComponent({
       // Reset selected option before it's updated
       this.searchState.selectedOption = -1
       this.searchState.keyboardSelectedOptionIndex = -1
-      if (this.inputData === '') {
+      if (this.inputData.trim() === '') {
         this.visibleDataList = this.dataList
         return
       }
