@@ -167,16 +167,18 @@ export default defineComponent({
     goToSearch: async function (queryText, { event }) {
       const doCreateNewWindow = event && event.shiftKey
 
+      const isFreeTubeInternalQuery = queryText.startsWith('ft:')
+
       if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
         this.$refs.searchContainer.blur()
         this.showSearchContainer = false
-      } else {
+      } else if (!isFreeTubeInternalQuery) {
         this.$refs.searchInput.blur()
       }
 
       clearLocalSearchSuggestionsSession()
 
-      if (queryText.startsWith('ft:')) {
+      if (isFreeTubeInternalQuery) {
         const adjustedQuery = queryText.substring(3)
         openInternalPath({
           path: adjustedQuery,

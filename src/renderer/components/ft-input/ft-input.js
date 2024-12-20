@@ -240,15 +240,15 @@ export default defineComponent({
 
     handleOptionClick: function (index) {
       this.searchState.showOptions = false
-      if (this.visibleDataList[index].route) {
-        this.inputData = `ft:${this.visibleDataList[index].route}`
-        this.$emit('input', this.inputData)
-        this.inputData = this.$refs.input.value = this.visibleDataList[index].name
-      } else {
-        this.inputData = this.visibleDataList[index]
-        this.$emit('input', this.inputData)
-      }
+      const isSearchHistoryClick = this.visibleDataList[index].route
+      this.inputData = isSearchHistoryClick ? `ft:${this.visibleDataList[index].route}` : this.visibleDataList[index]
+      this.$emit('input', this.inputData)
       this.handleClick()
+
+      // update displayed label to match name of the search history entry
+      if (isSearchHistoryClick) {
+        this.inputData = this.$refs.input.value = this.visibleDataList[index].name
+      }
     },
 
     /**
@@ -321,6 +321,10 @@ export default defineComponent({
       const lowerCaseInputData = this.inputData.toLowerCase()
 
       this.visibleDataList = this.dataList.filter(x => {
+        if (x.name) {
+          return x.name.toLowerCase().indexOf(lowerCaseInputData) !== -1
+        }
+
         return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
       })
     },
