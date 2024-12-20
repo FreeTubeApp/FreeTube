@@ -73,6 +73,7 @@
   grid-auto-flow: column;
   column-gap: 8px;
   justify-content: flex-end;
+  margin-block: 5px;
 }
 
 .searchInputsRow {
@@ -113,9 +114,14 @@
 
   .playlistOptionsAndSearch {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
+  }
+
+  .searchWrapper {
+    flex-basis: 100%;
   }
 
   .channelShareWrapper,
