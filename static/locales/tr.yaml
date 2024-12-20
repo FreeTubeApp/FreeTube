@@ -249,6 +249,9 @@ User Playlists:
     oynatma listesinden 1 yinelenen videoyu kaldırmak istediğinizden emin misiniz?
     Bu geri alınamaz. | Bu oynatma listesinden {playlistItemCount} yinelenen videoyu
     kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.
+  Export Playlist: Bu Oynatma Listesini Dışa Aktar
+  The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde
+    dışa aktarıldı
 History:
   # On History Page
   History: 'Geçmiş'
@@ -305,6 +308,7 @@ Settings:
     Auto Load Next Page:
       Label: Sonraki Sayfayı Otomatik Yükle
       Tooltip: Sonraki sayfaları ve yorumları otomatik olarak yükle.
+    Open Deep Links In New Window: FreeTube'a Geçen URL'leri Yeni Pencerede Aç
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -321,6 +325,8 @@ Settings:
       Nordic: Nord
       Solarized Light: Solarized Açık
       Solarized Dark: Solarized Koyu
+      Gruvbox Dark: Gruvbox Karanlık
+      Gruvbox Light: Gruvbox Aydınlık
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -368,6 +374,16 @@ Settings:
       Solarized Blue: Solarized Mavi
       Solarized Cyan: Solarized Camgöbeği
       Solarized Green: Solarized Yeşil
+      Gruvbox Dark Green: Gruvbox Koyu Yeşil
+      Gruvbox Dark Yellow: Gruvbox Koyu Sarı
+      Gruvbox Dark Aqua: Gruvbox Koyu Deniz Mavisi
+      Gruvbox Dark Blue: Gruvbox Koyu Mavi
+      Gruvbox Dark Purple: Gruvbox Koyu Mor
+      Gruvbox Dark Orange: Gruvbox Koyu Turuncu
+      Gruvbox Light Purple: Gruvbox Açık Mor
+      Gruvbox Light Orange: Gruvbox Açık Turuncu
+      Gruvbox Light Red: Gruvbox Açık Kırmızı
+      Gruvbox Light Blue: Gruvbox Açık Mavi
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -403,7 +419,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
-    Next Video Interval: Sonraki Video Aralığı
+    Next Video Interval: Otomatik Oynatma Geri Sayım Sayacı
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
@@ -429,6 +445,7 @@ Settings:
         veya "/" kullanabilirsiniz.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
+    Autoplay Interruption Timer: Otomatik Oynatma Durdurma Sayacı
   Privacy Settings:
     Privacy Settings: 'Gizlilik'
     Remember History: 'Geçmişi Hatırla'
@@ -456,6 +473,9 @@ Settings:
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Confirm Before Unsubscribing: Abonelikten Çıkmadan Önce Onayla
+    'Limit the number of videos displayed for each channel': Her kanal için gösterilen
+      video sayısını sınırlayın
+    To: Kadar
   Data Settings:
     Data Settings: 'Veri'
     Select Import Type: 'İçe Aktarma Türünü Seç'
@@ -533,17 +553,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve
       Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
-    Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
-    Hide Channel Community: Kanal Topluluğunu Gizle
-    Hide Channel Shorts: Kanal Kısa Videolarını Gizle
+    Hide Channel Playlists: Kanal "Oynatma Listelerini" Gizle Sekmesi
+    Hide Channel Community: Kanal "Topluluğunu" Gizle Sekmesi
+    Hide Channel Shorts: Kanal "Kısa Videolarını" Gizle Sekmesi
     Sections:
       Side Bar: Kenar Çubuğu
       Channel Page: Kanal Sayfası
       Watch Page: İzleme Sayfası
       General: Genel
       Subscriptions Page: Abonelikler Sayfası
-    Hide Channel Releases: Kanal Yayınlarını Gizle
-    Hide Channel Podcasts: Kanal Podcast'lerini Gizle
+    Hide Channel Releases: Kanal "Yayınlarını" Gizle Sekmesi
+    Hide Channel Podcasts: Kanal "Podcast'lerini" Gizle Sekmesi
     Hide Subscriptions Videos: Abonelik Videolarını Gizle
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
@@ -559,6 +579,7 @@ Settings:
       Gizle
     Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
       veya İfade
+    Hide Channel Home: Kanal "Ana Sayfasını" Gizle Sekmesi
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -578,6 +599,10 @@ Settings:
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
     Proxy Settings: Vekil Sunucu
+    Proxy Warning: FreeTube yerleşik bir proxy'ye sahip değildir, ancak Tor gibi makinenizde
+      çalışan bir proxy veya bazı VPN'ler tarafından sağlanan SOCKS5 proxy gibi harici
+      bir proxy'ye bağlanabilir. Etkinleştirilmişse, proxy/Tor'unuzun düzgün yapılandırıldığından
+      emin olun, aksi takdirde FreeTube herhangi bir veri alamayacaktır.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
@@ -782,9 +807,12 @@ Channel:
     This channel does not currently have any releases: Bu kanalda şu anda herhangi
       bir yayın yok
     Releases: Yayınlar
+  Home:
+    Home: Ana Sayfa
+    View Playlist: Oynatma Listesini Gözat
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
-  Remove From History: 'Geçmişden Kaldır'
+  Remove From History: 'Geçmişten Kaldır'
   Video has been marked as watched: 'Video izlendi olarak işaretlendi'
   Video has been removed from your history: 'Video geçmişinizden kaldırıldı'
   Open in YouTube: 'YouTube''da aç'
@@ -901,6 +929,15 @@ Video:
     Skipped segment: '{segmentCategory} bölümü atlandı'
   IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir
     VPN veya vekil sunucuya geçmeyi deneyin.
+  Unlisted: Listelenmemiş
+  AgeRestricted: Yaş sınırlamalı videolar, Google hesabına giriş ve yaş doğrulaması
+    yapılmış bir YouTube hesabının kullanımını gerektirdiği için FreeTube üzerinden
+    izlenemez.
+  MembersOnly: Yalnızca üyelere özel videolar, Google girişi ve yükleyicinin kanalına
+    ücretli üyelik gerektirdiğinden FreeTube ile izlenemez.
+  DeArrow:
+    Show Original Details: Düzenlenmemiş Detayları Göster
+    Show Modified Details: Düzenlenmiş Detayları Göster
 Videos:
   #& Sort By
   Sort By:
@@ -1045,9 +1082,12 @@ Tooltips:
     External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
       davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
       açacaktır.\n"
+    Open Deep Links In New Window: Yeniden yönlendirilmiş tarayıcı eklentileri veya
+      komut satırı bağımsız değişkenleri gibi FreeTube'a yönlendirilen URL'ler, yeni
+      pencerede açılırlar.
   External Player Settings:
-    Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, noktalı
-      virgülle (';') ayrılmış özel komut satırı argümanları.
+    Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, herhangi
+      özel komut satırı argümanları.
     Ignore Warnings: Geçerli harici oynatıcının geçerli eylemi desteklemediği durumlar
       için uyarıları bastır (örn. çalma listelerini ters çevirme vb.).
     Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının
@@ -1125,6 +1165,7 @@ Chapters:
     geçerli bölüm: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli
     bölüm: {chapterName}'
+  Key Moments: Kilit Anlar
 Preferences: Tercihler
 Ok: Tamam
 Hashtag:
@@ -1169,3 +1210,19 @@ Search Listing:
     8K: 8K
 'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
   \"{url}\"."
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Keys:
+  arrowdown: Aşağı Ok
+  arrowleft: Sol Ok
+  arrowup: Yukarı Ok
+  ctrl: Ctrl
+  arrowright: Sağ Ok
+  alt: Alt
+shortcutJoinOperator: +
+Right-click or hold to see history: Geçmişi görmek için sağ tıklayın ya da basılı
+  tutun
+Description:
+  Expand Description: '...devamı'
+  Collapse Description: Daha az göster
+Autoplay Interruption Timer: Otomatik oynatma, {autoplayInterruptionIntervalHours}
+  saattir aktif olmadığı için iptal edildi

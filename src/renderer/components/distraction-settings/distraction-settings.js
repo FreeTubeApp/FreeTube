@@ -114,6 +114,12 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+    showAddedChannelsHidden: function () {
+      return this.$store.getters.getShowAddedChannelsHidden
+    },
+    showAddedForbiddenTitles: function () {
+      return this.$store.getters.getShowAddedForbiddenTitles
+    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
         // Legacy support
@@ -159,6 +165,12 @@ export default defineComponent({
     },
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
+    },
+    handleAddedChannelsHidden: function () {
+      this.updateShowAddedChannelsHidden(!this.showAddedChannelsHidden)
+    },
+    handleAddedForbiddenTitles: function () {
+      this.updateShowAddedForbiddenTitles(!this.showAddedForbiddenTitles)
     },
     validateChannelId: function (text) {
       return checkYoutubeChannelId(text)
@@ -228,6 +240,8 @@ export default defineComponent({
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
+      'updateShowAddedChannelsHidden',
+      'updateShowAddedForbiddenTitles',
     ])
   }
 })

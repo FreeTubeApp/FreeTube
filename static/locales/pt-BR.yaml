@@ -301,6 +301,7 @@ Settings:
     Auto Load Next Page:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
+    Open Deep Links In New Window: Abrir URLs a partir do FreeTube em uma nova janela
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar cor principal na barra superior'
@@ -411,7 +412,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
-    Next Video Interval: Intervalo para o próximo vídeo
+    Next Video Interval: Temporizador de contagem regressiva para reprodução automática
     Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
     Scroll Volume Over Video Player: Alterar volume ao rolar sobre o player
     Fast-Forward / Rewind Interval: Intervalo para avançar/retroceder rapidamente
@@ -438,6 +439,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar o dispositivo
       para o modo paisagem
     Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
+    Autoplay Interruption Timer: Temporizador de interrupção para reprodução automática
   Subscription Settings:
     Subscription Settings: 'Inscrições'
     Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
@@ -445,6 +447,9 @@ Settings:
     Fetch Automatically: Buscar feed automaticamente
     Confirm Before Unsubscribing: Evitar cancelamento acidental de inscrições
 
+    'Limit the number of videos displayed for each channel': Limitar o número de vídeos
+      exibidos para cada canal
+    To: Para
   Privacy Settings:
     Watch history has been cleared: O histórico de exibição foi apagado
     Are you sure you want to remove your entire watch history?: Tem certeza de que
@@ -548,11 +553,11 @@ Settings:
       General: Geral
       Subscriptions Page: Página de inscrições
     Hide Featured Channels: Ocultar canais em destaque
-    Hide Channel Playlists: Ocultar playlists de canais
-    Hide Channel Community: Ocultar comunidade do canal
-    Hide Channel Shorts: Ocultar "Shorts" do canal
-    Hide Channel Podcasts: Ocultar podcasts do canal
-    Hide Channel Releases: Ocultar lançamentos do canal
+    Hide Channel Playlists: Ocultar a guia "Playlists" do canal
+    Hide Channel Community: Ocultar a guia "Comunidade" do canal
+    Hide Channel Shorts: Ocultar a guia "Shorts" do canal
+    Hide Channel Podcasts: Ocultar a guia "Podcasts" do canal
+    Hide Channel Releases: Ocultar a guia "Lancamentos" do canal
     Hide Subscriptions Videos: Ocultar vídeos de suas inscrições
     Hide Subscriptions Shorts: Ocultar "Shorts" de suas inscrições
     Hide Subscriptions Live: Ocultar transmissões ao vivo de suas inscrições
@@ -568,6 +573,7 @@ Settings:
       palavra ou frase
     Hide Videos and Playlists Containing Text: Ocultar vídeos e playlists que contenham
       texto
+    Hide Channel Home: Ocultar a guia "Início" do canal
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -748,6 +754,9 @@ Channel:
     Releases: Lançamentos
     This channel does not currently have any releases: Este canal não tem nenhum lançamento
       no momento
+  Home:
+    Home: Início
+    View Playlist: Ver playlist
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
@@ -873,6 +882,9 @@ Video:
     pois exigem login do Google e assinatura paga do canal do remetente.
   AgeRestricted: Vídeos com restrição de idade não podem ser assistidos com o FreeTube,
     pois exigem login do Google e uso de uma conta do YouTube com verificação de idade.
+  DeArrow:
+    Show Original Details: Mostrar detalhes originais
+    Show Modified Details: Mostrar detalhes modificados
 Videos:
   #& Sort By
   Sort By:
@@ -1078,6 +1090,9 @@ Tooltips:
     External Link Handling: "Escolha o comportamento padrão quando um link que não
       pode ser aberto no FreeTube for clicado.\nPor padrão, o FreeTube abrirá o link
       clicado em seu navegador padrão.\n"
+    Open Deep Links In New Window: Os URLs a partir do FreeTube, como por extensões
+      de navegador de redirecionamento ou argumentos de linha de comando, são abertos
+      em uma nova janela.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados,
       você deseja que seja passado para o player externo.
@@ -1195,3 +1210,19 @@ Search Listing:
     New: Novo
 'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
   "{url}".'
+Keys:
+  alt: Alt
+  arrowup: Seta para cima
+  arrowright: Seta para a direita
+  ctrl: Ctrl
+  arrowdown: Seta para baixo
+  arrowleft: Seta para a esquerda
+shortcutJoinOperator: +
+Right-click or hold to see history: Clique com o botão direito do mouse ou mantenha-o
+  pressionado para ver o histórico
+Autoplay Interruption Timer: Reprodução automática cancelada devido a {autoplayInterruptionIntervalHours}
+  horas de inatividade
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Description:
+  Expand Description: '...mais'
+  Collapse Description: Mostrar menos

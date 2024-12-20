@@ -183,7 +183,7 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId }) {
+  static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
     if (playlistItemId != null) {
       return db.playlists.updateAsync(
         { _id },
@@ -257,7 +257,7 @@ class SubscriptionCache {
     return db.subscriptionCache.findAsync({})
   }
 
-  static updateVideosByChannelId({ channelId, entries, timestamp }) {
+  static updateVideosByChannelId(channelId, entries, timestamp) {
     return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { videos: entries, videosTimestamp: timestamp } },
@@ -265,7 +265,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateLiveStreamsByChannelId({ channelId, entries, timestamp }) {
+  static updateLiveStreamsByChannelId(channelId, entries, timestamp) {
     return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { liveStreams: entries, liveStreamsTimestamp: timestamp } },
@@ -273,7 +273,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateShortsByChannelId({ channelId, entries, timestamp }) {
+  static updateShortsByChannelId(channelId, entries, timestamp) {
     return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { shorts: entries, shortsTimestamp: timestamp } },
@@ -281,7 +281,7 @@ class SubscriptionCache {
     )
   }
 
-  static updateShortsWithChannelPageShortsByChannelId({ channelId, entries }) {
+  static updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
     return db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
       if (doc == null) { return }
 
@@ -314,7 +314,7 @@ class SubscriptionCache {
     })
   }
 
-  static updateCommunityPostsByChannelId({ channelId, entries, timestamp }) {
+  static updateCommunityPostsByChannelId(channelId, entries, timestamp) {
     return db.subscriptionCache.updateAsync(
       { _id: channelId },
       { $set: { communityPosts: entries, communityPostsTimestamp: timestamp } },

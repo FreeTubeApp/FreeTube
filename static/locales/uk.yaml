@@ -533,6 +533,7 @@ Settings:
       фраза
     Hide Videos and Playlists Containing Text: Сховати відео та добірки, що містять
       текст
+    Show Added Items: Показати додані елементи
   Data Settings:
     Data Settings: 'Дані'
     Select Import Type: 'Оберіть тип імпорту'
@@ -1208,7 +1209,7 @@ Age Restricted:
 Trimmed input must be at least N characters long: Обрізаний ввід повинен бути хоча
   б 1 символ довжиною | Обрізаний ввід повинен бути хоча б {length} символів довжиною
 Moments Ago: щойно
-Yes, Restart: Так, перезавантажити
+Yes, Restart: Так, перезапустити
 Yes, Open Link: Так, відкрити посилання
 Yes, Delete: Так, видалити
 Cancel: Скасувати

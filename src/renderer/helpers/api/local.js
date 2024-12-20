@@ -178,7 +178,7 @@ export async function untilEndOfLocalPlayList(playlist, callback, options = { ru
 /**
  * @param {string} location
  * @param {'default'|'music'|'gaming'|'movies'} tab
- * @param {import('youtubei.js').Mixins.TabbedFeed|null} instance
+ * @param {import('youtubei.js').Mixins.TabbedFeed<import('youtubei.js').IBrowseResponse> | null} instance
  */
 export async function getLocalTrending(location, tab, instance) {
   if (instance === null) {
@@ -911,14 +911,16 @@ export function parseChannelHomeTab(homeTab) {
         })
       }
     } else if (section.type === 'RichSection') {
-      /** @type {import('youtubei.js').YTNodes.RichShelf} */
-      const shelf = section.content
-      shelves.push({
-        title: shelf.title.text,
-        content: shelf.contents.map(e => parseListItem(e.content)),
-        subtitle: shelf.subtitle?.text,
-        playlistId: shelf.endpoint?.metadata.url.replace('/playlist?list=', '')
-      })
+      if (section.content.type === 'RichShelf') {
+        /** @type {import('youtubei.js').YTNodes.RichShelf} */
+        const shelf = section.content
+        shelves.push({
+          title: shelf.title?.text,
+          content: shelf.contents.map(e => parseListItem(e.content)),
+          subtitle: shelf.subtitle?.text,
+          playlistId: shelf.endpoint?.metadata.url.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
+        })
+      }
     }
   }
 

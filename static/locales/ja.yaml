@@ -382,7 +382,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: 次の再生リストを再生する間隔
-    Next Video Interval: 自動再生カウントダウンタイマー
+    Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
     Scroll Volume Over Video Player: 動画プレーヤーをスクロールして音量を変更

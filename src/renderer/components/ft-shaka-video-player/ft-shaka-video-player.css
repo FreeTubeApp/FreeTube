@@ -67,7 +67,7 @@
   color: var(--side-nav-hover-text-color) !important;
 }
 
-:deep(.shaka-current-selection-span) {
+:deep(.shaka-overflow-menu-only .shaka-current-selection-span) {
   color: var(--tertiary-text-color) !important;
 }
 
