@@ -799,11 +799,6 @@ const actions = {
       ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
     }
   },
-
-  // Use this to set the app title / document.title
-  setAppTitle({ commit }, title) {
-    commit('setAppTitle', title)
-  }
 }
 
 const mutations = {
@@ -968,6 +963,7 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
+  // Use this to set the app title / document.title
   setAppTitle (state, value) {
     state.appTitle = value
   },
