@@ -512,6 +512,7 @@ Settings:
     Hide Videos and Playlists Containing Text: 隐藏包含文本的视频和播放列表
     Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
     Hide Channel Home: 隐藏频道“主页”标签
+    Show Added Items: 显示已添加项目
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
