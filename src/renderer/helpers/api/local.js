@@ -888,12 +888,18 @@ export function parseChannelHomeTab(homeTab) {
       if (itemSection.contents.at(0).type === 'Shelf') {
         /** @type {import('youtubei.js').YTNodes.Shelf} */
         const shelf = itemSection.contents.at(0)
-        shelves.push({
-          title: shelf.title.text,
-          content: shelf.content.items.map(parseListItem).filter(_ => _),
-          playlistId: shelf.play_all_button?.endpoint.payload.playlistId,
-          subtitle: shelf.subtitle?.text
-        })
+
+        const playlistId = shelf.play_all_button?.endpoint.payload.playlistId
+
+        // filter out the members-only video section as none of the videos in that section are playable as they require a paid channel membership
+        if (!playlistId || !playlistId.startsWith('UUMO')) {
+          shelves.push({
+            title: shelf.title.text,
+            content: shelf.content.items.map(parseListItem).filter(_ => _),
+            playlistId,
+            subtitle: shelf.subtitle?.text
+          })
+        }
       } else if (itemSection.contents.at(0).type === 'ReelShelf') {
         /** @type {import('youtubei.js').YTNodes.ReelShelf} */
         const shelf = itemSection.contents.at(0)
