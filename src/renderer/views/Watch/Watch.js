@@ -566,26 +566,13 @@ export default defineComponent({
           }
 
           if (useRemoteManifest) {
-            // The live DASH manifest is currently unusable it is not available on the iOS client
-            // but the web ones returns 403s after 1 minute of playback so we have to use the HLS one for now.
-            // Leaving the code here commented out in case we can use it again in the future
-
-            // if (result.streaming_data.dash_manifest_url) {
-            //   let src = result.streaming_data.dash_manifest_url
-
-            //   if (src.includes('?')) {
-            //     src += '&mpd_version=7'
-            //   } else {
-            //     src += `${src.endsWith('/') ? '' : '/'}mpd_version/7`
-            //   }
-
-            //   this.manifestSrc = src
-            //   this.manifestMimeType = MANIFEST_TYPE_DASH
-            // } else {
-
-            this.manifestSrc = result.streaming_data.hls_manifest_url
-            this.manifestMimeType = MANIFEST_TYPE_HLS
-            // }
+            if (result.streaming_data.dash_manifest_url) {
+              this.manifestSrc = result.streaming_data.dash_manifest_url
+              this.manifestMimeType = MANIFEST_TYPE_DASH
+            } else {
+              this.manifestSrc = result.streaming_data.hls_manifest_url
+              this.manifestMimeType = MANIFEST_TYPE_HLS
+            }
           }
 
           this.streamingDataExpiryDate = result.streaming_data.expires

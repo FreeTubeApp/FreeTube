@@ -40,7 +40,9 @@ const IpcChannels = {
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
-  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization'
+  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization',
+
+  GENERATE_PO_TOKEN: 'generate-po-token',
 }
 
 const DBActions = {
