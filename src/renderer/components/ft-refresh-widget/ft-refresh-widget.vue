@@ -12,7 +12,7 @@
       :disabled="disableRefresh"
       :icon="['fas', 'sync']"
       class="refreshButton"
-      :title="refreshFeedButtonTitle"
+      :title="$t('Feed.Refresh Feed', { subscriptionName: title })"
       :size="12"
       theme="primary"
       @click="click"

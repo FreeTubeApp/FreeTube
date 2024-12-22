@@ -12,9 +12,11 @@
  */
 
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'fs'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 import { Innertube, Misc } from 'youtubei.js'
 
-const STATIC_DIRECTORY = `${import.meta.dirname}/../static`
+const STATIC_DIRECTORY = `${dirname(fileURLToPath(import.meta.url))}/../static`
 
 const activeLanguagesPath = `${STATIC_DIRECTORY}/locales/activeLocales.json`
 /** @type {string[]} */
@@ -44,7 +46,6 @@ for (const language of youTubeLanguages) {
       youTube: language,
       freeTube: language
     })
-  // eslint-disable-next-line @stylistic/brace-style
   }
   // special cases
   else if (language === 'de') {
@@ -118,6 +119,8 @@ for (const { youTube, freeTube } of languagesToScrape) {
 
   processGeolocations(freeTube, youTube, response)
 }
+
+
 
 async function scrapeLanguage(youTubeLanguageCode) {
   const session = await Innertube.create({

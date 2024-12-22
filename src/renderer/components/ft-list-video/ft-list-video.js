@@ -13,7 +13,6 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import debounce from 'lodash.debounce'
-import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -102,20 +101,12 @@ export default defineComponent({
       published: undefined,
       isLive: false,
       is4k: false,
-      is8k: false,
-      isNew: false,
-      isVr180: false,
-      isVr360: false,
-      is3D: false,
       hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
-      deArrowTogglePinned: false,
-      showDeArrowTitle: false,
-      showDeArrowThumbnail: false,
     }
   },
   computed: {
@@ -338,10 +329,10 @@ export default defineComponent({
 
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden') {
-        return thumbnailPlaceholder
+        return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
-      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail != null) {
+      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail != null) {
         return this.deArrowCache.thumbnail
       }
 
@@ -398,7 +389,7 @@ export default defineComponent({
 
     displayTitle: function () {
       let title
-      if (this.showDeArrowTitle && this.deArrowCache?.title) {
+      if (this.useDeArrowTitles && this.deArrowCache?.title) {
         title = this.deArrowCache.title
       } else {
         title = this.title
@@ -500,19 +491,9 @@ export default defineComponent({
     useDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
+
     useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
-    },
-    deArrowChangedContent: function () {
-      return (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
-        (this.useDeArrowTitles && this.deArrowCache?.title &&
-          this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
-    },
-
-    deArrowToggleTitle: function() {
-      return this.deArrowTogglePinned
-        ? this.$t('Video.DeArrow.Show Modified Details')
-        : this.$t('Video.DeArrow.Show Original Details')
     },
 
     deArrowCache: function () {
@@ -531,14 +512,11 @@ export default defineComponent({
   created: function () {
     this.parseVideoData()
 
-    this.showDeArrowTitle = this.useDeArrowTitles
-    this.showDeArrowThumbnail = this.useDeArrowThumbnails
-
-    if ((this.showDeArrowTitle || this.showDeArrowThumbnail) && !this.deArrowCache) {
+    if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
       this.fetchDeArrowData()
     }
 
-    if (this.showDeArrowThumbnail && this.deArrowCache && this.deArrowCache.thumbnail == null) {
+    if (this.useDeArrowThumbnails && this.deArrowCache && this.deArrowCache.thumbnail == null) {
       if (this.debounceGetDeArrowThumbnail == null) {
         this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
       }
@@ -576,26 +554,12 @@ export default defineComponent({
       this.$store.commit('addVideoToDeArrowCache', cacheData)
 
       // fetch dearrow thumbnails if enabled
-      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail === null) {
+      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail === null) {
         if (this.debounceGetDeArrowThumbnail == null) {
           this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
         }
 
         this.debounceGetDeArrowThumbnail()
-      }
-    },
-    toggleDeArrow() {
-      if (!this.deArrowChangedContent) {
-        return
-      }
-
-      this.deArrowTogglePinned = !this.deArrowTogglePinned
-
-      if (this.useDeArrowTitles) {
-        this.showDeArrowTitle = !this.showDeArrowTitle
-      }
-      if (this.useDeArrowThumbnails) {
-        this.showDeArrowThumbnail = !this.showDeArrowThumbnail
       }
     },
 
@@ -698,11 +662,6 @@ export default defineComponent({
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.is4k = this.data.is4k
-      this.is8k = this.data.is8k
-      this.isNew = this.data.isNew
-      this.isVr180 = this.data.isVr180
-      this.isVr360 = this.data.isVr360
-      this.is3D = this.data.is3d
       this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount

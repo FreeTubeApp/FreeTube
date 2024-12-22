@@ -2,19 +2,17 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
-import { localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
+import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+import { openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
-import { getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'TopNav',
   components: {
-    FtIconButton,
     FtInput,
     FtProfileSelector
   },
@@ -33,10 +31,6 @@ export default defineComponent({
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
-      navigationHistoryDropdownActiveEntry: null,
-      navigationHistoryDropdownOptions: [],
-      isLoadingNavigationHistory: false,
-      pendingNavigationHistoryLabel: null,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -92,43 +86,25 @@ export default defineComponent({
       return this.$store.getters.getSearchFilterValueChanged
     },
 
-    navigationHistoryAddendum: function () {
-      if (this.navigationHistoryDropdownOptions.length === 0) {
-        return ''
-      }
-
-      return '\n' + this.$t('Right-click or hold to see history')
-    },
-
     forwardText: function () {
-      return localizeAndAddKeyboardShortcutToActionTitle(
-        this.$t('Forward'),
-        KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD
-      ) + this.navigationHistoryAddendum
+      return this.$t('Forward')
     },
 
     backwardText: function () {
-      return localizeAndAddKeyboardShortcutToActionTitle(
-        this.$t('Back'),
-        KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD
-      ) + this.navigationHistoryAddendum
+      return this.$t('Back')
     },
 
     newWindowText: function () {
-      return localizeAndAddKeyboardShortcutToActionTitle(
-        this.$t('Open New Window'),
-        KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
-      )
+      return this.$t('Open New Window')
     }
   },
   watch: {
     $route: function () {
-      this.setNavigationHistoryDropdownOptions()
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
-    },
+    }
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -325,7 +301,15 @@ export default defineComponent({
         return
       }
 
-      getInvidiousSearchSuggestions(query).then((results) => {
+      const searchPayload = {
+        resource: 'search/suggestions',
+        id: '',
+        params: {
+          q: query
+        }
+      }
+
+      invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
@@ -342,46 +326,12 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    setNavigationHistoryDropdownOptions: async function() {
-      if (process.env.IS_ELECTRON) {
-        this.isLoadingNavigationHistory = true
-        const { ipcRenderer } = require('electron')
-
-        const dropdownOptions = await ipcRenderer.invoke(IpcChannels.GET_NAVIGATION_HISTORY)
-
-        const activeEntry = dropdownOptions.find(option => option.active)
-
-        if (this.pendingNavigationHistoryLabel) {
-          activeEntry.label = this.pendingNavigationHistoryLabel
-        }
-
-        this.navigationHistoryDropdownOptions = dropdownOptions
-        this.navigationHistoryDropdownActiveEntry = activeEntry
-        this.isLoadingNavigationHistory = false
-      }
+    historyBack: function () {
+      this.$router.back()
     },
 
-    goToOffset: function (offset) {
-      // no point navigating to the current route
-      if (offset !== 0) {
-        this.$router.go(offset)
-      }
-    },
-
-    historyBack: function (offset) {
-      if (offset != null) {
-        this.goToOffset(offset)
-      } else {
-        this.$router.back()
-      }
-    },
-
-    historyForward: function (offset) {
-      if (offset != null) {
-        this.goToOffset(offset)
-      } else {
-        this.$router.forward()
-      }
+    historyForward: function () {
+      this.$router.forward()
     },
 
     toggleSideNav: function () {
@@ -402,14 +352,6 @@ export default defineComponent({
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
-    setActiveNavigationHistoryEntryTitle(value) {
-      if (this.isLoadingNavigationHistory) {
-        this.pendingNavigationHistoryLabel = value
-      } else if (this.navigationHistoryDropdownActiveEntry) {
-        this.navigationHistoryDropdownActiveEntry.label = value
-      }
-    },
-
     ...mapActions([
       'getYoutubeUrlInfo',
       'showSearchFilters'

@@ -106,6 +106,7 @@
     <ft-age-restricted
       v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
+      :is-video="true"
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
@@ -116,7 +117,6 @@
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
-        :is-unlisted="isUnlisted"
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"
@@ -150,7 +150,6 @@
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
-        :kind="videoChaptersKind"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
@@ -163,7 +162,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
       />
-      <CommentSection
+      <watch-video-comments
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
@@ -171,6 +170,7 @@
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
         :video-player-ready="videoPlayerLoaded"
+        :force-state="commentsEnabled ? null : 'noComment'"
         @timestamp-event="changeTimestamp"
       />
     </div>
@@ -179,7 +179,7 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && !hideLiveChat && (isLive || isUpcoming)"
+        v-if="!isLoading && !hideLiveChat && isLive"
         :live-chat="liveChat"
         :video-id="videoId"
         :channel-id="channelId"

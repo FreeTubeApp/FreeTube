@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
 import { showToast } from '../../helpers/utils'
-import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({
   name: 'FtInputTags',
@@ -37,10 +36,6 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
-    showTags: {
-      type: Boolean,
-      default: true
-    },
     tagList: {
       type: Array,
       default: () => { return [] }
@@ -58,12 +53,7 @@ export default defineComponent({
       default: (_) => ({ preferredName: '', icon: '' }),
     }
   },
-  emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name', 'toggle-show-tags'],
-  computed: {
-    sanitizedId: function() {
-      return sanitizeForHtmlId(`checkbox-${this.label}`)
-    },
-  },
+  emits: ['already-exists', 'change', 'error-find-tag-info', 'invalid-name'],
   methods: {
     updateTags: async function (text, _e) {
       if (this.areChannelTags) {
@@ -136,9 +126,6 @@ export default defineComponent({
         const newList = this.tagList.filter((tmpTag) => tmpTag.name !== tag.name)
         this.$emit('change', newList)
       }
-    },
-    toggleShowTags: function () {
-      this.$emit('toggle-show-tags')
-    },
+    }
   }
 })

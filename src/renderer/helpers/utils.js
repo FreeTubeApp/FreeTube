@@ -1,3 +1,5 @@
+import fs from 'fs/promises'
+
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
@@ -10,10 +12,6 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
-/**
- * @param {string} sortPreference
- * @returns {string[]}
- */
 export function getIconForSortPreference(sortPreference) {
   switch (sortPreference) {
     case 'name_descending':
@@ -99,10 +97,101 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
 }
 
 /**
- * @param {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData} storyboard
- * @param {number} videoLengthSeconds
- * @returns {string}
+ * @param {{
+ *  liveNow: boolean,
+ *  isUpcoming: boolean,
+ *  premiereTimestamp: number,
+ *  published: number
+ * }[]} videos
  */
+export function setPublishedTimestampsInvidious(videos) {
+  videos.forEach(video => {
+    if (video.liveNow) {
+      video.published = new Date().getTime()
+    } else if (video.isUpcoming) {
+      video.published = video.premiereTimestamp * 1000
+    } else if (typeof video.published === 'number') {
+      video.published *= 1000
+    }
+  })
+}
+
+export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
+  if (isLive) {
+    return i18n.tc('Global.Counts.Watching Count', 0, { count: 0 })
+  } else if (isUpcoming || publishText === null) {
+    // the check for null is currently just an inferring of knowledge, because there is no other possibility left
+    return `${i18n.t('Video.Published.Upcoming')}: ${publishText}`
+  } else if (isRSS) {
+    return publishText
+  }
+
+  const match = publishText.match(PUBLISHED_TEXT_REGEX)
+  const singular = (match[1] === '1')
+  let unit = ''
+  switch (match[2].substring(0, 2)) {
+    case 'se':
+    case 's':
+      if (singular) {
+        unit = i18n.t('Video.Published.Second')
+      } else {
+        unit = i18n.t('Video.Published.Seconds')
+      }
+      break
+    case 'mi':
+    case 'm':
+      if (singular) {
+        unit = i18n.t('Video.Published.Minute')
+      } else {
+        unit = i18n.t('Video.Published.Minutes')
+      }
+      break
+    case 'ho':
+    case 'h':
+      if (singular) {
+        unit = i18n.t('Video.Published.Hour')
+      } else {
+        unit = i18n.t('Video.Published.Hours')
+      }
+      break
+    case 'da':
+    case 'd':
+      if (singular) {
+        unit = i18n.t('Video.Published.Day')
+      } else {
+        unit = i18n.t('Video.Published.Days')
+      }
+      break
+    case 'we':
+    case 'w':
+      if (singular) {
+        unit = i18n.t('Video.Published.Week')
+      } else {
+        unit = i18n.t('Video.Published.Weeks')
+      }
+      break
+    case 'mo':
+      if (singular) {
+        unit = i18n.t('Video.Published.Month')
+      } else {
+        unit = i18n.t('Video.Published.Months')
+      }
+      break
+    case 'ye':
+    case 'y':
+      if (singular) {
+        unit = i18n.t('Video.Published.Year')
+      } else {
+        unit = i18n.t('Video.Published.Years')
+      }
+      break
+    default:
+      return publishText
+  }
+
+  return i18n.t('Video.Publicationtemplate', { number: match[1], unit })
+}
+
 export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
@@ -160,11 +249,6 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
-/**
- * @param {string} message
- * @param {number} time
- * @param {Function} action
- */
 export function showToast(message, time = null, action = null) {
   FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
@@ -176,14 +260,13 @@ export function showToast(message, time = null, action = null) {
 }
 
 /**
- * This writes to the clipboard. If an error occurs during the copy,
- * a toast with the error is shown. If the copy is successful and
- * there is a success message, a toast with that message is shown.
- * @param {string} content the content to be copied to the clipboard
- * @param {object} [options] - Optional settings for the copy operation.
- * @param {null|string} options.messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
- * @param {null|string} options.messageOnError the message to be displayed as a toast when the copy fails (optional)
- */
+   * This writes to the clipboard. If an error occurs during the copy,
+   * a toast with the error is shown. If the copy is successful and
+   * there is a success message, a toast with that message is shown.
+   * @param {string} content the content to be copied to the clipboard
+   * @param {null|string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {null|string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   */
 export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null } = {}) {
   if (navigator.clipboard !== undefined && window.isSecureContext) {
     try {
@@ -250,173 +333,69 @@ export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQu
   }
 }
 
-/**
- * @param {string} fileTypeDescription
- * @param {{[key: string]: string | string[]}} acceptedTypes
- * @param {string} [rememberDirectoryId]
- * @param {'desktop' | 'documents' | 'downloads' | 'music' | 'pictures' | 'videos'} [startInDirectory]
- * @returns {Promise<{ content: string, filename: string } | null>}
- */
-export async function readFileWithPicker(
-  fileTypeDescription,
-  acceptedTypes,
-  rememberDirectoryId,
-  startInDirectory
-) {
-  let file
-
-  // Only supported in Electron and desktop Chromium browsers
-  // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
-  // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
-  // and allow terser to remove the unused else block
-  if (process.env.IS_ELECTRON || 'showOpenFilePicker' in window) {
-    try {
-      /** @type {FileSystemFileHandle[]} */
-      const [handle] = await window.showOpenFilePicker({
-        excludeAcceptAllOption: true,
-        multiple: false,
-        id: rememberDirectoryId,
-        startIn: startInDirectory,
-        types: [{
-          description: fileTypeDescription,
-          accept: acceptedTypes
-        }],
-      })
-
-      file = await handle.getFile()
-    } catch (error) {
-      // user pressed cancel in the file picker
-      if (error.name === 'AbortError') {
-        return null
-      }
-
-      throw error
-    }
+export async function showOpenDialog (options) {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.SHOW_OPEN_DIALOG, options)
   } else {
-    /** @type {File|null} */
-    const fallbackFile = await new Promise((resolve) => {
-      const joinedExtensions = Object.values(acceptedTypes)
-        .flat()
-        .join(',')
-
+    return await new Promise((resolve) => {
       const fileInput = document.createElement('input')
       fileInput.setAttribute('type', 'file')
-      fileInput.setAttribute('accept', joinedExtensions)
-      fileInput.onchange = () => {
-        resolve(fileInput.files[0])
-        fileInput.onchange = null
+      if (options?.filters[0]?.extensions !== undefined) {
+        // this will map the given extensions from the options to the accept attribute of the input
+        fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
       }
-
+      fileInput.onchange = () => {
+        const files = Array.from(fileInput.files)
+        resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
+        delete fileInput.onchange
+      }
       const listenForEnd = () => {
+        window.removeEventListener('focus', listenForEnd)
         // 1 second timeout on the response from the file picker to prevent awaiting forever
         setTimeout(() => {
           if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
             // if there are no files and the onchange has not been triggered, the file-picker was canceled
-            resolve(null)
-            fileInput.onchange = null
+            resolve({ canceled: true })
+            delete fileInput.onchange
           }
         }, 1000)
       }
-      window.addEventListener('focus', listenForEnd, { once: true })
+      window.addEventListener('focus', listenForEnd)
       fileInput.click()
     })
-
-    if (fallbackFile === null) {
-      return null
-    }
-
-    file = fallbackFile
-  }
-
-  return {
-    content: await file.text(),
-    filename: file.name
   }
 }
 
 /**
- * @param {string} fileName
- * @param {string | Blob} content
- * @param {string} fileTypeDescription
- * @param {string} mimeType
- * @param {string} fileExtension
- * @param {string} [rememberDirectoryId]
- * @param {'desktop' | 'documents' | 'downloads' | 'music' | 'pictures' | 'videos'} [startInDirectory]
- * @returns {Promise<boolean>}
+ * @param {object} response the response from `showOpenDialog`
+ * @param {number} index which file to read (defaults to the first in the response)
+ * @returns the text contents of the selected file
  */
-export async function writeFileWithPicker(
-  fileName,
-  content,
-  fileTypeDescription,
-  mimeType,
-  fileExtension,
-  rememberDirectoryId,
-  startInDirectory
-) {
-  // Only supported in Electron and desktop Chromium browsers
-  // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
-  // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
-  // and allow terser to remove the unused else block
-  if (process.env.IS_ELECTRON || 'showSaveFilePicker' in window) {
-    let writableFileStream
-
-    try {
-      /** @type {FileSystemFileHandle} */
-      const handle = await window.showSaveFilePicker({
-        suggestedName: fileName,
-        excludeAcceptAllOption: true,
-        multiple: false,
-        id: rememberDirectoryId,
-        startIn: startInDirectory,
-        types: [{
-          description: fileTypeDescription,
-          accept: {
-            [mimeType]: [fileExtension]
-          }
-        }],
-      })
-
-      writableFileStream = await handle.createWritable()
-      await writableFileStream.write(content)
-    } catch (error) {
-      // user pressed cancel in the file picker
-      if (error.name === 'AbortError') {
-        return false
-      }
-
-      throw error
-    } finally {
-      if (writableFileStream) {
-        await writableFileStream.close()
+export function readFileFromDialog(response, index = 0) {
+  return new Promise((resolve, reject) => {
+    if (process.env.IS_ELECTRON) {
+      // if this is Electron, use fs
+      fs.readFile(response.filePaths[index])
+        .then(data => {
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+        .catch(reject)
+    } else {
+      // if this is web, use FileReader
+      try {
+        const reader = new FileReader()
+        reader.onload = function (file) {
+          resolve(file.currentTarget.result)
+        }
+        reader.readAsText(response.files[index])
+      } catch (exception) {
+        reject(exception)
       }
     }
-
-    return true
-  } else {
-    if (typeof content === 'string') {
-      content = new Blob([content], { type: mimeType })
-    }
-
-    const url = URL.createObjectURL(content)
-
-    const downloadLink = document.createElement('a')
-    downloadLink.setAttribute('download', encodeURIComponent(fileName))
-    downloadLink.setAttribute('href', url)
-    downloadLink.click()
-
-    // Small timeout to give the browser time to react to the click on the link
-    setTimeout(() => {
-      URL.revokeObjectURL(url)
-    }, 1000)
-
-    return true
-  }
+  })
 }
 
-/**
- * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
- * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
- */
 export async function showSaveDialog (options) {
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
@@ -439,6 +418,34 @@ export async function showSaveDialog (options) {
       }
     } else {
       return { canceled: false, filePath: options.defaultPath }
+    }
+  }
+}
+
+/**
+* Write to a file picked out from the `showSaveDialog` picker
+* @param {object} response the response from `showSaveDialog`
+* @param {string} content the content to be written to the file selected by the dialog
+*/
+export async function writeFileFromDialog (response, content) {
+  if (process.env.IS_ELECTRON) {
+    const { filePath } = response
+    return await fs.writeFile(filePath, content)
+  } else {
+    if ('showOpenFilePicker' in window) {
+      const { handle } = response
+      const writableStream = await handle.createWritable()
+      await writableStream.write(content)
+      await writableStream.close()
+    } else {
+      // If the native filesystem api is not available,
+      const { filePath } = response
+      const filename = filePath.split('/').at(-1)
+      const a = document.createElement('a')
+      const url = URL.createObjectURL(new Blob([content], { type: 'application/octet-stream' }))
+      a.setAttribute('href', url)
+      a.setAttribute('download', encodeURI(filename))
+      a.click()
     }
   }
 }
@@ -468,11 +475,7 @@ export function createWebURL(path) {
   return `${origin}${windowPath}/${path}`
 }
 
-/**
- * strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
- * @param {string} value
- * @returns {string}
- */
+// strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
   return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
 }
@@ -519,11 +522,6 @@ export function formatDurationAsTimestamp(lengthSeconds) {
   return timestamp
 }
 
-/**
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersA
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersB
- * @returns {boolean}
- */
 export function searchFiltersMatch(filtersA, filtersB) {
   return filtersA?.sortBy === filtersB?.sortBy &&
     filtersA?.time === filtersB?.time &&
@@ -532,10 +530,6 @@ export function searchFiltersMatch(filtersA, filtersB) {
     filtersA?.features?.length === filtersB?.features?.length && filtersA?.features?.every((val, index) => val === filtersB?.features[index])
 }
 
-/**
- * @param {string} filenameOriginal
- * @returns {string}
- */
 export function replaceFilenameForbiddenChars(filenameOriginal) {
   let filenameNew = filenameOriginal
   let forbiddenChars = {}
@@ -569,9 +563,6 @@ export function replaceFilenameForbiddenChars(filenameOriginal) {
   return filenameNew
 }
 
-/**
- * @returns {Promise<string>}
- */
 export async function getSystemLocale() {
   let locale
   if (process.env.IS_ELECTRON) {
@@ -620,26 +611,7 @@ export function getVideoParamsFromUrl(url) {
 
   function extractParams(videoId) {
     paramsObject.videoId = videoId
-    let timestamp = urlObject.searchParams.get('t')
-    if (timestamp && (timestamp.includes('h') || timestamp.includes('m') || timestamp.includes('s'))) {
-      const { seconds, minutes, hours } = timestamp.match(/(?:(?<hours>(\d+))h)?(?:(?<minutes>(\d+))m)?(?:(?<seconds>(\d+))s)?/).groups
-      let time = 0
-
-      if (seconds) {
-        time += Number(seconds)
-      }
-
-      if (minutes) {
-        time += 60 * Number(minutes)
-      }
-
-      if (hours) {
-        time += 3600 * Number(hours)
-      }
-
-      timestamp = time
-    }
-    paramsObject.timestamp = timestamp
+    paramsObject.timestamp = urlObject.searchParams.get('t')
   }
 
   const extractors = [
@@ -724,11 +696,6 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
     .replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
-/**
- * @param {number} number
- * @param {Intl.NumberFormatOptions?} options
- * @returns {string}
- */
 export function formatNumber(number, options = undefined) {
   return Intl.NumberFormat([i18n.locale, 'en'], options).format(number)
 }
@@ -744,13 +711,6 @@ export function getTodayDateStrLocalTimezone() {
   return timeNowStr.split('T')[0]
 }
 
-/**
- *
- * @param {number} date
- * @param {boolean} hideSeconds
- * @param {boolean} useThirtyDayMonths
- * @returns {string}
- */
 export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayMonths = true) {
   if (!date) {
     return ''
@@ -821,9 +781,8 @@ export function escapeHTML(untrusted) {
 
 /**
  * Performs a deep copy of a javascript object
- * @template T
- * @param {T} obj
- * @returns {T}
+ * @param {Object} obj
+ * @returns {Object}
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
@@ -833,8 +792,7 @@ export function deepCopy(obj) {
  * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
  * @param {number} timeoutMs
  * @param {RequestInfo|URL} input
- * @param {RequestInit?} init
- * @returns {Promise<Response>}
+ * @param {RequestInit=} init
  */
 export async function fetchWithTimeout(timeoutMs, input, init) {
   const timeoutSignal = AbortSignal.timeout(timeoutMs)
@@ -862,10 +820,6 @@ export async function fetchWithTimeout(timeoutMs, input, init) {
   }
 }
 
-/**
- * @param {KeyboardEvent} event
- * @param {HTMLInputElement} inputElement
- */
 export function ctrlFHandler(event, inputElement) {
   switch (event.key) {
     case 'F':
@@ -906,13 +860,11 @@ export function base64EncodeUtf8(text) {
  * @param {string} channelId
  * @param {'all'} type
  * @returns {string}
- *
+*
  * @param {string} channelId
  * @param {'all' | 'videos' | 'live' | 'shorts'} type
- * @param {('newest' | 'popular')?} [sortBy]
- * @returns {string}
+ * @param {'newest' | 'popular'} sortBy
  */
-
 export function getChannelPlaylistId(channelId, type, sortBy) {
   switch (type) {
     case 'videos':
@@ -923,9 +875,9 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
       }
     case 'live':
       if (sortBy === 'popular') {
-        return channelId.replace(/^UC/, 'UUPV')
-      } else {
         return channelId.replace(/^UC/, 'UULV')
+      } else {
+        return channelId.replace(/^UC/, 'UUPV')
       }
     case 'shorts':
       if (sortBy === 'popular') {
@@ -936,83 +888,4 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
     case 'all':
       return channelId.replace(/^UC/, 'UU')
   }
-}
-
-function getIndividualLocalizedShortcut(shortcut) {
-  switch (shortcut) {
-    case 'alt':
-      return i18n.t('Keys.alt')
-    case 'ctrl':
-      return i18n.t('Keys.ctrl')
-    case 'arrowleft':
-      return i18n.t('Keys.arrowleft')
-    case 'arrowright':
-      return i18n.t('Keys.arrowright')
-    case 'arrowup':
-      return i18n.t('Keys.arrowup')
-    case 'arrowdown':
-      return i18n.t('Keys.arrowdown')
-    default:
-      return shortcut
-  }
-}
-
-function getMacIconForShortcut(shortcut) {
-  switch (shortcut) {
-    case 'option':
-    case 'alt':
-      return '⌥'
-    case 'cmd':
-    case 'ctrl':
-      return '⌘'
-    case 'arrowleft':
-      return '←'
-    case 'arrowright':
-      return '→'
-    case 'arrowup':
-      return '↑'
-    case 'arrowdown':
-      return '↓'
-    default:
-      return shortcut
-  }
-}
-
-/**
- * @param {string} shortcut
- * @returns {string} the localized and recombined shortcut
- */
-function getLocalizedShortcut(shortcut) {
-  const shortcuts = shortcut.split('+')
-
-  if (process.platform === 'darwin') {
-    const shortcutsAsIcons = shortcuts.map(shortCut => getMacIconForShortcut(shortCut))
-    return shortcutsAsIcons.join('')
-  } else {
-    const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
-    const shortcutJoinOperator = i18n.t('shortcutJoinOperator')
-    return localizedShortcuts.join(shortcutJoinOperator)
-  }
-}
-
-/**
- * @param {string} actionTitle
- * @param {string} shortcut
- * @returns {string} the localized action title with keyboard shortcut
- */
-export function addKeyboardShortcutToActionTitle(actionTitle, shortcut) {
-  return i18n.t('KeyboardShortcutTemplate', {
-    label: actionTitle,
-    shortcut
-  })
-}
-
-/**
- * @param {string} localizedActionTitle
- * @param {string} unlocalizedShortcut
- * @returns {string} the localized action title with keyboard shortcut
- */
-export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle, unlocalizedShortcut) {
-  const localizedShortcut = getLocalizedShortcut(unlocalizedShortcut)
-  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcut)
 }

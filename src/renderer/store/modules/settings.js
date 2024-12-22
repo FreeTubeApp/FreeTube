@@ -162,6 +162,7 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
+  allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
   backendFallback: process.env.SUPPORTS_LOCAL_API,
@@ -172,7 +173,6 @@ const state = {
   baseTheme: 'system',
   mainColor: 'Red',
   secColor: 'Blue',
-  defaultAutoplayInterruptionIntervalHours: 3,
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
@@ -182,7 +182,7 @@ const state = {
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
-  displayVideoPlayButton: false,
+  displayVideoPlayButton: true,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
@@ -191,11 +191,10 @@ const state = {
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
   externalPlayerIgnoreDefaultArgs: false,
-  externalPlayerCustomArgs: '[]',
+  externalPlayerCustomArgs: '',
   expandSideBar: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
-  hideChannelHome: false,
   hideChannelPlaylists: false,
   hideChannelReleases: false,
   hideChannelPodcasts: false,
@@ -207,8 +206,6 @@ const state = {
   hideFeaturedChannels: false,
   channelsHidden: '[]',
   forbiddenTitles: '[]',
-  showAddedChannelsHidden: true,
-  showAddedForbiddenTitles: true,
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
@@ -236,8 +233,6 @@ const state = {
   listType: 'grid',
   maxVideoPlaybackRate: 3,
   onlyShowLatestFromChannel: false,
-  onlyShowLatestFromChannelNumber: 1,
-  openDeepLinksInNewWindow: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
@@ -315,9 +310,9 @@ const state = {
 
 const stateWithSideEffects = {
   currentLocale: {
-    defaultValue: 'system',
+    defaultValue: 'en-US',
     sideEffectsHandler: async function ({ dispatch }, value) {
-      const fallbackLocale = 'en-US'
+      const defaultLocale = 'en-US'
 
       let targetLocale = value
       if (value === 'system') {
@@ -348,20 +343,20 @@ const stateWithSideEffects = {
           targetLocale = targetLocaleOptions[0]
         } else {
           // Go back to default value if locale is unavailable
-          targetLocale = fallbackLocale
+          targetLocale = defaultLocale
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
           // (in this case, English (US))
-          showToast(`Locale not found, defaulting to ${fallbackLocale}`)
+          showToast(`Locale not found, defaulting to ${defaultLocale}`)
         }
       }
 
       const loadPromises = []
 
-      if (targetLocale !== fallbackLocale) {
+      if (targetLocale !== defaultLocale) {
         // "en-US" is used as a fallback for missing strings in other locales
         loadPromises.push(
-          loadLocale(fallbackLocale)
+          loadLocale(defaultLocale)
         )
       }
 

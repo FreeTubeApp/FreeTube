@@ -1,10 +1,10 @@
 <template>
   <div
     ref="container"
-    class="ftVideoPlayer shaka-video-container"
+    class="ftVideoPlayer"
     :class="{
       fullWindow: fullWindowEnabled,
-      sixteenByNine: forceAspectRatio && !fullWindowEnabled
+      sixteenByNine: forceAspectRatio
     }"
   >
     <!-- eslint-disable-next-line vuejs-accessibility/media-has-caption -->

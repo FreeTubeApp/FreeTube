@@ -106,10 +106,6 @@ export default defineComponent({
     inUserPlaylist: {
       type: Boolean,
       required: true
-    },
-    isUnlisted: {
-      type: Boolean,
-      required: false
     }
   },
   emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],

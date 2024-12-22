@@ -60,7 +60,6 @@ const state = {
     shorts: false,
     communityPosts: false,
   },
-  appTitle: ''
 }
 
 const getters = {
@@ -176,9 +175,6 @@ const getters = {
   getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
     return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
-  getAppTitle (state) {
-    return state.appTitle
-  }
 }
 
 const actions = {
@@ -414,7 +410,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
+  async getYoutubeUrlInfo({ state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -634,11 +630,8 @@ const actions = {
             }
             subPath = 'community'
             break
-          case 'videos':
-            subPath = 'videos'
-            break
           default:
-            subPath = rootState.settings.backendPreference === 'local' && !rootState.settings.hideChannelHome ? 'home' : 'videos'
+            subPath = 'videos'
             break
         }
         return {
@@ -696,19 +689,20 @@ const actions = {
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
     if (ignoreDefaultArgs) {
-      if (typeof customArgs === 'string' && customArgs !== '[]') {
-        const custom = JSON.parse(customArgs)
+      if (typeof customArgs === 'string' && customArgs !== '') {
+        const custom = customArgs.split(';')
         args.push(...custom)
       }
       if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     } else {
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
-      if (typeof customArgs === 'string' && customArgs !== '[]') {
-        const custom = JSON.parse(customArgs)
+      if (typeof customArgs === 'string' && customArgs !== '') {
+        const custom = customArgs.split(';')
         args.push(...custom)
-      } else if (Array.isArray(cmdArgs.defaultCustomArguments)) {
-        args.push(...cmdArgs.defaultCustomArguments)
+      } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
+        const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
+        args.push(...defaultCustomArguments)
       }
 
       if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
@@ -963,11 +957,6 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
-  // Use this to set the app title / document.title
-  setAppTitle (state, value) {
-    state.appTitle = value
-  },
-
   setSubscriptionForVideosFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
@@ -979,7 +968,7 @@ const mutations = {
   },
   setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.communityPosts = true
-  }
+  },
 }
 
 export default {

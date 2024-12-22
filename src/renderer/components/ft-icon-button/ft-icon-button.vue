@@ -1,17 +1,13 @@
 <template>
-  <div
-    ref="ftIconButton"
-    class="ftIconButton"
-    @focusout="handleDropdownFocusOut"
-  >
+  <div class="ftIconButton">
     <font-awesome-icon
+      ref="iconButton"
       class="iconButton"
       :title="title"
       :icon="icon"
       :class="{
         [theme]: true,
         shadow: useShadow,
-        pressed: openOnRightOrLongClick && dropdownShown,
         disabled
       }"
       :style="{
@@ -22,9 +18,8 @@
       role="button"
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
-      @pointerdown="handleIconPointerDown"
-      @contextmenu.prevent=""
       @click="handleIconClick"
+      @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
     />
@@ -48,13 +43,9 @@
               :id="sanitizeForHtmlId(title + '-' + index)"
               :key="index"
               role="option"
-              :aria-selected="option.active"
+              aria-selected="false"
               tabindex="-1"
-              :class="{
-                listItemDivider: option.type === 'divider',
-                listItem: option.type !== 'divider',
-                active: option.active
-              }"
+              :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
               @click="handleDropdownClick({url: option.value, index: index})"
               @keydown.enter="handleDropdownClick({url: option.value, index: index})"
               @keydown.space="handleDropdownClick({url: option.value, index: index})"
@@ -76,6 +67,7 @@
           bottom: dropdownPositionY === 'bottom',
           top: dropdownPositionY === 'top'
         }"
+        @focusout="handleDropdownFocusOut"
         @keydown.esc.stop="handleDropdownEscape"
       >
         <slot>
@@ -89,23 +81,13 @@
               :id="sanitizeForHtmlId(title + '-' + index)"
               :key="index"
               :role="option.type === 'divider' ? 'separator' : 'option'"
-              :aria-selected="option.active"
+              aria-selected="false"
               :tabindex="option.type === 'divider' ? '-1' : '0'"
-              :class="{
-                listItemDivider: option.type === 'divider',
-                listItem: option.type !== 'divider',
-                active: option.active
-              }"
+              :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
               @click="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.space="handleDropdownClick({url: option.value, index: index}, $event)"
             >
-              <div class="checkmarkColumn">
-                <font-awesome-icon
-                  v-if="option.active"
-                  :icon="['fas', 'check']"
-                />
-              </div>
               {{ option.type === 'divider' ? '' : option.label }}
             </li>
           </ul>

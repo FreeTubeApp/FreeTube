@@ -14,7 +14,6 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: true,
-      alreadyLoadedRemotely: false,
       postList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -98,9 +97,7 @@ export default defineComponent({
     },
 
     subscriptionCacheReady() {
-      if (!this.alreadyLoadedRemotely) {
-        this.loadPostsFromCacheSometimes()
-      }
+      this.loadPostsFromCacheSometimes()
     },
   },
   mounted: async function () {
@@ -118,7 +115,6 @@ export default defineComponent({
         return
       }
 
-      this.alreadyLoadedRemotely = true
       this.loadPostsForSubscriptionsFromRemote()
       this.$store.commit('setSubscriptionForCommunityPostsFirstAutoFetchRun')
     },
@@ -235,7 +231,9 @@ export default defineComponent({
           this.errorChannels.push(channel)
           return []
         }
-
+        entries.forEach(post => {
+          post.authorId = channel.id
+        })
         return entries
       } catch (err) {
         console.error(err)
@@ -254,6 +252,9 @@ export default defineComponent({
     getChannelPostsInvidious: function (channel) {
       return new Promise((resolve, reject) => {
         invidiousGetCommunityPosts(channel.id).then(result => {
+          result.posts.forEach(post => {
+            post.authorId = channel.id
+          })
           resolve(result.posts)
         }).catch((err) => {
           console.error(err)

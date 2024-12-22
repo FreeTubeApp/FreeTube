@@ -96,11 +96,7 @@ export default defineComponent({
     } else {
       // Restore currentTab
       const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
-      if (lastCurrentTabId !== null) {
-        this.changeTab(lastCurrentTabId)
-      } else if (!this.visibleTabs.includes(this.currentTab)) {
-        this.currentTab = this.visibleTabs[0]
-      }
+      if (lastCurrentTabId !== null) { this.changeTab(lastCurrentTabId) }
     }
   },
   methods: {

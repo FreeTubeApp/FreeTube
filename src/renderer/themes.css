@@ -1,14 +1,17 @@
-body {
-  margin: 0;
-  min-block-size: 100vh;
-  color: var(--primary-text-color);
-  background-color: var(--bg-color);
-
+.system[data-system-theme*='light'],
+.light,
+.system[data-system-theme*='dark'],
+.dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha,
+.pastelPink,
+.hotPink,
+.nordic,
+.solarizedDark,
+.solarizedLight {
   --primary-input-color: rgb(0 0 0 / 50%);
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
-  --instance-menu-color: var(--search-bar-color);
-  --red-500: #f44336;
   --top-bar-push-down-adjustment-default: -35px;
 
   /* Value of 0 without 'px' does not work inside calc() */
@@ -17,34 +20,73 @@ body {
   --top-bar-push-down-adjustment-edit-mode: 0px;
   --top-bar-push-down-adjustment-one-or-fewer: 0px;
   /* stylelint-enable length-zero-no-unit */
-
   --destructive-color: #f44336;
   --destructive-text-color: #000;
   --destructive-hover-color: #e53935;
   --destructive-active-color: #c62828;
+}
 
-  /* For the 'About' page, show the logo with the primary text color by default */
+.system[data-system-theme*='light'],
+.light,
+.system[data-system-theme*='dark'],
+.dark,
+.black,
+.dracula,
+.catppuccinMocha,
+.pastelPink,
+.hotPink,
+.nordic,
+.solarizedDark,
+.solarizedLight {
+  --link-color: var(--accent-color);
+  --link-visited-color: var(--accent-color-visited);
+  --instance-menu-color: var(--search-bar-color);
+}
+
+.system[data-system-theme*='light'],
+.light,
+.system[data-system-theme*='dark'],
+.dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha,
+.pastelPink,
+.nordic,
+.solarizedDark,
+.solarizedLight {
+  --primary-input-color: rgb(0 0 0 / 50%);
+  --side-nav-hover-text-color: var(--primary-text-color);
+}
+
+.system[data-system-theme*='light'],
+.light,
+.system[data-system-theme*='dark'],
+.dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha,
+.nordic,
+.solarizedDark,
+.solarizedLight {
+  --side-nav-active-text-color: var(--primary-text-color);
+  --scrollbar-text-color-hover: var(--primary-text-color);
+
+}
+
+.catppuccinMocha,
+.dracula,
+.hotPink,
+.nordic,
+.pastelPink,
+.solarizedDark,
+.solarizedLight {
   --logo-primary-color: var(--primary-text-color);
   --logo-secondary-color: var(--primary-text-color);
   --logo-tertiary-color: var(--primary-text-color);
 }
 
-
-/*************** RULE TWEAKS ***************/
-
-/* Default sidenav hover text color and primary input color not needed to be changed for most themes */
-body:not(.hotPink) {
-  --primary-input-color: rgb(0 0 0 / 50%);
-  --side-nav-hover-text-color: var(--primary-text-color);
-}
-
-/* Default side nav active text color and scrollbar text color hover not needed to be changed for most themes */
-body:not(.hotPink, .pastelPink) {
-  --side-nav-active-text-color: var(--primary-text-color);
-  --scrollbar-text-color-hover: var(--primary-text-color);
-}
-
-/* Themes that use the main FreeTube logo */
 .system[data-system-theme*='light'],
 .light,
 .system[data-system-theme*='dark'],
@@ -58,79 +100,18 @@ body:not(.hotPink, .pastelPink) {
   --logo-tertiary-color: #000;
 }
 
-/* Given that the Hot Pink theme does not need link underlining due to meeting
-WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
-it can be safely elided. This looks quite pleasant on this theme. */
-.hotPink a:not(:hover, :focus),
-.hotPink .navOption:hover,
-.hotPink .navOption:focus,
-.hotPink *:not(:hover, :focus) {
-  text-decoration: none;
-}
-
-.hotPink a:hover,
-.hotPink a:focus {
-  text-decoration: underline;
-}
-
-.hotPink .shaka-range-container {
-  --primary-color: #fff;
-}
-
-
-/*************** DARK THEME ADJUSTMENTS ***************/
-
-/* stylelint-disable no-descending-specificity */
-
-/* Dark theme Youtube and Invidious logo styling (in ft-share-button) */
 .system[data-system-theme*='dark'],
 .dark,
+.black,
+.gray,
 .dracula,
 .catppuccinMocha,
 .hotPink,
 .nordic,
 .solarizedDark,
-.gruvboxDark {
+.solarizedLight {
   --primary-shadow-color: rgb(0 0 0 / 75%);
-
-  .invidiousLogo {
-    background-image: url('./assets/img/invidious-logo-dark.svg');
-  }
-
-  .youtubeLogo {
-    filter: brightness(0.868);
-  }
 }
-
-.black .youtubeLogo {
-  filter: brightness(0.933);
-}
-
-.black .invidiousLogo {
-  background-image: url('./assets/img/invidious-logo-dark.svg');
-}
-
-
-/*************** LIGHT THEME ADJUSTMENTS ***************/
-
-/* Light theme Youtube and Invidious logo styling (in ft-share-button) */
-.invidiousLogo {
-  background-image: url('./assets/img/invidious-logo-light.svg');
-}
-
-.youtubeLogo {
-  filter: invert(0.87);
-}
-
-/* stylelint-enable no-descending-specificity */
-
-
-/*************** MAIN THEME DEFINITIONS ***************/
-
-/*
-  IMPLEMENTATION NOTE:
-  When adding a new base theme, add that --bg-color to src/main/index.js.
-*/
 
 .system[data-system-theme*='light'],
 .light {
@@ -200,6 +181,66 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #212121;
 }
 
+.dracula {
+  --primary-text-color: #f8f8f2;
+  --secondary-text-color: #c6cee6;
+  --tertiary-text-color: #e5e8f3;
+  --title-color: #bd93f9;
+  --bg-color: #282a36;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #33353f;
+  --secondary-card-bg-color: #282a36;
+  --scrollbar-color: #44475a;
+  --scrollbar-color-hover: #3d4051;
+  --side-nav-color: #44475a;
+  --side-nav-hover-color: #57596b;
+  --side-nav-active-color: #3d4051;
+  --search-bar-color: #3e3f4a;
+  --logo-icon: url('../../_icons/iconDraculaLightSmall.svg');
+  --logo-text: url('../../_icons/textDraculaLightSmall.svg');
+}
+
+.catppuccinMocha {
+  --primary-text-color: #cdd6f4;
+  --secondary-text-color: #bac2de;
+  --tertiary-text-color: #a6adc8;
+  --title-color: var(--accent-color);
+  --bg-color: #1e1e2e;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #181825;
+  --secondary-card-bg-color: #1e1e2e;
+  --scrollbar-color: #313244;
+  --scrollbar-color-hover: #3d4051;
+  --side-nav-color: #181825;
+  --side-nav-hover-color: #11111b;
+  --side-nav-active-color: #11111b;
+  --search-bar-color: #313244;
+  --logo-icon: url('../../_icons/iconCatppuccinMochaLightSmall.svg');
+  --logo-text: url('../../_icons/textCatppuccinMochaLightSmall.svg');
+}
+
+.pastelPink {
+  --primary-text-color: #1f002b;
+  --secondary-text-color: #361836;
+  --tertiary-text-color: #5a285a;
+  --primary-shadow-color: rgb(255 240 240 / 50%);
+  --title-color: #185eb4;
+  --bg-color: #ffeadd;
+  --favorite-icon-color: #760278;
+  --card-bg-color: #ffd1dc;
+  --secondary-card-bg-color: #fff;
+  --scrollbar-color: #f5c8d3;
+  --scrollbar-color-hover: #760278;
+  --scrollbar-text-color-hover: var(--scrollbar-color);
+  --side-nav-color: #ffd1dc;
+  --side-nav-hover-color: #cef4f1;
+  --side-nav-active-color: #3124e7;
+  --side-nav-active-text-color: #ffff;
+  --search-bar-color: #fff0dd;
+  --logo-icon: url('../../_icons/iconBlackSmall.svg');
+  --logo-text: url('../../_icons/textBlackSmall.svg');
+}
+
 .nordic {
   --primary-text-color: #eee;
   --secondary-text-color: #ddd;
@@ -260,64 +301,19 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(255 255 255 / 24%) !important;
 }
 
-.pastelPink {
-  --primary-text-color: #1f002b;
-  --secondary-text-color: #361836;
-  --tertiary-text-color: #5a285a;
-  --primary-shadow-color: rgb(255 240 240 / 50%);
-  --title-color: #185eb4;
-  --bg-color: #ffeadd;
-  --favorite-icon-color: #760278;
-  --card-bg-color: #ffd1dc;
-  --secondary-card-bg-color: #fff;
-  --scrollbar-color: #f5c8d3;
-  --scrollbar-color-hover: #760278;
-  --scrollbar-text-color-hover: var(--scrollbar-color);
-  --side-nav-color: #ffd1dc;
-  --side-nav-hover-color: #cef4f1;
-  --side-nav-active-color: #3124e7;
-  --side-nav-active-text-color: #ffff;
-  --search-bar-color: #fff0dd;
-  --logo-icon: url('../../_icons/iconBlackSmall.svg');
-  --logo-text: url('../../_icons/textBlackSmall.svg');
+/* Given that the Hot Pink theme does not need link underlining due to meeting
+WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
+it can be safely elided. This looks quite pleasant on this theme. */
+.hotPink a:not(:hover, :focus),
+.hotPink .navOption:hover,
+.hotPink .navOption:focus,
+.hotPink *:not(:hover, :focus) {
+  text-decoration: none;
 }
 
-.catppuccinMocha {
-  --primary-text-color: #cdd6f4;
-  --secondary-text-color: #bac2de;
-  --tertiary-text-color: #a6adc8;
-  --title-color: var(--accent-color);
-  --bg-color: #1e1e2e;
-  --favorite-icon-color: #0f0;
-  --card-bg-color: #181825;
-  --secondary-card-bg-color: #1e1e2e;
-  --scrollbar-color: #313244;
-  --scrollbar-color-hover: #3d4051;
-  --side-nav-color: #181825;
-  --side-nav-hover-color: #11111b;
-  --side-nav-active-color: #11111b;
-  --search-bar-color: #313244;
-  --logo-icon: url('../../_icons/iconCatppuccinMochaLightSmall.svg');
-  --logo-text: url('../../_icons/textCatppuccinMochaLightSmall.svg');
-}
-
-.dracula {
-  --primary-text-color: #f8f8f2;
-  --secondary-text-color: #c6cee6;
-  --tertiary-text-color: #e5e8f3;
-  --title-color: #bd93f9;
-  --bg-color: #282a36;
-  --favorite-icon-color: #0f0;
-  --card-bg-color: #33353f;
-  --secondary-card-bg-color: #282a36;
-  --scrollbar-color: #44475a;
-  --scrollbar-color-hover: #3d4051;
-  --side-nav-color: #44475a;
-  --side-nav-hover-color: #57596b;
-  --side-nav-active-color: #3d4051;
-  --search-bar-color: #3e3f4a;
-  --logo-icon: url('../../_icons/iconDraculaLightSmall.svg');
-  --logo-text: url('../../_icons/textDraculaLightSmall.svg');
+.hotPink a:hover,
+.hotPink a:focus {
+  text-decoration: underline;
 }
 
 .solarizedDark {
@@ -358,48 +354,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url('../../_icons/textSolarizedDarkSmall.svg');
 }
 
-.gruvboxDark {
-  --primary-text-color: #ebdbb2;
-  --secondary-text-color: #d5c4a1;
-  --tertiary-text-color: #d5c4a1;
-  --title-color: #ebdbb2;
-  --bg-color: #282828;
-  --favorite-icon-color: #0f0;
-  --card-bg-color: #504945;
-  --secondary-card-bg-color: #3c3836;
-  --scrollbar-color: #665c54;
-  --scrollbar-color-hover: #282828;
-  --side-nav-color: #504945;
-  --side-nav-hover-color: #665c54;
-  --side-nav-active-color: #504945;
-  --search-bar-color: #1d2021;
-  --logo-icon: url('../../_icons/iconGruvboxLightSmall.svg');
-  --logo-text: url('../../_icons/textGruvboxLightSmall.svg');
-}
-
-.gruvboxLight {
-  --primary-shadow-color: rgb(255 241 199 / 100%);
-  --primary-text-color: #3c3836;
-  --secondary-text-color: #282828;
-  --tertiary-text-color: #282828;
-  --title-color: #3c3836;
-  --bg-color: #fbf1c7;
-  --favorite-icon-color: #0f0;
-  --card-bg-color: #ebdbb2;
-  --secondary-card-bg-color: #d5c4a1;
-  --scrollbar-color: #bdae93;
-  --scrollbar-color-hover: #fbf1c7;
-  --side-nav-color: #ebdbb2;
-  --side-nav-hover-color: #bdae93;
-  --side-nav-active-color: #ebdbb2;
-  --search-bar-color: #a89984;
-  --logo-icon: url('../../_icons/iconGruvboxDarkSmall.svg');
-  --logo-text: url('../../_icons/textGruvboxDarkSmall.svg');
-}
-
-
-/*************** PRIMARY THEME COLOR DEFINTIONS ***************/
-
 .mainRed,
 .mainPink,
 .mainPurple,
@@ -415,7 +369,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url('../../_icons/textWhiteSmall.svg');
 }
 
-/* light primary theme colors */
 .mainLightGreen,
 .mainLime,
 .mainYellow,
@@ -523,8 +476,64 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #d84315;
 }
 
+.mainDraculaCyan,
+.mainDraculaGreen,
+.mainDraculaOrange,
+.mainDraculaRed,
+.mainDraculaYellow {
+  --text-with-main-color: #282a36;
+  --logo-icon-bar-color: url('../../_icons/iconDraculaDarkSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textDraculaDarkSmall.svg');
+}
 
-/* PRIMARY THEME COLORS CORRESPONDING TO BASE THEMES */
+.mainDraculaPink,
+.mainDraculaPurple {
+  --text-with-main-color: #f8f8f2;
+  --logo-icon-bar-color: url('../../_icons/iconDraculaLightSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textDraculaLightSmall.svg');
+}
+
+.mainDraculaCyan {
+  --primary-color: #8be9fd;
+  --primary-color-hover: #97ebfd;
+  --primary-color-active: #7dd2e4;
+}
+
+.mainDraculaGreen {
+  --primary-color: #50fa7b;
+  --primary-color-hover: #62fb88;
+  --primary-color-active: #48e16f;
+}
+
+.mainDraculaOrange {
+  --primary-color: #ffb86c;
+  --primary-color-hover: #ffbf7b;
+  --primary-color-active: #e6a661;
+}
+
+.mainDraculaPink {
+  --primary-color: #ff79c6;
+  --primary-color-hover: #ff86cc;
+  --primary-color-active: #e66db2;
+}
+
+.mainDraculaPurple {
+  --primary-color: #bd93f9;
+  --primary-color-hover: #c49efa;
+  --primary-color-active: #aa84e0;
+}
+
+.mainDraculaRed {
+  --primary-color: #f55;
+  --primary-color-hover: #f66;
+  --primary-color-active: #e64d4d;
+}
+
+.mainDraculaYellow {
+  --primary-color: #f1fa8c;
+  --primary-color-hover: #f2fb98;
+  --primary-color-active: #d9e17e;
+}
 
 .mainCatppuccinMochaRosewater,
 .mainCatppuccinMochaFlamingo,
@@ -629,65 +638,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8d98e4;
 }
 
-.mainDraculaCyan,
-.mainDraculaGreen,
-.mainDraculaOrange,
-.mainDraculaRed,
-.mainDraculaYellow {
-  --text-with-main-color: #282a36;
-  --logo-icon-bar-color: url('../../_icons/iconDraculaDarkSmall.svg');
-  --logo-text-bar-color: url('../../_icons/textDraculaDarkSmall.svg');
-}
-
-.mainDraculaPink,
-.mainDraculaPurple {
-  --text-with-main-color: #f8f8f2;
-  --logo-icon-bar-color: url('../../_icons/iconDraculaLightSmall.svg');
-  --logo-text-bar-color: url('../../_icons/textDraculaLightSmall.svg');
-}
-
-.mainDraculaCyan {
-  --primary-color: #8be9fd;
-  --primary-color-hover: #97ebfd;
-  --primary-color-active: #7dd2e4;
-}
-
-.mainDraculaGreen {
-  --primary-color: #50fa7b;
-  --primary-color-hover: #62fb88;
-  --primary-color-active: #48e16f;
-}
-
-.mainDraculaOrange {
-  --primary-color: #ffb86c;
-  --primary-color-hover: #ffbf7b;
-  --primary-color-active: #e6a661;
-}
-
-.mainDraculaPink {
-  --primary-color: #ff79c6;
-  --primary-color-hover: #ff86cc;
-  --primary-color-active: #e66db2;
-}
-
-.mainDraculaPurple {
-  --primary-color: #bd93f9;
-  --primary-color-hover: #c49efa;
-  --primary-color-active: #aa84e0;
-}
-
-.mainDraculaRed {
-  --primary-color: #f55;
-  --primary-color-hover: #f66;
-  --primary-color-active: #e64d4d;
-}
-
-.mainDraculaYellow {
-  --primary-color: #f1fa8c;
-  --primary-color-hover: #f2fb98;
-  --primary-color-active: #d9e17e;
-}
-
 .mainSolarizedYellow,
 .mainSolarizedOrange,
 .mainSolarizedRed,
@@ -754,96 +704,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #c5d940;
 }
 
-.mainGruvboxDarkGreen {
-  --primary-color: #b8bb26;
-  --primary-color-hover: #d8db46;
-  --primary-color-active: #f8fb66;
-}
-
-.mainGruvboxDarkYellow {
-  --primary-color: #fabd2f;
-  --primary-color-hover: #fcd54f;
-  --primary-color-active: #fed76f;
-}
-
-.mainGruvboxDarkBlue {
-  --primary-color: #83a598;
-  --primary-color-hover: #a3c5b8;
-  --primary-color-active: #c3e2d8;
-}
-
-.mainGruvboxDarkPurple {
-  --primary-color: #d3869b;
-  --primary-color-hover: #f3a6b8;
-  --primary-color-active: #f3a6b8;
-}
-
-.mainGruvboxDarkAqua {
-  --primary-color: #8ec07c;
-  --primary-color-hover: #aec29c;
-  --primary-color-active: #cec59c;
-}
-
-.mainGruvboxDarkOrange {
-  --primary-color: #fe8019;
-  --primary-color-hover: #fe9a39;
-  --primary-color-active: #feb259;
-}
-
-.mainGruvboxLightRed {
-  --primary-color: #9d0006;
-  --primary-color-hover: #bd2026;
-  --primary-color-active: #dd4046;
-}
-
-.mainGruvboxLightBlue {
-  --primary-color: #076678;
-  --primary-color-hover: #276898;
-  --primary-color-active: #476ab8;
-}
-
-.mainGruvboxLightPurple {
-  --primary-color: #8f3f71;
-  --primary-color-hover: #af5f91;
-  --primary-color-active: #cf7fb1;
-}
-
-.mainGruvboxLightOrange {
-  --primary-color: #af3a03;
-  --primary-color-hover: #cf5a23;
-  --primary-color-active: #ef7a43;
-}
-
-.mainGruvboxLightOrange,
-.mainGruvboxLightRed,
-.mainGruvboxLightBlue,
-.mainGruvboxLightPurple {
-  --text-with-main-color: #fbf1c7;
-  --logo-icon-bar-color: url('../../_icons/iconGruvboxLightSmall.svg');
-  --logo-text-bar-color: url('../../_icons/textGruvboxLightSmall.svg');
-}
-
-
-.mainGruvboxDarkGreen,
-.mainGruvboxDarkYellow,
-.mainGruvboxDarkAqua,
-.mainGruvboxDarkOrange {
-  --text-with-main-color: #3c3836;
-  --logo-icon-bar-color: url('../../_icons/iconGruvboxDarkSmall.svg');
-  --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
-}
-
-.mainGruvboxDarkBlue,
-.mainGruvboxDarkPurple {
-  --text-with-main-color: #1d2021;
-  --logo-icon-bar-color: url('../../_icons/iconGruvboxDarkSmall.svg');
-  --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
-}
-
-
-/*************** SECONDARY THEME COLOR DEFINTIONS ***************/
-
-/* dark secondary theme colors */
 .secRed,
 .secPink,
 .secPurple,
@@ -857,7 +717,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #fff;
 }
 
-/* light secondary theme colors */
 .secLightGreen,
 .secLime,
 .secYellow,
@@ -1059,8 +918,88 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(255 87 34 / 24%);
 }
 
+.secDraculaCyan,
+.secDraculaGreen,
+.secDraculaOrange,
+.secDraculaRed,
+.secDraculaYellow {
+  --text-with-accent-color: #212121;
+}
 
-/* SECONDARY THEME COLORS CORRESPONDING TO BASE THEMES */
+.secDraculaPink,
+.secDraculaPurple {
+  --text-with-accent-color: #f8f8f2;
+}
+
+.secDraculaCyan,
+.secDraculaGreen,
+.secDraculaOrange,
+.secDraculaPink,
+.secDraculaPurple,
+.secDraculaRed,
+.secDraculaYellow {
+  --accent-color-opacity1: rgb(98 114 164 / 4%);
+  --accent-color-opacity2: rgb(98 114 164 / 12%);
+  --accent-color-opacity3: rgb(98 114 164 / 16%);
+  --accent-color-opacity4: rgb(98 114 164 / 24%);
+}
+
+.secDraculaCyan {
+  --accent-color: #8be9fd;
+  --accent-color-hover: #97ebfd;
+  --accent-color-active: #7dd2e4;
+  --accent-color-light: #a2edfd;
+  --accent-color-visited: #6fbaca;
+
+}
+
+.secDraculaGreen {
+  --accent-color: #50fa7b;
+  --accent-color-hover: #62fb88;
+  --accent-color-active: #48e16f;
+  --accent-color-light: #73fb95;
+  --accent-color-visited: #40c862;
+}
+
+.secDraculaOrange {
+  --accent-color: #ffb86c;
+  --accent-color-hover: #ffbf7b;
+  --accent-color-active: #e6a661;
+  --accent-color-light: #ffc689;
+  --accent-color-visited: #cc9356;
+}
+
+.secDraculaPink {
+  --accent-color: #ff79c6;
+  --accent-color-hover: #ff86cc;
+  --accent-color-active: #e66db2;
+  --accent-color-light: #ff94d1;
+  --accent-color-visited: #cc619e;
+}
+
+.secDraculaPurple {
+  --accent-color: #bd93f9;
+  --accent-color-hover: #c49efa;
+  --accent-color-active: #aa84e0;
+  --accent-color-light: #caa9fa;
+  --accent-color-visited: #9776c7;
+}
+
+.secDraculaRed {
+  --accent-color: #f55;
+  --accent-color-hover: #f66;
+  --accent-color-active: #e64d4d;
+  --accent-color-light: #f77;
+  --accent-color-visited: #c44;
+}
+
+.secDraculaYellow {
+  --accent-color: #f1fa8c;
+  --accent-color-hover: #f2fb98;
+  --accent-color-active: #d9e17e;
+  --accent-color-light: #f4fba3;
+  --accent-color-visited: #c1c870;
+}
 
 .secCatppuccinMochaRosewater,
 .secCatppuccinMochaFlamingo,
@@ -1247,89 +1186,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(180 190 254 / 24%);
 }
 
-.secDraculaCyan,
-.secDraculaGreen,
-.secDraculaOrange,
-.secDraculaRed,
-.secDraculaYellow {
-  --text-with-accent-color: #212121;
-}
-
-.secDraculaPink,
-.secDraculaPurple {
-  --text-with-accent-color: #f8f8f2;
-}
-
-.secDraculaCyan,
-.secDraculaGreen,
-.secDraculaOrange,
-.secDraculaPink,
-.secDraculaPurple,
-.secDraculaRed,
-.secDraculaYellow {
-  --accent-color-opacity1: rgb(98 114 164 / 4%);
-  --accent-color-opacity2: rgb(98 114 164 / 12%);
-  --accent-color-opacity3: rgb(98 114 164 / 16%);
-  --accent-color-opacity4: rgb(98 114 164 / 24%);
-}
-
-.secDraculaCyan {
-  --accent-color: #8be9fd;
-  --accent-color-hover: #97ebfd;
-  --accent-color-active: #7dd2e4;
-  --accent-color-light: #a2edfd;
-  --accent-color-visited: #6fbaca;
-
-}
-
-.secDraculaGreen {
-  --accent-color: #50fa7b;
-  --accent-color-hover: #62fb88;
-  --accent-color-active: #48e16f;
-  --accent-color-light: #73fb95;
-  --accent-color-visited: #40c862;
-}
-
-.secDraculaOrange {
-  --accent-color: #ffb86c;
-  --accent-color-hover: #ffbf7b;
-  --accent-color-active: #e6a661;
-  --accent-color-light: #ffc689;
-  --accent-color-visited: #cc9356;
-}
-
-.secDraculaPink {
-  --accent-color: #ff79c6;
-  --accent-color-hover: #ff86cc;
-  --accent-color-active: #e66db2;
-  --accent-color-light: #ff94d1;
-  --accent-color-visited: #cc619e;
-}
-
-.secDraculaPurple {
-  --accent-color: #bd93f9;
-  --accent-color-hover: #c49efa;
-  --accent-color-active: #aa84e0;
-  --accent-color-light: #caa9fa;
-  --accent-color-visited: #9776c7;
-}
-
-.secDraculaRed {
-  --accent-color: #f55;
-  --accent-color-hover: #f66;
-  --accent-color-active: #e64d4d;
-  --accent-color-light: #f77;
-  --accent-color-visited: #c44;
-}
-
-.secDraculaYellow {
-  --accent-color: #f1fa8c;
-  --accent-color-hover: #f2fb98;
-  --accent-color-active: #d9e17e;
-  --accent-color-light: #f4fba3;
-  --accent-color-visited: #c1c870;
-}
-
 .secSolarizedYellow,
 .secSolarizedOrange,
 .secSolarizedRed,
@@ -1448,175 +1304,41 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(101 119 0 / 24%);
 }
 
-.secGruvboxDarkGreen {
-  --accent-color: #98971a;
-  --accent-color-hover: #b9b93a;
-  --accent-color-active: #d9d95a;
-  --accent-color-light: #b8bb26;
-  --accent-color-visited: #98971a;
-  --accent-color-opacity1: rgb(152 151 26 / 4%);
-  --accent-color-opacity2: rgb(152 151 26 / 12%);
-  --accent-color-opacity3: rgb(152 151 26 / 16%);
-  --accent-color-opacity4: rgb(152 151 26 / 24%);
-}
-
-.secGruvboxDarkYellow {
-  --accent-color: #d79921;
-  --accent-color-hover: #f0b839;
-  --accent-color-active: #f0b839;
-  --accent-color-light: #fabd2f;
-  --accent-color-visited: #d79921;
-  --accent-color-opacity1: rgb(215 153 33 / 4%);
-  --accent-color-opacity2: rgb(215 153 33 / 12%);
-  --accent-color-opacity3: rgb(215 153 33 / 16%);
-  --accent-color-opacity4: rgb(215 153 33 / 24%);
-}
-
-.secGruvboxDarkBlue {
-  --accent-color: #458588;
-  --accent-color-hover: #68948a;
-  --accent-color-active: #68948a;
-  --accent-color-light: #83a598;
-  --accent-color-visited: #458588;
-  --accent-color-opacity1: rgb(69 133 136 / 4%);
-  --accent-color-opacity2: rgb(69 133 136 / 12%);
-  --accent-color-opacity3: rgb(69 133 136 / 16%);
-  --accent-color-opacity4: rgb(69 133 136 / 24%);
-}
-
-.secGruvboxDarkPurple {
-  --accent-color: #b16286;
-  --accent-color-hover: #d3869b;
-  --accent-color-active: #d3869b;
-  --accent-color-light: #d3869b;
-  --accent-color-visited: #b16286;
-  --accent-color-opacity1: rgb(177 98 134 / 4%);
-  --accent-color-opacity2: rgb(177 98 134 / 12%);
-  --accent-color-opacity3: rgb(177 98 134 / 16%);
-  --accent-color-opacity4: rgb(177 98 134 / 24%);
-}
-
-.secGruvboxDarkAqua {
-  --accent-color: #689d6a;
-  --accent-color-hover: #8ec07c;
-  --accent-color-active: #8ec07c;
-  --accent-color-light: #8ec07c;
-  --accent-color-visited: #689d6a;
-  --accent-color-opacity1: rgb(104 157 106 / 4%);
-  --accent-color-opacity2: rgb(104 157 106 / 12%);
-  --accent-color-opacity3: rgb(104 157 106 / 16%);
-  --accent-color-opacity4: rgb(104 157 106 / 24%);
-}
-
-.secGruvboxDarkOrange {
-  --accent-color: #d65d0e;
-  --accent-color-hover: #f2804f;
-  --accent-color-active: #f2804f;
-  --accent-color-light: #fe8019;
-  --accent-color-visited: #d65d0e;
-  --accent-color-opacity1: rgb(214 93 14 / 4%);
-  --accent-color-opacity2: rgb(214 93 14 / 12%);
-  --accent-color-opacity3: rgb(214 93 14 / 16%);
-  --accent-color-opacity4: rgb(214 93 14 / 24%);
-}
-
-.secGruvboxLightRed {
-  --text-with-accent-color: #fbf1c7;
-  --accent-color: #cc241d;
-  --accent-color-hover: #d23c2a;
-  --accent-color-active: #a61f1f;
-  --accent-color-light: #fb4934;
-  --accent-color-visited: #a61f1f;
-  --accent-color-opacity1: rgb(204 36 29 / 4%);
-  --accent-color-opacity2: rgb(204 36 29 / 12%);
-  --accent-color-opacity3: rgb(204 36 29 / 16%);
-  --accent-color-opacity4: rgb(204 36 29 / 24%);
-}
-
-.secGruvboxLightBlue {
-  --accent-color: #458588;
-  --accent-color-hover: #68948a;
-  --accent-color-active: #68948a;
-  --accent-color-light: #83a598;
-  --accent-color-visited: #458588;
-  --accent-color-opacity1: rgb(69 133 136 / 4%);
-  --accent-color-opacity2: rgb(69 133 136 / 12%);
-  --accent-color-opacity3: rgb(69 133 136 / 16%);
-  --accent-color-opacity4: rgb(69 133 136 / 24%);
-}
-
-.secGruvboxLightPurple {
-  --accent-color: #b16286;
-  --accent-color-hover: #d3869b;
-  --accent-color-active: #d3869b;
-  --accent-color-light: #d3869b;
-  --accent-color-visited: #b16286;
-  --accent-color-opacity1: rgb(177 98 134 / 4%);
-  --accent-color-opacity2: rgb(177 98 134 / 12%);
-  --accent-color-opacity3: rgb(177 98 134 / 16%);
-  --accent-color-opacity4: rgb(177 98 134 / 24%);
-}
-
-.secGruvboxLightOrange {
-  --accent-color: #d65d0e;
-  --accent-color-hover: #f2804f;
-  --accent-color-active: #f2804f;
-  --accent-color-light: #fe8019;
-  --accent-color-visited: #d65d0e;
-  --accent-color-opacity1: rgb(214 93 14 / 4%);
-  --accent-color-opacity2: rgb(214 93 14 / 12%);
-  --accent-color-opacity3: rgb(214 93 14 / 16%);
-  --accent-color-opacity4: rgb(214 93 14 / 24%);
-}
-
-.secGruvboxLightOrange,
-.secGruvboxLightRed,
-.secGruvboxLightBlue,
-.secGruvboxLightPurple {
-  --text-with-accent-color: #fbf1c7;
-}
-
-.secGruvboxDarkGreen,
-.secGruvboxDarkYellow,
-.secGruvboxDarkAqua,
-.secGruvboxDarkOrange {
-  --text-with-accent-color: #3c3836;
-}
-
-.secGruvboxDarkBlue,
-.secGruvboxDarkPurple {
-  --text-with-accent-color: #1d2021;
-}
-
-
-/*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
-
-/* stylelint-disable no-descending-specificity */
-
-/* destructive color in case of conflict with red color themes (sets new destructive color to purple)
-  NOTE: RED COLORS MUST CONTAIN 'Red' IN CLASSNAME.
-*/
-body[class*='Red'] * {
+/* region destructive color for red color themes
+  using :has(.app) to increase specificity */
+.mainRed:has(.app),
+.secRed:has(.app),
+.mainDraculaRed:has(.app),
+.secDraculaRed:has(.app),
+.mainSolarizedRed:has(.app),
+.secSolarizedRed:has(.app) {
   --destructive-color: #9c27b0;
   --destructive-text-color: #fff;
   --destructive-hover-color: #8e24aa;
   --destructive-active-color: #6a1b9a;
 }
 
-/* destructive color in case of conflict with red and purple color themes (sets new destructive color to yellow)
-  NOTE: PURPLE COLORS MUST CONTAIN 'Purple' IN CLASSNAME.
-*/
-body[class*='Red'][class*='Purple'] * {
+/* Deal with theme conflict on destructive colors */
+.mainRed.secPurple,
+.mainRed.secDeepPurple,
+.mainRed.secDraculaPurple,
+.mainDraculaRed.secPurple,
+.mainDraculaRed.secDeepPurple,
+.mainDraculaRed.secDraculaPurple,
+.mainSolarizedRed.secPurple,
+.mainSolarizedRed.secDeepPurple,
+.mainSolarizedRed.secDraculaPurple,
+.mainPurple.secRed,
+.mainPurple.secDraculaRed,
+.mainDeepPurple.secRed,
+.mainDeepPurple.secDraculaRed,
+.mainDraculaPurple.secRed,
+.mainDraculaPurple.secDraculaRed {
   --destructive-color: #ff9800;
   --destructive-text-color: #fff;
   --destructive-hover-color: #fb8c00;
   --destructive-active-color: #ef6c00;
 }
-
-/* stylelint-enable no-descending-specificity */
-
-
-/*************** LEFT-TO-RIGHT AND RIGHT-TO-LEFT RULES ***************/
 
 body[dir='ltr'] {
   --ltr-or-rtl: ltr;
@@ -1644,31 +1366,34 @@ html[lang='ur'] [data-prefix='fas'][data-icon='circle-question'] {
   transform: scale(-1, 1);
 }
 
+body {
+  margin: 0;
+  min-block-size: 100vh;
+  color: var(--primary-text-color);
+  background-color: var(--bg-color);
 
-/*************** MAIN APP STYLING RULES ***************/
+  --red-500: #f44336;
+}
 
 .app {
   color: var(--primary-text-color);
   background-color: var(--bg-color);
 }
 
-
-/* stylelint-disable no-descending-specificity */
-
 /* stylelint-disable-next-line a11y/no-outline-none */
 .hideOutlines *:focus {
   outline: none;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 a:link {
   color: var(--link-color);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 a:visited {
   color: var(--link-visited-color);
 }
-
-/* stylelint-enable no-descending-specificity */
 
 @media (prefers-reduced-motion) {
   * {

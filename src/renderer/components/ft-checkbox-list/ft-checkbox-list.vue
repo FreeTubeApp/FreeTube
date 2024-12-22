@@ -6,6 +6,7 @@
     <!--  eslint-disable vue/no-template-key -->
     <template
       v-for="(label, index) in labels"
+      class="checkboxContainer"
     >
       <input
         :id="values[index] + id"

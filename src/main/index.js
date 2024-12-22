@@ -254,16 +254,13 @@ function runApp() {
 
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance, we should focus our window
-      if (typeof commandLine !== 'undefined') {
-        const url = getLinkUrl(commandLine)
-        if (mainWindow && mainWindow.webContents) {
-          if (mainWindow.isMinimized()) mainWindow.restore()
-          mainWindow.focus()
+      if (mainWindow && typeof commandLine !== 'undefined') {
+        if (mainWindow.isMinimized()) mainWindow.restore()
+        mainWindow.focus()
 
-          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
-        } else {
-          if (url) startupUrl = url
-          createWindow()
+        const url = getLinkUrl(commandLine)
+        if (url) {
+          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
         }
       }
     })
@@ -458,7 +455,7 @@ function runApp() {
           requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-
+      // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
 
@@ -469,7 +466,7 @@ function runApp() {
       if (responseHeaders) {
         delete responseHeaders['set-cookie']
       }
-
+      // eslint-disable-next-line n/no-callback-literal
       callback({ responseHeaders })
     })
 
@@ -642,8 +639,6 @@ function runApp() {
         return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
 
-      // Determine window color to be shown (shown most prominently during initial app load)
-      // Uses the --bg-color for each corresponding theme
       switch (setting.value) {
         case 'dark':
           return '#212121'
@@ -665,10 +660,6 @@ function runApp() {
           return '#002B36'
         case 'solarized-light':
           return '#fdf6e3'
-        case 'gruvbox-dark':
-          return '#282828'
-        case 'gruvbox-light':
-          return '#fbf1c7'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -697,9 +688,7 @@ function runApp() {
         webSecurity: false,
         backgroundThrottling: false,
         contextIsolation: false
-      },
-      minWidth: 340,
-      minHeight: 380
+      }
     }
 
     const newWindow = new BrowserWindow(
@@ -766,6 +755,7 @@ function runApp() {
     // If called multiple times
     // Duplicate menu items will be added
     if (replaceMainWindow) {
+      // eslint-disable-next-line
       setMenu()
     }
 
@@ -832,11 +822,10 @@ function runApp() {
     })
   }
 
-  ipcMain.on(IpcChannels.APP_READY, () => {
+  ipcMain.once(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
     }
-    startupUrl = null
   })
 
   function relaunch() {
@@ -895,43 +884,6 @@ function runApp() {
     session.defaultSession.setProxy({})
     session.defaultSession.closeAllConnections()
   })
-
-  // #region navigation history
-
-  const NAV_HISTORY_DISPLAY_LIMIT = 15
-  // Math.trunc but with a bitwise OR so that it can be calcuated at build time and the number inlined
-  const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = (NAV_HISTORY_DISPLAY_LIMIT / 2) | 0
-
-  ipcMain.handle(IpcChannels.GET_NAVIGATION_HISTORY, ({ sender }) => {
-    const activeIndex = sender.navigationHistory.getActiveIndex()
-    const length = sender.navigationHistory.length()
-
-    let end
-
-    if (activeIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
-      end = Math.min(length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
-    } else if (length - activeIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
-      end = length - 1
-    } else {
-      end = activeIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
-    }
-
-    const dropdownOptions = []
-
-    for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
-      const routeLabel = sender.navigationHistory.getEntryAtIndex(index)?.title
-
-      dropdownOptions.push({
-        label: routeLabel,
-        value: index - activeIndex,
-        active: index === activeIndex
-      })
-    }
-
-    return dropdownOptions
-  })
-
-  // #endregion navigation history
 
   ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') {
@@ -1315,7 +1267,11 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.videoId, data.playlistItemId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
+            _id: data._id,
+            videoId: data.videoId,
+            playlistItemId: data.playlistItemId,
+          })
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1368,7 +1324,7 @@ function runApp() {
           return await baseHandlers.subscriptionCache.find()
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateVideosByChannelId(data.channelId, data.entries, data.timestamp)
+          await baseHandlers.subscriptionCache.updateVideosByChannelId(data)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1377,7 +1333,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data.channelId, data.entries, data.timestamp)
+          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1386,7 +1342,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateShortsByChannelId(data.channelId, data.entries, data.timestamp)
+          await baseHandlers.subscriptionCache.updateShortsByChannelId(data)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1395,7 +1351,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data.channelId, data.entries)
+          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1404,7 +1360,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data.channelId, data.entries, data.timestamp)
+          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1459,7 +1415,6 @@ function runApp() {
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
-      mainWindow = null
       if (process.platform !== 'darwin') {
         app.quit()
       }
@@ -1529,7 +1484,6 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
-      if (app.isReady()) createWindow()
     }
   })
 

@@ -88,7 +88,11 @@ const actions = {
 
   async updateSubscriptionVideosCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
     try {
-      await DBSubscriptionCacheHandlers.updateVideosByChannelId(channelId, videos, timestamp)
+      await DBSubscriptionCacheHandlers.updateVideosByChannelId({
+        channelId,
+        entries: videos,
+        timestamp,
+      })
       commit('updateVideoCacheByChannel', { channelId, entries: videos, timestamp })
     } catch (errMessage) {
       console.error(errMessage)
@@ -97,7 +101,11 @@ const actions = {
 
   async updateSubscriptionShortsCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
     try {
-      await DBSubscriptionCacheHandlers.updateShortsByChannelId(channelId, videos, timestamp)
+      await DBSubscriptionCacheHandlers.updateShortsByChannelId({
+        channelId,
+        entries: videos,
+        timestamp,
+      })
       commit('updateShortsCacheByChannel', { channelId, entries: videos, timestamp })
     } catch (errMessage) {
       console.error(errMessage)
@@ -106,7 +114,10 @@ const actions = {
 
   async updateSubscriptionShortsCacheWithChannelPageShorts({ commit }, { channelId, videos }) {
     try {
-      await DBSubscriptionCacheHandlers.updateShortsWithChannelPageShortsByChannelId(channelId, videos)
+      await DBSubscriptionCacheHandlers.updateShortsWithChannelPageShortsByChannelId({
+        channelId,
+        entries: videos,
+      })
       commit('updateShortsCacheWithChannelPageShorts', { channelId, entries: videos })
     } catch (errMessage) {
       console.error(errMessage)
@@ -115,7 +126,11 @@ const actions = {
 
   async updateSubscriptionLiveCacheByChannel({ commit }, { channelId, videos, timestamp = new Date() }) {
     try {
-      await DBSubscriptionCacheHandlers.updateLiveStreamsByChannelId(channelId, videos, timestamp)
+      await DBSubscriptionCacheHandlers.updateLiveStreamsByChannelId({
+        channelId,
+        entries: videos,
+        timestamp,
+      })
       commit('updateLiveCacheByChannel', { channelId, entries: videos, timestamp })
     } catch (errMessage) {
       console.error(errMessage)
@@ -124,7 +139,11 @@ const actions = {
 
   async updateSubscriptionPostsCacheByChannel({ commit }, { channelId, posts, timestamp = new Date() }) {
     try {
-      await DBSubscriptionCacheHandlers.updateCommunityPostsByChannelId(channelId, posts, timestamp)
+      await DBSubscriptionCacheHandlers.updateCommunityPostsByChannelId({
+        channelId,
+        entries: posts,
+        timestamp,
+      })
       commit('updatePostsCacheByChannel', { channelId, entries: posts, timestamp })
     } catch (errMessage) {
       console.error(errMessage)

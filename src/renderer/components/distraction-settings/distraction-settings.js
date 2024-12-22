@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -96,9 +96,6 @@ export default defineComponent({
     hideChannelCommunity: function () {
       return this.$store.getters.getHideChannelCommunity
     },
-    hideChannelHome: function () {
-      return this.$store.getters.getHideChannelHome
-    },
     hideSubscriptionsVideos: function () {
       return this.$store.getters.getHideSubscriptionsVideos
     },
@@ -113,12 +110,6 @@ export default defineComponent({
     },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
-    },
-    showAddedChannelsHidden: function () {
-      return this.$store.getters.getShowAddedChannelsHidden
-    },
-    showAddedForbiddenTitles: function () {
-      return this.$store.getters.getShowAddedForbiddenTitles
     },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
@@ -165,12 +156,6 @@ export default defineComponent({
     },
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
-    },
-    handleAddedChannelsHidden: function () {
-      this.updateShowAddedChannelsHidden(!this.showAddedChannelsHidden)
-    },
-    handleAddedForbiddenTitles: function () {
-      this.updateShowAddedForbiddenTitles(!this.showAddedForbiddenTitles)
     },
     validateChannelId: function (text) {
       return checkYoutubeChannelId(text)
@@ -233,15 +218,12 @@ export default defineComponent({
       'updateHideChannelShorts',
       'updateHideChannelPlaylists',
       'updateHideChannelCommunity',
-      'updateHideChannelHome',
       'updateHideChannelPodcasts',
       'updateHideChannelReleases',
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
-      'updateShowAddedChannelsHidden',
-      'updateShowAddedForbiddenTitles',
     ])
   }
 })

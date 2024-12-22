@@ -2,8 +2,6 @@ import { defineComponent, nextTick } from 'vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
-const LONG_CLICK_BOUNDARY_MS = 500
-
 export default defineComponent({
   name: 'FtIconButton',
   components: {
@@ -57,17 +55,12 @@ export default defineComponent({
     dropdownOptions: {
       // Array of objects with these properties
       // - type: ('labelValue'|'divider', default to 'labelValue' for less typing)
-      // - label: String (if type === 'labelValue')
-      // - value: String (if type === 'labelValue')
-      // - (OPTIONAL) active: Number (if type === 'labelValue')
+      // - label: String (if type == 'labelValue')
+      // - value: String (if type == 'labelValue')
       type: Array,
       default: () => { return [] }
     },
     dropdownModalOnMobile: {
-      type: Boolean,
-      default: false
-    },
-    openOnRightOrLongClick: {
       type: Boolean,
       default: false
     }
@@ -76,8 +69,7 @@ export default defineComponent({
   data: function () {
     return {
       dropdownShown: false,
-      blockLeftClick: false,
-      longPressTimer: null,
+      mouseDownOnIcon: false,
       useModal: false
     }
   },
@@ -99,24 +91,14 @@ export default defineComponent({
       this.dropdownShown = false
     },
 
-    handleIconClick: function (e, isRightOrLongClick = false) {
+    handleIconClick: function () {
       if (this.disabled) {
         this.$emit('disabled-click')
         return
       }
-
-      if (this.blockLeftClick) {
-        return
-      }
-
-      if (this.longPressTimer != null) {
-        clearTimeout(this.longPressTimer)
-        this.longPressTimer = null
-      }
-
-      if ((!this.openOnRightOrLongClick || (this.openOnRightOrLongClick && isRightOrLongClick)) &&
-       (this.forceDropdown || this.dropdownOptions.length > 0)) {
+      if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.dropdownShown = !this.dropdownShown
+
         if (this.dropdownShown && !this.useModal) {
           // wait until the dropdown is visible
           // then focus it so we can hide it automatically when it loses focus
@@ -129,38 +111,24 @@ export default defineComponent({
       }
     },
 
-    handleIconPointerDown: function (event) {
-      if (!this.openOnRightOrLongClick) { return }
-      if (event.button === 2) { // right button click
-        this.handleIconClick(null, true)
-      } else if (event.button === 0) { // left button click
-        this.longPressTimer = setTimeout(() => {
-          this.handleIconClick(null, true)
-
-          // prevent a long press that ends on the icon button from firing the handleIconClick handler
-          window.addEventListener('pointerup', this.preventButtonClickAfterLongPress, { once: true })
-          window.addEventListener('pointercancel', () => {
-            window.removeEventListener('pointerup', this.preventButtonClickAfterLongPress)
-          }, { once: true })
-        }, LONG_CLICK_BOUNDARY_MS)
+    handleIconMouseDown: function () {
+      if (this.disabled) { return }
+      if (this.dropdownShown) {
+        this.mouseDownOnIcon = true
       }
     },
 
-    // prevent the handleIconClick handler from firing for an instant
-    preventButtonClickAfterLongPress: function () {
-      this.blockLeftClick = true
-      setTimeout(() => { this.blockLeftClick = false }, 0)
-    },
-
     handleDropdownFocusOut: function () {
-      if (this.dropdownShown && !this.$refs.ftIconButton.matches(':focus-within')) {
+      if (this.mouseDownOnIcon) {
+        this.mouseDownOnIcon = false
+      } else if (!this.$refs.dropdown.matches(':focus-within')) {
         this.dropdownShown = false
       }
     },
 
     handleDropdownEscape: function () {
-      this.dropdownShown = false
-      this.$refs.ftIconButton.firstElementChild.focus()
+      this.$refs.iconButton.focus()
+      // handleDropdownFocusOut will hide the dropdown for us
     },
 
     handleDropdownClick: function ({ url, index }) {

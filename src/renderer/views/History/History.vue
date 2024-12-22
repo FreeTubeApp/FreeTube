@@ -15,9 +15,8 @@
         :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
-        :value="query"
-        @input="(input) => handleQueryChange(input)"
-        @clear="() => handleQueryChange('')"
+        @input="(input) => query = input"
+        @clear="query = ''"
       />
       <div
         class="optionsRow"

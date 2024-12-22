@@ -3,12 +3,13 @@ import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
 import {
+  setPublishedTimestampsInvidious,
   copyToClipboard,
   getRelativeTimeFromDate,
   showToast,
   getChannelPlaylistId
 } from '../../helpers/utils'
-import { getInvidiousChannelVideos, invidiousFetch } from '../../helpers/api/invidious'
+import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
@@ -20,7 +21,6 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: true,
-      alreadyLoadedRemotely: false,
       videoList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -111,9 +111,7 @@ export default defineComponent({
     },
 
     subscriptionCacheReady() {
-      if (!this.alreadyLoadedRemotely) {
-        this.loadVideosFromCacheSometimes()
-      }
+      this.loadVideosFromCacheSometimes()
     },
   },
   mounted: async function () {
@@ -131,7 +129,6 @@ export default defineComponent({
         return
       }
 
-      this.alreadyLoadedRemotely = true
       this.loadVideosForSubscriptionsFromRemote()
       this.$store.commit('setSubscriptionForVideosFirstAutoFetchRun')
     },
@@ -341,7 +338,15 @@ export default defineComponent({
 
     getChannelVideosInvidiousScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        getInvidiousChannelVideos(channel.id).then((result) => {
+        const subscriptionsPayload = {
+          resource: 'channels/latest',
+          id: channel.id,
+          params: {}
+        }
+
+        invidiousAPICall(subscriptionsPayload).then((result) => {
+          setPublishedTimestampsInvidious(result.videos)
+
           let name
 
           if (result.videos.length > 0) {

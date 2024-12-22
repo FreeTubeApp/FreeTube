@@ -1,40 +1,9 @@
 <template>
   <FtCard
     v-if="shownDescription.length > 0"
-    :class="{ videoDescription: true, short: !showFullDescription }"
+    class="videoDescription"
   >
-    <template v-if="showControls">
-      <span
-        v-if="showFullDescription"
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @click="collapseDescription"
-        @keydown.space.prevent="collapseDescription"
-        @keydown.enter.prevent="collapseDescription"
-      >
-        {{ $t("Description.Collapse Description") }}
-      </span>
-      <span
-        v-else
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @keydown.space.prevent="expandDescription"
-        @keydown.enter.prevent="expandDescription"
-      >
-        {{ $t("Description.Expand Description") }}
-      </span>
-      <div
-        v-if="!showFullDescription"
-        class="overlay"
-        @click="expandDescription"
-        @keydown.space.prevent="expandDescription"
-        @keydown.enter.prevent="expandDescription"
-      />
-    </template>
     <FtTimestampCatcher
-      ref="descriptionContainer"
       class="description"
       :input-html="shownDescription"
       @timestamp-event="onTimestamp"
@@ -45,9 +14,8 @@
 <script setup>
 import autolinker from 'autolinker'
 
-import { onMounted, ref } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtTimestampCatcher from '../FtTimestampCatcher.vue'
+import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 
 const props = defineProps({
   description: {
@@ -63,9 +31,6 @@ const props = defineProps({
 const emit = defineEmits(['timestamp-event'])
 
 let shownDescription = ''
-const descriptionContainer = ref()
-const showFullDescription = ref(false)
-const showControls = ref(false)
 
 if (props.descriptionHtml !== '') {
   const parsed = parseDescriptionHtml(props.descriptionHtml)
@@ -94,39 +59,7 @@ function onTimestamp(timestamp) {
 }
 
 /**
- * Enables user to view entire contents of description
- */
-function expandDescription() {
-  showFullDescription.value = true
-}
-
-/**
- * Enables user to collapse contents of description
- */
-function collapseDescription() {
-  showFullDescription.value = false
-}
-
-/**
- * Returns true when description content does not overflow description container
- * Useful for hiding description expansion/contraction controls
- */
-function isShortDescription() {
-  const descriptionElem = descriptionContainer.value?.$el
-  return descriptionElem?.clientHeight >= descriptionElem?.scrollHeight
-}
-
-onMounted(() => {
-  // To verify whether or not the description is too short for displaying
-  // description controls, we need to check the description's dimensions.
-  // The only way to make this work is to check on mount.
-  showFullDescription.value = isShortDescription()
-  showControls.value = !showFullDescription.value
-})
-
-/**
  * @param {string} descriptionText
- * @returns {string}
  */
 function parseDescriptionHtml(descriptionText) {
   return descriptionText

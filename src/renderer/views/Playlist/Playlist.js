@@ -18,14 +18,13 @@ import {
 import {
   extractNumberFromString,
   getIconForSortPreference,
+  setPublishedTimestampsInvidious,
   showToast,
-  deepCopy,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
+import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 export default defineComponent({
   name: 'Playlist',
@@ -75,7 +74,6 @@ export default defineComponent({
       getPlaylistInfoDebounce: function() {},
       playlistInEditMode: false,
       forceListView: false,
-      alreadyShownNotice: false,
 
       videoSearchQuery: '',
 
@@ -182,13 +180,6 @@ export default defineComponent({
       return this.sortOrder === SORT_BY_VALUES.Custom
     },
     sortedPlaylistItems: function () {
-      if (
-        this.sortOrder === SORT_BY_VALUES.VideoDurationAscending ||
-        this.sortOrder === SORT_BY_VALUES.VideoDurationDescending
-      ) {
-        const playlistItems = this.getPlaylistItemsWithDuration()
-        return getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
-      }
       return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
@@ -223,10 +214,6 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.AuthorAscending')
           case SORT_BY_VALUES.AuthorDescending:
             return this.$t('Playlist.Sort By.AuthorDescending')
-          case SORT_BY_VALUES.VideoDurationAscending:
-            return this.$t('Playlist.Sort By.VideoDurationAscending')
-          case SORT_BY_VALUES.VideoDurationDescending:
-            return this.$t('Playlist.Sort By.VideoDurationDescending')
           default:
             console.error(`Unknown sort: ${k}`)
             return k
@@ -270,7 +257,7 @@ export default defineComponent({
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
 
     if (this.isUserPlaylistRequested && this.searchQueryTextPresent) {
-      this.handleVideoSearchQueryChange(this.searchQueryTextRequested)
+      this.videoSearchQuery = this.searchQueryTextRequested
     }
   },
   mounted: function () {
@@ -312,13 +299,10 @@ export default defineComponent({
         if (result.info.author) {
           channelName = result.info.author.name
         } else {
-          const subtitle = result.info.subtitle?.toString()
-          if (subtitle) {
-            const index = subtitle.lastIndexOf('•')
-            channelName = subtitle.substring(0, index).trim()
-          } else {
-            channelName = ''
-          }
+          const subtitle = result.info.subtitle.toString()
+
+          const index = subtitle.lastIndexOf('•')
+          channelName = subtitle.substring(0, index).trim()
         }
 
         const playlistItems = result.items.map(parseLocalPlaylistVideo)
@@ -387,6 +371,8 @@ export default defineComponent({
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
+        setPublishedTimestampsInvidious(result.videos)
+
         this.playlistItems = result.videos
 
         this.updatePageTitle()
@@ -430,38 +416,8 @@ export default defineComponent({
 
       this.isLoading = false
     },
-
     showUserPlaylistNotFound() {
       showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist does not exist'))
-    },
-
-    getPlaylistItemsWithDuration() {
-      const modifiedPlaylistItems = deepCopy(this.playlistItems)
-      let anyVideoMissingDuration = false
-      modifiedPlaylistItems.forEach(video => {
-        if (videoDurationPresent(video)) { return }
-
-        const videoHistory = this.$store.getters.getHistoryCacheById[video.videoId]
-        if (typeof videoHistory !== 'undefined') {
-          const fetchedLengthSeconds = videoDurationWithFallback(videoHistory)
-          video.lengthSeconds = fetchedLengthSeconds
-          // if the video duration is 0, it will be the fallback value, so mark it as missing a duration
-          if (fetchedLengthSeconds === 0) { anyVideoMissingDuration = true }
-        } else {
-          // Mark at least one video have no duration, show notice later
-          // Also assign fallback duration here
-          anyVideoMissingDuration = true
-          video.lengthSeconds = 0
-        }
-      })
-
-      // Show notice if not already shown before returning playlist items
-      if (anyVideoMissingDuration && !this.alreadyShownNotice) {
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist has a video with a duration error'), 5000)
-        this.alreadyShownNotice = true
-      }
-
-      return modifiedPlaylistItems
     },
 
     getNextPage: function () {
@@ -603,39 +559,11 @@ export default defineComponent({
         playlistTitle,
         channelName,
       ].filter(v => v).join(' | ')
-      this.setAppTitle(`${titleText} - ${packageDetails.productName}`)
+      document.title = `${titleText} - ${packageDetails.productName}`
     },
 
     handleResize: function () {
       this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
-    },
-
-    handleVideoSearchQueryChange(val) {
-      this.videoSearchQuery = val
-
-      this.saveStateInRouter(val)
-    },
-
-    async saveStateInRouter(query) {
-      const routeQuery = {
-        playlistType: this.$route.query.playlistType,
-      }
-      if (query !== '') {
-        routeQuery.searchQueryText = query
-      }
-
-      try {
-        await this.$router.replace({
-          path: `/playlist/${this.playlistId}`,
-          query: routeQuery,
-        })
-      } catch (failure) {
-        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
-          return
-        }
-
-        throw failure
-      }
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
@@ -648,7 +576,6 @@ export default defineComponent({
     ]),
 
     ...mapMutations([
-      'setAppTitle',
       'setCachedPlaylist'
     ])
   }

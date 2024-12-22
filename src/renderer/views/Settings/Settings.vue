@@ -1,53 +1,38 @@
 <template>
-  <div class="settingsPage">
+  <div>
     <template v-if="unlocked">
-      <div v-show="settingsSectionTypeOpenInMobile != null">
-        <font-awesome-icon
-          :icon="['fas', 'angle-left']"
-          class="returnToMenuMobileIcon"
-          role="button"
-          :title="$t('Settings.Return to Settings Menu')"
-          tabindex="0"
-          @click="returnToSettingsMenu"
-          @keydown.space.enter="returnToSettingsMenu"
+      <div class="switchRow">
+        <ft-toggle-switch
+          class="settingsToggle"
+          :label="$t('Settings.Expand All Settings Sections')"
+          :default-value="allSettingsSectionsExpandedByDefault"
+          :compact="false"
+          @change="updateAllSettingsSectionsExpandedByDefault"
+        />
+        <ft-toggle-switch
+          class="settingsToggle"
+          :label="$t('Settings.Sort Settings Sections (A-Z)')"
+          :default-value="settingsSectionSortEnabled"
+          :compact="false"
+          @change="updateSettingsSectionSortEnabled"
         />
       </div>
-      <ft-settings-menu
-        v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"
-        :settings-sections="settingsSectionComponents"
-        @navigate-to-section="navigateToSection"
-      />
-      <div
-        v-show="isInDesktopView || settingsSectionTypeOpenInMobile != null"
-        class="settingsContent"
+      <template
+        v-for="(settingsComponent, i) in settingsSectionComponents"
       >
-        <div class="switchRow">
-          <ft-toggle-switch
-            class="settingsToggle"
-            :label="$t('Settings.Sort Settings Sections (A-Z)')"
-            :default-value="settingsSectionSortEnabled"
-            :compact="false"
-            @change="updateSettingsSectionSortEnabled"
-          />
-        </div>
-        <div class="settingsSections">
-          <template
-            v-for="(settingsComponent) in settingsSectionComponents"
-          >
-            <component
-              :is="settingsComponent.type"
-              :ref="settingsComponent.type"
-              :key="settingsComponent.type"
-              :class="{ hideOnMobile: settingsSectionTypeOpenInMobile !== settingsComponent.type }"
-              class="section"
-            />
-          </template>
-        </div>
-      </div>
+        <hr
+          v-if="i !== 0"
+          :key="settingsComponent.type + 'hr'"
+        >
+        <component
+          :is="settingsComponent.type"
+          :key="settingsComponent.type + 'component'"
+        />
+      </template>
     </template>
     <password-dialog
       v-else
-      @unlocked="handleUnlock"
+      @unlocked="unlocked = true"
     />
   </div>
 </template>

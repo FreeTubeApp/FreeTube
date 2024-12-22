@@ -38,13 +38,6 @@
   user-select: text;
 }
 
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  accent-color: var(--accent-color);
-}
-
 .tag-icon {
   border-radius: 50%;
   vertical-align: middle;

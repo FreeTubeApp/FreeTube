@@ -6,12 +6,6 @@
       >
         {{ title }}
       </h1>
-      <div
-        v-if="isUnlisted"
-        class="unlistedBadge"
-      >
-        {{ $t('Video.Unlisted') }}
-      </div>
     </div>
     <div class="videoMetrics">
       <div class="datePublishedAndViewCount">

@@ -2,7 +2,6 @@ import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import { showToast } from '../../helpers/utils'
-import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'FtListPlaylist',
@@ -29,7 +28,7 @@ export default defineComponent({
       playlistId: '',
       channelId: '',
       title: 'Pop Music Playlist - Timeless Pop Songs (Updated Weekly 2020)',
-      thumbnail: thumbnailPlaceholder,
+      thumbnail: require('../../assets/img/thumbnail_placeholder.svg'),
       channelName: '#RedMusic: Just Hits',
       videoCount: 200,
     }

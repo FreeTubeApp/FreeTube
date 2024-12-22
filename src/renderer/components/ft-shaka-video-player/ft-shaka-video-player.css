@@ -8,13 +8,6 @@
     so we want to make it black as it defaults to transparent
    */
   background-color: #000;
-
-  /*
-    Fixes the seek bar thumbnails causing a horizontal scroll bar
-    to appear after exiting full screen and full window.
-    But also vertically in case context menu overflows.
-  */
-  overflow: hidden;
 }
 
 .player {
@@ -43,35 +36,6 @@
   display: flex;
   flex-direction: column-reverse;
 }
-
-/*
-  Apply the active FreeTube base theme to shaka-player's menus.
-  Usually we go for classes and not element names,
-  however as we need to override shaka-player's CSS
-  we need to use the same selectors that they do.
-*/
-
-:deep(.shaka-overflow-menu),
-:deep(.shaka-settings-menu) {
-  background: var(--card-bg-color) !important;
-}
-
-:deep(.shaka-overflow-menu button),
-:deep(.shaka-settings-menu button) {
-  color: var(--primary-text-color) !important;
-}
-
-:deep(.shaka-overflow-menu button:hover),
-:deep(.shaka-settings-menu button:hover) {
-  background: var(--side-nav-hover-color) !important;
-  color: var(--side-nav-hover-text-color) !important;
-}
-
-:deep(.shaka-overflow-menu-only .shaka-current-selection-span) {
-  color: var(--tertiary-text-color) !important;
-}
-
-/* End of theming code */
 
 .sixteenByNine {
   aspect-ratio: 16 / 9;
@@ -201,10 +165,6 @@
   opacity: 1;
 }
 
-:deep(.shaka-controls-container > .shaka-play-button-container > .shaka-play-button) {
-  padding: min(calc(15% / 2), 55px);
-}
-
 .ftVideoPlayer:fullscreen :deep(.theatre-button),
 .ftVideoPlayer:fullscreen :deep(.full-window-button),
 .fullWindow :deep(.theatre-button) {
@@ -243,32 +203,6 @@
   }
 }
 
-@media only screen and (width >= 1000px) {
-  :deep(.shaka-bottom-controls) {
-    /* remove some bottom padding since the seek bar is above */
-    padding-bottom: 0;
-
-    /* make seekbar take full width on non-mobile devices */
-    width: 100%;
-  }
-
-  /* increase height of captions area since we remove the padding-bottom below the seekbar */
-  :deep(.shaka-controls-container[shown='true']~.shaka-text-container) {
-    bottom: 12.5%;
-  }
-
-  :deep(.shaka-controls-button-panel>button) {
-    height: 40px;
-    line-height: 0.5;
-  }
-
-  :deep(.shaka-tooltips-on button:active::after),
-  :deep(.shaka-tooltips-on button:focus-visible::after),
-  :deep(.shaka-tooltips-on button:hover::after) {
-    margin-bottom: 8px;
-  }
-}
-
 @media only screen and (width <=1350px) {
   :deep(.theatre-button) {
     display: none;
@@ -279,13 +213,6 @@
   :deep(.playerFullscreenTitleOverlay),
   .skippedSegment {
     background-color: rgb(0 0 0 / 90%);
-  }
-}
-
-@media (prefers-reduced-transparency:no-preference) {
-  /* add transparency to big play button */
-  :deep(.shaka-controls-container[shown='true'] > .shaka-play-button-container > .shaka-play-button) {
-    opacity: 0.75 !important;
   }
 }
 

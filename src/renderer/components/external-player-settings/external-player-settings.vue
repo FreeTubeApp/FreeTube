@@ -43,16 +43,13 @@
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
         @input="updateExternalPlayerExecutable"
       />
-    </ft-flex-box>
-    <ft-flex-box
-      v-if="externalPlayer !== ''"
-    >
-      <ft-input-tags
-        :label="$t('Settings.External Player Settings.Custom External Player Arguments')"
-        :tag-name-placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
-        :tag-list="externalPlayerCustomArgs"
+      <ft-input
+        :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
+        :show-action-button="false"
+        :show-label="true"
+        :value="externalPlayerCustomArgs"
         :tooltip="externalPlayerCustomArgsTooltip"
-        @change="handleExternalPlayerCustomArgs"
+        @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
   </ft-settings-section>

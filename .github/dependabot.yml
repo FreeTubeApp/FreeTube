@@ -17,10 +17,8 @@ updates:
         patterns:
           - "eslint"
           - "eslint-*"
-          - "@eslint/*"
           - "yaml-eslint-parser"
           - "vue-eslint-parser"
-          - "neostandard"
       stylelint:
         patterns:
           - "stylelint"
