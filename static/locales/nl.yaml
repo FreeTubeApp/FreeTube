@@ -3,7 +3,7 @@ Locale Name: 'Nederlands'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Dit gedeelte van de app is nog niet klaar. Kom later terug als er vooruitgang is
-  geboekt.
+  gemaakt.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -16,7 +16,7 @@ Copy: 'Kopiëren'
 Paste: 'Plakken'
 Delete: 'Verwijderen'
 Select all: 'Alles selecteren'
-Reload: 'Herladen'
+Reload: 'Herlaad'
 Force Reload: 'Geforceerd herladen'
 Toggle Developer Tools: 'Ontwikkel­gereedschap omschakelen'
 Actual size: 'Echte grootte'
