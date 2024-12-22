@@ -584,6 +584,7 @@ Settings:
       que contengan texto
     Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
     Hide Channel Home: Ocultar la pestaña "Inicio" del canal
+    Show Added Items: Mostrar elementos añadidos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
