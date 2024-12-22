@@ -4,7 +4,7 @@
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
-Available for Windows (10 and later), Mac (macOS 10.15 and later) & Linux thanks to Electron.
+Available for Windows (10 and later), Mac (macOS 11 and later) & Linux thanks to Electron.
 
 <p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
 <p align="center">
@@ -59,20 +59,25 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 * Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
 * View channel community posts
-* View most age restricted videos
 
-### Browser Extension
-FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. 
+### Browser Extensions
+The following extensions open YouTube links directly in FreeTube:
 
-> [!IMPORTANT]  
-> You must enable the option within the advanced settings of the extension for it to work.
+- [LibRedirect](https://libredirect.github.io/)
+- [RedirectTube](https://github.com/MStankiewiczOfficial/RedirectTube)
 
-* Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
+LibRedirect automatically redirect YouTube links to FreeTube.
+> [!IMPORTANT]
+> To ensure proper functionality, select FreeTube as Frontend in the Services settings of the extension.
 
-* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://libredirect.github.io/download_chromium.html).
+RedirectTube, doesn’t automatically open YouTube links in FreeTube. Instead, it adds buttons to the toolbar and context menu, which you can click to open videos in FreeTube manually.
+
+- Download LibRedirect from [Mozilla Add-ons](https://addons.mozilla.org/firefox/addon/libredirect/) (for Firefox based-browsers) or [developer's website](https://libredirect.github.io/download_chromium.html) (for Chrome and Chromium-based browsers).
+
+- Download RedirectTube from [Mozilla Add-ons](https://addons.mozilla.org/firefox/addon/redirecttube/) (for Firefox based-browsers).
 
 > [!NOTE]
-> This extension does not work on Linux portable builds!
+> These extensions do not work on Linux portable builds!
 >
 > If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
@@ -80,7 +85,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 ### Official Downloads
 
 > [!CAUTION]
-> FreeTube is only supported on Windows 10 and later, macOS 10.15 and above, and various Linux distributions. Installing it on unsupported systems may result in unexpected issues.
+> FreeTube is only supported on Windows 10 and later, macOS 11 and above, and various Linux distributions. Installing it on unsupported systems may result in unexpected issues.
 
 * [GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
 

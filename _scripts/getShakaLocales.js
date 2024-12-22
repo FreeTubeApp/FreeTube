@@ -3,7 +3,7 @@ const { readFileSync, readdirSync } = require('fs')
 function getPreloadedLocales() {
   const localesFile = readFileSync(`${__dirname}/../node_modules/shaka-player/dist/locales.js`, 'utf-8')
 
-  const localesLine = localesFile.match(/^\/\/ LOCALES: ([\w, -]+)$/m)
+  const localesLine = localesFile.match(/^\/\/ LOCALES: ([\w ,-]+)$/m)
 
   if (!localesLine) {
     throw new Error("Failed to parse shaka-player's preloaded locales")
@@ -32,7 +32,7 @@ function getMappings(shakaLocales, freeTubeLocales) {
    * @type {[string, string][]}
    * Using this structure as it gets passed to `new Map()` in the player component
    * The first element is the FreeTube locale, the second one is the shaka-player one
-   **/
+   */
   const mappings = []
 
   for (const locale of freeTubeLocales) {

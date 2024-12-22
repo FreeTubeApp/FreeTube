@@ -26,11 +26,12 @@
           <ft-input
             ref="searchBar"
             :placeholder="$t('User Playlists.Search bar placeholder')"
+            :value="query"
             :show-clear-text-button="true"
             :show-action-button="false"
             :maxlength="255"
-            @input="(input) => query = input"
-            @clear="query = ''"
+            @input="(input) => handleQueryChange(input)"
+            @clear="() => handleQueryChange('')"
           />
         </div>
         <div
