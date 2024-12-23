@@ -992,7 +992,7 @@ Starting download: 开始下载“{videoTitle}”
 Downloading canceled: 用户取消了下载
 Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
 Screenshot Error: 截屏失败。{error}
-Screenshot Success: 另存截屏为 “{filePath}”
+Screenshot Success: 已保存截屏
 New Window: 新窗口
 Channels:
   Search bar placeholder: 搜索频道
