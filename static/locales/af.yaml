@@ -505,39 +505,53 @@ Settings:
     Subscription File: ''
     History File: ''
     Playlist File: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Import Playlists: ''
-    Export Playlists: ''
+    Export Subscriptions: 'Stuur intekenings uit'
+    Export FreeTube: 'Stuur FreeTube uit'
+    Export YouTube: 'Stuur YouTube uit'
+    Export NewPipe: 'Stuur NewPipe uit'
+    Import History: 'Voer geskiedenis in'
+    Export History: 'Stuur geskiedenis uit'
+    Import Playlists: 'Voer afspeellyste in'
+    Export Playlists: 'Stuur afspeellyste uit'
     Export Playlists For Older FreeTube Versions:
-      Label: ''
+      Label: 'Stuur afspeellyste uit vir ouer FreeTube-weergawes'
       # |- = Keep newlines, No newline at end
-      Tooltip: |
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    Invalid subscriptions file: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Playlist insufficient data: ''
-    All playlists has been successfully imported: ''
-    All playlists has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
-    Manage Subscriptions: ''
+      Tooltip: |-
+        Hierdie opsie stuur video’s van alle afspeel­lyste uit na een afspeel­lys genaamd ‘Gunstelinge’.
+        Uitstuur en invoer van video’s in afspeel­lyste vir ’n ouer weergawe van FreeTube:
+        1. Stuur u afspeel­lyste uit met hierdie opsie geaktiveer.
+        2. Verwyder al u bestaande afspeel­lyste met die opsie ‘Verwyder alle afspeel­lyste’ onder ‘Privaatheids­instellings’.
+         3. Begin die ouer weergawe van FreeTube en ivoer die uitgestuurde afspeel­lyste in.
+    Profile object has insufficient data, skipping item: 'Profielobjek het onvoldoende
+      data, item word oorgeslaan'
+    All subscriptions and profiles have been successfully imported: 'Alle intekenings
+      en profiele is suksesvol ingevoer'
+    All subscriptions have been successfully imported: 'Alle intekenings is suksesvol
+      ingevoer'
+    Invalid subscriptions file: 'Ongeldige intekenings-lêer'
+    Invalid history file: 'Ongeldige geskiedenislêer'
+    Subscriptions have been successfully exported: 'Intekenings is suksesvol uitgestuur'
+    History object has insufficient data, skipping item: 'Geskiedenisobjek het onvoldoende
+      data, item word oorgeslaan'
+    All watched history has been successfully imported: 'Alle gekykte geskiedenis
+      is suksesvol ingevoer'
+    All watched history has been successfully exported: 'Alle gekykte geskiedenis
+      is suksesvol uitgestuur'
+    Playlist insufficient data: 'Onvoldoende data vir “{playlist}”-afspeellys, item
+      word oorgeslaan'
+    All playlists has been successfully imported: 'Alle afspeellyste is suksesvol
+      ingevoer'
+    All playlists has been successfully exported: 'Alle afspeellyste is suksesvol
+      uitgestuur'
+    Unable to read file: 'Kan nie lêer lees nie'
+    Unable to write file: 'Kan nie lêer skryf nie'
+    Unknown data key: 'Onbekende datasleutel'
+    How do I import my subscriptions?: 'Hoe voer ek my intekeninge in?'
+    Manage Subscriptions: 'Bestuur intekeninge'
   Proxy Settings:
-    Proxy Settings: ''
-    Enable Tor / Proxy: ''
-    Proxy Protocol: ''
+    Proxy Settings: 'Instaanbediener'
+    Enable Tor / Proxy: 'Aktiveer Tor / Instaanbediener'
+    Proxy Protocol: 'Instaanbedienerprotokol'
     Proxy Host: 'Instaangasheer'
     Proxy Port Number: 'Instaanpoortnommer'
     Clicking on Test Proxy will send a request to: 'Deur op Toets instaanbediener
@@ -550,6 +564,11 @@ Settings:
     City: 'Stad'
     Error getting network information. Is your proxy configured properly?: 'Fout by
       ophaal van netwerkinligting. Is u instaanbediener korrek opgestel?'
+    Proxy Warning: FreeTube het nie ’n ingeboude instaanbediener nie maar kan aan
+      ’n eksterne een koppel, soos een wat op u masjien loop soos Tor of ’n eksterne
+      een soos ’n SOCKS5-instaanbediener wat deur sommige VPN’s verskaf word. Indien
+      geaktiveer, maak seker u instaanbediener/Tor is korrek opgestel anders kan FreeTube
+      geen data ophaal nie.
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Aktiveer SponsorBlock'
@@ -1086,7 +1105,7 @@ External link opening has been disabled in the general settings: 'Die open van e
 Downloading has completed: '“{videoTitle}” is afgelaai'
 Starting download: 'Begin aflaai van “{videoTitle}”'
 Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
-Screenshot Success: 'Skermkiekie bewaar as “{filePath}”'
+Screenshot Success: 'Bewaarde skermkiekie'
 Screenshot Error: 'Skermkiekie het misluk. {error}'
 Channel Hidden: '{channel} tot kanaalfilter toegevoeg'
 Channel Unhidden: '{channel} verwyder uit kanaalfilter'

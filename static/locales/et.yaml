@@ -440,7 +440,6 @@ Settings:
         aasta. %M 2-numbriline kuu. %D 2-numbriline päev. %H 2-numbriline tund 2.
         %N 2-numbriline minut. %S 2-numbriline sekund. %T 3-numbriline millisekund.
         %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
-        Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
     Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
@@ -1136,7 +1135,7 @@ Channels:
   Count: Leidsime {number} kanali(t).
   Empty: Sinu kanalite loend on praegu tühi.
   Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
-Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
+Screenshot Success: Ekraanitõmmis on salvestatud
 Clipboard:
   Copy failed: Lõikelauale kopeerimine ei õnnestunud
   Cannot access clipboard without a secure connection: Ilma turvalise ühenduseta ei

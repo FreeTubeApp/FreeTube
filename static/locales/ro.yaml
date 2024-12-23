@@ -400,8 +400,7 @@ Settings:
       File Name Tooltip: Puteți utiliza variabilele de mai jos. %Y Anul 4 cifre. %M
         Luna 2 cifre. %D Ziua 2 cifre. %H Ora 2 cifre. %N Minute 2 cifre. %S Secunda
         2 cifre. %T Milisecundă 3 cifre. %s Secunda video. %t Milisecundă video 3
-        cifre. %i Video ID. De asemenea, puteți utiliza "\" sau "/" pentru a crea
-        subfoldere.
+        cifre. %i Video ID.
       Enable: Activează captura de ecran
       Format Label: Formatul capturii de ecran
     Video Playback Rate Interval: Intervalul de redare video
