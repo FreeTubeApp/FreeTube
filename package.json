@@ -60,7 +60,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/vue-fontawesome": "^2.0.10",
     "@seald-io/nedb": "^4.0.4",
-    "autolinker": "^4.0.0",
+    "autolinker": "^4.0.1",
     "electron-context-menu": "^4.0.4",
     "lodash.debounce": "^4.0.8",
     "marked": "^15.0.4",
