@@ -277,7 +277,7 @@ export default defineComponent({
     getScreenshotFilenameExample: function(pattern) {
       return this.parseScreenshotCustomFileName({
         pattern: pattern || this.screenshotDefaultPattern,
-        date: new Date(Date.now()),
+        date: new Date(),
         playerTime: 123.456,
         videoId: 'dQw4w9WgXcQ'
       }).then(res => {

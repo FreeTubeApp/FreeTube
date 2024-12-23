@@ -441,8 +441,7 @@ Settings:
       File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak.
         %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak.
         %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video
-        Milisaniyesi 3 basamak. %i Video Kimliği. Alt klasörler oluşturmak için "\"
-        veya "/" kullanabilirsiniz.
+        Milisaniyesi 3 basamak. %i Video Kimliği.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
     Autoplay Interruption Timer: Otomatik Oynatma Durdurma Sayacı

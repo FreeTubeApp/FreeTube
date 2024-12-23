@@ -418,8 +418,7 @@ Settings:
       File Name Tooltip: Možeš koristiti sljedeće varijable. %Y godina 4 znamenke.
         %M mjesec 2 znamenke. %D dan 2 znamenke. %H sat 2 znamenke. %N minuta 2 znamenke.
         %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
-        videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
-        podmapa.
+        videa 3 znamenke. %i ID videa.
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera

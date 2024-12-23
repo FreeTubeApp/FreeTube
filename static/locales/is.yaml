@@ -443,8 +443,7 @@ Settings:
       File Name Tooltip: Þú getur notað breyturnar hér fyrir neðan. %Y ár 4-stafa.
         %M mánuður 2-stafa. %D dagur 2-stafa. %H klukkustundir 2-stafa. %N mínútur
         2-stafa. %S sekúndur 2-stafa. %T millísekúndur 3-stafa. %s sekúndur í myndskeiði.
-        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs. Þú getur líka
-        notað "\" eða "/" til að útbúa undirmöppur.
+        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs.
       Ask Path: Spyrja um möppu til að vista í
       Folder Label: Mappa undir skjámyndir
       Folder Button: Veldu möppu

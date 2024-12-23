@@ -440,7 +440,6 @@ Settings:
         aasta. %M 2-numbriline kuu. %D 2-numbriline päev. %H 2-numbriline tund 2.
         %N 2-numbriline minut. %S 2-numbriline sekund. %T 3-numbriline millisekund.
         %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
-        Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
     Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
