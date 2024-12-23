@@ -131,7 +131,8 @@ const BASE_THEME_VALUES = [
   'gruvboxDark',
   'gruvboxLight',
   'solarizedDark',
-  'solarizedLight'
+  'solarizedLight',
+  'catppuccinFrappe'
 ]
 
 const baseThemeNames = computed(() => [
@@ -150,7 +151,8 @@ const baseThemeNames = computed(() => [
   t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
   t('Settings.Theme Settings.Base Theme.Gruvbox Light'),
   t('Settings.Theme Settings.Base Theme.Solarized Dark'),
-  t('Settings.Theme Settings.Base Theme.Solarized Light')
+  t('Settings.Theme Settings.Base Theme.Solarized Light'),
+  t('Settings.Theme Settings.Base Theme.Catppuccin Frappe')
 ])
 
 const COLOR_VALUES = colors.map(color => color.name)
