@@ -598,7 +598,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
       phrase
     Hide Channel Home: Masquer l'onglet "Accueil" de la chaîne
-    Show Added Items: Afficher les articles ajoutés
+    Show Added Items: Afficher les éléments ajoutés
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -1190,7 +1190,7 @@ Downloading failed: 'Il y a eu un problème lors du téléchargement de {videoTi
 Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
 Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas.
   Mode sans répertoire activé.'
-Screenshot Success: Capture d'écran enregistrée sous « {filePath} »
+Screenshot Success: Capture d'écran enregistrée
 Screenshot Error: La capture d'écran a échoué. {error}
 New Window: Nouvelle fenêtre
 Channels:
