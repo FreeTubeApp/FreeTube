@@ -1166,7 +1166,7 @@ Channels:
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltésekor
 Starting download: „{videoTitle}” letöltésének indítása
 Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
-Screenshot Success: A képernyőkép „{filePath}” néven mentve
+Screenshot Success: Képernyőkép elmentve
 Chapters:
   Chapters: Fejezetek
   'Chapters list visible, current chapter: {chapterName}': 'Fejezetlista látható,
