@@ -574,6 +574,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Ocultar vídeos e playlists que contenham
       texto
     Hide Channel Home: Ocultar a guia "Início" do canal
+    Show Added Items: Mostrar itens adicionados
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -1153,7 +1154,7 @@ Channels:
   Empty: Sua lista de canais está vazia no momento.
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canais encontrados.'
-Screenshot Success: Captura de tela salva em "{filePath}"
+Screenshot Success: Captura de tela salva
 Screenshot Error: Falha na captura de tela. {error}
 Preferences: Preferências
 Clipboard:
