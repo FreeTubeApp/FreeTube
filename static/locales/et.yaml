@@ -1135,7 +1135,7 @@ Channels:
   Count: Leidsime {number} kanali(t).
   Empty: Sinu kanalite loend on praegu tühi.
   Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
-Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
+Screenshot Success: Ekraanitõmmis on salvestatud
 Clipboard:
   Copy failed: Lõikelauale kopeerimine ei õnnestunud
   Cannot access clipboard without a secure connection: Ilma turvalise ühenduseta ei
