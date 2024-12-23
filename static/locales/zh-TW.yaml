@@ -988,7 +988,7 @@ Are you sure you want to open this link?: 您確定您想要開啟此連結嗎�
 Downloading failed: 下載「{videoTitle}」時發生問題
 Downloading has completed: 「{videoTitle}」已下載結束
 Starting download: 正在開始下載「{videoTitle}」
-Screenshot Success: 已儲存螢幕截圖為 "{filePath}"
+Screenshot Success: 已儲存螢幕截圖
 Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗
 Channels:
