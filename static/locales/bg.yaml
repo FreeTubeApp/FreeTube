@@ -1146,7 +1146,7 @@ Downloading has completed: '"{videoTitle}" приключи изтеглянет
 Starting download: Започва изтегляне на "{videoTitle}"
 Downloading failed: Имаше проблем при изтеглянето на "{videoTitle}"
 Screenshot Error: Снимката на екрана е неуспешна. {error}
-Screenshot Success: Запазена снимка на екрана като "{filePath}"
+Screenshot Success: Запазена снимка на екрана
 New Window: Нов прозорец
 Channels:
   Count: Намерени са {number} канала.
