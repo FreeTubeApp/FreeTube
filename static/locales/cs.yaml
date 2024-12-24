@@ -1142,7 +1142,7 @@ Channels:
   Empty: Seznam vašich kanálů je momentálně prázdný.
   Search bar placeholder: Hledat kanály
   Count: Nalezeno {number} kanálů.
-Screenshot Success: Snímek uložen jako „{filePath}“
+Screenshot Success: Snímek uložen
 Screenshot Error: Snímek selhal. {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Nelze přistupovat ke schránce
