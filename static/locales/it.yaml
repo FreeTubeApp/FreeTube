@@ -1161,7 +1161,7 @@ Are you sure you want to open this link?: Sei sicuro di voler aprire questo link
 Downloading has completed: 'Il download di {videoTitle} è terminato'
 Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
-Screenshot Success: Screenshot salvato come "{filePath}"
+Screenshot Success: Screenshot salvato
 Screenshot Error: Screenshot non riuscito. {error}
 New Window: Nuova finestra
 Channels:
