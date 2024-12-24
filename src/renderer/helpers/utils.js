@@ -1021,10 +1021,14 @@ export function addKeyboardShortcutToActionTitle(actionTitle, shortcut) {
 
 /**
  * @param {string} localizedActionTitle
- * @param {string} unlocalizedShortcut
+ * @param {string|string[]} sometimesManyUnlocalizedShortcuts
  * @returns {string} the localized action title with keyboard shortcut
  */
-export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle, unlocalizedShortcut) {
-  const localizedShortcut = getLocalizedShortcut(unlocalizedShortcut)
-  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcut)
+export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle, sometimesManyUnlocalizedShortcuts) {
+  let unlocalizedShortcuts = sometimesManyUnlocalizedShortcuts
+  if (!Array.isArray(sometimesManyUnlocalizedShortcuts)) {
+    unlocalizedShortcuts = [unlocalizedShortcuts]
+  }
+  const localizedShortcuts = unlocalizedShortcuts.map((s) => getLocalizedShortcut(s))
+  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcuts.join('/'))
 }

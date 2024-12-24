@@ -1146,6 +1146,8 @@ KeyboardShortcutPrompt:
   Show Keyboard Shortcuts: Show keyboard shortcuts
   History Backward: Go back one page
   History Forward: Go forward one page
+  History Backward (Mac only): Go back one page (Mac only)
+  History Forward (Mac only): Go forward one page (Mac only)
   New Window: Create a new window
   Navigate to Settings: Navigate to the Settings page
   Navigate to History: Navigate to the History page

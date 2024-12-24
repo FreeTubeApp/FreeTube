@@ -115,6 +115,14 @@ const localizedShortcutNameDictionary = computed(() => {
     ['SHOW_SHORTCUTS', t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')],
     ['HISTORY_BACKWARD', t('KeyboardShortcutPrompt.History Backward')],
     ['HISTORY_FORWARD', t('KeyboardShortcutPrompt.History Forward')],
+    ...(
+      isMac
+        ? [
+            ['HISTORY_BACKWARD_ALT_MAC', t('KeyboardShortcutPrompt.History Backward (Mac only)')],
+            ['HISTORY_FORWARD_ALT_MAC', t('KeyboardShortcutPrompt.History Forward (Mac only)')],
+          ]
+        : []
+    ),
     ['FULLSCREEN', t('KeyboardShortcutPrompt.Fullscreen')],
     ['NAVIGATE_TO_SETTINGS', t('KeyboardShortcutPrompt.Navigate to Settings')],
     (

@@ -1702,6 +1702,20 @@ function runApp() {
             },
             type: 'normal',
           },
+          ...(process.platform === 'darwin'
+            ? [
+                {
+                  label: 'Back',
+                  accelerator: 'Cmd+Left',
+                  click: (_menuItem, browserWindow, _event) => {
+                    if (browserWindow == null) { return }
+
+                    browserWindow.webContents.navigationHistory.goBack()
+                  },
+                  visible: false,
+                },
+              ]
+            : []),
           {
             label: 'Forward',
             accelerator: 'Alt+Right',
@@ -1712,6 +1726,20 @@ function runApp() {
             },
             type: 'normal',
           },
+          ...(process.platform === 'darwin'
+            ? [
+                {
+                  label: 'Forward',
+                  accelerator: 'Cmd+Right',
+                  click: (_menuItem, browserWindow, _event) => {
+                    if (browserWindow == null) { return }
+
+                    browserWindow.webContents.navigationHistory.goForward()
+                  },
+                  visible: false,
+                },
+              ]
+            : []),
         ]
       },
       {

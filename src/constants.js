@@ -127,6 +127,8 @@ const KeyboardShortcuts = {
       SHOW_SHORTCUTS: 'shift+?',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
+      HISTORY_BACKWARD_ALT_MAC: 'cmd+arrowleft',
+      HISTORY_FORWARD_ALT_MAC: 'cmd+arrowright',
       FULLSCREEN: 'f11',
       NAVIGATE_TO_SETTINGS: 'ctrl+,',
       NAVIGATE_TO_HISTORY: 'ctrl+H',
