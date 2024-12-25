@@ -1139,7 +1139,7 @@ Starting download: Починається завантаження "{videoTitle}
 Downloading has completed: '"{videoTitle}" завершив завантаження'
 Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
   «запитати теку».
-Screenshot Success: Знімок екрана збережено як «{filePath}»
+Screenshot Success: Збережений знімок екрана
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
 Channels:
