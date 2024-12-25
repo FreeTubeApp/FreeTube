@@ -1150,7 +1150,7 @@ Downloading has completed: Búið er að sækja "{videoTitle}"
 Starting download: Byrja að sækja "{videoTitle}"
 Downloading failed: Vandamál kom upp við að sækja "{videoTitle}"
 Screenshot Error: Skjámyndataka mistókst. {error}
-Screenshot Success: Vistaði skjámynd sem "{filePath}"
+Screenshot Success: Vistaði skjámynd
 New Window: Nýr gluggi
 Channels:
   Search bar placeholder: Leita í rásum
