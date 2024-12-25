@@ -1115,7 +1115,7 @@ Channels:
   Count: 'Пронађено канала: {number}.'
 External link opening has been disabled in the general settings: Отварање спољног
   линка је онемогућено у општим подешавањима
-Screenshot Success: Снимак екрана је сачуван као „{filePath}“
+Screenshot Success: Снимак екрана је сачуван
 Canceled next video autoplay: Отказано аутоматско пуштање следећег видео снимка
 Playing Next Video Interval: Пуштање следећег видео снимка убрзо. Кликнути за отказивање.
   | Пушта се следећи видео снимак за {nextVideoInterval} секунду. Кликнути за отказивање.
