@@ -305,7 +305,7 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
-    this.currentPlaybackRate = parseFloat(this.$store.getters.getDefaultPlayback)
+    this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()

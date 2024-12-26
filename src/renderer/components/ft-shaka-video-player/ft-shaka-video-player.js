@@ -125,7 +125,7 @@ export default defineComponent({
     },
     currentPlaybackRate: {
       type: Number,
-      default: () => 1
+      default: 1
     },
   },
   emits: [
