@@ -1163,7 +1163,7 @@ Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir
 Starting download: Inicio de la descarga de «{videoTitle}»
 Downloading has completed: '«{videoTitle}» ha terminado de descargarse'
 Downloading failed: Hubo un problema al descargar «{videoTitle}»
-Screenshot Success: Captura de pantalla guardada como «{filePath}»
+Screenshot Success: Captura de pantalla guardada
 Screenshot Error: Captura de pantalla fallida. {error}
 New Window: Nueva ventana
 Channels:
