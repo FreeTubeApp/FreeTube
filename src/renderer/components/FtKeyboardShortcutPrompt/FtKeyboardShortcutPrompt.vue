@@ -168,12 +168,13 @@ function hideKeyboardShortcutPrompt() {
 }
 
 function getLocalizedShortcutNamesAndValues(dictionary) {
+  const localizedDictionary = localizedShortcutNameDictionary.value
   return Object.entries(dictionary)
     .filter(([key]) =>
-      localizedShortcutNameDictionary.value.has(key)
+      localizedDictionary.has(key)
     )
     .map(([shortcutNameKey, shortcut]) => {
-      const localizedShortcutName = localizedShortcutNameDictionary.value.get(shortcutNameKey)
+      const localizedShortcutName = localizedDictionary.get(shortcutNameKey)
       const localizedShortcut = getLocalizedShortcut(shortcut)
       return [localizedShortcutName, localizedShortcut]
     })
