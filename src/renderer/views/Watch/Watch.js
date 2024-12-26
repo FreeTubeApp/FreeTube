@@ -134,7 +134,7 @@ export default defineComponent({
       videoGenreIsMusic: false,
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
-      currentPlaybackRate: parseFloat(this.$store.getters.getDefaultPlayback)
+      currentPlaybackRate: null,
     }
   },
   computed: {
@@ -305,6 +305,7 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
+    this.currentPlaybackRate = parseFloat(this.$store.getters.getDefaultPlayback)
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()

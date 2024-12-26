@@ -41,7 +41,7 @@
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
-          @current-playback-rate-update="updatePlaybackRate"
+          @playback-rate-updated="updatePlaybackRate"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"

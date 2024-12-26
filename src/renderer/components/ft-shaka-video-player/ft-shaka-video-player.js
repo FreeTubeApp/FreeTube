@@ -125,7 +125,7 @@ export default defineComponent({
     },
     currentPlaybackRate: {
       type: Number,
-      default: () => 1.0
+      default: () => 1
     },
   },
   emits: [
@@ -134,7 +134,7 @@ export default defineComponent({
     'ended',
     'timeupdate',
     'toggle-theatre-mode',
-    'current-playback-rate-update'
+    'playback-rate-updated'
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -2415,7 +2415,7 @@ export default defineComponent({
       await performFirstLoad()
 
       player.addEventListener('ratechange', () => {
-        emit('current-playback-rate-update', video.value.playbackRate)
+        emit('playback-rate-updated', player.getPlaybackRate())
       })
     })
 
