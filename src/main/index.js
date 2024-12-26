@@ -28,8 +28,21 @@ const brotliDecompressAsync = promisify(brotliDecompress)
 if (process.argv.includes('--version')) {
   console.log(`v${app.getVersion()}`) // eslint-disable-line no-console
   app.exit()
+} else if (process.argv.includes('--help') || process.argv.includes('-h')) {
+  printHelp()
+  app.exit()
 } else {
   runApp()
+}
+
+function printHelp() {
+  // eslint-disable-next-line no-console
+  console.log(`\
+usage: ${process.argv0} [options...] [url]
+Options:
+  --help, -h           show this message, then exit
+  --version            print the current version, then exit
+  --new-window         reuse an existing instance if possible`)
 }
 
 function runApp() {
