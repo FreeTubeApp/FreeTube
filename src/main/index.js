@@ -253,14 +253,24 @@ function runApp() {
     }
 
     app.on('second-instance', (_, commandLine, __) => {
-      // Someone tried to run a second instance, we should focus our window
+      // Someone tried to run a second instance
       if (typeof commandLine !== 'undefined') {
         const url = getLinkUrl(commandLine)
         if (mainWindow && mainWindow.webContents) {
-          if (mainWindow.isMinimized()) mainWindow.restore()
-          mainWindow.focus()
+          if (commandLine.includes('--new-window')) {
+            // The user wants to create a new window in the existing instance
+            if (url) startupUrl = url
+            createWindow({
+              showWindowNow: true,
+              replaceMainWindow: true,
+            })
+          } else {
+            // Just focus the main window (instead of starting a new instance)
+            if (mainWindow.isMinimized()) mainWindow.restore()
+            mainWindow.focus()
 
-          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+            if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+          }
         } else {
           if (url) startupUrl = url
           createWindow()
