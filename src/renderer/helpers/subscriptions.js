@@ -92,7 +92,7 @@ export async function parseYouTubeRSSFeed(rssString, channelId) {
       name: channelName,
       videos: await Promise.all(promises)
     }
-  } catch (e) {
+  } catch {
     return {
       videos: []
     }

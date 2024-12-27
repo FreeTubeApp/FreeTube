@@ -1058,7 +1058,7 @@ export default defineComponent({
         viewCount: this.videoViewCount,
         lengthSeconds: this.videoLengthSeconds,
         watchProgress: watchProgress,
-        timeWatched: new Date().getTime(),
+        timeWatched: Date.now(),
         isLive: false,
         type: 'video',
       }
