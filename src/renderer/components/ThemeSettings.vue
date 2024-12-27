@@ -126,13 +126,13 @@ const BASE_THEME_VALUES = [
   'hotPink',
   'pastelPink',
   // Third group
+  'catppuccinFrappe',
   'catppuccinMocha',
   'dracula',
   'gruvboxDark',
   'gruvboxLight',
   'solarizedDark',
-  'solarizedLight',
-  'catppuccinFrappe'
+  'solarizedLight'
 ]
 
 const baseThemeNames = computed(() => [
@@ -146,13 +146,13 @@ const baseThemeNames = computed(() => [
   t('Settings.Theme Settings.Base Theme.Hot Pink'),
   t('Settings.Theme Settings.Base Theme.Pastel Pink'),
   // Third group
+  t('Settings.Theme Settings.Base Theme.Catppuccin Frappe'),
   t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
   t('Settings.Theme Settings.Base Theme.Dracula'),
   t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
   t('Settings.Theme Settings.Base Theme.Gruvbox Light'),
   t('Settings.Theme Settings.Base Theme.Solarized Dark'),
-  t('Settings.Theme Settings.Base Theme.Solarized Light'),
-  t('Settings.Theme Settings.Base Theme.Catppuccin Frappe')
+  t('Settings.Theme Settings.Base Theme.Solarized Light')
 ])
 
 const COLOR_VALUES = colors.map(color => color.name)
