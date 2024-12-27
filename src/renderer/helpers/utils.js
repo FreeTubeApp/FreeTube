@@ -944,6 +944,12 @@ function getIndividualLocalizedShortcut(shortcut) {
       return i18n.t('Keys.alt')
     case 'ctrl':
       return i18n.t('Keys.ctrl')
+    case 'shift':
+      return i18n.t('Keys.shift')
+    case 'enter':
+      return i18n.t('Keys.enter')
+    case 'plus':
+      return i18n.t('Keys.plus')
     case 'arrowleft':
       return i18n.t('Keys.arrowleft')
     case 'arrowright':
@@ -965,6 +971,12 @@ function getMacIconForShortcut(shortcut) {
     case 'cmd':
     case 'ctrl':
       return '⌘'
+    case 'shift':
+      return '⇧'
+    case 'enter':
+      return '⌤'
+    case 'plus':
+      return '+'
     case 'arrowleft':
       return '←'
     case 'arrowright':
@@ -982,11 +994,11 @@ function getMacIconForShortcut(shortcut) {
  * @param {string} shortcut
  * @returns {string} the localized and recombined shortcut
  */
-function getLocalizedShortcut(shortcut) {
+export function getLocalizedShortcut(shortcut) {
   const shortcuts = shortcut.split('+')
 
   if (process.platform === 'darwin') {
-    const shortcutsAsIcons = shortcuts.map(shortCut => getMacIconForShortcut(shortCut))
+    const shortcutsAsIcons = shortcuts.map(shortcut => getMacIconForShortcut(shortcut))
     return shortcutsAsIcons.join('')
   } else {
     const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))

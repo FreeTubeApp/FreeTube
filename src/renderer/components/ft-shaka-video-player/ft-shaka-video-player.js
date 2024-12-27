@@ -1981,6 +1981,23 @@ export default defineComponent({
         return
       }
 
+      // exit fullscreen and/or fullwindow if keyboard shortcut modal is opened
+      if (event.shiftKey && event.key === '?') {
+        event.preventDefault()
+
+        if (ui.getControls().isFullScreenEnabled()) {
+          ui.getControls().toggleFullScreen()
+        }
+
+        if (fullWindowEnabled.value) {
+          events.dispatchEvent(new CustomEvent('setFullWindow', {
+            detail: !fullWindowEnabled.value
+          }))
+        }
+
+        return
+      }
+
       // allow chapter jump keyboard shortcuts
       if (event.ctrlKey && (process.platform === 'darwin' || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))) {
         return
