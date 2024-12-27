@@ -123,13 +123,18 @@ export default defineComponent({
       type: String,
       default: null
     },
+    currentPlaybackRate: {
+      type: Number,
+      default: 1
+    },
   },
   emits: [
     'error',
     'loaded',
     'ended',
     'timeupdate',
-    'toggle-theatre-mode'
+    'toggle-theatre-mode',
+    'playback-rate-updated'
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -233,11 +238,6 @@ export default defineComponent({
       ui.configure({
         addBigPlayButton: newValue
       })
-    })
-
-    /** @type {import('vue').ComputedRef<number>} */
-    const defaultPlayback = computed(() => {
-      return store.getters.getDefaultPlayback
     })
 
     /** @type {import('vue').ComputedRef<number>} */
@@ -901,8 +901,8 @@ export default defineComponent({
         // stop shaka-player's click handler firing
         event.stopPropagation()
 
-        video.value.playbackRate = defaultPlayback.value
-        video.value.defaultPlaybackRate = defaultPlayback.value
+        video.value.playbackRate = props.currentPlaybackRate
+        video.value.defaultPlaybackRate = props.currentPlaybackRate
       }
     }
 
@@ -2310,8 +2310,8 @@ export default defineComponent({
         videoElement.muted = (muted === 'true')
       }
 
-      videoElement.playbackRate = defaultPlayback.value
-      videoElement.defaultPlaybackRate = defaultPlayback.value
+      videoElement.playbackRate = props.currentPlaybackRate
+      videoElement.defaultPlaybackRate = props.currentPlaybackRate
 
       const localPlayer = new shaka.Player()
 
@@ -2413,6 +2413,10 @@ export default defineComponent({
       container.value.classList.add('no-cursor')
 
       await performFirstLoad()
+
+      player.addEventListener('ratechange', () => {
+        emit('playback-rate-updated', player.getPlaybackRate())
+      })
     })
 
     async function performFirstLoad() {

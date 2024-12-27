@@ -34,12 +34,14 @@
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
           :vr-projection="vrProjection"
+          :current-playback-rate="currentPlaybackRate"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @playback-rate-updated="updatePlaybackRate"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
