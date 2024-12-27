@@ -25,19 +25,13 @@
       >
         {{ $t("Description.Expand Description") }}
       </span>
-      <div
-        v-if="!showFullDescription"
-        class="overlay"
-        @click="expandDescription"
-        @keydown.space.prevent="expandDescription"
-        @keydown.enter.prevent="expandDescription"
-      />
     </template>
     <FtTimestampCatcher
       ref="descriptionContainer"
       class="description"
       :input-html="shownDescription"
       @timestamp-event="onTimestamp"
+      @text-click="expandDescription"
     />
   </FtCard>
 </template>

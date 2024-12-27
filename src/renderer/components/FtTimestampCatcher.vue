@@ -1,5 +1,7 @@
 <template>
   <p
+    @click="onClick"
+    @keydown.space.prevent="onClick"
     @timestamp-clicked="catchTimestampClick"
     v-html="displayText"
   />
@@ -37,7 +39,13 @@ const displayText = props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (times
   return `<a href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}));window.scrollTo(0,0)">${timestamp}</a>`
 })
 
-const emit = defineEmits(['timestamp-event'])
+const emit = defineEmits(['text-click', 'timestamp-event'])
+
+function onClick(e) {
+  // Ignore link clicks
+  if (e.target.tagName === 'A') { return }
+  emit('text-click')
+}
 
 /**
  * @param {CustomEvent} event
