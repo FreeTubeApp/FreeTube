@@ -569,7 +569,7 @@ Settings:
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
       zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
-      którym zostaną one zaktualizowane.
+      którym zostaną one zaktualizowane
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
       sprawdzić, czy wpisane ID jest poprawne.
@@ -578,6 +578,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
       lub wyrażenie
     Hide Channel Home: Schowaj kartę kanału „Główna”
+    Show Added Items: Pokaż dodane rzeczy
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
