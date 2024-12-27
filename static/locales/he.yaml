@@ -429,9 +429,10 @@ Settings:
       File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
         ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
         ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
-        ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
+        ב־3 ספרות. ‎%i מזהה הסרטון.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
+    Autoplay Interruption Timer: מתזמן הפרעת ניגון אוטומטי
   Privacy Settings:
     Privacy Settings: 'פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -458,6 +459,9 @@ Settings:
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
     Confirm Before Unsubscribing: אישור לפני ביטול מינוי
+    'Limit the number of videos displayed for each channel': הגבלת מספר הסרטונים שמופיעים
+      בכל ערוץ
+    To: עד
   Data Settings:
     Data Settings: 'נתונים'
     Select Import Type: 'נא לבחור את תסדיר הייבוא'
@@ -555,6 +559,7 @@ Settings:
     Hide Videos and Playlists Containing Text: הסתרת סרטונים ורשימות שידורים המכילים
       טקסט
     Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
+    Show Added Items: הצגת פריטים שנוספו
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -1083,7 +1088,7 @@ Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
 Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
-Screenshot Success: צילום המסך נשמר בתור „{filePath}”
+Screenshot Success: צילום המסך נשמר
 Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
 Channels:
@@ -1155,3 +1160,8 @@ Keys:
 Right-click or hold to see history: לחיצה ימנית או החזקה כדי לראות היסטוריה
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Description:
+  Collapse Description: להציג פחות
+  Expand Description: …עוד
+Autoplay Interruption Timer: ניגון אוטומטי בוטל עקב {autoplayInterruptionIntervalHours}
+  שעות של חוסר פעילות

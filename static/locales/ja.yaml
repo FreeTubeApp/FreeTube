@@ -391,8 +391,8 @@ Settings:
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
       File Name Label: ファイル名のパターン
-      File Name Tooltip: 以下の変数が使用できます。%Y 4 桁の年。%M 2 桁の月。%D 2 桁の日。%H 2 桁の時間。%N 2 桁の分。%S
-        2 桁の秒。%T 3 桁のミリ秒。%s 2 桁の動画の秒数。%t 3 桁の動画のミリ秒。%i 動画 ID。「\」または「/」を使用してサブフォルダを作成できます。
+      File Name Tooltip: 以下の変数が使用可能です。%Y 年（4桁）%M 月（2桁）%D 日（2桁）%H 時間（2桁）%N 分（2桁）%S
+        秒（2桁）%T ミリ秒（3桁）%s 動画の秒数 %t 動画のミリ秒（3桁）%i 動画ID が使用できます。
       Error:
         Forbidden Characters: 使用禁止文字
         Empty File Name: 空のファイル名
@@ -513,6 +513,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
+    Show Added Items: 追加された項目を表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -1007,7 +1008,7 @@ Channels:
   Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
   Count: '{number} 件のチャンネルが見つかりました。'
   Empty: 現在、チャンネル一覧は空です。
-Screenshot Success: スクリーンショットを「{filePath}」に保存しました
+Screenshot Success: スクリーンショットを保存しました
 Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:

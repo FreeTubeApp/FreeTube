@@ -465,7 +465,7 @@ Settings:
       File Name Tooltip: 'Gallwch ddefnyddio newidynnau isod. %Y Blwyddyn 4 digid.
         % M Mis 2 ddigid. %D Diwrnod 2 ddigid. % H Awr 2 ddigid. % N Munud 2 ddigid.
         %S Ail 2 ddigid. % T Millisecond 3 digid. %s Eiliad Fideo. %t Fideo Millisecond
-        3 digid. %i ID fideo. Gallwch hefyd ddefnyddio "\" neu "/" i greu is-ffolderi.'
+        3 digid. %i ID fideo.'
       Error:
         Forbidden Characters: 'Nodau Gwahardd'
         Empty File Name: 'Enw Ffeil Gwag'

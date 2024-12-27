@@ -445,8 +445,7 @@ Settings:
       File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
         %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
         %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
-        Milisegundo 3 dígitos. %i Video ID. También puede utilizar \ o / para crear
-        subcarpetas.
+        Milisegundo 3 dígitos. %i Video ID.
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
@@ -584,6 +583,7 @@ Settings:
       que contengan texto
     Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
     Hide Channel Home: Ocultar la pestaña "Inicio" del canal
+    Show Added Items: Mostrar elementos añadidos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -1163,7 +1163,7 @@ Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir
 Starting download: Inicio de la descarga de «{videoTitle}»
 Downloading has completed: '«{videoTitle}» ha terminado de descargarse'
 Downloading failed: Hubo un problema al descargar «{videoTitle}»
-Screenshot Success: Captura de pantalla guardada como «{filePath}»
+Screenshot Success: Captura de pantalla guardada
 Screenshot Error: Captura de pantalla fallida. {error}
 New Window: Nueva ventana
 Channels:
