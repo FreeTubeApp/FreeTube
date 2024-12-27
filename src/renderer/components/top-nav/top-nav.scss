@@ -21,9 +21,9 @@
   inline-size: 100%;
   z-index: 4;
 
-  @media only screen and (width >= 961px) {
+  @media only screen and (width >= 1162px) {
     display: grid;
-    grid-template-columns: 1fr 440px 1fr;
+    grid-template-columns: 1fr 440px 0.5fr 0.5fr;
   }
 
   @include top-nav-is-colored {
@@ -45,7 +45,7 @@
   }
 }
 
-.arrowDisabled :deep(.iconButton) {
+:deep(.iconButton.disabled) {
   filter: grayscale(1);
   background-color: inherit;
   opacity: 0.4;
@@ -55,9 +55,8 @@
 }
 
 .navIcon,
-:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+:deep(.ftIconButton:not(.disabled) .iconButton) {
   border-radius: 50%;
-  color: var(--primary-text-color);
   cursor: pointer;
   font-size: 20px;
   block-size: 1em;
@@ -67,22 +66,31 @@
 
   &:hover {
     background-color: var(--side-nav-hover-color);
-    color: var(--side-nav-hover-text-color);
-    transition: background 0.2s ease-in;
-
   }
 
   &:active {
     background-color: var(--tertiary-text-color);
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.navIcon,
+:deep(:not(.active) .ftIconButton:not(.disabled) .iconButton) {
+  color: var(--primary-text-color);
+
+  &:hover {
+    color: var(--side-nav-hover-text-color);
+    transition: background 0.2s ease-in;
+  }
+
+  &:active {
     color: var(--side-nav-active-text-color);
     transition: background 0.2s ease-in;
   }
 }
 
 .topNavBarColor .navIcon,
-.topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
-  color: var(--text-with-main-color);
-
+.topNavBarColor :deep(.ftIconButton:not(.disabled) .iconButton) {
   &:hover {
     background-color: var(--primary-color-hover);
   }
@@ -90,6 +98,13 @@
   &:active {
     background-color: var(--primary-color-active);
   }
+}
+
+
+/* stylelint-disable-next-line no-descending-specificity */
+.topNavBarColor .navIcon,
+.topNavBarColor :deep(.ftIconButton:not(.disabled) .iconButton:not(.favorite)) {
+  color: var(--text-with-main-color);
 }
 
 
@@ -105,6 +120,17 @@
     @include top-nav-is-colored {
       box-shadow: 0 0 $effect-distance var(--text-with-main-color);
       color: var(--text-with-main-color);
+    }
+  }
+}
+
+.pageBookmarkIcon {
+  inline-size: fit-content;
+  padding: 10px;
+
+  &.favorite {
+    @include top-nav-is-colored {
+      color: var(--accent-color);
     }
   }
 }

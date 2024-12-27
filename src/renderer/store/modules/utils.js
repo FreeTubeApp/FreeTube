@@ -33,6 +33,7 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  showPageBookmarkPrompt: false,
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -106,6 +107,10 @@ const getters = {
 
   getShowCreatePlaylistPrompt(state) {
     return state.showCreatePlaylistPrompt
+  },
+
+  getShowPageBookmarkPrompt(state) {
+    return state.showPageBookmarkPrompt
   },
 
   getShowSearchFilters(state) {
@@ -376,6 +381,14 @@ const actions = {
 
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
+  },
+
+  showPageBookmarkPrompt ({ commit }) {
+    commit('setShowPageBookmarkPrompt', true)
+  },
+
+  hidePageBookmarkPrompt ({ commit }) {
+    commit('setShowPageBookmarkPrompt', false)
   },
 
   showSearchFilters ({ commit }) {
@@ -855,6 +868,10 @@ const mutations = {
 
   setShowCreatePlaylistPrompt (state, payload) {
     state.showCreatePlaylistPrompt = payload
+  },
+
+  setShowPageBookmarkPrompt (state, payload) {
+    state.showPageBookmarkPrompt = payload
   },
 
   setShowSearchFilters (state, payload) {
