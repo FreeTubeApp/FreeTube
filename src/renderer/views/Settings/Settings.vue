@@ -22,6 +22,12 @@
         class="settingsContent"
       >
         <div class="switchRow">
+          <ft-button
+            v-if="usingElectron"
+            :label="$t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')"
+            :icon="['fas', 'keyboard']"
+            @click="showKeyboardShortcutPrompt"
+          />
           <ft-toggle-switch
             class="settingsToggle"
             :label="$t('Settings.Sort Settings Sections (A-Z)')"

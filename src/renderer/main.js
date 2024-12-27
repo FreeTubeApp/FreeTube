@@ -68,6 +68,7 @@ import {
   faImages,
   faInfoCircle,
   faKey,
+  faKeyboard,
   faLanguage,
   faLink,
   faLinkSlash,
@@ -112,6 +113,7 @@ import {
   faUsers,
   faUsersSlash,
   faWifi,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBookmark as farBookmark,
@@ -187,6 +189,7 @@ library.add(
   faImages,
   faInfoCircle,
   faKey,
+  faKeyboard,
   faLanguage,
   faLink,
   faLinkSlash,
@@ -231,6 +234,7 @@ library.add(
   faUsers,
   faUsersSlash,
   faWifi,
+  faXmark,
 
   // solid icons
   farBookmark,
