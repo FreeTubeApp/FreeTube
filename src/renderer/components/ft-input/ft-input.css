@@ -219,6 +219,17 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   block-size: 16px;
 }
 
+.removeButton {
+  text-decoration: none;
+  float: var(--float-right-ltr-rtl-value);
+  font-size: 13px;
+}
+
+.removeButton:hover,
+.removeButton.removeButtonSelected {
+  text-decoration: underline;
+}
+
 .hover {
   background-color: var(--scrollbar-color-hover);
   color: var(--scrollbar-text-color-hover);

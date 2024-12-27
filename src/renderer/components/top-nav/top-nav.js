@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
@@ -121,17 +121,21 @@ export default defineComponent({
       )
     },
 
+    usingSearchHistoryResults: function () {
+      return this.lastSuggestionQuery === ''
+    },
+
     // show latest search history when the search bar is empty
     activeDataList: function () {
       if (!this.enableSearchSuggestions) {
         return
       }
-      return this.lastSuggestionQuery === '' ? this.$store.getters.getLatestUniqueSearchHistoryNames : this.searchSuggestionsDataList
+      return this.usingSearchHistoryResults ? this.$store.getters.getLatestUniqueSearchHistoryNames : this.searchSuggestionsDataList
     },
 
     searchResultIcon: function () {
-      return this.lastSuggestionQuery === '' ? ['fas', 'clock-rotate-left'] : ['fas', 'magnifying-glass']
-    }
+      return this.usingSearchHistoryResults ? ['fas', 'clock-rotate-left'] : ['fas', 'magnifying-glass']
+    },
   },
   watch: {
     $route: function () {
@@ -424,10 +428,19 @@ export default defineComponent({
         this.navigationHistoryDropdownActiveEntry.label = value
       }
     },
+    removeSearchHistoryEntryInDbAndCache(query) {
+      this.removeSearchHistoryEntry(query)
+      this.removeFromSessionSearchHistory(query)
+    },
 
     ...mapActions([
       'getYoutubeUrlInfo',
+      'removeSearchHistoryEntry',
       'showSearchFilters'
+    ]),
+
+    ...mapMutations([
+      'removeFromSessionSearchHistory'
     ])
   }
 })

@@ -124,11 +124,7 @@ const mutations = {
   },
 
   removeSearchHistoryEntryFromList(state, _id) {
-    const i = state.searchHistoryEntries.findIndex((searchHistoryEntry) => {
-      return searchHistoryEntry._id === _id
-    })
-
-    state.searchHistoryEntries.splice(i, 1)
+    state.searchHistoryEntries = state.searchHistoryEntries.filter((searchHistoryEntry) => searchHistoryEntry._id !== _id)
   },
 
   removeSearchHistoryEntriesFromList(state, ids) {

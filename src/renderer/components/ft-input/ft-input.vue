@@ -82,14 +82,25 @@
           :class="{ hover: searchState.selectedOption === index }"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
-          @mouseleave="searchState.selectedOption = -1"
+          @mouseleave="searchState.selectedOption = -1; removeButtonSelectedIndex = -1"
         >
           <font-awesome-icon
             v-if="searchResultIcon"
             :icon="searchResultIcon"
             class="searchResultIcon"
           />
-          {{ entry }}
+          <span>{{ entry }}</span>
+          <a
+            v-if="canRemoveResults"
+            class="removeButton"
+            :class="{ removeButtonSelected: removeButtonSelectedIndex === index}"
+            role="button"
+            :aria-label="$t('Search Bar.Remove')"
+            href="javascript:void(0)"
+            @click.prevent.stop="handleRemoveClick(index)"
+          >
+            {{ $t('Search Bar.Remove') }}
+          </a>
         </li>
         <!-- skipped -->
       </ul>

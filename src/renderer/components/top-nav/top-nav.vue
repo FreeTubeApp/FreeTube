@@ -97,9 +97,11 @@
           :spellcheck="false"
           :show-clear-text-button="true"
           :show-data-when-empty="true"
+          :can-remove-results="usingSearchHistoryResults"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
           @clear="() => lastSuggestionQuery = ''"
+          @remove="removeSearchHistoryEntryInDbAndCache"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"

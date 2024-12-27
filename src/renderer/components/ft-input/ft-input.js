@@ -67,6 +67,10 @@ export default defineComponent({
       type: Array,
       default: null
     },
+    canRemoveResults: {
+      type: Boolean,
+      default: false
+    },
     showDataWhenEmpty: {
       type: Boolean,
       default: false
@@ -76,7 +80,7 @@ export default defineComponent({
       default: ''
     }
   },
-  emits: ['clear', 'click', 'input'],
+  emits: ['clear', 'click', 'input', 'remove'],
   data: function () {
     let actionIcon = ['fas', 'search']
     if (this.forceActionButtonIconName !== null) {
@@ -96,6 +100,8 @@ export default defineComponent({
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
+      removeButtonSelectedIndex: -1,
+      removalMade: false,
       actionButtonIconName: actionIcon
     }
   },
@@ -166,6 +172,7 @@ export default defineComponent({
       this.searchState.showOptions = false
       this.searchState.selectedOption = -1
       this.searchState.keyboardSelectedOptionIndex = -1
+      this.removeButtonSelectedIndex = -1
       this.$emit('input', this.inputData)
       this.$emit('click', this.inputData, { event: e })
     },
@@ -247,10 +254,23 @@ export default defineComponent({
     },
 
     handleOptionClick: function (index) {
+      if (this.removeButtonSelectedIndex !== -1) {
+        this.handleRemoveClick(index)
+        return
+      }
       this.searchState.showOptions = false
       this.inputData = this.visibleDataList[index]
       this.$emit('input', this.inputData)
       this.handleClick()
+    },
+
+    handleRemoveClick: function (index) {
+      if (!this.canRemoveResults) { return }
+
+      // keep focus in input even if removed "Remove" button was clicked
+      this.$refs.input.focus()
+      this.removalMade = true
+      this.$emit('remove', this.visibleDataList[index])
     },
 
     /**
@@ -259,7 +279,9 @@ export default defineComponent({
     handleKeyDown: function (event) {
       if (event.key === 'Enter') {
         // Update Input box value if enter key was pressed and option selected
-        if (this.searchState.selectedOption !== -1) {
+        if (this.removeButtonSelectedIndex !== -1) {
+          this.handleRemoveClick(this.removeButtonSelectedIndex)
+        } else if (this.searchState.selectedOption !== -1) {
           this.searchState.showOptions = false
           event.preventDefault()
           this.inputData = this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.selectedOption)
@@ -274,7 +296,7 @@ export default defineComponent({
       if (this.visibleDataList.length === 0) { return }
 
       this.searchState.showOptions = true
-      const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
+      const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp' || event.key === 'ArrowLeft' || event.key === 'ArrowRight'
       if (!isArrow) {
         const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
         // Keyboard selected & is char
@@ -288,17 +310,33 @@ export default defineComponent({
       }
 
       event.preventDefault()
-      if (event.key === 'ArrowDown') {
-        this.searchState.selectedOption++
-      } else if (event.key === 'ArrowUp') {
-        this.searchState.selectedOption--
+
+      if (event.key === 'ArrowRight') {
+        this.removeButtonSelectedIndex = this.searchState.selectedOption
       }
+
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        const newIndex = this.searchState.selectedOption + (event.key === 'ArrowDown' ? 1 : -1)
+        this.updateSelectedOptionIndex(newIndex)
+
+        // reset removal
+        this.removeButtonSelectedIndex = -1
+      }
+
+      if (this.searchState.selectedOption !== -1 && event.key === 'ArrowRight') {
+        this.removeButtonSelectedIndex = this.searchState.selectedOption
+      }
+    },
+
+    updateSelectedOptionIndex: function (index) {
+      this.searchState.selectedOption = index
       // Allow deselecting suggestion
       if (this.searchState.selectedOption < -1) {
         this.searchState.selectedOption = this.visibleDataList.length - 1
       } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
         this.searchState.selectedOption = -1
       }
+
       // Update displayed value
       this.searchState.keyboardSelectedOptionIndex = this.searchState.selectedOption
     },
@@ -313,8 +351,14 @@ export default defineComponent({
 
     updateVisibleDataList: function () {
       // Reset selected option before it's updated
-      this.searchState.selectedOption = -1
-      this.searchState.keyboardSelectedOptionIndex = -1
+      if (!this.removalMade || this.searchState.selectedOption >= this.dataList.length) {
+        this.searchState.selectedOption = -1
+        this.searchState.keyboardSelectedOptionIndex = -1
+        this.removeButtonSelectedIndex = -1
+      }
+
+      this.removalMade = false
+
       if (this.inputData.trim() === '') {
         this.visibleDataList = this.dataList
         return
