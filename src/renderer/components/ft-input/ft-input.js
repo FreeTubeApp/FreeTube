@@ -113,7 +113,7 @@ export default defineComponent({
     },
 
     inputDataPresent: function () {
-      return this.inputData.length > 0
+      return this.inputDataDisplayed.length > 0
     },
     inputDataDisplayed() {
       if (!this.isSearch) { return this.inputData }
