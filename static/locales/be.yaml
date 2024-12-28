@@ -441,8 +441,7 @@ Settings:
       File Name Tooltip: 'Вы можаце выкарыстоўваць пераменныя ніжэй. %Y Год 4 лічбы.
         %M Месяц 2 лічбы. %D Дні 2 лічбы. %H Гадзіны 2 лічбы. %N Хвіліны 2 лічбы.
         %S Секунды 2 лічбы. %T Мілісекунды 3 лічбы. %s Секунды відэа. %t Мілісекунды
-        відэа 3 лічбы. %i Ідэнтыфікатар відэа. Вы таксама можаце выкарыстоўваць "\"
-        або "/" для стварэння падпапак.'
+        відэа 3 лічбы. %i Ідэнтыфікатар відэа.'
       Error:
         Forbidden Characters: 'Забароненыя сімвалы'
         Empty File Name: 'Пустая назва файла'
@@ -484,8 +483,6 @@ Settings:
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
     Fetch Automatically: 'Аўтаматычна атрымліваць стужку'
     Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
-    Only Show Latest Video for Each Channel: Паказваць толькі апошняе відэа для кожнага
-      канала
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:

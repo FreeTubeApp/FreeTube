@@ -429,7 +429,7 @@ Settings:
       4k: 4k
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
-    Next Video Interval: Intervall bis zum nächsten Video
+    Next Video Interval: Automatischer Wiedergabe-Timer
     Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
@@ -450,19 +450,20 @@ Settings:
       File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig.
         %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
-        Millisekunde 3 Ziffern. %i Video-ID. Du kannst auch \ oder / verwenden, um
-        Unterordner zu erstellen.
+        Millisekunde 3 Ziffern. %i Video-ID.
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
+    Autoplay Interruption Timer: Automatische Wiedergabe Unterbrechungs-Timer
   Subscription Settings:
     Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
     Fetch Feeds from RSS: Feeds von RSS abrufen
     Fetch Automatically: Feed automatisch abrufen
-    Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
-      anzeigen
     Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
 
+    'Limit the number of videos displayed for each channel': Die Anzahl der für jeden
+      Kanal angezeigten Videos begrenzen
+    To: Limitieren auf
   Privacy Settings:
     Watch history has been cleared: Wiedergabeverlauf wurde gelöscht
     Are you sure you want to remove your entire watch history?: Bist du sicher, dass
@@ -587,6 +588,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Wort, Wortfragment oder
       Phrase
     Hide Channel Home: 'Tab „Startseite“ des Kanals ausblenden'
+    Show Added Items: Hinzugefügte Elemente anzeigen
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -1249,3 +1251,8 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
   um den Verlauf zu sehen
+Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autoplayInterruptionIntervalHours}
+  Stunden Inaktivität abgebrochen
+Description:
+  Collapse Description: Weniger anzeigen
+  Expand Description: '...mehr'

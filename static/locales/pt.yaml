@@ -2,10 +2,10 @@
 Locale Name: 'Português'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
+  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando já houver
   progresso.
 # Webkit Menu Bar
-File: 'Ficheiro'
+File: 'Arquivo'
 Quit: 'Sair'
 Edit: 'Editar'
 Undo: 'Desfazer'
@@ -428,8 +428,7 @@ Settings:
       File Name Tooltip: 'Pode utilizar estas variáveis: %Y ano com 4 dígitos, %M
         mês com 2 dígitos, %D dia com 2 dígitos, %H hora com 2 dígitos, %N minuto
         com 2 dígitos, %S segundos com 2 dígitos, %T milissegundos com 3 dígitos,
-        %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.
-        Também pode usar "\" ou "/" para criar subpastas.'
+        %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.'
       Folder Label: Pasta para as capturas de ecrã
       Ask Path: Perguntar onde guardar
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
@@ -461,8 +460,6 @@ Settings:
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Fetch Automatically: Obter fontes automaticamente
-    Only Show Latest Video for Each Channel: Mostrar apenas o último vídeo de cada
-      canal
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
     Data Settings: 'Dados'

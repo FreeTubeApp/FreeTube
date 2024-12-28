@@ -18,7 +18,6 @@ import {
 import {
   extractNumberFromString,
   getIconForSortPreference,
-  setPublishedTimestampsInvidious,
   showToast,
   deepCopy,
 } from '../../helpers/utils'
@@ -388,8 +387,6 @@ export default defineComponent({
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
-        setPublishedTimestampsInvidious(result.videos)
-
         this.playlistItems = result.videos
 
         this.updatePageTitle()
@@ -648,10 +645,10 @@ export default defineComponent({
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
       'removeVideo',
-      'setAppTitle'
     ]),
 
     ...mapMutations([
+      'setAppTitle',
       'setCachedPlaylist'
     ])
   }

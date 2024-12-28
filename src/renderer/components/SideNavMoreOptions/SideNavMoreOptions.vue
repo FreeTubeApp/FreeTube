@@ -10,7 +10,7 @@
       @keydown.space.prevent="openMoreOptions = !openMoreOptions"
       @keydown.enter.prevent="openMoreOptions = !openMoreOptions"
     >
-      <font-awesome-icon
+      <FontAwesomeIcon
         :icon="['fas', 'ellipsis-h']"
         class="navIcon"
         :class="applyNavIconExpand"
@@ -36,7 +36,7 @@
         <div
           class="thumbnailContainer"
         >
-          <font-awesome-icon
+          <FontAwesomeIcon
             :icon="['fas', 'user-check']"
             class="navIcon"
             :class="applyNavIconExpand"
@@ -58,7 +58,7 @@
         :aria-label="hideLabelsSideBar ? $t('Trending.Trending') : null"
         to="/trending"
       >
-        <font-awesome-icon
+        <FontAwesomeIcon
           :icon="['fas', 'fire']"
           class="navIcon"
           :class="applyNavIconExpand"
@@ -72,13 +72,13 @@
         </p>
       </router-link>
       <router-link
-        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
+        v-if="popularVisible"
         class="navOption"
         :title="$t('Most Popular')"
         :aria-label="hideLabelsSideBar ? $t('Most Popular') : null"
         to="/popular"
       >
-        <font-awesome-icon
+        <FontAwesomeIcon
           :icon="['fas', 'users']"
           class="navIcon"
           :class="applyNavIconExpand"
@@ -97,7 +97,7 @@
         :aria-label="hideLabelsSideBar ? $t('About.About') : null"
         to="/about"
       >
-        <font-awesome-icon
+        <FontAwesomeIcon
           :icon="['fas', 'info-circle']"
           class="navIcon"
           :class="applyNavIconExpand"
@@ -117,7 +117,7 @@
       :aria-label="hideLabelsSideBar ? $t('History.History'): null"
       to="/history"
     >
-      <font-awesome-icon
+      <FontAwesomeIcon
         :icon="['fas', 'history']"
         class="navIcon"
         :class="applyNavIconExpand"
@@ -136,7 +136,7 @@
       :aria-label="hideLabelsSideBar ? $t('Settings.Settings') : null"
       to="/settings"
     >
-      <font-awesome-icon
+      <FontAwesomeIcon
         :icon="['fas', 'sliders-h']"
         class="navIcon"
         :class="applyNavIconExpand"
@@ -154,7 +154,7 @@
       to="/about"
       :aria-label="hideLabelsSideBar ? $t('About.About') : null"
     >
-      <font-awesome-icon
+      <FontAwesomeIcon
         :icon="['fas', 'info-circle']"
         class="navIcon"
         :class="applyNavIconExpand"
@@ -169,5 +169,35 @@
   </div>
 </template>
 
-<script src="./side-nav-more-options.js" />
-<style scoped src="./side-nav-more-options.css" />
+<script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { computed, ref } from 'vue'
+
+import store from '../../store/index'
+
+const openMoreOptions = ref(false)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideTrendingVideos = computed(() => {
+  return store.getters.getHideTrendingVideos
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideLabelsSideBar = computed(() => {
+  return store.getters.getHideLabelsSideBar
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const popularVisible = computed(() => {
+  return !store.getters.getHidePopularVideos &&
+    (store.getters.getBackendFallback || store.getters.getBackendPreference === 'invidious')
+})
+
+const applyNavIconExpand = computed(() => {
+  return {
+    navIconExpand: hideLabelsSideBar.value
+  }
+})
+</script>
+
+<style scoped src="./SideNavMoreOptions.css" />

@@ -447,8 +447,7 @@ Settings:
       File Name Tooltip: Нижче ви можете використовувати змінні. %Y Рік 4 цифри. %M
         Місяць 2 цифри. %D день 2 цифри. %H Година 2 цифри. %N Хвилина 2 цифри. %S
         Секунда 2 цифри. %T Мілісекунда 3 цифри. %s Секунда відео. %t Мілісекунда
-        відео 3 цифри. %i ID відео. Ви також можете використовувати "\" або "/" для
-        створення вкладених тек.
+        відео 3 цифри. %i ID відео.
     Enter Fullscreen on Display Rotate: Переходити в повноекранний режим за обертання
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
@@ -479,9 +478,10 @@ Settings:
     Hide Videos on Watch: 'Ховати відео при перегляді'
     Fetch Feeds from RSS: 'Отримати канали з RSS'
     Fetch Automatically: Автоматично отримувати стрічку
-    Only Show Latest Video for Each Channel: Показувати лише останні відео для кожного
-      каналу
     Confirm Before Unsubscribing: Підтвердити перед скасуванням підписки
+    'Limit the number of videos displayed for each channel': Обмежити кількість відео,
+      що відображаються для кожного каналу
+    To: До
   Distraction Free Settings:
     Distraction Free Settings: 'Без відволікань'
     Hide Video Views: 'Сховати перегляди відео'
@@ -532,6 +532,7 @@ Settings:
       фраза
     Hide Videos and Playlists Containing Text: Сховати відео та добірки, що містять
       текст
+    Show Added Items: Показати додані елементи
   Data Settings:
     Data Settings: 'Дані'
     Select Import Type: 'Оберіть тип імпорту'
@@ -1138,7 +1139,7 @@ Starting download: Починається завантаження "{videoTitle}
 Downloading has completed: '"{videoTitle}" завершив завантаження'
 Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
   «запитати теку».
-Screenshot Success: Знімок екрана збережено як «{filePath}»
+Screenshot Success: Збережений знімок екрана
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
 Channels:
@@ -1207,9 +1208,12 @@ Age Restricted:
 Trimmed input must be at least N characters long: Обрізаний ввід повинен бути хоча
   б 1 символ довжиною | Обрізаний ввід повинен бути хоча б {length} символів довжиною
 Moments Ago: щойно
-Yes, Restart: Так, перезавантажити
+Yes, Restart: Так, перезапустити
 Yes, Open Link: Так, відкрити посилання
 Yes, Delete: Так, видалити
 Cancel: Скасувати
 Autoplay Interruption Timer: Автозапуск скасовано через {autoplayInterruptionIntervalHours}
   годин бездіяльності
+Description:
+  Expand Description: '...докладніше'
+  Collapse Description: Показати менше

@@ -429,7 +429,7 @@ Settings:
       8k: '8k'
     Fast-Forward / Rewind Interval: Aurrera / atzera egiteko tartea
     Scroll Volume Over Video Player: Aldatu bolumena bideo erreproduzitzailean
-    Next Video Interval: Hurrengo bideo tartea
+    Next Video Interval: Erreproduzitu automatikoki atzerako kontaketaren tenporizadorea
     Screenshot:
       Enable: Bidea eman pantaila argazkiei
       Error:
@@ -444,14 +444,14 @@ Settings:
       File Name Tooltip: Hurrengo aldagaiak balia ditzakezu. %U Urtea 4 digitu. %H
         Hilabetea 2 digitu. %E Eguna 2 digitu. %O Ordua 2 digitu. %M Minutu 2 digitu.
         %S segundo 2 digitu. %T milisegundo 3 digitu. %s Bideoaren segundoa. %t Bideoaren
-        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea. "\" edo "/" baliatu
-        ahal dituzu azpikarpetak sortzeko.
+        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea.
     Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
+    Autoplay Interruption Timer: Erreprodukzio automatikoa eteteko tenporizadorea
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
     Remember History: 'Historikoa oroitu'
@@ -479,9 +479,10 @@ Settings:
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
-    Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
-      bideoa
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
+    'Limit the number of videos displayed for each channel': Mugatu kanal bakoitzeko
+      bistaratzen diren bideo kopurua
+    To: Hona
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunik ez'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
@@ -1230,3 +1231,8 @@ shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu sakatuta
   historia ikusteko
+Autoplay Interruption Timer: Erreprodukzio automatikoa bertan behera utzi da {autoplayInterruptionIntervalHours}
+  orduz geldirik egon delako
+Description:
+  Collapse Description: Gutxiago erakutsi
+  Expand Description: '...gehiago'

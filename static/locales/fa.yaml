@@ -78,14 +78,18 @@ Search Filters:
     4K: ۴کی
     HD: وضوح‌بالا
     Creative Commons: کرییتیو کامنز
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'دنبال کرده ها'
   Latest Subscriptions: 'اخرین دنبال کرده ها'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'این
     پروفایل تعداد زیادی اشتراک دارد. اجبار RSS برای جلوگیری از محدودیت نرخ'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'چیزی
-    دنبال نکرده اید.شروع به افزودن دنبال کننده ها کنید تا اینجا نشان داده شوند.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'لیست
+    اشتراک شما در حال حاضر خالی است. اضافه کردن اشتراک‌ها را برای مشاهده آنها در اینجا
+    شروع کنید. اگر می‌خواهید اشتراک‌های خود را وارد کنید، می‌توانید به تنظیمات داده
+    رفته و وارد کردن اشتراک‌ها را انتخاب کنید یا می‌توانید کانالی را جستجو کرده و
+    در آن‌ها مشترک شوید.'
   'Getting Subscriptions. Please wait.': 'درحال گرفتن دنبال کرده ها.لطفا صبر کنید.'
   Refresh Subscriptions: 'تازه سازی دنبال کرده ها'
   Load More Videos: 'بارگیری ویدیو های بیشتر'
@@ -112,8 +116,8 @@ Playlists: 'لیست های پخش'
 User Playlists:
   Your Playlists: 'لیست های پخش شما'
   Search bar placeholder: جستجو برای فهرست های پخش
-  Empty Search Message: هیچ ویدیویی در این فهرست پخش وجود ندارد که با جستجوی شما مطابق
-    باشد
+  Empty Search Message: هیچ ویدیویی در این لیست پخش وجود ندارد که با جستجوی شما مطابقت
+    داشته باشد
   Cancel: لغو
   Remove from Playlist: پاک کردن از فهرست پخش
   Playlist Name: نام فهرست پخش
@@ -132,17 +136,109 @@ User Playlists:
   Remove Duplicate Videos: حذف ویدیوهای تکراری
   AddVideoPrompt:
     Save: ذخیره کنید
+    Search in Playlists: جستجو در لیست‌های پخش
+    Allow Adding Duplicate Video(s): اجازه افزودن ویدیو(های) تکراری
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 ویدیو به {playlistCount}
+        لیست پخش اضافه شد | {videoCount} ویدیو به {playlistCount} لیست پخش اضافه شد
+      You haven't selected any playlist yet.: هنوز هیچ لیست پخشی را انتخاب نکرده‌اید.
+      "{videoCount} video(s) added to 1 playlist": 1 ویدیو به 1 لیست پخش اضافه شد
+        | {videoCount} ویدیو به 1 لیست پخش اضافه شد
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      ویدیو از قبل اضافه شده'
+    N playlists selected: '{playlistCount} انتخاب شد'
+    Added {count} Times: قبلا اضافه شده | {count} بار اضافه شد
+    Select a playlist to add your N videos to: یک لیست پخش برای افزودن ویدیوی خود
+      به | انتخاب کنید یک لیست پخش برای افزودن ویدیوهای {videoCount} خود انتخاب کنید
+      در
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      ویدیو اضافه خواهند شد'
   SinglePlaylistView:
     Toast:
       Video has been removed: ویدیو حذف شده است
       There was a problem with removing this video: در حذف این ویدیو مشکلی وجود داشت
+      This playlist is now used for quick bookmark: این لیست پخش اکنون برای نشانک
+        سریع استفاده می‌شود
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: برخی
+        از ویدیوها در لیست پخش هنوز بارگیری نشده اند. به هر حال برای کپی اینجا کلیک
+        کنید.
+      "{videoCount} video(s) have been removed": 1 ویدئو حذف شد | {videoCount} ویدیو
+        حذف شد
+      Playlist {playlistName} has been deleted.: فهرست پخش {playlistName} حذف شد.
+      Playlist {playlistName} is the new quick bookmark playlist.: لیست پخش {playlistName}
+        یک فهرست پخش نشانک سریع جدید است.
+      This video cannot be moved up.: این ویدئو را نمی‌توان به بالا منتقل کرد.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: این
+        لیست پخش اکنون برای نشانک سریع به جای {oldPlaylistName} استفاده می شود. برای
+        لغو اینجا را کلیک کنید
+      This playlist is already being used for quick bookmark.: این لیست پخش در حال
+        حاضر برای نشانک سریع استفاده می شود.
+      Playlist name cannot be empty. Please input a name.: نام لیست پخش نمی تواند
+        خالی باشد. لطفا یک نام وارد کنید.
+      There were no videos to remove.: هیچ ویدیویی برای حذف وجود نداشت.
+      This playlist is protected and cannot be removed.: این لیست پخش محافظت می‌شود
+        و نمی‌توان آن را حذف کرد.
+      This video cannot be moved down.: این ویدئو را نمی‌توان به پایین منتقل کرد.
+      Playlist has been updated.: لیست پخش به روز شد.
+      There was an issue with updating this playlist.: مشکلی در به‌روزرسانی این لیست
+        پخش وجود داشت.
+      This playlist does not exist: این لیست پخش وجود ندارد
+      Reverted to use {oldPlaylistName} for quick bookmark: به استفاده از {oldPlaylistName}
+        برای نشانک‌گذاری سریع بازگردد
+      This playlist has a video with a duration error: این لیست پخش شامل حداقل یک
+        ویدیو است که مدت زمان ندارد، به گونه‌ای مرتب می‌شود که گویی مدت زمان آنها
+        صفر است.
+    Search for Videos: جستجوی ویدئوها
+  Sort By:
+    EarliestUpdatedFirst: اولین به روز شده
+    LatestUpdatedFirst: به تازگی به روز شده
+    NameAscending: آ-ی
+    NameDescending: ی-آ
+    LatestCreatedFirst: به تازگی ایجاد شده
+    Sort By: مرتب‌کردن بر اساس
+    LatestPlayedFirst: اخیراً پخش شده
+    EarliestPlayedFirst: اولین پخش شده
+    EarliestCreatedFirst: قدیمی ترین ایجاد شده
+  CreatePlaylistPrompt:
+    Toast:
+      Playlist {playlistName} has been successfully created.: لیست پخش {playlistName}
+        با موفقیت ایجاد شد.
+      There is already a playlist with this name. Please pick a different name.: از
+        قبل یک فهرست پخش با این نام وجود دارد. لطفا نام دیگری انتخاب کنید.
+      There was an issue with creating the playlist.: مشکلی در ایجاد لیست پخش وجود
+        داشت.
+    New Playlist Name: نام لیست پخش جدید
+    Create: ایجاد
+  You have no playlists. Click on the create new playlist button to create a new one.: شما
+    هیچ لیست پخشی ندارید. بر روی دکمه ایجاد لیست پخش جدید کلیک کنید تا لیست پخش جدیدی
+    ایجاد شود.
+  Export Playlist: صادر کردن این لیست پخش
+  The playlist has been successfully exported: لیست پخش با موفقیت صادر شد
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: آیا
+    مطمئنید که می خواهید 1 ویدیوی تماشا شده را از این لیست پخش حذف کنید؟ این قابل
+    واگرد نیست. | آیا مطمئن هستید که می خواهید {playlistItemCount} ویدیو تماشا شده
+    را از این لیست پخش حذف کنید؟ این قابل واگرد نیست.
+  Cannot delete the quick bookmark target playlist.: نمی توان لیست پخش مورد نظر نشانک
+    سریع را حذف کرد.
+  Are you sure you want to delete this playlist? This cannot be undone: آیا مطمئن
+    هستید که می خواهید این لیست پخش را حذف کنید؟ این قابل واگرد نیست.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: آیا
+    مطمئنید که می‌خواهید 1 ویدیوی تکراری را از این فهرست پخش حذف کنید؟ این قابل واگرد
+    نیست. | آیا مطمئنید که می خواهید {playlistItemCount} ویدیو تکراری را از این لیست
+    پخش حذف کنید؟ این قابل واگرد نیست.
+  Copy Playlist: رونوشت لیست‌پخش
+  Enable Quick Bookmark With This Playlist: فعال کردن نشانک سریع با این لیست پخش
+  Quick Bookmark Enabled: نشانک سریع فعال شد
+  Delete Playlist: حذف لیست پخش
 History:
   # On History Page
   History: 'تاریخچه'
   Watch History: 'تاریخچه تماشا'
   Your history list is currently empty.: 'تاریخچه شما در حال حاضر خالی است.'
   Search bar placeholder: جستجو در تاریخچه
-  Empty Search Message: هیچ ویدیویی در تاریخچه وجود ندارد که با جستجوی شما مطابق باشد
+  Empty Search Message: هیچ ویدیویی در سابقه شما وجود ندارد که با جستجوی شما مطابقت
+    داشته باشد
+  Case Sensitive Search: جستجوی حساس به حروف کوچک و بزرگ
 Settings:
   # On Settings Page
   Settings: 'تنظیمات'
@@ -150,7 +246,7 @@ Settings:
     نرم افزار نیاز به راه اندازی دوباره دارد تا تغییرات لحاظ شوند. تغییرات ذخیره و
     راه اندازی شود؟'
   General Settings:
-    General Settings: 'تنظیمات عمومی'
+    General Settings: 'عمومی'
     Check for Updates: 'بررسی برای به روزرسانی ها'
     Check for Latest Blog Posts: 'بررسی آخرین مطالب وبلاگ'
     Fallback to Non-Preferred Backend on Failure: 'بازگشت به Backend غیر ترجیحی در
@@ -174,6 +270,7 @@ Settings:
       Middle: 'وسط'
       End: 'انتها'
       Hidden: مخفی
+      Blur: تاری
     Current Invidious Instance: 'نمونه فعلی Invidious'
     The currently set default instance is {instance}: 'در حال حاضر نمونه Invidious
       پیشفرض {instance} است'
@@ -190,8 +287,13 @@ Settings:
       Ask Before Opening Link: پرسیدن قبل از باز کردن لینک
       No Action: کاری نکردن
       External Link Handling: اداره کردن لینک های خارجی
+    Auto Load Next Page:
+      Label: بارگذاری خودکار صفحه بعدی
+      Tooltip: صفحات و نظرات اضافی را به صورت خودکار بارگیری کنید.
+    Open Deep Links In New Window: نشانی های ارسال شده به FreeTube را در یک پنجره
+      جدید باز کنید
   Theme Settings:
-    Theme Settings: 'تنظیمات قالب'
+    Theme Settings: 'طرح'
     Match Top Bar with Main Color: 'یکسان سازی قطعه بالا با رنگ اصلی'
     Expand Side Bar by Default: 'گسترش ستون فرعی به صورت پیشفرض'
     Disable Smooth Scrolling: 'غیرفعال کردن حرکت ملایم'
@@ -206,6 +308,11 @@ Settings:
       Catppuccin Mocha: مجموعه رنگ کتپوسین موکا
       Hot Pink: صورتی داغ
       Pastel Pink: صورتی پاستلی
+      Solarized Dark: درخشش تاریک
+      Solarized Light: درخشش روشن
+      Gruvbox Dark: جعبه تیره تاریک
+      Gruvbox Light: جعبه تیره روشن
+      Nordic: شمال اروپا
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -245,12 +352,30 @@ Settings:
       Catppuccin Mocha Peach: هلویی
       Catppuccin Mocha Yellow: کتپوسین موکا زرد
       Catppuccin Mocha Green: کتپوچین موکا سبز
+      Gruvbox Light Orange: جعبه‌تیره نارنجی روشن
+      Solarized Cyan: فیروزه‌ای درخشان
+      Solarized Orange: نارنجی درخشان
+      Solarized Red: قرمز درخشان
+      Solarized Violet: بنفش درخشان
+      Solarized Blue: آبی درخشان
+      Solarized Magenta: سرخابی درخشان
+      Solarized Green: سبز درخشان
+      Gruvbox Dark Yellow: جعبه‌تیره زرد
+      Gruvbox Dark Blue: جعبه‌تیره آبی
+      Gruvbox Dark Aqua: جعبه‌تیره آسمانی
+      Gruvbox Dark Purple: جعبه‌تیره ارغوانی
+      Gruvbox Dark Orange: جعبه‌تیره نارنجی
+      Gruvbox Light Red: جعبه‌تیره قرمز
+      Solarized Yellow: زرد درخشان
+      Gruvbox Dark Green: جعبه‌تیره سبز
+      Gruvbox Light Blue: جعبه‌تیره آبی روشن
+      Gruvbox Light Purple: جعبه‌تیره ارغوانی روشن
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
     Hide FreeTube Header Logo: لوگوی سربرگ FreeTube را مخفی کنید
   Player Settings:
-    Player Settings: 'تنظیمات پخش کننده'
+    Player Settings: 'پخش کننده'
     Play Next Video: 'پخش ویدیو بعدی'
     Turn on Subtitles by Default: 'فعال کردن زیرنویس به عنوان پیشفرض'
     Autoplay Videos: 'پخش خودکار ویدیو ها'
@@ -259,7 +384,7 @@ Settings:
     Enable Theatre Mode by Default: 'فعال کردن حالت تئاتر به عنوان پیشفرض'
     Scroll Volume Over Video Player: 'کنترل صدا با حرکت اسکرول موس روی پخش کننده ویدیو'
     Display Play Button In Video Player: 'نمایش دکمه پخش داخل پخش کننده ویدیو'
-    Next Video Interval: 'بازه زمانی ویدیو بعدی'
+    Next Video Interval: 'تایمر شمارش معکوس پخش خودکار'
     Fast-Forward / Rewind Interval: 'بازه زمانی جلو / عقب رفتن سریع'
     Default Volume: 'میزان صدای پیشفرض'
     Default Playback Rate: 'سرعت پخش پیشفرض'
@@ -301,8 +426,9 @@ Settings:
       Folder Label: پوشه اسکرین شات
       Folder Button: پوشه را انتخاب کنید
     Skip by Scrolling Over Video Player: با پیمایش روی پخش‌کننده ویدیو از آن بگذرید
+    Autoplay Interruption Timer: تایمر وقفه پخش خودکار
   External Player Settings:
-    External Player Settings: 'تنظیمات پخش کننده خارجی'
+    External Player Settings: 'پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
     Ignore Unsupported Action Warnings: 'به اخطارهای فعالیت پشتیبانی نشده اهمیت نده'
     Custom External Player Executable: 'پخش کننده خارجی شخصی سازی شده قابل اجرا'
@@ -310,8 +436,9 @@ Settings:
     Players:
       None:
         Name: هیچ کدام
+    Ignore Default Arguments: نادیده گرفتن برهان های پیش فرض
   Privacy Settings:
-    Privacy Settings: 'تنظیمات امنیتی'
+    Privacy Settings: 'امنیتی'
     Remember History: 'حفظ تاریخچه'
     Save Watched Progress: 'ذخیره ویدیو های دیده شده'
     Clear Search Cache: 'پاک کردن کش جستجو'
@@ -328,13 +455,21 @@ Settings:
       نیست.'
     Save Watched Videos With Last Viewed Playlist: ویدئوهای تماشا شده را با لیست پخش
       آخرین مشاهده ذخیره کنید
+    All playlists have been removed: تمام لیست های پخش حذف شد
+    Remove All Playlists: حذف تمام لیست های پخش
+    Are you sure you want to remove all your playlists?: آیا مطمئنید که می‌خواهید
+      همه فهرست‌های پخش خود را حذف کنید؟
   Subscription Settings:
-    Subscription Settings: 'تنظیمات دنبال شوندگان'
+    Subscription Settings: 'دنبال شوندگان'
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Fetch Feeds from RSS: 'دریافت feed ها از RSS'
     Fetch Automatically: آوردن خودکار فید
+    Confirm Before Unsubscribing: تایید لغو اشتراک
+    'Limit the number of videos displayed for each channel': تعداد ویدیوهای نمایش
+      داده شده برای هر کانال را محدود کنید
+    To: به
   Distraction Free Settings:
-    Distraction Free Settings: 'تنظیمات اضافی مفید'
+    Distraction Free Settings: 'اضافات مفید'
     Hide Video Views: 'مخفی کردن دیده های ویدیو'
     Hide Video Likes And Dislikes: 'مخفی کردن لایک و دیسلایک های ویدیو'
     Hide Channel Subscribers: 'مخفی کردن دنبال کنندگان کانال'
@@ -345,7 +480,7 @@ Settings:
     Hide Playlists: 'مخفی کردن فهرست های پخش'
     Hide Live Chat: 'مخفی کردن چت لایو'
     Hide Active Subscriptions: 'مخفی کردن دنبال کنندگان فعال'
-    Hide Channel Playlists: لیست های پخش کانال را مخفی کنید
+    Hide Channel Playlists: '"لیست های پخش" کانال را مخفی کنید'
     Sections:
       Watch Page: صفحه تماشا
       Subscriptions Page: صفحه اشتراک ها
@@ -358,20 +493,33 @@ Settings:
     Hide Featured Channels: پنهان کردن کانال های ویژه
     Hide Comments: پنهان کردن نظرات
     Hide Profile Pictures in Comments: مخفی کردن تصاویر پروفایل در نظرات
-    Display Titles Without Excessive Capitalisation: نمایش عناوین بدون حروف بزرگ
+    Display Titles Without Excessive Capitalisation: نمایش عناوین بدون حروف بزرگ و
+      نقطه گذاری
     Hide Channels: پنهان کردن ویدیوها از کانال ها
     Hide Upcoming Premieres: مخفی کردن اولین نمایش های آینده
     Hide Chapters: پنهان کردن فصل ها
-    Hide Channels Placeholder: نام یا آیدی کانال
+    Hide Channels Placeholder: شناسه کانال
     Hide Subscriptions Live: مخفی کردن اشتراک های زنده
-    Hide Channel Community: مخفی کردن انجمن کانال
-    Hide Channel Shorts: مخفی کردن شورت های کانال
+    Hide Channel Community: مخفی کردن "انجمن" کانال
+    Hide Channel Shorts: مخفی کردن "ویدئو های کوتاه" کانال
     Hide Subscriptions Shorts: مخفی کردن شورت اشتراک ها
-    Hide Channel Podcasts: پنهان کردن پادکست های کانال
-    Hide Channel Releases: مخفی کردن انتشارات کانال
+    Hide Channel Podcasts: پنهان کردن "پادکست‌های" کانال
+    Hide Channel Releases: مخفی کردن "انتشارات" کانال
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
+    Hide Videos and Playlists Containing Text Placeholder: کلمه، بخش کلمه یا عبارت
+    Hide Channels Invalid: شناسه کانال ارائه شده نامعتبر بود
+    Hide Channels Already Exists: شناسه کانال از قبل وجود دارد
+    Hide Videos and Playlists Containing Text: ویدیوها و لیست های پخش حاوی متن را
+      مخفی کنید
+    Hide Subscriptions Community: مخفی کردن انجمن دنبال‌شده ها
+    Hide Channel Home: مخفی کردن "صفحه اصلی" کانال
+    Hide Channels API Error: خطای بازیابی کاربر با شناسه ارائه شده. لطفا دوباره بررسی
+      کنید که شناسه درست باشد.
+    Hide Channels Disabled Message: برخی از کانال‌ها با استفاده از شناسه مسدود شدند
+      و پردازش نشدند. در حالی که آن شناسه ها در حال به روز رسانی هستند، ویژگی مسدود
+      می شود
   Data Settings:
-    Data Settings: 'تنظیمات اطلاعات'
+    Data Settings: 'داده ها'
     Select Import Type: 'انتخاب روش وارد کردن فایل بک آپ'
     Select Export Type: 'انتخاب روش پشتیبان گیری'
     Import Subscriptions: 'وارد کردن بک آپ دنبال شوندگان'
@@ -414,6 +562,14 @@ Settings:
     Subscription File: فایل اشتراک
     Playlist insufficient data: داده ناکافی برای لیست پخش «{playlist}»، در حال رد
       شدن از مورد
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "این گزینه ویدئوها را از همه لیست های پخش به یک لیست پخش به نام \"
+        مورد علاقه\" صادر می کند.\nنحوه صادر کردن و وارد کردن ویدیوها در لیست پخش
+        برای نسخه قدیمی FreeTube:\n1. لیست های پخش خود را با فعال بودن این گزینه صادر
+        کنید.\n2. با استفاده از گزینه حذف تمام لیست‌های پخش در قسمت تنظیمات حریم خصوصی،
+        تمام لیست های پخش موجود خود را حذف کنید.\n3. نسخه قدیمی FreeTube را راه اندازی
+        کنید و لیست های پخش صادر شده را وارد کنید.\""
+      Label: صادر‌کردن لیست‌های پخش برای نسخه های قدیمی FreeTube
   Proxy Settings:
     Proxy Host: میزبان پروکسی
     Region: منطقه
@@ -421,7 +577,7 @@ Settings:
       دریافت اطلاعات شبکه. آیا پروکسی شما به درستی پیکربندی شده است؟
     Ip: آی پی
     Country: کشور
-    Proxy Settings: تنظیمات پروکسی
+    Proxy Settings: پروکسی
     Proxy Port Number: شماره پورت پروکسی
     Test Proxy: تست پروکسی
     Enable Tor / Proxy: پروکسی / تور را فعال کنید
@@ -430,6 +586,11 @@ Settings:
     Clicking on Test Proxy will send a request to: با کلیک بر روی تست پروکسی یک درخواست
       ارسال می شود
     Your Info: اطلاعات شما
+    Proxy Warning: FreeTube یک پروکسی داخلی ندارد اما می‌تواند به یک پروکسی خارجی
+      مانند پروکسی که روی دستگاه شما اجرا می‌شود مانند تور یا یک پراکسی خارجی مثل
+      یک پراکسی SOCKS5 که توسط برخی VPN‌ها ارائه می‌شود، متصل شود. در صورت فعال بودن،
+      مطمئن شوید که پروکسی/تور شما به درستی پیکربندی شده است، در غیر این صورت FreeTube
+      نمی تواند هیچ داده ای را واکشی کند.
   SponsorBlock Settings:
     Skip Options:
       Skip Option: گزینه پرش
@@ -438,16 +599,19 @@ Settings:
       Auto Skip: پرش خودکار
       Prompt To Skip: اعلان برای پرش
     Enable SponsorBlock: فعال کردن محدود کردن حامی
-    SponsorBlock Settings: تنظیمات محدود کردن حامی
+    SponsorBlock Settings: محدود کردن حامی
     Notify when sponsor segment is skipped: وقتی بخش حامی رد شد اطلاع دهید
     UseDeArrowTitles: از عنوان های ویدیویی DeArrow استفاده کنید
     Category Color: رنگ دسته
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       URL (پیش‌فرض https://sponsor.ajay.app است)
+    UseDeArrowThumbnails: استفاده از افزونه DeArrow برای ریز‌عکسها
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': رابط
+      آدرس سازنده ریز‌عکس DeArrow (پیش‌فرض https://dearrow-thumb.ajay.app است)
   Download Settings:
     Download in app: دانلود از طریق برنامه
     Open in web browser: در مرورگر وب باز کنید
-    Download Settings: تنظیمات دانلود
+    Download Settings: بارگیری
     Ask Download Path: هربار مسیر دانلود را سوال کند
     Choose Path: مکان ذخیره دانلود را انتخاب کنید
     Download Behavior: روش دانلود
@@ -455,15 +619,15 @@ Settings:
     Hide Unsubscribe Button: پنهان کردن دکمه لغو اشتراک
     Show Family Friendly Only: نمایش فقط دوستانه برای خانواده
     Hide Search Bar: پنهان کردن نوار جستجو
-    Parental Control Settings: تنظیمات کنترل والدین
+    Parental Control Settings: کنترل والدین
   Experimental Settings:
-    Experimental Settings: تنظیمات آزمایشی
+    Experimental Settings: آزمایشی
     Replace HTTP Cache: ‍کش HTTP را جایگزین کنید
     Warning: این تنظیمات آزمایشی هستند، ممکن است هنگام فعال بودن باعث خرابی شوند.
       تهیه نسخه پشتیبان به شدت توصیه می شود. با مسئولیت خود استفاده کنید!
   Password Settings:
     Remove Password: رمز عبور را حذف کنید
-    Password Settings: تنظیمات رمز عبور
+    Password Settings: رمز عبور
     Set Password To Prevent Access: برای جلوگیری از دسترسی به تنظیمات، رمز عبور تنظیم
       کنید
     Set Password: قراردادن رمز عبور
@@ -472,6 +636,8 @@ Settings:
     Enter Password To Unlock: برای باز کردن قفل تنظیمات رمز عبور را وارد کنید
     Password Incorrect: رمز عبور اشتباه است
     Unlock: باز کردن
+  Sort Settings Sections (A-Z): مرتب‌سازی بخش‌های تنظیمات (آ-ی)
+  Return to Settings Menu: بازگشت به منوی تنظیمات
 Channel:
   Playlists:
     Sort Types:
@@ -507,6 +673,10 @@ Channel:
     This channel currently does not have any posts: این کانال در حال حاضر هیچ پستی
       ندارد
     Hide Answers: پنهان کردن پاسخ ها
+    View Full Post: مشاهده کامل پست
+    Video hidden by FreeTube: ویدیو توسط FreeTube مخفی شده
+    Viewing Posts Only Supported By Invidious: مشاهده پست ها فقط توسط Invidious پشتیبانی
+      می شود. برای مشاهده محتوا بدون Invidious، به برگه انجمن کانال بروید.
   Removed subscription from {count} other channel(s): اشتراک از {count} کانال(های)
     دیگر حذف شد
   About:
@@ -537,6 +707,9 @@ Channel:
   Channel has been removed from your subscriptions: کانال از اشتراک های شما حذف شده
     است
   Added channel to your subscriptions: کانال به اشتراک های شما اضافه شد
+  Home:
+    View Playlist: نمایش لیست‌پخش
+    Home: خانه
 Video:
   External Player:
     video: ویدیو
@@ -583,7 +756,7 @@ Video:
     است
   Download Video: دانلود ویدیو
   Open in YouTube: در یوتیوب باز کنید
-  Play Next Video: پخش ویدیوی بعدی
+  Play Next Video: پخش ویدئوی بعدی
   Open Channel in Invidious: کانال را در Invidious باز کنید
   Copy Invidious Channel Link: لینک کانال Invidious را کپی کنید
   Watched: دیده شده
@@ -618,6 +791,50 @@ Video:
   Video has been marked as watched: ویدیو به عنوان تماشا شده علامت گذاری شده است
   Mark As Watched: علامت گذاری به عنوان تماشا شده
   Video has been removed from your history: ویدیو از سابقه شما حذف شده است
+  Player:
+    You appear to be offline: به نظر می رسد آفلاین هستید.
+    Exit Theatre Mode: خروج از حالت تئاتر
+    Stats:
+      Video ID: 'شناسه ویدئو: {videoId}'
+      Media Formats: 'فرمت ویدئو: {formats}'
+      Stats: اطلاعات
+      Resolution: 'وضوح: {width}x{height}@{frameRate}'
+      Bandwidth: 'پهنای باند: {bandwidth} کیلوبیت‌بر‌ثانیه'
+      Player Dimensions: 'ابعاد پخش کننده: {width}x{height}'
+      Bitrate: 'نرخ بیت: {bitrate} کیلوبیت‌بر‌ثانیه'
+      Buffered: 'بافر: {bufferedPercentage}%'
+      Volume: 'صدا: {volumePercentage}%'
+      CodecAudio: 'کدک: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'فریم‌های رد شده: {droppedFrames} / مجموع فریم‌ها:
+        {totalFrames}'
+      CodecsVideoAudio: 'کدک‌ها: {video Codec} ({video tag}) / {audio Codec} ({audio
+        Itag})'
+      CodecsVideoAudioNoItags: 'کدک‌ها: {video Codec} / {audio Codec}'
+    Take Screenshot: گرفتن عکس صفحه
+    Show Stats: نمایش اطلاعات
+    Skipped segment: بخش {segmentCategory} رد شد
+    TranslatedCaptionTemplate: '{language} (ترجمه شده از "{originalLanguage}")'
+    Hide Stats: مخفی کردن اطلاعات
+    Full Window: تمام‌صفحه
+    Exit Full Window: خروج از تمام‌صفحه
+    Playback will resume automatically when your connection comes back: با بازگشت
+      اتصال شما، پخش به طور خودکار از سر گرفته می شود.
+    Audio Tracks: تراک صوتی
+    Theatre Mode: حالت تئاتر
+  Hide Channel: مخفی‌کردن کانال
+  Pause on Current Video: توقف در ویدیو فعلی
+  IP block: YouTube آدرس نشانی شما را از تماشای ویدیو مسدود کرده است. لطفاً سعی کنید
+    به فیلترشکن یا پروکسی دیگری بروید.
+  More Options: گزینه‌های بیشتر
+  Unhide Channel: نمایش کانال
+  Unlisted: بدون لیست
+  MembersOnly: ویدیوهای مختص اعضا را نمی‌توان با FreeTube تماشا کرد زیرا به ورود Google
+    و عضویت پولی در کانال آپلودکننده نیاز دارند.
+  AgeRestricted: ویدیوهای دارای محدودیت سنی را نمی‌توان با FreeTube تماشا کرد، زیرا
+    نیاز به ورود به سیستم Google و استفاده از یک حساب YouTube تأیید شده برای سن دارند.
+  DeArrow:
+    Show Original Details: نمایش جزئیات اصلی
+    Show Modified Details: نمایش جزئیات اصلاح شده
 Tooltips:
   General Settings:
     External Link Handling: "وقتی روی پیوندی که در FreeTube باز نمی شود، روی آن کلیک
@@ -635,9 +852,12 @@ Tooltips:
     Preferred API Backend: پس زمینه ای را انتخاب کنید که FreeTube برای به دست آوردن
       داده ها استفاده می کند. API محلی یک استخراج کننده داخلی است. Invidious API برای
       اتصال به سرور Invidious نیاز دارد.
+    Open Deep Links In New Window: نشانی هایی که به FreeTube ارسال می شوند، مانند
+      پسوندهای مرورگر تغییر مسیر یا برهان های خط فرمان، در یک پنجره جدید باز می شوند.
   SponsorBlock Settings:
     UseDeArrowTitles: عناوین ویدیویی را با عناوین ارسال شده توسط کاربر از DeArrow
       جایگزین کنید.
+    UseDeArrowThumbnails: ریز عکسها را با ریز عکسهای DeArrow جایگزین کنید.
   Player Settings:
     Skip by Scrolling Over Video Player: از چرخ اسکرول برای رد شدن از ویدیو، سبک MPV
       استفاده کنید.
@@ -647,16 +867,16 @@ Tooltips:
       و نگه دارید و روی ماوس کلیک چپ کنید تا به سرعت به سرعت پخش پیش فرض برگردید (مگر
       اینکه در تنظیمات تغییر نکرده باشد).
     Proxy Videos Through Invidious: به جای اتصال مستقیم به YouTube، به Invidious متصل
-      می شود تا ویدیوها را ارائه دهد. اولویت API را لغو می کند.
+      می شود تا ویدیوها را ارائه دهد.
     Default Video Format: فرمت های مورد استفاده هنگام پخش ویدیو را تنظیم کنید. فرمت
       های DASH می توانند کیفیت های بالاتری را پخش کنند. فرمت های قدیمی به حداکثر 720p
       محدود می شوند اما از پهنای باند کمتری استفاده می کنند. فرمت های صوتی فقط جریان
       های صوتی هستند.
   Subscription Settings:
-    Fetch Feeds from RSS: هنگامی که FreeTube فعال باشد، از RSS به جای روش پیش فرض
+    Fetch Feeds from RSS: هنگامی که فعال باشد، FreeTube از RSS به جای روش پیش فرض
       خود برای گرفتن فید اشتراک شما استفاده می کند. RSS سریعتر است و از مسدود شدن
-      IP جلوگیری می کند، اما اطلاعات خاصی مانند مدت زمان ویدیو یا وضعیت زنده را ارائه
-      نمی دهد
+      IP جلوگیری می کند، اما اطلاعات خاصی مانند مدت زمان ویدیو، وضعیت زنده یا پست
+      های انجمن را ارائه نمی دهد.
     Fetch Automatically: هنگامی که فعال باشد، FreeTube به طور خودکار فید اشتراک شما
       را هنگام باز شدن یک پنجره جدید و هنگام تغییر نمایه دریافت می کند.
   External Player Settings:
@@ -666,17 +886,24 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(پیش‌فرض: '{defaultCustomArguments}')"
     Ignore Warnings: اخطارها را برای زمانی که پخش کننده خارجی فعلی از عملکرد فعلی
       پشتیبانی نمی کند (به عنوان مثال معکوس کردن لیست های پخش و غیره) حذف کنید.
-    Custom External Player Arguments: هر آرگومان خط فرمان سفارشی، که با نقطه ویرگول
-      (';') از هم جدا شده اند، می خواهید به پخش کننده خارجی منتقل شوند.
+    Custom External Player Arguments: هر برهان خط فرمان سفارشی که می خواهید به پخش
+      کننده خارجی منتقل شود.
     External Player: با انتخاب یک پخش کننده خارجی، نمادی برای باز کردن ویدیو (در صورت
       پشتیبانی لیست پخش) در پخش کننده خارجی، روی تصویر کوچک نمایش داده می شود. هشدار،
       تنظیمات ناخوشایند بر پخش کننده های خارجی تأثیر نمی گذارد.
+    Ignore Default Arguments: هیچ برهان پیش فرضی را به غیر از آدرس ویدیو به پخش کننده
+      خارجی ارسال نکنید (به عنوان مثال نرخ پخش، آدرس لیست پخش و غیره). برهان های سفارشی
+      همچنان منتقل خواهند شد.
   Distraction Free Settings:
-    Hide Subscriptions Live: این تنظیم با «{appWideSetting}» در سراسر برنامه، در بخش
-      «{subsection}» در «{settingsSection}» لغو می‌شود.
-    Hide Channels: نام کانال یا شناسه کانال را وارد کنید تا همه ویدیوها، فهرست‌های
-      پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشوند. نام
-      کانال وارد شده باید کاملا مطابقت داشته باشد و به حروف کوچک و بزرگ حساس باشد.
+    Hide Subscriptions Live: این تنظیمات توسط تنظیم "{appWideSetting}" در سراسر برنامه،
+      در بخش "{subsection}" در "{settingsSection}" لغو شده است.
+    Hide Channels: یک شناسه کانال وارد کنید تا همه ویدیوها، لیست‌های پخش و خود کانال
+      در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشود. شناسه کانال وارد شده
+      باید کاملاً مطابقت داشته باشد و شامل حروف کوچک و بزرگ باشد.
+    Hide Videos and Playlists Containing Text: یک کلمه، قطعه کلمه یا عبارت (بدون حساسیت
+      به حروف کوچک) وارد کنید تا همه ویدیوها و فهرست‌های پخشی که عنوان اصلی آنها حاوی
+      آن در تمام FreeTube است، پنهان شود، به استثنای تاریخچه، فهرست‌های پخش شما، و
+      ویدیوهای داخل فهرست‌های پخش.
   Experimental Settings:
     Replace HTTP Cache: حافظه پنهان HTTP مبتنی بر دیسک Electron را غیرفعال می کند
       و یک کش تصویر سفارشی در حافظه را فعال می کند. منجر به افزایش مصرف رم خواهد شد.
@@ -708,8 +935,10 @@ About:
   GitHub issues: مشکلات گیت هاب
   Donate: اهدا
   Source code: کد منبع
-  Mastodon: Mastodon
+  Mastodon: برنامه ماستودون
   FreeTube is made possible by: فری تیوب ممکن است ساخته شده توسط
+  AGPLv3: پروانه‌عمومی‌جامع‌آفرو نسخه‌3
+  Licensed under the: دارای مجوز تحت
 New Window: پنجره جدید
 Preferences: تنظیمات
 Version {versionNumber} is now available!  Click for more details: نسخه {versionNumber}
@@ -733,6 +962,8 @@ Global:
     Watching Count: ۱ در حال تماشا | {count} در حال تماشا
     Channel Count: ۱ کانال | {count} کانال
     Video Count: ۱ ویدیو | {count} ویدیو
+    Like Count: 1 پسند | {count} پسند
+    Comment Count: 1 نظر | {count} نظر
   Community: جامعه
   Input Tags:
     Length Requirement: برچسب باید حداقل {number} کاراکتر داشته باشد
@@ -761,12 +992,15 @@ Change Format:
     نیست
   Use Dash Formats: از فرمت های دش استفاده کنید
   Use Audio Formats: از فرمت های صوتی استفاده کنید
+  Legacy formats are not available for this video: قالب‌های قدیمی برای این ویدیو موجود
+    نیست
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'فهرست فصل‌ها پنهان است،
     فصل فعلی: {chapterName}'
   'Chapters list visible, current chapter: {chapterName}': 'فهرست فصل‌ها قابل مشاهده
     است، فصل فعلی: {chapterName}'
   Chapters: فصل
+  Key Moments: لحظات کلیدی
 Hashtag:
   This hashtag does not currently have any videos: این هشتگ در حال حاضر هیچ ویدیویی
     ندارد
@@ -809,6 +1043,8 @@ Comments:
   Hide: مخفی کردن
   Replies: پاسخ
   Hearted: دلی
+  There are no comments available for this post: هیچ نظری برای این پست موجود نیست
+  Subscribed: دنبال شده
 The playlist has been reversed: لیست پخش معکوس شده است
 Default Invidious instance has been cleared: نمونه پیش فرض Invidious پاک شده است
 Profile:
@@ -822,7 +1058,7 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : این نمایه اصلی شماست. آیا مطمئن هستید که می خواهید کانال های انتخاب شده را حذف
     کنید؟ همان کانال ها در هر نمایه ای که در آن یافت می شوند حذف می شوند.
-  Profile Settings: تنظیمات پروفایل
+  Profile Settings: نمایه
   Profile Filter: فیلتر پروفایل
   Profile Manager: مدیر پروفایل
   Custom Color: رنگ سفارشی
@@ -855,6 +1091,11 @@ Profile:
   Your default profile has been changed to your primary profile: پروفایل پیش فرض شما
     به پروفایل اصلی شما تغییر یافته است
   Profile Select: پروفایل را انتخاب کنید
+  Edit Profile Name: ویرایش نام نمایه
+  Create Profile Name: ایجاد نام نمایه
+  Profile Name: نام نمایه
+  Open Profile Dropdown: بازکردن نمایه کشویی
+  Close Profile Dropdown: بستن نمایه کشویی
 Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیره شد
 Ok: تایید
 Downloading has completed: دانلود '{videoTitle}' به پایان رسید
@@ -882,6 +1123,17 @@ Playlist:
   Last Updated On: آخرین بروز رسانی در تاریخ
   View Full Playlist: مشاهده لیست پخش کامل
   Playlist: فهرست پخش
+  Sort By:
+    VideoDurationDescending: مدت (اول طولانی‌ترین)
+    VideoDurationAscending: مدت (اول کوتاه ترین)
+    VideoTitleAscending: عنوان (آ-ی)
+    DateAddedNewest: آخرین اضافه شده در ابتدا
+    DateAddedOldest: اولین اضافه شده در ابتدا
+    AuthorDescending: نویسنده (ی-آ)
+    VideoTitleDescending: عنوان (ی-آ)
+    Custom: سفارشی
+    Sort By: به ترتیب
+    AuthorAscending: نویسنده (آ-ی)
 Mini Player: مینی پلیر
 Videos:
   Sort By:
@@ -890,8 +1142,53 @@ Videos:
 Up Next: تا بعدی
 Feed:
   Refresh Feed: تازه‌سازی {subscriptionName}
+  Feed Last Updated: '{feedName} آخرین به روز رسانی فید: {date}'
 Go to page: برو به {page}
 Search Listing:
   Label:
     Subtitles: زیرنویس
+    4K: 4K
+    Closed Captions: زیرنویس‌ها
+    3D: 3 بعدی
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: جدید
 Close Banner: بستن بنر
+Age Restricted:
+  This video is age restricted: این ویدیو دارای محدودیت سنی است
+  This channel is age restricted: این کانال دارای محدودیت سنی می باشد
+Search character limit: عبارت جستجو از حد مجاز نویسه {searchCharacterLimit} فراتر
+  است
+Playlist will pause when current video is finished: پس از پایان ویدیوی فعلی، فهرست
+  پخش متوقف می‌شود
+Yes, Delete: بله حذف شود
+Yes, Restart: بله شروع دوباره
+Cancel: لغو
+Trimmed input must be at least N characters long: ورودی بریده شده باید حداقل 1 کاراکتر
+  طول داشته باشد | ورودی بریده شده باید حداقل {length} کاراکتر باشد
+Tag already exists: برچسب "{tagName}" از قبل وجود دارد
+checkmark: ✓
+Channel Unhidden: '{channel} از فیلتر کانال حذف شد'
+'Blocked opening potentially unsafe URL': 'باز کردن آدرس بالقوه ناامن مسدود شد: "{url}".'
+Channel Hidden: '{channel} به فیلتر کانال اضافه شد'
+Yes, Open Link: بله بازکردن پیوند
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: برای دیدن تاریخچه کلیک راست کرده یا نگه دارید
+Moments Ago: لحظاتی پیش
+Playlist will not pause when current video is finished: پس از اتمام ویدیوی فعلی، لیست
+  پخش متوقف نمی شود
+Display Label: '{label}: {value}'
+Autoplay Interruption Timer: پخش خودکار به دلیل {autoplayInterruptionIntervalHours}
+  ساعت عدم فعالیت لغو شد
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: فلش پایین
+  arrowleft: فلش چپ
+  arrowright: ‌فلش راست
+  arrowup: فلش بالا
+Description:
+  Expand Description: '...بیشتر'
+  Collapse Description: نمایش کمتر

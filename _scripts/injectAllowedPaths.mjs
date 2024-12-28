@@ -21,6 +21,8 @@ const paths = readdirSync(distDirectory, {
       // disallow the renderer process/browser windows to read the main.js file
       dirent.name !== 'main.js' &&
       dirent.name !== 'main.js.LICENSE.txt' &&
+      // disallow the renderer process/browser windows to read the botGuardScript.js file
+      dirent.name !== 'botGuardScript.js' &&
       // filter out any web build files, in case the dist directory contains a web build
       !dirent.parentPath.startsWith(webDirectory)
   })

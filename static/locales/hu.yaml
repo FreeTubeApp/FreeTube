@@ -429,7 +429,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
-    Next Video Interval: Következő videó időköze
+    Next Video Interval: Automatikus lejátszás időköze
     Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
@@ -447,8 +447,7 @@ Settings:
       File Name Tooltip: Az alábbi változókat használhatja. %Y 4-számjegyű év. %M
         2-számjegyű hónap. %D 2-számjegyű nap. %H 2-számjegyű óra. %N 2-számjegyű
         perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc.
-        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító. Almappák létrehozásához
-        használhatja a „\” vagy a „/” jelet is.
+        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító.
       Quality Label: Képernyőkép minősége
     Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó
       feletti kerékkel szabályozhatja
@@ -456,6 +455,7 @@ Settings:
     Video Playback Rate Interval: Videó lejátszási sebesség léptetési köze
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
+    Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
   Privacy Settings:
     Privacy Settings: 'Adatvédelem'
     Remember History: 'Előzmények megjegyzése'
@@ -482,9 +482,10 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Only Show Latest Video for Each Channel: Csak a legújabb videókat jelenítse meg
-      a csatornáktól
     Confirm Before Unsubscribing: Kerülje el a véletlen leiratkozást
+    'Limit the number of videos displayed for each channel': Az egyes csatornákon
+      megjelenített videók számának korlátozása
+    To: 'Ennyire'
   Data Settings:
     Data Settings: 'Adat'
     Select Import Type: 'Importálási típus kiválasztása'
@@ -587,6 +588,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási
       listák elrejtése
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
+    Show Added Items: Hozzáadott elemek megjelenítése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
     újra és alkalmazza a módosítást?
@@ -1164,7 +1166,7 @@ Channels:
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltésekor
 Starting download: „{videoTitle}” letöltésének indítása
 Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
-Screenshot Success: A képernyőkép „{filePath}” néven mentve
+Screenshot Success: Képernyőkép elmentve
 Chapters:
   Chapters: Fejezetek
   'Chapters list visible, current chapter: {chapterName}': 'Fejezetlista látható,
@@ -1232,3 +1234,8 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
   az előzmények megtekintéséhez
+Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours}
+  óra inaktivitás miatt visszavonásra került
+Description:
+  Collapse Description: Kevesebb megjelenítése
+  Expand Description: …továbbiak

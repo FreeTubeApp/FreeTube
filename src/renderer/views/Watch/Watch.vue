@@ -37,6 +37,7 @@
           :start-in-fullscreen="startNextVideoInFullscreen"
           :start-in-fullwindow="startNextVideoInFullwindow"
           :start-in-pip="startNextVideoInPip"
+          :current-playback-rate="currentPlaybackRate"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
@@ -44,6 +45,7 @@
           @player-destroyed="handlePlayerDestroyed"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @playback-rate-updated="updatePlaybackRate"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -183,7 +185,7 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && !hideLiveChat && isLive"
+        v-if="!isLoading && !hideLiveChat && (isLive || isUpcoming)"
         :live-chat="liveChat"
         :video-id="videoId"
         :channel-id="channelId"

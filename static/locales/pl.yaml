@@ -416,7 +416,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
-    Next Video Interval: Czas do następnego filmu
+    Next Video Interval: Czas do następnego autoodtwarzania
     Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
@@ -435,8 +435,7 @@ Settings:
       File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
         Miesiąc 2 cyfry. %D Dzień 2 cyfry. %H Godzina 2 cyfry. %N Minuta 2 cyfry.
         %S Sekunda 2 cyfry. %T Milisekunda 3 cyfry. %s Sekunda filmu. %t Milisekunda
-        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając „\”
-        albo „/”.'
+        filmu 3 cyfry. %i ID filmu.'
       Error:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
@@ -445,15 +444,17 @@ Settings:
       orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
+    Autoplay Interruption Timer: Czas do przerwania autoodtwarzania
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
-    Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
-      kanału
     Confirm Before Unsubscribing: Uniknij przypadkowego usunięcia subskrypcji
 
+    To: do
+    'Limit the number of videos displayed for each channel': Ogranicz liczbę filmów
+      wyświetlanych dla każdego z kanałów
   Privacy Settings:
     Watch history has been cleared: Historia oglądania została wyczyszczona
     Are you sure you want to remove your entire watch history?: Jesteś pewny/a, że
@@ -568,7 +569,7 @@ Settings:
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
       zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
-      którym zostaną one zaktualizowane.
+      którym zostaną one zaktualizowane
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
       sprawdzić, czy wpisane ID jest poprawne.
@@ -577,6 +578,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
       lub wyrażenie
     Hide Channel Home: Schowaj kartę kanału „Główna”
+    Show Added Items: Pokaż dodane rzeczy
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -1220,6 +1222,32 @@ Keys:
   arrowdown: Strzałka w dół
   alt: Alt
   ctrl: Ctrl
+  enter: Enter
+  plus: Plus
+  shift: Shift
 Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Autoplay Interruption Timer: Automatyczne odtwarzanie zostało anulowane, z powodu
+  {autoplayInterruptionIntervalHours} godzin(y) braku aktywności
+Description:
+  Expand Description: '...więcej'
+  Collapse Description: Zwiń
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Skróty
+  Sections:
+    Video:
+      Playback: Filmy: Odtwarzanie
+      General: Filmy: Ogólne
+    App:
+      Situational: 'Aplikacja: Kontekstowe'
+      General: Aplikacja: Ogólne
+  New Window: Otwórz nowe okno
+  Navigate to Settings: Przejdź do strony Ustawień
+  Navigate to History: Przejdź do strony Historii
+  Focus Secondary Search: Przełącz na drugi pasek wyszukiwania (jeżeli dostępny)
+  Captions: Przełącz napisy WŁĄCZ/WYŁĄCZ
+  Show Keyboard Shortcuts: Pokaż skróty
+  History Forward: Dalej jedną stronę
+  Refresh: Wczytaj ponownie subskrypcje z nową zawartością
+  History Backward: Wróć o jedną stronę

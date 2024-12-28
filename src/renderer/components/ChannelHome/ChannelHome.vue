@@ -39,7 +39,7 @@
         <FtElementList
           :data="shelf.content"
           :use-channels-hidden-preference="false"
-          :display="shelf.isCommunity ? 'list' : null"
+          :display="shelf.isCommunity ? 'list' : ''"
         />
       </details>
     </div>

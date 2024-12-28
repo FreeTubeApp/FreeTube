@@ -418,7 +418,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Viivitus järgmise video esitamisel
+    Next Video Interval: Viivituse taimer järgmise video esitamisel
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
     Fast-Forward / Rewind Interval: Kiirkerimise välp
@@ -440,9 +440,9 @@ Settings:
         aasta. %M 2-numbriline kuu. %D 2-numbriline päev. %H 2-numbriline tund 2.
         %N 2-numbriline minut. %S 2-numbriline sekund. %T 3-numbriline millisekund.
         %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
-        Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
+    Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
   Privacy Settings:
     Privacy Settings: 'Privaatsus'
     Remember History: 'Jäta ajalugu meelde'
@@ -470,8 +470,10 @@ Settings:
     Hide Videos on Watch: 'Vaatamisel peida videod'
     Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
     Fetch Automatically: Laadi tellimuste voog automaatselt
-    Only Show Latest Video for Each Channel: Iga kanali puhul näita vaid viimast videot
     Confirm Before Unsubscribing: Väldi ekslikku ja juhuslikku tellimusest loobumist
+    To: Kuni
+    'Limit the number of videos displayed for each channel': Piira igas kanalis näidatavate
+      videote arvu
   Data Settings:
     Data Settings: 'Andmehaldus'
     Select Import Type: 'Vali imporditava faili vorming'
@@ -571,6 +573,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus
       leidub sellist teksti
     Hide Channel Home: Peida kanalite vahekaart „Avaleht“
+    Show Added Items: Näita lisatud kirjeid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -741,7 +744,7 @@ Channel:
   Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
   Search Channel: 'Otsi kanalit'
   Your search results have returned 0 results: 'Otsingul on 0 tulemust'
-  Sort By: 'Sortimise alus'
+  Sort By: 'Järjestus'
   Videos:
     Videos: 'Videod'
     This channel does not currently have any videos: 'Sellel kanalik pole hetkel ühtegi
@@ -998,7 +1001,7 @@ Comments:
   Reply: 'vastus'
   There are no comments available for this video: 'Seda videot pole veel kommenteeritud'
   Load More Comments: 'Laadi veel kommentaare'
-  Sort by: Sortimise alus
+  Sort by: Järjestus
   No more comments available: Rohkem kommentaare pole
   Newest first: Uuemad esimesena
   Top comments: Parimad esimesena
@@ -1132,7 +1135,7 @@ Channels:
   Count: Leidsime {number} kanali(t).
   Empty: Sinu kanalite loend on praegu tühi.
   Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
-Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
+Screenshot Success: Ekraanitõmmis on salvestatud
 Clipboard:
   Copy failed: Lõikelauale kopeerimine ei õnnestunud
   Cannot access clipboard without a secure connection: Ilma turvalise ühenduseta ei
@@ -1199,3 +1202,8 @@ Keys:
   arrowdown: Nool alla
 Right-click or hold to see history: Ajaloo nägemiseks klõpsa parema hiireklahviga
   ja hoia klahvi all
+Autoplay Interruption Timer: Automaatne esitamine katkes peale {autoplayInterruptionIntervalHours}
+  tundi jõudeolekut
+Description:
+  Expand Description: '...vaata lisaks'
+  Collapse Description: Näita vähem

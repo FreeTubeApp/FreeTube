@@ -315,6 +315,7 @@ Settings:
     Auto Load Next Page:
       Label: Hlaða næstu síðu sjálfvirkt
       Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
+    Open Deep Links In New Window: Opna slóðir sem beint er til FreeTube í nýjum glugga
   Theme Settings:
     Theme Settings: 'Þema'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -425,7 +426,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Bil í næsta myndskeið
+    Next Video Interval: Niðurtalning í sjálfvirka spilun
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
     Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
@@ -442,14 +443,14 @@ Settings:
       File Name Tooltip: Þú getur notað breyturnar hér fyrir neðan. %Y ár 4-stafa.
         %M mánuður 2-stafa. %D dagur 2-stafa. %H klukkustundir 2-stafa. %N mínútur
         2-stafa. %S sekúndur 2-stafa. %T millísekúndur 3-stafa. %s sekúndur í myndskeiði.
-        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs. Þú getur líka
-        notað "\" eða "/" til að útbúa undirmöppur.
+        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs.
       Ask Path: Spyrja um möppu til að vista í
       Folder Label: Mappa undir skjámyndir
       Folder Button: Veldu möppu
       File Name Label: Mynstur skráaheita
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
+    Autoplay Interruption Timer: Niðurtalning í stöðvun á sjálfvirkri spilun
   Privacy Settings:
     Privacy Settings: 'Gagnaleynd'
     Remember History: 'Muna áhorfsferil'
@@ -477,9 +478,10 @@ Settings:
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Fetch Automatically: Sækja streymi sjálfvirkt
-    Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
-      hverja myndskeiðarás
     Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
+    To: Við
+    'Limit the number of videos displayed for each channel': Takmarka fjölda myndskeiða
+      sem birt eru fyrir hverja rás
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -530,6 +532,7 @@ Settings:
       innihalda texta
     Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
     Hide Channel Home: Fela "Heim"-flipa rása
+    Show Added Items: Sýna atriði sem bætt hefur verið við
   Data Settings:
     Data Settings: 'Gögn'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -935,6 +938,9 @@ Video:
     sem þau krefjast innskráningar á Google og notkunar á aldursvottuðum YouTube-reikningi.
   IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið.
     Prófaðu að skipta yfir á annan VPN eða milliþjón.
+  DeArrow:
+    Show Original Details: Birta upprunalegar nánari upplýsingar
+    Show Modified Details: Birta breyttar nánari upplýsingar
 Videos:
   #& Sort By
   Sort By:
@@ -1041,6 +1047,9 @@ Tooltips:
     External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem
       ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil
       í sjálfgefna vafranum þínum.\n"
+    Open Deep Links In New Window: Slóðir sem beint er til FreeTube, til dæmis með
+      endurbeiningum vafraviðbóta eða skipanalínuviðföngum, verða opnaðar í nýjum
+      glugga.
   Player Settings:
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
       í stað þess að tengjast beint við YouTube.'
@@ -1141,7 +1150,7 @@ Downloading has completed: Búið er að sækja "{videoTitle}"
 Starting download: Byrja að sækja "{videoTitle}"
 Downloading failed: Vandamál kom upp við að sækja "{videoTitle}"
 Screenshot Error: Skjámyndataka mistókst. {error}
-Screenshot Success: Vistaði skjámynd sem "{filePath}"
+Screenshot Success: Vistaði skjámynd
 New Window: Nýr gluggi
 Channels:
   Search bar placeholder: Leita í rásum
@@ -1216,3 +1225,8 @@ Keys:
 Right-click or hold to see history: Hægri-smelltu til að sjá feril
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+Autoplay Interruption Timer: Hætt sjálfvirkri spilun vegna {autoplayInterruptionIntervalHours}
+  klst án aðgerða
+Description:
+  Expand Description: '...meira'
+  Collapse Description: Birta minna
