@@ -1242,3 +1242,13 @@ Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionInt
 Description:
   Collapse Description: Kevesebb megjelenítése
   Expand Description: …továbbiak
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Billentyűkombinációk
+  Sections:
+    Video:
+      Playback: 'Videó: Lejátszás'
+      General: 'Videó: Általános'
+    App:
+      Situational: 'Alkalmazás: Helyzetfüggő'
+      General: 'Alkalmazás: Általános'
+  Show Keyboard Shortcuts: Billentyű-kombinációk megjelenítése
