@@ -413,8 +413,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #232634;
   --side-nav-active-color: #232634;
   --search-bar-color: #414559;
-  --logo-icon: url('../../_icons/iconCatppuccinMochaLightSmall.svg');
-  --logo-text: url('../../_icons/textCatppuccinMochaLightSmall.svg');
+  --logo-icon: url('../../_icons/iconCatppuccinFrappeLightSmall.svg');
+  --logo-text: url('../../_icons/textCatppuccinFrappeLightSmall.svg');
 }
 
 
