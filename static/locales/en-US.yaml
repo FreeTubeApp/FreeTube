@@ -345,6 +345,12 @@ Settings:
       Gruvbox Light: Gruvbox Light
       Solarized Dark: Solarized Dark
       Solarized Light: Solarized Light
+      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Medium: Everforest Dark Medium
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Hard: Everforest Light Hard
+      Everforest Light Medium: Everforest Light Medium
+      Everforest Light Low: Everforest Light Low
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -416,6 +422,20 @@ Settings:
       Solarized Blue: Solarized Blue
       Solarized Cyan: Solarized Cyan
       Solarized Green: Solarized Green
+      Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Turquoise: Everforest Dark Turquoise
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Red: Everforest Light Red
+      Everforest Light Orange: Everforest Light Orange
+      Everforest Light Yellow: Everforest Light Yellow
+      Everforest Light Green: Everforest Light Green
+      Everforest Light Turquoise: Everforest Light Turquoise
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Light Purple: Everforest Light Purple
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:

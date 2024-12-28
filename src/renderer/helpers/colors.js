@@ -72,6 +72,20 @@ export const colors = [
   { name: 'SolarizedBlue', value: '#268bd2' },
   { name: 'SolarizedCyan', value: '#2aa198' },
   { name: 'SolarizedGreen', value: '#859900' },
+  { name: 'EverforestDarkRed', value: '#E67E80' },
+  { name: 'EverforestDarkOrange', value: '#E69875' },
+  { name: 'EverforestDarkYellow', value: '#DBBC7F' },
+  { name: 'EverforestDarkGreen', value: '#A7C080' },
+  { name: 'EverforestDarkTurquoise', value: '#83C092' },
+  { name: 'EverforestDarkBlue', value: '#7FBBB3' },
+  { name: 'EverforestDarkPurple', value: '#D699B6' },
+  { name: 'EverforestLightRed', value: '#F85552' },
+  { name: 'EverforestLightOrange', value: '#F57D26' },
+  { name: 'EverforestLightYellow', value: '#DFA000' },
+  { name: 'EverforestLightGreen', value: '#8DA101' },
+  { name: 'EverforestLightTurquoise', value: '#35A77C' },
+  { name: 'EverforestLightBlue', value: '#3A94C5' },
+  { name: 'EverforestLightPurple', value: '#DF69BA' },
 ]
 
 export function getRandomColorClass() {

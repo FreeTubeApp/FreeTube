@@ -657,6 +657,18 @@ function runApp() {
           return '#fbf1c7'
         case 'catppuccin-frappe':
           return '#303446'
+        case 'everforest-dark-hard':
+          return '#1E2326'
+        case 'everforest-dark-medium':
+          return '#232A2E'
+        case 'everforest-dark-low':
+          return '#293136'
+        case 'everforest-light-hard':
+          return '#F2EFDF'
+        case 'everforest-light-medium':
+          return '#EFE8D4'
+        case 'everforest-light-low':
+          return '#E5DFC5'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
