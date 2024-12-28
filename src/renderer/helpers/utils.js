@@ -614,7 +614,7 @@ export function getVideoParamsFromUrl(url) {
   const paramsObject = { videoId: null, timestamp: null, playlistId: null }
   try {
     urlObject = new URL(url)
-  } catch (e) {
+  } catch {
     return paramsObject
   }
 
@@ -756,7 +756,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     return ''
   }
 
-  const now = new Date().getTime()
+  const now = Date.now()
   // Convert from ms to second
   // For easier code interpretation the value is made to be positive
   let timeDiffFromNow = ((now - date) / 1000)

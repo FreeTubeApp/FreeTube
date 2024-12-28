@@ -1207,9 +1207,67 @@ Keys:
   arrowup: Šipka nahoru
   arrowright: Šipka vpravo
   arrowleft: Šipka vlevo
+  shift: Shift
+  enter: Enter
+  plus: Plus
 Right-click or hold to see history: Klikněte pravým pro zobrazení historie
 Autoplay Interruption Timer: Automatické přehrávání zrušeno kvůli {autoplayInterruptionIntervalHours}
   hodinám nečinnosti
 Description:
   Expand Description: '...další'
   Collapse Description: Zobrazit méně
+KeyboardShortcutPrompt:
+  Refresh: Obnovit zdroj s nejnovějším obsahem
+  Full Window: Přepnout celé okno
+  Keyboard Shortcuts: Klávesové zkratky
+  Sections:
+    App:
+      Situational: Aplikace: situační
+      General: Aplikace: obecné
+    Video:
+      General: Video: obecné
+      Playback: Video: přehrávání
+  Show Keyboard Shortcuts: Zobrazit klávesové zkratky
+  History Backward: Přejít o jednu stránku zpět
+  History Forward: Přejít o jednu stránku vpřed
+  Navigate to Settings: Přejít na stránku Nastavení
+  Captions: Přepnout titulky
+  Stats: Zobrazit statistiku videa
+  Fullscreen: Přepnout celou obrazovku
+  Play: Přepnout pozastavení
+  Large Fast Forward: Přejít o 10 sekund vpřed / přetočit video vpřed na základě aktuální
+    rychlosti přehrávání
+  Mute: Přepnout ztlumení
+  Decrease Video Speed: Snížit rychlost přehrávání na základě intervalu rychlosti
+    přehrávání
+  Increase Video Speed: Zvýšit rychlost přehrávání na základě intervalu rychlosti
+    přehrávání
+  Take Screenshot: Pořídit snímek obrazovky
+  Minimize Window: Minimalizovat okno
+  Close Window: Zavřít okno
+  Restart Window: Restartovat okno
+  Force Restart Window: Vynutit restartování okna
+  Toggle Developer Tools: Přepnout vývojářské nástroje
+  Reset Zoom: Resetovat úroveň přiblížení / velikosti rozhraní
+  Zoom In: Přiblížit
+  Zoom Out: Oddálit
+  Focus Search: Zaměřit na lištu vyhledávání
+  Search in New Window: Hledat v novém okně
+  Last Frame: Předchozí snímek (při pozastavení)
+  Next Frame: Další snímek (při pozastavení)
+  Volume Up: Zvýšit hlasitost
+  Volume Down: Snížit hlasitost
+  Small Fast Forward: Přeskočit vpřed o X sekund v závislosti na intervalu přetáčení
+    vpřed a aktuální rychlosti přehrávání videa
+  Last Chapter: Poslední kapitola
+  Next Chapter: Další kapitola
+  Navigate to History: Přejít na stránku Historie
+  New Window: Vytvořit nové okno
+  Theatre Mode: Přepnout režim kina
+  Focus Secondary Search: Zaměřit sekundární vyhledávací lištu (pokud existuje)
+  Picture in Picture: Přepnout režim obrazu v obraze
+  Large Rewind: Přejít o 10 sekund zpět / přetočit video zpět na základě aktuální
+    rychlosti přehrávání
+  Small Rewind: Přeskočit zpět o X sekund v závislosti na intervalu přetáčení zpět
+    a aktuální rychlosti přehrávání videa
+  Skip by Tenths: Přeskočit skrz video podle procenta (3 přeskočí na 30 % doby trvání)

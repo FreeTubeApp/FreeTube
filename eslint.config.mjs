@@ -96,6 +96,9 @@ export default [
       'unicorn/prefer-keyboard-event-key': 'error',
       'unicorn/prefer-regexp-test': 'error',
       'unicorn/prefer-string-replace-all': 'error',
+      'unicorn/prefer-optional-catch-binding': 'error',
+      'unicorn/prefer-date-now': 'error',
+      'unicorn/prefer-array-index-of': 'error',
       '@intlify/vue-i18n/no-dynamic-keys': 'error',
       '@intlify/vue-i18n/no-duplicate-keys-in-locale': 'error',
 
@@ -222,6 +225,9 @@ export default [
       'no-console': 'off',
       'n/no-path-concat': 'off',
       'unicorn/better-regex': 'error',
+      'unicorn/prefer-optional-catch-binding': 'error',
+      'unicorn/prefer-date-now': 'error',
+      'unicorn/prefer-array-index-of': 'error',
     }
   },
   {
@@ -242,6 +248,9 @@ export default [
       '@stylistic/comma-dangle': ['error', 'only-multiline'],
       'n/no-path-concat': 'off',
       'unicorn/better-regex': 'error',
+      'unicorn/prefer-optional-catch-binding': 'error',
+      'unicorn/prefer-date-now': 'error',
+      'unicorn/prefer-array-index-of': 'error',
     }
   }
 ]
