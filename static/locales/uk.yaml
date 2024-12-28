@@ -1202,6 +1202,7 @@ Keys:
   arrowup: Стрілка вгору
   shift: Shift
   enter: Enter
+  plus: Плюс
 checkmark: ✓
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Age Restricted:
@@ -1257,3 +1258,20 @@ KeyboardShortcutPrompt:
     відтворення відео
   New Window: Створити нове вікно
   Theatre Mode: Переключити на театральний режим
+  Toggle Developer Tools: Перемикнути інструменти розробника
+  Reset Zoom: Скинути рівень масштабування / шкалу інтерфейсу
+  Zoom In: Масштабувати вперед
+  Zoom Out: Масштабувати назад
+  Focus Search: Зосередитися на рядку пошуку
+  Search in New Window: Пошук у новому вікні
+  Last Frame: Попередній кадр (під час паузи)
+  Next Frame: Наступний кадр (під час паузи)
+  Volume Up: Збільшити гучність
+  Volume Down: Зменшити гучність
+  Small Rewind: Перемотати на X секунд згідно з інтервалом перемотування та поточним
+    коефіцієнтом відтворення відео
+  Small Fast Forward: Перемотати вперед на X секунд згідно з інтервалом перемотування
+    вперед та поточним коефіцієнтом відтворення відео
+  Last Chapter: Останній розділ
+  Skip by Tenths: Пропустити відео на певний відсоток (3 пропуски до 30% тривалості)
+  Next Chapter: Наступний розділ
