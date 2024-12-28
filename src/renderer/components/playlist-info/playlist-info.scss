@@ -71,6 +71,13 @@
   word-break: break-all;
 }
 
+.playlistOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
 .channelShareWrapper {
   column-gap: 8px;
   display: grid;
@@ -79,13 +86,13 @@
   inset-block-end: -20px;
   background-color: var(--card-bg-color);
   padding-block: 5px;
-}
 
-.playlistOptions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
+  .playlistOptions {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 8px;
+    justify-content: flex-end;
+  }
 }
 
 .searchInputsRow {
