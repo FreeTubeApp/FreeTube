@@ -1055,6 +1055,9 @@ Keys:
   arrowleft: 向左箭头(←)
   arrowright: 向右箭头(→)
   arrowup: 向上箭头 (↑)
+  enter: Enter
+  shift: Shift
+  plus: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: 右键单击或静止不动查看历史记录
@@ -1062,3 +1065,52 @@ Autoplay Interruption Timer: 由于 {autoplayInterruptionIntervalHours} 小时�
 Description:
   Expand Description: '...更多'
   Collapse Description: 显示较少
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: 键盘快捷键
+  Sections:
+    Video:
+      Playback: 视频： 播放
+      General: 视频： 常规
+    App:
+      General: 应用：常规
+      Situational: 应用：情景
+  Show Keyboard Shortcuts: 显示键盘快捷键
+  History Backward: 往前一页
+  History Forward: 往后一页
+  New Window: 创建新窗口
+  Refresh: 刷新订阅源最新内容
+  Focus Secondary Search: 聚焦第二搜索栏（如果有的话）
+  Captions: 开/关字幕
+  Picture in Picture: 切换画中画模式
+  Large Rewind: 后退 10 秒/根据当前视频播放速率后退
+  Play: 播放/暂停
+  Large Fast Forward: 前进 10 秒/根据当前视频播放速率快进
+  Mute: 切换静音
+  Decrease Video Speed: 根据视频播放速率间隔降低视频速度
+  Increase Video Speed: 根据视频播放速率间隔提高视频速度
+  Full Window: 切换整个窗口
+  Theatre Mode: 切换影院模式
+  Take Screenshot: 截屏
+  Close Window: 关闭窗口
+  Restart Window: 重启窗口
+  Force Restart Window: 强制重启窗口
+  Toggle Developer Tools: 切换开发者工具
+  Reset Zoom: 重置缩放级别/用户界面缩放比例
+  Zoom In: 缩小
+  Focus Search: 聚焦搜索栏
+  Search in New Window: 在新窗口中搜索
+  Last Frame: 前一帧（暂停时）
+  Next Frame: 下一帧（暂停时）
+  Volume Down: 降低音量
+  Small Rewind: 根据后退间隔和当前视频播放速率后退 X 秒
+  Small Fast Forward: 根据快进间隔和当前视频播放速率快进 X 秒
+  Last Chapter: 上一章节
+  Skip by Tenths: 按比例跳过视频（3 表示跳到持续时间的 30%）
+  Navigate to History: 导航到历史页面
+  Volume Up: 提高音量
+  Navigate to Settings: 导航到设置页面
+  Stats: 显示视频统计数据
+  Fullscreen: 切换全屏
+  Minimize Window: 最小化窗口
+  Zoom Out: 放大
+  Next Chapter: 下一章节
