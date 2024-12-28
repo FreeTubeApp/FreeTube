@@ -37,17 +37,9 @@
 .videoDescription:not(.short) .descriptionStatus {
   position: relative;
   margin-block-start: 1em;
-
-  /* Putting the control below description when expanded without separating template code */
-  order: 1;
 }
 
 .videoDescription.short .description {
   max-block-size: 4lh;
   overflow: hidden;
-}
-
-.videoDescription:not(.short) .description {
-  /* Putting the control below description when expanded without separating template code */
-  order: 0;
 }

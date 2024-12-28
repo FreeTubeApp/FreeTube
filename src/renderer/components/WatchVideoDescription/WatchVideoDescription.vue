@@ -5,18 +5,7 @@
   >
     <template v-if="showControls">
       <span
-        v-if="showFullDescription"
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @click="collapseDescription"
-        @keydown.space.prevent="collapseDescription"
-        @keydown.enter.prevent="collapseDescription"
-      >
-        {{ $t("Description.Collapse Description") }}
-      </span>
-      <span
-        v-else
+        v-if="!showFullDescription"
         class="descriptionStatus"
         role="button"
         tabindex="0"
@@ -35,6 +24,19 @@
       @timestamp-event="onTimestamp"
       @text-click="expandDescription"
     />
+    <template v-if="showControls">
+      <span
+        v-if="showFullDescription"
+        class="descriptionStatus"
+        role="button"
+        tabindex="0"
+        @click="collapseDescription"
+        @keydown.space.prevent="collapseDescription"
+        @keydown.enter.prevent="collapseDescription"
+      >
+        {{ $t("Description.Collapse Description") }}
+      </span>
+    </template>
   </FtCard>
 </template>
 
