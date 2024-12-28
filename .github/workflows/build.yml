@@ -322,26 +322,26 @@ jobs:
       uses: actions/upload-artifact@v4
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64-portable.zip
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.zip
 
     - name: Upload Mac x64 .7z Artifact
       uses: actions/upload-artifact@v4
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64-portable.7z
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.7z
 
     - name: Upload Mac arm64 .zip Artifact
       uses: actions/upload-artifact@v4
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64-portable.zip
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
 
     - name: Upload Mac arm64 .7z Artifact
       uses: actions/upload-artifact@v4
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64-portable.7z
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.7z

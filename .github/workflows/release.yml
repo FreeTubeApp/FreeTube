@@ -357,7 +357,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64-portable.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64.zip
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-mac.zip
         asset_content_type: application/zip
 
@@ -368,7 +368,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64-portable.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-x64.7z
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-mac.7z
         asset_content_type: application/x-7z-compressed
 
@@ -379,7 +379,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64-portable.zip
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64.zip
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64-mac.zip
         asset_content_type: application/x-apple-diskimage
 
@@ -390,7 +390,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64-portable.7z
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-mac-arm64.7z
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64-mac.7z
         asset_content_type: application/x-7z-compressed
 
