@@ -63,13 +63,13 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
-    searchResultIcon: {
+    dataListProperties: {
+      type: Array,
+      default: () => { return [] }
+    },
+    searchResultIconNames: {
       type: Array,
       default: null
-    },
-    canRemoveResults: {
-      type: Boolean,
-      default: false
     },
     showDataWhenEmpty: {
       type: Boolean,
@@ -265,7 +265,7 @@ export default defineComponent({
     },
 
     handleRemoveClick: function (index) {
-      if (!this.canRemoveResults) { return }
+      if (!this.dataListProperties[index]?.isRemoveable) { return }
 
       // keep focus in input even if removed "Remove" button was clicked
       this.$refs.input.focus()
@@ -328,6 +328,16 @@ export default defineComponent({
       }
     },
 
+    getIconFor: function (index) {
+      if (this.dataListTypes[index] === 'search-history') {
+        return 'clock-rotate-left'
+      } else if (this.dataListTypes[index] === 'search-suggestion') {
+        return 'magnifying-glass'
+      }
+
+      return null
+    },
+
     updateSelectedOptionIndex: function (index) {
       this.searchState.selectedOption = index
       // Allow deselecting suggestion
@@ -351,6 +361,7 @@ export default defineComponent({
 
     updateVisibleDataList: function () {
       // Reset selected option before it's updated
+      // Block resetting if it was just the "Remove" button that was pressed
       if (!this.removalMade || this.searchState.selectedOption >= this.dataList.length) {
         this.searchState.selectedOption = -1
         this.searchState.keyboardSelectedOptionIndex = -1

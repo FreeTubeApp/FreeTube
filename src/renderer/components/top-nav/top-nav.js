@@ -5,7 +5,7 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
+import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
 import { localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
@@ -121,20 +121,53 @@ export default defineComponent({
       )
     },
 
-    usingSearchHistoryResults: function () {
+    usingOnlySearchHistoryResults: function () {
       return this.lastSuggestionQuery === ''
+    },
+
+    latestMatchingSearchHistoryNames: function () {
+      return this.$store.getters.getLatestMatchingSearchHistoryNames(this.lastSuggestionQuery)
+    },
+
+    latestSearchHistoryNames: function () {
+      return this.$store.getters.getLatestSearchHistoryNames
     },
 
     // show latest search history when the search bar is empty
     activeDataList: function () {
       if (!this.enableSearchSuggestions) {
-        return
+        return []
       }
-      return this.usingSearchHistoryResults ? this.$store.getters.getLatestUniqueSearchHistoryNames : this.searchSuggestionsDataList
+
+      if (this.usingOnlySearchHistoryResults) {
+        return this.$store.getters.getLatestSearchHistoryNames
+      }
+
+      const searchResults = [...this.latestMatchingSearchHistoryNames]
+      for (const searchSuggestion of this.searchSuggestionsDataList) {
+        // prevent duplicate results
+        if (this.latestMatchingSearchHistoryNames.includes(searchSuggestion)) {
+          continue
+        }
+
+        searchResults.push(searchSuggestion)
+
+        if (searchResults.length === SEARCH_RESULTS_DISPLAY_LIMIT) {
+          break
+        }
+      }
+
+      return searchResults
     },
 
-    searchResultIcon: function () {
-      return this.usingSearchHistoryResults ? ['fas', 'clock-rotate-left'] : ['fas', 'magnifying-glass']
+    activeDataListProperties: function () {
+      const searchHistoryNameLength = this.usingOnlySearchHistoryResults ? this.latestSearchHistoryNames.length : this.latestMatchingSearchHistoryNames.length
+      return this.activeDataList.map((_, i) => {
+        const isSearchHistoryEntry = searchHistoryNameLength > i
+        return isSearchHistoryEntry
+          ? { isRemoveable: true, iconName: 'clock-rotate-left' }
+          : { isRemoveable: false, iconName: 'magnifying-glass' }
+      })
     },
   },
   watch: {

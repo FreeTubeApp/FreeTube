@@ -85,13 +85,13 @@
           @mouseleave="searchState.selectedOption = -1; removeButtonSelectedIndex = -1"
         >
           <font-awesome-icon
-            v-if="searchResultIcon"
-            :icon="searchResultIcon"
+            v-if="dataListProperties[index]?.iconName"
+            :icon="['fas', dataListProperties[index].iconName]"
             class="searchResultIcon"
           />
           <span>{{ entry }}</span>
           <a
-            v-if="canRemoveResults"
+            v-if="dataListProperties[index]?.isRemoveable"
             class="removeButton"
             :class="{ removeButtonSelected: removeButtonSelectedIndex === index}"
             role="button"

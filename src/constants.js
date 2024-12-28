@@ -193,6 +193,9 @@ const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
 // YouTube search character limit is 100 characters
 const SEARCH_CHAR_LIMIT = 100
 
+// matches # of results we show for search suggestions
+const SEARCH_RESULTS_DISPLAY_LIMIT = 14
+
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -205,5 +208,6 @@ export {
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
   SEARCH_CHAR_LIMIT,
+  SEARCH_RESULTS_DISPLAY_LIMIT,
   ABOUT_BITCOIN_ADDRESS,
 }

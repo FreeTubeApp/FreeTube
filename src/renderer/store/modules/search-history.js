@@ -1,7 +1,8 @@
+import { SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
 import { DBSearchHistoryHandlers } from '../../../datastores/handlers/index'
 
-// matches # of results we show for search suggestions
-const SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 14
+// maximum number of search history results to display when mixed with regular YT search suggestions
+const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 
 const state = {
   searchHistoryEntries: []
@@ -12,8 +13,23 @@ const getters = {
     return state.searchHistoryEntries
   },
 
-  getLatestUniqueSearchHistoryNames: (state) => {
-    return state.searchHistoryEntries.slice(0, SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT).map((entry) => entry.name)
+  getLatestSearchHistoryNames: (state) => {
+    return state.searchHistoryEntries.slice(0, SEARCH_RESULTS_DISPLAY_LIMIT).map((entry) => entry.name)
+  },
+
+  getLatestMatchingSearchHistoryNames: (state) => (name) => {
+    const matches = []
+    for (const entry of state.searchHistoryEntries) {
+      if (entry.name.startsWith(name)) {
+        matches.push(entry.name)
+        if (matches.length === MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT) {
+          break
+        }
+      }
+    }
+
+    // prioritize more concise matches
+    return matches.toSorted((a, b) => a.length - b.length)
   },
 
   getSearchHistoryEntryWithId: (state) => (id) => {
