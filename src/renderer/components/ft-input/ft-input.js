@@ -121,6 +121,7 @@ export default defineComponent({
     inputDataPresent: function () {
       return this.inputDataDisplayed.length > 0
     },
+
     inputDataDisplayed() {
       if (!this.isSearch) { return this.inputData }
 
@@ -134,7 +135,7 @@ export default defineComponent({
 
     searchStateKeyboardSelectedOptionValue() {
       if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
-      return this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.keyboardSelectedOptionIndex)
+      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
     },
   },
   watch: {
@@ -160,9 +161,6 @@ export default defineComponent({
     this.updateVisibleDataList()
   },
   methods: {
-    getTextForArrayAtIndex: function (array, index) {
-      return array[index]
-    },
     handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) {
@@ -267,7 +265,7 @@ export default defineComponent({
     handleRemoveClick: function (index) {
       if (!this.dataListProperties[index]?.isRemoveable) { return }
 
-      // keep focus in input even if removed "Remove" button was clicked
+      // keep input in focus even when the to-be-removed "Remove" button was clicked
       this.$refs.input.focus()
       this.removalMade = true
       this.$emit('remove', this.visibleDataList[index])
@@ -277,27 +275,29 @@ export default defineComponent({
      * @param {KeyboardEvent} event
      */
     handleKeyDown: function (event) {
+      // Update Input box value if enter key was pressed and option selected
       if (event.key === 'Enter') {
-        // Update Input box value if enter key was pressed and option selected
         if (this.removeButtonSelectedIndex !== -1) {
           this.handleRemoveClick(this.removeButtonSelectedIndex)
         } else if (this.searchState.selectedOption !== -1) {
           this.searchState.showOptions = false
           event.preventDefault()
-          this.inputData = this.getTextForArrayAtIndex(this.visibleDataList, this.searchState.selectedOption)
+          this.inputData = this.visibleDataList[this.searchState.selectedOption]
           this.handleOptionClick(this.searchState.selectedOption)
         } else {
           this.handleClick(event)
         }
-        // Early return
+
         return
       }
 
       if (this.visibleDataList.length === 0) { return }
 
       this.searchState.showOptions = true
-      const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp' || event.key === 'ArrowLeft' || event.key === 'ArrowRight'
-      if (!isArrow) {
+
+      const isArrowKeyPress = event.key.startsWith('Arrow')
+
+      if (!isArrowKeyPress) {
         const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
         // Keyboard selected & is char
         if (!isNullOrEmpty(selectedOptionValue) && isKeyboardEventKeyPrintableChar(event.key)) {
@@ -310,34 +310,20 @@ export default defineComponent({
       }
 
       event.preventDefault()
-
-      if (event.key === 'ArrowRight') {
-        this.removeButtonSelectedIndex = this.searchState.selectedOption
-      }
-
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
         const newIndex = this.searchState.selectedOption + (event.key === 'ArrowDown' ? 1 : -1)
         this.updateSelectedOptionIndex(newIndex)
 
-        // reset removal
+        // unset selection of "Remove" button
         this.removeButtonSelectedIndex = -1
-      }
-
-      if (this.searchState.selectedOption !== -1 && event.key === 'ArrowRight') {
-        this.removeButtonSelectedIndex = this.searchState.selectedOption
+      } else {
+        // "select" the Remove button through right arrow navigation, and unselect it with the left arrow
+        const newIndex = event.key === 'ArrowRight' ? this.searchState.selectedOption : -1
+        this.removeButtonSelectedIndex = newIndex
       }
     },
 
-    getIconFor: function (index) {
-      if (this.dataListTypes[index] === 'search-history') {
-        return 'clock-rotate-left'
-      } else if (this.dataListTypes[index] === 'search-suggestion') {
-        return 'magnifying-glass'
-      }
-
-      return null
-    },
-
+    // Updates the selected dropdown option index and handles the under/over-flow behavior
     updateSelectedOptionIndex: function (index) {
       this.searchState.selectedOption = index
       // Allow deselecting suggestion

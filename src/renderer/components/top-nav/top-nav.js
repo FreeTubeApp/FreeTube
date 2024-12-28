@@ -133,19 +133,19 @@ export default defineComponent({
       return this.$store.getters.getLatestSearchHistoryNames
     },
 
-    // show latest search history when the search bar is empty
     activeDataList: function () {
       if (!this.enableSearchSuggestions) {
         return []
       }
 
+      // show latest search history when the search bar is empty
       if (this.usingOnlySearchHistoryResults) {
         return this.$store.getters.getLatestSearchHistoryNames
       }
 
       const searchResults = [...this.latestMatchingSearchHistoryNames]
       for (const searchSuggestion of this.searchSuggestionsDataList) {
-        // prevent duplicate results
+        // prevent duplicate results between search history entries and YT search suggestions
         if (this.latestMatchingSearchHistoryNames.includes(searchSuggestion)) {
           continue
         }
@@ -161,9 +161,9 @@ export default defineComponent({
     },
 
     activeDataListProperties: function () {
-      const searchHistoryNameLength = this.usingOnlySearchHistoryResults ? this.latestSearchHistoryNames.length : this.latestMatchingSearchHistoryNames.length
+      const searchHistoryEntriesCount = this.usingOnlySearchHistoryResults ? this.latestSearchHistoryNames.length : this.latestMatchingSearchHistoryNames.length
       return this.activeDataList.map((_, i) => {
-        const isSearchHistoryEntry = searchHistoryNameLength > i
+        const isSearchHistoryEntry = i < searchHistoryEntriesCount
         return isSearchHistoryEntry
           ? { isRemoveable: true, iconName: 'clock-rotate-left' }
           : { isRemoveable: false, iconName: 'magnifying-glass' }

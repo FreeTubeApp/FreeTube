@@ -36,26 +36,6 @@ const getters = {
     const searchHistoryEntry = state.searchHistoryEntries.find(p => p._id === id)
     return searchHistoryEntry
   },
-
-  getSearchHistoryIdsForMatchingUserPlaylistIds: (state) => (playlistIds) => {
-    const searchHistoryIds = []
-    const allSearchHistoryEntries = state.searchHistoryEntries
-    const searchHistoryEntryLimitedIdsMap = new Map()
-    allSearchHistoryEntries.forEach((searchHistoryEntry) => {
-      searchHistoryEntryLimitedIdsMap.set(searchHistoryEntry._id, searchHistoryEntry._id)
-    })
-
-    playlistIds.forEach((playlistId) => {
-      const id = `/playlist/${playlistId}?playlistType=user&searchQueryText=`
-      if (!searchHistoryEntryLimitedIdsMap.has(id)) {
-        return
-      }
-
-      searchHistoryIds.push(searchHistoryEntryLimitedIdsMap.get(id))
-    })
-
-    return searchHistoryIds
-  }
 }
 const actions = {
   async grabSearchHistoryEntries({ commit }) {
@@ -103,15 +83,6 @@ const actions = {
     }
   },
 
-  async removeUserPlaylistSearchHistoryEntries({ dispatch, getters }, userPlaylistIds) {
-    const searchHistoryIds = getters.getSearchHistoryIdsForMatchingUserPlaylistIds(userPlaylistIds)
-    if (searchHistoryIds.length === 0) {
-      return
-    }
-
-    dispatch('removeSearchHistoryEntries', searchHistoryIds)
-  },
-
   async removeAllSearchHistoryEntries({ commit }) {
     try {
       await DBSearchHistoryHandlers.deleteAll()
@@ -133,7 +104,7 @@ const mutations = {
 
   upsertSearchHistoryEntryToList(state, updatedSearchHistoryEntry) {
     state.searchHistoryEntries = state.searchHistoryEntries.filter((p) => {
-      return p.name !== updatedSearchHistoryEntry._id
+      return p._id !== updatedSearchHistoryEntry._id
     })
 
     state.searchHistoryEntries.unshift(updatedSearchHistoryEntry)
