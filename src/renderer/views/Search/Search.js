@@ -50,6 +50,10 @@ export default defineComponent({
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
+
+    enableSearchSuggestions: function () {
+      return this.$store.getters.getEnableSearchSuggestions
+    },
   },
   watch: {
     $route () {
@@ -145,7 +149,9 @@ export default defineComponent({
         }
       }
 
-      this.updateSearchHistoryEntry()
+      if (this.enableSearchSuggestions) {
+        this.updateSearchHistoryEntry()
+      }
     },
 
     performSearchLocal: async function (payload) {

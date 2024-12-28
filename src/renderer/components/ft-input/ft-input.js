@@ -295,37 +295,33 @@ export default defineComponent({
 
       this.searchState.showOptions = true
 
-      const isArrowKeyPress = event.key.startsWith('Arrow')
-
-      if (!isArrowKeyPress) {
+      // "select" the Remove button through right arrow navigation, and unselect it with the left arrow
+      if (event.key === 'ArrowRight') {
+        this.removeButtonSelectedIndex = this.searchState.selectedOption
+      } else if (event.key === 'ArrowLeft') {
+        this.removeButtonSelectedIndex = -1
+      } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        event.preventDefault()
+        const newIndex = this.searchState.selectedOption + (event.key === 'ArrowDown' ? 1 : -1)
+        this.updateSelectedOptionIndex(newIndex)
+      } else {
         const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
         // Keyboard selected & is char
         if (!isNullOrEmpty(selectedOptionValue) && isKeyboardEventKeyPrintableChar(event.key)) {
           // Update input based on KB selected suggestion value instead of current input value
           event.preventDefault()
           this.handleInput(`${selectedOptionValue}${event.key}`)
-          return
         }
-        return
-      }
-
-      event.preventDefault()
-      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-        const newIndex = this.searchState.selectedOption + (event.key === 'ArrowDown' ? 1 : -1)
-        this.updateSelectedOptionIndex(newIndex)
-
-        // unset selection of "Remove" button
-        this.removeButtonSelectedIndex = -1
-      } else {
-        // "select" the Remove button through right arrow navigation, and unselect it with the left arrow
-        const newIndex = event.key === 'ArrowRight' ? this.searchState.selectedOption : -1
-        this.removeButtonSelectedIndex = newIndex
       }
     },
 
     // Updates the selected dropdown option index and handles the under/over-flow behavior
     updateSelectedOptionIndex: function (index) {
       this.searchState.selectedOption = index
+
+      // unset selection of "Remove" button
+      this.removeButtonSelectedIndex = -1
+
       // Allow deselecting suggestion
       if (this.searchState.selectedOption < -1) {
         this.searchState.selectedOption = this.visibleDataList.length - 1

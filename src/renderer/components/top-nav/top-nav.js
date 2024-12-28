@@ -5,7 +5,7 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import debounce from 'lodash.debounce'
 
-import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
+import { IpcChannels, KeyboardShortcuts, MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
 import { localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
@@ -127,6 +127,7 @@ export default defineComponent({
 
     latestMatchingSearchHistoryNames: function () {
       return this.$store.getters.getLatestMatchingSearchHistoryNames(this.lastSuggestionQuery)
+        .slice(0, MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT)
     },
 
     latestSearchHistoryNames: function () {
