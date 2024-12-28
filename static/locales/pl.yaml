@@ -1251,3 +1251,41 @@ KeyboardShortcutPrompt:
   History Forward: Dalej jedną stronę
   Refresh: Wczytaj ponownie subskrypcje z nową zawartością
   History Backward: Wróć o jedną stronę
+  Fullscreen: Przełącz na pełny ekran
+  Picture in Picture: Przełącz na tryb obraz w obrazie
+  Decrease Video Speed: Zwolnij odtwarzanie filmu o wartość przeskoku w wyborze prędkości
+    odtwarzania filmu
+  Full Window: Przełącz na pełne okno
+  Take Screenshot: Zrób zrzut ekranu
+  Minimize Window: Zminimalizuj okno
+  Volume Up: Podgłośnij
+  Volume Down: Ścisz
+  Last Chapter: Poprzedni rozdział
+  Next Chapter: Następny rozdział
+  Skip by Tenths: Przeskakuj przez film o wartość procentową (trzy przeskoki to 30%
+    długości)
+  Small Rewind: Przewiń o X sekund wstecz, bazując na interwale przewijania oraz obecnej
+    prędkości odtwarzania
+  Small Fast Forward: Przewiń o X sekund do przodu, bazując na interwale przewijania
+    oraz obecnej prędkości odtwarzania
+  Reset Zoom: Resetuj stopień przybliżenia / skalę UI
+  Zoom Out: Pomniejsz
+  Play: Przełącz na odtwarzanie/wstrzymanie
+  Mute: Przełącz na wyciszony
+  Search in New Window: Wyszukaj w nowym oknie
+  Increase Video Speed: Przyśpiesz odtwarzanie filmu o wartość przeskoku w wyborze
+    prędkości odtwarzania filmu
+  Theatre Mode: Przełącz na tryb kina
+  Close Window: Zamknij okno
+  Force Restart Window: Wymuś zrestartowanie okna
+  Toggle Developer Tools: Przełącz narzędzia deweloperskie
+  Zoom In: Powiększ
+  Focus Search: Przełącz na pasek wyszukiwania
+  Last Frame: Poprzednia klatka (podczas wstrzymania)
+  Next Frame: Następna klatka (podczas wstrzymania)
+  Restart Window: Zrestartuj okno
+  Large Rewind: Przewiń o 10 sekund wstecz / Przewiń film wstecz, bazując na obecnej
+    prędkości odtwarzania
+  Large Fast Forward: Przewiń o 10 sekund do przodu / Przewiń film do przodu, bazując
+    na obecnej prędkości odtwarzania
+  Stats: Pokaż statystyki filmu
