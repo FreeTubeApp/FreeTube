@@ -1263,6 +1263,8 @@ Keys:
   arrowright: Flèche droite
   arrowup: Flèche haut
   alt: Alt
+  enter: Entrer
+  plus: Plus
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
 Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterruptionIntervalHours}
@@ -1270,3 +1272,35 @@ Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterr
 Description:
   Expand Description: '...plus'
   Collapse Description: Montrer moins
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Raccourcis clavier
+  Sections:
+    Video:
+      Playback: 'Vidéo : Lecture'
+      General: 'Vidéo : Général'
+    App:
+      General: 'Application : Générale'
+      Situational: 'Application : Situationnelle'
+  Show Keyboard Shortcuts: Afficher les raccourcis clavier
+  History Forward: Aller à la page suivante
+  Navigate to Settings: Naviguer vers la page des paramètres
+  Navigate to History: Naviguer vers la page de l'historique
+  Refresh: Actualiser le flux avec le contenu le plus récent
+  Captions: Activer/Désactiver les sous-titres
+  Stats: Afficher les statistiques de la vidéo
+  Picture in Picture: Activer/Désactiver le mode Image dans l'image
+  Play: Activer/Désactiver la lecture/pause
+  Large Fast Forward: Avancer de 10 secondes / Avancer rapidement la vidéo en fonction
+    de la vitesse de lecture actuelle
+  Mute: Activer/Désactiver le son
+  Decrease Video Speed: Diminuer la vitesse de la vidéo en fonction de l'intervalle
+    de la vitesse de lecture vidéo
+  Fullscreen: ''
+  Increase Video Speed: Augmenter la vitesse de la vidéo en fonction de l'intervalle
+    de la vitesse de lecture vidéo
+  New Window: Créer une nouvelle fenêtre
+  Large Rewind: Rembobiner de 10 secondes / Rembobiner la vidéo en fonction de la
+    vitesse de lecture actuelle
+  History Backward: Revenir à la page précédente
+  Focus Secondary Search: Mettre l'accent sur la barre de recherche secondaire (si
+    elle est présente)
