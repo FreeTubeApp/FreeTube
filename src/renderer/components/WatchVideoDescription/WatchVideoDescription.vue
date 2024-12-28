@@ -20,6 +20,7 @@
         class="descriptionStatus"
         role="button"
         tabindex="0"
+        @click="expandDescription"
         @keydown.space.prevent="expandDescription"
         @keydown.enter.prevent="expandDescription"
       >
