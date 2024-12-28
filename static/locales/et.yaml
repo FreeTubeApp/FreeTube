@@ -327,6 +327,7 @@ Settings:
       Solarized Light: Hele päikesekuma
       Gruvbox Dark: Gruuvimasina tume
       Gruvbox Light: Gruuvimasina hele
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -384,6 +385,20 @@ Settings:
       Gruvbox Dark Aqua: Gruuvimasina tume vesi
       Gruvbox Light Purple: Gruuvimasina helepurpur
       Gruvbox Light Orange: Gruuvimasina heleoranž
+      Catppuccin Frappe Red: Catppuccin Frappe punane
+      Catppuccin Frappe Maroon: Catppuccin Frappe pruun
+      Catppuccin Frappe Peach: Catppuccin Frappe virsikukarva
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingo
+      Catppuccin Frappe Green: Catppuccin Frappe roheline
+      Catppuccin Frappe Pink: Catppuccin Frappe roosa
+      Catppuccin Frappe Teal: Catppuccin Frappe sinakasroheline
+      Catppuccin Frappe Sky: Catppuccin Frappe taevasinine
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safiirsinine
+      Catppuccin Frappe Blue: Catppuccin Frappe sinine
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendlikarva
+      Catppuccin Frappe Rosewater: Catppuccin Frappe roosivesi
+      Catppuccin Frappe Yellow: Catppuccin Frappe kollane
+      Catppuccin Frappe Mauve: Catppuccin Frappe lillakas
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
