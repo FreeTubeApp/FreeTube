@@ -1174,7 +1174,7 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
 Starting download: Herunterladen von „{videoTitle}“ wird gestartet
 Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
-Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
+Screenshot Success: Bildschirmfoto gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
@@ -1247,6 +1247,9 @@ Keys:
   ctrl: Strg
   alt: Alt
   arrowright: Pfeil nach rechts
+  plus: Plus
+  enter: Enter
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
@@ -1256,3 +1259,44 @@ Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autopla
 Description:
   Collapse Description: Weniger anzeigen
   Expand Description: '...mehr'
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Tastenkombinationen
+  Sections:
+    Video:
+      Playback: 'Video: Wiedergabe'
+      General: 'Video: Allgemein'
+    App:
+      Situational: 'Anwendung: Situationsbezogen'
+      General: 'Anwendung: Allgemein'
+  History Backward: Eine Seite zurückgehen
+  New Window: Ein neues Fenster erzeugen
+  Navigate to Settings: Zur Einstellungsseite navigieren
+  Navigate to History: Zur Verlaufsseite navigieren
+  Stats: Video-Statistiken anzeigen
+  Fullscreen: Vollbildmodus umschalten
+  Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Take Screenshot: Bildschirmfoto erstellen
+  Minimize Window: Fenster minimieren
+  Close Window: Fenster schließen
+  Restart Window: Fenster neu starten
+  Reset Zoom: Zoomstufe / UI-Skalierung zurücksetzen
+  Zoom In: Vergrößern
+  Zoom Out: Verkleinern
+  Focus Search: Fokus auf die Suchleiste
+  Search in New Window: In einem neuen Fenster suchen
+  Refresh: Feed mit aktuellen Inhalten aktualisieren
+  Large Fast Forward: 10 Sekunden vorspulen / Schnelles Vorspulen des Videos basierend
+    auf der aktuellen Videowiedergaberate
+  Mute: Stummschaltung
+  Force Restart Window: Fenster Neustart erzwingen
+  Volume Up: Lautstärke erhöhen
+  Volume Down: Lautstärke vermindern
+  Next Chapter: Nächstes Kapitel
+  Last Chapter: Letztes Kapitel
+  Show Keyboard Shortcuts: Tastaturkürzel anzeigen
+  History Forward: Eine Seite nach vorne gehen
+  Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Large Rewind: 10 Sekunden zurückspulen / Video basierend auf der aktuellen Videowiedergaberate
+    zurückspulen
