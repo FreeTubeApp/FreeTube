@@ -449,7 +449,7 @@ Settings:
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Videoabspieler
-    Video Playback Rate Interval: Intervall für die Videowiedergabegeschwindigkeit
+    Video Playback Rate Interval: Video-Wiedergabegeschwindigkeitsintervall
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
     Screenshot:
       Enable: Bildschirmfoto aktivieren
