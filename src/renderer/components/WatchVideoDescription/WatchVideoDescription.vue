@@ -30,7 +30,8 @@
     <FtTimestampCatcher
       ref="descriptionContainer"
       class="description"
-      :input-html="shownDescription"
+      :input-html="processedShownDescription"
+      :link-tab-index="linkTabIndex"
       @timestamp-event="onTimestamp"
       @text-click="expandDescription"
     />
@@ -40,7 +41,7 @@
 <script setup>
 import autolinker from 'autolinker'
 
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
@@ -80,6 +81,16 @@ if (props.descriptionHtml !== '') {
     shownDescription = autolinker.link(props.description)
   }
 }
+
+const processedShownDescription = computed(() => {
+  if (shownDescription === '') { return shownDescription }
+
+  return processDescriptionHtml(shownDescription, linkTabIndex.value)
+})
+
+const linkTabIndex = computed(() => {
+  return showFullDescription.value ? 0 : -1
+})
 
 /**
  * @param {number} timestamp
@@ -143,6 +154,16 @@ function parseDescriptionHtml(descriptionText) {
     .replaceAll('href="/', 'href="https://www.youtube.com/')
     .replaceAll('href="/hashtag/', 'href="https://wwww.youtube.com/hashtag/')
     .replaceAll('yt.www.watch.player.seekTo', 'changeDuration')
+}
+
+/**
+ * @param {string} descriptionText
+ * @param {number} tabIndex
+ * @returns {string}
+ */
+function processDescriptionHtml(descriptionText, tabIndex) {
+  return descriptionText
+    .replaceAll('<a', `<a tabindex="${tabIndex}"`)
 }
 </script>
 
