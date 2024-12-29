@@ -11,6 +11,7 @@ import {
   DBActions,
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
+  KeyboardShortcuts,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -1706,7 +1707,7 @@ function runApp() {
             ? [
                 {
                   label: 'Back',
-                  accelerator: 'Cmd+Left',
+                  accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC,
                   click: (_menuItem, browserWindow, _event) => {
                     if (browserWindow == null) { return }
 
@@ -1730,7 +1731,7 @@ function runApp() {
             ? [
                 {
                   label: 'Forward',
-                  accelerator: 'Cmd+Right',
+                  accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC,
                   click: (_menuItem, browserWindow, _event) => {
                     if (browserWindow == null) { return }
 
