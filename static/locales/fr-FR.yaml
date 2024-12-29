@@ -340,6 +340,7 @@ Settings:
       Solarized Dark: Noir polarisé
       Gruvbox Light: Gruvbox Clair
       Gruvbox Dark: Gruvbox Sombre
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -397,6 +398,20 @@ Settings:
       Gruvbox Light Orange: Gruvbox Orange Clair
       Gruvbox Dark Green: Gruvbox Vert Sombre
       Gruvbox Dark Blue: Gruvbox Bleu Sombre
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Rose
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Eau de rose
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Rouge
+      Catppuccin Frappe Maroon: Catppuccin Frappe Marron
+      Catppuccin Frappe Peach: Catppuccin Frappe Pêche
+      Catppuccin Frappe Yellow: Catppuccin Frappe Jaune
+      Catppuccin Frappe Green: Catppuccin Frappe Vert
+      Catppuccin Frappe Teal: Catppuccin Frappe Sarcelle
+      Catppuccin Frappe Sky: Catppuccin Frappe Ciel
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saphir
+      Catppuccin Frappe Blue: Catppuccin Frappe Bleu
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavande
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -945,6 +960,8 @@ Playlist:
     Custom: Personnalisé
     VideoDurationDescending: Durée (la plus longue en premier)
     VideoDurationAscending: Durée (la plus courte en premier)
+    PublishedNewest: Dernier publié en premier
+    PublishedOldest: Premier publié en premier
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
