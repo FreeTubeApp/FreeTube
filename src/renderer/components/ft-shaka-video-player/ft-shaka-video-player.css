@@ -93,20 +93,21 @@
 
 .valueChangePopup {
   position: absolute;
-  right: 20px;
-  bottom: calc(20px + 5%);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px;
-  border-radius: 10px;
-  background-color: rgb(0 0 0 / 80%);
+  border-radius: 5px;
+  font-size: 1.1em;
+  background-color: rgb(0 0 0 / 70%);
   color: #fff;
-  pointer-events: none;
   width: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 1.1em;
-  opacity: 0.75;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .offlineWrapper {
