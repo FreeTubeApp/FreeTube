@@ -931,6 +931,8 @@ Playlist:
     AuthorDescending: Po autorze (Z-A)
     VideoDurationDescending: Czas trwania (od najdłuższych)
     VideoDurationAscending: Czas trwania (od najkrótszych)
+    PublishedNewest: Od ostatnio opublikowanych
+    PublishedOldest: Od najwcześniej opublikowanych
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
