@@ -1124,6 +1124,7 @@ checkmark: ✓
 Display Label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+shortcutLabelSeparator: /
 Keys:
   alt: Alt
   ctrl: Ctrl

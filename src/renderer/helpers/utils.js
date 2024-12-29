@@ -1030,5 +1030,6 @@ export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle
     unlocalizedShortcuts = [unlocalizedShortcuts]
   }
   const localizedShortcuts = unlocalizedShortcuts.map((s) => getLocalizedShortcut(s))
-  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcuts.join('/'))
+  const shortcutLabelSeparator = i18n.t('shortcutLabelSeparator')
+  return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcuts.join(shortcutLabelSeparator))
 }
