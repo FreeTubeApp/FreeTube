@@ -947,6 +947,8 @@ Playlist:
     Custom: Benutzerdefiniert
     VideoDurationAscending: Dauer (Kürzeste zuerst)
     VideoDurationDescending: Dauer (Längste zuerst)
+    PublishedNewest: Zuletzt veröffentlicht zuerst
+    PublishedOldest: Älteste veröffentlicht zuerst
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
