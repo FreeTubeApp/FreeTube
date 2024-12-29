@@ -328,6 +328,7 @@ Settings:
       Solarized Light: Solarizzato chiaro
       Gruvbox Light: Gruvbox chiaro
       Gruvbox Dark: Gruvbox scuro
+      Catppuccin Frappe: Cappuccino frappè
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -385,6 +386,20 @@ Settings:
       Gruvbox Dark Blue: Gruvbox blu scuro
       Gruvbox Light Red: Gruvbox rosso chiaro
       Gruvbox Dark Orange: Gruvbox arancione scuro
+      Catppuccin Frappe Rosewater: Cappuccino frappè acqua di rose
+      Catppuccin Frappe Flamingo: Cappuccino frappè fenicottero
+      Catppuccin Frappe Pink: Cappuccino frappè rosa
+      Catppuccin Frappe Mauve: Cappuccino frappè malva
+      Catppuccin Frappe Red: Cappuccino frappè rosso
+      Catppuccin Frappe Maroon: Cappuccino frappè marrone
+      Catppuccin Frappe Peach: Cappuccino frappè pesca
+      Catppuccin Frappe Yellow: Cappuccino frappè giallo
+      Catppuccin Frappe Green: Cappuccino frappè verde
+      Catppuccin Frappe Teal: Cappuccino frappè alzavola
+      Catppuccin Frappe Sky: Cappuccino frappè cielo
+      Catppuccin Frappe Sapphire: Cappuccino frappè zaffiro
+      Catppuccin Frappe Blue: Cappuccino frappè blu
+      Catppuccin Frappe Lavender: Cappuccino frappè lavanda
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni dell'interfaccia utente
@@ -928,6 +943,8 @@ Playlist:
     VideoTitleAscending: Titolo (A-Z)
     VideoDurationAscending: Durata (prima la più breve)
     VideoDurationDescending: Durata (prima la più lunga)
+    PublishedNewest: Prima i pubblicati più nuovi
+    PublishedOldest: Prima i pubblicati più vecchi
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -1233,6 +1250,9 @@ Keys:
   arrowright: Freccia destra
   arrowup: Freccia su
   alt: Alt
+  shift: Shift
+  enter: Enter
+  plus: Più
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Fai clic con il tasto destro o tieni premuto per
   visualizzare la cronologia
@@ -1241,3 +1261,58 @@ Autoplay Interruption Timer: Riproduzione automatica annullata a causa di {autop
 Description:
   Expand Description: '...di più'
   Collapse Description: Mostra meno
+KeyboardShortcutPrompt:
+  Focus Secondary Search: Focus sulla barra di ricerca secondaria (se presente)
+  Navigate to History: Vai alla pagina Cronologia
+  Refresh: Aggiorna il feed con i contenuti più recenti
+  New Window: Crea una nuova finestra
+  Navigate to Settings: Vai alla pagina Impostazioni
+  Keyboard Shortcuts: Scorciatoie da tastiera
+  Sections:
+    Video:
+      Playback: 'Video: Riproduzione'
+      General: 'Video: Generale'
+    App:
+      Situational: 'App: Situazionali'
+      General: 'App: Generale'
+  Show Keyboard Shortcuts: Mostra le scorciatoie da tastiera
+  History Backward: Torna indietro di una pagina
+  History Forward: Vai avanti di una pagina
+  Stats: Mostra le statistiche video
+  Fullscreen: Attiva/disattiva schermo intero
+  Picture in Picture: Attiva/disattiva la modalità Picture-in-Picture
+  Play: Attiva/disattiva riproduzione/pausa
+  Large Fast Forward: Avanti di 10 secondi / Avanzamento rapido del video in base
+    alla velocità di riproduzione video attuale
+  Decrease Video Speed: Riduci la velocità del video in base all'intervallo di velocità
+    di riproduzione video
+  Increase Video Speed: Aumenta la velocità del video in base all'intervallo di velocità
+    di riproduzione video
+  Full Window: Attiva/disattiva finestra intera
+  Restart Window: Riavvia la finestra
+  Force Restart Window: Forza il riavvio della finestra
+  Toggle Developer Tools: Attiva/disattiva gli strumenti per sviluppatori
+  Reset Zoom: Ripristina livello zoom / scala interfaccia utente
+  Theatre Mode: Attiva/disattiva la modalità teatro
+  Zoom Out: Rimpicciolisci
+  Zoom In: Ingrandisci
+  Search in New Window: Ricerca in una nuova finestra
+  Small Rewind: Riavvolgi X secondi in base all'intervallo di riavvolgimento e alla
+    velocità di riproduzione video attuale
+  Last Chapter: Ultimo capitolo
+  Skip by Tenths: Salta il video in percentuale (3 salti al 30% della durata)
+  Large Rewind: Riavvolgi 10 secondi / Riavvolgi il video in base alla velocità di
+    riproduzione video attuale
+  Last Frame: Fotogramma precedente (mentre è in pausa)
+  Small Fast Forward: Avanzamento rapido di X secondi in base all'intervallo di avanzamento
+    rapido e alla velocità di riproduzione video attuale
+  Focus Search: Focus sulla barra di ricerca
+  Captions: Attiva/disattiva le didascalie
+  Mute: Attiva/disattiva audio
+  Take Screenshot: Fai uno screenshot
+  Minimize Window: Riduci a icona la finestra
+  Close Window: Chiudi la finestra
+  Next Chapter: Prossimo capitolo
+  Next Frame: Fotogramma successivo (mentre è in pausa)
+  Volume Up: Aumenta il volume
+  Volume Down: Diminuisci il volume
