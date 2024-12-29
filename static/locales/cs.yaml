@@ -335,6 +335,7 @@ Settings:
       Solarized Light: Solarizovaná světlá
       Gruvbox Dark: Gruvbox tmavý
       Gruvbox Light: Gruvbox světlý
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -392,6 +393,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox tmavě azurový
       Gruvbox Light Blue: Gruvbox světle modrý
       Gruvbox Light Orange: Gruvbox světle oranžový
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
@@ -958,6 +973,8 @@ Playlist:
     Custom: Vlastní
     VideoDurationAscending: Doba trvání (od nejkratších)
     VideoDurationDescending: Doba trvání (od nejdelších)
+    PublishedOldest: Od nejstarších
+    PublishedNewest: Od nejnovějších
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
