@@ -1280,9 +1280,9 @@ KeyboardShortcutPrompt:
   Play: Lejátszás / Szüneteltetés be- és kikapcsolása
   Mute: Némítás be- és kikapcsolása
   Decrease Video Speed: A videó lejátszási sebességének csökkentése a lejátszási sebesség
-    intervalluma alapján
+    időköze alapján
   Increase Video Speed: A videó lejátszási sebességének növelése a lejátszási sebesség
-    intervalluma alapján
+    időköze alapján
   Toggle Developer Tools: Fejlesztői eszközök bekapcsolása
   Zoom In: Nagyítás
   Full Window: Teljes ablak mód be- és kikapcsolása
