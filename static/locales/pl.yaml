@@ -324,6 +324,7 @@ Settings:
       Solarized Dark: Nasłoneczniony ciemny
       Gruvbox Dark: Gruvbox ciemny
       Gruvbox Light: Gruvbox jasny
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -381,6 +382,20 @@ Settings:
       Gruvbox Light Blue: Gruvbox jasnoniebieski
       Gruvbox Light Purple: Gruvbox jasnopurpurowy
       Gruvbox Light Orange: Gruvbox jasnopomarańczowy
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Szafirowy
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Woda Różana
+      Catppuccin Frappe Blue: Catppuccin Frappe Niebieski
+      Catppuccin Frappe Pink: Catppuccin Frappe Różowy
+      Catppuccin Frappe Red: Catppuccin Frappe Czerwony
+      Catppuccin Frappe Sky: Catppuccin Frappe Kolor nieba
+      Catppuccin Frappe Teal: Catppuccin Frappe Turkusowy
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flaming
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Kasztanowy
+      Catppuccin Frappe Peach: Catppuccin Frappe Brzoskwiniowy
+      Catppuccin Frappe Yellow: Catppuccin Frappe Żółty
+      Catppuccin Frappe Green: Catppuccin Frappe Zielony
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lawendowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -1262,7 +1277,7 @@ KeyboardShortcutPrompt:
   Volume Down: Ścisz
   Last Chapter: Poprzedni rozdział
   Next Chapter: Następny rozdział
-  Skip by Tenths: Przeskakuj przez film o wartość procentową (trzy przeskoki to 30%
+  Skip by Tenths: Przeskakuj przez film o wartość procentową („3” przeskakuje do 30%
     długości)
   Small Rewind: Przewiń o X sekund wstecz, bazując na interwale przewijania oraz obecnej
     prędkości odtwarzania

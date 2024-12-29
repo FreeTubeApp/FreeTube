@@ -655,6 +655,8 @@ function runApp() {
           return '#282828'
         case 'gruvbox-light':
           return '#fbf1c7'
+        case 'catppuccin-frappe':
+          return '#303446'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

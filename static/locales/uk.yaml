@@ -336,6 +336,7 @@ Settings:
       Nordic: Нордичний
       Gruvbox Light: Gruvbox Світлий
       Solarized Dark: Solarized Темна
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -393,6 +394,20 @@ Settings:
       Solarized Red: Solarized Червоний
       Gruvbox Dark Yellow: Gruvbox Темно Жовтий
       Solarized Blue: Solarized Голубий
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -1200,6 +1215,9 @@ Keys:
   arrowdown: Стрілка вниз
   arrowleft: Стрілка вліво
   arrowup: Стрілка вгору
+  shift: Shift
+  enter: Enter
+  plus: Плюс
 checkmark: ✓
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Age Restricted:
@@ -1217,3 +1235,58 @@ Autoplay Interruption Timer: Автозапуск скасовано через 
 Description:
   Expand Description: '...докладніше'
   Collapse Description: Показати менше
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Гарячі клавіші
+  Sections:
+    Video:
+      Playback: 'Відео: Відтворення'
+      General: 'Відео: Загальні'
+    App:
+      Situational: 'Додаток: Ситуаційне'
+      General: 'Додаток: Загальне'
+  Show Keyboard Shortcuts: Показати клавіатурні скорочення
+  History Backward: Повернутися на одну сторінку назад
+  History Forward: Перейти на одну сторінку вперед
+  Navigate to Settings: Перейти до сторінки налаштувань
+  Navigate to History: Перейти на сторінку Історії
+  Focus Secondary Search: Зосередитись на вторинній панелі пошуку (якщо вона є)
+  Captions: Перемикати субтитри УВІМК/ВИМК
+  Stats: Показати статистику відео
+  Fullscreen: Перемкнути на повний екран
+  Picture in Picture: Перемкнути режим "Картинка в картинці"
+  Large Rewind: Перемотати на 10 секунд / Перемотати відео в залежності від поточної
+    швидкості відтворення
+  Play: Перемикання відтворення/паузи
+  Mute: Перемкнути беззвучний режим
+  Increase Video Speed: Збільшити швидкість відео відповідно до інтервалу швидкості
+    відтворення відео
+  Full Window: Переключити на повний екран
+  Take Screenshot: Зробити скріншот
+  Minimize Window: Згорнути вікно
+  Close Window: Закрити вікно
+  Restart Window: Перезапустити вікно
+  Force Restart Window: Примусово перезапустити вікно
+  Refresh: Оновити стрічку з останнім вмістом
+  Large Fast Forward: Перемотати вперед на 10 секунд / Швидка перемотка відео відповідно
+    до поточної швидкості відтворення
+  Decrease Video Speed: Зменшити швидкість відео відповідно до інтервалу швидкості
+    відтворення відео
+  New Window: Створити нове вікно
+  Theatre Mode: Переключити на театральний режим
+  Toggle Developer Tools: Перемикнути інструменти розробника
+  Reset Zoom: Скинути рівень масштабування / шкалу інтерфейсу
+  Zoom In: Масштабувати вперед
+  Zoom Out: Масштабувати назад
+  Focus Search: Зосередитися на рядку пошуку
+  Search in New Window: Пошук у новому вікні
+  Last Frame: Попередній кадр (під час паузи)
+  Next Frame: Наступний кадр (під час паузи)
+  Volume Up: Збільшити гучність
+  Volume Down: Зменшити гучність
+  Small Rewind: Перемотати на X секунд згідно з інтервалом перемотування та поточним
+    коефіцієнтом відтворення відео
+  Small Fast Forward: Перемотати вперед на X секунд згідно з інтервалом перемотування
+    вперед та поточним коефіцієнтом відтворення відео
+  Last Chapter: Останній розділ
+  Skip by Tenths: Пропустити відео на певний відсоток (3 пропуски до 30% тривалості)
+  Next Chapter: Наступний розділ

@@ -336,6 +336,7 @@ Settings:
       Solarized Dark: Szolarizált sötét
       Gruvbox Light: Világos Gruvbox
       Gruvbox Dark: Sötét Gruvbox
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -1230,6 +1231,9 @@ Keys:
   arrowdown: Lefele nyíl
   arrowleft: Balra nyíl
   arrowright: Jobbra nyíl
+  enter: Enter
+  plus: Plusz
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
@@ -1239,3 +1243,13 @@ Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionInt
 Description:
   Collapse Description: Kevesebb megjelenítése
   Expand Description: …továbbiak
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Billentyűkombinációk
+  Sections:
+    Video:
+      Playback: 'Videó: Lejátszás'
+      General: 'Videó: Általános'
+    App:
+      Situational: 'Alkalmazás: Helyzetfüggő'
+      General: 'Alkalmazás: Általános'
+  Show Keyboard Shortcuts: Billentyű-kombinációk megjelenítése

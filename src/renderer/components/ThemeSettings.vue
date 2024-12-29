@@ -126,6 +126,7 @@ const BASE_THEME_VALUES = [
   'hotPink',
   'pastelPink',
   // Third group
+  'catppuccinFrappe',
   'catppuccinMocha',
   'dracula',
   'gruvboxDark',
@@ -145,6 +146,7 @@ const baseThemeNames = computed(() => [
   t('Settings.Theme Settings.Base Theme.Hot Pink'),
   t('Settings.Theme Settings.Base Theme.Pastel Pink'),
   // Third group
+  t('Settings.Theme Settings.Base Theme.Catppuccin Frappe'),
   t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
   t('Settings.Theme Settings.Base Theme.Dracula'),
   t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),

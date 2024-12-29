@@ -101,6 +101,7 @@ export default defineComponent({
       channelId: '',
       channelSubscriptionCountText: '',
       videoPublished: 0,
+      premiereDate: undefined,
       videoStoryboardSrc: '',
       /** @type {string|null} */
       manifestSrc: null,
@@ -629,9 +630,12 @@ export default defineComponent({
               // TODO a I18n entry for time format might be needed here
               this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
             }
+
+            this.premiereDate = upcomingTimestamp
           } else {
             this.upcomingTimestamp = null
             this.upcomingTimeLeft = null
+            this.premiereDate = undefined
           }
         } else {
           this.videoLengthSeconds = result.basic_info.duration

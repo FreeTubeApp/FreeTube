@@ -327,6 +327,7 @@ Settings:
       Solarized Light: Hele päikesekuma
       Gruvbox Dark: Gruuvimasina tume
       Gruvbox Light: Gruuvimasina hele
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -384,6 +385,20 @@ Settings:
       Gruvbox Dark Aqua: Gruuvimasina tume vesi
       Gruvbox Light Purple: Gruuvimasina helepurpur
       Gruvbox Light Orange: Gruuvimasina heleoranž
+      Catppuccin Frappe Red: Catppuccin Frappe punane
+      Catppuccin Frappe Maroon: Catppuccin Frappe pruun
+      Catppuccin Frappe Peach: Catppuccin Frappe virsikukarva
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingo
+      Catppuccin Frappe Green: Catppuccin Frappe roheline
+      Catppuccin Frappe Pink: Catppuccin Frappe roosa
+      Catppuccin Frappe Teal: Catppuccin Frappe sinakasroheline
+      Catppuccin Frappe Sky: Catppuccin Frappe taevasinine
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safiirsinine
+      Catppuccin Frappe Blue: Catppuccin Frappe sinine
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendlikarva
+      Catppuccin Frappe Rosewater: Catppuccin Frappe roosivesi
+      Catppuccin Frappe Yellow: Catppuccin Frappe kollane
+      Catppuccin Frappe Mauve: Catppuccin Frappe lillakas
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -667,7 +682,7 @@ About:
   Translate: Tõlgi
   room rules: jututoa reeglitega
   Please read the: Palun kindlasti tutvu
-  Chat on Matrix: Vestle meiega Matrix'i võrgus
+  Chat on Matrix: Vestle meiega Matrixi võrgus
   Mastodon: Mikroblogiteenus Mastodon
   Blog: Blogi
   Website: Veebisait
@@ -1200,6 +1215,9 @@ Keys:
   arrowleft: Nool vasakule
   arrowright: Nool paremale
   arrowdown: Nool alla
+  plus: Plus
+  shift: Shift
+  enter: Enter
 Right-click or hold to see history: Ajaloo nägemiseks klõpsa parema hiireklahviga
   ja hoia klahvi all
 Autoplay Interruption Timer: Automaatne esitamine katkes peale {autoplayInterruptionIntervalHours}
@@ -1207,3 +1225,58 @@ Autoplay Interruption Timer: Automaatne esitamine katkes peale {autoplayInterrup
 Description:
   Expand Description: '...vaata lisaks'
   Collapse Description: Näita vähem
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Klaviatuuri kiirklahvid
+  Sections:
+    Video:
+      General: 'Video: Üldine'
+      Playback: 'Video: taasesitus'
+    App:
+      Situational: 'Rakendus: Olukorrateadlik'
+      General: 'Rakendus: Üldine'
+  Show Keyboard Shortcuts: Näita kiirklahve
+  History Backward: Tagasi ühe lehe võrra
+  History Forward: Edasi ühe lehe võrra
+  New Window: Loo uus aken
+  Navigate to Settings: Ava seadistuste leht
+  Refresh: Värskenda meediavoo andmed
+  Focus Secondary Search: Aseta fookus teisele otsinguribale (kui ta on olemas)
+  Captions: Lülita subtiitrid sisse/välja
+  Stats: Näita video statistikat
+  Picture in Picture: Lülita pilt-pildis vaade sisse/välja
+  Large Rewind: Keri videot tagasi 10 sekundit / Keri videot tagasi hetkel kasutatava
+    taasesituskiiruse alusel
+  Play: Esita/peata
+  Mute: Lülita summutamine sisse/välja
+  Decrease Video Speed: Vähenda video kiirust hetkel kasutatava taasesituskiiruse
+    alusel
+  Full Window: Lülita täisekraanivaade sisse/välja
+  Theatre Mode: Lülita teatrivaade sisse/välja
+  Take Screenshot: Tee ekraanitõmmis
+  Minimize Window: Minimeeri aken
+  Close Window: Sulge aken
+  Restart Window: Laadi kogu aken uuesti
+  Force Restart Window: Laadi kogu aken sundkorras uuesti
+  Toggle Developer Tools: Lülita arendaja tarvikud sisse/välja
+  Reset Zoom: Lähtesta suumitase / kasutajaliidese mõõtkava
+  Zoom Out: Suumi välja
+  Focus Search: Aseta fookus otsinguribale
+  Search in New Window: Otsi uues aknas
+  Last Frame: Eelmine kaader (kui video on peatatud)
+  Next Frame: Järgmine kaader (kui video on peatatud)
+  Volume Up: Keera heli valjemaks
+  Small Rewind: Keri tagasi X sekundit hetkel kasutatava kerimiskiiruse ja taasesituskiiruse
+    alusel
+  Last Chapter: Viimane peatükk
+  Next Chapter: Järgmine peatükk
+  Skip by Tenths: Kalpsa läbi video protsendisammudega (3 kalpsab 30% kestuseni)
+  Navigate to History: Ava ajaloo leht
+  Fullscreen: Lülita täisekraan sisse/välja
+  Large Fast Forward: Keri videot edasi 10 sekundit / Keri videot edasi hetkel kasutatava
+    taasesituskiiruse alusel
+  Increase Video Speed: Suurenda video kiirust hetkel kasutatava taasesituskiiruse
+    alusel
+  Zoom In: Suumi sisse
+  Volume Down: Keera heli vaiksemaks
+  Small Fast Forward: Keri edasi X sekundit hetkel kasutatava kerimiskiiruse ja taasesituskiiruse
+    alusel

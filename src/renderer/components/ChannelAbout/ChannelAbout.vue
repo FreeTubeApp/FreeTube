@@ -96,18 +96,84 @@
       v-if="!hideFeaturedChannels && relatedChannels.length > 0"
     >
       <h2>{{ $t("Channel.About.Featured Channels") }}</h2>
-      <ft-flex-box>
-        <ft-channel-bubble
-          v-for="(channel, index) in relatedChannels"
-          :key="index"
+      <FtFlexBox>
+        <FtChannelBubble
+          v-for="channel in relatedChannels"
+          :key="channel.id"
           :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnailUrl"
         />
-      </ft-flex-box>
+      </FtFlexBox>
     </template>
   </div>
 </template>
 
-<script src="./channel-about.js" />
-<style scoped src="./channel-about.css" />
+<script setup>
+import { computed } from 'vue'
+import { useI18n } from '../../composables/use-i18n-polyfill'
+
+import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+
+import store from '../../store/index'
+
+import { formatNumber } from '../../helpers/utils'
+
+const { locale } = useI18n()
+
+const props = defineProps({
+  description: {
+    type: String,
+    default: ''
+  },
+  joined: {
+    type: [Date, Number],
+    default: 0
+  },
+  views: {
+    type: Number,
+    default: null
+  },
+  videos: {
+    type: Number,
+    default: null
+  },
+  location: {
+    type: String,
+    default: null
+  },
+  tags: {
+    type: Array,
+    default: () => []
+  },
+  relatedChannels: {
+    type: Array,
+    default: () => []
+  }
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideFeaturedChannels = computed(() => {
+  return store.getters.getHideFeaturedChannels
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideSearchBar = computed(() => {
+  return store.getters.getHideSearchBar
+})
+
+/** @type {import('vue').ComputedRef<{ sortBy: string, time: string, type: string, duration: string, features: string[] }>} */
+const searchSettings = computed(() => {
+  return store.getters.getSearchSettings
+})
+
+const formattedJoined = computed(() => {
+  return new Intl.DateTimeFormat([locale.value, 'en'], { dateStyle: 'long' }).format(props.joined)
+})
+
+const formattedViews = computed(() => formatNumber(props.views))
+const formattedVideos = computed(() => formatNumber(props.videos))
+</script>
+
+<style scoped src="./ChannelAbout.css" />

@@ -439,10 +439,10 @@ Settings:
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
-    Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
-      lecteur vidéo
-    Video Playback Rate Interval: Intervalle de débit de lecture vidéo
-    Max Video Playback Rate: Débit de lecture vidéo maximal
+    Scroll Playback Rate Over Video Player: Faire défiler la vitesse de lecture sur
+      le lecteur vidéo
+    Video Playback Rate Interval: Intervalle de vitesse de lecture vidéo
+    Max Video Playback Rate: Vitesse maximale de lecture vidéo
     Screenshot:
       Enable: Activer les captures d'écran
       Ask Path: Demander le dossier de sauvegarde
@@ -1263,6 +1263,9 @@ Keys:
   arrowright: Flèche droite
   arrowup: Flèche haut
   alt: Alt
+  enter: Entrer
+  plus: Plus
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
 Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterruptionIntervalHours}
@@ -1270,3 +1273,60 @@ Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterr
 Description:
   Expand Description: '...plus'
   Collapse Description: Montrer moins
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Raccourcis clavier
+  Sections:
+    Video:
+      Playback: 'Vidéo : Lecture'
+      General: 'Vidéo : Général'
+    App:
+      General: 'Application : Générale'
+      Situational: 'Application : Situationnelle'
+  Show Keyboard Shortcuts: Afficher les raccourcis clavier
+  History Forward: Aller à la page suivante
+  Navigate to Settings: Naviguer vers la page des paramètres
+  Navigate to History: Naviguer vers la page de l'historique
+  Refresh: Actualiser le flux avec le contenu le plus récent
+  Captions: Activer/Désactiver les sous-titres
+  Stats: Afficher les statistiques de la vidéo
+  Picture in Picture: Activer/Désactiver le mode Image dans l'image
+  Play: Activer/Désactiver la lecture/pause
+  Large Fast Forward: Avancer de 10 secondes / Avancer rapidement la vidéo en fonction
+    de la vitesse de lecture actuelle
+  Mute: Activer/Désactiver le son
+  Decrease Video Speed: Diminuer la vitesse de la vidéo en fonction de l'intervalle
+    de la vitesse de lecture vidéo
+  Fullscreen: 'Activer/désactiver le plein écran'
+  Increase Video Speed: Augmenter la vitesse de la vidéo en fonction de l'intervalle
+    de la vitesse de lecture vidéo
+  New Window: Créer une nouvelle fenêtre
+  Large Rewind: Rembobiner de 10 secondes / Rembobiner la vidéo en fonction de la
+    vitesse de lecture actuelle
+  History Backward: Revenir à la page précédente
+  Focus Secondary Search: Mettre l'accent sur la barre de recherche secondaire (si
+    elle est présente)
+  Theatre Mode: Activer/désactiver le mode cinéma
+  Take Screenshot: Faire une capture d'écran
+  Minimize Window: Minimiser la fenêtre
+  Close Window: Fermer la fenêtre
+  Restart Window: Redémarrer la fenêtre
+  Force Restart Window: Forcer le redémarrage de la fenêtre
+  Toggle Developer Tools: Activer/désactiver les outils de développement
+  Reset Zoom: Réinitialiser le niveau de zoom / l'échelle de l'interface utilisateur
+  Zoom In: Zoomer
+  Zoom Out: Dézoomer
+  Focus Search: Mettre le focus sur la barre de recherche
+  Search in New Window: Rechercher dans une nouvelle fenêtre
+  Last Frame: Image précédente (lorsque la lecture est en pause)
+  Next Frame: Image suivante (lorsque la lecture est en pause)
+  Volume Up: Augmenter le volume
+  Volume Down: Réduire le volume
+  Small Rewind: Rembobiner X secondes en fonction de l'intervalle de rembobinage et
+    de la vitesse de lecture vidéo actuelle
+  Small Fast Forward: Avancer de X secondes en fonction de l'intervalle d'avance rapide
+    et de la vitesse de lecture vidéo actuelle
+  Last Chapter: Dernier chapitre
+  Next Chapter: Chapitre suivant
+  Full Window: Activer/désactiver la fenêtre maximisée
+  Skip by Tenths: Sauter dans la vidéo par pourcentage (3 sauts pour atteindre 30
+    % de la durée)

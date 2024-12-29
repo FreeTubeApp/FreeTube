@@ -337,6 +337,7 @@ Settings:
       Solarized Light: Solarisiert Hell
       Gruvbox Light: Gruvbox Hell
       Gruvbox Dark: Gruvbox Dunkel
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -394,6 +395,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox dunkles Wasser
       Gruvbox Light Orange: Gruvbox Hellorange
       Gruvbox Dark Blue: Gruvbox Dunkelblau
+      Catppuccin Frappe Yellow: Catppuccin Frappe gelb
+      Catppuccin Frappe Sky: Catppuccin Frappe himmelblau
+      Catppuccin Frappe Mauve: Catppuccin Frappe malvenfarben
+      Catppuccin Frappe Blue: Catppuccin Frappe blau
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Red: Catppuccin Frappe rot
+      Catppuccin Frappe Teal: Catppuccin Frappe blaugrün
+      Catppuccin Frappe Peach: Catppuccin Frappe pfirsichfarben
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenwasser
+      Catppuccin Frappe Green: Catppuccin Frappe grün
+      Catppuccin Frappe Sapphire: Catppuccin Frappe saphirblau
+      Catppuccin Frappe Pink: Catppuccin Frappe pink
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendelfarben
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastanienbraun
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -434,7 +449,7 @@ Settings:
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Videoabspieler
-    Video Playback Rate Interval: Intervall für die Videowiedergabegeschwindigkeit
+    Video Playback Rate Interval: Video-Wiedergabegeschwindigkeitsintervall
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
     Screenshot:
       Enable: Bildschirmfoto aktivieren
@@ -1174,7 +1189,7 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
 Starting download: Herunterladen von „{videoTitle}“ wird gestartet
 Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
-Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
+Screenshot Success: Bildschirmfoto gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
@@ -1247,6 +1262,9 @@ Keys:
   ctrl: Strg
   alt: Alt
   arrowright: Pfeil nach rechts
+  plus: Plus
+  enter: Enter
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
@@ -1256,3 +1274,59 @@ Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autopla
 Description:
   Collapse Description: Weniger anzeigen
   Expand Description: '...mehr'
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Tastenkombinationen
+  Sections:
+    Video:
+      Playback: 'Video: Wiedergabe'
+      General: 'Video: Allgemein'
+    App:
+      Situational: 'Anwendung: Situationsbezogen'
+      General: 'Anwendung: Allgemein'
+  History Backward: Eine Seite zurückgehen
+  New Window: Ein neues Fenster erzeugen
+  Navigate to Settings: Zur Einstellungsseite navigieren
+  Navigate to History: Zur Verlaufsseite navigieren
+  Stats: Video-Statistiken anzeigen
+  Fullscreen: Vollbildmodus umschalten
+  Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Take Screenshot: Bildschirmfoto erstellen
+  Minimize Window: Fenster minimieren
+  Close Window: Fenster schließen
+  Restart Window: Fenster neu starten
+  Reset Zoom: Zoomstufe / UI-Skalierung zurücksetzen
+  Zoom In: Vergrößern
+  Zoom Out: Verkleinern
+  Focus Search: Fokus auf die Suchleiste
+  Search in New Window: In einem neuen Fenster suchen
+  Refresh: Feed mit aktuellen Inhalten aktualisieren
+  Large Fast Forward: 10 Sekunden vorspulen / Schnelles Vorspulen des Videos basierend
+    auf der aktuellen Videowiedergaberate
+  Mute: Stummschaltung
+  Force Restart Window: Fenster Neustart erzwingen
+  Volume Up: Lautstärke erhöhen
+  Volume Down: Lautstärke vermindern
+  Next Chapter: Nächstes Kapitel
+  Last Chapter: Letztes Kapitel
+  Show Keyboard Shortcuts: Tastaturkürzel anzeigen
+  History Forward: Eine Seite nach vorne gehen
+  Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Large Rewind: 10 Sekunden zurückspulen / Video basierend auf der aktuellen Videowiedergaberate
+    zurückspulen
+  Full Window: Ganzes Fenster umschalten
+  Theatre Mode: Theatermodus umschalten
+  Toggle Developer Tools: Entwicklerwerkzeuge umschalten
+  Play: Wiedergabe/Pause umschalten
+  Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden
+    ist)
+  Captions: Untertitel EIN/AUS umschalten
+  Picture in Picture: Bild-in-Bild-Modus umschalten
+  Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
+  Small Fast Forward: X Sekunden schnell vorspulen, basierend auf dem Schnellvorspulintervall
+    und der aktuellen Videowiedergaberate
+  Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30 % der Dauer)
+  Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
+  Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
+    aktuellen Videowiedergaberate
