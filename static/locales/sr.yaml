@@ -337,6 +337,7 @@ Settings:
       Solarized Light: Соларизована светла
       Gruvbox Dark: Gruvbox тамна
       Gruvbox Light: Gruvbox светла
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -363,15 +364,15 @@ Settings:
       Dracula Red: 'Дракула црвена'
       Dracula Yellow: 'Дракула жута'
       Catppuccin Mocha Red: Catppuccin Mocha црвена
-      Catppuccin Mocha Maroon: Catppuccin Mocha бордо
-      Catppuccin Mocha Sky: Catppuccin Mocha небо
+      Catppuccin Mocha Maroon: Catppuccin Mocha тамноцрвена
+      Catppuccin Mocha Sky: Catppuccin Mocha небеска
       Catppuccin Mocha Sapphire: Catppuccin Mocha сафирна
       Catppuccin Mocha Teal: Catppuccin Mocha тиркизна
       Catppuccin Mocha Yellow: Catppuccin Mocha жута
-      Catppuccin Mocha Rosewater: Catppuccin Mocha светлорозе-румена
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ружина водица
       Catppuccin Mocha Peach: Catppuccin Mocha бресква
       Catppuccin Mocha Flamingo: Catppuccin Mocha фламингос
-      Catppuccin Mocha Mauve: Catppuccin Mocha мауве
+      Catppuccin Mocha Mauve: Catppuccin Mocha бледољубичаста
       Catppuccin Mocha Pink: Catppuccin Mocha розе
       Catppuccin Mocha Lavender: Catppuccin Mocha лаванда
       Catppuccin Mocha Blue: Catppuccin Mocha плава
@@ -394,6 +395,20 @@ Settings:
       Gruvbox Light Blue: Gruvbox светлоплава
       Gruvbox Light Purple: Gruvbox светлољубичаста
       Gruvbox Light Orange: Gruvbox светлонаранџаста
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ружина водица
+      Catppuccin Frappe Flamingo: Catppuccin Frappe фламингос
+      Catppuccin Frappe Mauve: Catppuccin Frappe бледољубичаста
+      Catppuccin Frappe Red: Catppuccin Frappe црвена
+      Catppuccin Frappe Maroon: Catppuccin Frappe тамноцрвена
+      Catppuccin Frappe Yellow: Catppuccin Frappe жута
+      Catppuccin Frappe Green: Catppuccin Frappe зелена
+      Catppuccin Frappe Sky: Catppuccin Frappe небеска
+      Catppuccin Frappe Sapphire: Catppuccin Frappe сафирна
+      Catppuccin Frappe Blue: Catppuccin Frappe плава
+      Catppuccin Frappe Peach: Catppuccin Frappe бресква
+      Catppuccin Frappe Lavender: Catppuccin Frappe лаванда
+      Catppuccin Frappe Pink: Catppuccin Frappe розе
+      Catppuccin Frappe Teal: Catppuccin Frappe тиркизна
     Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
@@ -1032,6 +1047,8 @@ Playlist:
     DateAddedNewest: Најновије додато прво
     VideoDurationDescending: Трајање (прво најдуже)
     VideoDurationAscending: Трајање (прво најкраће)
+    PublishedNewest: Прво најновије објављено
+    PublishedOldest: Прво најраније објављено
 Falling back to Invidious API: Повратак на Invidious API
 Change Format:
   Dash formats are not available for this video: DASH формати нису доступни за овај
@@ -1198,6 +1215,9 @@ Keys:
   ctrl: Ctrl
   arrowup: Стрелица горе
   arrowright: Стрелица десно
+  shift: Shift
+  enter: Enter
+  plus: Plus
 shortcutJoinOperator: +
 Right-click or hold to see history: Кликните десним тастером миша или задржите да
   бисте видели историју
@@ -1206,3 +1226,59 @@ Autoplay Interruption Timer: Аутоплеј је отказан због {auto
 Description:
   Expand Description: …више
   Collapse Description: Прикажи мање
+KeyboardShortcutPrompt:
+  History Backward: Одлазак једну страницу уназад
+  Sections:
+    App:
+      Situational: 'Апликација: Ситуационална'
+      General: 'Апликација: Опште'
+    Video:
+      General: 'Видео снимак: Опште'
+      Playback: 'Видео снимак: Репродукција'
+  Show Keyboard Shortcuts: Прикажи тастерске пречице
+  Navigate to Settings: Одлазак на страницу „Подешавања“
+  History Forward: Одлазак једну страницу унапред
+  New Window: Прављење новог прозора
+  Large Rewind: Премотавање 10 секунди уназад / Премотавање видео снимак уназад на
+    основу тренутне брзине репродукције видео снимка
+  Play: Пуштање/пауза
+  Zoom In: Увеличавање
+  Reset Zoom: Ресетовање нивоа увеличавања / скале корисничког интерфејса
+  Toggle Developer Tools: Укључивање програмерских опција
+  Zoom Out: Умањивање
+  Next Chapter: Следеће поглавље
+  Skip by Tenths: Прескакање кроз видео снимак по процентима (3 прескакања до 30%
+    трајања)
+  Last Chapter: Последње поглавље
+  Keyboard Shortcuts: Тастерске пречице
+  Captions: Укључивање/искључивање титлова
+  Picture in Picture: Укључивање режима слике у слици
+  Stats: Приказ статистике видео снимка
+  Refresh: Освежавање фида најновијим садржајем
+  Navigate to History: Одлазак на страницу „Почетна“
+  Mute: Утишавање
+  Decrease Video Speed: Смањивање брзине видео снимка на основу интервала брзине репродукције
+    видео снимка
+  Increase Video Speed: Повећавање брзине видео снимка на основу интервала брзине
+    репродукције видео снимка
+  Theatre Mode: Укључивање режима биоскопа
+  Take Screenshot: Снимак екрана
+  Minimize Window: Минимизирање прозора
+  Close Window: Затварање прозора
+  Restart Window: Рестартовање прозора
+  Force Restart Window: Присилно рестартовање прозора
+  Focus Search: Фокусирање на траку за претрагу
+  Last Frame: Претходни кадар (приликом паузе)
+  Next Frame: Следећи кадар (приликом паузе)
+  Volume Up: Појачавање јачине звука
+  Small Rewind: Премотавање X секунди уназад на основу интервала премотавања уназад
+    и тренутне брзине репродукције видео снимка
+  Full Window: Укључивање целог прозора
+  Focus Secondary Search: Фокусирање на секундарну траку за претрагу (ако постоји)
+  Large Fast Forward: Премотавање 10 секунди унапред / Брзо премотавање видео снимка
+    унапред на основу тренутне брзине репродукције видео снимка
+  Search in New Window: Претрага у новом прозору
+  Fullscreen: Укључивање режима целог екрана
+  Volume Down: Смањивање јачине звука
+  Small Fast Forward: Брзо премотавање унапред X секунди засновано на интервалу брзог
+    премотавања унапред и тренутној брзини репродукције видео снимка
