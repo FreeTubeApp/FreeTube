@@ -67,6 +67,16 @@
       </template>
     </div>
     <div
+      v-if="showValueChangePopup"
+      class="valueChangePopup"
+    >
+      <font-awesome-icon
+        v-if="valueChangeIcon"
+        :icon="['fas', `${valueChangeIcon}`]"
+      />
+      {{ valueChangeMessage }}
+    </div>
+    <div
       v-if="showOfflineMessage"
       class="offlineWrapper"
     >

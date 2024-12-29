@@ -112,6 +112,7 @@ import {
   faUsers,
   faUsersSlash,
   faWifi,
+  faVolumeHigh,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -232,6 +233,7 @@ library.add(
   faUsers,
   faUsersSlash,
   faWifi,
+  faVolumeHigh,
   faXmark,
 
   // solid icons

@@ -1808,6 +1808,8 @@ export default defineComponent({
       }
 
       volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
+
+      showValueChange(`${Math.round(video.value.volume * 100)}%`, 'volume-high')
     }
 
     /**
@@ -1823,6 +1825,8 @@ export default defineComponent({
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
       }
+
+      showValueChange(`${newPlaybackRate.toFixed(2)}x`)
     }
 
     function canSeek() {
@@ -2814,6 +2818,25 @@ export default defineComponent({
 
     // #endregion functions used by the watch page
 
+    const showValueChangePopup = ref(false)
+    const valueChangeMessage = ref('')
+    const valueChangeIcon = ref(null)
+    let valueChangeTimeout = null
+
+    function showValueChange(message, icon = null) {
+      valueChangeMessage.value = message
+      valueChangeIcon.value = icon
+      showValueChangePopup.value = true
+
+      if (valueChangeTimeout) {
+        clearTimeout(valueChangeTimeout)
+      }
+
+      valueChangeTimeout = setTimeout(() => {
+        showValueChangePopup.value = false
+      }, 2000)
+    }
+
     return {
       container,
       video,
@@ -2837,6 +2860,11 @@ export default defineComponent({
       handleEnded,
       updateVolume,
       handleTimeupdate,
+
+      showValueChange,
+      valueChangeMessage,
+      valueChangeIcon,
+      showValueChangePopup
     }
   }
 })
