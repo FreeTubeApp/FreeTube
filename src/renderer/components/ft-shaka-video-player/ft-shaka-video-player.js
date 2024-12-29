@@ -1824,9 +1824,10 @@ export default defineComponent({
       if (newPlaybackRate > 0.07 && newPlaybackRate <= maxVideoPlaybackRate.value) {
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
-      }
 
-      showValueChange(`${newPlaybackRate.toFixed(2)}x`)
+        const playerPlaybackRate = player.getPlaybackRate() + step
+        showValueChange(`${playerPlaybackRate.toFixed(2)}x`)
+      }
     }
 
     function canSeek() {
