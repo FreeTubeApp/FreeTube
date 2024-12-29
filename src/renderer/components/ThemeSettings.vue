@@ -129,16 +129,16 @@ const BASE_THEME_VALUES = [
   'catppuccinFrappe',
   'catppuccinMocha',
   'dracula',
-  'gruvboxDark',
-  'gruvboxLight',
-  'solarizedDark',
-  'solarizedLight',
   'everforestDarkHard',
   'everforestDarkMedium',
   'everforestDarkLow',
   'everforestLightHard',
   'everforestLightMedium',
-  'everforestLightLow'
+  'everforestLightLow',
+  'gruvboxDark',
+  'gruvboxLight',
+  'solarizedDark',
+  'solarizedLight'
 ]
 
 const baseThemeNames = computed(() => [
@@ -155,16 +155,16 @@ const baseThemeNames = computed(() => [
   t('Settings.Theme Settings.Base Theme.Catppuccin Frappe'),
   t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
   t('Settings.Theme Settings.Base Theme.Dracula'),
-  t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
-  t('Settings.Theme Settings.Base Theme.Gruvbox Light'),
-  t('Settings.Theme Settings.Base Theme.Solarized Dark'),
-  t('Settings.Theme Settings.Base Theme.Solarized Light'),
   t('Settings.Theme Settings.Base Theme.Everforest Dark Hard'),
   t('Settings.Theme Settings.Base Theme.Everforest Dark Medium'),
   t('Settings.Theme Settings.Base Theme.Everforest Dark Low'),
   t('Settings.Theme Settings.Base Theme.Everforest Light Hard'),
   t('Settings.Theme Settings.Base Theme.Everforest Light Medium'),
-  t('Settings.Theme Settings.Base Theme.Everforest Light Low')
+  t('Settings.Theme Settings.Base Theme.Everforest Light Low'),
+  t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),
+  t('Settings.Theme Settings.Base Theme.Gruvbox Light'),
+  t('Settings.Theme Settings.Base Theme.Solarized Dark'),
+  t('Settings.Theme Settings.Base Theme.Solarized Light')
 ])
 
 const COLOR_VALUES = colors.map(color => color.name)
