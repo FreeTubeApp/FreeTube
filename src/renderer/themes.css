@@ -1104,7 +1104,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8b9e5f;
 }
 
-.mainEverforestDarkTurquoise {
+.mainEverforestDarkAqua {
   --primary-color: #83c092;
   --primary-color-hover: #95d0b0;
   --primary-color-active: #6da07f;
@@ -1146,7 +1146,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #6d7e01;
 }
 
-.mainEverforestLightTurquoise {
+.mainEverforestLightAqua {
   --primary-color: #35a77c;
   --primary-color-hover: #57c99e;
   --primary-color-active: #0d7e51;
@@ -2100,14 +2100,14 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secEverforestDarkOrange,
 .secEverforestDarkYellow,
 .secEverforestDarkGreen,
-.secEverforestDarkTurquoise,
+.secEverforestDarkAqua,
 .secEverforestDarkBlue,
 .secEverforestDarkPurple,
 .secEverforestLightRed,
 .secEverforestLightOrange,
 .secEverforestLightYellow,
 .secEverforestLightGreen,
-.secEverforestLightTurquoise,
+.secEverforestLightAqua,
 .secEverforestLightBlue,
 .secEverforestLightPurple {
   --text-with-accent-color: #1e2326;
@@ -2160,7 +2160,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(167 192 128 / 24%);
 }
 
-.secEverforestDarkTurquoise {
+.secEverforestDarkAqua {
   --accent-color: #83c092;
   --accent-color-hover: #8dc99f;
   --accent-color-active: #6ba77b;
@@ -2244,7 +2244,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(141 161 1 / 24%);
 }
 
-.secEverforestLightTurquoise {
+.secEverforestLightAqua {
   --accent-color: #35a77c;
   --accent-color-hover: #46b38a;
   --accent-color-active: #24a569;
