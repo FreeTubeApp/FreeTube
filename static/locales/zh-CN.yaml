@@ -288,6 +288,7 @@ Settings:
       Solarized Dark: 日照黑
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -345,6 +346,20 @@ Settings:
       Gruvbox Light Orange: Gruvbox 浅橙
       Gruvbox Dark Green: Gruvbox 深绿
       Gruvbox Dark Orange: Gruvbox 深橙
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -818,6 +833,8 @@ Playlist:
     VideoTitleAscending: 标题（A-Z）
     VideoDurationAscending: 持续时间（最短的优先）
     VideoDurationDescending: 持续时间（最长的优先）
+    PublishedOldest: 最早发布的优先
+    PublishedNewest: 最新发布的优先
 Change Format:
   Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
