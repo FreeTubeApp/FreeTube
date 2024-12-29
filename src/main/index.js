@@ -22,6 +22,7 @@ import { brotliDecompress } from 'zlib'
 import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
+import { generatePoToken } from './poTokenGenerator'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -254,13 +255,16 @@ function runApp() {
 
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance, we should focus our window
-      if (mainWindow && typeof commandLine !== 'undefined') {
-        if (mainWindow.isMinimized()) mainWindow.restore()
-        mainWindow.focus()
-
+      if (typeof commandLine !== 'undefined') {
         const url = getLinkUrl(commandLine)
-        if (url) {
-          mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        if (mainWindow && mainWindow.webContents) {
+          if (mainWindow.isMinimized()) mainWindow.restore()
+          mainWindow.focus()
+
+          if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+        } else {
+          if (url) startupUrl = url
+          createWindow()
         }
       }
     })
@@ -424,24 +428,9 @@ function runApp() {
         requestHeaders.Referer = 'https://www.youtube.com/'
         requestHeaders.Origin = 'https://www.youtube.com'
 
-        // Make iOS requests work and look more realistic
-        if (requestHeaders['x-youtube-client-name'] === '5') {
-          delete requestHeaders.Referer
-          delete requestHeaders.Origin
-          delete requestHeaders['Sec-Fetch-Site']
-          delete requestHeaders['Sec-Fetch-Mode']
-          delete requestHeaders['Sec-Fetch-Dest']
-          delete requestHeaders['sec-ch-ua']
-          delete requestHeaders['sec-ch-ua-mobile']
-          delete requestHeaders['sec-ch-ua-platform']
-
-          requestHeaders['User-Agent'] = requestHeaders['x-user-agent']
-          delete requestHeaders['x-user-agent']
-        } else {
-          requestHeaders['Sec-Fetch-Site'] = 'same-origin'
-          requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
-          requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
-        }
+        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+        requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
       } else if (urlObj.origin.endsWith('.googlevideo.com') && urlObj.pathname === '/videoplayback') {
         requestHeaders.Referer = 'https://www.youtube.com/'
         requestHeaders.Origin = 'https://www.youtube.com'
@@ -455,7 +444,7 @@ function runApp() {
           requestHeaders.Authorization = invidiousAuthorization.authorization
         }
       }
-       
+
       callback({ requestHeaders })
     })
 
@@ -466,7 +455,7 @@ function runApp() {
       if (responseHeaders) {
         delete responseHeaders['set-cookie']
       }
-       
+
       callback({ responseHeaders })
     })
 
@@ -662,6 +651,12 @@ function runApp() {
           return '#002B36'
         case 'solarized-light':
           return '#fdf6e3'
+        case 'gruvbox-dark':
+          return '#282828'
+        case 'gruvbox-light':
+          return '#fbf1c7'
+        case 'catppuccin-frappe':
+          return '#303446'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -690,7 +685,9 @@ function runApp() {
         webSecurity: false,
         backgroundThrottling: false,
         contextIsolation: false
-      }
+      },
+      minWidth: 340,
+      minHeight: 380
     }
 
     const newWindow = new BrowserWindow(
@@ -757,7 +754,6 @@ function runApp() {
     // If called multiple times
     // Duplicate menu items will be added
     if (replaceMainWindow) {
-       
       setMenu()
     }
 
@@ -824,10 +820,11 @@ function runApp() {
     })
   }
 
-  ipcMain.once(IpcChannels.APP_READY, () => {
+  ipcMain.on(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
+    startupUrl = null
   })
 
   function relaunch() {
@@ -875,6 +872,10 @@ function runApp() {
     })
   })
 
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, visitorData) => {
+    return generatePoToken(visitorData)
+  })
+
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     session.defaultSession.setProxy({
       proxyRules: url
@@ -886,6 +887,43 @@ function runApp() {
     session.defaultSession.setProxy({})
     session.defaultSession.closeAllConnections()
   })
+
+  // #region navigation history
+
+  const NAV_HISTORY_DISPLAY_LIMIT = 15
+  // Math.trunc but with a bitwise OR so that it can be calcuated at build time and the number inlined
+  const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = (NAV_HISTORY_DISPLAY_LIMIT / 2) | 0
+
+  ipcMain.handle(IpcChannels.GET_NAVIGATION_HISTORY, ({ sender }) => {
+    const activeIndex = sender.navigationHistory.getActiveIndex()
+    const length = sender.navigationHistory.length()
+
+    let end
+
+    if (activeIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT) {
+      end = Math.min(length - 1, NAV_HISTORY_DISPLAY_LIMIT - 1)
+    } else if (length - activeIndex < HALF_OF_NAV_HISTORY_DISPLAY_LIMIT + 1) {
+      end = length - 1
+    } else {
+      end = activeIndex + HALF_OF_NAV_HISTORY_DISPLAY_LIMIT
+    }
+
+    const dropdownOptions = []
+
+    for (let index = end; index >= Math.max(0, end + 1 - NAV_HISTORY_DISPLAY_LIMIT); --index) {
+      const routeLabel = sender.navigationHistory.getEntryAtIndex(index)?.title
+
+      dropdownOptions.push({
+        label: routeLabel,
+        value: index - activeIndex,
+        active: index === activeIndex
+      })
+    }
+
+    return dropdownOptions
+  })
+
+  // #endregion navigation history
 
   ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
     if (typeof url === 'string') {
@@ -1269,11 +1307,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId({
-            _id: data._id,
-            videoId: data.videoId,
-            playlistItemId: data.playlistItemId,
-          })
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.videoId, data.playlistItemId)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1326,7 +1360,7 @@ function runApp() {
           return await baseHandlers.subscriptionCache.find()
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateVideosByChannelId(data)
+          await baseHandlers.subscriptionCache.updateVideosByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1335,7 +1369,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateLiveStreamsByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1344,7 +1378,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateShortsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateShortsByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1353,7 +1387,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateShortsWithChannelPageShortsByChannelId(data.channelId, data.entries)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1362,7 +1396,7 @@ function runApp() {
           return null
 
         case DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL:
-          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data)
+          await baseHandlers.subscriptionCache.updateCommunityPostsByChannelId(data.channelId, data.entries, data.timestamp)
           syncOtherWindows(
             IpcChannels.SYNC_SUBSCRIPTION_CACHE,
             event,
@@ -1417,6 +1451,7 @@ function runApp() {
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
+      mainWindow = null
       if (process.platform !== 'darwin') {
         app.quit()
       }
@@ -1486,6 +1521,7 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
+      if (app.isReady()) createWindow()
     }
   })
 

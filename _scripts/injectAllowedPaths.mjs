@@ -6,12 +6,9 @@
  * to ensure that it cannot access other files on the disk, without the users permission (e.g. file picker).
  */
 import { closeSync, ftruncateSync, openSync, readFileSync, readdirSync, writeSync } from 'fs'
-import { dirname, join, relative, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { join, relative, resolve } from 'path'
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const distDirectory = resolve(__dirname, '..', 'dist')
+const distDirectory = resolve(import.meta.dirname, '..', 'dist')
 const webDirectory = join(distDirectory, 'web')
 
 const paths = readdirSync(distDirectory, {
@@ -24,14 +21,15 @@ const paths = readdirSync(distDirectory, {
       // disallow the renderer process/browser windows to read the main.js file
       dirent.name !== 'main.js' &&
       dirent.name !== 'main.js.LICENSE.txt' &&
+      // disallow the renderer process/browser windows to read the botGuardScript.js file
+      dirent.name !== 'botGuardScript.js' &&
       // filter out any web build files, in case the dist directory contains a web build
-      !dirent.path.startsWith(webDirectory);
+      !dirent.parentPath.startsWith(webDirectory)
   })
   .map(dirent => {
-    const joined = join(dirent.path, dirent.name)
+    const joined = join(dirent.parentPath, dirent.name)
     return '/' + relative(distDirectory, joined).replaceAll('\\', '/')
   })
-
 
 let fileHandle
 try {

@@ -2,8 +2,8 @@
 Locale Name: 'español (España)'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
-  hecho progresos.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando haya logrado
+  avances.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -131,17 +131,9 @@ Most Popular: 'Más populares'
 Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
-    favoritos están vacíos. Haz clic en la estrella de cada vídeo para añadirlo aquí
-  Playlist Message: Esta página no refleja el estado final de las listas de reproducción,
-    solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
-    a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
     con su búsqueda
-  Are you sure you want to remove all watched videos from this playlist? This cannot be undone: ¿Estás
-    seguro de que quieres eliminar todos los vídeos vistos de esta lista de reproducción?
-    Esto no se puede deshacer.
   AddVideoPrompt:
     Search in Playlists: Buscar en listas de reproducción
     Save: Guardar
@@ -188,7 +180,6 @@ User Playlists:
       This video cannot be moved down.: Este vídeo no se puede bajar.
       This playlist is now used for quick bookmark: Esta lista de reproducción se
         utiliza ahora como marcador rápido
-      Quick bookmark disabled: Marcador rápido desactivado
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
         lista de reproducción se utiliza ahora como marcador rápido en lugar de {oldPlaylistName}.
         Haga clic aquí para deshacer
@@ -246,7 +237,6 @@ User Playlists:
   Remove from Favorites: Eliminar de {playlistName}
   Enable Quick Bookmark With This Playlist: Activar marcadores rápidos con esta lista
     de reproducción
-  Disable Quick Bookmark: Desactivar el marcador rápido
   Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
   Quick Bookmark Enabled: Marcador rápido habilitado
   Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
@@ -260,6 +250,8 @@ User Playlists:
     seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción?
     Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount}
     videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
+  Export Playlist: Exportar esta Playlist
+  The playlist has been successfully exported: La playlist se ha exportado correctamente
 History:
   # On History Page
   History: 'Historial'
@@ -294,8 +286,6 @@ Settings:
       End: 'Final'
       Hidden: Oculto
       Blur: Difuminar
-    'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
-      Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región de las tendencias'
         #! List countries
     Check for Latest Blog Posts: Buscar últimas publicaciones del blog
@@ -320,6 +310,7 @@ Settings:
     Auto Load Next Page:
       Label: Carga automática de la página siguiente
       Tooltip: Cargar automáticamente páginas adicionales y comentarios.
+    Open Deep Links In New Window: Abrir URL pasadas a FreeTube en una nueva ventana
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -336,6 +327,8 @@ Settings:
       Nordic: Nórdico
       Solarized Light: Solarized claro
       Solarized Dark: Solarized oscuro
+      Gruvbox Dark: Gruvbox oscuro
+      Gruvbox Light: Gruvbox claro
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -383,6 +376,16 @@ Settings:
       Solarized Blue: Azul Solarized
       Solarized Cyan: Cian Solarized
       Solarized Green: Verde Solarized
+      Gruvbox Dark Green: Gruvbox verde oscuro
+      Gruvbox Dark Yellow: Gruvbox amarillo oscuro
+      Gruvbox Dark Blue: Gruvbox azul oscuro
+      Gruvbox Dark Purple: Gruvbox púrpura
+      Gruvbox Dark Aqua: Gruvbox aguamarina oscuro
+      Gruvbox Light Purple: Gruvbox violeta claro
+      Gruvbox Dark Orange: Gruvbox naranja oscuro
+      Gruvbox Light Red: Gruvbox rojo claro
+      Gruvbox Light Blue: Gruvbox azul claro
+      Gruvbox Light Orange: Gruvbox naranja claro
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -418,7 +421,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
-    Next Video Interval: Siguiente segmento de vídeo
+    Next Video Interval: Temporizador de cuenta atrás de reproducción automática
     Display Play Button In Video Player: Mostrar el botón de reproducción sobre el
       vídeo
     Scroll Volume Over Video Player: Cambiar el volumen con la rueda del ratón sobre
@@ -442,11 +445,11 @@ Settings:
       File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
         %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
         %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
-        Milisegundo 3 dígitos. %i Video ID. También puede utilizar \ o / para crear
-        subcarpetas.
+        Milisegundo 3 dígitos. %i Video ID.
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
+    Autoplay Interruption Timer: Temporizador de interrupción de reproducción automática
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -472,19 +475,16 @@ Settings:
     Subscription Settings: 'Suscripción'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
-    Manage Subscriptions: 'Gestionar suscripciones'
     Fetch Automatically: Obtener los feed automáticamente
-    Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
-      canal
     Confirm Before Unsubscribing: Evitar bajas accidentales
+    'Limit the number of videos displayed for each channel': Limitar el número de
+      vídeos mostrados para cada canal
+    To: A
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
     Select Export Type: 'Seleccionar tipo de exportación'
     Import Subscriptions: 'Importar suscripciones'
-    Import FreeTube: 'Importar FreeTube'
-    Import YouTube: 'Importar YouTube'
-    Import NewPipe: 'Importar NewPipe'
     Export Subscriptions: 'Exportar suscripciones'
     Export FreeTube: 'Exportar FreeTube'
     Export YouTube: 'Exportar YouTube'
@@ -512,7 +512,6 @@ Settings:
     Unable to write file: 'Imposible escribir el archivo'
     Unknown data key: 'Clave de datos desconocida'
     How do I import my subscriptions?: '¿Cómo puedo importar mis suscripciones?'
-    Check for Legacy Subscriptions: Comprobar suscripciones Legacy
     Manage Subscriptions: Administrar suscripciones
     Import Playlists: Importar listas de reproducción
     Export Playlists: Exportar listas de reproducción
@@ -534,32 +533,6 @@ Settings:
         listas de reproducción en Configuración de privacidad.\n3. Inicia la versión
         anterior de FreeTube e importa las listas de reproducción exportadas.\""
       Label: Exportar listas de reproducción de versiones anteriores de FreeTube
-  Advanced Settings:
-    Advanced Settings: 'Ajustes avanzados'
-    Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
-      datos en la consola)'
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Dirección de máscara (Ejemplo:
-      SOCKS5://127.0.0.1:9050)'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': 'Haciendo
-      click en "PROBAR MÁSCARA" se enviará una solicitud a https://ipinfo.io/json'
-    Use Tor / Proxy for API calls: 'Usa Tor / Máscara para llamadas API'
-    TEST PROXY: 'PROBAR MÁSCARA'
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: 'Ver instancias públicas'
-    Clear History:
-      Clear History: 'Borrar historial'
-      # On Click
-      Are you sure you want to delete your history?: '¿Seguro de que quieres borrar
-        el historial?'
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: 'Borrar suscripciones'
-      # On Click
-      Are you sure you want to remove all subscriptions?: '¿Seguro de que quieres
-        borrar todas las suscripciones?'
-      #& Yes
-      #& No
 
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
@@ -584,22 +557,21 @@ Settings:
     Display Titles Without Excessive Capitalisation: Mostrar títulos sin mayúsculas
       ni signos de puntuación excesivos
     Hide Featured Channels: Ocultar canales recomendados
-    Hide Channel Playlists: Ocultar las listas de reproducción de los canales
-    Hide Channel Community: Ocultar canales de la comunidad
-    Hide Channel Shorts: Ocultar canales de shorts
+    Hide Channel Playlists: Ocultar la pestaña "Listas de reproducción" del canal
+    Hide Channel Community: Ocultar la pestaña "Comunidad" del canal
+    Hide Channel Shorts: Ocultar la pestaña "Vídeos cortos" del canal
     Sections:
       Side Bar: Barra lateral
       Channel Page: Página del canal
       Watch Page: Ver la página
       General: General
       Subscriptions Page: Página de suscripciones
-    Hide Channel Releases: Ocultar las nuevas publicaciones de los canales
-    Hide Channel Podcasts: Ocultar canales de podcasts
+    Hide Channel Releases: Ocultar la pestaña "Lanzamientos" del canal
+    Hide Channel Podcasts: Ocultar la pestaña "Podcasts" del canal
     Hide Subscriptions Shorts: Ocultar las suscripciones para shorts
     Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
     Hide Profile Pictures in Comments: Ocultar fotos de perfil en comentarios
-    Blur Thumbnails: Difuminar las miniaturas
     Hide Subscriptions Community: Ocultar las suscripciones de la comunidad
     Hide Channels Invalid: El ID del canal proporcionado no es válido
     Hide Channels Disabled Message: Algunos canales se bloquearon por ID y no se procesaron.
@@ -610,6 +582,8 @@ Settings:
     Hide Videos and Playlists Containing Text: Ocultar vídeos y listas de reproducción
       que contengan texto
     Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
+    Hide Channel Home: Ocultar la pestaña "Inicio" del canal
+    Show Added Items: Mostrar elementos añadidos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -628,6 +602,11 @@ Settings:
     Proxy Protocol: Protocolo del proxy
     Enable Tor / Proxy: Activar Tor o «proxy»
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube no tiene un proxy incorporado, pero puede conectarse a
+      un proxy externo, como uno que se ejecuta en su máquina como Tor o un proxy
+      externo como un proxy SOCKS5 proporcionado por algunas VPN. Si está habilitado,
+      asegúrese de que su proxy/Tor esté configurado correctamente, o FreeTube no
+      podrá recuperar ningún dato.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento
       de patrocinio
@@ -686,40 +665,12 @@ Settings:
     Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
-  Expand All Settings Sections: Expandir todas las secciones de los ajustes
   Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
   Return to Settings Menu: Volver a los Ajustes
 About:
   #On About page
   About: 'Acerca de'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Este
-    software de copyleft tiene licencia libre AGPL-3.0.'
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >-
-    ¿Has encontrado algún fallo? ¿Tienes alguna sugerencia? ¿te gustaría colaborar?
-    Visita nuestra página en GitHub. Podrás solicitar nuevas características/cambios.
-
-  Thank you very much to the People and Projects that make FreeTube possible!: '¡Muchísimas
-    gracias a todas las personas y los proyectos que han hecho posible FreeTube!'
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': '¿Quieres
-    chatear? Únete a nuestro servidor en Element / Matrix. Por favor, antes de unirte,
-    lee las reglas.'
-
-  'Looking for help? Check out our Wiki page.': '¿Buscas ayuda? Visita nuestra página
-    Wiki.'
-
-  Check out our Firefox extension!: '¡Prueba nuestra extensión para Firefox!'
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': 'Si
-    te gusta FreeTube, considera donar a través de Liberapay o a nuestra dirección
-    de Bitcoin.'
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: 'Últimas noticias de FreeTube'
-
   Donate: Donar
   these people and projects: estas personas y proyectos
   FreeTube is made possible by: FreeTube es posible gracias a
@@ -741,8 +692,6 @@ About:
   Help: Ayuda
   GitHub releases: Lanzamientos de GitHub
   Downloads / Changelog: Descargas / Registro de cambios
-  View License: Ver licencia
-  Licensed under the AGPLv3: Licencia AGPLv3
   Source code: Código fuente
   Beta: Beta
   Discussions: Debates
@@ -866,6 +815,9 @@ Channel:
     Releases: Publicaciones
     This channel does not currently have any releases: Este canal no tiene actualmente
       ninguna publicación
+  Home:
+    Home: Inicio
+    View Playlist: Ver lista de reproducción
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -896,38 +848,8 @@ Video:
     el chat no funciona con la API de Invidious. Se requiere una conexión directa
     con YouTube.'
   Published:
-    Jan: 'ene'
-    Feb: 'feb'
-    Mar: 'mar'
-    Apr: 'abr'
-    May: 'mayo'
-    Jun: 'jun'
-    Jul: 'jul'
-    Aug: 'ago'
-    Sep: 'sep'
-    Oct: 'oct'
-    Nov: 'nov'
-    Dec: 'dic'
-    Second: 'segundo'
-    Seconds: 'segundos'
-    Minute: 'minuto'
-    Minutes: 'minutos'
-    Hour: 'hora'
-    Hours: 'horas'
-    Day: 'día'
-    Days: 'días'
-    Week: 'semana'
-    Weeks: 'semanas'
-    Month: 'mes'
-    Months: 'meses'
-    Year: 'año'
-    Years: 'años'
-    Ago: 'Hace'
-    Upcoming: 'Se estrenará el'
-    Less than a minute: Menos de un minuto
     In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
-  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Play Previous Video: Reproducir el vídeo anterior
   Play Next Video: Reproducir vídeo siguiente
@@ -1017,6 +939,15 @@ Video:
     Full Window: Pantalla completa
   IP block: YouTube ha bloqueado tu dirección IP para ver vídeos. Por favor, intenta
     cambiar a otra VPN o proxy.
+  MembersOnly: Los videos solo para miembros no se pueden ver con FreeTube ya que
+    requieren un inicio de sesión en Google y una membresía pagada al canal del cargador.
+  Unlisted: No listado
+  AgeRestricted: Los vídeos con restricciones de edad no se pueden ver con FreeTube
+    ya que requieren iniciar sesión en Google y usar una cuenta de YouTube verificada
+    por edad.
+  DeArrow:
+    Show Original Details: Mostrar detalles originales
+    Show Modified Details: Mostrar detalles modificados
 Videos:
   #& Sort By
   Sort By:
@@ -1027,9 +958,6 @@ Videos:
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
-  Videos: 'Vídeos'
-  View: 'Ver'
-  Views: 'Vistas'
   Last Updated On: 'Se actualizó por última vez el'
 
 # On Video Watch Page
@@ -1047,7 +975,6 @@ Playlist:
     VideoTitleDescending: Título (Z-A)
     VideoDurationAscending: Duración (primero la más corta)
     VideoDurationDescending: Duración (la más larga primero)
-Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -1116,7 +1043,6 @@ Invidious API Error (Click to copy): 'Error de la API de Invidious (Clic para co
   el código)'
 Falling back to Invidious API: 'Recurriendo a la API de Invidious'
 Falling back to Local API: 'Recurriendo a la API local'
-Subscriptions have not yet been implemented: 'Todavía no se han implementado las suscripciones'
 Loop is now disabled: 'Reproducción en bucle desactivada'
 Loop is now enabled: 'Reproducción en bucle activada'
 Shuffle is now disabled: 'Reproducción aleatoria desactivada'
@@ -1176,12 +1102,15 @@ Tooltips:
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic
       en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá
       el enlace en el que se hizo clic en su navegador predeterminado.\n"
+    Open Deep Links In New Window: Las URL que se pasan a FreeTube, por ejemplo mediante
+      la redirección de extensiones del navegador o argumentos de la línea de comandos,
+      se abren en una ventana nueva.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor
       externo seleccionado mediante la variable de entorno PATH, de no encontrarlo,
       podrás especificar una ruta personalizada aquí.
-    Custom External Player Arguments: Depara cada argumento mediante un punto y coma
-      (;) cada argumento será enviado al reproductor externo.
+    Custom External Player Arguments: Cualquier argumento personalizado de la línea
+      de comandos que desee pasar al reproductor externo.
     Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
       (ej. invertir listas de reproducción, etc.).
     External Player: La elección de un reproductor externo mostrará un icono, para
@@ -1217,8 +1146,6 @@ More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
   puede abrir en la aplicación
 Open New Window: Abrir ventana nueva
-Hashtags have not yet been implemented, try again later: Los hashtags no se han implementado
-  todavía, inténtalo más adelante
 Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para
   cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz
   clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos.
@@ -1236,7 +1163,7 @@ Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir
 Starting download: Inicio de la descarga de «{videoTitle}»
 Downloading has completed: '«{videoTitle}» ha terminado de descargarse'
 Downloading failed: Hubo un problema al descargar «{videoTitle}»
-Screenshot Success: Captura de pantalla guardada como «{filePath}»
+Screenshot Success: Captura de pantalla guardada
 Screenshot Error: Captura de pantalla fallida. {error}
 New Window: Nueva ventana
 Channels:
@@ -1245,8 +1172,6 @@ Channels:
   Search bar placeholder: Buscar canales
   Count: '{number} canal(es) encontrado(s).'
   Empty: Tu lista de canales está actualmente vacía.
-  Unsubscribe: Cancelar la suscripción
-  Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
   Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
 Clipboard:
   Copy failed: Error al copiar al portapapeles
@@ -1258,6 +1183,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
     ocultos, capítulo actual: {chapterName}'
   Chapters: Capítulos
+  Key Moments: Momentos clave
 Preferences: Preferencias
 Ok: De acuerdo
 Hashtag:
@@ -1302,3 +1228,19 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Bloqueada la apertura de la URL potencialmente
   insegura: «{url}».'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Clic con el botón derecho del ratón o mantén presionado
+  para ver el historial
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Flecha hacia abajo
+  arrowleft: Flecha hacia la izquierda
+  arrowright: Flecha hacía la derecha
+  arrowup: Flecha hacia arriba
+Autoplay Interruption Timer: Reproducción automática cancelada debido a {autoplayInterruptionIntervalHours}
+  horas de inactividad
+Description:
+  Expand Description: '...más'
+  Collapse Description: Mostrar menos

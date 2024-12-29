@@ -27,3 +27,30 @@
 .videoTagLine .videoTag:first-child {
   margin-inline-start: 0;
 }
+
+.deArrowToggleButton {
+  border-radius: 50%;
+  cursor: pointer;
+  block-size: 1em;
+  inline-size: 1em;
+  padding: 10px;
+  font-size: 16px;
+  transition: background 0.15s ease-out;
+  color: var(--primary-color);
+
+  &:not(.disabled) {
+    &:hover,
+    &:focus-visible {
+      background-color: var(--side-nav-hover-color);
+    }
+
+    &:active {
+      background-color: var(--side-nav-active-color);
+    }
+
+    &.alwaysVisible {
+      opacity: 1;
+      filter: grayscale(1);
+    }
+  }
+}

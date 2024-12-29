@@ -3,7 +3,8 @@
   gap: 20px;
 }
 
-.settingsSections {
+.settingsSections,
+.switchRow {
   overflow-x: hidden;
   max-inline-size: 90%;
 }
@@ -11,6 +12,8 @@
 .switchRow {
   display: flex;
   margin-inline-end: auto;
+  align-items: center;
+  margin-block-end: 5px;
 }
 
 .settingsToggle {
@@ -35,7 +38,8 @@
 }
 
 @media only screen and (width <= 1200px) {
-  .settingsSections {
+  .settingsSections,
+  .switchRow {
     max-inline-size: 100%;
   }
 }

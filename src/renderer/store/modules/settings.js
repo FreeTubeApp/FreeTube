@@ -172,6 +172,7 @@ const state = {
   baseTheme: 'system',
   mainColor: 'Red',
   secColor: 'Blue',
+  defaultAutoplayInterruptionIntervalHours: 3,
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
@@ -181,7 +182,7 @@ const state = {
   defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
-  displayVideoPlayButton: true,
+  displayVideoPlayButton: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
@@ -190,10 +191,11 @@ const state = {
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
   externalPlayerIgnoreDefaultArgs: false,
-  externalPlayerCustomArgs: '',
+  externalPlayerCustomArgs: '[]',
   expandSideBar: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
+  hideChannelHome: false,
   hideChannelPlaylists: false,
   hideChannelReleases: false,
   hideChannelPodcasts: false,
@@ -205,6 +207,8 @@ const state = {
   hideFeaturedChannels: false,
   channelsHidden: '[]',
   forbiddenTitles: '[]',
+  showAddedChannelsHidden: true,
+  showAddedForbiddenTitles: true,
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
@@ -232,6 +236,8 @@ const state = {
   listType: 'grid',
   maxVideoPlaybackRate: 3,
   onlyShowLatestFromChannel: false,
+  onlyShowLatestFromChannelNumber: 1,
+  openDeepLinksInNewWindow: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
@@ -292,7 +298,7 @@ const state = {
   enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
-  screenshotAskPath: false,
+  screenshotAskPath: !process.env.IS_ELECTRON,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
   settingsSectionSortEnabled: false,
@@ -309,9 +315,9 @@ const state = {
 
 const stateWithSideEffects = {
   currentLocale: {
-    defaultValue: 'en-US',
+    defaultValue: 'system',
     sideEffectsHandler: async function ({ dispatch }, value) {
-      const defaultLocale = 'en-US'
+      const fallbackLocale = 'en-US'
 
       let targetLocale = value
       if (value === 'system') {
@@ -342,20 +348,20 @@ const stateWithSideEffects = {
           targetLocale = targetLocaleOptions[0]
         } else {
           // Go back to default value if locale is unavailable
-          targetLocale = defaultLocale
+          targetLocale = fallbackLocale
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
           // (in this case, English (US))
-          showToast(`Locale not found, defaulting to ${defaultLocale}`)
+          showToast(`Locale not found, defaulting to ${fallbackLocale}`)
         }
       }
 
       const loadPromises = []
 
-      if (targetLocale !== defaultLocale) {
+      if (targetLocale !== fallbackLocale) {
         // "en-US" is used as a fallback for missing strings in other locales
         loadPromises.push(
-          loadLocale(defaultLocale)
+          loadLocale(fallbackLocale)
         )
       }
 

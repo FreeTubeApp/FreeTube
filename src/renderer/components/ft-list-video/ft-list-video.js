@@ -13,6 +13,7 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import debounce from 'lodash.debounce'
+import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -112,6 +113,9 @@ export default defineComponent({
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
+      deArrowTogglePinned: false,
+      showDeArrowTitle: false,
+      showDeArrowThumbnail: false,
     }
   },
   computed: {
@@ -334,10 +338,10 @@ export default defineComponent({
 
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden') {
-        return require('../../assets/img/thumbnail_placeholder.svg')
+        return thumbnailPlaceholder
       }
 
-      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail != null) {
+      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail != null) {
         return this.deArrowCache.thumbnail
       }
 
@@ -394,7 +398,7 @@ export default defineComponent({
 
     displayTitle: function () {
       let title
-      if (this.useDeArrowTitles && this.deArrowCache?.title) {
+      if (this.showDeArrowTitle && this.deArrowCache?.title) {
         title = this.deArrowCache.title
       } else {
         title = this.title
@@ -496,9 +500,19 @@ export default defineComponent({
     useDeArrowTitles: function () {
       return this.$store.getters.getUseDeArrowTitles
     },
-
     useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
+    },
+    deArrowChangedContent: function () {
+      return (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
+        (this.useDeArrowTitles && this.deArrowCache?.title &&
+          this.data.title.localeCompare(this.deArrowCache.title, undefined, { sensitivity: 'accent' }) !== 0)
+    },
+
+    deArrowToggleTitle: function() {
+      return this.deArrowTogglePinned
+        ? this.$t('Video.DeArrow.Show Modified Details')
+        : this.$t('Video.DeArrow.Show Original Details')
     },
 
     deArrowCache: function () {
@@ -517,11 +531,14 @@ export default defineComponent({
   created: function () {
     this.parseVideoData()
 
-    if ((this.useDeArrowTitles || this.useDeArrowThumbnails) && !this.deArrowCache) {
+    this.showDeArrowTitle = this.useDeArrowTitles
+    this.showDeArrowThumbnail = this.useDeArrowThumbnails
+
+    if ((this.showDeArrowTitle || this.showDeArrowThumbnail) && !this.deArrowCache) {
       this.fetchDeArrowData()
     }
 
-    if (this.useDeArrowThumbnails && this.deArrowCache && this.deArrowCache.thumbnail == null) {
+    if (this.showDeArrowThumbnail && this.deArrowCache && this.deArrowCache.thumbnail == null) {
       if (this.debounceGetDeArrowThumbnail == null) {
         this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
       }
@@ -559,12 +576,26 @@ export default defineComponent({
       this.$store.commit('addVideoToDeArrowCache', cacheData)
 
       // fetch dearrow thumbnails if enabled
-      if (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail === null) {
+      if (this.showDeArrowThumbnail && this.deArrowCache?.thumbnail === null) {
         if (this.debounceGetDeArrowThumbnail == null) {
           this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
         }
 
         this.debounceGetDeArrowThumbnail()
+      }
+    },
+    toggleDeArrow() {
+      if (!this.deArrowChangedContent) {
+        return
+      }
+
+      this.deArrowTogglePinned = !this.deArrowTogglePinned
+
+      if (this.useDeArrowTitles) {
+        this.showDeArrowTitle = !this.showDeArrowTitle
+      }
+      if (this.useDeArrowThumbnails) {
+        this.showDeArrowThumbnail = !this.showDeArrowThumbnail
       }
     },
 
@@ -721,7 +752,7 @@ export default defineComponent({
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
         watchProgress: 0,
-        timeWatched: new Date().getTime(),
+        timeWatched: Date.now(),
         isLive: false,
         type: 'video'
       }
@@ -744,6 +775,9 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
+        published: this.published,
+        premiereDate: this.data.premiereDate,
+        premiereTimestamp: this.data.premiereTimestamp,
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
@@ -793,6 +827,9 @@ export default defineComponent({
         author: this.channelName,
         authorId: this.channelId,
         lengthSeconds: this.data.lengthSeconds,
+        published: this.published,
+        premiereDate: this.data.premiereDate,
+        premiereTimestamp: this.data.premiereTimestamp,
       }
 
       this.addVideo({

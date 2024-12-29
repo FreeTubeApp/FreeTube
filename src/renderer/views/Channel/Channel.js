@@ -1,18 +1,18 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
-import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
-import ChannelAbout from '../../components/channel-about/channel-about.vue'
+import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
+import ChannelAbout from '../../components/ChannelAbout/ChannelAbout.vue'
 import ChannelDetails from '../../components/ChannelDetails/ChannelDetails.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import ChannelHome from '../../components/ChannelHome/ChannelHome.vue'
 
 import autolinker from 'autolinker'
 import {
-  setPublishedTimestampsInvidious,
   copyToClipboard,
   extractNumberFromString,
   showToast,
@@ -22,10 +22,16 @@ import {
 import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
-  invidiousAPICall,
+  getInvidiousChannelLive,
+  getInvidiousChannelPlaylists,
+  getInvidiousChannelPodcasts,
+  getInvidiousChannelReleases,
+  getInvidiousChannelShorts,
+  getInvidiousChannelVideos,
   invidiousGetChannelId,
   invidiousGetChannelInfo,
   invidiousGetCommunityPosts,
+  searchInvidiousChannel,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
 import {
@@ -36,14 +42,15 @@ import {
   parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPosts,
-  parseLocalCompactStation,
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount,
   getLocalArtistTopicChannelReleasesContinuation,
   getLocalPlaylist,
-  parseLocalPlaylistVideo
+  parseLocalPlaylistVideo,
+  parseChannelHomeTab
 } from '../../helpers/api/local'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 export default defineComponent({
   name: 'Channel',
@@ -56,12 +63,15 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted,
     'channel-about': ChannelAbout,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
-    ChannelDetails
+    ChannelDetails,
+    ChannelHome
   },
   data: function () {
     return {
+      skipRouteChangeWatcherOnce: false,
       isLoading: true,
       isElementListLoading: false,
+      isSearchTabLoading: false,
       currentTab: 'videos',
       id: '',
       /** @type {import('youtubei.js').YT.Channel|null} */
@@ -96,6 +106,7 @@ export default defineComponent({
       showPlaylistSortBy: true,
       lastSearchQuery: '',
       relatedChannels: [],
+      homeData: [],
       latestVideos: [],
       latestShorts: [],
       latestLive: [],
@@ -117,6 +128,7 @@ export default defineComponent({
 
       autoRefreshOnSortByChangeEnabled: false,
       supportedChannelTabs: [
+        'home',
         'videos',
         'shorts',
         'live',
@@ -257,6 +269,10 @@ export default defineComponent({
       return this.$store.getters.getHideChannelCommunity
     },
 
+    hideChannelHome: function() {
+      return this.$store.getters.getHideChannelHome
+    },
+
     tabInfoValues: function () {
       const values = [...this.channelTabs]
 
@@ -286,6 +302,10 @@ export default defineComponent({
         indexToRemove.push(values.indexOf('releases'))
       }
 
+      if (this.hideChannelHome) {
+        indexToRemove.push(values.indexOf('home'))
+      }
+
       indexToRemove.forEach(index => {
         if (index !== -1) {
           values.splice(index, 1)
@@ -294,10 +314,22 @@ export default defineComponent({
 
       return values
     },
+
+    isCurrentTabLoading() {
+      if (this.currentTab === 'search') {
+        return this.isSearchTabLoading
+      }
+
+      return this.isElementListLoading
+    },
   },
   watch: {
     $route() {
       // react to route changes...
+      if (this.skipRouteChangeWatcherOnce) {
+        this.skipRouteChangeWatcherOnce = false
+        return
+      }
       this.isLoading = true
 
       if (this.$route.query.url) {
@@ -354,8 +386,9 @@ export default defineComponent({
 
       // Re-enable auto refresh on sort value change AFTER update done
       if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-        this.getChannelInfoInvidious()
-        this.autoRefreshOnSortByChangeEnabled = true
+        this.getChannelInfoInvidious().finally(() => {
+          this.autoRefreshOnSortByChangeEnabled = true
+        })
       } else {
         this.getChannelLocal().finally(() => {
           this.autoRefreshOnSortByChangeEnabled = true
@@ -432,9 +465,9 @@ export default defineComponent({
       }
     }
   },
-  mounted: function () {
+  mounted: async function () {
     if (this.$route.query.url) {
-      this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
+      await this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
       return
     }
 
@@ -450,12 +483,18 @@ export default defineComponent({
 
     // Enable auto refresh on sort value change AFTER initial update done
     if (!process.env.SUPPORTS_LOCAL_API || this.backendPreference === 'invidious') {
-      this.getChannelInfoInvidious()
-      this.autoRefreshOnSortByChangeEnabled = true
-    } else {
-      this.getChannelLocal().finally(() => {
+      await this.getChannelInfoInvidious().finally(() => {
         this.autoRefreshOnSortByChangeEnabled = true
       })
+    } else {
+      await this.getChannelLocal().finally(() => {
+        this.autoRefreshOnSortByChangeEnabled = true
+      })
+    }
+
+    const oldQuery = this.$route.query.searchQueryText ?? ''
+    if (oldQuery !== null && oldQuery !== '') {
+      this.newSearch(oldQuery)
     }
   },
   methods: {
@@ -522,7 +561,7 @@ export default defineComponent({
           this.channelName = channelName
           this.thumbnailUrl = channelThumbnailUrl
 
-          document.title = `${channelName} - ${packageDetails.productName}`
+          this.setAppTitle(`${channelName} - ${packageDetails.productName}`)
 
           this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId: this.id })
 
@@ -566,7 +605,7 @@ export default defineComponent({
         }
         this.tags = tags
 
-        document.title = `${channelName} - ${packageDetails.productName}`
+        this.setAppTitle(`${channelName} - ${packageDetails.productName}`)
 
         if (subscriberText) {
           const subCount = parseLocalSubscriberCount(subscriberText)
@@ -582,45 +621,6 @@ export default defineComponent({
 
         this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
-        let relatedChannels = channel.channels.map(({ author }) => ({
-          name: author.name,
-          id: author.id,
-          thumbnailUrl: author.best_thumbnail.url
-        }))
-
-        if (channel.memo.has('GameDetails')) {
-          /** @type {import('youtubei.js').YTNodes.GameDetails[]} */
-          const games = channel.memo.get('GameDetails')
-
-          relatedChannels.push(...games.map(game => ({
-            id: game.endpoint.payload.browseId,
-            name: game.title.text,
-            thumbnailUrl: game.box_art[0].url
-          })))
-        }
-
-        if (relatedChannels.length > 0) {
-          /** @type {Set<string>} */
-          const knownChannelIds = new Set()
-
-          relatedChannels = relatedChannels.filter(channel => {
-            if (!knownChannelIds.has(channel.id)) {
-              knownChannelIds.add(channel.id)
-              return true
-            }
-
-            return false
-          })
-
-          relatedChannels.forEach(channel => {
-            if (channel.thumbnailUrl.startsWith('//')) {
-              channel.thumbnailUrl = `https:${channel.thumbnailUrl}`
-            }
-          })
-        }
-
-        this.relatedChannels = relatedChannels
-
         this.channelInstance = channel
 
         if (channel.has_about) {
@@ -633,6 +633,15 @@ export default defineComponent({
           this.location = null
         }
         const tabs = ['about']
+
+        // we'll count it as home page if it's not video. This will help us support some special channels
+        if ((channel.has_home === 'home' || channel.tabs[0] !== 'Videos')) {
+          if (!this.hideChannelHome) {
+            tabs.push('home')
+          }
+          // we still parse the home page so we can set related channels
+          this.getChannelHomeLocal()
+        }
 
         if (channel.has_videos || this.isArtistTopicChannel) {
           tabs.push('videos')
@@ -663,20 +672,6 @@ export default defineComponent({
           if (channel.has_playlists) {
             tabs.push('playlists')
             this.getChannelPlaylistsLocal()
-          } else if (channelId === 'UC-9-kyTW8ZkZNDHQJ6FgpwQ') {
-            // Special handling for "The Music Channel" (https://youtube.com/music)
-            tabs.push('playlists')
-            const playlists = channel.playlists.map(playlist => parseLocalListPlaylist(playlist))
-
-            const compactStations = channel.memo.get('CompactStation')
-            if (compactStations) {
-              for (const compactStation of compactStations) {
-                playlists.push(parseLocalCompactStation(compactStation, channelId, channelName))
-              }
-            }
-
-            this.showPlaylistSortBy = false
-            this.latestPlaylists = playlists
           }
         }
 
@@ -712,7 +707,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
@@ -761,6 +756,55 @@ export default defineComponent({
       }
     },
 
+    getChannelHomeLocal: function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+         */
+        const channel = this.channelInstance
+        const homeTab = channel //  await channel.getHome()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        const homeData = parseChannelHomeTab(homeTab)
+        if (!this.hideChannelHome) {
+          this.homeData = homeData
+        }
+
+        // parse related channels from home page data
+        const relatedChannels = []
+        /** @type {Set<string>} */
+        const knownChannelIds = new Set()
+
+        for (const shelf of homeData) {
+          for (const item of shelf.content) {
+            if (item.type === 'channel' && !knownChannelIds.has(item.id)) {
+              knownChannelIds.add(item)
+              relatedChannels.push({
+                name: item.name,
+                id: item.id,
+                thumbnailUrl: item.thumbnail
+              })
+            }
+          }
+        }
+        this.relatedChannels = relatedChannels
+
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
     getChannelVideosLocal: async function () {
       this.isElementListLoading = true
       const expectedId = this.id
@@ -784,7 +828,7 @@ export default defineComponent({
         } else {
           /**
            * @type {import('youtubei.js').YT.Channel}
-          */
+           */
           const channel = this.channelInstance
           let videosTab = await channel.getVideos()
 
@@ -934,7 +978,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         let liveTab = await channel.getLiveStreams()
 
@@ -1010,7 +1054,7 @@ export default defineComponent({
       this.channelInstance = null
 
       const expectedId = this.id
-      invidiousGetChannelInfo(this.id).then((response) => {
+      return invidiousGetChannelInfo(this.id).then((response) => {
         if (expectedId !== this.id) {
           return
         }
@@ -1018,7 +1062,7 @@ export default defineComponent({
         const channelName = response.author
         const channelId = response.authorId
         this.channelName = channelName
-        document.title = `${this.channelName} - ${packageDetails.productName}`
+        this.setAppTitle(`${this.channelName} - ${packageDetails.productName}`)
         this.id = channelId
         this.isFamilyFriendly = response.isFamilyFriendly
         this.subCount = response.subCount
@@ -1057,7 +1101,7 @@ export default defineComponent({
         })
 
         this.channelTabs = this.supportedChannelTabs.filter(tab => {
-          return tabs.includes(tab)
+          return tabs.includes(tab) && tab !== 'home'
         })
 
         this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
@@ -1108,32 +1152,18 @@ export default defineComponent({
     },
 
     channelInvidiousVideos: function (sortByChanged) {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'videos',
-        params: {
-          sort_by: this.videoSortBy,
-        }
-      }
-
       if (sortByChanged) {
         this.videoContinuationData = null
       }
 
       let more = false
       if (this.videoContinuationData) {
-        payload.params.continuation = this.videoContinuationData
         more = true
-      }
-
-      if (!more) {
+      } else {
         this.isElementListLoading = true
       }
 
-      invidiousAPICall(payload).then((response) => {
-        setPublishedTimestampsInvidious(response.videos)
-
+      getInvidiousChannelVideos(this.id, this.videoSortBy, this.videoContinuationData).then((response) => {
         if (more) {
           this.latestVideos = this.latestVideos.concat(response.videos)
         } else {
@@ -1160,38 +1190,18 @@ export default defineComponent({
     },
 
     channelInvidiousShorts: function (sortByChanged) {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'shorts',
-        params: {
-          sort_by: this.shortSortBy,
-        }
-      }
-
       if (sortByChanged) {
         this.shortContinuationData = null
       }
 
       let more = false
       if (this.shortContinuationData) {
-        payload.params.continuation = this.shortContinuationData
         more = true
-      }
-
-      if (!more) {
+      } else {
         this.isElementListLoading = true
       }
 
-      invidiousAPICall(payload).then((response) => {
-        // workaround for Invidious sending incorrect information
-        // https://github.com/iv-org/invidious/issues/3801
-        response.videos.forEach(video => {
-          video.isUpcoming = false
-          delete video.published
-          delete video.premiereTimestamp
-        })
-
+      getInvidiousChannelShorts(this.id, this.shortSortBy, this.shortContinuationData).then((response) => {
         if (more) {
           this.latestShorts.push(...response.videos)
         } else {
@@ -1220,32 +1230,18 @@ export default defineComponent({
     },
 
     channelInvidiousLive: function (sortByChanged) {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'streams',
-        params: {
-          sort_by: this.liveSortBy,
-        }
-      }
-
       if (sortByChanged) {
         this.liveContinuationData = null
       }
 
       let more = false
       if (this.liveContinuationData) {
-        payload.params.continuation = this.liveContinuationData
         more = true
-      }
-
-      if (!more) {
+      } else {
         this.isElementListLoading = true
       }
 
-      invidiousAPICall(payload).then((response) => {
-        setPublishedTimestampsInvidious(response.videos)
-
+      getInvidiousChannelLive(this.id, this.liveSortBy, this.liveContinuationData).then((response) => {
         if (more) {
           this.latestLive.push(...response.videos)
         } else {
@@ -1350,16 +1346,8 @@ export default defineComponent({
 
     getPlaylistsInvidious: function () {
       this.isElementListLoading = true
-      const payload = {
-        resource: 'channels',
-        subResource: 'playlists',
-        id: this.id,
-        params: {
-          sort_by: this.playlistSortBy
-        }
-      }
 
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPlaylists(this.id, this.playlistSortBy).then((response) => {
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
@@ -1387,20 +1375,7 @@ export default defineComponent({
         return
       }
 
-      const payload = {
-        resource: 'channels',
-        subResource: 'playlists',
-        id: this.id,
-        params: {
-          sort_by: this.playlistSortBy
-        }
-      }
-
-      if (this.playlistContinuationData) {
-        payload.params.continuation = this.playlistContinuationData
-      }
-
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPlaylists(this.id, this.playlistSortBy, this.playlistContinuationData).then((response) => {
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
@@ -1426,7 +1401,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
 
         if (this.isArtistTopicChannel) {
@@ -1495,13 +1470,8 @@ export default defineComponent({
 
     channelInvidiousReleases: function() {
       this.isElementListLoading = true
-      const payload = {
-        resource: 'channels',
-        subResource: 'releases',
-        id: this.id,
-      }
 
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelReleases(this.id).then((response) => {
         this.releaseContinuationData = response.continuation || null
         this.latestReleases = response.playlists
         this.isElementListLoading = false
@@ -1525,17 +1495,11 @@ export default defineComponent({
 
     channelInvidiousReleasesMore: function () {
       if (this.releaseContinuationData === null) {
-        console.warn('There are no more podcasts available for this channel')
+        console.warn('There are no more releases available for this channel')
         return
       }
 
-      const payload = {
-        resource: 'channels',
-        subResource: 'releases',
-        id: this.id
-      }
-
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelReleases(this.id, this.releaseContinuationData).then((response) => {
         this.releaseContinuationData = response.continuation || null
         this.latestReleases = this.latestReleases.concat(response.playlists)
         this.isElementListLoading = false
@@ -1561,7 +1525,7 @@ export default defineComponent({
       try {
         /**
          * @type {import('youtubei.js').YT.Channel}
-        */
+         */
         const channel = this.channelInstance
         const podcastTab = await channel.getPodcasts()
 
@@ -1608,13 +1572,8 @@ export default defineComponent({
 
     channelInvidiousPodcasts: function() {
       this.isElementListLoading = true
-      const payload = {
-        resource: 'channels',
-        subResource: 'podcasts',
-        id: this.id,
-      }
 
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPodcasts(this.id).then((response) => {
         this.podcastContinuationData = response.continuation || null
         this.latestPodcasts = response.playlists
         this.isElementListLoading = false
@@ -1642,13 +1601,7 @@ export default defineComponent({
         return
       }
 
-      const payload = {
-        resource: 'channels',
-        subResource: 'podcasts',
-        id: this.id
-      }
-
-      invidiousAPICall(payload).then((response) => {
+      getInvidiousChannelPodcasts(this.id, this.podcastContinuationData).then((response) => {
         this.podcastContinuationData = response.continuation || null
         this.latestPodcasts = this.latestPodcasts.concat(response.playlists)
         this.isElementListLoading = false
@@ -1697,9 +1650,6 @@ export default defineComponent({
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
 
         if (this.latestCommunityPosts.length > 0) {
-          this.latestCommunityPosts.forEach(post => {
-            post.authorId = this.id
-          })
           this.updateSubscriptionPostsCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -1761,9 +1711,6 @@ export default defineComponent({
         this.communityContinuationData = continuation
 
         if (this.isSubscribedInAnyProfile && !more && this.latestCommunityPosts.length > 0) {
-          this.latestCommunityPosts.forEach(post => {
-            post.authorId = this.id
-          })
           this.updateSubscriptionPostsCacheByChannel({
             channelId: this.id,
             // create a copy so that we only cache the first page
@@ -1878,13 +1825,14 @@ export default defineComponent({
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
       newTabNode?.focus()
-      this.showOutlines()
+      // Prevents outline shown in strange places
+      if (newTabNode != null) { this.showOutlines() }
     },
 
     newSearch: function (query) {
       this.lastSearchQuery = query
       this.searchContinuationData = null
-      this.isElementListLoading = true
+      this.isSearchTabLoading = true
       this.searchPage = 1
       this.searchResults = []
       this.changeTab('search')
@@ -1896,6 +1844,10 @@ export default defineComponent({
           this.searchChannelInvidious()
           break
       }
+    },
+    newSearchWithStatePersist(query) {
+      this.saveStateInRouter(query)
+      this.newSearch(query)
     },
 
     searchChannelLocal: async function () {
@@ -1935,7 +1887,7 @@ export default defineComponent({
         }
 
         this.searchContinuationData = result.has_continuation ? result : null
-        this.isElementListLoading = false
+        this.isSearchTabLoading = false
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1954,24 +1906,13 @@ export default defineComponent({
     },
 
     searchChannelInvidious: function () {
-      const payload = {
-        resource: 'channels',
-        id: this.id,
-        subResource: 'search',
-        params: {
-          q: this.lastSearchQuery,
-          page: this.searchPage
-        }
-      }
-
-      invidiousAPICall(payload).then((response) => {
-        setPublishedTimestampsInvidious(response.filter(item => item.type === 'video'))
+      searchInvidiousChannel(this.id, this.lastSearchQuery, this.searchPage).then((response) => {
         if (this.hideChannelPlaylists) {
           this.searchResults = this.searchResults.concat(response.filter(item => item.type !== 'playlist'))
         } else {
           this.searchResults = this.searchResults.concat(response)
         }
-        this.isElementListLoading = false
+        this.isSearchTabLoading = false
         this.searchPage++
       }).catch((err) => {
         console.error(err)
@@ -2009,13 +1950,45 @@ export default defineComponent({
         })
       }
 
-      this.latestCommunityPosts.forEach(post => {
-        post.authorId = this.id
-      })
       this.updateSubscriptionPostsCacheByChannel({
         channelId: this.id,
         posts: [...this.latestCommunityPosts]
       })
+    },
+
+    async saveStateInRouter(query) {
+      this.skipRouteChangeWatcherOnce = true
+      if (query === '') {
+        try {
+          await this.$router.replace({ path: `/channel/${this.id}` })
+        } catch (failure) {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        }
+        return
+      }
+
+      try {
+        await this.$router.replace({
+          path: `/channel/${this.id}`,
+          params: {
+            currentTab: 'search',
+          },
+          query: {
+            searchQueryText: query,
+          },
+        })
+      } catch (failure) {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      }
+      this.skipRouteChangeWatcherOnce = false
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
@@ -2027,6 +2000,10 @@ export default defineComponent({
       'updateSubscriptionLiveCacheByChannel',
       'updateSubscriptionShortsCacheWithChannelPageShorts',
       'updateSubscriptionPostsCacheByChannel'
+    ]),
+
+    ...mapMutations([
+      'setAppTitle'
     ])
   }
 })

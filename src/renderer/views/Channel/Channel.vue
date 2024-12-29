@@ -17,9 +17,10 @@
       :is-subscribed="isSubscribed"
       :visible-tabs="tabInfoValues"
       :current-tab="currentTab"
+      :query="lastSearchQuery"
       class="card channelDetails"
       @change-tab="changeTab"
-      @search="newSearch"
+      @search="newSearchWithStatePersist"
       @subscribed="handleSubscription"
     />
     <ft-card
@@ -80,12 +81,19 @@
         />
       </div>
       <ft-loader
-        v-if="isElementListLoading"
+        v-if="isCurrentTabLoading"
       />
       <div
         v-if="currentTab !== 'about' && !isElementListLoading"
         class="elementList"
       >
+        <ChannelHome
+          v-show="currentTab === 'home'"
+          id="homePanel"
+          :shelves="homeData"
+          role="tabpanel"
+          aria-labelledby="homeTab"
+        />
         <ft-element-list
           v-show="currentTab === 'videos'"
           id="videoPanel"
@@ -200,7 +208,7 @@
           :use-channels-hidden-preference="false"
         />
         <ft-flex-box
-          v-if="currentTab === 'search' && searchResults.length === 0"
+          v-if="currentTab === 'search' && !isSearchTabLoading && searchResults.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Your search results have returned 0 results") }}

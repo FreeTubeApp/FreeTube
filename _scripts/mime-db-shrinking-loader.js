@@ -14,7 +14,6 @@ module.exports = function (source) {
     if (mimeType.startsWith('image/') && original[mimeType].extensions &&
       (!mimeType.startsWith('image/x-') || mimeType === 'image/x-icon' || mimeType === 'image/x-ms-bmp') &&
       (!mimeType.startsWith('image/vnd.') || mimeType === 'image/vnd.microsoft.icon')) {
-
       // Only the extensions field is needed, see: https://github.com/kevva/ext-list/blob/v2.2.2/index.js
       reduced[mimeType] = {
         extensions: original[mimeType].extensions

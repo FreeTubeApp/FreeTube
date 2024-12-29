@@ -36,6 +36,7 @@
           :autoplay-possible="autoplayPossible"
           :autoplay-enabled="autoplayEnabled"
           :vr-projection="vrProjection"
+          :current-playback-rate="currentPlaybackRate"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
@@ -43,6 +44,7 @@
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           @toggle-autoplay="toggleAutoplay"
+          @playback-rate-updated="updatePlaybackRate"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -109,7 +111,6 @@
     <ft-age-restricted
       v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
       class="ageRestricted"
-      :is-video="true"
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
@@ -120,11 +121,13 @@
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
+        :is-unlisted="isUnlisted"
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"
         :channel-thumbnail="channelThumbnail"
         :published="videoPublished"
+        :premiere-date="premiereDate"
         :subscription-count-text="channelSubscriptionCountText"
         :like-count="videoLikeCount"
         :dislike-count="videoDislikeCount"
@@ -153,6 +156,7 @@
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
+        :kind="videoChaptersKind"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
@@ -165,7 +169,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
       />
-      <watch-video-comments
+      <CommentSection
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
@@ -173,7 +177,6 @@
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
         :video-player-ready="videoPlayerLoaded"
-        :force-state="commentsEnabled ? null : 'noComment'"
         @timestamp-event="changeTimestamp"
       />
     </div>
@@ -182,7 +185,7 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && !hideLiveChat && isLive"
+        v-if="!isLoading && !hideLiveChat && (isLive || isUpcoming)"
         :live-chat="liveChat"
         :video-id="videoId"
         :channel-id="channelId"

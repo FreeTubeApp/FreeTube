@@ -47,7 +47,7 @@ function profileSort(a, b) {
 }
 
 const actions = {
-  async grabAllProfiles({ rootState, commit }, defaultName = null) {
+  async grabAllProfiles({ rootState, commit, state }, defaultName = null) {
     let profiles
     try {
       profiles = await DBProfileHandlers.find()

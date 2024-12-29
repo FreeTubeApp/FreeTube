@@ -23,7 +23,6 @@
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 
-
 defineProps({
   data: {
     type: Array,
