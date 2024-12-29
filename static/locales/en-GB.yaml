@@ -326,6 +326,7 @@ Settings:
       Solarized Light: Solarised Light
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -383,6 +384,14 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox Dark Aqua
       Gruvbox Light Orange: Gruvbox Light Orange
       Gruvbox Dark Orange: Gruvbox Dark Orange
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
