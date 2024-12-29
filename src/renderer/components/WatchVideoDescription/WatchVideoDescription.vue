@@ -3,19 +3,17 @@
     v-if="shownDescription.length > 0"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
-    <template v-if="showControls">
-      <span
-        v-if="!showFullDescription"
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @click="expandDescription"
-        @keydown.space.prevent="expandDescription"
-        @keydown.enter.prevent="expandDescription"
-      >
-        {{ $t("Description.Expand Description") }}
-      </span>
-    </template>
+    <span
+      v-if="showControls && !showFullDescription"
+      class="descriptionStatus"
+      role="button"
+      tabindex="0"
+      @click="expandDescription"
+      @keydown.space.prevent="expandDescription"
+      @keydown.enter.prevent="expandDescription"
+    >
+      {{ $t("Description.Expand Description") }}
+    </span>
     <FtTimestampCatcher
       ref="descriptionContainer"
       class="description"
@@ -24,19 +22,17 @@
       @timestamp-event="onTimestamp"
       @text-click="expandDescription"
     />
-    <template v-if="showControls">
-      <span
-        v-if="showFullDescription"
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @click="collapseDescription"
-        @keydown.space.prevent="collapseDescription"
-        @keydown.enter.prevent="collapseDescription"
-      >
-        {{ $t("Description.Collapse Description") }}
-      </span>
-    </template>
+    <span
+      v-if="showControls && showFullDescription"
+      class="descriptionStatus"
+      role="button"
+      tabindex="0"
+      @click="collapseDescription"
+      @keydown.space.prevent="collapseDescription"
+      @keydown.enter.prevent="collapseDescription"
+    >
+      {{ $t("Description.Collapse Description") }}
+    </span>
   </FtCard>
 </template>
 
