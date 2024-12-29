@@ -35,7 +35,7 @@ import { pathExists } from '../../helpers/filesystem'
 // The UTF-8 characters "h", "t", "t", and "p".
 const HTTP_IN_HEX = 0x68747470
 
-const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 600
+const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 634
 
 const RequestType = shaka.net.NetworkingEngine.RequestType
 const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
