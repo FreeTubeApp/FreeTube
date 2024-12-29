@@ -1800,11 +1800,8 @@ export default defineComponent({
       const oldValue = parseFloat(volumeBar.value)
       const newValue = oldValue + (step * 100)
 
-      let messageIcon
-
       if (newValue < 0) {
         volumeBar.value = 0
-        messageIcon = 'volume-mute'
       } else if (newValue > 100) {
         volumeBar.value = 100
       } else {
@@ -1813,8 +1810,13 @@ export default defineComponent({
 
       volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
 
-      if (!messageIcon) {
-        messageIcon = newValue > oldValue ? 'volume-high' : 'volume-low'
+      let messageIcon
+      if (newValue <= 0) {
+        messageIcon = 'volume-mute'
+      } else if (newValue > 0 && newValue < oldValue) {
+        messageIcon = 'volume-low'
+      } else if (newValue > 0 && newValue > oldValue) {
+        messageIcon = 'volume-high'
       }
       showValueChange(`${Math.round(video.value.volume * 100)}%`, messageIcon)
     }
