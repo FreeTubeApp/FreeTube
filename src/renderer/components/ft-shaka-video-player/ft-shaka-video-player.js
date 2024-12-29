@@ -1797,10 +1797,14 @@ export default defineComponent({
     function changeVolume(step) {
       const volumeBar = container.value.querySelector('.shaka-volume-bar')
 
-      const newValue = parseFloat(volumeBar.value) + (step * 100)
+      const oldValue = parseFloat(volumeBar.value)
+      const newValue = oldValue + (step * 100)
+
+      let messageIcon
 
       if (newValue < 0) {
         volumeBar.value = 0
+        messageIcon = 'volume-mute'
       } else if (newValue > 100) {
         volumeBar.value = 100
       } else {
@@ -1809,7 +1813,10 @@ export default defineComponent({
 
       volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
 
-      showValueChange(`${Math.round(video.value.volume * 100)}%`, 'volume-high')
+      if (!messageIcon) {
+        messageIcon = newValue > oldValue ? 'volume-high' : 'volume-low'
+      }
+      showValueChange(`${Math.round(video.value.volume * 100)}%`, messageIcon)
     }
 
     /**
