@@ -72,7 +72,7 @@
     >
       <font-awesome-icon
         v-if="valueChangeIcon"
-        :icon="['fas', `${valueChangeIcon}`]"
+        :icon="['fas', valueChangeIcon]"
       />
       {{ valueChangeMessage }}
     </div>

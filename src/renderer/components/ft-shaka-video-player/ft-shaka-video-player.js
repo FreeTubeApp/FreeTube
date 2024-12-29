@@ -1826,7 +1826,8 @@ export default defineComponent({
      */
     function changePlayBackRate(step) {
       const video_ = video.value
-      const newPlaybackRate = parseFloat((video_.playbackRate + step).toFixed(2))
+      const newPlaybackRateString = (video_.playbackRate + step).toFixed(2)
+      const newPlaybackRate = parseFloat(newPlaybackRateString)
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
@@ -1834,8 +1835,7 @@ export default defineComponent({
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
 
-        const playerPlaybackRate = player.getPlaybackRate() + step
-        showValueChange(`${playerPlaybackRate.toFixed(2)}x`)
+        showValueChange(`${newPlaybackRateString}x`)
       }
     }
 
@@ -2876,7 +2876,6 @@ export default defineComponent({
       updateVolume,
       handleTimeupdate,
 
-      showValueChange,
       valueChangeMessage,
       valueChangeIcon,
       showValueChangePopup
