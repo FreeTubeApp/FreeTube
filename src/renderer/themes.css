@@ -522,7 +522,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --title-color: var(--accent-color);
   --bg-color: #f3ead3;
   --favorite-icon-color: #0f0;
-  --card-bg-color: #e5dfc5;
+  --card-bg-color: #eee8ce;
   --secondary-card-bg-color: #f3ead3;
   --scrollbar-color: #c8c3aa;
   --scrollbar-color-hover: #a9b09b;
@@ -2244,7 +2244,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgb(141 161 1 / 24%);
 }
 
-.secEverforestLightAqua {
+.secEverforestLightTurquoise {
   --accent-color: #35a77c;
   --accent-color-hover: #46b38a;
   --accent-color-active: #24a569;
