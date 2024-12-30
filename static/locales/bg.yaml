@@ -59,7 +59,7 @@ Search / Go to URL: 'Търсене / Отиване на адрес'
 Search Filters:
   Search Filters: 'Филтри за търсене'
   Sort By:
-    Sort By: 'Сортиране по'
+    Sort By: 'Подреждане по'
     Most Relevant: 'Най-уместно'
     Rating: 'Оценка'
     Upload Date: 'Дата на качване'
@@ -331,6 +331,7 @@ Settings:
       Solarized Light: Solarized светла
       Gruvbox Dark: Gruvbox тъмна
       Gruvbox Light: Gruvbox светла
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -388,6 +389,20 @@ Settings:
       Gruvbox Dark Green: Gruvbox тъмнозелено
       Gruvbox Dark Orange: Gruvbox Тъмнооранжево
       Gruvbox Light Red: Gruvbox Светлочервено
+      Catppuccin Frappe Pink: Catppuccin Frappe Розово
+      Catppuccin Frappe Blue: Catppuccin Frappe Синьо
+      Catppuccin Frappe Lavender: Catppuccin Frappe Лавандула
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Фламинго
+      Catppuccin Frappe Red: Catppuccin Frappe Червено
+      Catppuccin Frappe Yellow: Catppuccin Frappe Жълто
+      Catppuccin Frappe Peach: Catppuccin Frappe Праскова
+      Catppuccin Frappe Mauve: Catppuccin Frappe Мораво
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Розова вода
+      Catppuccin Frappe Maroon: Catppuccin Frappe Кестеняво
+      Catppuccin Frappe Green: Catppuccin Frappe Зелено
+      Catppuccin Frappe Sky: Catppuccin Frappe Небесносиньо
+      Catppuccin Frappe Teal: Catppuccin Frappe Синьозелено
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Сапфир
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -656,7 +671,7 @@ Settings:
       на свой риск!
   Password Settings:
     Password Settings: Парола
-    Set Password To Prevent Access: Задаване на парола, за предотвратяване на достъпа
+    Set Password To Prevent Access: Задаване на парола, за ограничаване на достъпа
       до настройките
     Set Password: Задаване на парола
     Remove Password: Премахване на паролата
@@ -665,7 +680,7 @@ Settings:
     Password Incorrect: Грешна парола
     Unlock: Отключване
     Password: Парола
-  Sort Settings Sections (A-Z): Сортиране на секциите на настройките (A-Z)
+  Sort Settings Sections (A-Z): Подреждане на секциите на настройките (А-Я)
   Return to Settings Menu: Връщане към менюто с настройки
 About:
   #On About page
@@ -756,7 +771,7 @@ Channel:
   Added channel to your subscriptions: 'Каналът е добавен към вашите абонаменти'
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
-  Sort By: 'Сортиране по'
+  Sort By: 'Подреждане по'
   Videos:
     Videos: 'видеа'
     This channel does not currently have any videos: 'В този канал по настоящем няма
@@ -971,6 +986,8 @@ Playlist:
     VideoTitleDescending: Заглавие (Z-A)
     VideoDurationAscending: Първо най-кратките
     VideoDurationDescending: Първо най-дългите
+    PublishedNewest: Първо най-новите публикувани
+    PublishedOldest: Първо най-старите публикувани
 Change Format:
   Change Media Formats: 'Смяна видео формати'
   Use Dash Formats: 'Използване на DASH формати'
@@ -1017,7 +1034,7 @@ Comments:
   No more comments available: Не са налични повече коментари
   Newest first: Първо най-новите
   Top comments: Последни коментари
-  Sort by: Сортиране по
+  Sort by: Подреждане по
   Show More Replies: Показване на още отговори
   Pinned by: Прихванато от
   From {channelName}: от {channelName}
@@ -1219,9 +1236,68 @@ Keys:
   alt: Alt
   arrowdown: Стрелка надолу
   ctrl: Ctrl
+  shift: Shift
+  enter: Enter
+  plus: Плюс
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Щракнете с десния бутон на мишката или задръжте,
   за да видите историята
 Autoplay Interruption Timer: Автоматичното възпроизвеждане е отменено поради {autoplayInterruptionIntervalHours}
   час(а) неактивност
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Бързи клавиши
+  Sections:
+    Video:
+      Playback: 'Видео: Възпроизвеждане'
+      General: 'Видео: Общи'
+    App:
+      Situational: 'Приложение: Ситуационно'
+      General: 'Приложение: Общи'
+  Show Keyboard Shortcuts: Показване на бързи клавиши
+  New Window: Създаване на нов прозорец
+  History Forward: Отиване с една страница напред
+  Navigate to Settings: Отиване на страницата с настройки
+  Navigate to History: Отиване на страницата с история
+  Refresh: Обновяване на емисията с най-новото съдържание
+  Focus Secondary Search: Фокусиране върху допълнителната лента за търсене (ако има
+    такава)
+  Captions: Вкл/Изкл на надписите
+  Stats: Показване на статистика за видеото
+  Fullscreen: Превключване на цял екран
+  Picture in Picture: Превключване на режим "Картина в картината"
+  Large Rewind: Превъртане с 10 секунди назад / Превъртане на видеото въз основа на
+    текущата скорост на възпроизвеждане
+  Play: Възпроизвеждане/Пауза
+  Decrease Video Speed: Намаляване скоростта на видеото въз основа на интервала за
+    скорост на възпроизвеждане
+  Mute: Вкл/Изкл на звука
+  Increase Video Speed: Увеличаване скоростта на видеото въз основа на интервала за
+    скорост на възпроизвеждане
+  Full Window: Превключване на цял прозорец
+  Theatre Mode: Превключване на широкоекранен режим
+  Take Screenshot: Снимка на екрана
+  Minimize Window: Минимизиране на прозореца
+  Close Window: Затваряне на прозореца
+  Restart Window: Рестартиране на прозореца
+  Force Restart Window: Принудително рестартиране на прозореца
+  Toggle Developer Tools: Превключване на инструментите за разработчици
+  Reset Zoom: Нулиране на мащабирането
+  Zoom In: Увеличаване на мащаба
+  Zoom Out: Намаляване на мащаба
+  Focus Search: Фокусиране върху лентата за търсене
+  Last Frame: Предишен кадър (докато е на пауза)
+  Next Frame: Следващ кадър (докато е на пауза)
+  Volume Up: Увеличаване на звука
+  Volume Down: Намаляване на звука
+  Small Rewind: Превъртане назад с X секунди въз основа на интервала и текущата скорост
+    на възпроизвеждане на видео
+  Last Chapter: Последна глава
+  Next Chapter: Следваща глава
+  Skip by Tenths: Прескачане на видео по проценти (3 прескачания до 30% от продължителността)
+  History Backward: Връщане с една страница назад
+  Large Fast Forward: Превъртане с 10 секунди напред / Бързо превъртане на видеото
+    въз основа на текущата скорост на възпроизвеждане
+  Search in New Window: Търсене в нов прозорец
+  Small Fast Forward: Превъртане напред с X секунди въз основа на интервала и текущата
+    скорост на възпроизвеждане на видео
