@@ -39,18 +39,20 @@
         />
       </div>
     </div>
-    <FtFlexBox>
-      <FtSlider
-        :label="$t('Settings.Theme Settings.UI Scale')"
-        :default-value="uiScale"
-        :min-value="50"
-        :max-value="300"
-        :step="5"
-        value-extension="%"
-        @change="updateUiScale(parseInt($event))"
-      />
-    </FtFlexBox>
-    <br>
+    <template v-if="usingElectron">
+      <FtFlexBox>
+        <FtSlider
+          :label="$t('Settings.Theme Settings.UI Scale')"
+          :default-value="uiScale"
+          :min-value="50"
+          :max-value="300"
+          :step="5"
+          value-extension="%"
+          @change="updateUiScale"
+        />
+      </FtFlexBox>
+      <br>
+    </template>
     <FtFlexBox>
       <FtSelect
         :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
