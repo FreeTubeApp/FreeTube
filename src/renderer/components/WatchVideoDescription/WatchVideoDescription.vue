@@ -87,7 +87,7 @@ const processedShownDescription = computed(() => {
 })
 
 const linkTabIndex = computed(() => {
-  return showFullDescription.value ? 0 : -1
+  return showFullDescription.value ? '0' : '-1'
 })
 
 /**
@@ -156,7 +156,7 @@ function parseDescriptionHtml(descriptionText) {
 
 /**
  * @param {string} descriptionText
- * @param {number} tabIndex
+ * @param {string} tabIndex
  * @returns {string}
  */
 function processDescriptionHtml(descriptionText, tabIndex) {

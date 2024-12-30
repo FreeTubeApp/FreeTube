@@ -17,8 +17,8 @@ const props = defineProps({
     default: ''
   },
   linkTabIndex: {
-    type: Number,
-    default: 0
+    type: String,
+    default: '0'
   },
 })
 
