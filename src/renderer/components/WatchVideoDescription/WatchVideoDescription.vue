@@ -20,7 +20,7 @@
       :input-html="processedShownDescription"
       :link-tab-index="linkTabIndex"
       @timestamp-event="onTimestamp"
-      @text-click="expandDescription"
+      @click.native="expandDescriptionWithClick"
     />
     <span
       v-if="showControls && showFullDescription"
@@ -95,6 +95,16 @@ const linkTabIndex = computed(() => {
  */
 function onTimestamp(timestamp) {
   emit('timestamp-event', timestamp)
+}
+
+/**
+ @param {PointerEvent} e
+ */
+function expandDescriptionWithClick(e) {
+  // Ignore link clicks
+  if (e.target.tagName === 'A') { return }
+
+  expandDescription()
 }
 
 /**
