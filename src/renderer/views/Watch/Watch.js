@@ -376,7 +376,7 @@ export default defineComponent({
 
         // extract localised title first and fall back to the not localised one
         this.videoTitle = result.primary_info?.title.text ?? result.basic_info.title
-        this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : 0)
+        this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : null)
 
         this.channelId = result.basic_info.channel_id ?? result.secondary_info.owner?.author.id
         this.channelName = result.basic_info.author ?? result.secondary_info.owner?.author.name
