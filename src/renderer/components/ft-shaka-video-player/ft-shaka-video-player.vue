@@ -66,6 +66,18 @@
         <span>{{ $t('Video.Player.Stats.Dropped Frames / Total Frames', stats.frames) }}</span>
       </template>
     </div>
+    <Transition name="fade">
+      <div
+        v-if="showValueChangePopup"
+        class="valueChangePopup"
+      >
+        <font-awesome-icon
+          v-if="valueChangeIcon"
+          :icon="['fas', valueChangeIcon]"
+        />
+        {{ valueChangeMessage }}
+      </div>
+    </Transition>
     <div
       v-if="showOfflineMessage"
       class="offlineWrapper"

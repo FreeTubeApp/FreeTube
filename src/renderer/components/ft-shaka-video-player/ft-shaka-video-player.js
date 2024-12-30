@@ -1797,7 +1797,8 @@ export default defineComponent({
     function changeVolume(step) {
       const volumeBar = container.value.querySelector('.shaka-volume-bar')
 
-      const newValue = parseFloat(volumeBar.value) + (step * 100)
+      const oldValue = parseFloat(volumeBar.value)
+      const newValue = oldValue + (step * 100)
 
       if (newValue < 0) {
         volumeBar.value = 0
@@ -1808,6 +1809,16 @@ export default defineComponent({
       }
 
       volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
+
+      let messageIcon
+      if (newValue <= 0) {
+        messageIcon = 'volume-mute'
+      } else if (newValue > 0 && newValue < oldValue) {
+        messageIcon = 'volume-low'
+      } else if (newValue > 0 && newValue > oldValue) {
+        messageIcon = 'volume-high'
+      }
+      showValueChange(`${Math.round(video.value.volume * 100)}%`, messageIcon)
     }
 
     /**
@@ -1815,13 +1826,16 @@ export default defineComponent({
      */
     function changePlayBackRate(step) {
       const video_ = video.value
-      const newPlaybackRate = parseFloat((video_.playbackRate + step).toFixed(2))
+      const newPlaybackRateString = (video_.playbackRate + step).toFixed(2)
+      const newPlaybackRate = parseFloat(newPlaybackRateString)
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
       if (newPlaybackRate > 0.07 && newPlaybackRate <= maxVideoPlaybackRate.value) {
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
+
+        showValueChange(`${newPlaybackRateString}x`)
       }
     }
 
@@ -2047,7 +2061,12 @@ export default defineComponent({
           // Toggle mute only if metakey is not pressed
           if (!event.metaKey) {
             event.preventDefault()
-            video_.muted = !video_.muted
+            const isMuted = !video_.muted
+            video_.muted = isMuted
+
+            const messageIcon = isMuted ? 'volume-mute' : 'volume-high'
+            const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
+            showValueChange(message, messageIcon)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS:
@@ -2814,6 +2833,25 @@ export default defineComponent({
 
     // #endregion functions used by the watch page
 
+    const showValueChangePopup = ref(false)
+    const valueChangeMessage = ref('')
+    const valueChangeIcon = ref(null)
+    let valueChangeTimeout = null
+
+    function showValueChange(message, icon = null) {
+      valueChangeMessage.value = message
+      valueChangeIcon.value = icon
+      showValueChangePopup.value = true
+
+      if (valueChangeTimeout) {
+        clearTimeout(valueChangeTimeout)
+      }
+
+      valueChangeTimeout = setTimeout(() => {
+        showValueChangePopup.value = false
+      }, 2000)
+    }
+
     return {
       container,
       video,
@@ -2837,6 +2875,10 @@ export default defineComponent({
       handleEnded,
       updateVolume,
       handleTimeupdate,
+
+      valueChangeMessage,
+      valueChangeIcon,
+      showValueChangePopup
     }
   }
 })
