@@ -972,6 +972,8 @@ Playlist:
     VideoTitleDescending: Pealkirja alusel (Z-A)
     VideoDurationAscending: Kestuse alusel (esmalt lühemad)
     VideoDurationDescending: Kestuse alusel (esmalt pikemad)
+    PublishedOldest: Esmalt varaseimalt avaldatu
+    PublishedNewest: Esmalt viimatiavaldatu
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
   Use Dash Formats: 'Kasuta DASH-vorminguid'
