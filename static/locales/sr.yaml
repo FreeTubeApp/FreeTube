@@ -949,6 +949,10 @@ Video:
   DeArrow:
     Show Modified Details: Прикажи измењене детаље
     Show Original Details: Прикажи оригиналне детаље
+  DRMProtected: Видео снимци заштићени DRM не могу се репродуковати у FreeTube-у,
+    јер захтевају власничке компоненте затвореног кода. Ако желите да гледате овај
+    видео снимак, погледајте га на званичном сајту YouTube-а у веб-прегледачу с омогућеним
+    DRM.
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
