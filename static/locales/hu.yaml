@@ -965,6 +965,10 @@ Video:
   DeArrow:
     Show Modified Details: Módosított részletek megjelenítése
     Show Original Details: Eredeti részletek megjelenítése
+  DRMProtected: A DRM-védelemmel ellátott videók nem játszhatók le a FreeTube-ban,
+    mivel ezekhez zárt forráskódú, tulajdonosi komponensekre van szükség. Ha meg szeretné
+    nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes
+    böngészőben.
 Videos:
   #& Sort By
   Sort By:
