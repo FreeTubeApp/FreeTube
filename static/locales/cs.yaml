@@ -946,6 +946,10 @@ Video:
   DeArrow:
     Show Modified Details: Zobrazit upravené podrobnosti
     Show Original Details: Zobrazit původní podrobnosti
+  DRMProtected: Videa chráněná DRM nelze v aplikaci FreeTube přehrávat, protože vyžadují
+    proprietární komponenty s uzavřeným zdrojovým kódem. Pokud chcete toto video sledovat,
+    přehrajte si ho na oficiálních stránkách YouTube ve webovém prohlížeči s podporou
+    DRM.
 Videos:
   #& Sort By
   Sort By:
