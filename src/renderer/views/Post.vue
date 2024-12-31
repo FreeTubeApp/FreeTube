@@ -39,7 +39,7 @@ import CommentSection from '../components/CommentSection/CommentSection.vue'
 import store from '../store/index'
 
 import { getInvidiousCommunityPost } from '../helpers/api/invidious'
-import { getCommunityPostLocal } from '../helpers/api/local'
+import { getLocalCommunityPost } from '../helpers/api/local'
 import { copyToClipboard, showToast } from '../helpers/utils'
 
 const { t } = useI18n()
@@ -92,7 +92,7 @@ function updateTitleAndRoute() {
 
 async function loadDataLocalAsync() {
   try {
-    post.value = await getCommunityPostLocal(id.value, authorId.value)
+    post.value = await getLocalCommunityPost(id.value, authorId.value)
     authorId.value = post.value.authorId
     updateTitleAndRoute()
   } catch (error) {

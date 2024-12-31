@@ -1708,14 +1708,14 @@ export async function getHashtagLocal(hashtag) {
   return await innertube.getHashtag(hashtag)
 }
 
-export async function getCommunityPostLocal(postId, channelId) {
+export async function getLocalCommunityPost(postId, channelId) {
   const innertube = await createInnertube()
   if (channelId == null) {
     const resolved = await innertube.resolveURL('https://www.youtube.com/post/' + postId)
     channelId = resolved.payload.browseId
   }
 
-  const postPage = await innertube.GetPost(postId, channelId)
+  const postPage = await innertube.getPost(postId, channelId)
   return parseLocalCommunityPost(postPage.posts.first())
 }
 
@@ -1724,8 +1724,8 @@ export async function getCommunityPostLocal(postId, channelId) {
  * @param {string} channelId
  * @param {boolean} sortByNewest
  */
-export async function getCommunityPostComments(postId, channelId, sortByNewest) {
+export async function getLocalCommunityPostComments(postId, channelId, sortByNewest) {
   const innertube = await createInnertube()
 
-  return await innertube.GetPostComments(postId, channelId, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
+  return await innertube.getPostComments(postId, channelId, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
 }
