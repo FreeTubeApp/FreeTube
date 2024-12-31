@@ -920,6 +920,10 @@ Video:
   DeArrow:
     Show Modified Details: Geänderte Details anzeigen
     Show Original Details: Originaldetails anzeigen
+  DRMProtected: DRM-geschützte Videos können in FreeTube nicht abgespielt werden,
+    da sie proprietäre, Closed-Source-Komponenten benötigen. Wenn Sie dieses Video
+    ansehen möchten, schauen Sie es sich bitte auf der offiziellen YouTube-Website
+    in einem DRM-fähigen Webbrowser an.
 Videos:
   #& Sort By
   Sort By:
