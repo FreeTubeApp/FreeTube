@@ -806,6 +806,8 @@ Video:
   DeArrow:
     Show Modified Details: 显示修改过的详情
     Show Original Details: 显示原始详情
+  DRMProtected: FreeTube 无法播放受 DRM 保护的视频，因它们需要专有的、闭源的部件。如果要观看此视频，，请在启用了 DRM 的网页浏览器中在官方
+    YouTube 网站上观看。
 Videos:
   #& Sort By
   Sort By:
