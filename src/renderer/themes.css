@@ -1080,7 +1080,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #8a8abf;
 }
 
-.mainEverforestDakrRed,
+.mainEverforestDarkRed,
 .mainEverforestDarkOrange,
 .mainEverforestDarkYellow,
 .mainEverforestDarkGreen,
@@ -1095,6 +1095,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainEverforestLightBlue,
 .mainEverforestLightPurple {
   --text-with-main-color: #1e2326;
+  --logo-icon-bar-color: url('../../_icons/iconEverforestDarkHardSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textEverforestDarkHardSmall.svg');
 }
 
 .mainEverforestDarkRed {
