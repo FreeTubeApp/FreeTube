@@ -397,7 +397,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval sljedećeg videa zbirke
-    Next Video Interval: Interval za sljedeći video
+    Next Video Interval: Timer za odbrojavanje automatske reprodukcije
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
@@ -422,6 +422,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
+    Autoplay Interruption Timer: Timer za prekidanje automatske reprodukcije
   Privacy Settings:
     Privacy Settings: 'Privatnost'
     Remember History: 'Zapamti povijest'
@@ -520,17 +521,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
       korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
-    Hide Channel Playlists: Sakrij kanal zbirki
-    Hide Channel Community: Sakrij kanal zajednice
-    Hide Channel Shorts: Sakrij kanal kratkih videa
+    Hide Channel Playlists: Sakrij karticu „Zbirke” kanala
+    Hide Channel Community: Sakrij karticu „Zajednica” kanala
+    Hide Channel Shorts: Sakrij karticu „Kratka videa” kanala
     Sections:
       Watch Page: Stranica gledanja
       General: Opće
       Side Bar: Bočna traka
       Channel Page: Stranica kanala
       Subscriptions Page: Stranica pretplata
-    Hide Channel Podcasts: Sakrij kanal podcastova
-    Hide Channel Releases: Sakrij kanal izdanja
+    Hide Channel Podcasts: Sakrij karticu „Podcasti” kanala
+    Hide Channel Releases: Sakrij karticu „Izdanja” kanala
     Hide Subscriptions Shorts: Sakrij pretplate kratkih videa
     Hide Subscriptions Live: Sakrij pretplate videa uživo
     Hide Subscriptions Videos: Sakrij pretplate videa
@@ -545,6 +546,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
       ili fraza
     Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
+    Hide Channel Home: Sakrij karticu „Početna” kanala
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -762,6 +764,9 @@ Channel:
     Podcasts: Podcasti
     This channel does not currently have any podcasts: Ovaj kanal trenutačno nema
       podcastova
+  Home:
+    Home: Početna
+    View Playlist: Pogledaj zbirku
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
@@ -1084,7 +1089,7 @@ Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu
 Downloading failed: Došlo je do problema prilikom preuzimanja „{videoTitle}”
 Downloading has completed: „{videoTitle}” je preuzeto
 Starting download: Početak preuzimanja „{videoTitle}”
-Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
+Screenshot Success: Snimka ekrana je spremljena
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
 Channels:
