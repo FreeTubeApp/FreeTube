@@ -945,6 +945,9 @@ Video:
   DeArrow:
     Show Original Details: Näita algseid üksikasju
     Show Modified Details: Näita muudetud üksikasju
+  DRMProtected: Kuna vajalikud on suletud lähtekoodil põhinevad komponendid, siis
+    DRMiga kaitstud videoid FreeTube esitada ei saa. Kui soovid seda videot vaadata,
+    siis tee seda otse YouTube'i saidis kasutades DRMi-suutlikku brauserit.
 Videos:
   #& Sort By
   Sort By:
