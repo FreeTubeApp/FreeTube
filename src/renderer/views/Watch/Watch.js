@@ -376,7 +376,7 @@ export default defineComponent({
 
         // extract localised title first and fall back to the not localised one
         this.videoTitle = result.primary_info?.title.text ?? result.basic_info.title
-        this.videoViewCount = result.basic_info.view_count ?? extractNumberFromString(result.primary_info.view_count.text)
+        this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : null)
 
         this.channelId = result.basic_info.channel_id ?? result.secondary_info.owner?.author.id
         this.channelName = result.basic_info.author ?? result.secondary_info.owner?.author.name
@@ -509,7 +509,9 @@ export default defineComponent({
         // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
         const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
 
-        if (playabilityStatus.status === 'UNPLAYABLE' || playabilityStatus.status === 'LOGIN_REQUIRED') {
+        const isDrmProtected = result.streaming_data?.adaptive_formats.some(format => format.drm_families || format.drm_track_type)
+
+        if (playabilityStatus.status === 'UNPLAYABLE' || playabilityStatus.status === 'LOGIN_REQUIRED' || isDrmProtected) {
           if (playabilityStatus.error_screen?.offer_id === 'sponsors_only_video') {
             // Members-only videos can only be watched while logged into a Google account that is a paid channel member
             // so there is no point trying any other backends as it will always fail
@@ -522,6 +524,13 @@ export default defineComponent({
             // Age-restricted videos can only be watched while logged into a Google account that is age-verified
             // so there is no point trying any other backends as it will always fail
             this.errorMessage = this.$t('Video.AgeRestricted')
+            this.isLoading = false
+            this.updateTitle()
+            return
+          } else if (isDrmProtected) {
+            // DRM protected videos (e.g. movies) cannot be played in FreeTube,
+            // as they require the proprietary and closed source Wideview CDM which is understandably not included in standard Electron builds
+            this.errorMessage = this.$t('Video.DRMProtected')
             this.isLoading = false
             this.updateTitle()
             return

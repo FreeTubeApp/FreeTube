@@ -45,7 +45,7 @@ export default defineComponent({
     },
     viewCount: {
       type: Number,
-      required: true
+      default: null
     },
     subscriptionCountText: {
       type: String,
@@ -197,7 +197,7 @@ export default defineComponent({
     },
 
     parsedViewCount: function () {
-      if (this.hideVideoViews) {
+      if (this.hideVideoViews || this.viewCount == null) {
         return null
       }
 
