@@ -19,7 +19,7 @@
         :force-state="null"
         :is-post-comments="true"
         :channel-thumbnail="post.authorThumbnails[0].url"
-        :show-sort-by="false"
+        :show-sort-by="backendPreference == 'local'"
       />
     </template>
   </div>
