@@ -33,6 +33,7 @@ Global:
   Shorts: 短视频
   Live: 直播
   Community: 社区
+  Sort By: 排序依据
 
 # Search Bar
   Counts:
@@ -50,7 +51,6 @@ Search / Go to URL: '搜索 / 前往URL'
 Search Filters:
   Search Filters: '搜索过滤'
   Sort By:
-    Sort By: '排序方式'
     Most Relevant: '最相关'
     Rating: '评分'
     Upload Date: '上传日期'
@@ -176,7 +176,6 @@ User Playlists:
     EarliestCreatedFirst: 最先创建的
     LatestCreatedFirst: 最近创建的
     EarliestUpdatedFirst: 最先更新的
-    Sort By: 排序方式
     NameDescending: Z-A
     EarliestPlayedFirst: 最先播放的
     LatestUpdatedFirst: 最近更新的
@@ -635,7 +634,6 @@ Channel:
   Unsubscribe: '取消订阅'
   Search Channel: '搜索频道'
   Your search results have returned 0 results: '您的搜索结果是0结果'
-  Sort By: '排序方式'
   Videos:
     Videos: '视频'
     This channel does not currently have any videos: '这个频道目前没有任何视频'
@@ -825,7 +823,6 @@ Playlist:
 #& Views
   Playlist: 播放列表
   Sort By:
-    Sort By: 排序依据
     DateAddedNewest: 最近添加的优先
     DateAddedOldest: 最早添加的优先
     AuthorAscending: 作者名（A-Z）
@@ -878,7 +875,6 @@ Comments:
   There are no more comments for this video: 此视频无更多评论
   Newest first: 最新优先
   Top comments: 最热评论
-  Sort by: 排序方式
   No more comments available: 没有更多评论
   Show More Replies: 显示更多回复
   Pinned by: 置顶人

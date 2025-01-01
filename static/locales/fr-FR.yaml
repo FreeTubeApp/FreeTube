@@ -34,6 +34,7 @@ Global:
   Shorts: Shorts
   Live: En direct
   Community: Communauté
+  Sort By: Trier par
 
 # Search Bar
   Counts:
@@ -51,7 +52,6 @@ Search / Go to URL: 'Rechercher / ouvrir l''URL'
 Search Filters:
   Search Filters: 'Filtres de recherche'
   Sort By:
-    Sort By: 'Trier par'
     Most Relevant: 'Le plus pertinent'
     Rating: 'Avis'
     Upload Date: 'Date de mise en ligne'
@@ -206,7 +206,6 @@ User Playlists:
     EarliestCreatedFirst: Création la plus ancienne
     LatestCreatedFirst: Récemment créé
     EarliestUpdatedFirst: Dernière mise à jour
-    Sort By: Trier par
     NameDescending: Z-A
     EarliestPlayedFirst: Joué en premier
     LatestUpdatedFirst: Récemment mis à jour
@@ -736,7 +735,6 @@ Channel:
   Search Channel: 'Chercher dans la chaîne'
   Your search results have returned 0 results: 'Les résultats de votre recherche ont
     donné 0 résultat'
-  Sort By: 'Trier Par'
   Videos:
     Videos: 'Vidéos'
     This channel does not currently have any videos: 'Cette chaîne n''a pas de vidéos
@@ -956,7 +954,6 @@ Playlist:
   Sort By:
     DateAddedNewest: Dernier ajouté en premier
     AuthorDescending: Auteur (Z-A)
-    Sort By: Trier par
     DateAddedOldest: Le plus ancien ajouté en premier
     AuthorAscending: Auteur (A-Z)
     VideoTitleAscending: Titre (A-Z)
@@ -1016,7 +1013,6 @@ Comments:
     vidéo
   Newest first: Les plus récents d'abord
   Top comments: Top des commentaires
-  Sort by: Trier par
   No more comments available: Pas d'autres commentaires disponibles
   Show More Replies: Afficher plus de réponses
   From {channelName}: de {channelName}

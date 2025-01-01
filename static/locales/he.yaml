@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: חי
   Community: קהילה
+  Sort By: מיון לפי
 
   Counts:
     Video Count: סרטון אחד | {count} סרטונים
@@ -58,7 +59,6 @@ Search / Go to URL: 'חיפוש / מעבר לכתובת'
 Search Filters:
   Search Filters: 'מסנני חיפוש'
   Sort By:
-    Sort By: 'מיון לפי'
     Most Relevant: 'הכי רלוונטי'
     Rating: 'דירוג'
     Upload Date: 'תאריך העלאה'
@@ -154,7 +154,6 @@ User Playlists:
     הנגינה הזו? זאת פעולה בלתי הפיכה.
   Sort By:
     EarliestUpdatedFirst: הראשונים שעודכנו
-    Sort By: מיון לפי
     NameAscending: א-ת
     NameDescending: ת-א
     LatestPlayedFirst: האחרונים שהתנגנו
@@ -724,7 +723,6 @@ Channel:
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
   Search Channel: 'חיפוש בערוץ'
   Your search results have returned 0 results: 'לא נמצאו תוצאות'
-  Sort By: 'מיון לפי'
   Videos:
     Videos: 'סרטונים'
     This channel does not currently have any videos: 'לערוץ זה אין סרטונים כרגע'
@@ -924,7 +922,6 @@ Playlist:
     DateAddedOldest: הראשונים שנוספו ראשונים
     AuthorAscending: יוצר (א-ת)
     VideoTitleAscending: כותר (א-ת)
-    Sort By: מיין לפי
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
     DateAddedNewest: האחרונים שנוספו ראשונים
@@ -971,7 +968,6 @@ Comments:
   There are no comments available for this video: 'לסרטון זה אין תגובות'
   Load More Comments: 'טעינת תגובות נוספות'
   Newest first: החדשות ביותר תחילה
-  Sort by: מיון לפי
   Top comments: תגובות מובילות
   No more comments available: אין עוד תגובות זמינות
   Show More Replies: הצגת תגובות נוספות

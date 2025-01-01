@@ -36,6 +36,7 @@ Global:
   Shorts: Shorts
   Live: Ζωντανά
   Community: Κοινότητα
+  Sort By: 'Ταξινόμηση κατά'
 
 # Search Bar
   Counts:
@@ -49,7 +50,6 @@ Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
 Search Filters:
   Search Filters: 'Φίλτρα αναζήτησης'
   Sort By:
-    Sort By: 'Ταξινόμηση κατά'
     Most Relevant: 'Πιο σχετικά'
     Rating: 'Αξιολόγηση'
     Upload Date: 'Ημερομηνία μεταφόρτωσης'
@@ -573,7 +573,6 @@ Channel:
   Search Channel: 'Αναζήτηση στο κανάλι'
   Your search results have returned 0 results: 'Τα αποτελέσματα της αναζήτησής σας
     έχουν επιστρέψει 0 αποτελέσματα'
-  Sort By: 'Ταξινόμηση κατά'
   Videos:
     Videos: 'Βίντεο'
     This channel does not currently have any videos: 'Αυτό το κανάλι δε διαθέτει προς
@@ -780,7 +779,6 @@ Comments:
   Newest first: Νεότερο πρώτα
   No more comments available: Δεν υπάρχουν άλλα διαθέσιμα σχόλια
   Top comments: Κορυφαία σχόλια
-  Sort by: Ταξινόμηση κατά
   There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το
     βίντεο
   And others: και άλλοι

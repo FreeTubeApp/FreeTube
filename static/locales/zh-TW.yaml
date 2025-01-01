@@ -33,6 +33,7 @@ Global:
   Shorts: 短片
   Live: 直播
   Community: 社群
+  Sort By: '排序方式'
 
 # Search Bar
   Counts:
@@ -50,7 +51,6 @@ Search / Go to URL: '搜尋/ 前往網址'
 Search Filters:
   Search Filters: '搜尋過濾器'
   Sort By:
-    Sort By: '排序方式'
     Most Relevant: '最相關'
     Rating: '評分'
     Upload Date: '上傳日期'
@@ -139,7 +139,6 @@ User Playlists:
   Delete Playlist: 刪除播放清單
   Are you sure you want to delete this playlist? This cannot be undone: 您確定您想要刪除播放清單嗎？這無法還原。
   Sort By:
-    Sort By: 排序方式
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: 最近建立
@@ -617,7 +616,6 @@ Channel:
   Unsubscribe: '取消訂閱'
   Search Channel: '搜尋頻道'
   Your search results have returned 0 results: '搜尋結果為零'
-  Sort By: '排序方式'
   Videos:
     Videos: '影片'
     This channel does not currently have any videos: '這個頻道目前沒有任何影片'
@@ -804,7 +802,6 @@ Playlist:
 #& Views
   Playlist: 播放清單
   Sort By:
-    Sort By: 排序方式
     DateAddedNewest: 最後新增優先
     DateAddedOldest: 最早新增優先
     AuthorAscending: 作者 (A-Z)
@@ -855,7 +852,6 @@ Comments:
   There are no more comments for this video: 此影片無更多留言
   Newest first: 最新優先
   Top comments: 最熱門留言
-  Sort by: 排序方式
   No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
   And others: 與其他人

@@ -36,6 +36,7 @@ Global:
   Shorts: Rövid videók
   Live: Élő
   Community: Közösség
+  Sort By: Rendezési szempont
 
   Counts:
     Video Count: 1 videó | {count} videó
@@ -59,7 +60,6 @@ Search / Go to URL: 'Keresés / Ugrás webcímre'
 Search Filters:
   Search Filters: 'Keresési szűrők'
   Sort By:
-    Sort By: 'Rendezés alapja'
     Most Relevant: 'Legpontosabbak'
     Rating: 'Értékelés'
     Upload Date: 'Feltöltés dátuma'
@@ -207,7 +207,6 @@ User Playlists:
     EarliestCreatedFirst: Legkorábban létrehozott
     LatestCreatedFirst: Nemrégiben létrehozott
     EarliestUpdatedFirst: Legkorábban frissítve
-    Sort By: Rendezés
     NameDescending: Z-A
     EarliestPlayedFirst: Legkorábban játszott
     LatestUpdatedFirst: Nemrég frissítve
@@ -776,7 +775,6 @@ Channel:
   Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
   Search Channel: 'Csatorna keresése'
   Your search results have returned 0 results: 'Keresési eredmény: 0 találat'
-  Sort By: 'Rendezés alapja'
   Videos:
     Videos: 'Videók'
     This channel does not currently have any videos: 'Ebben a csatornában jelenleg
@@ -988,7 +986,6 @@ Playlist:
   Sort By:
     DateAddedOldest: Legrégebbiek elöl
     DateAddedNewest: Legújabbak elöl
-    Sort By: Rendezés
     AuthorAscending: Szerző szerint (A-Z)
     AuthorDescending: Szerző szerint (Z-A)
     VideoTitleAscending: Cím szerint (A-Z)
@@ -1049,7 +1046,6 @@ Comments:
   No more comments available: Nincs több hozzászólás
   Newest first: Legújabb elöl
   Top comments: Legnépszerűbb hozzászólások
-  Sort by: Rendezési szempont
   Show More Replies: További válaszok megjelenítése
   From {channelName}: 'forrás: {channelName}'
   And others: és mások

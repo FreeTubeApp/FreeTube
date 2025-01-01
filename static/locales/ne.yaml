@@ -35,6 +35,9 @@ Download From Site: 'साइटबाट डाउनलोड गर्नु
 A new blog is now available, {blogTitle}. Click to view more: 'एउटा नयाँ ब्लग उपलब्ध
   छ, {blogTitle}। थप बुझ्न यहाँ थिच्नुहोस्'
 
+Global:
+  Sort By: 'क्रमबद्ध गर्नुहोस्'
+
 # Search Bar
 Search / Go to URL: 'खोज्नुहोस् / URL मा जानुहोस्'
 Search Bar:
@@ -43,7 +46,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'खोजी फिल्टरहरू'
   Sort By:
-    Sort By: 'क्रमबद्ध गर्नुहोस्'
     Most Relevant: 'सबैभन्दा प्रासङ्गिक'
     Rating: 'रेटिङ्ग'
     Upload Date: 'प्रकाशित मिति'

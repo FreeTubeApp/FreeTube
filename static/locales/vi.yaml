@@ -36,6 +36,7 @@ Global:
   Live: Trực tiếp
   Shorts: Shorts
   Community: Cộng đồng
+  Sort By: 'Sắp xếp theo'
   Counts:
     Subscriber Count: 1 người đăng ký | {count} người đăng ký
     View Count: 1 lượt xem | {count} lượt xem
@@ -51,7 +52,6 @@ Search / Go to URL: 'Tìm kiếm / Đi đến URL'
 Search Filters:
   Search Filters: 'Lọc tìm kiếm'
   Sort By:
-    Sort By: 'Sắp xếp theo'
     Most Relevant: 'Liên quan nhất'
     Rating: 'Đánh giá'
     Upload Date: 'Ngày tải lên'
@@ -139,7 +139,6 @@ User Playlists:
   Sort By:
     LatestUpdatedFirst: Được cập nhật gần đây
     LatestPlayedFirst: Được phát gần đây
-    Sort By: Sắp xếp theo
     EarliestUpdatedFirst: Được cập nhật sớm nhất
     NameAscending: A-Z
     NameDescending: Z-A
@@ -667,7 +666,6 @@ Channel:
   Search Channel: 'Tìm trong kênh'
   Your search results have returned 0 results: 'Kết quả tìm kiếm của bạn là 0 kết
     quả'
-  Sort By: 'Lọc theo'
   Videos:
     Videos: 'Video'
     This channel does not currently have any videos: 'Kênh này hiện chưa có video'
@@ -883,7 +881,6 @@ Playlist:
     VideoDurationDescending: Thời lượng (Dài nhất trước)
     Custom: Tùy chỉnh
     AuthorAscending: Tác giả (A-Z)
-    Sort By: Sắp xếp theo
     DateAddedNewest: Thêm vào gần đây nhất
     VideoTitleDescending: Tiêu đề (Z-A)
 Change Format:
@@ -931,7 +928,6 @@ Comments:
   No more comments available: Không còn bình luận có sẵn
   Newest first: Mới nhất trước
   Top comments: Top bình luận
-  Sort by: Sắp xếp theo
   There are no more comments for this video: Không có bình luận cho video này
   Member: Thành viên
   From {channelName}: từ {channelName}

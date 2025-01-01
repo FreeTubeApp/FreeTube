@@ -33,6 +33,7 @@ Forward: 'Naprej'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videoposnetki'
+  Sort By: 'Razvrstitev'
 
 Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica
   {versionNumber}!·  Za več podrobnosti kliknite tukaj'
@@ -46,7 +47,6 @@ Search / Go to URL: 'Išči/pojdi na URL naslov'
 Search Filters:
   Search Filters: 'Iskalni filtri'
   Sort By:
-    Sort By: 'Razvrstitev'
     Most Relevant: 'Ustreznost'
     Rating: 'Ocena'
     Upload Date: 'Datum nastanka'
@@ -448,7 +448,6 @@ Channel:
   Added channel to your subscriptions: 'Kanal je bil dodan v vaše naročnine'
   Search Channel: 'Preišči kanal'
   Your search results have returned 0 results: 'Najdenih ni bilo nobenih rezultatov'
-  Sort By: 'Razvrstitev'
   Videos:
     Videos: 'Videoposnetki'
     This channel does not currently have any videos: 'Ta kanal trenutno nima nobenih
@@ -580,7 +579,6 @@ Comments:
   Load More Comments: 'Naloži več komentarjev'
   Newest first: Najnovejši komentarji
   Top comments: Najbolje ocenjeni komentarji
-  Sort by: Razvrstitev
   No more comments available: Ni več komentarjev
   Show More Replies: Pokaži več odgovorov
   Member: Član

@@ -36,6 +36,7 @@ Global:
 
   Live: En directe
   Community: Comunitat
+  Sort By: 'Ordena Per'
 Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber}
   està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
@@ -48,7 +49,6 @@ Search / Go to URL: 'Cerca / Ves a l''URL'
 Search Filters:
   Search Filters: 'Filtres de cerca'
   Sort By:
-    Sort By: 'Ordena per'
     Most Relevant: 'Més rellevant'
     Rating: 'Valoració'
     Upload Date: 'Data de pujada'
@@ -429,7 +429,6 @@ Channel:
   Search Channel: 'Cerca Canal'
   Your search results have returned 0 results: 'Els resultats de la teva cerca han
     retornat 0 resultats'
-  Sort By: 'Ordena Per'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Aquest canal no té actualment

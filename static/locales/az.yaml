@@ -45,7 +45,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'Axtarış Filtrləri'
   Sort By:
-    Sort By: 'Çeşidləmə'
     Most Relevant: 'Ən Münasib'
     Rating: 'Qiymətləndirmə'
     Upload Date: 'Yükləmə Tarixi'
@@ -180,7 +179,6 @@ User Playlists:
     Search for Videos: Videoları Axtar
   Sort By:
     EarliestUpdatedFirst: Ən Tez Yenilənib
-    Sort By: Çeşidlənmə
     EarliestCreatedFirst: Ən Tez Yaradılıb
     NameAscending: A-Z
     NameDescending: Z-A
@@ -355,6 +353,7 @@ Global:
     Length Requirement: Etiket ən azı {number} simvol uzunluğunda olmalıdır
   Community: İcma
   Shorts: Shorts
+  Sort By: 'Çeşidləmə'
 Search Listing:
   Label:
     Closed Captions: Titrlər Bağlandı

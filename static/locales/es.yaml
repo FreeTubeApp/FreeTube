@@ -36,6 +36,7 @@ Global:
   Shorts: Vídeos cortos
   Live: En directo
   Community: Comunidad
+  Sort By: Ordenar por
 
 # Search Bar
   Counts:
@@ -53,7 +54,6 @@ Search / Go to URL: 'Buscar / Ir a la URL'
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Más relevantes'
     Rating: 'Mejor valorados'
     Upload Date: 'Fecha de publicación'
@@ -200,7 +200,6 @@ User Playlists:
     EarliestCreatedFirst: Creado por primera vez
     LatestCreatedFirst: Creado recientemente
     EarliestUpdatedFirst: Última actualización
-    Sort By: Ordenar por
     NameDescending: Z-A
     EarliestPlayedFirst: Reproducido más recientemente
     LatestUpdatedFirst: Actualizado recientemente
@@ -752,7 +751,6 @@ Channel:
   Unsubscribe: 'Anular suscripción'
   Search Channel: 'Buscar en canal'
   Your search results have returned 0 results: 'Su búsqueda no encontró resultados'
-  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Este canal no tiene actualmente
@@ -971,7 +969,6 @@ Playlist:
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
-    Sort By: Ordenar por
     VideoTitleDescending: Título (Z-A)
     VideoDurationAscending: Duración (primero la más corta)
     VideoDurationDescending: Duración (la más larga primero)
@@ -1023,7 +1020,6 @@ Comments:
   There are no more comments for this video: No hay más comentarios en este vídeo
   Newest first: Los más recientes primero
   Top comments: Mejores comentarios
-  Sort by: Ordenar por
   No more comments available: No hay más comentarios
   Show More Replies: Mostrar más respuestas
   From {channelName}: de {channelName}

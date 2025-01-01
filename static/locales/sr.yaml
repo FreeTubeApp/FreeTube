@@ -44,6 +44,7 @@ Global:
   Live: Уживо
   Community: Заједница
   Shorts: Shorts
+  Sort By: Сортирање по
   Input Tags:
     Length Requirement: Ознака мора да има најмање {number} знакова
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
@@ -58,7 +59,6 @@ Search / Go to URL: 'Претрага / Иди на URL'
 Search Filters:
   Search Filters: 'Филтери претраге'
   Sort By:
-    Sort By: 'Сортирање по'
     Most Relevant: 'Најрелевантније'
     Rating: 'Оцена'
     Upload Date: 'Датум отпремања'
@@ -204,7 +204,6 @@ User Playlists:
     EarliestCreatedFirst: Најраније направљено
     LatestCreatedFirst: Недавно направљено
     EarliestUpdatedFirst: Најраније ажурирано
-    Sort By: Сортирање по
     NameDescending: Z-A
     EarliestPlayedFirst: Најраније пуштано
     LatestUpdatedFirst: Недавно ажурирано
@@ -763,7 +762,6 @@ Channel:
   Added channel to your subscriptions: 'Канал је додат у ваша праћења'
   Search Channel: 'Претрага канала'
   Your search results have returned 0 results: 'Резултати претраге су дали 0 резултата'
-  Sort By: 'Сортирање по'
   Videos:
     Videos: 'Видео снимци'
     This channel does not currently have any videos: 'Овај канал тренутно нема ниједан
@@ -1046,7 +1044,6 @@ Playlist:
     VideoTitleAscending: Наслов (A-Z)
     VideoTitleDescending: Наслов (Z-A)
     Custom: Прилагођено
-    Sort By: Сортирање по
     AuthorDescending: Аутор (Z-A)
     DateAddedNewest: Најновије додато прво
     VideoDurationDescending: Трајање (прво најдуже)
@@ -1067,7 +1064,6 @@ Change Format:
     за овај видео снимак
 Comments:
   Comments: Коментари
-  Sort by: Сортирање по
   Show Comments: Прикажи коментаре
   View: Погледај
   Click to View Comments: Кликни да видиш коментаре

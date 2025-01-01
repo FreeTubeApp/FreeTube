@@ -35,6 +35,7 @@ Global:
   Shorts: Lühivideod
   Live: Otseeeter
   Community: Kogukond
+  Sort By: 'Järjestus'
 
   Counts:
     Video Count: 1 video | {count} videot
@@ -58,7 +59,6 @@ Search / Go to URL: 'Otsi aadressi või ava see'
 Search Filters:
   Search Filters: 'Otsingufiltrid'
   Sort By:
-    Sort By: 'Järjestuse alus'
     Most Relevant: 'Kõige asjakohasemad'
     Rating: 'Hinnagud'
     Upload Date: 'Üleslaadimise kuupäev'
@@ -216,7 +216,6 @@ User Playlists:
     EarliestCreatedFirst: Varem loodud esimesena
     LatestCreatedFirst: Loodud hiljuti esimesena
     EarliestUpdatedFirst: Varem uuendatud esimesena
-    Sort By: Järjestuse alus
     NameDescending: Z-A
     EarliestPlayedFirst: Varem esitatud esimesena
     LatestUpdatedFirst: Hiljuti uuendatud esimesena
@@ -759,7 +758,6 @@ Channel:
   Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
   Search Channel: 'Otsi kanalit'
   Your search results have returned 0 results: 'Otsingul on 0 tulemust'
-  Sort By: 'Järjestus'
   Videos:
     Videos: 'Videod'
     This channel does not currently have any videos: 'Sellel kanalik pole hetkel ühtegi
@@ -966,7 +964,6 @@ Playlist:
   Playlist: Esitusloend
   Sort By:
     Custom: Kohandatud
-    Sort By: Järjestuse alus
     DateAddedNewest: Esmalt viimatilisatud
     DateAddedOldest: Esmalt ammu lisatud
     AuthorAscending: Autori alusel (A-Z)
@@ -1021,7 +1018,6 @@ Comments:
   Reply: 'vastus'
   There are no comments available for this video: 'Seda videot pole veel kommenteeritud'
   Load More Comments: 'Laadi veel kommentaare'
-  Sort by: Järjestus
   No more comments available: Rohkem kommentaare pole
   Newest first: Uuemad esimesena
   Top comments: Parimad esimesena

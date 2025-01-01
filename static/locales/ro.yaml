@@ -36,6 +36,7 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Comunitate
+  Sort By: Sortează după
   Counts:
     Video Count: 1 videoclip | {count} videoclipuri
     Subscriber Count: 1 abonat | {count} de abonați
@@ -56,7 +57,6 @@ Search / Go to URL: 'Căutare / Accesați URL-ul'
 Search Filters:
   Search Filters: 'Filtre de căutare'
   Sort By:
-    Sort By: 'Sortează după'
     Most Relevant: 'Cele mai relevante'
     Rating: 'Evaluare'
     Upload Date: 'Data încărcării'
@@ -140,7 +140,6 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
     de redare
   Sort By:
-    Sort By: Sortează după
     NameDescending: Z-A
     LatestCreatedFirst: Creat recent
     NameAscending: A-Z
@@ -682,7 +681,6 @@ Channel:
   Search Channel: 'Căutare canal'
   Your search results have returned 0 results: 'Rezultatele căutării tale au returnat
     0 rezultate'
-  Sort By: 'Sortați după'
   Videos:
     Videos: 'Videoclipuri'
     This channel does not currently have any videos: 'Acest canal nu are în prezent
@@ -888,7 +886,6 @@ Comments:
   Show More Replies: Afișați mai multe răspunsuri
   Newest first: Începând cu cele mai noi
   Top comments: Cele mai bune comentarii
-  Sort by: Sortați după
   And others: și altele
   From {channelName}: de la {channelName}
   Pinned by: Lipit de

@@ -48,6 +48,7 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Community
+  Sort By: Sort By
   Counts:
     Video Count: 1 video | {count} videos
     Channel Count: 1 channel | {count} channels
@@ -79,7 +80,6 @@ Search Listing:
 Search Filters:
   Search Filters: Search Filters
   Sort By:
-    Sort By: Sort By
     Most Relevant: Most Relevant
     Rating: Rating
     Upload Date: Upload Date
@@ -199,8 +199,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
 
   Sort By:
-    Sort By: Sort By
-
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
@@ -748,7 +746,6 @@ Channel:
   Search Channel: Search Channel
   Your search results have returned 0 results: Your search results have returned 0
     results
-  Sort By: Sort By
   This channel does not exist: This channel does not exist
   This channel does not allow searching: This channel does not allow searching
   This channel is age-restricted and currently cannot be viewed in FreeTube.: This channel is age-restricted and currently cannot be viewed in FreeTube.
@@ -934,7 +931,6 @@ Playlist:
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
   Sort By:
-    Sort By: Sort By
     DateAddedNewest: Latest added first
     DateAddedOldest: Earliest added first
     PublishedNewest: Latest published first
@@ -995,7 +991,6 @@ Comments:
   There are no more comments for this video: There are no more comments for this video
   Show Comments: Show Comments
   Hide Comments: Hide Comments
-  Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
   View {replyCount} replies: View {replyCount} replies

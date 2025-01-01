@@ -36,6 +36,7 @@ Global:
   Shorts: Video brevi
   Live: Dal vivo
   Community: Comunità
+  Sort By: Ordina per
 
 # Search Bar
   Counts:
@@ -53,7 +54,6 @@ Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
 Search Filters:
   Search Filters: 'Filtri di ricerca'
   Sort By:
-    Sort By: 'Ordina per'
     Most Relevant: 'Più rilevante'
     Rating: 'Valutazione'
     Upload Date: 'Data di caricamento'
@@ -201,7 +201,6 @@ User Playlists:
     EarliestCreatedFirst: Creazione più vecchia
     LatestCreatedFirst: Creazione più recente
     EarliestUpdatedFirst: Aggiornamento più vecchio
-    Sort By: Ordina per
     NameDescending: Z-A
     EarliestPlayedFirst: Riproduzione più vecchia
     LatestUpdatedFirst: Aggiornamento più recente
@@ -718,7 +717,6 @@ Channel:
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Ricerca nel canale'
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
-  Sort By: 'Ordina per'
   Videos:
     Videos: 'Video'
     This channel does not currently have any videos: 'Questo canale attualmente non
@@ -937,7 +935,6 @@ Playlist:
 #& Views
   Playlist: Playlist
   Sort By:
-    Sort By: Ordina per
     Custom: Personalizzato
     VideoTitleDescending: Titolo (Z-A)
     AuthorDescending: Autore (Z-A)
@@ -999,7 +996,6 @@ Comments:
   No more comments available: Non ci sono altri commenti
   Top comments: Commenti migliori
   Newest first: I più nuovi
-  Sort by: Ordina per
   Show More Replies: Mostra altre risposte
   From {channelName}: di {channelName}
   And others: e altri

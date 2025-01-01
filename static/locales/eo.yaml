@@ -20,8 +20,9 @@ Close: 'Fermi'
 Back: 'Reen'
 Forward: 'Antaŭen'
 
-Globals:
+Global:
   Community: Komunumo
+  Sort By: 'Ordigi laŭ'
 
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
   disponeblas nun!  Alklaki por pli informoj.'
@@ -31,7 +32,6 @@ Search / Go to URL: 'Serĉi / Iri al URL'
 Search Filters:
   Search Filters: 'Serĉaj filtriloj'
   Sort By:
-    Sort By: 'Ordigi laŭ'
     Most Relevant: 'Plej rilataj'
     Rating: 'Takso'
     Upload Date: 'Alŝuta dato'

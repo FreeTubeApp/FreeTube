@@ -39,6 +39,7 @@ Global:
   Input Tags:
     Length Requirement: A etiqueta debe ser de polo menos {number} caracteres.
   Live: En vivo
+  Sort By: 'Ordenar por'
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
 Download From Site: 'Descargar do sitio'
@@ -51,7 +52,6 @@ Search / Go to URL: 'Buscar / Ir a URL'
 Search Filters:
   Search Filters: 'Buscar filtros'
   Sort By:
-    Sort By: 'Clasificar por'
     Most Relevant: 'Máis relevante'
     Rating: 'Valoración'
     Upload Date: 'Data de subida'
@@ -514,7 +514,6 @@ Channel:
   Added channel to your subscriptions: 'Canle engadida ás túas subscricións'
   Search Channel: 'Buscar na canle'
   Your search results have returned 0 results: 'A busca non atopou resultados'
-  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Esta canle aínda non ten ningún
@@ -684,7 +683,6 @@ Comments:
   There are no more comments for this video: 'Non hai máis comentarios neste vídeo'
   Show Comments: 'Amosar comentarios'
   Hide Comments: 'Agochar comentarios'
-  Sort by: 'Ordenar por'
   Top comments: 'Comentarios destacados'
   Newest first: 'Máis recentes'
   # Context: View 10 Replies, View 1 Reply

@@ -35,7 +35,6 @@ Search / Go to URL: 'Maghanap / Pumunta sa URL'
 Search Filters:
   Search Filters: 'Mga filter ng paghahanap'
   Sort By:
-    Sort By: 'Pag-uri-uriin ayon'
     Most Relevant: 'Pinakanakakaugnay'
     Rating: 'Mga Marka'
     Upload Date: 'Petsa ng pag-upload'
@@ -101,6 +100,7 @@ Global:
   Live: Mga Live
   Videos: Mga Video
   Shorts: Mga Shorts
+  Sort By: 'Pag-uri-uriin ayon'
   Input Tags:
     Length Requirement: Ang Tag ay dapat {number} na kahaba ng character
   Community: Komunidad

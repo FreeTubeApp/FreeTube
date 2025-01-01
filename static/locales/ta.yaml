@@ -47,6 +47,7 @@ Global:
   Shorts: 'குறுக்குகள்'
   Live: 'வாழ'
   Community: 'சமூகம்'
+  Sort By: 'வரிசைப்படுத்தவும்'
   Counts:
     Video Count: '1 வீடியோ | {count} வீடியோக்கள்'
     Channel Count: '1 சேனல் | {count} சேனல்கள்'
@@ -80,7 +81,6 @@ Search Listing:
 Search Filters:
   Search Filters: 'வடிப்பான்களைத் தேடுங்கள்'
   Sort By:
-    Sort By: 'வரிசைப்படுத்தவும்'
     Most Relevant: 'மிகவும் பொருத்தமானது'
     Rating: 'செயல்வரம்பு'
     Upload Date: 'பதிவேற்ற தேதி'
@@ -220,8 +220,6 @@ User Playlists:
     நீக்க விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
 
   Sort By:
-    Sort By: 'வரிசைப்படுத்தவும்'
-
     NameAscending: 'A-z'
     NameDescending: 'Z-A.'
 
@@ -811,7 +809,6 @@ Channel:
   Search Channel: 'சேனல் தேடல்'
   Your search results have returned 0 results: 'உங்கள் தேடல் முடிவுகள் 0 முடிவுகளைத்
     தருகின்றன'
-  Sort By: 'வரிசைப்படுத்தவும்'
   This channel does not exist: 'இந்த சேனல் இல்லை'
   This channel does not allow searching: 'இந்த சேனல் தேடலை அனுமதிக்காது'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'இந்த
@@ -1041,7 +1038,6 @@ Playlist:
   View Full Playlist: 'முழு பிளேலிச்ட்டைக் காண்க'
   Last Updated On: 'கடைசியாக புதுப்பிக்கப்பட்டது'
   Sort By:
-    Sort By: 'வரிசைப்படுத்தவும்'
     DateAddedNewest: 'அண்மைக் கால சேர்க்கப்பட்டது முதலில்'
     DateAddedOldest: 'ஆரம்பத்தில் முதலில் சேர்க்கப்பட்டது'
     AuthorAscending: 'ஆசிரியர் (A-Z)'
@@ -1107,7 +1103,6 @@ Comments:
   There are no more comments for this video: 'இந்த வீடியோவுக்கு இனி கருத்துகள் இல்லை'
   Show Comments: 'கருத்துகளைக் காட்டு'
   Hide Comments: 'கருத்துகளை மறைக்கவும்'
-  Sort by: 'வரிசைப்படுத்தவும்'
   Top comments: 'சிறந்த கருத்துகள்'
   Newest first: 'புதிய முதல்'
   View {replyCount} replies: '{replyCount} பதில்களைக் காண்க'
