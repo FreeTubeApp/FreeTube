@@ -26,7 +26,7 @@ import packageDetails from '../../package.json'
 const brotliDecompressAsync = promisify(brotliDecompress)
 
 if (process.argv.includes('--version')) {
-  console.log(`v${app.getVersion()}`) // eslint-disable-line no-console
+  console.log(`v${packageDetails.version} Beta`) // eslint-disable-line no-console
   app.exit()
 } else if (process.argv.includes('--help') || process.argv.includes('-h')) {
   printHelp()
