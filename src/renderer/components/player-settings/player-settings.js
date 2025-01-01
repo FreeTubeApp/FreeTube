@@ -65,10 +65,8 @@ export default defineComponent({
       viewingModeValues: [
         'default',
         'theatre',
-        ...(process.env.IS_ELECTRON ? ['fullscreen'] : []),
         'fullwindow',
-        ...(process.env.IS_ELECTRON ? ['pip'] : []),
-        'external_player'
+        ...(process.env.IS_ELECTRON ? ['fullscreen', 'pip', 'external_player'] : []),
       ]
     }
   },
@@ -205,15 +203,19 @@ export default defineComponent({
       const viewingModeNames = [
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         this.$t('Settings.Player Settings.Default Viewing Mode.Theater'),
-        ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen')] : []),
         this.$t('Video.Player.Full Window'),
-        ...(process.env.IS_ELECTRON ? [this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')] : [])
       ]
 
-      if (this.externalPlayer !== '') {
+      if (process.env.IS_ELECTRON) {
         viewingModeNames.push(
-          this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
+          this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+          this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
         )
+        if (this.externalPlayer !== '') {
+          viewingModeNames.push(
+            this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
+          )
+        }
       }
 
       return viewingModeNames

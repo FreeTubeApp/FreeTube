@@ -42,7 +42,6 @@
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
-          @player-destroyed="handlePlayerDestroyed"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           @playback-rate-updated="updatePlaybackRate"

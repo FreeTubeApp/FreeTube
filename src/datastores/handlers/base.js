@@ -32,7 +32,7 @@ class Settings {
 
     if (defaultTheatreMode?.value) {
       await this.upsert('defaultViewingMode', 'theatre')
-      await this.upsert('defaultTheatreMode', false)
+      await db.settings.removeAsync({ _id: 'defaultTheatreMode' })
     }
 
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })

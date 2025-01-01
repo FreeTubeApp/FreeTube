@@ -144,7 +144,6 @@ export default defineComponent({
     'error',
     'loaded',
     'ended',
-    'player-destroyed',
     'timeupdate',
     'toggle-theatre-mode',
     'playback-rate-updated'
@@ -1111,7 +1110,7 @@ export default defineComponent({
 
     function handleCanPlay() {
       // PiP can only be activated once the video's readState and video track are populated
-      if (startInPip && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
+      if (startInPip && props.format !== 'audio' && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
         startInPip = false
         const { ipcRenderer } = require('electron')
         ipcRenderer.send(IpcChannels.REQUEST_PIP)
@@ -2809,15 +2808,23 @@ export default defineComponent({
      * Vue's lifecycle hooks are synchonous, so if we destroy the player in {@linkcode onBeforeUnmount},
      * it won't be finished in time, as the player destruction is asynchronous.
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
+     *
+     * @returns { startNextVideoInFullscreen: boolean, startNextVideoInFullwindow: boolean, startNextVideoInPip: boolean }
      */
     async function destroyPlayer() {
       ignoreErrors = true
+
+      let uiState = { startNextVideoInFullscreen: false, startNextVideoInFullwindow: false, startNextVideoInPip: false }
 
       if (ui) {
         if (ui.getControls()) {
           // save the state of player settings to reinitialize them upon next creation
           const controls = ui.getControls()
-          emit('player-destroyed', controls.isFullScreenEnabled(), fullWindowEnabled.value, controls.isPiPEnabled())
+          uiState = {
+            startNextVideoInFullscreen: controls.isFullScreenEnabled(),
+            startNextVideoInFullwindow: fullWindowEnabled.value,
+            startNextVideoInPip: controls.isPiPEnabled()
+          }
         }
 
         // destroying the ui also destroys the player
@@ -2838,6 +2845,8 @@ export default defineComponent({
       if (video.value) {
         video.value.ui = null
       }
+
+      return uiState
     }
 
     expose({

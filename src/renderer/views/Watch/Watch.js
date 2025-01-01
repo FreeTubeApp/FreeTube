@@ -61,7 +61,7 @@ export default defineComponent({
     document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
     if (this.$refs.player) {
-      await this.$refs.player.destroyPlayer()
+      await this.destroyPlayer()
     }
 
     next()
@@ -272,7 +272,7 @@ export default defineComponent({
       this.handleRouteChange()
 
       if (this.$refs.player) {
-        await this.$refs.player.destroyPlayer()
+        await this.destroyPlayer()
       }
 
       // react to route changes...
@@ -349,13 +349,13 @@ export default defineComponent({
       switch (this.defaultViewingMode) {
         case 'theatre':
           this.useTheatreMode = this.theatrePossible
-          return
+          break
         case 'fullscreen':
           this.startNextVideoInFullscreen = true
-          return
+          break
         case 'fullwindow':
           this.startNextVideoInFullwindow = true
-          return
+          break
         case 'pip':
           this.startNextVideoInPip = true
       }
@@ -1252,12 +1252,6 @@ export default defineComponent({
       this.activeFormat = 'audio'
     },
 
-    handlePlayerDestroyed: function(startNextVideoInFullscreen = false, startNextVideoInFullwindow = false, startNextVideoInPip = false) {
-      this.startNextVideoInFullscreen = startNextVideoInFullscreen
-      this.startNextVideoInFullwindow = startNextVideoInFullwindow
-      this.startNextVideoInPip = startNextVideoInPip
-    },
-
     handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
         return
@@ -1689,6 +1683,13 @@ export default defineComponent({
 
     updatePlaybackRate(newRate) {
       this.currentPlaybackRate = newRate
+    },
+
+    destroyPlayer: async function() {
+      const uiState = await this.$refs.player.destroyPlayer()
+      this.startNextVideoInFullscreen = uiState.startNextVideoInFullscreen
+      this.startNextVideoInFullwindow = uiState.startNextVideoInFullwindow
+      this.startNextVideoInPip = uiState.startNextVideoInPip
     },
 
     ...mapActions([
