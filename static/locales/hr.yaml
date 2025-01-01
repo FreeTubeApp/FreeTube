@@ -299,6 +299,7 @@ Settings:
     Auto Load Next Page:
       Label: Automatski učitaj sljedeću stranicu
       Tooltip: Automatski učitaj dodatne stranice i komentare.
+    Open Deep Links In New Window: Otvori URL-ove proslijeđene FreeTubeu u novom prozoru
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Uskladi gornju traku s glavnom bojom'
@@ -315,6 +316,9 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarna tamna
       Solarized Light: Solarna svijetla
+      Gruvbox Dark: Gruvbox tamna
+      Gruvbox Light: Gruvbox svijetla
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -340,7 +344,7 @@ Settings:
       Dracula Purple: 'Drakula ljubičasta'
       Dracula Red: 'Drakula crvena'
       Dracula Yellow: 'Drakula žuta'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha ruža
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ružina vodica
       Catppuccin Mocha Flamingo: Catppuccin Mocha flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha ružičasta
       Catppuccin Mocha Mauve: Catppuccin Mocha ljubičasta
@@ -362,6 +366,30 @@ Settings:
       Solarized Magenta: Solarna magenta
       Solarized Violet: Solarna ljubičasta
       Solarized Cyan: Solarna cijan
+      Gruvbox Light Orange: Gruvbox svjetlonarančasta
+      Gruvbox Dark Green: Gruvbox tamnozelena
+      Catppuccin Frappe Pink: Catppuccin Frappe ružičasta
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ružina vodica
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingo
+      Catppuccin Frappe Mauve: Catppuccin Frappe purpurna
+      Catppuccin Frappe Red: Catppuccin Frappe crvena
+      Catppuccin Frappe Maroon: Catppuccin Frappe kestenjasta
+      Catppuccin Frappe Peach: Catppuccin Frappe breskva
+      Catppuccin Frappe Yellow: Catppuccin Frappe žuta
+      Catppuccin Frappe Green: Catppuccin Frappe zelena
+      Catppuccin Frappe Teal: Catppuccin Frappe tirkiz
+      Catppuccin Frappe Sky: Catppuccin Frappe nebo
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safir
+      Catppuccin Frappe Blue: Catppuccin Frappe plava
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavanda
+      Gruvbox Dark Yellow: Gruvbox tamnožuta
+      Gruvbox Dark Blue: Gruvbox tamnoplava
+      Gruvbox Dark Purple: Gruvbox tamnoljubičasta
+      Gruvbox Dark Aqua: Gruvbox tamna voda
+      Gruvbox Dark Orange: Gruvbox tamnonarančasta
+      Gruvbox Light Red: Gruvbox svjetlocrvena
+      Gruvbox Light Blue: Gruvbox svjetloplava
+      Gruvbox Light Purple: Gruvbox svjetloljubičasta
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -451,6 +479,9 @@ Settings:
     Fetch Automatically: Automatski dohvati feed
     Confirm Before Unsubscribing: Izbjegni slučajno otkazivanje pretplate
 
+    'Limit the number of videos displayed for each channel': Ograniči broj prikazanih
+      videa za svaki kanal
+    To: Na
   Data Settings:
     Unknown data key: Nepoznat podatkovni ključ
     Unable to write file: Datoteka se ne može zapisati
@@ -918,6 +949,8 @@ Playlist:
     Custom: Prilagođeno
     VideoDurationDescending: Trajanje (najprije najduže)
     VideoDurationAscending: Trajanje (najprije najkraće)
+    PublishedNewest: Najprije najnovije izdane
+    PublishedOldest: Najprije najranije izdane
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
@@ -1153,3 +1186,5 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Blokirano je otvaranje potencijalno nesigurnog
   URL-a: „{url}”.'
+Right-click or hold to see history: Pritisni desnu tipku miša ili zadrži za prikaz
+  povijest
