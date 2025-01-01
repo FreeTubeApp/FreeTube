@@ -17,11 +17,11 @@ Delete: 'Izbriši'
 Select all: 'Odaberi sve'
 Reload: 'Učitaj ponovo'
 Force Reload: 'Prisili ponovno učitavanje'
-Toggle Developer Tools: 'Uključi alate za programere'
+Toggle Developer Tools: 'Uključi/Isključi alate za programere'
 Actual size: 'Stvarna veličina'
 Zoom in: 'Uvećaj prikaz'
 Zoom out: 'Umanji prikaz'
-Toggle fullscreen: 'Uključi/isključi cjeloekranski prikaz'
+Toggle fullscreen: 'Uključi/Isključi cjeloekranski prikaz'
 Window: 'Prozor'
 Minimize: 'Smanji prozor'
 Close: 'Zatvori'
@@ -578,6 +578,7 @@ Settings:
       ili fraza
     Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
     Hide Channel Home: Sakrij karticu „Početna” kanala
+    Show Added Items: Prikaži dodane stavke
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -922,6 +923,9 @@ Video:
     na jedan drugi VPN ili proxy.
   AgeRestricted: Videa s dobnim ograničenjem se ne mogu gledati s FreeTubeom jer zahtijevaju
     prijavu na Google i korištenje YouTube računa s dobnom provjerom.
+  DeArrow:
+    Show Original Details: Prikaži detalje originala
+    Show Modified Details: Prikaži detalje promjena
 Videos:
   #& Sort By
   Sort By:
@@ -1188,3 +1192,48 @@ Search Listing:
   URL-a: „{url}”.'
 Right-click or hold to see history: Pritisni desnu tipku miša ili zadrži za prikaz
   povijest
+Description:
+  Expand Description: … više
+  Collapse Description: Prikaži manje
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Tipkovnički prečaci
+  Close Window: Zatvori prozor
+  Toggle Developer Tools: Uključi/Isključi alate za programere
+  Volume Up: Povećaj glasnoću
+  Volume Down: Smanji glasnoću
+  Force Restart Window: Prisili ponovno pokretanje prozora
+  History Backward: Idi jednu stranicu natrag
+  New Window: Stvori novi prozor
+  Show Keyboard Shortcuts: Prikaži tipkovničke prečace
+  Focus Secondary Search: Fokusiraj sekundarnu traku pretrage (ako postoji)
+  Captions: UKLJ./ISKLJ. titlove
+  Stats: Prikaži statistiku videa
+  Navigate to Settings: Idi na stranicu „Postavke”
+  Navigate to History: Idi na stranicu „Povijest”
+  Refresh: Osvježi feed s najnovijim sadržajem
+  Picture in Picture: Uključi/Isključi modus „Slika-u-slici”
+  Play: Uključi/Isključi reprodukciju/pauza
+  Full Window: Uključi/Isključi prikaz u cijelom prozoru
+  Theatre Mode: Uključi/Isključi kazališni modus
+  Take Screenshot: Snimi snimku ekrana
+  Minimize Window: Sklopi prozor
+  Restart Window: Ponovo pokreni prozor
+  Focus Search: Fokusiraj traku pretrage
+  Search in New Window: Traži u novom prozoru
+  History Forward: Idi jednu stranicu naprijed
+  Last Chapter: Zadnje poglavlje
+  Next Chapter: Sljedeće poglavlje
+  Fullscreen: Uključi/Isključi cjeloekranski prikaz
+  Mute: Uključi/Isključi zvuk
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Strelica dolje
+  arrowleft: Strelica lijevo
+  arrowright: Strelica desno
+  arrowup: Strelica gore
+  shift: Shift
+  enter: Enter
+  plus: Plus
