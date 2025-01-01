@@ -113,7 +113,6 @@ export default defineComponent({
     updateSearchHistoryEntry: function () {
       const persistentSearchHistoryPayload = {
         _id: this.query,
-        name: this.query,
         lastUpdatedAt: new Date()
       }
 

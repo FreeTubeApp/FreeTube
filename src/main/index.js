@@ -1356,15 +1356,6 @@ function runApp() {
   ipcMain.handle(IpcChannels.DB_SEARCH_HISTORY, async (event, { action, data }) => {
     try {
       switch (action) {
-        case DBActions.GENERAL.CREATE: {
-          const searchHistoryEntry = await baseHandlers.searchHistory.create(data)
-          syncOtherWindows(
-            IpcChannels.SYNC_SEARCH_HISTORY,
-            event,
-            { event: SyncEvents.GENERAL.CREATE, data }
-          )
-          return searchHistoryEntry
-        }
         case DBActions.GENERAL.FIND:
           return await baseHandlers.searchHistory.find()
 
@@ -1383,15 +1374,6 @@ function runApp() {
             IpcChannels.SYNC_SEARCH_HISTORY,
             event,
             { event: SyncEvents.GENERAL.DELETE, data }
-          )
-          return null
-
-        case DBActions.GENERAL.DELETE_MULTIPLE:
-          await baseHandlers.searchHistory.deleteMultiple(data)
-          syncOtherWindows(
-            IpcChannels.SYNC_SEARCH_HISTORY,
-            event,
-            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
           )
           return null
 

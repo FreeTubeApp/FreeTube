@@ -219,13 +219,6 @@ class Playlists {
 }
 
 class SearchHistory {
-  static create(searchHistoryEntry) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.CREATE, data: searchHistoryEntry }
-    )
-  }
-
   static find() {
     return ipcRenderer.invoke(
       IpcChannels.DB_SEARCH_HISTORY,
@@ -244,13 +237,6 @@ class SearchHistory {
     return ipcRenderer.invoke(
       IpcChannels.DB_SEARCH_HISTORY,
       { action: DBActions.GENERAL.DELETE, data: _id }
-    )
-  }
-
-  static deleteMultiple(ids) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.DELETE_MULTIPLE, data: ids }
     )
   }
 

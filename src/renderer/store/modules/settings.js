@@ -515,20 +515,12 @@ const customActions = {
 
       ipcRenderer.on(IpcChannels.SYNC_SEARCH_HISTORY, (_, { event, data }) => {
         switch (event) {
-          case SyncEvents.GENERAL.CREATE:
-            commit('addSearchHistoryEntryToList', data)
-            break
-
           case SyncEvents.GENERAL.UPSERT:
             commit('upsertSearchHistoryEntryToList', data)
             break
 
           case SyncEvents.GENERAL.DELETE:
             commit('removeSearchHistoryEntryFromList', data)
-            break
-
-          case SyncEvents.GENERAL.DELETE_MULTIPLE:
-            commit('removeSearchHistoryEntriesFromList', data)
             break
 
           default:

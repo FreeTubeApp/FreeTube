@@ -11,14 +11,14 @@ const getters = {
   },
 
   getLatestSearchHistoryNames: (state) => {
-    return state.searchHistoryEntries.slice(0, SEARCH_RESULTS_DISPLAY_LIMIT).map((entry) => entry.name)
+    return state.searchHistoryEntries.slice(0, SEARCH_RESULTS_DISPLAY_LIMIT).map((entry) => entry._id)
   },
 
-  getLatestMatchingSearchHistoryNames: (state) => (name) => {
-    const matches = state.searchHistoryEntries.filter((entry) => entry.name.startsWith(name))
+  getLatestMatchingSearchHistoryNames: (state) => (id) => {
+    const matches = state.searchHistoryEntries.filter((entry) => entry._id.startsWith(id))
 
     // prioritize more concise matches
-    return matches.map((entry) => entry.name)
+    return matches.map((entry) => entry._id)
       .toSorted((a, b) => a.length - b.length)
   },
 
@@ -32,15 +32,6 @@ const actions = {
     try {
       const results = await DBSearchHistoryHandlers.find()
       commit('setSearchHistoryEntries', results)
-    } catch (errMessage) {
-      console.error(errMessage)
-    }
-  },
-
-  async createSearchHistoryEntry({ commit }, searchHistoryEntry) {
-    try {
-      const newSearchHistoryEntry = await DBSearchHistoryHandlers.create(searchHistoryEntry)
-      commit('addSearchHistoryEntryToList', newSearchHistoryEntry)
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -64,15 +55,6 @@ const actions = {
     }
   },
 
-  async removeSearchHistoryEntries({ commit }, ids) {
-    try {
-      await DBSearchHistoryHandlers.deleteMultiple(ids)
-      commit('removeSearchHistoryEntriesFromList', ids)
-    } catch (errMessage) {
-      console.error(errMessage)
-    }
-  },
-
   async removeAllSearchHistoryEntries({ commit }) {
     try {
       await DBSearchHistoryHandlers.deleteAll()
@@ -84,10 +66,6 @@ const actions = {
 }
 
 const mutations = {
-  addSearchHistoryEntryToList(state, searchHistoryEntry) {
-    state.searchHistoryEntries.unshift(searchHistoryEntry)
-  },
-
   setSearchHistoryEntries(state, searchHistoryEntries) {
     state.searchHistoryEntries = searchHistoryEntries
   },
@@ -102,10 +80,6 @@ const mutations = {
 
   removeSearchHistoryEntryFromList(state, _id) {
     state.searchHistoryEntries = state.searchHistoryEntries.filter((searchHistoryEntry) => searchHistoryEntry._id !== _id)
-  },
-
-  removeSearchHistoryEntriesFromList(state, ids) {
-    state.searchHistoryEntries = state.searchHistoryEntries.filter((searchHistoryEntry) => !ids.includes(searchHistoryEntry._id))
   }
 }
 

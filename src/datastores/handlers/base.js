@@ -227,10 +227,6 @@ class Playlists {
 }
 
 class SearchHistory {
-  static create(searchHistoryEntry) {
-    return db.searchHistory.insertAsync(searchHistoryEntry)
-  }
-
   static find() {
     return db.searchHistory.findAsync({}).sort({ lastUpdatedAt: -1 })
   }
@@ -241,10 +237,6 @@ class SearchHistory {
 
   static delete(_id) {
     return db.searchHistory.removeAsync({ _id: _id })
-  }
-
-  static deleteMultiple(ids) {
-    return db.searchHistory.removeAsync({ _id: { $in: ids } })
   }
 
   static deleteAll() {
