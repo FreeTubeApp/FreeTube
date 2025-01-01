@@ -241,7 +241,6 @@ Settings:
     Autoplay Videos: 'Αυτόματη αναπαραγωγή βίντεο'
     Proxy Videos Through Invidious: 'Βίντεο μέσω του διακομιστή μεσολάβησης Invidious'
     Autoplay Playlists: 'Αυτόματη αναπαραγωγή της λίστας αναπαραγωγής'
-    Enable Theatre Mode by Default: 'Ενεργοποίηση λειτουργίας κινηματογράφου από προεπιλογή'
     Default Volume: 'Προεπιλεγμένο επίπεδο έντασης'
     Default Playback Rate: 'Προεπιλεγμένη ταχύτητα αναπαραγωγής'
     Default Video Format:

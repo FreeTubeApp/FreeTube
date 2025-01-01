@@ -381,7 +381,6 @@ Settings:
     Autoplay Videos: 'پخش خودکار ویدیو ها'
     Proxy Videos Through Invidious: 'پروکسی ویدیو ها از طریق Invidious'
     Autoplay Playlists: 'پخش خودکار فهرست های پخش'
-    Enable Theatre Mode by Default: 'فعال کردن حالت تئاتر به عنوان پیشفرض'
     Scroll Volume Over Video Player: 'کنترل صدا با حرکت اسکرول موس روی پخش کننده ویدیو'
     Display Play Button In Video Player: 'نمایش دکمه پخش داخل پخش کننده ویدیو'
     Next Video Interval: 'تایمر شمارش معکوس پخش خودکار'

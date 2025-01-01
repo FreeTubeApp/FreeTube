@@ -407,7 +407,6 @@ Settings:
     Autoplay Videos: 'Videók automatikus lejátszása'
     Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
-    Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
     Default Video Format:

@@ -359,7 +359,6 @@ Settings:
     Autoplay Videos: '自动播放视频'
     Proxy Videos Through Invidious: '通过Invidious代理视频'
     Autoplay Playlists: '自动播放列表'
-    Enable Theatre Mode by Default: '默认允许剧场模式'
     Default Volume: '默认音量'
     Default Playback Rate: '默认回放速率'
     Default Video Format:
