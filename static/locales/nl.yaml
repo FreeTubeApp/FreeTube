@@ -37,6 +37,7 @@ Global:
 # Search Bar
   Shorts: Shorts
   Live: Live
+  Sort By: Sorteren op
   Counts:
     Video Count: 1 video | {count} video's
     Subscriber Count: 1 abonnee | {count} abonnees
@@ -51,7 +52,6 @@ Search / Go to URL: 'Zoeken / Ga naar URL'
 Search Filters:
   Search Filters: 'Zoek­filters'
   Sort By:
-    Sort By: 'Sorteren op'
     Most Relevant: 'Meest relevant'
     Rating: 'Beoordeling'
     Upload Date: 'Upload­datum'
@@ -137,7 +137,6 @@ User Playlists:
   Playlist Description: Afspeel­lijst­omschrijving
   Delete Playlist: Afspeel­lijst verwijderen
   Sort By:
-    Sort By: Sorteren op
     LatestCreatedFirst: On­langs aan­gemaakt
     NameDescending: Z - A
     NameAscending: A - Z
@@ -664,7 +663,6 @@ Channel:
   Unsubscribe: 'Deabonneren'
   Search Channel: 'Kanaal zoeken'
   Your search results have returned 0 results: 'Uw zoekactie heeft 0 resultaten opgeleverd'
-  Sort By: 'Sorteren op'
   Videos:
     Videos: 'Video''s'
     This channel does not currently have any videos: 'Dit kanaal heeft op dit moment
@@ -831,7 +829,6 @@ Playlist:
   Playlist: Afspeellijst
   Sort By:
     DateAddedNewest: Laatst toegevoegd bovenaan
-    Sort By: Sorteren op
     AuthorAscending: Auteur (A-Z)
     AuthorDescending: Auteur (Z-A)
     VideoTitleAscending: Titel (A-Z)
@@ -886,7 +883,6 @@ Comments:
   No more comments available: Er zijn geen reacties meer beschikbaar
   Newest first: Nieuwste eerst
   Top comments: Beste opmerkingen
-  Sort by: Sorteren op
   Show More Replies: Meer reacties tonen
   From {channelName}: van {channelName}
   And others: en anderen

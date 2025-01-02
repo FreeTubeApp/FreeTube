@@ -35,6 +35,7 @@ Global:
   Shorts: القصيرة
   Live: بث مباشر
   Community: المجتمع
+  Sort By: ترتيب حسب
 
 # Search Bar
   Counts:
@@ -52,7 +53,6 @@ Search / Go to URL: 'ابحث / اذهب إلى رابط'
 Search Filters:
   Search Filters: 'فلاتر البحث'
   Sort By:
-    Sort By: 'ترتيب حسب'
     Most Relevant: 'الأكثر صلة'
     Rating: 'التقييم'
     Upload Date: 'تاريخ الرفع'
@@ -145,7 +145,6 @@ User Playlists:
   Cancel: إلغاء
   Delete Playlist: حذف قائمة التشغيل
   Sort By:
-    Sort By: ترتيب حسب
     LatestCreatedFirst: تم إنشاؤها مؤخرًا
     LatestUpdatedFirst: تم تحديثه مؤخرا
     NameAscending: أ-ي
@@ -705,7 +704,6 @@ Channel:
   Unsubscribe: 'إلغاء الاشتراك'
   Search Channel: 'ابحث في القناة'
   Your search results have returned 0 results: 'لم تُعد نتيجة بحثك أي نتائج'
-  Sort By: 'فرز بحسب'
   Videos:
     Videos: 'الفيديوهات'
     This channel does not currently have any videos: 'لا تحتوي هذه القناة على أي فيديوهات
@@ -906,7 +904,6 @@ Playlist:
 #& Views
   Playlist: قائمة التشغيل
   Sort By:
-    Sort By: ترتيب حسب
     DateAddedNewest: آخر مضاف أولا
     DateAddedOldest: الأقدم إضافتا أولا
     AuthorAscending: الكاتب (A-Z)
@@ -959,7 +956,6 @@ Comments:
   No more comments available: لا يتوفر المزيد من التعليقات
   Newest first: الأحدث أولاً
   Top comments: أهم التعليقات
-  Sort by: الترتيب حسب
   Show More Replies: إظهار المزيد من الردود
   Pinned by: تم التثبيت بواسطة
   And others: و اخرين

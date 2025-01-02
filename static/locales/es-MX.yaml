@@ -34,12 +34,12 @@ Global:
 # Search Bar
   Community: Comunidad
   Live: En vivo
+  Sort By: 'Ordenar por'
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Más relevante'
     Rating: 'Clasificación'
     Upload Date: 'Fecha de carga'
@@ -370,7 +370,6 @@ Channel:
   Search Channel: 'Buscar canal'
   Your search results have returned 0 results: 'Los resultados de su búsqueda han
     arrojado 0 resultados'
-  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Videos'
     This channel does not currently have any videos: 'Este canal no tiene ningun video
@@ -538,7 +537,6 @@ Comments:
   And others: y otros
   There are no more comments for this video: No hay más comentarios en este video
   Newest first: Más recientes
-  Sort by: Ordenar por
   Show More Replies: Mostrar más respuestas
   No more comments available: No hay más comentarios disponibles
 Up Next: 'A continuación'

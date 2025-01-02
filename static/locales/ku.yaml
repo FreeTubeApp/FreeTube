@@ -35,13 +35,15 @@ Download From Site: 'لە وێبگەوە دایگرە'
 A new blog is now available, {blogTitle}. Click to view more: 'بڵۆگێکی نوێ بەردەستە،
   {blogTitle}. کلیک بکە بۆ بینینی زیاتر'
 
+Global:
+  Sort By: 'بگەڕی بە'
+
 # Search Bar
 Search / Go to URL: 'گەڕان / بڕۆ بۆ لینک'
   # In Filter Button
 Search Filters:
   Search Filters: 'فیلتەری گەڕان'
   Sort By:
-    Sort By: 'بگەڕی بە'
     Most Relevant: 'گرنگترین'
     Rating: 'ڕەیتینگ'
     Upload Date: 'کاتی بڵاوکردنەوە'

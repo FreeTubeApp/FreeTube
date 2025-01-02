@@ -35,6 +35,7 @@ Global:
   Shorts: Kratka videa
   Live: Uživo
   Community: Zajednica
+  Sort By: Redoslijed
 
 # Search Bar
   Counts:
@@ -52,7 +53,6 @@ Search / Go to URL: 'Pretraži / Idi na URL'
 Search Filters:
   Search Filters: 'Filtri pretrage'
   Sort By:
-    Sort By: 'Redoslijed'
     Most Relevant: 'Najrelevantniji'
     Rating: 'Ocjena'
     Upload Date: 'Datum prijenosa'
@@ -147,7 +147,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Stvarno želiš
     izbrisati ovu zbirku? To se ne može poništiti.
   Sort By:
-    Sort By: Redoslijed
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: Nedavno stvoreno
@@ -736,7 +735,6 @@ Channel:
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
   Your search results have returned 0 results: 'Pretraživanje je vratilo 0 rezultata'
-  Sort By: 'Redoslijed'
   Videos:
     Videos: 'Videa'
     This channel does not currently have any videos: 'Na ovom kanalu trenutačno nema
@@ -943,7 +941,6 @@ Playlist:
 #& Views
   Playlist: Zbirka
   Sort By:
-    Sort By: Redoslijed
     DateAddedNewest: Najprije najnovije dodane
     DateAddedOldest: Najprije najranije dodane
     AuthorAscending: Autor (A-Z)
@@ -1002,7 +999,6 @@ Comments:
   No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
-  Sort by: Redoslijed
   Show More Replies: Prikaži više odgovora
   From {channelName}: od {channelName}
   And others: i drugi

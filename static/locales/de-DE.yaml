@@ -34,6 +34,7 @@ Global:
   Shorts: Kurzvideos
   Live: Live
   Community: Gemeinschaft
+  Sort By: Sortieren nach
 
 # Search Bar
   Counts:
@@ -51,7 +52,6 @@ Search / Go to URL: Suche / Gehe zur URL
 Search Filters:
   Search Filters: Suchfilter
   Sort By:
-    Sort By: Sortieren nach
     Most Relevant: Am relevantesten
     Rating: Bewertung
     Upload Date: Hochladedatum
@@ -155,7 +155,6 @@ User Playlists:
     dass du diese Wiedergabeliste löschen möchtest? Dies kann nicht rückgängig gemacht
     werden.
   Sort By:
-    Sort By: Sortieren nach
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: Kürzlich erstellt
@@ -724,7 +723,6 @@ Channel:
   Unsubscribe: Deabonnieren
   Search Channel: Kanal durchsuchen
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
-  Sort By: Sortieren nach
   Videos:
     Videos: Videos
     This channel does not currently have any videos: Dieser Kanal hat aktuell keine
@@ -942,7 +940,6 @@ Playlist:
 #& Views
   Sort By:
     VideoTitleDescending: Titel (Z-A)
-    Sort By: Sortieren nach
     DateAddedNewest: Zuletzt hinzugefügt zuerst
     DateAddedOldest: Am frühesten hinzugefügt zuerst
     AuthorAscending: Autor (A-Z)
@@ -1004,7 +1001,6 @@ Comments:
   No more comments available: Keine weiteren Kommentare verfügbar
   Newest first: Neueste zuerst
   Top comments: Top-Kommentare
-  Sort by: Sortieren nach
   Show More Replies: Weitere Antworten anzeigen
   From {channelName}: von {channelName}
   And others: und andere

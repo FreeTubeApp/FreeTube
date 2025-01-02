@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: Živě
   Community: Komunita
+  Sort By: Seřadit podle
 
   Counts:
     Video Count: 1 video | {count} videí
@@ -58,7 +59,6 @@ Search / Go to URL: 'Hledat / Přejít na URL'
 Search Filters:
   Search Filters: 'Vyhledávací filtry'
   Sort By:
-    Sort By: 'Třídit dle'
     Most Relevant: 'Nejrelevantnější'
     Rating: 'Hodnocení'
     Upload Date: 'Datum nahrání'
@@ -202,7 +202,6 @@ User Playlists:
     EarliestCreatedFirst: Nejdéle vytvořené
     LatestCreatedFirst: Nejnověji vytvořené
     EarliestUpdatedFirst: Nejdéle bez aktualizace
-    Sort By: Seřadit podle
     NameDescending: Z-A
     EarliestPlayedFirst: Nejdéle bez přehrání
     LatestUpdatedFirst: Nejnověji aktualizované
@@ -760,7 +759,6 @@ Channel:
   Added channel to your subscriptions: 'Kanál přidán do vašich odběrů'
   Search Channel: 'Hledat v kanálu'
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
-  Sort By: 'Seřadit podle'
   Videos:
     Videos: 'Videa'
     This channel does not currently have any videos: 'Tento kanál momentálně nemá
@@ -967,7 +965,6 @@ Playlist:
 #& Views
   Playlist: Playlist
   Sort By:
-    Sort By: Seřadit podle
     DateAddedNewest: Naposledy přidáno
     DateAddedOldest: Nejdříve přidáno
     AuthorAscending: Autor (A-Z)
@@ -1019,7 +1016,6 @@ Comments:
   There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
   Show Comments: 'Zobrazit komentáře'
   Hide Comments: 'Skrýt komentáře'
-  Sort by: 'Seřadit podle'
   Top comments: 'Nejlepší komentáře'
   Newest first: 'Nejnovější první'
   # Context: View 10 Replies, View 1 Reply

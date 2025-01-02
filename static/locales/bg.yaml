@@ -36,6 +36,7 @@ Global:
   Shorts: Кратки видеа
   Live: На живо
   Community: Общност
+  Sort By: Подреждане по
 
   Counts:
     Video Count: 1 видео | {count} видеа
@@ -59,7 +60,6 @@ Search / Go to URL: 'Търсене / Отиване на адрес'
 Search Filters:
   Search Filters: 'Филтри за търсене'
   Sort By:
-    Sort By: 'Подреждане по'
     Most Relevant: 'Най-уместно'
     Rating: 'Оценка'
     Upload Date: 'Дата на качване'
@@ -203,7 +203,6 @@ User Playlists:
     LatestCreatedFirst: Наскоро създадени
     EarliestCreatedFirst: Най-рано създадени
     EarliestPlayedFirst: Най-рано възпроизведени
-    Sort By: Подреждане по
     NameAscending: A-Z
     NameDescending: Z-A
     LatestUpdatedFirst: Наскоро обновени
@@ -771,7 +770,6 @@ Channel:
   Added channel to your subscriptions: 'Каналът е добавен към вашите абонаменти'
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
-  Sort By: 'Подреждане по'
   Videos:
     Videos: 'видеа'
     This channel does not currently have any videos: 'В този канал по настоящем няма
@@ -982,7 +980,6 @@ Playlist:
   Sort By:
     DateAddedNewest: Първо най-новите
     DateAddedOldest: Първо най-старите
-    Sort By: Подреждане по
     AuthorAscending: Автор (A-Z)
     AuthorDescending: Автор (Z-A)
     VideoTitleAscending: Заглавие (A-Z)
@@ -1038,7 +1035,6 @@ Comments:
   No more comments available: Не са налични повече коментари
   Newest first: Първо най-новите
   Top comments: Последни коментари
-  Sort by: Подреждане по
   Show More Replies: Показване на още отговори
   Pinned by: Прихванато от
   From {channelName}: от {channelName}

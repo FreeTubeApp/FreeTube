@@ -46,6 +46,7 @@ Global:
   Shorts: 'Shorts'
   Live: 'Byw'
   Community: 'Cymuned'
+  Sort By: Trefnu yn Ôl
   Counts:
     Video Count: '1 fideo| {count} fideo'
     Channel Count: '1 sianel | {count} sianel'
@@ -65,7 +66,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'Chwilio Hidlyddion'
   Sort By:
-    Sort By: 'Trefnu'
     Most Relevant: 'Mwyaf Perthnasol'
     Rating: 'Sgôr'
     Upload Date: 'Dyddiad Uwchlwytho'
@@ -199,7 +199,6 @@ User Playlists:
     LatestPlayedFirst: Chwaraewyd yn Ddiweddar
     EarliestPlayedFirst: Chwaraewyd Cynharaf
     EarliestUpdatedFirst: Diweddarwyd Cynharaf
-    Sort By: Trefnu yn Ôl
   SinglePlaylistView:
     Toast:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nid
@@ -769,7 +768,6 @@ Channel:
   Search Channel: 'Chwilio Sianel'
   Your search results have returned 0 results: 'Mae eich canlyniadau chwilio wedi
     dod o hyd i 0 canlyniad'
-  Sort By: 'Trefnu yn ôl'
   This channel does not exist: 'Nid yw''r sianel hon yn bodoli'
   This channel does not allow searching: 'Nid yw''r sianel hon yn caniatáu chwilio'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Mae
@@ -941,7 +939,6 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    Sort By: Didoli Wrth
     Custom: Cyfaddas
 Change Format:
   Change Media Formats: ''
@@ -983,7 +980,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: 'Dangos Sylwadau'
   Hide Comments: 'Cuddio Sylwadau'
-  Sort by: 'Trefnu yn ôl'
   Top comments: 'Sylwadau poblogaidd'
   Newest first: 'Diweddaraf yn gyntaf'
   View {replyCount} replies: ''

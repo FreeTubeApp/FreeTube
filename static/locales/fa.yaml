@@ -35,7 +35,6 @@ Search / Go to URL: 'جست و جو / برو به لینک'
 Search Filters:
   Search Filters: 'فیلترهای جست و جو'
   Sort By:
-    Sort By: 'مرتب کن بر اساس'
     Most Relevant: 'مرتبط ترین'
     Rating: 'امتیاز'
     Upload Date: 'زمان بارگذاری'
@@ -195,7 +194,6 @@ User Playlists:
     NameAscending: آ-ی
     NameDescending: ی-آ
     LatestCreatedFirst: به تازگی ایجاد شده
-    Sort By: مرتب‌کردن بر اساس
     LatestPlayedFirst: اخیراً پخش شده
     EarliestPlayedFirst: اولین پخش شده
     EarliestCreatedFirst: قدیمی ترین ایجاد شده
@@ -703,7 +701,6 @@ Channel:
   Unsubscribe: لغو اشتراک
   Your search results have returned 0 results: نتایج جستجوی شما 0 نتیجه برگردانده
     است
-  Sort By: مرتب سازی بر اساس
   Channel has been removed from your subscriptions: کانال از اشتراک های شما حذف شده
     است
   Added channel to your subscriptions: کانال به اشتراک های شما اضافه شد
@@ -807,9 +804,8 @@ Video:
       CodecAudio: 'کدک: {audioCodec} ({audioItag})'
       Dropped Frames / Total Frames: 'فریم‌های رد شده: {droppedFrames} / مجموع فریم‌ها:
         {totalFrames}'
-      CodecsVideoAudio: 'کدک‌ها: {video Codec} ({video tag}) / {audio Codec} ({audio
-        Itag})'
-      CodecsVideoAudioNoItags: 'کدک‌ها: {video Codec} / {audio Codec}'
+      CodecsVideoAudio: 'کدک‌ها: {videoCodec} ({videotag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'کدک‌ها: {videoCodec} / {audioCodec}'
     Take Screenshot: گرفتن عکس صفحه
     Show Stats: نمایش اطلاعات
     Skipped segment: بخش {segmentCategory} رد شد
@@ -956,6 +952,7 @@ Global:
   Videos: ویدیو
   Shorts: کوتاه
   Live: زنده
+  Sort By: مرتب‌کردن بر اساس
   Counts:
     Subscriber Count: ۱ دنبال کننده | {count} دنبال کننده
     View Count: ۱ بازدید | {count} بازدید
@@ -1028,7 +1025,6 @@ Comments:
   Load More Comments: بارگذاری نظرات بیشتر
   No more comments available: نظر دیگری در دسترس نیست
   There are no comments available for this video: هیچ نظری برای این ویدیو موجود نیست
-  Sort by: مرتب سازی بر اساس
   View: مشاهده
   Reply: پاسخ
   Comments: نظرات
@@ -1132,7 +1128,6 @@ Playlist:
     AuthorDescending: نویسنده (ی-آ)
     VideoTitleDescending: عنوان (ی-آ)
     Custom: سفارشی
-    Sort By: به ترتیب
     AuthorAscending: نویسنده (آ-ی)
 Mini Player: مینی پلیر
 Videos:

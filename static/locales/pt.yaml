@@ -35,6 +35,7 @@ Global:
   Shorts: Curtos
   Live: Em direto
   Community: Comunidade
+  Sort By: Ordenar por
 
   Counts:
     Channel Count: 1 canal | {count} canais
@@ -58,7 +59,6 @@ Search / Go to URL: 'Pesquisar/Ir para o URL'
 Search Filters:
   Search Filters: 'Filtros de pesquisa'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Mais relevantes'
     Rating: 'Avaliação'
     Upload Date: 'Data de publicação'
@@ -154,7 +154,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que pretende eliminar esta lista de reprodução? Isto não pode ser revertido.
   Sort By:
-    Sort By: Ordenar por
     LatestCreatedFirst: Criado recentemente
     EarliestCreatedFirst: Criação mais antiga
     EarliestUpdatedFirst: Atualização mais antiga
@@ -732,7 +731,6 @@ Channel:
   Added channel to your subscriptions: 'Canal adicionado às suas subscrições'
   Search Channel: 'Procurar canal'
   Your search results have returned 0 results: 'A pesquisa devolveu 0 resultados'
-  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Atualmente, este canal não tem
@@ -938,7 +936,6 @@ Playlist:
 #& Views
   Playlist: Lista de reprodução
   Sort By:
-    Sort By: Ordenar por
     AuthorAscending: Autor (A-Z)
     DateAddedNewest: Últimas adições primeiro
     DateAddedOldest: Primeiras adições primeiro
@@ -999,7 +996,6 @@ Comments:
   Show More Replies: Mostrar mais respostas
   Newest first: Mais recentes
   Top comments: Melhores comentários
-  Sort by: Ordenar por
   Pinned by: Fixado por
   And others: e outros
   From {channelName}: de {channelName}

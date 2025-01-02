@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Community
+  Sort By: Sort by
 
   Counts:
     Video Count: 1 video | {count} videos
@@ -58,7 +59,6 @@ Search / Go to URL: 'Search / Go to URL'
 Search Filters:
   Search Filters: 'Search filters'
   Sort By:
-    Sort By: 'Sort by'
     Most Relevant: 'Most relevant'
     Rating: 'Rating'
     Upload Date: 'Upload date'
@@ -154,7 +154,6 @@ User Playlists:
     EarliestUpdatedFirst: Earliest updated
     LatestPlayedFirst: Recently played
     EarliestPlayedFirst: Earliest played
-    Sort By: Sort by
     LatestCreatedFirst: Recently created
   SinglePlaylistView:
     Toast:
@@ -755,7 +754,6 @@ Channel:
   Search Channel: 'Search Channel'
   Your search results have returned 0 results: 'Your search results have returned
     0 results'
-  Sort By: 'Sort By'
   Videos:
     Videos: 'Videos'
     This channel does not currently have any videos: 'This channel does not currently
@@ -959,7 +957,6 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    Sort By: Sort by
     DateAddedNewest: Latest added first
     VideoTitleDescending: Title (Z-A)
     Custom: Custom
@@ -1016,7 +1013,6 @@ Comments:
   No more comments available: No more comments available
   Newest first: Newest First
   Top comments: Top comments
-  Sort by: Sort by
   Show More Replies: Show more replies
   Pinned by: Pinned by
   From {channelName}: from {channelName}

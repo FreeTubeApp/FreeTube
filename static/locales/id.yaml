@@ -43,6 +43,7 @@ Global:
   Community: Komunitas
   Live: Siaran Langsung
   Shorts: Shorts
+  Sort By: Urut Menurut
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
@@ -55,7 +56,6 @@ Search / Go to URL: 'Cari / Pergi ke URL'
 Search Filters:
   Search Filters: 'Filter Pencarian'
   Sort By:
-    Sort By: 'Urut Menurut'
     Most Relevant: 'Paling Relevan'
     Rating: 'Peringkat'
     Upload Date: 'Tanggal Diunggah'
@@ -127,7 +127,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Apakah Anda
     yakin ingin menghapus daftar putar ini? Ini tidak dapat dikembalikan kembali.
   Sort By:
-    Sort By: Urut Menurut
     NameDescending: Z-A
     NameAscending: A-Z
   CreatePlaylistPrompt:
@@ -592,7 +591,6 @@ Channel:
   Search Channel: 'Cari Kanal'
   Your search results have returned 0 results: 'Hasil pencarian Anda memberikan 0
     hasil'
-  Sort By: 'Urut Menurut'
   Videos:
     Videos: 'Video'
     This channel does not currently have any videos: 'Kanal ini belum memiliki video
@@ -726,8 +724,6 @@ Playlist:
 #* Published
 #& Views
   Playlist: Daftar Putar
-  Sort By:
-    Sort By: Urut Menurut
 Change Format:
   Change Media Formats: 'Ubah Format Video'
   Use Dash Formats: 'Gunakan Format DASH'
@@ -773,7 +769,6 @@ Comments:
   No more comments available: Tidak ada komentar lagi yang tersedia
   Newest first: Terbaru
   Top comments: Komentar teratas
-  Sort by: Urut menurut
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
   Show More Replies: Tampilkan Lebih Banyak Balasan
   From {channelName}: dari {channelName}

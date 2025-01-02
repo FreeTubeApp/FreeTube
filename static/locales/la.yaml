@@ -34,13 +34,15 @@ Download From Site: 'Adepto ex situ'
 A new blog is now available, {blogTitle}. Click to view more: 'Novum scripturam creata
   est, {blogTitle}. Tangere hic pro magis notitia'
 
+Global:
+  Sort By: 'Disponere Per'
+
 # Search Bar
 Search / Go to URL: 'Requiro / Adeo URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Requiro Filtra'
   Sort By:
-    Sort By: 'Disponere Per'
     Most Relevant: 'Maxime Pertinentes'
     Rating: 'Transientes'
     Upload Date: 'Transporto Dies'

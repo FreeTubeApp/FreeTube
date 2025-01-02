@@ -43,6 +43,7 @@ Global:
   Shorts: Shorts
   Live: Direkte
   Community: Fellesskap
+  Sort By: 'Sorter etter'
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
   er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
@@ -55,7 +56,6 @@ Search / Go to URL: 'Søk/gå til nettadresse'
 Search Filters:
   Search Filters: 'Søkefilter'
   Sort By:
-    Sort By: 'Sorter etter'
     Most Relevant: 'Mest relevant'
     Rating: 'Vurdering'
     Upload Date: 'Opplastingsdato'
@@ -513,7 +513,6 @@ Channel:
   Added channel to your subscriptions: 'Lagt til kanal til dine abonnentar'
   Search Channel: 'Søk i kanal'
   Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
-  Sort By: 'Sorter etter'
   Videos:
     Videos: 'Videoar'
     This channel does not currently have any videos: 'Kanalen har ingen videoar enda'
@@ -669,7 +668,6 @@ Comments:
     denne videoen'
   Show Comments: 'Vis kommentarar'
   Hide Comments: 'Skjul kommentarar'
-  Sort by: 'Sorter etter'
   Top comments: 'Toppkommentarar'
   Newest first: 'Nyaste først'
   # Context: View 10 Replies, View 1 Reply

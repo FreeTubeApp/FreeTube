@@ -77,7 +77,6 @@ Search Listing:
 Search Filters:
   Search Filters: ''
   Sort By:
-    Sort By: ''
     Most Relevant: ''
     Rating: ''
     Upload Date: ''
@@ -196,8 +195,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: ''
 
   Sort By:
-    Sort By: ''
-
     NameAscending: ''
     NameDescending: ''
 
@@ -716,7 +713,6 @@ Channel:
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: ''
   This channel does not exist: ''
   This channel does not allow searching: ''
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
@@ -893,7 +889,6 @@ Playlist:
   View Full Playlist: ''
   Last Updated On: ''
   Sort By:
-    Sort By: ''
     DateAddedNewest: ''
     DateAddedOldest: ''
     PublishedNewest: ''
@@ -951,7 +946,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: ''
   Hide Comments: ''
-  Sort by: ''
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''

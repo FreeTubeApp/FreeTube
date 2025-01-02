@@ -36,6 +36,7 @@ Global:
   Shorts: Stuttmyndir
   Live: Í beinni
   Community: Samfélag
+  Sort By: Raða eftir
 
   Counts:
     Video Count: 1 myndskeið | {count} myndskeið
@@ -59,7 +60,6 @@ Search / Go to URL: 'Leita / Fara á slóð'
 Search Filters:
   Search Filters: 'Leitarsíur'
   Sort By:
-    Sort By: 'Raða eftir'
     Most Relevant: 'Mest viðeigandi'
     Rating: 'Einkunn'
     Upload Date: 'Dags. innsendingar'
@@ -152,7 +152,6 @@ User Playlists:
   Cancel: Hætta við
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
-    Sort By: Raða eftir
     NameDescending: Ö-A
     LatestCreatedFirst: Nýlega útbúið
     EarliestCreatedFirst: Fyrst búið til
@@ -768,7 +767,6 @@ Channel:
   Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
   Search Channel: 'Leita á rás'
   Your search results have returned 0 results: 'Leitin skilaði 0 niðurstöðum'
-  Sort By: 'Raða eftir'
   Videos:
     Videos: 'Myndskeið'
     This channel does not currently have any videos: 'Þessi rás er ekki með nein myndskeið'
@@ -978,7 +976,6 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    Sort By: Raða eftir
     DateAddedNewest: Nýlegast bætt við fyrst
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
@@ -1026,7 +1023,6 @@ Comments:
     þetta myndskeið'
   Show Comments: 'Birta athugasemdir'
   Hide Comments: 'Fela athugasemdir'
-  Sort by: 'Raða eftir'
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
   # Context: View 10 Replies, View 1 Reply

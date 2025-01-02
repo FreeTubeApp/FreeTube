@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: Наживо
   Community: Спільнота
+  Sort By: Сортувати за
 
   Counts:
     Video Count: 1 відео | {count} відео
@@ -58,7 +59,6 @@ Search / Go to URL: 'Пошук / Перейти по URL'
 Search Filters:
   Search Filters: 'Фільтри пошуку'
   Sort By:
-    Sort By: 'Впорядковувати за'
     Most Relevant: 'Найвідповідніші'
     Rating: 'Рейтинг'
     Upload Date: 'Час вивантаження'
@@ -159,7 +159,6 @@ User Playlists:
   Remove Watched Videos: Вилучити з переглянутих відео
   Delete Playlist: Видалити добірку
   Sort By:
-    Sort By: Сортувати за
     LatestPlayedFirst: Нещодавно переглянуті
     EarliestPlayedFirst: Найдавніше переглянуті
     NameAscending: А-Я
@@ -760,7 +759,6 @@ Channel:
   Added channel to your subscriptions: 'Додано канал до підписок'
   Search Channel: 'Шукати на каналі'
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
-  Sort By: 'Впорядковувати за'
   Videos:
     Videos: 'Відео'
     This channel does not currently have any videos: 'Наразі на цьому каналі немає
@@ -974,7 +972,6 @@ Playlist:
     AuthorAscending: Автор (А-Я)
     AuthorDescending: Автор (Я-А)
     VideoDurationAscending: Тривалість (спочатку найкоротші)
-    Sort By: Сортувати за
     DateAddedNewest: Спочатку новіші добавлені
     PublishedNewest: Останні опубліковані першими
     PublishedOldest: Найдавніші опубліковані першими
@@ -1018,7 +1015,6 @@ Comments:
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
   Show Comments: 'Показати коментарі'
   Hide Comments: 'Сховати коментарі'
-  Sort by: 'Впорядковувати за'
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply

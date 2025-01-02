@@ -14,7 +14,7 @@
       <FtFlexBox class="radioFlexBox">
         <FtRadioButton
           v-model="sortByValue"
-          :title="$t('Search Filters.Sort By.Sort By')"
+          :title="$t('Global.Sort By')"
           :labels="sortByLabels"
           :values="SORT_BY_VALUES"
           class="searchRadio"

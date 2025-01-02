@@ -45,6 +45,7 @@ Global:
   Shorts: 'کورتەڤیدیۆکان'
   Live: 'ڕاستەوخۆ'
   Community: 'کۆمەڵگە'
+  Sort By: 'ڕیزکردن بە'
   Counts:
     Video Count: '١ ڤیدیۆ | {count} ڤیدیۆ'
     Channel Count: '١ کەناڵ | {count} کەناڵ'
@@ -61,7 +62,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'پاڵفتەکردنی گەڕان'
   Sort By:
-    Sort By: 'ڕیزکردن بە'
     Most Relevant: 'پەیوەندیدار'
     Rating: 'هەڵسەنگاندن'
     Upload Date: 'ڕێکەوتی بارکردن'
@@ -153,7 +153,6 @@ User Playlists:
       Video has been removed: ڤیدیۆکە لابرا
     Search for Videos: لە ڤیدیۆ بگەڕێ
   Sort By:
-    Sort By: ڕیزکردن بە
     NameAscending: ئ-ێ
     NameDescending: ێ-ئ
     EarliestCreatedFirst: زوو درووستکراو
@@ -554,7 +553,6 @@ Channel:
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: 'ڕیزکردن بە'
   This channel does not exist: 'ئەم کەناڵە بوونی نییە'
   This channel does not allow searching: 'ئەم کەناڵە ڕێ بە گەڕان نادات'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
@@ -736,7 +734,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: ''
   Hide Comments: ''
-  Sort by: 'ڕیزکردن بە'
   Top comments: ''
   Newest first: 'سەرەتا نوێترینەکان'
   View {replyCount} replies: ''

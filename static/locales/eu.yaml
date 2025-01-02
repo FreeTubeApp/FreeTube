@@ -46,6 +46,7 @@ Global:
   Input Tags:
     Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
+  Sort By: Honen arabera ordenatu
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
@@ -58,7 +59,6 @@ Search / Go to URL: 'Bilatu / Helbidera joan'
 Search Filters:
   Search Filters: 'Bilaketa iragazkiak'
   Sort By:
-    Sort By: 'Ordenatze irizpidea'
     Most Relevant: 'Egokitasuna'
     Rating: 'Balorazioa'
     Upload Date: 'Igoera data'
@@ -176,7 +176,6 @@ User Playlists:
     EarliestCreatedFirst: Lehenen sortuak
     LatestPlayedFirst: Duela gutxi erreproduzitua
     EarliestPlayedFirst: Lehenen erreproduzitua
-    Sort By: Ordenatu honen arabera
     NameAscending: A-Z
     EarliestUpdatedFirst: Lehenen eguneratuak
     LatestUpdatedFirst: Eguneratu berriak
@@ -770,7 +769,6 @@ Channel:
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
   Search Channel: 'Kanala bilatu'
   Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
-  Sort By: 'Ordenatu honen arabera'
   Videos:
     Videos: 'Bideoak'
     This channel does not currently have any videos: 'Kanal honek ez du bideorik'
@@ -979,7 +977,6 @@ Playlist:
 #& Views
   Playlist: Erreprodukzio-zerrenda
   Sort By:
-    Sort By: Honen arabera ordenatu
     DateAddedNewest: Azken gehitua lehenengo
     Custom: Pertsonalizatua
     DateAddedOldest: Lehenago gehitutakoak lehenengo
@@ -1032,7 +1029,6 @@ Comments:
   There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
   Show Comments: 'Iruzkinak erakutsi'
   Hide Comments: 'Iruzkinak ezkutatu'
-  Sort by: 'Honen arabera sailkatuta'
   Top comments: 'Iruzkin nagusiak'
   Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply

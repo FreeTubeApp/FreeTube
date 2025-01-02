@@ -34,6 +34,7 @@ Global:
   Shorts: Shorts
   Live: Ao vivo
   Community: Comunidade
+  Sort By: Ordenar por
 
 # Search Bar
   Counts:
@@ -51,7 +52,6 @@ Search / Go to URL: 'Pesquisar ou digitar URL'
 Search Filters:
   Search Filters: 'Filtros de busca'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Mais relevantes'
     Rating: 'Avaliação'
     Upload Date: 'Data de envio'
@@ -163,7 +163,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
-    Sort By: Ordenar por
     NameDescending: Z-A
     LatestCreatedFirst: Criado recentemente
     EarliestCreatedFirst: Criação mais antiga
@@ -708,7 +707,6 @@ Channel:
   Unsubscribe: 'Remover inscrição'
   Search Channel: 'Buscar no canal'
   Your search results have returned 0 results: 'Nenhum vídeo encontrado para a busca'
-  Sort By: 'Filtrar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Este canal não possui vídeos
@@ -922,7 +920,6 @@ Playlist:
 #& Views
   Playlist: Playlist
   Sort By:
-    Sort By: Ordenar por
     AuthorAscending: Autor (A-Z)
     VideoTitleAscending: Título (A-Z)
     Custom: Personalizado
@@ -983,7 +980,6 @@ Comments:
   No more comments available: Não existem mais comentários
   Newest first: Mais recentes primeiro
   Top comments: Melhores comentários
-  Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
   Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por

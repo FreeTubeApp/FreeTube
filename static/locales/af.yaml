@@ -46,6 +46,7 @@ Global:
   Shorts: 'Kortvideo’s'
   Live: ''
   Community: ''
+  Sort By: 'Sorteer volgens'
   Counts:
     Video Count: ''
     Channel Count: ''
@@ -70,7 +71,6 @@ Search Listing:
 Search Filters:
   Search Filters: ''
   Sort By:
-    Sort By: ''
     Most Relevant: ''
     Rating: ''
     Upload Date: ''
@@ -187,8 +187,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: ''
 
   Sort By:
-    Sort By: ''
-
     NameAscending: ''
     NameDescending: ''
 
@@ -709,7 +707,6 @@ Channel:
   Added channel to your subscriptions: 'Kanaal is tot u intekeninge toegevoeg'
   Search Channel: 'Deursoek kanaal'
   Your search results have returned 0 results: 'U soekaksie het 0 resultate gelewer'
-  Sort By: 'Sorteer volgens'
   This channel does not exist: 'Hierdie kanaal bestaan nie'
   This channel does not allow searching: 'Hierdie kanaal laat nie soektogte toe nie'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Hierdie
@@ -908,7 +905,6 @@ Playlist:
   View Full Playlist: 'Bekyk volledige afspeellys'
   Last Updated On: 'Laas bygewerk op'
   Sort By:
-    Sort By: 'Sorteer volgens'
     DateAddedNewest: 'Laaste toegevoeg boaan'
     DateAddedOldest: 'Eerste toegevoeg boaan'
     AuthorAscending: 'Outeur (A-Z)'
@@ -972,7 +968,6 @@ Comments:
     hierdie video nie'
   Show Comments: 'Toon kommentare'
   Hide Comments: 'Versteek kommentare'
-  Sort by: 'Sorteer volgens'
   Top comments: 'Topkommentare'
   Newest first: 'Nuutste eerste'
   View {replyCount} replies: 'Sien {replyCount} antwoorde'
