@@ -245,6 +245,7 @@ const state = {
   proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
   rememberHistory: true,
+  rememberSearchHistory: true,
   saveWatchedProgress: true,
   saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
@@ -521,6 +522,10 @@ const customActions = {
 
           case SyncEvents.GENERAL.DELETE:
             commit('removeSearchHistoryEntryFromList', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_ALL:
+            commit('setSearchHistoryEntries', [])
             break
 
           default:

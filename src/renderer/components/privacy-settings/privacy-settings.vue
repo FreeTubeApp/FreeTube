@@ -13,6 +13,14 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
+          :label="$t('Settings.Privacy Settings.Remember Search History')"
+          :compact="true"
+          :default-value="rememberSearchHistory"
+          @change="updateRememberSearchHistory"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
           :label="$t('Settings.Privacy Settings.Save Watched Progress')"
           :compact="true"
           :disabled="!rememberHistory"

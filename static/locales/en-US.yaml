@@ -482,7 +482,8 @@ Settings:
         Name: None
   Privacy Settings:
     Privacy Settings: Privacy
-    Remember History: Remember History
+    Remember History: Remember Watch History
+    Remember Search History: Remember Search History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
     Clear Search History and Cache: Clear Search History and Cache

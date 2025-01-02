@@ -1379,6 +1379,11 @@ function runApp() {
 
         case DBActions.GENERAL.DELETE_ALL:
           await baseHandlers.searchHistory.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL }
+          )
           return null
 
         default:

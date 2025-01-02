@@ -30,6 +30,9 @@ export default defineComponent({
     }
   },
   computed: {
+    rememberSearchHistory: function () {
+      return this.$store.getters.getRememberSearchHistory
+    },
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
@@ -119,6 +122,7 @@ export default defineComponent({
     ...mapActions([
       'updateRememberHistory',
       'removeAllHistory',
+      'updateRememberSearchHistory',
       'updateSaveWatchedProgress',
       'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',

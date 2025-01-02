@@ -51,8 +51,8 @@ export default defineComponent({
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
-    enableSearchSuggestions: function () {
-      return this.$store.getters.getEnableSearchSuggestions
+    rememberSearchHistory: function () {
+      return this.$store.getters.getRememberSearchHistory
     },
   },
   watch: {
@@ -148,7 +148,7 @@ export default defineComponent({
         }
       }
 
-      if (this.enableSearchSuggestions) {
+      if (this.rememberSearchHistory) {
         this.updateSearchHistoryEntry()
       }
     },
