@@ -177,9 +177,6 @@ export default defineComponent({
     defaultViewingMode: function () {
       return this.$store.getters.getDefaultViewingMode
     },
-    externalPlayer: function () {
-      return this.$store.getters.getExternalPlayer
-    },
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
     },

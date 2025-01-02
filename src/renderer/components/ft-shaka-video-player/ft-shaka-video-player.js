@@ -1701,12 +1701,18 @@ export default defineComponent({
         }
       })
 
+      if (startInFullwindow) {
+        events.dispatchEvent(new CustomEvent('setFullWindow', {
+          detail: true
+        }))
+      }
+
       /**
        * @implements {shaka.extern.IUIElement.Factory}
        */
       class FullWindowButtonFactory {
         create(rootElement, controls) {
-          return new FullWindowButton(fullWindowEnabled.value, startInFullwindow, events, rootElement, controls)
+          return new FullWindowButton(fullWindowEnabled.value, events, rootElement, controls)
         }
       }
 

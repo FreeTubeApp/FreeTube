@@ -62,12 +62,6 @@ export default defineComponent({
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
       screenshotDefaultPattern: '%Y%M%D-%H%N%S',
-      viewingModeValues: [
-        'default',
-        'theatre',
-        'fullwindow',
-        ...(process.env.IS_ELECTRON ? ['fullscreen', 'pip', 'external_player'] : []),
-      ]
     }
   },
   computed: {
@@ -219,6 +213,24 @@ export default defineComponent({
       }
 
       return viewingModeNames
+    },
+
+    viewingModeValues: function () {
+      const viewingModeValues = [
+        'default',
+        'theatre',
+        'fullwindow'
+      ]
+
+      if (process.env.IS_ELECTRON) {
+        viewingModeValues.push('fullscreen', 'pip')
+
+        if (this.externalPlayer !== '') {
+          viewingModeValues.push('external_player')
+        }
+      }
+
+      return viewingModeValues
     },
 
     enableScreenshot: function() {
