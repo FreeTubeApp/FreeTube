@@ -122,15 +122,27 @@ export default defineComponent({
     },
 
     usingOnlySearchHistoryResults: function () {
-      return this.lastSuggestionQuery === ''
+      return this.rememberSearchHistory && this.lastSuggestionQuery === ''
+    },
+
+    rememberSearchHistory: function () {
+      return this.$store.getters.getRememberSearchHistory
     },
 
     latestMatchingSearchHistoryNames: function () {
+      if (!this.rememberSearchHistory) {
+        return []
+      }
+
       return this.$store.getters.getLatestMatchingSearchHistoryNames(this.lastSuggestionQuery)
         .slice(0, MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT)
     },
 
     latestSearchHistoryNames: function () {
+      if (!this.rememberSearchHistory) {
+        return []
+      }
+
       return this.$store.getters.getLatestSearchHistoryNames
     },
 
