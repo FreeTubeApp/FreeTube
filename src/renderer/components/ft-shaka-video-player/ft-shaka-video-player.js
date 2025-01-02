@@ -2809,7 +2809,7 @@ export default defineComponent({
      * it won't be finished in time, as the player destruction is asynchronous.
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      *
-     * @returns { startNextVideoInFullscreen: boolean, startNextVideoInFullwindow: boolean, startNextVideoInPip: boolean }
+     * @returns {Promise<{ startNextVideoInFullscreen: boolean, startNextVideoInFullwindow: boolean, startNextVideoInPip: boolean }>}
      */
     async function destroyPlayer() {
       ignoreErrors = true

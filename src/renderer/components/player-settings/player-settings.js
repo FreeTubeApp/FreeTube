@@ -133,7 +133,7 @@ export default defineComponent({
 
     defaultViewingMode: function () {
       const defaultViewingMode = this.$store.getters.getDefaultViewingMode
-      if ((defaultViewingMode === 'external_player' && this.externalPlayer === '') ||
+      if ((defaultViewingMode === 'external_player' && (!process.env.IS_ELECTRON || this.externalPlayer === '')) ||
         (!process.env.IS_ELECTRON && (defaultViewingMode === 'fullscreen' || defaultViewingMode === 'pip'))) {
         return 'default'
       }

@@ -30,8 +30,11 @@ class Settings {
     // Theater Mode preference through this change.
     const defaultTheatreMode = await db.settings.findOneAsync({ _id: 'defaultTheatreMode' })
 
-    if (defaultTheatreMode?.value) {
-      await this.upsert('defaultViewingMode', 'theatre')
+    if (defaultTheatreMode) {
+      if (defaultTheatreMode.value) {
+        await this.upsert('defaultViewingMode', 'theatre')
+      }
+
       await db.settings.removeAsync({ _id: 'defaultTheatreMode' })
     }
 

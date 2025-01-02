@@ -381,7 +381,7 @@ export default defineComponent({
     },
 
     externalPlayerIsDefaultViewingMode: function () {
-      return this.externalPlayer !== '' && this.$store.getters.getDefaultViewingMode === 'external_player'
+      return process.env.IS_ELECTRON && this.externalPlayer !== '' && this.$store.getters.getDefaultViewingMode === 'external_player'
     },
 
     defaultPlayback: function () {
@@ -486,16 +486,16 @@ export default defineComponent({
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
     },
 
-    watchVideoRoute() {
-      return {
-        path: `/watch/${this.id}`,
-        query: this.watchPageLinkQuery,
-      }
-    },
-
-    // For `router-link` attribute `to`
     watchVideoRouterLink() {
-      return !this.externalPlayerIsDefaultViewingMode ? this.watchVideoRoute : {}
+    // For `router-link` attribute `to`
+      if (!this.externalPlayerIsDefaultViewingMode) {
+        return {
+          path: `/watch/${this.id}`,
+          query: this.watchPageLinkQuery,
+        }
+      } else {
+        return {}
+      }
     },
 
     watchPageLinkQuery() {
