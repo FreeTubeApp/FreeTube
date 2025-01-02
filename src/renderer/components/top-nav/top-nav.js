@@ -147,26 +147,25 @@ export default defineComponent({
     },
 
     activeDataList: function () {
-      if (!this.enableSearchSuggestions) {
-        return []
-      }
-
       // show latest search history when the search bar is empty
       if (this.usingOnlySearchHistoryResults) {
         return this.$store.getters.getLatestSearchHistoryNames
       }
 
       const searchResults = [...this.latestMatchingSearchHistoryNames]
-      for (const searchSuggestion of this.searchSuggestionsDataList) {
-        // prevent duplicate results between search history entries and YT search suggestions
-        if (this.latestMatchingSearchHistoryNames.includes(searchSuggestion)) {
-          continue
-        }
 
-        searchResults.push(searchSuggestion)
+      if (this.enableSearchSuggestions) {
+        for (const searchSuggestion of this.searchSuggestionsDataList) {
+          // prevent duplicate results between search history entries and YT search suggestions
+          if (this.latestMatchingSearchHistoryNames.includes(searchSuggestion)) {
+            continue
+          }
 
-        if (searchResults.length === SEARCH_RESULTS_DISPLAY_LIMIT) {
-          break
+          searchResults.push(searchSuggestion)
+
+          if (searchResults.length === SEARCH_RESULTS_DISPLAY_LIMIT) {
+            break
+          }
         }
       }
 
