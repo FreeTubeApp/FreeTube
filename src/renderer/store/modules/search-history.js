@@ -19,12 +19,11 @@ const getters = {
 
     // prioritize more concise matches
     return matches.map((entry) => entry._id)
-      .toSorted((a, b) => a.length - b.length)
+      .sort((a, b) => a.length - b.length)
   },
 
   getSearchHistoryEntryWithId: (state) => (id) => {
-    const searchHistoryEntry = state.searchHistoryEntries.find(p => p._id === id)
-    return searchHistoryEntry
+    return state.searchHistoryEntries.find(p => p._id === id)
   },
 }
 const actions = {
