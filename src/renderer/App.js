@@ -352,7 +352,8 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
-      if (event.shiftKey && event.key === '?') {
+      // ignore user typing in HTML `input` elements
+      if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
       }
 
