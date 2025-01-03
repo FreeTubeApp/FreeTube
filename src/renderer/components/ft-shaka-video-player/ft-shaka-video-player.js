@@ -1292,7 +1292,9 @@ export default defineComponent({
 
         chosenVariant = findMostSimilarAudioBandwidth(matches, audioBandwidth)
       } else {
-        chosenVariant = matches[0]
+        chosenVariant = matches.reduce((prev, current) => {
+          return (current.audioBandwidth > prev.audioBandwidth) ? current : prev
+        }, matches[0])
       }
 
       player.selectVariantTrack(chosenVariant)
