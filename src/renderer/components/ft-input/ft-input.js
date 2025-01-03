@@ -192,6 +192,7 @@ export default defineComponent({
       this.inputData = ''
       this.handleActionIconChange()
       this.updateVisibleDataList()
+      this.searchState.isPointerInList = false
 
       this.$refs.input.value = ''
 
