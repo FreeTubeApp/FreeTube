@@ -88,6 +88,7 @@ const SyncEvents = {
     CREATE: 'sync-create',
     UPSERT: 'sync-upsert',
     DELETE: 'sync-delete',
+    DELETE_MULTIPLE: 'sync-delete-multiple',
     DELETE_ALL: 'sync-delete-all'
   },
 
@@ -104,6 +105,7 @@ const SyncEvents = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
+    UPSERT_VIDEOS: 'sync-playlists-upsert-videos',
     DELETE_VIDEO: 'sync-playlists-delete-video',
   },
 
