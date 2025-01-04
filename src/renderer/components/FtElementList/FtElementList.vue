@@ -24,7 +24,7 @@
       :playlist-item-id="result.playlistItemId"
       @move-video-up="moveVideoUp(result.videoId, result.playlistItemId)"
       @move-video-down="moveVideoDown(result.videoId, result.playlistItemId)"
-      @remove-from-playlist="removeFromPlaylist(result.videoId)"
+      @remove-from-playlist="removeFromPlaylist(result.videoId, result.playlistItemId)"
     />
   </FtAutoGrid>
 </template>
@@ -132,9 +132,10 @@ function moveVideoDown(videoId, playlistItemId) {
 
 /**
  * @param {string} videoId
+ * @param {string} playlistItemId
  */
-function removeFromPlaylist(videoId) {
-  emit('remove-from-playlist', videoId)
+function removeFromPlaylist(videoId, playlistItemId) {
+  emit('remove-from-playlist', videoId, playlistItemId)
 }
 </script>
 

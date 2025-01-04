@@ -81,6 +81,9 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
+      deletedVideoIds: [],
+      deletedPlaylistItemIds: [],
+      isUndoToast: false
     }
   },
   computed: {
@@ -583,36 +586,34 @@ export default defineComponent({
       }
     },
 
-    removeVideoFromPlaylist: function (videoId) {
+    removeVideoFromPlaylist: function (videoId, playlistItemId) {
       try {
-        // Initialize deletedVideoIds array if not already
-        if (!this.deletedVideoIds) {
-          this.deletedVideoIds = []
-        }
         const playlistItems = [].concat(this.playlistItems)
         const tempPlaylistItems = [].concat(this.playlistItems)
         let isUndoClicked = false
 
         const videoIndex = this.playlistItems.findIndex((video) => {
-          return video.videoId === videoId
+          return video.videoId === videoId && video.playlistItemId === playlistItemId
         })
 
         if (videoIndex !== -1) {
-          // Add the video to the deletedVideoIds list
           this.deletedVideoIds.push(this.playlistItems[videoIndex].videoId)
+          this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
           playlistItems.splice(videoIndex, 1)
           this.playlistItems = playlistItems
 
-          if (!this.lastToastTime || Date.now() - this.lastToastTime > 5000) {
-            this.lastToastTime = Date.now()
+          // Only show toast when no existing toast shown
+          if (!this.isUndoToast) {
+            this.isUndoToast = true
             showToast(
               this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
               5000,
               () => {
                 this.playlistItems = tempPlaylistItems
                 isUndoClicked = true
+                this.isUndoToast = false
                 this.deletedVideoIds = []
-                this.lastToastTime = null
+                this.deletedPlaylistItemIds = []
               }
             )
             setTimeout(() => {
@@ -620,8 +621,11 @@ export default defineComponent({
                 this.removeVideos({
                   _id: this.playlistId,
                   videoIds: this.deletedVideoIds,
+                  playlistItemIds: this.deletedPlaylistItemIds,
                 })
                 this.deletedVideoIds = []
+                this.deletedPlaylistItemIds = []
+                this.isUndoToast = false
               }
             }, 5000)
           }
@@ -681,10 +685,10 @@ export default defineComponent({
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
       'removeVideos',
-      'setAppTitle'
     ]),
 
     ...mapMutations([
+      'setAppTitle',
       'setCachedPlaylist'
     ])
   }
