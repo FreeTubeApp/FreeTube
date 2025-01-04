@@ -1066,6 +1066,9 @@ Tooltips:
     External Link Handling: "Odaberi standardno ponašanje kad se pritisne poveznica
       koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom
       standardnom pregledniku.\n"
+    Open Deep Links In New Window: URL adrese koje su proslijeđene na FreeTube, kao
+      što su proširenja preglednika za preusmjeravanje ili argumenti naredbenog retka,
+      otvaraju se u novom prozoru.
   Subscription Settings:
     Fetch Feeds from RSS: Kada je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
@@ -1234,6 +1237,18 @@ KeyboardShortcutPrompt:
   Next Frame: Sljedeći kadar (prilikom pauze)
   Zoom Out: Umanji prikaz
   Skip by Tenths: Postotno preskakanje kroz video (3 preskakanja do 30 % trajanja)
+  Decrease Video Speed: Smanji brzinu videa na temelju intervala brzine reprodukcije
+    videa
+  Small Fast Forward: Premotaj X sekundi naprijed na temelju intervala premotavanja
+    naprijed i trenutačne brzine reprodukcije videa
+  Small Rewind: Premotaj X sekundi natrag na temelju intervala premotavanja natrag
+    i trenutačne brzine reprodukcije videa
+  Large Rewind: Premotaj 10 sekundi natrag / Premotaj video natrag na temelju trenutačne
+    brzine reprodukcije videa
+  Large Fast Forward: Premotaj 10 sekundi naprijed / Premotaj video naprijed na temelju
+    trenutačne brzine reprodukcije videa
+  Increase Video Speed: Povećaj brzinu videa na temelju intervala brzine reprodukcije
+    videa
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:
@@ -1246,3 +1261,5 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Plus
+Autoplay Interruption Timer: Automatska reprodukcija je prekinuta zbog {autoplayInterruptionIntervalHours}
+  sata neaktivnosti
