@@ -1221,6 +1221,19 @@ KeyboardShortcutPrompt:
   Next Chapter: Sljedeće poglavlje
   Fullscreen: Uključi/Isključi cjeloekranski prikaz
   Mute: Uključi/Isključi zvuk
+  Sections:
+    Video:
+      General: 'Video: Općenito'
+      Playback: 'Video: Reprodukcija'
+    App:
+      Situational: 'Aplikacija: Situacijski'
+      General: 'Aplikacija: Općenito'
+  Reset Zoom: Resetiraj razinu zumiranja / veličinu korisničkog sučelja
+  Zoom In: Uvećaj prikaz
+  Last Frame: Prethodni kadar (prilikom pauze)
+  Next Frame: Sljedeći kadar (prilikom pauze)
+  Zoom Out: Umanji prikaz
+  Skip by Tenths: Postotno preskakanje kroz video (3 preskakanja do 30 % trajanja)
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:
