@@ -19,13 +19,12 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  ****
  * Introduction
  *
- * You can add a new setting in three different methods.
+ * You can add a new setting in two different methods.
  *
- * The first two methods benefit from the auto-generation of
+ * The first method benefits from the auto-generation of
  * a getter, a mutation and a few actions related to the setting.
- * Those two methods should be preferred whenever possible:
+ * This method should be preferred whenever possible:
  * - `state`
- * - `stateWithSideEffects`
  *
  * The last one DOES NOT feature any kind of auto-generation and should
  * only be used in scenarios that don't fall under the other 2 options:
@@ -51,7 +50,7 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  *
  * 2) You want to add a more complex setting that interacts
  *    with other parts of the app and tech stack.
- * -> Please consult the `state` and `stateWithSideEffects` sections.
+ * -> Please consult the `state` and `sideEffectHandlers` sections.
  *
  * 3) You want to add a completely custom state based setting
  *    that does not work like the usual settings.
@@ -77,32 +76,26 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  *      and calls `setExample` with it)
  *
  ***
- * `stateWithSideEffects`
- * This object contains settings that have SIDE EFFECTS.
+ * `sideEffectHandlers`
+ * This object contains the side-effect handlers for settings that have SIDE EFFECTS.
  *
- * Each one of these settings must specify an object
- * with the following properties:
- * - `defaultValue`
- *      (which is the value you would put down if
- *       you were to add the setting to the regular `state` object)
+ * Each one of these settings must specify a handler,
+ *   which should essentially be a callback of type
+ *   `(store, value) => void` (the same as you would use for an `action`)
+ *   that deals with the side effects for that setting
  *
- * - `sideEffectsHandler`
- *      (which should essentially be a callback of type
- *         `(store, value) => void`
- *       that deals with the side effects for that setting)
- *
- * NOTE: Example implementations of such settings can be found
- * in the `stateWithSideEffects` object in case
+ * NOTE: Example implementations of such handlers can be found
+ * in the `sideEffectHandlers` object in case
  * the explanation isn't clear enough.
  *
  * All functions auto-generated for settings in `state`
  * (if you haven't read the `state` section, do it now),
- * are also auto-generated for settings in `stateWithSideEffects`,
+ * are also auto-generated for settings in `sideEffectHandlers,
  * with a few key differences (exemplified with setting 'example'):
  *
  * - an additional action is auto-generated:
  *   - `triggerExampleSideEffects`
- *       (triggers the `sideEffectsHandler` for that setting;
+ *       (triggers the `handler` for that setting;
  *        you'll most likely never call this directly)
  *
  * - the behavior of `updateExample` changes a bit:
@@ -128,12 +121,6 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * to evaluate if it is truly necessary
  * and to ensure that the implementation works as intended.
  *
- * A good example of a setting of this type would be `usingElectron`.
- * This setting doesn't need to be persisted in the database
- * and it doesn't change over time.
- * Therefore, it needs a getter (which we add to `customGetters`), but
- * has no need for a mutation or any sort of action.
- *
  ****
  * ENDING NOTES
  *
@@ -153,7 +140,7 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  */
 
 // HELPERS
-const capitalize = str => str.replace(/^\w/, c => c.toUpperCase())
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
 const defaultGetterId = settingId => 'get' + capitalize(settingId)
 const defaultMutationId = settingId => 'set' + capitalize(settingId)
 const defaultUpdaterId = settingId => 'update' + capitalize(settingId)
@@ -311,115 +298,109 @@ const state = {
   // If the playlist is removed quick bookmark is disabled
   quickBookmarkTargetPlaylistId: 'favorites',
   generalAutoLoadMorePaginatedItemsEnabled: false,
+
+  // The settings below have side effects
+  currentLocale: 'system',
+  defaultInvidiousInstance: '',
+  defaultVolume: 1,
+  uiScale: 100,
 }
 
-const stateWithSideEffects = {
-  currentLocale: {
-    defaultValue: 'system',
-    sideEffectsHandler: async function ({ dispatch }, value) {
-      const fallbackLocale = 'en-US'
+const sideEffectHandlers = {
+  currentLocale: async ({ dispatch }, value) => {
+    const fallbackLocale = 'en-US'
 
-      let targetLocale = value
-      if (value === 'system') {
-        const systemLocaleName = (await getSystemLocale()).replace('_', '-') // ex: en-US
-        const systemLocaleSplit = systemLocaleName.split('-') // ex: en
-        const targetLocaleOptions = allLocales.filter((locale) => {
-          // filter out other languages
-          const localeLang = locale.split('-')[0]
-          return localeLang.includes(systemLocaleSplit[0])
-        }).sort((aLocaleName, bLocaleName) => {
-          const aLocale = aLocaleName.split('-') // ex: [en, US]
-          const bLocale = bLocaleName.split('-')
+    let targetLocale = value
+    if (value === 'system') {
+      const systemLocaleName = (await getSystemLocale()).replace('_', '-') // ex: en-US
+      const systemLocaleSplit = systemLocaleName.split('-') // ex: en
+      const targetLocaleOptions = allLocales.filter((locale) => {
+        // filter out other languages
+        const localeLang = locale.split('-')[0]
+        return localeLang.includes(systemLocaleSplit[0])
+      }).sort((aLocaleName, bLocaleName) => {
+        const aLocale = aLocaleName.split('-') // ex: [en, US]
+        const bLocale = bLocaleName.split('-')
 
-          if (aLocaleName === systemLocaleName) { // country & language match, prefer a
-            return -1
-          } else if (bLocaleName === systemLocaleName) { // country & language match, prefer b
-            return 1
-          } else if (aLocale.length === 1) { // no country code for a, prefer a
-            return -1
-          } else if (bLocale.length === 1) { // no country code for b, prefer b
-            return 1
-          } else { // a & b have different country code from system, sort alphabetically
-            return aLocaleName.localeCompare(bLocaleName)
-          }
-        })
-
-        if (targetLocaleOptions.length > 0) {
-          targetLocale = targetLocaleOptions[0]
-        } else {
-          // Go back to default value if locale is unavailable
-          targetLocale = fallbackLocale
-          // Translating this string isn't necessary
-          // because the user will always see it in the default locale
-          // (in this case, English (US))
-          showToast(`Locale not found, defaulting to ${fallbackLocale}`)
+        if (aLocaleName === systemLocaleName) { // country & language match, prefer a
+          return -1
+        } else if (bLocaleName === systemLocaleName) { // country & language match, prefer b
+          return 1
+        } else if (aLocale.length === 1) { // no country code for a, prefer a
+          return -1
+        } else if (bLocale.length === 1) { // no country code for b, prefer b
+          return 1
+        } else { // a & b have different country code from system, sort alphabetically
+          return aLocaleName.localeCompare(bLocaleName)
         }
+      })
+
+      if (targetLocaleOptions.length > 0) {
+        targetLocale = targetLocaleOptions[0]
+      } else {
+        // Go back to default value if locale is unavailable
+        targetLocale = fallbackLocale
+        // Translating this string isn't necessary
+        // because the user will always see it in the default locale
+        // (in this case, English (US))
+        showToast(`Locale not found, defaulting to ${fallbackLocale}`)
       }
+    }
 
-      const loadPromises = []
+    const loadPromises = []
 
-      if (targetLocale !== fallbackLocale) {
-        // "en-US" is used as a fallback for missing strings in other locales
-        loadPromises.push(
-          loadLocale(fallbackLocale)
-        )
-      }
-
-      // "es" is used as a fallback for "es-AR" and "es-MX"
-      if (targetLocale === 'es-AR' || targetLocale === 'es-MX') {
-        loadPromises.push(
-          loadLocale('es')
-        )
-      }
-
-      // "pt" is used as a fallback for "pt-PT" and "pt-BR"
-      if (targetLocale === 'pt-PT' || targetLocale === 'pt-BR') {
-        loadPromises.push(
-          loadLocale('pt')
-        )
-      }
-
+    if (targetLocale !== fallbackLocale) {
+      // "en-US" is used as a fallback for missing strings in other locales
       loadPromises.push(
-        loadLocale(targetLocale)
+        loadLocale(fallbackLocale)
       )
+    }
 
-      await Promise.allSettled(loadPromises)
+    // "es" is used as a fallback for "es-AR" and "es-MX"
+    if (targetLocale === 'es-AR' || targetLocale === 'es-MX') {
+      loadPromises.push(
+        loadLocale('es')
+      )
+    }
 
-      i18n.locale = targetLocale
-      await dispatch('getRegionData', targetLocale)
+    // "pt" is used as a fallback for "pt-PT" and "pt-BR"
+    if (targetLocale === 'pt-PT' || targetLocale === 'pt-BR') {
+      loadPromises.push(
+        loadLocale('pt')
+      )
+    }
+
+    loadPromises.push(
+      loadLocale(targetLocale)
+    )
+
+    await Promise.allSettled(loadPromises)
+
+    i18n.locale = targetLocale
+    await dispatch('getRegionData', targetLocale)
+  },
+
+  defaultInvidiousInstance: ({ commit, rootState }, value) => {
+    if (value !== '' && rootState.invidious.currentInvidiousInstance !== value) {
+      commit('setCurrentInvidiousInstance', value)
     }
   },
 
-  defaultInvidiousInstance: {
-    defaultValue: '',
-    sideEffectsHandler: ({ commit, rootState }, value) => {
-      if (value !== '' && rootState.invidious.currentInvidiousInstance !== value) {
-        commit('setCurrentInvidiousInstance', value)
-      }
-    }
+  defaultVolume: (_, value) => {
+    sessionStorage.setItem('volume', value)
+    value === 0 ? sessionStorage.setItem('muted', 'true') : sessionStorage.setItem('muted', 'false')
+    sessionStorage.setItem('defaultVolume', value)
   },
 
-  defaultVolume: {
-    defaultValue: 1,
-    sideEffectsHandler: (_, value) => {
-      sessionStorage.setItem('volume', value)
-      value === 0 ? sessionStorage.setItem('muted', 'true') : sessionStorage.setItem('muted', 'false')
-      sessionStorage.setItem('defaultVolume', value)
-    }
-  },
-
-  uiScale: {
-    defaultValue: 100,
-    sideEffectsHandler: (_, value) => {
-      if (process.env.IS_ELECTRON) {
-        const { webFrame } = require('electron')
-        webFrame.setZoomFactor(value / 100)
-      }
+  uiScale: (_, value) => {
+    if (process.env.IS_ELECTRON) {
+      const { webFrame } = require('electron')
+      webFrame.setZoomFactor(value / 100)
     }
   }
 }
 
-const settingsWithSideEffects = Object.keys(stateWithSideEffects)
+const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
 const customState = {
 }
@@ -430,22 +411,28 @@ const customGetters = {
 const customMutations = {}
 
 const customActions = {
-  grabUserSettings: async ({ commit, dispatch }) => {
+  grabUserSettings: async ({ commit, dispatch, state }) => {
     try {
-      // Assigning default settings for settings that have side effects
-      const userSettings = Object.entries(Object.assign({},
-        Object.fromEntries(Object.entries(stateWithSideEffects).map(([_id, { defaultValue }]) => { return [_id, defaultValue] })),
-        Object.fromEntries((await DBSettingHandlers.find()).map(({ _id, value }) => { return [_id, value] })))
-      )
+      const userSettings = await DBSettingHandlers.find()
 
-      for (const setting of userSettings) {
-        const [_id, value] = setting
+      const mutationIds = Object.keys(mutations)
+
+      const alreadyTriggeredSideEffects = []
+
+      for (const { _id, value } of userSettings) {
         if (settingsWithSideEffects.includes(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
+          alreadyTriggeredSideEffects.push(_id)
         }
 
-        if (Object.keys(mutations).includes(defaultMutationId(_id))) {
+        if (mutationIds.includes(defaultMutationId(_id))) {
           commit(defaultMutationId(_id), value)
+        }
+      }
+
+      for (const _id of settingsWithSideEffects) {
+        if (!alreadyTriggeredSideEffects.includes(_id)) {
+          dispatch(defaultSideEffectsTriggerId(_id), state[_id])
         }
       }
     } catch (errMessage) {
@@ -619,45 +606,41 @@ const getters = {}
 const mutations = {}
 const actions = {}
 
-// Add settings that contain side effects to the state
-Object.assign(
-  state,
-  Object.fromEntries(
-    Object.keys(stateWithSideEffects).map(
-      (key) => [
-        key,
-        stateWithSideEffects[key].defaultValue
-      ]
-    )
-  )
-)
-
 // Build default getters, mutations and actions for every setting id
 for (const settingId of Object.keys(state)) {
   const getterId = defaultGetterId(settingId)
   const mutationId = defaultMutationId(settingId)
   const updaterId = defaultUpdaterId(settingId)
-  const triggerId = defaultSideEffectsTriggerId(settingId)
 
   getters[getterId] = (state) => state[settingId]
   mutations[mutationId] = (state, value) => { state[settingId] = value }
 
-  // If setting has side effects, generate action to handle them
   if (settingsWithSideEffects.includes(settingId)) {
-    actions[triggerId] = stateWithSideEffects[settingId].sideEffectsHandler
-  }
+    const triggerId = defaultSideEffectsTriggerId(settingId)
 
-  actions[updaterId] = async ({ commit, dispatch }, value) => {
-    try {
-      await DBSettingHandlers.upsert(settingId, value)
+    // If setting has side effects, generate action to handle them
+    actions[triggerId] = sideEffectHandlers[settingId]
 
-      if (settingsWithSideEffects.includes(settingId)) {
+    actions[updaterId] = async ({ commit, dispatch }, value) => {
+      try {
+        await DBSettingHandlers.upsert(settingId, value)
+
         dispatch(triggerId, value)
-      }
 
-      commit(mutationId, value)
-    } catch (errMessage) {
-      console.error(errMessage)
+        commit(mutationId, value)
+      } catch (errMessage) {
+        console.error(errMessage)
+      }
+    }
+  } else {
+    actions[updaterId] = async ({ commit }, value) => {
+      try {
+        await DBSettingHandlers.upsert(settingId, value)
+
+        commit(mutationId, value)
+      } catch (errMessage) {
+        console.error(errMessage)
+      }
     }
   }
 }
