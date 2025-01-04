@@ -110,8 +110,8 @@ const primarySections = computed(() => [
 
 const isMac = process.platform === 'darwin'
 
-const localizedShortcutNameToShortcutsMap = computed(() => {
-  return new Map([
+const localizedShortcutNameToShortcutsMappings = computed(() => {
+  return [
     [t('KeyboardShortcutPrompt.Show Keyboard Shortcuts'), ['SHOW_SHORTCUTS']],
     [t('KeyboardShortcutPrompt.History Backward'), [
       'HISTORY_BACKWARD',
@@ -121,7 +121,6 @@ const localizedShortcutNameToShortcutsMap = computed(() => {
       'HISTORY_FORWARD',
       ...isMac ? ['HISTORY_FORWARD_ALT_MAC'] : [],
     ]],
-    [t('KeyboardShortcutPrompt.Fullscreen'), ['FULLSCREEN']],
     [t('KeyboardShortcutPrompt.Navigate to Settings'), ['NAVIGATE_TO_SETTINGS']],
     [t('KeyboardShortcutPrompt.Navigate to History'), [
       isMac ? 'NAVIGATE_TO_HISTORY_MAC' : 'NAVIGATE_TO_HISTORY',
@@ -164,7 +163,7 @@ const localizedShortcutNameToShortcutsMap = computed(() => {
     [t('KeyboardShortcutPrompt.Next Chapter'), ['NEXT_CHAPTER']],
     [t('KeyboardShortcutPrompt.Last Frame'), ['LAST_FRAME']],
     [t('KeyboardShortcutPrompt.Next Frame'), ['NEXT_FRAME']],
-  ])
+  ]
 })
 
 function hideKeyboardShortcutPrompt() {
@@ -172,10 +171,10 @@ function hideKeyboardShortcutPrompt() {
 }
 
 function getLocalizedShortcutNamesAndValues(dictionary) {
-  const shortcutNameToShortcutsMap = localizedShortcutNameToShortcutsMap.value
+  const shortcutNameToShortcutsMappings = localizedShortcutNameToShortcutsMappings.value
   const shortcutLabelSeparator = t('shortcutLabelSeparator')
 
-  return shortcutNameToShortcutsMap.entries()
+  return shortcutNameToShortcutsMappings
     .filter(([_localizedShortcutName, shortcutCodes]) =>
       shortcutCodes.some(shortcutCode => Object.hasOwn(dictionary, shortcutCode))
     )
