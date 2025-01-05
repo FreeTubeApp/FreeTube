@@ -113,7 +113,7 @@ export default defineComponent({
     updateSearchHistoryEntry: function () {
       const persistentSearchHistoryPayload = {
         _id: this.query,
-        lastUpdatedAt: new Date()
+        lastUpdatedAt: Date.now()
       }
 
       this.$store.dispatch('updateSearchHistoryEntry', persistentSearchHistoryPayload)
