@@ -224,8 +224,9 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
 }
 
 .removeButton:hover,
-.removeButton.removeButtonSelected {
+.removeButtonSelected {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .hover {
