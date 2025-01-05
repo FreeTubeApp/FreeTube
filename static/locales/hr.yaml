@@ -596,6 +596,10 @@ Settings:
     Proxy Protocol: Protokol posrednika
     Enable Tor / Proxy: Aktiviraj Tor/Posrednik
     Proxy Settings: Posrednik
+    Proxy Warning: FreeTube nema ugrađeni proxy, ali se može povezati s vanjskim proxyjem,
+      poput onog koji radi na tvom računalu poput Tor-a ili eksternog proxyja, poput
+      SOCKS5 proxyja koji pružaju neki VPN-ovi. Ako je aktiviran, provjeri je li tvoj
+      proxy/Tor pravilno konfiguriran, inače FreeTube neće moći dohvatiti nikoje podatke.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja
@@ -924,6 +928,9 @@ Video:
   DeArrow:
     Show Original Details: Prikaži detalje originala
     Show Modified Details: Prikaži detalje promjena
+  DRMProtected: DRM-om zaštićena videa ne mogu se reproducirati u FreeTubeu jer zahtijevaju
+    vlasničke komponente zatvorenog koda. Ako želiš gledati ovaj video, gledaj ga
+    na službenoj YouTube web stranici u web pregledniku s aktiviranim DRM-om.
 Videos:
   #& Sort By
   Sort By:
