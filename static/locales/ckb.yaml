@@ -55,6 +55,7 @@ Global:
 
 # Search Bar
     Comment Count: ١ توانج | {count} توانج
+    Like Count: ١ بەدڵبوون | {count} بەدڵبوون
 Search / Go to URL: 'گەڕان/ بڕۆ بۆ ئرڵ'
 Search Bar:
   Clear Input: 'سڕینەوەی نووسراو'
@@ -829,3 +830,4 @@ Search Listing:
     360 Video: ٣٦٠°
     New: نوێ
     3D: ٣ ڕەهەندی
+Right-click or hold to see history: کرتەی ڕاست بکە یان ڕایگرە بۆ بینینی مێژوو
