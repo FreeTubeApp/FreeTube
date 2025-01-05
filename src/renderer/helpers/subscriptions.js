@@ -106,7 +106,6 @@ export async function parseYouTubeRSSFeed(rssString, channelId) {
  */
 async function parseRSSEntry(entry, channelId, channelName) {
   // doesn't need to be asynchronous, but doing it allows us to do the relatively slow DOM querying in parallel
-  const published = new Date(entry.querySelector('published').textContent)
 
   return {
     authorId: channelId,
@@ -114,7 +113,7 @@ async function parseRSSEntry(entry, channelId, channelName) {
     // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
     videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
     title: entry.querySelector('title').textContent,
-    published: published.getTime(),
+    published: Date.parse(entry.querySelector('published').textContent),
     viewCount: entry.getElementsByTagName('media:statistics')[0]?.getAttribute('views') || null,
     type: 'video',
     lengthSeconds: '0:00',

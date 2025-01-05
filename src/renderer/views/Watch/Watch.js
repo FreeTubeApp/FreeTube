@@ -397,10 +397,10 @@ export default defineComponent({
 
         if (result.page[0].microformat?.publish_date) {
           // `result.page[0].microformat.publish_date` example value: `2023-08-12T08:59:59-07:00`
-          this.videoPublished = new Date(result.page[0].microformat.publish_date).getTime()
+          this.videoPublished = Date.parse(result.page[0].microformat.publish_date)
         } else {
           // text date Jan 1, 2000, not as accurate but better than nothing
-          this.videoPublished = new Date(result.primary_info.published).getTime()
+          this.videoPublished = Date.parse(result.primary_info.published)
         }
 
         if (result.secondary_info?.description.runs) {
