@@ -2521,10 +2521,10 @@ batch@0.6.1:
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
   integrity sha1-3DQxT05nkxgJP8dgJyUl+UvyXBY=
 
-bgutils-js@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/bgutils-js/-/bgutils-js-3.1.1.tgz#4dbf1e5110342a9f3b88cedf39d553aedeee6c0f"
-  integrity sha512-0Vx6jIyIlMWk86MvwCIVr6HCkPv0bZKbiLFlNMGwmLfv3B21mgepajMpryYjLXJ8NT7jwenlXFcZ8ghkT48tGg==
+bgutils-js@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/bgutils-js/-/bgutils-js-3.1.2.tgz#5449952440e26d9b0bb84e45138a80ad12476116"
+  integrity sha512-vccZDq2MmDGr+RVZDVaRGNfxe3/y35Q0fIGPA03B2e5sbTkEh8BQPZ7tKtyzqaQtojq1aTJzVPwo1dxF0UdT/g==
 
 big.js@^5.2.2:
   version "5.2.2"
