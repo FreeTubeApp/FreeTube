@@ -684,6 +684,7 @@ export default defineComponent({
       'updateSubscriptionDetails',
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
+      'removeVideo',
       'removeVideos',
     ]),
 
