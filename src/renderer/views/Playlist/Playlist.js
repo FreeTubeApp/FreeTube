@@ -73,7 +73,7 @@ export default defineComponent({
       userPlaylistVisibleLimit: 100,
       continuationData: null,
       isLoadingMore: false,
-      getPlaylistInfoDebounce: function() {},
+      getPlaylistInfoDebounce: function () { },
       playlistInEditMode: false,
       forceListView: false,
       alreadyShownNotice: false,
@@ -105,7 +105,7 @@ export default defineComponent({
     currentLocale: function () {
       return this.$i18n.locale
     },
-    playlistId: function() {
+    playlistId: function () {
       return this.$route.params.id
     },
     listType: function () {
@@ -130,7 +130,7 @@ export default defineComponent({
         return []
       }
     },
-    selectedUserPlaylistVideoCount: function() {
+    selectedUserPlaylistVideoCount: function () {
       return this.selectedUserPlaylistVideos.length
     },
 
@@ -242,25 +242,25 @@ export default defineComponent({
     },
   },
   watch: {
-    $route () {
+    $route() {
       // react to route changes...
       this.getPlaylistInfoDebounce()
     },
-    userPlaylistsReady () {
+    userPlaylistsReady() {
       // Fetch from local store when playlist data ready
       if (!this.isUserPlaylistRequested) { return }
 
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylist () {
+    selectedUserPlaylist() {
       // Fetch from local store when current user playlist changed
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistLastUpdatedAt () {
+    selectedUserPlaylistLastUpdatedAt() {
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistVideoCount () {
+    selectedUserPlaylistVideoCount() {
       // Monitoring `selectedUserPlaylistVideos` makes this function called
       // Even when the same array object is returned
       // So length is monitored instead
