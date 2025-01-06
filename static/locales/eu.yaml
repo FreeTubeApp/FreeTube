@@ -46,6 +46,7 @@ Global:
   Input Tags:
     Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
+  Sort By: Honen arabera ordenatu
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
@@ -58,7 +59,6 @@ Search / Go to URL: 'Bilatu / Helbidera joan'
 Search Filters:
   Search Filters: 'Bilaketa iragazkiak'
   Sort By:
-    Sort By: 'Ordenatze irizpidea'
     Most Relevant: 'Egokitasuna'
     Rating: 'Balorazioa'
     Upload Date: 'Igoera data'
@@ -176,7 +176,6 @@ User Playlists:
     EarliestCreatedFirst: Lehenen sortuak
     LatestPlayedFirst: Duela gutxi erreproduzitua
     EarliestPlayedFirst: Lehenen erreproduzitua
-    Sort By: Ordenatu honen arabera
     NameAscending: A-Z
     EarliestUpdatedFirst: Lehenen eguneratuak
     LatestUpdatedFirst: Eguneratu berriak
@@ -339,6 +338,7 @@ Settings:
       Solarized Light: Solarizatu argia
       Gruvbox Dark: Gruvbox Iluna
       Gruvbox Light: Gruvbox Argia
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -396,6 +396,20 @@ Settings:
       Gruvbox Light Purple: Gruvbox Ubel Argia
       Gruvbox Dark Blue: Gruvbox Urdin Iluna
       Gruvbox Dark Green: Gruvbox Berde Iluna
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Red: Catppuccin Frappe Gorria
+      Catppuccin Frappe Peach: Catppuccin Frappe Mertxika
+      Catppuccin Frappe Green: Catppuccin Frappe Berdea
+      Catppuccin Frappe Teal: Catppuccin Frappe Zertzeta
+      Catppuccin Frappe Sky: Catppuccin Frappe Zerua
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Zafiroa
+      Catppuccin Frappe Blue: Catppuccin Frappe Urdina
+      Catppuccin Frappe Lavender: Catppuccin Frappe Izpilikua
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Urlarrosa
+      Catppuccin Frappe Mauve: Catppuccin Frappe Ubela
+      Catppuccin Frappe Pink: Catppuccin Frappe Larrosa
+      Catppuccin Frappe Maroon: Catppuccin Frappe Marroia
+      Catppuccin Frappe Yellow: Catppuccin Frappe Horia
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
@@ -429,7 +443,7 @@ Settings:
       8k: '8k'
     Fast-Forward / Rewind Interval: Aurrera / atzera egiteko tartea
     Scroll Volume Over Video Player: Aldatu bolumena bideo erreproduzitzailean
-    Next Video Interval: Hurrengo bideo tartea
+    Next Video Interval: Erreproduzitu automatikoki atzerako kontaketaren tenporizadorea
     Screenshot:
       Enable: Bidea eman pantaila argazkiei
       Error:
@@ -444,14 +458,14 @@ Settings:
       File Name Tooltip: Hurrengo aldagaiak balia ditzakezu. %U Urtea 4 digitu. %H
         Hilabetea 2 digitu. %E Eguna 2 digitu. %O Ordua 2 digitu. %M Minutu 2 digitu.
         %S segundo 2 digitu. %T milisegundo 3 digitu. %s Bideoaren segundoa. %t Bideoaren
-        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea. "\" edo "/" baliatu
-        ahal dituzu azpikarpetak sortzeko.
+        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea.
     Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
+    Autoplay Interruption Timer: Erreprodukzio automatikoa eteteko tenporizadorea
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
     Remember History: 'Historikoa oroitu'
@@ -479,9 +493,10 @@ Settings:
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
-    Only Show Latest Video for Each Channel: Erakutsi soilik kanal bakoitzeko azken
-      bideoa
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
+    'Limit the number of videos displayed for each channel': Mugatu kanal bakoitzeko
+      bistaratzen diren bideo kopurua
+    To: Hona
   Distraction Free Settings:
     Distraction Free Settings: 'Oharkabetasunik ez'
     Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
@@ -531,6 +546,7 @@ Settings:
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
     Hide Channel Home: Ezkutatu kanala "Hasierako" fitxa
+    Show Added Items: Erakutsi gehitutako elementuak
   Data Settings:
     Data Settings: 'Datuak'
     Select Import Type: 'Hautatu Inportazio mota'
@@ -753,7 +769,6 @@ Channel:
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
   Search Channel: 'Kanala bilatu'
   Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
-  Sort By: 'Ordenatu honen arabera'
   Videos:
     Videos: 'Bideoak'
     This channel does not currently have any videos: 'Kanal honek ez du bideorik'
@@ -939,6 +954,12 @@ Video:
     hasi eta adinak egiaztatutako YouTube-ko kontu bat erabili behar delako.
   IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu
     VPN edo proxy desberdin batera aldatzen.
+  DeArrow:
+    Show Original Details: Erakutsi jatorrizko xehetasunak
+    Show Modified Details: Erakutsi aldatutako xehetasunak
+  DRMProtected: DRM babestutako bideoak ezin dira erreproduzitu FreeTube-n, kode itxiko
+    osagai jabedunak behar baitituzte. Bideo hau ikusi nahi baduzu, ikusi YouTube
+    webgune ofizialean DRM gaituta duen web arakatzaile batean.
 Videos:
   #& Sort By
   Sort By:
@@ -956,7 +977,6 @@ Playlist:
 #& Views
   Playlist: Erreprodukzio-zerrenda
   Sort By:
-    Sort By: Honen arabera ordenatu
     DateAddedNewest: Azken gehitua lehenengo
     Custom: Pertsonalizatua
     DateAddedOldest: Lehenago gehitutakoak lehenengo
@@ -966,6 +986,8 @@ Playlist:
     AuthorDescending: Egilea (Z-A)
     VideoDurationDescending: Iraupena (luzeenetik laburrenera)
     VideoDurationAscending: Iraupena (laburrenetik luzeenera)
+    PublishedNewest: Argitaratutako azkenak lehenik
+    PublishedOldest: Argitaratutako lehenak lehenik
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'
@@ -1007,7 +1029,6 @@ Comments:
   There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
   Show Comments: 'Iruzkinak erakutsi'
   Hide Comments: 'Iruzkinak ezkutatu'
-  Sort by: 'Honen arabera sailkatuta'
   Top comments: 'Iruzkin nagusiak'
   Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply
@@ -1149,7 +1170,7 @@ Downloading has completed: '"{videoTitle}" deskargatu egin da'
 Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
   ezin da aplikazioan ireki
 Downloading failed: Akats bat gertatu da "{videoTitle}" deskargatzerakoan
-Screenshot Success: Pantaila-argazkia gode da "{filePath}" gisa
+Screenshot Success: Pantaila-argazkia gode da
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
 Starting download: '"{videoTitle}"-ren deskarga abiatzen'
 New Window: Leiho berria
@@ -1223,5 +1244,70 @@ Keys:
   arrowdown: Gezia behera
   alt: Alt
   ctrl: Ctrl
+  shift: Txanda
+  enter: Sartu
+  plus: Gehi
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu sakatuta
+  historia ikusteko
+Autoplay Interruption Timer: Erreprodukzio automatikoa bertan behera utzi da {autoplayInterruptionIntervalHours}
+  orduz geldirik egon delako
+Description:
+  Collapse Description: Gutxiago erakutsi
+  Expand Description: '...gehiago'
+KeyboardShortcutPrompt:
+  Skip by Tenths: Saltatu bideoa ehunekoaren arabera (3 jauzi iraupenaren %30era iristeko)
+  New Window: Sortu leiho berri bat
+  Navigate to Settings: Nabigatu Ezarpenak orrialdera
+  Navigate to History: Nabigatu Historia orrialdera
+  Refresh: Freskatu jarioa azken edukiarekin
+  Volume Down: Bolumena jaitsi
+  Small Rewind: Birbobinatu X segundo Atzerako tartean eta uneko bideo-erreprodukzio-tasaren
+    arabera
+  Small Fast Forward: Aurrera egin X segundo Atzerako tartean eta uneko bideo-erreprodukzio-tasaren
+    arabera
+  Last Chapter: Azken Atala
+  Next Chapter: Hurrengo Atala
+  Captions: Txandakatu ON/OFF epigrafeak
+  Stats: Erakutsi bideoaren estatistikak
+  Fullscreen: Aldatu pantaila osora
+  History Forward: Egin orrialde bat aurrera
+  Focus Secondary Search: Bigarren mailako bilaketa-barran zentratu (bat badago)
+  Play: Txandakatu erreproduzitu/gelditu
+  Large Fast Forward: Egin aurrera 10 segundo / Egin aurrera bideoa egungo bideoaren
+    erreprodukzio tasan oinarrituta
+  Large Rewind: Birbobinatu 10 segundo / Birbobinatu bideoa uneko bideo-erreprodukzio
+    tasan oinarrituta
+  Full Window: Aldatu leiho osora
+  Theatre Mode: Aldatu antzerki modura
+  Decrease Video Speed: Murriztu bideoaren abiadura bideoaren erreprodukzio-tasa-tartearen
+    arabera
+  Increase Video Speed: Handitu bideoaren abiadura bideoaren erreprodukzio tasaren
+    tartean oinarrituta
+  Search in New Window: Bilatu leiho berrian
+  Last Frame: Aurreko fotograma (geldituta dagoen bitartean)
+  Next Frame: Hurrengo fotograma (geldituta dagoen bitartean)
+  Volume Up: Bolumena igo
+  Restart Window: Berrabiarazi leihoa
+  Force Restart Window: Behartu leihoaren berrabiaraztea
+  Toggle Developer Tools: Aldatu garatzailearen tresnak
+  Reset Zoom: Berrezarri zoom maila / Erabiltzaile Interfazearen eskala
+  Zoom In: Zoom-a handitu
+  Zoom Out: Zoom-a txikitu
+  Focus Search: Fokuratu bilaketa-barran
+  Keyboard Shortcuts: Teklatuko laster-bideak
+  Sections:
+    Video:
+      Playback: 'Bideoa: Erreprodukzioa'
+      General: 'Bideoa: Orokorra'
+    App:
+      Situational: 'App: Egoera mailakoa'
+      General: 'App: Orokorra'
+  Picture in Picture: Aldatu irudian-irudian modura
+  Mute: Aldatu mutu
+  Take Screenshot: Hartu pantaila-argazkia
+  Minimize Window: Minimizatu leihoa
+  Close Window: Itxi leihoa
+  Show Keyboard Shortcuts: Erakutsi teklatuko laster-bideak
+  History Backward: Egin orrialde bat atzera

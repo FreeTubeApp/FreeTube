@@ -46,6 +46,7 @@ Global:
   Shorts: 'Shorts'
   Live: 'Byw'
   Community: 'Cymuned'
+  Sort By: Trefnu yn Ôl
   Counts:
     Video Count: '1 fideo| {count} fideo'
     Channel Count: '1 sianel | {count} sianel'
@@ -65,7 +66,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'Chwilio Hidlyddion'
   Sort By:
-    Sort By: 'Trefnu'
     Most Relevant: 'Mwyaf Perthnasol'
     Rating: 'Sgôr'
     Upload Date: 'Dyddiad Uwchlwytho'
@@ -199,7 +199,6 @@ User Playlists:
     LatestPlayedFirst: Chwaraewyd yn Ddiweddar
     EarliestPlayedFirst: Chwaraewyd Cynharaf
     EarliestUpdatedFirst: Diweddarwyd Cynharaf
-    Sort By: Trefnu yn Ôl
   SinglePlaylistView:
     Toast:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nid
@@ -465,7 +464,7 @@ Settings:
       File Name Tooltip: 'Gallwch ddefnyddio newidynnau isod. %Y Blwyddyn 4 digid.
         % M Mis 2 ddigid. %D Diwrnod 2 ddigid. % H Awr 2 ddigid. % N Munud 2 ddigid.
         %S Ail 2 ddigid. % T Millisecond 3 digid. %s Eiliad Fideo. %t Fideo Millisecond
-        3 digid. %i ID fideo. Gallwch hefyd ddefnyddio "\" neu "/" i greu is-ffolderi.'
+        3 digid. %i ID fideo.'
       Error:
         Forbidden Characters: 'Nodau Gwahardd'
         Empty File Name: 'Enw Ffeil Gwag'
@@ -506,8 +505,6 @@ Settings:
     Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
     Fetch Feeds from RSS: 'Nôl Llif RSS'
     Fetch Automatically: 'Nôl Llif yn Awtomatig'
-    Only Show Latest Video for Each Channel: 'Dangos dim ond Fideo Diweddaraf Pob
-      Sianel'
     Confirm Before Unsubscribing: Cadarnhau Cyn Dad-danysgrifio
   Distraction Free Settings:
     Distraction Free Settings: 'Dim Tarfu'
@@ -771,7 +768,6 @@ Channel:
   Search Channel: 'Chwilio Sianel'
   Your search results have returned 0 results: 'Mae eich canlyniadau chwilio wedi
     dod o hyd i 0 canlyniad'
-  Sort By: 'Trefnu yn ôl'
   This channel does not exist: 'Nid yw''r sianel hon yn bodoli'
   This channel does not allow searching: 'Nid yw''r sianel hon yn caniatáu chwilio'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Mae
@@ -943,7 +939,6 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    Sort By: Didoli Wrth
     Custom: Cyfaddas
 Change Format:
   Change Media Formats: ''
@@ -985,7 +980,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: 'Dangos Sylwadau'
   Hide Comments: 'Cuddio Sylwadau'
-  Sort by: 'Trefnu yn ôl'
   Top comments: 'Sylwadau poblogaidd'
   Newest first: 'Diweddaraf yn gyntaf'
   View {replyCount} replies: ''

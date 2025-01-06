@@ -18,12 +18,14 @@ const web = process.argv.indexOf('--web') !== -1
 
 let mainConfig
 let rendererConfig
+let botGuardScriptConfig
 let webConfig
 let SHAKA_LOCALES_TO_BE_BUNDLED
 
 if (!web) {
   mainConfig = require('./webpack.main.config')
   rendererConfig = require('./webpack.renderer.config')
+  botGuardScriptConfig = require('./webpack.botGuardScript.config')
 
   SHAKA_LOCALES_TO_BE_BUNDLED = rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
   delete rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
@@ -96,6 +98,14 @@ function setupNotifyLocaleUpdate(compiler, devServer) {
     .forEach((/** @type {ProcessLocalesPlugin} */plugin) => {
       plugin.notifyLocaleChange = notifyLocaleChange
     })
+}
+
+function startBotGuardScript() {
+  webpack(botGuardScriptConfig, (err) => {
+    if (err) console.error(err)
+
+    console.log(`\nCompiled ${botGuardScriptConfig.name} script!`)
+  })
 }
 
 function startMain() {
@@ -196,7 +206,10 @@ function startWeb () {
   })
 }
 if (!web) {
-  startRenderer(startMain)
+  startRenderer(() => {
+    startBotGuardScript()
+    startMain()
+  })
 } else {
   startWeb()
 }

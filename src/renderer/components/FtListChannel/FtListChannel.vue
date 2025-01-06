@@ -61,6 +61,7 @@
         />
       </div>
       <FtSubscribeButton
+        v-if="!hideUnsubscribeButton"
         class="channelSubscribeButton"
         :channel-id="id"
         :channel-name="name"
@@ -73,7 +74,7 @@
 <script setup>
 import { computed } from 'vue'
 
-import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
+import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 
 import store from '../../store/index'
 
@@ -104,6 +105,11 @@ const listType = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelSubscriptions = computed(() => {
   return store.getters.getHideChannelSubscriptions
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideUnsubscribeButton = computed(() => {
+  return store.getters.getHideUnsubscribeButton
 })
 
 let id = ''

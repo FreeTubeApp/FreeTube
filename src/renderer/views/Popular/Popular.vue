@@ -32,8 +32,8 @@ import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 import store from '../../store/index'
 
-import { invidiousAPICall } from '../../helpers/api/invidious'
-import { copyToClipboard, getRelativeTimeFromDate, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import { getInvidiousPopularFeed } from '../../helpers/api/invidious'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { KeyboardShortcuts } from '../../../constants'
 
@@ -65,36 +65,22 @@ onBeforeUnmount(() => {
 })
 
 async function fetchPopularInfo() {
-  const searchPayload = {
-    resource: 'popular',
-    id: '',
-    params: {}
-  }
-
   isLoading.value = true
-  const result = await invidiousAPICall(searchPayload)
-    .catch((err) => {
-      const errorMessage = t('Invidious API Error (Click to copy)')
-      showToast(`${errorMessage}: ${err}`, 10000, () => {
-        copyToClipboard(err)
-      })
-      return undefined
-    })
 
-  if (!result) {
+  try {
+    const items = await getInvidiousPopularFeed()
+
+    store.commit('setLastPopularRefreshTimestamp', new Date())
+    shownResults.value = items
     isLoading.value = false
-    return
+    store.commit('setPopularCache', items)
+  } catch (err) {
+    isLoading.value = false
+    const errorMessage = t('Invidious API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
   }
-
-  const items = result.filter((item) => {
-    return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
-  })
-
-  setPublishedTimestampsInvidious(items.filter(item => item.type === 'video' || item.type === 'shortVideo'))
-  store.commit('setLastPopularRefreshTimestamp', new Date())
-  shownResults.value = items
-  isLoading.value = false
-  store.commit('setPopularCache', items)
 }
 
 /**

@@ -3,13 +3,12 @@ import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
 import {
-  setPublishedTimestampsInvidious,
   copyToClipboard,
   getRelativeTimeFromDate,
   showToast,
   getChannelPlaylistId
 } from '../../helpers/utils'
-import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
+import { getInvidiousChannelVideos, invidiousFetch } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
@@ -342,16 +341,7 @@ export default defineComponent({
 
     getChannelVideosInvidiousScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        const subscriptionsPayload = {
-          resource: 'channels',
-          id: channel.id,
-          subResource: 'videos',
-          params: {}
-        }
-
-        invidiousAPICall(subscriptionsPayload).then((result) => {
-          setPublishedTimestampsInvidious(result.videos)
-
+        getInvidiousChannelVideos(channel.id).then((result) => {
           let name
 
           if (result.videos.length > 0) {

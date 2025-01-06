@@ -44,6 +44,7 @@ Global:
   Live: Уживо
   Community: Заједница
   Shorts: Shorts
+  Sort By: Сортирање по
   Input Tags:
     Length Requirement: Ознака мора да има најмање {number} знакова
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
@@ -58,7 +59,6 @@ Search / Go to URL: 'Претрага / Иди на URL'
 Search Filters:
   Search Filters: 'Филтери претраге'
   Sort By:
-    Sort By: 'Сортирање по'
     Most Relevant: 'Најрелевантније'
     Rating: 'Оцена'
     Upload Date: 'Датум отпремања'
@@ -204,7 +204,6 @@ User Playlists:
     EarliestCreatedFirst: Најраније направљено
     LatestCreatedFirst: Недавно направљено
     EarliestUpdatedFirst: Најраније ажурирано
-    Sort By: Сортирање по
     NameDescending: Z-A
     EarliestPlayedFirst: Најраније пуштано
     LatestUpdatedFirst: Недавно ажурирано
@@ -337,6 +336,7 @@ Settings:
       Solarized Light: Соларизована светла
       Gruvbox Dark: Gruvbox тамна
       Gruvbox Light: Gruvbox светла
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -363,15 +363,15 @@ Settings:
       Dracula Red: 'Дракула црвена'
       Dracula Yellow: 'Дракула жута'
       Catppuccin Mocha Red: Catppuccin Mocha црвена
-      Catppuccin Mocha Maroon: Catppuccin Mocha бордо
-      Catppuccin Mocha Sky: Catppuccin Mocha небо
+      Catppuccin Mocha Maroon: Catppuccin Mocha тамноцрвена
+      Catppuccin Mocha Sky: Catppuccin Mocha небеска
       Catppuccin Mocha Sapphire: Catppuccin Mocha сафирна
       Catppuccin Mocha Teal: Catppuccin Mocha тиркизна
       Catppuccin Mocha Yellow: Catppuccin Mocha жута
-      Catppuccin Mocha Rosewater: Catppuccin Mocha светлорозе-румена
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ружина водица
       Catppuccin Mocha Peach: Catppuccin Mocha бресква
       Catppuccin Mocha Flamingo: Catppuccin Mocha фламингос
-      Catppuccin Mocha Mauve: Catppuccin Mocha мауве
+      Catppuccin Mocha Mauve: Catppuccin Mocha бледољубичаста
       Catppuccin Mocha Pink: Catppuccin Mocha розе
       Catppuccin Mocha Lavender: Catppuccin Mocha лаванда
       Catppuccin Mocha Blue: Catppuccin Mocha плава
@@ -394,6 +394,20 @@ Settings:
       Gruvbox Light Blue: Gruvbox светлоплава
       Gruvbox Light Purple: Gruvbox светлољубичаста
       Gruvbox Light Orange: Gruvbox светлонаранџаста
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ружина водица
+      Catppuccin Frappe Flamingo: Catppuccin Frappe фламингос
+      Catppuccin Frappe Mauve: Catppuccin Frappe бледољубичаста
+      Catppuccin Frappe Red: Catppuccin Frappe црвена
+      Catppuccin Frappe Maroon: Catppuccin Frappe тамноцрвена
+      Catppuccin Frappe Yellow: Catppuccin Frappe жута
+      Catppuccin Frappe Green: Catppuccin Frappe зелена
+      Catppuccin Frappe Sky: Catppuccin Frappe небеска
+      Catppuccin Frappe Sapphire: Catppuccin Frappe сафирна
+      Catppuccin Frappe Blue: Catppuccin Frappe плава
+      Catppuccin Frappe Peach: Catppuccin Frappe бресква
+      Catppuccin Frappe Lavender: Catppuccin Frappe лаванда
+      Catppuccin Frappe Pink: Catppuccin Frappe розе
+      Catppuccin Frappe Teal: Catppuccin Frappe тиркизна
     Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
@@ -439,8 +453,7 @@ Settings:
       File Name Tooltip: Можете да користите променљиве испод. %Y Година 4 цифре.
         %M Месец 2 цифре. %D Дан 2 цифре. %H Сат 2 цифре. %N Минут 2 цифре. %S Секунда
         2 цифре. %T Милисекунда 3 цифре. %s Секунда видео снимка. %t Милисекунда видео
-        снимка 3 цифре. %i ID видео снимка. Такође, можете да користите „\“ или „/“
-        да бисте направили потфолдере.
+        снимка 3 цифре. %i ID видео снимка.
       File Name Label: Образац назива фајла
     Scroll Volume Over Video Player: Превуци за јачину звука преко плејера видео снимка
     Skip by Scrolling Over Video Player: Прескочи превлачењем преко плејера видео
@@ -451,9 +464,10 @@ Settings:
     Video Playback Rate Interval: Интервал брзине репродукције видео снимка
     Max Video Playback Rate: Максимална брзина репродукције видео снимка
     Enter Fullscreen on Display Rotate: Уђи у цео екран при окретању екрана
-    Next Video Interval: Интервал следећег видео снимка
+    Next Video Interval: Тајмер за одбројавање аутоплеја
     Display Play Button In Video Player: Прикажи дугме за пуштање у плејеру видео
       снимка
+    Autoplay Interruption Timer: Тајмер за прекид аутоплеја
   Privacy Settings:
     Privacy Settings: 'Приватност'
     Remember History: 'Запамти историју'
@@ -480,9 +494,10 @@ Settings:
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
     Fetch Automatically: Аутоматски прикупи фид
-    Only Show Latest Video for Each Channel: Прикажи само најновији видео снимак за
-      сваки канал
     Confirm Before Unsubscribing: Избегни случајно отпраћивање
+    To: На
+    'Limit the number of videos displayed for each channel': Ограничи број приказаних
+      видео снимака за сваки канал
   Distraction Free Settings:
     Distraction Free Settings: 'Без ометања'
     Hide Video Views: 'Сакриј прегледе видео снимка'
@@ -532,6 +547,7 @@ Settings:
       садрже текст
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
     Hide Channel Home: Сакриј картицу „Почетна“ канала
+    Show Added Items: Прикажи додате предмете
   Data Settings:
     Data Settings: 'Подаци'
     Select Import Type: 'Избор врсте увоза'
@@ -628,12 +644,12 @@ Settings:
     External Player: Спољни плејер
     External Player Settings: Спољни плејер
     Custom External Player Executable: Прилагођени извршни спољни плејер
-    Ignore Unsupported Action Warnings: Игнориши упозорења о неподржаним радњама
+    Ignore Unsupported Action Warnings: Занемари упозорења о неподржаним радњама
     Custom External Player Arguments: Прилагођени аргументи спољног плејера
     Players:
       None:
         Name: Ниједно
-    Ignore Default Arguments: Игнориши подразумеване аргументе
+    Ignore Default Arguments: Занемари подразумеване аргументе
   Download Settings:
     Choose Path: Избор путање
     Open in web browser: Отвори у прегледачу
@@ -679,7 +695,7 @@ About:
   Please read the: 'Прочитајте'
   room rules: 'правила собе'
   Translate: 'Преведи'
-  Credits: 'Кредити'
+  Credits: 'Заслуге'
   FreeTube is made possible by: 'FreeTube су омогућили'
   these people and projects: 'ови људи и пројекти'
   Donate: 'Донација'
@@ -746,7 +762,6 @@ Channel:
   Added channel to your subscriptions: 'Канал је додат у ваша праћења'
   Search Channel: 'Претрага канала'
   Your search results have returned 0 results: 'Резултати претраге су дали 0 резултата'
-  Sort By: 'Сортирање по'
   Videos:
     Videos: 'Видео снимци'
     This channel does not currently have any videos: 'Овај канал тренутно нема ниједан
@@ -932,6 +947,10 @@ Video:
   DeArrow:
     Show Modified Details: Прикажи измењене детаље
     Show Original Details: Прикажи оригиналне детаље
+  DRMProtected: Видео снимци заштићени DRM не могу се репродуковати у FreeTube-у,
+    јер захтевају власничке компоненте затвореног кода. Ако желите да гледате овај
+    видео снимак, погледајте га на званичном сајту YouTube-а у веб-прегледачу с омогућеним
+    DRM.
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -1025,11 +1044,12 @@ Playlist:
     VideoTitleAscending: Наслов (A-Z)
     VideoTitleDescending: Наслов (Z-A)
     Custom: Прилагођено
-    Sort By: Сортирање по
     AuthorDescending: Аутор (Z-A)
     DateAddedNewest: Најновије додато прво
     VideoDurationDescending: Трајање (прво најдуже)
     VideoDurationAscending: Трајање (прво најкраће)
+    PublishedNewest: Прво најновије објављено
+    PublishedOldest: Прво најраније објављено
 Falling back to Invidious API: Повратак на Invidious API
 Change Format:
   Dash formats are not available for this video: DASH формати нису доступни за овај
@@ -1044,7 +1064,6 @@ Change Format:
     за овај видео снимак
 Comments:
   Comments: Коментари
-  Sort by: Сортирање по
   Show Comments: Прикажи коментаре
   View: Погледај
   Click to View Comments: Кликни да видиш коментаре
@@ -1113,7 +1132,7 @@ Channels:
   Count: 'Пронађено канала: {number}.'
 External link opening has been disabled in the general settings: Отварање спољног
   линка је онемогућено у општим подешавањима
-Screenshot Success: Снимак екрана је сачуван као „{filePath}“
+Screenshot Success: Снимак екрана је сачуван
 Canceled next video autoplay: Отказано аутоматско пуштање следећег видео снимка
 Playing Next Video Interval: Пуштање следећег видео снимка убрзо. Кликнути за отказивање.
   | Пушта се следећи видео снимак за {nextVideoInterval} секунду. Кликнути за отказивање.
@@ -1196,6 +1215,70 @@ Keys:
   ctrl: Ctrl
   arrowup: Стрелица горе
   arrowright: Стрелица десно
+  shift: Shift
+  enter: Enter
+  plus: Plus
 shortcutJoinOperator: +
 Right-click or hold to see history: Кликните десним тастером миша или задржите да
   бисте видели историју
+Autoplay Interruption Timer: Аутоплеј је отказан због {autoplayInterruptionIntervalHours}
+  сати неактивности
+Description:
+  Expand Description: …више
+  Collapse Description: Прикажи мање
+KeyboardShortcutPrompt:
+  History Backward: Одлазак једну страницу уназад
+  Sections:
+    App:
+      Situational: 'Апликација: Ситуационална'
+      General: 'Апликација: Опште'
+    Video:
+      General: 'Видео снимак: Опште'
+      Playback: 'Видео снимак: Репродукција'
+  Show Keyboard Shortcuts: Прикажи тастерске пречице
+  Navigate to Settings: Одлазак на страницу „Подешавања“
+  History Forward: Одлазак једну страницу унапред
+  New Window: Прављење новог прозора
+  Large Rewind: Премотавање 10 секунди уназад / Премотавање видео снимак уназад на
+    основу тренутне брзине репродукције видео снимка
+  Play: Пуштање/пауза
+  Zoom In: Увеличавање
+  Reset Zoom: Ресетовање нивоа увеличавања / скале корисничког интерфејса
+  Toggle Developer Tools: Укључивање програмерских опција
+  Zoom Out: Умањивање
+  Next Chapter: Следеће поглавље
+  Skip by Tenths: Прескакање кроз видео снимак по процентима (3 прескакања до 30%
+    трајања)
+  Last Chapter: Последње поглавље
+  Keyboard Shortcuts: Тастерске пречице
+  Captions: Укључивање/искључивање титлова
+  Picture in Picture: Укључивање режима слике у слици
+  Stats: Приказ статистике видео снимка
+  Refresh: Освежавање фида најновијим садржајем
+  Navigate to History: Одлазак на страницу „Почетна“
+  Mute: Утишавање
+  Decrease Video Speed: Смањивање брзине видео снимка на основу интервала брзине репродукције
+    видео снимка
+  Increase Video Speed: Повећавање брзине видео снимка на основу интервала брзине
+    репродукције видео снимка
+  Theatre Mode: Укључивање режима биоскопа
+  Take Screenshot: Снимак екрана
+  Minimize Window: Минимизирање прозора
+  Close Window: Затварање прозора
+  Restart Window: Рестартовање прозора
+  Force Restart Window: Присилно рестартовање прозора
+  Focus Search: Фокусирање на траку за претрагу
+  Last Frame: Претходни кадар (приликом паузе)
+  Next Frame: Следећи кадар (приликом паузе)
+  Volume Up: Појачавање јачине звука
+  Small Rewind: Премотавање X секунди уназад на основу интервала премотавања уназад
+    и тренутне брзине репродукције видео снимка
+  Full Window: Укључивање целог прозора
+  Focus Secondary Search: Фокусирање на секундарну траку за претрагу (ако постоји)
+  Large Fast Forward: Премотавање 10 секунди унапред / Брзо премотавање видео снимка
+    унапред на основу тренутне брзине репродукције видео снимка
+  Search in New Window: Претрага у новом прозору
+  Fullscreen: Укључивање режима целог екрана
+  Volume Down: Смањивање јачине звука
+  Small Fast Forward: Брзо премотавање унапред X секунди засновано на интервалу брзог
+    премотавања унапред и тренутној брзини репродукције видео снимка

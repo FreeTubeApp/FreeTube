@@ -3,7 +3,7 @@ Locale Name: 'Nederlands'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Dit gedeelte van de app is nog niet klaar. Kom later terug als er vooruitgang is
-  geboekt.
+  gemaakt.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -16,7 +16,7 @@ Copy: 'Kopiëren'
 Paste: 'Plakken'
 Delete: 'Verwijderen'
 Select all: 'Alles selecteren'
-Reload: 'Herladen'
+Reload: 'Herlaad'
 Force Reload: 'Geforceerd herladen'
 Toggle Developer Tools: 'Ontwikkel­gereedschap omschakelen'
 Actual size: 'Echte grootte'
@@ -37,6 +37,7 @@ Global:
 # Search Bar
   Shorts: Shorts
   Live: Live
+  Sort By: Sorteren op
   Counts:
     Video Count: 1 video | {count} video's
     Subscriber Count: 1 abonnee | {count} abonnees
@@ -51,7 +52,6 @@ Search / Go to URL: 'Zoeken / Ga naar URL'
 Search Filters:
   Search Filters: 'Zoek­filters'
   Sort By:
-    Sort By: 'Sorteren op'
     Most Relevant: 'Meest relevant'
     Rating: 'Beoordeling'
     Upload Date: 'Upload­datum'
@@ -137,7 +137,6 @@ User Playlists:
   Playlist Description: Afspeel­lijst­omschrijving
   Delete Playlist: Afspeel­lijst verwijderen
   Sort By:
-    Sort By: Sorteren op
     LatestCreatedFirst: On­langs aan­gemaakt
     NameDescending: Z - A
     NameAscending: A - Z
@@ -417,8 +416,7 @@ Settings:
         jaartal; %M tweecijferige maand; %D tweecijferige dagstelling; %H tweecijferig
         uur; %N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
-        video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
-        te maken.'
+        video; %i ID van de video.'
     Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm
   Privacy Settings:
@@ -448,8 +446,6 @@ Settings:
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Fetch Feeds from RSS: Feeds ophalen via RSS
     Fetch Automatically: Feed automatisch ophalen
-    Only Show Latest Video for Each Channel: Alleen nieuwste video voor elk kanaal
-      tonen
     Confirm Before Unsubscribing: Onbedoeld deabonneren voor­komen
 
   Data Settings:
@@ -667,7 +663,6 @@ Channel:
   Unsubscribe: 'Deabonneren'
   Search Channel: 'Kanaal zoeken'
   Your search results have returned 0 results: 'Uw zoekactie heeft 0 resultaten opgeleverd'
-  Sort By: 'Sorteren op'
   Videos:
     Videos: 'Video''s'
     This channel does not currently have any videos: 'Dit kanaal heeft op dit moment
@@ -834,7 +829,6 @@ Playlist:
   Playlist: Afspeellijst
   Sort By:
     DateAddedNewest: Laatst toegevoegd bovenaan
-    Sort By: Sorteren op
     AuthorAscending: Auteur (A-Z)
     AuthorDescending: Auteur (Z-A)
     VideoTitleAscending: Titel (A-Z)
@@ -889,7 +883,6 @@ Comments:
   No more comments available: Er zijn geen reacties meer beschikbaar
   Newest first: Nieuwste eerst
   Top comments: Beste opmerkingen
-  Sort by: Sorteren op
   Show More Replies: Meer reacties tonen
   From {channelName}: van {channelName}
   And others: en anderen
@@ -1015,8 +1008,8 @@ Tooltips:
       kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
       link openen in je standaardbrowser.\n"
   External Player Settings:
-    Custom External Player Arguments: Aangepaste opdrachtregelargumenten,
-      die je wil doorgeven aan de externe videospeler.
+    Custom External Player Arguments: Aangepaste opdrachtregelargumenten, die je wil
+      doorgeven aan de externe videospeler.
     Ignore Warnings: Onderdruk waarschuwingen wanneer de geselecteerde videospeler
       een opgegeven actie niet ondersteund (bijv. afspeellijsten omkeren, etc.).
     Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen

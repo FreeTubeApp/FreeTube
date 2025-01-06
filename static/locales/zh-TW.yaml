@@ -33,6 +33,7 @@ Global:
   Shorts: 短片
   Live: 直播
   Community: 社群
+  Sort By: '排序方式'
 
 # Search Bar
   Counts:
@@ -50,7 +51,6 @@ Search / Go to URL: '搜尋/ 前往網址'
 Search Filters:
   Search Filters: '搜尋過濾器'
   Sort By:
-    Sort By: '排序方式'
     Most Relevant: '最相關'
     Rating: '評分'
     Upload Date: '上傳日期'
@@ -139,7 +139,6 @@ User Playlists:
   Delete Playlist: 刪除播放清單
   Are you sure you want to delete this playlist? This cannot be undone: 您確定您想要刪除播放清單嗎？這無法還原。
   Sort By:
-    Sort By: 排序方式
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: 最近建立
@@ -378,7 +377,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
-    Next Video Interval: 下一個影片區段
+    Next Video Interval: 自動播放倒數計時器
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
@@ -397,18 +396,19 @@ Settings:
       Ask Path: 詢問儲存的資料夾
       Folder Label: 螢幕截圖資料夾
       File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N
-        為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。您也可以使用 "\"
-        或 "/" 來建立子資料夾。
+        為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
+    Autoplay Interruption Timer: 自動播放中斷計時器
   Subscription Settings:
     Subscription Settings: '訂閱'
     Hide Videos on Watch: '觀看時隱藏影片'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
-    Only Show Latest Video for Each Channel: 只顯示每個頻道的最新影片
     Confirm Before Unsubscribing: 避免意外取消訂閱
 
+    'Limit the number of videos displayed for each channel': 限制每個頻道顯示的影片數量
+    To: 到
   Privacy Settings:
     Watch history has been cleared: 已刪除觀看紀錄
     Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看紀錄嗎？
@@ -508,6 +508,7 @@ Settings:
     Hide Videos and Playlists Containing Text: 隱藏包含文字的影片與播放清單
     Hide Videos and Playlists Containing Text Placeholder: 單字、單字片段或片語
     Hide Channel Home: 隱藏頻道「首頁」分頁
+    Show Added Items: 顯示新增的項目
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -615,7 +616,6 @@ Channel:
   Unsubscribe: '取消訂閱'
   Search Channel: '搜尋頻道'
   Your search results have returned 0 results: '搜尋結果為零'
-  Sort By: '排序方式'
   Videos:
     Videos: '影片'
     This channel does not currently have any videos: '這個頻道目前沒有任何影片'
@@ -802,7 +802,6 @@ Playlist:
 #& Views
   Playlist: 播放清單
   Sort By:
-    Sort By: 排序方式
     DateAddedNewest: 最後新增優先
     DateAddedOldest: 最早新增優先
     AuthorAscending: 作者 (A-Z)
@@ -853,7 +852,6 @@ Comments:
   There are no more comments for this video: 此影片無更多留言
   Newest first: 最新優先
   Top comments: 最熱門留言
-  Sort by: 排序方式
   No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
   And others: 與其他人
@@ -986,7 +984,7 @@ Are you sure you want to open this link?: 您確定您想要開啟此連結嗎�
 Downloading failed: 下載「{videoTitle}」時發生問題
 Downloading has completed: 「{videoTitle}」已下載結束
 Starting download: 正在開始下載「{videoTitle}」
-Screenshot Success: 已儲存螢幕截圖為 "{filePath}"
+Screenshot Success: 已儲存螢幕截圖
 Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗
 Channels:
@@ -1053,3 +1051,7 @@ Keys:
   arrowright: 向右方向鍵
   arrowup: 向上方向鍵
 Right-click or hold to see history: 右鍵點選或按住不放可以檢視歷史紀錄
+Autoplay Interruption Timer: 自動播放因 {autoplayInterruptionIntervalHours} 小時未活動而取消
+Description:
+  Collapse Description: 顯示較少
+  Expand Description: ……更多

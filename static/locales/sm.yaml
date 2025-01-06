@@ -59,7 +59,6 @@ Search Bar:
 Search Filters:
   Search Filters: ''
   Sort By:
-    Sort By: ''
     Most Relevant: ''
     Rating: ''
     Upload Date: ''
@@ -515,7 +514,6 @@ Channel:
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: ''
   This channel does not exist: ''
   This channel does not allow searching: ''
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
@@ -691,7 +689,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: ''
   Hide Comments: ''
-  Sort by: ''
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''

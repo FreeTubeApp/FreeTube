@@ -5,10 +5,7 @@ const IpcChannels = {
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_PICTURES_PATH: 'get-pictures-path',
-  GET_NAV_HISTORY_ENTRY_TITLE_AT_INDEX: 'get-navigation-history-entry-at-index',
-  GET_NAV_HISTORY_ACTIVE_INDEX: 'get-navigation-history-active-index',
-  GET_NAV_HISTORY_LENGTH: 'get-navigation-history-length',
-  GO_TO_NAV_HISTORY_OFFSET: 'go-to-navigation-history-index',
+  GET_NAVIGATION_HISTORY: 'get-navigation-history',
   SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
@@ -43,7 +40,9 @@ const IpcChannels = {
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
-  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization'
+  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization',
+
+  GENERATE_PO_TOKEN: 'generate-po-token',
 }
 
 const DBActions = {
@@ -89,6 +88,7 @@ const SyncEvents = {
     CREATE: 'sync-create',
     UPSERT: 'sync-upsert',
     DELETE: 'sync-delete',
+    DELETE_MULTIPLE: 'sync-delete-multiple',
     DELETE_ALL: 'sync-delete-all'
   },
 
@@ -105,6 +105,7 @@ const SyncEvents = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
+    UPSERT_VIDEOS: 'sync-playlists-upsert-videos',
     DELETE_VIDEO: 'sync-playlists-delete-video',
   },
 
@@ -117,19 +118,37 @@ const SyncEvents = {
   },
 }
 
-// note: the multi-key shortcut values are currently just for display use in action titles
+/*
+  DEV NOTE: Duplicate any and all changes made here to our [official documentation site here](https://github.com/FreeTubeApp/FreeTube-Docs/blob/master/usage/keyboard-shortcuts.md)
+  to have them reflect on the [keyboard shortcut reference webpage](https://docs.freetubeapp.io/usage/keyboard-shortcuts).
+  Please also update the [keyboard shortcut modal](src/renderer/components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue)
+*/
 const KeyboardShortcuts = {
   APP: {
     GENERAL: {
+      SHOW_SHORTCUTS: 'shift+?',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
-      NEW_WINDOW: 'ctrl+N',
+      FULLSCREEN: 'f11',
       NAVIGATE_TO_SETTINGS: 'ctrl+,',
       NAVIGATE_TO_HISTORY: 'ctrl+H',
       NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+      NEW_WINDOW: 'ctrl+N',
+      MINIMIZE_WINDOW: 'ctrl+M',
+      CLOSE_WINDOW: 'ctrl+W',
+      RESTART_WINDOW: 'ctrl+R',
+      FORCE_RESTART_WINDOW: 'ctrl+shift+R',
+      TOGGLE_DEVTOOLS: 'ctrl+shift+I',
+      FOCUS_SEARCH: 'alt+D',
+      SEARCH_IN_NEW_WINDOW: 'shift+enter',
+      RESET_ZOOM: 'ctrl+0',
+      ZOOM_IN: 'ctrl+plus',
+      ZOOM_OUT: 'ctrl+-'
+
     },
     SITUATIONAL: {
-      REFRESH: 'r'
+      REFRESH: 'r',
+      FOCUS_SECONDARY_SEARCH: 'ctrl+F'
     },
   },
   VIDEO_PLAYER: {
@@ -153,10 +172,11 @@ const KeyboardShortcuts = {
       SMALL_FAST_FORWARD: 'arrowright',
       DECREASE_VIDEO_SPEED: 'o',
       INCREASE_VIDEO_SPEED: 'p',
-      LAST_FRAME: ',',
-      NEXT_FRAME: '.',
+      SKIP_N_TENTHS: '0..9',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
     }
   },
 }

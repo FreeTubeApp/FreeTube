@@ -39,18 +39,20 @@
         />
       </div>
     </div>
-    <FtFlexBox>
-      <FtSlider
-        :label="$t('Settings.Theme Settings.UI Scale')"
-        :default-value="uiScale"
-        :min-value="50"
-        :max-value="300"
-        :step="5"
-        value-extension="%"
-        @change="updateUiScale(parseInt($event))"
-      />
-    </FtFlexBox>
-    <br>
+    <template v-if="usingElectron">
+      <FtFlexBox>
+        <FtSlider
+          :label="$t('Settings.Theme Settings.UI Scale')"
+          :default-value="uiScale"
+          :min-value="50"
+          :max-value="300"
+          :step="5"
+          value-extension="%"
+          @change="updateUiScale"
+        />
+      </FtFlexBox>
+      <br>
+    </template>
     <FtFlexBox>
       <FtSelect
         :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
@@ -95,7 +97,7 @@
 import { computed, ref } from 'vue'
 import { useI18n } from '../composables/use-i18n-polyfill'
 
-import FtSettingsSection from './ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from './ft-select/ft-select.vue'
 import FtToggleSwitch from './ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from './ft-slider/ft-slider.vue'
@@ -126,6 +128,7 @@ const BASE_THEME_VALUES = [
   'hotPink',
   'pastelPink',
   // Third group
+  'catppuccinFrappe',
   'catppuccinMocha',
   'dracula',
   'gruvboxDark',
@@ -145,6 +148,7 @@ const baseThemeNames = computed(() => [
   t('Settings.Theme Settings.Base Theme.Hot Pink'),
   t('Settings.Theme Settings.Base Theme.Pastel Pink'),
   // Third group
+  t('Settings.Theme Settings.Base Theme.Catppuccin Frappe'),
   t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
   t('Settings.Theme Settings.Base Theme.Dracula'),
   t('Settings.Theme Settings.Base Theme.Gruvbox Dark'),

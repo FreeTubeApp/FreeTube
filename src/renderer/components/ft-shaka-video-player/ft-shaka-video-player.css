@@ -67,7 +67,7 @@
   color: var(--side-nav-hover-text-color) !important;
 }
 
-:deep(.shaka-current-selection-span) {
+:deep(.shaka-overflow-menu-only .shaka-current-selection-span) {
   color: var(--tertiary-text-color) !important;
 }
 
@@ -89,6 +89,35 @@
   z-index: 2;
 
   /* user-select is intentionally not disabled, so that you can select and copy the stats */
+}
+
+.valueChangePopup {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  background-color: rgb(0 0 0 / 70%);
+  color: #fff;
+  width: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .offlineWrapper {
@@ -240,6 +269,32 @@
 @media only screen and (width <=1000px) {
   :deep(.playerFullscreenTitleOverlay) {
     font-size: large;
+  }
+}
+
+@media only screen and (width >= 1000px) {
+  :deep(.shaka-bottom-controls) {
+    /* remove some bottom padding since the seek bar is above */
+    padding-bottom: 0;
+
+    /* make seekbar take full width on non-mobile devices */
+    width: 100%;
+  }
+
+  /* increase height of captions area since we remove the padding-bottom below the seekbar */
+  :deep(.shaka-controls-container[shown='true']~.shaka-text-container) {
+    bottom: 12.5%;
+  }
+
+  :deep(.shaka-controls-button-panel>button) {
+    height: 40px;
+    line-height: 0.5;
+  }
+
+  :deep(.shaka-tooltips-on button:active::after),
+  :deep(.shaka-tooltips-on button:focus-visible::after),
+  :deep(.shaka-tooltips-on button:hover::after) {
+    margin-bottom: 8px;
   }
 }
 

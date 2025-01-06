@@ -34,13 +34,15 @@ Download From Site: 'साइट से डाउनलोड करें'
 A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग अब उपलब्ध
   है, {blogTitle}। अधिक देखने के लिए क्लिक करें'
 
+Global:
+  Sort By: 'इसके अनुसार क्रमबद्ध करें'
+
 # Search Bar
 Search / Go to URL: 'खोज / यूआरएल पर जाएं'
   # In Filter Button
 Search Filters:
   Search Filters: 'खोज फ़िल्टर'
   Sort By:
-    Sort By: 'इसके अनुसार क्रमबद्ध करें'
     Most Relevant: 'सबसे प्रासंगिक'
     Rating: 'रेटिंग'
     Upload Date: 'अपलोड की तारीख़'

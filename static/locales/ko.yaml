@@ -36,6 +36,7 @@ Global:
   Live: 실시간
   Community: 커뮤니티
   Shorts: 쇼츠
+  Sort By: '정렬하기'
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
@@ -48,7 +49,6 @@ Search / Go to URL: '검색 / URL로 이동'
 Search Filters:
   Search Filters: '검색필터'
   Sort By:
-    Sort By: '정렬'
     Most Relevant: '관련성'
     Rating: '평가순'
     Upload Date: '업로드일자'
@@ -260,8 +260,7 @@ Settings:
       Quality Label: 스크린샷 품질
       File Name Label: 파일 이름 패턴
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
-        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
-        "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
+        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID.
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
@@ -476,7 +475,6 @@ Channel:
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'
-  Sort By: '정렬하기'
   Videos:
     Videos: '비디오'
     This channel does not currently have any videos: '이 채널에는 현재 비디오가 없습니다'
@@ -619,7 +617,6 @@ Comments:
   There are no more comments for this video: '이 영상에 대한 댓글이 더 이상 없습니다'
   Show Comments: '댓글 보기'
   Hide Comments: '댓글 숨기기'
-  Sort by: '정렬 기준'
   Top comments: '인기 댓글'
   Newest first: '최신 우선'
   # Context: View 10 Replies, View 1 Reply

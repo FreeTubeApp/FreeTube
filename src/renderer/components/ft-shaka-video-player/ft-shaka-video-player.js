@@ -24,8 +24,8 @@ import {
 import {
   addKeyboardShortcutToActionTitle,
   getPicturesPath,
-  showSaveDialog,
-  showToast
+  showToast,
+  writeFileWithPicker
 } from '../../helpers/utils'
 import { pathExists } from '../../helpers/filesystem'
 
@@ -122,14 +122,19 @@ export default defineComponent({
     vrProjection: {
       type: String,
       default: null
-    }
+    },
+    currentPlaybackRate: {
+      type: Number,
+      default: 1
+    },
   },
   emits: [
     'error',
     'loaded',
     'ended',
     'timeupdate',
-    'toggle-theatre-mode'
+    'toggle-theatre-mode',
+    'playback-rate-updated'
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -236,13 +241,14 @@ export default defineComponent({
     })
 
     /** @type {import('vue').ComputedRef<number>} */
-    const defaultPlayback = computed(() => {
-      return store.getters.getDefaultPlayback
-    })
-
-    /** @type {import('vue').ComputedRef<number>} */
     const defaultSkipInterval = computed(() => {
       return store.getters.getDefaultSkipInterval
+    })
+
+    watch(defaultSkipInterval, (newValue) => {
+      ui.configure({
+        tapSeekDistance: newValue
+      })
     })
 
     /** @type {import('vue').ComputedRef<number | 'auto'>} */
@@ -779,7 +785,7 @@ export default defineComponent({
 
       uiConfig.controlPanelElements.push('fullscreen')
 
-      if (!process.env.IS_ELECTRON || !enableScreenshot.value || props.format === 'audio') {
+      if (!enableScreenshot.value || props.format === 'audio') {
         const index = elementList.indexOf('ft_screenshot')
         elementList.splice(index, 1)
       }
@@ -839,6 +845,7 @@ export default defineComponent({
           addBigPlayButton: displayVideoPlayButton.value,
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
           playbackRates: playbackRates.value,
+          tapSeekDistance: defaultSkipInterval.value,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
@@ -894,8 +901,8 @@ export default defineComponent({
         // stop shaka-player's click handler firing
         event.stopPropagation()
 
-        video.value.playbackRate = defaultPlayback.value
-        video.value.defaultPlaybackRate = defaultPlayback.value
+        video.value.playbackRate = props.currentPlaybackRate
+        video.value.defaultPlaybackRate = props.currentPlaybackRate
       }
     }
 
@@ -1179,7 +1186,8 @@ export default defineComponent({
           if (url.hostname.endsWith('.youtube.com') && url.pathname === '/api/timedtext' &&
             url.searchParams.get('caps') === 'asr' && url.searchParams.get('kind') === 'asr' && url.searchParams.get('fmt') === 'vtt') {
             const stringBody = new TextDecoder().decode(response.data)
-            const cleaned = stringBody.replaceAll(/ align:start position:0%$/gm, '')
+            // position:0% for LTR text and position:100% for RTL text
+            const cleaned = stringBody.replaceAll(/ align:start position:(?:10)?0%$/gm, '')
 
             response.data = new TextEncoder().encode(cleaned).buffer
           }
@@ -1507,8 +1515,6 @@ export default defineComponent({
     // #region screenshots
 
     async function takeScreenshot() {
-      // TODO: needs to be refactored to be less reliant on node stuff, so that it can be used in the web (and android) builds
-
       const video_ = video.value
 
       const width = video_.videoWidth
@@ -1527,12 +1533,13 @@ export default defineComponent({
 
       const format = screenshotFormat.value
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
-      const imageQuality = format === 'jpg' ? screenshotQuality.value / 100 : 1
+      // imageQuality is ignored for pngs, so it is still okay to pass the quality value
+      const imageQuality = screenshotQuality.value / 100
 
       let filename
       try {
         filename = await store.dispatch('parseScreenshotCustomFileName', {
-          date: new Date(Date.now()),
+          date: new Date(),
           playerTime: video_.currentTime,
           videoId: props.videoId
         })
@@ -1543,59 +1550,48 @@ export default defineComponent({
         return
       }
 
-      let subDir = ''
-      if (filename.indexOf(path.sep) !== -1) {
-        const lastIndex = filename.lastIndexOf(path.sep)
-        subDir = filename.substring(0, lastIndex)
-        filename = filename.substring(lastIndex + 1)
-      }
       const filenameWithExtension = `${filename}.${format}`
 
-      let dirPath
-      let filePath
-      if (screenshotAskPath.value) {
+      if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
         const wasPlaying = !video_.paused
         if (wasPlaying) {
           video_.pause()
         }
 
-        if (screenshotFolder.value === '' || !(await pathExists(screenshotFolder.value))) {
-          dirPath = await getPicturesPath()
-        } else {
-          dirPath = screenshotFolder.value
+        try {
+          /** @type {Blob} */
+          const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
+
+          const saved = await writeFileWithPicker(
+            filenameWithExtension,
+            blob,
+            format.toUpperCase(),
+            mimeType,
+            `.${format}`,
+            'player-screenshots',
+            'pictures'
+          )
+
+          if (saved) {
+            showToast(t('Screenshot Success'))
+          }
+        } catch (error) {
+          console.error(error)
+          showToast(t('Screenshot Error', { error }))
         }
 
-        const options = {
-          defaultPath: path.join(dirPath, filenameWithExtension),
-          filters: [
-            {
-              name: format.toUpperCase(),
-              extensions: [format]
-            }
-          ]
-        }
+        canvas.remove()
 
-        const response = await showSaveDialog(options)
         if (wasPlaying) {
           video_.play()
         }
-        if (response.canceled || response.filePath === '') {
-          canvas.remove()
-          return
-        }
-
-        filePath = response.filePath
-        if (!filePath.endsWith(`.${format}`)) {
-          filePath = `${filePath}.${format}`
-        }
-
-        dirPath = path.dirname(filePath)
-        store.dispatch('updateScreenshotFolderPath', dirPath)
       } else {
+        let dirPath
+
         if (screenshotFolder.value === '') {
-          dirPath = path.join(await getPicturesPath(), 'Freetube', subDir)
+          dirPath = path.join(await getPicturesPath(), 'Freetube')
         } else {
-          dirPath = path.join(screenshotFolder.value, subDir)
+          dirPath = screenshotFolder.value
         }
 
         if (!(await pathExists(dirPath))) {
@@ -1608,24 +1604,25 @@ export default defineComponent({
             return
           }
         }
-        filePath = path.join(dirPath, filenameWithExtension)
+
+        const filePath = path.join(dirPath, filenameWithExtension)
+
+        canvas.toBlob((result) => {
+          result.arrayBuffer().then(ab => {
+            const arr = new Uint8Array(ab)
+
+            fs.writeFile(filePath, arr)
+              .then(() => {
+                showToast(t('Screenshot Success'))
+              })
+              .catch((err) => {
+                console.error(err)
+                showToast(t('Screenshot Error', { error: err }))
+              })
+          })
+        }, mimeType, imageQuality)
+        canvas.remove()
       }
-
-      canvas.toBlob((result) => {
-        result.arrayBuffer().then(ab => {
-          const arr = new Uint8Array(ab)
-
-          fs.writeFile(filePath, arr)
-            .then(() => {
-              showToast(t('Screenshot Success', { filePath }))
-            })
-            .catch((err) => {
-              console.error(err)
-              showToast(t('Screenshot Error', { error: err }))
-            })
-        })
-      }, mimeType, imageQuality)
-      canvas.remove()
     }
 
     // #endregion screenshots
@@ -1786,10 +1783,8 @@ export default defineComponent({
 
       shakaContextMenu.registerElement('ft_stats', null)
 
-      if (process.env.IS_ELECTRON) {
-        shakaControls.registerElement('ft_screenshot', null)
-        shakaOverflowMenu.registerElement('ft_screenshot', null)
-      }
+      shakaControls.registerElement('ft_screenshot', null)
+      shakaOverflowMenu.registerElement('ft_screenshot', null)
     }
 
     // #endregion custom player controls
@@ -1802,7 +1797,8 @@ export default defineComponent({
     function changeVolume(step) {
       const volumeBar = container.value.querySelector('.shaka-volume-bar')
 
-      const newValue = parseFloat(volumeBar.value) + (step * 100)
+      const oldValue = parseFloat(volumeBar.value)
+      const newValue = oldValue + (step * 100)
 
       if (newValue < 0) {
         volumeBar.value = 0
@@ -1813,6 +1809,16 @@ export default defineComponent({
       }
 
       volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
+
+      let messageIcon
+      if (newValue <= 0) {
+        messageIcon = 'volume-mute'
+      } else if (newValue > 0 && newValue < oldValue) {
+        messageIcon = 'volume-low'
+      } else if (newValue > 0 && newValue > oldValue) {
+        messageIcon = 'volume-high'
+      }
+      showValueChange(`${Math.round(video.value.volume * 100)}%`, messageIcon)
     }
 
     /**
@@ -1820,13 +1826,16 @@ export default defineComponent({
      */
     function changePlayBackRate(step) {
       const video_ = video.value
-      const newPlaybackRate = parseFloat((video_.playbackRate + step).toFixed(2))
+      const newPlaybackRateString = (video_.playbackRate + step).toFixed(2)
+      const newPlaybackRate = parseFloat(newPlaybackRateString)
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
       if (newPlaybackRate > 0.07 && newPlaybackRate <= maxVideoPlaybackRate.value) {
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
+
+        showValueChange(`${newPlaybackRateString}x`)
       }
     }
 
@@ -1986,6 +1995,23 @@ export default defineComponent({
         return
       }
 
+      // exit fullscreen and/or fullwindow if keyboard shortcut modal is opened
+      if (event.shiftKey && event.key === '?') {
+        event.preventDefault()
+
+        if (ui.getControls().isFullScreenEnabled()) {
+          ui.getControls().toggleFullScreen()
+        }
+
+        if (fullWindowEnabled.value) {
+          events.dispatchEvent(new CustomEvent('setFullWindow', {
+            detail: !fullWindowEnabled.value
+          }))
+        }
+
+        return
+      }
+
       // allow chapter jump keyboard shortcuts
       if (event.ctrlKey && (process.platform === 'darwin' || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))) {
         return
@@ -2035,7 +2061,12 @@ export default defineComponent({
           // Toggle mute only if metakey is not pressed
           if (!event.metaKey) {
             event.preventDefault()
-            video_.muted = !video_.muted
+            const isMuted = !video_.muted
+            video_.muted = isMuted
+
+            const messageIcon = isMuted ? 'volume-mute' : 'volume-high'
+            const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
+            showValueChange(message, messageIcon)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS:
@@ -2159,7 +2190,7 @@ export default defineComponent({
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
-          if (process.env.IS_ELECTRON && enableScreenshot.value && props.format !== 'audio') {
+          if (enableScreenshot.value && props.format !== 'audio') {
             event.preventDefault()
             // Take screenshot
             takeScreenshot()
@@ -2315,8 +2346,8 @@ export default defineComponent({
         videoElement.muted = (muted === 'true')
       }
 
-      videoElement.playbackRate = defaultPlayback.value
-      videoElement.defaultPlaybackRate = defaultPlayback.value
+      videoElement.playbackRate = props.currentPlaybackRate
+      videoElement.defaultPlaybackRate = props.currentPlaybackRate
 
       const localPlayer = new shaka.Player()
 
@@ -2361,9 +2392,7 @@ export default defineComponent({
         return
       }
 
-      if (process.env.IS_ELECTRON) {
-        registerScreenshotButton()
-      }
+      registerScreenshotButton()
       registerAudioTrackSelection()
       registerTheatreModeButton()
       registerFullWindowButton()
@@ -2420,6 +2449,10 @@ export default defineComponent({
       container.value.classList.add('no-cursor')
 
       await performFirstLoad()
+
+      player.addEventListener('ratechange', () => {
+        emit('playback-rate-updated', player.getPlaybackRate())
+      })
     })
 
     async function performFirstLoad() {
@@ -2476,7 +2509,8 @@ export default defineComponent({
                 const response = await fetch(caption.url)
                 let text = await response.text()
 
-                text = text.replaceAll(/ align:start position:0%$/gm, '')
+                // position:0% for LTR text and position:100% for RTL text
+                text = text.replaceAll(/ align:start position:(?:10)?0%$/gm, '')
 
                 const url = `data:${caption.mimeType};charset=utf-8,${encodeURIComponent(text)}`
 
@@ -2799,6 +2833,25 @@ export default defineComponent({
 
     // #endregion functions used by the watch page
 
+    const showValueChangePopup = ref(false)
+    const valueChangeMessage = ref('')
+    const valueChangeIcon = ref(null)
+    let valueChangeTimeout = null
+
+    function showValueChange(message, icon = null) {
+      valueChangeMessage.value = message
+      valueChangeIcon.value = icon
+      showValueChangePopup.value = true
+
+      if (valueChangeTimeout) {
+        clearTimeout(valueChangeTimeout)
+      }
+
+      valueChangeTimeout = setTimeout(() => {
+        showValueChangePopup.value = false
+      }, 2000)
+    }
+
     return {
       container,
       video,
@@ -2822,6 +2875,10 @@ export default defineComponent({
       handleEnded,
       updateVolume,
       handleTimeupdate,
+
+      valueChangeMessage,
+      valueChangeIcon,
+      showValueChangePopup
     }
   }
 })

@@ -43,6 +43,7 @@ Global:
   Live: Naživo
   Community: Komunita
   Shorts: Shorts
+  Sort By: 'Triediť podľa'
   Input Tags:
     Length Requirement: Štítok musí mať aspoň {number} znakov
 Search / Go to URL: 'Hľadať / Ísť na URL adresu'
@@ -50,7 +51,6 @@ Search / Go to URL: 'Hľadať / Ísť na URL adresu'
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
   Sort By:
-    Sort By: 'Triediť podľa'
     Most Relevant: 'Najvhodnejšie'
     Rating: 'Hodnotenie'
     Upload Date: 'Dátum nahratia'
@@ -399,7 +399,6 @@ Channel:
   Unsubscribe: 'Zrušiť odber'
   Search Channel: 'Vyhľadať v kanáli'
   Your search results have returned 0 results: 'Vaše vyhľadávanie vrátilo 0 výsledkov'
-  Sort By: 'Triediť podľa'
   Videos:
     Videos: 'Videá'
     This channel does not currently have any videos: 'Tento kanál nemá žiadne videá'
@@ -560,7 +559,6 @@ Comments:
   No more comments available: Žiadne daľšie komentáre nie sú k dispozícií
   Newest first: Najnovšie najprv
   Top comments: Najlepšie komentáre
-  Sort by: Zoradiť podľa
   Pinned by: Pripnuté používateľom
   Show More Replies: Zobraziť viac odpovedí
   From {channelName}: z {channelName}

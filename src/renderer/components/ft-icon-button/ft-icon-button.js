@@ -153,7 +153,7 @@ export default defineComponent({
     },
 
     handleDropdownFocusOut: function () {
-      if (this.dropdownShown && !this.$refs.ftIconButton.matches(':focus-within')) {
+      if (!this.useModal && this.dropdownShown && !this.$refs.ftIconButton.matches(':focus-within')) {
         this.dropdownShown = false
       }
     },

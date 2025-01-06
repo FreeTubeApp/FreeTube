@@ -18,7 +18,6 @@ import {
 import {
   extractNumberFromString,
   getIconForSortPreference,
-  setPublishedTimestampsInvidious,
   showToast,
   deepCopy,
 } from '../../helpers/utils'
@@ -219,6 +218,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.DateAddedNewest')
           case SORT_BY_VALUES.DateAddedOldest:
             return this.$t('Playlist.Sort By.DateAddedOldest')
+          case SORT_BY_VALUES.PublishedNewest:
+            return this.$t('Playlist.Sort By.PublishedNewest')
+          case SORT_BY_VALUES.PublishedOldest:
+            return this.$t('Playlist.Sort By.PublishedOldest')
           case SORT_BY_VALUES.VideoTitleAscending:
             return this.$t('Playlist.Sort By.VideoTitleAscending')
           case SORT_BY_VALUES.VideoTitleDescending:
@@ -390,8 +393,6 @@ export default defineComponent({
 
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
-
-        setPublishedTimestampsInvidious(result.videos)
 
         this.playlistItems = result.videos
 
@@ -684,7 +685,6 @@ export default defineComponent({
       'updateSubscriptionDetails',
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
-      'removeVideo',
       'removeVideos',
     ]),
 

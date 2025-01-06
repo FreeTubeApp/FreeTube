@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import shaka from 'shaka-player'
 import { Utils, YTNodes } from 'youtubei.js'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -57,6 +57,8 @@ export default defineComponent({
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgress)
+    document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+    document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
     if (this.$refs.player) {
       await this.$refs.player.destroyPlayer()
@@ -99,6 +101,7 @@ export default defineComponent({
       channelId: '',
       channelSubscriptionCountText: '',
       videoPublished: 0,
+      premiereDate: undefined,
       videoStoryboardSrc: '',
       /** @type {string|null} */
       manifestSrc: null,
@@ -119,6 +122,8 @@ export default defineComponent({
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
+      blockVideoAutoplay: false,
+      autoplayInterruptionTimeout: null,
 
       onMountedRun: false,
 
@@ -129,7 +134,8 @@ export default defineComponent({
       customErrorIcon: null,
       videoGenreIsMusic: false,
       /** @type {Date|null} */
-      streamingDataExpiryDate: null
+      streamingDataExpiryDate: null,
+      currentPlaybackRate: null,
     }
   },
   computed: {
@@ -159,6 +165,9 @@ export default defineComponent({
     },
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+    defaultAutoplayInterruptionIntervalHours: function () {
+      return this.$store.getters.getDefaultAutoplayInterruptionIntervalHours
     },
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
@@ -297,6 +306,7 @@ export default defineComponent({
     this.activeFormat = this.defaultVideoFormat
 
     this.checkIfTimestamp()
+    this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -321,7 +331,13 @@ export default defineComponent({
         this.getVideoInformationLocal()
       }
 
+      document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+      document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+      document.addEventListener('click', this.resetAutoplayInterruptionTimeout)
+
       window.addEventListener('beforeunload', this.handleWatchProgress)
+      this.resetAutoplayInterruptionTimeout()
     },
 
     changeTimestamp: function (timestamp) {
@@ -360,7 +376,7 @@ export default defineComponent({
 
         // extract localised title first and fall back to the not localised one
         this.videoTitle = result.primary_info?.title.text ?? result.basic_info.title
-        this.videoViewCount = result.basic_info.view_count ?? extractNumberFromString(result.primary_info.view_count.text)
+        this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : null)
 
         this.channelId = result.basic_info.channel_id ?? result.secondary_info.owner?.author.id
         this.channelName = result.basic_info.author ?? result.secondary_info.owner?.author.name
@@ -493,7 +509,9 @@ export default defineComponent({
         // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
         const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
 
-        if (playabilityStatus.status === 'UNPLAYABLE' || playabilityStatus.status === 'LOGIN_REQUIRED') {
+        const isDrmProtected = result.streaming_data?.adaptive_formats.some(format => format.drm_families || format.drm_track_type)
+
+        if (playabilityStatus.status === 'UNPLAYABLE' || playabilityStatus.status === 'LOGIN_REQUIRED' || isDrmProtected) {
           if (playabilityStatus.error_screen?.offer_id === 'sponsors_only_video') {
             // Members-only videos can only be watched while logged into a Google account that is a paid channel member
             // so there is no point trying any other backends as it will always fail
@@ -506,6 +524,13 @@ export default defineComponent({
             // Age-restricted videos can only be watched while logged into a Google account that is age-verified
             // so there is no point trying any other backends as it will always fail
             this.errorMessage = this.$t('Video.AgeRestricted')
+            this.isLoading = false
+            this.updateTitle()
+            return
+          } else if (isDrmProtected) {
+            // DRM protected videos (e.g. movies) cannot be played in FreeTube,
+            // as they require the proprietary and closed source Wideview CDM which is understandably not included in standard Electron builds
+            this.errorMessage = this.$t('Video.DRMProtected')
             this.isLoading = false
             this.updateTitle()
             return
@@ -533,7 +558,7 @@ export default defineComponent({
           }
         }
 
-        if (!this.hideLiveChat && this.isLive && result.livechat) {
+        if (!this.hideLiveChat && (this.isLive || this.isUpcoming) && result.livechat) {
           this.liveChat = result.getLiveChat()
         } else {
           this.liveChat = null
@@ -553,26 +578,13 @@ export default defineComponent({
           }
 
           if (useRemoteManifest) {
-            // The live DASH manifest is currently unusable it is not available on the iOS client
-            // but the web ones returns 403s after 1 minute of playback so we have to use the HLS one for now.
-            // Leaving the code here commented out in case we can use it again in the future
-
-            // if (result.streaming_data.dash_manifest_url) {
-            //   let src = result.streaming_data.dash_manifest_url
-
-            //   if (src.includes('?')) {
-            //     src += '&mpd_version=7'
-            //   } else {
-            //     src += `${src.endsWith('/') ? '' : '/'}mpd_version/7`
-            //   }
-
-            //   this.manifestSrc = src
-            //   this.manifestMimeType = MANIFEST_TYPE_DASH
-            // } else {
-
-            this.manifestSrc = result.streaming_data.hls_manifest_url
-            this.manifestMimeType = MANIFEST_TYPE_HLS
-            // }
+            if (result.streaming_data.dash_manifest_url) {
+              this.manifestSrc = result.streaming_data.dash_manifest_url
+              this.manifestMimeType = MANIFEST_TYPE_DASH
+            } else {
+              this.manifestSrc = result.streaming_data.hls_manifest_url
+              this.manifestMimeType = MANIFEST_TYPE_HLS
+            }
           }
 
           this.streamingDataExpiryDate = result.streaming_data.expires
@@ -627,9 +639,12 @@ export default defineComponent({
               // TODO a I18n entry for time format might be needed here
               this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
             }
+
+            this.premiereDate = upcomingTimestamp
           } else {
             this.upcomingTimestamp = null
             this.upcomingTimeLeft = null
+            this.premiereDate = undefined
           }
         } else {
           this.videoLengthSeconds = result.basic_info.duration
@@ -1056,7 +1071,7 @@ export default defineComponent({
         viewCount: this.videoViewCount,
         lengthSeconds: this.videoLengthSeconds,
         watchProgress: watchProgress,
-        timeWatched: new Date().getTime(),
+        timeWatched: Date.now(),
         isLive: false,
         type: 'video',
       }
@@ -1230,6 +1245,18 @@ export default defineComponent({
 
     handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+        return
+      }
+
+      if (this.blockVideoAutoplay) {
+        showToast(this.$t('Autoplay Interruption Timer',
+          this.defaultAutoplayInterruptionIntervalHours,
+          {
+            autoplayInterruptionIntervalHours: this.defaultAutoplayInterruptionIntervalHours
+          }),
+        3_600_000
+        )
+        this.resetAutoplayInterruptionTimeout()
         return
       }
 
@@ -1639,13 +1666,26 @@ export default defineComponent({
       this.updatePlaylistLastPlayedAt({ _id: playlist._id })
     },
 
+    resetAutoplayInterruptionTimeout() {
+      clearTimeout(this.autoplayInterruptionTimeout)
+      this.autoplayInterruptionTimeout = setTimeout(() => { this.blockVideoAutoplay = true }, this.defaultAutoplayInterruptionIntervalHours * 3_600_000)
+      this.blockVideoAutoplay = false
+    },
+
+    updatePlaybackRate(newRate) {
+      this.currentPlaybackRate = newRate
+    },
+
     ...mapActions([
-      'setAppTitle',
       'updateHistory',
       'updateWatchProgress',
       'updateLastViewedPlaylist',
       'updatePlaylistLastPlayedAt',
       'updateSubscriptionDetails',
+    ]),
+
+    ...mapMutations([
+      'setAppTitle'
     ])
   }
 })

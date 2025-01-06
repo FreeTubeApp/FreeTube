@@ -49,6 +49,7 @@ Global:
   Shorts: 'Videoioù berr (Shorts)'
   Live: 'War-eeun'
   Community: 'Kumuniezh'
+  Sort By: 'Rummañ dre'
   Counts:
     Video Count: '1 video | {count} video'
     Channel Count: '1 chadenn | {count} chadenn'
@@ -81,7 +82,6 @@ Search Listing:
 Search Filters:
   Search Filters: 'Siloù evit Klask'
   Sort By:
-    Sort By: 'Rummañ dre'
     Most Relevant: 'Ar re wellañ'
     Rating: 'Notenn'
     Upload Date: 'Deiziad kargañ'
@@ -224,8 +224,6 @@ User Playlists:
     e faot deoc''h dilemel ar roll-videoioù-mañ ? Ne vo ket moaien da nullañ war-lerc''h.'
 
   Sort By:
-    Sort By: 'Rummañ dre'
-
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
@@ -502,8 +500,7 @@ Settings:
       File Name Tooltip: 'Gallout a rit implijout an argemmennoù da-heul. %Y Bloavezh
         4 sifr. %M Miz 2 sifr. %D Devezh 2 sifr. %H Eur 2 sifr. %N Munutennoù 2 sifr.
         %S Eilennoù 2 sifr. %T Mili-eilennoù 3 sifr. %s Eilennoù ar video. %t Mili-eilennoù
-        ar video 3 sifr. %i ID ar video. Gallout a rit implijout ivez \ pe / evit
-        krouiñ teuliadoù.'
+        ar video 3 sifr. %i ID ar video.'
       Error:
         Forbidden Characters: 'Arouezennoù difennet'
         Empty File Name: 'Goullo eo anv ar restr'
@@ -803,7 +800,6 @@ Channel:
   Added channel to your subscriptions: 'Chadenn ouzhpennet d''ho koumanantoù'
   Search Channel: 'Klask e-barzh ar chadenn'
   Your search results have returned 0 results: 'N''eus disoc''h ebet gant ho klask'
-  Sort By: 'Rummañ dre'
   This channel does not exist: 'N''eus ket deus ar chadenn-mañ'
   This channel does not allow searching: 'Ne vez ket aotreet klask gant ar chadenn-mañ'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Ur
@@ -1004,7 +1000,6 @@ Playlist:
   Views: ''
   Last Updated On: 'Hizivadenn ziwezhañ'
   Sort By:
-    Sort By: 'Rummañ dre'
     DateAddedNewest: 'Ouzhpennet diwezhañ da gentañ'
     DateAddedOldest: 'Ouzhpennet abretañ da gentañ'
     AuthorAscending: 'Aozer (A-Z)'
@@ -1069,7 +1064,6 @@ Comments:
   There are no more comments for this video: 'Evezhiadenn ouzhpenn ebet evit ar video-mañ'
   Show Comments: 'Diskouez an evezhiadennoù'
   Hide Comments: 'Kuzhat an evezhiadennoù'
-  Sort by: 'Rummañ dre'
   Top comments: 'Evezhiadennoù gwellañ'
   Newest first: 'Nevesañ da gentañ'
   View {replyCount} replies: 'Diskouez {replyCount} respont'
@@ -1138,8 +1132,7 @@ Tooltips:
       nemet URL ar video (d.s. feur lenn, URL ar roll-videoioù, etc.). Treuzkaset
       e vo an arguzennoù personelaet.'
     Custom External Player Arguments: 'An holl arguzennoù personelaet el linennoù
-      urzhiañ, a faot deoc''h e vefe treuzkaset
-      d''al lenner diavaez.'
+      urzhiañ, a faot deoc''h e vefe treuzkaset d''al lenner diavaez.'
     DefaultCustomArgumentsTemplate: "(Dre ziouer : '{defaultCustomArguments}')"
   Distraction Free Settings:
     Hide Channels: 'Lakait ID ur chadenn evit mirout ouzh an holl videoioù, rolloù-videoioù

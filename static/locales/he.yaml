@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: חי
   Community: קהילה
+  Sort By: מיון לפי
 
   Counts:
     Video Count: סרטון אחד | {count} סרטונים
@@ -58,7 +59,6 @@ Search / Go to URL: 'חיפוש / מעבר לכתובת'
 Search Filters:
   Search Filters: 'מסנני חיפוש'
   Sort By:
-    Sort By: 'מיון לפי'
     Most Relevant: 'הכי רלוונטי'
     Rating: 'דירוג'
     Upload Date: 'תאריך העלאה'
@@ -154,7 +154,6 @@ User Playlists:
     הנגינה הזו? זאת פעולה בלתי הפיכה.
   Sort By:
     EarliestUpdatedFirst: הראשונים שעודכנו
-    Sort By: מיון לפי
     NameAscending: א-ת
     NameDescending: ת-א
     LatestPlayedFirst: האחרונים שהתנגנו
@@ -408,7 +407,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
-    Next Video Interval: משך הסרטון הבא
+    Next Video Interval: מתזמן ספירה לאחור של נגינה אוטומטית
     Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עוצמת השמע
     Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
@@ -429,9 +428,10 @@ Settings:
       File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
         ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
         ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
-        ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
+        ב־3 ספרות. ‎%i מזהה הסרטון.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
+    Autoplay Interruption Timer: מתזמן הפרעת ניגון אוטומטי
   Privacy Settings:
     Privacy Settings: 'פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -458,7 +458,9 @@ Settings:
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
     Confirm Before Unsubscribing: אישור לפני ביטול מינוי
-    Only Show Latest Video for Each Channel: להציג רק את הסרטון האחרון לכל ערוץ
+    'Limit the number of videos displayed for each channel': הגבלת מספר הסרטונים שמופיעים
+      בכל ערוץ
+    To: עד
   Data Settings:
     Data Settings: 'נתונים'
     Select Import Type: 'נא לבחור את תסדיר הייבוא'
@@ -556,6 +558,7 @@ Settings:
     Hide Videos and Playlists Containing Text: הסתרת סרטונים ורשימות שידורים המכילים
       טקסט
     Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
+    Show Added Items: הצגת פריטים שנוספו
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -720,7 +723,6 @@ Channel:
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
   Search Channel: 'חיפוש בערוץ'
   Your search results have returned 0 results: 'לא נמצאו תוצאות'
-  Sort By: 'מיון לפי'
   Videos:
     Videos: 'סרטונים'
     This channel does not currently have any videos: 'לערוץ זה אין סרטונים כרגע'
@@ -920,7 +922,6 @@ Playlist:
     DateAddedOldest: הראשונים שנוספו ראשונים
     AuthorAscending: יוצר (א-ת)
     VideoTitleAscending: כותר (א-ת)
-    Sort By: מיין לפי
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
     DateAddedNewest: האחרונים שנוספו ראשונים
@@ -967,7 +968,6 @@ Comments:
   There are no comments available for this video: 'לסרטון זה אין תגובות'
   Load More Comments: 'טעינת תגובות נוספות'
   Newest first: החדשות ביותר תחילה
-  Sort by: מיון לפי
   Top comments: תגובות מובילות
   No more comments available: אין עוד תגובות זמינות
   Show More Replies: הצגת תגובות נוספות
@@ -1084,7 +1084,7 @@ Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
 Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
-Screenshot Success: צילום המסך נשמר בתור „{filePath}”
+Screenshot Success: צילום המסך נשמר
 Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
 Channels:
@@ -1156,3 +1156,8 @@ Keys:
 Right-click or hold to see history: לחיצה ימנית או החזקה כדי לראות היסטוריה
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
+Description:
+  Collapse Description: להציג פחות
+  Expand Description: …עוד
+Autoplay Interruption Timer: ניגון אוטומטי בוטל עקב {autoplayInterruptionIntervalHours}
+  שעות של חוסר פעילות

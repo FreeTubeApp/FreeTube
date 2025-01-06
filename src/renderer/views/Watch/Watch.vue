@@ -34,12 +34,14 @@
           :theatre-possible="theatrePossible"
           :use-theatre-mode="useTheatreMode"
           :vr-projection="vrProjection"
+          :current-playback-rate="currentPlaybackRate"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
           @timeupdate="updateCurrentChapter"
           @ended="handleVideoEnded"
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @playback-rate-updated="updatePlaybackRate"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -122,6 +124,7 @@
         :channel-name="channelName"
         :channel-thumbnail="channelThumbnail"
         :published="videoPublished"
+        :premiere-date="premiereDate"
         :subscription-count-text="channelSubscriptionCountText"
         :like-count="videoLikeCount"
         :dislike-count="videoDislikeCount"
@@ -179,7 +182,7 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && !hideLiveChat && isLive"
+        v-if="!isLoading && !hideLiveChat && (isLive || isUpcoming)"
         :live-chat="liveChat"
         :video-id="videoId"
         :channel-id="channelId"

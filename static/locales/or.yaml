@@ -4,9 +4,12 @@ File: 'ଫାଇଲ୍'
 Edit: 'ସମ୍ପାଦନା'
 Undo: 'ପୂର୍ଵଵତ୍'
 Redo: 'ପୁନଃକରଣ'
+
+Global:
+  Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
+
 Search Filters:
   Sort By:
-    Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
     Most Relevant: 'ସବୁଠୁ ପ୍ରାସଙ୍ଗିକ'
     View Count: 'ଦର୍ଶନ ଗଣନା'
   Time:

@@ -33,6 +33,7 @@ Global:
   Shorts: ショート動画
   Live: ライブ配信
   Community: コミュニティ
+  Sort By: 並び替え
 
 # Search Bar
   Counts:
@@ -50,7 +51,6 @@ Search / Go to URL: '検索 / URL に移動'
 Search Filters:
   Search Filters: '検索の絞り込み'
   Sort By:
-    Sort By: '並べ替え'
     Most Relevant: '関連度'
     Rating: '評価'
     Upload Date: 'アップロード日'
@@ -135,7 +135,6 @@ User Playlists:
     EarliestUpdatedFirst: 最も古い更新
     EarliestPlayedFirst: 最も古い再生
     LatestPlayedFirst: 最も新しい再生
-    Sort By: 並び替え順
     LatestCreatedFirst: 最も新しい作成日
     NameDescending: Z-A
   Remove from Favorites: '{playlistName} から削除'
@@ -271,6 +270,7 @@ Settings:
     Auto Load Next Page:
       Label: 次のページを自動で読み込む
       Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
+    Open Deep Links In New Window: FreeTube に渡された URL を新しいウィンドウで開く
   Theme Settings:
     Theme Settings: 'テーマ'
     Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
@@ -390,8 +390,8 @@ Settings:
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
       File Name Label: ファイル名のパターン
-      File Name Tooltip: 以下の変数が使用できます。%Y 4 桁の年。%M 2 桁の月。%D 2 桁の日。%H 2 桁の時間。%N 2 桁の分。%S
-        2 桁の秒。%T 3 桁のミリ秒。%s 2 桁の動画の秒数。%t 3 桁の動画のミリ秒。%i 動画 ID。「\」または「/」を使用してサブフォルダを作成できます。
+      File Name Tooltip: 以下の変数が使用可能です。%Y 年（4桁）%M 月（2桁）%D 日（2桁）%H 時間（2桁）%N 分（2桁）%S
+        秒（2桁）%T ミリ秒（3桁）%s 動画の秒数 %t 動画のミリ秒（3桁）%i 動画ID が使用できます。
       Error:
         Forbidden Characters: 使用禁止文字
         Empty File Name: 空のファイル名
@@ -403,14 +403,15 @@ Settings:
       Folder Button: フォルダの選択
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
     Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
+    Autoplay Interruption Timer: 自動再生の停止タイマー
   Subscription Settings:
     Subscription Settings: '登録チャンネル'
     Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
     Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
-    Only Show Latest Video for Each Channel: 各チャンネルの最新動画のみを表示する
-
+    'Limit the number of videos displayed for each channel': 各チャンネルに表示する動画の数を制限する
+    To: 上限
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
     Remember History: 履歴の保存
@@ -511,6 +512,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
+    Show Added Items: 追加された項目を表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -571,7 +573,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
-    Warning: 
+    Warning:
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード
@@ -620,7 +622,6 @@ Channel:
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネル内検索'
   Your search results have returned 0 results: '検索結果が0件です'
-  Sort By: '並べ替え'
   Videos:
     Videos: '動画'
     This channel does not currently have any videos: 'このチャンネルには動画がありません'
@@ -789,6 +790,9 @@ Video:
   MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
   AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube
     から直接見ることはできません。
+  DeArrow:
+    Show Original Details: 元の情報を表示
+    Show Modified Details: 変更された詳細を表示
 Videos:
   #& Sort By
   Sort By:
@@ -813,7 +817,6 @@ Playlist:
     AuthorAscending: 著者名（A-Z）
     AuthorDescending: 著者名（Z-A）
     VideoTitleAscending: タイトル（A-Z）
-    Sort By: 並び替え
     VideoDurationAscending: 再生時間（短い順）
     VideoDurationDescending: 再生時間（長い順）
 Change Format:
@@ -858,7 +861,6 @@ Comments:
   Top comments: 評価順
   Newest first: 新しい順
   No more comments available: これ以上のコメントはありません
-  Sort by: 並べ替え
   Show More Replies: 返信をもっと見る
   And others: その他
   Pinned by: 固定
@@ -958,6 +960,7 @@ Tooltips:
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
+    Open Deep Links In New Window: FreeTube に渡された URL は、ブラウザの拡張機能やコマンドライン引数などによって、新しいウィンドウで開かれます。
   External Player Settings:
     Custom External Player Arguments: '外部プレイヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
@@ -975,7 +978,7 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube 
+    Hide Videos and Playlists Containing Text: FreeTube
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
@@ -1001,7 +1004,7 @@ Channels:
   Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
   Count: '{number} 件のチャンネルが見つかりました。'
   Empty: 現在、チャンネル一覧は空です。
-Screenshot Success: スクリーンショットを「{filePath}」に保存しました
+Screenshot Success: スクリーンショットを保存しました
 Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:
@@ -1062,3 +1065,8 @@ Keys:
   arrowleft: 左矢印
   arrowright: 右矢印
   arrowup: 上矢印
+Right-click or hold to see history: 右クリックまたは長押しで 履歴 を表示
+Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} 時間の無操作状態が続いたため、自動再生をキャンセルしました'
+Description:
+  Expand Description: '...もっと見る'
+  Collapse Description: 表示を減らす

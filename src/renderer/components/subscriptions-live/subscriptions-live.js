@@ -4,12 +4,11 @@ import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue
 
 import {
   getChannelPlaylistId,
-  setPublishedTimestampsInvidious,
   copyToClipboard,
   getRelativeTimeFromDate,
   showToast
 } from '../../helpers/utils'
-import { invidiousAPICall, invidiousFetch } from '../../helpers/api/invidious'
+import { getInvidiousChannelLive, invidiousFetch } from '../../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../../helpers/api/local'
 import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
@@ -338,17 +337,8 @@ export default defineComponent({
 
     getChannelLiveInvidious: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        const subscriptionsPayload = {
-          resource: 'channels',
-          id: channel.id,
-          subResource: 'streams',
-          params: {}
-        }
-
-        invidiousAPICall(subscriptionsPayload).then((result) => {
-          const videos = result.videos.filter(e => e.type === 'video')
-
-          setPublishedTimestampsInvidious(videos)
+        getInvidiousChannelLive(channel.id).then((result) => {
+          const videos = result.videos
 
           let name
 

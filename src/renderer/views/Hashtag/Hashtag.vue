@@ -53,7 +53,7 @@ import store from '../../store/index'
 import { useRoute } from 'vue-router/composables'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
-import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
 import { useI18n } from '../../composables/use-i18n-polyfill'
@@ -108,7 +108,7 @@ async function getHashtag() {
   } else {
     await getInvidiousHashtag(hashtagInRoute)
   }
-  store.dispatch('setAppTitle', `${hashtag.value} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', `${hashtag.value} - ${packageDetails.productName}`)
 }
 
 /**
@@ -118,7 +118,6 @@ async function getHashtag() {
 async function getInvidiousHashtag(hashtagInRoute, page) {
   try {
     const fetchedVideos = await getHashtagInvidious(hashtagInRoute, page)
-    setPublishedTimestampsInvidious(fetchedVideos)
     hashtag.value = '#' + hashtagInRoute
     isLoading.value = false
     apiUsed.value = 'invidious'

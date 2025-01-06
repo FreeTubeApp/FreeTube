@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -114,6 +114,12 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+    showAddedChannelsHidden: function () {
+      return this.$store.getters.getShowAddedChannelsHidden
+    },
+    showAddedForbiddenTitles: function () {
+      return this.$store.getters.getShowAddedForbiddenTitles
+    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
         // Legacy support
@@ -159,6 +165,12 @@ export default defineComponent({
     },
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
+    },
+    handleAddedChannelsHidden: function () {
+      this.updateShowAddedChannelsHidden(!this.showAddedChannelsHidden)
+    },
+    handleAddedForbiddenTitles: function () {
+      this.updateShowAddedForbiddenTitles(!this.showAddedForbiddenTitles)
     },
     validateChannelId: function (text) {
       return checkYoutubeChannelId(text)
@@ -228,6 +240,8 @@ export default defineComponent({
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
+      'updateShowAddedChannelsHidden',
+      'updateShowAddedForbiddenTitles',
     ])
   }
 })

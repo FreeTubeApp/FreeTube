@@ -33,6 +33,7 @@ Global:
   Shorts: Lyhyet
   Live: Livenä
   Community: Yhteisö
+  Sort By: Järjestä
   Counts:
     Video Count: 1 video | {count} videota
     Subscriber Count: 1 tilaaja | {count} tilaajaa
@@ -45,7 +46,6 @@ Search / Go to URL: 'Etsi / Mene osoitteeseen'
 Search Filters:
   Search Filters: 'Hakusuodattimet'
   Sort By:
-    Sort By: 'Lajitteluperuste'
     Most Relevant: 'Osuvin'
     Rating: 'Arvio'
     Upload Date: 'Latauspäivämäärä'
@@ -123,7 +123,6 @@ User Playlists:
   Sort By:
     NameAscending: A-Ö
     NameDescending: Ö-A
-    Sort By: Järjestä
     LatestCreatedFirst: Viimeksi luotu
     EarliestCreatedFirst: Ensin luotu
     LatestUpdatedFirst: Viimeksi päivitetty
@@ -346,8 +345,7 @@ Settings:
       File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M
         Kuukausi 2 numeroa. %D Päivä 2 numeroa. %H Tunnit 2 numeroa. %N Minuutit 2
         numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit.
-        %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID. Voit myös käyttää
-        "\" tai "/" luodaksesi alikansioita.
+        %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID.
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
   Subscription Settings:
@@ -355,8 +353,6 @@ Settings:
     Hide Videos on Watch: 'Piilota katsotut videot'
     Fetch Feeds from RSS: Nouda RSS-syöte
     Fetch Automatically: Nouda syöte automaattisesti
-    Only Show Latest Video for Each Channel: Näytä vain jokaisen kanavan uusin video
-
   Privacy Settings:
     Watch history has been cleared: Katseluhistoria poistettiin
     Are you sure you want to remove your entire watch history?: Haluatko varmasti
@@ -568,7 +564,6 @@ Channel:
   Unsubscribe: 'Peruuta tilaus'
   Search Channel: 'Etsi kanavaa'
   Your search results have returned 0 results: 'Hakusi on tuottanut 0 tulosta'
-  Sort By: 'Lajitteluperuste'
   Videos:
     Videos: 'Videot'
     This channel does not currently have any videos: 'Tällä kanavalla ei juuri nyt
@@ -775,7 +770,6 @@ Comments:
   No more comments available: Ei enempää kommentteja
   Newest first: Uusimmat ensin
   Top comments: Suosituimmat kommentit
-  Sort by: Lajitteluperuste
   Show More Replies: Näytä enemmän vastauksia
   Pinned by: Kiinnittänyt
   From {channelName}: kanavalta {channelName}
