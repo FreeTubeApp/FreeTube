@@ -48,6 +48,7 @@ Global:
   Shorts: 'Korte videos'
   Live: 'Rechtstreeks'
   Community: 'Gemjinschap'
+  Sort By: 'Azwu sorteern'
   Counts:
     Video Count: '1 video | {count} videos'
     Channel Count: '1 kanoal | {count} kanoaln'
@@ -74,7 +75,6 @@ Search Listing:
 Search Filters:
   Search Filters: 'Zoekfilters'
   Sort By:
-    Sort By: 'Azwu sorteern'
     Most Relevant: 'Tmjist relevante'
     Rating: 'Score'
     Upload Date: 'Doatum dat online stoat'
@@ -195,8 +195,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: ''
 
   Sort By:
-    Sort By: ''
-
     NameAscending: ''
     NameDescending: ''
 
@@ -678,7 +676,6 @@ Channel:
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: ''
   This channel does not exist: ''
   This channel does not allow searching: ''
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
@@ -844,7 +841,6 @@ Playlist:
   View Full Playlist: ''
   Last Updated On: ''
   Sort By:
-    Sort By: ''
     DateAddedNewest: ''
     DateAddedOldest: ''
     AuthorAscending: ''
@@ -897,7 +893,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: ''
   Hide Comments: ''
-  Sort by: ''
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''

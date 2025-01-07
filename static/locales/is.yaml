@@ -36,6 +36,7 @@ Global:
   Shorts: Stuttmyndir
   Live: Í beinni
   Community: Samfélag
+  Sort By: Raða eftir
 
   Counts:
     Video Count: 1 myndskeið | {count} myndskeið
@@ -59,7 +60,6 @@ Search / Go to URL: 'Leita / Fara á slóð'
 Search Filters:
   Search Filters: 'Leitarsíur'
   Sort By:
-    Sort By: 'Raða eftir'
     Most Relevant: 'Mest viðeigandi'
     Rating: 'Einkunn'
     Upload Date: 'Dags. innsendingar'
@@ -152,7 +152,6 @@ User Playlists:
   Cancel: Hætta við
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
-    Sort By: Raða eftir
     NameDescending: Ö-A
     LatestCreatedFirst: Nýlega útbúið
     EarliestCreatedFirst: Fyrst búið til
@@ -337,6 +336,7 @@ Settings:
       Solarized Light: Sólaríserað ljóst
       Gruvbox Dark: Gruvbox dökkt
       Gruvbox Light: Gruvbox ljóst
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -371,7 +371,7 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin Mocha sægrænt
       Catppuccin Mocha Sky: Catppuccin Mocha himinblátt
       Catppuccin Mocha Blue: Catppuccin Mocha blátt
-      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavander
       Catppuccin Mocha Pink: Catppuccin Mocha bleikt
       Catppuccin Mocha Peach: Catppuccin Mocha ferskju
       Catppuccin Mocha Yellow: Catppuccin Mocha gult
@@ -394,6 +394,20 @@ Settings:
       Gruvbox Dark Orange: Gruvbox dökkappelsínugult
       Gruvbox Dark Blue: Gruvbox dökkblátt
       Gruvbox Dark Purple: Gruvbox dökkfjólublátt
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavander
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rósavatn
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingó
+      Catppuccin Frappe Pink: Catppuccin Frappe bleikt
+      Catppuccin Frappe Mauve: Catppuccin Frappe lillablátt
+      Catppuccin Frappe Red: Catppuccin Frappe rautt
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastaníubrúnt
+      Catppuccin Frappe Peach: Catppuccin Frappe ferskju
+      Catppuccin Frappe Yellow: Catppuccin Frappe gult
+      Catppuccin Frappe Green: Catppuccin Frappe grænt
+      Catppuccin Frappe Teal: Catppuccin Frappe sægrænt
+      Catppuccin Frappe Sky: Catppuccin Frappe himinblátt
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safír
+      Catppuccin Frappe Blue: Catppuccin Frappe blátt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -753,7 +767,6 @@ Channel:
   Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
   Search Channel: 'Leita á rás'
   Your search results have returned 0 results: 'Leitin skilaði 0 niðurstöðum'
-  Sort By: 'Raða eftir'
   Videos:
     Videos: 'Myndskeið'
     This channel does not currently have any videos: 'Þessi rás er ekki með nein myndskeið'
@@ -941,6 +954,10 @@ Video:
   DeArrow:
     Show Original Details: Birta upprunalegar nánari upplýsingar
     Show Modified Details: Birta breyttar nánari upplýsingar
+  DRMProtected: Ekki er hægt að spila DRM-varin myndskeið í FreeTube, þar sem þau
+    krefjast notkunar lokaðs séreignarhugbúnaðar. Ef þú vilt endilega horfa á þetta
+    myndskeið, skaltu gera það á opinbera YouTube-vefsvæðinu í vafra með uppsettum
+    DRM-hugbúnaði.
 Videos:
   #& Sort By
   Sort By:
@@ -959,7 +976,6 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    Sort By: Raða eftir
     DateAddedNewest: Nýlegast bætt við fyrst
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
@@ -968,6 +984,8 @@ Playlist:
     DateAddedOldest: Elsta bætt við fyrst
     VideoDurationAscending: Tímalengd (stysta fyrst)
     VideoDurationDescending: Tímalengd (lengsta fyrst)
+    PublishedOldest: Elsta útgefna myndskeið fyrst
+    PublishedNewest: Síðast útgefna myndskeið fyrst
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
@@ -1005,7 +1023,6 @@ Comments:
     þetta myndskeið'
   Show Comments: 'Birta athugasemdir'
   Hide Comments: 'Fela athugasemdir'
-  Sort by: 'Raða eftir'
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
   # Context: View 10 Replies, View 1 Reply
@@ -1222,6 +1239,9 @@ Keys:
   ctrl: Ctrl
   arrowdown: Niður-ör
   arrowup: Upp-ör
+  shift: Shift
+  enter: Enter
+  plus: Plús
 Right-click or hold to see history: Hægri-smelltu til að sjá feril
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
@@ -1230,3 +1250,57 @@ Autoplay Interruption Timer: Hætt sjálfvirkri spilun vegna {autoplayInterrupti
 Description:
   Expand Description: '...meira'
   Collapse Description: Birta minna
+KeyboardShortcutPrompt:
+  Sections:
+    Video:
+      Playback: Myndskeið: Afspilun
+      General: Myndskeið: Almennt
+    App:
+      Situational: 'Forrit: Aðstaða'
+      General: Forrit: Almennt
+  Show Keyboard Shortcuts: Birta flýtivísanir á lyklaborði
+  Captions: Víxla skýringartextum af/á
+  Full Window: Víxla fullum glugga af/á
+  Theatre Mode: Víxla bíóham af/á
+  Restart Window: Endurræsa glugga
+  Force Restart Window: Þvinga endurræsingu glugga
+  Toggle Developer Tools: Víxla forritunarverkfærum af/á
+  Play: Víxla spilun / í bið
+  Next Frame: Næsti rammi (í bið)
+  Volume Up: Auka hljóðstyrk
+  Focus Search: Færa virkni í leitarreitinn
+  Search in New Window: Leita í nýjum glugga
+  Last Frame: Fyrri rammi (í bið)
+  Volume Down: Minnka hljóðstyrk
+  Last Chapter: Síðasti kafli
+  Next Chapter: Næsti kafli
+  Small Rewind: Spóla til baka um X sekúndur út frá hámarksbili milli afspilana og
+    fyrirliggjandi afspilunarhraða
+  Small Fast Forward: Spóla áfram um X sekúndur út frá hámarksbili milli afspilana
+    og fyrirliggjandi afspilunarhraða
+  History Backward: Fara til baka um eina síðu
+  History Forward: Fara áfram um eina síðu
+  New Window: Búa til nýjan glugga
+  Navigate to Settings: Fara á stillingasíðuna
+  Navigate to History: Fara á ferilssíðuna
+  Refresh: Endurlesa streymi með nýjasta efni
+  Large Rewind: Spóla til baka um 10 sekúndur / Spóla myndskeið til baka út frá fyrirliggjandi
+    afspilunarhraða
+  Fullscreen: Víxla skjáfylli af/á
+  Stats: Birta tölfræði myndskeiðs
+  Picture in Picture: Víxla mynd-í-mynd-ham af/á
+  Decrease Video Speed: Minnka afspilunarhraða út frá hámarksbili milli afspilunar
+    myndskeiða
+  Mute: Víxla hljóði af/á
+  Large Fast Forward: Spóla áfram um 10 sekúndur / Spóla myndskeið áfram út frá fyrirliggjandi
+    afspilunarhraða
+  Increase Video Speed: Auka afspilunarhraða út frá hámarksbili milli afspilunar myndskeiða
+  Take Screenshot: Taka skjámynd
+  Minimize Window: Lágmarka glugga
+  Close Window: Loka glugga
+  Reset Zoom: Endurstilla aðdráttarstig / kvarða viðmóts
+  Zoom In: Renna að
+  Zoom Out: Renna frá
+  Skip by Tenths: Hoppa í prósentum í gegnum myndskeið (3 sleppir yfir á 30% tímalengdar)
+  Keyboard Shortcuts: Flýtivísanir á lyklaborði
+  Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)

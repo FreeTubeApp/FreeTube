@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: Živě
   Community: Komunita
+  Sort By: Seřadit podle
 
   Counts:
     Video Count: 1 video | {count} videí
@@ -58,7 +59,6 @@ Search / Go to URL: 'Hledat / Přejít na URL'
 Search Filters:
   Search Filters: 'Vyhledávací filtry'
   Sort By:
-    Sort By: 'Třídit dle'
     Most Relevant: 'Nejrelevantnější'
     Rating: 'Hodnocení'
     Upload Date: 'Datum nahrání'
@@ -202,7 +202,6 @@ User Playlists:
     EarliestCreatedFirst: Nejdéle vytvořené
     LatestCreatedFirst: Nejnověji vytvořené
     EarliestUpdatedFirst: Nejdéle bez aktualizace
-    Sort By: Seřadit podle
     NameDescending: Z-A
     EarliestPlayedFirst: Nejdéle bez přehrání
     LatestUpdatedFirst: Nejnověji aktualizované
@@ -335,6 +334,7 @@ Settings:
       Solarized Light: Solarizovaná světlá
       Gruvbox Dark: Gruvbox tmavý
       Gruvbox Light: Gruvbox světlý
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -392,6 +392,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox tmavě azurový
       Gruvbox Light Blue: Gruvbox světle modrý
       Gruvbox Light Orange: Gruvbox světle oranžový
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
@@ -745,7 +759,6 @@ Channel:
   Added channel to your subscriptions: 'Kanál přidán do vašich odběrů'
   Search Channel: 'Hledat v kanálu'
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
-  Sort By: 'Seřadit podle'
   Videos:
     Videos: 'Videa'
     This channel does not currently have any videos: 'Tento kanál momentálně nemá
@@ -931,6 +944,10 @@ Video:
   DeArrow:
     Show Modified Details: Zobrazit upravené podrobnosti
     Show Original Details: Zobrazit původní podrobnosti
+  DRMProtected: Videa chráněná DRM nelze v aplikaci FreeTube přehrávat, protože vyžadují
+    proprietární komponenty s uzavřeným zdrojovým kódem. Pokud chcete toto video sledovat,
+    přehrajte si ho na oficiálních stránkách YouTube ve webovém prohlížeči s podporou
+    DRM.
 Videos:
   #& Sort By
   Sort By:
@@ -948,7 +965,6 @@ Playlist:
 #& Views
   Playlist: Playlist
   Sort By:
-    Sort By: Seřadit podle
     DateAddedNewest: Naposledy přidáno
     DateAddedOldest: Nejdříve přidáno
     AuthorAscending: Autor (A-Z)
@@ -958,6 +974,8 @@ Playlist:
     Custom: Vlastní
     VideoDurationAscending: Doba trvání (od nejkratších)
     VideoDurationDescending: Doba trvání (od nejdelších)
+    PublishedOldest: Od nejstarších
+    PublishedNewest: Od nejnovějších
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
@@ -998,7 +1016,6 @@ Comments:
   There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
   Show Comments: 'Zobrazit komentáře'
   Hide Comments: 'Skrýt komentáře'
-  Sort by: 'Seřadit podle'
   Top comments: 'Nejlepší komentáře'
   Newest first: 'Nejnovější první'
   # Context: View 10 Replies, View 1 Reply
@@ -1207,9 +1224,67 @@ Keys:
   arrowup: Šipka nahoru
   arrowright: Šipka vpravo
   arrowleft: Šipka vlevo
+  shift: Shift
+  enter: Enter
+  plus: Plus
 Right-click or hold to see history: Klikněte pravým pro zobrazení historie
 Autoplay Interruption Timer: Automatické přehrávání zrušeno kvůli {autoplayInterruptionIntervalHours}
   hodinám nečinnosti
 Description:
   Expand Description: '...další'
   Collapse Description: Zobrazit méně
+KeyboardShortcutPrompt:
+  Refresh: Obnovit zdroj s nejnovějším obsahem
+  Full Window: Přepnout celé okno
+  Keyboard Shortcuts: Klávesové zkratky
+  Sections:
+    App:
+      Situational: Aplikace: situační
+      General: Aplikace: obecné
+    Video:
+      General: Video: obecné
+      Playback: Video: přehrávání
+  Show Keyboard Shortcuts: Zobrazit klávesové zkratky
+  History Backward: Přejít o jednu stránku zpět
+  History Forward: Přejít o jednu stránku vpřed
+  Navigate to Settings: Přejít na stránku Nastavení
+  Captions: Přepnout titulky
+  Stats: Zobrazit statistiku videa
+  Fullscreen: Přepnout celou obrazovku
+  Play: Přepnout pozastavení
+  Large Fast Forward: Přejít o 10 sekund vpřed / přetočit video vpřed na základě aktuální
+    rychlosti přehrávání
+  Mute: Přepnout ztlumení
+  Decrease Video Speed: Snížit rychlost přehrávání na základě intervalu rychlosti
+    přehrávání
+  Increase Video Speed: Zvýšit rychlost přehrávání na základě intervalu rychlosti
+    přehrávání
+  Take Screenshot: Pořídit snímek obrazovky
+  Minimize Window: Minimalizovat okno
+  Close Window: Zavřít okno
+  Restart Window: Restartovat okno
+  Force Restart Window: Vynutit restartování okna
+  Toggle Developer Tools: Přepnout vývojářské nástroje
+  Reset Zoom: Resetovat úroveň přiblížení / velikosti rozhraní
+  Zoom In: Přiblížit
+  Zoom Out: Oddálit
+  Focus Search: Zaměřit na lištu vyhledávání
+  Search in New Window: Hledat v novém okně
+  Last Frame: Předchozí snímek (při pozastavení)
+  Next Frame: Další snímek (při pozastavení)
+  Volume Up: Zvýšit hlasitost
+  Volume Down: Snížit hlasitost
+  Small Fast Forward: Přeskočit vpřed o X sekund v závislosti na intervalu přetáčení
+    vpřed a aktuální rychlosti přehrávání videa
+  Last Chapter: Poslední kapitola
+  Next Chapter: Další kapitola
+  Navigate to History: Přejít na stránku Historie
+  New Window: Vytvořit nové okno
+  Theatre Mode: Přepnout režim kina
+  Focus Secondary Search: Zaměřit sekundární vyhledávací lištu (pokud existuje)
+  Picture in Picture: Přepnout režim obrazu v obraze
+  Large Rewind: Přejít o 10 sekund zpět / přetočit video zpět na základě aktuální
+    rychlosti přehrávání
+  Small Rewind: Přeskočit zpět o X sekund v závislosti na intervalu přetáčení zpět
+    a aktuální rychlosti přehrávání videa
+  Skip by Tenths: Přeskočit skrz video podle procenta (3 přeskočí na 30 % doby trvání)

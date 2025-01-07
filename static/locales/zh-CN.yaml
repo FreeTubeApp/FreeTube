@@ -33,6 +33,7 @@ Global:
   Shorts: 短视频
   Live: 直播
   Community: 社区
+  Sort By: 排序依据
 
 # Search Bar
   Counts:
@@ -50,7 +51,6 @@ Search / Go to URL: '搜索 / 前往URL'
 Search Filters:
   Search Filters: '搜索过滤'
   Sort By:
-    Sort By: '排序方式'
     Most Relevant: '最相关'
     Rating: '评分'
     Upload Date: '上传日期'
@@ -176,7 +176,6 @@ User Playlists:
     EarliestCreatedFirst: 最先创建的
     LatestCreatedFirst: 最近创建的
     EarliestUpdatedFirst: 最先更新的
-    Sort By: 排序方式
     NameDescending: Z-A
     EarliestPlayedFirst: 最先播放的
     LatestUpdatedFirst: 最近更新的
@@ -288,6 +287,7 @@ Settings:
       Solarized Dark: 日照黑
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -345,6 +345,20 @@ Settings:
       Gruvbox Light Orange: Gruvbox 浅橙
       Gruvbox Dark Green: Gruvbox 深绿
       Gruvbox Dark Orange: Gruvbox 深橙
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -620,7 +634,6 @@ Channel:
   Unsubscribe: '取消订阅'
   Search Channel: '搜索频道'
   Your search results have returned 0 results: '您的搜索结果是0结果'
-  Sort By: '排序方式'
   Videos:
     Videos: '视频'
     This channel does not currently have any videos: '这个频道目前没有任何视频'
@@ -791,6 +804,8 @@ Video:
   DeArrow:
     Show Modified Details: 显示修改过的详情
     Show Original Details: 显示原始详情
+  DRMProtected: FreeTube 无法播放受 DRM 保护的视频，因它们需要专有的、闭源的部件。如果要观看此视频，，请在启用了 DRM 的网页浏览器中在官方
+    YouTube 网站上观看。
 Videos:
   #& Sort By
   Sort By:
@@ -808,7 +823,6 @@ Playlist:
 #& Views
   Playlist: 播放列表
   Sort By:
-    Sort By: 排序依据
     DateAddedNewest: 最近添加的优先
     DateAddedOldest: 最早添加的优先
     AuthorAscending: 作者名（A-Z）
@@ -818,6 +832,8 @@ Playlist:
     VideoTitleAscending: 标题（A-Z）
     VideoDurationAscending: 持续时间（最短的优先）
     VideoDurationDescending: 持续时间（最长的优先）
+    PublishedOldest: 最早发布的优先
+    PublishedNewest: 最新发布的优先
 Change Format:
   Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
@@ -859,7 +875,6 @@ Comments:
   There are no more comments for this video: 此视频无更多评论
   Newest first: 最新优先
   Top comments: 最热评论
-  Sort by: 排序方式
   No more comments available: 没有更多评论
   Show More Replies: 显示更多回复
   Pinned by: 置顶人
@@ -1055,6 +1070,9 @@ Keys:
   arrowleft: 向左箭头(←)
   arrowright: 向右箭头(→)
   arrowup: 向上箭头 (↑)
+  enter: Enter
+  shift: Shift
+  plus: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: 右键单击或静止不动查看历史记录
@@ -1062,3 +1080,52 @@ Autoplay Interruption Timer: 由于 {autoplayInterruptionIntervalHours} 小时�
 Description:
   Expand Description: '...更多'
   Collapse Description: 显示较少
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: 键盘快捷键
+  Sections:
+    Video:
+      Playback: 视频： 播放
+      General: 视频： 常规
+    App:
+      General: 应用：常规
+      Situational: 应用：情景
+  Show Keyboard Shortcuts: 显示键盘快捷键
+  History Backward: 往前一页
+  History Forward: 往后一页
+  New Window: 创建新窗口
+  Refresh: 刷新订阅源最新内容
+  Focus Secondary Search: 聚焦第二搜索栏（如果有的话）
+  Captions: 开/关字幕
+  Picture in Picture: 切换画中画模式
+  Large Rewind: 后退 10 秒/根据当前视频播放速率后退
+  Play: 播放/暂停
+  Large Fast Forward: 前进 10 秒/根据当前视频播放速率快进
+  Mute: 切换静音
+  Decrease Video Speed: 根据视频播放速率间隔降低视频速度
+  Increase Video Speed: 根据视频播放速率间隔提高视频速度
+  Full Window: 切换整个窗口
+  Theatre Mode: 切换影院模式
+  Take Screenshot: 截屏
+  Close Window: 关闭窗口
+  Restart Window: 重启窗口
+  Force Restart Window: 强制重启窗口
+  Toggle Developer Tools: 切换开发者工具
+  Reset Zoom: 重置缩放级别/用户界面缩放比例
+  Zoom In: 缩小
+  Focus Search: 聚焦搜索栏
+  Search in New Window: 在新窗口中搜索
+  Last Frame: 前一帧（暂停时）
+  Next Frame: 下一帧（暂停时）
+  Volume Down: 降低音量
+  Small Rewind: 根据后退间隔和当前视频播放速率后退 X 秒
+  Small Fast Forward: 根据快进间隔和当前视频播放速率快进 X 秒
+  Last Chapter: 上一章节
+  Skip by Tenths: 按比例跳过视频（3 表示跳到持续时间的 30%）
+  Navigate to History: 导航到历史页面
+  Volume Up: 提高音量
+  Navigate to Settings: 导航到设置页面
+  Stats: 显示视频统计数据
+  Fullscreen: 切换全屏
+  Minimize Window: 最小化窗口
+  Zoom Out: 放大
+  Next Chapter: 下一章节

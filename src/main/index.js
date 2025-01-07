@@ -22,6 +22,7 @@ import { brotliDecompress } from 'zlib'
 import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
+import { generatePoToken } from './poTokenGenerator'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -221,14 +222,6 @@ function runApp() {
 
   let mainWindow
   let startupUrl
-
-  if (process.platform === 'linux') {
-    // Enable hardware acceleration via VA-API with OpenGL if no other feature flags are found
-    // https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/gpu/vaapi.md
-    if (!app.commandLine.hasSwitch('enable-features')) {
-      app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecodeLinuxGL')
-    }
-  }
 
   const userDataPath = app.getPath('userData')
 
@@ -451,24 +444,9 @@ function runApp() {
         requestHeaders.Referer = 'https://www.youtube.com/'
         requestHeaders.Origin = 'https://www.youtube.com'
 
-        // Make iOS requests work and look more realistic
-        if (requestHeaders['x-youtube-client-name'] === '5') {
-          delete requestHeaders.Referer
-          delete requestHeaders.Origin
-          delete requestHeaders['Sec-Fetch-Site']
-          delete requestHeaders['Sec-Fetch-Mode']
-          delete requestHeaders['Sec-Fetch-Dest']
-          delete requestHeaders['sec-ch-ua']
-          delete requestHeaders['sec-ch-ua-mobile']
-          delete requestHeaders['sec-ch-ua-platform']
-
-          requestHeaders['User-Agent'] = requestHeaders['x-user-agent']
-          delete requestHeaders['x-user-agent']
-        } else {
-          requestHeaders['Sec-Fetch-Site'] = 'same-origin'
-          requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
-          requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
-        }
+        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+        requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
       } else if (urlObj.origin.endsWith('.googlevideo.com') && urlObj.pathname === '/videoplayback') {
         requestHeaders.Referer = 'https://www.youtube.com/'
         requestHeaders.Origin = 'https://www.youtube.com'
@@ -693,6 +671,8 @@ function runApp() {
           return '#282828'
         case 'gruvbox-light':
           return '#fbf1c7'
+        case 'catppuccin-frappe':
+          return '#303446'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -906,6 +886,10 @@ function runApp() {
     allWindows.forEach((window) => {
       window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
     })
+  })
+
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, visitorData) => {
+    return generatePoToken(visitorData)
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {

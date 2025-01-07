@@ -91,7 +91,7 @@ body:
         - .pacman
         - Portable
         - .rpm
-        - .zip
+        - .zip / .7z
         - .apk (FreeTubeAndroid Unofficial)
         - AUR (Unofficial)
         - Chocolatey (Unofficial)

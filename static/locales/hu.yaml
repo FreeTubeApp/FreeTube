@@ -36,6 +36,7 @@ Global:
   Shorts: Rövid videók
   Live: Élő
   Community: Közösség
+  Sort By: Rendezési szempont
 
   Counts:
     Video Count: 1 videó | {count} videó
@@ -59,7 +60,6 @@ Search / Go to URL: 'Keresés / Ugrás webcímre'
 Search Filters:
   Search Filters: 'Keresési szűrők'
   Sort By:
-    Sort By: 'Rendezés alapja'
     Most Relevant: 'Legpontosabbak'
     Rating: 'Értékelés'
     Upload Date: 'Feltöltés dátuma'
@@ -207,7 +207,6 @@ User Playlists:
     EarliestCreatedFirst: Legkorábban létrehozott
     LatestCreatedFirst: Nemrégiben létrehozott
     EarliestUpdatedFirst: Legkorábban frissítve
-    Sort By: Rendezés
     NameDescending: Z-A
     EarliestPlayedFirst: Legkorábban játszott
     LatestUpdatedFirst: Nemrég frissítve
@@ -336,6 +335,7 @@ Settings:
       Solarized Dark: Szolarizált sötét
       Gruvbox Light: Világos Gruvbox
       Gruvbox Dark: Sötét Gruvbox
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -393,6 +393,20 @@ Settings:
       Gruvbox Dark Purple: Sötétlila Gruvbox
       Gruvbox Light Orange: Világosnarancssárga Gruvbox
       Gruvbox Light Purple: Világoslila Gruvbox
+      Catppuccin Frappe Pink: Catppuccin Frappe Rózsaszín
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mályva
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rózsavíz
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingó
+      Catppuccin Frappe Red: Catppuccin Frappe Piros
+      Catppuccin Frappe Maroon: Catppuccin Frappe Gesztenyebarna
+      Catppuccin Frappe Peach: Catppuccin Frappe Barackvirág
+      Catppuccin Frappe Yellow: Catppuccin Frappe Sárga
+      Catppuccin Frappe Green: Catppuccin Frappe Zöld
+      Catppuccin Frappe Teal: Catppuccin Frappe Pávakék
+      Catppuccin Frappe Sky: Catppuccin Frappe Égszínkék
+      Catppuccin Frappe Blue: Catppuccin Frappe Kék
+      Catppuccin Frappe Lavender: Catppuccin Frappe Levendula
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Zafírkék
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -761,7 +775,6 @@ Channel:
   Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
   Search Channel: 'Csatorna keresése'
   Your search results have returned 0 results: 'Keresési eredmény: 0 találat'
-  Sort By: 'Rendezés alapja'
   Videos:
     Videos: 'Videók'
     This channel does not currently have any videos: 'Ebben a csatornában jelenleg
@@ -950,6 +963,10 @@ Video:
   DeArrow:
     Show Modified Details: Módosított részletek megjelenítése
     Show Original Details: Eredeti részletek megjelenítése
+  DRMProtected: A DRM-védelemmel ellátott videók nem játszhatók le a FreeTube-ban,
+    mivel ezekhez zárt forráskódú, tulajdonosi komponensekre van szükség. Ha meg szeretné
+    nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes
+    böngészőben.
 Videos:
   #& Sort By
   Sort By:
@@ -969,7 +986,6 @@ Playlist:
   Sort By:
     DateAddedOldest: Legrégebbiek elöl
     DateAddedNewest: Legújabbak elöl
-    Sort By: Rendezés
     AuthorAscending: Szerző szerint (A-Z)
     AuthorDescending: Szerző szerint (Z-A)
     VideoTitleAscending: Cím szerint (A-Z)
@@ -977,6 +993,8 @@ Playlist:
     Custom: Egyéni rendezés
     VideoDurationAscending: Időtartam (legrövidebb elöl)
     VideoDurationDescending: Időtartam (leghosszabb elöl)
+    PublishedNewest: Legutóbbi közzétett elől
+    PublishedOldest: Legelőször közzétett elől
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
   Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
@@ -1028,7 +1046,6 @@ Comments:
   No more comments available: Nincs több hozzászólás
   Newest first: Legújabb elöl
   Top comments: Legnépszerűbb hozzászólások
-  Sort by: Rendezési szempont
   Show More Replies: További válaszok megjelenítése
   From {channelName}: 'forrás: {channelName}'
   And others: és mások
@@ -1230,6 +1247,9 @@ Keys:
   arrowdown: Lefele nyíl
   arrowleft: Balra nyíl
   arrowright: Jobbra nyíl
+  enter: Enter
+  plus: Plusz
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
@@ -1239,3 +1259,59 @@ Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionInt
 Description:
   Collapse Description: Kevesebb megjelenítése
   Expand Description: …továbbiak
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Billentyűkombinációk
+  Sections:
+    Video:
+      Playback: 'Videó: Lejátszás'
+      General: 'Videó: Általános'
+    App:
+      Situational: 'Alkalmazás: Helyzetfüggő'
+      General: 'Alkalmazás: Általános'
+  Show Keyboard Shortcuts: Billentyű-kombinációk megjelenítése
+  Take Screenshot: Képernyőkép készítése
+  History Forward: A következő oldalra lépés
+  New Window: Új ablak létrehozása
+  Navigate to Settings: Ugrás a „Beállítások” oldalra
+  Navigate to History: Ugrás az „Előzmények” oldalra
+  Focus Secondary Search: A másodlagos keresősávra fókuszálás (ha van ilyen)
+  Fullscreen: Teljes képernyő be- és kikapcsolása
+  Picture in Picture: Kép a képben mód be- és kikapcsolása
+  Play: Lejátszás / Szüneteltetés be- és kikapcsolása
+  Mute: Némítás be- és kikapcsolása
+  Decrease Video Speed: A videó lejátszási sebességének csökkentése a lejátszási sebesség
+    időköze alapján
+  Increase Video Speed: A videó lejátszási sebességének növelése a lejátszási sebesség
+    időköze alapján
+  Toggle Developer Tools: Fejlesztői eszközök bekapcsolása
+  Zoom In: Nagyítás
+  Full Window: Teljes ablak mód be- és kikapcsolása
+  Theatre Mode: Mozimód be- és kikapcsolása
+  Minimize Window: Ablak minimalizálása
+  Last Frame: Előző képkocka megjelenítése (szüneteltetés alatt)
+  Next Frame: Következő képkocka megjelenítése (szüneteltetés alatt)
+  Volume Up: Hangerő növelése
+  Volume Down: Hangerő csökkentése
+  Small Rewind: X másodperc visszatekerés a visszatekerési időköz és a jelenlegi videólejátszási
+    sebesség alapján
+  Last Chapter: Utolsó fejezet
+  Next Chapter: Következő fejezet
+  Skip by Tenths: A videó pörgetése százalékosan (3 pörgetés = a videó teljes időtartamának
+    30%-a)
+  Focus Search: Fókuszálás a keresési sávra
+  History Backward: Visszalépés az előző oldalra
+  Reset Zoom: Nagyítási szint / UI-skála visszaállítása
+  Zoom Out: Kicsinyítés
+  Search in New Window: Keresés új ablakban
+  Stats: Videóstatisztikák megjelenítése
+  Small Fast Forward: X másodperc előretekerés az előretekerési időköz és a jelenlegi
+    videólejátszási sebesség alapján
+  Large Fast Forward: Előretekerés 10 másodperccel / Gyors előretekerés a jelenlegi
+    videólejátszási sebesség alapján
+  Refresh: A hírcsatorna frissítése a legújabb tartalommal
+  Captions: Feliratok be- és kikapcsolása
+  Large Rewind: Visszatekerés 10 másodperccel / Visszatekerés a jelenlegi videólejátszási
+    sebesség alapján
+  Close Window: Ablak bezárása
+  Restart Window: Ablak újraindítása
+  Force Restart Window: Ablak kényszerített újraindítása

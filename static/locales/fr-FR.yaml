@@ -34,6 +34,7 @@ Global:
   Shorts: Shorts
   Live: En direct
   Community: Communauté
+  Sort By: Trier par
 
 # Search Bar
   Counts:
@@ -51,7 +52,6 @@ Search / Go to URL: 'Rechercher / ouvrir l''URL'
 Search Filters:
   Search Filters: 'Filtres de recherche'
   Sort By:
-    Sort By: 'Trier par'
     Most Relevant: 'Le plus pertinent'
     Rating: 'Avis'
     Upload Date: 'Date de mise en ligne'
@@ -206,7 +206,6 @@ User Playlists:
     EarliestCreatedFirst: Création la plus ancienne
     LatestCreatedFirst: Récemment créé
     EarliestUpdatedFirst: Dernière mise à jour
-    Sort By: Trier par
     NameDescending: Z-A
     EarliestPlayedFirst: Joué en premier
     LatestUpdatedFirst: Récemment mis à jour
@@ -340,6 +339,7 @@ Settings:
       Solarized Dark: Noir polarisé
       Gruvbox Light: Gruvbox Clair
       Gruvbox Dark: Gruvbox Sombre
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -397,6 +397,20 @@ Settings:
       Gruvbox Light Orange: Gruvbox Orange Clair
       Gruvbox Dark Green: Gruvbox Vert Sombre
       Gruvbox Dark Blue: Gruvbox Bleu Sombre
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Rose
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Eau de rose
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Rouge
+      Catppuccin Frappe Maroon: Catppuccin Frappe Marron
+      Catppuccin Frappe Peach: Catppuccin Frappe Pêche
+      Catppuccin Frappe Yellow: Catppuccin Frappe Jaune
+      Catppuccin Frappe Green: Catppuccin Frappe Vert
+      Catppuccin Frappe Teal: Catppuccin Frappe Sarcelle
+      Catppuccin Frappe Sky: Catppuccin Frappe Ciel
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saphir
+      Catppuccin Frappe Blue: Catppuccin Frappe Bleu
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavande
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -439,10 +453,10 @@ Settings:
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
-    Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
-      lecteur vidéo
-    Video Playback Rate Interval: Intervalle de débit de lecture vidéo
-    Max Video Playback Rate: Débit de lecture vidéo maximal
+    Scroll Playback Rate Over Video Player: Faire défiler la vitesse de lecture sur
+      le lecteur vidéo
+    Video Playback Rate Interval: Intervalle de vitesse de lecture vidéo
+    Max Video Playback Rate: Vitesse maximale de lecture vidéo
     Screenshot:
       Enable: Activer les captures d'écran
       Ask Path: Demander le dossier de sauvegarde
@@ -721,7 +735,6 @@ Channel:
   Search Channel: 'Chercher dans la chaîne'
   Your search results have returned 0 results: 'Les résultats de votre recherche ont
     donné 0 résultat'
-  Sort By: 'Trier Par'
   Videos:
     Videos: 'Vidéos'
     This channel does not currently have any videos: 'Cette chaîne n''a pas de vidéos
@@ -918,6 +931,10 @@ Video:
   DeArrow:
     Show Original Details: Afficher les détails originaux
     Show Modified Details: Afficher les détails modifiés
+  DRMProtected: Les vidéos protégées par DRM ne peuvent pas être lues dans FreeTube,
+    car elles nécessitent des composants propriétaires et à source fermée. Si vous
+    souhaitez regarder cette vidéo, veuillez la visionner sur le site officiel de
+    YouTube dans un navigateur Web prenant en charge le DRM.
 Videos:
   #& Sort By
   Sort By:
@@ -937,7 +954,6 @@ Playlist:
   Sort By:
     DateAddedNewest: Dernier ajouté en premier
     AuthorDescending: Auteur (Z-A)
-    Sort By: Trier par
     DateAddedOldest: Le plus ancien ajouté en premier
     AuthorAscending: Auteur (A-Z)
     VideoTitleAscending: Titre (A-Z)
@@ -945,6 +961,8 @@ Playlist:
     Custom: Personnalisé
     VideoDurationDescending: Durée (la plus longue en premier)
     VideoDurationAscending: Durée (la plus courte en premier)
+    PublishedNewest: Dernier publié en premier
+    PublishedOldest: Premier publié en premier
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
@@ -995,7 +1013,6 @@ Comments:
     vidéo
   Newest first: Les plus récents d'abord
   Top comments: Top des commentaires
-  Sort by: Trier par
   No more comments available: Pas d'autres commentaires disponibles
   Show More Replies: Afficher plus de réponses
   From {channelName}: de {channelName}
@@ -1263,6 +1280,9 @@ Keys:
   arrowright: Flèche droite
   arrowup: Flèche haut
   alt: Alt
+  enter: Entrer
+  plus: Plus
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
 Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterruptionIntervalHours}
@@ -1270,3 +1290,60 @@ Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterr
 Description:
   Expand Description: '...plus'
   Collapse Description: Montrer moins
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Raccourcis clavier
+  Sections:
+    Video:
+      Playback: 'Vidéo : Lecture'
+      General: 'Vidéo : Général'
+    App:
+      General: 'Application : Générale'
+      Situational: 'Application : Situationnelle'
+  Show Keyboard Shortcuts: Afficher les raccourcis clavier
+  History Forward: Aller à la page suivante
+  Navigate to Settings: Naviguer vers la page des paramètres
+  Navigate to History: Naviguer vers la page de l'historique
+  Refresh: Actualiser le flux avec le contenu le plus récent
+  Captions: Activer/Désactiver les sous-titres
+  Stats: Afficher les statistiques de la vidéo
+  Picture in Picture: Activer/Désactiver le mode Image dans l'image
+  Play: Activer/Désactiver la lecture/pause
+  Large Fast Forward: Avancer de 10 secondes / Avancer rapidement la vidéo en fonction
+    de la vitesse de lecture actuelle
+  Mute: Activer/Désactiver le son
+  Decrease Video Speed: Diminuer la vitesse de la vidéo en fonction de l'intervalle
+    de la vitesse de lecture vidéo
+  Fullscreen: 'Activer/désactiver le plein écran'
+  Increase Video Speed: Augmenter la vitesse de la vidéo en fonction de l'intervalle
+    de la vitesse de lecture vidéo
+  New Window: Créer une nouvelle fenêtre
+  Large Rewind: Rembobiner de 10 secondes / Rembobiner la vidéo en fonction de la
+    vitesse de lecture actuelle
+  History Backward: Revenir à la page précédente
+  Focus Secondary Search: Mettre l'accent sur la barre de recherche secondaire (si
+    elle est présente)
+  Theatre Mode: Activer/désactiver le mode cinéma
+  Take Screenshot: Faire une capture d'écran
+  Minimize Window: Minimiser la fenêtre
+  Close Window: Fermer la fenêtre
+  Restart Window: Redémarrer la fenêtre
+  Force Restart Window: Forcer le redémarrage de la fenêtre
+  Toggle Developer Tools: Activer/désactiver les outils de développement
+  Reset Zoom: Réinitialiser le niveau de zoom / l'échelle de l'interface utilisateur
+  Zoom In: Zoomer
+  Zoom Out: Dézoomer
+  Focus Search: Mettre le focus sur la barre de recherche
+  Search in New Window: Rechercher dans une nouvelle fenêtre
+  Last Frame: Image précédente (lorsque la lecture est en pause)
+  Next Frame: Image suivante (lorsque la lecture est en pause)
+  Volume Up: Augmenter le volume
+  Volume Down: Réduire le volume
+  Small Rewind: Rembobiner X secondes en fonction de l'intervalle de rembobinage et
+    de la vitesse de lecture vidéo actuelle
+  Small Fast Forward: Avancer de X secondes en fonction de l'intervalle d'avance rapide
+    et de la vitesse de lecture vidéo actuelle
+  Last Chapter: Dernier chapitre
+  Next Chapter: Chapitre suivant
+  Full Window: Activer/désactiver la fenêtre maximisée
+  Skip by Tenths: Sauter dans la vidéo par pourcentage (3 sauts pour atteindre 30
+    % de la durée)

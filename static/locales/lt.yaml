@@ -37,6 +37,7 @@ Global:
   Live: Tiesiogiai
   Shorts: Šortai
   Community: Bendruomenė
+  Sort By: 'Rūšiuoti pagal'
   Counts:
     Subscriber Count: 1 prenumeruoti | {count} prenumeratorių
     Channel Count: 1 kanalas | {count} kanalai
@@ -55,7 +56,6 @@ Search / Go to URL: 'Paieška / Eiti į URL'
 Search Filters:
   Search Filters: 'Paieškos filtrai'
   Sort By:
-    Sort By: 'Rūšiuoti pagal'
     Most Relevant: 'Aktualiausi'
     Rating: 'Reitingas'
     Upload Date: 'Įkėlimo data'
@@ -516,7 +516,6 @@ Channel:
   Added channel to your subscriptions: 'Prie jūsų prenumeratų pridėtas kanalas'
   Search Channel: 'Ieškoti kanalų'
   Your search results have returned 0 results: 'Paieškos rezultatai gražino 0 rezultatų'
-  Sort By: 'Rūšiuoti pagal'
   Videos:
     Videos: 'Vaizdo įrašai'
     This channel does not currently have any videos: 'Šiuo metu šiame kanale nėra
@@ -668,7 +667,6 @@ Comments:
   There are no more comments for this video: 'Šiame vaizdo įraše nėra daugiau komentarų'
   Show Comments: 'Rodyti komentarus'
   Hide Comments: 'Slėpti komentarus'
-  Sort by: 'Rūšiuoti pagal'
   Top comments: 'Top komentarai'
   Newest first: 'Naujausi viršuje'
   # Context: View 10 Replies, View 1 Reply

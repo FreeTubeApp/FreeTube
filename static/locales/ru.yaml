@@ -33,6 +33,7 @@ Global:
   Shorts: Короткие видео
   Live: Трансляции
   Community: Сообщество
+  Sort By: Сортировать по
 
 # Search Bar
   Counts:
@@ -50,7 +51,6 @@ Search / Go to URL: 'Поиск / Перейти по адресу'
 Search Filters:
   Search Filters: 'Фильтры поиска'
   Sort By:
-    Sort By: 'Упорядочивать по'
     Most Relevant: 'Наиболее подходящим'
     Rating: 'Оценке'
     Upload Date: 'Дате загрузки'
@@ -142,7 +142,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Ты действительно
     хочешь удалить эту подборку? Это действие необратимо.
   Sort By:
-    Sort By: Упорядочивать по
     NameAscending: А-Я
     NameDescending: Я-А
     EarliestCreatedFirst: Самые ранние
@@ -678,7 +677,6 @@ Channel:
   Unsubscribe: 'Отписаться'
   Search Channel: 'Поиск на канале'
   Your search results have returned 0 results: 'По вашему запросу ничего не найдено'
-  Sort By: 'Сортировать по'
   Videos:
     Videos: 'Видео'
     This channel does not currently have any videos: 'На этом канале в настоящее время
@@ -889,7 +887,6 @@ Playlist:
 #& Views
   Playlist: Подборка
   Sort By:
-    Sort By: Сортировать по
     AuthorAscending: Автор (от А до Я)
     AuthorDescending: Автор (Z-A)
     DateAddedNewest: Последние добавленные первыми
@@ -949,7 +946,6 @@ Comments:
   No more comments available: Больше комментариев нет
   Newest first: Новым
   Top comments: Лучшим комментариям
-  Sort by: Упорядочивать по
   Show More Replies: Показать больше ответов
   From {channelName}: от {channelName}
   And others: и других
@@ -1193,7 +1189,7 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
   URL: "{url}".'
-KeyboardShortcutTemplate: '{метка} ({короткое нажатие})'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:
   alt: Alt

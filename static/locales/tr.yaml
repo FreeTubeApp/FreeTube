@@ -35,6 +35,7 @@ Global:
   Shorts: Kısa Videolar
   Live: Canlı
   Community: Topluluk
+  Sort By: Sıralama ölçütü
 
   Counts:
     Video Count: 1 video | {count} video
@@ -58,7 +59,6 @@ Search / Go to URL: 'Ara / URL''ye git'
 Search Filters:
   Search Filters: 'Filtreler'
   Sort By:
-    Sort By: 'Sıralama ölçütü'
     Most Relevant: 'En Uygun'
     Rating: 'Derecelendirme'
     Upload Date: 'Yükleme Tarihi'
@@ -154,7 +154,6 @@ User Playlists:
     EarliestUpdatedFirst: En Eski Güncellenen
     LatestPlayedFirst: Son Oynatılan
     EarliestPlayedFirst: En Eski Oynatılan
-    Sort By: Sıralama ölçütü
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Bu video yukarı taşınamaz.
@@ -748,7 +747,6 @@ Channel:
   Added channel to your subscriptions: 'Kanal aboneliklerinize eklendi'
   Search Channel: 'Kanalda ara'
   Your search results have returned 0 results: 'Arama sonuçlarınız 0 sonuç verdi'
-  Sort By: 'Sıralama ölçütü'
   Videos:
     Videos: 'Videolar'
     This channel does not currently have any videos: 'Bu kanalda şu anda herhangi
@@ -959,7 +957,6 @@ Playlist:
     AuthorDescending: Yazar (Z-A)
     VideoTitleAscending: Başlık (A-Z)
     VideoTitleDescending: Başlık (Z-A)
-    Sort By: Sıralama ölçütü
     DateAddedOldest: İlk eklenen önce
     Custom: Özel
     VideoDurationAscending: Süre (Önce en kısa)
@@ -1010,7 +1007,6 @@ Comments:
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
-  Sort by: Sıralama ölçütü
   No more comments available: Başka yorum yok
   Show More Replies: Daha Fazla Yanıt Göster
   From {channelName}: "{channelName}'den"

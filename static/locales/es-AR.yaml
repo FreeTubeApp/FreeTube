@@ -35,7 +35,6 @@ Search / Go to URL: 'Buscar / Ir a URL'
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Más relevante'
     Rating: 'Clasificación'
     Upload Date: 'Fecha de carga'
@@ -451,6 +450,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: En vivo
+  Sort By: 'Ordenar por'
 Channels:
   Search bar placeholder: Buscar Canales
   Unsubscribe Prompt: ¿Deseás confirmar la desuscripción de "{channelName}"?

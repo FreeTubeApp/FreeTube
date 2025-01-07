@@ -36,6 +36,7 @@ Global:
   Shorts: Curtos
   Live: Em direto
   Community: Comunidade
+  Sort By: Ordenar por
 
   Counts:
     Video Count: 1 vídeo | {count} vídeos
@@ -57,7 +58,6 @@ Search / Go to URL: Pesquisar/Ir para o URL
 Search Filters:
   Search Filters: Filtros de pesquisa
   Sort By:
-    Sort By: Ordenar por
     Most Relevant: Mais relevantes
     Rating: Avaliação
     Upload Date: Data de publicação
@@ -171,7 +171,6 @@ User Playlists:
   Save Changes: Guardar alterações
   Sort By:
     LatestCreatedFirst: Criado recentemente
-    Sort By: Ordenar por
     NameDescending: Z-A
     LatestUpdatedFirst: Atualizado recentemente
     NameAscending: A-Z
@@ -702,7 +701,6 @@ Channel:
   Added channel to your subscriptions: Canal adicionado às suas subscrições
   Search Channel: Procurar canal
   Your search results have returned 0 results: A pesquisa devolveu 0 resultados
-  Sort By: Ordenar por
   Videos:
     Videos: Vídeos
     This channel does not currently have any videos: Atualmente, este canal não tem
@@ -865,7 +863,6 @@ Playlist:
     AuthorAscending: Autor (A-Z)
     VideoTitleDescending: Título (Z-A)
     Custom: Personalizado
-    Sort By: Ordenar por
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
 Change Format:
@@ -907,7 +904,6 @@ Comments:
   There are no more comments for this video: Não há mais comentários para este vídeo
   Show Comments: Mostrar comentários
   Hide Comments: Ocultar comentários
-  Sort by: Ordenar por
   Top comments: Melhores comentários
   Newest first: Mais recentes
   # Context: View 10 Replies, View 1 Reply

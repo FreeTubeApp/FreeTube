@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Gemenskap
+  Sort By: Sortera efter
 
   Counts:
     Video Count: 1 video | {count} videor
@@ -58,7 +59,6 @@ Search / Go to URL: 'Sök / Gå till URL'
 Search Filters:
   Search Filters: 'Sökfilter'
   Sort By:
-    Sort By: 'Sortera efter'
     Most Relevant: 'Mest relevanta'
     Rating: 'Betyg'
     Upload Date: 'Uppladdningsdatum'
@@ -157,7 +157,6 @@ User Playlists:
     EarliestUpdatedFirst: Tidigast uppdaterad
     NameAscending: A-Z
     NameDescending: Z-A
-    Sort By: Sortera efter
     LatestCreatedFirst: Nyligen skapad
     EarliestCreatedFirst: Tidigast skapad
     LatestUpdatedFirst: Nyligen uppdaterad
@@ -641,7 +640,6 @@ Channel:
   Added channel to your subscriptions: 'Kanal tillagd i dina prenumerationer'
   Search Channel: 'Sök i kanal'
   Your search results have returned 0 results: 'Din sökning gav inget resultat'
-  Sort By: 'Sortera efter'
   Videos:
     Videos: 'Videor'
     This channel does not currently have any videos: 'Den här kanalen har för närvarande
@@ -839,7 +837,6 @@ Comments:
   Load More Comments: 'Fler kommentarer'
   Newest first: Nyaste först
   Top comments: Toppkommentarer
-  Sort by: Sortera efter
   No more comments available: Det finns inga fler kommentarer
   Show More Replies: Visa fler svar
   From {channelName}: från {channelName}

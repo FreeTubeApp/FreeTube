@@ -35,11 +35,12 @@ Global:
   Shorts: Shorts-videoer
   Live: Direktesendinger
   Community: Fellesskap
+  Sort By: Sorter etter
 
 # Search Bar
   Counts:
     Subscriber Count: 1 abonnent | {count} abonnenter
-    Watching Count: 1 seer | {count] seere
+    Watching Count: 1 seer | {count} seere
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
     Video Count: 1 video | {count} videoer
@@ -52,7 +53,6 @@ Search / Go to URL: 'Søk/gå til nettadresse'
 Search Filters:
   Search Filters: 'Søkefiltre'
   Sort By:
-    Sort By: 'Sorter etter'
     Most Relevant: 'Mest relevant'
     Rating: 'Vurdering'
     Upload Date: 'Opplastingsdato'
@@ -164,8 +164,7 @@ User Playlists:
     Toast:
       You haven't selected any playlist yet.: Du har ikke valgt noen spillelister
         enda.
-      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste
-        | {videoCount} videoer lagt til 1 spilleliste
+      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
   Cancel: Avbryt
   Add to Playlist: Legg til spilleliste
   This playlist currently has no videos.: Denne spillelisten har ikke noen videoer
@@ -173,7 +172,6 @@ User Playlists:
   Export Playlist: Eksporter denne spillelisten
   Sort By:
     EarliestCreatedFirst: Tidligst opprettet
-    Sort By: Sorter etter
     EarliestUpdatedFirst: Tidligst endret
     LatestPlayedFirst: Sist spilt av
     EarliestPlayedFirst: Tidligst spilt av
@@ -609,7 +607,6 @@ Channel:
   Unsubscribe: 'Opphev abonnement'
   Search Channel: 'Søk i kanal'
   Your search results have returned 0 results: 'Søktet ditt ga 0 resultater'
-  Sort By: 'Sorter etter'
   Videos:
     Videos: 'Videoer'
     This channel does not currently have any videos: 'Kanalen har ingen videoer enda'
@@ -804,7 +801,6 @@ Comments:
   No more comments available: Ingen flere kommentarer tilgjengelig
   Newest first: Nyeste først
   There are no more comments for this video: Ingen flere kommentarer for denne videoen
-  Sort by: Sorter etter
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
   From {channelName}: Fra {channelName}

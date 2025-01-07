@@ -43,7 +43,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'alasa kepeken nasin'
   Sort By:
-    Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
   Duration:
@@ -77,6 +76,7 @@ Global:
   Videos: sitelen tawa
   Shorts: lili
   Live: tenpo ni
+  Sort By: 'nasin li seme?'
   Counts:
     Video Count: 1 sitelen tawa | {count} sitelen tawa
     Subscriber Count: 1 jan li kama jo | {count} jan li kama jo

@@ -33,6 +33,7 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  isKeyboardShortcutPromptShown: false,
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -98,6 +99,10 @@ const getters = {
 
   getSearchFilterValueChanged(state) {
     return state.searchFilterValueChanged
+  },
+
+  getIsKeyboardShortcutPromptShown(state) {
+    return state.isKeyboardShortcutPromptShown
   },
 
   getShowAddToPlaylistPrompt(state) {
@@ -376,6 +381,14 @@ const actions = {
 
   hideCreatePlaylistPrompt ({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
+  },
+
+  showKeyboardShortcutPrompt ({ commit }) {
+    commit('setIsKeyboardShortcutPromptShown', true)
+  },
+
+  hideKeyboardShortcutPrompt ({ commit }) {
+    commit('setIsKeyboardShortcutPromptShown', false)
   },
 
   showSearchFilters ({ commit }) {
@@ -855,6 +868,10 @@ const mutations = {
 
   setShowCreatePlaylistPrompt (state, payload) {
     state.showCreatePlaylistPrompt = payload
+  },
+
+  setIsKeyboardShortcutPromptShown (state, payload) {
+    state.isKeyboardShortcutPromptShown = payload
   },
 
   setShowSearchFilters (state, payload) {

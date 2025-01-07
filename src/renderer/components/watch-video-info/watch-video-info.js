@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
+import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
 
 export default defineComponent({
@@ -39,9 +39,13 @@ export default defineComponent({
       type: Number,
       required: true
     },
+    premiereDate: {
+      type: Date,
+      default: undefined
+    },
     viewCount: {
       type: Number,
-      required: true
+      default: null
     },
     subscriptionCountText: {
       type: String,
@@ -193,7 +197,7 @@ export default defineComponent({
     },
 
     parsedViewCount: function () {
-      if (this.hideVideoViews) {
+      if (this.hideVideoViews || this.viewCount == null) {
         return null
       }
 
@@ -348,6 +352,8 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
+        published: this.published,
+        premiereDate: this.premiereDate,
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
@@ -372,6 +378,8 @@ export default defineComponent({
         author: this.channelName,
         authorId: this.channelId,
         lengthSeconds: this.lengthSeconds,
+        published: this.published,
+        premiereDate: this.premiereDate,
       }
 
       this.addVideo({

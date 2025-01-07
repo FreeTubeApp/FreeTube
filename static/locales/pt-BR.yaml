@@ -34,6 +34,7 @@ Global:
   Shorts: Shorts
   Live: Ao vivo
   Community: Comunidade
+  Sort By: Ordenar por
 
 # Search Bar
   Counts:
@@ -51,7 +52,6 @@ Search / Go to URL: 'Pesquisar ou digitar URL'
 Search Filters:
   Search Filters: 'Filtros de busca'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Mais relevantes'
     Rating: 'Avaliação'
     Upload Date: 'Data de envio'
@@ -163,7 +163,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
     de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
-    Sort By: Ordenar por
     NameDescending: Z-A
     LatestCreatedFirst: Criado recentemente
     EarliestCreatedFirst: Criação mais antiga
@@ -320,6 +319,7 @@ Settings:
       Solarized Dark: Escuro Solarizado
       Gruvbox Light: Gruvbox modo claro
       Gruvbox Dark: Gruvbox modo escuro
+      Catppuccin Frappe: Frappe de Catppuccin
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -377,6 +377,20 @@ Settings:
       Gruvbox Dark Green: Gruvbox modo verde escuro
       Gruvbox Dark Yellow: Gruvbox modo amarelo escuro
       Gruvbox Dark Orange: Gruvbox modo laranja escuro
+      Catppuccin Frappe Rosewater: Frappe de Catppuccin com água de rosas
+      Catppuccin Frappe Flamingo: Frappe de Catppuccin Flamingo
+      Catppuccin Frappe Mauve: Frappe de Catppuccin Mauve
+      Catppuccin Frappe Red: Frappe de Catppuccin Vermelho
+      Catppuccin Frappe Maroon: Frappe de Catppuccin Maroon
+      Catppuccin Frappe Peach: Frappe de Catppuccin Pêssego
+      Catppuccin Frappe Yellow: Frappe de Catppuccin Amarelo
+      Catppuccin Frappe Green: Frappe de Catppuccin Verde
+      Catppuccin Frappe Sky: Frappe de Catppuccin Sky
+      Catppuccin Frappe Sapphire: Frappe de Catppuccin Sapphire
+      Catppuccin Frappe Blue: Frappe de Catppuccin Azul
+      Catppuccin Frappe Lavender: Frappe de Catppuccin Lavanda
+      Catppuccin Frappe Teal: Frappe de Catppuccin Teal
+      Catppuccin Frappe Pink: Frappe de Catppuccin com rosas
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -693,7 +707,6 @@ Channel:
   Unsubscribe: 'Remover inscrição'
   Search Channel: 'Buscar no canal'
   Your search results have returned 0 results: 'Nenhum vídeo encontrado para a busca'
-  Sort By: 'Filtrar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Este canal não possui vídeos
@@ -886,6 +899,10 @@ Video:
   DeArrow:
     Show Original Details: Mostrar detalhes originais
     Show Modified Details: Mostrar detalhes modificados
+  DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube,
+    pois exigem componentes proprietários e de código fechado. Se quiser assistir
+    a esse vídeo, acesse o site oficial do YouTube em um navegador da Web habilitado
+    para DRM.
 Videos:
   #& Sort By
   Sort By:
@@ -903,7 +920,6 @@ Playlist:
 #& Views
   Playlist: Playlist
   Sort By:
-    Sort By: Ordenar por
     AuthorAscending: Autor (A-Z)
     VideoTitleAscending: Título (A-Z)
     Custom: Personalizado
@@ -913,6 +929,8 @@ Playlist:
     VideoTitleDescending: Título (Z-A)
     VideoDurationAscending: Duração (a mais curta primeiro)
     VideoDurationDescending: Duração (a mais longa primeiro)
+    PublishedOldest: Primeira publicação mais antiga
+    PublishedNewest: Última publicação primeiro
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'
@@ -962,7 +980,6 @@ Comments:
   No more comments available: Não existem mais comentários
   Newest first: Mais recentes primeiro
   Top comments: Melhores comentários
-  Sort by: Ordenar por
   There are no more comments for this video: Não há mais comentários para este vídeo
   Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por
@@ -1218,6 +1235,9 @@ Keys:
   ctrl: Ctrl
   arrowdown: Seta para baixo
   arrowleft: Seta para a esquerda
+  shift: Shift
+  enter: Enter
+  plus: Plus
 shortcutJoinOperator: +
 Right-click or hold to see history: Clique com o botão direito do mouse ou mantenha-o
   pressionado para ver o histórico
@@ -1227,3 +1247,58 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 Description:
   Expand Description: '...mais'
   Collapse Description: Mostrar menos
+KeyboardShortcutPrompt:
+  Sections:
+    Video:
+      Playback: 'Vídeo: Reprodução'
+      General: 'Vídeo: Geral'
+    App:
+      Situational: 'Aplicativo: Situação'
+      General: 'Aplicativo: Geral'
+  Keyboard Shortcuts: Atalhos do teclado
+  Navigate to Settings: Acessar a página de Configurações
+  Show Keyboard Shortcuts: Mostrar atalhos do teclado
+  History Backward: Voltar uma página
+  History Forward: Avançar uma página
+  New Window: Criar uma nova janela
+  Fullscreen: Alternar modo tela cheia
+  Picture in Picture: Alternar modo Picture-in-Picture
+  Captions: Ativar ou desativar legendas
+  Stats: Mostrar estatísticas do vídeo
+  Increase Video Speed: Aumentar a velocidade do vídeo com base no intervalo da taxa
+    de reprodução do vídeo
+  Decrease Video Speed: Diminuir a velocidade do vídeo com base no intervalo da taxa
+    de reprodução do vídeo
+  Minimize Window: Minimizar janela
+  Force Restart Window: Forçar reinicialização da janela
+  Zoom In: Aumentar zoom
+  Close Window: Fechar janela
+  Restart Window: Reiniciar janela
+  Focus Search: Foco na barra de busca
+  Search in New Window: Pesquisar em uma nova janela
+  Zoom Out: Diminuir zoom
+  Refresh: Atualizar o feed com o conteúdo mais recente
+  Focus Secondary Search: Concentre-se na barra de pesquisa secundária (se houver)
+  Play: Alternar reproduzir/pausar
+  Large Fast Forward: Avançar 10 segundos / Avanço rápido do vídeo com base na taxa
+    de reprodução do vídeo atual
+  Mute: Ativar ou desativar som
+  Full Window: Alternar modo janela inteira
+  Theatre Mode: Alternar modo teatro
+  Take Screenshot: Tirar captura de tela
+  Toggle Developer Tools: Alternar modo ferramentas de desenvolvedor
+  Last Frame: Quadro anterior (enquanto pausado)
+  Small Fast Forward: Avanço rápido de X segundos com base no intervalo de avanço
+    rápido e na taxa de reprodução do vídeo atual
+  Last Chapter: Último capítulo
+  Volume Down: Diminuir volume
+  Large Rewind: Voltar 10 segundos / Retroceder vídeo com base na taxa de reprodução
+    do vídeo atual
+  Navigate to History: Acessar a página de Histórico
+  Small Rewind: Voltar X segundos com base no intervalo de retrocesso e na taxa de
+    reprodução do vídeo atual
+  Next Frame: Próximo quadro (enquanto pausado)
+  Volume Up: Aumentar volume
+  Reset Zoom: Redefinir o nível de zoom / Escala da Interface do Usuário
+  Next Chapter: Próximo capítulo
+  Skip by Tenths: Pular vídeo por porcentagem (3 pulos até 30% da duração)

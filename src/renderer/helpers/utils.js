@@ -30,6 +30,7 @@ export function getIconForSortPreference(sortPreference) {
     case 'latest_created_first':
     case 'latest_played_first':
     case 'date_added_descending':
+    case 'published_descending':
     case 'last':
     case 'newest':
     case 'popular':
@@ -40,6 +41,7 @@ export function getIconForSortPreference(sortPreference) {
     case 'earliest_created_first':
     case 'earliest_played_first':
     case 'date_added_ascending':
+    case 'published_ascending':
     case 'oldest':
     default:
       // quantity ascending
@@ -614,7 +616,7 @@ export function getVideoParamsFromUrl(url) {
   const paramsObject = { videoId: null, timestamp: null, playlistId: null }
   try {
     urlObject = new URL(url)
-  } catch (e) {
+  } catch {
     return paramsObject
   }
 
@@ -756,7 +758,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     return ''
   }
 
-  const now = new Date().getTime()
+  const now = Date.now()
   // Convert from ms to second
   // For easier code interpretation the value is made to be positive
   let timeDiffFromNow = ((now - date) / 1000)
@@ -944,6 +946,12 @@ function getIndividualLocalizedShortcut(shortcut) {
       return i18n.t('Keys.alt')
     case 'ctrl':
       return i18n.t('Keys.ctrl')
+    case 'shift':
+      return i18n.t('Keys.shift')
+    case 'enter':
+      return i18n.t('Keys.enter')
+    case 'plus':
+      return i18n.t('Keys.plus')
     case 'arrowleft':
       return i18n.t('Keys.arrowleft')
     case 'arrowright':
@@ -965,6 +973,12 @@ function getMacIconForShortcut(shortcut) {
     case 'cmd':
     case 'ctrl':
       return '⌘'
+    case 'shift':
+      return '⇧'
+    case 'enter':
+      return '⌤'
+    case 'plus':
+      return '+'
     case 'arrowleft':
       return '←'
     case 'arrowright':
@@ -982,11 +996,11 @@ function getMacIconForShortcut(shortcut) {
  * @param {string} shortcut
  * @returns {string} the localized and recombined shortcut
  */
-function getLocalizedShortcut(shortcut) {
+export function getLocalizedShortcut(shortcut) {
   const shortcuts = shortcut.split('+')
 
   if (process.platform === 'darwin') {
-    const shortcutsAsIcons = shortcuts.map(shortCut => getMacIconForShortcut(shortCut))
+    const shortcutsAsIcons = shortcuts.map(shortcut => getMacIconForShortcut(shortcut))
     return shortcutsAsIcons.join('')
   } else {
     const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))

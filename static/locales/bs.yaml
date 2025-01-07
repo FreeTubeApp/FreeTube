@@ -34,13 +34,15 @@ Download From Site: 'Instaliraj preko stranice'
 A new blog is now available, {blogTitle}. Click to view more: 'Sada je dostupan novi
   blog, {blogTitle}. Kliknite da vidite više'
 
+Global:
+  Sort By: 'Poredaj po'
+
 # Search Bar
 Search / Go to URL: 'Pretražite / idite na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Pretraži filtere'
   Sort By:
-    Sort By: 'Poredaj po'
     Most Relevant: 'Naj relevantnije'
     Rating: 'Ocjena'
     Upload Date: 'Datum uploada'

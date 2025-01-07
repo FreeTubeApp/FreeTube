@@ -46,6 +46,7 @@ Global:
   Shorts: 'Īsie'
   Live: 'Tiešraides'
   Community: 'Kopiena'
+  Sort By: Kārto pēc
   Counts:
     Video Count: '1 video | {count} video'
     Channel Count: '1 kanāls | {count} kanāli'
@@ -65,7 +66,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'Meklēšanas atlase'
   Sort By:
-    Sort By: 'Kārto pēc'
     Most Relevant: 'Visatbilstošākie'
     Rating: 'Vērtējums'
     Upload Date: 'Augšuplādes datums'
@@ -155,7 +155,6 @@ User Playlists:
   Search bar placeholder: 'Meklē atskaņošanas sarakstus'
   Playlist Description: Atskaņošanas saraksta apraksts
   Sort By:
-    Sort By: Kārto pēc
     NameDescending: Z-A
     NameAscending: A-Z
     EarliestUpdatedFirst: Visagrāk atjaunināti
@@ -650,7 +649,6 @@ Channel:
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: 'Kārto pēc'
   This channel does not exist: 'Šis kanāls nepastāv'
   This channel does not allow searching: 'Šis kanāls neatļauj meklēšanu'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Šim
@@ -830,7 +828,6 @@ Comments:
   There are no more comments for this video: ''
   Show Comments: ''
   Hide Comments: ''
-  Sort by: ''
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''

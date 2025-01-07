@@ -123,13 +123,18 @@ export default defineComponent({
       type: String,
       default: null
     },
+    currentPlaybackRate: {
+      type: Number,
+      default: 1
+    },
   },
   emits: [
     'error',
     'loaded',
     'ended',
     'timeupdate',
-    'toggle-theatre-mode'
+    'toggle-theatre-mode',
+    'playback-rate-updated'
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -233,11 +238,6 @@ export default defineComponent({
       ui.configure({
         addBigPlayButton: newValue
       })
-    })
-
-    /** @type {import('vue').ComputedRef<number>} */
-    const defaultPlayback = computed(() => {
-      return store.getters.getDefaultPlayback
     })
 
     /** @type {import('vue').ComputedRef<number>} */
@@ -901,8 +901,8 @@ export default defineComponent({
         // stop shaka-player's click handler firing
         event.stopPropagation()
 
-        video.value.playbackRate = defaultPlayback.value
-        video.value.defaultPlaybackRate = defaultPlayback.value
+        video.value.playbackRate = props.currentPlaybackRate
+        video.value.defaultPlaybackRate = props.currentPlaybackRate
       }
     }
 
@@ -1797,7 +1797,8 @@ export default defineComponent({
     function changeVolume(step) {
       const volumeBar = container.value.querySelector('.shaka-volume-bar')
 
-      const newValue = parseFloat(volumeBar.value) + (step * 100)
+      const oldValue = parseFloat(volumeBar.value)
+      const newValue = oldValue + (step * 100)
 
       if (newValue < 0) {
         volumeBar.value = 0
@@ -1808,6 +1809,16 @@ export default defineComponent({
       }
 
       volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
+
+      let messageIcon
+      if (newValue <= 0) {
+        messageIcon = 'volume-mute'
+      } else if (newValue > 0 && newValue < oldValue) {
+        messageIcon = 'volume-low'
+      } else if (newValue > 0 && newValue > oldValue) {
+        messageIcon = 'volume-high'
+      }
+      showValueChange(`${Math.round(video.value.volume * 100)}%`, messageIcon)
     }
 
     /**
@@ -1815,13 +1826,16 @@ export default defineComponent({
      */
     function changePlayBackRate(step) {
       const video_ = video.value
-      const newPlaybackRate = parseFloat((video_.playbackRate + step).toFixed(2))
+      const newPlaybackRateString = (video_.playbackRate + step).toFixed(2)
+      const newPlaybackRate = parseFloat(newPlaybackRateString)
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
       if (newPlaybackRate > 0.07 && newPlaybackRate <= maxVideoPlaybackRate.value) {
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
+
+        showValueChange(`${newPlaybackRateString}x`)
       }
     }
 
@@ -1981,6 +1995,23 @@ export default defineComponent({
         return
       }
 
+      // exit fullscreen and/or fullwindow if keyboard shortcut modal is opened
+      if (event.shiftKey && event.key === '?') {
+        event.preventDefault()
+
+        if (ui.getControls().isFullScreenEnabled()) {
+          ui.getControls().toggleFullScreen()
+        }
+
+        if (fullWindowEnabled.value) {
+          events.dispatchEvent(new CustomEvent('setFullWindow', {
+            detail: !fullWindowEnabled.value
+          }))
+        }
+
+        return
+      }
+
       // allow chapter jump keyboard shortcuts
       if (event.ctrlKey && (process.platform === 'darwin' || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))) {
         return
@@ -2030,7 +2061,12 @@ export default defineComponent({
           // Toggle mute only if metakey is not pressed
           if (!event.metaKey) {
             event.preventDefault()
-            video_.muted = !video_.muted
+            const isMuted = !video_.muted
+            video_.muted = isMuted
+
+            const messageIcon = isMuted ? 'volume-mute' : 'volume-high'
+            const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
+            showValueChange(message, messageIcon)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS:
@@ -2310,8 +2346,8 @@ export default defineComponent({
         videoElement.muted = (muted === 'true')
       }
 
-      videoElement.playbackRate = defaultPlayback.value
-      videoElement.defaultPlaybackRate = defaultPlayback.value
+      videoElement.playbackRate = props.currentPlaybackRate
+      videoElement.defaultPlaybackRate = props.currentPlaybackRate
 
       const localPlayer = new shaka.Player()
 
@@ -2413,6 +2449,10 @@ export default defineComponent({
       container.value.classList.add('no-cursor')
 
       await performFirstLoad()
+
+      player.addEventListener('ratechange', () => {
+        emit('playback-rate-updated', player.getPlaybackRate())
+      })
     })
 
     async function performFirstLoad() {
@@ -2793,6 +2833,25 @@ export default defineComponent({
 
     // #endregion functions used by the watch page
 
+    const showValueChangePopup = ref(false)
+    const valueChangeMessage = ref('')
+    const valueChangeIcon = ref(null)
+    let valueChangeTimeout = null
+
+    function showValueChange(message, icon = null) {
+      valueChangeMessage.value = message
+      valueChangeIcon.value = icon
+      showValueChangePopup.value = true
+
+      if (valueChangeTimeout) {
+        clearTimeout(valueChangeTimeout)
+      }
+
+      valueChangeTimeout = setTimeout(() => {
+        showValueChangePopup.value = false
+      }, 2000)
+    }
+
     return {
       container,
       video,
@@ -2816,6 +2875,10 @@ export default defineComponent({
       handleEnded,
       updateVolume,
       handleTimeupdate,
+
+      valueChangeMessage,
+      valueChangeIcon,
+      showValueChangePopup
     }
   }
 })

@@ -34,6 +34,7 @@ Global:
   Shorts: Filmy Short
   Live: Transmisje
   Community: Społeczność
+  Sort By: Sortuj według
 
 # Search Bar
   Counts:
@@ -51,7 +52,6 @@ Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
 Search Filters:
   Search Filters: 'Filtry wyszukiwania'
   Sort By:
-    Sort By: 'Sortuj według'
     Most Relevant: 'Trafność'
     Rating: 'Ocena'
     Upload Date: 'Data przesłania'
@@ -197,7 +197,6 @@ User Playlists:
     EarliestCreatedFirst: Utworzone najdawniej
     LatestCreatedFirst: Utworzone ostatnio
     EarliestUpdatedFirst: Zmieniane najdawniej
-    Sort By: Sortuj według
     NameDescending: Z-A
     EarliestPlayedFirst: Odtwarzane najdawniej
     LatestUpdatedFirst: Zmieniane ostatnio
@@ -324,6 +323,7 @@ Settings:
       Solarized Dark: Nasłoneczniony ciemny
       Gruvbox Dark: Gruvbox ciemny
       Gruvbox Light: Gruvbox jasny
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -381,6 +381,20 @@ Settings:
       Gruvbox Light Blue: Gruvbox jasnoniebieski
       Gruvbox Light Purple: Gruvbox jasnopurpurowy
       Gruvbox Light Orange: Gruvbox jasnopomarańczowy
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Szafirowy
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Woda Różana
+      Catppuccin Frappe Blue: Catppuccin Frappe Niebieski
+      Catppuccin Frappe Pink: Catppuccin Frappe Różowy
+      Catppuccin Frappe Red: Catppuccin Frappe Czerwony
+      Catppuccin Frappe Sky: Catppuccin Frappe Kolor nieba
+      Catppuccin Frappe Teal: Catppuccin Frappe Turkusowy
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flaming
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Kasztanowy
+      Catppuccin Frappe Peach: Catppuccin Frappe Brzoskwiniowy
+      Catppuccin Frappe Yellow: Catppuccin Frappe Żółty
+      Catppuccin Frappe Green: Catppuccin Frappe Zielony
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lawendowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -569,7 +583,7 @@ Settings:
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
       zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
-      którym zostaną one zaktualizowane.
+      którym zostaną one zaktualizowane
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
       sprawdzić, czy wpisane ID jest poprawne.
@@ -578,6 +592,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
       lub wyrażenie
     Hide Channel Home: Schowaj kartę kanału „Główna”
+    Show Added Items: Pokaż dodane rzeczy
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -695,7 +710,6 @@ Channel:
   Unsubscribe: 'Odsubskrybuj'
   Search Channel: 'Przeszukaj kanał'
   Your search results have returned 0 results: 'Twoje zapytanie zwróciło 0 wyników'
-  Sort By: 'Sortuj według'
   Videos:
     Videos: 'Filmy'
     This channel does not currently have any videos: 'Ten kanał nie ma obecnie żadnych
@@ -888,6 +902,10 @@ Video:
   DeArrow:
     Show Original Details: Pokaż szczegóły oryginału
     Show Modified Details: Pokaż zmodyfikowane szczegóły
+  DRMProtected: FreeTube nie może odtwarzać filmów chronionych przez DRM, ponieważ
+    wymagają one obsługi zastrzeżonych prawnie komponentów o zamkniętym kodzie. By
+    obejrzeć ten film, możesz odwiedzić oficjalną stronę YouTube, korzystając z przeglądarki
+    z włączoną obsługą DRM.
 Videos:
   #& Sort By
   Sort By:
@@ -910,11 +928,12 @@ Playlist:
     Custom: Własny porządek
     DateAddedOldest: Od najstarszych
     DateAddedNewest: Od najnowszych
-    Sort By: Sortuj
     AuthorAscending: Po autorze (A-Z)
     AuthorDescending: Po autorze (Z-A)
     VideoDurationDescending: Czas trwania (od najdłuższych)
     VideoDurationAscending: Czas trwania (od najkrótszych)
+    PublishedNewest: Od ostatnio opublikowanych
+    PublishedOldest: Od najwcześniej opublikowanych
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
@@ -964,7 +983,6 @@ Comments:
   No more comments available: Nie ma więcej komentarzy
   Newest first: Najpierw najnowsze
   Top comments: Najlepsze komentarze
-  Sort by: Sortuj według
   Show More Replies: Pokaż więcej odpowiedzi
   And others: i innych
   Pinned by: Przypięty przez
@@ -1221,6 +1239,9 @@ Keys:
   arrowdown: Strzałka w dół
   alt: Alt
   ctrl: Ctrl
+  enter: Enter
+  plus: Plus
+  shift: Shift
 Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
@@ -1229,3 +1250,59 @@ Autoplay Interruption Timer: Automatyczne odtwarzanie zostało anulowane, z powo
 Description:
   Expand Description: '...więcej'
   Collapse Description: Zwiń
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Skróty
+  Sections:
+    Video:
+      Playback: Filmy: Odtwarzanie
+      General: Filmy: Ogólne
+    App:
+      Situational: 'Aplikacja: Kontekstowe'
+      General: Aplikacja: Ogólne
+  New Window: Otwórz nowe okno
+  Navigate to Settings: Przejdź do strony Ustawień
+  Navigate to History: Przejdź do strony Historii
+  Focus Secondary Search: Przełącz na drugi pasek wyszukiwania (jeżeli dostępny)
+  Captions: Przełącz napisy WŁĄCZ/WYŁĄCZ
+  Show Keyboard Shortcuts: Pokaż skróty
+  History Forward: Dalej jedną stronę
+  Refresh: Wczytaj ponownie subskrypcje z nową zawartością
+  History Backward: Wróć o jedną stronę
+  Fullscreen: Przełącz na pełny ekran
+  Picture in Picture: Przełącz na tryb obraz w obrazie
+  Decrease Video Speed: Zwolnij odtwarzanie filmu o wartość przeskoku w wyborze prędkości
+    odtwarzania filmu
+  Full Window: Przełącz na pełne okno
+  Take Screenshot: Zrób zrzut ekranu
+  Minimize Window: Zminimalizuj okno
+  Volume Up: Podgłośnij
+  Volume Down: Ścisz
+  Last Chapter: Poprzedni rozdział
+  Next Chapter: Następny rozdział
+  Skip by Tenths: Przeskakuj przez film o wartość procentową („3” przeskakuje do 30%
+    długości)
+  Small Rewind: Przewiń o X sekund wstecz, bazując na interwale przewijania oraz obecnej
+    prędkości odtwarzania
+  Small Fast Forward: Przewiń o X sekund do przodu, bazując na interwale przewijania
+    oraz obecnej prędkości odtwarzania
+  Reset Zoom: Resetuj stopień przybliżenia / skalę UI
+  Zoom Out: Pomniejsz
+  Play: Przełącz na odtwarzanie/wstrzymanie
+  Mute: Przełącz na wyciszony
+  Search in New Window: Wyszukaj w nowym oknie
+  Increase Video Speed: Przyśpiesz odtwarzanie filmu o wartość przeskoku w wyborze
+    prędkości odtwarzania filmu
+  Theatre Mode: Przełącz na tryb kina
+  Close Window: Zamknij okno
+  Force Restart Window: Wymuś zrestartowanie okna
+  Toggle Developer Tools: Przełącz narzędzia deweloperskie
+  Zoom In: Powiększ
+  Focus Search: Przełącz na pasek wyszukiwania
+  Last Frame: Poprzednia klatka (podczas wstrzymania)
+  Next Frame: Następna klatka (podczas wstrzymania)
+  Restart Window: Zrestartuj okno
+  Large Rewind: Przewiń o 10 sekund wstecz / Przewiń film wstecz, bazując na obecnej
+    prędkości odtwarzania
+  Large Fast Forward: Przewiń o 10 sekund do przodu / Przewiń film do przodu, bazując
+    na obecnej prędkości odtwarzania
+  Stats: Pokaż statystyki filmu

@@ -1,7 +1,7 @@
 .videoDescription {
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   overflow-y: auto;
   max-block-size: 20lh;
 }
@@ -20,6 +20,10 @@
   color: var(--title-color);
 }
 
+.videoDescription.short {
+  cursor: pointer;
+}
+
 .videoDescription.short .descriptionStatus {
   position: absolute;
   inset-block-end: calc(1lh + 12px);
@@ -32,26 +36,10 @@
 
 .videoDescription:not(.short) .descriptionStatus {
   position: relative;
-  order: 0;
   margin-block-start: 1em;
 }
 
 .videoDescription.short .description {
   max-block-size: 4lh;
   overflow: hidden;
-}
-
-.videoDescription:not(.short) .description {
-  order: 1;
-}
-
-.videoDescription .overlay {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  transition: background-color 200ms ease;
-}
-
-.videoDescription .overlay:hover {
-  background-color: var(--accent-color-opacity1);
 }
