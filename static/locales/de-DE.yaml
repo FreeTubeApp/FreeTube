@@ -488,7 +488,7 @@ Settings:
       deinen Suchcache löschen möchtest?
     Clear Search Cache: Suchcache löschen
     Save Watched Progress: Videofortschritt speichern
-    Remember History: Verlauf merken
+    Remember History: Wiedergabeverlauf merken
     Privacy Settings: Datenschutz
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
@@ -500,6 +500,11 @@ Settings:
     All playlists have been removed: Alle Wiedergabelisten wurden entfernt
     Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle
       deine Wiedergabelisten entfernen möchtest?
+    Remember Search History: Suchverlauf merken
+    Are you sure you want to clear out your search history and cache?: Bist du sicher,
+      dass du deinen Suchverlauf und Cache löschen möchtest?
+    Clear Search History and Cache: Suchverlauf und Cache löschen
+    Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -1184,6 +1189,7 @@ Default Invidious instance has been set to {instance}: Standardmäßige Invidiou
   wurde auf {instance} festgelegt
 Search Bar:
   Clear Input: Eingabe löschen
+  Remove: Entfernen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
