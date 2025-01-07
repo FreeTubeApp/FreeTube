@@ -468,7 +468,7 @@ Settings:
     Autoplay Interruption Timer: Таймер переривання автозапуску
   Privacy Settings:
     Privacy Settings: 'Конфіденційність'
-    Remember History: 'Збрігати історію'
+    Remember History: 'Зберігати історію переглядів'
     Save Watched Progress: 'Зберігати прогрес перегляду'
     Clear Search Cache: 'Очистити пошуковий кеш'
     Are you sure you want to clear out your search cache?: 'Дійсно бажаєте очистити
@@ -487,6 +487,11 @@ Settings:
     Remove All Playlists: Видалити всі добірки
     Are you sure you want to remove all your playlists?: Ви впевнені, що хочете видалити
       всі свої добірки?
+    Remember Search History: Зберігати історію пошуку
+    Search history and cache have been cleared: Історію пошуку та кеш очищено
+    Clear Search History and Cache: Очистити історію пошуку та кеш
+    Are you sure you want to clear out your search history and cache?: Ви впевнені,
+      що хочете очистити історію пошуку та кеш?
   Subscription Settings:
     Subscription Settings: 'Підписка'
     Hide Videos on Watch: 'Ховати відео при перегляді'
@@ -1146,6 +1151,7 @@ Default Invidious instance has been set to {instance}: 'Типовим екзе�
   встановлено {instance}'
 Search Bar:
   Clear Input: Очистити поле
+  Remove: Видалити
 External link opening has been disabled in the general settings: Відкриття зовнішнього
   посилання вимкнено в загальних налаштуваннях
 Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?
